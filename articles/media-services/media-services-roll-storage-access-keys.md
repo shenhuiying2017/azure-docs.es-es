@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Actualización de Servicios multimedia después de rotar las claves de acceso" 
+	pageTitle="Actualización de Media Services después de revertir las claves de acceso de almacenamiento | Microsoft Azure" 
 	description="En este artículo se proporcionan instrucciones sobre cómo actualizar Servicios multimedia tras rotar las claves de acceso de almacenamiento." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="milangada;cenkdin;juliako"/>
 
-#Actualización de Servicios multimedia después de rotar las claves de acceso de almacenamiento
+#Actualización de Media Services después de revertir las claves de acceso de almacenamiento
 
 Cuando crea una nueva cuenta de Servicios multimedia de Azure, también se le pide que seleccione una cuenta de almacenamiento de Azure que se usa para almacenar el contenido multimedia. Tenga en cuenta que puede [agregar más de una cuenta de almacenamiento](meda-services-managing-multiple-storage-accounts.md) a su cuenta de Servicios multimedia.
 
 Cuando se crea una nueva cuenta de almacenamiento, Azure genera dos claves de acceso de almacenamiento de 512 bits, que se usan para autenticar el acceso a su cuenta de almacenamiento. Para aumentar la seguridad de sus conexiones de almacenamiento, se recomienda regenerar y rotar periódicamente su claves de acceso de almacenamiento. Se proporcionan dos claves de acceso (principal y secundaria) con el fin de permitirle mantener conexiones con la cuenta de almacenamiento mediante el uso de una clave de acceso mientras regenera la otra. Este procedimiento se conoce también como "rotación de claves de acceso".
 
-Servicios multimedia depende de una clave de almacenamiento que se le ofrece. En concreto, los localizadores que se usan para transmitir o descargar sus activos dependen de la clave de acceso de almacenamiento. Cuando se crea una cuenta de AMS toma una dependencia en la clave de acceso de almacenamiento principal de forma predeterminada, pero como usuario puede actualizar la clave de almacenamiento que AMS tiene. Debe asegurarse de que los Servicios multimedia conocen qué clave usar siguiendo los pasos descritos en este tema. Además, al rotar las claves de acceso de almacenamiento, debe asegurarse de actualizar sus localizadores para que no haya ninguna interrupción en su servicio de streaming (este paso también se describe en el tema).
+Servicios multimedia depende de una clave de almacenamiento que se le ofrece. En concreto, los localizadores que se usan para transmitir o descargar sus activos dependen de la clave de acceso de almacenamiento. Cuando se crea una cuenta de AMS toma una dependencia en la clave de acceso de almacenamiento principal de forma predeterminada, pero como usuario puede actualizar la clave de almacenamiento que AMS tiene. Debe asegurarse de que Media Services conocen qué clave usar siguiendo los pasos descritos en este tema. Además, al revertir las claves de acceso de almacenamiento, debe asegurarse de actualizar sus localizadores para que no haya ninguna interrupción en su servicio de streaming (este paso también se describe en el tema).
 
 >[AZURE.NOTE]Si tiene varias cuentas de almacenamiento, realizaría este procedimiento con cada una.
 >
@@ -159,4 +159,4 @@ Use el mismo procedimiento descrito en el [paso 3](media-services-roll-storage-a
 
 Nos gustaría mencionar a las siguientes personas que han contribuido a crear este documento: Cenk Dingiloglu, Gada Milán y Seva Titov.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

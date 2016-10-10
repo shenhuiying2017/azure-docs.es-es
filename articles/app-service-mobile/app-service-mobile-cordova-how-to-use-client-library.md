@@ -13,14 +13,24 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="08/22/2016"
-	ms.author="ggailey"/>
+	ms.date="09/23/2016"
+	ms.author="adrianha"/>
 
 # Uso de una biblioteca de cliente de Apache Cordova para Aplicaciones móviles de Azure
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 En esta guía se muestran algunos escenarios comunes del uso del último [complemento de Apache Cordova para Aplicaciones móviles de Azure]. Si no está familiarizado con Aplicaciones móviles de Azure, realice primero el tutorial [Creación de una aplicación de Apache Cordova] para crear un back-end, crear una tabla y descargar un proyecto de Apache Cordova previamente compilado. En esta guía nos centramos en el complemento de Apache Cordova del lado cliente.
+
+## Plataformas compatibles
+
+Este SDK es compatible con la versión 6.0.0 y posterior de Apache Cordova en dispositivos iOS, Android y Windows. Las plataformas compatibles con las siguientes:
+
+* Niveles de API de Android del 19 al 24 (de KitKat a Nougat)
+* Versiones 8.0 y posteriores de iOS.
+* Windows Phone 8.0
+* Windows Phone 8,1
+* Plataforma universal de Windows
 
 ##<a name="Setup"></a>Configuración y requisitos previos
 
@@ -34,9 +44,10 @@ Para más información sobre la creación de [su primera aplicación de Apache C
 
 [AZURE.INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
+
 ##<a name="auth"></a>Autenticación de usuarios
 
-El Servicio de aplicaciones de Azure es compatible con la autenticación y la autorización de los usuarios de aplicaciones mediante diversos proveedores de identidades externos: Facebook, Google, Cuenta Microsoft y Twitter. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en scripts del servidor. Para obtener más información, consulte el tutorial [Introducción a la autenticación].
+Azure App Service es compatible con la autenticación y autorización de los usuarios de aplicaciones mediante diversos proveedores de identidades externos: Facebook, Google, Cuenta Microsoft y Twitter. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en scripts del servidor. Para obtener más información, consulte el tutorial [Introducción a la autenticación].
 
 Al utilizar la autenticación en una aplicación de Apache Cordova, los siguientes complementos de Cordova deben estar disponibles:
 
@@ -49,29 +60,36 @@ Se admiten dos flujos de autenticación: un flujo de servidor y un flujo de clie
 
 ###<a name="configure-external-redirect-urls"></a>Cómo configurar su servicio de aplicaciones móviles para URL de redireccionamiento externas
 
-Varios tipos de aplicaciones de Apache Cordova utilizan una función de bucle invertido para controlar los flujos de la interfaz de usuario de OAuth. Esto conlleva problemas, ya que el servicio de autenticación solo sabe cómo utilizar el servicio de manera predeterminada. A modo de ejemplo, se puede mencionar el uso del emulador Ripple, la ejecución local del servicio o en un Servicio de aplicaciones de Azure distinto, pero con un redireccionamiento a dicho servicio para llevar a cabo la autenticación, o bien usar la característica Live Reload de Ionic. Siga estas instrucciones para agregar los ajustes locales a la configuración:
+Varios tipos de aplicaciones de Apache Cordova utilizan una función de bucle invertido para controlar los flujos de la interfaz de usuario de OAuth. Los flujos de interfaz de usuario de OAuth conllevan problemas, ya que el servicio de autenticación solo sabe cómo utilizar el servicio de manera predeterminada. Ejemplos de flujos de interfaz de usuario de OAuth problemáticos:
+
+- El emulador Ripple
+- La característica Live Reload con Ionic
+- Ejecución del back-end móvil localmente
+- Ejecución del back-end móvil en una instancia de Azure App Service diferente a la que proporciona la autenticación.
+
+Siga estas instrucciones para agregar los ajustes locales a la configuración:
 
 1. Inicie sesión en el [Portal de Azure].
-2. Seleccione **Todos los recursos** o **Servicios de aplicaciones** y haga clic en el nombre de la aplicación móvil.
+2. Seleccione **Todos los recursos** o **App Services** y haga clic en el nombre de la aplicación móvil.
 3. Haga clic en **Herramientas**.
 4. Haga clic en la opción **Explorador de recursos** del menú OBSERVAR y, después, en **Ir**. Se abrirá una nueva ventana o pestaña.
 5. Expanda los nodos **config**, **authsettings** de su sitio en el panel de navegación izquierdo.
 6. Haga clic en **Editar**.
-7. Busque el elemento "allowedExternalRedirectUrls". Estará establecido en NULL. Cambie su configuración a la siguiente:
+7. Busque el elemento "allowedExternalRedirectUrls". Se puede establecer en Null o una matriz de valores. Cambie el valor al siguiente:
 
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
              "https://localhost:3000"
          ],
 
-    Sustituya las URL por las de su servicio. Por ejemplo: "http://localhost:3000" (para el servicio de muestra Node.js) o "http://localhost:4400" (para el servicio de Ripple). Sin embargo, estos no son más que ejemplos. Es decir, su situación puede ser distinta, incluso si debe configurar los servicios mencionados en los ejemplos.
+    Sustituya las URL por las de su servicio. Por ejemplo: "http://localhost:3000" (para el servicio de muestra Node.js) o "http://localhost:4400" (para el servicio de Ripple). Sin embargo, estas URL no son más que ejemplos. Es decir, su situación puede ser distinta, incluso si debe configurar los servicios mencionados en los ejemplos.
 8. Haga clic en el botón **Lectura/escritura** situado en la esquina superior derecha de la pantalla.
 9. Haga clic en el botón verde **PUT**.
 
-La configuración se guardará en este momento. No cierre la ventana del explorador hasta que la configuración haya terminado de guardarse. También tendrá que agregar estas URL de bucle invertido a la configuración de CORS:
+La configuración se guardará en este momento. No cierre la ventana del explorador hasta que la configuración haya terminado de guardarse. Agregue también estas URL de bucle invertido a la configuración de CORS:
 
 1. Inicie sesión en el [Portal de Azure].
-2. Seleccione **Todos los recursos** o **Servicios de aplicaciones** y haga clic en el nombre de la aplicación móvil.
+2. Seleccione **Todos los recursos** o **App Services** y haga clic en el nombre de la aplicación móvil.
 3. Se abrirá automáticamente la hoja Configuración. En caso contrario, haga clic en **Toda la configuración**.
 4. Haga clic en la opción **CORS** del menú API.
 5. Escriba la dirección URL que quiera agregar en el cuadro proporcionado y presione Intro.
@@ -121,13 +139,13 @@ pushHandler.on('error', function (error) {
 });
 ```
 
-Use el SDK de Centros de notificaciones para enviar notificaciones push desde el servidor. Nunca debe enviar notificaciones push directamente desde los clientes ya que esta acción podría usarse para desencadenar un ataque por denegación de servicio contra Centros de notificaciones o el PNS.
+Use el SDK de Centros de notificaciones para enviar notificaciones push desde el servidor. No envíe nunca notificaciones push directamente desde la aplicación, ya que podría usarse para desencadenar un ataque de denegación de servicio en Notification Hubs o el PNS. El PNS puede prohibir el tráfico como resultado de estos ataques.
 
 <!-- URLs. -->
 [Portal de Azure]: https://portal.azure.com
 [Creación de una aplicación de Apache Cordova]: app-service-mobile-cordova-get-started.md
 [Introducción a la autenticación]: app-service-mobile-cordova-get-started-users.md
-[Incorporación de autenticación a la aplicación de Servicios móviles]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [complemento de Apache Cordova para Aplicaciones móviles de Azure]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [su primera aplicación de Apache Cordova]: http://cordova.apache.org/#getstarted
@@ -135,6 +153,6 @@ Use el SDK de Centros de notificaciones para enviar notificaciones push desde el
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[documentación de objetos de consulta]: https://msdn.microsoft.com/es-ES/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/es-ES/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

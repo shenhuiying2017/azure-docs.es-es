@@ -2,7 +2,7 @@
 	pageTitle="Creación de una cuenta de DocumentDB con soporte de protocolo para MongoDB | Microsoft Azure" 
 	description="Obtenga información acerca de cómo crear una cuenta de DocumentDB con soporte de protocolo para MongoDB, ahora disponible en una versión preliminar." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # Creación de una cuenta de DocumentDB con soporte de protocolo para MongoDB mediante el Portal de Azure.
 
@@ -78,4 +78,4 @@ Para crear una cuenta de DocumentDB con soporte de protocolo para MongoDB, reali
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

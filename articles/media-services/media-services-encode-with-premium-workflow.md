@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Codificación avanzada con el flujo de trabajo del Codificador multimedia Premium" 
+	pageTitle="Codificación avanzada con el flujo de trabajo de Media Encoder premium | Microsoft Azure" 
 	description="Aprenda a codificar con el flujo de trabajo del Codificador multimedia Premium. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 #Codificación avanzada con el flujo de trabajo del Codificador multimedia Premium
 
->[AZURE.NOTE] El procesador multimedia del flujo de trabajo premium del Codificador multimedia premium del que se habla en este tema no está disponible en China.
+>[AZURE.NOTE] El procesador multimedia del flujo de trabajo premium de Media Encoder del que se habla en este tema no está disponible en China.
 
 Si tiene preguntas sobre el codificador premium, envíe un correo a mepd en Microsoft.com.
 
@@ -26,13 +26,13 @@ Si tiene preguntas sobre el codificador premium, envíe un correo a mepd en Micr
 
 Servicios multimedia de Microsoft Azure presenta el procesador multimedia de **Flujo de trabajo del Codificador multimedia Premium**. Este procesador ofrece funciones de codificación avanzadas para sus flujos de trabajo de Premium a petición.
 
-Los siguientes temas describen los detalles relacionados con el **flujo de trabajo del Codificador multimedia Premium**:
+Los siguientes temas describen los detalles relacionados con el **flujo de trabajo premium de Media Encoder**:
 
 - [Formatos que admite el flujo de trabajo del Codificador multimedia Premium](media-services-premium-workflow-encoder-formats.md): trata los formatos de archivo y los códecs que admite el **flujo de trabajo del Codificador multimedia Premium**.
 
 - En la sección [Comparación de codificadores](media-services-encode-asset.md#compare_encoders) se comparan las funciones de codificación del **Flujo de trabajo Premium de Codificador multimedia** y de **Codificador multimedia estándar**.
 
-En este tema se muestra cómo codificar con el **flujo de trabajo del Codificador multimedia Premium** usando .NET.
+En este tema se muestra cómo codificar con el **flujo de trabajo premium de Media Encoder** con .NET.
 
 Las tareas de codificación del **flujo de trabajo del Codificador multimedia Premium** requieren un archivo de configuración independiente, denominado archivo de flujo de trabajo. Estos archivos tienen una extensión .workflow y se crean con la herramienta [Diseñador de flujo de trabajo](media-services-workflow-designer.md).
 
@@ -278,4 +278,4 @@ Si tiene preguntas sobre el codificador premium, envíe un correo a mepd en Micr
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

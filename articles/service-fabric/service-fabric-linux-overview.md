@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Service Fabric en Linux | Microsoft Azure"
-   description="Los clústeres de Service Fabric admiten Linux y Java, lo que significa que podrá implementar y hospedar aplicaciones de Service Fabric escritas en Java para Linux."
+   description="Los clústeres de Service Fabric admiten Linux y Java, lo que significa que podrá implementar y hospedar aplicaciones de Service Fabric escritas en Java y C# para Linux."
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -13,27 +13,36 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/14/2016"
+   ms.date="09/26/2016"
    ms.author="SubramaR"/>
 
 # Service Fabric en Azure
 
-La versión preliminar estará disponible públicamente el 26 de septiembre, como se anunció [en esta entrada de blog](https://azure.microsoft.com/blog/service-fabric-on-linux-support-available-this-month/). La versión preliminar de Service Fabric en Linux permite compilar, implementar y administrar aplicaciones de alta disponibilidad y escalabilidad en ese entorno de la misma forma que en Windows. Además, ahora los marcos de Service Fabric de alto nivel (Reliable Services y Reliable Actors) se encuentran disponibles en Java (Linux).
+La versión preliminar de Service Fabric en Linux permite compilar, implementar y administrar aplicaciones de alta disponibilidad y escalabilidad en ese entorno de la misma forma que en Windows. Los marcos de Service Fabric (Reliable Services y Reliable Actors) se encuentran disponibles en Java en Linux, además de en C# (.NET Core). Puede compilar igualmente [servicios ejecutables invitados](service-fabric-deploy-existing-app.md) con cualquier lenguaje o marco. Además, la vista previa también admite contenedores de Docker de organización. Los contenedores de Docker pueden ejecutar archivos ejecutables invitados o servicios de Service Fabric nativos que utilizan los marcos de Service Fabric.
+
+Service Fabric en Linux es conceptualmente equivalente a Service Fabric en Windows (excepto las características del sistema operativo y la compatibilidad con lenguajes de programación). Por lo tanto, la mayoría de nuestra [documentación actual](http://aka.ms/servicefabricdocs) tiene como objetivo ayudarlo a familiarizarse con la tecnología.
 
 > [AZURE.VIDEO service-fabric-linux-preview]
 
 ## Sistemas operativos y lenguajes de programación compatibles
 
-La versión preliminar limitada admite la creación de clústeres de desarrollo one-box, así como clústeres de varias máquinas en Azure con Ubuntu Server 16.04.
+La versión preliminar limitada admite la creación de clústeres de desarrollo one-box, así como clústeres de varias máquinas en Azure con Ubuntu Server 16.04. La vista previa es compatible con los marcos de Reliable Actors y Reliable Stateless Services en Java y C#, además de los archivos ejecutables invitados y los contenedores de Docker de organización.
 
-Puede compilar [servicios ejecutables invitados](service-fabric-deploy-existing-app.md) con cualquier lenguaje o marco. También puede usar Java o C# para crear servicios basados en los marcos de Reliable Services y Reliable Actors, además de organizar los contenedores de Docker.
+>[AZURE.NOTE] Reliable Collections aún no es compatible con Linux. No son compatibles tampoco los clústeres independientes: solo se admiten clústeres one box y de varios equipos de Linux de Azure en la vista previa.
 
->[AZURE.NOTE] Reliable Collections aún no es compatible con Linux.
+## Herramientas compatibles
 
-Service Fabric en Linux es conceptualmente equivalente a Service Fabric en Windows (excepto las características del sistema operativo y la compatibilidad con lenguajes de programación). Por lo tanto, la mayoría de nuestra [documentación actual](http://aka.ms/servicefabricdocs) tiene como objetivo ayudarlo a familiarizarse con la tecnología.
+La vista previa admite la interacción con el clúster a través de la CLI de Azure. Para los desarrolladores de Java, se proporciona integración con Eclipse y Yeoman mediante compatibilidad de Eclipse en Linux y OSX. La integración de OSX utiliza una máquina virtual de Linux de forma interna mediante vagrant. Para los desarrolladores de C#, se proporciona integración con Yeoman para generar plantillas de aplicación.
 
 ## Pasos siguientes
 
-Familiarizarse con los marcos de [Reliable Actors](service-fabric-reliable-actors-introduction.md) y [Reliable Services](service-fabric-reliable-services-introduction.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+1. Familiarizarse con los marcos de [Reliable Actors](service-fabric-reliable-actors-introduction.md) y [Reliable Services](service-fabric-reliable-services-introduction.md).
+
+2. [Prepare your development environment on Linux](service-fabric-get-started-linux.md) (Preparación del entorno de desarrollo en Linux)
+
+3. [Prepare your development environment on OSX](service-fabric-get-started-mac.md) (Preparación del entorno de desarrollo en OSX)///
+
+4. [Create your first Service Fabric Java application on Linux](service-fabric-create-your-first-linux-application-with-java.md) (Creación de su primera aplicación Java de Service Fabric en Linux)
+
+<!---HONumber=AcomDC_0928_2016-->

@@ -339,7 +339,7 @@ Este es un proceso potencialmente complejo ya que podría tener que crear varias
 
 Cada par maestro/subordinado debe estar cerca uno del otros para reducir la latencia. Sin embargo, si desea colocar los datos almacenados en caché cerca de las aplicaciones que es más probable que se utilicen, cada conjunto de pares se puede estar ejecutando en distintos centros de datos Azure ubicados en diferentes regiones. La página [Running Redis on a CentOS Linux VM in Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) (Ejecución de Redis en una máquina virtual de Linux de CentOS en Azure) del sitio web de Microsoft muestra un ejemplo que le guía en el proceso de crear y configurar un nodo Redis que se ejecuta como una máquina virtual de Azure.
 
-Tenga en cuenta que si implementa su propia caché en Redis de esta manera, usted es responsable de supervisar, administrar y proteger el servicio.
+[AZURE.NOTE] Tenga en cuenta que si implementa su propia caché en Redis de esta manera, usted es responsable de supervisar, administrar y proteger el servicio.
 
 ## Creación de particiones de una caché en Redis
 
@@ -935,4 +935,4 @@ El siguiente patrón también puede ser pertinente para su escenario al implemen
 - La página [Transactions in Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) (Transacciones en Redis) del repositorio de StackExchange.Redis.
 - La [guía de creación de particiones de datos](http://msdn.microsoft.com/library/dn589795.aspx) del sitio web de Microsoft.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

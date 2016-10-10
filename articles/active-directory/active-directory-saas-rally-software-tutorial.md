@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Rally Software
@@ -86,11 +86,11 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 6.  En la barra de herramientas de la parte superior, haga clic en**Configuración**y luego seleccione **Suscripción**.
 
-    ![La suscripción](./media/active-directory-saas-rally-software-tutorial/IC769531.png "La suscripción")
+    ![Subscription](./media/active-directory-saas-rally-software-tutorial/IC769531.png "Subscription")
 
 7.  Haga clic en el botón **Acción** de la barra de herramientas de la parte superior del lado derecho y luego seleccione**Editar suscripción**.
 
-8.  En la página del cuadro de diálogo **Suscripción**, realice los pasos siguientes y luego haga clic en **Guardar y cerrar**:
+8.  En la página de diálogo **Suscripción**, realice los pasos siguientes y luego haga clic en **Guardar y cerrar**:
 
     ![Autenticación](./media/active-directory-saas-rally-software-tutorial/IC769542.png "Autenticación")
 
@@ -143,4 +143,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

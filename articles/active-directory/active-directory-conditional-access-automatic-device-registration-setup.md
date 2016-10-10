@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2016"
+	ms.date="09/26/2016"
 	ms.author="markvi"/>
 
 
@@ -30,8 +30,6 @@ Realice la actualización para permitir el uso de la cuenta profesional o educat
 El registro se admite en las versiones anteriores de Windows, entre ellas:
 
 - Windows 8.1
-
-- Windows 8.0
 
 - Windows 7
 
@@ -212,26 +210,23 @@ Para ello debe tener una regla de transformación de emisiones que se pasa en el
 
 **<RPObjectName>** es el nombre del objeto para usuario de confianza para su objeto de confianza para usuario de confianza de Azure Active Directory. Este objeto normalmente se denomina Plataforma de identidad de Microsoft Office 365.
 
-
-
-
  
 
 ## Implementación y puesta en servicio 
 
 Una vez completados los requisitos previos, los equipos unidos a dominio están preparados para registrarse con Azure AD.
 
-Los equipos unidos a un dominio de Actualización de aniversario de Windows 10 y Windows Server 2016 se registrarán automáticamente en Azure AD en el siguiente reinicio o inicio de sesión del usuario en Windows. Los nuevos equipos que están unidos al dominio se registrarán con Azure AD en el reinicio después de la operación de unión de dominio.
+Los equipos unidos a un dominio de Actualización de aniversario de Windows 10 y Windows Server 2016 se registrarán automáticamente en Azure AD en el siguiente reinicio o inicio de sesión del usuario en Windows. Los nuevos equipos que están unidos al dominio se registrarán con Azure AD en el reinicio posterior a la operación de unión al dominio.
 
-> [AZURE.NOTE] En la actualización de noviembre de 2015 de Windows 10, los equipos unidos a un dominio se registrarán automáticamente con Azure AD solo si se establece el objeto de directiva de grupo de la puesta en marcha. Para más información, consulte la siguiente sección.
+> [AZURE.NOTE] En Windows 10, los equipos unidos a un dominio se registrarán automáticamente con Azure AD solo si se establece el objeto de directiva de grupo del lanzamiento. Para más información, consulte la siguiente sección.
 
 Para controlar la puesta en servicio del registro automático de los equipos unidos a un dominio de Windows 10 y Windows Server 2016, se puede usar un objeto de directiva de grupo con este fin. Para la puesta en servicio del registro automático de los equipos unidos a un dominio que no sean de Windows 10, hay un paquete de Windows Installer que puede implementar en equipos seleccionados.
 
-> [AZURE.NOTE] La directiva de grupo para el control de la puesta en servicio también desencadena el registro de equipos unidos a un dominio de Windows 8.1. Puede elegir la directiva para el registro de equipos unidos a un dominio de Windows 8.1 o, si tiene una mezcla de versiones de Windows incluidas 7 o 8.0, o versiones de Windows Server, puede habilitar el registro de todos los equipos que no sean Windows 10/Windows Server 2016 mediante el paquete de Windows Installer.
+> [AZURE.NOTE] La directiva de grupo para el control del lanzamiento también desencadena el registro de equipos unidos a un dominio de Windows 8.1. Puede optar por la directiva para el registro de equipos unidos a un dominio de Windows 8.1 o, si tiene una mezcla de versiones de Windows, incluidas las versiones 7 o Windows Server, puede habilitar el registro de todos los equipos que no sean Windows 10/Windows Server 2016 mediante el paquete de Windows Installer.
 
 ### Objeto de directiva de grupo para controlar la puesta en servicio del registro automático 
 
-Para controlar la puesta en servicio del registro automático de equipos unidos a un dominio con Azure AD, puede implementar el registro de directiva de grupo de los equipos unidos a dominio como dispositivos en los equipos que desea registrar; por ejemplo, puede implementar la directiva basada en un grupo de seguridad o a una unidad organizativa (OU).
+Para controlar el lanzamiento del registro automático de equipos unidos a un dominio con Azure AD, puede implementar la directiva de grupo Registrar los equipos asociados a un dominio como dispositivos en los equipos que desee registrar. Por ejemplo, puede implementar la directiva en función de un grupo de seguridad o una unidad organizativa (UO).
 
 Para establecer la directiva, realice los pasos siguientes:
 
@@ -257,7 +252,7 @@ Para establecer la directiva, realice los pasos siguientes:
 
 ## Paquete MSI para equipos que no son Windows 10  
 
-Para registrar los equipos unidos a un dominio que ejecutan Windows 7, Windows 8.0, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 o Windows Server 2012 R2 l está disponible para su descarga un paquete de Windows Installer (.msi):
+Para registrar los equipos unidos a un dominio que ejecuten Windows 7, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 o Windows Server 2012 R2, hay disponible un paquete de Windows Installer (.msi) que puede descargar:
 
 - [x64](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x64.msi)
 - [x86](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x86.msi)
@@ -272,4 +267,4 @@ El instalador crea una tarea programada en el sistema que se ejecuta en el conte
 
 - [Acceso condicional de Azure Active Directory](active-directory-conditional-access.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con SAP HANA Cloud Platform
@@ -116,7 +116,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     4.  Para generar una **Signing Key** (Clave de firma) y un par de claves **Signing Certificate** (Certificado de firma), haga clic en **Generate Key Pair** (Generar par de claves).
     5.  Como **Principal Propagation** (Propagación de entidad de seguridad), seleccione **Disabled** (Deshabilitada).
     6.  Como **Force Authentication** (Forzar autenticación), seleccione **Disabled** (Deshabilitado).
-    7.  Haga clic en **Guardar**.
+    7.  Haga clic en **Save**.
 
 9.  Haga clic en la pestaña **Trusted Identity Provider** (Proveedor de identidades de confianza) y luego haga clic en **Add Trusted Identity Provider** (Agregar proveedor de identidad de confianza).
 
@@ -128,7 +128,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Administración de confianza](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793932.png "Administración de confianza")
 
-    >[AZURE.NOTE] Después de cargar el archivo de metadatos, los valores de **Dirección URL de inicio de sesión único**, **Dirección URL de cierre de sesión único** y **Certificado de firma** se rellenan automáticamente.
+    >[AZURE.NOTE]Después de cargar el archivo de metadatos, los valores de **Dirección URL de inicio de sesión único**, **Dirección URL de cierre de sesión único** y **Certificado de firma** se rellenan automáticamente.
 
 11. Haga clic en la pestaña **Attributes** (Atributos).
 
@@ -141,12 +141,12 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
         |Atributo de aserción| Atributo de entidad de seguridad|
 		|-------------------|--------------------|
         |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname| nombre|--------------------|--------------------|
-        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname| apellido|-----------|
-        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
+	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname| apellido|-----------|
+	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
 
     >[AZURE.NOTE]La configuración de los atributos depende de cómo se desarrollan las aplicaciones en HCP, es decir, qué atributos esperan en la respuesta de SAML y con qué nombre (atributo de la entidad de seguridad) tienen acceso a este atributo en el código.
     >  
-    >a. El **atributo predeterminado ** de la captura de pantalla solo es para fines ilustrativos. No es necesario para que el escenario funcione.
+    >a. El **atributo predeterminado** de la captura de pantalla solo es para fines ilustrativos. No es necesario para que el escenario funcione.
     >
     >b. Los nombres y valores para el **Principal Attribute** (Atributo principal) que se muestran en la captura de pantalla dependen de cómo se desarrolle la aplicación. Es posible que la aplicación requiera diferentes asignaciones.
 
@@ -196,4 +196,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

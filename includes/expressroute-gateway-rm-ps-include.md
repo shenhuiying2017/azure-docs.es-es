@@ -5,7 +5,7 @@ Lista de referencia de configuración:
 - Nombre de red virtual = "TestVNet"
 - Espacio de direcciones de red virtual = 192.168.0.0/16
 - Grupo de recursos: "TestRG"
-- Nombre de subred 1 = "FrontEnd" 
+- Nombre de subred 1 = "FrontEnd"
 - Espacio de direcciones de subred 1 = "192.168.0.0/16"
 - Nombre de subred de puerta de enlace: "GatewaySubnet" (siempre debe asignar a las subredes de puerta de enlace el nombre *GatewaySubnet*).
 - Espacio de direcciones de subred de puerta de enlace = "192.168.200.0/26"
@@ -19,7 +19,7 @@ Lista de referencia de configuración:
 
 ## Adición de una puerta de enlace
 
-1. Conéctese a su suscripción de Azure. 
+1. Conéctese a su suscripción de Azure.
 
 		Login-AzureRmAccount
 		Get-AzureRmSubscription 
@@ -70,7 +70,9 @@ Utilice el siguiente comando para comprobar si se ha creado la puerta de enlace.
 
 ## Cambio del tamaño de una puerta de enlace
 
-Hay tres [SKU de puerta de enlace](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md). Puede utilizar el siguiente comando para cambiar en cualquier momento la SKU de puerta de enlace.
+Hay varias [SKU de puerta de enlace](../articles/expressroute/expressroute-about-virtual-network-gateways.md). Puede utilizar el siguiente comando para cambiar en cualquier momento la SKU de puerta de enlace.
+
+>[AZURE.IMPORTANT] Este comando no funciona para la puerta de enlace de UltraPerformance. Para cambiar la puerta de enlace a una puerta de enlace de UltraPerformance, quite primero la puerta de enlace de ExpressRoute existente y, después, cree una nueva puerta de enlace de UltraPerformance. Para degradar la puerta de enlace desde una puerta de enlace de UltraPerformance, quite primero la puerta de enlace de UltraPerformance existente y, después, cree una nueva puerta de enlace.
 
 	$gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
 	Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
@@ -81,4 +83,4 @@ Utilice el siguiente comando para quitar una puerta de enlace.
 
 	Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0928_2016-->

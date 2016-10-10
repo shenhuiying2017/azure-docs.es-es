@@ -86,6 +86,9 @@ En todos los tiempos de ejecución de PHP integrados es posible cambiar las opci
 		; Example Settings
 		display_errors=On
 		upload_max_filesize=10M
+		
+		; OPTIONAL: Turn this on to write errors to d:\home\LogFiles\php_errors.log
+		; log_errors=On
 
 3. Implemente la aplicación web.
 4. Reinicie la aplicación web. (Es necesario reiniciar porque la frecuencia con la que PHP lee los archivos `.user.ini` depende de la configuración `user_ini.cache_ttl`, que es una configuración a nivel de sistema con un valor predeterminado de 300 segundos (5 minutos). El reinicio de la aplicación web fuerza a PHP a leer la nueva configuración del archivo `.user.ini`).
@@ -171,13 +174,13 @@ De forma predeterminada, el Servicio de aplicaciones no responde con composer.js
 
     ![Hoja de configuración del Portal de Azure para habilitar la automatización de Composer en Azure](./media/web-sites-php-configure/composer-extension-settings.png)
 
-2. Haga clic en **Agregar** y luego en **Composer**.
+2. Haga clic en **Agregar** y luego en **Compositor**.
 
     ![Agregar la extensión Composer para habilitar la automatización de Composer en Azure](./media/web-sites-php-configure/composer-extension-add.png)
     
-3. Haga clic en **Aceptar** para aceptar los términos legales. Haga clic de nuevo en **Aceptar** para agregar la extensión.
+3. Haga clic en **Aceptar** para aceptar las condiciones legales. Haga clic de nuevo en **Aceptar** para agregar la extensión.
 
-    La hoja **Extensiones instaladas** mostrará ahora la extensión Composer. ![Aceptar los términos legales para habilitar la automatización de Composer en Azure](./media/web-sites-php-configure/composer-extension-view.png)
+    La hoja **Extensiones instaladas** mostrará ahora la extensión Compositor. ![Aceptar los términos legales para habilitar la automatización de Composer en Azure](./media/web-sites-php-configure/composer-extension-view.png)
     
 4. Ahora, ejecute `git add`, `git commit` y `git push` como en la sección anterior. Verá que Composer está instalando las dependencias definidas en composer.json.
 
@@ -209,4 +212,4 @@ Para más información, vea el [Centro para desarrolladores de PHP](/develop/php
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

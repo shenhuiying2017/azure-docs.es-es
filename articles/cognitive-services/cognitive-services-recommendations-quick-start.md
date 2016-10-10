@@ -60,7 +60,7 @@ En esta tarea, deberá registrarse en el servicio de la API de recomendaciones y
 
 1. En **API type** (Tipo de API), seleccione **Recomendaciones**.
 
-1. En **Nivel de precios**, puede seleccionar un plan. Puede seleccionar el nivel **Gratis** de 10 000 transacciones/mes**. Se trata de un plan gratuito, así que es una buena forma de empezar a probar el sistema. Al pasar al entorno de producción, se recomienda que tenga en cuenta el volumen de solicitudes y que cambie el tipo de plan en consecuencia.
+1. En **Nivel de precios**, puede seleccionar un plan. Puede seleccionar el nivel **Gratis** de 10 000 transacciones/mes. Se trata de un plan gratuito, así que es una buena forma de empezar a probar el sistema. Al pasar al entorno de producción, se recomienda que tenga en cuenta el volumen de solicitudes y que cambie el tipo de plan en consecuencia. (Nota: Puede tener solo una suscripción de nivel Gratis a la vez)
 
 1. Seleccione un **grupo de recursos**, o bien cree uno nuevo si aún no dispone de ninguno.
 
@@ -168,4 +168,4 @@ Consulte la [documentación de obtención de recomendaciones de artículos](http
 ### Pasos siguientes
 Enhorabuena por haber llegado hasta este paso. Para obtener más información, puede visitar la sección completa [Recommendations API Reference](http://go.microsoft.com/fwlink/?LinkId=759348) (Referencia de la API de recomendaciones) si tiene alguna pregunta; no dude en ponerse en contacto con nosotros en mlapi@microsoft.com.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

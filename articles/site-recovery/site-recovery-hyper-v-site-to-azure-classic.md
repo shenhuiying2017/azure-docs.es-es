@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Portal de Azure](site-recovery-hyper-v-site-to-azure.md)
-- [PowerShell - ARM](site-recovery-deploy-with-powershell-resource-manager.md)
+- [PowerShell: administrador de recursos](site-recovery-deploy-with-powershell-resource-manager.md)
 - [Portal clásico](site-recovery-hyper-v-site-to-azure-classic.md)
 
 Lea este artículo para informarse sobre cómo implementar Site Recovery para replicar máquinas virtuales de Hyper-V en Azure cuando los hosts de Hyper-V no se administran en nubes de System Center Virtual Machine Manager (VMM).
@@ -300,4 +300,4 @@ Ejecute la conmutación por error de prueba de la manera siguiente:
 
 Después de que la implementación esté configurada y en ejecución, [obtenga más información](site-recovery-failover.md) acerca de la conmutación por error.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

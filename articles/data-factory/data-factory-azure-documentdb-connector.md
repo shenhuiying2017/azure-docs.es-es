@@ -3,7 +3,7 @@
 	description="Obtenga información acerca de cómo mover los datos hacia y desde DocumentDB de Azure mediante Factoría de datos de Azure" 
 	services="data-factory, documentdb" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
-	ms.author="spelluru"/>
+	ms.date="09/26/2016" 
+	ms.author="jingwang"/>
 
 # Movimiento de datos hacia y desde DocumentDB mediante Factoría de datos de Azure
 
 En este artículo se describe cómo puede usar la actividad de copia en Data Factory de Azure para mover datos a DocumentDB de Azure desde otro almacén de datos y viceversa. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
 
-En los siguientes ejemplos, se muestra cómo copiar datos entre Azure DocumentDB y Almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Factoría de datos de Azure.
+En los siguientes ejemplos, se muestra cómo copiar datos entre Azure DocumentDB y Azure Blob Storage. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Factoría de datos de Azure.
 
 > [AZURE.NOTE] La copia de datos de almacenes de datos locales o IaaS de Azure en Azure DocumentDB y viceversa es compatible con la versión 2.1 y posterior de la puerta de enlace de administración de datos.
 
@@ -390,7 +390,7 @@ Por lo tanto, para los orígenes de datos sin esquemas, lo mejor es especificar 
 
 ## Propiedades de tipo de actividad de copia de DocumentDB de Azure
 
-Para obtener una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Propiedades como nombre, descripción, tablas de entrada y salida, varias directivas, etc. están disponibles para todos los tipos de actividades.
+Para obtener una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, tablas de entrada y salida, y directivas) están disponibles para todos los tipos de actividades.
  
 **Nota:** la actividad de copia toma solo una entrada y genera una única salida.
 
@@ -400,14 +400,14 @@ En caso de la actividad de copia si el origen es de tipo **DocumentDbCollectionS
 
 | **Propiedad** | **Descripción** | **Valores permitidos** | **Obligatorio** |
 | ------------ | --------------- | ------------------ | ------------ |
-| query | Especifique la consulta para leer los datos. | Cadena de consulta compatible con DocumentDB. <br/><br/>Ejemplo: SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00" | No <br/><br/>Si no se especifica, la instrucción SQL que se ejecuta es: select <columnas definidas en la estructura> from mycollection 
+| query | Especifique la consulta para leer los datos. | Cadena de consulta compatible con DocumentDB. <br/><br/>Ejemplo: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00"` | Sin <br/><br/>Si no se especifica, la instrucción SQL que se ejecuta: `select <columns defined in structure> from mycollection` 
 | nestingSeparator | Carácter especial para indicar que el documento está anidado | Cualquier carácter. <br/><br/>DocumentDB es un almacén NoSQL para documentos JSON, en el que se permiten estructuras anidadas. Factoría de datos de Azure permite al usuario indicar la jerarquía a través de nestingSeparator que es "." en los ejemplos anteriores. Con el separador, la actividad de copia generará el objeto "Name" con tres elementos secundarios First, Middle y Last, según "Name.First", "Name.Middle" y "Name.Last" en la definición de tabla. | No
 
 **DocumentDbCollectionSink** admite las siguientes propiedades:
 
 | **Propiedad** | **Descripción** | **Valores permitidos** | **Obligatorio** |
 | -------- | ----------- | -------------- | -------- |
-| nestingSeparator | Un carácter especial en el nombre de columna de origen que indica que el documento anidado es necesario. <br/><br/>Ejemplo de lo anterior: Name.First en la tabla de salida produce la siguiente estructura JSON en el documento de DocumentDB:<br/><br/>"Name": {<br/> "First": "John"<br/>}, | Carácter que se usa para separar los niveles de anidamiento.<br/><br/>El valor predeterminado es . (punto). | Carácter que se usa para separar los niveles de anidamiento. <br/><br/>El valor predeterminado es . (punto). | No | 
+| nestingSeparator | Un carácter especial en el nombre de columna de origen que indica que el documento anidado es necesario. <br/><br/>Ejemplo de lo anterior: `Name.First` en la tabla de salida produce la siguiente estructura JSON en el documento de DocumentDB:<br/><br/>"Name": {<br/> "First": "John"<br/>}, | Carácter que se usa para separar los niveles de anidamiento.<br/><br/>El valor predeterminado es `.` (punto). | Carácter que se usa para separar los niveles de anidamiento. <br/><br/>El valor predeterminado es `.` (punto). | No | 
 | writeBatchSize | Número de solicitudes paralelas al servicio DocumentDB para crear documentos.<br/><br/>Puede ajustar el rendimiento cuando se copian datos en DocumentDB como origen y destino mediante esta propiedad. Puede esperar un rendimiento mejor al aumentar writeBatchSize porque se envían más solicitudes paralelas a DocumentDB. Sin embargo, deberá evitar una limitación de peticiones que puede generar el mensaje de error: "Request rate is large" (La tasa de solicitud es grande).<br/><br/>La limitación de peticiones se decide mediante una serie de factores, incluidos tamaño de los documentos, número de términos en los documentos, directiva de indexación de colección de destino, etc. Para las operaciones de copia, puede usar una colección mejor (por ejemplo, S3) para obtener el máximo rendimiento disponible (2.500 unidades de solicitudes por segundo). | Entero | No (valor predeterminado = 10000) |
 | writeBatchTimeout | Tiempo de espera para que la operación se complete antes de que se agote el tiempo de espera. | timespan<br/><br/> Ejemplo: "00:30:00" (30 minutos). | No |
  
@@ -430,4 +430,4 @@ En caso de la actividad de copia si el origen es de tipo **DocumentDbCollectionS
 ## Rendimiento y optimización  
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

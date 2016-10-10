@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/26/2016"
 	ms.author="juliako"/>
 
 
@@ -95,7 +95,7 @@ A continuación se muestran los pasos generales para generar claves de contenido
 	
 	Para el cifrado de almacenamiento, se deben incluir las siguientes propiedades en el cuerpo de la solicitud.
 	 
-	Propiedad del cuerpo de la solicitud | Descripción
+	Propiedad del cuerpo de la solicitud | Description
 	---|---
 	Id | El identificador de ContentKey que generamos nosotros mismos utilizando el siguiente formato nb:kid:UUID:<NUEVO GUID>.
 	ContentKeyType | Este es el tipo de clave de contenido en forma de entero para esta clave de contenido. Pasamos el valor 1 para el cifrado del almacenamiento.
@@ -375,4 +375,4 @@ Después de cargar el archivo multimedia digital en un contenedor de blobs, usar
 	   "ContentChecksum":null
 	}
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

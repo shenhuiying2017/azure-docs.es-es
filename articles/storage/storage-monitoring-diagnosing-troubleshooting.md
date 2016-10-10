@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
-	ms.author="jahogg"/>
+	ms.date="09/22/2016"
+	ms.author="jahogg;robinsh"/>
 
 # Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure
 
@@ -210,7 +210,7 @@ Los siguientes recursos resultan útiles para entender los códigos de error y e
 
 ### <a name="storage-emulator-issues"></a>Problemas del emulador de almacenamiento
 
-El SDK de Azure incluye un emulador de almacenamiento que puede ejecutar en una estación de trabajo de desarrollo. Este emulador simula la mayor parte del comportamiento de los servicios de almacenamiento de Azure y resulta útil durante el desarrollo y las pruebas. Le permite ejecutar aplicaciones que utilizan servicios de almacenamiento de Azure sin necesidad de una suscripción de Azure ni una cuenta de almacenamiento de Azure.
+El SDK de Azure incluye un emulador de almacenamiento que puede ejecutar en una estación de trabajo de desarrollo. Este emulador simula la mayor parte del comportamiento de los servicios de Azure Storage y resulta útil durante las fases de desarrollo y prueba. Le permite ejecutar aplicaciones que usan servicios de Azure Storage sin necesidad de una suscripción de Azure ni una cuenta de almacenamiento de Azure.
 
 La sección "[Guía de solución de problemas]" de esta guía describe varios problemas habituales que se producen con el emulador de almacenamiento.
 
@@ -497,7 +497,7 @@ En este escenario, debe investigar el motivo por el que el token de SAS expira a
 - ¿El parámetro de versión de la clave SAS (por ejemplo, **sv=2015-04-05**) coincide con la versión de la biblioteca de cliente de Almacenamiento que está utilizando? Recomendamos usar la última versión de la [biblioteca de cliente de Almacenamiento](https://www.nuget.org/packages/WindowsAzure.Storage/).
 - Si vuelve a generar las claves de acceso de almacenamiento, esto puede invalidar todos los token de SAS existentes. Puede ser un problema si genera tokens de SAS con un tiempo de expiración duradero para que los copien en caché las aplicaciones cliente.
 
-Si utiliza la biblioteca de cliente de Almacenamiento para generar tokens de SAS, es fácil generar un token válido. Sin embargo, si utiliza la API de REST de Almacenamiento y construye manualmente los tokens de SAS, debe leer atentamente el tema [Delegar el acceso con una firma de acceso compartido](http://msdn.microsoft.com/library/azure/ee395415.aspx).
+Si utiliza la biblioteca de cliente de Almacenamiento para generar tokens de SAS, es fácil generar un token válido. Sin embargo, si usa la API de REST de Storage y construye manualmente los tokens de SAS, debe leer atentamente el tema [Delegar el acceso con una firma de acceso compartido](http://msdn.microsoft.com/library/azure/ee395415.aspx).
 
 ### <a name="the-client-is-receiving-404-messages"></a>El cliente recibe mensajes HTTP 404 (no encontrado)
 Si la aplicación cliente recibe un mensaje HTTP 404 (no encontrado) del servidor, esto significa que el objeto que estaba tratando de usar el cliente (por ejemplo, una entidad, una tabla, un BLOB, un contenedor o una cola) no existe en el servicio de almacenamiento. Hay varios motivos posibles, por ejemplo:
@@ -608,7 +608,7 @@ En la siguiente tabla, puede ver una muestra de un mensaje de registro del lado 
     <td>a1f348d5-8032-4912-93ef-b393e5252a3b</td>
   </tr>
   <tr>
-    <td>Id. de solicitud de cliente</td>
+    <td>Identificador de solicitud de cliente</td>
     <td>2d064953-8436-4ee0-aa0c-65cb874f7929</td>
   </tr>
 </table>
@@ -926,4 +926,4 @@ Puede encontrar más información en [¿Qué es Application Insights?](../applic
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10
@@ -123,21 +123,12 @@ Los equipos con Windows 10 se autenticarán con la autenticación integrada de W
 
 ### Paso 2: Configurar el registro automático de dispositivos mediante la directiva de grupo de Active Directory
 
-Puede usar una directiva de grupo de Active Directory para configurar sus dispositivos de Windows 10 unidos a un dominio y registrarse automáticamente en Azure AD. Para ello, consulte las siguientes instrucciones paso a paso:
+Puede usar una directiva de grupo de Active Directory para configurar sus dispositivos de Windows 10 unidos a un dominio y registrarse automáticamente en Azure AD.
 
-1. 	Abra el Administrador del servidor y vaya a **Herramientas** > **Administración de directivas de grupo**.
-2.	En Administración de directivas de grupo, vaya al nodo de dominio que corresponde al dominio en el que desea habilitar la unión a Azure AD.
-3.	Haga clic con el botón derecho en **Objetos de directiva de grupo** y seleccione **Nuevo**. Asigne un nombre a su objeto de directiva de grupo, por ejemplo, Unión automática a Azure AD. Haga clic en **Aceptar**.
-4.	Haga clic con el botón derecho en el nuevo objeto de directiva de grupo y luego seleccione **Editar**.
-5.	Vaya a **Configuración del equipo** > **Directivas** > **Plantillas administrativas** > **Componentes de Windows** > **Unión al área de trabajo**.
-6.	Haga clic con el botón derecho en **Unir automáticamente equipos cliente al área de trabajo** y, después, seleccione **Editar**.
-7.	Seleccione el botón de opción **Habilitado** y, luego, haga clic en **Aplicar**. Haga clic en **Aceptar**.
-8.	Vincule el objeto de la directiva de grupo a una ubicación de su elección. Para habilitar esta directiva para todos los dispositivos de Windows 10 unidos a un dominio en su organización, vincule el objeto de la directiva de grupo al dominio. Por ejemplo:
- - Una unidad organizativa (OU) específica en Active Directory donde se encontrarán los equipos unidos a un dominio de Windows 10.
- - Un grupo de seguridad específico que contiene equipos unidos a un dominio de Windows 10 que se registrarán automáticamente en Azure AD.
-
->[AZURE.NOTE]
-Esta plantilla de directiva de grupo ha cambiado su nombre en Windows 10. Si va a ejecutar la herramienta de directiva de grupo desde un equipo con Windows 10, la directiva aparecerá como: <br> **Registrar los equipos asociados a un dominio como dispositivos**<br> y la directiva se encontrará en la siguiente ubicación:<br> ***Configuración de equipos/Directivas/Plantillas administrativas/Componentes de Windows/Registro de dispositivos***.
+> [AZURE.NOTE]
+Para obtener la información más actualizada sobre cómo configurar el registro automático de dispositivos, consulte [Configuración del registro automático de dispositivos unidos a un dominio de Windows con Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+>
+> Esta plantilla de directiva de grupo ha cambiado su nombre en Windows 10. Si va a ejecutar la herramienta de directiva de grupo desde un equipo con Windows 10, la directiva aparecerá de este modo: <br> **Registrar los equipos asociados a un dominio como dispositivos**<br> Dicha directiva se encontrará en la siguiente ubicación:<br> ***Configuración de equipos/Directivas/Plantillas administrativas/Componentes de Windows/Registro de dispositivos***.
 
 
 ## Información adicional
@@ -147,4 +138,4 @@ Esta plantilla de directiva de grupo ha cambiado su nombre en Windows 10. Si va 
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

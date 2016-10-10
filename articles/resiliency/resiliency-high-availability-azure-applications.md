@@ -70,7 +70,7 @@ Considere la comunicación asincrónica entre servicios con acoplamiento flexibl
 
 Otra variación usa Almacenamiento de Azure (blobs, tablas, colas) o colas del Bus de servicio como ubicación de conmutación por error para las llamadas a la base de datos con errores. Por ejemplo, una llamada sincrónica dentro de una aplicación a otro servicio (como Base de datos SQL de Azure) produce un error repetidamente. Es posible que pueda serializar esos datos en almacenamiento duradero. Más adelante, cuando el servicio o la base de datos vuelva a estar en línea, la aplicación puede enviar de nuevo la solicitud desde el almacenamiento. La diferencia en este modelo es que la ubicación intermedia no es una parte constante del flujo de trabajo de aplicación, sino que solo se usa en escenarios de error.
 
-En ambos escenarios, la comunicación asincrónica y el almacenamiento intermedio impiden que un servicio back-end inactivo haga que toda la aplicación deje de funcionar. Las colas actúan como intermediario lógico. Para más orientación sobre cómo elegir el servicio de cola correcto, consulte [Colas de Bus de servicio y colas de Azure: comparación y diferencias](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
+En ambos escenarios, la comunicación asincrónica y el almacenamiento intermedio impiden que un servicio back-end inactivo haga que toda la aplicación deje de funcionar. Las colas actúan como intermediario lógico. Para más orientación sobre cómo elegir el servicio de cola correcto, consulte [Colas de Bus de servicio y colas de Azure: comparación y diferencias](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
 
 ###Detección de errores y lógica de reintento
 
@@ -143,4 +143,4 @@ Es importante tener en cuenta que la escalabilidad del servicio en la nube afect
 
 Este artículo forma parte de una serie enfocada a la [recuperación ante desastres y la alta disponibilidad para aplicaciones creadas en Microsoft Azure](./resiliency-disaster-recovery-high-availability-azure-applications.md). El siguiente artículo de esta serie es [Recuperación ante desastres para aplicaciones generadas en Microsoft Azure](./resiliency-disaster-recovery-azure-applications.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

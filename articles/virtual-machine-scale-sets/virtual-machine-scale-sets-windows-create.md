@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="09/25/2016"
 	ms.author="davidmu"/>
 
 # Creación de un conjunto de escalado de máquinas virtuales de Windows mediante Azure PowerShell
@@ -25,7 +25,7 @@ Tardará unos 30 minutos en realizar los pasos de este artículo.
 
 ## Paso 1: Instalación de Azure PowerShell
 
-Consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que quiere usar e iniciar sesión en su cuenta de Azure.
+Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que desea usar e iniciar sesión en su cuenta de Azure.
 
 ## Paso 2: Creación de recursos
 
@@ -84,9 +84,9 @@ Un conjunto de escalado de máquinas virtuales debe estar contenido en un grupo 
 
 ### Cuenta de almacenamiento
 
-Las máquinas virtuales utilizan las cuentas de almacenamiento para almacenar el disco del sistema operativo y los datos de diagnóstico que se emplean en las operaciones de escalado. Cuando sea posible, se recomienda tener una cuenta de almacenamiento para cada una de las máquinas virtuales creadas en un conjunto de escalas. Si procede, no planee disponer de más de 20 máquinas virtuales por cuenta de almacenamiento. En el ejemplo de este artículo se muestran 3 cuentas de almacenamiento que se crean para 3 máquinas virtuales de un conjunto de escalas.
+Las máquinas virtuales utilizan las cuentas de almacenamiento para almacenar el disco del sistema operativo y los datos de diagnóstico que se emplean en las operaciones de escalado. Se recomienda tener una cuenta de almacenamiento por cada 20 máquinas virtuales creadas en un conjunto de escalado. Puesto que los conjuntos de escalado están diseñados para facilitar el escalado horizontal, cree tantas cuentas de almacenamiento como necesite para el número máximo de máquinas virtuales que planee que tenga finalmente su conjunto de escalado. En el ejemplo de este artículo se muestran 3 cuentas de almacenamiento que se crean para acomodar 60 máquinas virtuales en un conjunto de escalado.
 
-1. Reemplace el valor de **$rgName** por el nombre que desee utilizar para la cuenta de almacenamiento y, a continuación, cree la variable: 
+1. Reemplace el valor de **$rgName** por el nombre que desee utilizar para la cuenta de almacenamiento y, a continuación, cree la variable:
 
         $saName = "storage account name"
         
@@ -133,7 +133,7 @@ Las máquinas virtuales utilizan las cuentas de almacenamiento para almacenar el
 
 Se requiere una red virtual para las máquinas virtuales del conjunto de escalado.
 
-1. Reemplace el valor de **$subName** por el nombre que desee utilizar para la subred de la red virtual y, después, cree la variable: 
+1. Reemplace el valor de **$subName** por el nombre que desee utilizar para la subred de la red virtual y, después, cree la variable:
 
         $subName = "subnet name"
         
@@ -155,7 +155,7 @@ Se requiere una red virtual para las máquinas virtuales del conjunto de escalad
 
 Antes de poder crear una interfaz de red, necesita crear una dirección IP pública.
 
-1. Reemplace el valor de **$domName** por la etiqueta de nombre de dominio que desea utilizar para la dirección IP pública y, después, cree la variable:  
+1. Reemplace el valor de **$domName** por la etiqueta de nombre de dominio que desea utilizar para la dirección IP pública y, después, cree la variable:
 
         $domName = "domain name label"
         
@@ -179,7 +179,7 @@ Antes de poder crear una interfaz de red, necesita crear una dirección IP públ
 
 Ahora que tiene la dirección IP pública, puede crear la interfaz de red.
 
-1. Reemplace el valor de **$nicName** por el nombre que desee utilizar para la interfaz de red y, después, cree la variable: 
+1. Reemplace el valor de **$nicName** por el nombre que desee utilizar para la interfaz de red y, después, cree la variable:
 
         $nicName = "network interface name"
         
@@ -191,7 +191,7 @@ Ahora que tiene la dirección IP pública, puede crear la interfaz de red.
 
 Tiene todos los recursos que necesita para la configuración del conjunto de escalado, así que creémosla.
 
-1. Reemplace el valor de **$ipName** por el nombre que desee utilizar para la configuración de IP y, después, cree la variable: 
+1. Reemplace el valor de **$ipName** por el nombre que desee utilizar para la configuración de IP y, después, cree la variable:
 
         $ipName = "IP configuration name"
         
@@ -205,7 +205,7 @@ Tiene todos los recursos que necesita para la configuración del conjunto de esc
         
 3. Cree la configuración para el conjunto de escalado:
 
-        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
+        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A1" -UpgradePolicyMode "manual"
         
     En este ejemplo se muestra un conjunto de escalado que se crea con 3 máquinas virtuales. Para obtener más información sobre la capacidad de los conjuntos de escala, consulte [Información general de conjuntos de escala de máquinas virtuales](virtual-machine-scale-sets-overview.md). Este paso también incluye el establecimiento del tamaño (al que se hace referencia como SkuName) de las máquinas virtuales del conjunto. Consulte [Tamaños de máquinas virtuales](../virtual-machines/virtual-machines-windows-sizes.md) para encontrar un tamaño que satisfaga sus necesidades.
     
@@ -228,7 +228,7 @@ Tiene todos los recursos que necesita para la configuración del conjunto de esc
 
 #### Perfil de sistema operativo
 
-1. Reemplace el valor de **$computerName** por el prefijo de nombre de equipo que quiera usar y, después, cree la variable: 
+1. Reemplace el valor de **$computerName** por el prefijo de nombre de equipo que quiera usar y, después, cree la variable:
 
         $computerName = "computer name prefix"
         
@@ -246,7 +246,7 @@ Tiene todos los recursos que necesita para la configuración del conjunto de esc
 
 #### Perfil de almacenamiento
 
-1. Reemplace el valor de **$storageProfile** por el nombre que desee utilizar para el perfil de almacenamiento y, después, cree la variable:  
+1. Reemplace el valor de **$storageProfile** por el nombre que desee utilizar para el perfil de almacenamiento y, después, cree la variable:
 
         $storageProfile = "storage profile name"
         
@@ -313,4 +313,4 @@ Use estos recursos para explorar el conjunto de escalado de máquinas virtuales 
 - Plantéese configurar el escalado automático del conjunto de escalas mediante la información de [Escalado automático y conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-autoscale-overview.md).
 - Puede obtener más información sobre el escalado si consulta [Autoescala vertical con conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

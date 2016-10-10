@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
-# Cree una máquina virtual personalizada que ejecute Windows
+# Creación de una máquina virtual personalizada con Windows mediante el modelo de implementación clásico
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Si desea usar el nuevo Azure Portal, consulte [Creación de la primera máquina virtual Windows en Azure Portal](virtual-machines-windows-hero-tutorial.md).
 
 [AZURE.INCLUDE [virtual-machines-common-classic-createportal](../../includes/virtual-machines-common-classic-createportal.md)]
 
@@ -28,6 +28,6 @@
 
 ## Pasos siguientes
 
-También puede [crear una máquina virtual personalizada que ejecute Linux](virtual-machines-linux-classic-createportal.md) mediante el portal clásico.
+También puede [crear una máquina virtual personalizada con Linux](virtual-machines-linux-classic-createportal.md) mediante el portal clásico.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

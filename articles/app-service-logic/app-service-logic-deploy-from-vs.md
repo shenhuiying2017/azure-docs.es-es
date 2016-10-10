@@ -28,6 +28,7 @@ A continuación se muestran los pasos para instalar y configurar las herramienta
 
 - [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 - [SDK de Azure más reciente](https://azure.microsoft.com/downloads/) (2.9.1 o superior)
+- [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 - Acceso a la web para usar el diseñador incrustado
 
 ### Instalación de herramientas de Visual Studio para Logic Apps
@@ -64,15 +65,15 @@ Una vez que tiene un proyecto Azure Resource Group que contiene una aplicación 
 
 1. Haga clic con el botón derecho en el archivo `<template>.json` y seleccione **Abrir con diseñador de aplicaciones lógicas** (o `Ctrl+L`).
 1. Elija la suscripción, el grupo de recursos y la ubicación para la plantilla de implementación.
-	- Es importante tener en cuenta que diseñar una aplicación lógica creará recursos de una **conexión de API** para consultar las propiedades durante el diseño. El grupo de recursos seleccionado será el grupo de recursos utilizado para crear dichas conexiones durante el diseño. Para ver o modificar las conexiones de API, vaya al Portal de Azure y busque **Conexiones de API**. ![Selector de suscripción](./media/app-service-logic-deploy-from-vs/designer_picker.png)
+	- Es importante tener en cuenta que diseñar una aplicación lógica creará recursos de una **conexión de API** para consultar las propiedades durante el diseño. El grupo de recursos seleccionado será el grupo de recursos utilizado para crear dichas conexiones durante el diseño. Para ver o modificar las conexiones de API, vaya a Azure Portal y busque **Conexiones de API**. ![Selector de suscripción](./media/app-service-logic-deploy-from-vs/designer_picker.png)
 1. El diseñador debe procesarse de acuerdo con la definición del archivo `<template>.json`.
 1. Ahora puede crear y diseñar la aplicación lógica; los cambios se actualizarán en la plantilla de implementación. ![Diseñador en Visual Studio](./media/app-service-logic-deploy-from-vs/designer_in_vs.png)
 
-También verá los recursos `Microsoft.Web/connections` que se agregan al archivo de recursos para todas las conexiones necesarias para que la aplicación lógica funcione. Estas propiedades de conexión se pueden establecer durante la implementación y la administración después de implementar en **Conexiones de API** en el Portal de Azure.
+También verá los recursos `Microsoft.Web/connections` que se agregan al archivo de recursos para todas las conexiones necesarias para que la aplicación lógica funcione. Estas propiedades de conexión se pueden establecer durante la implementación y la administración después de implementar en **Conexiones de API** en Azure Portal.
 
 ### Cambio a la vista de código JSON
 
-Puede seleccionar la pestaña **Vista Código** en la parte inferior del diseñador para cambiar a la representación JSON de la aplicación lógica. Para volver al JSON de todos los recursos, haga clic en el archivo `<template>.json` y seleccione **Abrir**.
+Puede seleccionar la pestaña **Vista Código** en la parte inferior del diseñador para cambiar a la representación JSON de la aplicación lógica. Para volver al JSON de todos los recursos, haga clic con el botón derecho en el archivo `<template>.json` y seleccione **Abrir**.
 
 ### Guardado de la aplicación lógica
 
@@ -105,4 +106,4 @@ En el futuro, puede revisar la aplicación lógica en el control de código fuen
 - [Con las aplicaciones lógicas puede automatizar procesos empresariales.](http://channel9.msdn.com/Events/Build/2016/T694)
 - [Obtenga información acerca de cómo integrar sus sistemas con Aplicaciones lógicas](http://channel9.msdn.com/Events/Build/2016/P462)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

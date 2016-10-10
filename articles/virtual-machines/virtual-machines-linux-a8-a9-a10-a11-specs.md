@@ -1,6 +1,6 @@
 <properties
- pageTitle="Acerca de los tamaños de máquina virtual A8, A9, A10 y A11 con Linux | Microsoft Azure"
- description="Obtenga información general y algunas consideraciones sobre el uso de los tamaños de proceso intensivo A8, A9, A10 y A11 para las máquinas virtuales de Linux."
+ pageTitle="Acerca de las máquinas virtuales de proceso intensivo con Linux | Microsoft Azure"
+ description="Obtenga información general y algunas consideraciones sobre el uso de la serie H y los tamaños A8, A9, A10 y A11 de proceso intensivo para las máquinas virtuales con Linux"
  services="virtual-machines-linux"
  documentationCenter=""
  authors="dlepow"
@@ -13,42 +13,72 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="08/04/2016"
+ ms.date="09/21/2016"
  ms.author="danlep"/>
 
-# Sobre las instancias de proceso intensivo A8, A9, A10 y A11 
+# Acerca de las máquinas virtuales de la serie H y A de proceso intensivo 
 
-Aquí se proporciona información general y algunas consideraciones sobre el uso de las instancias de Azure A8, A9, A10 y A11, también conocidas como instancias de *proceso intensivo*. Este artículo se centra en el uso de estas instancias para máquinas virtuales con Linux. Este artículo también está disponible para [máquinas virtuales con Windows](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+Aquí se proporciona información general y algunas consideraciones sobre el uso de las series H de Azure más recientes y los antiguos tamaños A8, A9, A10 y A11, también conocidos como instancias de *proceso intensivo*. Este artículo se centra en el uso de estos tamaños con las máquinas virtuales con Linux. Este artículo también está disponible para [máquinas virtuales con Windows](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
+
 
 [AZURE.INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
 ## Acceso a la red RDMA
 
-En un servicio en la nube o conjunto de disponibilidad individuales, los clústeres de máquinas virtuales con Linux de tamaño A8 y A9 que ejecutan una de las siguientes distribuciones de Linux HPC compatibles y una implementación de MPI compatible puede acceder a la red RDMA de Azure para ejecutar aplicaciones Linux MPI. Para conocer las opciones de implementación y los pasos de una configuración de ejemplo, consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](virtual-machines-linux-classic-rdma-cluster.md).
+Puede crear clústeres de máquinas virtuales con Linux compatibles con RDMA que ejecuten una de las siguientes distribuciones de HPC de Linux compatibles y una implementación de MPI compatible para aprovechar la red RDMA de Azure. Para conocer las opciones de implementación y los pasos de una configuración de ejemplo, consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](virtual-machines-linux-classic-rdma-cluster.md).
 
-* **Distribuciones**: SUSE Linux Enterprise Server (SLES) 12 para HPC, SLES 12 para HPC (Premium), HPC 7.1 basado en CentOS o HPC 6.5 basado en CentOS, implementado desde la imagen de Azure Marketplace
+* **Distribuciones**: debe implementar máquinas virtuales de SUSE Linux Enterprise Server (SLES) compatibles con RDMA o imágenes de HPC basadas en OpenLogic CentOS en Azure Marketplace. Solo las siguientes imágenes de Marketplace admiten los controladores Linux RDMA necesarios:
+
+    * SLES 12 SP1 para HPC, SLES 12 SP1 para HPC (Premium)
+    
+    * SLES 12 para HPC, SLES 12 para HPC (Premium)
+    
+    * HPC 7.1 basada en CentOS
+    
+    * HPC 6.5 basada en CentOS
+    
+    >[AZURE.NOTE]Para las máquinas virtuales de la serie H, se recomienda un SLES 12 SP1 para la imagen de HPC o la imagen de HPC 7.1 basada en CentOS.
+    >
+    >En las imágenes de HPC basadas en CentOS, las actualizaciones del núcleo están deshabilitadas en el archivo de configuración **yum**. Esto se debe a que los controladores Linux RDMA se distribuyen en forma de paquete RPM y sus actualizaciones de estos podrían no funcionar si se actualiza el kernel.
 
 * **MPI**: Biblioteca MPI Intel 5.x
 
-    >[AZURE.NOTE] Intel MPI 5.1 ya está instalado en las imágenes de HPC basadas en CentOS HPC de Marketplace. Para utilizar Intel MPI en máquinas virtuales HPC de SLES 12, debe instalarlo por separado.
+    Dependiendo de la imagen de Marketplace que elija, puede ser necesaria la instalación de licencia, la instalación o la configuración independientes de Intel MPI, como sigue:
+    
+    * **SLES 12 SP1 para la imagen de HPC**: instale los paquetes de Intel MPI distribuidos en la máquina virtual; para ello, ejecute el comando siguiente:
+    
+            sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
 
-En la actualidad, los controladores Azure Linux RDMA solo se instalan al implementar imágenes HPC de SLES 12 y HPC de CentOS con RDMA habilitado desde Azure Marketplace. Los controladores no se pueden instalar en otras máquinas virtuales con Linux que se implementen.
+    * **SLES 12 para la imagen de HPC**: debe registrarse independientemente para descargar e instalar Intel MPI. Consulte la [guía de instalación de la Biblioteca de Intel MPI](https://software.intel.com/sites/default/files/managed/7c/2c/intelmpi-2017-installguide-linux.pdf).
+    
+    * **Imágenes de HPC basadas en CentOS**: Intel MPI 5-1 ya está instalado.
 
->[AZURE.NOTE]En las imágenes HPC basadas en CentOS desde Marketplace, las actualizaciones del núcleo están deshabilitadas en el archivo de configuración **yum**. Esto se debe a que los controladores Linux RDMA se distribuyen en forma de paquete RPM y sus actualizaciones de estos podrían no funcionar si se actualiza el kernel.
+    Se necesita configuración adicional del sistema para ejecutar trabajos MPI en máquinas virtuales en clúster. Por ejemplo, en un clúster de máquinas virtuales, debe establecer la confianza entre los nodos de proceso. Para configuraciones típicas, consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](virtual-machines-linux-classic-rdma-cluster.md).
 
+
+## Consideraciones sobre el HPC Pack y Linux
+
+[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), la solución gratuita de administración de clústeres y trabajos de HPC de Microsoft, proporciona una opción para usar las instancias de proceso intensivo con Linux. Las últimas versiones de HPC Pack 2012 R2 admiten varias distribuciones de Linux en nodos de ejecución implementados en máquinas virtuales de Azure, administradas por un nodo principal de Windows Server. Con los nodos de proceso de Linux compatibles con RDMA que ejecutan Intel MPI, HPC Pack puede programar y ejecutar aplicaciones que tienen acceso a la red RDMA de Linux MPI. Para comenzar, consulte [Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
+
+## Consideraciones sobre la topología de red
+
+* En las máquinas virtuales con Linux compatibles con RDMA de Azure, Eth1 se reserva para el tráfico de red RDMA. No cambie ninguna configuración Eth1 ni ninguna información del archivo de configuración que haga referencia a esta red. Eth0 se reserva para el tráfico de red regular de Azure.
+
+* En Azure, no se admite IP sobre InfiniBand (IB). Solo se admite RDMA sobre IB.
 
 ## Actualizaciones de controladores RDMA para SLES 12
-Después de crear una máquina virtual basada en una imagen HPC de SLES 12, es preciso actualizar los controladores RDMA en las máquinas virtuales para obtener la conectividad de red RDMA.
 
->[AZURE.IMPORTANT]Este paso es **requiere** para las implementaciones de máquinas virtuales HPC de SLES 12 en todas las regiones de Azure. Este paso no es necesario si ha implementado una máquina virtual HPC 7.1 o HPC 6.5 basada en CentOS.
+Después de crear una máquina virtual basada en una imagen HPC de SLES 12, puede ser necesario actualizar los controladores RDMA en las máquinas virtuales para obtener la conectividad de red RDMA.
+
+>[AZURE.IMPORTANT]Este paso es **necesario** para las implementaciones de máquinas virtuales de HPC de SLES 12 en todas las regiones de Azure. Este paso no es necesario si implementa SLES 12 SP1 para HPC, HPC 7.1 basado en CentOS o máquina virtual de HPC 6.5 basada en CentOS.
 
 Antes de actualizar los controladores, detenga todos los procesos **zypper** o cualquier proceso que bloquee las bases de datos de repositorio de SUSE en la máquina virtual. De lo contrario, puede que los controladores no se actualicen correctamente.
 
 Para actualizar los controladores Linux RDMA de cada máquina virtual, ejecute uno de los siguientes conjuntos de comandos de la CLI de Azure desde el equipo cliente.
 
-**Para una máquina virtual HPC de SLES 12 aprovisionada en el modelo de implementación clásico**
+**SLES 12 para máquina virtual de HPC aprovisionada en el modelo de implementación clásico**
 
 ```
 azure config mode asm
@@ -56,7 +86,7 @@ azure config mode asm
 azure vm extension set <vm-name> RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
 ```
 
-**Para una máquina virtual HPC de SLES 12 aprovisionada en el modelo de implementación de Resource Manager**
+**SLES 12 para máquina virtual de HPC aprovisionada en el modelo de implementación de Resource Manager**
 
 ```
 azure config mode arm
@@ -64,11 +94,11 @@ azure config mode arm
 azure vm extension set <resource-group> <vm-name> RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
 ```
 
->[AZURE.NOTE]Los instaladores pueden tardar un tiempo en instalarse y el comando no devolverá resultado. Tras la actualización, la VM se reiniciará y estará lista para su uso en unos minutos.
+>[AZURE.NOTE]Los controladores pueden tardar un tiempo en instalarse y el comando no devuelve resultados. Tras la actualización, la VM se reiniciará y estará lista para su uso en unos minutos.
 
 ### Scripts de ejemplo para las actualizaciones de controladores
 
-Si tiene un clúster de máquinas virtuales HPC de SLES 12, puede crear scripts de la actualización del controlador en todos los nodos del clúster. Por ejemplo, el siguiente script actualiza los controladores en un clúster de ocho nodos.
+Si tiene un clúster de SLES 12 para máquinas virtuales de HPC, puede crear scripts de la actualización del controlador en todos los nodos del clúster. Por ejemplo, el siguiente script actualiza los controladores en un clúster de ocho nodos.
 
 ```
 
@@ -82,7 +112,7 @@ vmname=cluster
 
 for (( i=11; i<19; i++ )); do
 
-# For VMs created in the classic deployment model use the following command in your script.
+# For VMs created in the classic deployment model, use the following command in your script.
 
 azure vm extension set $vmname$i RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
 
@@ -95,23 +125,12 @@ done
 ```
 
 
-## Consideraciones sobre el HPC Pack y Linux
-
-[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) es la solución gratuita de administración de trabajos y clústeres HPC de Microsoft. Las últimas versiones de HPC Pack 2012 R2 admiten varias distribuciones de Linux en nodos de ejecución implementados en máquinas virtuales de Azure, administradas por un nodo principal de Windows Server. Los nodos de cálculo de Linux implementados en las máquinas virtuales A8 o A9 y que ejecutan una implementación de MPI compatible pueden ejecutar aplicaciones de MPI que tienen acceso a la red RDMA. Para comenzar, consulte [Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
-
-## Consideraciones sobre la topología de red
-
-* En las máquinas virtuales con Linux de tamaño A8 y A9 de Azure, Eth1 se reserva para el tráfico de red RDMA. No cambie ninguna configuración Eth1 ni ninguna información del archivo de configuración que haga referencia a esta red. Eth0 se reserva para el tráfico de red regular de Azure.
-
-* En Azure, no se admite IP sobre Infiniband (IB). Solo se admite RDMA sobre IB.
-
-
 ## Pasos siguientes
 
-* Para más información sobre la disponibilidad y los precios de las instancias A8, A9, A10 y A11, consulte [Precios de Máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux).
+* Para más información sobre la disponibilidad y los precios de los tamaños de proceso intensivo, consulte los [precios de las máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux).
 
 * Para más información sobre las capacidades de almacenamiento y los detalles del disco, consulte [Tamaños de máquinas virtuales](virtual-machines-linux-sizes.md).
 
-* Para empezar a implementar y usar las instancias A8 y A9 con RDMA en Linux, consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](virtual-machines-linux-classic-rdma-cluster.md).
+* Para empezar a implementar y usar los tamaños de proceso intensivo con RDMA en Linux, consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](virtual-machines-linux-classic-rdma-cluster.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

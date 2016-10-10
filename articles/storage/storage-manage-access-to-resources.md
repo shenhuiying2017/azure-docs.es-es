@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Administración del acceso de lectura anónimo a contenedores y blobs | Microsoft Azure" 
-	description="Obtenga información acerca de cómo permitir el acceso anónimo a contenedores y blobs y cómo tener acceso a ellos mediante programación." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="carmonm" 
+<properties
+	pageTitle="Administración del acceso de lectura anónimo a contenedores y blobs | Microsoft Azure"
+	description="Obtenga información acerca de cómo permitir el acceso anónimo a contenedores y blobs y cómo tener acceso a ellos mediante programación."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/07/2016"
-	ms.author="tamram"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/27/2016"
+	ms.author="michaelhauss;jwillis;tamram"/>
 
 # Administración del acceso de lectura anónimo a contenedores y blobs
 
@@ -47,11 +47,11 @@ Puede establecer los permisos del contenedor de las maneras siguientes:
 Para configurar los permisos del contenedor desde el [Portal de Azure](https://portal.azure.com), siga estos pasos:
 
 1. Desplácese hasta el panel de la cuenta de almacenamiento.
-2. Seleccione el nombre del contenedor en la lista. Tenga en cuenta que debe hacer clic a la derecha de la columna Nombre para seleccionar el nombre del contenedor. Al hacer clic en el nombre se profundiza en el contenedor para mostrar sus blobs.
-3. Seleccione **Editar** desde la barra de herramientas.
-4. En el cuadro de diálogo **Editar metadatos del contenedor**, seleccione el nivel deseado de permisos desde el campo **Acceso**, como se muestra en la instantánea siguiente.
+2. Seleccione el nombre del contenedor en la lista. Al hacer clic en el nombre se exponen los blobs en el contenedor elegido.
+3. Seleccione **Directiva de acceso** en la barra de herramientas.
+4. En el campo **Tipo de acceso**, seleccione el nivel de permisos que desee, como se muestra en la captura de pantalla siguiente.
 
-	![Cuadro de diálogo Editar metadatos del contenedor](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-1.png)
+	![Cuadro de diálogo Editar metadatos del contenedor](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
 ### Configuración de permisos de contenedor mediante programación con .NET
 
@@ -155,4 +155,4 @@ En la siguiente tabla, se indican las operaciones a las que pueden llamar los us
 - [Uso de Firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 - [Delegación de acceso con una firma de acceso compartido](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,13 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/09/2016"
+	ms.date="09/22/2016"
 	ms.author="mikeray" />
 
 # Configuración de grupos de disponibilidad Always On en máquinas virtuales de Azure con PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure Resource Manager: configuración automática](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager: plantilla](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 - [Azure Resource Manager: configuración manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 - [Portal de Azure clásico: interfaz de usuario](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [Portal de Azure clásico: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
@@ -50,9 +50,9 @@ Este tutorial está concebido para mostrarle los pasos necesarios para configura
 
 - Ya tiene un conocimiento sólido de grupos de disponibilidad AlwaysOn para soluciones locales. Para obtener más información, consulte [Grupos de disponibilidad AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
-## Conexión a la suscripción de Azure y creación de la Red virtual
+## Conexión a la suscripción de Azure y creación de la red virtual
 
-1. En una ventana de PowerShell del equipo local, importe el módulo de Azure, descargue un archivo de configuración de publicación en el equipo y conecte la sesión de PowerShell a su suscripción de Azure importando la configuración de publicación descargada.
+1. En una ventana de PowerShell del equipo local, importe el módulo de Azure, descargue un archivo de configuración de publicación en la máquina y conecte la sesión de PowerShell a su suscripción de Azure mediante la importación de la configuración de publicación descargada.
 
 		Import-Module "C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\Azure\Azure.psd1"
 		Get-AzurePublishSettingsFile
@@ -60,7 +60,7 @@ Este tutorial está concebido para mostrarle los pasos necesarios para configura
 
 	El comando **AzurePublishgSettingsFile Get** genera automáticamente un certificado de administración con las descargas de Azure en el equipo. Se abrirá un explorador automáticamente y se le solicitará que escriba las credenciales de la cuenta de Microsoft para su suscripción de Azure. El archivo descargado **.publishsettings** contiene toda la información que necesita para administrar la suscripción de Azure. Después de guardar este archivo en un directorio local, impórtelo mediante el comando **Import-AzurePublishSettingsFile**.
 
-	>[AZURE.NOTE] El archivo .publishsettings contiene sus credenciales (sin codificar) que se usan para administrar sus suscripciones y servicios de Azure. El procedimiento recomendado para este archivo consiste en almacenarlo temporalmente fuera de los directorios de origen (por ejemplo en la carpeta Bibliotecas\\Documentos) y, a continuación, eliminarlo cuando la importación se haya completado. Un usuario malintencionado que obtuviera acceso al archivo .publishsettings podría modificar, crear y eliminar sus servicios de Azure.
+	>[AZURE.NOTE] El archivo .publishsettings contiene sus credenciales (sin codificar), que se usan para administrar sus suscripciones y servicios de Azure. El procedimiento recomendado para este archivo consiste en almacenarlo temporalmente fuera de los directorios de origen (por ejemplo en la carpeta Bibliotecas\\Documentos) y, a continuación, eliminarlo cuando la importación se haya completado. Un usuario malintencionado que obtuviera acceso al archivo .publishsettings podría modificar, crear y eliminar sus servicios de Azure.
 
 1. Defina una serie de variables que usará para crear la infraestructura de TI en la nube.
 
@@ -128,7 +128,7 @@ Este tutorial está concebido para mostrarle los pasos necesarios para configura
 		  </VirtualNetworkConfiguration>
 		</NetworkConfiguration>
 
-1. Cree una cuenta de almacenamiento que está asociada con el grupo de afinidad que creó y establézcala como cuenta de almacenamiento actual en su suscripción.
+1. Cree una cuenta de almacenamiento que esté asociada con el grupo de afinidad que creó y establézcala como cuenta de almacenamiento actual en su suscripción.
 
 		New-AzureStorageAccount `
 			-StorageAccountName $storageAccountName `
@@ -630,4 +630,4 @@ Ha implementado correctamente SQL Server AlwaysOn mediante la creación de un gr
 
 Para obtener más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -137,8 +137,8 @@ Para obtener la referencia completa de la API de .NET de Bus de servicio y Centr
 
 Para más información sobre [Service Bus](https://azure.microsoft.com/services/service-bus/), consulte los temas siguientes.
 
-- [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
+- [Introducción a la mensajería del Bus de servicio](../service-bus-messaging/service-bus-messaging-overview.md)
 - [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
 - [Arquitectura del Bus de servicio](service-bus-architecture.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

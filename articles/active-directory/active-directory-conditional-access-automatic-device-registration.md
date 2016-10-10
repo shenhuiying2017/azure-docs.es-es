@@ -3,7 +3,7 @@
 	description="El administrador de TI puede elegir tener sus dispositivos Windows unidos a un dominio para registrarse de forma automática y silenciosa en Azure Active Directory (Azure AD)."
 	services="active-directory"
 	documentationCenter=""
-	authors="femila"
+	authors="Markvi"
 	manager="swadhwa"
 	editor=""/>
 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Registro automático de dispositivos en Azure Active Directory para dispositivos Windows unidos a un dominio
 
 Como administrador de TI, puede elegir registrar sus dispositivos Windows unidos a un dominio de forma automática y silenciosa en Azure Active Directory (Azure AD). Esto puede ser útil si ha configurado directivas de acceso condicional basadas en dispositivos para aplicaciones de Office 365 o aplicaciones administradas de forma local por AD FS. Puede obtener más información acerca de los escenarios de registro de dispositivos leyendo la [información general sobre el registro de dispositivos de Azure Active Directory](active-directory-conditional-access-device-registration-overview.md).
+
+>AZURE.NOTE Para obtener la información más actualizada sobre cómo configurar el registro automático de dispositivos, consulte [Configuración del registro automático de dispositivos unidos a un dominio de Windows con Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
 
 El registro automático de dispositivos en Azure Active Directory está disponible para los equipos con Windows 7 y Windows 8.1 que se han unido a un dominio de Active Directory. Suelen ser equipos corporativos que se han proporcionado a los trabajadores de la información.
 
@@ -105,4 +107,4 @@ Puede obtener más información acerca de cómo implementar el registro de dispo
 - [Configuración del registro automático de dispositivos para dispositivos Windows 8.1 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Registro automático de dispositivos en Azure Active Directory para dispositivos Windows 10 unidos a un dominio](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

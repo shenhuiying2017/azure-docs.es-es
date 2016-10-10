@@ -13,12 +13,12 @@
    	ms.tgt_pltfrm="na"
    	ms.devlang="na"
    	ms.topic="article"
-   	ms.date="07/06/2016"
+   	ms.date="09/22/2016"
    	ms.author="v-donglo"/>
 
 # Implementación de servicios web nuevos
 
-Ahora, Aprendizaje automático de Microsoft Azure proporciona servicios web basados en [Azure Resource Manager](../azure-portal/resource-group-overview.md), con lo que se pueden usar nuevas opciones de planes de facturación e implementar el servicio web en varias regiones.
+Ahora, Microsoft Azure Machine Learning proporciona servicios web basados en [Azure Resource Manager](../resource-group-overview.md), con lo que se pueden usar nuevas opciones de planes de facturación e implementar el servicio web en varias regiones.
 
 El flujo de trabajo general para implementar un servicio web mediante el portal de servicios web de Aprendizaje automático de Microsoft Azure Machine es el siguiente:
 
@@ -87,6 +87,13 @@ En la página Consuming (Consumo), puede encontrar la siguiente información:
 
 Para obtener más información sobre cómo utilizar servicios web , consulte [Cómo consumir un servicio web de Aprendizaje automático de Azure implementado en un experimento de Aprendizaje automático](machine-learning-consume-web-services.md).
 
+## Pasos siguientes
+
+Para más información sobre el consumo de servicios web, consulte:
+
+[Cómo consumir un servicio web de Aprendizaje automático de Azure implementado en un experimento de Aprendizaje automático](machine-learning-consume-web-services.md)
+
+[Servicios web Azure Machine Learning: Implementación y consumo](machine-learning-deploy-consume-web-service-guide.md)
 
 <!--Image references-->
 [1]: ./media/machine-learning-webservice-deploy-a-web-service/armdeploymentworkflow.png
@@ -94,4 +101,4 @@ Para obtener más información sobre cómo utilizar servicios web , consulte [C�
 
 <!--links-->
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

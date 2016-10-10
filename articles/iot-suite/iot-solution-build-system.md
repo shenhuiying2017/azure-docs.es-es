@@ -79,7 +79,7 @@ Instalación:
 
 -   [SDK de Azure Service Fabric](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric). Necesario para compilar la extensión de [microservicio](../service-fabric/service-fabric-get-started.md).
 
-Además, asegúrese de que tiene el derecho de extensiones de Visual Studio. Compruebe que en **Herramientas**, aparece **Android, iOS, Xamarin...**. De lo contrario, abra el Panel de Control, seleccione **Programas y características** > **Microsoft** **Visual Studio 2015** > **Modificar**. En **Desarrollo multiplataforma**, elija **C#/.Net (Xamarin)**. Compruebe también que **GitHub** está instalado.
+Además, asegúrese de que tiene el derecho de extensiones de Visual Studio. Compruebe que en **Herramientas**, aparece **Android, iOS, Xamarin...**. De lo contrario, abra el Panel de Control, seleccione **Programas y características** > **Microsoft** **Visual Studio 2015** > **Modificar**. En **Desarrollo multiplataforma**, elija **C#/.Net (Xamarin)**. Compruebe también que **Git para Windows** está instalado.
 
 ### Máquina de desarrollo Mac
 
@@ -149,7 +149,7 @@ Si tiene problemas al compilar, pruebe las soluciones para las diferentes peculi
 
 -   *La aplicación Android no se compila*:
 
-    -   Abra **Herramientas** > ** Android** > **Android SDK Manager** (Administrador de SKD de Android) y asegúrese de que instaló la plataforma Android 6 (API 23)/SDK.
+    -   Abra **Herramientas** > **Android** > **Android SDK Manager** (Administrador de SKD de Android) y asegúrese de que instaló la plataforma Android 6 (API 23)/SDK.
 
     -   Elimine este directorio y luego recompile:<br/> `%LocalAppData%\Xamarin\zips`
 
@@ -462,4 +462,4 @@ Esperamos sus noticias.
 
 Se recomienda la lectura de la [guía de referencia de MyDriving](http://aka.ms/mydrivingdocs), donde se describe de manera detallada el diseño del sistema y sus componentes.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

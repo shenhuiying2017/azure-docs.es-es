@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -33,13 +33,13 @@ El servidor proxy también debe tener abiertas las direcciones URL necesarias. L
 
 De ellas, la tabla siguiente es el mínimo necesario para poder conectarse a Azure AD. Esta lista no incluye características opcionales, como la escritura diferida de contraseñas ni Azure AD Connect Health. Se documentan aquí para ayudar a solucionar problemas de la configuración inicial.
 
-URL | Port | Descripción
+URL | Port | Description
 ---- | ---- | ----
 mscrl.microsoft.com | HTTP/80 | Se usa para descargar listas CRL.
 *.verisign.com | HTTP/80 | Se usa para descargar listas CRL.
 *.entrust.com | HTTP/80 | Se utiliza para descargar listas CRL de MFA.
 *.windows.net | HTTPS/443 | Se utiliza para iniciar sesión en Azure AD.
-*.secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Se utiliza para MFA.
+secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Se utiliza para MFA.
 *.microsoftonline.com | HTTPS/443 | Se utiliza para configurar el directorio de Azure AD, así como para importar y exportar datos.
 
 ## Errores en el asistente
@@ -175,4 +175,4 @@ Este error aparece cuando el Ayudante para el inicio de sesión no puede conecta
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

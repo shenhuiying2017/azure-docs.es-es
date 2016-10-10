@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 #Implementación de un escenario de streaming de conmutación por error
@@ -51,7 +51,7 @@ Se aplican las siguientes consideraciones:
 
 ##Requisitos previos
  
-- Dos cuentas de Servicios multimedia en una suscripción de Azure nueva o existente. Consulte [Creación de una cuenta de Servicios multimedia de Azure](media-services-create-account.md).
+- Dos cuentas de Media Services en una suscripción de Azure nueva o existente. Consulte [Creación de una cuenta de Servicios multimedia de Azure](media-services-create-account.md).
 - Sistemas operativos: Windows 7, Windows 2008 R2 o Windows 8.
 - .NET Framework 4.5 o .NET Framework 4.
 - Visual Studio 2010 SP1 o una versión posterior (Professional, Premium, Ultimate o Express).
@@ -972,4 +972,4 @@ Ahora puede usar un administrador de tráfico para enrutar las solicitudes entre
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

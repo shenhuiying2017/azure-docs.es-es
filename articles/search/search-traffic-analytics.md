@@ -14,37 +14,37 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/19/2016" 
+	ms.date="09/23/2016" 
 	ms.author="betorres"
 />
 
 
 # Habilitación y uso de Análisis de tráfico de búsqueda
 
-Análisis de tráfico de búsqueda es una característica de Búsqueda de Azure que permite tener visibilidad en el servicio de búsqueda y descubrir información acerca de los usuarios y su comportamiento. Cuando se habilita esta característica, los datos del servicio de búsqueda se copian en una cuenta de almacenamiento de su elección. Estos datos incluyen los registros del servicio de búsqueda y las métricas operacionales agregadas que puede procesar y manipular para su posterior análisis.
+Análisis de tráfico de búsqueda es una característica de Azure Search que permite tener visibilidad en el servicio de búsqueda y descubrir información acerca de los usuarios y su comportamiento. Cuando se habilita esta característica, los datos del servicio de búsqueda se copian en una cuenta de almacenamiento de su elección. Estos datos incluyen los registros del servicio de búsqueda y las métricas operacionales agregadas que puede procesar y manipular para su posterior análisis.
 
 ## Habilitación de Análisis de tráfico de búsqueda
 
-Necesitará una cuenta de almacenamiento en la misma región y la misma suscripción que el servicio de búsqueda.
+Necesita una cuenta de Azure Storage en la misma región y suscripción que el servicio de búsqueda.
 
 > [AZURE.IMPORTANT] Se aplican gastos estándares para esta cuenta de almacenamiento
 
-Una vez habilitada, los datos comenzarán a estar disponibles en la cuenta de almacenamiento en un período de 5 a 10 minutos en estos dos contenedores de blobs:
+Análisis de tráfico de búsqueda se puede habilitar en el portal o a través de PowerShell. Una vez habilitado, los datos comenzarán a llegar a su cuenta de almacenamiento en un período de 5 a 10 minutos, en concreto a estos dos contenedores de blobs:
 
     insights-logs-operationlogs: search traffic logs
     insights-metrics-pt1m: aggregated metrics
 
 
-### 1\. Uso del portal
-Abra el servicio de Búsqueda de Azure en el [Portal de Azure](http://portal.azure.com). En Configuración, encontrará la opción Análisis de tráfico de búsqueda.
+### A. Uso del portal
+Abra el servicio Azure Search en [Azure Portal](http://portal.azure.com). En Configuración, busque la opción Análisis de tráfico de búsqueda.
 
 ![][1]
 
-Seleccione esta opción y se abrirá una nueva hoja. Cambie el estado a **Encendido**, seleccione la cuenta de almacenamiento de Azure en la que se vayan a copiar los datos y elija los datos que desee copiar: registros, métricas o ambos. Se recomienda copiar los registros y métricas. Tiene la opción de establecer la directiva de retención para los datos entre 1 y 365 días. Si no desea aplicar una directiva de retención y conservar los datos indefinidamente, establezca el período de retención (días) en 0.
+Cambie el estado a **Activado**, seleccione la cuenta Azure Storage que se vaya a usar y elija los datos que desee copiar: registros, métricas o ambos. Se recomienda copiar los registros y métricas. Puede establecer la directiva de retención de los datos entre 1 y 365 días. Si no desea conservar los datos de forma indefinida, establezca el período de retención (días) en 0.
 
 ![][2]
 
-### 2\. Uso de PowerShell
+### B. Con PowerShell
 
 Primero, asegúrese de que ha instalado los [cmdlets de Azure PowerShell](https://github.com/Azure/azure-powershell/releases) más recientes.
 
@@ -63,36 +63,36 @@ Set-AzureRmDiagnosticSetting -ResourceId $SearchServiceResourceId StorageAccount
 
 Los datos se almacenan en blobs de Almacenamiento de Azure con formato JSON.
 
-Habrá un blob, por hora, por contenedor.
+Hay un blob, por hora y por contenedor.
   
 Ruta de acceso de ejemplo: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
 
 ### Registros
 
-Los blobs de registros contienen los registros de tráfico del servicio de búsqueda. Cada blob tiene un objeto raíz llamado "**registros**"que contiene una matriz de objetos de registro. Cada blob tiene registros sobre la operación que se llevó a cabo durante la misma hora.
+Los blobs de registros contienen los registros de tráfico del servicio de búsqueda. Cada blob tiene un objeto raíz llamado **registros** que contiene una matriz de objetos de registro. Cada blob tiene registros en todas las operaciones que tuvieron lugar durante la misma hora.
 
 ####Esquema de registro
 
 Nombre |Tipo |Ejemplo |Notas 
 ------|-----|----|-----
 Twitter en tiempo |datetime |"2015-12-07T00:00:43.6872559Z" |Marca de tiempo de la operación
-resourceId |cadena |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Su ResourceId
-operationName |cadena |"Query.Search" |El nombre de la operación
-operationVersion |cadena |"2015-02-28"|La versión de la API usada
-categoría |cadena |"OperationLogs" |constant 
-resultType |cadena |"Success" |Valores posibles: Success o Failure 
+resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Su ResourceId
+operationName |string |"Query.Search" |El nombre de la operación
+operationVersion |string |"2015-02-28"|La versión de la API usada
+categoría |string |"OperationLogs" |constant 
+resultType |string |"Success" |Valores posibles: Success o Failure 
 resultSignature |int |200 |Código de resultado HTTP 
 durationMS |int |50 |Duración de la operación en milisegundos 
-propiedades |objeto |consulte a continuación |Objeto que contiene datos específicos de la operación
+propiedades |objeto |consulte la tabla siguiente |Objeto que contiene datos específicos de la operación
 
 ####Esquema de propiedades
 
 |Nombre |Tipo |Ejemplo |Notas|
 |------|-----|----|-----|
-|Descripción|cadena |"GET /indexes('content')/docs" |Punto de conexión de la operación |
-|Consultar |cadena |"?search=AzureSearch&$count=true&api-version=2015-02-28" |Los parámetros de consulta |
+|Description|string |"GET /indexes('content')/docs" |Punto de conexión de la operación |
+|Consultar |string |"?search=AzureSearch&$count=true&api-version=2015-02-28" |Los parámetros de consulta |
 |Documentos |int |42 |Número de documentos procesados|
-|IndexName |cadena |"testindex"|Nombre del índice asociado a la operación |
+|IndexName |string |"testindex"|Nombre del índice asociado a la operación |
 
 ### Métricas
 
@@ -110,21 +110,21 @@ Métricas disponibles:
 
 |Nombre |Tipo |Ejemplo |Notas|
 |------|-----|----|-----|
-|resourceId |cadena |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |el identificador de recurso |
-|metricName |cadena |"Latency" |el nombre de la métrica |
+|resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |el identificador de recurso |
+|metricName |string |"Latency" |el nombre de la métrica |
 |Twitter en tiempo|datetime |"2015-12-07T00:00:43.6872559Z" |la marca de tiempo de la operación |
 |average |int |64|El valor de media de las muestras sin procesar en el intervalo de tiempo de la métrica |
 |minimum |int |37 |El valor mínimo de las muestras sin procesar en el intervalo de tiempo de la métrica |
 |maximum |int |78 |El valor máximo de las muestras sin procesar en el intervalo de tiempo de la métrica |
 |total |int |258 |El valor total de las muestras sin procesar en el intervalo de tiempo de la métrica |
 |count |int |4 |El número de muestras sin procesar usadas para generar la métrica |
-|timegrain |cadena |"PT1M" |El intervalo de agregación de la métrica en ISO 8601|
+|timegrain |string |"PT1M" |El intervalo de agregación de la métrica en ISO 8601|
 
-Todas las métricas se notifican en intervalos de un minuto. Es decir, cada una de las métricas expondrá los valores mínimos, máximos y medio por minuto.
+Todas las métricas se notifican en intervalos de un minuto. Cada métrica expone los valores mínimo, máximo y promedio por minuto.
 
-En el caso de la métrica SearchQueriesPerSecond, el mínimo será el valor más bajo de las consultas de búsqueda por segundo que se registró en ese minuto; igual pasa con el valor máximo. Para el valor medio, será el agregado en todo el minuto. Piense en este escenario: durante un minuto, puede tener 1 segundo de carga muy elevada (que será que máximo en SearchQueriesPerSecond), 58 segundos de carga media y 1 segundo con solo una consulta (que será el mínimo).
+En el caso de la métrica SearchQueriesPerSecond, el mínimo es el valor más bajo de las consultas de búsqueda por segundo que se registró en ese minuto. Lo mismo sucede con el valor máximo. El promedio es el agregado en todo el minuto. Piense en este escenario durante un minuto: un segundo de carga elevada que es el máximo en SearchQueriesPerSecond, seguido de 58 segundos de carga media y, por último, 1 segundo con solo una consulta (que es el mínimo).
 
-En el caso de la métrica ThrottledSearchQueriesPercentage, el mínimo, máximo, medio y total tendrán el mismo valor, que es el porcentaje de consultas de búsqueda con limitaciones según el número total de consultas de búsqueda durante un minuto.
+En el caso de ThrottledSearchQueriesPercentage, el mínimo, máximo, promedio y total tendrán el mismo valor: el porcentaje de consultas de búsqueda con limitaciones, del número total de consultas de búsqueda durante un minuto.
 
 ## Análisis de datos
 
@@ -140,7 +140,7 @@ Como punto de partida, se recomienda usar [Power BI](https://powerbi.microsoft.c
 
 #### Power BI Desktop
 
-[Power BI Desktop](https://powerbi.microsoft.com/es-ES/desktop): explore los datos y cree sus propias visualizaciones de los datos. Se proporciona una consulta de inicio a continuación para ayudarle.
+[Power BI Desktop](https://powerbi.microsoft.com/es-ES/desktop): explore los datos y cree sus propias visualizaciones de los datos. Consulte la consulta de inicio en la sección siguiente:
 
 1. Abrir un nuevo informe de Power BI Desktop
 2. Seleccione Obtener datos -> Más...
@@ -152,12 +152,12 @@ Como punto de partida, se recomienda usar [Power BI](https://powerbi.microsoft.c
 	![][6]
 
 4. Especifique el nombre y la clave de cuenta de la cuenta de almacenamiento
-5. Seleccione "insight-logs-operationlogs" y "insights-metrics-pt1m" y luego haga clic en Editar.
-6. Se abrirá el Editor de consultas , asegúrese de que "insight-logs-operationlogs" está seleccionado a la izquierda. Ahora abra el Editor avanzado seleccionando Ver -> Editor avanzado
+5. Seleccione "insight-logs-operationlogs" y "insights-metrics-pt1m" y haga clic en Editar
+6. Cuando se abra el Editor de consultas, asegúrese de que "insight-logs-operationlogs" está seleccionado a la izquierda. Ahora abra el Editor avanzado seleccionando Ver -> Editor avanzado
 
 	![][7]
 
-7. Mantenga las 2 primeros líneas y reemplace el resto por la consulta siguiente:
+7. Mantenga las dos primeras líneas y reemplace el resto por la consulta siguiente:
 
 	>     #"insights-logs-operationlogs" = Source{[Name="insights-logs-operationlogs"]}[Data],
 	>     #"Sorted Rows" = Table.Sort(#"insights-logs-operationlogs",{{"Date modified", Order.Descending}}),
@@ -188,7 +188,7 @@ Como punto de partida, se recomienda usar [Power BI](https://powerbi.microsoft.c
 
 8. Haga clic en Listo.
 
-9. Seleccione ahora "insights-metrics-pt1m" en la consulta que se encuentra menos a la izquierda y abra el editor avanzado de nuevo. Mantenga las 2 primeros líneas y reemplace el resto por la consulta siguiente:
+9. Seleccione ahora "insights-metrics-pt1m" en la consulta que se encuentra menos a la izquierda y abra el editor avanzado de nuevo. Mantenga las dos primeras líneas y reemplace el resto por la consulta siguiente:
 
 	>     #"insights-metrics-pt1m1" = Source{[Name="insights-metrics-pt1m"]}[Data],
 	>     #"Sorted Rows" = Table.Sort(#"insights-metrics-pt1m1",{{"Date modified", Order.Descending}}),
@@ -228,4 +228,4 @@ Obtenga más información sobre cómo crear informes increíbles. Consulte [Intr
 [6]: ./media/search-traffic-analytics/BlobStorage.png
 [7]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

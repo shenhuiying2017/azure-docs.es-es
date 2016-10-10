@@ -1,6 +1,6 @@
 
 <properties 
-	pageTitle="Administración de entidades de Servicios multimedia con la API de REST" 
+	pageTitle="Administración de entidades de Media Services con la API de REST| Microsoft Azure" 
 	description="Obtenga información sobre cómo administrar las entidades de Servicios multimedia con la API de REST." 
 	authors="juliako" 
 	manager="dwrede" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 #Administración de entidades de Servicios multimedia con la API de REST
@@ -175,4 +175,4 @@ En el ejemplo siguiente se muestra cómo eliminar un localizador que se usó par
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

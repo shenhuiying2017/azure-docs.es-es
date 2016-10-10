@@ -202,9 +202,8 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
                 </p>
                 <ul>
                   <li class="unordered">
-												Si se establece en No, todos los usuarios finales de su directorio pueden registrarse para restablecer la contraseña en <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>.<br><br></li>
-                  <li class="unordered">
-												Si se establece en Sí, solo los usuarios finales especificados en el control del <strong>grupo que puede realizar el restablecimiento de contraseña</strong> pueden registrarse para restablecer la contraseña en <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>.<br><br></li>
+                    Esta configuración no afecta el acceso de los usuarios al portal de registro de restablecimiento de contraseñas. Si <strong>Usuarios habilitados para restablecer la contraseña</strong> se establece en <strong>Sí</strong>, todos los usuarios finales de su directorio pueden registrarse para restablecer la contraseña en <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>.
+                  </li>
                 </ul>
                 <p>
                   <strong>Portal de restablecimiento de contraseña:</strong>
@@ -245,7 +244,8 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
                 </p>
                 <ul>
                   <li class="unordered">
-												Si <strong>Restringir acceso para restablecer la contraseña</strong> está establecido en <strong>Sí</strong>, solo los usuarios finales de este grupo podrán registrarse para restablecer la contraseña. <br><br></li>
+                    Esta configuración no afecta el acceso de los usuarios al portal de registro de restablecimiento de contraseñas. Si <strong>Usuarios habilitados para restablecer la contraseña</strong> se establece en <strong>Sí</strong>, todos los usuarios finales de su directorio pueden registrarse para restablecer la contraseña en <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>.
+                  </li>
                 </ul>
                 <p>
                   <strong>Portal de restablecimiento de contraseña:</strong>
@@ -270,12 +270,6 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
                 <p>(Solo visible si <strong>Usuarios habilitados para restablecer la contraseña</strong> está establecido en <strong>Sí</strong>).</p>
               </td>
               <td>
-                <p>
-
-                </p>
-                <p>
-
-                </p>
                 <p>
                   <strong>Nota:</strong>
                 </p>
@@ -875,4 +869,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

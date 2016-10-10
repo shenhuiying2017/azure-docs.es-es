@@ -430,7 +430,7 @@ Con independencia de lo que esté haciendo, con frecuencia el código necesita i
 
 Su concepto es sencillo: una aplicación coloca un mensaje en una cola y al final otra aplicación lee ese mensaje. Si su aplicación solo necesita este sencillo servicio, las colas de Azure podrían ser la mejor opción.
 
-Debido a la manera en que ha crecido Azure con el tiempo, Colas de Almacenamiento de Azure y Colas de Bus de servicio ofrecen servicios similares de puesta en cola. Los motivos que pueden llevarle a usar uno u otro se explican en el documento bastante técnico [<LINK>](http://msdn.microsoft.com/library/azure/hh767287.aspx "Colas de Service Bus y Colas de Azure: comparación y diferencias"). En la mayoría de escenarios, cualquiera de los dos funcionará.
+Debido a la manera en que ha crecido Azure con el tiempo, Colas de Almacenamiento de Azure y Colas de Bus de servicio ofrecen servicios similares de puesta en cola. Los motivos que pueden llevarle a utilizar uno u otro se explican en el documento bastante técnico sobre [comparación y diferencia de las colas de Service Bus y Azure](http://msdn.microsoft.com/library/azure/hh767287.aspx). En la mayoría de escenarios, cualquiera de los dos funcionará.
 
 **Escenarios de Colas**
 
@@ -606,4 +606,4 @@ Ahora que ha captado la idea general, el siguiente paso es programar su primera 
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

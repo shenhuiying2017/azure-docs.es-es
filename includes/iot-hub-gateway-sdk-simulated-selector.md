@@ -27,7 +27,7 @@ En el siguiente diagrama se muestran los componentes principales del ejemplo, in
 ![][1]
 
 
-> [AZURE.NOTE] Los módulos no se pasan mensajes directamente. Publican mensajes en un bus de mensajes interno que entrega los mensajes a los demás módulos mediante un mecanismo de suscripción, como se muestra en el diagrama siguiente. Para más información, consulte [Empezar a trabajar con el SDK de puerta de enlace][lnk-gw-getstarted].
+> [AZURE.NOTE] Los módulos no se pasan mensajes directamente. Los módulos publican mensajes en un agente interno que entrega los mensajes a los otros módulos mediante un mecanismo de suscripción, tal como se muestra en el diagrama siguiente. Para más información, consulte [Empezar a trabajar con el SDK de puerta de enlace][lnk-gw-getstarted].
 
 ### Módulo de ingesta de protocolos
 
@@ -69,3 +69,4 @@ En lugar de abrir una conexión al Centro de IoT para cada dispositivo simulado,
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-gw-getstarted]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md
 
+<!---HONumber=AcomDC_0928_2016-->

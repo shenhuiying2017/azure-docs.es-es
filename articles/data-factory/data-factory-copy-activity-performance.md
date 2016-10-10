@@ -3,7 +3,7 @@
 	description="Conozca los factores más importantes que afectan al rendimiento del movimiento de datos en Data Factory de Azure cuando se usa la actividad de copia."
 	services="data-factory"
 	documentationCenter=""
-	authors="spelluru"
+	authors="linda33wj"
 	manager="jhubbard"
 	editor="monicar"/>
 
@@ -14,11 +14,11 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/13/2016"
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 
 # Guía de optimización y rendimiento de la actividad de copia
-La actividad de copia de Azure Data Factory ofrece una solución de carga de datos segura, confiable y de alto rendimiento que le permite copiar decenas de terabytes de datos cada día en una rica variedad de almacenes de datos locales y en la nube. Un rendimiento acelerado de la carga de datos es clave para garantizar que puede centrarse en el problema principal de los "macrodatos": crear soluciones de análisis avanzadas y profundizar en todos esos datos.
+Copiar actividad de Azure Data Factory ofrece una solución de carga de datos de alto rendimiento fiable y segura de primera clase. Le permite copiar decenas de terabytes de datos al día en una amplia variedad de almacenes de datos locales y en la nube. Un rendimiento acelerado de la carga de datos es clave para garantizar que puede centrarse en el problema principal de los "macrodatos": crear soluciones de análisis avanzadas y profundizar en todos esos datos.
 
 Azure proporciona un conjunto de soluciones de almacén de datos y almacenamiento de datos de clase empresarial, y la actividad de copia ofrece una experiencia de carga de datos enormemente optimizada que es fácil de configurar e instalar. Con solo una actividad de copia, puede conseguir:
 
@@ -42,10 +42,10 @@ En este artículo se describe:
 Puntos a tener en cuenta:
 
 - La capacidad de proceso se calcula con la siguiente fórmula: [tamaño de los datos leídos del origen]/[duración de la ejecución de Copiar actividad].
-- Los números de referencia de rendimiento de la tabla anterior se midieron mediante el conjunto de datos [TPC-H](http://www.tpc.org/tpch/) en una ejecución de una única actividad de copia.
+- Los números de referencia de rendimiento de la tabla se midieron mediante el conjunto de datos [TPC-H](http://www.tpc.org/tpch/) en una ejecución de una única actividad de copia.
 - Para copiar entre almacenes de datos en la nube, establezca **cloudDataMovementUnits** en 1 y 4 (u 8) para compararlos. **parallelCopies** no se especifica. Consulte la sección [Copia en paralelo](#parallel-copy) para más información sobre estas características.
 - En los almacenes de datos de Azure, el origen y el receptor se encuentran en la misma región de Azure.
-- Para movimientos de datos híbridos (del entorno local a la nube o de la nube al entorno loca), se requiere que una sola instancia de Data Management Gateway se ejecute en una máquina que esté separada del almacén de datos local. La configuración se muestra en la tabla siguiente. Si se ha ejecutado una única actividad en la puerta de enlace, la operación de copia solo ha consumido una pequeña parte de los recursos de CPU o memoria de la máquina de prueba y una pequeña parte de su ancho de banda de red.
+- Para movimientos de datos híbridos (del entorno local a la nube o de la nube al entorno local), se requiere que una sola instancia de puerta de enlace se ejecute en una máquina que esté separada del almacén de datos local. La configuración se muestra en la tabla siguiente. Si se ha ejecutado una única actividad en la puerta de enlace, la operación de copia solo ha consumido una pequeña parte del ancho de banda de red, memoria y CPU de la máquina de prueba.
 	<table>
 	<tr>
 		<td>CPU</td>
@@ -87,7 +87,7 @@ Copia de datos entre almacenes basados en archivos (Blob Storage, Data Lake Stor
 Copia de datos desde **cualquier almacén de datos a Almacenamiento de tablas de Azure** | 4
 Todos los demás pares de origen y receptor | 1
 
-En la mayoría de los casos, el comportamiento predeterminado debe proporcionar el mejor rendimiento. Sin embargo, para controlar la carga en las máquinas que hospedan los almacenes de datos, o para optimizar el rendimiento de la copia, puede optar por reemplazar el valor predeterminado y especificar un valor para la propiedad **parallelCopies**. El valor debe estar entre 1 y 32 (ambos inclusive). En tiempo de ejecución, y para obtener el mejor rendimiento, la actividad de copia usa un valor inferior o igual al valor que ha establecido.
+Normalmente, el comportamiento predeterminado debe proporcionar el mejor rendimiento. Sin embargo, para controlar la carga en las máquinas que hospedan los almacenes de datos, o para optimizar el rendimiento de la copia, puede optar por reemplazar el valor predeterminado y especificar un valor para la propiedad **parallelCopies**. El valor debe estar entre 1 y 32 (ambos inclusive). En tiempo de ejecución, y para obtener el mejor rendimiento, la actividad de copia usa un valor inferior o igual al valor que ha establecido.
 
 	"activities":[  
 	    {
@@ -111,7 +111,7 @@ En la mayoría de los casos, el comportamiento predeterminado debe proporcionar 
 Puntos a tener en cuenta:
 
 - Cuando se copian datos entre almacenes basados en archivos, se produce paralelismo en el nivel de archivo. No hay fragmentación dentro de un único archivo. El número real de copias en paralelo que usa el servicio de movimiento de datos para la operación de copia en tiempo de ejecución no es superior al número de archivos que tenga. Si el comportamiento de copia es **mergeFile**, la actividad de copia no puede aprovechar las ventajas del paralelismo.
-- Cuando especifique un valor para la propiedad **parallelCopies**, tenga en cuenta el aumento de la carga en los almacenes de datos de origen y receptor, y en la puerta de enlace si se trata de una copia híbrida. Esto es especialmente cierto si tiene varias actividades o ejecuciones simultáneas de las mismas actividades que se ejecutan en el mismo almacén de datos. Si observa que el almacén de datos o la puerta de enlace están sobrecargados, disminuya el valor de la propiedad **parallelCopies** para aliviar la carga.
+- Cuando especifique un valor para la propiedad **parallelCopies**, tenga en cuenta el aumento de la carga en los almacenes de datos de origen y receptor, y en la puerta de enlace si se trata de una copia híbrida. Esto sucede especialmente si tiene varias actividades o ejecuciones simultáneas de las mismas actividades que se ejecutan en el mismo almacén de datos. Si observa que el almacén de datos o la puerta de enlace están sobrecargados, disminuya el valor de la propiedad **parallelCopies** para aliviar la carga.
 - Cuando se copian datos de almacenes no basados en archivos en almacenes basados en archivos, el servicio de movimiento de datos ignora la propiedad **parallelCopies**. Aunque se especifica el paralelismo, no se aplica en este caso.
 
 > [AZURE.NOTE] Debe usar Data Management Gateway versión 1.11 o superior para emplear la característica **parallelCopies** cuando realice una copia híbrida.
@@ -151,18 +151,18 @@ Es **importante** recordar que se cobra en función del tiempo total de la opera
 ## Copias almacenadas provisionalmente
 Al copiar datos de un almacén de datos de origen a un almacén de datos receptor, podría elegir usar Almacenamiento de blobs como almacenamiento provisional. El almacenamiento provisional es especialmente útil en los siguientes casos:
 
-1.	**Quiere realizar la ingesta de datos de varios almacenes de datos en SQL Data Warehouse mediante PolyBase**. Almacenamiento de datos SQL emplea PolyBase como mecanismo de alto rendimiento para cargar una gran cantidad de datos en Almacenamiento de datos SQL. Sin embargo, los datos de origen deben estar en Almacenamiento de blobs y deben satisfacer criterios adicionales. Al cargar datos desde un almacén de datos distinto de Almacenamiento de blobs, puede activar la copia de datos mediante el Almacenamiento de blobs provisional. En ese caso, Data Factory realiza las transformaciones de datos necesarias para garantizar que se cumplen los requisitos de PolyBase. A continuación, se usa PolyBase para cargar datos en Almacenamiento de datos SQL. Consulte [Uso de PolyBase para cargar datos en el Almacenamiento de datos SQL](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para más información y ver ejemplos.
-2.	**En ocasiones, realizar un movimiento de datos híbridos lleva tiempo (es decir, copiar de un almacén de datos local a un almacén de datos en la nube o viceversa) a través de una conexión de red lenta**. Para mejorar el rendimiento, puede comprimir los datos locales de modo que se tarde menos tiempo en mover datos al almacén de datos provisional en la nube. Luego, puede descomprimir los datos en el almacenamiento provisional antes de cargarlos en el almacén de datos de destino.
-3.	**No quiere abrir otros puertos que no sean el 80 y el 443 en el firewall, debido a las directivas de TI corporativas**. Por ejemplo, al copiar datos de un almacén de datos local a un receptor de Base de datos SQL de Azure o a un receptor de Almacenamiento de datos SQL de Azure, debe activar la comunicación TCP saliente en el puerto 1433 tanto para el firewall de Windows como para el firewall corporativo. En ese escenario, puede aprovechar Data Management Gateway para copiar primero los datos en una instancia de Almacenamiento de blobs provisional mediante HTTP o HTTPS en el puerto 443. Luego, puede cargar los datos en Base de datos SQL o en Almacenamiento de datos SQL desde el Almacenamiento de blobs provisional. En este flujo, no es necesario habilitar el puerto 1433.
+1.	**Quiere realizar la ingesta de datos de varios almacenes de datos en SQL Data Warehouse mediante PolyBase**. Almacenamiento de datos SQL emplea PolyBase como mecanismo de alto rendimiento para cargar una gran cantidad de datos en Almacenamiento de datos SQL. Sin embargo, los datos de origen deben estar en Almacenamiento de blobs y deben satisfacer criterios adicionales. Al cargar datos desde un almacén de datos distinto de Almacenamiento de blobs, puede activar la copia de datos mediante el Almacenamiento de blobs provisional. En ese caso, Data Factory realiza las transformaciones de datos necesarias para garantizar que se cumplen los requisitos de PolyBase. A continuación, se usa PolyBase para cargar datos en Almacenamiento de datos SQL. Para más información, consulte [Uso de PolyBase para cargar datos en Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
+2.	**En ocasiones, realizar un movimiento de datos híbridos lleva tiempo (es decir, copiar entre un almacén de datos local y un almacén de datos en la nube) a través de una conexión de red lenta**. Para mejorar el rendimiento, puede comprimir los datos locales de modo que se tarde menos tiempo en mover datos al almacén de datos provisional en la nube. Luego, puede descomprimir los datos en el almacenamiento provisional antes de cargarlos en el almacén de datos de destino.
+3.	**No quiere abrir otros puertos que no sean el 80 y el 443 en el firewall, debido a las directivas de TI corporativas**. Por ejemplo, al copiar datos de un almacén de datos local a un receptor de Base de datos SQL de Azure o a un receptor de Almacenamiento de datos SQL de Azure, debe activar la comunicación TCP saliente en el puerto 1433 tanto para el firewall de Windows como para el firewall corporativo. En ese escenario, aproveche la ventaja de la puerta de enlace para copiar primero los datos en una instancia de ensayo de Blob Storage mediante HTTP o HTTPS en el puerto 443. Luego, puede cargar los datos en Base de datos SQL o en Almacenamiento de datos SQL desde el Almacenamiento de blobs provisional. En este flujo, no es necesario habilitar el puerto 1433.
 
 ### Funcionamiento de las copias almacenadas provisionalmente
 Al activar la característica de almacenamiento provisional, primero se copian los datos desde el almacén de datos de origen al almacén de datos provisional (el suyo propio). A continuación, los datos se copian desde el almacén de datos provisional al almacén de datos receptor. Data Factory administra automáticamente el flujo de las dos fases. Data Factory también limpia los datos temporales del almacenamiento provisional una vez finalizado el movimiento de los datos.
 
-En el escenario de copia en la nube, en el que los almacenes de datos de origen y receptor están en la nube y no usan Data Management Gateway, Data Factory se encarga de las operaciones de copia.
+En el escenario de copia en la nube (tanto en almacenes de datos de origen y recepción), no se utiliza la puerta de enlace. El servicio de Data Factory realiza las operaciones de copia.
 
 ![Copias almacenadas provisionalmente: escenario de modelo en la nube](media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png)
 
-En el escenario de copia híbrida, en el que el origen se encuentra en el entorno local y el receptor está en la nube, Data Management Gateway mueve los datos desde el almacén de datos de origen a un almacén de datos provisional. Data Factory también mueve los datos desde el almacén de datos provisional al almacén de datos receptor. Con el flujo invertido también se permite copiar datos de un almacén de datos en la nube a uno local a través del almacenamiento provisional.
+En el escenario de copia híbrida, en el que el origen se encuentra en el entorno local y el receptor está en la nube, la puerta de enlace mueve los datos desde el almacén de datos de origen a un almacén de datos provisional. El servicio de Data Factory también mueve los datos desde el almacén de datos provisional al almacén de datos receptor. Con el flujo invertido también se permite copiar datos de un almacén de datos en la nube a uno local a través del almacenamiento provisional.
 
 ![Copias almacenadas provisionalmente: escenario de modelo híbrido](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)
 
@@ -171,14 +171,14 @@ Cuando activa el movimiento de datos mediante un almacenamiento provisional, pue
 Actualmente, no se pueden copiar datos entre dos almacenes de datos locales mediante almacenamiento provisional. Esperamos que esta opción esté pronto disponible.
 
 ### Configuración
-Puede configurar la opción **enableStaging** de la actividad de copia para especificar si quiere que los datos se almacenen provisionalmente en Almacenamiento de blobs antes de cargarlos en un almacén de datos de destino. Al establecer **enableStaging** en TRUE, especifique las propiedades adicionales enumeradas en la siguiente tabla. Si no tiene un servicio vinculado a la firma de acceso compartido de Almacenamiento o de Almacenamiento de Azure para el almacenamiento provisional, deberá crear uno.
+Configure la opción **enableStaging** de la actividad de copia para especificar si quiere que los datos se almacenen provisionalmente en Blob Storage antes de cargarlos en un almacén de datos de destino. Al establecer **enableStaging** en TRUE, especifique las propiedades adicionales enumeradas en la siguiente tabla. Si no tiene un servicio vinculado a la firma de acceso compartido de Almacenamiento o de Almacenamiento de Azure para el almacenamiento provisional, deberá crear uno.
 
 Propiedad | Description | Valor predeterminado | Obligatorio
 --------- | ----------- | ------------ | --------
 **enableStaging** | Especifique si desea copiar los datos a través de un almacén provisional. | False | No
 **linkedServiceName** | Especifique el nombre de un servicio vinculado [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) o [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service), que haga referencia a la instancia de Almacenamiento que se usa como almacenamiento provisional. <br/><br/> No puede usar Almacenamiento con una firma de acceso compartido para cargar datos en Almacenamiento de datos SQL mediante PolyBase. Puede usarlo en todos los demás casos. | N/D | Sí, cuando el valor de **enableStaging** está establecido en True.
 **path** | Especifique la ruta de acceso de Almacenamiento de blobs que quiere que contenga los datos almacenados provisionalmente. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para almacenar los datos temporales. <br/><br/> Especifique una ruta de acceso solo si usa Almacenamiento con una firma de acceso compartido o si necesita que los datos temporales estén en una ubicación específica. | N/D | No
-**enableCompression** | Para reducir el volumen de datos que se van a transferir, especifique si se deben comprimir los datos cuando el servicio de movimiento de datos los mueva de un almacén de datos de origen a un almacén de datos receptor. | False | No
+**enableCompression** | Especifica si se deben comprimir los datos antes de copiarlos en el destino. Esta configuración reduce el volumen de datos que se va a transferir. | False | No
 
 Este es un ejemplo de definición de actividad de copia con las propiedades que se han descrito en la tabla anterior:
 
@@ -209,8 +209,8 @@ Este es un ejemplo de definición de actividad de copia con las propiedades que 
 ### Impacto en la facturación
 Los cargos que se le realizan se basan en dos elementos: duración de la copia y tipo de copia.
 
-- Al utilizar almacenamiento provisional durante una copia de nube (copia de datos de un almacén de datos en la nube a otro de este tipo, por ejemplo, de Data Lake Store a Almacenamiento de datos SQL), se le cobrará de la siguiente forma: [suma de la duración de la copia de los pasos 1 y 2] x [precio unitario de la copia de nube].
-- Al utilizar almacenamiento provisional durante una copia híbrida (copia de datos de un almacén de datos local a uno en la nube, por ejemplo, de una base de datos de SQL Server local a Almacenamiento de datos SQL), se le cobrará de la siguiente forma: [duración de la copia híbrida] x [precio unitario de la copia híbrida] + [duración de la copia de nube] x [precio unitario de la copia de nube].
+- Al utilizar almacenamiento provisional durante una copia de nube (copia de datos de un almacén de datos en la nube a otro de este tipo), se le cobrará de la siguiente forma: [suma de la duración de la copia de los pasos 1 y 2] x [precio unitario de la copia de nube].
+- Al utilizar almacenamiento provisional durante una copia híbrida (copia de datos de un almacén de datos local a uno en la nube), se le cobrará de la siguiente forma: [duración de la copia híbrida] x [precio unitario de la copia híbrida] + [duración de la copia de nube] x [precio unitario de la copia de nube].
 
 
 ## Pasos de optimización del rendimiento
@@ -242,7 +242,7 @@ Para optimizar el rendimiento del servicio Data Factory con la actividad de copi
 ### General
 Asegúrese de que el almacén de datos subyacente no esté saturado con otras cargas de trabajo que se ejecutan en él o contra él.
 
-Para almacenes de datos de Microsoft, consulte los [temas sobre supervisión y optimización](#performance-reference) específicos de los almacenes de datos para que le ayuden a comprender las características de rendimiento del almacén de datos, a reducir los tiempos de respuesta y a maximizar la capacidad de proceso.
+Para almacenes de datos de Microsoft, consulte los [temas sobre supervisión y optimización](#performance-reference) específicos de los almacenes de datos que le ayuden a comprender las características de rendimiento del almacén de datos, a reducir los tiempos de respuesta y a maximizar la capacidad de proceso.
 
 Si copia los datos de Almacenamiento de blobs a Almacenamiento de datos SQL, considere el uso de **PolyBase** para mejorar el rendimiento. Consulte [Uso de PolyBase para cargar datos en el Almacenamiento de datos SQL](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse) para obtener más información.
 
@@ -257,7 +257,7 @@ Si copia los datos de Almacenamiento de blobs a Almacenamiento de datos SQL, con
 ### Almacenes de datos relacionales
 *(Incluye SQL Database, SQL Data Warehouse, Amazon Redshift, bases de datos SQL Server y Oracle, MySQL, DB2, Teradata, Sybase y bases de datos PostgreSQL, etc.)*
 
-- **Patrón de datos**: el esquema de tabla afecta al rendimiento de la copia. Para copiar la misma cantidad de datos, un tamaño de fila grande proporcionará un mejor rendimiento que un tamaño de fila pequeño, ya que la base de datos recupera de forma más eficaz menos lotes de datos que contienen un menor número de filas.
+- **Patrón de datos**: el esquema de tabla afecta al rendimiento de la copia. Un tamaño de fila grande le ofrece un mejor rendimiento que el tamaño de fila pequeño para copiar la misma cantidad de datos. El motivo es que la base de datos puede recuperar más eficazmente menos lotes de datos que contienen menos filas.
 - **Consulta o procedimiento almacenado**: optimice la lógica de la consulta o del procedimiento almacenado que se especifica en el origen de la actividad de copia para que capture los datos de forma más eficiente.
 - Además, para el escenario de **bases de datos relacionales locales**, como SQL Server y Oracle, que requieren el uso de **Data Management Gateway**, consulte la sección [Consideraciones sobre Data Management Gateway](#considerations-on-data-management-gateway).
 
@@ -296,7 +296,7 @@ Si va a copiar datos de **Almacenamiento de blobs** a **Almacenamiento de datos 
 *(Incluye Almacenamiento de tablas y Azure DocumentDB)*
 
 - Para **Almacenamiento de tablas**:
-	- **Partición**: escribir datos en particiones intercaladas degrada considerablemente el rendimiento. Puede ordenar los datos de origen por la clave de partición para que los datos se inserten en una partición después de otra de forma eficiente, o bien, puede ajustar la lógica para escribir los datos en una sola partición.
+	- **Partición**: escribir datos en particiones intercaladas degrada considerablemente el rendimiento. Ordene los datos de origen por la clave de partición para que los datos se inserten de forma eficiente en una partición después de otra o ajuste la lógica para escribir los datos en una sola partición.
 - Para **DocumentDB**:
 	- **Tamaño de lote**: la propiedad **writeBatchSize** indica el número de solicitudes en paralelo al servicio de DocumentDB para crear documentos. Puede esperar un rendimiento mejor si aumenta el valor de **writeBatchSize** porque se envían más solicitudes en paralelo a DocumentDB. Sin embargo, tenga cuidado con las limitaciones cuando escriba en DocumentDB (el mensaje de error es "La tasa de solicitudes es grande"). Son varios los factores que pueden provocar limitaciones, como el tamaño del documento, el número de términos que contiene y la directiva de indexación de la colección de destino. Para lograr un mayor rendimiento de la actividad de copia, considere la posibilidad de usar una colección mejor (por ejemplo, S3).
 
@@ -309,7 +309,7 @@ La serialización y deserialización pueden tener lugar cuando el conjunto de da
 	- Cuando los conjuntos de datos de entrada y salida tienen la misma configuración de formato de archivo o carecen de dicha configuración, el servicio de movimiento de datos ejecuta una copia binaria sin ninguna serialización o deserialización. En este caso, el rendimiento es mayor en comparación con el escenario en el que la configuración del formato de archivo de origen y receptor es diferente.
 	- Cuando los conjuntos de datos de entrada y salida están en formato de texto y solo es diferente el tipo de codificación, el servicio de movimiento de datos solo realiza la conversión de la codificación. No se realiza ninguna serialización y deserialización, lo que provoca cierta sobrecarga en el rendimiento en comparación con una copia binaria.
 	- Cuando los conjuntos de datos de entrada y salida tienen formatos de archivo diferentes o configuraciones diferentes, por ejemplo, los delimitadores, el servicio de movimiento de datos deserializa los datos de origen para transmitirlos, transformarlos y luego serializarlos en el formato de salida indicado. Esta operación da como resultado una sobrecarga mucho mayor sobre el rendimiento en comparación con otros escenarios.
-- Al copiar archivos a y desde un almacén de datos que no se basa en archivos (por ejemplo, desde un almacén basado en archivos hasta un almacén relacional), se requiere el paso de serialización o deserialización. Este paso produce una sobrecarga considerable sobre el rendimiento.
+- Al copiar archivos desde un almacén de datos y hacia un almacén de datos que no se basa en archivos (por ejemplo, desde un almacén basado en archivos hasta un almacén relacional), se requiere el paso de serialización o deserialización. Este paso produce una sobrecarga considerable sobre el rendimiento.
 
 **Formato de archivo**: el formato de archivo que elija puede afectar al rendimiento de la copia. Por ejemplo, Avro es un formato binario compacto que almacena metadatos con datos. Es ampliamente admitido para el procesamiento y la realización de consultas en el ecosistema de Hadoop. Sin embargo, Avro resulta más caro para serialización y deserialización, lo que da lugar a un menor rendimiento de la copia en comparación con el formato de texto. Elija el formato de archivo para el flujo de procesamiento de forma holística. Para comenzar, piense en qué formato se almacenan los datos, los almacenes de datos de origen o si se extraerán de sistemas externos; el mejor formato para el almacenamiento, el procesamiento analítico y la realización de consultas; y en qué formato se deben exportar los datos a data marts para poder usar herramientas de visualización y generación de informes. A veces, un formato de archivo que no es óptimo desde el punto de vista del rendimiento de lectura y escritura podría ser una buena opción al considerar el proceso analítico en general.
 
@@ -360,7 +360,7 @@ Puede que uno o varios de los siguientes factores provoquen el cuello de botella
 -	**Origen:** el propio SQL Server tiene un rendimiento bajo debido a cargas intensas.
 -	**Data Management Gateway**
 	-	**LAN**: la puerta de enlace se encuentra lejos de la máquina de SQL Server y tiene una conexión de ancho de banda bajo.
-	-	**Puerta de enlace**: la puerta de enlace ha alcanzado sus limitaciones de carga para llevar a cabo lo siguiente:
+	-	**Puerta de enlace**: la puerta de enlace ha alcanzado sus limitaciones de carga para llevar a cabo las siguientes operaciones:
 		-	**Serialización:** la serialización del flujo de datos a formato CSV tiene un rendimiento bajo.
 		-	**Compresión**: ha elegido un códec de compresión lenta (por ejemplo, bzip2, a 2,8 MBps con Core i7).
 	-	**WAN**: el ancho de banda entre la red corporativa y los servicios de Azure es bajo (por ejemplo, T1 = 1544 kbps. T2 = 6312 kbps).
@@ -373,7 +373,7 @@ En este caso, la compresión de datos bzip2 podría estar ralentizando la canali
 
 **Escenario I:** se copian 1000 archivos de 1 MB del sistema de archivos local a Almacenamiento de blobs.
 
-**Análisis y optimización del rendimiento**: por ejemplo, si ha instalado Data Management Gateway en una máquina de cuatro núcleos, Data Factory usa 16 copias en paralelo para mover los archivos del sistema de archivos a Almacenamiento de blobs de manera simultánea. Esta ejecución en paralelo debe tener como resultado un alto rendimiento. También puede especificar explícitamente el número de copias en paralelo. Al copiar muchos archivos pequeños, las copias en paralelo ayudan considerablemente al rendimiento al usar los recursos de forma más eficaz.
+**Análisis y optimización del rendimiento**: por ejemplo, si ha instalado la puerta de enlace en una máquina de cuatro núcleos, Data Factory usa 16 copias en paralelo para mover los archivos del sistema de archivos a Blob Storage de manera simultánea. Esta ejecución en paralelo debe tener como resultado un alto rendimiento. También puede especificar explícitamente el número de copias en paralelo. Al copiar muchos archivos pequeños, las copias en paralelo ayudan considerablemente al rendimiento al usar los recursos de forma más eficaz.
 
 ![Escenario 1.](./media/data-factory-copy-activity-performance/scenario-1.png)
 
@@ -399,4 +399,4 @@ Estas son algunas referencias para la supervisión y la optimización del rendim
 - Instancia de SQL Server local: [Supervisión y optimización del rendimiento](https://msdn.microsoft.com/library/ms189081.aspx)
 - Servidor de archivos local: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx) (Optimización del rendimiento para servidores de archivos)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

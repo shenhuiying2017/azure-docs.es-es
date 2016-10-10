@@ -1,10 +1,10 @@
 <properties
    pageTitle="Características de Azure AD Connect en la versión preliminar | Microsoft Azure"
-   description="En este tema se describen más detenidamente las características que se encuentran en vista previa en Azure AD Connect."
+   description="En este tema se describen más detenidamente las características que se encuentran en la versión preliminar en Azure AD Connect."
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -17,7 +17,7 @@
    ms.author="andkjell;billmath"/>
 
 # Más detalles sobre las características de vista previa
-En este tema se describe cómo usar las características que existen actualmente en la vista previa.
+En este tema se describe cómo usar las características que actualmente forman parte de la versión preliminar.
 
 ## Escritura diferida de grupos
 La opción para la escritura diferida de grupos en las características opcionales le permitirá escribir en diferido **Grupos de Office 365** en un bosque con Exchange instalado. Se trata de un tipo de grupo que siempre se controla en la nube. Si dispone de Exchange local, puede reescribir estos grupos en el entono local, por lo que los usuarios con un buzón de Exchange local pueden enviar y recibir correos electrónicos de ellos.
@@ -33,7 +33,7 @@ Este grupo se representará como un grupo de distribución en AD DS local. El se
 - Actualmente solo se admiten las implementaciones de organizaciones de Exchange de un solo bosque. Si tiene más de una organización de Exchange local, necesitará una solución de GALSync local para que estos grupos aparezcan en los demás bosques.
 - La característica Reescritura de grupos no controla actualmente los grupos de seguridad ni los grupos de distribución.
 
->[AZURE.NOTE] Se necesita una suscripción a Azure AD Premium para la reescritura de grupos.
+>[AZURE.NOTE] Se necesita una suscripción a Azure AD Premium para la escritura diferida de grupos.
 
 ## Reescritura de usuarios
 > [AZURE.IMPORTANT] La característica en vista previa de escritura diferida de usuario, se quitó en la actualización de agosto de 2015 a Azure AD Connect. Si la ha habilitado, debería deshabilitarla.
@@ -43,4 +43,4 @@ Continúe su [Instalación personalizada de Azure AD Connect](active-directory-a
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

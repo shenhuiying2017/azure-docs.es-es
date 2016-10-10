@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="07/21/2016"
+	ms.date="09/27/2016"
 	ms.author="marsma"/>
 
 # Escalación automática de los nodos de ejecución en un grupo de Lote de Azure
@@ -26,7 +26,7 @@ Puede habilitar el escalado automático al crear un grupo o bien en un grupo exi
 
 ## Fórmulas de escalado automático
 
-Una fórmula de escalado automático es un valor de cadena definido que contiene una o varias instrucciones y que se asignan al elemento [autoScaleFormula][rest_autoscaleformula] (REST de Lote) o a la propiedad [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (.NET de Lote) de un grupo. Cuando se asigna a un grupo, el servicio Lote usa la fórmula para determinar el número de nodos de proceso de un grupo para el siguiente intervalo de procesamiento (más en intervalos posteriores). La cadena de fórmula no puede superar los 8 KB y puede incluir hasta 100 instrucciones separadas por punto y coma, y saltos de línea y comentarios.
+Una fórmula de escalado automático es un valor de cadena definido que contiene una o varias instrucciones y que se asignan al elemento [autoScaleFormula][rest_autoscaleformula] \(REST de Lote) o a la propiedad [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] \(.NET de Lote) de un grupo. Cuando se asigna a un grupo, el servicio Lote usa la fórmula para determinar el número de nodos de proceso de un grupo para el siguiente intervalo de procesamiento (más en intervalos posteriores). La cadena de fórmula no puede superar los 8 KB y puede incluir hasta 100 instrucciones separadas por punto y coma, y saltos de línea y comentarios.
 
 Puede imaginarse que las fórmulas de escalado automático son un "idioma" de escalado automático de Lote. Las instrucciones de fórmula son expresiones de forma libre que pueden incluir variables definidas por el servicio (variables definidas por el servicio de Lote) y variables definidas por el usuario (variables que usted define). Pueden realizar diversas operaciones en estos valores mediante funciones, operadores y tipos integrados. Por ejemplo, una instrucción podría tener la forma siguiente:
 
@@ -60,99 +60,32 @@ Las tablas siguientes muestran las variables de lectura y escritura y de solo le
 
 Puede **obtener** y **establecer** los valores de estas variables definidas por el servicio para administrar el número de nodos de ejecución de un grupo:
 
-<table>
-  <tr>
-    <th>Lectura y escritura<br/>variables definidas por el servicio</th>
-    <th>Descripción</th>
-  </tr>
-  <tr>
-    <td>$TargetDedicated</td>
-    <td>Número <b>objetivo</b> de <b>nodos de ejecución dedicados</b> para el grupo. Es el número de nodos de ejecución al que se debe escalar el grupo. Es un número "objetivo" porque es posible que un grupo no alcance el número objetivo de nodos. Esto puede ocurrir si el número de nodos de destino se modifica de nuevo mediante una evaluación posterior de escalado automático antes de que el grupo haya alcanzado el objetivo inicial. También puede ocurrir si se alcanza una cuota de nodos o núcleos de la cuenta de Lote antes de llegar al número de nodos de destino.</td>
-  </tr>
-  <tr>
-    <td>$NodeDeallocationOption</td>
-    <td>La acción que se produce cuando se quitan los nodos de ejecución de un grupo. Los valores posibles son:
-      <br/>
-      <ul>
-        <li><p><b>requeue</b>: finaliza las tareas de inmediato y las vuelve a poner en la cola de trabajos para que se vuelvan a programar.</p></li>
-        <li><p><b>terminate</b>: finaliza las tareas de inmediato y las quitar de la cola de trabajos.</p></li>
-        <li><p><b>taskcompletion</b>: espera a que finalicen las tareas actualmente en ejecución y, a continuación, quita el nodo del grupo.</p></li>
-        <li><p><b>retaineddata</b>: espera a que todos los datos que se conservan en la tarea local en el nodo se limpien antes de quitar el nodo del grupo.</p></li>
-      </ul></td>
-   </tr>
-</table>
+| Variables definidas por el servicio de solo escritura | Description |
+| --- | --- |
+| $TargetDedicated | Número **objetivo** de **nodos de ejecución dedicados** para el grupo. Es el número de nodos de ejecución al que se debe escalar el grupo. Es un número "objetivo" porque es posible que un grupo no alcance el número objetivo de nodos. Esto puede ocurrir si el número de nodos de destino se modifica de nuevo mediante una evaluación posterior de escalado automático antes de que el grupo haya alcanzado el objetivo inicial. También puede ocurrir si se alcanza una cuota de nodos o núcleos de la cuenta de Lote antes de llegar al número de nodos de destino. |
+| $NodeDeallocationOption | La acción que se produce cuando se quitan los nodos de ejecución de un grupo. Los valores posibles son:<ul><li>**requeue**: finalizará las tareas inmediatamente y las colocará en la cola de trabajos para que se vuelvan a programar.<li>**terminate**: finalizará las tareas inmediatamente y las quitará de la cola de trabajos.<li>**taskcompletion**: esperará a que las tareas en ejecución finalicen y, a continuación, quitarán el nodo del grupo.<li>**retaineddata**: esperará a que todos los datos locales con tareas retenidas en el nodo se limpien antes de quitar el nodo del grupo.</ul> |
 
-Puede **obtener** el valor de estas variables definidas por el servicio para realizar ajustes basados en las métricas del servicio Lote:
+Puede **obtener** el valor de estas variables definidas por el servicio para realizar ajustes basados en las métricas del servicio Batch:
 
-<table>
-  <tr>
-    <th>Solo lectura<br/>definidas por el servicio<br/>variables</th>
-    <th>Descripción</th>
-  </tr>
-  <tr>
-    <td>$CPUPercent</td>
-    <td>El porcentaje medio de uso de CPU.</td>
-  </tr>
-  <tr>
-    <td>$WallClockSeconds</td>
-    <td>El número de segundos consumidos.</td>
-  </tr>
-  <tr>
-    <td>$MemoryBytes</td>
-    <td>La media de megabytes usados.</td>
-  <tr>
-    <td>$DiskBytes</td>
-    <td>La media de gigabytes usados en los discos locales.</td>
-  </tr>
-  <tr>
-    <td>$DiskReadBytes</td>
-    <td>El número de bytes leídos.</td>
-  </tr>
-  <tr>
-    <td>$DiskWriteBytes</td>
-    <td>El número de bytes escritos.</td>
-  </tr>
-  <tr>
-    <td>$DiskReadOps</td>
-    <td>El número de operaciones de disco de lectura realizadas.</td>
-  </tr>
-  <tr>
-    <td>$DiskWriteOps</td>
-    <td>El número de operaciones de disco de escritura realizadas.</td>
-  </tr>
-  <tr>
-    <td>$NetworkInBytes</td>
-    <td>El número de bytes entrantes.</td>
-  </tr>
-  <tr>
-    <td>$NetworkOutBytes</td>
-    <td>El número de bytes salientes.</td>
-  </tr>
-  <tr>
-    <td>$SampleNodeCount</td>
-    <td>El número de nodos de ejecución.</td>
-  </tr>
-  <tr>
-    <td>$ActiveTasks</td>
-    <td>El número de tareas que se encuentran en estado activo.</td>
-  </tr>
-  <tr>
-    <td>$RunningTasks</td>
-    <td>El número de tareas en un estado de ejecución.</td>
-  </tr>
-  <tr>
-    <td>$SucceededTasks</td>
-    <td>El número de tareas que finalizó correctamente.</td>
-  </tr>
-  <tr>
-    <td>$FailedTasks</td>
-    <td>El número de tareas erróneas.</td>
-  </tr>
-  <tr>
-    <td>$CurrentDedicated</td>
-    <td>El número actual de dedicado de nodos de ejecución dedicados.</td>
-  </tr>
-</table>
+| Variables definidas por el servicio de solo lectura | Description |
+| --- | --- |
+| $CPUPercent | El porcentaje medio de uso de CPU. |
+| $WallClockSeconds | El número de segundos consumidos. |
+| $MemoryBytes | La media de megabytes usados. |
+| $DiskBytes | La media de gigabytes usados en los discos locales. |
+| $DiskReadBytes | El número de bytes leídos. |
+| $DiskWriteBytes | El número de bytes escritos. |
+| $DiskReadOps | El número de operaciones de disco de lectura realizadas. |
+| $DiskWriteOps | El número de operaciones de disco de escritura realizadas. |
+| $NetworkInBytes | El número de bytes entrantes. |
+| $NetworkOutBytes | El número de bytes salientes. |
+| $SampleNodeCount | El número de nodos de ejecución. |
+| $ActiveTasks | El número de tareas que se encuentran en estado activo. |
+| $RunningTasks | El número de tareas en un estado de ejecución. |
+| $PendingTasks | La suma de $ActiveTasks y $RunningTasks. |
+| $SucceededTasks | El número de tareas que finalizó correctamente. |
+| $FailedTasks | El número de tareas erróneas. |
+| $CurrentDedicated | El número actual de dedicado de nodos de ejecución dedicados. |
 
 > [AZURE.TIP] Las variables de solo lectura definidas por el servicio que se muestran anteriormente son *objetos* que proporcionan varios métodos para acceder a los datos asociados a cada uno de ellos. Consulte la sección [Obtención de datos de ejemplo](#getsampledata) más adelante para más información.
 
@@ -163,7 +96,7 @@ Estos son los **tipos** que se admiten en las fórmulas.
 - double
 - doubleVec
 - doubleVecList
-- cadena
+- string
 - timestamp: timestamp es una estructura compuesta que contiene los siguientes miembros:
 
 	- year
@@ -194,7 +127,7 @@ Estas **operaciones** se permiten en los tipos enumerados arriba.
 | ------------------------------------- | --------------------- | ------------- |
 | double *operador* double | +, -, *, / | double |
 | double *operador* timeinterval | * | timeinterval |
-| double *operador* double | +, -, *, / | doubleVec |
+| doubleVec *operador* double | +, -, *, / | doubleVec |
 | doubleVec *operador* doubleVec | +, -, *, / | doubleVec |
 | timeinterval *operador* double | *, / | timeinterval |
 | timeinterval *operador* timeinterval | +, - | timeinterval |
@@ -215,7 +148,7 @@ Cuando se prueba un valor double con un operador ternario (`double ? statement1 
 
 Estas **funciones** predefinidas están disponibles para que las use al definir fórmulas de escalado automático.
 
-| Función | Tipo de valor devuelto | Descripción
+| Función | Tipo de valor devuelto | Description
 | --------------------------------- | ------------- | --------- |
 | avg(doubleVecList) | double | Devuelve el valor medio de todos los valores de doubleVecList.
 | len(doubleVecList) | double | Devuelve la longitud del vector creado a partir de doubleVecList.
@@ -249,44 +182,13 @@ Las fórmulas de escalado automático actúan en datos de métricas (muestras) p
 
 `$CPUPercent.GetSample(TimeInterval_Minute * 5)`
 
-<table>
-  <tr>
-    <th>Método</th>
-    <th>Descripción</th>
-  </tr>
-  <tr>
-    <td>GetSample()</td>
-    <td><p>El método <b>GetSample()</b> devuelve un vector de muestras de datos.
-	<p>Un ejemplo tiene un valor de 30 segundos de datos de métrica. En otras palabras, las muestras se obtienen cada 30 segundos. No obstante, tal como se mencionó anteriormente, hay un retraso entre cuándo se recopila una muestra y cuándo está disponible para una fórmula. Por lo tanto, puede que no todos los ejemplos durante un período de tiempo determinado estén disponibles para la evaluación a través de una fórmula.
-        <ul>
-          <li><p><b>doubleVec GetSample(double count)</b>: especifica el número de muestras que se obtienen a partir de las muestras recogidas más recientes.</p>
-				  <p>GetSample (1) devuelve el último ejemplo disponible. Para métricas como $CPUPercent, sin embargo, esto no debe usarse porque es imposible saber <em>cuándo</em> se recopiló la muestra. Puede ser reciente o, debido a problemas del sistema, puede ser mucho más antiguo. En estos casos es mejor usar un intervalo de tiempo como se muestra a continuación.</p></li>
-          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b>: especifica un período de tiempo para recopilar datos de muestra. Opcionalmente, también especifica el porcentaje de muestras que deben estar disponibles en el marco de tiempo solicitado.</p>
-          <p><em>$CPUPercent.GetSample(TimeInterval_Minute * 10)</em>, debería devolver 20 ejemplos si todos los ejemplos para los últimos 10 minutos están presentes en el historial de CPUPercent. Si el último minuto del historial no estaba disponible, solo se devolverán, no obstante, 18 muestras. En este caso:<br/>
-		  &#160;&#160;&#160;&#160;<em>$CPUPercent.GetSample (TimeInterval_Minute * 10, 95)</em> produciría un error porque solo el 90 por ciento de las muestras están disponibles.<br/>
-		  &#160;&#160;&#160;&#160;<em>$CPUPercent.GetSample (TimeInterval_Minute * 10, 80)</em> se realizaría correctamente.</p></li>
-          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b>: especifica un período para recopilar datos con una hora de inicio y una hora de finalización.</p></li></ul>
-		  <p>Como se mencionó anteriormente, hay un retraso entre cuando se recopila un ejemplo y cuando está disponible para una fórmula. Esto debe tenerlo en cuenta cuando use el método <em>GetSample</em>. Consulte <em>GetSamplePercent</em> a continuación.</td>
-  </tr>
-  <tr>
-    <td>GetSamplePeriod()</td>
-    <td>Devuelve el período de las muestras tomadas en un conjunto de datos de muestras históricos.</td>
-  </tr>
-	<tr>
-		<td>Count()</td>
-		<td>Devuelve el número total de ejemplos en el historial de métrica.</td>
-	</tr>
-  <tr>
-    <td>HistoryBeginTime()</td>
-    <td>Devuelve la marca de tiempo de la muestra de datos disponible más antigua para la métrica.</td>
-  </tr>
-  <tr>
-    <td>GetSamplePercent()</td>
-    <td><p>Devuelve el porcentaje de muestras que están disponibles para un intervalo de tiempo dado. Por ejemplo:</p>
-    <p><b>doubleVec GetSamplePercent( (timestamp | timeinterval) startTime [, (timestamp | timeinterval) endTime] )</b>
-	<p>Debido a que se produce un error en el método GetSample si el porcentaje de muestras devueltas es inferior al valor de samplePercent especificado, puede utilizar el método GetSamplePercent para comprobarlo primero. A continuación, puede realizar una acción alternativa si no hay suficientes muestras presentes, sin detener la evaluación de escalado automático.</p></td>
-  </tr>
-</table>
+| Método | Description |
+| --- | --- |
+| GetSample() | El método `GetSample()` devuelve un vector de ejemplos de datos.<br/><br/>Un ejemplo tiene un valor de 30 segundos de datos de métrica. En otras palabras, las muestras se obtienen cada 30 segundos. No obstante, tal como se mencionó anteriormente, hay un retraso entre cuándo se recopila una muestra y cuándo está disponible para una fórmula. Por lo tanto, no todos los ejemplos durante un período determinado pueden estar disponibles para la evaluación mediante una fórmula.<ul><li>`doubleVec GetSample(double count)`<br/>Especifica el número de muestras que obtener a partir de los ejemplos más recientes que se han recopilado. <br/><br/>`GetSample(1)` devuelve el último ejemplo disponible. Para métricas como`$CPUPercent`, sin embargo, esto no debe usarse porque es imposible saber *cuándo* se recopiló el ejemplo. Puede ser reciente o, debido a problemas del sistema, puede ser mucho más antiguo. Es mejor en esos casos usar un intervalo de tiempo como se muestra a continuación.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Especifica un período para recopilar datos de ejemplo. Opcionalmente, también especifica el porcentaje de ejemplos que deben estar disponibles en el plazo de tiempo solicitado.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` devolvería 20 ejemplos si todos los ejemplos de los últimos 10 minutos están presentes en el historial de CPUPercent. Si el último minuto del historial no estaba disponible, solo se devolverán, no obstante, 18 muestras. En este caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` fallaría porque solo el 90 por ciento de los ejemplos está disponible.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` sería correcto.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Especifica un plazo de tiempo para la recopilación de datos con una hora de inicio y finalización.<br/><br/>Como se mencionó anteriormente, hay un retraso entre cuando se recopila un ejemplo y cuando está disponible para una fórmula. Esto debe tenerlo en cuenta cuando use el método `GetSample`. Consulte `GetSamplePercent` a continuación.|
+| GetSamplePeriod() | Devuelve el período de las muestras tomadas en un conjunto de datos de muestras históricos. |
+| Count() | Devuelve el número total de ejemplos en el historial de métrica. |
+| HistoryBeginTime() | Devuelve la marca de tiempo de la muestra de datos disponible más antigua para la métrica. |
+| GetSamplePercent() |Devuelve el porcentaje de muestras que están disponibles para un intervalo de tiempo dado. Por ejemplo: <br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Debido a que se produce un error en el método `GetSample` si el porcentaje de muestras devueltas es inferior al valor de `samplePercent` especificado, puede utilizar el método `GetSamplePercent` para comprobarlo primero. A continuación, puede realizar una acción alternativa si no hay suficientes muestras presentes, sin detener la evaluación de escalado automático.|
 
 ### Ejemplos, porcentaje de ejemplo y el método *GetSample()*
 
@@ -331,7 +233,7 @@ Puede usar tanto métricas de **recurso** como de **tarea** al definir una fórm
 <table>
   <tr>
     <th>Métrica</th>
-    <th>Descripción</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td><b>Recurso</b></td>
@@ -361,6 +263,7 @@ Puede usar tanto métricas de **recurso** como de **tarea** al definir una fórm
     <p><ul>
       <li>$ActiveTasks</li>
       <li>$RunningTasks</li>
+      <li>$PendingTasks</li>
       <li>$SucceededTasks</li>
 			<li>$FailedTasks</li></ul></p>
 		</td>
@@ -437,7 +340,7 @@ Si ya configuró un grupo con un número específico de nodos de proceso mediant
 
 > [AZURE.NOTE] Si se especificó un valor para el parámetro *targetDedicated* cuando se creó el grupo, se ignora cuando se evalúa la fórmula de escalado automático.
 
-Este fragmento de código muestra cómo habilitar el escalado automático mediante la biblioteca de [.NET de Lote][net_api]. Tenga en cuenta que tanto la habilitación como la actualización de la fórmula en un grupo existente usan el mismo método. Por lo tanto, esta técnica *actualizaría* la fórmula en el grupo especificado si el escalado automático ya se había habilitado. El fragmento de código asume que "mypool" es el identificador de un grupo existente ([CloudPool][net_cloudpool]).
+Este fragmento de código muestra cómo habilitar el escalado automático en el grupo existente mediante la biblioteca de [.NET de Batch][net_api]. Tenga en cuenta que tanto la habilitación como la actualización de la fórmula en un grupo existente usan el mismo método. Por lo tanto, esta técnica *actualizaría* la fórmula en el grupo especificado si el escalado automático ya se había habilitado. El fragmento de código asume que "mypool" es el identificador de un grupo existente ([CloudPool][net_cloudpool]).
 
 		 // Define the autoscaling formula. In this snippet, the  formula sets the target number of nodes to 5 on
 		 // Mondays, and 1 on every other day of the week
@@ -509,7 +412,7 @@ Compruebe periódicamente los resultados de las ejecuciones de escalado automát
   - [AutoScaleRun.Timestamp](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx)
 - [Obtención de información sobre un grupo](https://msdn.microsoft.com/library/dn820165.aspx): esta solicitud de API de REST devuelve información acerca del grupo, lo que incluye la última ejecución del escalado automático.
 
-## <a name="examples"></a>Formulas de ejemplo
+## <a name="examples"></a>Fórmulas de ejemplo
 
 Echemos un vistazo a algunos ejemplos que muestran varias de las formas en que pueden usarse las fórmulas para escalar automáticamente los recursos de proceso de un grupo.
 
@@ -611,4 +514,4 @@ La fórmula en el fragmento de código anterior:
 [rest_autoscaleinterval]: https://msdn.microsoft.com/es-ES/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

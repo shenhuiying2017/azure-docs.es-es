@@ -287,7 +287,7 @@ Soluciones:
 
 
 ## Pasos siguientes
-[Más información sobre DSC y VMSS](virtual-machines-scale-sets-dsc.md)
+Aprenda sobre DSC y los conjuntos de escalado de máquina virtual en [Using Virtual Machine Scale Sets with the Azure DSC Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md) (Uso de conjuntos de escalado de máquina virtual con la extensión DSC de Azure).
 
 Puede encontrar más detalles en el artículo sobre [administración segura de credenciales de DSC](virtual-machines-windows-extensions-dsc-credentials.md).
 
@@ -295,4 +295,4 @@ Para más información sobre el controlador de extensiones DSC de Azure, consult
 
 Para más información sobre DSC de PowerShell, [visite el centro de documentación de PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

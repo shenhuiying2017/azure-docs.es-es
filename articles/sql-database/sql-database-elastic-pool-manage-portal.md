@@ -31,10 +31,10 @@ Puede utilizar el Portal de Azure para supervisar y administrar un grupo de base
 
 El siguiente gráfico muestra un grupo elástico de ejemplo. La vista incluye:
 
-*  Los gráficos para supervisar el uso de recursos del grupo elástico y las bases de datos contenidas en el grupo. 
-*  El botón **Configurar grupo** para realizar cambios en el grupo elástico. 
+*  Los gráficos para supervisar el uso de recursos del grupo elástico y las bases de datos contenidas en el grupo.
+*  El botón **Configurar grupo** para realizar cambios en el grupo elástico.
 *  El botón **Crear base de datos**, que crea una base de datos y la agrega al grupo elástico actual.
-*  Los trabajos elásticos que le ayudarán a administran un gran número de bases de datos mediante la ejecución de scripts de Transact SQL en todas las bases de datos de una lista. 
+*  Los trabajos elásticos que le ayudarán a administran un gran número de bases de datos mediante la ejecución de scripts de Transact SQL en todas las bases de datos de una lista.
 
 ![Vista Grupo][2]
 
@@ -56,14 +56,16 @@ Puede ir a un grupo concreto para ver su utilización de recursos. De forma pred
 ### Personalización de la visualización del gráfico
 
 Puede editar el gráfico y la hoja de métricas para mostrar otras métricas, como el porcentaje de CPU, el porcentaje de E/S de datos y el porcentaje de E/S de registro usados.
- 
+
 2. En la hoja de métricas, haga clic en **Editar**.
 
 	![Haga clic en Editar.][6]
 
-- En la hoja **Editar gráfico**, seleccione un nuevo intervalo de tiempo (última hora, hoy o última semana) o haga clic en **personalizado** para seleccionar cualquier intervalo de fechas dentro de las últimas dos semanas. Seleccione el tipo de gráfico (de barras o líneas) y, después, seleccione los recursos que se supervisarán. 
+- En la hoja **Editar gráfico**, seleccione un nuevo intervalo de tiempo (última hora, hoy o última semana) o haga clic en **personalizado** para seleccionar cualquier intervalo de fechas dentro de las últimas dos semanas. Seleccione el tipo de gráfico (de barras o líneas) y, después, seleccione los recursos que se supervisarán.
 
-	![Haga clic en Editar.](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
+> Nota: Solo las métricas con la misma unidad de medida se pueden mostrar en el gráfico al mismo tiempo. Por ejemplo, si selecciona el "porcentaje de eDTU", solo podrá seleccionar otras métricas con porcentaje como unidad de medida.
+
+	![Click edit](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
 
 - A continuación, haga clic en **Aceptar**.
 
@@ -99,7 +101,7 @@ También se pueden supervisar bases de datos individuales en caso de un problema
 En la lista de bases de datos en la hoja **Database Resource Utilization** (Uso de recursos de bases de datos) puede encontrar bases de datos específicas consultando las páginas de la lista o escribiendo el nombre de una base de datos. Utilice la casilla para seleccionar la base de datos.
 
 ![Búsqueda de las bases de datos que se supervisarán][7]
-  
+
 
 ## Adición de una alerta a un grupo de recursos
 
@@ -130,9 +132,9 @@ Puede agregar o quitar las bases de datos de un grupo existente. Las bases de da
 
 2. En la hoja **Configurar grupo**, haga clic en **Agregar al grupo**.
 
-	![Haga clic en Agregar al grupo.](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
+	![Haga clic en Agregar para agregar al grupo.](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
 
-	
+
 3. En la hoja **Agregar bases de datos**, seleccione las bases de datos que agregará al grupo. Después, haga clic en **Seleccionar**.
 
 	![Seleccione las bases de datos que desea agregar.](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
@@ -156,7 +158,7 @@ Puede agregar o quitar las bases de datos de un grupo existente. Las bases de da
     ![lista de bases de datos](./media/sql-database-elastic-pool-manage-portal/click-remove.png)
 
     La hoja **Configurar grupo** muestra ahora la base de datos que ha seleccionado para quitarla, con el estado establecido como **Pendiente**.
-    
+
     ![Adición de base de datos de vista previa y eliminación](./media/sql-database-elastic-pool-manage-portal/pending-removal.png)
 
 3. En la hoja **Configurar grupo**, haga clic en **Guardar**.
@@ -213,4 +215,4 @@ Consulte [Escalado horizontal con Base de datos SQL de Azure](sql-database-elast
 [8]: ./media/sql-database-elastic-pool-manage-portal/db-utilization.png
 [9]: ./media/sql-database-elastic-pool-manage-portal/metric.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

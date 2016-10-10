@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Vista previa de Servicios de dominio de Azure Active Directory: escenarios de implementación | Microsoft Azure"
+	pageTitle="Active Directory Domain Services: escenarios de implementación | Microsoft Azure"
 	description="Escenarios de implementación de Servicios de dominio de Azure AD"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
+	ms.date="09/21/2016"
 	ms.author="maheshu"/>
 
 
@@ -88,6 +88,6 @@ Azure RemoteApp permite al administrador de Contoso crear una colección unida a
 
 ![Azure RemoteApp](./media/active-directory-domain-services-scenarios/azure-remoteapp.png)
 
-Para más información sobre este escenario de implementación, consulte el artículo del blog de servicios de escritorio remoto titulado [Lift-and-shift your workloads with Azure RemoteApp and Azure AD Domain Services](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx) (Elevación y desplazamiento de las cargas de trabajo con Azure RemoteApp y Azure AD Domain Services).
+Para obtener más información sobre este escenario de implementación, consulte el artículo del blog de servicios de escritorio remoto titulado [Lift-and-shift your workloads with Azure RemoteApp and Azure AD Domain Services](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx) (Elevación y desplazamiento de las cargas de trabajo con Azure RemoteApp y Azure AD Domain Services).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

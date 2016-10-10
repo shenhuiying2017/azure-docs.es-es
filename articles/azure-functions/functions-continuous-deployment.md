@@ -1,7 +1,7 @@
 <properties
    pageTitle="Implementación continua para Funciones de Azure | Microsoft Azure"
    description="Utilice las funciones de implementación continua de Servicio de aplicaciones de Azure para publicar las Funciones de Azure."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="08/15/2016"
+   ms.date="09/25/2016"
    ms.author="glenga"/>
 
 # Implementación continua para Funciones de Azure 
@@ -48,7 +48,9 @@ Utilice el procedimiento siguiente para configurar la implementación continua d
 1. En la aplicación de función del [portal de Funciones de Azure](https://functions.azure.com/signin), haga clic en **Function App Settings** (Configuración de Function App) > **Configurar la integración continua** > **Configuración**.
 
 	![Configurar implementación continua](./media/functions-continuous-deployment/setup-deployment.png)
-
+	
+	![Configurar implementación continua](./media/functions-continuous-deployment/setup-deployment-1.png)
+	
 	También puede llegar a la hoja de implementaciones desde el inicio rápido de Funciones haciendo clic en **Start from source control** (Iniciar desde el control de código fuente).
 
 2. En la hoja de implementaciones, haga clic en **Elegir origen**, a continuación, rellene la información del origen de implementación que haya seleccionado y haga clic en **Aceptar**.
@@ -128,4 +130,4 @@ Para poder descargar archivos desde la aplicación de función, debe configurar 
 
 [GitHub]: https://github.com/
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -39,7 +39,7 @@ En este artículo se explica cómo crear y rellenar un nuevo grupo en la versió
 
 5. En la hoja **Grupo**, agregue un nombre y una descripción para el nuevo grupo.
 
-6. Para seleccionar los miembros que se agregarán al grupo, seleccione **Asignado** en el cuadro **Membership type** (Tipo de pertenencia a grupos) y luego seleccione **Miembros**. Para más información sobre cómo administrar la pertenencia de un grupo de manera dinámica, consulte [Manage dynamic rules for users in a group](active-directory-groups-dynamic-users-azure-portal.md) (Administración de reglas dinámicas para los usuarios de un grupo) o [Manage dynamic rules for devices in a group](active-directory-groups-dynamic-devices-azure-portal.md) (Administración de reglas dinámicas para los dispositivos de un grupo).
+6. Para seleccionar los miembros que se agregarán al grupo, seleccione **Asignado** en el cuadro **Membership type** (Tipo de pertenencia a grupos) y luego seleccione **Miembros**. Para obtener más información sobre cómo administrar la pertenencia de un grupo de forma dinámica, consulte el artículo sobre el [uso de atributos para crear reglas avanzadas de pertenencias a grupo](active-directory-groups-dynamic-membership-azure-portal.md).
 
   ![Selección de miembros para agregar](./media/active-directory-groups-create-azure-portal/select-members.png)
 
@@ -62,4 +62,4 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 * [Administración de la pertenencia a un grupo](active-directory-groups-membership-azure-portal.md)
 * [Administración de reglas dinámicas para los usuarios de un grupo](active-directory-groups-dynamic-membership-azure-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

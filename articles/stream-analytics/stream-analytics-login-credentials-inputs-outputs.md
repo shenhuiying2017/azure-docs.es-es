@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jeffstok"/>
 
 #Giro de las credenciales de inicio de sesión para entradas y salidas de los trabajos de Análisis de transmisiones
@@ -35,7 +35,7 @@ Esta parte es aplicable a las siguientes entradas/salidas:
 Para otras entradas/salidas, vaya a la Parte 2.
 
 ###Almacenamiento de blobs/almacenamiento de tablas
-1.  Vaya a la extensión de almacenamiento en el Portal de administración de Azure: ![graphic1][graphic1]
+1.  Vaya a la extensión Storage en el Portal de administración de Azure: ![graphic1][graphic1]
 2.  Busque el almacenamiento utilizado por su trabajo y vaya a él: ![graphic2][graphic2]
 3.  Haga clic en el comando Administrar claves de acceso: ![graphic3][graphic3]
 4.  Entre la clave de acceso principal y la clave de acceso secundaria, **elija la que no utilice su trabajo**.
@@ -44,7 +44,7 @@ Para otras entradas/salidas, vaya a la Parte 2.
 7.  Vaya a la parte 2.
 
 ###Centros de eventos
-1.  Vaya a la extensión del bus de servicio en el Portal de administración de Azure: ![graphic6][graphic6]
+1.  Vaya a la extensión Service Bus en el Portal de administración de Azure: ![graphic6][graphic6]
 2.  Busque el espacio de nombres del Bus de servicio utilizado por su trabajo y vaya a él: ![graphic7][graphic7]
 3.  Si su trabajo usa una directiva de acceso compartido en el espacio de nombres del Bus de servicio, vaya al paso 6
 4.  Vaya a la Pestaña Centros de eventos: ![graphic8][graphic8]
@@ -60,25 +60,25 @@ Para otras entradas/salidas, vaya a la Parte 2.
 
 >[AZURE.NOTE] Nota: deberá conectarse al servicio de base de datos SQL. Vamos a mostrar cómo hacerlo con la experiencia de administración en el Portal de administración de Azure, pero también puede utilizar alguna herramienta de cliente como SQL Server Management Studio.
 
-1.  Vaya a la extensión de bases de datos SQL en el Portal de administración de Azure: ![graphic14][graphic14]
+1.  Vaya a la extensión SQL Databases en el Portal de administración de Azure: ![graphic14][graphic14]
 2.  Busque la base de datos SQL utilizada por su trabajo y **haga clic en el vínculo del servidor** en la misma línea: ![graphic15][graphic15]
 3.  Haga clic en el comando Administrar: ![graphic16][graphic16]
 4.  Tipo de base de datos maestra: ![graphic17][graphic17]
-5.  Escriba su nombre de usuario y contraseña y haga clic en Iniciar sesión: ![graphic18][graphic18]
+5.  Escriba su nombre de usuario y contraseña, y haga clic en Iniciar sesión: ![graphic18][graphic18]
 6.  Haga clic en Nueva consulta: ![graphic19][graphic19]
 7.  Escriba la siguiente consulta reemplazando <nombre\_de\_inicio\_de\_sesión> por su nombre de usuario y <escribirContraseñaSegura> por la nueva contraseña: `CREATE LOGIN <login_name> WITH PASSWORD = '<enterStrongPasswordHere>'`
 8.  Haga clic en Ejecutar: ![graphic20][graphic20]
 9.  Vuelva al paso 2 y esta vez haga clic en la base de datos: ![graphic21][graphic21]
 10. Haga clic en el comando Administrar: ![graphic22][graphic22]
-11. escriba su nombre de usuario y contraseña y haga clic en Iniciar sesión: ![graphic23][graphic23]
+11. escriba su nombre de usuario y contraseña, y haga clic en Iniciar sesión: ![graphic23][graphic23]
 12. Haga clic en Nueva consulta: ![graphic24][graphic24]
 13. Escriba la siguiente consulta reemplazando <nombre\_de\_usuario> por un nombre por el que desee identificar este inicio de sesión en el contexto de esta base de datos (puede proporcionar el mismo valor que asignó para <nombre\_de\_inicio\_de\_sesión>, por ejemplo) y reemplazar <nombre\_de\_inicio\_de\_sesión> por su nuevo nombre de usuario: `CREATE USER <user_name> FROM LOGIN <login_name>`
 14. Haga clic en Ejecutar: ![graphic25][graphic25]
-15. Ahora debe proporcionar el nuevo usuario con los mismos roles y privilegios que tenía el usuario original.
+15. Ahora debe proporcionar el nuevo usuario con los mismos roles y privilegios del usuario original.
 16. Vaya a la parte 2.
 
 ##Parte 2: Parada del trabajo de Análisis de transmisiones
-1.  Vaya a la extensión Análisis de transmisiones en el Portal de administración de Azure: ![graphic26][graphic26]
+1.  Vaya a la extensión Stream Analytics en el Portal de administración de Azure: ![graphic26][graphic26]
 2.  Busque su trabajo y vaya a él: ![graphic27][graphic27]
 3.  Vaya a la pestaña Entradas o Salidas en función de si está rotando las credenciales en una entrada o una salida. ![graphic28][graphic28]
 4.  Haga clic en el comando Detener y confirme que el trabajo se ha detenido: ![graphic29][graphic29] Espere a que el trabajo se detenga.
@@ -198,4 +198,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

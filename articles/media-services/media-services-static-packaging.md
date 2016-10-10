@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de Azure Media Packager para realizar tareas de paquetes estáticos" 
+	pageTitle="Uso de Azure Media Packager para realizar tareas de paquetes estáticos | Microsoft Azure" 
 	description="Este tema muestra varias tareas que se llevan a cabo con Azure Media Packager." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="06/22/2016"    
+ 	ms.date="09/26/2016"    
 	ms.author="juliako"/>
 
 
@@ -246,7 +246,7 @@ En el ejemplo de esta sección se codifica un archivo intermedio (en este caso, 
 
 Servicios multimedia proporciona un servicio de entrega de licencias de Microsoft PlayReady. En el ejemplo de este artículo se muestra cómo configurar el servicio de entrega de licencias de PlayReady de Servicios multimedia (consulte el método ConfigureLicenseDeliveryService definido en el código siguiente). Para obtener más información acerca del servicio de licencias de PlayReady de Servicios multimedia, consulte [Uso del cifrado dinámico de PlayReady y el servicio de entrega de licencias](media-services-protect-with-drm.md).
 
->[AZURE.NOTE]Para entregar MPEG DASH cifrado con PlayReady, asegúrese de usar las opciones CENC estableciendo las propiedades useSencBox y adjustSubSamples (descritas en el tema [Valores preestablecidos de tarea para Azure Media Encryptor](http://msdn.microsoft.com/library/azure/hh973610.aspx)) en true.
+>[AZURE.NOTE]Para proporcionar MPEG DASH cifrado con PlayReady, asegúrese de usar las opciones CENC estableciendo las propiedades useSencBox y adjustSubSamples (descritas en el tema [Valores preestablecidos de tarea para Azure Media Encryptor](http://msdn.microsoft.com/library/azure/hh973610.aspx)) en true.
 
 
 Asegúrese de actualizar el código siguiente para que señale a la carpeta donde se encuentra el archivo MP4 de entrada.
@@ -693,7 +693,7 @@ Si desea cifrar el HLS con AES-128, tendrá la opción de usar el cifrado dinám
 
 >[AZURE.NOTE]Para convertir el contenido en HLS, primero debe convertir o codificar su contenido en Smooth Streaming. Asimismo, para que HLS se cifre con AES, asegúrese de establecer las propiedades siguientes en el archivo MediaPackager\_SmoothToHLS.xml: establezca la propiedad encrypt en true, establezca el valor de clave y el valor de keyuri para que apunte al servidor de autenticación o autorización. Servicios multimedia creará un archivo de clave y lo coloca en el contenedor de recursos. Debe copiar el archivo /asset-containerguid/*.key en el servidor (o crear su propio archivo de clave) y, a continuación, eliminar el archivo *.key del contenedor de recursos.
 
-En el ejemplo de esta sección se codifica un archivo intermedio (en este caso, MP4) en archivos MP4 de múltiples velocidades de bits y, a continuación, empaqueta los MP4 en Smooth Streaming. A continuación, empaqueta Smooth Streaming en HTTP Live Streaming (HLS) cifrado con el cifrado de 128 bits de Estándar de cifrado avanzado. Asegúrese de actualizar el código siguiente para que señale a la carpeta donde se encuentra el archivo MP4 de entrada. Y también a donde se encuentran los archivos de configuración MediaPackager\_MP4ToSmooth.xml y MediaPackager\_SmoothToHLS.xml. Puede encontrar la definición de estos archivos en el tema [Valores predefinidos de tarea para Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx) .
+En el ejemplo de esta sección se codifica un archivo intermedio (en este caso, MP4) en archivos MP4 de múltiples velocidades de bits y, a continuación, empaqueta los MP4 en Smooth Streaming. A continuación, empaqueta Smooth Streaming en HTTP Live Streaming (HLS) cifrado con el cifrado de 128 bits de Estándar de cifrado avanzado. Asegúrese de actualizar el código siguiente para que señale a la carpeta donde se encuentra el archivo MP4 de entrada. Y también a donde se encuentran los archivos de configuración MediaPackager\_MP4ToSmooth.xml y MediaPackager\_SmoothToHLS.xml. Puede encontrar la definición de estos archivos en el tema [Valores predefinidos de tarea para Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx).
 	
 	using System;
 	using System.Collections.Generic;
@@ -1447,4 +1447,4 @@ Asegúrese de actualizar el código siguiente para que señale a la carpeta dond
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

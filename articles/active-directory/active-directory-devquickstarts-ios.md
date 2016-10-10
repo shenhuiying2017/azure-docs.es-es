@@ -35,6 +35,8 @@ Para crear la aplicación de trabajo completa, deberá:
 
 Para empezar, [descargue el esquema de la aplicación](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) o [descargue el ejemplo finalizado](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip). También necesitará a un inquilino de Azure AD en el que pueda crear usuarios y registrar una aplicación. Si aún no tiene un inquilino, [descubra cómo conseguir uno](active-directory-howto-tenant.md).
 
+> [AZURE.TIP] Pruebe la versión preliminar de nuestro nuevo [portal para desarrolladores](https://identity.microsoft.com/Docs/iOS), que lo ayudará a empezar a trabajar con Azure Active Directory en tan solo unos minutos. El portal para desarrolladores lo guiará a través del proceso de registro de una aplicación y de integración de Azure AD en el código. Cuando haya terminado, tendrá una aplicación sencilla que podrá autenticar a los usuarios del inquilino, así como un back-end con capacidad para aceptar tokens y realizar validaciones.
+
 ## *1. Determinación de cuál será el URI de redireccionamiento para iOS*
 
 Para iniciar de forma segura sus aplicaciones en ciertos escenarios SSO, es necesaria la creación de un **URI de redireccionamiento** en un formato determinado. Un URI de redirección se utiliza para garantizar que los tokens se devuelven a la aplicación correcta que los solicitó.
@@ -230,4 +232,4 @@ Ahora puede pasar a otros escenarios. También puede probar lo siguiente:
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -17,9 +17,13 @@
    ms.author="subramar"/>
 
 
-
-
 # Actualización de aplicaciones de Service Fabric con PowerShell
+
+> [AZURE.SELECTOR]
+- [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+- [Visual Studio](service-fabric-application-upgrade-tutorial.md)
+
+<br/>
 
 El enfoque de actualización recomendado y usado con mayor frecuencia es la actualización gradual supervisada. Azure Service Fabric supervisa el estado de la aplicación que se está actualizando en función de un conjunto de directivas de mantenimiento. Después de actualizar un dominio de actualización (UD), Service Fabric evalúa el estado de la aplicación y, o bien continúa con el siguiente dominio de actualización, o no realiza la actualización, según las directivas de mantenimiento.
 
@@ -135,4 +139,4 @@ Aprenda a usar funcionalidades avanzadas para actualizar una aplicación. Para e
 
 Solucione problemas habituales en las actualizaciones de aplicaciones consultando los pasos que figuran en [Solución de problemas de las actualizaciones de aplicaciones](service-fabric-application-upgrade-troubleshooting.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

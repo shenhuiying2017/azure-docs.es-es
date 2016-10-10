@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tutorial de aplicación de la Tienda Windows de Smooth Streaming" 
+	pageTitle="Tutorial de aplicación de la Tienda Windows de Smooth Streaming | Microsoft Azure" 
 	description="Aprenda a usar los Servicios multimedia de Azure para crear una aplicación de la Tienda Windows de C# con un control MediaElement de XML para reproducir contenido de Smooth Streaming." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 
@@ -145,7 +145,7 @@ En este archivo XAML, algunos controladores de eventos están asociados a los co
 **Para modificar el archivo de código subyacente**
 
 1.	En el Explorador de soluciones, haga clic con el botón derecho en **MainPage.xaml** y, a continuación, en **Ver código**.
-2.	En la parte superior del archivo, agregue la siguiente instrucción using:
+2.	En la parte superior del archivo, agregue las siguientes instrucciones using:
 
 		using Windows.Media;
 
@@ -986,4 +986,4 @@ Ha completado la lección 4. En esta lección ha agregado la funcionalidad para 
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->
