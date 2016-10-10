@@ -119,7 +119,7 @@ Si la tabla de SQL Azure contuviera más columnas, agregaría los campos corresp
 	    mPriority = priority;
 	}
 
-Para más información sobre cómo crear tablas adicionales en el back-end de Aplicaciones móviles, consulte [Cómo definir un controlador de tabla][15] (back-end de. NET) o [Definición de tablas con un esquema dinámico][16] (back-end de Node.js). Para un back-end de Node.js, también puede usar la configuración **Tablas fáciles** en el [Portal de Azure].
+Para más información sobre cómo crear tablas adicionales en el back-end de Aplicaciones móviles, consulte [Cómo definir un controlador de tabla][15] \(back-end de. NET) o [Definición de tablas con un esquema dinámico][16] \(back-end de Node.js). Para un back-end de Node.js, también puede usar la configuración **Tablas fáciles** en el [Portal de Azure].
 
 ###<a name="create-client"></a>Creación del contexto de cliente
 

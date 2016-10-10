@@ -718,7 +718,7 @@ Para CentOS 7.2, se admite el cifrado de disco del sistema operativo a través d
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk successfully encrypted, please reboot the VM
 
-Se recomienda guardar los [diagnósticos de arranque](https://azure.microsoft.com/es-ES/blog/boot-diagnostics-for-virtual-machines-v2/) de la máquina virtual *antes de* reiniciar.
+Se recomienda guardar los [diagnósticos de arranque](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) de la máquina virtual *antes de* reiniciar.
 
 #### Supervisión del progreso de cifrado del sistema operativo
 
@@ -753,7 +753,7 @@ En el objeto InstanceView, desplácese hacia abajo para ver el estado de cifrado
 
 ![Vista de instancia de máquina virtual](./media/azure-security-disk-encryption/vm-instanceview.png)
 
-2\. Busque los [diagnósticos de arranque](https://azure.microsoft.com/es-ES/blog/boot-diagnostics-for-virtual-machines-v2/). Los mensajes de la extensión ADE llevarán el prefijo `[AzureDiskEncryption]`.
+2\. Busque los [diagnósticos de arranque](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Los mensajes de la extensión ADE llevarán el prefijo `[AzureDiskEncryption]`.
 
 3\. Inicie sesión en la máquina virtual a través de SSH y obtenga el registro de la extensión en
 
@@ -787,7 +787,7 @@ No se recomienda iniciar sesión en la máquina virtual mientras el cifrado del 
 
 ![Instalación de Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
-6\. Prepare la máquina virtual para su carga en Azure con [estas instrucciones](https://azure.microsoft.com/es-ES/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). No ejecute todavía el último paso (desaprovisionamiento de la máquina virtual).
+6\. Prepare la máquina virtual para su carga en Azure con [estas instrucciones](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). No ejecute todavía el último paso (desaprovisionamiento de la máquina virtual).
 
 ###### Configuración del cifrado para trabajar con Azure
 
@@ -862,7 +862,7 @@ No se recomienda iniciar sesión en la máquina virtual mientras el cifrado del 
 
 ![Instalación de openSUSE 13.2](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
-3\. Prepare la máquina virtual para su carga en Azure con [estas instrucciones](https://azure.microsoft.com/es-ES/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). No ejecute todavía el último paso (desaprovisionamiento de la máquina virtual).
+3\. Prepare la máquina virtual para su carga en Azure con [estas instrucciones](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). No ejecute todavía el último paso (desaprovisionamiento de la máquina virtual).
 
 ###### Configuración del cifrado para trabajar con Azure
 
@@ -942,7 +942,7 @@ to
 
 ![Instalación de centOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
-5\. Prepare la máquina virtual para su carga en Azure con [estas instrucciones](https://azure.microsoft.com/es-ES/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). No ejecute todavía el último paso (desaprovisionamiento de la máquina virtual).
+5\. Prepare la máquina virtual para su carga en Azure con [estas instrucciones](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). No ejecute todavía el último paso (desaprovisionamiento de la máquina virtual).
 
 6\. Ahora puede desaprovisionar la máquina virtual y [cargar el VHD](#upload-encrypted-vhd-to-an-azure-storage-account) en Azure.
 

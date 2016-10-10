@@ -117,7 +117,7 @@ El valor del parámetro *Name* de los *recursos* debe coincidir con el nombre de
 1.	Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
 2.	Haga clic en **Aprendizaje automático** en el menú izquierdo.
 3.	En Nombre, haga clic en el área de trabajo y, a continuación, haga clic en **Servicios web**.
-4.	En Nombre, haga clic en Census Model [predictive exp.] (Modelo de censo [exp. predictivo]).
+4.	En Nombre, haga clic en Census Model [predictive exp.] \(Modelo de censo [exp. predictivo]).
 5.	Haga clic en el nuevo punto de conexión que ha agregado.
 6.	En el panel del punto de conexión, haga clic en **Actualizar recurso**.
 7.	En la página de documentación de la API Actualizar recurso para el servicio web, puede encontrar el **nombre del recurso** en **Updatable Resources** (Recursos actualizables).

@@ -52,7 +52,7 @@ Puede probar que la consulta se comporta según lo esperado si la ejecuta en el 
 
     ![Consulta de datos de prueba](./media/stream-analytics-write-queries/4-stream-analytics-write-queries.png)
 
-3.	Vaya hasta un archivo de prueba. Hay varios archivos de ejemplo disponibles en [github] (datos de https://github.com/Azure/azure-stream-analytics/tree/master/Sample) y también puede recuperar datos de ejemplo de sus propias entradas de flujo de datos a través de la función de datos de ejemplo de la pestaña de entradas.
+3.	Vaya hasta un archivo de prueba. Hay varios archivos de ejemplo disponibles en [github](datos de https://github.com/Azure/azure-stream-analytics/tree/master/Sample) y también puede recuperar datos de ejemplo de sus propias entradas de flujo de datos a través de la función de datos de ejemplo de la pestaña de entradas.
 
     ![Entrada de consulta](./media/stream-analytics-write-queries/5-stream-analytics-write-queries.png)
 

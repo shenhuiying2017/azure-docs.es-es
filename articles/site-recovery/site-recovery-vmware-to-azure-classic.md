@@ -236,7 +236,7 @@ Configure una red de Azure para que las máquinas virtuales de Azure se conecten
 
 [Más información](../virtual-network/virtual-networks-overview.md) sobre las redes de Azure.
 
-> [AZURE.NOTE] [Migration of networks]El (../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las redes usadas para implementar Site Recovery.
+> [AZURE.NOTE] El [Migration of networks](../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las redes usadas para implementar Site Recovery.
 
 ## Paso 3: Instalación de los componentes de VMware
 

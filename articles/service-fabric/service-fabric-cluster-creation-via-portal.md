@@ -1,4 +1,3 @@
-
 <properties
    pageTitle="Creación de un clúster de Service Fabric mediante el Portal de Azure | Microsoft Azure"
    description="En este artículo se describe cómo configurar un clúster de Service Fabric seguro en Azure mediante el Portal de Azure y el Almacén de claves de Azure."

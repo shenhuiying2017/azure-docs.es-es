@@ -359,7 +359,7 @@ Antes de usar el almacén GE Historian en una solución de Data Factory, comprue
 Lea el artículo desde el principio para obtener información general detallada de uso de almacenes de datos ODBC como almacenes de datos de origen en una operación de copia.
 
 ## Solución de problemas de conectividad
-Use la pestaña **Diagnósticos** del **Administrador de configuración de puerta de enlace de administración de datos ** para solucionar problemas de conexión.
+Use la pestaña **Diagnósticos** del **Administrador de configuración de puerta de enlace de administración de datos** para solucionar problemas de conexión.
 
 1. Inicie el **Administrador de configuración de Data Management Gateway**. Puede ejecutar C:\\Archivos de programa\\Microsoft Data Management Gateway\\1.0\\Shared\\ConfigManager.exe directamente, o bien buscar **Gateway** para encontrar un vínculo a la aplicación **Microsoft Data Management Gateway**, tal y como se muestra en la imagen siguiente.
 

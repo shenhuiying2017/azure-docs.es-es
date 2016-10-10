@@ -645,13 +645,14 @@ Dado que la red y la resolución de nombres es una parte fundamental de la imple
 
 Se puede definir el intervalo de direcciones IP privadas asignadas por la funcionalidad de DHCP de Azure mediante la creación de una red virtual de Azure. En escenarios entre locales, el intervalo de direcciones IP definido se seguirá asignando mediante DHCP por Azure. Sin embargo, la resolución de nombres de dominio se llevará a cabo en local (suponiendo que las máquinas virtuales formen parte de un dominio local) y, por tanto, se pueden resolver direcciones independientemente de los diferentes servicios en la nube de Azure.
 
-[comment]: <> (MSSedusch still needed? TODO Originalmente, una red virtual de Azure estaba asociada a un grupo de afinidad. Esto implicaba que una red virtual en Azure quedaba restringida a la unidad de escalado de Azure a la que se asignaba el grupo de afinidad. Al final, el resultado era que la red virtual estaba restringida a los recursos disponibles en la unidad de escalado de Azure. Desde entonces, esta situación ha cambiado y ahora las redes virtuales de Azure pueden abarcar varias unidades de escalado de Azure. Sin embargo, se requiere que las redes virtuales de Azure ya **NO** estén asociadas a grupos de afinidad en el momento de la creación. Se ha mencionado anteriormente que, en contraposición a las recomendaciones del año anterior, **ya NO se deben aprovechar los grupos de afinidad de Azure**. Para más información, consulte <https://azure.microsoft.com/blog/regional-virtual-networks/>.
+[comment]: <> (MSSedusch still needed? TODO Originalmente, una red virtual de Azure estaba asociada a un grupo de afinidad. Esto implicaba que una red virtual en Azure quedaba restringida a la unidad de escalado de Azure a la que se asignaba el grupo de afinidad. Al final, el resultado era que la red virtual estaba restringida a los recursos disponibles en la unidad de escalado de Azure. Desde entonces, esta situación ha cambiado y ahora las redes virtuales de Azure pueden abarcar varias unidades de escalado de Azure. Sin embargo, se requiere que las redes virtuales de Azure ya **NO** estén asociadas a grupos de afinidad en el momento de la creación. Se ha mencionado anteriormente que, en contraposición a las recomendaciones del año anterior, **ya NO se deben aprovechar los grupos de afinidad de Azure**. Para más información, consulte <https://azure.microsoft.com/blog/regional-virtual-networks/>.)
 
 Cada máquina virtual de Azure debe estar conectada a una red virtual.
 
 Se puede encontrar más información en [este artículo][resource-groups-networking] y en [esta página](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-[comment]: <> (MShermannd TODO Couldn't find an article which includes the OpenLDAP topic + ARM; ) [comment]: <> (MSSedusch <https://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL>)
+[comment]: <> (MShermannd TODO Couldn't find an article which includes the OpenLDAP topic + ARM; ) 
+[comment]: <> (MSSedusch <https://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL>)
 
 > [AZURE.NOTE] De forma predeterminada, una vez que se implementa una máquina virtual no se puede cambiar la configuración de red virtual. La configuración de TCP/IP debe depender del servidor DHCP de Azure. El comportamiento predeterminado es la asignación de IP dinámicas.
 
@@ -685,12 +686,17 @@ La ilustración anterior muestra dos suscripciones de Azure con subintervalos de
 #### VPN de punto a sitio
 VPN de punto a sitio requiere que cada equipo cliente se conecte a Azure con su propio VPN. En los escenarios SAP examinados aquí, la conectividad de punto a sitio no es práctica. Por tanto, no se proporcionarán más referencias de la conectividad VPN punto a sitio.
 
-[comment]: <> (MSSedusch -- More information can be found here) [comment]: <> (MShermannd TODO Link no longer valid; But ARM is anyway not supported - see next link below) [comment]: <> (MSSedusch -- <http://msdn.microsoft.com/library/azure/dn133798.aspx>.) [comment]: <> (MShermannd TODO Point to Site not supported yet with ARM ) [comment]: <> (MSSedusch -- <https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/>)
+[comment]: <> (MSSedusch -- More information can be found here) 
+[comment]: <> (MShermannd TODO Link no longer valid; But ARM is anyway not supported - see next link below) 
+[comment]: <> (MSSedusch -- <http://msdn.microsoft.com/library/azure/dn133798.aspx>.) 
+[comment]: <> (MShermannd TODO Point to Site not supported yet with ARM ) 
+[comment]: <> (MSSedusch -- <https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/>)
 
 #### VPN de varios sitios
 Asimismo, en la actualidad Azure ofrece la posibilidad de crear una conectividad VPN multisitio para una suscripción de Azure. Anteriormente, las suscripciones únicas estaban limitaban a una conexión VPN de sitio a sitio. Esta limitación desapareció con las conexiones VPN multisitio para suscripciones únicas. De este modo, una suscripción específica puede aprovechar varias regiones de Azure mediante configuraciones entre locales.
 
-Para obtener más documentación, consulte [este artículo][vpn-gateway-create-site-to-site-rm-powershell]. [comment]: <> (MShermannd TODO found no ARM docu link)
+Para obtener más documentación, consulte [este artículo][vpn-gateway-create-site-to-site-rm-powershell]. 
+[comment]: <> (MShermannd TODO found no ARM docu link)
 
 #### Conexión de red virtual a red virtual
 Con VPN multisitio, se debe configurar una red virtual de Azure independiente en cada región. Sin embargo, a menudo se requiere que los componentes de software de las diferentes regiones se comuniquen entre sí. Lo ideal sería que esta comunicación no se enrutara desde una región de Azure a instalaciones locales, y desde ahí a otra región de Azure. Para el acceso directo, Azure ofrece la posibilidad de configurar una conexión de una red virtual de Azure en una región a una red virtual de Azure hospedada en otra región. Esta funcionalidad se denomina conexión de red virtual a red virtual. Se puede encontrar más información sobre esta funcionalidad aquí: <https://azure.microsoft.com/documentation/articles/vpn-gateway-vnet-vnet-rm-ps/>.
@@ -762,7 +768,8 @@ El Portal de Azure constituye una de las tres interfaces creadas para administra
  
 ![Portal de Microsoft Azure - información general sobre las máquinas virtuales][planning-guide-figure-800]
 
-[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>) [comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
+[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>) 
+[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
 
 También es posible llevar a cabo tareas de administración y configuración para las instancias de las máquinas virtuales desde el Portal de Azure.
 
@@ -773,7 +780,9 @@ El Portal de Azure proporciona funciones básicas con las que implementar y conf
 * Cargar discos duros virtuales en Azure
 * Copiar máquinas virtuales
 
-[comment]: <> (MShermannd TODO what about automation service for SAP VMs ? ) [comment]: <> (MSSedusch deployment of multiple VMs os meanwhile possible) [comment]: <> (MSSedusch Also any type of automation regarding deployment is not possible with the Azure portal. Tasks such as scripted deployment of multiple VMs is not possible via the Azure Portal.)
+[comment]: <> (MShermannd TODO what about automation service for SAP VMs ? ) 
+[comment]: <> (MSSedusch deployment of multiple VMs os meanwhile possible) 
+[comment]: <> (MSSedusch Also any type of automation regarding deployment is not possible with the Azure portal. Tasks such as scripted deployment of multiple VMs is not possible via the Azure Portal.)
 
 ### Administración mediante los cmdlets de Microsoft Azure PowerShell
 Windows PowerShell es un marco eficaz y extensible que ha tenido una amplia adopción entre clientes que implementan un mayor número de sistemas en Azure. Es posible ejecutar de forma remota los cmdlets de PowerShell tras instalarlos en un equipo de escritorio, un portátil o una estación de administración dedicada.
@@ -786,7 +795,8 @@ Hasta el momento, de la experiencia de los clientes se extrae que PowerShell (PS
 
 Consulte un ejemplo aquí: <http://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
-[comment]: <> (MShermannd TODO describe new CLI command when tested ) La implementación de la extensión de supervisión de Azure para SAP (consulte el capítulo [Solución de supervisión de Azure para SAP][planning-guide-9.1] de este documento) solo se puede llevar a cabo mediante PowerShell o la CLI. Por lo tanto, es obligatorio para instalar y configurar PowerShell o la CLI al implementar o administrar un sistema SAP NetWeaver en Azure.
+[comment]: <> (MShermannd TODO describe new CLI command when tested ) 
+La implementación de la extensión de supervisión de Azure para SAP (consulte el capítulo [Solución de supervisión de Azure para SAP][planning-guide-9.1] de este documento) solo se puede llevar a cabo mediante PowerShell o la CLI. Por lo tanto, es obligatorio para instalar y configurar PowerShell o la CLI al implementar o administrar un sistema SAP NetWeaver en Azure.
 
 Como Azure ofrece más funciones, se agregarán nuevos cmdlets de PS que requieren una actualización de los cmdlets. Por lo tanto, es recomendable consultar el sitio de descargas de Azure al menos una vez al mes <https://azure.microsoft.com/downloads/> para ver si se ha publicado una nueva versión de los cmdlets. La nueva versión simplemente se instalará sobre la anterior.
 
@@ -820,7 +830,11 @@ ___
 
 > ![Windows][Logo_Windows] Windows
 >
-> La configuración de Windows (como el nombre de host y el SID de Windows) debe abstraerse o generalizarse en la máquina virtual local mediante el comando sysprep. [comment]: <> (MSSedusch > See more details here :) [comment]: <> (MShermannd TODO first link is about classic model. Didn't find an Azure docu article) [comment]: <> (MSSedusch > <https://azure.microsoft.com/documentation/articles/virtual-machines-create-upload-vhd-windows-server/>) [comment]: <> (MSSedusch > <http://blogs.technet.com/b/blainbar/archive/2014/09/12/modernizing-your-infrastructure-with-hybrid-cloud-using-custom-vm-images-and-resource-groups-in-microsoft-azure-part-21-blain-barton.aspx>)
+> La configuración de Windows (como el nombre de host y el SID de Windows) debe abstraerse o generalizarse en la máquina virtual local mediante el comando sysprep. 
+[comment]: <> (MSSedusch > See more details here :) 
+[comment]: <> (MShermannd TODO first link is about classic model. Didn't find an Azure docu article) 
+[comment]: <> (MSSedusch > <https://azure.microsoft.com/documentation/articles/virtual-machines-create-upload-vhd-windows-server/>) 
+[comment]: <> (MSSedusch > <http://blogs.technet.com/b/blainbar/archive/2014/09/12/modernizing-your-infrastructure-with-hybrid-cloud-using-custom-vm-images-and-resource-groups-in-microsoft-azure-part-21-blain-barton.aspx>)
 >
 > ![Linux][Logo_Linux] Linux
 >
@@ -841,7 +855,8 @@ Un método de implementación habitual consiste en mover una máquina virtual ex
 
 Estos son los requisitos que se deben cumplir a la hora de preparar su propio disco de VM de Azure:
 
-* Originalmente, el VHD que contiene el sistema operativo podía tener un tamaño máximo de 127 GB. Esta limitación se eliminó a finales de marzo de 2015. Ahora el VHD que contiene el sistema operativo puede tener un tamaño máximo de 1 TB, al igual que cualquier otro VHD hospedado en Almacenamiento de Azure. [comment]: <> (MShermannd TODO have to check if CLI also converts to static )
+* Originalmente, el VHD que contiene el sistema operativo podía tener un tamaño máximo de 127 GB. Esta limitación se eliminó a finales de marzo de 2015. Ahora el VHD que contiene el sistema operativo puede tener un tamaño máximo de 1 TB, al igual que cualquier otro VHD hospedado en Almacenamiento de Azure.
+[comment]: <> (MShermannd TODO have to check if CLI also converts to static )
 * Debe tener el formato de VHD fijo. Los VHD dinámicos o en formato VHDx aún no se admiten en Azure. Los VHD dinámicos se convertirán en VHD estáticos al cargarlos con los cmdlets de PowerShell o la CLI.
 * Los VHD que estén montados en la máquina virtual y se deban volver a montar en ella en Azure deben tener el formato VHD fijo. A los discos de datos también se les aplica el mismo límite de tamaño del disco del SO. Los VHD pueden tener un tamaño máximo de 1 TB. Los VHD dinámicos se convertirán en VHD estáticos al cargarlos con los cmdlets de PowerShell o la CLI.
 * Agregue otra cuenta local con privilegios de administrador, que puede utilizar el soporte técnico de Microsoft o que se puede asignar como contexto para que se ejecuten los servicios y las aplicaciones hasta que se implemente la máquina virtual y se puedan usuarios más adecuados.
@@ -866,7 +881,8 @@ Los archivos VHD que contienen un SO generalizado también se almacenan en conte
 
 Estos son los requisitos que se deben cumplir a la hora de preparar su propia imagen de VM de Azure:
 
-* Originalmente, el VHD que contiene el sistema operativo podía tener un tamaño máximo de 127 GB. Esta limitación se eliminó a finales de marzo de 2015. Ahora el VHD que contiene el sistema operativo puede tener un tamaño máximo de 1 TB, al igual que cualquier otro VHD hospedado en Almacenamiento de Azure. [comment]: <> (MShermannd TODO have to check if CLI also converts to static )
+* Originalmente, el VHD que contiene el sistema operativo podía tener un tamaño máximo de 127 GB. Esta limitación se eliminó a finales de marzo de 2015. Ahora el VHD que contiene el sistema operativo puede tener un tamaño máximo de 1 TB, al igual que cualquier otro VHD hospedado en Almacenamiento de Azure. 
+[comment]: <> (MShermannd TODO have to check if CLI also converts to static )
 * Debe tener el formato de VHD fijo. Los VHD dinámicos o en formato VHDx aún no se admiten en Azure. Los VHD dinámicos se convertirán en VHD estáticos al cargarlos con los cmdlets de PowerShell o la CLI.
 * Los VHD que estén montados en la máquina virtual y se deban volver a montar en ella en Azure deben tener el formato VHD fijo. A los discos de datos también se les aplica el mismo límite de tamaño del disco del SO. Los VHD pueden tener un tamaño máximo de 1 TB. Los VHD dinámicos se convertirán en VHD estáticos al cargarlos con los cmdlets de PowerShell o la CLI.
 * Puesto que todos los usuarios del dominio registrados como usuarios de la máquina virtual no existirán en un escenario de implementación exclusiva en la nube (consulte el capítulo [Solo en la nube: implementaciones de máquina virtual en Azure sin dependencias en la red local del cliente][planning-guide-2.1] de este documento), es posible que los servicios que usen estas cuentas de dominio no funcionen una vez que se haya implementado la imagen en Azure. Esto se aplica especialmente a las cuentas que se usan para ejecutar servicios como las aplicaciones de DBMS o SAP. Por lo tanto, debe reemplazar esas cuentas de dominio por cuentas locales de máquinas virtuales y eliminar las cuentas de dominio locales de la máquina virtual. Como se describe en el capítulo [Entre locales: implementación de una o varias máquinas virtuales de SAP en Azure con el requisito de estar totalmente integradas en la red local][planning-guide-2.2] de este documento, mantener a los usuarios del dominio local en la imagen de la máquina virtual podría no suponer un problema cuando esta se implementa en el escenario entre locales.
@@ -1805,7 +1821,7 @@ La solución SIOS DataKeeper proporciona un clúster de disco compartido para lo
 * SIOS DataKeeper Cluster Edition debe estar configurado de forma que refleje de forma sincrónica el contenido del volumen del VHD adicional conectado procedente de las máquinas virtuales de origen en el volumen del VHD adicional conectado a la máquina virtual de destino.
 * SIOS DataKeeper debe abstraer los volúmenes locales de origen y de destino presentarlos en el clúster de conmutación por error de Windows como un único disco compartido.
  
-Se pueden encontrar todos los detalles sobre cómo instalar un clúster de conmutación por error de Windows con SIOS Datakeeper y SAP en las notas del producto [Clustering SAP ASCS Instance using Windows Server Failover Cluster on Azure with SIOS DataKeeper][ha-guide-classic] (Agrupación en clústeres de una instancias de SAP ASCS usando el clúster de conmutación por error de Windows Server en Azure con SIOS DataKeeper).
+Se pueden encontrar todos los detalles sobre cómo instalar un clúster de conmutación por error de Windows con SIOS Datakeeper y SAP en las notas del producto [Clustering SAP ASCS Instance using Windows Server Failover Cluster on Azure with SIOS DataKeeper][ha-guide-classic] \(Agrupación en clústeres de una instancias de SAP ASCS usando el clúster de conmutación por error de Windows Server en Azure con SIOS DataKeeper).
 
 #### Alta disponibilidad en la instancia de SAP (A)SCS en Linux
  

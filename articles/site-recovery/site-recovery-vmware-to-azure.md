@@ -382,7 +382,7 @@ Compruebe que tiene una cuenta de almacenamiento para la replicación y una red 
 3. En **Umbral de RPO**, especifique el límite de RPO. Se generarán alertas cuando la replicación continua supera este límite.
 5. En **Retención de punto de recuperación**, especifique, en horas, el tiempo que estará disponible el período de retención para cada punto de recuperación. Los equipos protegidos se pueden recuperar en cualquier punto dentro de un período. Se admite una retención de hasta 24 horas para máquinas replicadas en almacenamiento premium.
 6. En **Frecuencia de instantánea coherente con la aplicación** especifique la frecuencia (en minutos) con la que se crearán puntos de recuperación que contengan las instantáneas coherentes con la aplicación.
-7. Cuando se crea una directiva de replicación, de forma predeterminada una directiva de conciliación se crea automáticamente para la conmutación por recuperación. Por ejemplo, si la directiva de replicación es **rep-policy**, la directiva de conmutación por recuperación será **rep-policy-failback**. Esta directiva no se usa hasta que inicie una conmutación por recuperación.
+7. Cuando se crea una directiva de replicación, de forma predeterminada una directiva de conciliación se crea automáticamente para la conmutación por recuperación. Por ejemplo, si la directiva de replicación es **rep-policy**, la directiva de conmutación por recuperación será **rep-policy-failback**. Esta directiva no se usa hasta que inicie una conmutación por recuperación.  
 8. Haga clic en **Aceptar** para crear la directiva.
 
 	![Directiva de replicación](./media/site-recovery-vmware-to-azure/gs-replication2.png)

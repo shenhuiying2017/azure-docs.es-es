@@ -60,7 +60,7 @@ En este momento, no se puede crear una solución preconfigurada con una cuenta d
 
 ### ¿Cómo se eliminan inquilinos de AAD?
 
-Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant] (Tutorial para la eliminación de inquilinos de Azure AD).
+Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant] \(Tutorial para la eliminación de inquilinos de Azure AD).
 
 ## Pasos siguientes
 

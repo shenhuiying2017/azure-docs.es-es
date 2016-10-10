@@ -8,7 +8,13 @@
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/27/2016"
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/27/2016"
 
 	ms.author="femila"/>
 
@@ -42,7 +48,7 @@ Las empresas pueden proporcionar cuentas exclusivamente en la nube a organizacio
 ### Requisitos previos
 **En el nivel de empresa (administrador)**
 
-*	Suscripción de Azure con Azure Active Directory
+*	Suscripción de Azure con Azure Active Directory  
 
 **En el nivel de usuario**
 

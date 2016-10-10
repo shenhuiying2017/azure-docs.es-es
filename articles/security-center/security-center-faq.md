@@ -43,7 +43,7 @@ Security Center recopila datos de las máquinas virtuales para evaluar su estado
 
 ### ¿Cómo se puede deshabilitar la recolección de datos?
 
-Puede deshabilitar la **recopilación de datos** de una suscripción en la directiva de seguridad en cualquier momento. ([Inicie sesión en el Portal de Azure](https://portal.azure.com), seleccione **Examinar**, **Security Center** y, luego, **Directiva**). Cuando se selecciona una suscripción, se abre una hoja nueva que le brinda la opción de deshabilitar la **colección de datos**. Seleccione la opción **Eliminar agentes** en la barra de herramientas superior para quitar los agentes de las máquinas virtuales existentes.
+Puede deshabilitar la **recopilación de datos** de una suscripción en la directiva de seguridad en cualquier momento. ([Inicie sesión en el Portal de Azure](https://portal.azure.com), seleccione **Examinar**, **Security Center** y, luego, **Directiva**.) Cuando se selecciona una suscripción, se abre una hoja nueva que le brinda la opción de deshabilitar la **colección de datos**. Seleccione la opción **Eliminar agentes** en la barra de herramientas superior para quitar los agentes de las máquinas virtuales existentes.
 
 > [AZURE.NOTE] Las directivas de seguridad se pueden establecer en el nivel de suscripción y el nivel de grupo de recursos de Azure, pero tiene que seleccionar una suscripción para desactivar la recolección de datos.
 
@@ -141,9 +141,9 @@ Máquinas virtuales de Linux compatibles:
 
 - Versiones de Ubuntu 12.04, 14.04, 15.10, 16.04
 - Versiones de Debian 7, 8
-- Versiones de CentOS 6.*, 7.*
-- Versiones de Red Hat Enterprise Linux (RHEL) 6.*, 7.*
-- Versiones de SUSE Linux Enterprise Server (SLES) 11.*, 12.*
+- Versiones de CentOS 6.\*, 7.*
+- Versiones de Red Hat Enterprise Linux (RHEL) 6.\*, 7.*
+- Versiones de SUSE Linux Enterprise Server (SLES) 11.\*, 12.*
 
 También se admiten máquinas virtuales que se ejecuten en un servicio en la nube. Se supervisan los roles de web y de trabajo de servicios en la nube que se ejecutan en espacios de producción. Para aprender más sobre el servicio en la nube, consulte la [información general sobre los servicios en la nube](../cloud-services/cloud-services-choose-me.md).
 

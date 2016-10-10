@@ -26,7 +26,7 @@ En este artículo se describe cómo usar las colas del Bus de servicio en Node.j
 
 ## Creación de una aplicación Node.js
 
-Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure][] o [Servicio en la nube Node.js][] (con Windows PowerShell).
+Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure][] o [Servicio en la nube Node.js][] \(con Windows PowerShell).
 
 ## Configuración de la aplicación para usar el Bus de servicio
 

@@ -128,7 +128,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Administración de confianza](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793932.png "Administración de confianza")
 
-    >[AZURE.NOTE] Después de cargar el archivo de metadatos, los valores de **Dirección URL de inicio de sesión único**, **Dirección URL de cierre de sesión único** y **Certificado de firma** se rellenan automáticamente.
+    >[AZURE.NOTE]Después de cargar el archivo de metadatos, los valores de **Dirección URL de inicio de sesión único**, **Dirección URL de cierre de sesión único** y **Certificado de firma** se rellenan automáticamente.
 
 11. Haga clic en la pestaña **Attributes** (Atributos).
 
@@ -140,11 +140,13 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
         |Atributo de aserción| Atributo de entidad de seguridad|
 		|-------------------|--------------------|
-        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname| nombre|--------------------|--------------------| |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname| apellido|-----------| |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
+        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname| nombre|--------------------|--------------------|
+	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname| apellido|-----------|
+	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
 
     >[AZURE.NOTE]La configuración de los atributos depende de cómo se desarrollan las aplicaciones en HCP, es decir, qué atributos esperan en la respuesta de SAML y con qué nombre (atributo de la entidad de seguridad) tienen acceso a este atributo en el código.
     >  
-    >a. El **atributo predeterminado ** de la captura de pantalla solo es para fines ilustrativos. No es necesario para que el escenario funcione.
+    >a. El **atributo predeterminado** de la captura de pantalla solo es para fines ilustrativos. No es necesario para que el escenario funcione.
     >
     >b. Los nombres y valores para el **Principal Attribute** (Atributo principal) que se muestran en la captura de pantalla dependen de cómo se desarrolle la aplicación. Es posible que la aplicación requiera diferentes asignaciones.
 

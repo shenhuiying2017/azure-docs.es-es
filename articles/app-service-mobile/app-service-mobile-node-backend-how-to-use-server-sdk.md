@@ -147,7 +147,7 @@ Al crear un nuevo back-end de aplicación móvil de Node.js mediante la hoja **I
 
 2. Siga los pasos de [Habilitación del repositorio de aplicaciones del Servicio de aplicaciones](../app-service-web/web-sites-deploy-local-git.md#Step3) con el fin de habilitar el repositorio de Git para el sitio del back-end, y tome nota del nombre de usuario y de la contraseña de la implementación.
 
-3. En la hoja para el back-end de la aplicación móvil, tome nota del valor de **URL de clonación de Git **.
+3. En la hoja para el back-end de la aplicación móvil, tome nota del valor de **URL de clonación de Git**.
 
 4. Ejecute el comando `git clone` mediante la URL de clonación de Git e introduzca la contraseña cuando sea necesario, como en el ejemplo siguiente:
 
@@ -393,7 +393,7 @@ Una vez creado el back-end de la aplicación móvil, puede conectar una base de 
 
 7. En la hoja **Agregar conexión de datos**, haga clic en **Base de datos SQL - Configurar los valores obligatorios** > **Crear una base de datos nueva**. Escriba el nombre de la base de datos nueva en el campo **Nombre**.
 
-8. Haga clic en **Servidor**. En la hoja **Nuevo servidor**, escriba un nombre de servidor único en el campo **Nombre del servidor** y proporcione un **Inicio de sesión del administrador del servidor ** y una **Contraseña** adecuados. Asegúrese de que **Permitir que los servicios de Azure accedan al servidor** está activado. Haga clic en **OK**.
+8. Haga clic en **Servidor**. En la hoja **Nuevo servidor**, escriba un nombre de servidor único en el campo **Nombre del servidor** y proporcione un **Inicio de sesión del administrador del servidor** y una **Contraseña** adecuados. Asegúrese de que **Permitir que los servicios de Azure accedan al servidor** está activado. Haga clic en **OK**.
 
 	![Creación de una Base de datos SQL de Azure][6]
 

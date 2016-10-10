@@ -674,9 +674,9 @@ Puede usar Fabric para iOS para que los usuarios inicien sesión en su aplicaci�
 
 1. Configure su back-end de aplicación móvil para el inicio de sesión en Twitter siguiendo el tutorial [Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de Twitter](app-service-mobile-how-to-configure-twitter-authentication.md).
 
-2. Agregue Fabric al proyecto siguiendo la documentación [Fabric for iOS - Getting Started] (Fabric para iOS: primeros pasos) y configurando TwitterKit.
+2. Agregue Fabric al proyecto siguiendo la documentación [Fabric for iOS - Getting Started] \(Fabric para iOS: primeros pasos) y configurando TwitterKit.
 
-    > [AZURE.NOTE] De forma predeterminada, Fabric creará automáticamente una aplicación de Twitter. Puede evitar que se cree registrando la clave de usuario y el secreto de consumidor que creó anteriormente mediante los fragmentos de código siguientes. Asimismo, puede reemplazar los valores de clave de usuario y de secreto de consumidor que proporcione al Servicio de aplicaciones por los valores que aparecen en [Fabric Dashboard] (Panel de Fabric). Si elige esta opción, asegúrese de establecer la dirección URL de devolución de llamada en un valor de marcador de posición, como `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
+    > [AZURE.NOTE] De forma predeterminada, Fabric creará automáticamente una aplicación de Twitter. Puede evitar que se cree registrando la clave de usuario y el secreto de consumidor que creó anteriormente mediante los fragmentos de código siguientes. Asimismo, puede reemplazar los valores de clave de usuario y de secreto de consumidor que proporcione al Servicio de aplicaciones por los valores que aparecen en [Fabric Dashboard] \(Panel de Fabric). Si elige esta opción, asegúrese de establecer la dirección URL de devolución de llamada en un valor de marcador de posición, como `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
 
 	Si decide utilizar los secretos que creó anteriormente, agregue el siguiente código al delegado de la aplicación:
 	

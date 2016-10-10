@@ -59,11 +59,11 @@ En este paso, use Azure portal para crear una instancia de Azure Data Factory de
 ## Crear puerta de enlace
 5. En la hoja **FACTORÍA DE DATOS**, haga clic en la ventana **Crear e implementar** para iniciar el **Editor** para la factoría de datos.
 
-	![Mosaico Crear e implementar](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png)
-6.	En el Editor de la Factoría de datos, haga clic en **... (puntos suspensivos)** en la barra de herramientas y luego haga clic en **Nueva puerta de enlace de datos**.
+	![Mosaico Crear e implementar](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
+6.	En el Editor de la Factoría de datos, haga clic en **... (puntos suspensivos)** en la barra de herramientas y luego haga clic en **Nueva puerta de enlace de datos**. 
 
 	![Nueva puerta de enlace de datos en la barra de herramientas](./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png)
-2. En la hoja **Crear**, escriba **adftutorialgateway** para el **nombre** y haga clic en **Aceptar**.
+2. En la hoja **Crear**, escriba **adftutorialgateway** para el **nombre** y haga clic en **Aceptar**. 	
 
 	![Hoja Crear puerta de enlace](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
 
@@ -187,8 +187,8 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 
 ### Creación de la tabla de entrada
 
-1. En el **Editor de la Factoría de datos**, haga clic en **Nuevo conjunto de datos** en la barra de comandos y seleccione **Tabla de SQL Server**.
-2.	Reemplace el script JSON del panel derecho por el texto siguiente:
+1. En el **Editor de la Factoría de datos**, haga clic en **Nuevo conjunto de datos** en la barra de comandos y seleccione **Tabla de SQL Server**. 
+2.	Reemplace el script JSON del panel derecho por el texto siguiente:    
 
 		{
 		  "name": "EmpOnPremSQLTable",
@@ -218,7 +218,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 	- **type** está establecido como **SqlServerTable**.
 	- **tableName** está establecido en **emp**.
 	- **linkedServiceName** está establecido en **SqlServerLinkedService** (creó este servicio vinculado en el paso 2).
-	- Para una tabla de entrada no generada por otra canalización en Factoría de datos de Azure, tiene que especificar la propiedad **external** en **true**. Indica que los datos de entrada se han producido fuera del servicio Factoría de datos de Azure. Opcionalmente, puede especificar las directivas de datos externos mediante el elemento **externalData** en la sección **Policy**.
+	- Para una tabla de entrada no generada por otra canalización en Factoría de datos de Azure, tiene que especificar la propiedad **external** en **true**. Indica que los datos de entrada se han producido fuera del servicio Factoría de datos de Azure. Opcionalmente, puede especificar las directivas de datos externos mediante el elemento **externalData** en la sección **Policy**.    
 
 	Consulte la [documentación de referencia de scripting con JSON][json-script-reference] para obtener información detallada acerca de las propiedades JSON.
 
@@ -228,7 +228,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 ### Creación de la tabla de salida
 
 1.	En el **Editor de la Factoría de datos**, haga clic en **Nuevo conjunto de datos** en la barra de comandos y seleccione **Almacenamiento de blobs de Azure**.
-2.	Reemplace el script JSON del panel derecho por el texto siguiente:
+2.	Reemplace el script JSON del panel derecho por el texto siguiente: 
 
 		{
 		  "name": "OutputBlobTable",

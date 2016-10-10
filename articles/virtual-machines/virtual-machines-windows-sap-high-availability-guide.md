@@ -434,7 +434,8 @@ Microsoft Azure permite que las empresas adquieran recursos de procesos, almacen
 En este documento se detallan todos los pasos necesarios para implementar sistemas SAP de alta disponibilidad en Azure usando un método novedoso con el nuevo modelo de implementación de Azure Resource Manager. Esta guía lo orientará por los pasos principales:
 
 
-- Buscar las guías de instalación y las notas de SAP adecuadas, que aparecen más adelante en la sección titulada [Recursos][sap-ha-guide-2]. El documento complementa la Documentación de instalación de SAP y las Notas de SAP, que representan los principales recursos para las instalaciones e implementaciones de software de SAP en las plataformas proporcionadas.
+- Buscar las guías de instalación y las notas de SAP adecuadas, que aparecen más adelante en la sección titulada [Recursos][sap-ha-guide-2].
+ El documento complementa la Documentación de instalación de SAP y las Notas de SAP, que representan los principales recursos para las instalaciones e implementaciones de software de SAP en las plataformas proporcionadas.
 
 - Comprender la diferencia entre el modelo de implementación clásica de Azure actual y este nuevo, de Azure Resource Manager.
 

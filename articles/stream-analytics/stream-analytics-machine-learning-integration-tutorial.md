@@ -86,7 +86,7 @@ Tome nota de la clave de acceso y de la dirección URL de servicio web desde el 
 ## Creación de un trabajo de Análisis de transmisiones que usa el modelo de Aprendizaje automático
 
 1.	Vaya al [Portal de Azure](https://manage.windowsazure.com).
-2.	Haga clic en **Nuevo** > ** Servicios de datos** > **Análisis de transmisiones** > **Creación rápida**. Escriba un nombre para el trabajo en **Nombre del trabajo**, escriba la región adecuada para el trabajo en **Región**, y, a continuación, seleccione la cuenta en **Cuenta de almacenamiento de supervisión regional**.
+2.	Haga clic en **Nuevo** > **Servicios de datos** > **Análisis de transmisiones** > **Creación rápida**. Escriba un nombre para el trabajo en **Nombre del trabajo**, escriba la región adecuada para el trabajo en **Región**, y, a continuación, seleccione la cuenta en **Cuenta de almacenamiento de supervisión regional**.
 3.	Una vez creado el trabajo, en la pestaña **Entradas**, haga clic en **Agregar una entrada**.
 
     ![Aprendizaje automático de Análisis de transmisiones, agregar entrada de Aprendizaje automático](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-input-screen.png)

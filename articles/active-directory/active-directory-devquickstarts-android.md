@@ -102,7 +102,7 @@ Para compilar con Maven, puede utilizar pom.xml en el nivel superior.
   * Configure el emulador con SDK 19.
   * Vaya a la carpeta raíz donde ha clonado el repositorio.
   * Ejecute el comando: mvn clean install.
-  * Acceda al directorio de la muestra de inicio rápido: cd samples\\hello.
+  * Acceda al directorio de la muestra de inicio rápido: cd samples\hello.
   * Ejecute el comando: mvn android:deploy android:run.
   * La aplicación debería iniciarse.
   * Escriba las credenciales del usuario de prueba para probarlas.
@@ -138,7 +138,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath\\.m2\\repository"
+        url "YourLocalMavenRepoPath\.m2\repository"
     }
 }
 dependencies {
@@ -272,7 +272,8 @@ Puede llamar a **acquireTokenSilent** para controlar el almacenamiento en caché
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Agente**: la aplicación de portal de empresa de Microsoft Intune proporcionará el componente del agente. ADAL usará la cuenta del agente (si hay una cuenta de usuario que se ha creado en este autenticador y el desarrollador decide no omitirla). El desarrollador puede omitir el usuario del agente con:
+11. **Agente**:
+ la aplicación de portal de empresa de Microsoft Intune proporcionará el componente del agente. ADAL usará la cuenta del agente (si hay una cuenta de usuario que se ha creado en este autenticador y el desarrollador decide no omitirla). El desarrollador puede omitir el usuario del agente con:
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -387,17 +388,18 @@ private syncronized void writeToLogFile(Context ctx, String msg) {
 + Info (información)
 + Verbose (más detalles)
 
-El nivel de registro se define de la siguiente forma:
+El nivel de registro se define de la siguiente forma: 
 ```Java
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
 
- Todos los mensajes de registro se envían a logcat, además de las devoluciones de llamada de registro personalizadas. Un registro de logcat se puede obtener en formato de archivo de la siguiente forma:
+ Todos los mensajes de registro se envían a logcat, además de las devoluciones de llamada de registro personalizadas. 
+ Un registro de logcat se puede obtener en formato de archivo de la siguiente forma:
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"
  ```
- Más ejemplos sobre comandos adb: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+Más ejemplos sobre comandos adb: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### Seguimiento de red
 
@@ -418,18 +420,18 @@ ADAL cifra los tokens y los almacena en SharedPreferences de forma predeterminad
 
 ### Desafío de portador de Oauth2
 
-La clase AuthenticationParameters proporciona funcionalidad para obtener el authorization\_uri a partir del desafío de portador de Oauth2.
+La clase AuthenticationParameters proporciona funcionalidad para obtener el authorization_uri a partir del desafío de portador de Oauth2.
 
 ### Cookies de sesión en WebView
 
-Android WebView no elimina las cookies de sesión después de cerrar la aplicación. Se puede controlar con el código de ejemplo siguiente:
+Android WebView no elimina las cookies de sesión después de cerrar la aplicación. Se puede controlar con el código de ejemplo siguiente: 
 ```java
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
 ```
-Más información sobre las cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+ Más información sobre las cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
 
 ### Reemplazos de recursos
 

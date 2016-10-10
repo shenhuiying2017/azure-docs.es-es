@@ -26,7 +26,7 @@ Puede habilitar el escalado automático al crear un grupo o bien en un grupo exi
 
 ## Fórmulas de escalado automático
 
-Una fórmula de escalado automático es un valor de cadena definido que contiene una o varias instrucciones y que se asignan al elemento [autoScaleFormula][rest_autoscaleformula] (REST de Lote) o a la propiedad [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (.NET de Lote) de un grupo. Cuando se asigna a un grupo, el servicio Lote usa la fórmula para determinar el número de nodos de proceso de un grupo para el siguiente intervalo de procesamiento (más en intervalos posteriores). La cadena de fórmula no puede superar los 8 KB y puede incluir hasta 100 instrucciones separadas por punto y coma, y saltos de línea y comentarios.
+Una fórmula de escalado automático es un valor de cadena definido que contiene una o varias instrucciones y que se asignan al elemento [autoScaleFormula][rest_autoscaleformula] \(REST de Lote) o a la propiedad [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] \(.NET de Lote) de un grupo. Cuando se asigna a un grupo, el servicio Lote usa la fórmula para determinar el número de nodos de proceso de un grupo para el siguiente intervalo de procesamiento (más en intervalos posteriores). La cadena de fórmula no puede superar los 8 KB y puede incluir hasta 100 instrucciones separadas por punto y coma, y saltos de línea y comentarios.
 
 Puede imaginarse que las fórmulas de escalado automático son un "idioma" de escalado automático de Lote. Las instrucciones de fórmula son expresiones de forma libre que pueden incluir variables definidas por el servicio (variables definidas por el servicio de Lote) y variables definidas por el usuario (variables que usted define). Pueden realizar diversas operaciones en estos valores mediante funciones, operadores y tipos integrados. Por ejemplo, una instrucción podría tener la forma siguiente:
 
@@ -133,7 +133,14 @@ Estas **operaciones** se permiten en los tipos enumerados arriba.
 | timeinterval *operador* timeinterval | +, - | timeinterval |
 | timeinterval *operador* timestamp | + | timestamp |
 | timestamp *operador* timeinterval | + | timestamp |
-| timestamp *operador* timestamp | - | timeinterval | | *operador*double | -, ! | double | | *operador*timeinterval | - | timeinterval | | double *operador* double | <, <=, ==, >=, >, != | double | | string *operador* string | <, <=, ==, >=, >, != | double | | timestamp *operador* timestamp | <, <=, ==, >=, >, != | double | | timeinterval *operador* timeinterval | <, <=, ==, >=, >, != | double | | double *operador* double | &&, || | double |
+| timestamp *operador* timestamp | - | timeinterval | 
+| *operador*double | -, ! | double | 
+| *operador*timeinterval | - | timeinterval | 
+| double *operador* double | <, <=, ==, >=, >, != | double | 
+| string *operador* string | <, <=, ==, >=, >, != | double | 
+| timestamp *operador* timestamp | <, <=, ==, >=, >, != | double | 
+| timeinterval *operador* timeinterval | <, <=, ==, >=, >, != | double | 
+| double *operator* double | &&, &#124;&#124; | double |
 
 Cuando se prueba un valor double con un operador ternario (`double ? statement1 : statement2`), el valor distinto de cero es **true** y cero es **false**.
 

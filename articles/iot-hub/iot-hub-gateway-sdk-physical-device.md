@@ -80,10 +80,10 @@ Este tutorial se supone que usa un dispositivo [SensorTag de Texas Instruments](
 
 Antes de comenzar, asegúrese de que puede conectar el dispositivo Edison a la red inalámbrica. Para configurar el dispositivo Edison, debe conectarlo a un equipo host. Intel proporciona guías de introducción para los siguientes sistemas operativos:
 
-- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] (Introducción a la placa de desarrollo de Intel Edison en Windows de 64 bits).
-- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] (Introducción a la placa de desarrollo de Intel Edison en Windows de 32 bits).
-- [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx] (Introducción a la placa de desarrollo de Intel Edison en Mac OS X).
-- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] (Introducción a la placa de Intel® Edison en Linux).
+- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] \(Introducción a la placa de desarrollo de Intel Edison en Windows de 64 bits).
+- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] \(Introducción a la placa de desarrollo de Intel Edison en Windows de 32 bits).
+- [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx] \(Introducción a la placa de desarrollo de Intel Edison en Mac OS X).
+- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] \(Introducción a la placa de Intel® Edison en Linux).
 
 Para configurar el dispositivo Edison y familiarizarse con él, debe completar todos los pasos de estos artículos de introducción, excepto el último paso, "Elija IDE", que no es necesario para este tutorial. Al final del proceso de instalación de Edison tiene:
 
