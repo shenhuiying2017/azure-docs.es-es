@@ -17,7 +17,7 @@
    ms.date="08/31/2016"
    ms.author="sewhee" />
 
-# Primeros pasos en la creación de un equilibrador de carga interno mediante la CLI de Azure
+# Creación de un equilibrador de carga interno mediante la CLI de Azure
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
@@ -306,4 +306,4 @@ donde **nrprg** es el grupo de recursos y **nrplb** el nombre del equilibrador d
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!----HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

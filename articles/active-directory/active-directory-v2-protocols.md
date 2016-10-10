@@ -18,7 +18,7 @@
 
 # Protocolos de v2.0: OAuth 2.0 y OpenID Connect
 
-El punto de conexión v2.0 puede usar Azure AD para identidad como servicio con protocolos estándar del sector, OpenID Connect y OAuth 2.0. Aunque el servicio sea compatible con el estándar, puede haber diferencias sutiles entre cualquiera de las dos implementaciones de estos protocolos. La información que aquí se describe será útil si decide escribir su código mediante el envío y la administración directos de solicitudes HTTP o mediante el uso de una biblioteca de código abierto de terceros, en lugar de usar una de nuestras bibliotecas de código abierto.
+El punto de conexión v2.0 puede usar Azure AD para identidad como servicio con protocolos estándar del sector, OpenID Connect y OAuth 2.0. Aunque el servicio sea compatible con el estándar, puede haber diferencias sutiles entre dos implementaciones cualquiera de estos protocolos. La información que aquí se describe será útil si decide escribir su código mediante el envío y la administración directos de solicitudes HTTP o mediante el uso de una biblioteca de código abierto de terceros, en lugar de usar una de nuestras bibliotecas de código abierto.
 <!-- TODO: Need link to libraries above -->
 
 > [AZURE.NOTE]
@@ -42,7 +42,7 @@ Todas las aplicaciones que usen el punto de conexión v2.0 tendrán que registra
 - Un **URI de redireccionamiento** o **identificador de paquete** que puede utilizarse para dirigir las respuestas de nuevo a la aplicación
 - Algunos otros valores específicos de cada escenario.
 
-Para más detalles, aprenda cómo [registrar una aplicación](active-directory-v2-app-registration.md).
+Para obtener más información, aprenda a [registrar una aplicación](active-directory-v2-app-registration.md).
 
 ## Extremos
 Una vez registrada, la aplicación se comunica a Azure AD mediante el envío de solicitudes al extremo v2.0:
@@ -75,9 +75,9 @@ Si está listo para ver algunas solicitudes de ejemplo, comience con uno de los 
 - [Creación de aplicaciones móviles y nativas con OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
 - [Creación de aplicaciones web con OpenID Connect](active-directory-v2-protocols-oidc.md)
 - [Creación de aplicaciones de una sola página con el flujo implícito de OAuth 2.0](active-directory-v2-protocols-implicit.md)
-- Creación de demonios o procesos del lado servidor con el flujo de credenciales de cliente de OAuth 2.0 (próximamente)
+- [Creación de demonios o procesos del lado servidor con el flujo de credenciales de cliente de OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
 - Obtención de tokens en una API web con el flujo "en nombre de" de OAuth 2.0 (próximamente)
 
 <!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

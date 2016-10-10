@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -51,7 +51,7 @@ El objetivo de esta sección es describir cómo permitir que los usuarios se aut
 
 **Siga estos pasos para configurar el inicio de sesión único:**
 
-1.	Después de agregar Evidence.com en el Portal de Azure clásico, haga clic en **Configurar inicio de sesión único**. 
+1.	Después de agregar Evidence.com en el Portal de Azure clásico, haga clic en **Configurar inicio de sesión único**.
  
 2.	En la siguiente pantalla, seleccione **Inicio de sesión único de Microsoft Azure AD** y después haga clic en **Siguiente**.
 
@@ -107,4 +107,4 @@ Para que los usuarios de AAD aprovisionados vean Evidence.com en su panel de acc
  
 4.	En el pie de página, haga clic en el botón **Asignar**.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0928_2016-->

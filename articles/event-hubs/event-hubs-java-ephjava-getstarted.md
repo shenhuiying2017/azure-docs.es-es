@@ -3,7 +3,7 @@
 	description="Siga este tutorial para empezar a usar Centros de eventos de Azure, a enviar eventos con C y a recibirlos con Java mediante EventProcessorHost."
 	services="event-hubs"
 	documentationCenter=""
-	authors="fsautomata"
+	authors="jtaubensee"
 	manager="timlt"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2016"
-	ms.author="jtaubensee"/>
+	ms.date="09/27/2016"
+	ms.author="jotaub;sethm"/>
 
 # Introducción a los Centros de eventos
 
@@ -42,7 +42,7 @@ Para completar este tutorial necesitará lo siguiente:
 
 ## Ejecución de las aplicaciones
 
-Ya está preparado para ejecutar las aplicaciones.
+Ahora está preparado para ejecutar las aplicaciones.
 
 1.	Ejecute el proyecto **Receiver**.
 
@@ -74,4 +74,4 @@ Para obtener más información, consulte el [Centro de desarrolladores de Java](
 [solución de mensajería en cola]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -23,10 +23,10 @@ El objetivo de este tutorial es mostrar cómo integrar Facebook at Work con Azur
 
 La integración de Facebook at Work con Azure AD ofrece las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a Facebook at Work. 
+- Puede controlar en Azure AD quién tiene acceso a Facebook at Work.
 - Puede aprovisionar automáticamente cuentas para los usuarios a los que concedió acceso a Facebook at Work
 - Puede permitir que los usuarios inicien sesión automáticamente en Facebook at Work (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central. 
+- Puede administrar sus cuentas en una ubicación central.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -41,7 +41,7 @@ Para configurar la integración de Azure AD con CS Stars, necesita los siguiente
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 - No debe usar el entorno de producción, a menos que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/). 
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Adición de Facebook at Work desde la galería
@@ -49,7 +49,7 @@ Para configurar la integración de Facebook at Work en Azure AD, deberá agregar
 
 **Para agregar Facebook at Work desde la galería, realice los pasos siguientes:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Active Directory][1]
 
@@ -124,4 +124,4 @@ Para que los usuarios de AAD aprovisionados puedan ver Facebook at Work en su pa
 [3]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_04.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0928_2016-->

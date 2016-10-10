@@ -58,8 +58,7 @@ En la tabla siguiente se describen los tipos de excepción de mensajería, sus c
 | [MessagingEntityDisabledException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingentitydisabledexception.aspx) | Solicitud para realizar una operación en tiempo de ejecución en una entidad deshabilitada. | Active la entidad. | El reintento podría ser útil si la entidad se activa mientras este se lleva a cabo. |
 | [NoMatchingSubscriptionException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.nomatchingsubscriptionexception.aspx) | Service Bus devuelve esta excepción si envía un mensaje a un tema que tiene el filtrado previo habilitado y dicho mensaje no coincide con ninguno de los filtros. | Asegúrese de que coincida con al menos un filtro. | El reintento no le será de ayuda. |
 | [MessageSizeExceededException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesizeexceededexception.aspx) | Una carga de mensaje supera el límite de 256 KB. Tenga en cuenta que el límite de 256 KB es el tamaño total del mensaje, que puede incluir propiedades del sistema y cualquier sobrecarga. NET. | Reduzca el tamaño de la carga del mensaje y vuelva a intentar la operación. | El reintento no le será de ayuda. |
-| [TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) | La transacción de ambiente (*Transaction.Current*) no es válida. Puede se haya completado o anulado. La excepción interna puede proporcionar información adicional. | | Reintentar no será de ayuda. | - 
-| [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) | Se intenta realizar una operación en una transacción dudosa o se intenta confirmar una transacción y esta se convierte en dudosa. | La aplicación debe controlar esta excepción (como caso especial), porque puede que ya se haya confirmado la transacción. | - |
+| [TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) | La transacción de ambiente (*Transaction.Current*) no es válida. Puede se haya completado o anulado. La excepción interna puede proporcionar información adicional. | | Reintentar no será de ayuda. | - | [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) | Se intenta realizar una operación en una transacción dudosa o se intenta confirmar una transacción y esta se convierte en dudosa. | La aplicación debe controlar esta excepción (como caso especial), porque puede que ya se haya confirmado la transacción. | - |
 
 ## QuotaExceededException
 
@@ -137,8 +136,8 @@ Para obtener la referencia completa de la API de .NET de Bus de servicio y Centr
 
 Para más información sobre [Service Bus](https://azure.microsoft.com/services/service-bus/), consulte los temas siguientes.
 
-- [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
+- [Introducción a la mensajería del Bus de servicio](../service-bus-messaging/service-bus-messaging-overview.md)
 - [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
 - [Arquitectura del Bus de servicio](service-bus-architecture.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

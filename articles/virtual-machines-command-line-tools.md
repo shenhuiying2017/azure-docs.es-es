@@ -14,18 +14,18 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="09/22/2016"
 	ms.author="danlep"/>
 
 # Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] También puede [leer acerca de los comandos de modelo de Resource Manager](virtual-machines/azure-cli-arm-commands.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] También puede [leer información sobre los comandos del modelo de Resource Manager](virtual-machines/azure-cli-arm-commands.md) y utilizar la CLI para [migrar recursos](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) desde el modelo clásico al de Resource Manager.
 
 En este artículo se proporcionan la sintaxis y las opciones de los comandos CLI de Azure que normalmente se usan para crear y administrar recursos de Azure en el modelo de implementación clásico. Para acceder a estos comandos, ejecute la CLI en el modo de Administración de servicios de Azure (asm). Tenga en cuenta que esta no es una referencia completa y que la versión de CLI puede mostrar algunos comandos o parámetros diferentes.
 
 En primer lugar, [instale la CLI de Azure](xplat-cli-install.md) y [conéctese a su suscripción de Azure](xplat-cli-connect.md).
 
-Para obtener las opciones y la sintaxis de comando actuales de la línea de comandos en el modo ASM, escriba `azure help` o, para ver la ayuda de un comando específico, `azure help [command]`. También encontrará ejemplos de CLI en la documentación para crear y administrar servicios de Azure concretos.
+Para obtener las opciones y la sintaxis de comando actuales de la línea de comandos, escriba `azure help` o, para ver la ayuda de un comando específico, `azure help [command]`. También encontrará ejemplos de CLI en la documentación para crear y administrar servicios de Azure concretos.
 
 Se muestran parámetros opcionales entre corchetes (por ejemplo, `[parameter]`). Los demás parámetros son obligatorios.
 
@@ -56,7 +56,7 @@ Este comando permite iniciar un explorador para descargar el archivo .publishset
 **account import [options] &lt;file>**
 
 
-Este comando permite importar un archivo publishsettings o un certificado de manera que la herramienta pueda usarlos en el futuro.
+Este comando permite importar un archivo publishsettings o un certificado de manera que la herramienta pueda usarlos en futuras sesiones.
 
 	~$ azure account import publishsettings.publishsettings
 	info:   Importing publish settings file publishsettings.publishsettings
@@ -71,7 +71,7 @@ Este comando permite importar un archivo publishsettings o un certificado de man
 
 **account clear [options]**
 
-Este comando permite quitar la configuración de publicación almacenada que se ha importado. Use este comando si ha acabado de usar la herramienta en esta máquina y quiere asegurarse de que la herramienta no puede usarse con la cuenta en el futuro.
+Este comando permite quitar la configuración de publicación almacenada que se ha importado. Use este comando si ha acabado de usar la herramienta en esta máquina y quiere asegurarse de que la herramienta no puede usarse con la cuenta en futuras sesiones.
 
 	~$ azure account clear
 	Clearing account info.
@@ -79,7 +79,7 @@ Este comando permite quitar la configuración de publicación almacenada que se 
 
 **account list [options]**
 
-Permite ver las suscripciones importadas.
+Enumerar las suscripciones importadas
 
 	~$ azure account list
 	info:    Executing command account list
@@ -93,7 +93,7 @@ Permite ver las suscripciones importadas.
 
 **account set [options] &lt;subscription&gt;**
 
-Permite establecer la suscripción actual.
+Establecer la suscripción actual
 
 ###Comandos para administrar los grupos de afinidad
 
@@ -112,7 +112,7 @@ Los grupos de afinidad pueden configurarse cuando un grupo de máquinas virtuale
 
 **account affinity-group create [options] &lt;name&gt;**
 
-Este comando permite crear un nuevo grupo de afinidad.
+Este comando permite crea un grupo de afinidad.
 
 	~$ azure account affinity-group create opentec -l "West US"
 	info:    Executing command account affinity-group create
@@ -194,9 +194,9 @@ El siguiente diagrama muestra cómo se han hospedado las máquinas virtuales de 
 
 **vm create [options] &lt;dns-name> &lt;image> &lt;userName> [password]**
 
-Este comando permite crear una nueva máquina virtual de Azure. De forma predeterminada, cada máquina virtual (VM) se crea en su propio servicio en la nube; sin embargo, puede especificar que se agregue una máquina virtual a un servicio en la nube existente mediante la opción -c como aparece aquí.
+Este comando permite crear una máquina virtual de Azure. De forma predeterminada, cada máquina virtual se crea en su propio servicio en la nube. Puede especificar que se agregue una máquina virtual a un servicio en la nube existente mediante la opción -c como aparece aquí.
 
-El comando vm create, como el Portal de Azure clásico, solo permite crear máquinas virtuales en el entorno de implementación de la producción. No existe ninguna opción para crear una máquina virtual en el entorno de implementación de almacenamiento provisional de un servicio en la nube. Si su suscripción no tiene una cuenta de almacenamiento de Azure, el comando creará una.
+El comando vm create, como el Portal de Azure clásico, solo permite crear máquinas virtuales en el entorno de implementación de la producción. No existe ninguna opción para crear una máquina virtual en el entorno de implementación de almacenamiento provisional de un servicio en la nube. Si su suscripción no tiene una cuenta de Azure Storage, el comando creará una.
 
 Puede especificar una ubicación a través del parámetro --location o puede especificar un grupo de afinidad a través del parámetro --affinity-group. Si no se proporciona ninguno, se le solicitará que lo haga a partir de una lista de ubicaciones válidas.
 
@@ -208,7 +208,7 @@ Las máquinas virtuales de Windows pueden habilitar RDP más tarde agregando el 
 
 Los siguientes parámetros opcionales son compatibles con este comando:
 
-**-c, --connect** permite crear la máquina virtual dentro de una implementación ya creada en un servicio de hospedaje. Si no se usa -vmname con esta opción, el nombre de la nueva máquina virtual se generará automáticamentey.<br /> **-n, --vm-name** Especifique el nombre de la máquina virtual. Este parámetro toma el servicio de hospedaje de forma predeterminada. Si no se especifica -vmname, el nombre de la nueva máquina virtual se genera como &lt;service-name>&lt;id>, where &lt;id>, donde &lt;id> es el número de máquinas virtuales existentes en el servicio más 1. Por ejemplo, si usa este comando para agregar una nueva máquina virtual a un servicio de hospedaje MyService que cuente con una máquina virtual existente, el nombre de la nueva máquina virtual será MyService2.<br /> **-u, --blob-url** Especifique la URL de almacenamiento de blobs desde la cual se creará el disco del sistema de la máquina virtual. <br /> **-z, --vm-size** Especifique el tamaño de la máquina virtual. Los valores válidos son: "ExtraSmall", "Small", "Medium", "Large", "ExtraLarge", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "Basic\_A0", "Basic\_A1", "Basic\_A2", "Basic\_A3", "Basic\_A4", "Standard\_D1", "Standard\_D2", "Standard\_D3", "Standard\_D4", "Standard\_D11", "Standard\_D12", "Standard\_D13", "Standard\_D14", "Standard\_DS1", "Standard\_DS2", "Standard\_DS3", "Standard\_DS4", "Standard\_DS11", "Standard\_DS12", "Standard\_DS13", "Standard\_DS14", "Standard\_G1", "Standard\_G2", "Standard\_G3", "Standard\_G4", "Standard\_G55". El valor predeterminado es "Small". <br /> **- r** permite agregar conectividad RDP a una máquina virtual Windows. <br /> **-e,--ssh** permite agregar conectividad SSH a una máquina virtual Windows. <br /> **-t,--ssh-cert**permite especificar el certificado SSH. La suscripción <br /> **-s** <br /> **-o,--community** la imagen especificada es una imagen de la comunidad <br /> **-w** el nombre de red virtual <br/> **-l,--location** especifica la ubicación (por ejemplo, "Centro y Norte de EE. UU."). <br /> **- a,--affinity-group** especifica el grupo de afinidad.<br /> **-w,--nombre de red virtual** especifica la red virtual a la que se agrega la nueva máquina virtual. Las redes virtuales pueden configurarse y administrarse desde el Portal de Azure clásico.<br /> **-b, --subnet-names** permite especificar los nombres de subred que se van a asignar a la máquina virtual.
+**-c, --connect** permite crear la máquina virtual dentro de una implementación ya creada en un servicio de hospedaje. Si no se usa -vmname con esta opción, el nombre de la nueva máquina virtual se generará automáticamente.<br /> **-n, --vm-name** Especifique el nombre de la máquina virtual. Este parámetro toma el servicio de hospedaje de forma predeterminada. Si no se especifica - vmname, el nombre de la nueva máquina virtual se genera como &lt;service-name>&lt;id>, donde &lt;id> es el número de máquinas virtuales existentes en el servicio más 1. Por ejemplo, si usa este comando para agregar una nueva máquina virtual a un servicio de hospedaje MyService que cuente con una máquina virtual existente, el nombre de la nueva máquina virtual será MyService2.<br /> **-u, --blob-url** Especifique la URL de almacenamiento de blobs desde la cual se creará el disco del sistema de la máquina virtual. <br /> **-z, --vm-size** Especifique el tamaño de la máquina virtual. Los valores válidos son: "ExtraSmall", "Small", "Medium", "Large", "ExtraLarge", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "Basic\_A0", "Basic\_A1", "Basic\_A2", "Basic\_A3", "Basic\_A4", "Standard\_D1", "Standard\_D2", "Standard\_D3", "Standard\_D4", "Standard\_D11", "Standard\_D12", "Standard\_D13", "Standard\_D14", "Standard\_DS1", "Standard\_DS2", "Standard\_DS3", "Standard\_DS4", "Standard\_DS11", "Standard\_DS12", "Standard\_DS13", "Standard\_DS14", "Standard\_G1", "Standard\_G2", "Standard\_G3", "Standard\_G4", "Standard\_G55". El valor predeterminado es "Small". <br /> **- r** permite agregar conectividad RDP a una máquina virtual Windows. <br /> **-e,--ssh** permite agregar conectividad SSH a una máquina virtual Windows. <br /> **-t,--ssh-cert**permite especificar el certificado SSH. La suscripción <br /> **-s** <br /> **-o,--community** la imagen especificada es una imagen de la comunidad <br /> **-w** el nombre de red virtual <br/> **-l,--location** especifica la ubicación (por ejemplo, centro-norte de EE. UU.). <br /> **- a,--affinity-group** especifica el grupo de afinidad.<br /> **-w,--nombre de red virtual** especifica la red virtual a la que se agrega la nueva máquina virtual. Las redes virtuales pueden configurarse y administrarse desde el Portal de Azure clásico.<br /> **-b, --subnet-names** permite especificar los nombres de subred que se van a asignar a la máquina virtual.
 
 En este ejemplo, MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-es-ES-30GB es una imagen proporcionada por la plataforma. Para obtener más información sobre las imágenes del sistema operativo, consulte vm image list.
 
@@ -219,7 +219,7 @@ En este ejemplo, MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-es-ES-30GB es una ima
 
 **vm create-from &lt;dns-name> &lt;role-file>**
 
-Este comando permite crear una nueva máquina virtual de Azure desde un archivo de rol JSON.
+Este comando permite crear una máquina virtual de Azure desde un archivo de rol JSON.
 
 	~$ azure vm create-from my-vm example.json
 	info:   OK
@@ -333,7 +333,7 @@ Este comando permite exportar una imagen de la máquina virtual de Azure a un ar
 	info:   vm export command OK
 
 ##  Comandos para administrar extremos de máquinas virtuales de Azure
-El siguiente diagrama muestra la arquitectura de una implementación típica de varias instancias de una máquina virtual clásica. Tenga en cuenta que en este ejemplo, el puerto 3389 está abierto en cada máquina virtual (para el acceso RDP) y existe también una dirección IP interna (por ejemplo, 168.55.11.1) en cada máquina virtual que utilice el equilibrador de carga para dirigir el tráfico a la máquina virtual. Esta dirección IP interna también puede usarse para la comunicación entre máquinas virtuales.
+El siguiente diagrama muestra la arquitectura de una implementación típica de varias instancias de una máquina virtual clásica. En este ejemplo, el puerto 3389 está abierto en cada máquina virtual (para el acceso RDP). Existe también una dirección IP interna (por ejemplo, 168.55.11.1) en cada máquina virtual que utilice el equilibrador de carga para dirigir el tráfico a la máquina virtual. Esta dirección IP interna también puede usarse para la comunicación entre máquinas virtuales.
 
 ![Diagrama de red de Azure](./media/virtual-machines-command-line-tools/networkdiagram.jpg)
 
@@ -417,7 +417,7 @@ Las imágenes de máquina virtual son capturas de máquinas virtuales ya configu
 
 **vm image list [options]**
 
-Este comando permite obtener una lista de imágenes de máquina virtual. Hay tres tipos de imágenes: imágenes creadas por Microsoft y que tienen el prefijo "MSFT", imágenes creadas por terceros y que normalmente tienen el prefijo del nombre del proveedor y las imágenes que usted crea. Para crear imágenes, puede capturar una máquina virtual existente o crear una imagen desde un .vhd personalizado cargado en el almacenamiento de blobs. Para obtener más información sobre el uso de .vhd personalizado, consulte vm image create. La opción --json especifica que los resultados se devuelven con un formato JSON sin procesar.
+Este comando permite obtener una lista de imágenes de máquina virtual. Hay tres tipos de imágenes: imágenes creadas por Microsoft y que tienen el prefijo "MSFT", imágenes creadas por terceros y que tienen el prefijo del nombre del proveedor y las imágenes que usted crea. Para crear imágenes, puede capturar una máquina virtual existente o crear una imagen desde un .vhd personalizado cargado en el almacenamiento de blobs. Para obtener más información sobre el uso de .vhd personalizado, consulte vm image create. La opción --json especifica que los resultados se devuelven con un formato JSON sin procesar.
 
 	~$ azure vm image list
 	data:   Name                                                                   Category   OS
@@ -487,7 +487,7 @@ Los comandos para conectar discos de datos (azure vm disk attach y azure vm disk
 
 Cuando desconecte un disco de datos con el comando azure vm disk detach, use el parámetro &lt;lun&gt; para indicar qué disco desconectar.
 
-> [AZURE>NOTE] Tenga en cuenta que siempre debe desconectar los discos de datos en orden inverso, empezando por el LUN con el número mayor que se haya asignado. La capa SCSI de Linux no es compatible con la desconexión de un LUN con un número inferior si hay un LUN con número superior conectado. Por ejemplo, no debe desconectar LUN 0 si LUN 1 sigue estando conectado.
+> [AZURE>NOTE] Siempre debe desconectar los discos de datos en orden inverso, empezando por el LUN con el número mayor que se haya asignado. La capa SCSI de Linux no es compatible con la desconexión de un LUN con un número inferior si hay un LUN con número superior conectado. Por ejemplo, no debe desconectar LUN 0 si LUN 1 sigue estando conectado.
 
 **vm disk show [options] &lt;name>**
 
@@ -539,7 +539,7 @@ Este comando elimina un disco de Azure de un repositorio personal. El disco debe
 
 **vm disk create &lt;name> [source-path]**
 
-Este comando carga y registra un disco de Azure. --blob-url, --location o --affinity-group deben especificarse. Si usa este comando con [source-path], el archivo .vhd especificado se carga y se crea una nueva imagen. Puede conectar esta imagen a una máquina virtual mediante vm disk attach.
+Este comando carga y registra un disco de Azure. --blob-url, --location o --affinity-group deben especificarse. Si usa este comando con [source-path], el archivo .vhd especificado se carga y se crea una imagen. Puede conectar esta imagen a una máquina virtual mediante vm disk attach.
 
 Algunos sistemas imponen límites de descriptor de archivos por proceso. Si se supera este límite, la herramienta muestra un error de límite de descriptor de archivos. Puede ejecutar el comando de nuevo con el parámetro -p &lt;number> para reducir el número máximo de cargas paralelas. El número máximo predeterminado de cargas paralelas es 96.
 
@@ -590,7 +590,7 @@ Los servicios en la nube de Azure son aplicaciones y servicios hospedados en rol
 
 **service create [options] &lt;serviceName>**
 
-Este comando permite crear un nuevo servicio en la nube.
+Este comando permite crear un servicio en la nube.
 
 	~$ azure service create newservicemsopentech
 	info:    Executing command service create
@@ -723,7 +723,7 @@ Este comando le permitirá generar un script de implementación personalizado.
 
 **site create [options] [name]**
 
-Este comando crea una nueva aplicación web y directorio local.
+Este comando crea una aplicación web y directorio local.
 
 	~$ azure site create mysite
 	info:   Executing command site create
@@ -791,7 +791,7 @@ Este comando intercambia entre dos espacios de aplicaciones web.
 
 Este comando es compatible con la siguiente opción adicional:
 
-**-q o **--quiet**: No solicita confirmación. Use esta opción en los scripts automáticos.
+**-q o **--quiet**: no solicita confirmación. Use esta opción en los scripts automáticos.
 
 
 **site start [options] [name]**
@@ -814,7 +814,7 @@ Este comando permite detener una aplicación web.
 	info:   Site mysite has been stopped
 	info:   site stop command OK
 
-**site restart [options] [name]
+**site restart [options] [name]**
 
 Este comando detiene y después inicia una aplicación web especificada.
 
@@ -1135,7 +1135,7 @@ Servicios móviles de Azure reúne un conjunto de servicios de Azure que habilit
 Las opciones siguientes se aplican a la mayor parte de los comandos de Servicios móviles:
 
 + **-h** o **--help**: Muestra la información de uso del resultado.
-+ **-s `<id>`** o **--subscription `<id>`**: Permite usar una suscripción determinada que se especifica como `<id>`.
++ **-s `<id>`** o **--subscription `<id>`**: permite usar una suscripción determinada que se especifica como `<id>`.
 + **-v** o **--verbose**: Permite escribir el resultado detallado.
 + **--json**: Permite escribir el resultado de JSON.
 
@@ -1488,13 +1488,13 @@ Este comando es compatible con las siguientes opciones adicionales:
 
 **mobile script upload [options] [servicename] [scriptname]**
 
-Este comando carga un nuevo script con el nombre `todoitem.insert.js` desde la subcarpeta `table`.
+Este comando carga un script con el nombre `todoitem.insert.js` desde la subcarpeta `table`.
 
 	~$azure mobile script upload todolist table/todoitem.insert.js
 	info:    Executing command mobile script upload
 	info:    mobile script upload command OK
 
-El nombre del archivo debe estar compuesto por los nombres de operación y de tabla, y debe encontrarse en la subcarpeta table relativa a la ubicación en la que se ejecuta el comando. También puede usar el parámetro **-f `<file>`** o **--file `<file>`** para especificar una ruta y un nombre de archivo distintos para el archivo que contienen el script para registrar.
+El nombre del archivo debe estar compuesto por los nombres de tabla y las operaciones. Debe estar ubicado en la subcarpeta de la tabla relativa a la ubicación donde se ejecuta el comando. También puede usar el parámetro **-f `<file>`** o **--file `<file>`** para especificar una ruta y un nombre de archivo distintos para el archivo que contienen el script para registrar.
 
 
 **mobile script delete [options] [servicename] [scriptname]**
@@ -1524,7 +1524,7 @@ Este comando permite ver los trabajos programados.
 
 **mobile job create [options] [servicename] [jobname]**
 
-Este comando permite crear un nuevo trabajo con el nombre `getUpdates` que se programa para ejecutarse cada hora.
+Este comando permite crear un trabajo con el nombre `getUpdates` que se programa para ejecutarse cada hora.
 
 	~$azure mobile job create -i 1 -u hour todolist getUpdates
 	info:    Executing command mobile job create
@@ -1625,7 +1625,7 @@ Este comando muestra las características de vista previa disponibles en el serv
 
 **mobile preview enable [options] [servicename] [featurename]**
 
-Este comando habilita la característica de vista previa especificada para un servicio móvil. Tenga en cuenta que una vez habilitadas, las características de vista previa no se pueden deshabilitar para un servicio móvil.
+Este comando habilita la característica de vista previa especificada para un servicio móvil. Una vez habilitadas, las características de versión preliminar no se pueden deshabilitar para un servicio móvil.
 
 ###Comandos para administrar las API de servicios móviles
 
@@ -1754,7 +1754,7 @@ Compruebe que hay un espacio de nombres de Bus de servicio legal y disponible.
 
 **sb namespace create &lt;name> &lt;location>**
 
-Permite crear un nuevo espacio de nombres del Bus de servicio.
+Crea un espacio de nombres de Service Bus.
 
 	~$ azure sb namespace create mysbnamespacea-test "West US"
 	info:    Executing command sb namespace create
@@ -2052,7 +2052,7 @@ Use estos comandos para administrar sus servidores SQL.
 
 **sql server create &lt;administratorLogin> &lt;administratorPassword> &lt;location>**
 
-Permite crear un nuevo servidor de base de datos.
+Creación de un servidor de base de datos
 
 	~$ azure sql server create test T3stte$t "West US"
 	info:    Executing command sql server create
@@ -2101,7 +2101,7 @@ Use estos comandos para administrar sus bases de datos SQL.
 
 **sql db create [options] &lt;serverName> &lt;databaseName> &lt;administratorPassword>**
 
-Permite crear una nueva instancia de base de datos.
+Crea una nueva instancia de base de datos.
 
 	~$ azure sql db create fr8aelne00 newdb test
 	info:    Executing command sql db create
@@ -2193,7 +2193,7 @@ Use estos comandos para administrar las reglas de firewall de SQL Server.
 
 **sql firewallrule create [options] &lt;serverName> &lt;ruleName> &lt;startIPAddress> &lt;endIPAddress>**
 
-Permite crear una regla de firewall nueva para SQL Server.
+Crea una regla de firewall nueva para SQL Server.
 
 	~$ azure sql firewallrule create fr8aelne00 allowed 131.107.0.0 131.107.255.255
 	info:    Executing command sql firewallrule create
@@ -2232,7 +2232,7 @@ Enumera las reglas de firewall.
 
 **sql firewallrule delete [options] &lt;serverName> &lt;ruleName>**
 
-Este comando permite eliminar una regla de firewall.
+Este comando elimina una regla de firewall.
 
 	~$ azure sql firewallrule delete fr8aelne00 allowed
 	info:    Executing command sql firewallrule delete
@@ -2246,7 +2246,7 @@ Use estos comandos para administrar sus redes virtuales.
 
 **network vnet create [options] &lt;location>**
 
-Permite crear una nueva red virtual.
+Crea una red virtual.
 
 	~$ azure network vnet create vnet1 --location "West US" -v
 	info:    Executing command network vnet create
@@ -2310,7 +2310,7 @@ Permite eliminar la red virtual especificada.
 
 **network export [file-path]**
 
-Para obtener una configuración de red avanzada, puede exportar la configuración de red localmente. Tenga en cuenta que la configuración de red exportada incluye la configuración del servidor DNS, la configuración de red virtual, la configuración del sitio de red local y otras configuraciones.
+Para obtener una configuración de red avanzada, puede exportar la configuración de red localmente. La configuración de red exportada incluye la configuración del servidor DNS, la configuración de red virtual, la configuración del sitio de red local y otras configuraciones.
 
 **network import [file-path]**
 
@@ -2350,4 +2350,4 @@ Permite eliminar una entrada del servidor DNS de la configuración de red.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

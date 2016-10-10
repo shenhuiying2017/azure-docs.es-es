@@ -13,31 +13,33 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="09/23/2016"
 	ms.author="cephalin"/>
 
 # Implementación de una aplicación web Sails.js en el Servicio de aplicaciones de Azure
 
 En este tutorial se muestra cómo implementar una aplicación Sails.js en el Servicio de aplicaciones de Azure. En el proceso, obtendrá conocimientos generales sobre cómo configurar la aplicación Node.js de modo que se ejecute en el Servicio de aplicaciones.
 
+Debe tener conocimientos prácticos de Sails.js. Este tutorial no tiene como objetivo ayudarle con los problemas relacionados con la ejecución de Sail.js en general.
+
+
 ## Requisitos previos
 
-- [Node.js](https://nodejs.org/).
-- [Sails.js](http://sailsjs.org/get-started).
-- Conocimientos prácticos de Sails.js. Este tutorial no tiene como objetivo ayudarle con los problemas relacionados con la ejecución de Sail.js en general.
-- [Git](http://www.git-scm.com/downloads).
-- [Azure CLI](../xplat-cli-install.md).
+- [Node.js](https://nodejs.org/)
+- [Sails.js](http://sailsjs.org/get-started)
+- [Git](http://www.git-scm.com/downloads)
+- [CLI de Azure](../xplat-cli-install.md)
 - Una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para obtener una prueba gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) o bien [activar las ventajas de suscriptor de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 >[AZURE.NOTE] Para ver el Servicio de aplicaciones de Azure en acción antes de registrarse en una cuenta de Azure, vaya a la [prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751). Ahí podrá crear inmediatamente una aplicación de inicio de corta duración en el Servicio de aplicaciones. No se requiere tarjeta de crédito y no se establece ningún compromiso.
 
-## Paso 1: Creación de una aplicación Sails.js en el entorno de desarrollo
+## Paso 1: Creación de una aplicación de Sails.js localmente
 
-En primer lugar, cree rápidamente una aplicación Sails.js predeterminada con estos pasos:
+En primer lugar, cree rápidamente una aplicación Sails.js en su entorno de desarrollo con estos pasos:
 
 1. Abra el terminal de línea de comandos de su elección y `CD` en un directorio de trabajo.
 
-2. Cree una nueva aplicación Sails.js y ejecútela:
+2. Cree una nueva Sails.js y ejecútela:
 
         sails new <appname>
         cd <appname>
@@ -45,9 +47,9 @@ En primer lugar, cree rápidamente una aplicación Sails.js predeterminada con e
 
     Asegúrese de que puede ir a la página principal predeterminada en http://localhost:1377.
 
-## Paso 2: Creación del recurso de aplicación del Servicio de aplicaciones en Azure
+## Paso 2: Creación del recurso de aplicación de Azure
 
-A continuación, cree el recurso de aplicación del Servicio de aplicaciones. En dicho recurso implementará la aplicación Sails.js más adelante.
+Después, cree el recurso de App Service en Azure. En dicho recurso implementará la aplicación Sails.js más adelante.
 
 1. Inicie sesión en Azure de la manera siguiente:
 1. En el mismo terminal, cambie al modo ASM e inicie sesión en Azure:
@@ -115,6 +117,12 @@ Siga estos pasos:
             "sails-sqlserver": "<leave-as-is>"
         },
 
+3. En package.json, agregue la siguiente propiedad `engines` para establecer la versión de Node.js que quiera.
+
+        "engines": {
+            "node": "6.6.0"
+        },
+
 6. Guarde los cambios y pruébelos para asegurarse de que la aplicación sigue ejecutándose localmente. Para ello, elimine la carpeta `node_modules` y, después, ejecute:
 
         npm install
@@ -141,7 +149,7 @@ Si la aplicación Sails.js produce un error por algún motivo en el Servicio de 
                 .-..-.
 
     Sails              <|    .-..-.
-    v0.12.3             |\
+    v0.12.4             |\
                         /|.\
                         / || \
                     ,'  |'  \
@@ -151,39 +159,39 @@ Si la aplicación Sails.js produce un error por algún motivo en el Servicio de 
     ____---___--___---___--___---___--___-__
 
     Server lifted in `D:\home\site\wwwroot`
-    To see your app, visit http://localhost:\\.\pipe\a76e8111-663e-449d-956e-5c5deff2d304
+    To see your app, visit http://localhost:\\.\pipe\c775303c-0ebc-4854-8ddd-2e280aabccac
     To shut down Sails, press <CTRL> + C at any time.
 
 Puede controlar la granularidad de los registros de stdout en el archivo [config/log.js](http://sailsjs.org/#!/documentation/concepts/Logging).
 
 ## Conexión a una base de datos de Azure
 
-Para conectarse a una base de datos de Azure, debe crear una base de datos de su elección en Azure, como una base de datos SQL de Azure, MySQL, MongoDB, Caché en Redis de Azure, etc., y usar el [adaptador de almacén de datos](https://github.com/balderdashy/sails#compatibility) correspondiente para conectarse a ella. Los pasos descritos en esta sección muestran cómo conectarse a una base de datos SQL de Azure.
+Para conectarse a una base de datos de Azure, debe crear una base de datos de su elección en Azure, como Azure SQL Database, MySQL, MongoDB, Azure Redis Cache, etc., y usar el [adaptador de almacén de datos](https://github.com/balderdashy/sails#compatibility) correspondiente para conectarse a ella. Los pasos descritos en esta sección muestran cómo conectarse a una base de datos MySQL en Azure.
 
-1. Siga el tutorial que encontrará [aquí](../sql-database/sql-database-get-started.md) para crear una base de datos SQL de Azure en blanco en un nuevo servidor SQL Server. La configuración de firewall predeterminada permite que los servicios de Azure (por ejemplo, el Servicio de aplicaciones) se conecten a ella.
+1. Siga el tutorial que encontrará [aquí](../store-php-create-mysql-database.md) para crear una base de datos MySQL.
 
-2. Desde el terminal de línea de comandos, instale el adaptador de SQL Server:
+2. Desde el terminal de línea de comandos, instale el adaptador de MySQL:
 
-        npm install sails-sqlserver --save
+        npm install sails-mysql --save
 
 3. Abra config/connections.js y agregue el siguiente objeto de conexión a la lista:
 
-        sqlserver: {
-            adapter: 'sails-sqlserver',
+        mySql: {
+            adapter: 'sails-mysql',
             user: process.env.dbuser,
             password: process.env.dbpassword,
-            host: process.env.sqlserver, 
+            host: process.env.dbhost, 
             database: process.env.dbname,
             options: {
-                encrypt: true   // use this for Azure databases
+                encrypt: true
             }
         },
 
-4. Para cada variable de entorno (`process.env.*`), debe establecerlo en App Service. Para ello, ejecute los comandos siguientes desde su terminal:
+4. Para cada variable de entorno (`process.env.*`), debe establecerlo en App Service. Para ello, ejecute los comandos siguientes desde su terminal: Toda la información de conexión que necesita está en Azure Portal (consulte el artículo de [conexión a la base de datos MySQL](../store-php-create-mysql-database.md#connect)).
 
-        azure site appsetting add dbuser="<database server administrator>"
-        azure site appsetting add dbpassword="<database server password>"
-        azure site appsetting add sqlserver="<database server name>.database.windows.net"
+        azure site appsetting add dbuser="<database user>"
+        azure site appsetting add dbpassword="<database password>"
+        azure site appsetting add dbhost="<database hostname>"
         azure site appsetting add dbname="<database name>"
         
     Si coloca la configuración en la configuración de la aplicación de Azure mantendrá los datos confidenciales fuera del control de código fuente (Git). A continuación, configurará el entorno de desarrollo para que utilice la misma información de conexión.
@@ -191,31 +199,31 @@ Para conectarse a una base de datos de Azure, debe crear una base de datos de su
 4. Abra config/local.js y agregue el siguiente objeto de conexiones:
 
         connections: {
-            sqlserver: {
-                user: "<database server administrator>",
-                password: "<database server password>",
-                host: "<database server name>.database.windows.net", 
+            mySql: {
+                user: "<database user>",
+                password: "<database password>",
+                host: "<database hostname>", 
                 database: "<database name>",
             },
         },
     
-    Esta configuración invalida la configuración del archivo config/connections.js para el entorno local. El archivo .gitignore predeterminado del proyecto excluirá este archivo, por lo que no se almacenará en Git. Ahora, ya puede conectarse a Base de datos SQL de Azure desde su aplicación web de Azure y desde su entorno de desarrollo local.
+    Esta configuración invalida la configuración del archivo config/connections.js para el entorno local. El archivo .gitignore predeterminado del proyecto excluirá este archivo, por lo que no se almacenará en Git. Ahora, ya puede conectarse a la base de datos MySQL desde su aplicación web de Azure y desde su entorno de desarrollo local.
 
 4. Abra config/env/production.js para configurar el entorno de producción y agregue el siguiente objeto `models`:
 
         models: {
-            connection: 'sqlserver',
+            connection: 'mySql',
             migrate: 'safe'
         },
 
 4. Abra config/env/development.js para configurar el entorno de desarrollo y agregue el siguiente objeto `models`:
 
         models: {
-            connection: 'sqlserver',
+            connection: 'mySql',
             migrate: 'alter'
         },
 
-    `migrate: 'alter'` permite usar las características de migración de base de datos para crear y actualizar fácilmente las tablas de base de datos en Azure SQL Database. Sin embargo, `migrate: 'safe'` se usa para el entorno de Azure (producción) porque Sails.js no permite utilizar `migrate: 'alter'` en un entorno de producción (consulte la [documentación sobre Sails.js](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings)).
+    `migrate: 'alter'` permite usar las características de migración de base de datos para crear y actualizar fácilmente las tablas de base de datos MySQL. Sin embargo, `migrate: 'safe'` se usa para el entorno de Azure (producción) porque Sails.js no permite utilizar `migrate: 'alter'` en un entorno de producción (consulte la [documentación sobre Sails.js](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings)).
 
 4. Desde el terminal, [genere](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate) una [API de proyecto](http://sailsjs.org/documentation/concepts/blueprints) de Sails.js como lo haría normalmente y, a continuación, ejecute `sails lift` para crear la base de datos con la migración de la base de datos de Sails.js. Por ejemplo:
 
@@ -230,7 +238,7 @@ Para conectarse a una base de datos de Azure, debe crear una base de datos de su
     
     La API debe devolverle la entrada creada en la ventana del explorador, lo cual significará que la base de datos se creó correctamente.
 
-        {"id":1,"createdAt":"2016-03-28T23:08:01.000Z","updatedAt":"2016-03-28T23:08:01.000Z"}
+        {"id":1,"createdAt":"2016-09-23T13:32:00.000Z","updatedAt":"2016-09-23T13:32:00.000Z"}
 
 5. Ahora, inserte los cambios en Azure y vaya a la aplicación para asegurarse de que sigue funcionando.
 
@@ -243,11 +251,11 @@ Para conectarse a una base de datos de Azure, debe crear una base de datos de su
 
         http://<appname>.azurewebsites.net/mywidget/create
 
-    Si la API devuelve otra entrada nueva, significa que la aplicación web de Azure está hablando con la Base de datos SQL de Azure.
+    Si la API devuelve otra entrada nueva, significa que la aplicación web de Azure está hablando con la base de datos MySQL.
 
 ## Más recursos
 
 - [Introducción a las aplicaciones web Node.js en el Servicio de aplicaciones de Azure](app-service-web-nodejs-get-started.md)
 - [Uso de módulos Node.js con aplicaciones de Azure](../nodejs-use-node-modules-azure-apps.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

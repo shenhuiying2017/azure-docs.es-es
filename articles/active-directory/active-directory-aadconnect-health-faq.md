@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -114,4 +114,4 @@ Cuando quita un agente de un servidor, el servidor no se quita del Portal de Azu
 * [Uso de Azure AD Connect Health con AD DS](active-directory-aadconnect-health-adds.md)
 * [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

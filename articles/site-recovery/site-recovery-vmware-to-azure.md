@@ -554,10 +554,13 @@ Los instaladores están disponibles en el servidor de procesos de **C:\\Archivos
 
 Sistema operativo de origen | Archivo de instalación del servicio de movilidad
 --- | ---
-Windows Server 64 (solo 64 bits) | Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe
-CentOS 6.4, 6.5, 6.6 (solo 64 bits) | Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz
-SUSE Linux Enterprise Server 11 SP3 (solo 64 bits) | Microsoft-ASR_UA_9.*.0.0_SLES11-SP3-64_*release.tar.gz
-Oracle Enterprise Linux 6.4, 6.5 (solo 64 bits) | Microsoft-ASR_UA_9.*.0.0_OL6-64_*release.tar.gz
+Windows Server 64 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0_Windows_* release.exe
+CentOS 6.5, 6.6, 6.7 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
+CentOS 7.0, 7.1, 7.2 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL7-64\_*release.tar.gz
+Red Had Enterprise Linux 6.7 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
+Red Had Enterprise Linux 7.1, 7.2 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL7-64\_*release.tar.gz
+SUSE Linux Enterprise Server 11 SP3 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+Oracle Enterprise Linux 6.4, 6.5 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
 #### Instalar manualmente en un servidor Windows
@@ -862,4 +865,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

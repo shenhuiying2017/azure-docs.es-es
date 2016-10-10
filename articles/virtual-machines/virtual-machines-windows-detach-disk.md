@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 
@@ -66,4 +66,4 @@ Para más información, consulte [Remove-AzureRmVMDataDisk](https://msdn.microso
 
 Si desea reutilizar el disco de datos, basta con que lo [conecte a otra máquina virtual](virtual-machines-windows-attach-disk-portal.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0928_2016-->

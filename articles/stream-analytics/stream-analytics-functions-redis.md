@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="08/09/2016"
+	ms.date="09/26/2016"
 	ms.author="ryancraw"/>
 
 # Almacenamiento de datos desde Análisis de transmisiones de Azure en Caché en Redis de Azure con Funciones de Azure
@@ -79,7 +79,7 @@ Siga el tutorial [Creación de su primera función de Azure][functions-getstarte
 1. En el portal, seleccione Servicios de aplicaciones en el menú de navegación de la izquierda y, luego, haga clic en el nombre de la Function App de Azure para ir al sitio web de la aplicación de la función.![Captura de pantalla de lista de funciones de Servicios de aplicaciones](./media/stream-analytics-functions-redis/app-services-function-list.png)
 
 2. Haga clic en **Nueva función > ServiceBusQueueTrigger – C#**. Siga estas instrucciones en los siguientes campos:
-	- **Nombre de cola**: el mismo nombre que escribió cuando creó la cola en [Introducción a las colas del Bus de servicio][servicebus-getstarted] \(no el nombre del bus de servicio). Asegúrese de usar la cola que está conectada con la salida de Análisis de transmisiones.
+	- **Nombre de cola**: el mismo nombre que escribió cuando creó la cola en [Introducción a las colas del Bus de servicio][servicebus-getstarted] (no el nombre del bus de servicio). Asegúrese de usar la cola que está conectada con la salida de Análisis de transmisiones.
 	- **Conexión de Bus de servicio**: seleccione **Agregar una cadena de conexión**. Para encontrar la cadena de conexión, vaya al portal clásico, seleccione **Bus de servicio**, el bus de servicio que creó y, luego, **INFORMACIÓN DE CONEXIÓN** en la parte inferior de la pantalla. Asegúrese de estar en la pantalla principal de esta página. Copie y pegue la cadena de conexión. Puede escribir cualquier nombre de conexión.
 	
 		![Captura de pantalla de conexión del Bus de servicio](./media/stream-analytics-functions-redis/servicebus-connection.png)
@@ -211,8 +211,8 @@ Para mantenerse al día con las noticias y características más recientes, siga
 
 
 [fraud-detection]: stream-analytics-real-time-fraud-detection.md
-[servicebus-getstarted]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
+[servicebus-getstarted]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 [use-rediscache]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md
 [functions-getstarted]: ../azure-functions/functions-create-first-azure-function.md
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

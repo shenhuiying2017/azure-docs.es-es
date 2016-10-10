@@ -4,7 +4,7 @@
 	keywords="inicio rápido, idioma r, lenguaje de programación r, tutorial de programación r"
 	services="machine-learning"
 	documentationCenter=""
-	authors="Blackmist"
+	authors="garyericson"
 	manager="jhubbard"
 	editor="cgronlun"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/12/2016"
-	ms.author="larryfr"/>
+	ms.author="garye"/>
 
 # Tutorial rápido para el lenguaje de programación R para Aprendizaje automático de Azure
 
@@ -1358,4 +1358,4 @@ Algunos recursos excelentes en Internet:
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

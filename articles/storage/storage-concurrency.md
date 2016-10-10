@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="09/22/2016"
 	ms.author="jahogg;tamram"/>
 
 # Administración de la simultaneidad en Almacenamiento de Microsoft Azure
@@ -284,4 +284,4 @@ Para obtener más información acerca de Almacenamiento de Azure, consulte:
 - Introducción al almacenamiento para [Blob](storage-dotnet-how-to-use-blobs.md), [Table](storage-dotnet-how-to-use-tables.md), [Queues](storage-dotnet-how-to-use-queues.md) y [Files](storage-dotnet-how-to-use-files.md)
 - Arquitectura de almacenamiento – [Almacenamiento de Azure: un servicio de almacenamiento en la nube altamente disponible con coherencia fuerte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

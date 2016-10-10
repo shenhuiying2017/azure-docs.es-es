@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -143,4 +143,4 @@ Obtenga más información sobre la [Integración de las identidades locales con 
 
 Más información sobre el tema [Azure AD Connect: Conceptos de diseño](active-directory-aadconnect-design-concepts.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

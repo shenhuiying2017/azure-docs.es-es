@@ -13,12 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="09/21/2016"
+	ms.author="Markvi"/>
 
 # Configuración del registro automático de dispositivos para dispositivos Windows 8.1 unidos a un dominio
 
 Puede usar una Directiva de grupo de Active Directory para configurar sus dispositivos Windows 8.1 unidos a un dominio y registrarse automáticamente en Azure AD. Para configurar la directiva de grupo, debe tener, como mínimo, una máquina Windows Server 2012 R2 o Windows 8.1 unida a dominio en la que se haya instalado la característica Administración de directivas de grupo. Una vez que se haya habilitado la directiva de grupo en el dominio, cualquier usuario del dominio que inicie sesión en la máquina se registrará de forma automática y silenciosa en un objeto de dispositivo de Azure AD. Habrá un objeto de dispositivo en Azure AD para todos los usuarios registrados del dispositivo físico. Asegúrese de leer y completar los requisitos previos del registro automático de dispositivos en Azure Active Directory para dispositivos Windows unidos a un dominio.
+
+>[AZURE.NOTE]
+ Para obtener la información más actualizada sobre cómo configurar el registro automático de dispositivos, consulte [Configuración del registro automático de dispositivos unidos a un dominio de Windows con Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+
+
 
 ## Configure la Directiva de grupo para sus dispositivos Windows 8.1 unidos a un dominio
 
@@ -61,4 +66,4 @@ La Directiva de grupo habilita una tarea programada en el sistema que se ejecuta
 - [Registro automático de dispositivos en Azure Active Directory para dispositivos Windows 10 unidos a un dominio](active-directory-conditional-access-automatic-device-registration.md)
 - [Configure el registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

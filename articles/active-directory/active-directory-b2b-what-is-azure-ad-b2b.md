@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="08/11/2016"
+   ms.date="09/27/2016"
    ms.author="femila"/>
 
 # Vista previa de la colaboración B2B de Azure AD: integración sencilla y segura de los asociados de la nube
@@ -42,4 +42,4 @@ Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 - [Limitaciones de la vista previa actual](active-directory-b2b-current-preview-limitations.md)
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

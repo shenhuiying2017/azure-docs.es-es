@@ -18,7 +18,7 @@
    
 # Daxko y CSI utilizan Azure para acelerar su ciclo de desarrollo, aumentar su rendimiento y mejorar sus servicios de atención al cliente
 
-![Logotipo](./media/sql-database-case-study-daxko/csidaxkologo25.png)
+![Logotipo de Daxko/CSI](./media/sql-database-implementation-daxko/csidaxkologo25.png)
 
 Daxko y CSI Software se han enfrentado a un reto: la base de clientes de sus centros de bienestar y recreo han aumentado rápidamente gracias al éxito de su solución completa de software empresarial. Sin embargo, el hecho de tener que satisfacer las necesidades de infraestructura de TI de esa base de clientes en aumento estaba poniendo a prueba al personal de TI de la empresa. La compañía cada vez se veía cada vez más limitada por el aumento de la sobrecarga de operaciones, sobre todo las relacionadas con la administración de sus bases de datos en constante crecimiento. Y lo que es peor, esa sobrecarga de operaciones estaba impidiendo que los recursos de desarrollo llevasen a cabo nuevas iniciativas, como las nuevas características de movilidad del software de la empresa.
 
@@ -75,7 +75,7 @@ SpectrumNG utiliza roles web. Como la aplicación es multiempresa, se utiliza un
 Para el nivel web de su servicio, CSI Software aprovecha el escalado automático de Azure en función del día y la hora. Los recursos disponibles aumentan automáticamente para admitir mayores cotas de uso durante el horario laboral según la zona horaria de cada centro de datos regional. Además, se establecen para reducirse verticalmente en los fines de semana, cuando las necesidades del cliente son menores.
 
      
-![En la Ilustración 1](./media/sql-database-case-study-daxko/figure1.png)
+![Arquitectura de Daxko/CSI](./media/sql-database-implementation-daxko/figure1.png)
 
 Figura 1. Un rol de trabajo de servicios en la nube extrae los datos estructurados de Azure SQL Database y los semiestructurados de Table Storage. Los usuarios de SpectrumNG interactúan con los datos a través de un rol web de servicios en la nube.
 
@@ -105,4 +105,4 @@ Azure SQL Database no solamente es una ventaja para los clientes de SpectrumNG, 
 
 - Si quiere saber más sobre el escalado automático, revise [este artículo](../cloud-services/cloud-services-how-to-scale.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

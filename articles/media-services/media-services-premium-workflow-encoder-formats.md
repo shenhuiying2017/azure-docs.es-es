@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Códecs y formatos de flujo de trabajo del Codificador multimedia Premium" 
-	description="En este tema se proporciona información general de códecs y formatos de formatos de flujo de trabajo del Codificador multimedia Premium" 
+	pageTitle="Códecs y formatos de flujo de trabajo de Media Encoder premium | Microsoft Azure" 
+	description="En este tema se proporciona información general de códecs y formatos de formatos de flujo de trabajo de Media Encoder premium." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"    
+	ms.date="09/26/2016"    
 	ms.author="juliako;anilmur"/>
 
 #Códecs y formatos de flujo de trabajo del Codificador multimedia Premium
@@ -21,7 +21,7 @@
 
 >[AZURE.NOTE]Si tiene preguntas sobre el codificador premium, envíe un correo a mepd en Microsoft.com.
 >
->El procesador multimedia del flujo de trabajo premium del Codificador multimedia premium del que se habla en este tema no está disponible en China.
+>El procesador multimedia del flujo de trabajo premium de Media Encoder del que se habla en este tema no está disponible en China.
 
 Este documento contiene una lista de los formatos de archivo de entrada y salida y los códecs que son compatibles con la vista previa pública del **Flujo de trabajo del Codificador multimedia premium**.
 
@@ -138,4 +138,4 @@ Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá c
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

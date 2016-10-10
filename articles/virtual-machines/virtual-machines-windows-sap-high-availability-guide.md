@@ -1,19 +1,19 @@
 <properties
    pageTitle="SAP NetWeaver en máquinas virtuales (VM) Windows: guía de alta disponibilidad | Microsoft Azure"
    description="SAP NetWeaver en máquinas virtuales (VM) Windows: guía de alta disponibilidad"
-   services="virtual-machines-windows,virtual-network,storage"
-   documentationCenter="saponazure"
+   services="virtual-machines-windows"
+   documentationCenter=""
    authors="goraco"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
-   ms.workload="na"
+   ms.workload="infrastructure-services"
    ms.date="08/18/2016"
    ms.author="goraco"/>
 
@@ -434,8 +434,7 @@ Microsoft Azure permite que las empresas adquieran recursos de procesos, almacen
 En este documento se detallan todos los pasos necesarios para implementar sistemas SAP de alta disponibilidad en Azure usando un método novedoso con el nuevo modelo de implementación de Azure Resource Manager. Esta guía lo orientará por los pasos principales:
 
 
-- Buscar las guías de instalación y las notas de SAP adecuadas, que aparecen más adelante en la sección titulada [Recursos][sap-ha-guide-2].  
-  El documento complementa la Documentación de instalación de SAP y las Notas de SAP, que representan los principales recursos para las instalaciones e implementaciones de software de SAP en las plataformas proporcionadas.
+- Buscar las guías de instalación y las notas de SAP adecuadas, que aparecen más adelante en la sección titulada [Recursos][sap-ha-guide-2]. El documento complementa la Documentación de instalación de SAP y las Notas de SAP, que representan los principales recursos para las instalaciones e implementaciones de software de SAP en las plataformas proporcionadas.
 
 - Comprender la diferencia entre el modelo de implementación clásica de Azure actual y este nuevo, de Azure Resource Manager.
 
@@ -1432,4 +1431,4 @@ Ahora el disco compartido está montado en el nodo de clúster B. SIOS DataKeepe
 
 _**Figura 62:** SIOS DataKeeper: Replicación del volumen local del nodo de clúster B al nodo de clúster A_
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

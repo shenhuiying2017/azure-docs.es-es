@@ -69,7 +69,7 @@ En este ejemplo hay una suscripción que contiene lo siguiente:
 
 ## Enrutamiento definido por el usuario (UDR)
 
-Cada subred de Azure se puede vincular a una tabla de UDR que se usa para definir cómo se enruta el tráfico que se inicia en esa subred. Si no hay definida ninguna UDR, Azure usa las rutas predeterminadas para permitir que el tráfico fluya de una subred a otra. Visite "¿Qué son las rutas definidas por el usuario y el reenvío IP" para comprender mejor las UDR.
+Cada subred de Azure se puede vincular a una tabla de UDR que se usa para definir cómo se enruta el tráfico que se inicia en esa subred. Si no hay definida ninguna UDR, Azure usa las rutas predeterminadas para permitir que el tráfico fluya de una subred a otra. Consulte el artículo [¿Qué son las rutas definidas por el usuario y el reenvío IP?](./virtual-networks-udr-overview.md#ip-forwarding) para comprender mejor las UDR.
 
 Para asegurarse de que la comunicación que se realiza a través de la aplicación de firewall correcta, según el último requisito mencionado, debe crear la siguiente tabla de ruta que contiene UDR en **azurevnet**.
 
@@ -178,4 +178,4 @@ Para implementar este escenario, siga estos pasos de alto nivel.
 4.	Aprovisione el túnel de **onpremvnet** a **azurevnet**.
 5.	Una vez que se aprovisionen todos los recursos, inicie sesión en **onpremvm2** y haga ping a 10.0.3.101 para probar la conectividad entre **onpremsn2** y **azsn3**.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,7 +4,7 @@
     keywords="puerta de enlace de datos, integración de datos, mover datos, credenciales de puerta de enlace"
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/12/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Movimiento de datos entre orígenes locales y la nube con Data Management Gateway
 Este artículo proporciona información general sobre la integración de los almacenes de datos locales y los almacenes de datos en la nube mediante Data Factory. Este artículo se basa en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) y otros artículos de conceptos básicos de Data Factory: [conjuntos de datos](data-factory-create-datasets.md) y [canalizaciones](data-factory-create-pipelines.md).
@@ -94,18 +94,18 @@ En este paso, use Azure portal para crear una instancia de Azure Data Factory de
 	2. **Nombre de la puerta de enlace** está establecido en **adftutorialgateway**.
 	4. La barra de estado de la parte inferior muestra **Conectado al servicio en la nube** junto con una **marca de verificación verde**.
 
-	En la pestaña **Inicio**, también puede hacer lo siguiente: **Registrar** una puerta de enlace con una clave desde Azure Portal mediante el botón Registrar. **Detener** la ejecución del servicio host de Data Management Gateway en el equipo de la puerta de enlace. **Programar actualizaciones** que se deben instalar a una hora determinada del día. Ver cuándo se ha **actualizado por última vez** la puerta de enlace.
+	En la pestaña **Inicio**, también puede realizar las siguientes operaciones: **Registrar** una puerta de enlace con una clave desde Azure Portal mediante el botón Registrar. **Detener** la ejecución del servicio host de puerta de enlace de administración de datos en el equipo de la puerta de enlace. **Programar actualizaciones** que se deben instalar a una hora determinada del día. Ver cuándo se ha **actualizado por última vez** la puerta de enlace.
 
 8. Cambie a la pestaña **Configuración**. El certificado que se ha especificado en la sección **Certificado** se usa para cifrar o descifrar las credenciales para el almacén de datos local que especifique en el portal. Haga clic en **Cambiar** para usar su propio certificado en su lugar. De forma predeterminada, la puerta de enlace usa el certificado generado automáticamente por el servicio Factoría de datos.
 
 	![Configuración del certificado de puerta de enlace](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 
-	También puede realizar las siguientes funciones en la pestaña Configuración: - Ver o exportar el certificado que está usando la puerta de enlace. - Cambiar el punto de conexión HTTPS que usa la puerta de enlace.
+	También puede realizar las siguientes acciones en la pestaña Configuración: - Ver o exportar el certificado que está usando la puerta de enlace. - Cambiar el punto de conexión HTTPS que usa la puerta de enlace.
 9. (Opcional) Cambie a la pestaña **Diagnósticos**, active la opción **Habilitar el registro detallado** si quiere habilitar el registro detallado que puede usar para solucionar los problemas de la puerta de enlace. La información de registro se encuentra en el **Visor de sucesos**, en el nodo **Registros de aplicaciones y servicios** -> **Data Management Gateway**.
 
 	![Ficha Diagnóstico](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
-	También puede hacer lo siguiente en la pestaña **Diagnósticos**:
+	También puede realizar las siguientes acciones en la pestaña **Diagnósticos**:
 	
 	- Utilice la sección **Probar conexión** para probar la conexión con un origen de datos local mediante la puerta de enlace.
 	- Haga clic en **Ver registros** para ver el registro de Data Management Gateway en una ventana del Visor de eventos.
@@ -121,7 +121,7 @@ En este paso, creará dos servicios vinculados: **AzureStorageLinkedService** y 
 1.	En el **Editor de la Factoría de datos**, haga clic en **Nuevo almacén de datos** en la barra de herramientas y seleccione **SQL Server**.
 
 	![Nuevo servicio vinculado de SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
-3.	En el **Editor de JSON**, haga lo siguiente:
+3.	En el **Editor de JSON**, realice los siguientes pasos:
 	1. Para el **gatewayName**, especifique **adftutorialgateway**.
 	2. Si está usando la autenticación de Windows:
 		1. En **connectionString**, establezca **Seguridad integrada** en **true**, especifique el **nombre del servidor** y el **nombre** de la base de datos, y quite el **Id. de usuario** y la **Contraseña**.
@@ -157,7 +157,7 @@ En este paso, creará dos servicios vinculados: **AzureStorageLinkedService** y 
    
  
 ## Creación de conjuntos de datos
-En este paso, creará conjuntos de datos de entrada y de salida que representan datos de entrada y de salida para la operación de copia (base de datos de SQL Server local => Azure Blob Storage). Antes de crear conjuntos de datos o tablas (conjuntos de datos rectangulares), debe hacer lo siguiente (después de la lista, se detallan los pasos):
+En este paso, creará conjuntos de datos de entrada y de salida que representan datos de entrada y de salida para la operación de copia (base de datos de SQL Server local => Azure Blob Storage). Antes de crear conjuntos de datos o tablas (conjuntos de datos rectangulares), debe realizar los siguientes pasos (después de la lista, se detallan los pasos):
 
 - Cree una tabla con el nombre **emp** en la base de datos de SQL Server que agregó como servicio vinculado a la factoría de datos e inserte un par de entradas de ejemplo en la tabla.
 - Cree un contenedor de blobs llamado **adftutorial** en la cuenta de almacenamiento de blobs de Azure que agregó como un servicio vinculado a la factoría de datos.
@@ -213,7 +213,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 		  }
 		}
 
-	Tenga en cuenta lo siguiente:
+	Tenga en cuenta los siguientes puntos:
 	
 	- **type** está establecido como **SqlServerTable**.
 	- **tableName** está establecido en **emp**.
@@ -249,7 +249,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 		  }
 		}
   
-	Tenga en cuenta lo siguiente:
+	Tenga en cuenta los siguientes puntos:
 	
 	- **type** está establecido en **AzureBlob**.
 	- **linkedServiceName** está establecido en **AzureStorageLinkedService** (este servicio vinculado se creó en el paso 2).
@@ -331,7 +331,7 @@ En este paso, va a crear una **canalización** con una **actividad de copia** qu
 			  }
 			}
 
-	Tenga en cuenta lo siguiente:
+	Tenga en cuenta los siguientes puntos:
  
 	- En la sección de actividades, solo hay una actividad cuyo **type** está establecido en **Copy**.
 	- La **entrada** de la actividad está establecida en **EmpOnPremSQLTable** y la **salida** de la actividad está establecida en **OutputBlobTable**.
@@ -358,7 +358,7 @@ En este paso, va a crear una **canalización** con una **actividad de copia** qu
 
 	![Vínculo de diagrama](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
 
-2. Debería ver un diagrama similar al siguiente:
+2. Debería ver un diagrama similar a la siguiente imagen:
 
 	![Vista de diagrama](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramView.png)
 
@@ -414,4 +414,4 @@ En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo 
 - Vea el artículo [Data Management Gateway](data-factory-data-management-gateway.md) para obtener todos los detalles sobre Data Management Gateway.
 - Consulte [Copia de datos de Azure Blob en Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) si necesita más información sobre el uso de la actividad de copia para mover datos desde un almacén de datos de origen a un almacén de datos receptor.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

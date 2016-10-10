@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Guía de diseño de tabla de almacenamiento de Azure | Microsoft Azure"
-   description="Diseño escalable y tablas de rendimiento en el almacenamiento de tablas de Azure"
-   services="storage"
-   documentationCenter="na"
-   authors="jasonnewyork" 
-   manager="tadb"
-   editor="tysonn"/>
+	pageTitle="Guía de diseño de tabla de almacenamiento de Azure | Microsoft Azure"
+	description="Diseño escalable y tablas de rendimiento en el almacenamiento de tablas de Azure"
+	services="storage"
+	documentationCenter="na"
+	authors="jasonnewyork" 
+	manager="tadb"
+	editor="tysonn"/>
 
 <tags
-   ms.service="storage"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="storage"
-   ms.date="03/18/2016"
-   ms.author="jahogg"/>
+	ms.service="storage"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="storage"
+	ms.date="09/22/2016"
+	ms.author="jahogg;tamram"/>
 
 # Guía de diseño de la tabla de almacenamiento de Azure: diseño escalable y tablas de rendimiento
 
@@ -159,21 +159,21 @@ El almacenamiento de tablas es relativamente económico, pero debe incluir las e
 ## Directrices para el diseño de tablas  
 En estas listas se resumen algunas de las instrucciones claves que debe tener en cuenta al diseñar las tablas y esta guía abordará todo con más detalle posteriormente. Estas instrucciones son muy diferentes de las directrices que seguiría normalmente para el diseño de la base de datos relacional.
 
-Diseñe una solución de servicio Tabla cuya *lectura* sea eficaz:
+Diseñe una solución de servicio Tabla cuya *lectura * sea eficaz:
 
--	***Diseño para realizar consultas en aplicaciones con muchas lecturas.*** Al diseñar las tablas, piense en las consultas (especialmente las sensibles a la latencia) que ejecutará antes de pensar cómo actualizará las entidades. Normalmente esto produce una solución eficiente y de rendimiento.  
--	***Especificar tanto PartitionKey como RowKey en sus consultas.*** Las *consultas puntuales* como estas son las consultas más eficaces de servicio de tabla.  
--	***Tenga en cuenta la posibilidad de almacenar copias duplicadas de las entidades.*** El almacenamiento de tablas es barato por lo que puede almacenar la misma entidad varias veces (con claves diferentes) para permitir que se realicen consultas más eficaces.  
--	***Considere la posibilidad de desnormalizar sus datos.*** El almacenamiento de tablas es barato, por tanto, piense en desnormalizar sus datos. Por ejemplo, almacene entidades de resumen para que las consultas para datos agregados solo necesiten acceder a una única entidad.  
--	***Use valores de clave compuestos.*** Las únicas claves de las que dispone son **PartitionKey** y **RowKey**. Por ejemplo, s los valores de clave compuestos para habilitar rutas de acceso con clave alternativas a las entidades.  
--	***Use la proyección de consultas.*** Puede reducir la cantidad de datos que se transfieren a través de la red mediante el uso de consultas que seleccionen solo los campos que necesite.  
+-	***Diseño para realizar consultas en aplicaciones con muchas lecturas.*** Al diseñar las tablas, piense en las consultas (especialmente las sensibles a la latencia) que ejecutará antes de pensar cómo actualizará las entidades. Normalmente esto produce una solución eficiente y de rendimiento.
+-	***Especificar tanto PartitionKey como RowKey en sus consultas.*** Las *consultas puntuales* como estas son las consultas más eficaces de servicio de tabla.
+-	***Tenga en cuenta la posibilidad de almacenar copias duplicadas de las entidades.*** El almacenamiento de tablas es barato por lo que puede almacenar la misma entidad varias veces (con claves diferentes) para permitir que se realicen consultas más eficaces.
+-	***Considere la posibilidad de desnormalizar sus datos.*** El almacenamiento de tablas es barato, por tanto, piense en desnormalizar sus datos. Por ejemplo, almacene entidades de resumen para que las consultas para datos agregados solo necesiten acceder a una única entidad.
+-	***Use valores de clave compuestos.*** Las únicas claves de las que dispone son **PartitionKey** y **RowKey**. Por ejemplo, s los valores de clave compuestos para habilitar rutas de acceso con clave alternativas a las entidades.
+-	***Use la proyección de consultas.*** Puede reducir la cantidad de datos que se transfieren a través de la red mediante el uso de consultas que seleccionen solo los campos que necesite.
 
 Diseñe su solución de servicio Tabla cuya *escritura* sea eficaz:
 
--	***No cree particiones activas.*** Elija claves que le permitan distribuir las solicitudes en varias particiones en cualquier momento.  
+-	***No cree particiones activas.*** Elija claves que le permitan distribuir las solicitudes en varias particiones en cualquier momento.
 -	***Evite picos de tráfico.*** Equilibre el tráfico en un período de tiempo razonable y evite picos de tráfico.
 -	***No necesariamente cree una tabla independiente para cada tipo de entidad.*** Cuando necesite transacciones atómicas en los tipos de entidad, puede almacenar estos distintos tipos de entidad en la misma partición de la misma tabla.
--	***Tenga en cuenta el rendimiento máximo que debe alcanzar.*** Debe tener en cuenta los objetivos de escalabilidad del servicio Tabla y asegurarse de que su diseño no los superará.  
+-	***Tenga en cuenta el rendimiento máximo que debe alcanzar.*** Debe tener en cuenta los objetivos de escalabilidad del servicio Tabla y asegurarse de que su diseño no los superará.
 
 A medida que lea esta guía, verá ejemplos en los que se ponen en práctica todos estos principios.
 
@@ -206,11 +206,11 @@ Los ejemplos siguientes asumen que el servicio Tabla almacena las entidades empl
 
 En la sección [Descripción general del servicio Tabla de Azure](#overview) se describen algunas de las características clave del servicio Tabla de Azure que tienen influencia directa en el diseño de la consulta. Estos dan como resultado las siguientes directrices generales para diseñar consultas del servicio Tabla. Tenga en cuenta que la sintaxis de filtro utilizada en los ejemplos siguientes es de la API de REST del servicio Tabla. Para obtener más información, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).
 
--	Una ***consulta de punto*** es la búsqueda más eficaz que puede usar y se recomienda para búsquedas de gran volumen o búsquedas que requieren menor latencia. Este tipo de consulta puede utilizar los índices para localizar una entidad individual con gran eficacia si se especifican los valores **PartitionKey** y **RowKey**. Por ejemplo: $filter=(PartitionKey eq 'Sales') y (RowKey eq '2')  
--	La segunda opción más eficaz es una ***Consulta por rango*** que use **PartitionKey** y filtre un rango de valores **RowKey** para devolver más de una entidad. El valor **PartitionKey** identifica una partición específica y los valores **RowKey** identifican un subconjunto de las entidades de esa partición. Por ejemplo: $filter=PartitionKey eq 'Sales”, RowKey ge 'S' y RowKey lt 'T'  
--	En tercer lugar, tiene un ***Examen de partición*** que usa **PartitionKey** y filtra otra propiedad no clave y que puede devolver más de una entidad. El valor **PartitionKey** identifica una partición específica y los valores de propiedad seleccionan un subconjunto de las entidades de esa partición. Por ejemplo: $filter=PartitionKey eq 'Sales' y LastName eq 'Smith'  
--	Un ***Examen de tabla*** no incluye la **PartitionKey** y es bastante ineficaz, ya que busca en todas las particiones que componen la tabla todas las entidades coincidentes. Realizará un recorrido de tabla independientemente de si su filtro usa **RowKey**. Por ejemplo: $filter=LastName eq 'Jones'  
--	Las consultas que devuelven varias entidades las devuelven ordenadas en orden **PartitionKey** y **RowKey**. Para evitar reordenar las entidades del cliente, seleccione un **RowKey** que defina el criterio de ordenación más común.  
+-	Una ***consulta de punto*** es la búsqueda más eficaz que puede usar y se recomienda para búsquedas de gran volumen o búsquedas que requieren menor latencia. Este tipo de consulta puede utilizar los índices para localizar una entidad individual con gran eficacia si se especifican los valores **PartitionKey** y **RowKey**. Por ejemplo: $filter=(PartitionKey eq 'Sales') y (RowKey eq '2')
+-	La segunda opción más eficaz es una ***Consulta por rango*** que use **PartitionKey** y filtre un rango de valores **RowKey** para devolver más de una entidad. El valor **PartitionKey** identifica una partición específica y los valores **RowKey** identifican un subconjunto de las entidades de esa partición. Por ejemplo: $filter=PartitionKey eq 'Sales”, RowKey ge 'S' y RowKey lt 'T'
+-	En tercer lugar, tiene un ***Examen de partición*** que usa **PartitionKey** y filtra otra propiedad no clave y que puede devolver más de una entidad. El valor **PartitionKey** identifica una partición específica y los valores de propiedad seleccionan un subconjunto de las entidades de esa partición. Por ejemplo: $filter=PartitionKey eq 'Sales' y LastName eq 'Smith'
+-	Un ***Examen de tabla*** no incluye la **PartitionKey** y es bastante ineficaz, ya que busca en todas las particiones que componen la tabla todas las entidades coincidentes. Realizará un recorrido de tabla independientemente de si su filtro usa **RowKey**. Por ejemplo: $filter=LastName eq 'Jones'
+-	Las consultas que devuelven varias entidades las devuelven ordenadas en orden **PartitionKey** y **RowKey**. Para evitar reordenar las entidades del cliente, seleccione un **RowKey** que defina el criterio de ordenación más común.
 
 Tenga en cuenta que si usa un "**or**" para especificar un filtro basado en valores **RowKey**, se obtendrá un recorrido de partición y no se tratará como una consulta de intervalo. Por lo tanto, debe evitar las consultas que usan filtros como: $filter=PartitionKey eq 'Sales' y (RowKey eq '121' o RowKey eq '322')
 
@@ -218,11 +218,11 @@ Para obtener ejemplos de código de cliente que utilizan la biblioteca de client
 
 -	[Ejecutar una consulta de punto mediante la biblioteca de cliente de almacenamiento](#executing-a-point-query-using-the-storage-client-library)
 -	[Recuperar varias entidades con LINQ](#retrieving-multiple-entities-using-linq)
--	[Proyección de servidor](#server-side-projection)  
+-	[Proyección de servidor](#server-side-projection)
 
 Para obtener ejemplos de código de cliente que pueda administrar varios tipos de entidad almacenados en la misma tabla, consulte:
 
--	[Trabajar con tipos de entidad heterogéneos](#working-with-heterogeneous-entity-types)  
+-	[Trabajar con tipos de entidad heterogéneos](#working-with-heterogeneous-entity-types)
 
 ### Elegir un PartitionKey apropiado  
 
@@ -242,9 +242,9 @@ El servicio Tabla indexará automáticamente las entidades mediante los valores 
 
 Muchos diseños deben cumplir los requisitos para habilitar la búsqueda de entidades según varios criterios. Por ejemplo, localizar las entidades employee en función de correo electrónico, Id. de empleado o apellido. Los siguientes patrones de la sección [Patrones de diseño de tabla](#table-design-patterns) tratan estos tipos de requisitos y describen las formas de solucionar el hecho de que el servicio Tabla no proporciona índices secundarios:
 
--	[Patrón de índice secundario dentro de la partición](#intra-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores **RowKey** (en la misma partición) para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**.  
--	[Patrón de índice secundario entre particiones](#inter-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores RowKey en particiones o en tablas independientes para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**.  
--	[Patrón de entidades de índice](#index-entities-pattern): mantener las entidades de índice para habilitar búsquedas eficaces que devuelvan listas de entidades.  
+-	[Patrón de índice secundario dentro de la partición](#intra-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores **RowKey** (en la misma partición) para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**.
+-	[Patrón de índice secundario entre particiones](#inter-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores RowKey en particiones o en tablas independientes para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**.
+-	[Patrón de entidades de índice](#index-entities-pattern): mantener las entidades de índice para habilitar búsquedas eficaces que devuelvan listas de entidades.
 
 ### Ordenación de los datos del servicio Tabla  
 
@@ -252,9 +252,9 @@ El servicio Tabla devuelve entidades ordenadas en orden ascendente según **Part
 
 Muchas aplicaciones tienen requisitos para utilizar datos ordenados en distintos órdenes: por ejemplo, ordenar los empleados por su nombre o por su fecha de contratación. Los patrones siguientes de la sección [Patrones de diseño de tabla](#table-design-patterns) tratan cómo alternar órdenes de clasificación para sus entidades:
 
--	[Patrón de índice secundario dentro de la partición](#intra-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores RowKey (en la misma partición) para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores RowKey.  
+-	[Patrón de índice secundario dentro de la partición](#intra-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores RowKey (en la misma partición) para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores RowKey.
 -	[Patrón de índice secundario entre particiones](#inter-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores RowKey en particiones en tablas independientes para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores RowKey.
--	[Patrón final del registro](#log-tail-pattern): recupere las entidades *n* agregadas recientemente a una partición utilizando un valor **RowKey** que se ordene en orden de fecha y hora inverso.  
+-	[Patrón final del registro](#log-tail-pattern): recupere las entidades *n* agregadas recientemente a una partición utilizando un valor **RowKey** que se ordene en orden de fecha y hora inverso.
 
 ## Diseño para la modificación de datos
 Esta sección se centra en las consideraciones de diseño para optimizar las inserciones, actualizaciones y eliminaciones. En algunos casos, deberá evaluar el equilibrio entre los diseños que se optimizan para realizar una consulta en diseños que optimizan la modificación de datos como lo hace usted en los diseños de bases de datos relacionales (aunque las técnicas para administrar las ventajas y desventajas de diseño son diferentes en una base de datos relacional). En la sección [Patrones de diseño de tabla](#table-design-patterns) se describen algunos modelos de diseño detallados para el servicio Tabla y se destacan algunas de estas ventajas e inconvenientes. En la práctica, encontrará que muchos diseños optimizados para consultar entidades también funcionan bien para la modificación de entidades.
@@ -265,10 +265,10 @@ Para actualizar o eliminar una entidad, debe poder identificarla mediante el uso
 
 Los modelos siguientes de la sección [Patrones de diseño de tabla](#table-design-patterns) tratan la optimización del rendimiento o la inserción, actualización y las operaciones de eliminación:
 
--	[Patrón de eliminación de gran volumen](#high-volume-delete-pattern): habilitar la eliminación de un gran volumen de entidades mediante el almacenamiento de todas las entidades para su eliminación simultánea en su propia tabla independiente; elimine las entidades mediante la eliminación de la tabla.  
--	[Patrón de serie de datos](#data-series-pattern): almacenar una serie de datos completa en una sola entidad para minimizar el número de solicitudes que realice.  
--	[Patrón de entidades amplio](#wide-entities-pattern): usar varias entidades físicas para almacenar entidades lógicas con más de 252 propiedades.  
--	[Patrón de entidades de gran tamaño](#large-entities-pattern): use el almacenamiento de blobs para almacenar valores de propiedad de gran tamaño.  
+-	[Patrón de eliminación de gran volumen](#high-volume-delete-pattern): habilitar la eliminación de un gran volumen de entidades mediante el almacenamiento de todas las entidades para su eliminación simultánea en su propia tabla independiente; elimine las entidades mediante la eliminación de la tabla.
+-	[Patrón de serie de datos](#data-series-pattern): almacenar una serie de datos completa en una sola entidad para minimizar el número de solicitudes que realice.
+-	[Patrón de entidades amplio](#wide-entities-pattern): usar varias entidades físicas para almacenar entidades lógicas con más de 252 propiedades.
+-	[Patrón de entidades de gran tamaño](#large-entities-pattern): use el almacenamiento de blobs para almacenar valores de propiedad de gran tamaño.
 
 ### Garantizar la coherencia en las entidades almacenadas  
 
@@ -276,12 +276,12 @@ El otro factor clave que afecta a su elección de claves para optimizar las modi
 
 Los siguientes patrones de la sección [Patrones de diseño de tabla](#table-design-patterns) tratan la administración de coherencia:
 
--	[Patrón de índice secundario dentro de la partición](#intra-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores **RowKey** (en la misma partición) para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**.  
--	[Patrón de índice secundario entre particiones](#inter-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores RowKey en particiones o en tablas independientes para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**.  
+-	[Patrón de índice secundario dentro de la partición](#intra-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores **RowKey** (en la misma partición) para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**.
+-	[Patrón de índice secundario entre particiones](#inter-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores RowKey en particiones o en tablas independientes para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**.
 -	[Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern): habilitar el comportamiento final coherente a través de límites de partición o los límites del sistema de almacenamiento mediante el uso de las colas de Azure.
--	[Patrón de entidades de índice](#index-entities-pattern): mantener las entidades de índice para habilitar búsquedas eficaces que devuelvan listas de entidades.  
--	[Patrón de desnormalización](#denormalization-pattern): combinar datos relacionados entre sí en una sola entidad para recuperar todos los datos que necesita con una consulta de punto único.  
--	[Patrón de serie de datos](#data-series-pattern): almacenar una serie de datos completa en una sola entidad para minimizar el número de solicitudes que realice.  
+-	[Patrón de entidades de índice](#index-entities-pattern): mantener las entidades de índice para habilitar búsquedas eficaces que devuelvan listas de entidades.
+-	[Patrón de desnormalización](#denormalization-pattern): combinar datos relacionados entre sí en una sola entidad para recuperar todos los datos que necesita con una consulta de punto único.
+-	[Patrón de serie de datos](#data-series-pattern): almacenar una serie de datos completa en una sola entidad para minimizar el número de solicitudes que realice.
 
 Para obtener información sobre EGT, consulte la sección [Transacciones de grupo de entidad (EGT)](#entity-group-transactions).
 
@@ -291,14 +291,14 @@ En muchos casos, un diseño para los resultados de consultas eficaces en modific
 
 Los siguientes patrones de la sección [Patrones de diseño de tabla](#table-design-patterns) tratan el equilibrio entre diseños para efectuar consultas eficaces y diseños para la modificación eficaz de datos:
 
--	[Patrón de clave compuesta](#compound-key-pattern): utilice valores **RowKey** compuestos para permitir a un cliente buscar datos relacionados con una consulta de punto único.  
--	[Patrón final del registro](#log-tail-pattern): recupere las entidades *n* agregadas recientemente a una partición utilizando un valor **RowKey** que se ordene en orden de fecha y hora inverso.  
+-	[Patrón de clave compuesta](#compound-key-pattern): utilice valores **RowKey** compuestos para permitir a un cliente buscar datos relacionados con una consulta de punto único.
+-	[Patrón final del registro](#log-tail-pattern): recupere las entidades *n* agregadas recientemente a una partición utilizando un valor **RowKey** que se ordene en orden de fecha y hora inverso.
 
 ## Cifrado de datos de tablas    
      
 La biblioteca de clientes de almacenamiento de Azure de .net admite el cifrado de propiedades de entidades de cadena en operaciones de insertar y reemplazar. Las cadenas cifradas se almacenan en el servicio como propiedades binarias y se convierten de nuevo en cadenas después del descifrado.
 
-Para las tablas, además de la directiva de cifrado, los usuarios deben especificar las propiedades que se van a cifrar. Para ello, pueden especificar un atributo [EncryptProperty] \(para las entidades POCO que se derivan de TableEntity) o una resolución de cifrado en las opciones de solicitud. Una resolución de cifrado es un delegado que toma una clave de partición, una clave de fila y un nombre de propiedad y devuelve un valor booleano que indica si se debe cifrar dicha propiedad. Durante el cifrado, la biblioteca de cliente usará esta información para decidir si se debe cifrar una propiedad mientras se escribe en la conexión. El delegado también proporciona la posibilidad de lógica con respecto a la forma de cifrar las propiedades. (Por ejemplo, si el valor es X, hay que cifrar la propiedad A; en caso contrario, hay que cifrar las propiedades A y B). Tenga en cuenta que no es necesario proporcionar esta información para leer o consultar entidades.
+Para las tablas, además de la directiva de cifrado, los usuarios deben especificar las propiedades que se van a cifrar. Para ello, pueden especificar un atributo [EncryptProperty] (para las entidades POCO que se derivan de TableEntity) o una resolución de cifrado en las opciones de solicitud. Una resolución de cifrado es un delegado que toma una clave de partición, una clave de fila y un nombre de propiedad y devuelve un valor booleano que indica si se debe cifrar dicha propiedad. Durante el cifrado, la biblioteca de cliente usará esta información para decidir si se debe cifrar una propiedad mientras se escribe en la conexión. El delegado también proporciona la posibilidad de lógica con respecto a la forma de cifrar las propiedades. (Por ejemplo, si el valor es X, hay que cifrar la propiedad A; en caso contrario, hay que cifrar las propiedades A y B). Tenga en cuenta que no es necesario proporcionar esta información para leer o consultar entidades.
 
 Tenga en cuenta que actualmente no se admite la combinación. Puesto que un subconjunto de propiedades puede haberse cifrado previamente con una clave distinta, si simplemente se combinan las nuevas propiedades y se actualizan los metadatos, se producirá una pérdida de datos. Para realizar una combinación es necesario realizar llamadas de servicio adicionales para leer la entidad existente desde el servicio. También puede usar una nueva clave por propiedad. Ninguno de estos procedimientos es adecuado por motivos de rendimiento.
 
@@ -389,8 +389,8 @@ Es posible que los modelos de dominio incluyan relaciones uno a uno entre las en
 
 Tenga en cuenta que también hay consideraciones de implementación que podrían provocar la implementación de relaciones uno a uno en el servicio Tabla:
 
--	Administración de entidades de gran tamaño (para obtener más información, consulte [Patrón de entidades de gran tamaño](#large-entities-pattern)).  
--	Implementación de controles de acceso (para más información, consulte [Control de acceso con firmas de acceso compartido](#controlling-access-with-shared-access-signatures)).  
+-	Administración de entidades de gran tamaño (para obtener más información, consulte [Patrón de entidades de gran tamaño](#large-entities-pattern)).
+-	Implementación de controles de acceso (para más información, consulte [Control de acceso con firmas de acceso compartido](#controlling-access-with-shared-access-signatures)).
 
 ### Únase al cliente  
 
@@ -428,36 +428,36 @@ El servicio Tabla indexa automáticamente entidades mediante los valores **Parti
 Si desea ser capaz de encontrar una entidad de empleado basada en el valor de otra propiedad, como la dirección de correo electrónico, debe usar un examen de la partición menos eficiente para encontrar a coincidencia. Esto se debe a que el servicio Tabla no proporciona índices secundarios. Además, no hay ninguna opción para solicitar una lista de empleados ordenados en un orden diferente a **RowKey**.
 
 #### Solución
-Para solucionar la falta de índices secundarios, puede almacenar varias copias de cada entidad con cada copia mediante un valor **RowKey** diferente. Si almacena una entidad con las estructuras que se muestran a continuación, puede recuperar eficazmente las entidades de empleado en función de un identificador de empleado o de dirección de correo electrónico. Los valores de prefijo de **RowKey**, "empid\_" y "email\_", permiten consultar un solo empleado o un intervalo de empleados mediante un intervalo de direcciones de correo electrónico o identificadores de empleado.
+Para solucionar la falta de índices secundarios, puede almacenar varias copias de cada entidad con cada copia mediante un valor **RowKey** diferente. Si almacena una entidad con las estructuras que se muestran a continuación, puede recuperar eficazmente las entidades de empleado en función de un identificador de empleado o de dirección de correo electrónico. Los valores de prefijo de **RowKey**, "empid_" y "email_" permiten consultar un solo empleado o un intervalo de empleados mediante un intervalo de direcciones de correo electrónico o identificadores de empleado.
 
 ![][7]
 
 Los dos criterios de filtro siguientes (uno de búsqueda por identificador de empleado y uno de búsqueda por dirección de correo electrónico) especifican consultas de punto:
 
--	$filter=(PartitionKey eq 'Sales') y (RowKey eq 'empid\_000223')  
--	$filter=(PartitionKey eq 'Sales') y (RowKey eq 'email_jonesj@contoso.com')  
+-	$filter=(PartitionKey eq 'Sales') y (RowKey eq 'empid\_000223')
+-	$filter=(PartitionKey eq 'Sales') y (RowKey eq 'email_jonesj@contoso.com')
 
 Si consulta un intervalo de entidades de empleado, puede especificar un intervalo ordenado por identificador de empleado o un intervalo ordenado por dirección de correo electrónico mediante la consulta de entidades con el prefijo adecuado en **RowKey**.
 
--	Para buscar todos los empleados del departamento de ventas con un id. de empleado en el rango de 000100 a 000199 use: $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid\_000100') and (RowKey le 'empid\_000199')  
--	Para buscar todos los empleados del departamento de ventas con una dirección de correo electrónico que empiece por la letra 'a' use: $filter=(PartitionKey eq 'Sales') y (RowKey ge 'email\_a') y (RowKey lt 'email\_b')  
+-	Para buscar todos los empleados del departamento de ventas con un id. de empleado en el intervalo de 000100 a 000199, use: $filter=(PartitionKey eq 'Sales') y (RowKey ge 'empid_000100') y (RowKey le 'empid_000199').
+-	Para buscar todos los empleados del departamento de ventas con una dirección de correo electrónico que empiece por la letra 'a' use: $filter=(PartitionKey eq 'Sales') y (RowKey ge 'email\_a') y (RowKey lt 'email\_b')
 
- Tenga en cuenta que la sintaxis de filtro utilizada en los ejemplos anteriores corresponde a la API de REST del servicio Tabla. Para obtener más información, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).
+ Tenga en cuenta que la sintaxis de filtro usada en los ejemplos anteriores corresponde a la API de REST de Table service. Para más información, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).
 
 #### Problemas y consideraciones  
 
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:
 
--	El almacenamiento de tablas es relativamente barato, por lo que la sobrecarga de costes de almacenamiento de datos duplicados no debe ser una preocupación importante. Sin embargo, debe evaluar siempre el coste del diseño según los requisitos de almacenamiento previstos y solo agregar entidades duplicadas para admitir las consultas que ejecutará la aplicación cliente.  
--	Dado que las entidades de índice secundario se almacenan en la misma partición que las entidades originales, debe asegurarse de que no superen los objetivos de escalabilidad para una partición individual.  
--	Puede mantener la coherencia de las entidades duplicadas utilizando EGT para actualizar las dos copias de la entidad de forma atómica. Esto implica que debe almacenar todas las copias de una entidad en la misma partición. Para más información, consulte la sección [Uso de transacciones de grupos de entidades](#entity-group-transactions).  
--	El valor que se usa **RowKey** debe ser único para cada entidad. Considere la posibilidad de usar valores de clave compuestos.  
--	Rellenar valores numéricos en **RowKey** (por ejemplo, el identificador de empleado 000223) permite corregir los criterios de ordenación y filtro en función de los límites inferior y superior.  
+-	El almacenamiento de tablas es relativamente barato, por lo que la sobrecarga de costes de almacenamiento de datos duplicados no debe ser una preocupación importante. Sin embargo, debe evaluar siempre el coste del diseño según los requisitos de almacenamiento previstos y solo agregar entidades duplicadas para admitir las consultas que ejecutará la aplicación cliente.
+-	Dado que las entidades de índice secundario se almacenan en la misma partición que las entidades originales, debe asegurarse de que no superen los objetivos de escalabilidad para una partición individual.
+-	Puede mantener la coherencia de las entidades duplicadas utilizando EGT para actualizar las dos copias de la entidad de forma atómica. Esto implica que debe almacenar todas las copias de una entidad en la misma partición. Para más información, consulte la sección [Uso de transacciones de grupos de entidades](#entity-group-transactions).
+-	El valor que se usa **RowKey** debe ser único para cada entidad. Considere la posibilidad de usar valores de clave compuestos.
+-	Rellenar valores numéricos en **RowKey** (por ejemplo, el identificador de empleado 000223) permite corregir los criterios de ordenación y filtro en función de los límites inferior y superior.
 -	No es necesario duplicar todas las propiedades de su entidad. Por ejemplo, si las consultas que realizan búsquedas en las entidades mediante la dirección de correo electrónico de **RowKey** nunca necesitan la edad del empleado, estas entidades podrían tener la siguiente estructura:
 
 ![][8]
 
--	Normalmente es mejor almacenar los datos duplicados y asegurarse de que puede recuperar todos los datos que necesita con una sola consulta que usar una consulta para buscar una entidad y otra para buscar los datos necesarios.  
+-	Normalmente es mejor almacenar los datos duplicados y asegurarse de que puede recuperar todos los datos que necesita con una sola consulta que usar una consulta para buscar una entidad y otra para buscar los datos necesarios.
 
 #### Cuándo usar este patrón  
 
@@ -485,29 +485,29 @@ Si desea ser capaz de encontrar una entidad de empleado basada en el valor de ot
 Prevé un gran volumen de transacciones en estas entidades y desea minimizar el riesgo de que el servicio Tabla limite a su cliente.
 
 #### Solución  
-Para evitar la falta de índices secundarios, puede almacenar varias copias de cada entidad con cada copia con valores **PartitionKey** y **RowKey** diferentes. Si almacena una entidad con las estructuras que se muestran a continuación, puede recuperar eficazmente las entidades de empleado en función de un identificador de empleado o de dirección de correo electrónico. Los valores de prefijo de **PartitionKey**, "empid\_" y "email\_", le permiten identificar qué índice desea utilizar para una consulta.
+Para evitar la falta de índices secundarios, puede almacenar varias copias de cada entidad con cada copia con valores **PartitionKey** y **RowKey** diferentes. Si almacena una entidad con las estructuras que se muestran a continuación, puede recuperar eficazmente las entidades de empleado en función de un identificador de empleado o de dirección de correo electrónico. Los valores de prefijo de **PartitionKey**, "empid_" y "email_" le permiten identificar qué índice desea utilizar para una consulta.
 
 ![][10]
 
 Los dos criterios de filtro siguientes (uno de búsqueda por identificador de empleado y uno de búsqueda por dirección de correo electrónico) especifican consultas de punto:
 
 -	$filter=(PartitionKey eq 'empid\_Sales') y (RowKey eq '000223')
--	$filter=(PartitionKey eq 'email\_Sales') y (RowKey eq 'jonesj@contoso.com')  
+-	$filter=(PartitionKey eq 'email\_Sales') y (RowKey eq 'jonesj@contoso.com')
 
 Si consulta un intervalo de entidades de empleado, puede especificar un intervalo ordenado por identificador de empleado o un intervalo ordenado por dirección de correo electrónico mediante la consulta de entidades con el prefijo adecuado en **RowKey**.
 
--	Para buscar todos los empleados del departamento de ventas con un id. de empleado en el rango de **000100** a **000199** ordenados en orden de id. de empleado, use: $filter=(PartitionKey eq 'empid\_Sales') y (RowKey ge '000100') y (RowKey le '000199')  
--	Para buscar todos los empleados del departamento de ventas con una dirección de correo electrónico que empiece por 'a' ordenados en el orden de dirección de correo electrónico, use: $filter=(PartitionKey eq 'email\_Sales') y (RowKey ge 'a') y (RowKey lt 'b')  
+-	Para buscar todos los empleados del departamento de ventas con un id. de empleado en el rango de **000100** a **000199** ordenados en orden de id. de empleado, use: $filter=(PartitionKey eq 'empid\_Sales') y (RowKey ge '000100') y (RowKey le '000199')
+-	Para buscar todos los empleados del departamento de ventas con una dirección de correo electrónico que empiece por 'a' ordenados en el orden de dirección de correo electrónico, use: $filter=(PartitionKey eq 'email\_Sales') y (RowKey ge 'a') y (RowKey lt 'b')
 
-Tenga en cuenta que la sintaxis de filtro utilizada en los ejemplos anteriores corresponde a la API de REST del servicio Tabla. Para obtener más información, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).
+Tenga en cuenta que la sintaxis de filtro usada en los ejemplos anteriores corresponde a la API de REST de Table service. Para más información, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).
 
 #### Problemas y consideraciones  
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:
 
--	Puede mantener las entidades duplicadas coherentes entre sí en última instancia con el [patrón de transacciones coherentes en última instancia](#eventually-consistent-transactions-pattern) para conservar las entidades de índice principal y secundaria.  
--	El almacenamiento de tablas es relativamente barato, por lo que la sobrecarga de costes de almacenamiento de datos duplicados no debe ser una preocupación importante. Sin embargo, debe evaluar siempre el coste del diseño según los requisitos de almacenamiento previstos y solo agregar entidades duplicadas para admitir las consultas que ejecutará la aplicación cliente.  
--	El valor que se usa **RowKey** debe ser único para cada entidad. Considere la posibilidad de usar valores de clave compuestos.  
--	Rellenar valores numéricos en **RowKey** (por ejemplo, el identificador de empleado 000223) permite corregir los criterios de ordenación y filtro en función de los límites inferior y superior.  
+-	Puede mantener las entidades duplicadas coherentes entre sí en última instancia con el [patrón de transacciones coherentes en última instancia](#eventually-consistent-transactions-pattern) para conservar las entidades de índice principal y secundaria.
+-	El almacenamiento de tablas es relativamente barato, por lo que la sobrecarga de costes de almacenamiento de datos duplicados no debe ser una preocupación importante. Sin embargo, debe evaluar siempre el coste del diseño según los requisitos de almacenamiento previstos y solo agregar entidades duplicadas para admitir las consultas que ejecutará la aplicación cliente.
+-	El valor que se usa **RowKey** debe ser único para cada entidad. Considere la posibilidad de usar valores de clave compuestos.
+-	Rellenar valores numéricos en **RowKey** (por ejemplo, el identificador de empleado 000223) permite corregir los criterios de ordenación y filtro en función de los límites inferior y superior.
 -	No es necesario duplicar todas las propiedades de su entidad. Por ejemplo, si las consultas que realizan búsquedas en las entidades mediante la dirección de correo electrónico de **RowKey** nunca necesitan la edad del empleado, estas entidades podrían tener la siguiente estructura:
 
 	![][11]
@@ -520,11 +520,11 @@ Utilice este patrón cuando la aplicación cliente necesite recuperar entidades 
 #### Orientación y patrones relacionados
 Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:
 
--	[Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern)  
--	[Patrón de índice secundario dentro de la partición](#intra-partition-secondary-index-pattern)  
--	[Patrón de clave compuesta](#compound-key-pattern)  
--	[Transacciones de grupos de entidades](#entity-group-transactions)  
--	[Trabajar con tipos de entidad heterogéneos](#working-with-heterogeneous-entity-types)  
+-	[Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern)
+-	[Patrón de índice secundario dentro de la partición](#intra-partition-secondary-index-pattern)
+-	[Patrón de clave compuesta](#compound-key-pattern)
+-	[Transacciones de grupos de entidades](#entity-group-transactions)
+-	[Trabajar con tipos de entidad heterogéneos](#working-with-heterogeneous-entity-types)
 
 ### Patrón final coherente de transacciones  
 
@@ -534,10 +534,10 @@ Habilitar el comportamiento final coherente a través de límites de partición 
 
 Los EGT permiten transacciones atómicas a través de varias entidades que comparten la misma clave de partición. Por motivos de escalabilidad y rendimiento, puede decidir almacenar entidades con requisitos de coherencia en particiones independientes o en un sistema de almacenamiento independiente: en este escenario, no puede utilizar EGT para mantener la coherencia. Por ejemplo, podría tener un requisito de mantener la coherencia eventual entre:
 
--	Entidades almacenadas en dos particiones diferentes de la misma tabla, en tablas diferentes y en diferentes cuentas de almacenamiento.  
--	Una entidad almacenada en el servicio Tabla y un blob almacenado en el servicio Blob.  
--	Una entidad almacenada en el servicio Tabla y un archivo en un sistema de archivos.  
--	Un almacén de entidad en el servicio Tabla ya indexado utilizando el servicio de búsqueda de Azure.  
+-	Entidades almacenadas en dos particiones diferentes de la misma tabla, en tablas diferentes y en diferentes cuentas de almacenamiento.
+-	Una entidad almacenada en el servicio Tabla y un blob almacenado en el servicio Blob.
+-	Una entidad almacenada en el servicio Tabla y un archivo en un sistema de archivos.
+-	Un almacén de entidad en el servicio Tabla ya indexado utilizando el servicio de búsqueda de Azure.
 
 #### Solución  
 
@@ -560,17 +560,17 @@ Algunos errores de los servicios Tabla y Cola son errores transitorios y la apli
 #### Problemas y consideraciones
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:
 
--	Esta solución no permite el aislamiento de las transacciones. Por ejemplo, un cliente pudo leer las tablas **Current** y **Archive** cuando el rol de trabajo estaba entre los pasos **4** y **5**, y tener una vista incoherente de los datos. Tenga en cuenta que los datos serán coherentes con el tiempo.  
--	Debe asegurarse de que los pasos 4 y 5 sean idempotentes para garantizar la coherencia.  
--	Puede escalar la solución mediante el uso de varias colas e instancias de rol de trabajador.  
+-	Esta solución no permite el aislamiento de las transacciones. Por ejemplo, un cliente pudo leer las tablas **Current** y **Archive** cuando el rol de trabajo estaba entre los pasos **4** y **5**, y tener una vista incoherente de los datos. Tenga en cuenta que los datos serán coherentes con el tiempo.
+-	Debe asegurarse de que los pasos 4 y 5 sean idempotentes para garantizar la coherencia.
+-	Puede escalar la solución mediante el uso de varias colas e instancias de rol de trabajador.
 
 #### Cuándo usar este patrón  
 Utilice este patrón cuando desee garantizar la coherencia eventual entre las entidades que existen en diferentes particiones o tablas. Puede extender este patrón para garantizar la coherencia eventual de las operaciones en el servicio Tabla y el servicio Blob y otros orígenes de datos de almacenamiento que no sean de Azure como bases de datos o el sistema de archivos.
 
 #### Orientación y patrones relacionados  
 Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:
--	[Transacciones de grupos de entidades](#entity-group-transactions)  
--	[Combinar o reemplazar](#merge-or-replace)  
+-	[Transacciones de grupos de entidades](#entity-group-transactions)
+-	[Combinar o reemplazar](#merge-or-replace)
 
 >[AZURE.NOTE] Si el aislamiento de transacciones es importante para su solución, considere la posibilidad de volver a diseñar las tablas para poder utilizar EGT.
 
@@ -589,9 +589,9 @@ Si también desea poder recuperar una lista de las entidades employee en funció
 
 Para habilitar la búsqueda por apellido con la estructura de entidad mostrada anteriormente, debe mantener listas de identificadores de empleado. Si desea recuperar las entidades employee con un apellido determinado, como Jones, debe encontrar primero la lista de identificadores de empleado para los empleados con Jones como su apellido y, a continuación, recuperar las entidades employee. Hay tres opciones principales para almacenar las listas de identificadores de empleado:
 
--	Utilice el almacenamiento de blobs.  
--	Cree entidades de índice en la misma partición que las entidades employee.  
--	Cree entidades de índice en una tabla o una partición independiente.  
+-	Utilice el almacenamiento de blobs.
+-	Cree entidades de índice en la misma partición que las entidades employee.
+-	Cree entidades de índice en una tabla o una partición independiente.
 
 <u>Opción n.º 1: Usar el almacenamiento de blobs</u>
 
@@ -606,17 +606,17 @@ Para la segunda opción, utilice las entidades de índice que almacenan los dato
 La propiedad **EmployeeIDs** contiene una lista de identificadores de empleado para los empleados cuyo apellido está almacenado en **RowKey**.
 
 Los siguientes pasos describen el proceso que debe seguir al agregar un nuevo empleado si utiliza la segunda opción. En este ejemplo, agregamos a un empleado con Id. 000152 y el apellido Jones en el departamento de ventas:
-1.	Recupere la entidad de índice con el valor **PartitionKey** "Sales" y el valor **RowKey** "Jones". Guarde el valor ETag de esta entidad para usar en el paso 2.  
-2.	Cree una transacción de grupo de entidad (es decir, una operación por lotes) que inserte la nueva entidad del empleado (valor **PartitionKey** "Sales" y valor **RowKey** "000152") y actualice la entidad de índice (valor **PartitionKey** "Sales" y valor **RowKey** "Jones") agregando el nuevo identificador de empleado a la lista del campo EmployeeIDs. Para obtener información sobre EGT, consulte la sección [Transacciones de grupo de entidad (EGT)](#entity-group-transactions).  
-3.	Si la transacción de grupo de entidad falla debido a un error de simultaneidad optimista (alguien ha modificado la entidad de índice), necesitará comenzar de nuevo en el paso 1.  
+1.	Recupere la entidad de índice con el valor **PartitionKey** "Sales" y el valor **RowKey** "Jones". Guarde el valor ETag de esta entidad para usar en el paso 2.
+2.	Cree una transacción de grupo de entidad (es decir, una operación por lotes) que inserte la nueva entidad del empleado (valor **PartitionKey** "Sales" y valor **RowKey** "000152") y actualice la entidad de índice (valor **PartitionKey** "Sales" y valor **RowKey** "Jones") agregando el nuevo identificador de empleado a la lista del campo EmployeeIDs. Para obtener información sobre EGT, consulte la sección [Transacciones de grupo de entidad (EGT)](#entity-group-transactions).
+3.	Si la transacción de grupo de entidad falla debido a un error de simultaneidad optimista (alguien ha modificado la entidad de índice), necesitará comenzar de nuevo en el paso 1.
 
 Puede usar un enfoque similar a la eliminación de un empleado si utiliza la segunda opción. Cambiar el apellido de un empleado es ligeramente más complejo porque necesitará ejecutar una transacción de grupo de entidad que actualice tres entidades: la entidad employee, la entidad de índice para el apellido antiguo y la entidad de índice para el nombre nuevo. Debe recuperar cada entidad antes de realizar cambios para recuperar los valores de ETag que puede utilizar para realizar las actualizaciones mediante la simultaneidad optimista.
 
 Los siguientes pasos describen el proceso que debe llevar a cabo cuando se necesita buscar todos los empleados con un apellido determinado en un departamento si utiliza la segunda opción. En este ejemplo se buscan todos los empleados con el apellido Jones en el departamento de ventas:
 
-1.	Recupere la entidad de índice con el valor **PartitionKey** "Sales" y el valor **RowKey** "Jones".  
-2.	Analice la lista de identificadores de empleado en el campo EmployeeIDs.  
-3.	Si necesita información adicional sobre cada uno de los empleados (por ejemplo, sus direcciones de correo electrónico), recupere cada una de las entidades de empleado mediante los valores **PartitionKey** "Ventas" y **RowKey** de la lista de empleados que obtuvo en el paso 2.  
+1.	Recupere la entidad de índice con el valor **PartitionKey** "Sales" y el valor **RowKey** "Jones".
+2.	Analice la lista de identificadores de empleado en el campo EmployeeIDs.
+3.	Si necesita información adicional sobre cada uno de los empleados (por ejemplo, sus direcciones de correo electrónico), recupere cada una de las entidades de empleado mediante los valores **PartitionKey** "Ventas" y **RowKey** de la lista de empleados que obtuvo en el paso 2.
 
 <u>Opción n.º 3:</u> crear entidades de índice en una tabla o partición independientes
 
@@ -631,11 +631,11 @@ Con la tercera opción, no puede utilizar EGT para mantener la coherencia porque
 #### Problemas y consideraciones  
 
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:
--	Esta solución requiere al menos dos consultas para recuperar las entidades coincidentes: una para consultar las entidades de índice con el fin de obtener la lista de valores **RowKey** y, después, las consultas para recuperar cada entidad de la lista.  
--	Dado que una entidad individual tiene un tamaño máximo de 1 MB, la opción nº2 y la opción nº3 de la solución dan por hecho que la lista de identificadores de empleado de cualquier apellido determinado nunca es mayor que 1 MB. Si la lista de identificadores de empleado es probable que sea mayor que 1 MB de tamaño, utilice la opción nº1 y almacene los datos del índice en el almacenamiento de blobs.  
--	Si utiliza la opción nº2 (mediante EGT para controlar la adición y eliminación de empleados y el cambio del apellido de un empleado) debe evaluar si el volumen de transacciones se aproxima a los límites de escalabilidad de una partición determinada. Si este es el caso, debe considerar una solución coherente (opción nº1 o nº3) que utilice colas para controlar las solicitudes de actualización y le permita almacenar entidades de índice en una partición independiente de las entidades employee.  
+-	Esta solución requiere al menos dos consultas para recuperar las entidades coincidentes: una para consultar las entidades de índice con el fin de obtener la lista de valores **RowKey** y, luego, las consultas para recuperar cada entidad de la lista.
+-	Dado que una entidad individual tiene un tamaño máximo de 1 MB, la opción nº2 y la opción nº3 de la solución dan por hecho que la lista de identificadores de empleado de cualquier apellido determinado nunca es mayor que 1 MB. Si la lista de identificadores de empleado es probable que sea mayor que 1 MB de tamaño, utilice la opción nº1 y almacene los datos del índice en el almacenamiento de blobs.
+-	Si utiliza la opción nº2 (mediante EGT para controlar la adición y eliminación de empleados y el cambio del apellido de un empleado) debe evaluar si el volumen de transacciones se aproxima a los límites de escalabilidad de una partición determinada. Si este es el caso, debe considerar una solución coherente (opción nº1 o nº3) que utilice colas para controlar las solicitudes de actualización y le permita almacenar entidades de índice en una partición independiente de las entidades employee.
 -	La opción nº2 en esta solución da por hecho que desea buscar por apellido dentro de un departamento: por ejemplo, desea recuperar una lista de empleados que tienen un apellido Jones del departamento de ventas. Si desea buscar todos los empleados con apellido Jones en toda la organización, utilice opción nº1 o la opción nº3.
--	Puede implementar una solución basada en cola que ofrezca coherencia eventual (consulte [Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern) para obtener más información).  
+-	Puede implementar una solución basada en cola que ofrezca coherencia eventual (consulte [Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern) para más información).
 
 #### Cuándo usar este patrón  
 
@@ -644,10 +644,10 @@ Utilice este patrón cuando desee buscar un conjunto de entidades que compartan 
 #### Orientación y patrones relacionados  
 
 Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:
--	[Patrón de clave compuesta](#compound-key-pattern)  
--	[Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern)  
--	[Transacciones de grupos de entidades](#entity-group-transactions)  
--	[Trabajar con tipos de entidad heterogéneos](#working-with-heterogeneous-entity-types)  
+-	[Patrón de clave compuesta](#compound-key-pattern)
+-	[Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern)
+-	[Transacciones de grupos de entidades](#entity-group-transactions)
+-	[Trabajar con tipos de entidad heterogéneos](#working-with-heterogeneous-entity-types)
 
 ### Patrón de desnormalización  
 
@@ -671,16 +671,16 @@ Ahora con las entidades de departamento almacenadas con estas propiedades, puede
 
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:
 
--	Hay algunos costes de sobrecarga asociados al almacenamiento de datos dos veces. La ventaja de rendimiento (procedente de menos solicitudes al servicio de almacenamiento) normalmente es más importante que el aumento marginal en los costes de almacenamiento (y este coste se compensa parcialmente con una reducción en el número de transacciones que se requieren para capturar los detalles de un departamento).  
--	Debe mantener la coherencia de las dos entidades que almacenan información acerca de los administradores. Puede controlar el problema de coherencia utilizando EGT para actualizar varias entidades en una única transacción atómica: en este caso, la entidad department y la entidad employee del administrador de departamento se almacenan en la misma partición.  
+-	Hay algunos costes de sobrecarga asociados al almacenamiento de datos dos veces. La ventaja de rendimiento (procedente de menos solicitudes al servicio de almacenamiento) normalmente es más importante que el aumento marginal en los costes de almacenamiento (y este coste se compensa parcialmente con una reducción en el número de transacciones que se requieren para capturar los detalles de un departamento).
+-	Debe mantener la coherencia de las dos entidades que almacenan información acerca de los administradores. Puede controlar el problema de coherencia utilizando EGT para actualizar varias entidades en una única transacción atómica: en este caso, la entidad department y la entidad employee del administrador de departamento se almacenan en la misma partición.
 
 #### Cuándo usar este patrón
 Utilice este patrón cuando necesite buscar información relacionada con frecuencia. Este patrón reduce el número de consultas que el cliente debe realizar para recuperar los datos que necesita.
 
 #### Orientación y patrones relacionados
 Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:
--	[Patrón de clave compuesta](#compound-key-pattern)  
--	[Transacciones de grupos de entidades](#entity-group-transactions)  
+-	[Patrón de clave compuesta](#compound-key-pattern)
+-	[Transacciones de grupos de entidades](#entity-group-transactions)
 -	[Trabajar con tipos de entidad heterogéneos](#working-with-heterogeneous-entity-types)
 
 ### Patrón de clave compuesta  
@@ -710,14 +710,14 @@ Observe que **RowKey** ahora es una clave compuesta formada por el identificador
 
 El ejemplo siguiente describe cómo se pueden recuperar todos los datos de revisión para un empleado concreto (como employee 000123 en el departamento de ventas):
 
-$filter=(PartitionKey eq 'Ventas') y (RowKey ge 'empid\_000123') y (RowKey lt 'empid\_000124')&$select=RowKey,Manager Rating,Peer Rating,Comments
+$filter=(PartitionKey eq 'Sales') y (RowKey ge 'empid_000123') y (RowKey lt 'empid_000124')&$select=RowKey,Manager Rating,Peer Rating,Comments
 
 #### Problemas y consideraciones
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:
 
--	Debe usar un carácter separador adecuado que facilite el análisis del valor **RowKey**: por ejemplo, **000123\_2012**.  
+-	Debe usar un carácter separador adecuado que facilite el análisis del valor **RowKey**: por ejemplo, **000123\_2012**.
 -	También almacena esta entidad en la misma partición que otras entidades que contienen datos relacionados correspondientes al mismo empleado, lo que significa que puede usar EGT para mantener una coherencia segura.
--	Debe considerar la frecuencia con la que consultará los datos para determinar si este patrón es adecuado. Por ejemplo, si tendrá acceso a los datos de revisión con poca frecuencia y a menudo a los datos de empleados principales debe guardarlos como entidades independientes.  
+-	Debe considerar la frecuencia con la que consultará los datos para determinar si este patrón es adecuado. Por ejemplo, si tendrá acceso a los datos de revisión con poca frecuencia y a menudo a los datos de empleados principales debe guardarlos como entidades independientes.
 
 #### Cuándo usar este patrón  
 
@@ -727,9 +727,9 @@ Utilice este patrón cuando necesite almacenar una o más entidades relacionadas
 
 Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:
 
--	[Transacciones de grupos de entidades](#entity-group-transactions)  
--	[Trabajar con tipos de entidad heterogéneos](#working-with-heterogeneous-entity-types)  
--	[Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern)  
+-	[Transacciones de grupos de entidades](#entity-group-transactions)
+-	[Trabajar con tipos de entidad heterogéneos](#working-with-heterogeneous-entity-types)
+-	[Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern)
 
 ### Patrón de cola de registro  
 
@@ -759,8 +759,8 @@ La consulta de la tabla tiene este aspecto:
 
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:
 
--	Debe rellenar el valor de tic inverso con ceros a la izquierda para asegurarse de que el valor de cadena se ordene según lo esperado.  
--	Debe ser consciente de los objetivos de escalabilidad en el nivel de una partición. Tenga cuidado de no crear particiones en la zona activa.  
+-	Debe rellenar el valor de tic inverso con ceros a la izquierda para asegurarse de que el valor de cadena se ordene según lo esperado.
+-	Debe ser consciente de los objetivos de escalabilidad en el nivel de una partición. Tenga cuidado de no crear particiones en la zona activa.
 
 #### Cuándo usar este patrón  
 
@@ -770,8 +770,8 @@ Utilice este patrón cuando necesite tener acceso a entidades en orden inverso d
 
 Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:
 
--	[Anteponer/anexar antipatrón](#prepend-append-anti-pattern)  
--	[Recuperación de entidades](#retrieving-entities)  
+-	[Anteponer/anexar antipatrón](#prepend-append-anti-pattern)
+-	[Recuperación de entidades](#retrieving-entities)
 
 ### Patrón de eliminación de gran volumen  
 
@@ -795,10 +795,10 @@ Utilice una tabla independiente para cada día de intentos de inicio de sesión.
 
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:
 
--	¿Su diseño admite otras formas de uso por parte de su aplicación de los datos como la búsqueda de entidades específicas, vinculación con otros datos o generar información de agregado?  
--	¿Evita el diseño problemas cuando se insertan nuevas entidades?  
--	Espere un retraso si desea reutilizar el mismo nombre de tabla después de eliminarlo. Es mejor utilizar siempre nombres de tabla únicos.  
--	Esperar ciertas limitaciones cuando utilice primero una tabla nueva mientras el servicio Tabla aprende los patrones de acceso y distribuye las particiones entre los nodos. Debe considerar la frecuencia con la que necesita crear nuevas tablas.  
+-	¿Su diseño admite otras formas de uso por parte de su aplicación de los datos como la búsqueda de entidades específicas, vinculación con otros datos o generar información de agregado?
+-	¿Evita el diseño problemas cuando se insertan nuevas entidades?
+-	Espere un retraso si desea reutilizar el mismo nombre de tabla después de eliminarlo. Es mejor utilizar siempre nombres de tabla únicos.
+-	Esperar ciertas limitaciones cuando utilice primero una tabla nueva mientras el servicio Tabla aprende los patrones de acceso y distribuye las particiones entre los nodos. Debe considerar la frecuencia con la que necesita crear nuevas tablas.
 
 #### Cuándo usar este patrón  
 
@@ -809,7 +809,7 @@ Utilice este patrón cuando tenga un gran volumen de entidades que deba eliminar
 Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:
 
 -	[Transacciones de grupos de entidades](#entity-group-transactions)
--	[Modificación de entidades](#modifying-entities)  
+-	[Modificación de entidades](#modifying-entities)
 
 ### Patrón de serie de datos  
 
@@ -834,8 +834,8 @@ Con este diseño, puede utilizar una operación de combinación para actualizar 
 #### Problemas y consideraciones  
 
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:
--	Si la serie de datos completa no cabe en una única entidad (una entidad puede tener hasta 252 propiedades), utilice un almacén de datos alternativo, como un blob.  
--	Si tiene varios clientes actualizando una entidad simultáneamente, deberá utilizar el **ETag** para implementar la simultaneidad optimista. Si tiene muchos clientes, puede experimentar un alto nivel de contención.  
+-	Si la serie de datos completa no cabe en una única entidad (una entidad puede tener hasta 252 propiedades), utilice un almacén de datos alternativo, como un blob.
+-	Si tiene varios clientes actualizando una entidad simultáneamente, deberá utilizar el **ETag** para implementar la simultaneidad optimista. Si tiene muchos clientes, puede experimentar un alto nivel de contención.
 
 #### Cuándo usar este patrón  
 
@@ -845,9 +845,9 @@ Utilice este patrón cuando necesite actualizar y recuperar una serie de datos a
 
 Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:
 
--	[Patrón de entidades de gran tamaño](#large-entities-pattern)  
--	[Combinar o reemplazar](#merge-or-replace)  
--	[Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern) (si va a almacenar la serie de datos en un blob)  
+-	[Patrón de entidades de gran tamaño](#large-entities-pattern)
+-	[Combinar o reemplazar](#merge-or-replace)
+-	[Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern) (si va a almacenar la serie de datos en un blob)
 
 ### Patrón de entidades amplio  
 
@@ -869,7 +869,7 @@ Si necesita realizar un cambio que requiere la actualización de ambas entidades
 
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:
 
--	Recuperar una entidad lógica completa implica al menos dos transacciones de almacenamiento: una para recuperar cada entidad física.  
+-	Recuperar una entidad lógica completa implica al menos dos transacciones de almacenamiento: una para recuperar cada entidad física.
 
 #### Cuándo usar este patrón  
 
@@ -901,7 +901,7 @@ Si la entidad supera 1 MB de tamaño porque una o más propiedades contienen una
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:
 
 -	Para mantener la coherencia eventual entre la entidad del servicio Tabla y los datos del servicio Blob, utilice el [patrón final coherente de transacciones](#eventually-consistent-transactions-pattern) para mantener las entidades.
--	Recuperar una entidad completa implica al menos dos transacciones de almacenamiento: una para recuperar la entidad y otra para recuperar los datos del blob.  
+-	Recuperar una entidad completa implica al menos dos transacciones de almacenamiento: una para recuperar la entidad y otra para recuperar los datos del blob.
 
 #### Cuándo usar este patrón  
 
@@ -911,7 +911,7 @@ Utilice este patrón cuando necesite almacenar entidades cuyo tamaño supere los
 
 Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:
 
--	[Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern)  
+-	[Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern)
 -	[Patrón de entidades amplio](#wide-entities-pattern)
 
 <a name="prepend-append-anti-pattern"></a>
@@ -937,8 +937,8 @@ Observe en este ejemplo que tanto **PartitionKey** como **RowKey** son claves co
 
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:
 
--	¿Admite la estructura de clave alternativa que evita la creación de particiones activas en inserciones eficazmente las consultas que realiza la aplicación cliente?  
--	¿El volumen de transacciones previstas significa que es probable alcanzar los objetivos de escalabilidad para una partición individual y estar limitada por el servicio de almacenamiento?  
+-	¿Admite la estructura de clave alternativa que evita la creación de particiones activas en inserciones eficazmente las consultas que realiza la aplicación cliente?
+-	¿El volumen de transacciones previstas significa que es probable alcanzar los objetivos de escalabilidad para una partición individual y estar limitada por el servicio de almacenamiento?
 
 #### Cuándo usar este patrón  
 
@@ -948,9 +948,9 @@ Evite el antipatrón anteponer/anexar cuando es posible que el volumen de transa
 
 Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:
 
--	[Patrón de clave compuesta](#compound-key-pattern)  
--	[Patrón de cola de registro](#log-tail-pattern)  
--	[Modificación de entidades](#modifying-entities)  
+-	[Patrón de clave compuesta](#compound-key-pattern)
+-	[Patrón de cola de registro](#log-tail-pattern)
+-	[Modificación de entidades](#modifying-entities)
 
 ### Antipatrón de datos de registro  
 
@@ -988,9 +988,9 @@ Si está implementando una solución similar en su propia aplicación, debe cons
 
 Tenga en cuenta los siguientes puntos cuando decida cómo almacenar los datos del registro:
 
--	Si crea un diseño de tabla que evite posibles particiones activas, observará que no tiene acceso a los datos del registro de forma eficaz.  
--	Para procesar los datos de registro, un cliente a menudo necesita cargar muchos registros.  
--	Aunque a menudo se estructuran de datos del registro, el almacenamiento de blobs puede ser una solución mejor.  
+-	Si crea un diseño de tabla que evite posibles particiones activas, observará que no tiene acceso a los datos del registro de forma eficaz.
+-	Para procesar los datos de registro, un cliente a menudo necesita cargar muchos registros.
+-	Aunque a menudo se estructuran de datos del registro, el almacenamiento de blobs puede ser una solución mejor.
 
 ### Consideraciones de implementación  
 
@@ -1056,7 +1056,7 @@ Una consulta óptima devuelve una entidad individual basada en un valor **Partit
 
 Siempre se debe probar a fondo el rendimiento de la aplicación en estas situaciones.
 
-Una consulta en el servicio Tabla puede devolver un máximo de 1.000 entidades al mismo tiempo y se puede ejecutar durante un máximo de cinco segundos. Si el conjunto de resultados contiene más de 1.000 entidades, si la consulta no se completa antes de cinco segundos, o si la consulta cruza el límite de partición, el servicio Tabla devuelve un token de continuación para habilitar la aplicación cliente para solicitar el siguiente conjunto de entidades. Para obtener más información sobre el funcionamiento de los tokens de continuación, consulte [Tiempo de espera de consulta y paginación](http://msdn.microsoft.com/library/azure/dd135718.aspx).
+Una consulta en el servicio Tabla puede devolver un máximo de 1.000 entidades al mismo tiempo y se puede ejecutar durante un máximo de cinco segundos. Si el conjunto de resultados contiene más de 1.000 entidades, si la consulta no se completa antes de cinco segundos, o si la consulta cruza el límite de partición, el servicio Tabla devuelve un token de continuación para habilitar la aplicación cliente para solicitar el siguiente conjunto de entidades. Para más información sobre el funcionamiento de los tokens de continuación, consulte [Tiempo de espera de consulta y paginación](http://msdn.microsoft.com/library/azure/dd135718.aspx).
 
 Si utiliza la biblioteca de cliente de almacenamiento, puede controlar automáticamente tokens de continuación para usted cuando devuelve entidades del servicio Tabla. El siguiente ejemplo de código de C# que utiliza la biblioteca de cliente de almacenamiento maneja automáticamente tokens de continuación si el servicio Tabla los devuelve en una respuesta:
 
@@ -1093,9 +1093,9 @@ El siguiente código C# administra los tokens de continuación explícitamente:
 
 Mediante el uso de tokens de continuación explícitamente, puede controlar cuando recupera la aplicación el siguiente segmento de datos. Por ejemplo, si la aplicación cliente permite a los usuarios desplazarse por las entidades que se almacenan en una tabla, un usuario puede decidir no desplazarse a través de todas las entidades recuperadas por la consulta, por lo que la aplicación solo usaría un token de continuación para recuperar el siguiente segmento cuando el usuario hubiese terminado la paginación a través de todas las entidades en el segmento actual. Este enfoque tiene varias ventajas:
 
--	Le permite limitar la cantidad de datos que desea recuperar del servicio tabla y desplazarse a través de la red.  
--	Le permite realizar E/S asincrónicas en. NET.  
--	Le permite serializar el token de continuación en un almacenamiento persistente para que pueda continuar en caso de un bloqueo de la aplicación.  
+-	Le permite limitar la cantidad de datos que desea recuperar del servicio tabla y desplazarse a través de la red.
+-	Le permite realizar E/S asincrónicas en. NET.
+-	Le permite serializar el token de continuación en un almacenamiento persistente para que pueda continuar en caso de un bloqueo de la aplicación.
 
 >[AZURE.NOTE] Normalmente, un token de continuación devuelve un segmento que contiene 1.000 entidades, aunque pueden ser menos. Esto también sucede si se limita el número de entradas que devuelve una consulta mediante el uso de **Take** para devolver las n primeras entidades que cumplen los criterios de búsqueda: el servicio Tabla puede devolver un segmento que contenga menos de n entidades, junto con un token de continuación que permita recuperar las entidades restantes.
 
@@ -1131,7 +1131,7 @@ También debe considerar cómo afecta su diseño a la forma en que la aplicació
 
 #### Administrar la simultaneidad  
 
-De forma predeterminada, el servicio Tabla implementa comprobaciones de simultaneidad optimista en el nivel de entidades individuales para las operaciones **Insertar**, **Combinar** y **Eliminar**, aunque es posible que un cliente fuerce al servicio Tabla a omitir estas comprobaciones. Para obtener más información sobre cómo el servicio Tabla administra la simultaneidad, consulte [Administración de la simultaneidad en Almacenamiento de Microsoft Azure](storage-concurrency.md).
+De forma predeterminada, el servicio Tabla implementa comprobaciones de simultaneidad optimista en el nivel de entidades individuales para las operaciones **Insertar**, **Combinar** y **Eliminar**, aunque es posible que un cliente fuerce al servicio Tabla a omitir estas comprobaciones. Para más información sobre cómo Table service administra la simultaneidad, consulte [Administración de la simultaneidad en Microsoft Azure Storage](storage-concurrency.md).
 
 #### Combinar o reemplazar  
 
@@ -1234,8 +1234,8 @@ El servicio Tabla es un almacenamiento de tablas *sin esquema*, lo que significa
 
 Tenga en cuenta que cada entidad debe tener todavía valores **PartitionKey**, **RowKey** y **Timestamp**, pero puede tener cualquier conjunto de propiedades. Además, no hay nada que indique el tipo de una entidad a menos que elija almacenar esa información en algún lugar. Hay dos opciones para identificar el tipo de entidad:
 
--	Anteponer el tipo de entidad al valor **RowKey** (o posiblemente a **PartitionKey**). Por ejemplo, **EMPLOYEE\_000123** o **DEPARTMENT\_SALES** como valores **RowKey**.  
--	Utilice una propiedad independiente para registrar el tipo de entidad como se muestra en la tabla siguiente.  
+-	Anteponer el tipo de entidad al valor **RowKey** (o posiblemente a **PartitionKey**). Por ejemplo, **EMPLOYEE\_000123** o **DEPARTMENT\_SALES** como valores **RowKey**.
+-	Utilice una propiedad independiente para registrar el tipo de entidad como se muestra en la tabla siguiente.
 
 <table>
 <tr>
@@ -1443,11 +1443,11 @@ No es necesario conocer el tipo de una entidad para eliminarla, y siempre sabe e
 
 Puede utilizar tokens de firma de acceso compartido (SAS) para permitir a las aplicaciones de cliente modificar (y consultar) entidades de tabla directamente sin necesidad de autenticarse directamente con el servicio Tabla. Normalmente, hay tres ventajas principales de utilizar SAS en su aplicación:
 
--	No es necesario distribuir la clave de la cuenta de almacenamiento a una plataforma no segura (por ejemplo, un dispositivo móvil) para permitir que ese dispositivo acceda y modifique entidades en el servicio Tabla.  
--	Puede descargar parte del trabajo que realizan los roles de web y trabajador en la administración de las entidades en dispositivos cliente como los equipos de usuario final y los dispositivos móviles.  
--	Puede asignar un conjunto de permisos restringido y con limitación de tiempo a un cliente (por ejemplo, para permitir el acceso de solo lectura a recursos específicos).  
+-	No es necesario distribuir la clave de la cuenta de almacenamiento a una plataforma no segura (por ejemplo, un dispositivo móvil) para permitir que ese dispositivo acceda y modifique entidades en el servicio Tabla.
+-	Puede descargar parte del trabajo que realizan los roles de web y trabajador en la administración de las entidades en dispositivos cliente como los equipos de usuario final y los dispositivos móviles.
+-	Puede asignar un conjunto de permisos restringido y con limitación de tiempo a un cliente (por ejemplo, para permitir el acceso de solo lectura a recursos específicos).
 
-Para más información acerca del uso de tokens SAS con el servicio Tabla, consulte [Firmas de acceso compartido, parte 1: descripción del modelo de firmas de acceso compartido](../storage-dotnet-shared-access-signature-part-1/).
+Para más información sobre el uso de tokens de SAS con Table service, consulte [Uso de Firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 Sin embargo, todavía debe generar los tokens SAS que concedan una aplicación cliente a las entidades en el servicio Tabla: debe hacerlo en un entorno que tenga acceso seguro a las claves de la cuenta de almacenamiento. Normalmente, se utiliza un rol web o de trabajador para generar los tokens SAS y entregarlos a las aplicaciones cliente que necesitan tener acceso a las entidades. Dado que todavía hay una sobrecarga implicada en la generación y entrega tokens SAS a los clientes, debería considerar cómo reducir mejor esta sobrecarga, especialmente en escenarios de gran volumen.
 
@@ -1504,8 +1504,8 @@ Este código puede se modificar fácilmente para que la consulta se ejecute de f
 
 En este ejemplo asincrónico, puede ver los cambios siguientes desde la versión sincrónica:
 
--	La firma del método incluye el modificador **async** y devuelve una instancia de **Task**.  
--	En lugar de llamar al método **ExecuteSegmented** para recuperar los resultados, ahora el método llama al método **ExecuteSegmentedAsync** y usa el modificador **await** para recuperar resultados de forma asincrónica.  
+-	La firma del método incluye el modificador **async** y devuelve una instancia de **Task**.
+-	En lugar de llamar al método **ExecuteSegmented** para recuperar los resultados, ahora el método llama al método **ExecuteSegmentedAsync** y usa el modificador **await** para recuperar resultados de forma asincrónica.
 
 La aplicación cliente puede llamar a este método varias veces (con valores diferentes en el parámetro **department**) y cada consulta se ejecutará en un subproceso independiente.
 
@@ -1533,8 +1533,8 @@ Este código se puede modificar fácilmente para que la actualización se ejecut
 
 En este ejemplo asincrónico, puede ver los cambios siguientes desde la versión sincrónica:
 
--	La firma del método incluye ahora el modificador **async** y devuelve una instancia de **Tarea**.  
--	En lugar de llamar al método **Execute** para actualizar la entidad, el método llama al método**ExecuteAsync** y usa el modificador **await** para recuperar resultados de forma asincrónica.  
+-	La firma del método incluye ahora el modificador **async** y devuelve una instancia de **Tarea**.
+-	En lugar de llamar al método **Execute** para actualizar la entidad, el método llama al método**ExecuteAsync** y usa el modificador **await** para recuperar resultados de forma asincrónica.
 
 La aplicación cliente puede llamar a varios métodos asincrónicos como este, y cada invocación de método se ejecutará en un subproceso independiente.
 
@@ -1577,4 +1577,4 @@ También nos gustaría dar las gracias a los siguientes MVP de Microsoft por sus
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!----HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0928_2016-->

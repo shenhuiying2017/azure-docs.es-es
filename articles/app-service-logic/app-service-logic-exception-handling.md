@@ -22,7 +22,7 @@ Logic Apps proporciona un amplio conjunto de herramientas y patrones que garanti
 
 ## Directivas de reintentos
 
-El tipo más básico de control de errores y excepciones es una directiva de reintentos. Esta directiva define si se debe reintentar la acción después de que la solicitud inicial ha agotado el tiempo de espera o ha producido error (toda solicitud que tenga como resultado una respuesta 429 o 5xx). De forma predeterminada, todas las acciones se reintentan 3 veces adicionales durante intervalos de 20 segundos. Por lo tanto, si la primera solicitud recibe una respuesta `500 Internal Server Error`, el motor de flujo de trabajo se pausa durante 20 segundos y vuelve a intentar la solicitud. Si después de todos los reintentos la respuesta sigue siendo una excepción o un error, el flujo de trabajo continúa y marca el estado de la acción como `Failed`.
+El tipo más básico de control de errores y excepciones es una directiva de reintentos. Esta directiva define si se debe reintentar la acción después de que la solicitud inicial ha agotado el tiempo de espera o ha producido error (toda solicitud que tenga como resultado una respuesta 429 o 5xx). De forma predeterminada, todas las acciones se reintentan 4 veces adicionales durante intervalos de 20 segundos. Por lo tanto, si la primera solicitud recibe una respuesta `500 Internal Server Error`, el motor de flujo de trabajo se pausa durante 20 segundos y vuelve a intentar la solicitud. Si después de todos los reintentos la respuesta sigue siendo una excepción o un error, el flujo de trabajo continúa y marca el estado de la acción como `Failed`.
 
 Puede configurar directivas de reintento en las **entradas** de una acción determinada. Se puede configurar una directiva de reintentos para probar hasta 4 veces durante intervalos de 1 hora. Se pueden encontrar más detalles sobre las propiedades de entrada en [MSDN][retryPolicyMSDN].
 
@@ -207,4 +207,4 @@ Los patrones vistos anteriormente son una manera excelente de controlar errores 
 <!-- References -->
 [retryPolicyMSDN]: https://msdn.microsoft.com/library/azure/mt643939.aspx#Anchor_9
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

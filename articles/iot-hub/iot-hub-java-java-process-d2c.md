@@ -53,9 +53,9 @@ Para completar este tutorial, necesitará lo siguiente:
 
 + Una versión funcional y completa del tutorial [Introducción a IoT Hub].
 
-+ Java SE 8. <br/> [Prepare your development environment][lnk-dev-setup] \(Preparación del entorno de desarrollo) describe cómo instalar Java para este tutorial en Windows o Linux.
++ Java SE 8. <br/> [Prepare your development environment][lnk-dev-setup] (Preparación del entorno de desarrollo) describe cómo instalar Java para este tutorial en Windows o Linux.
 
-+ Maven 3. <br/> [Prepare your development environment][lnk-dev-setup] \(Preparación del entorno de desarrollo) describe cómo instalar Maven para este tutorial en Windows o Linux.
++ Maven 3. <br/> [Prepare your development environment][lnk-dev-setup] (Preparación del entorno de desarrollo) describe cómo instalar Maven para este tutorial en Windows o Linux.
 
 + Una cuenta de Azure activa. <br/>Si no tiene una suscripción de Azure, puede crear una [cuenta gratis](https://azure.microsoft.com/free/) en tan solo unos minutos.
 
@@ -726,8 +726,8 @@ Para más información sobre cómo desarrollar soluciones con el Centro de IoT, 
 [Almacenamiento de blobs de Azure]: ../storage/storage-dotnet-how-to-use-blobs.md
 [Data Factory de Azure]: https://azure.microsoft.com/documentation/services/data-factory/
 [HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
-[Service Bus queue]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
-[cola del Bus de servicio]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
+[Service Bus queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
+[cola del Bus de servicio]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
 [Guía del desarrollador del Centro de IoT de Azure - Dispositivo a nube]: iot-hub-devguide.md#d2c
 
@@ -762,4 +762,4 @@ Para más información sobre cómo desarrollar soluciones con el Centro de IoT, 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
 [lnk-create-an-iot-hub]: iot-hub-java-java-getstarted.md#create-an-iot-hub
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

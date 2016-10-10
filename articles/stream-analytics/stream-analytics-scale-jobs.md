@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/27/2016"
+	ms.date="09/26/2016"
 	ms.author="jeffstok"/>
 
 # Escalado de trabajos de Análisis de transmisiones de Azure para incrementar el rendimiento de procesamiento de flujo de datos
@@ -27,7 +27,7 @@ Una definición de trabajo de Análisis de transmisiones incluye entradas, una c
 Un trabajo requiere al menos un origen de entrada de streaming de datos. El origen de entrada de streaming de datos puede almacenarse en un Centro de eventos de Bus de servicio de Azure o en un almacenamiento de blobs de Azure. Para obtener más información, consulte [Introducción a Análisis de transmisiones de Azure](stream-analytics-introduction.md) e [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md).
 
 ## Configuración de unidades de streaming
-Las Unidades de streaming (SU) representan los recursos y la capacidad de ejecutar un trabajo de Análisis de transmisiones de Azure. Las SU proporcionan una forma de describir la capacidad de procesamiento del evento relativo en función de una medida que combina la CPU, la memoria y las tasas de lectura y escritura. Cada unidad de streaming corresponde aproximadamente a 1 MB por segundo de rendimiento.
+Las unidades de streaming (SU) representan los recursos y la capacidad de ejecutar un trabajo de Azure Stream Analytics. Las SU proporcionan una forma de describir la capacidad de procesamiento del evento relativo en función de una medida que combina la CPU, la memoria y las tasas de lectura y escritura. Cada unidad de streaming corresponde aproximadamente a 1 MB por segundo de rendimiento.
 
 Elegir cuántas SU son necesarias para un trabajo en concreto depende de la configuración de la partición de las entradas y de la consulta definida para el trabajo. Puede seleccionar tantas unidades de streaming para un trabajo como su cuota se lo permita, mediante el Portal de Azure clásico. De forma predeterminada, cada suscripción de Azure tiene una cuota máxima de 50 unidades de streaming en todos los trabajos de análisis de una región específica. Para aumentar las unidades de streaming de su suscripción póngase en contacto con el [Servicio de soporte técnico de Microsoft](http://support.microsoft.com).
 
@@ -350,4 +350,4 @@ Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

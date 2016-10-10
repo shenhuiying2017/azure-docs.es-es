@@ -36,7 +36,7 @@ En el ejemplo siguiente se muestran algunas de las propiedades de formato de Tex
 	    }
 	},
 
-Para usar escapeChar, en lugar de quoteChar, reemplace la línea con quoteChar por la siguiente:
+Para usar escapeChar, en lugar de quoteChar, reemplace la línea con quoteChar por la siguiente escapeChar:
 
 	"escapeChar": "$",
 
@@ -46,7 +46,7 @@ Para usar escapeChar, en lugar de quoteChar, reemplace la línea con quoteChar p
 
 - Va a copiar de un origen que no es archivo a un archivo de texto y quiere agregar una línea de encabezado que contenga los metadatos de esquema (por ejemplo, esquema SQL). Especifique **firstRowAsHeader** como true en el conjunto de datos de salida para este escenario.
 - Va a copiar de un archivo de texto que contiene una línea de encabezado a un receptor que no es archivo y quiere eliminar esa línea. Especifique **firstRowAsHeader** como true en el conjunto de datos de entrada.
-- Va a copiar de un archivo de texto y quiere omitir unas cuantas líneas al comienzo que no son ni datos ni encabezado. Especifique **skipLineCount** para indicar el número de líneas que se omitirá. Si el resto del archivo contiene una línea de encabezado, también puede especificar **firstRowAsHeader**. Si se especifican tanto **skipLineCount** como **firstRowAsHeader**, primero se omiten las líneas y luego se lee la información de encabezado del archivo de entrada.
+- Va a copiar de un archivo de texto y quiere omitir unas cuantas líneas al comienzo que no contienen datos ni información de encabezado. Especifique **skipLineCount** para indicar el número de líneas que se omitirá. Si el resto del archivo contiene una línea de encabezado, también puede especificar **firstRowAsHeader**. Si se especifican tanto **skipLineCount** como **firstRowAsHeader**, primero se omiten las líneas y luego se lee la información de encabezado del archivo de entrada.
 
 ### Especificación de AvroFormat
 Si se establece el formato en AvroFormat, no es preciso especificar propiedades en la sección Format de la sección typeProperties. Ejemplo:
@@ -228,7 +228,7 @@ El conjunto de datos de entrada con el tipo JsonFormat se define de la siguiente
 Si no se define la estructura, la actividad de copia aplana la estructura de manera predeterminada y copia todos los elementos.
 
 #### Estructura JSON admitida
-Tenga en cuenta lo siguiente:
+Tenga en cuenta los siguientes puntos:
 
 - Cada objeto con una colección de pares nombre-valor se asigna a una fila de datos en formato de tabla. Es posible anidar objetos y puede definir cómo aplanar la estructura del conjunto de datos con el separador de anidado (.) de manera predeterminada. Consulte la sección anterior de [ejemplo de JsonFormat](#jsonformat-example).
 - Si no se define la estructura en el conjunto de datos de Data Factory, la actividad de copia detecta el esquema del primer objeto y aplana el objeto en su conjunto.
@@ -241,14 +241,29 @@ Si se establece el formato en OrcFormat, no es preciso especificar propiedades e
 
 	"format":
 	{
-	    "type": "OrcFormat",
+	    "type": "OrcFormat"
 	}
 
 > [AZURE.IMPORTANT] Si no va a copiar archivos ORC **como están** entre almacenes de datos locales y en la nube, debe instalar JRE 8 (Java Runtime Environment) en la máquina de puerta de enlace. Una puerta de enlace de 64 bits requiere JRE de 64 bits y una de 32 bits, JRE de 32 bits. Puede encontrar las dos versiones [aquí](http://go.microsoft.com/fwlink/?LinkId=808605). Elija la más adecuada.
 
-Tenga en cuenta lo siguiente:
+Tenga en cuenta los siguientes puntos:
 
 -	No se admiten tipos de daros complejos (STRUCT, MAP, LIST, UNION).
 -	El archivo ORC tiene tres [opciones relacionadas con la compresión](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB y SNAPPY. Data Factory admite la lectura de datos del archivo ORC en cualquiera de los formatos comprimidos. Se utiliza el códec de compresión en los metadatos para leer los datos. Sin embargo, al escribir en un archivo ORC, Data Factory elige ZLIB que es el valor predeterminado para ORC. Por el momento, no hay ninguna opción para invalidar este comportamiento.
 
-<!---HONumber=AcomDC_0907_2016-->
+### Especificación de ParquetFormat
+Si se establece el formato en ParquetFormat, no es preciso especificar propiedades en la sección Format de la sección typeProperties. Ejemplo:
+
+	"format":
+	{
+	    "type": "ParquetFormat"
+	}
+
+> [AZURE.IMPORTANT] Si no va a copiar archivos Parquet **como están** entre almacenes de datos locales y en la nube, debe instalar JRE 8 (Java Runtime Environment) en la máquina de puerta de enlace. Una puerta de enlace de 64 bits requiere JRE de 64 bits y una de 32 bits, JRE de 32 bits. Puede encontrar las dos versiones [aquí](http://go.microsoft.com/fwlink/?LinkId=808605). Elija la más adecuada.
+
+Tenga en cuenta los siguientes puntos:
+
+-	No se admiten tipos de daros complejos (MAP, LIST).
+-	El archivo Parquet tiene las siguientes opciones relacionadas con la compresión: NONE, SNAPPY, GZIP y LZO. Data Factory admite la lectura de datos del archivo ORC en cualquiera de los formatos comprimidos. Se utiliza el códec de compresión en los metadatos para leer los datos. Sin embargo, al escribir en un archivo Parquet, Data Factory elige SNAPPY que es el valor predeterminado para Parquet. Por el momento, no hay ninguna opción para invalidar este comportamiento.
+
+<!---HONumber=AcomDC_0928_2016-->

@@ -29,7 +29,7 @@ Todas las aplicaciones que utilicen el punto de conexión v2.0 tendrán que regi
 - Un **URI de redireccionamiento** que puede utilizarse para dirigir las respuestas de nuevo a la aplicación
 - Algunos otros valores específicos de cada escenario. Para más detalles, aprenda cómo [registrar una aplicación](active-directory-v2-app-registration.md).
 
-Una vez registrada, la aplicación se comunica con Azure AD mediante el envío de solicitudes al punto de conexión v2.0 de Azure Active Directory: Proporcionamos marcos y bibliotecas de código abierto que se encargan de los detalles de estas solicitudes; sin embargo, también puede implementar la lógica de autenticación personalmente creando solicitudes para estos puntos de conexión:
+Una vez registrada, la aplicación se comunica con Azure AD mediante el envío de solicitudes al punto de conexión v2.0 de Azure Active Directory. Proporcionamos marcos y bibliotecas de código abierto que se encargan de los detalles de estas solicitudes; sin embargo, también puede implementar la lógica de autenticación personalmente creando solicitudes para estos puntos de conexión:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
@@ -118,4 +118,4 @@ Muchas arquitecturas incluyen una API web que necesita llamar a otra API web de 
 
 Este escenario de API web encadenada puede admitirse mediante la concesión de credenciales de portador Jwt de OAuth 2.0, también conocido como el [flujo "en nombre de"](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow). Sin embargo, el flujo "en nombre de" no está implementado actualmente en el punto de conexión v2.0. Para ver cómo funciona este flujo en el servicio Azure AD, disponible con carácter general, consulte el [ejemplo de código "en nombre de" en GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -61,6 +61,7 @@ Por ahora, los servicios que admiten el traslado a un nuevo grupo de recursos y 
 - Caché en Redis
 - Programador
 - Search
+- Bus de servicio
 - Almacenamiento
 - Almacenamiento (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations).
 - Servidor de base de datos SQL: la base de datos y el servidor deben residir en el mismo grupo de recursos. Cuando se mueve un servidor SQL Server, se mueven también todas sus bases de datos.
@@ -257,4 +258,4 @@ En el cuerpo de la solicitud, especifique el grupo de recursos de destino y los 
 - Si desea conocer las funciones del portal que permiten administrar la suscripción, consulte [Uso del Azure Portal para implementar y administrar los recursos de Azure](./azure-portal/resource-group-portal.md).
 - Para aprender a aplicar una organización lógica a los recursos, consulte [Uso de etiquetas para organizar los recursos de Azure](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

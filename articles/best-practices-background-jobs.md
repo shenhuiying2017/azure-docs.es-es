@@ -318,7 +318,7 @@ Las tareas en segundo plano deben ofrecer un rendimiento suficiente como para as
 - [Ciclo de vida de inicio de roles de Azure](http://blog.syntaxc4.net/post/2011/04/13/windows-azure-role-startup-life-cycle.aspx) (entrada de blog)
 - [Ciclo de vida del rol de Servicios en la nube de Azure](http://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Windows-Azure-Cloud-Services-Role-Lifecycle) (vídeo)
 - [Introducción al SDK de WebJobs de Azure](./app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
-- [Colas de Azure y colas de Bus de servicio: comparación y diferencias](./service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- [Colas de Azure y colas de Bus de servicio: comparación y diferencias](./service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Cómo habilitar diagnósticos en un servicio en la nube](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

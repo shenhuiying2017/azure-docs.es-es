@@ -2,7 +2,9 @@
 
 Cada registro DNS tiene un nombre y un tipo. Los registros se organizan en distintos tipos según los datos que contengan. El tipo más común es un registro "A", que asigna un nombre a una dirección IPv4. Otro tipo es un registro "MX", que asigna un nombre a un servidor de correo.
 
-DNS de Azure es compatible con todos los tipos de registro DNS comunes:, incluidos A, AAAA, CNAME, MX, NS, SOA, SRV y TXT. Los conjuntos de registros SOA se crean automáticamente con cada zona. No se pueden crear por separado. Tenga en cuenta que los registros SPF deben crearse mediante el tipo de registro TXT. Para obtener más información, consulte [esta página](http://tools.ietf.org/html/rfc7208#section-3.1).
+DNS de Azure es compatible con todos los tipos de registro DNS comunes:, incluidos A, AAAA, CNAME, MX, NS, PTR, SOA, SRV y TXT. Observe lo siguiente:
+- Los conjuntos de registros SOA se crean automáticamente con cada zona; no se pueden crear por separado.
+- Los registros SPF deben crearse mediante el tipo de registro TXT. Para más información, consulte [esta página](http://tools.ietf.org/html/rfc7208#section-3.1).
 
 En DNS de Azure, los registros se especifican mediante el uso de nombres relativos. En un nombre de dominio "completo" (FQDN) se incluye el nombre de zona, mientras que uno "relativo", no. Por ejemplo, el nombre de registro relativo "www" de la zona "contoso.com" proporciona el nombre de registro completo "www.contoso.com".
 
@@ -23,10 +25,10 @@ El período de vida, o TTL, especifica durante cuánto tiempo los clientes almac
 
 DNS de Azure admite [registros de carácter comodín](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Estos se devuelven en cualquier consulta con un nombre coincidente (a menos que haya una coincidencia más próxima de un conjunto de registros que no sean de caracteres comodín). Los conjuntos de registros de carácter comodín son compatibles con todos los tipos de registro, excepto NS y SOA.
 
-Para crear un conjunto de registros comodín, utilice el nombre de conjunto de registros " * ". También puede usar un nombre con la etiqueta " * ", por ejemplo, "*.foo".
+Para crear un conjunto de registros comodín, utilice el nombre de conjunto de registros "*". También puede usar un nombre con la etiqueta "*", por ejemplo, "*.foo".
 
 #### Conjuntos de registros CNAME
 
 Los conjuntos de registros CNAME no pueden coexistir con otros conjuntos de registros que tienen el mismo nombre. Por ejemplo, no se puede crear un conjunto de registros CNAME con el nombre relativo "www" y un registro A con el nombre relativo "www" al mismo tiempo. Dado que el vértice de la zona (nombre = "@") siempre contiene los conjuntos de registros NS y SOA creados cuando se genera la zona, no podrá crear un conjunto de registros CNAME en el vértice de la zona. Estas restricciones surgen de los estándares DNS; no son limitaciones de DNS de Azure.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0928_2016-->

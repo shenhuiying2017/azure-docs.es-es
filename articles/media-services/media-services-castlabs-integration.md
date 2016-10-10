@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de castLabs para entregar licencias de Widevine a Servicios multimedia de Azure" 
+	pageTitle="Uso de castLabs para proporcionar licencias de Widevine a Azure Media Services | Microsoft Azure" 
 	description="En este artículo se describe cómo puede usar Servicios multimedia de Azure (AMS) para entregar una secuencia que se cifra dinámicamente por AMS con DRM tanto de PlayReady como Widevine. La licencia de PlayReady procede del servidor de licencias PlayReady de Servicios multimedia y la licencia de Widevine se entrega al servidor de licencias de castLabs." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="Mingfeiy;willzhan;Juliako"/>
 
 
@@ -62,7 +62,7 @@ SigningCredentials|La clave que se comparte entre el servidor de licencias de Pl
 
 En la tabla siguiente se describen los tokens JWT en castLabs.
 
-Nombre|Descripción
+Nombre|Description
 ---|---
 optData|Cadena JSON que contiene información sobre el usuario. 
 crt|Cadena JSON que contiene información sobre el activo, su información de licencia y derechos de reproducción.
@@ -122,4 +122,4 @@ Para reproducir un vídeo cifrado con cifrado común (PlayReady o Widevine), pue
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

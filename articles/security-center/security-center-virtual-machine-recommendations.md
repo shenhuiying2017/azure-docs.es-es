@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/04/2016"
+   ms.date="09/25/2016"
    ms.author="terrylan"/>
 
 # Protección de las máquinas virtuales en Azure Security Center
@@ -35,8 +35,10 @@ Este artículo aborda las recomendaciones sobre máquinas virtuales. Las recomen
 |[Habilitar el Agente de máquina virtual](security-center-enable-vm-agent.md)|Permite ver las VM que requieren el Agente de VM. El agente de máquina virtual debe estar instalado en las máquinas virtuales para aprovisionar la detección de revisiones, la detección de línea de base y los programas antimalware. De manera predeterminada, el agente de máquina virtual está instalado en las máquinas virtuales que se implementan desde Azure Marketplace. El artículo [VM Agent and Extensions – Part 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) (Agente de VM y extensiones, parte 2) proporciona información sobre cómo instalar el Agente de VM.|
 | [Aplicar cifrado de discos](security-center-apply-disk-encryption.md) |Se recomienda cifrar los discos de la máquina virtual mediante Cifrado de discos de Azure (máquinas virtuales Linux y Windows). Se recomienda cifrar tanto los volúmenes de datos como los del sistema operativo en la máquina virtual.|
 | [Actualizar versión del sistema operativo](security-center-update-os-version.md) | Recomienda actualizar la versión del sistema operativo para el servicio en la nube a la versión más reciente disponible para la familia del sistema operativo. Para obtener más información sobre los servicios en la nube, consulte la [información general sobre los servicios en la nube](../cloud-services/cloud-services-choose-me.md). |
+| [Evaluación de vulnerabilidades no instalada](security-center-vulnerability-assessment-recommendations.md) | Se recomienda instalar una solución de evaluación de vulnerabilidades en la máquina virtual. |
+| [Corrección de vulnerabilidades](security-center-vulnerability-assessment-recommendations.md#review-recommendation) | Permite ver las vulnerabilidades tanto del sistema como de las aplicaciones que ha detectado la solución de evaluación de vulnerabilidades instalada en la máquina virtual. |
 
-## Otras referencias
+## Consulte también
 
 Para obtener más información sobre las recomendaciones que se aplican a otros tipos de recursos de Azure, consulte los siguientes artículos:
 
@@ -50,4 +52,4 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 - [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
 - [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

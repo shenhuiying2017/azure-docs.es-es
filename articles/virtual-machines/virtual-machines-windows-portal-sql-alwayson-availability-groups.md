@@ -13,13 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/12/2016"
+	ms.date="09/22/2016"
 	ms.author="mikeray" />
 
 # Configuración automática de grupos de disponibilidad Always On de máquinas virtuales de Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [Azure Resource Manager: configuración automática](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager: plantilla](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 - [Azure Resource Manager: configuración manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 - [Portal de Azure clásico: interfaz de usuario](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [Portal de Azure clásico: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
@@ -87,7 +87,7 @@ Haga clic en **Basics** (Aspectos básicos) y configure las opciones siguientes:
 
 - **Contraseña** es la contraseña de la cuenta de administrador del dominio. Utilice una contraseña compleja. Confirme la contraseña.
 
-- **Suscripción** es la suscripción que Azure facturará por ejecutar todos los recursos implementados del grupo de disponibilidad. Puede especificar otra suscripción si la cuenta tiene varias suscripciones.
+- **Suscripción** es la suscripción que Azure facturará por ejecutar todos los recursos implementados para el grupo de disponibilidad. Puede especificar otra suscripción si la cuenta tiene varias.
 
 - **Grupo de recursos** es el nombre del grupo al que pertenecerán todos los recursos de Azure que se creen en este tutorial. Use **SQL-HA-RG** en este tutorial. Para obtener más información, consulte (información general del Administrador de recursos de Azure)[resource-group-overview.md/#resource-groups].
 
@@ -259,4 +259,4 @@ Ahora está conectado al controlador de dominio principal. Para la RDP a SQL Ser
 
 Ahora está conectado con RDP a SQL Server. Puede abrir SQL Server Management Studio, conectarse a la instancia predeterminada de SQL Server y comprobar que el grupo de disponibilidad está configurado.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

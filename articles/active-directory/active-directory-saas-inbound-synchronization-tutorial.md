@@ -4,7 +4,7 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
@@ -181,4 +181,4 @@ El objetivo de esta sección es describir cómo configurar Microsoft Azure AD pa
 
 Ahora puede ir a la sección **Usuarios** y comprobar si se importó el usuario de Workday.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

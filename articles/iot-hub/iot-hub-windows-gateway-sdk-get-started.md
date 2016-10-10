@@ -13,8 +13,8 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="04/20/2016"
-     ms.author="cstreet"/>
+     ms.date="08/25/2016"
+     ms.author="andbuc"/>
 
 
 # SDK de puerta de enlace de IoT (beta): introducción mediante Windows
@@ -33,7 +33,7 @@ Antes de comenzar, debe [configurar el entorno de desarrollo][lnk-setupdevbox] p
 
 1. El script **build.cmd** crea una carpeta llamada **build** en la copia local del repositorio. Esta carpeta contiene los dos módulos utilizados en este ejemplo.
 
-    El script de compilación coloca **logger\_hl.dll** en la carpeta **build\\modules\\logger\\Debug** y **hello\_world\_hl.dl** en la carpeta **build\\modules\\hello\_world\\Debug**. Utilice estas rutas de acceso para el valor de **ruta de acceso del módulo**, tal como se muestra en el archivo de configuración JSON siguiente.
+    El script de compilación coloca **logger\_hl.dll** en la carpeta **build\\modules\\logger\\Debug** y **hello\_world\_hl.dll** en la carpeta **build\\modules\\hello\_world\\Debug**. Utilice estas rutas de acceso para el valor de **ruta de acceso del módulo**, tal como se muestra en el archivo de configuración JSON siguiente.
 
 2. El archivo **hello\_world\_win.json** de la carpeta **samples\\hello\_world\\src** es un ejemplo de archivo de configuración JSON para Windows que puede usar para ejecutar el ejemplo. En el ejemplo de configuración JSON que se muestra a continuación se da por hecho que ha clonado el repositorio del SDK de puerta de enlace en la raíz de la unidad **C:**. Si lo ha descargado en otra ubicación, debe ajustar los valores de **ruta de acceso del módulo** en el archivo **samples\\hello\_world\\src\\hello\_world\_win.json** según corresponda.
 
@@ -58,6 +58,13 @@ Antes de comenzar, debe [configurar el entorno de desarrollo][lnk-setupdevbox] p
           "module path" : "C:\\azure-iot-gateway-sdk\\build\\\modules\\hello_world\\Debug\\hello_world_hl.dll",
           "args" : null
         }
+      ],
+      "links" :
+      [
+        {
+          "source": "hello_world",
+          "sink": "logger_hl"
+        }
       ]
     }
     ```
@@ -74,4 +81,4 @@ Antes de comenzar, debe [configurar el entorno de desarrollo][lnk-setupdevbox] p
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0928_2016-->

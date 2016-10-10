@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/06/2016"
+	ms.date="09/26/2016"
 	ms.author="spelluru"/>
 
 # Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop 
@@ -193,7 +193,7 @@ Mediante el Bloc de notas, cree un archivo denominado **input.log** en **c:\\adf
 
 Esta sección proporciona instrucciones sobre cómo usar la herramienta **AzCopy** para copiar archivos input.log y partitionweblogs.hql en Azure Blob Storage. Puede usar la herramienta que prefiera (por ejemplo: el [Explorador de Almacenamiento de Microsoft Azure](http://storageexplorer.com/) o [CloudXPlorer de ClumsyLeaf Software](http://clumsyleaf.com/products/cloudxplorer)) para realizar esta tarea.
 	 
-1. Descargue la [versión más reciente de **AzCopy**](http://aka.ms/downloadazcopypr) o la [versión más reciente de vista previa](http://aka.ms/downloadazcopy). Consulte el artículo [Uso de AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre cómo usar la utilidad.
+1. Descargue la [versión más reciente de [AzCopy](http://aka.ms/downloadazcopypr)](http://aka.ms/downloadazcopy) o la **versión más reciente de vista previa**. Consulte el artículo [Uso de AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre cómo usar la utilidad.
 2. Navegue hasta la carpeta c:\\adfgetstarted y ejecute el siguiente comando:
 
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy" /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storageaccesskey>  /Pattern:input.log
@@ -216,4 +216,12 @@ Esta sección proporciona instrucciones sobre cómo usar la herramienta **AzCopy
 	
 		AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storageaccesskey>  /Pattern:partitionweblogs.hql
 
-<!---HONumber=AcomDC_0921_2016-->
+Ha completado los requisitos previos. Puede crear una factoría de datos de una de las siguientes formas. Haga clic en una de las pestañas en la parte superior o en los vínculos siguientes para realizar el tutorial.
+
+- [Portal de Azure](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+- [API DE REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+
+<!---HONumber=AcomDC_0928_2016-->

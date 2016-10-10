@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -36,7 +36,7 @@ Existen dos casos de uso de SCIM en Azure Active Directory:
 
 Azure Active Directory puede configurarse para aprovisionar automáticamente a usuarios y grupos asignados a aplicaciones que implementan un servicio web de [sistema de administración de identidades entre dominios 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) y que aceptan tokens de portador de OAuth para la autenticación. Dentro de la especificación SCIM 2.0, las aplicaciones deben cumplir estos requisitos:
 
-* Admitir la creación de usuarios o grupos, según la sección 3.3 del protocolo SCIM.  
+* Admitir la creación de usuarios o grupos, según la sección 3.3 del protocolo SCIM.
 
 * Admitir la modificación de usuarios o grupos con solicitudes de revisión, según la sección 3.5.2 del protocolo SCIM.
 
@@ -65,13 +65,13 @@ Las aplicaciones que admiten el perfil SCIM descrito anteriormente se pueden con
 ![][2]
 
 4.	En la pantalla resultante, seleccione el segundo botón **Configurar aprovisionamiento de cuentas**.
-5.	En el campo **Dirección URL del extremo de aprovisionamiento**, escriba la dirección URL del punto de conexión SCIM de la aplicación.
+5.	En el campo ** Dirección URL del extremo de aprovisionamiento **, escriba la dirección URL del punto de conexión SCIM de la aplicación.
 6.	Si el punto de conexión SCIM requiere un token de portador OAuth de un emisor que no sea Azure AD, copie el token de portador OAuth necesario en el campo **Token de autenticación (opcional)**. Si se deja este campo en blanco, Azure AD incluirá un token de portador OAuth emitido desde Azure AD con cada solicitud. Las aplicaciones que usan Azure AD como un proveedor de identidades pueden validar este token emitido por Azure AD.
-7.	Haga clic en **Siguiente** y haga clic en el botón **Iniciar prueba** para que Azure Active Directory intente conectarse al punto de conexión SCIM. Si fallan los intentos, se mostrará la información de diagnóstico.  
+7.	Haga clic en **Siguiente** y haga clic en el botón **Iniciar prueba** para que Azure Active Directory intente conectarse al punto de conexión SCIM. Si fallan los intentos, se mostrará la información de diagnóstico.
 8.	Si los intentos de conexión a la aplicación tienen éxito, haga clic en **Siguiente** en las pantallas restantes y haga clic en **Completar** para salir del cuadro de diálogo.
 9.	En la pantalla resultante, seleccione el tercer botón **Asignar cuentas**. En la sección Usuarios o grupos resultante, asigne los usuarios o grupos que desee aprovisionar a la aplicación.
 10.	Una vez asignados los usuarios y grupos, haga clic en la pestaña **Configurar**, situada cerca de la parte superior de la pantalla.
-11.	En **Aprovisionamiento de cuentas**, confirme que el estado es activado. 
+11.	En **Aprovisionamiento de cuentas**, confirme que el estado es activado.
 12.	En **Herramientas**, haga clic en **Reiniciar aprovisionamiento de cuentas** para comenzar el proceso de aprovisionamiento.
 
 Tenga en cuenta que pueden transcurrir 5 o 10 minutos antes de que el proceso de aprovisionamiento empiece a enviar solicitudes al punto de conexión SCIM. Se proporciona un resumen de intentos de conexión en la pestaña Panel de la aplicación y se pueden descargar un informe de actividad de aprovisionamiento y cualquier error de aprovisionamiento en la pestaña Informes del directorio.
@@ -131,12 +131,12 @@ Es la manera más fácil de implementar un punto de conexión SCIM que puede ace
 ![][2]
 
 4.	En la pantalla resultante, seleccione el segundo botón **Configurar aprovisionamiento de cuentas**.
-5.	En el cuadro de diálogo, escriba la dirección URL expuesta a Internet y el puerto del punto de conexión SCIM. Esto podría ser algo como http://testmachine.contoso.com:9000 o http://<ip-address>: 9000 /, donde <ip-address> es la dirección IP expuesta a Internet.  
-6.	Haga clic en **Siguiente** y haga clic en el botón **Iniciar prueba** para que Azure Active Directory intente conectarse al punto de conexión SCIM. Si fallan los intentos, se mostrará la información de diagnóstico.  
+5.	En el cuadro de diálogo, escriba la dirección URL expuesta a Internet y el puerto del punto de conexión SCIM. Esto podría ser algo como http://testmachine.contoso.com:9000 o http://<ip-address>:9000/, donde <ip-address> es la dirección IP expuesta a Internet.
+6.	Haga clic en **Siguiente** y haga clic en el botón **Iniciar prueba** para que Azure Active Directory intente conectarse al punto de conexión SCIM. Si fallan los intentos, se mostrará la información de diagnóstico.
 7.	Si los intentos de conexión a su servicio web tienen éxito, haga clic en **Siguiente** en las pantallas restantes y haga clic en **Completar** para salir del cuadro de diálogo.
 8.	En la pantalla resultante, seleccione el tercer botón **Asignar cuentas**. En la sección Usuarios o grupos resultante, asigne los usuarios o grupos que desee aprovisionar a la aplicación.
 9.	Una vez asignados los usuarios y grupos, haga clic en la pestaña **Configurar**, situada cerca de la parte superior de la pantalla.
-10.	En **Aprovisionamiento de cuentas**, confirme que el estado es activado. 
+10.	En **Aprovisionamiento de cuentas**, confirme que el estado es activado.
 11.	En **Herramientas**, haga clic en **Reiniciar aprovisionamiento de cuentas** para comenzar el proceso de aprovisionamiento.
 
 Tenga en cuenta que pueden transcurrir 5 o 10 minutos antes de que el proceso de aprovisionamiento empiece a enviar solicitudes al punto de conexión SCIM. Se proporciona un resumen de intentos de conexión en la pestaña Panel de la aplicación y se pueden descargar un informe de actividad de aprovisionamiento y cualquier error de aprovisionamiento en la pestaña Informes del directorio.
@@ -374,8 +374,7 @@ Los recursos del grupo se identifican mediante el identificador de esquema http:
 
 La siguiente ilustración muestra los mensajes que Azure Active Directory enviará a un servicio SCIM para administrar el ciclo de vida de un usuario en otro almacén de identidades. El diagrama también muestra cómo un servicio SCIM implementado mediante las bibliotecas de Common Language Infrastructure proporcionadas por Microsoft para la creación de dichos servicios traducirá esas solicitudes a llamadas a los métodos de un proveedor.
 
-![][4]
-*Ilustración: Secuencia de aprovisionamiento y desaprovisionamiento de usuarios*
+![][4] *Ilustración: Secuencia de aprovisionamiento y desaprovisionamiento de usuarios*
 
 **1.** Azure Active Directory consultará el servicio para un usuario con un valor de atributo externalId que coincida con el valor de atributo mailNickname de un usuario en Azure Active Directory. La consulta se expresará como una solicitud de Protocolo de transferencia de hipertexto como esta, donde jyoung es un ejemplo de un mailNickname de un usuario en Azure Active Directory:
 
@@ -436,7 +435,7 @@ En el caso del ejemplo anterior de una consulta para un usuario con un valor esp
 * parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
 * parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
 * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
-* correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
+* correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"]
 
 **2.** Si la respuesta a una consulta al servicio para un usuario con un valor de atributo externalId que coincide con el valor de atributo mailNickname de un usuario en Azure Active Directory no devuelve ningún usuario, Azure Active Directory solicitará al servicio que aprovisione un usuario correspondiente a uno en Azure Active Directory. Este es un ejemplo de dicha solicitud:
 
@@ -678,12 +677,11 @@ El objeto proporcionado como el valor del argumento resourceIdentifier tendrá e
 
 La siguiente ilustración muestra los mensajes que Azure Active Directory enviará a un servicio SCIM para administrar el ciclo de vida de un grupo en otro almacén de identidades. Esos mensajes se diferencian de los mensajes que pertenecen a los usuarios de tres maneras:
 
-* El esquema de un recurso de grupo se identificará como http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
-* Las solicitudes para recuperar grupos estipulan que el atributo members se excluirá de cualquier recurso proporcionado en respuesta a la solicitud.  
-* Las solicitudes para determinar si un atributo de referencia tiene un valor determinado serán solicitudes sobre el atributo members.  
+* El esquema de un recurso de grupo se identificará como http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.
+* Las solicitudes para recuperar grupos estipulan que el atributo members se excluirá de cualquier recurso proporcionado en respuesta a la solicitud.
+* Las solicitudes para determinar si un atributo de referencia tiene un valor determinado serán solicitudes sobre el atributo members.
 
-![][5]
-*Ilustración: Secuencia de aprovisionamiento y desaprovisionamiento de usuarios*
+![][5] * Ilustración: Secuencia de aprovisionamiento y desaprovisionamiento de usuarios*
 
 ##Artículos relacionados
 
@@ -704,4 +702,4 @@ La siguiente ilustración muestra los mensajes que Azure Active Directory enviar
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0928_2016-->

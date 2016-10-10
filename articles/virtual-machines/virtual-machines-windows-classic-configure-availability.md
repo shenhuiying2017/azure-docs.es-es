@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Configuración de un conjunto de disponibilidad para máquinas virtuales con Windows en el modelo de implementación clásica
@@ -27,4 +27,4 @@
 
 Para conocer otros artículos acerca de las implementaciones clásicas, consulte [Artículos técnicos para máquinas virtuales de Windows en el modelo de implementación clásica](virtual-machines-windows-index.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -72,7 +72,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| Parámetro | ¿Necesario? | Descripción |
+| Parámetro | ¿Necesario? | Description |
 | ----------------------- | ------------------------------- | ----------------------- |
 | client\_id | Obligatorio | El identificador de aplicación que el [Portal de Azure](https://portal.azure.com) asignó a la aplicación. |
 | response\_type | Obligatorio | El tipo de respuesta, que debe incluir `code` para el flujo de código de autorización. |
@@ -95,7 +95,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...        // the auth
 &state=arbitrary_data_you_can_receive_in_the_response                // the value provided in the request
 ```
 
-| Parámetro | Descripción |
+| Parámetro | Description |
 | ----------------------- | ------------------------------- |
 | código | El authorization\_code que solicitó la aplicación. La aplicación puede usar el código de autorización para solicitar un elemento access\_token para un recurso de destino. Los elementos authorization\_code son de muy corta duración. Normalmente, caducan al cabo de unos 10 minutos. |
 | state | Vea la descripción completa en la tabla anterior. Si se incluye un parámetro de estado en la solicitud, debería aparecer el mismo valor en la respuesta. La aplicación debe comprobar que los valores de estado de la solicitud y la respuesta son idénticos. |
@@ -109,7 +109,7 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| Parámetro | Descripción |
+| Parámetro | Description |
 | ----------------------- | ------------------------------- |
 | error | Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
 | error\_description | Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error de autenticación. |
@@ -120,7 +120,7 @@ error=access_denied
 Ahora que ha adquirido un elemento authorization\_code, puede canjear el elemento `code` por un token al recurso deseado mediante el envío de una solicitud `POST` al punto de conexión `/token`. En Azure AD B2C, el único recurso para el que puede solicitar un token es la API web de back-end de la aplicación. La convención usada para solicitar un token para sí mismo es usar el identificador de cliente de la aplicación como ámbito:
 
 ```
-POST fabrikamb2c.onmicrosoft.com/v2.0/oauth2/token?p=b2c_1_sign_in HTTP/1.1
+POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -128,7 +128,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 ```
 
-| Parámetro | ¿Necesario? | Descripción |
+| Parámetro | ¿Necesario? | Description |
 | ----------------------- | ------------------------------- | --------------------- |
 | p | Obligatorio | La directiva usada para adquirir el código de autorización. No puede usar una directiva diferente en esta solicitud. Tenga en cuenta que este parámetro se agrega a la *cadena de consulta*, no al cuerpo de POST. |
 | client\_id | Obligatorio | El identificador de aplicación que el [Portal de Azure](https://portal.azure.com) asignó a la aplicación. |
@@ -149,7 +149,7 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 	"refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| Parámetro | Descripción |
+| Parámetro | Description |
 | ----------------------- | ------------------------------- |
 | not\_before | Hora a la que el token se considera válido, en tiempo de época. |
 | token\_type | El valor del tipo de token. El único tipo que admite Azure AD es portador. |
@@ -167,7 +167,7 @@ Las respuestas de error tendrán un aspecto similar al siguiente:
 }
 ```
 
-| Parámetro | Descripción |
+| Parámetro | Description |
 | ----------------------- | ------------------------------- |
 | error | Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
 | error\_description | Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error de autenticación. |
@@ -185,14 +185,14 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 Los tokens de acceso e identificación tienen una corta duración. Debe actualizarlos después de que caducan para que puedan seguir obteniendo acceso a los recursos. Para ello, envíe otra solicitud `POST` al punto de conexión `/token`. Esta vez, proporcione el elemento `refresh_token` en lugar del elemento `code`:
 
 ```
-POST fabrikamb2c.onmicrosoft.com/v2.0/oauth2/token?p=b2c_1_sign_in HTTP/1.1
+POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| Parámetro | ¿Necesario? | Descripción |
+| Parámetro | ¿Necesario? | Description |
 | ----------------------- | ------------------------------- | -------- |
 | p | Obligatorio | La directiva usada para adquirir el elemento refresh\_token original. No puede usar una directiva diferente en esta solicitud. Tenga en cuenta que este parámetro se agrega a la *cadena de consulta*, no al cuerpo de POST. |
 | client\_id | Recomendado | El identificador de aplicación que el [Portal de Azure](https://portal.azure.com) asignó a la aplicación. |
@@ -213,7 +213,7 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 	"refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| Parámetro | Descripción |
+| Parámetro | Description |
 | ----------------------- | ------------------------------- |
 | not\_before | Hora a la que el token se considera válido, en tiempo de época. |
 | token\_type | El valor del tipo de token. El único tipo que admite Azure AD es portador. |
@@ -231,7 +231,7 @@ Las respuestas de error tendrán un aspecto similar al siguiente:
 }
 ```
 
-| Parámetro | Descripción |
+| Parámetro | Description |
 | ----------------------- | ------------------------------- |
 | error | Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
 | error\_description | Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error de autenticación. |
@@ -244,4 +244,4 @@ Si quiere probar estas solicitudes por sí mismo, primero debe realizar estos tr
 - [Crear una aplicación](active-directory-b2c-app-registration.md) para obtener un identificador de aplicación y un elemento redirect\_uri. Es posible que desee incluir un **cliente nativo** en la aplicación.
 - [Crear directivas](active-directory-b2c-reference-policies.md) para obtener los nombres de las directivas.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

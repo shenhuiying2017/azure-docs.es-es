@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2016"
+   ms.date="09/21/2016"
    ms.author="terrylan"/>
 
 # Preguntas más frecuentes sobre el Centro de seguridad de Azure
@@ -121,10 +121,10 @@ Si necesita:
 ### ¿Qué recursos de Azure supervisa Azure Security Center?
 Azure Security Center supervisa los siguientes recursos de Azure:
 
-- Máquinas virtuales (incluidos los servicios en la nube)
+- Máquinas virtuales (se incluyen [Cloud Services](../cloud-services/cloud-services-choose-me.md))
 - Redes virtuales de Azure
 - Servicio de SQL Azure
-- Soluciones de asociados integradas con su suscripción de Azure, como un firewall de aplicaciones web
+- Soluciones de asociados integradas en su suscripción de Azure, como un firewall de aplicaciones web en las máquinas virtuales y en [App Service Environment](../app-service/app-service-app-service-environments-readme.md)
 
 ## Máquinas virtuales
 
@@ -141,9 +141,9 @@ Máquinas virtuales de Linux compatibles:
 
 - Versiones de Ubuntu 12.04, 14.04, 15.10, 16.04
 - Versiones de Debian 7, 8
-- Versiones de CentOS 6.\*, 7.*
-- Versiones de Red Hat Enterprise Linux (RHEL) 6.\*, 7.*
-- Versiones de SUSE Linux Enterprise Server (SLES) 11.\*, 12.*
+- Versiones de CentOS 6.*, 7.*
+- Versiones de Red Hat Enterprise Linux (RHEL) 6.*, 7.*
+- Versiones de SUSE Linux Enterprise Server (SLES) 11.*, 12.*
 
 También se admiten máquinas virtuales que se ejecuten en un servicio en la nube. Se supervisan los roles de web y de trabajo de servicios en la nube que se ejecutan en espacios de producción. Para aprender más sobre el servicio en la nube, consulte la [información general sobre los servicios en la nube](../cloud-services/cloud-services-choose-me.md).
 
@@ -159,4 +159,4 @@ Los datos de detección pueden tardar algún tiempo (normalmente, menos de una h
 
 El agente de máquina virtual debe instalarse en máquinas virtuales para habilitar la recopilación de datos. De manera predeterminada, el agente de máquina virtual está instalado en las máquinas virtuales que se implementan desde Azure Marketplace. La entrada de blog sobre [las extensiones y el agente de máquina virtual](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/) proporciona información sobre cómo instalar el Agente de máquina virtual.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

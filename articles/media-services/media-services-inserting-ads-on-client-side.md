@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Inserción de anuncios en el lado del cliente" 
-	description="Este tema muestra cómo insertar anuncios en el lado del cliente." 
+	pageTitle="Inserción de anuncios en el lado cliente | Microsoft Azure" 
+	description="Este tema muestra cómo insertar anuncios en el lado cliente." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 
-#Inserción de anuncios en el lado del cliente
+#Inserción de anuncios en el lado cliente
 
-Este tema contiene información sobre cómo insertar distintos tipos de anuncios en el lado del cliente.
+Este tema contiene información sobre cómo insertar distintos tipos de anuncios en el lado cliente.
 
 Para obtener información acerca de la compatibilidad con anuncios y subtítulos en vídeos de streaming en vivo, consulte [Estándares de inserción de anuncios y subtítulos compatibles](media-services-live-streaming-with-onprem-encoders.md#cc_and_ads).
 
@@ -813,4 +813,4 @@ El ejemplo siguiente muestra cómo programar un anuncio superpuesto de cuña int
 
 [Desarrollo de aplicaciones para reproductor de vídeo](media-services-develop-video-players.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

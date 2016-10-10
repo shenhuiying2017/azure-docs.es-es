@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="rest-api" 
     ms.topic="article" 
-    ms.date="06/14/2016" 
+    ms.date="09/23/2016" 
     ms.author="b-hoedid"/>
 
 # Notificaciones para los recursos de DocumentDB nuevos o modificados con Aplicaciones lógicas
@@ -404,7 +404,7 @@ Esta acción llama a la aplicación de API para controlar la conversión.
 	}   
 ```
 
-##### Respuesta
+##### Response
 
 ```JSON
 
@@ -483,7 +483,7 @@ El método llamado es **QueryForNewPatientDocuments**.
 	}
 ```
 
-##### Respuesta
+##### Response
 
 ```JSON
 
@@ -695,7 +695,7 @@ Si no está familiarizado con el uso de la API de blobs de Azure, consulte [Get 
 
 ```
 
-##### Respuesta
+##### Response
 
 ```JSON
 
@@ -812,7 +812,7 @@ Esta acción depende de la acción **GetDocuments**.
 
 ```
 
-##### Respuesta
+##### Response
 
 ```JSON
 
@@ -846,7 +846,7 @@ Por último, desea poder ver los resultados de la Aplicación lógica en el Port
 
 Esto devuelve el mismo valor que se envía en el cuerpo del correo electrónico. En la siguiente figura se muestra un ejemplo donde "Se encontraron 29 registros".
 
-![Resultados](./media/documentdb-change-notification/logic-app-run.png)
+![Results](./media/documentdb-change-notification/logic-app-run.png)
 
 ## Métricas
 Puede configurar la supervisión de la Aplicación lógica principal en el portal. Esto le permite ver la latencia de ejecución y otros eventos, como se muestra en la figura siguiente.
@@ -925,7 +925,7 @@ El desencadenador se establece para una periodicidad de veinticuatro horas. La a
 
 ```
 
-##### Respuesta
+##### Response
 
 ```JSON
 
@@ -1119,7 +1119,7 @@ Puede usar una herramienta como [postman](http://www.getpostman.com/) para proba
 
 En la tabla siguiente aparecen los parámetros de desencadenador que componen el cuerpo de la aplicación lógica del desencadenador DocDB.
 
-Parámetro | Descripción 
+Parámetro | Description 
 --- | --- 
 GetUtcDate\_HoursBack | Se utiliza para establecer el número de horas para la fecha de inicio de la búsqueda
 sendgridUsername | Se utiliza para establecer el número de horas para la fecha de inicio de la búsqueda
@@ -1156,4 +1156,4 @@ Descargue y use el código de la Aplicación lógica proporcionado en [Github](h
 
 Para obtener más información sobre DocumentDB, visite la [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

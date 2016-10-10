@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="08/29/2016"
+	ms.date="09/22/2016"
 	ms.author="heidist"/>
 
 #Búsqueda de Azure: ejemplos de código, demostraciones, vídeos y tutoriales
@@ -25,18 +25,19 @@ Póngase en marcha más rápidamente con los siguientes vídeos, demostraciones,
 
 - [**Código de ejemplo para el sitio de demostración: NYC Jobs Website**](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) proporciona el código fuente para el sitio de Búsqueda de Azure de demostración activo con datos de trabajos de NYC, con ASP.NET MVC.
 
+- [**Código de ejemplo para el sitio de demostración: Tate Art Gallery**](https://github.com/liamca/azure-search-tate-art-gallery/) proporciona el código fuente para el sitio de Azure Search de demostración en directo con datos de la galería de arte, que muestra el tipo de datos Collections y estructuras de datos anidados, facetas y filtros, nombres de personas e imágenes en miniatura.
+
 - El [**código de ejemplo para la biblioteca de cliente de .NET**](https://github.com/Azure-Samples/search-dotnet-getting-started) es una aplicación ASP.NET MVC 5 que usa la biblioteca de cliente de .NET en operaciones de búsqueda.
 
 - El [**código de ejemplo para la API de REST**](https://github.com/Azure-Samples/search-rest-api-getting-started) proporciona código de ejemplo que muestra cómo usar la API de REST.
 
 Todos los ejemplos de código anteriores pueden encontrarse en el repositorio de Github de ejemplos de Azure, junto con otros ejemplos que muestran cómo usar Búsqueda de Azure en situaciones determinadas: [**Ejemplos de Azure > Búsqueda de Azure**](https://github.com/azure-samples?utf8=%E2%9C%93&query=search).
 
-##Sitios de demostración
+## Sitios de demostración en línea
 
 Estos sitios son aplicaciones web totalmente funcionales que usan Búsqueda de Azure para la experiencia de búsqueda.
 
 [**Demo del portal de trabajos en la ciudad de Nueva York en Búsqueda de Azure**](http://aka.ms/azjobsdemo) es un sitio web activo de ASP.NET que muestra capacidades de Búsqueda de Azure con datos procedentes de NYC Open Data Initiative. Esta aplicación usa la [sintaxis de consulta simple](https://msdn.microsoft.com/library/azure/dn798920.aspx). Puede modificar el código para probar la [sintaxis de Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx).
-
 
 [**Sitio de demostración de Búsqueda de Azure**](https://searchsamples.azurewebsites.net/#/) es una colección de aplicaciones de demostración para Búsqueda de Azure. Realice una versión de prueba de aplicaciones de inventario de productos, búsqueda geográfica, búsqueda de elementos multimedia mediante Búsqueda de Azure.
 
@@ -90,4 +91,4 @@ Tutorial|Description
 [Tutorial de perfiles de puntuación](search-get-started-scoring-profiles.md)|Pruebe los perfiles de puntuación con una aplicación de consola.
 [Tutorial de la API de REST de administración de Búsqueda de Azure](search-get-started-management-api.md)|Cómo usar la API de REST de administración para aprovisionar el servicio y administrar claves de api de administrador o de consulta.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

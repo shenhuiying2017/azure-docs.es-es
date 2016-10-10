@@ -14,15 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/04/2016"
+   ms.date="09/24/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Autenticación a Almacenamiento de datos SQL de Azure
 
 > [AZURE.SELECTOR]
-- [Información general](sql-data-warehouse-connect-overview.md)
+- [Información general sobre seguridad](sql-data-warehouse-overview-manage-security.md)
 - [Autenticación](sql-data-warehouse-authentication.md)
-- [Controladores](sql-data-warehouse-connection-strings.md)
+- [Cifrado (Portal)](sql-data-warehouse-encryption-tde.md)
+- [Cifrado (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
 Para conectarse a Almacenamiento de datos SQL, debe transmitir las credenciales de seguridad para realizar la autenticación. Después de establecer una conexión, determinados valores de conexión se configuran como parte del establecimiento de la sesión de la consulta.
 
@@ -42,7 +43,7 @@ De forma predeterminada, su conexión se realiza a la base de datos *maestra* y 
 - Especificar la base de datos predeterminada al registrar el servidor con el Explorador de objetos de SQL Server en SSDT, SSMS o en la cadena de conexión de la aplicación. Por ejemplo, incluya el parámetro InitialCatalog para una conexión ODBC.
 - Resalte la base de datos de usuario antes de crear una sesión en SSDT.
 
-> [AZURE.NOTE] La instrucción **USE MyDatabase;** de Transact-SQL no se admite para cambiar la base de datos de una conexión. Para instrucciones sobre cómo conectarse a Almacenamiento de datos SQL con SSDT, consulte el artículo [Query with Visual Studio][] \(Realización de consultas con Visual Studio).
+> [AZURE.NOTE] La instrucción **USE MyDatabase;** de Transact-SQL no se admite para cambiar la base de datos de una conexión. Para instrucciones sobre cómo conectarse a Almacenamiento de datos SQL con SSDT, consulte el artículo [Query with Visual Studio][] (Realización de consultas con Visual Studio).
 
 ## Autenticación de Azure Active Directory (AAD)
 
@@ -82,7 +83,7 @@ Actualmente los usuarios de Azure Active Directory no se muestran en el Explorad
 
 ## Pasos siguientes
 
-Para empezar a realizar consultas en el almacenamiento de datos con Visual Studio y otras aplicaciones, consulte [Query with Visual Studio][] \(Realización de consultas con Visual Studio).
+Para empezar a realizar consultas en el almacenamiento de datos con Visual Studio y otras aplicaciones, consulte [Query with Visual Studio][] (Realización de consultas con Visual Studio).
 
 <!-- Article references -->
 [Proteger una base de datos en Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-manage-security.md
@@ -90,4 +91,4 @@ Para empezar a realizar consultas en el almacenamiento de datos con Visual Studi
 [What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 [Características y limitaciones de Azure AD]: ../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

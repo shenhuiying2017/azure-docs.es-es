@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -23,7 +23,7 @@ Si quiere actualizar desde DirSync, consulte en su lugar [Azure AD Connect: actu
 
 Hay algunas estrategias distintas para actualizar Azure AD Connect.
 
-Método | Descripción
+Método | Description
 --- | ---
 [Actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md) | Para clientes con una instalación rápida, este es el método más fácil.
 [Actualización local](#in-place-upgrade) | Si tiene un solo servidor, actualice la instalación en contexto en el mismo servidor.
@@ -85,4 +85,4 @@ Debe asegurarse de que la configuración sea la misma en ambos servidores:
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

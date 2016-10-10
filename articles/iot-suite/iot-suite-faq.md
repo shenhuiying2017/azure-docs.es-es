@@ -14,7 +14,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="06/27/2016"
+  ms.date="09/26/2016"
   ms.author="araguila"/>
    
 # Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT
@@ -60,7 +60,7 @@ En este momento, no se puede crear una solución preconfigurada con una cuenta d
 
 ### ¿Cómo se eliminan inquilinos de AAD?
 
-Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant] \(Tutorial para la eliminación de inquilinos de Azure AD).
+Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant] (Tutorial para la eliminación de inquilinos de Azure AD).
 
 ## Pasos siguientes
 
@@ -82,4 +82,4 @@ También puede explorar algunas de las demás características y funcionalidades
 [lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

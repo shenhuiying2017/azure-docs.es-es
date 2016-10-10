@@ -1,6 +1,6 @@
 <properties
  pageTitle="Configuración de un clúster de Windows RDMA para ejecutar aplicaciones de MPI | Microsoft Azure"
- description="Aprenda a crear un clúster de Windows HPC Pack con máquinas virtuales de tamaño A8 o A9 para usar la red RDMA de Azure para ejecutar aplicaciones de MPI."
+ description="Aprenda a crear un clúster de Windows HPC Pack con máquinas virtuales de tamaño H16r, H16mr, A8 o A9 para usar la red de RDMA de Azure para ejecutar aplicaciones de MPI."
  services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
@@ -13,41 +13,36 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="07/15/2016"
+ ms.date="09/20/2016"
  ms.author="danlep"/>
 
-# Configuración de un clúster de Windows RDMA con HPC Pack e instancias de A8 y A9 para ejecutar aplicaciones de MPI
+# Configuración de un clúster de Windows RDMA con HPC Pack para ejecutar aplicaciones MPI
 
-Configure un clúster de Windows RDMA en Azure con [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) e [instancias de proceso intensivo de tamaño A8 y A9](virtual-machines-windows-a8-a9-a10-a11-specs.md) para ejecutar aplicaciones de interfaz de paso de mensajes (MPI) paralelas. Al configurar instancias de tamaño A8 y A9 basadas en Windows Server para ejecutarlas en un clúster de HPC Pack, las aplicaciones de MPI se comunican eficazmente a través de una red de latencia baja y alto rendimiento en Azure basada en tecnología de acceso directo a memoria remota (RDMA).
+Configure un clúster de Windows RDMA en Azure con [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) e [instancias de la serie A de proceso intensivo o de la serie H](virtual-machines-windows-a8-a9-a10-a11-specs.md) para ejecutar aplicaciones de interfaz de paso de mensajes (MPI) paralelas. Cuando configura nodos basados en Windows Server compatibles con RDMA en un clúster de HPC Pack, las aplicaciones de MPI se comunican eficazmente a través de una red de latencia baja y rendimiento alto en Azure que está basada en tecnología de acceso directo a memoria remota (RDMA).
 
 Si desea ejecutar cargas de trabajo MPI en máquinas virtuales de Linux que tienen acceso a la red RDMA de Azure, consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones de MPI](virtual-machines-linux-classic-rdma-cluster.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Opciones de implementación de clústeres de HPC Pack
-Microsoft HPC Pack es una herramienta que se proporciona gratuitamente para crear clústeres HPC basados en Windows Server en Azure. HPC Pack incluye un entorno de tiempo de ejecución para la implementación de Microsoft de la interfaz de paso de mensajes para Windows (MS-MPI). Cuando se usan con instancias A8 y A9, HPC Pack es la forma más eficaz de ejecutar aplicaciones de MPI basadas en Windows que tienen acceso a la red RDMA de Azure.
+Microsoft HPC Pack es una herramienta gratuita para crear clústeres de HPC locales o en Azure para ejecutar aplicaciones HPC de Windows o Linux. HPC Pack incluye un entorno de tiempo de ejecución para la implementación de Microsoft de la interfaz de paso de mensajes para Windows (MS-MPI). Cuando se usa con instancias compatibles con RDMA que se ejecutan un sistema operativo Windows Server compatible, HPC Pack proporciona una opción eficaz para ejecutar aplicaciones de MPI de Windows que accedan a la red de RDMA de Azure.
 
-En este artículo se presentan dos escenarios y vínculos a instrucciones detalladas para implementar instancias A8 y A9 en clúster con Microsoft HPC Pack.
+En este artículo se presentan dos escenarios y vínculos a instrucciones detalladas para configurar un clúster de Windows RDMA con Microsoft HPC Pack.
 
 * Escenario 1. Implementación de instancias de rol de trabajo de proceso intensivo (PaaS)
 
 * Escenario 2. Implementación de nodos de proceso en máquinas virtuales de proceso intensivo (IaaS)
 
-## Requisitos previos
+Para ver los requisitos previos para usar instancias de proceso intensivo con Windows, consulte [Acerca de las máquinas virtuales de la serie H y A de proceso intensivo](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
-* **Consulte la [ información general y las consideraciones](virtual-machines-windows-a8-a9-a10-a11-specs.md)** sobre las instancias de proceso intensivo.
 
-* **Suscripción de Azure**: si no tiene ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/) en un par de minutos.
-
-* **Cuota de núcleos**: es posible que tenga que aumentar la cuota de núcleos para implementar un clúster de máquinas virtuales A8 o A9. Por ejemplo, necesitará al menos 128 núcleos si desea implementar instancias A8 o A9 con HPC Pack. Para aumentar una cuota, abra una [solicitud de soporte técnico al cliente en línea](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sin cargo alguno.
 
 ## Escenario 1. Implementación de instancias de rol de trabajo de proceso intensivo (PaaS)
 
-En un clúster de HPC Pack existente, agregue recursos de proceso adicionales en instancias de rol de trabajo de Azure (nodos de Azure) que se ejecutan en un servicio en la nube (PaaS). Esta característica de HPC Pack, también denominada "ráfaga a Azure", admite diferentes para las instancias de rol de trabajo. Para usar instancias de proceso intensivo, simplemente especifique un tamaño A8 o A9 al agregar los nodos de Azure.
+En un clúster de HPC Pack existente, agregue recursos de proceso adicionales en instancias de rol de trabajo de Azure (nodos de Azure) que se ejecutan en un servicio en la nube (PaaS). Esta característica de HPC Pack, también denominada "ráfaga a Azure", admite diferentes para las instancias de rol de trabajo. Al agregar los nodos de Azure, simplemente especifique uno de los tamaños compatibles con RDMA.
 
-Los siguientes son los pasos y consideraciones para enviar ráfagas a instancias de A8 o A9 de Azure desde un clúster existente (normalmente local). Use procedimientos similares para agregar instancias de rol de trabajo a un nodo principal de HPC Pack que se implementa en una máquina virtual de Azure.
+A continuación, se presentan consideraciones y pasos para enviar ráfagas a instancias de Azure compatibles con RDMA desde un clúster existente (normalmente, local). Use procedimientos similares para agregar instancias de rol de trabajo a un nodo principal de HPC Pack que se implementa en una máquina virtual de Azure.
 
->[AZURE.NOTE] Para ver un tutorial sobre cómo enviar ráfagas a Azure con HPC Pack, consulte [Configurar un clúster de proceso híbrido con Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Tenga en cuenta las consideraciones en los pasos siguientes que se aplican específicamente a los nodos de tamaño A8 y A9 de Azure.
+>[AZURE.NOTE] Para ver un tutorial sobre cómo enviar ráfagas a Azure con HPC Pack, consulte [Configurar un clúster de proceso híbrido con Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Tenga en cuenta las consideraciones en los pasos siguientes que se aplican específicamente a los nodos de Azure compatibles con RDMA.
 
 ![Ráfaga a Azure][burst]
 
@@ -55,15 +50,15 @@ Los siguientes son los pasos y consideraciones para enviar ráfagas a instancias
 
 4. **Implementación y configuración de un nodo principal de HPC Pack 2012 R2**
 
-    Descargue el paquete de instalación de HPC Pack más reciente del [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=49922). Para ver los requisitos y las instrucciones de preparación de una implementación de ráfaga de Azure, consulte [Guía de introducción de HPC Pack](https://technet.microsoft.com/library/jj884144.aspx) y [Burst to Azure Worker Instances with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx) (Ráfagas en instancias de trabajo de Azure con Microsoft HPC Pack).
+    Descargue el paquete de instalación de HPC Pack más reciente del [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=49922). Para ver los requisitos y las instrucciones de preparación de una implementación de ráfaga de Azure, consulte la [guía de introducción de HPC Pack](https://technet.microsoft.com/library/jj884144.aspx) y el artículo sobre [ráfagas a instancias de trabajo de Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
-5. **Configurar un certificado de administración en la suscripción a Azure**
+5. **Configuración de un certificado de administración en la suscripción de Azure**
 
-    Configure un certificado para proteger la conexión entre el nodo principal y Azure. Para ver las opciones y los procedimientos, consulte [Escenarios para configurar el certificado de administración de Azure para HPC Pack](http://technet.microsoft.com/library/gg481759.aspx). Para las implementaciones de prueba, HPC Pack instale un certificado de administración predeterminado de Microsoft HPC Azure que puede cargar rápidamente a su suscripción de Azure.
+    Configure un certificado para proteger la conexión entre el nodo principal y Azure. Para ver las opciones y los procedimientos, consulte [Escenarios para configurar el certificado de administración de Azure para HPC Pack](http://technet.microsoft.com/library/gg481759.aspx). Para las implementaciones de prueba, HPC Pack instala un certificado de administración predeterminado de Azure de Microsoft HPC que puede cargar rápidamente a su suscripción de Azure.
 
 6. **Crear un nuevo servicio en la nube y una cuenta de almacenamiento**
 
-    Use el Portal de Azure clásico para crear un servicio en la nube y una cuenta de almacenamiento para implementar en una región donde haya disponibles instancias de proceso intensivo.
+    Use el Portal de Azure clásico para crear un servicio en la nube y una cuenta de almacenamiento para la implementación en una región donde haya disponibles instancias compatibles con RDMA.
 
 7. **Crear una plantilla de nodo de Azure**
 
@@ -75,9 +70,9 @@ Los siguientes son los pasos y consideraciones para enviar ráfagas a instancias
 
     Use el Asistente para agregar nodos en el Administrador de clústeres de HPC. Para obtener más información, consulte [Agregar nodos de Azure al clúster de Windows HPC](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Add).
 
-    Al especificar el tamaño de los nodos, seleccione A8 o A9.
+    Cuando especifique el tamaño de los nodos, seleccione uno de los tamaños de instancia compatibles con RDMA.
     
-    >[AZURE.NOTE]En cada implementación de ráfaga a Azure con las instancias de proceso intensivo, HPC Pack implementa automáticamente un mínimo de 2 instancias de tamaño A8 como nodos proxy, además de las instancias de rol de trabajo de Azure que especifique. Los nodos proxy usan núcleos que se asignan a la suscripción y conllevan cargos junto con las instancias de rol de trabajo de Azure.
+    >[AZURE.NOTE]En cada implementación de ráfaga a Azure con las instancias de proceso intensivo, HPC Pack implementa automáticamente un mínimo de 2 instancias compatibles con RDMA (como A8) como nodos proxy, además de las instancias de rol de trabajo de Azure que especifique. Los nodos proxy usan núcleos que se asignan a la suscripción y conllevan cargos junto con las instancias de rol de trabajo de Azure.
 
 9. **Iniciar (aprovisionar) los nodos y conectarlos para ejecutar trabajos**
 
@@ -97,7 +92,7 @@ Los siguientes son los pasos y consideraciones para enviar ráfagas a instancias
 
 ## Escenario 2. Implementación de nodos de proceso en máquinas virtuales de proceso intensivo (IaaS)
 
-En este escenario, se implementa el nodo principal de HPC Pack y nodos de ejecución de clúster en máquinas virtuales unidas a un dominio de Active Directory en una red virtual de Azure. HPC Pack ofrece una serie de [opciones de implementación de VM de Azure](virtual-machines-linux-hpcpack-cluster-options.md), incluidos los scripts de implementación automatizados y las plantillas de inicio rápido de Azure. Por ejemplo, los siguientes pasos y consideraciones le guían sobre el uso del [script de implementación IaaS de HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) para automatizar la mayor parte de este proceso.
+En este escenario, se implementa el nodo principal de HPC Pack y nodos de ejecución de clúster en máquinas virtuales unidas a un dominio de Active Directory en una red virtual de Azure. HPC Pack ofrece una serie de [opciones de implementación de máquinas virtuales de Azure](virtual-machines-linux-hpcpack-cluster-options.md), incluidos los scripts de implementación automatizados y las plantillas de inicio rápido de Azure. Por ejemplo, los siguientes pasos y consideraciones lo guían en cuanto al uso del [script de implementación de IaaS de HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) para automatizar la mayor parte de este proceso.
 
 ![Clúster en máquinas virtuales de Azure][iaas]
 
@@ -111,13 +106,13 @@ En este escenario, se implementa el nodo principal de HPC Pack y nodos de ejecuc
 
     Para preparar el equipo cliente, crear el archivo de configuración del script y ejecutar el script, consulte [Creación de un clúster de HPC con el script de implementación de HPC Pack IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
     
-    Para implementar nodos de proceso de tamaño A8 y A9, tenga en cuenta las siguientes consideraciones adicionales:
+    Para implementar nodos de proceso compatibles con RDMA, tenga en cuenta las siguientes consideraciones adicionales:
     
-    * **Red virtual**: especifique una nueva red virtual en una región en la que estén disponibles las instancias A8 y A9.
+    * **Red virtual**: especifique una red virtual nueva en una región donde el tamaño de instancia compatible con RDMA que desee usar esté disponible.
 
-    * **Sistema operativo Windows Server**: para admitir la conectividad RDMA, especifique un sistema operativo Windows Server 2012 R2 o Windows Server 2012 para las máquinas virtuales de tamaño A8 o A9.
+    * **Sistema operativo Windows Server**: para admitir la conectividad RDMA, especifique un sistema operativo Windows Server 2012 R2 o Windows Server 2012 para las máquinas virtuales de nodo de proceso.
 
-    * **Servicios en la nube**: se recomienda implementar el nodo principal en un servicio en la nube y los nodos de proceso A8 y A9 en un servicio en la nube diferente.
+    * **Servicios en la nube**: se recomienda implementar el nodo principal en un servicio en la nube y los nodos de proceso en otro diferente.
 
     * **Tamaño de nodo principal**: en este caso, considere un tamaño de al menos A4 (extragrande) para el nodo principal.
 
@@ -139,11 +134,11 @@ En este escenario, se implementa el nodo principal de HPC Pack y nodos de ejecuc
 
 
 
-## Ejecución de aplicaciones de MPI en instancias A8 y A9
+## Ejecución de aplicaciones de MPI en el clúster
 
 ### Ejemplo: Ejecutar mpipingpong en un clúster de HPC Pack
 
-Para comprobar una implementación de HPC Pack en las instancias de proceso intensivo, ejecute el comando **mpipingpong** de HPC Pack en el clúster. **mpipingpong** envía repetidamente paquetes de datos entre nodos emparejados para calcular la latencia, la capacidad de proceso y las estadísticas de la red de la aplicación habilitada para RDMA. Este ejemplo muestra un patrón típico para ejecutar un trabajo MPI (en este caso, **mpipingpong**) mediante el uso del comando **mpiexec** del clúster.
+Para comprobar una implementación de HPC Pack en las instancias compatibles con RDMA, ejecute el comando **mpipingpong** de HPC Pack en el clúster. **mpipingpong** envía repetidamente paquetes de datos entre nodos emparejados para calcular la latencia, la capacidad de proceso y las estadísticas de la red de la aplicación habilitada para RDMA. Este ejemplo muestra un patrón típico para ejecutar un trabajo MPI (en este caso, **mpipingpong**) mediante el uso del comando **mpiexec** del clúster.
 
 En el ejemplo se da por hecho que agregó nodos de Azure en una configuración de "ráfaga a Azure" ([Escenario 1](#scenario-1.-deploy-compute-intensive-worker-role-instances-(PaaS)) en ese artículo). Si implementó HPC Pack en un clúster de máquinas virtuales de Azure, deberá modificar la sintaxis del comando para especificar un grupo de nodos diferente y establecer variables de entorno adicionales para dirigir el tráfico de red a la red RDMA.
 
@@ -203,12 +198,12 @@ Para ejecutar mpipingpong en el clúster:
 ### Consideraciones de las aplicaciones de MPI
 
 
-Las siguientes son consideraciones que hay que tener en cuenta para ejecutar aplicaciones de MPI en instancias de Azure. Algunas se aplican solo a las implementaciones de nodos de Azure (instancias de rol de trabajo agregadas a una configuración "ráfaga a Azure").
+Las siguientes son consideraciones que hay que tener en cuenta para ejecutar aplicaciones de MPI con HPC Pack en Azure. Algunas se aplican solo a las implementaciones de nodos de Azure (instancias de rol de trabajo agregadas a una configuración "ráfaga a Azure").
 
-* Azure reaprovisiona periódicamente y sin previo aviso las instancias de rol de trabajo en un servicio en la nube (por ejemplo, para el mantenimiento del sistema o en caso de errores en una instancia). Si se reaprovisiona una instancia mientras se ejecuta un trabajo de MPI, la instancia pierde todos sus datos y vuelve al estado que tenía cuando se implementó por primera vez, lo que puede provocar un error en el trabajo de MPI. Cuantos más nodos use para un solo trabajo de MPI y más tiempo se ejecute el trabajo, más probable es que una de las instancias se reaprovisione mientras se está ejecutando un trabajo. También debe considerar si designa un solo nodo en la implementación como servidor de archivos.
+* Azure reaprovisiona periódicamente y sin previo aviso las instancias de rol de trabajo en un servicio en la nube (por ejemplo, para el mantenimiento del sistema o en caso de errores en una instancia). Si se reaprovisiona una instancia mientras se ejecuta un trabajo de MPI, la instancia pierde sus datos y vuelve al estado que tenía cuando se implementó por primera vez, lo que puede provocar un error en el trabajo de MPI. Cuantos más nodos use para un solo trabajo de MPI y más tiempo se ejecute el trabajo, más probable es que una de las instancias se reaprovisione mientras se está ejecutando un trabajo. También debe considerar si designa un solo nodo en la implementación como servidor de archivos.
 
 
-* No tiene que usar las instancias A8 y A9 para ejecutar trabajos de MPI en Azure. Puede usar cualquier tamaño de instancia admitido por HPC Pack. Sin embargo, se recomiendan las instancias A8 y A9 para ejecutar trabajos de MPI relativamente grandes que sean sensibles a la latencia y al ancho de banda de la red que conecta los nodos. Si usa instancias que no sean A8 y A9 para ejecutar trabajos de MPI sensibles a la latencia y al ancho de banda, se recomienda ejecutar trabajos pequeños en los que una sola tarea se ejecuta solo en unos pocos nodos.
+* Para ejecutar trabajos de MPI en Azure, no tiene que usar las instancias compatibles con RDMA. Puede usar cualquier tamaño de instancia admitido por HPC Pack. Sin embargo, se recomiendan las instancias compatibles con RDMA para ejecutar trabajos de MPI relativamente grandes que sean sensibles a la latencia y al ancho de banda de la red que conecta los nodos. Si usa otros tamaños para ejecutar trabajos de MPI sensibles a la latencia y al ancho de banda, se recomienda ejecutar trabajos pequeños, en los que una sola tarea se ejecuta solo en unos pocos nodos.
 
 * Las aplicaciones implementadas en instancias de Azure están sujetas a los términos de licencias asociados a la aplicación. Póngase en contacto con el proveedor de cualquier aplicación comercial para obtener información acerca de las licencias u otras restricciones para la ejecución en la nube. No todos los proveedores ofrecen licencias de pago por uso.
 
@@ -233,7 +228,7 @@ Las siguientes son consideraciones que hay que tener en cuenta para ejecutar apl
 
 ## Pasos siguientes
 
-* Como alternativa al uso de HPC Pack, desarrolle con el servicio de Lote de Azure para ejecutar aplicaciones MPI en los grupos administrados de nodos de proceso de Azure. Consulte [Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Lote de Azure](../batch/batch-mpi.md).
+* Como alternativa al uso de HPC Pack, desarrolle con el servicio de Lote de Azure para ejecutar aplicaciones MPI en los grupos administrados de nodos de proceso de Azure. Consulte [Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Azure Batch](../batch/batch-mpi.md).
 
 * Si desea ejecutar aplicaciones de Linux MPI que tienen acceso a la red RDMA de Azure, consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones de MPI](virtual-machines-linux-classic-rdma-cluster.md).
 
@@ -243,4 +238,4 @@ Las siguientes son consideraciones que hay que tener en cuenta para ejecutar apl
 [pingpong1]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/pingpong2.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

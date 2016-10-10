@@ -3,7 +3,7 @@
    description="Solución de problemas de implementación de Resource Manager cuando crea una nueva máquina virtual de Linux en Azure"
    services="virtual-machines-linux, azure-resource-manager"
    documentationCenter=""
-   authors="jiangchen79"
+   authors="JiangChen79"
    manager="felixwu"
    editor=""
    tags="top-support-issue, azure-resource-manager"/>
@@ -82,4 +82,4 @@ Este error se produce en situaciones en las que la nueva solicitud de máquina v
 ## Pasos siguientes
 Si tiene problemas al iniciar una máquina virtual Linux detenida o al cambiar el tamaño de una máquina virtual Linux existente en Azure, consulte [Solución de problemas de la implementación de Resource Manager con el reinicio o el cambio de tamaño de una máquina virtual de Linux existente en Azure](virtual-machines-linux-restart-resize-error-troubleshooting.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

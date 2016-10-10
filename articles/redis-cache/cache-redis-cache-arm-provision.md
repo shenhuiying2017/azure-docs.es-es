@@ -4,7 +4,7 @@
 	services="app-service" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="Erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/12/2016" 
+	ms.date="09/27/2016" 
 	ms.author="sdanie"/>
 
 # Creación de una Caché en Redis mediante una plantilla
 
-En este tema, aprenderá a crear una plantilla de Administrador de recursos de Azure que implementa Caché en Redis de Azure. La memoria caché se puede usar con una cuenta de almacenamiento existente para mantener los datos de diagnóstico. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
+En este tema, aprenderá a crear una plantilla de Azure Resource Manager que implementa Azure Redis Cache. La memoria caché se puede usar con una cuenta de almacenamiento existente para mantener los datos de diagnóstico. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
 Actualmente, se comparten los ajustes de configuración de diagnóstico para todas las cachés de la misma región para una suscripción. Actualizar una caché en la región afectará a todas las demás cachés de la región.
 
@@ -26,7 +26,7 @@ Para obtener más información sobre la creación de plantillas, consulte [Creac
 
 Para ver la plantilla completa, consulte [Plantilla Caché en Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
 
->[AZURE.NOTE] Las plantillas ARM para el nuevo [nivel Premium](cache-premium-tier-intro.md) están disponibles.
+>[AZURE.NOTE] Las plantillas de Resource Manager para el nuevo [nivel Premium](cache-premium-tier-intro.md) están disponibles.
 >
 >-    [Crear una caché en Redis Premium con agrupación en clústeres](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
 >-    [Crear una caché en Redis Premium con persistencia de datos](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
@@ -44,15 +44,14 @@ Para ejecutar automáticamente la implementación, haga clic en el botón siguie
 
 ## Parámetros
 
-Con el Administrador de recursos de Azure, se definen los parámetros de los valores que desea especificar al implementar la plantilla. La plantilla incluye una sección denominada Parámetros que contiene todos los valores de los parámetros. Debe definir un parámetro para los valores que variarán según el proyecto que vaya a implementar o según el entorno en el que vaya a realizar la implementación. No defina parámetros para valores que vayan a permanecer igual. Cada valor de parámetro se usa en la plantilla para definir los recursos que se implementan.
+Con el Administrador de recursos de Azure, se definen los parámetros de los valores que desea especificar al implementar la plantilla. La plantilla incluye una sección denominada Parámetros que contiene todos los valores de los parámetros. Debe definir un parámetro para esos valores que variarán según el proyecto que vaya a implementar o según el entorno en el que vaya a realizar la implementación. No defina parámetros para valores que siempre permanezcan igual. Cada valor de parámetro se usa en la plantilla para definir los recursos que se implementan.
 
-Vamos a describir cada parámetro de la plantilla.
 
 [AZURE.INCLUDE [app-service-web-deploy-redis-parameters](../../includes/cache-deploy-parameters.md)]
 
 ### redisCacheLocation
 
-La ubicación de Caché en Redis. Para un mejor rendimiento, utilice la misma ubicación que la aplicación que se usará con la memoria caché.
+La ubicación de Redis Cache. Para un mejor rendimiento, utilice la misma ubicación que la aplicación que se usará con la memoria caché.
 
     "redisCacheLocation": {
       "type": "string"
@@ -124,6 +123,7 @@ Crea Caché en Redis de Azure.
     }
 
 
+
 ## Comandos para ejecutar la implementación
 
 [AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
@@ -136,4 +136,4 @@ Crea Caché en Redis de Azure.
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

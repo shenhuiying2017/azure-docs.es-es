@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="09/27/2016"
 	ms.author="larryfr"/>
 
 
@@ -47,7 +47,7 @@ Los clústeres de HDInsight basado en Linux proporcionan un conjunto de ejemplos
 - **aggregatewordcount**: programa de asignación/reducción basado en agregación que cuenta las palabras de los archivos de entrada.
 - **aggregatewordhist**: programa de asignación/reducción basado en agregación que calcula el histograma de las palabras de los archivos de entrada.
 - **bbp**: programa de asignación/reducción que usa una fórmula Bailey-Borwein-Plouffe para calcular los dígitos exactos de Pi.
-- **dbcount**: trabajo de ejemplo que cuenta los recuentos de vistas de página desde una base de datos.
+- **dbcount**: trabajo de ejemplo que cuenta los registros de vistas de página almacenados en una base de datos.
 - **distbbp**: programa de asignación/reducción que usa una fórmula de tipo BBP para calcular los bits exactos de Pi.
 - **grep**: programa de asignación/reducción que cuenta las coincidencias de una regex en la entrada.
 - **join**: trabajo que efectúa una unión de conjuntos de datos ordenados con particiones equiparables.
@@ -83,7 +83,7 @@ Los clústeres de HDInsight basado en Linux proporcionan un conjunto de ejemplos
 
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
 
-    Esto generará la lista de ejemplos de la sección anterior de este documento.
+    Esto genera la lista de ejemplos de la sección anterior de este documento.
 
 3. Use el siguiente comando para obtener ayuda sobre un ejemplo concreto. En este caso, el ejemplo **wordcount**:
 
@@ -93,7 +93,7 @@ Los clústeres de HDInsight basado en Linux proporcionan un conjunto de ejemplos
 
         Usage: wordcount <in> [<in>...] <out>
 
-    Esto indica que puede proporcionar varias rutas de acceso de entrada para los documentos de origen y la última ruta de acceso es donde se ubicará la salida (recuento de palabras en los documentos de origen).
+    Esto indica que puede proporcionar varias rutas de entrada para los documentos de origen. La ruta de acceso final es donde se almacena la salida (la cantidad de palabras en los documentos de origen).
 
 4. Use lo siguiente para contar todas las palabras en los cuadernos de Leonardo Da Vinci, que se proporcionan como datos de ejemplo con su clúster:
 
@@ -101,7 +101,7 @@ Los clústeres de HDInsight basado en Linux proporcionan un conjunto de ejemplos
 
     La entrada de este trabajo se lee desde **wasbs:///example/data/gutenberg/davinci.txt**.
 
-    La salida de este ejemplo se almacenará en **wasbs:///example/data/davinciwordcount**.
+    La salida de este ejemplo se almacena en **wasbs:///example/data/davinciwordcount**.
 
     > [AZURE.NOTE] Como se indica en la Ayuda del ejemplo wordcount, también puede especificar varios archivos de entrada. Por ejemplo, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` contaría las palabras de davinci.txt y ulysses.txt.
 
@@ -111,7 +111,7 @@ Los clústeres de HDInsight basado en Linux proporcionan un conjunto de ejemplos
 
     Esto concatena todos los archivos de salida generados por el trabajo y los muestra. Para este ejemplo básico solo hay un archivo; sin embargo, si hubiera más, este comando podría iterarse para todos ellos.
 
-    Verá un resultado similar al siguiente con este comando:
+    La salida será similar a la siguiente:
 
         zum     1
         zur     1
@@ -236,4 +236,4 @@ En este artículo, ha obtenido información acerca de cómo ejecutar los ejemplo
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

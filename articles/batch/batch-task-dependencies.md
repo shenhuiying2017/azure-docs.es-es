@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="06/29/2016"
+	ms.date="09/28/2016"
 	ms.author="marsma" />
 
 # Dependencias de tareas en Lote de Azure
@@ -24,13 +24,13 @@ La característica de dependencias de tareas de Lote de Azure es muy útil si de
 - Trabajos cuyas tareas de procesamiento de datos se pueden expresar como un gráfico acíclico dirigido (DAG).
 - Cualquier otro trabajo en el que las tareas que siguen en la cadena dependen de las tareas que preceden en la cadena.
 
-Con esta característica se pueden crear tareas cuya ejecución está programadas en los nodos de proceso únicamente después de la finalización correcta de una o varias tareas. Por ejemplo, puede crear un trabajo que represente cada fotograma de una película 3D con una tarea independiente y paralela. La última tarea (la "tarea de combinación") no combina los fotogramas representados para crear la película completa hasta que todos los fotogramas se hayan representado correctamente.
+Las dependencias de la tarea de Batch les permiten crear tareas que están programadas para su ejecución en los nodos de proceso únicamente después de la finalización correcta de una o más tareas. Por ejemplo, puede crear un trabajo que represente cada fotograma de una película 3D con una tarea independiente y paralela. La última tarea (la "tarea de combinación") no combina los fotogramas representados para crear la película completa hasta que todos los fotogramas se hayan representado correctamente.
 
 Puede crear tareas que dependan de otras en una relación de una a una o una a varias. Incluso puede crear una dependencia de intervalo, en la que una tarea depende de la finalización correcta de un grupo de tareas dentro de un intervalo de identificadores de tarea específico. Puede combinar estos tres escenarios básicos para crear relaciones de varios a varios.
 
 ## Dependencias de tareas con Lote de .NET
 
-En este artículo se describe cómo configurar las dependencias de tareas mediante la biblioteca de [.NET de Lote][net_msdn]. En primer lugar, se mostrará cómo [habilitar la dependencia de tareas](#enable-task-dependencies) en los trabajos y, después, se mostrará sucintamente cómo [configurar una tarea con dependencias](#create-dependent-tasks). Por último, se tratarán los [escenarios de dependencia](#dependency-scenarios) compatibles con Lote.
+En este artículo se describe cómo configurar las dependencias de tareas mediante la biblioteca de [.NET de Lote][net_msdn]. Primero le mostraremos cómo [habilitar la dependencia de tareas](#enable-task-dependencies) en sus trabajos y, después, le demostraremos cómo [configurar una tarea con dependencias](#create-dependent-tasks). Por último, se tratarán los [escenarios de dependencia](#dependency-scenarios) compatibles con Lote.
 
 ## Habilitación de dependencias de tareas
 
@@ -143,7 +143,7 @@ La característica [paquetes de aplicación](batch-application-packages.md) de L
 
 ### Instalación de aplicaciones y datos de ensayo
 
-Consulte el artículo [Installing applications and staging data on Batch compute nodes][forum_post] \(Instalación de aplicaciones y realización de copias intermedias de datos en los nodos de proceso de Lote) en el foro de Lote de Azure para ver información general sobre los diversos métodos de preparación de los nodos para que ejecuten tareas. Este artículo lo ha escrito uno de los miembros del equipo de Lote de Azure y constituye una buena toma de contacto con las diferentes maneras de introducir archivos (tanto aplicaciones como datos de entrada de tareas) en los nodos de proceso. Aporta algunas consideraciones especiales que se deben tener en cuenta para cada método.
+Consulte el artículo [Installing applications and staging data on Batch compute nodes][forum_post] (Instalación de aplicaciones y realización de copias intermedias de datos en los nodos de proceso de Lote) en el foro de Lote de Azure para ver información general sobre los diversos métodos de preparación de los nodos para que ejecuten tareas. Este artículo lo ha escrito uno de los miembros del equipo de Lote de Azure y constituye una buena toma de contacto con las diferentes maneras de introducir archivos (tanto aplicaciones como datos de entrada de tareas) en los nodos de proceso.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/es-ES/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
@@ -166,4 +166,4 @@ Consulte el artículo [Installing applications and staging data on Batch compute
 [2]: ./media/batch-task-dependency/02_one_to_many.png "Diagrama: dependencia uno a varios"
 [3]: ./media/batch-task-dependency/03_task_id_range.png "Diagrama: dependencia de intervalo de id. de tarea"
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

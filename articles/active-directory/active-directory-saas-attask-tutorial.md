@@ -19,8 +19,7 @@
 
 # Tutorial: Integración de Azure Active Directory con @Task
 
-El objetivo de este tutorial es mostrar cómo integrar @Task con Azure Active Directory (Azure AD).  
-Integrar @Task con Azure AD proporciona las siguientes ventajas:
+El objetivo de este tutorial es mostrar cómo integrar @Task con Azure Active Directory (Azure AD). Integrar @Task con Azure AD proporciona las siguientes ventajas:
 
 - Puede controlar en Azure AD quién tiene acceso a @Task.
 - Puede permitir que los usuarios inicien sesión automáticamente en @Task (inicio de sesión único) con sus cuentas de Azure AD.
@@ -46,8 +45,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
  
 ## Descripción del escenario
-El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba.  
-El escenario descrito en este tutorial consta de tres bloques de creación principales:
+El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de tres bloques de creación principales:
 
 1. Adición de @Task desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -147,7 +145,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     e. En el Portal de Azure clásico, copie el valor de **Cambiar dirección URL de contraseña** y péguelo en el cuadro de texto **Cambiar dirección URL de contraseña**.
 
-    e. Haga clic en **Save**.
+    f. Haga clic en **Guardar**.
 
 6. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
 
@@ -275,8 +273,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 
 ### Prueba del inicio de sesión único
 
-El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.  
-Al hacer clic en el icono de @Task en el panel de acceso, debería iniciar sesión automáticamente en su aplicación @Task.
+El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso. Al hacer clic en el icono de @Task en el panel de acceso, debería iniciar sesión automáticamente en su aplicación @Task.
 
 
 ## Recursos adicionales
@@ -314,4 +311,4 @@ Al hacer clic en el icono de @Task en el panel de acceso, debería iniciar sesi�
 [204]: ./media/active-directory-saas-attask-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-attask-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

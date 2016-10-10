@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Conversión de la unidad D de una máquina virtual en un disco de datos | Microsoft Azure"
+	pageTitle="Conversión de la unidad D: de una máquina virtual en un disco de datos | Microsoft Azure"
 	description="Se describe cómo cambiar las letras de unidad de una máquina virtual de Windows para poder usar la unidad D: como unidad de datos."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
-# Uso de la unidad de disco D como unidad de datos en una máquina virtual de Windows 
+# Uso de la unidad de disco D: como unidad de datos en una máquina virtual Windows 
 
 Si su aplicación necesita usar la unidad D para almacenar datos, siga estas instrucciones para usar una unidad distinta para el disco temporal. Nunca use el disco temporal para almacenar los datos que desee conservar.
 
@@ -111,4 +111,4 @@ En primer lugar, deberá conectar el disco de datos a la máquina virtual.
 ## Pasos siguientes
 - Puede aumentar el almacenamiento disponible para la máquina virtual [conectando un disco de datos adicional](virtual-machines-windows-attach-disk-portal.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

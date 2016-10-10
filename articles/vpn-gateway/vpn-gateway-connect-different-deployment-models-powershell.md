@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/23/2016"
    ms.author="cherylmc" />
 
 # Conexión de redes virtuales a partir de diferentes modelos de implementación con PowerShell
@@ -24,8 +24,7 @@
 
 Actualmente, Azure tiene dos modelos de administración: el clásico y el de Resource Manager (RM). Si lleva un tiempo usando Azure, es probable que tenga máquinas virtuales de Azure y roles de instancia que se ejecuten en una red virtual clásica. Es posible que sus máquinas virtuales e instancias de roles más recientes se estén ejecutando en una red virtual creada en Resource Manager. Este artículo le guiará a través de la conexión de redes virtuales clásicas a redes virtuales de Resource Manager para permitir que los recursos que se encuentran en modelos de implementación independientes se comuniquen entre sí mediante una conexión de puerta de enlace.
 
-Puede crear una conexión entre redes virtuales que estén en diferentes suscripciones, en diferentes regiones y en diferentes modelos de implementación. También puede conectar redes virtuales que tengan ya conexiones a redes locales, siempre que la puerta de enlace con la que se hayan configurado sea dinámica o basada en ruta. Para más información acerca de las conexiones de red virtual a red virtual, consulte [P+F sobre conexiones de red virtual a red virtual](#faq) al final de este artículo.
-[AZURE.INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
+Puede crear una conexión entre redes virtuales que estén en diferentes suscripciones, en diferentes regiones y en diferentes modelos de implementación. También puede conectar redes virtuales que tengan ya conexiones a redes locales, siempre que la puerta de enlace con la que se hayan configurado sea dinámica o basada en ruta. Para más información acerca de las conexiones de red virtual a red virtual, consulte [P+F sobre conexiones de red virtual a red virtual](#faq) al final de este artículo. [AZURE.INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 ## Antes de comenzar
 
@@ -39,7 +38,7 @@ Antes de comenzar, compruebe lo siguiente:
 
 ### <a name="exampleref"></a>Configuración de ejemplo
 
-Puede usar la configuración de ejemplo como referencia al usar los cmdlets de PowerShell en los pasos siguientes.
+Puede usar la configuración de ejemplo como referencia al usar los cmdlets de PowerShell.
 
 **Configuración de redes virtuales clásicas**
 
@@ -47,20 +46,20 @@ Nombre de red virtual = ClassicVNet <br> Ubicación = oeste de EE. UU. (West US)
 
 **Configuración de redes virtuales de Resource Manager**
 
-Nombre de red virtual = RMVNet <br> Grupo de recursos = RG1 <br> Espacios de direcciones IP de red virtual = 192.168.1.0/16 <br> Subnet -1 = 192.168.1.0/24 <br> GatewaySubnet = 192.168.0.0/26 <br> Ubicación = este de EE. UU. (East US) <br> Nombre de IP público de puerta de enlace = gwpip <br> Puerta de enlace de red local = ClassicVNetLocal <br> Nombre de puerta de enlace de red virtual = RMGateway <br> Configuración de direccionamiento IP de puerta de enlace = gwipconfig
+Nombre de red virtual = RMVNet <br> Grupo de recursos = RG1 <br> Espacios de direcciones IP de red virtual = 192.168.0.0/16 <br> Subnet -1 = 192.168.1.0/24 <br> GatewaySubnet = 192.168.0.0/26 <br> Ubicación = este de EE. UU. (East US) <br> Nombre de IP público de puerta de enlace = gwpip <br> Puerta de enlace de red local = ClassicVNetLocal <br> Nombre de puerta de enlace de red virtual = RMGateway <br> Configuración de direccionamiento IP de puerta de enlace = gwipconfig
 
 
 ## <a name="createsmgw"></a>Sección 1: configuración de la red virtual clásica
 
 ### Parte 1: exportación del archivo de configuración de red
 
-1. Inicie sesión en su cuenta de Azure en la consola de PowerShell. El cmdlet le pedirá las credenciales de inicio de sesión para la cuenta de Azure. Después de iniciar la sesión, se descarga la configuración de la cuenta a fin de ponerla a disposición para Azure PowerShell. Va a usar los cmdlets de PowerShell de SM para completar esta parte de la configuración.
+1. Inicie sesión en su cuenta de Azure en la consola de PowerShell con derechos elevados. El siguiente cmdlet pide las credenciales de inicio de sesión de la cuenta de Azure. Después de iniciar la sesión, se descarga la configuración de la cuenta a fin de ponerla a disposición para Azure PowerShell. Va a usar los cmdlets de PowerShell de SM para completar esta parte de la configuración.
 
 		Add-AzureAccount
 
 2. Exporte el archivo de configuración de red de Azure mediante la ejecución del comando siguiente. Puede cambiar la ubicación del archivo que se va a exportar a una ubicación diferente si es necesario. Editará el archivo y lo importará a Azure.
 
-		Get-AzureVNetConfig -ExportToFile c:\AzureNet\NetworkConfig.xml
+		Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 
 3. Abra el archivo .xml que ha descargado para editarlo. Para obtener un ejemplo del archivo de configuración de red, consulte [Esquema de configuración de red virtual](https://msdn.microsoft.com/library/jj157100.aspx).
  
@@ -92,7 +91,7 @@ El sitio de red local que agregue representa la red virtual de RM a la que desea
     <LocalNetworkSites>
       <LocalNetworkSite name="RMVNetLocal">
         <AddressSpace>
-          <AddressPrefix>192.168.1.0/16</AddressPrefix>
+          <AddressPrefix>192.168.0.0/16</AddressPrefix>
         </AddressSpace>
         <VPNGatewayAddress>13.68.210.16</VPNGatewayAddress>
       </LocalNetworkSite>
@@ -114,7 +113,7 @@ En esta sección, se especifica el sitio de red local con la que se desea conect
 
 Ejecute el comando siguiente para guardar el archivo e importarlo a Azure. Asegúrese de cambiar la ruta de acceso según sea necesario para su entorno.
 
-		Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\ClassicVNet.xml
+		Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
 
 Debería ver algo parecido a este resultado en el que se muestra que la importación se realizó correctamente.
 
@@ -122,25 +121,15 @@ Debería ver algo parecido a este resultado en el que se muestra que la importac
 		--------------------        -----------                      ---------------                                                
 		Set-AzureVNetConfig        e0ee6e66-9167-cfa7-a746-7casb9    Succeeded 
 
-### Parte 6: creación de la puerta de enlace de red virtual 
+### Parte 6: creación de la puerta de enlace 
 
-Puede crear la puerta de enlace de red virtual con el portal clásico o mediante PowerShell. Actualmente, no es posible crear una puerta de enlace clásica en el Portal de Azure.
+Puede crear la puerta de enlace de red virtual con el portal clásico o mediante PowerShell.
 
-#### Creación de la puerta de enlace en el portal clásico
-
-1. En el [Portal clásico](https://manage.windowsazure.com), vaya a **Redes** y haga clic en la red virtual clásica para la que desea crear una puerta de enlace de red virtual. Se abrirá la página principal de la red virtual.
-2. Haga clic en **Panel** en la parte superior de la página para cambiar a la página Panel.
-3. En la parte inferior de la página Panel, haga clic en **Crear puerta de enlace** y seleccione **Enrutamiento dinámico**.
-4. Haga clic en **Sí** para empezar a crear la puerta de enlace.
-5. Espere hasta que se cree la puerta de enlace. Esta operación a veces puede tardar 45 minutos, o incluso más, en completarse.
-6. Una vez que se haya creado la puerta de enlace, puede ver su dirección IP en la página **Panel**. Se trata de la dirección IP pública de la puerta de enlace. Escriba o copie la dirección IP pública, ya que se utilizará en pasos posteriores al crear la red local para la configuración de la red virtual de Resource Manager.
-7. Opcionalmente, puede usar este cmdlet para recuperar la configuración de la puerta de enlace y comprobar su estado: `Get-AzureVirtualNetworkGateway`
-
-#### Creación de la puerta de enlace mediante PowerShell
-
-Para crear la puerta de enlace mediante PowerShell, use el ejemplo siguiente.
+Para crear una puerta de enlace de enrutamiento dinámico, utilice el siguiente ejemplo:
 
 	New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
+
+Puede comprobar el estado de la puerta de enlace usando el cmdlet `Get-AzureVNetGateway`.
 
 
 ## <a name="creatermgw"></a>Sección 2: configuración de la puerta de enlace de la red virtual de RM
@@ -169,7 +158,7 @@ Para crear una puerta de enlace de VPN para la red virtual de RM, siga estas ins
 			-Location "West US" -AddressPrefix "10.0.0.0/24" `
 			-GatewayIpAddress "n.n.n.n" -ResourceGroupName RG1
 
-3. **Solicite que se asigne una dirección IP pública** a la puerta de enlace de VPN de la red virtual de Azure Resource Manager. No puede especificar la dirección IP que desea usar. Se asigna dinámicamente a la puerta de enlace. Sin embargo, esto no significa que la dirección IP pueda cambiar. La única vez que cambia la dirección IP de la puerta de enlace de VPN de Azure es cuando se elimina y se vuelve a crear la puerta de enlace. No cambiará al modificar el tamaño, restablecer o realizar otro tipo de mantenimiento interno o actualizaciones de la puerta de enlace de VPN de Azure.<br>En este paso, también se establece una variable que se utilizará en un paso posterior.
+3. **Solicite que se asigne una dirección IP pública** a la puerta de enlace de la red virtual para Azure Resource Manager. No puede especificar la dirección IP que desea usar. La dirección IP se asigna dinámicamente a la puerta de enlace de red virtual. Sin embargo, esto no significa que la dirección IP pueda cambiar. La única vez que cambia la dirección IP de la puerta de enlace virtual es cuando se elimina y se vuelve a crear la puerta de enlace. No cambiará al modificar el tamaño, restablecer o realizar otro tipo de mantenimiento interno o actualizaciones de la puerta de enlace.<br>En este paso, también se establece una variable que se utilizará en un paso posterior.
 
 
 		$ipaddress = New-AzureRmPublicIpAddress -Name gwpip `
@@ -192,7 +181,7 @@ Para crear una puerta de enlace de VPN para la red virtual de RM, siga estas ins
 		-Name gwipconfig -SubnetId $subnet.id `
 		-PublicIpAddressId $ipaddress.id
 	
-7. **Cree la puerta de enlace de la red virtual de Resource Manager** mediante la ejecución del comando siguiente. `-VpnType` debe ser *RouteBased*.
+7. **Cree la puerta de enlace de la red virtual de Resource Manager** mediante la ejecución del comando siguiente. `-VpnType` debe ser *RouteBased*. Esta operación puede tardar 45 minutos o más en completarse.
 
 		New-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `
 		-Location "EastUS" -GatewaySKU Standard -GatewayType Vpn `
@@ -233,7 +222,7 @@ La creación de una conexión entre las puertas de enlace requiere PowerShell. D
 		
 	Add-AzureAccount
 
-1. **Establezca la clave compartida** con la ejecución del siguiente comando. En este ejemplo, `-VNetName` es el nombre de la red virtual clásica y `-LocalNetworkSiteName` es el nombre especificado para la red local cuando se configura en el portal clásico. `-SharedKey` es un valor que puede generar y especificar. El valor que especifique aquí debe ser el mismo que va a especificar en el paso siguiente, cuando cree la conexión. La devolución para este ejemplo debe mostrar el estado de correcto.
+1. **Establezca la clave compartida** con la ejecución del siguiente comando. En este ejemplo, `-VNetName` es el nombre de la red virtual clásica y `-LocalNetworkSiteName` es el nombre especificado para la red local cuando se configura en el portal clásico. `-SharedKey` es un valor que puede generar y especificar. El valor que especifique aquí debe ser el mismo que va a especificar en el paso siguiente, cuando cree la conexión. La devolución para este ejemplo debe mostrar **Estado: Correcto**.
 
 		Set-AzureVNetGatewayKey -VNetName ClassicVNet `
 		-LocalNetworkSiteName RMVNetLocal -SharedKey abc123
@@ -262,4 +251,4 @@ Vea los detalles de preguntas más frecuentes para más información acerca de l
 
 [AZURE.INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-<!---HONumber=AcomDC_0810_2016--->
+<!---HONumber=AcomDC_0928_2016-->

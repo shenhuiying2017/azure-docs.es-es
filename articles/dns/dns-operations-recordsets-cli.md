@@ -3,7 +3,7 @@
    description="Administración de conjuntos de registros y registros DNS en DNS de Azure al hospedar dominios en DNS de Azure. Todos los comandos de CLI para operaciones en conjuntos de registros y registros."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="jtuliani"
    manager="carmonm"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.date="09/22/2016"
+   ms.author="jtuliani"/>
 
 # Administración de registros y conjuntos de registros DNS mediante la CLI
 
@@ -153,6 +153,11 @@ Al eliminar el último registro de un conjunto de registros, no se elimina el co
 
 	azure network dns record-set delete-record myresourcegroup contoso.com  "test-ns" NS -d "ns1.contoso.com"
 
+### Eliminación de un registro PTR de un conjunto de registros
+En este caso, 'my-arpa-zone.com' representa la zona ARPA que representa el intervalo IP. Cada registro PTR establecido en esta zona se corresponde con una dirección IP dentro de este intervalo IP.
+
+	azure network dns record-set delete-record myresourcegroup my-arpa-zone.com "10" PTR -P "myservice.contoso.com"
+
 ### Eliminación de un registro SRV de un conjunto de registros
 
 	azure network dns record-set delete-record myresourcegroup contoso.com  "_sip._tls" SRV -p 0 -w 5 -o 8080 -u "sip.contoso.com"
@@ -174,8 +179,8 @@ Se puede usar el modificador opcional *-q* para suprimir el mensaje de confirmac
 
 ## Pasos siguientes
 
-Para más información acerca de DNS de Azure, consulte [Introducción a DNS de Azure](dns-overview.md). Para más información acerca de la automatización de DNS, consulte [Creación de conjuntos de registros y zonas DNS con el SDK de .NET](dns-sdk.md).
+Para obtener más información sobre DNS de Azure, consulte [Introducción a DNS de Azure](dns-overview.md). Para más información acerca de la automatización de DNS, consulte [Creación de conjuntos de registros y zonas DNS con el SDK de .NET](dns-sdk.md).
 
 Si desea trabajar con registros DNS inversos, consulte [Administración de registros de DNS inversos para los servicios mediante la CLI de Azure](dns-reverse-dns-record-operations-cli.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -18,6 +18,12 @@
 
 
 # Supervisión y diagnóstico de servicios en una configuración de desarrollo de máquina local
+
+
+> [AZURE.SELECTOR]
+- [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+- [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
+
 Acciones como supervisar, detectar, diagnosticar y solucionar problemas permiten a los servicios continuar con una interrupción mínima de la experiencia del usuario. Aunque la supervisión y el diagnóstico resultan fundamentales en un entorno de producción implementado real, la eficacia dependerá de la adopción de un modelo similar durante el desarrollo de servicios para garantizar que funciona cuando pasa a una configuración del mundo real. Service Fabric facilita a los desarrolladores de servicio la implementación de diagnósticos que puede funcionar sin problemas en configuraciones de desarrollo local de máquina única y en configuraciones de clúster de producción del mundo real.
 
 ## Ventajas del Seguimiento de eventos para Windows
@@ -60,4 +66,4 @@ El mismo código de seguimiento que agregó a la aplicación anterior para diagn
 * [Recopilación de registros con Diagnósticos de Azure](service-fabric-diagnostics-how-to-setup-wad.md)
 * [Uso de ElasticSearch como almacén de seguimientos de aplicaciones de Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

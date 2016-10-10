@@ -62,7 +62,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 [Tamaños de máquinas virtuales](virtual-machines-windows-sizes.md)
 
-[Sobre las instancias de proceso intensivo A8, A9, A10 y A11](virtual-machines-windows-a8-a9-a10-a11-specs.md)
+[Acerca de las máquinas virtuales de la serie H y A de proceso intensivo](virtual-machines-windows-a8-a9-a10-a11-specs.md)
 
 [Planeación del mantenimiento de máquinas virtuales de Azure](virtual-machines-windows-planned-maintenance.md)
 
@@ -192,4 +192,4 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 [Solución de problemas de la implementación clásica con el reinicio o el cambio de tamaño de una máquina virtual de Windows existente en Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

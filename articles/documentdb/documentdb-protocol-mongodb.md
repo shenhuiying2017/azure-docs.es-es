@@ -3,7 +3,7 @@
 	description="Obtenga información acerca del soporte de protocolo de DocumentDB para MongoDB, ahora disponible para vista previa pública." 
 	keywords="mongodb"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # Compatibilidad de protocolo de DocumentDB con MongoDB
 
@@ -38,4 +38,4 @@ El soporte de protocolo de DocumentDB para MongoDB habilita las funciones princi
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

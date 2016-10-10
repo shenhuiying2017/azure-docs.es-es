@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -84,9 +84,7 @@ En la salida de Get-MsolFederationProperty o Get-AdfsCertificate compruebe la fe
 
 | AutoCertificateRollover | Certificados sincronizados con Azure AD | Los metadatos de federación están disponibles públicamente | Validez | Acción |
 |:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
-| Sí | Sí | Sí | - | No es necesaria ninguna acción. Consulte [Renovación automática de certificados de firma de tokens](#autorenew) |
-| Sí | No | - | Menos de 15 días | Renovar inmediatamente. Consulte [Renovación manual de certificados de firma de tokens](#manualrenew) |
-| No | - | - | Menos de 30 días | Renovar inmediatamente. Consulte [Renovación manual de certificados de firma de tokens](#manualrenew) |
+| Sí | Sí | Sí | - | No es necesaria ninguna acción. Consulte [Renovación automática de certificados de firma de tokens](#autorenew) || Sí | No | - | Menos de 15 días | Renovar inmediatamente. Consulte [Renovación manual de certificados de firma de tokens](#manualrenew) | | No | - | - | Menos de 30 días | Renovar inmediatamente. Consulte [Renovación manual de certificados de firma de tokens](#manualrenew) |
 
 [-] No importa
 
@@ -163,4 +161,4 @@ Si ha configurado la granja de servidores de AD FS o la relación de confianza d
 
 Para más información, consulte la sección [Reparación de la confianza](./active-directory-aadconnect-federation-management.md#repairing-the-trust).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

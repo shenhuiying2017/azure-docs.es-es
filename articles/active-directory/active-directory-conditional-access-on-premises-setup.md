@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 
@@ -38,7 +38,7 @@ Dispositivos compatibles
 
 Requisitos previos de escenario
 ------------------------------------------------------------------------
-* Suscripción a Office 365 o Azure Active Directory Premium
+* Suscripción a Office 365 o a Azure Active Directory Premium
 * Un inquilino de Azure Active Directory
 * Windows Server Active Directory (Windows Server 2008 o versiones posteriores)
 * Esquema actualizado en Windows Server 2012 R2
@@ -65,7 +65,7 @@ Use esta guía para implementar y configurar el servicio Registro de dispositivo
 
 En esta guía se asume que ya configuró Windows Server Active Directory y se suscribió a Microsoft Azure Active Directory. Vea los requisitos previos anteriores.
 
-Para implementar el servicio Registro de dispositivos de Azure Active Directory con su inquilino de Azure Active Directory, complete por orden las tareas de la lista de comprobación siguiente. Cuando un vínculo de referencia le lleve a un tema conceptual, vuelva a esta lista de comprobación después de revisar el tema conceptual para continuar con las demás tareas de la lista. Algunas tareas incluirán un paso de validación del escenario que puede ayudarle a confirmar que el paso se completó correctamente.
+Para implementar el servicio Registro de dispositivos de Azure Active Directory con su inquilino de Azure Active Directory, complete por orden las tareas de la lista de comprobación siguiente. Cuando un vínculo de referencia lleve a un tema conceptual, vuelva a esta lista de comprobación después de revisar dicho tema para continuar con las tareas restantes. Algunas tareas incluirán un paso de validación del escenario que puede ayudarle a confirmar que el paso se completó correctamente.
 
 ## Paso 1: habilitación del registro de dispositivos de Azure Active Directory
 
@@ -121,9 +121,8 @@ Esto le ayudará a integrar un inquilino de Azure AD con la versión local de Ac
   2.	Instalar y ejecutar Azure AD Connect: para instalar Azure AD Connect, siga las instrucciones que se indican a continuación, [Instalación personalizada de Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
   3. Comprobación y administración de la sincronización de directorios. Las instrucciones de inicio de sesión único están disponibles en este paso.
   
-
-  > [AZURE.NOTE] Configurar la federación con AD FS como se describe en el documento vinculado arriba.
-  > [AZURE.NOTE]  No es preciso configurar las características de vista previa.
+  > [AZURE.NOTE] 
+  Configurar la federación con AD FS como se describe en el documento vinculado arriba. No es preciso configurar las características de vista previa.
 
 
 ## Actualizar el esquema de Servicios de dominio de Active Directory
@@ -195,7 +194,7 @@ Para registrar los dispositivos Windows 7 unidos a un dominio debe implementar e
 
 ### Unión de un dispositivo Android al área de trabajo mediante el Registro de dispositivos de Azure Active Directory
 
-El [tema Azure Authenticator para Android](active-directory-conditional-access-azure-authenticator-app.md) incluye instrucciones sobre cómo instalar la aplicación Azure Authenticator en el dispositivo Android y agregar una cuenta profesional. Cuando una cuenta profesional se crea correctamente en un dispositivo Android, el dispositivo queda unido al área de trabajo en la organización.
+El [tema sobre Microsoft Authenticator para Android](active-directory-conditional-access-azure-authenticator-app.md) incluye instrucciones sobre cómo instalar la aplicación Microsoft Authenticator en el dispositivo Android y agregar una cuenta profesional. Cuando una cuenta profesional se crea correctamente en un dispositivo Android, el dispositivo queda unido al área de trabajo en la organización.
 
 ## Comprobación de que los dispositivos registrados se reescriben en Active Directory
 Puede ver y comprobar que los objetos de dispositivo se reescribieron en Active Directory con LDP.exe o con el Editor ADSI. Ambos están disponibles con las herramientas del administrador de Active Directory.
@@ -253,4 +252,4 @@ Ahora, cuando los usuarios accedan a la aplicación desde un dispositivo que no 
 
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

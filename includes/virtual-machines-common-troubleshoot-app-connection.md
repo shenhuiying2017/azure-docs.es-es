@@ -35,14 +35,16 @@ Hay cuatro áreas principales para solucionar el acceso de una aplicación que s
 	- ¿La aplicación se ejecuta correctamente?
 2.	La máquina virtual de Azure.
 	- ¿La VM se ejecuta correctamente y responde a las solicitudes?
-3.	Puntos de conexión de Azure para el servicio en la nube que contiene la máquina virtual (para las máquinas virtuales del modelo de implementación clásica), reglas NAT de entrada (para las máquinas virtuales del modelo de implementación de Resource Manager) y grupos de seguridad de red.
+3.	Puntos de conexión de red de Azure.
+	- Puntos de conexión de servicios en la nube para máquinas virtuales en el modelo de implementación clásica.
+	- Grupos de seguridad de red y reglas NAT de entrada para las máquinas virtuales en el modelo de implementación de Resource Manager.
 	- ¿El tráfico fluye entre los usuarios y la máquina virtual o la aplicación en los puertos esperados?
 4.	El dispositivo perimetral de Internet.
 	- ¿Hay instauradas reglas de firewall que impidan que el tráfico fluya correctamente?
 
 Para los equipos cliente que tienen acceso a la aplicación a través de una conexión ExpressRoute o de VPN de sitio a sitio, las áreas principales que pueden causar problemas son la aplicación y la máquina virtual de Azure. Para determinar el origen del problema y su corrección, siga estos pasos.
 
-## Paso 1: ¿Puede obtener acceso a la aplicación desde la VM de destino?
+## Paso 1: Acceso a la aplicación desde la máquina virtual de destino
 
 Intente obtener acceso a la aplicación con el programa cliente adecuado desde la VM en la que se ejecuta. Use el nombre de host local, la dirección IP local o la dirección de bucle invertido (127.0.0.1).
 
@@ -52,14 +54,14 @@ Por ejemplo, si la aplicación es un servidor web, abra un explorador en la VM e
 
 Si puede tener acceso a la aplicación, vaya al [paso 2](#step2).
 
-Si no se puede obtener acceso a la aplicación, compruebe lo siguiente:
+Si no se puede acceder a la aplicación, compruebe la siguiente configuración:
 
 - La aplicación se ejecuta en la máquina virtual de destino.
 - La aplicación está escuchando en los puertos TCP y UDP esperados.
 
 En máquinas virtuales basadas en Windows y Linux, use el comando **netstat -a** para mostrar los puertos de escucha activos. Examine la salida para los puertos esperados en el que debe escuchar su aplicación. Reinicie la aplicación o configúrela para que use los puertos esperados según sea necesario e intente de nuevo el acceso a la aplicación de forma local.
 
-## <a id="step2"></a>Paso 2: ¿Tiene acceso a la aplicación desde otra máquina virtual en la misma red virtual?
+## <a id="step2"></a>Paso 2: Acceso a la aplicación desde otra máquina virtual de la misma red virtual
 
 Intente obtener acceso a la aplicación desde otra VM (que esté en la misma red virtual) con el nombre de host de la VM o con su dirección IP de proveedor, privada o pública asignada por Azure. Para las máquinas virtuales creadas con el modelo de implementación clásica, no use la dirección IP pública del servicio en la nube.
 
@@ -69,7 +71,7 @@ Por ejemplo, si la aplicación es un servidor web, intente obtener acceso a una 
 
 Si puede tener acceso a la aplicación, vaya al [paso 3](#step3).
 
-Si no se puede obtener acceso a la aplicación, compruebe lo siguiente:
+Si no se puede acceder a la aplicación, compruebe la siguiente configuración:
 
 - El firewall del host de la VM de destino permite el tráfico de la solicitud entrante y el tráfico de la respuesta saliente.
 - El software de detección de intrusiones o de supervisión de red que se ejecuta en la VM de destino permite el tráfico.
@@ -80,15 +82,15 @@ Si no se puede obtener acceso a la aplicación, compruebe lo siguiente:
 
 En una máquina virtual basada en Windows, use el Firewall de Windows con seguridad avanzada para determinar si las reglas de firewall excluyen el tráfico entrante y saliente de la aplicación.
 
-## <a id="step3"></a>Paso 3: ¿Tiene acceso a la aplicación desde un equipo que está fuera de la red virtual, pero no conectado a la misma red que el equipo?
+## <a id="step3"></a>Paso 3: Acceso a la aplicación desde fuera de la red virtual
 
-Intente obtener acceso a la aplicación desde un equipo situado fuera de la red virtual como la VM en la que se está ejecutando la aplicación, pero que no esté en la misma red que el equipo cliente original.
+Intente acceder a la aplicación desde una máquina de fuera de la red virtual, como la máquina virtual en la que se está ejecutando la aplicación. Use una red diferente como equipo cliente de origen.
 
 ![iniciar la aplicación desde un equipo situado fuera de la red virtual](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
 
 Por ejemplo, si la aplicación es un servidor web, intente tener acceso a la página web desde un explorador de un equipo que no esté en la red virtual.
 
-Si no se puede obtener acceso a la aplicación, compruebe lo siguiente:
+Si no se puede acceder a la aplicación, compruebe la siguiente configuración:
 
 - Para las máquinas virtuales creadas con el modelo de implementación clásica:
 	- Que la configuración del punto de conexión de la máquina virtual permita el tráfico entrante, sobre todo el protocolo (TCP o UDP) y los números de puerto público y privado.
@@ -98,7 +100,7 @@ Si no se puede obtener acceso a la aplicación, compruebe lo siguiente:
 - Para las máquinas virtuales creadas con el modelo de implementación de Resource Manager:
 	- Que la configuración de la regla NAT de entrada de la máquina virtual permita el tráfico entrante, sobre todo el protocolo (TCP o UDP) y los números de puerto público y privado.
 	- Que los grupos de seguridad de red permitan la solicitud entrante y el tráfico de respuesta saliente.
-	- Para obtener más información, vea [¿Qué es un grupo de seguridad de red?](../articles/virtual-network/virtual-networks-nsg.md)
+	- Para más información, consulte [¿Qué es un grupo de seguridad de red?](../articles/virtual-network/virtual-networks-nsg.md)
 
 Si la máquina virtual o el extremo es un miembro de un conjunto con equilibrio de carga:
 
@@ -118,4 +120,4 @@ Si puede tener acceso a la aplicación, asegúrese de que el dispositivo perimet
 
 [Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

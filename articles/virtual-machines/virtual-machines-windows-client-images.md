@@ -1,7 +1,7 @@
 <properties
    pageTitle="Uso de imágenes de cliente Windows para escenarios de desarrollo y pruebas | Microsoft Azure"
    description="Cómo usar las ventajas para la suscripción de Visual Studio a fin de implementar Windows 7/8/10 en Azure para escenarios de desarrollo/pruebas"
-   services="virtual-machines-windowse"
+   services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
    manager="timlt"
@@ -57,4 +57,4 @@ También puede ver el id. de la oferta en la [pestaña "Suscripciones"](http://a
 ## Pasos siguientes
 Ahora puede implementar las VM con [PowerShell](virtual-machines-windows-ps-create.md), [plantillas de Resource Manager](virtual-machines-windows-ps-template.md) o [Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

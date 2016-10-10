@@ -131,7 +131,6 @@ Las contraseñas deben tener entre 8 y 123 caracteres y deben cumplir 3 de estos
 
 No se permiten las siguientes contraseñas:
 
-No se permiten las siguientes contraseñas
 <table>
 	<tr>
 		<td style="text-align:center">abc@123</td><td style="text-align:center">P@$$w0rd</td><td style="text-align:center">P@ssw0rd</td><td style="text-align:center">P@ssword123</td><td style="text-align:center">Pa$$word</td>
@@ -141,4 +140,4 @@ No se permiten las siguientes contraseñas
 	</tr>
 </table>
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

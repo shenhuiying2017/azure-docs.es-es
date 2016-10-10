@@ -280,7 +280,7 @@ R1. Hay un retraso máximo de 15 minutos entre que el estado del trabajo de copi
 
 **P.2 Cuando se produce un error en un trabajo de copia de seguridad, ¿cuánto tiempo se tarda en generar una alerta?**
 
-R.2 Se genera una alerta en menos de 5 minutos desde que se produce el error de Copia de seguridad de Azure.
+R.2 Se genera una alerta en menos de 20 minutos desde que se produce el error de Copia de seguridad de Azure.
 
 **P3. ¿Hay algún caso en el que no se envíe ningún correo electrónico si se configuran las notificaciones?**
 
@@ -300,4 +300,4 @@ R3. A continuación figuran los casos en los que no se enviará la notificación
 - Para obtener más información sobre Copia de seguridad de Azure, consulte [Información general de Copia de seguridad de Azure](backup-introduction-to-azure-backup.md).
 - Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="CENC con varios DRM y control de acceso: diseño e implementación de referencia en Azure y Servicios multimedia de Azure" 
+	pageTitle="CENC con varios DRM y Access Control: diseño e implementación de referencia en Azure y Azure Media Services | Microsoft Azure" 
 	description="Más información sobre cómo obtener licencias de Microsoft® Smooth Streaming Client Porting Kit." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #CENC con varios DRM y control de acceso: diseño e implementación de referencia en Azure y Servicios multimedia de Azure
@@ -159,11 +159,11 @@ Si usa la nube pública para la entrega de licencias, afectan directamente a su 
 
 
 
-1. Suscripción mensual: utiliza licencias persistentes y la asignación de clave de contenido a activo de 1 a muchos. Por ejemplo, para todas las películas de niños, usamos una única clave de contenido para el cifrado. En este caso:
+1. Suscripción mensual: utiliza licencias persistentes y la asignación 1 a muchos entre claves de contenido y recursos. Por ejemplo, para todas las películas de niños, usamos una única clave de contenido para el cifrado. En este caso:
 
 	El número total de licencias solicitadas para todas las películas o dispositivos de niños = 1
 
-1. Suscripción mensual: utiliza licencias no persistentes y asignación 1 a 1 entre activos y claves de contenido. En este caso:
+1. Suscripción mensual: utiliza licencias no persistentes y asignación 1 a 1 entre claves de contenido y recursos. En este caso:
 
 	El número total de licencias solicitadas para todas las películas o dispositivos de niños = [n.º de películas vistas] x [n.º de sesiones].
 
@@ -242,7 +242,7 @@ La implementación incluye los pasos siguientes:
 **Widevine**|Chrome en Windows 10|Correcto|Fail (no superado)
 **FairPlay** |TBD||
 
-George Trifonov, del equipo de Servicios multimedia de Azure, ha escrito un blog donde se proporcionan los pasos detallados para configurar Azure Active Directory para una aplicación de reproductor ASP.NET MVC: [Integración de la aplicación OWIN basada en MVC de Servicios multimedia de Azure con Azure Active Directory y restricción de la entrega de claves de contenido basada en notificaciones de JWT](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/) (Integración de una aplicación basada en OWIN MVC de Servicios multimedia de Azure con Azure Active Directory y restricción de la entrega de claves de contenido en función de las notificaciones JWT).
+George Trifonov, del equipo de Servicios multimedia de Azure, ha escrito un blog donde se proporcionan los pasos detallados para configurar Azure Active Directory para una aplicación de reproductor ASP.NET MVC: [Integrate Azure Media Services OWIN MVC based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/) (Integración de una aplicación basada en OWIN MVC de Servicios multimedia de Azure con Azure Active Directory y restricción de la entrega de claves de contenido en función de las notificaciones JWT).
 
 George también ha escrito un blog sobre la [autenticación de tokens de JWT en Servicios multimedia de Azure y Cifrado dinámico](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/). Y este es su [ejemplo sobre la integración de Azure AD con la entrega de claves de Servicios multimedia de Azure](https://github.com/AzureMediaServicesSamples/Key-delivery-with-AAD-integration/).
 
@@ -522,4 +522,4 @@ En este documento, hemos examinado el CENC con varios DRM nativos y el control d
 
 William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

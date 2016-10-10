@@ -3,7 +3,7 @@
 	description="Ofrece información para comprender los gastos relacionados con los pedidos de Marketplace."
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="felixwu"
 	editor=""
 	tags="billing"
@@ -102,4 +102,4 @@ Para ver los gastos reales, siga estos pasos:
 
 > [AZURE.NOTE] Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->
