@@ -33,7 +33,7 @@ Este tutorial le guiará a través de estos pasos básicos para habilitar las no
 * [Envío de notificaciones push a la aplicación de Chrome](#send)
 * [Funcionalidades y funciones adicionales](#next-steps)
 
->[AZURE.NOTE] Las notificaciones push de las aplicaciones de Chrome no son notificaciones en el explorador genéricas, son específicas del modelo de extensibilidad del explorador (consulte [Chrome Apps Overview] (Información general sobre las aplicaciones de Chrome) para más información). Además del explorador de escritorio, las aplicaciones de Chrome se ejecutan en dispositivos móviles (iOS y Android) mediante Apache Cordova. Vea [Aplicaciones de Chrome en dispositivos móviles] para obtener más información.
+>[AZURE.NOTE] Las notificaciones push de las aplicaciones de Chrome no son notificaciones en el explorador genéricas, son específicas del modelo de extensibilidad del explorador (consulte [Chrome Apps Overview] \(Información general sobre las aplicaciones de Chrome) para más información). Además del explorador de escritorio, las aplicaciones de Chrome se ejecutan en dispositivos móviles (iOS y Android) mediante Apache Cordova. Vea [Aplicaciones de Chrome en dispositivos móviles] para obtener más información.
 
 La configuración de GCM y de Centros de notificaciones de Azure es idéntica a la configuración para Android ya que el [Servicio de mensajería en la nube de Google para Chrome] está en desuso y el mismo GCM ahora admite dispositivos Android e instancias de Chrome.
 

@@ -186,7 +186,7 @@ Para dirigirse a usuarios específicos, consulte el tutorial [Uso de los Centros
 
 Si desea segmentar a sus usuarios por grupos de interés, puede leer [Uso de Centros de notificaciones para enviar noticias de último minuto].
 
-Obtenga más información sobre el uso de Centros de notificaciones en la [orientación sobre los Centros de notificaciones] (en inglés).
+Obtenga más información sobre el uso de Centros de notificaciones en la [orientación sobre los Centros de notificaciones] \(en inglés).
 
 
 

@@ -24,7 +24,7 @@ En este tutorial se muestra cómo crear una aplicación de Java e implementarla 
 
 ## Requisitos previos
 
-1. [Kit para desarrolladores de Java 8] (o superior)
+1. [Kit para desarrolladores de Java 8] \(o superior)
 1. [Maven] instalado en el equipo de desarrollo
 1. [GIT] instalado en el equipo de desarrollo
 1. Una suscripción de [evaluación gratuita] o de pago a [Microsoft Azure]

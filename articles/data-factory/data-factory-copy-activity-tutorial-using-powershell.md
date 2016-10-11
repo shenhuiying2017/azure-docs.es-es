@@ -61,7 +61,7 @@ En este paso, use PowerShell de Azure para crear una factoría de datos de Azure
 	2. Ejecute el siguiente comando para ver todas las suscripciones de esta cuenta:
 
 			Get-AzureRmSubscription 
-	3. Ejecute el comando siguiente para seleccionar la suscripción con la que desea trabajar. Reemplace **& lt; NameOfAzureSubscription**& gt; por el nombre de su suscripción de Azure:
+	3. Ejecute el comando siguiente para seleccionar la suscripción con la que desea trabajar. Reemplace **&lt; NameOfAzureSubscription**&gt; por el nombre de su suscripción de Azure:
 
 			Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
 

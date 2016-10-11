@@ -106,7 +106,7 @@ Ahora, vamos a implementar una aplicación de Java en Azure mediante FTPS.
 
     Haga clic en **Aceptar** para reemplazar el archivo en Azure.
 
-    >[AZURE.NOTE] Según el comportamiento predeterminado de Tomcat, el nombre del archivo **ROOT.war** en /site/wwwroot/webapps le proporciona la aplicación web raíz (http://*&lt;appname>*. azurewebsites.net) y el nombre de archivo ***&lt;cualquierNombre>*.war ** le ofrece una aplicación web con nombre (http://*&lt;appname>*.azurewebsites.net/*&lt;cualquierNombre>*).
+    >[AZURE.NOTE] Según el comportamiento predeterminado de Tomcat, el nombre del archivo **ROOT.war** en /site/wwwroot/webapps le proporciona la aplicación web raíz (http://*&lt;appname>*. azurewebsites.net) y el nombre de archivo ***&lt;cualquierNombre>*.war** le ofrece una aplicación web con nombre (http://*&lt;appname>*.azurewebsites.net/*&lt;cualquierNombre>*).
 
 Eso es todo. La aplicación de Java se ejecuta ahora en directo en Azure. En el explorador, vaya a http://*&lt;appname>*.azurewebsites.net para verlo en acción.
 
