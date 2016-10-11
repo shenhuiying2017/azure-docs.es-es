@@ -79,4 +79,4 @@ Tutorial | Description
 [Creación de una canalización de datos para mover datos entre dos almacenes de datos en la nube](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) | En este tutorial, va a crear una factoría de datos con una canalización que **mueve datos** de Blob Storage a SQL Database.
 [Creación de una canalización de datos para mover datos entre un almacén de datos local y un almacén de datos en la nube mediante la puerta de enlace de administración de datos](data-factory-move-data-between-onprem-and-cloud.md) | En este tutorial, va a compilar una factoría de datos con una canalización que **mueve los datos** de una base de datos de SQL Server **local** a un blob de Azure. Como parte del tutorial, instalará y configurará la puerta de enlace de administración de datos en su máquina. 
 
-<!---HONumber=AcomDC_0928_2016-->
+<!----HONumber=AcomDC_0928_2016-->
