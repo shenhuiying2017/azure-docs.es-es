@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introducción a Búsqueda de Azure | Microsoft Azure | Introducción a Búsqueda de Azure | DocumentDB | Servicio de búsqueda en la nube" 
-	description="Cree su primera solución de Búsqueda de Azure con este tutorial. Aprenda a crear un índice de Búsqueda de Azure con datos de DocumentDB. Este es un ejercicio basado en portal, sin código, mediante el Asistente para la importación de datos." 
+	pageTitle="Introducción a Azure Search| Microsoft Azure | DocumentDB | Servicio de búsqueda en la nube" 
+	description="Aprenda a crear el primer índice de Azure Search con este tutorial y los datos de ejemplo de DocumentDB. Este ejercicio, sin código y basado en el portal, utiliza el Asistente para la importación de datos." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="08/29/2016" 
+	ms.date="10/03/2016" 
 	ms.author="heidist"/>
 
 # Introducción a Búsqueda de Azure en el Portal
@@ -23,11 +23,11 @@ Este artículo es una introducción sin código a Búsqueda de Azure de Microsof
 
 En este tutorial se da por hecho que dispone de una [base de datos de Azure DocumentDB de ejemplo](#apdx-sampledata) que puede crear fácilmente con nuestras instrucciones y datos de ejemplo; sin embargo, también puede adaptar estos pasos a los datos existentes, bien en DocumentDB o en Base de datos SQL.
 
-> [AZURE.NOTE] Para este tutorial de inicio se necesita una [suscripción de Azure](../../includes/free-trial-note.md) y un [servicio Azure Search](search-create-service-portal.md).
+> [AZURE.NOTE] Para este tutorial de inicio se necesita una [suscripción de Azure](/pricing/free-trial/?WT.mc_id=A261C142F) y un [servicio Azure Search](search-create-service-portal.md).
  
 ## Búsqueda del servicio
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Abra el panel del servicio Búsqueda de Azure. A continuación se presentan algunas formas de buscar el panel.
 	- En la barra de accesos directos, haga clic en **Servicios de búsqueda**. La barra de accesos directos enumera todos los servicios aprovisionados en la suscripción. Si se ha definido un servicio de búsqueda, podrá ver **Servicios de búsqueda** en la lista.
@@ -35,15 +35,15 @@ En este tutorial se da por hecho que dispone de una [base de datos de Azure Docu
 
 ## Búsqueda de espacio
 
-Muchos clientes comienzan con el servicio gratis. Esta versión está limitada a tres índices, tres orígenes de datos y tres indexadores. Asegúrese de que tiene espacio para elementos adicionales antes de empezar. En este tutorial creará uno de cada objeto.
+Muchos clientes comienzan con el servicio gratis. Esta versión está limitada a tres índices, tres orígenes de datos y tres indexadores. Asegúrese de que tiene espacio para elementos adicionales antes de empezar. En este tutorial crea uno de cada objeto.
 
 ## Creación de un índice y carga de datos
 
-Las consultas de búsqueda recorren en iteración un *índice* que contiene datos de búsqueda, metadatos y construcciones usados para optimizar determinados comportamientos de búsqueda. Como primer paso, definirá y rellenará un índice.
+Las consultas de búsqueda recorren en iteración un *índice* que contiene datos de búsqueda, metadatos y construcciones usados para optimizar determinados comportamientos de búsqueda. Como primer paso, define y rellena un índice.
 
 Hay varias maneras de crear un índice. Si sus datos están en un almacén que Búsqueda de Azure puede rastrear, como Base de datos SQL de Azure, SQL Server en una máquina virtual de Azure o DocumentDB, puede crear y rellenar un índice muy fácilmente mediante un *indexador*.
 
-Para mantener esta tarea en el portal, se da por hecho que contamos con datos de DocumentDB que se pueden rastrear usando un indexador mediante el **Asistente para la importación de datos**.
+Para mantener esta tarea en el portal, utilizamos datos de DocumentDB que se pueden rastrear con un indexador mediante el **Asistente para la importación de datos**.
 
 Antes de continuar, cree una [base de datos de DocumentDB de ejemplo](#apdx-sampledata) para usar con este tutorial y, después, vuelva a esta sección para completar los pasos siguientes.
 
@@ -52,13 +52,13 @@ Antes de continuar, cree una [base de datos de DocumentDB de ejemplo](#apdx-samp
 
 1. En el panel del servicio Búsqueda de Azure, haga clic en **Importar datos** en la barra de comandos para iniciar un asistente que crea y rellena un índice.
 
-  ![][7]
+    ![][7]
 
 2. En el asistente, haga clic en **Origen de datos** > **DocumentDB** > **Nombre** y escriba un nombre para el origen de datos. Un origen de datos es un objeto de conexión en Búsqueda de Azure que puede usarse con otros indexadores. Una vez creado, queda disponible como un "origen de datos existente" en el servicio.
 
-3. Elija su cuenta de DocumentDB existente y la base de datos y colección. Si usa los datos de ejemplo que se proporcionan, la definición del origen de datos tendrá este aspecto:
+3. Elija su cuenta de DocumentDB existente y la base de datos y colección. Si usa los datos de ejemplo que se proporcionan, la definición del origen de datos tiene este aspecto:
 
-  ![][2]
+    ![][2]
 
 Tenga en cuenta que estamos omitiendo la consulta. Esto es porque en esta ocasión no estamos implementando el seguimiento de cambios en nuestro conjunto de datos. Si el conjunto de datos incluye un campo que realiza un seguimiento de la actualización de un registro, puede configurar un indexador de Búsqueda de Azure para usar el seguimiento de cambios para actualizaciones selectivas de su índice.
 
@@ -148,7 +148,7 @@ Puede probar este mismo flujo de trabajo mediante el Asistente para importar dat
 
 En esta sección se crea una pequeña base de datos de DocumentDB que puede usarse para completar las tareas de este tutorial.
 
-Las instrucciones siguientes proporcionan indicaciones generales, pero no son exhaustivas. Si necesita más ayuda con las tareas o la navegación del portal de DocumentDB, puede consultar la documentación de DocumentDB, pero la mayoría de los comandos que necesita están en la barra de comandos de servicio, en la parte superior del panel, o en la hoja de la base de datos.
+Las instrucciones siguientes proporcionan indicaciones generales, pero no son exhaustivas. Si necesita más ayuda con las tareas o la navegación del portal de DocumentDB, puede consultar la documentación de DocumentDB pero la mayoría de los comandos que necesita están en la barra de comandos de servicio, en la parte superior del panel, o en la hoja de la base de datos.
 
   ![][1]
 
@@ -156,7 +156,7 @@ Las instrucciones siguientes proporcionan indicaciones generales, pero no son ex
 
 1. [Haga clic aquí](https://github.com/HeidiSteen/azure-search-get-started-sample-data) para descargar un archivo ZIP que contenga los archivos de datos JSON de la tienda de música. Ofrecemos 246 documentos JSON para este conjunto de datos.
 2. Agregue DocumentDB a su suscripción y después abra el panel de servicio.
-2. Haga clic en **Agregar base de datos** para crear una nueva base de datos con un identificador de `musicstoredb`. Se mostrará en el icono de base de datos más abajo de la página después de que se ha creado.
+2. Haga clic en **Agregar base de datos** para crear una nueva base de datos con un identificador de `musicstoredb`. Se muestra en el icono de base de datos más abajo en la página después de que se haya creado.
 2. Haga clic en el nombre de la base de datos para abrir la hoja de base de datos.
 3. Haga clic en **Agregar colección** para crear una colección con un identificador de `musicstorecoll`.
 3. Haga clic en **Explorador de documentos**.
@@ -169,7 +169,7 @@ Las instrucciones siguientes proporcionan indicaciones generales, pero no son ex
 6. Repita el proceso para obtener el siguiente lote de archivos hasta que haya cargado el último, 669.json.
 7. Haga clic en **Explorador de consultas** para comprobar que se cargan los datos para cumplir los requisitos de carga del Explorador de documentos.
 
-Una manera fácil de hacerlo consiste en usar la consulta predeterminada, pero también puede modificar la consulta predeterminada para que seleccione los 300 primeros (hay menos de 300 elementos en este conjunto de datos).
+Una manera fácil de hacerlo consiste en usar la consulta predeterminada pero también puede modificar dicha consulta para que seleccione los 300 primeros (hay menos de 300 elementos en este conjunto de datos).
 
 Obtendrá un JSON de salida, que comienza por el número de documento 386 y termina en el documento 669. Una vez cargados los datos, puede [volver a los pasos de este tutorial](#defineDS) para generar un índice mediante el **Asistente para la importación de datos**.
 
@@ -183,4 +183,4 @@ Obtendrá un JSON de salida, que comienza por el número de documento 386 y term
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

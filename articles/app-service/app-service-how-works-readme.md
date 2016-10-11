@@ -26,6 +26,7 @@ Servicio de aplicaciones de Azure es un servicio en la nube diseñado para resol
 * Implementar y publicar las API con Aplicaciones de API.
 * Vincular las aplicaciones empresariales en flujos de trabajo y transformar datos con Aplicaciones lógicas.
 
+
 Todos los tipos de aplicaciones se basan en la plataforma de aplicación web escalable y flexible que permite a los desarrolladores una experiencia optimizada durante todo el ciclo de vida desde el diseño de la aplicación hasta su mantenimiento. Las funcionalidades de ciclo de vida permiten:
 
 * Creación rápida de aplicaciones: empiece empezar desde cero o elija un paquete de software de código abierto de Azure Marketplace.
@@ -39,4 +40,4 @@ Juntas, las funcionalidades de Servicio de aplicaciones permiten a los desarroll
 
 [AZURE.INCLUDE [app-service-blueprint-how-app-service-works](../../includes/app-service-blueprint-how-app-service-works.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="06/29/2016"
+	ms.date="10/03/2016"
 	ms.author="wesmc"/>
 
 # Envío de notificaciones push a iOS con los Centros de notificaciones de Azure
@@ -461,9 +461,9 @@ Para probar las notificaciones push en iOS, debe implementar la aplicación en u
 
 ##Pasos siguientes
 
-En este sencillo ejemplo, se difunden notificaciones push a todos los dispositivos iOS registrados. Como paso siguiente en su aprendizaje, le sugerimos que continúe con el tutorial [Los Centros de notificaciones de Azure notifican a los usuarios para iOS con back-end de .NET], donde se explica paso a paso cómo crear un back-end para enviar notificaciones push mediante etiquetas.
+En este sencillo ejemplo, se difunden notificaciones push a todos los dispositivos iOS registrados. Como paso siguiente en su aprendizaje, le sugerimos que continúe con el tutorial [Azure Notification Hubs notifican a los usuarios para iOS con back-end de .NET], donde se explica paso a paso cómo crear un back-end para enviar notificaciones push mediante etiquetas.
 
-Si desea segmentar los usuarios por grupos de interés, puede consultar también el tutorial [Uso de los Centros de notificaciones para enviar noticias de última hora].
+Si desea segmentar los usuarios por grupos de interés, puede consultar también el tutorial [Uso de Azure Notification Hubs para enviar noticias de última hora].
 
 Para más información sobre los Centros de notificaciones, consulte [Introducción a los centros de notificaciones].
 
@@ -501,10 +501,10 @@ Para más información sobre los Centros de notificaciones, consulte [Introducci
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Los Centros de notificaciones de Azure notifican a los usuarios para iOS con back-end de .NET]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-ios-send-breaking-news.md
+[Azure Notification Hubs notifican a los usuarios para iOS con back-end de .NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Uso de Azure Notification Hubs para enviar noticias de última hora]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
 [Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -40,7 +40,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 Como paso final, tome nota del valor de **Clave principal** valor y, a continuación, haga clic en **Mensajes**. En la hoja **Mensajes**, anote los valores de **Nombre compatible con el Centro de eventos** y **Punto de conexión compatible con Centro de eventos**. Necesita estos tres valores al crear la aplicación **read-d2c-messages**.
 
-![][6]
+![Hoja de mensajería de IoT Hub de Azure Portal][6]
 
 Ahora que ha creado un Centro de IoT y que tiene el nombre de host del Centro de IoT, la cadena de conexión del Centro de IoT, la clave principal del Centro de IoT, el nombre compatible con Centros de eventos y el punto de conexión compatible con Centros de eventos, es necesario que complete este tutorial.
 
@@ -445,7 +445,7 @@ Ahora está preparado para ejecutar las aplicaciones.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![][7]
+    ![Aplicación cliente de servicio de IoT Hub de Java para supervisar mensajes de dispositivo a nube][7]
 
 2. En un símbolo del sistema, en la carpeta simulated-device, ejecute el siguiente comando para empezar el envío de datos de telemetría al Centro de IoT:
 
@@ -453,11 +453,11 @@ Ahora está preparado para ejecutar las aplicaciones.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
 
-    ![][8]
+    ![Aplicación cliente de dispositivo de IoT Hub de Java para enviar mensajes de dispositivo a nube][8]
 
 3. El icono **Uso** del [Portal de Azure][lnk-portal] muestra el número de mensajes enviados al centro:
 
-    ![][43]
+    ![Icono Uso de Azure Portal que muestra el número de mensajes enviados a IoT Hub][43]
 
 ## Pasos siguientes
 
@@ -481,13 +481,13 @@ Para aprender a ampliar su solución IoT y cómo procesar mensajes de dispositiv
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
+[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-[lnk-hub-sdks]: iot-hub-sdks-summary.md
+[lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
@@ -495,4 +495,4 @@ Para aprender a ampliar su solución IoT y cómo procesar mensajes de dispositiv
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

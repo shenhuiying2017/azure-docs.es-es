@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="big-compute"
-   ms.date="09/06/2016"
+   ms.date="09/30/2016"
    ms.author="marsma"/>
 
 # Introducción a la CLI de Azure Batch
 
 La interfaz de línea de comandos de Azure(CLI de Azure) multiplataforma (CLI de Azure) le permite administrar sus cuentas de Batch, y recursos como grupo, trabajos y tareas en los shells de comandos de Linux, Mac y Windows. Con la CLI de Azure, puede realizar directamente y mediante scripts muchas de las mismas tareas que lleva a cabo con las API de Batch, el portal de Azure y los cmdlets de Batch PowerShell.
 
-En este artículo se usa la versión 0.10.3 de la CLI de Azure.
+En este artículo se usa la versión 0.10.5 de la CLI de Azure.
 
 ## Requisitos previos
 
@@ -215,19 +215,39 @@ Para crear una nueva aplicación y agregar una versión del paquete:
 
 **Active** el paquete:
 
-    azure batch application package activate "resgroup002" "azbatch002" "MyTaskApplication" "1.10-beta3" zip
+    azure batch application package activate "resgroup001" "batchaccount001" "MyTaskApplication" "1.10-beta3" zip
+
+Establezca la **versión predeterminada** para la aplicación:
+
+    azure batch application set "resgroup001" "batchaccount001" "MyTaskApplication" --default-version "1.10-beta3"
 
 ### Implementación de un paquete de aplicación
 
 Puede especificar uno o varios paquetes de aplicación para implementarlos al crear un grupo nuevo. Cuando se especifica un paquete en el momento de la creación de un grupo, se implementa en todos los nodos cuando cada nodo se incorpora al grupo. También se implementan paquetes cuando un nodo se reinicia o se restablece su imagen inicial.
 
-Este comando especifica un paquete en la creación del grupo y se implementa cuando cada nodo une al grupo nuevo:
+Especifique la opción `--app-package-ref` al crear un grupo para implementar un paquete de aplicación en los nodos del grupo cuando se unen a este. La opción `--app-package-ref` acepta una lista delimitada por puntos y comas de identificadores de aplicaciones que se van a implementar en los nodos de proceso.
 
-    azure batch pool create --id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
+    azure batch pool create --pool-id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
 
-Actualmente no se puede especificar qué versión del paquete se implementa mediante las opciones de la línea de comandos. En primer lugar, debe establecer una versión predeterminada de la aplicación desde el portal de Azure para poder asignarla a un grupo. En [Implementación de aplicaciones con paquetes de aplicación de Azure Batch](batch-application-packages.md), puede ver cómo establecer una versión predeterminada. Sin embargo, puede especificar una versión predeterminada si usa un [archivo JSON](#json-files), en lugar de las opciones de línea de comandos, al crear un grupo.
+Actualmente, cuando crea un grupo mediante las opciones de línea de comandos, no se puede especificar *qué* versión del paquete de aplicación se va a implementar en los nodos de proceso, por ejemplo "1.10-beta3". Por lo tanto, primero debe especificar una versión predeterminada de la aplicación con `azure batch application set [options] --default-version <version-id>` antes de crear el grupo (consulte la sección anterior). Sin embargo, puede especificar una versión del paquete para el grupo si usa un [archivo JSON](#json-files) en lugar de las opciones de línea de comandos al crear el grupo.
+
+Puede encontrar más información sobre los paquetes de aplicación en [Implementación de aplicaciones con paquetes de aplicación de Azure Batch](batch-application-packages.md).
 
 >[AZURE.IMPORTANT] Para utilizar paquetes de aplicación, primero se debe [vincular una cuenta de Almacenamiento de Azure](#linked-storage-account-autostorage) a su cuenta de Lote.
+
+### Actualización de los paquetes de aplicación de un grupo
+
+Para actualizar las aplicaciones asignadas a un grupo existente, emita el comando `azure batch pool set` con la opción `--app-package-ref`:
+
+    azure batch pool set --pool-id "pool001" --app-package-ref "MyTaskApplication2"
+
+Para implementar el nuevo paquete de aplicación en los nodos de proceso que ya están en un grupo existente, debe reiniciar o restablecer la imagen inicial de esos nodos:
+
+    azure batch node reboot --pool-id "pool001" --node-id "tvm-3105992504_1-20160930t164509z"
+
+>[AZURE.TIP] Puede obtener una lista de los nodos de un grupo junto con sus identificadores de nodo con `azure batch node list`.
+
+Tenga en cuenta que ya debe haber configurado la aplicación con una versión predeterminada antes de la implementación (`azure batch application set [options] --default-version <version-id>`).
 
 ## Sugerencias de solución de problemas
 
@@ -254,4 +274,4 @@ Esta sección pretende proporcionar los recursos que se pueden utilizar al soluc
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_1005_2016-->

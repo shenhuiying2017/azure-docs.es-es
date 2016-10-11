@@ -34,7 +34,7 @@ Cada red virtual tiene una única puerta de enlace de red virtual por cada tipo 
 
 ## SKU de puerta de enlace
 
-[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)] Para más información acerca de las SKU de puerta de enlace, consulte [SKU de puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 En la tabla siguiente se muestran los tipos de puerta de enlace y el rendimiento agregado estimado. Esta tabla se aplica a los modelos de implementación del Administrador de recursos y clásico.
 
@@ -148,4 +148,4 @@ Planee la configuración de puerta de enlace de VPN. Consulte [Planeamiento y di
 
  
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

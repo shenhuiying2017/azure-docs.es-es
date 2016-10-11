@@ -130,4 +130,4 @@ Si necesita realizar cambios personalizados específicos, use una imagen basada 
 
 - Pasos rápidos para [restablecer una contraseña o las claves SSH y administrar usuarios](virtual-machines-linux-using-vmaccess-extension.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->
