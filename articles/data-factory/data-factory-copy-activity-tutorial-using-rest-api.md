@@ -19,12 +19,13 @@
 # Tutorial: Crear una canalización con la actividad de copia mediante la API de REST
 > [AZURE.SELECTOR]
 - [Introducción y requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
 - [Portal de Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [API DE REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [API de .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
+
 
 Este tutorial muestra cómo crear y supervisar una factoría de datos de Azure mediante la API de REST. La canalización de la factoría de datos utiliza una actividad de copia para copiar datos desde Almacenamiento de blobs de Azure a Base de datos SQL de Azure.
 
@@ -49,7 +50,7 @@ Este artículo no abarca toda la API de REST de Data Factory. Consulte [Referenc
 	2. Ejecute el siguiente comando para ver todas las suscripciones para esta cuenta.
 
 			Get-AzureRmSubscription 
-	3. Ejecute el comando siguiente para seleccionar la suscripción con la que desea trabajar. Reemplace **&lt; NameOfAzureSubscription**&gt; por el nombre de su suscripción de Azure.
+	3. Ejecute el comando siguiente para seleccionar la suscripción con la que desea trabajar. Reemplace **& lt; NameOfAzureSubscription**& gt; por el nombre de su suscripción de Azure.
 
 			Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
 	1. Cree un grupo de recursos de Azure con el nombre **ADFTutorialResourceGroup** ejecutando el siguiente comando en PowerShell.
@@ -491,4 +492,4 @@ En este tutorial, ha usado una API de REST para crear una factoría de datos de 
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -28,14 +28,14 @@ Cada solución preconfigurada es una implementación completa que usa dispositiv
 
 Además de implementar y ejecutar las soluciones en Azure, puede descargar el código fuente completo y, después, personalizar y ampliar la solución para satisfacer sus necesidades de IoT específicas.
 
-> [AZURE.NOTE] Para implementar una de las soluciones preconfiguradas, visite [Microsoft Azure IoT Suite][lnk-azureiotsuite] \(Conjunto de aplicaciones de IoT de Microsoft Azure). En el artículo [Introducción a las soluciones de IoT preconfiguradas][lnk-getstarted-preconfigured] se describe cómo implementar y ejecutar una de las soluciones.
+> [AZURE.NOTE] Para implementar una de las soluciones preconfiguradas, visite [Microsoft Azure IoT Suite][lnk-azureiotsuite] (Conjunto de aplicaciones de IoT de Microsoft Azure). En el artículo [Introducción a las soluciones de IoT preconfiguradas][lnk-getstarted-preconfigured] se describe cómo implementar y ejecutar una de las soluciones.
 
 La tabla siguiente muestra cómo se asignan estas soluciones a las características específicas de IoT:
 
 | Solución | Ingesta de datos | Identidad de dispositivos | Comando y control | Reglas y acciones | Análisis predictivo |
 |------------------------|-----|-----|-----|-----|-----|
-| [Supervisión remota][lnk-remote-monitoring] | Sí | Sí | Sí | Sí | - | 
-| [Mantenimiento predictivo][lnk-predictive-maintenance] | Sí | Sí | Sí | Sí | Sí |
+| [Supervisión remota][lnk-getstarted-preconfigured] | Sí | Sí | Sí | Sí | - | | [Mantenimiento predictivo][lnk-predictive-maintenance] | Sí | Sí | Sí | Sí | Sí |
+
 - *Ingesta de datos*: entrada de datos a escala en la nube.
 - *Identidad de dispositivo*: administración de las identidades únicas de cada dispositivo conectado.
 - *Comando y control*: envío de mensajes a un dispositivo desde la nube para que el dispositivo realice alguna acción.
@@ -75,7 +75,7 @@ El Centro de IoT hace que la telemetría recibida esté disponible mediante el p
 
 ## Análisis de transmisiones de Azure
 
-La solución preconfigurada usa tres trabajos de [Análisis de transmisiones de Azure][lnk-asa] \(ASA) para filtrar la transmisión de la telemetría procedente de los dispositivos.
+La solución preconfigurada usa tres trabajos de [Análisis de transmisiones de Azure][lnk-asa] (ASA) para filtrar la transmisión de la telemetría procedente de los dispositivos.
 
 
 - *Trabajo DeviceInfo*: envía los datos a un Centro de eventos que enruta los mensajes específicos del registro del dispositivo que se envían cuando un dispositivo se conecta por primera vez o en respuesta a un comando **Change device state**, al registro de dispositivos de la solución (una base de datos de DocumentDB).
@@ -124,10 +124,10 @@ Ahora que ya sabe qué es una solución preconfigurada, puede comenzar por imple
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
 [lnk-web-job]: ../app-service-web/web-sites-create-web-jobs.md
-[lnk-identity-registry]: ../iot-hub/iot-hub-devguide.md#device-identity-registry
+[lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_1005_2016-->

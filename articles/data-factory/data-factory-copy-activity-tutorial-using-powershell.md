@@ -19,12 +19,13 @@
 # Tutorial: Crear una canalización con la actividad de copia con Azure PowerShell
 > [AZURE.SELECTOR]
 - [Introducción y requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
 - [Portal de Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [API de REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [API DE REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [API de .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
+
 
 En este tutorial, creará y supervisará una factoría de datos de Azure con cmdlets de Azure PowerShell. La canalización en la factoría de datos que cree en este tutorial usa una actividad de copia para copiar los datos de un blob de Azure a una base de datos SQL de Azure.
 
@@ -60,7 +61,7 @@ En este paso, use PowerShell de Azure para crear una factoría de datos de Azure
 	2. Ejecute el siguiente comando para ver todas las suscripciones de esta cuenta:
 
 			Get-AzureRmSubscription 
-	3. Ejecute el comando siguiente para seleccionar la suscripción con la que desea trabajar. Reemplace **&lt; NameOfAzureSubscription**&gt; por el nombre de su suscripción de Azure:
+	3. Ejecute el comando siguiente para seleccionar la suscripción con la que desea trabajar. Reemplace **& lt; NameOfAzureSubscription**& gt; por el nombre de su suscripción de Azure:
 
 			Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
 
@@ -463,4 +464,4 @@ En este tutorial, ha creado una factoría de datos de Azure para copiar datos de
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

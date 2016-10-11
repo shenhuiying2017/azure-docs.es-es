@@ -3,8 +3,8 @@
  description="Introducción al Programador de Azure en el Portal de Azure"
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,7 +13,7 @@
  ms.devlang="dotnet"
  ms.topic="hero-article"
  ms.date="08/10/2016"
- ms.author="krisragh"/>
+ ms.author="deli"/>
 
 # Introducción al Programador de Azure en el Portal de Azure
 
@@ -92,7 +92,7 @@ Para los tipos de acción de los trabajos HTTP y HTTPS, puede cambiar el método
 
 Para los tipos de acciones de la cola de almacenamiento, puede cambiar la cuenta de almacenamiento, el nombre de la cola, el token SAS y el cuerpo.
 
-Para los tipos de acción del Bus de servicio, puede cambiar el espacio de nombres, la ruta de tema/cola, la configuración de autenticación, el tipo de transporte, las propiedades de mensaje y el cuerpo del mensaje.
+Para los tipos de acción de Service Bus, puede cambiar el espacio de nombres, la ruta de tema/cola, la configuración de autenticación, el tipo de transporte, las propiedades de mensaje y el cuerpo del mensaje.
 
    ![][job-action-settings]
 
@@ -182,4 +182,4 @@ El control de acceso basado en roles (RBAC) de Azure permite realizar una admini
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_1005_2016-->

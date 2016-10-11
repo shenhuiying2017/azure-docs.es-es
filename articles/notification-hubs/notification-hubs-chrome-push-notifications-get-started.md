@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
-	ms.date="07/22/2016"
+	ms.date="10/03/2016"
 	ms.author="wesmc"/>
 
 # Envío de notificaciones push a Chrome con los Centros de notificaciones de Azure
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-En este tema se muestra cómo usar los Centros de notificaciones de Azure para enviar notificaciones push a una aplicación de Chrome que se mostrará en el contexto del explorador Google Chrome. En este tutorial, creará una aplicación de Chrome que recibirá notificaciones push mediante el [Servicio de mensajería en la nube de Google (GCM)](https://developers.google.com/cloud-messaging/).
+En este tema se muestra cómo usar Azure Notification Hubs para enviar notificaciones push a una aplicación de Chrome que se mostrará en el contexto del explorador Google Chrome. En este tutorial, creará una aplicación de Chrome que recibirá notificaciones push mediante el [Servicio de mensajería en la nube de Google (GCM)](https://developers.google.com/cloud-messaging/).
 
 >[AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F).
 
@@ -33,7 +33,7 @@ Este tutorial le guiará a través de estos pasos básicos para habilitar las no
 * [Envío de notificaciones push a la aplicación de Chrome](#send)
 * [Funcionalidades y funciones adicionales](#next-steps)
 
->[AZURE.NOTE] Las notificaciones push de las aplicaciones de Chrome no son notificaciones en el explorador genéricas, son específicas del modelo de extensibilidad del explorador (consulte [Chrome Apps Overview] \(Información general sobre las aplicaciones de Chrome) para más información). Además del explorador de escritorio, las aplicaciones de Chrome se ejecutan en dispositivos móviles (iOS y Android) mediante Apache Cordova. Vea [Aplicaciones de Chrome en dispositivos móviles] para obtener más información.
+>[AZURE.NOTE] Las notificaciones push de las aplicaciones de Chrome no son notificaciones en el explorador genéricas, son específicas del modelo de extensibilidad del explorador (consulte [Chrome Apps Overview] (Información general sobre las aplicaciones de Chrome) para más información). Además del explorador de escritorio, las aplicaciones de Chrome se ejecutan en dispositivos móviles (iOS y Android) mediante Apache Cordova. Vea [Aplicaciones de Chrome en dispositivos móviles] para obtener más información.
 
 La configuración de GCM y de Centros de notificaciones de Azure es idéntica a la configuración para Android ya que el [Servicio de mensajería en la nube de Google para Chrome] está en desuso y el mismo GCM ahora admite dispositivos Android e instancias de Chrome.
 
@@ -434,9 +434,9 @@ Para las pruebas, enviaremos notificaciones push de Chrome mediante la aplicaci�
 
 Obtenga más información sobre Centros de notificaciones en [Introducción a los centros de notificaciones].
 
-Para dirigirse a usuarios específicos, consulte el tutorial [Los Centros de notificaciones de Azure notifican a los usuarios con back-end de .NET].
+Para dirigirse a usuarios específicos, consulte el tutorial [Azure Notification Hubs notifican a los usuarios].
 
-Si desea segmentar los usuarios por grupos de interés, puede leer [Uso de los Centros de notificaciones para enviar noticias de última hora].
+Si desea segmentar los usuarios por grupos de interés, puede leer [Uso de Azure Notification Hubs para enviar noticias de última hora].
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-chrome-get-started/GoogleConsoleCreateProject.PNG
@@ -474,7 +474,7 @@ Si desea segmentar los usuarios por grupos de interés, puede leer [Uso de los C
 [biblioteca crypto-js]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Servicio de mensajería en la nube de Google para Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
-[Los Centros de notificaciones de Azure notifican a los usuarios con back-end de .NET]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
-[Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Azure Notification Hubs notifican a los usuarios]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Uso de Azure Notification Hubs para enviar noticias de última hora]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_1005_2016-->

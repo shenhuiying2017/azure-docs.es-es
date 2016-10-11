@@ -3,7 +3,7 @@
    description="Creación de registros host para DNS de Azure. Configuración de conjuntos de registros y registros mediante CLI"
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
 
 # Creación de conjuntos de registros y registros de DNS con CLI
 
@@ -66,4 +66,4 @@ Para administrar los registros y los conjuntos de registros, consulte [Administr
 
 Para más información acerca de DNS de Azure, consulte la [Introducción a DNS de Azure](dns-overview.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->
