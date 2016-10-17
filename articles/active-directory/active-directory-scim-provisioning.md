@@ -683,7 +683,7 @@ La siguiente ilustración muestra los mensajes que Azure Active Directory enviar
 * Las solicitudes para determinar si un atributo de referencia tiene un valor determinado serán solicitudes sobre el atributo members.  
 
 ![][5]
-* Ilustración: Secuencia de aprovisionamiento y desaprovisionamiento de usuarios*
+*Ilustración: Secuencia de aprovisionamiento y desaprovisionamiento de usuarios*
 
 ##Artículos relacionados
 
