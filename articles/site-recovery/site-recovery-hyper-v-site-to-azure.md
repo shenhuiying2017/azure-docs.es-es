@@ -113,7 +113,7 @@ Configure una red de Azure. Debe hacer esto para que las máquinas virtuales de 
 - Según el modelo de recursos que desee usar para las máquinas virtuales de Azure conmutadas por error, va a configurar la red de Azure en [modo ARM](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) o en [modo clásico](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 - Es recomendable configurar una red antes de empezar. Si no lo hace, deberá hacerlo durante la implementación de Site Recovery.
 
-> [AZURE.NOTE] [Migration of networks]El (../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las redes usadas para implementar Site Recovery.
+> [AZURE.NOTE] El [Migration of networks](../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las redes usadas para implementar Site Recovery.
 
 ### Configuración de una cuenta de almacenamiento de Azure
 
@@ -121,7 +121,7 @@ Configure una red de Azure. Debe hacer esto para que las máquinas virtuales de 
 - Según el modelo de recursos que desee usar para las máquinas virtuales de Azure conmutadas por error, configurará una cuenta en el [modo ARM](../storage/storage-create-storage-account.md) o en el [modo clásico](../storage/storage-create-storage-account-classic-portal.md).
 - Es recomendable configurar una cuenta de almacenamiento antes de empezar. Si no lo hace, deberá hacerlo durante la implementación de Site Recovery. Las cuentas deben estar en la misma región que el almacén de Servicios de recuperación.
 
-> [AZURE.NOTE] [Migration of storage accounts]El (../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las cuentas de almacenamiento usadas para implementar Site Recovery.
+> [AZURE.NOTE] El [Migration of storage accounts](../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las cuentas de almacenamiento usadas para implementar Site Recovery.
 
 ### Preparación de los hosts de Hyper-V
 
@@ -197,7 +197,7 @@ Configure el sitio Hyper-V, instale el Proveedor de Azure Site Recovery y el age
 
 	![Registro de servidor](./media/site-recovery-hyper-v-site-to-azure/provider3.png)
 
-5\. En **Configuración de proxy**, especifique cómo se conectará el proveedor que se instalará en el servidor a Azure Site Recovery a través de Internet.
+5.En **Configuración de proxy**, especifique cómo se conectará el proveedor que se instalará en el servidor a Azure Site Recovery a través de Internet.
 
 - Si quiere que el proveedor se conecte directamente, seleccione **Connect directly without a proxy** (Conectarse directamente sin un proxy).
 - Si quiere conectarse con el proxy configurado actualmente en el servidor, seleccione **Connect with existing proxy settings** (Conectarse con la configuración de proxy existente).
@@ -207,9 +207,10 @@ Configure el sitio Hyper-V, instale el Proveedor de Azure Site Recovery y el age
 
 	![Internet](./media/site-recovery-hyper-v-site-to-azure/provider7.PNG)
 
-6\. Una vez finalizada la instalación, haga clic en **Registrar** para registrar el servidor en el almacén. ![Ubicación de instalación](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
+6.Una vez finalizada la instalación, haga clic en **Registrar** para registrar el servidor en el almacén.	
+	![Ubicación de instalación](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
 
-7\. Después de que finalice el registro, los metadatos de Hyper-V Server se recuperan mediante Azure Site Recovery y el servidor se muestra en la hoja **Configuración** > **Site Recovery Infrastructure** (Infraestructura de Site Recovery) > **Hyper-V Hosts** (Hosts de Hyper-V).
+7.Después de que finalice el registro, los metadatos de Hyper-V Server se recuperan mediante Azure Site Recovery y el servidor se muestra en la hoja **Configuración** > **Site Recovery Infrastructure** (Infraestructura de Site Recovery) > **Hyper-V Hosts** (Hosts de Hyper-V).
 
 
 ### Instalación de la línea de comandos
