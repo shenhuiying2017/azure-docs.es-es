@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Conexión con la cuenta de Servicios multimedia mediante .NET" 
-	description="En este tema muestra cómo conectarse con los Servicios multimedia mediante .NET." 
+	description="En este tema muestra cómo conectarse con Media Services mediante .NET." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/26/2016"
 	ms.author="juliako"/>
 
 
@@ -24,7 +24,7 @@
 - [.NET](media-services-dotnet-connect_programmatically.md)
 
 
-En este tema se describe cómo obtener una conexión mediante programación con los Servicios multimedia de Microsoft Azure al programar con el SDK de Servicios multimedia para. NET.
+En este tema se describe cómo obtener una conexión mediante programación con Microsoft Azure Media Services al programar con el SDK de Media Services para. NET.
 
 
 ## Conexión con los Servicios multimedia
@@ -196,4 +196,4 @@ Para recuperar los valores de conexión de la configuración, use la clase **Con
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

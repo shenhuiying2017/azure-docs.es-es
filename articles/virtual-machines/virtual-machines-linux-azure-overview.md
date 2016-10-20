@@ -112,7 +112,7 @@ Ya dispone de una cuenta de Azure, del portal web de Azure y de la CLI de Azure.
 ## Introducción a Linux en Microsoft Azure
 Cuando haya configurado la cuenta de Azure, instalado la CLI de Azure y creado las claves SSH, ya podrá comenzar a crear una infraestructura en la nube de Azure. La primera tarea consiste en crear un par de máquinas virtuales.
 
-## Creación de una máquina virtual en la CLI de Azure
+## Creación de una máquina virtual con la CLI
 Una forma rápida de implementar una máquina virtual sin abandonar el terminal en el que está trabajando es crear una máquina virtual Linux. Toda la información que se puede especificar en el portal web está disponible a través de un indicador o conmutador de línea de comandos.
 
 - [Creación de una máquina virtual Linux mediante la CLI de Azure](virtual-machines-linux-quick-create-cli.md)
@@ -123,7 +123,7 @@ Una forma sencilla de crear una máquina virtual Linux en el portal web de Azure
 - [Creación de una máquina virtual Linux mediante el portal](virtual-machines-linux-quick-create-portal.md)
 
 ## Inicio de sesión mediante SSH sin una contraseña
-Ahora, la máquina virtual se está ejecutando en Azure y ya puede iniciar sesión en ella. Usar contraseñas para iniciar sesión a través de SSH es un proceso lento y no seguro. La forma más segura y rápida de iniciar sesión es utilizar claves SSH. Al crear una máquina virtual Linux mediante el portal o la CLI, tiene dos opciones de autenticación. Si elige una contraseña para SSH, Azure configurará la máquina virtual para permitir los inicios de sesión mediante contraseñas. Si decide utilizar una clave pública SSH, Azure configurará la máquina virtual para permitir que solo se pueda iniciar sesión a través de claves SSH y deshabilitará los inicios de sesión con contraseñas. Para proteger la máquina virtual Linux permitiendo que solo se inicie sesión con claves de SSH, utilice la opción de claves públicas SSH durante la creación de máquinas virtuales en el portal o la CLI.
+Ahora, la máquina virtual se está ejecutando en Azure y ya puede iniciar sesión en ella. Usar contraseñas para iniciar sesión a través de SSH no es un proceso rápido ni seguro. La forma más segura y rápida de iniciar sesión es utilizar claves SSH. Al crear una máquina virtual Linux mediante el portal o la CLI, tiene dos opciones de autenticación. Si elige una contraseña para SSH, Azure configurará la máquina virtual para permitir los inicios de sesión mediante contraseñas. Si decide utilizar una clave pública SSH, Azure configurará la máquina virtual para permitir que solo se pueda iniciar sesión a través de claves SSH y deshabilitará los inicios de sesión con contraseñas. Para proteger la máquina virtual Linux al permitir que solo se inicie sesión con claves de SSH, utilice la opción de claves públicas SSH durante la creación de las máquinas virtuales en el portal o la CLI.
 
 - [Deshabilitación de las contraseñas SSH en la máquina virtual de Linux mediante la configuración de SSHD](virtual-machines-linux-mac-disable-ssh-password-usage.md)
 
@@ -164,4 +164,4 @@ Ya tiene una visión general de Linux en Azure. El siguiente paso consiste en em
 
 - [Creación de una máquina virtual Linux en Azure mediante la CLI](virtual-machines-linux-quick-create-cli.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

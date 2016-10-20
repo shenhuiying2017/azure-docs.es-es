@@ -13,18 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/30/2016"
+   ms.date="09/24/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Proteger una base de datos en Almacenamiento de datos SQL
 
 > [AZURE.SELECTOR]
 - [Información general sobre seguridad](sql-data-warehouse-overview-manage-security.md)
-- [Detección de amenazas](sql-data-warehouse-security-threat-detection.md)
-- [Introducción a la auditoría](sql-data-warehouse-auditing-overview.md)
-- [Auditoría de los clientes de nivel inferior](sql-data-warehouse-auditing-downlevel-clients.md)
-- [Cifrado de datos transparente (Portal)](sql-data-warehouse-encryption-tde.md)
-- [Cifrado de datos transparente (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Autenticación](sql-data-warehouse-authentication.md)
+- [Cifrado (Portal)](sql-data-warehouse-encryption-tde.md)
+- [Cifrado (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
 En este artículo se describen los fundamentos de la protección de una base de datos de Almacenamiento de datos SQL de Azure. En concreto, este artículo le ayudará a empezar a trabajar con los recursos para limitar el acceso, proteger los datos y supervisar las actividades en una base de datos.
 
@@ -83,18 +81,9 @@ La administración de bases de datos y servidores lógicos desde el Portal de Az
 
 ## Cifrado
 
-Almacenamiento de datos SQL de Azure puede ayudar a proteger los datos mediante el cifrado de los mismos cuando estén "en reposo" o almacenados en archivos de base de datos y copias de seguridad, con el [cifrado de datos transparente][]. Debe ser administrador o miembro del rol dbmanager en la base de datos maestra para habilitar TDE. Para cifrar la base de datos, conéctese a la base de datos maestra en el servidor y ejecute:
+El Cifrado de datos transparente (TDE) de Azure SQL Data Warehouse ayuda a proteger frente a las amenazas de actividad malintencionada al realizar el cifrado y el descifrado en tiempo real de los datos en reposo. Cuando se cifra la base de datos, los archivos de registro de copias de seguridad y transacciones asociados se cifran sin necesidad de realizar ningún cambio en las aplicaciones. TDE cifra el almacenamiento de una base de datos completa mediante el uso de una clave simétrica denominada clave de cifrado de base de datos. En Base de datos SQL la clave de cifrado de base de datos está protegida por un certificado de servidor integrado. El certificado de servidor integrado es único para cada servidor de Base de datos SQL. Microsoft alterna automáticamente estos certificados al menos cada 90 días. El algoritmo de cifrado usado por Almacenamiento de datos SQL es AES-256. Para ver una descripción general de TDE, consulte [Cifrado de datos transparente (TDE)][].
 
-
-```sql
-ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
-```
-
-También puede habilitar el cifrado de datos transparente de la configuración de la base de datos en el [Portal de Azure][]. Para obtener más información, consulte [Introducción al cifrado de datos transparente (TDE)][].
-
-## Auditoría
-
-La auditoría y el seguimiento de eventos de la base de datos pueden ayudarle a mantener el cumplimiento de las reglamentaciones y a identificar cualquier actividad sospechosa. La auditoría de Almacenamiento de datos SQL permite grabar los eventos de la base de datos en un registro de auditoría de una cuenta de Almacenamiento de Azure. La auditoría de Almacenamiento de datos SQL también se integra con Microsoft Power BI, con el fin de facilitar la generación de análisis e informes detallados. Para obtener más información, consulte [Introducción a la auditoría de Base de datos SQL][].
+Puede cifrar la base de datos mediante [Azure Portal][Encryption with Portal] o [T-SQL][Encryption with TSQL].
 
 ## Pasos siguientes
 
@@ -104,8 +93,8 @@ Para detalles y ejemplos sobre la conexión de Almacenamiento de datos SQL con d
 
 <!--Article references-->
 [Conexión a Almacenamiento de datos SQL]: ./sql-data-warehouse-connect-overview.md
-[Introducción a la auditoría de Base de datos SQL]: ./sql-data-warehouse-auditing-overview.md
-[Introducción al cifrado de datos transparente (TDE)]: ./sql-data-warehouse-encryption-tde.md
+[Encryption with Portal]: ./sql-data-warehouse-encryption-tde.md
+[Encryption with TSQL]: ./sql-data-warehouse-encryption-tde-tsql.md
 [Conexión a Base de datos SQL o a Almacenamiento de datos SQL mediante autenticación de Azure Active Directory]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
@@ -116,10 +105,10 @@ Para detalles y ejemplos sobre la conexión de Almacenamiento de datos SQL con d
 [Autorización y autenticación de Base de datos SQL: concesión de acceso]: https://msdn.microsoft.com/library/ee336235.aspx
 [permisos]: https://msdn.microsoft.com/library/ms191291.aspx
 [procedimientos almacenados]: https://msdn.microsoft.com/library/ms190782.aspx
-[cifrado de datos transparente]: https://go.microsoft.com/fwlink/?LinkId=526242
-[Portal de Azure]: https://portal.azure.com/
+[Cifrado de datos transparente (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[Azure portal]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Control de acceso basado en rol en el Portal de Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

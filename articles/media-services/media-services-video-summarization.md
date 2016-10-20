@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Usar Miniaturas de vídeo multimedia de Azure para crear un resumen de vídeo"
+	pageTitle="Usar Miniaturas de vídeo multimedia de Azure para crear un resumen de vídeo | Microsoft Azure"
 	description="El resumen de vídeo puede ayudarle a crear resúmenes de vídeos largos al seleccionar automáticamente fragmentos interesantes del vídeo original. Esto es útil si quiere proporcionar una rápida descripción de lo que se va a encontrar en un vídeo largo."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"   
+	ms.date="09/26/2016"   
 	ms.author="milanga;juliako;"/>
 
 #Usar Miniaturas de vídeo multimedia de Azure para crear un resumen de vídeo
@@ -23,7 +23,7 @@ El procesador de multimedia (PM) **Miniaturas de vídeo multimedia de Azure** le
 
 El PM **Miniatura de vídeo multimedia de Azure** está actualmente en versión preliminar.
 
-En este tema se proporcionan detalles acerca de **Miniatura de vídeo multimedia de Azure** y se muestra cómo se usa con el SDK de Servicios multimedia para .NET
+En este tema se proporcionan detalles acerca de **Miniatura de vídeo multimedia de Azure** y se muestra cómo se usa con el SDK de Media Services para .NET
 
 ##Ejemplo de resumen de vídeo 
 
@@ -37,7 +37,7 @@ Estos son algunos ejemplos de lo que puede hacer el procesador de multimedia Min
 
 [Resultado de miniaturas de vídeo](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
-##Configuración de tareas (valor predeterminado)
+##Configuración de tareas (valor preestablecido)
 
 Al crear una tarea de miniatura de vídeo con **Miniaturas de vídeo multimedia de Azure**, debe especificar un valor predeterminado de configuración. El ejemplo de miniatura anterior se creó con la siguiente configuración básica de JSON:
 
@@ -45,7 +45,7 @@ Al crear una tarea de miniatura de vídeo con **Miniaturas de vídeo multimedia 
 
 En este momento puede modificar los siguientes parámetros:
 
-Parámetro|Descripción
+Parámetro|Description
 ---|---
 outputAudio|Especifica si el vídeo resultante contiene audio o no. <br/>Los valores permitidos son: True o False. El valor predeterminado es True.
 fadeInFadeOut|Especifica si se usan transiciones de fundido entre las distintas miniaturas de movimiento. <br/>Los valores permitidos son: True o False. El valor predeterminado es True.
@@ -273,4 +273,4 @@ El programa siguiente muestra cómo:
 
 [Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

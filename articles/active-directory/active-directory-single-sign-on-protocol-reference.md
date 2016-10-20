@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/28/2016"
 	ms.author="priyamo"/>
 
 # Protocolo SAML de inicio de sesión único
 
-En este artículo, obtendrá información sobre las solicitudes y las respuestas de autenticación SAML 2.0 de Azure Active Directory (Azure AD) compatibles con el inicio de sesión único.
+Este artículo se centra en las solicitudes y las respuestas de autenticación SAML 2.0 de Azure Active Directory (Azure AD) compatibles con el inicio de sesión único.
 
 En el siguiente diagrama de protocolo se describe la secuencia de inicio de sesión único. El servicio en la nube (proveedor de servicios) utiliza un enlace de redirección HTTP para pasar un elemento `AuthnRequest` (solicitud de autenticación) a Azure AD (el proveedor de identidades). Después, Azure AD utiliza un enlace HTTP POST para registrar un elemento `Response` en el servicio en la nube.
 
@@ -39,7 +39,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 ```
 
 
-| Parámetro | | Descripción |
+| Parámetro | | Description |
 | ----------------------- | ------------------------------- | --------------- |
 | ID | requerido | Azure AD usa este atributo para rellenar el atributo `InResponseTo` de la respuesta devuelta. El id. no debe empezar con un número. La estrategia habitual consiste en anteponer una cadena como "id" en la representación de cadena de un GUID. Por ejemplo, `id6c1c178c166d486687be4aaf5e482730` es un id. válido. |
 | Versión | requerido | Debe ser **2.0**.|
@@ -98,7 +98,7 @@ No incluya un elemento `Signature` en los elementos `AuthnRequest`, ya que Azure
 
 Azure AD omite el elemento `Subject` de los elementos `AuthnRequest`.
 
-## Respuesta
+## Response
 
 Cuando un proceso de inicio de sesión solicitado se completa correctamente, Azure AD envía una respuesta al servicio en la nube. Una respuesta de ejemplo a un intento de inicio de sesión correcto tiene este aspecto:
 
@@ -145,7 +145,7 @@ Cuando un proceso de inicio de sesión solicitado se completa correctamente, Azu
 </samlp:Response>
 ```
 
-### Respuesta
+### Response
 
 El elemento `Response` incluye el resultado de la solicitud de autorización. Azure AD configura los valores `ID`, `Version` y `IssueInstant` en el elemento `Response`. También establece los siguientes atributos:
 
@@ -160,22 +160,6 @@ Por ejemplo, una respuesta de ejemplo con el elemento Issuer podría ser similar
 
 ```
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
-```
-
-### Firma
-
-Azure AD firma el elemento `Response` tras iniciar sesión correctamente. El elemento `Signature` contiene una firma digital que la aplicación puede utilizar para autenticar el origen con el fin de comprobar la integridad de la respuesta.
-
-Azure AD usa la clave de firma especificada en el elemento `IDPSSODescriptor` de su documento de metadatos. Para más información, consulte [Documento de metadatos de federación](active-directory-federation-metadata.md).
-
-Azure AD también firma el elemento `Assertion`, pero los dos elementos de firma son independientes.
-
-Un elemento `Signature` de ejemplo de la respuesta podría tener este aspecto:
-
-```
-<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-    ...
-  </ds:Signature>
 ```
 
 ### Estado
@@ -205,7 +189,7 @@ Además de `ID`, `IssueInstant` y `Version`, Azure AD establece los elementos si
 
 #### Emisor
 
-Se establece en `https://sts.windows.net/<TenantIDGUID>/`donde <TenantIDGUID> es el id. de inquilino del inquilino de Azure AD.
+Se establece en `https://sts.windows.net/<TenantIDGUID>/`, donde <TenantIDGUID> es el identificador de inquilino del inquilino de Azure AD.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
@@ -301,4 +285,4 @@ Este elemento declara que se autenticó el firmante de la aserción por un medio
 </AuthnStatement>
 ```
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

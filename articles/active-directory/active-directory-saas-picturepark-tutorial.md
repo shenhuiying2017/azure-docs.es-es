@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Picturepark
@@ -110,7 +110,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     6.  Haga clic en **JoinDefaultUsersGroup**.
     7.  Para establecer el atributo **Emailaddress** en el cuadro de texto **Notificación**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. ![Configuración](./media/active-directory-saas-picturepark-tutorial/IC795065.png "Configuración")
-    8.  Haga clic en **Guardar**.
+    8.  Haga clic en **Save**.
 
 9.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
@@ -120,7 +120,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
   
 Para permitir que los usuarios de Azure AD inicien sesión en Picturepark, deben aprovisionarse en Picturepark. En el caso de Picturepark, el aprovisionamiento es una tarea manual.
 
-###Para aprovisionar cuentas de usuario, realice los siguientes pasos:
+###Para aprovisionar cuentas de usuario, realice estos pasos:
 
 1.  Inicie sesión en su inquilino de **Picturepark**.
 
@@ -160,4 +160,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

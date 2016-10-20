@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2016"
+   ms.date="09/21/2016"
    ms.author="terrylan"/>
 
 # Preguntas más frecuentes sobre el Centro de seguridad de Azure
@@ -43,7 +43,7 @@ Security Center recopila datos de las máquinas virtuales para evaluar su estado
 
 ### ¿Cómo se puede deshabilitar la recolección de datos?
 
-Puede deshabilitar la **recopilación de datos** de una suscripción en la directiva de seguridad en cualquier momento. ([Inicie sesión en el Portal de Azure](https://portal.azure.com), seleccione **Examinar**, **Security Center** y, luego, **Directiva**). Cuando se selecciona una suscripción, se abre una hoja nueva que le brinda la opción de deshabilitar la **colección de datos**. Seleccione la opción **Eliminar agentes** en la barra de herramientas superior para quitar los agentes de las máquinas virtuales existentes.
+Puede deshabilitar la **recopilación de datos** de una suscripción en la directiva de seguridad en cualquier momento. ([Inicie sesión en el Portal de Azure](https://portal.azure.com), seleccione **Examinar**, **Security Center** y, luego, **Directiva**.) Cuando se selecciona una suscripción, se abre una hoja nueva que le brinda la opción de deshabilitar la **colección de datos**. Seleccione la opción **Eliminar agentes** en la barra de herramientas superior para quitar los agentes de las máquinas virtuales existentes.
 
 > [AZURE.NOTE] Las directivas de seguridad se pueden establecer en el nivel de suscripción y el nivel de grupo de recursos de Azure, pero tiene que seleccionar una suscripción para desactivar la recolección de datos.
 
@@ -121,10 +121,10 @@ Si necesita:
 ### ¿Qué recursos de Azure supervisa Azure Security Center?
 Azure Security Center supervisa los siguientes recursos de Azure:
 
-- Máquinas virtuales (incluidos los servicios en la nube)
+- Máquinas virtuales (se incluyen [Cloud Services](../cloud-services/cloud-services-choose-me.md))
 - Redes virtuales de Azure
 - Servicio de SQL Azure
-- Soluciones de asociados integradas con su suscripción de Azure, como un firewall de aplicaciones web
+- Soluciones de asociados integradas en su suscripción de Azure, como un firewall de aplicaciones web en las máquinas virtuales y en [App Service Environment](../app-service/app-service-app-service-environments-readme.md)
 
 ## Máquinas virtuales
 
@@ -159,4 +159,4 @@ Los datos de detección pueden tardar algún tiempo (normalmente, menos de una h
 
 El agente de máquina virtual debe instalarse en máquinas virtuales para habilitar la recopilación de datos. De manera predeterminada, el agente de máquina virtual está instalado en las máquinas virtuales que se implementan desde Azure Marketplace. La entrada de blog sobre [las extensiones y el agente de máquina virtual](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/) proporciona información sobre cómo instalar el Agente de máquina virtual.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

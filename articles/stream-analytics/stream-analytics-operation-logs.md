@@ -14,14 +14,14 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jeffstok"/>
 
 # Depuración de los trabajos de Análisis de transmisiones mediante registros de operaciones y servicios
 
 Todos los servicios de Azure ofrecen mensajes de registro operativo a los usuarios para registrar los detalles relacionados con las operaciones de administración. En el Análisis de transmisiones de Azure, esta información se puede usar para depuración, como ver el estado del trabajo, el progreso del trabajo y los mensajes de error para realizar el seguimiento del progreso de un trabajo con el tiempo, desde el inicio hasta el procesamiento y la salida.
 
-## Encontrar registros de operaciones en el Portal de administración de Azure.
+## Búsqueda de registros de operaciones en el Portal de administración de Azure
 
 A los registros de operaciones se puede acceder de dos maneras:
 
@@ -36,22 +36,22 @@ Se muestra un vínculo a los registros correspondientes de un trabajo del Análi
 
 ## Servicios de administración
 
-Para navegar de forma manual a los registros de operación para el Análisis de transmisiones y otros servicios en el Portal de Azure clásico:
+Para navegar de forma manual a los registros de operación para Stream Analytics y otros servicios en el Portal de Azure clásico:
 
 1.	Haga clic en **Servicios de administración** en el [Portal de Azure clásico](https://manage.windowsazure.com).
 2.	Seleccione **Análisis de transmisiones** para **Tipo** y el nombre del trabajo para **Nombre de servicio**.
 
   ![Seleccionar el Análisis de transmisiones](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)
 
-## Búsqueda de registros de auditoría en el Portal de Azure ##
+## Búsqueda de registros de auditoría en Azure Portal ##
 
-Para encontrar registros operativos para el trabajo de Análisis de transmisiones en el Portal de Azure, haga clic en **Examinar** y después seleccione **Registros de auditoría**.
+Para encontrar registros operativos para el trabajo de Stream Analytics en Azure Portal, haga clic en **Examinar** y después seleccione **Registros de auditoría**.
 
-  ![Seleccionar Análisis de transmisiones en el Portal de Azure](./media/stream-analytics-operation-logs/06-stream-analytics-operation-logs.png)
+  ![Selección de Stream Analytics en Azure Portal](./media/stream-analytics-operation-logs/06-stream-analytics-operation-logs.png)
 
 Se abrirá una hoja que muestra los eventos de los últimos 7 días para todos los recursos de su suscripción. Puede filtrar para ver eventos de un tipo específico o un intervalo de tiempo haciendo clic en el comando **Filtro**.
 
-  ![Seleccionar Análisis de transmisiones en el Portal de Azure](./media/stream-analytics-operation-logs/07-stream-analytics-operation-logs.png)
+  ![Selección de Stream Analytics en Azure Portal](./media/stream-analytics-operation-logs/07-stream-analytics-operation-logs.png)
 
 ## Obtención de detalles de registro
 
@@ -61,13 +61,13 @@ En el Portal de administración de Azure, haga clic en el botón **Detalles** si
 
   ![Seleccionar detalles](./media/stream-analytics-operation-logs/03-stream-analytics-operation-logs.png)
 
-En el Portal de Azure, haga clic en una entrada del registro para ver los eventos detallados dentro de él.
+En Azure Portal, haga clic en una entrada del registro para ver los eventos detallados dentro.
 
-  ![Seleccionar detalles en el Portal de Azure](./media/stream-analytics-operation-logs/08-stream-analytics-operation-logs.png)
+  ![Selección de detalles en Azure Portal](./media/stream-analytics-operation-logs/08-stream-analytics-operation-logs.png)
 
 Desde allí, puede abrir la hoja **Detalle** haciendo clic en el evento.
 
-  ![Seleccionar detalles en el Portal de Azure](./media/stream-analytics-operation-logs/09-stream-analytics-operation-logs.png)
+  ![Selección de detalles en Azure Portal](./media/stream-analytics-operation-logs/09-stream-analytics-operation-logs.png)
 
 ## Depuración de un trabajo con error
 
@@ -75,9 +75,9 @@ En el Portal de administración de Azure, haga clic en el icono Buscar y escriba
 
   ![Depuración de un trabajo con error](./media/stream-analytics-operation-logs/04-stream-analytics-operation-logs.png)
 
-En el Portal de Azure, puede filtrar por nivel de mensaje para ver eventos de tipo **Crítico**.
+En Azure Portal, puede filtrar por nivel de mensaje para ver eventos de tipo **Crítico**.
 
-  ![Depuración en el Portal de Azure](./media/stream-analytics-operation-logs/10-stream-analytics-operation-logs.png)
+  ![Depuración en Azure Portal](./media/stream-analytics-operation-logs/10-stream-analytics-operation-logs.png)
 
 Puede seleccionar cualquiera de los errores y hacer clic en **Detalles** para obtener más información sobre el error. Algunos mensajes de error también ofrecen información acerca de cómo mitigar el problema.
 
@@ -96,4 +96,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

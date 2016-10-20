@@ -19,12 +19,13 @@
 # Tutorial: Crear una canalización con la actividad de copia mediante Azure Portal
 > [AZURE.SELECTOR]
 - [Introducción y requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
 - [Portal de Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [API DE REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [API de .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
+
 
 
 Este tutorial muestra cómo crear y supervisar una factoría de datos de Azure mediante Azure Portal. La canalización de la factoría de datos utiliza una actividad de copia para copiar datos desde Almacenamiento de blobs de Azure a Base de datos SQL de Azure.
@@ -390,4 +391,4 @@ En este tutorial, ha creado una factoría de datos de Azure para copiar datos de
 | [Conjuntos de datos](data-factory-create-datasets.md) | Este artículo le ayuda a comprender los conjuntos de datos de Data Factory de Azure.
 | [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) | En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. 
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

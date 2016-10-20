@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/22/2016"
+	ms.date="09/30/2016"
 	ms.author="curtand"/>
 
 # Incorporación de la personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso
@@ -86,14 +86,33 @@ Puede personalizar los siguientes elementos de la página de inicio de sesión:
 
 ![][5]
 
- Elemento de la página | Ubicación en la página
-	------------- | -------------
-Logotipo del banner | Se muestra en la parte superior derecha de la página. Reemplaza el logotipo mostrado por el sitio de destino en el que está iniciando sesión (por ejemplo, Office 365 o Azure).
-Ilustración grande / Color de fondo | Se muestra a la izquierda de la página. Reemplaza la imagen mostrada por el sitio de destino en el que está iniciando sesión. En conexiones con un ancho de banda bajo o en pantallas estrechas, puede aparecer el color de fondo en lugar de la ilustración grande.
-Texto de la página de inicio de sesión | Se muestra encima del pie de página cuando necesita ofrecer información útil antes de que inicien sesión con su cuenta profesional o educativa. Por ejemplo, es posible que desee incluir el número de teléfono de soporte técnico o una declaración legal.
+
+
+| Elemento de la página | Ubicación en la página |
+|:--            | ---                  |
+|Logotipo del banner | Se muestra en la parte superior derecha de la página. Reemplaza el logotipo mostrado por el sitio de destino en el que está iniciando sesión (por ejemplo, Office 365 o Azure).|
+|Ilustración grande / Color de fondo | Se muestra a la izquierda de la página. Reemplaza la imagen mostrada por el sitio de destino en el que está iniciando sesión. En conexiones con un ancho de banda bajo o en pantallas estrechas, puede aparecer el color de fondo en lugar de la ilustración grande.|
+|Mantener la sesión iniciada | Se muestra en el cuadro de texto Contraseña. |
+|Texto de la página de inicio de sesión | Se muestra encima del pie de página cuando necesita ofrecer información útil antes de que inicien sesión con su cuenta profesional o educativa. Por ejemplo, es posible que desee incluir el número de teléfono de soporte técnico o una declaración legal.|
+
 
 > [AZURE.NOTE]
 Todos los elementos son opcionales. Por ejemplo, si especifica un logotipo del banner pero no una ilustración grande, la página de inicio de sesión muestra su logotipo y la ilustración del sitio de destino (es decir, la imagen de la autopista de California de Office 365).
+
+
+En la página de inicio de sesión, la casilla **Mantener la sesión iniciada** permite a un usuario continuar con la sesión iniciada si cierra y vuelva a abrir el explorador. No afecta a la duración de la sesión. Puede ocultar la casilla en la página de inicio de sesión de Azure Active Directory.
+
+Puede decidir si se muestra la casilla o no mediante la configuración de **Ocultar KMSI**.
+
+![][9]
+
+
+Para ocultar la casilla, utilice la opción **Oculto**.
+
+> [AZURE.NOTE] Algunas características de SharePoint Online y Office 2010 dependen de que los usuarios puedan activar esta casilla. Si configura esta opción en oculto, es posible que los usuarios reciban solicitudes adicionales e inesperadas de inicio de sesión.
+
+
+
 
 También puede localizar todos los elementos de esta página. Una vez que haya configurado un conjunto de elementos de personalización "predeterminado", puede configurar más versiones para las diferentes configuraciones regionales. También puede mezclar y hacer coincidir varios elementos. Por ejemplo, puede:
 
@@ -218,5 +237,6 @@ Color de fondo de la página de inicio de sesión | El color de fondo de la pág
 [6]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
+[9]: ./media/active-directory-add-company-branding/hidekmsi.png
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -52,7 +52,7 @@ Antes de ejecutar este ejemplo, debe haber completado los pasos de [Introducció
 
 ### Inicio del ejemplo
 
-Para iniciar el ejemplo, es preciso que ejecute el proceso **DeviceTwin.exe**. Así se leen las propiedades del dispositivo tanto del dispositivo gemelo como del dispositivo físico. También cambia una propiedad del dispositivo en el dispositivo físico. Para iniciar el ejemplo, siga los pasos que se indican a continuación:
+Para iniciar el ejemplo, es preciso que ejecute el proceso **DeviceTwin.exe**. Así se leen las propiedades del dispositivo tanto del dispositivo gemelo como del dispositivo físico. También cambia una propiedad del dispositivo en el dispositivo físico. Siga estos pasos para iniciar el ejemplo:
 
 1.  Desde la carpeta raíz donde clonó el repositorio **azure-iot-sdks**, vaya a la carpeta **azure-iot-sdks\\csharp\\service\\samples\\bin**.
 
@@ -104,7 +104,7 @@ El trabajo envía un mensaje al dispositivo físico para actualizar la propiedad
 JobResponse jobResponse = await deviceJobClient.ScheduleDevicePropertyWriteAsync(Guid.NewGuid().ToString(), deviceId, propertyToSet, setValue); TODO
 ```
 
-### Detalles de la implementación del simulador de dispositivos
+### Detalles de implementación del simulador de dispositivo
 
 Vamos a investigar lo que hay que hacer en el lado del dispositivo para implementar el patrón de observación y notificación, y las lecturas y escrituras profundas.
 
@@ -157,4 +157,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

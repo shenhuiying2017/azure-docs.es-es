@@ -158,7 +158,7 @@ Al contrario que en la máquina virtual del servidor de aplicaciones, se conecta
 SAP Hana requiere configuraciones específicas para el kernel de Linux que no forman parte de las imágenes estándar de la galería de Azure y que tienen que establecerse manualmente. Existe una nota de SAP concreta donde se describen estas configuraciones.
 
 
-Nota de SAP sobre SAP Hana DB: configuración de sistema operativo recomendada para SLES 12/SLES for SAP Applications 12: [Nota de SAP 2205917](https://launchpad.support.sap.com/#/notes/2205917)
+Nota de SAP sobre SAP HANA DB: configuración de sistema operativo recomendada para SLES 12/SLES for SAP Applications 12: [Nota de SAP 2205917](https://launchpad.support.sap.com/#/notes/2205917)
 
 Puede encontrar otro tema sobre el almacenamiento en caché de páginas en relación con la ejecución de SAP Hana en SLES [aquí](https://www.suse.com/documentation/sles_for_sap/singlehtml/sles_for_sap_guide/sles_for_sap_guide.html#sec.s4s.configure.page-cache) en el capítulo 6.1, que trata sobre el límite de caché de páginas en el kernel.
 
@@ -306,7 +306,7 @@ Para el entorno de prueba, solo se instaló un servidor de aplicaciones ABAP. Se
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image016.jpg)
 
-Una vez que la instancia de ASCS esté instalada en la máquina virtual del servidor de aplicaciones y se haya establecido en "verde" en la consola de administración de SAP, el directorio sapmnt, que incluye, por ejemplo, el directorio de perfiles de SAP, debe compartirse con la máquina virtual del servidor de SAP Hana DB. El paso de instalación de la base de datos necesita acceso a esta información. La mejor manera es utilizar NFS, que se puede configurar mediante Yast.
+Una vez que la instancia de ASCS esté instalada en la máquina virtual del servidor de aplicaciones y se haya establecido en "verde" en la consola de administración de SAP, el directorio sapmnt, que incluye, por ejemplo, el directorio de perfiles de SAP, debe compartirse con la máquina virtual del servidor de base de datos de SAP HANA. El paso de instalación de la base de datos necesita acceso a esta información. La mejor manera es utilizar NFS, que se puede configurar mediante Yast.
 
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image017b.jpg)
@@ -484,4 +484,4 @@ Y finalmente, después de la instalación del servidor de aplicaciones SAP y SAP
 
 * Descargue Hana SP12 Platform Edition desde SAP Service Marketplace: ![](./media/virtual-machines-linux-sap-hana-get-started/image002.jpg)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

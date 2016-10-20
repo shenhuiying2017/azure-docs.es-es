@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="09/22/2016"
 	ms.author="jahogg;tamram"/>
 
 # Administración de la simultaneidad en Almacenamiento de Microsoft Azure
@@ -25,7 +25,7 @@ Las aplicaciones modernas basadas en Internet, normalmente tienen varios usuario
 
 1.	Simultaneidad optimista: una aplicación que realiza una actualización comprobará, como parte de dicha actualización, si los datos han cambiado desde que la aplicación leyera por última vez esos datos. Por ejemplo, si dos usuarios que ven una página wiki realizan una actualización en la misma página, entonces la plataforma wiki debe asegurarse de que la segunda actualización no sobrescribe la primera y que ambos usuarios comprenden si sus actualizaciones se realizaron correctamente o no. Esta estrategia se usa con más frecuencia en aplicaciones web.
 2.	Simultaneidad pesimista: una aplicación que pretende realizar una actualización realizará un bloqueo en un objeto evitando que otros usuarios actualicen los datos hasta que el bloqueo se libere. Por ejemplo, en un escenario de replicación de datos maestro/esclavo, donde solamente el maestro realiza actualizaciones, el maestro normalmente mantendrá un bloqueo exclusivo durante un período de tiempo extendido en los datos para garantizar que ninguna otra persona puede actualizarlos.
-3.	El último en escribir gana: enfoque que permite que cualquier operación de actualización se lleve a cabo sin comprobar si ninguna otra aplicación ha actualizado los datos desde la primera vez que la aplicación leyó los datos. Esta estrategia (o ausencia de una estrategia formal) normalmente se usa donde los datos están particionados de tal forma que no existe probabilidad de que varios usuarios obtengan acceso a los mismos datos. También puede resultar útil donde se procesen transmisiones de datos de corta duración.
+3.	El último en escribir gana: enfoque que permite que cualquier operación de actualización se lleve a cabo sin comprobar si ninguna otra aplicación ha actualizado los datos desde la primera vez que la aplicación leyó los datos. Esta estrategia (o ausencia de una estrategia formal) normalmente se usa donde los datos están particionados de tal forma que no existe probabilidad de que varios usuarios obtengan acceso a los mismos datos. También puede resultar útil donde se procesen transmisiones de datos de corta duración.  
 
 Este artículo proporciona información general de cómo la plataforma Almacenamiento de Azure simplifica el desarrollo proporcionando soporte de primera clase para estas tres estrategias de simultaneidad.
 
@@ -47,7 +47,7 @@ El esquema de este proceso es el siguiente:
 2.	Cuando actualice el blob, incluya el valor ETag recibido en el paso 1 en el encabezado condicional **If-Match** de la solicitud que envía al servicio.
 3.	El servicio compara el valor ETag de la solicitud con el valor ETag actual del blob.
 4.	Si el valor ETag actual del blob es una versión diferente de ETag del encabezado condicional **If-Match** de la solicitud, el servicio devuelve un error 412 al cliente. Esto indica al cliente que otro proceso ha actualizado el blob desde que el cliente lo recuperó.
-5.	Si el valor ETag actual del blob es la misma versión que el valor ETag del encabezado condicional **If-Match** de la solicitud, el servicio realiza la operación solicitada y actualiza el valor ETag actual del blob para mostrar que ha creado una nueva versión.
+5.	Si el valor ETag actual del blob es la misma versión que el valor ETag del encabezado condicional **If-Match** de la solicitud, el servicio realiza la operación solicitada y actualiza el valor ETag actual del blob para mostrar que ha creado una nueva versión.  
 
 El siguiente fragmento de código de C# (usando Biblioteca de almacenamiento de cliente 4.2.0) muestra un ejemplo sencillo de cómo construir una **If-Match AccessCondition** basándose en el valor ETag al que se tiene acceso desde las propiedades de un blob que se recuperó o insertó previamente. Luego usa el objeto **AccessCondition** cuando actualiza el blob: el objeto **AccessCondition** agrega el encabezado **If-Match** a la solicitud. Si otro proceso ha actualizado el blob, el servicio BLOB devuelve un mensaje de estado HTTP 412 (Error en la condición previa). Puede descargar aquí el ejemplo completo: [Administración de simultaneidad con Almacenamiento de Azure](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
@@ -176,7 +176,7 @@ Las siguientes operaciones de blob pueden usar concesiones para administrar simu
 -	Snapshot Blob (identificador de concesión opcional si existe una concesión)
 -	Copy Blob (identificador de concesión necesario si existe una concesión en el blob de destino)
 -	Abort Copy Blob (identificador de concesión necesario si existe una concesión infinita en el blob de destino)
--	Lease Blob
+-	Lease Blob  
 
 ### Simultaneidad pesimista para contenedores
 Las concesiones en contenedores permiten las mismas estrategias de sincronización que en blob (escritura exclusiva / lectura compartida, escritura exclusiva / lectura exclusiva y escritura compartida / lectura exclusiva). Sin embargo, a diferencia de los blobs, el servicio Almacenamiento solamente impone exclusividad en operaciones de eliminación. Para eliminar un contenedor con una concesión activa, un cliente debe incluir el identificador de concesión activo con la solicitud de eliminación. El resto de operaciones de contenedor se realizan correctamente en un contenedor concedido sin incluir el identificador de concesión, en cuyo caso son operaciones compartidas. Si la exclusividad de la actualización (poner o establecer) o las operaciones de lectura son obligatorias, entonces los desarrolladores deben garantizar que todos los clientes usan un identificador de concesión y que solamente un cliente tiene un identificador de concesión válido en cada momento.
@@ -189,7 +189,7 @@ Las siguientes operaciones de contenedor pueden usar concesiones para administra
 -	Set Container Metadata
 -	Get Container ACL
 -	Set Container ACL
--	Lease Container
+-	Lease Container  
 
 Para obtener más información, consulte:
 
@@ -229,7 +229,7 @@ El siguiente fragmento de código C# muestra una entidad customer que se creó o
 
 Para deshabilitar explícitamente la comprobación de simultaneidad, debe establecer la propiedad **ETag** del objeto **employee** en “*” antes de ejecutar la operación de reemplazo.
 
-	customer.ETag = "*";  
+customer.ETag = "*";
 
 En la siguiente tabla se resume cómo las operaciones de entidad de tabla usan valores ETag:
 
@@ -249,7 +249,7 @@ En general, los desarrolladores que usan tablas deben basarse en simultaneidad o
 
 Para obtener más información, consulte:
 
-- [Operaciones en entidades](http://msdn.microsoft.com/library/azure/dd179375.aspx)
+- [Operaciones en entidades](http://msdn.microsoft.com/library/azure/dd179375.aspx)  
 
 ## Administración de simultaneidad en el servicio Cola
 Un escenario en el que la simultaneidad es una preocupación en el servicio de colas es donde varios clientes recuperan mensajes de una cola. Cuando un mensaje se recupera de la cola, la respuesta incluye el mensaje y un valor de recepción de confirmación, que es necesario para eliminar dicho mensaje. El mensaje no se elimina automáticamente de la cola, pero después de haberse recuperado, no se muestra a otros clientes durante el intervalo de tiempo especificado por el parámetro visibilitytimeout. Se espera que el cliente que recupera el mensaje lo elimine una vez procesado y antes de que se cumpla el tiempo especificado por el elemento TimeNextVisible de la respuesta, que se calcula en función del valor del parámetro visibilitytimeout. El valor de visibilitytimeout se agrega al tiempo en el que el mensaje se recupera para determinar el valor de TimeNextVisible.
@@ -259,7 +259,7 @@ El servicio Cola no admite simultaneidad optimista o pesimista y, por esta razó
 Para obtener más información, consulte:
 
 - [API de REST del servicio Cola](http://msdn.microsoft.com/library/azure/dd179363.aspx)
-- [Get Messages](http://msdn.microsoft.com/library/azure/dd179474.aspx)
+- [Get Messages](http://msdn.microsoft.com/library/azure/dd179474.aspx)  
 
 ## Administración de simultaneidad en el servicio Archivo
 Se puede acceder al servicio Archivo utilizando dos extremos de protocolo diferentes: SMB y REST. El servicio REST no admite bloqueo optimista o bloqueo pesimista y todas las actualizaciones seguirán una estrategia de tipo El último en escribir gana. Los clientes SMB que montan recursos compartidos de archivo pueden aprovechar mecanismos de bloqueo del sistema de archivos para administrar el acceso a archivos compartidos, incluida la capacidad de realizar bloqueo pesimista. Cuando un cliente SMB abre un archivo, especifica tanto el acceso al archivo como el modo de uso compartido. El establecimiento de una opción Acceso de archivo en "Escritura" o "Lectura/Escritura" junto con un modo Uso compartido de archivos de "Ninguno" provocará el bloqueo del archivo por parte de un cliente hasta que el archivo se cierre. Si se intenta realizar la operación REST en un archivo donde un cliente SMB tiene el archivo bloqueado, el servicio REST devolverá el código de estado 409 (Conflicto) con el código de error SharingViolation.
@@ -268,14 +268,14 @@ Cuando un cliente SMB abre un archivo para eliminarlo, lo marca como eliminació
 
 Para obtener más información, consulte:
 
-- [Administración de bloqueos de archivo](http://msdn.microsoft.com/library/azure/dn194265.aspx)
+- [Administración de bloqueos de archivo](http://msdn.microsoft.com/library/azure/dn194265.aspx)  
 
 ## Resumen y pasos siguientes
 El servicio Almacenamiento de Microsoft Azure se ha diseñado para satisfacer las necesidades de las aplicaciones en línea más complejas sin necesidad de que los desarrolladores comprometan o se replanteen sus asunciones de diseño clave, como simultaneidad y coherencia de datos, que han llegado a dar por sentado.
 
 Aquí podrá obtener la aplicación de ejemplo completa a la que se hace referencia en este blog:
 
-- [Administración de simultaneidad con Almacenamiento de Azure: aplicación de ejemplo](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
+- [Administración de simultaneidad con Almacenamiento de Azure: aplicación de ejemplo](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
 
 Para obtener más información acerca de Almacenamiento de Azure, consulte:
 
@@ -284,4 +284,4 @@ Para obtener más información acerca de Almacenamiento de Azure, consulte:
 - Introducción al almacenamiento para [Blob](storage-dotnet-how-to-use-blobs.md), [Table](storage-dotnet-how-to-use-tables.md), [Queues](storage-dotnet-how-to-use-queues.md) y [Files](storage-dotnet-how-to-use-files.md)
 - Arquitectura de almacenamiento – [Almacenamiento de Azure: un servicio de almacenamiento en la nube altamente disponible con coherencia fuerte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

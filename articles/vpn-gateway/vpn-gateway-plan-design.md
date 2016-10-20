@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2016"
+   ms.date="09/21/2016"
    ms.author="cherylmc"/>
 
 # Planeamiento y diseño de puerta de enlace de VPN
@@ -46,20 +46,13 @@ La tabla siguiente puede ayudarle a decidir la mejor opción de conectividad par
 
 ### <a name="gwrequire"></a>Requisitos de puerta de enlace por tipo de VPN y SKU
 
+[AZURE.INCLUDE [vpn-gateway-gwsku](../../includes/vpn-gateway-gwsku-include.md)]
 
-Cuando se crea una instancia de Puerta de enlace de VPN, debe especificar la SKU de puerta de enlace que desea usar. Hay tres SKU de puerta de enlace de VPN:
-
-- Básica
-- Estándar
-- Alto rendimiento
+Para más información acerca de las SKU de puerta de enlace, consulte [Configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 [AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
-
-
-### <a name="aggthroughput"></a>Tipos de puerta de enlace y estimaciones de rendimiento agregado
-
-En la tabla siguiente se muestran los tipos de puerta de enlace y el rendimiento agregado estimado. El rendimiento agregado estimado puede ser un factor decisivo en el diseño. Los precios difieren entre las SKU de puerta de enlace. Para obtener información acerca de los precios, consulte [Precios de puertas de enlace de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/). Esta tabla se aplica a los modelos de implementación del Administrador de recursos y clásico.
+<br> En la tabla siguiente se muestran los tipos de puerta de enlace y el rendimiento agregado estimado. El rendimiento agregado estimado puede ser un factor decisivo en el diseño. Los precios difieren entre las SKU de puerta de enlace. Para obtener información acerca de los precios, consulte [Precios de puertas de enlace de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/). Esta tabla se aplica a los modelos de implementación del Administrador de recursos y clásico.
 
 [AZURE.INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -161,4 +154,4 @@ Consulte los artículos [Preguntas más frecuentes sobre la puerta de enlace de 
 
 Para obtener más información acerca de la configuración de puerta de enlace específica, vea [Acerca de la configuración de puerta de enlace de VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

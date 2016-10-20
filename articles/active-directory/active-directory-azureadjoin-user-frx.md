@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configuración de un dispositivo nuevo con Azure AD durante la configuración | Microsoft Azure"
-	description="Un tema que explica cómo los usuarios pueden configurar Azure AD Join durante la Primera vista de Windows."
+	description="Un tema que explica cómo los usuarios pueden configurar Azure AD Join durante su configuración rápida."
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Configuración de un dispositivo nuevo con Azure AD durante la configuración
@@ -52,4 +52,4 @@ En Windows 10, los usuarios pueden unir sus dispositivos a Azure Active Director
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

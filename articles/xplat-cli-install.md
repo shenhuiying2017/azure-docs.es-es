@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="09/22/2016"
 	ms.author="danlep"/>
     
 # Instalación de la CLI de Azure
@@ -23,11 +23,11 @@
 - [PowerShell](powershell-install-configure.md)
 - [CLI de Azure](xplat-cli-install.md)
 
-Instale rápidamente la interfaz de la línea de comandos de Azure (CLI de Azure) para utilizar un conjunto de comandos de código abierto basados en shell para crear y administrar recursos en Microsoft Azure. Hay varias opciones para instalar la versión más reciente:
+Instale rápidamente la interfaz de la línea de comandos de Azure (CLI de Azure) para utilizar un conjunto de comandos de código abierto basados en shell para crear y administrar recursos en Microsoft Azure. Tiene varias opciones para instalar estas herramientas multiplataforma en su equipo:
 
-* Instalar a partir de un paquete de npm (requiere Node.js y npm)
-* Utilizar uno de los paquetes del instalador proporcionado para distintos sistemas operativos
-* Instalar la CLI de Azure como un contenedor en un host de Docker
+* **Paquete de npm**: ejecute npm (el administrador de paquetes para JavaScript) para instalar el paquete de la CLI de Azure más reciente en su distribución de Linux o sistema operativo. Se requiere que node.js y npm estén instalados en su equipo.
+* **Instalador**: descargue un instalador para facilitar la instalación en Mac o Windows.
+* **Contenedor de Docker**: empiece usando la CLI más reciente en un contenedor de Docker listos para ejecutarse. Se requiere el host de Docker en su equipo.
     
 Si desea obtener más opciones y los antecedentes, consulte el repositorio del proyecto en [GitHub](https://github.com/azure/azure-xplat-cli).
 
@@ -37,33 +37,35 @@ Una vez que instale la CLI de Azure, [conéctela con su suscripción a Azure](xp
 
 ## Opción 1. Instalación de un paquete de NPM
 
-Para instalar la CLI desde un paquete de npm, necesita la versión más reciente de Node.js y npm instalada en su sistema. Tras ello, ejecute el comando siguiente para instalar el paquete del CLI de Azure: (En distribuciones de Linux, es posible que tenga que usar **sudo** para ejecutar correctamente el comando __npm__).
+Para instalar la CLI desde un paquete de npm, necesita la versión más reciente de Node.js y npm instalada en su sistema. Tras ello, ejecute el comando siguiente para instalar el paquete de la CLI de Azure publicado en [npmjs.com](https://www.npmjs.com). (En distribuciones de Linux, es posible que tenga que usar **sudo** para ejecutar correctamente el comando __npm__).
 
-	npm install azure-cli -g
+	npm install -g azure-cli
 
-> [AZURE.NOTE]Si necesita instalar o actualizar Node.js y npm para su sistema operativo, consulte la documentación en [Nodejs.org](https://nodejs.org/en/download/package-manager/). Se recomienda que instale la versión más reciente de Node.js LTS (4.x). Si utiliza una versión anterior, podrían producirse errores de instalación. Para obtener más información sobre npm, visite [npmjs.com](https://www.npmjs.com/).
+> [AZURE.NOTE]Si necesita instalar o actualizar Node.js y npm para su sistema operativo o distribución de Linux, consulte la documentación en [Nodejs.org](https://nodejs.org/en/download/package-manager/). Se recomienda que instale la versión más reciente de Node.js LTS (4.x). Si utiliza una versión anterior, podrían producirse errores de instalación.
+
+Si lo prefiere, descargue el [archivo .tar][linux-installer] de Linux más reciente para el paquete de npm localmente. Después, instale el paquete de npm descargado de la siguiente manera (en las distribuciones de Linux podría tener que usar **sudo**):
+
+    npm install -g <path to downloaded tar file>
 
 ## Opción 2. Uso de un instalador
 
-También pueden descargarse los siguientes paquetes del instalador de la CLI:
-
+Si utiliza un equipo Mac o Windows, los instaladores de la CLI siguientes están disponibles para descargarse:
 
 * [Instalador de Mac OS X][mac-installer]
 
-* [Windows installer][windows-installer]
+* [MSI de Windows][windows-installer]
 
-* [Archivo tar de Linux][linux-installer] \(requiere Node.js y npm): se instala ejecutando `sudo npm install -g <path to downloaded tar file>`
+>[AZURE.TIP]En Windows, también puede descargar el [Instalador de plataforma web](https://go.microsoft.com/?linkid=9828653) para instalar la CLI. Este instalador ofrece la opción de instalar otros Azure SDK y herramientas de línea de comandos después de instalar la CLI.
 
 
 ## Opción 3. Uso de un contenedor Docker
 
-Si ha configurado un host de Docker, puede ejecutar la CLI de Azure en un contenedor de Docker. Ejecutar:
+Si ha configurado un host de [Docker](https://docs.docker.com/engine/understanding-docker/), puede ejecutar la CLI de Azure más reciente en un contenedor de Docker. Ejecutar:
 
 ```
 docker run -it microsoft/azure-cli
 ```
 
-Para obtener más información sobre Docker, visite [docker.com](https://docs.docker.com/engine/understanding-docker/).
 
 ## Ejecución de los comandos de la CLI de Azure
 Una vez instalada la CLI de Azure, ejecute el comando **azure** desde su interfaz de usuario de la línea de comandos (Bash, Terminal, símbolo del sistema, etc.). Por ejemplo, si desea ejecutar el comando help, escriba lo siguiente:
@@ -71,7 +73,7 @@ Una vez instalada la CLI de Azure, ejecute el comando **azure** desde su interfa
 ```
 azure help
 ```
-> [AZURE.NOTE]En algunas distribuciones de Linux, puede recibir un error similar al `/usr/bin/env: ‘node’: No such file or directory`. Este error procede de las instalaciones recientes de nodejs que se instala en /usr/bin/nodejs. Para corregirlo, cree un vínculo simbólico a /usr/bin/node, para lo que debe ejecutar este comando:
+> [AZURE.NOTE]En algunas distribuciones de Linux, puede recibir un error similar al `/usr/bin/env: ‘node’: No such file or directory`. Este error procede de las instalaciones recientes de Node.js que se instala en /usr/bin/nodejs. Para corregirlo, cree un vínculo simbólico a /usr/bin/node, para lo que debe ejecutar este comando:
 
 ```
 sudo ln -s /usr/bin/nodejs /usr/bin/node
@@ -85,7 +87,7 @@ azure --version
 
 De este modo, ya está listo. Para obtener acceso a todos los comandos de la CLI para trabajar con sus propios recursos, [conéctese a su suscripción a Azure desde la CLI de Azure](xplat-cli-connect.md).
 
->[AZURE.NOTE] La primera vez que usa la CLI de Azure, ve un mensaje en el que se le pregunta si desea permitir que Microsoft recopile información sobre el uso de la CLI. La participación es voluntaria. Si elige participar, puede dejar de hacerlo cuando desee mediante la ejecución de `azure telemetry --disable`. Para habilitar la participación en cualquier momento, ejecute `azure telemetry --enable`.
+>[AZURE.NOTE] La primera vez que usa la CLI de Azure, ve un mensaje en el que se le pregunta si quiere permitir que Microsoft recopile información. La participación es voluntaria. Si elige participar, puede dejar de hacerlo cuando desee mediante la ejecución de `azure telemetry --disable`. Para habilitar la participación en cualquier momento, ejecute `azure telemetry --enable`.
 
 
 ## Actualización de la CLI
@@ -130,4 +132,4 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 [cliasm]: virtual-machines-command-line-tools.md
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

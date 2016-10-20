@@ -1,7 +1,7 @@
 <properties
    pageTitle="Uso de funciones de Azure para realizar una tarea de limpieza programada | Microsoft Azure"
    description="Utilice Funciones de Azure para crear una función de C# que se ejecuta según un temporizador de eventos."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,18 +15,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="06/05/2016"
+   ms.date="09/26/2016"
    ms.author="glenga"/>
    
 # Uso de funciones de Azure para realizar una tarea de limpieza programada
 
-En este tema se muestra cómo utilizar Funciones de Azure para crear una nueva función de C# que se ejecuta según un temporizador de eventos para limpiar filas de una tabla de base de datos. La función nueva se crea a partir de una plantilla predefinida del portal de Funciones de Azure. Para que este escenario sea posible, también debe establecer una cadena de conexión de base de datos como un valor de configuración del Servicio de aplicaciones en la aplicación de función.
+En este tema se muestra cómo utilizar Azure Functions para crear una nueva función de C# que se ejecuta según un temporizador de eventos para limpiar filas de una tabla de base de datos. La función nueva se crea a partir de una plantilla predefinida del portal de Funciones de Azure. Para que este escenario sea posible, también debe establecer una cadena de conexión de base de datos como un valor de configuración del Servicio de aplicaciones en la aplicación de función.
 
 ## Requisitos previos 
 
 Para poder crear una función, tiene que tener una cuenta de Azure activa. Si aún no tiene una cuenta de Azure, [puede crear una gratuita](https://azure.microsoft.com/free/).
 
-En este tema se describe un comando de Transact-SQL que ejecuta una operación de limpieza masiva en la tabla denominada *TodoItems* en una base de datos SQL. Esta misma tabla TodoItems se crea cuando se completa el [tutorial de inicio rápido de Aplicaciones móviles del Servicio de aplicaciones de Azure](../app-service-mobile/app-service-mobile-ios-get-started.md). También puede usar una base de datos de ejemplo. Si decide utilizar una tabla diferente, deberá modificar el comando.
+En este tema se describe un comando de Transact-SQL que ejecuta una operación de limpieza masiva en la tabla denominada *TodoItems* en SQL Database. Esta misma tabla TodoItems se crea cuando se completa el [tutorial de inicio rápido de Aplicaciones móviles del Servicio de aplicaciones de Azure](../app-service-mobile/app-service-mobile-ios-get-started.md). También puede usar una base de datos de ejemplo. Si decide utilizar una tabla diferente, deberá modificar el comando.
 
 Puede obtener la cadena de conexión que usa un back-end de aplicación móvil en el portal, en **Toda la configuración** > **Configuración de la aplicación** > **Cadenas de conexión** > **Mostrar valores de la cadena de conexión** > **MS\_TableConnectionString**. También puede obtener la cadena de conexión directamente de una base de datos SQL en el portal. en **Toda la configuración** > **Propiedades** > **Mostrar las cadenas de conexión de la base de datos** > **ADO.NET (autenticación de SQL)**.
 
@@ -52,7 +52,7 @@ Ahora, puede agregar el código de función de C# que conecta con la base de dat
 
 ## Creación de una función desencadenada por un temporizador a partir de la plantilla
 
-1. En la aplicación de función, haga clic en **+ New Function** (+ Nueva función) > **TimerTrigger - C#** > **Create** (Crear). Esto crea una función con un nombre predeterminado que se ejecuta en la programación predeterminada de una vez cada minuto. 
+1. En la aplicación de función, haga clic en **+ New Function** (+ Nueva función) > **TimerTrigger - C#** > **Create** (Crear). Esto crea una función con un nombre predeterminado que se ejecuta en la programación predeterminada de una vez cada minuto.
 
 	![Creación de una nueva función desencadenada por un temporizador](./media/functions-create-an-event-processing-function/functions-create-new-timer-trigger.png)
 
@@ -91,12 +91,12 @@ Ahora, puede agregar el código de función de C# que conecta con la base de dat
 
 ##Pasos siguientes
 
-Consulte estos temas para más información sobre Funciones de Azure.
+Consulte estos temas para más información sobre Azure Functions.
 
 + [Referencia para desarrolladores de Funciones de Azure](functions-reference.md) contiene las referencias del programador para codificar funciones y definir desencadenadores y enlaces.
-+ En [Prueba de las funciones de Azure](functions-test-a-function.md) se describen las diversas herramientas y técnicas para probar sus funciones.
-+ En [Escalado de Funciones de Azure](functions-scale.md) se abordan los planes de servicio disponibles con Funciones de Azure, incluido el plan de servicio dinámico, y cómo elegir el plan adecuado.  
++ [Prueba de Azure Functions](functions-test-a-function.md) describe las diversas herramientas y técnicas para probar sus funciones.
++ [How to scale Azure Functions](functions-scale.md) (Cómo escalar Funciones de Azure) aborda los planes de servicio disponibles con Funciones de Azure, incluido el plan de servicio dinámico, y cómo elegir el plan adecuado.
 
 [AZURE.INCLUDE [Nota de introducción](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0928_2016-->

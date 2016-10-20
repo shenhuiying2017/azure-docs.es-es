@@ -4,7 +4,7 @@
 	services="storage"
 	documentationCenter="na"
 	authors="aungoo-msft"
-	manager=""
+	manager="tadb"
 	editor="tysonn"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/20/2016"
-	ms.author="tamram;aungoo"/>
+	ms.author="aungoo;tamram"/>
 
 
 # Copias de seguridad de discos de máquinas virtuales de Azure con instantáneas incrementales
@@ -128,4 +128,4 @@ Obtenga más información sobre cómo crear instantáneas de un blob y planear l
 - [Crear una instantánea de un blob](https://msdn.microsoft.com/library/azure/hh488361.aspx)
 - [Planeación de la infraestructura de copia de seguridad de máquinas virtuales](../backup/backup-azure-vms-introduction.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

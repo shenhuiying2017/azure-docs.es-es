@@ -19,12 +19,13 @@
 # Tutorial: Crear una canalización con la actividad de copia mediante la API de REST
 > [AZURE.SELECTOR]
 - [Introducción y requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
 - [Portal de Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [API DE REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [API de .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
+
 
 Este tutorial muestra cómo crear y supervisar una factoría de datos de Azure mediante la API de REST. La canalización de la factoría de datos utiliza una actividad de copia para copiar datos desde Almacenamiento de blobs de Azure a Base de datos SQL de Azure.
 
@@ -491,4 +492,4 @@ En este tutorial, ha usado una API de REST para crear una factoría de datos de 
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

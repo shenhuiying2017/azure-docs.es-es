@@ -31,7 +31,7 @@ También puede implementar rápidamente una máquina virtual Linux mediante [Azu
 
 ## Comandos rápidos
 
-En el ejemplo siguiente se muestra cómo implementar una máquina virtual CoreOS y asociar su clave de Shell seguro (SSH) (los argumentos pueden ser diferentes).
+En el ejemplo siguiente se muestra cómo implementar una máquina virtual CoreOS y asociar su clave de Shell seguro (SSH) (los argumentos pueden ser diferentes):
 
 ```bash
 azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
@@ -56,15 +56,15 @@ En las siguientes secciones se usa el alias `UbuntuLTS` de la opción **ImageURN
 
 ## Tutorial detallado
 
-En el anterior ejemplo `quick-create` solo se llama a la marca `-M` para identificar la clave pública de SSH que se cargará, al tiempo que se deshabilitan las contraseñas de SSH, por lo que se le solicita:
+En el anterior ejemplo `quick-create` solo se llama a la marca `-M` para identificar la clave pública de SSH que se cargará, al tiempo que se deshabilitan las contraseñas de SSH, por lo que se le solicitan los siguientes argumentos:
 
 - El nombre del grupo de recursos (normalmente cualquier cadena vale para el primer grupo de recursos de Azure).
 - Nombre de la máquina virtual
-- La ubicación (westus o westeurope son valores predeterminados adecuados).
+- Ubicación (`westus` o `westeurope` son valores predeterminados adecuados).
 - Linux (para informar a Azure qué sistema operativo desea).
 - nombre de usuario
 
-A continuación se especifican todos los valores para que no sea necesaria ninguna otra solicitud. Siempre que tenga un archivo de clave pública `~/.ssh/id_rsa.pub` con formato ssh-rsa, funciona tal cual.
+En el ejemplo siguiente se especifican todos los valores para que no sea necesaria ninguna otra solicitud. Siempre que tenga un archivo de clave pública `~/.ssh/id_rsa.pub` con formato ssh-rsa, funciona tal cual:
 
 ```bash
 azure vm quick-create \
@@ -155,13 +155,13 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-Inicie sesión en la máquina virtual con la dirección IP pública indicada en la salida. También puede utilizar el nombre de dominio completo que aparece.
+Inicie sesión en la máquina virtual con la dirección IP pública indicada en la salida. También puede utilizar el nombre de dominio completo (FQDN) que aparece:
 
 ```bash
 ssh -i ~/.ssh/id_rsa.pub exampleAdminUser@138.91.247.29
 ```
 
-El proceso de inicio de sesión debe tener un aspecto similar al siguiente:
+El proceso de inicio de sesión debe tener un aspecto similar al siguiente bloque de salida:
 
 ```bash
 Warning: Permanently added '138.91.247.29' (ECDSA) to the list of known hosts.
@@ -203,6 +203,6 @@ El comando `azure vm quick-create` es una forma rápida de implementar una máqu
 - [Creación de un entorno personalizado para una máquina virtual Linux mediante el uso de comandos de la CLI de Azure directamente](virtual-machines-linux-create-cli-complete.md)
 - [Creación de una máquina virtual Linux protegida con SSH en Azure mediante plantillas](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
-También puede [utilizar el controlador `docker-machine` de Azure con diversos comandos para crear rápidamente una máquina virtual Linux como host de docker](virtual-machines-linux-docker-machine.md) también.
+También puede [utilizar el controlador `docker-machine` de Azure con diversos comandos para crear rápidamente una máquina virtual Linux como host de docker](virtual-machines-linux-docker-machine.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

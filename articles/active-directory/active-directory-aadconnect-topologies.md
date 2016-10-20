@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="AndKjell"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 <tags
     ms.service="active-directory"
@@ -17,11 +17,11 @@
 
 # Topologías de Azure AD Connect
 
-El objetivo de este tema es describir diferentes topologías locales y de Azure AD con Azure AD Connect Sync como la solución de integración clave. Se describen tanto las configuraciones admitidas como las no admitidas.
+El objetivo de este tema es describir diferentes topologías locales y de Azure AD con la sincronización de Azure AD Connect como la solución de integración clave. Se describen tanto las configuraciones admitidas como las no admitidas.
 
 Leyenda de imágenes en el documento:
 
-Descripción | Icono
+Description | Icono
 -----|-----
 Bosque local de Active Directory| ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)
 Active Directory con importación filtrada| ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)
@@ -133,7 +133,7 @@ Este método también se puede utilizar para reemplazar el servidor de sincroniz
 Es posible tener más de un servidor provisional si desea tener varias copias de seguridad en distintos centros de datos.
 
 ## Varios directorios de Azure AD
-Microsoft recomienda tener un único directorio en Azure AD para una organización. Antes de considerar el uso de varios directorios de Azure AD, estos temas explican escenarios comunes que le permiten usar un único directorio.
+Microsoft recomienda tener un único directorio en Azure AD para una organización. Se recomienda la lectura de estos temas, que explican escenarios comunes que permiten usar un único directorio, antes de considerar el uso de varios directorios de Azure AD.
 
 Tema. |  
 --------- | ---------
@@ -187,4 +187,4 @@ Obtenga más información sobre la configuración de [sincronización de Azure A
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

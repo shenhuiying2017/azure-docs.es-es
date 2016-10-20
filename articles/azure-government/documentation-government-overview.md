@@ -90,10 +90,7 @@ Para más información, consulte [Almacén de claves de Azure Government](/azure
 El aislamiento consiste en usar límites, segmentación y contenedores para restringir el acceso a datos solo para usuarios, servicios y aplicaciones autorizados. Por ejemplo, la separación entre los inquilinos es un mecanismo de seguridad esencial para plataformas multiinquilino en la nube como Microsoft Azure. El aislamiento lógico ayuda a impedir que un inquilino interfiera en las operaciones de cualquier otro inquilino.
 
 ### <a name="Overview"></a>Aislamiento de entorno
-El entorno de Azure Government es una instancia física y con aislamiento de red que es independiente del resto de la red de Microsoft. El aislamiento se logra mediante una serie de controles físicos y lógicos que incluye lo siguiente:
-* Seguridad de barreras físicas con cámaras y dispositivos biométricos.
-* Uso de credenciales específicas y autenticación multifactor por parte del personal de Microsoft, lo que requiere un acceso lógico al entorno de producción.
-* Toda la infraestructura de servicios de Azure Government se encuentra en Estados Unidos.
+El entorno de Azure Government es una instancia física independiente del resto de la red de Microsoft. Esto se logra mediante una serie de controles físicos y lógicos, entre los que se incluyen la protección de barreras físicas con cámaras y dispositivos biométricos. Uso de credenciales específicas y autenticación multifactor por parte del personal de Microsoft, lo que requiere un acceso lógico al entorno de producción. Toda la infraestructura de servicios de Azure Government se encuentra en Estados Unidos.
 
 #### <a name="Overview"></a>Aislamiento por cliente
 Azure implementa el control de acceso de red y la segregación mediante aislamiento de VLAN, ACL, equilibradores de carga y filtros IP.
@@ -104,4 +101,4 @@ Para más información acerca del aislamiento en Microsoft Azure, consulte la [s
 
 Para información complementaria y actualizaciones, suscríbase al <a href="https://blogs.msdn.microsoft.com/azuregov/">blog de Microsoft Azure Government. </a>.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

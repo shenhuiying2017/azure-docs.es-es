@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 
 
 # Habilitación de Enterprise State Roaming en Azure Active Directory
 
-Enterprise State Roaming está disponible para cualquier organización con una suscripción Premium de Azure Active Directory (Azure AD). Para más información acerca de cómo obtener una suscripción de Azure AD, consulte la [página de producto de Azure AD](https://azure.microsoft.com/services/active-directory).
+Enterprise State Roaming está disponible para cualquier organización con una suscripción Premium de Azure Active Directory (Azure AD). Para obtener más información sobre cómo obtener una suscripción de Azure AD, consulte la [página de producto de Azure AD](https://azure.microsoft.com/services/active-directory).
 
 Al habilitar Enterprise State Roaming, a su organización se le otorgará automáticamente licencias para una suscripción gratuita de uso limitado a Azure Rights Management. Esta suscripción gratuita se limita a cifrar y descifrar los datos de configuración de la empresa sincronizados mediante el servicio Enterprise State Roaming; debe tener una suscripción de pago para utilizar todas las funcionalidades de Azure Rights Management.
 
@@ -51,15 +51,15 @@ Los datos sincronizados con Azure a través de Enterprise State Roaming se conse
 
 **Eliminación explícita:** los datos se eliminan cuando un administrador de Azure elimina un usuario o un directorio, o bien cuando un administrador solicita expresamente que se eliminen los datos.
 
-- **Eliminación de usuarios**: cuando se suprime un usuario en Azure AD, los datos de itinerancia de la cuenta de usuario se marcarán para eliminarse y la operación se completa entre 90 y 180 días. 
-- **Eliminación de inquilinos**: la eliminación de un directorio completo en Azure AD se realiza inmediatamente. Todos los datos de configuración asociados a ese directorio se marcarán para eliminarse y la operación se completa entre 90 y 180 días. 
-- **Eliminación bajo demanda**: si el administrador de Azure AD desea eliminar manualmente los datos de configuración o la información de un usuario específico, el administrador puede generar una incidencia con el servicio de [soporte técnico de Azure](https://azure.microsoft.com/support/). 
+- **Eliminación de usuarios**: cuando se suprime un usuario en Azure AD, los datos de itinerancia de la cuenta de usuario se marcarán para eliminarse y la operación se completa entre 90 y 180 días.
+- **Eliminación de inquilinos**: la eliminación de un directorio completo en Azure AD se realiza inmediatamente. Todos los datos de configuración asociados a ese directorio se marcarán para eliminarse y la operación se completa entre 90 y 180 días.
+- **Eliminación bajo demanda**: si el administrador de Azure AD desea eliminar manualmente los datos de configuración o la información de un usuario específico, el administrador puede generar una incidencia con el servicio de [soporte técnico de Azure](https://azure.microsoft.com/support/).
 
 **Eliminación de datos obsoletos**: los datos a los que no se ha accedido durante un año (el periodo de retención) se considerarán obsoletos y se podrán eliminar de Azure. El periodo de retención está sujeto a cambios, pero no será inferior a 90 días. Los datos obsoletos pueden ser un conjunto específico de valores de configuración de Windows o de la aplicación o toda la configuración de un usuario. Por ejemplo:
  
-- Si ningún dispositivo accede a una colección de configuraciones concreta (por ejemplo, una aplicación se quita del dispositivo o un grupo de configuraciones, como "Tema", está deshabilitado para todos los dispositivos de un usuario), esa colección quedará obsoleta tras el período de retención y se puede eliminar. 
-- Si un usuario ha desactivado la sincronización de la configuración en todos sus dispositivos, no se podrá acceder a ninguno de los datos de configuración y todos los datos de configuración para ese usuario quedarán obsoletos y pueden eliminarse tras el período de retención. 
-- Si el administrador del directorio de Azure AD desactiva Enterprise State Roaming para todo el directorio, todos los usuarios de ese directorio dejarán de sincronizar la configuración y todos los datos de configuración de todos los usuarios quedarán obsoletos y podrán eliminarse tras el período de retención. 
+- Si ningún dispositivo accede a una colección de configuraciones concreta (por ejemplo, una aplicación se quita del dispositivo o un grupo de configuraciones, como "Tema", está deshabilitado para todos los dispositivos de un usuario), esa colección quedará obsoleta tras el período de retención y se puede eliminar.
+- Si un usuario ha desactivado la sincronización de la configuración en todos sus dispositivos, no se podrá acceder a ninguno de los datos de configuración y todos los datos de configuración para ese usuario quedarán obsoletos y pueden eliminarse tras el período de retención.
+- Si el administrador del directorio de Azure AD desactiva Enterprise State Roaming para todo el directorio, todos los usuarios de ese directorio dejarán de sincronizar la configuración y todos los datos de configuración de todos los usuarios quedarán obsoletos y podrán eliminarse tras el período de retención.
 
 **Recuperación de los datos eliminados**: la directiva de retención de datos no es configurable. Cuando los datos se hayan eliminado permanentemente, no se pueden recuperar. Sin embargo, es importante tener en cuenta que solo se eliminarán los datos de configuración de Azure, no el dispositivo del usuario final. Si cualquier dispositivo más adelante vuelve a conectarse al servicio Enterprise State Roaming, la configuración se sincronizará de nuevo y almacenará en Azure.
 
@@ -70,4 +70,4 @@ Los datos sincronizados con Azure a través de Enterprise State Roaming se conse
 - [Configuración de MDM y directivas de grupo](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 - [Referencia de la configuración de movilidad de Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0928_2016-->

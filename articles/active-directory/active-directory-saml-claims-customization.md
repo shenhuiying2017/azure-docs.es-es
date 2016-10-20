@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -40,7 +40,7 @@ Para solucionar el problema en el que la aplicación se ha implementado con un n
 
 En el menú **Valor de atributo**, seleccione **user.mail** para que la notificación NameIdentifier sea la dirección de correo electrónico del usuario en el directorio, o seleccione **user.onpremisessamaccountname** para establecerla en el nombre de cuenta SAM del usuario que se ha sincronizado desde Azure AD local.
 
-También puede usar la función especial ExtractMailPrefix() para quitar el sufijo de dominio de la dirección de correo electrónico o el nombre principal de usuario, lo que da lugar a que solo se pase la primera parte del nombre de usuario (por ejemplo, "joesmith" en lugar de joesmith@contoso.com).
+También puede usar la función especial ExtractMailPrefix() para quitar el sufijo de dominio de la dirección de correo electrónico o el nombre principal de usuario, lo que da lugar a que solo se pase la primera parte del nombre de usuario (por ejemplo, "joesmith" en lugar de joesmith@contoso.com.
 
 ![][3]
 
@@ -68,4 +68,4 @@ Si no hay ningún valor almacenado para el atributo seleccionado para un usuario
 [3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png
 [4]: ./media/active-directory-saml-claims-customization/claimscustomization4.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Indización de archivos multimedia con Azure Media Indexer 2 Preview"
+	pageTitle="Indexación de archivos multimedia con Azure Media Indexer 2 Preview | Microsoft Azure"
 	description="El Indizador multimedia de Azure permite que el contenido de los archivos multimedia se puedan buscar y genera una transcripción de texto completo para las palabras clave y subtítulos. En este tema se muestra cómo usar Media Indexer 2 Preview."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="adsolank;juliako;"/>
 
 
@@ -36,7 +36,7 @@ En este tema se muestra cómo crear trabajos de indexación con **Azure Media In
 >Al indizar contenido, asegúrese de usar archivos multimedia que tengan una voz muy clara (sin música de fondo, ruido, efectos ni silbido de micrófono). Algunos ejemplos de contenido adecuado son: reuniones, conferencias o presentaciones grabadas. Es posible que el siguiente contenido no sea adecuado para la indización: películas, programas de TV, cualquier elemento con audio y efectos de sonido mezclados o contenido mal gragado con ruido de fondo (silbido).
 
 
-En este tema se proporciona información sobre **Azure Media Indexer 2 Preview** y se muestra cómo se usa con el SDK de Servicios multimedia para .NET.
+En este tema se proporciona información sobre **Azure Media Indexer 2 Preview** y se muestra cómo se usa con el SDK de Media Services para .NET.
 
 ##Archivos de entrada y salida
 
@@ -92,7 +92,7 @@ Azure Media Indexer 2 Preview admite características de texto a voz en los sigu
 
 El programa siguiente muestra cómo:
 
-1. Crear un recurso y cargar un archivo multimedia en el recurso.
+1. Crear un recurso y cargar un archivo multimedia en dicho recurso.
 1. Crear un trabajo con una tarea de indexación basada en un archivo de configuración que contiene el siguiente valor predeterminado de JSON
 			
 		{
@@ -289,4 +289,4 @@ El programa siguiente muestra cómo:
 
 [Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

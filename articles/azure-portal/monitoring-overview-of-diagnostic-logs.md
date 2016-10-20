@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
+	ms.date="09/26/2016"
 	ms.author="johnkem"/>
 
 # Información general sobre los registros de diagnóstico de Azure
@@ -69,15 +69,23 @@ Para habilitar los registros de diagnóstico con cmdlets de Azure PowerShell, us
 
 Para habilitar el almacenamiento de registros de diagnóstico en una cuenta de almacenamiento, use este comando:
 
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -StorageAccountId [your storage account id] -Enabled $true
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 
 El identificador de la cuenta de almacenamiento es el identificador de recurso para la cuenta de almacenamiento a la que desea enviar los registros.
 
 Para habilitar el streaming de registros de diagnóstico a un centro de eventos, use este comando:
 
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
 
 El identificador de regla del Bus de servicio es una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`.
+
+Para habilitar el envío de registros de diagnóstico a un área de trabajo de Log Analytics, use este comando:
+
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [log analytics workspace id] -Enabled $true
+
+Puede obtener el identificador de área de trabajo de Log Analytics en Azure Portal.
+
+Puede combinar estos parámetros para habilitar varias opciones de salida.
 
 Para habilitar los registros de diagnóstico con la CLI de Azure, use los siguientes comandos:
 
@@ -93,7 +101,33 @@ Para habilitar el streaming de registros de diagnóstico a un centro de eventos,
 
 El identificador de regla del Bus de servicio es una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`.
 
+Para habilitar el envío de registros de diagnóstico a un área de trabajo de Log Analytics, use este comando:
+
+    azure insights diagnostic set --resourceId <resourceId> --workspaceId <workspaceId> --enabled true
+
+Puede obtener el identificador de área de trabajo de Log Analytics en Azure Portal.
+
+Puede combinar estos parámetros para habilitar varias opciones de salida.
+
 Para cambiar Configuración de diagnóstico con la API de REST Insights, consulte [este documento](https://msdn.microsoft.com/library/azure/dn931931.aspx).
+
+## Administración de Configuración de diagnóstico en el portal
+
+Para asegurarse de que todos los recursos se han definido correctamente con Configuración de diagnóstico, puede navegar a la hoja **Supervisión** del portal y abrir la hoja **Registros de diagnóstico**.
+
+![Hoja Registros de diagnóstico en el portal](./media/monitoring-overview-of-diagnostic-logs/manage-portal-nav.png)
+
+Puede que tenga que hacer clic en "More services" (Más servicios) para encontrar la hoja Supervisión.
+
+En esta hoja, puede ver y filtrar todos los recursos que permiten ver los registros de diagnóstico si tienen los diagnósticos habilitados y a qué cuenta de almacenamiento, centro de eventos o área de trabajo de Log Analytics se redirigen tales registros.
+
+![Resultados de la hoja Registros de diagnóstico en el portal](./media/monitoring-overview-of-diagnostic-logs/manage-portal-blade.png)
+
+Al hacer clic en un recurso, se mostrarán todos los registros que se han almacenado en la cuenta de almacenamiento y se ofrece la opción para desactivar o modificar la configuración de diagnóstico. Haga clic en el icono de descarga para descargar los registros para un período de tiempo determinado.
+
+![Hoja Registros de diagnóstico de un recurso](./media/monitoring-overview-of-diagnostic-logs/manage-portal-logs.png)
+
+> [AZURE.NOTE] Los registros de diagnóstico solo aparecerán en esta vista y estarán disponibles para su descarga si ha configurado las opciones de diagnóstico para guardarlos en una cuenta de almacenamiento.
 
 ## Servicios admitidos y esquema para registros de diagnóstico
 El esquema para los registros de diagnóstico varía según la categoría de registro y el recurso. A continuación, se muestran los servicios admitidos y su esquema.
@@ -133,10 +167,13 @@ El esquema para los registros de diagnóstico varía según la categoría de reg
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Registro de rendimiento de Application Gateway|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Registro de Firewall de Application Gateway|
 |Microsoft.Search/searchServices|OperationLogs|Registros de operaciones|
+|Microsoft.ServerManagement/nodes|RequestLogs|Registros de solicitud|
+|Microsoft.StreamAnalytics/streamingjobs|Ejecución|Ejecución|
+|Microsoft.StreamAnalytics/streamingjobs|Creación|Creación|
 
 ## Pasos siguientes
 - [Transmisión de registros de diagnóstico de Azure a **Centros de eventos**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 - [Cambio de Configuración de diagnóstico mediante la API de REST Insights](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 - [Análisis de los registros con Log Analytics de OMS](../log-analytics/log-analytics-azure-storage-json.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

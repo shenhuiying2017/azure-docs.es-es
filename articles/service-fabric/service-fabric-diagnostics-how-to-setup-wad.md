@@ -13,13 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/24/2016"
+   ms.date="09/28/2016"
    ms.author="toddabel"/>
 
 
 # Recopilación de registros con Diagnósticos de Azure
 
-Cuando se ejecuta un clúster de Azure Service Fabric, es conveniente recopilar los registros de todos los nodos en una ubicación central. La presencia de los registros en una ubicación central facilita el análisis y la solución de los problemas del clúster o de las aplicaciones y los servicios que se ejecutan en ese clúster. Uno de los métodos para cargar y recopilar registros es usar la extensión de Diagnósticos de Azure que carga los registros en Almacenamiento de Azure. Los registros no son útiles directamente en el almacenamiento, pero puede usarse un proceso externo para leer los eventos del almacenamiento y colocarlos en un producto como [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) u otra solución.
+> [AZURE.SELECTOR]
+- [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
+- [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
+
+Cuando se ejecuta un clúster de Azure Service Fabric, es conveniente recopilar los registros de todos los nodos en una ubicación central. La presencia de los registros en una ubicación central facilita el análisis y la solución de los problemas del clúster o de las aplicaciones y los servicios que se ejecutan en ese clúster. Uno de los métodos para cargar y recopilar registros es usar la extensión de Diagnósticos de Azure que carga los registros en Almacenamiento de Azure. Los registros no son tan útiles directamente en el almacenamiento pero se puede usar un proceso externo para leer los eventos del almacenamiento y colocarlos en un producto como [Log Analytics](../log-analytics/log-analytics-service-fabric.md) o [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) u otra solución de análisis de registro.
 
 ## Requisitos previos
 Estas herramientas se usarán para realizar algunas de las operaciones que se describen en este documento:
@@ -47,9 +51,9 @@ Para implementar la extensión de Diagnósticos en las máquinas virtuales del c
 
 ![Configuración de Diagnósticos en el portal para crear un clúster](./media/service-fabric-diagnostics-how-to-setup-wad/portal-cluster-creation-diagnostics-setting.png)
 
-Los registros de soporte técnico son **necesarios** para que el equipo de soporte técnico de Azure pueda resolver las solicitudes que se creen. Estos registros se recopilan en tiempo real y se almacenarán en una de las cuentas de almacenamiento creadas en el grupo de recursos. La configuración de Diagnósticos define eventos de nivel de aplicación, incluidos eventos de [Reliable Actors](service-fabric-reliable-actors-diagnostics.md), eventos de [Reliable Services](service-fabric-reliable-services-diagnostics.md) y algunos eventos de Service Fabric de nivel de sistema que se almacenen en Almacenamiento de Azure. Algunos productos como [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) o su propio proceso pueden seleccionar los eventos de la cuenta de almacenamiento. Actualmente no existe ninguna manera de filtrar o limpiar los eventos que se envían a la tabla. Si no se implementa un proceso para quitar eventos de la tabla, la tabla seguirá aumentando.
+Los registros de soporte técnico son **necesarios** para que el equipo de soporte técnico de Azure pueda resolver las solicitudes que se creen. Estos registros se recopilan en tiempo real y se almacenarán en una de las cuentas de almacenamiento creadas en el grupo de recursos. La configuración de Diagnósticos define eventos de nivel de aplicación, incluidos eventos de [Reliable Actors](service-fabric-reliable-actors-diagnostics.md), eventos de [Reliable Services](service-fabric-reliable-services-diagnostics.md) y algunos eventos de Service Fabric de nivel de sistema que se almacenen en Azure Storage. Algunos productos como [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) o su propio proceso pueden seleccionar los eventos de la cuenta de almacenamiento. Actualmente no existe ninguna manera de filtrar o limpiar los eventos que se envían a la tabla. Si no se implementa un proceso para quitar eventos de la tabla, la tabla seguirá aumentando.
 
-Al crear un clúster mediante el portal, se recomienda encarecidamente que descargue la plantilla *antes de hacer clic en Aceptar* para crear el clúster. Para más información, consulte [Configuración de un clúster de Service Fabric con una plantilla del Administrador de recursos de Azure](service-fabric-cluster-creation-via-arm.md). Esto le proporcionará una plantilla ARM utilizable para el clúster que va a crear. Esto es necesario para realizar cambios más adelante ya que no todos los cambios se pueden realizar mediante el portal. Las plantillas se pueden exportar desde el portal mediante los pasos siguientes, pero estas plantillas son más difíciles de usar porque pueden tener un cierto número de valores nulos cuyos valores hay que proporcionar o faltará toda la información necesaria.
+Al crear un clúster mediante el portal, se recomienda encarecidamente que descargue la plantilla *antes de hacer clic en Aceptar* para crear el clúster. Para más información, consulte [Configuración de un clúster de Service Fabric con una plantilla de Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Esto le proporcionará una plantilla ARM utilizable para el clúster que va a crear. Esto es necesario para realizar cambios más adelante ya que no todos los cambios se pueden realizar mediante el portal. Las plantillas se pueden exportar desde el portal mediante los pasos siguientes, pero estas plantillas son más difíciles de usar porque pueden tener un cierto número de valores nulos cuyos valores hay que proporcionar o faltará toda la información necesaria.
 
 1. Abra el grupo de recursos
 2. Seleccione Configuración para mostrar el panel Configuración
@@ -69,7 +73,7 @@ Después de exportar los archivos, debe llevar a cabo una modificación. Edite e
 ### Implementación de la extensión de Diagnósticos como parte de la creación del clúster a través de Azure Resource Manager
 Para crear un clúster mediante el Administrador de recursos, tiene que agregar el JSON de la configuración de Diagnósticos a la plantilla del Administrador de recursos del clúster completo antes de crear el clúster. Dentro de los ejemplos de plantillas del Administrador de recursos, proporcionamos una plantilla de ejemplo del Administrador de recursos de clúster de cinco máquinas virtuales con la configuración de Diagnósticos añadida. Puede verlo en: [Ejemplo de plantilla de clúster de cinco nodos con el Administrador de recursos de Diagnósticos](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad) en la galería de ejemplos de Azure. Para ver la configuración de Diagnósticos en la plantilla de Resource Manager, abra el archivo **azuredeploy.json** y busque **IaaSDiagnostics**. Para crear un clúster con esta plantilla, basta con presionar el botón **Implementar en Azure** disponible en el vínculo anterior.
 
-También puede descargar el ejemplo del Administrador de recursos, modificarlo y crear un clúster con la plantilla modificada mediante el comando `New-AzureRmResourceGroupDeployment` en una ventana de Azure PowerShell. Consulte la información a continuación para los parámetros que necesitará pasar al comando. Para más información sobre cómo implementar un grupo de recursos con PowerShell, consulte el artículo [Implementación de recursos con plantillas de Azure Resource Manager](../resource-group-template-deploy.md)
+También puede descargar el ejemplo del Administrador de recursos, modificarlo y crear un clúster con la plantilla modificada mediante el comando `New-AzureRmResourceGroupDeployment` en una ventana de Azure PowerShell. Consulte la información a continuación para los parámetros que necesitará pasar al comando. Para más información sobre cómo implementar un grupo de recursos con PowerShell, consulte el artículo [Implementación de recursos con las plantillas de Azure Resource Manager](../resource-group-template-deploy.md)
 
 ```powershell
 
@@ -194,4 +198,4 @@ Revise los eventos de diagnóstico emitidos para [Reliable Actors](service-fabri
 * [Aprenda a recopilar contadores de rendimiento o registros mediante extensiones de diagnóstico](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 * [Solución Datos de Service Fabric en Log Analytics](../log-analytics/log-analytics-service-fabric.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

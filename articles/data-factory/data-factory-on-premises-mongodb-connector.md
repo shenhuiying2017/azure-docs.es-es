@@ -3,7 +3,7 @@
 	description="Obtenga información acerca de cómo mover los datos de la base de datos de MongoDB mediante Data Factory de Azure." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/04/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Movimiento de datos de MongoDB mediante Data Factory de Azure
 
@@ -22,12 +22,12 @@ En este artículo se describe cómo se puede usar la actividad de copia en Data 
 
 El servicio Data Factory admite la conexión a orígenes de MongoDB locales mediante Data Management Gateway. Consulte el artículo [Data Management Gateway](data-factory-data-management-gateway.md) para más información acerca de Data Management Gateway y el artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) para obtener instrucciones detalladas sobre cómo configurar la puerta de enlace de una canalización de datos para mover los datos.
 
-> [AZURE.NOTE] Tiene que aprovechar la puerta de enlace para conectar con MongoDB, incluso si está hospedado en máquinas virtuales de IaaS de Azure. Si está intentando conectarse a una instancia de MongoDB hospedada en la nube, también puede instalar la instancia de puerta de enlace en la máquina virtual de IaaS.
+> [AZURE.NOTE] Tiene que usar la puerta de enlace para conectar con MongoDB, incluso si está hospedado en máquinas virtuales de IaaS de Azure. Si está intentando conectarse a una instancia de MongoDB hospedada en la nube, también puede instalar la instancia de puerta de enlace en la máquina virtual de IaaS.
 
 Data Factory solo admite actualmente el movimiento de datos desde MongoDB a otros almacenes de datos, pero no de otros almacenes de datos a MongoDB.
 
 ## Requisitos previos
-Para que el servicio Data Factory de Azure pueda conectarse a la base de datos de MongoDB local, debe instalar lo siguiente:
+Para que el servicio Data Factory de Azure pueda conectarse a la base de datos de MongoDB local, debe instalar los siguientes componentes:
 
 - Data Management Gateway 2.0 o una versión posterior en la misma máquina que hospeda la base de datos o en una máquina distinta, para evitar que se dispute los recursos con la base de datos. Data Management Gateway es un software que conecta orígenes de datos locales a servicios en la nube de forma segura y administrada. Consulte el artículo [Data Management Gateway](data-factory-data-management-gateway.md) para más detalles sobre Data Management Gateway.
   
@@ -51,7 +51,7 @@ El ejemplo consta de las siguientes entidades de factoría de datos:
 
 El ejemplo copia cada hora los datos de un resultado de consulta de la base de datos de MongoDB en un blob. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
-Como primer paso, configure la puerta de enlace de administración de datos según las instrucciones del artículo [Data Management Gateway](data-factory-data-management-gateway.md).
+Como primer paso, configure la puerta de enlace de administración de datos según las instrucciones del artículo [Puerta de enlace de administración de datos](data-factory-data-management-gateway.md).
 
 **Servicio vinculado de MongoDB**
 
@@ -238,7 +238,7 @@ Consulte [Configuración de credenciales y seguridad](data-factory-move-data-bet
 
 ## Propiedades de tipo de conjunto de datos
 
-Para una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, vea el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy de un conjunto de datos JSON son similares en todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
+Para obtener una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy del código JSON del conjunto de datos son similares para todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
 
 La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección typeProperties del conjunto de datos de tipo **MongoDbCollection** tiene las propiedades siguientes:
 
@@ -248,11 +248,11 @@ La sección **typeProperties** es diferente en cada tipo de conjunto de datos y 
 
 ## Propiedades de tipo de actividad de copia
 
-Para obtener una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Propiedades como nombre, descripción, tablas de entrada y salida, varias directivas, etc. están disponibles para todos los tipos de actividades.
+Para obtener una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, tablas de entrada y salida, y directivas) están disponibles para todos los tipos de actividades.
 
-Por otro lado, las propiedades disponibles en la sección **typeProperties** de la actividad varían con cada tipo de actividad y, en el caso de la actividad de copia, varían en función de los tipos de orígenes y receptores.
+Por otra parte, las propiedades disponibles en la sección **typeProperties** de la actividad varían con cada tipo de actividad. Para la actividad de copia, varían en función de los tipos de orígenes y receptores.
 
-En caso de la actividad de copia si el origen es de tipo **MongoDbSource**, están disponibles las propiedades siguientes en la sección typeProperties:
+Si el origen es de tipo **MongoDbSource**, estarán disponibles las propiedades siguientes en la sección typeProperties:
 
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | -------- | ----------- | -------------- | -------- |
@@ -286,7 +286,7 @@ Al mover datos a MongoDB, se usarán las asignaciones siguientes de tipos MongoD
 > [AZURE.NOTE]  
 Para más información sobre la compatibilidad para matrices con tablas virtuales, consulte la sección [Compatibilidad para tipos complejos que usan tablas virtuales](#support-for-complex-types-using-virtual-tables) que aparece más adelante.
 
-En este momento, no se admiten los siguientes tipos de datos de MongoDB: DBPointer, JavaScript, Clave Max y Min, Expresión regular, Símbolo, Marca de tiempo, Sin definir
+Actualmente, no se admiten los siguientes tipos de datos de MongoDB: DBPointer, JavaScript, Clave Max y Min, Expresión regular, Símbolo, Marca de tiempo, Sin definir
 
 ## Compatibilidad para tipos complejos que usan tablas virtuales
 Data Factory de Azure utiliza un controlador ODBC integrado para conectarse a una base de datos de MongoDB y copiar datos de dicha base de datos. Para los tipos complejos como matrices u objetos con diferentes tipos en los documentos, el controlador volverá a normalizar los datos en las tablas virtuales correspondientes. En concreto, si una tabla contiene estas columnas, el controlador generará las siguientes tablas virtuales:
@@ -296,7 +296,7 @@ Data Factory de Azure utiliza un controlador ODBC integrado para conectarse a un
 
 Las tablas virtuales hacen referencia a los datos de la tabla real, lo que permite al controlador obtener acceso a los datos no normalizados. Consulte el ejemplo de la siguiente sección para más información. Para acceder al contenido de las matrices de MongoDB, puede crear consultas y combinar las tablas virtuales.
 
-Si utiliza el [Asistente para copia](data-factory-data-movement-activities.md#data-factory-copy-wizard), podrá consultar una vista intuitiva de la lista de tablas de la base de datos de MongoDB (incluidas las tablas virtuales) y una vista previa de los datos incluidos. También puede crear una consulta en el Asistente para copia y validarla para ver el resultado.
+Puede utilizar el [Asistente para copia](data-factory-data-movement-activities.md#data-factory-copy-wizard) para consultar una vista intuitiva de la lista de tablas de la base de datos de MongoDB (incluidas las tablas virtuales) y una vista previa de los datos incluidos. También puede crear una consulta en el Asistente para copia y validarla para ver el resultado.
 
 ### Ejemplo
 
@@ -304,8 +304,8 @@ Por ejemplo, la tabla “ExampleTable” que aparece a continuación es una tabl
 
 \_id | Nombre del cliente | Facturas | Nivel de servicios | Clasificaciones
 --- | ------------- | -------- | ------------- | -------
-1111 | ABC | [{invoice\_id:”123”, artículo:”tostadora”, precio:”456”, descuento:”0.2”}, {invoice\_id:”124”, artículo:”horno”,precio: ”1235”,descuento: ”0.2”}] | Silver | [5,6]
-2222 | XYZ | [{invoice\_id:”135”, artículo:”frigorífico”,precio: ”12543”,descuento: ”0.0”}] | Gold | [1,2]
+1111 | ABC | [{invoice\_id:”123”, artículo:”tostadora”, precio:”456”, descuento:”0.2”}, {invoice\_id:”124”, artículo:”horno”, precio: ”1235”, descuento: ”0.2”}] | Silver | [5,6]
+2222 | XYZ | [{invoice\_id:”135”, artículo:”frigorífico”, precio: ”12543”, descuento: ”0.0”}] | Gold | [1,2]
 
 El controlador generará varias tablas virtuales que representan a esta tabla. La primera tabla virtual es la tabla base y se denomina “ExampleTable”, tal y como se muestra a continuación. La tabla base contiene todos los datos de la tabla original, pero los datos de las matrices se han omitido y se ampliarán en las tablas virtuales.
 
@@ -314,7 +314,7 @@ El controlador generará varias tablas virtuales que representan a esta tabla. L
 1111 | ABC | Silver
 2222 | XYZ | Gold
 
-Las siguientes tablas muestran las tablas virtuales que representan las matrices originales en el ejemplo. Cada una de estas tablas contiene lo siguiente
+Las siguientes tablas muestran las tablas virtuales que representan las matrices originales en el ejemplo. Estas tablas contienen lo siguiente:
 
 - Una referencia a la columna de clave principal original correspondiente a la fila de la matriz original (a través del identificador de la columna)
 - Una indicación de la posición de los datos dentro de la matriz original
@@ -347,4 +347,4 @@ Consulte [Guía de optimización y rendimiento de la actividad de copia](data-fa
 ## Pasos siguientes
 Consulte el artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) para obtener instrucciones paso a paso para crear una canalización de datos que mueva los datos de un almacén de datos local a un almacén de datos de Azure.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

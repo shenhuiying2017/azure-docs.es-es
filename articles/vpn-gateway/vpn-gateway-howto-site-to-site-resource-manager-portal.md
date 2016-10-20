@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="10/03/2016"
    ms.author="cherylmc"/>
 
 # Creación de una red virtual con una conexión de sitio a sitio mediante el Portal de Azure
@@ -54,23 +54,22 @@ Antes de comenzar con la configuración, compruebe que dispone de los elementos 
 
 Si utiliza este procedimiento para practicar, puede usar también estos valores de configuración de ejemplo:
 
-- Nombre de red virtual: TestVNet1
-- Espacio de direcciones: 10.11.0.0/16 y 10.12.0.0/16
-- Subredes:
+- **Nombre de red virtual:** TestVNet1
+- **Espacio de direcciones:** 10.11.0.0/16 y 10.12.0.0/16
+- **Subredes:**
 	- FrontEnd: 10.11.0.0/24
 	- Backend: 10.12.0.0/24
 	- GatewaySubnet: 10.12.255.0/27
-- Grupo de recursos: TestRG1
-- Ubicación: Este de EE. UU.
-- Servidor DNS: 8.8.8.8
-- Nombre de puerta de enlace: VNet1GW
-- Dirección IP pública: VNet1GWIP
-- Tipo de VPN: basada en enrutamiento
-- Tipo de conexión: de sitio a sitio (IPsec)
-- Tipo de puerta de enlace: VPN
-- Nombre de la puerta de enlace de red local: Site2
-- Nombre de conexión: VNet1toSite2
-
+- **Grupo de recursos:** TestRG1
+- **Ubicación**: Este de EE. UU.
+- **Servidor DNS:** 8.8.8.8
+- **Nombre de puerta de enlace:** VNet1GW
+- **Dirección IP pública:** VNet1GWIP
+- **Tipo de VPN:** basada en enrutamiento
+- **Tipo de conexión:** de sitio a sitio (IPsec)
+- **Tipo de puerta de enlace:** VPN
+- **Nombre de la puerta de enlace de red local:** Site2
+- **Nombre de conexión:** VNet1toSite2
 
 
 ## 1\. Crear una red virtual 
@@ -89,29 +88,24 @@ Puede agregar espacio de direcciones y subredes adicionales a la red virtual una
 
 ## <a name="dns"></a>3. Especificación de un servidor DNS
 
-Si va a crear esta configuración como ejercicio, haga referencia a estos [valores](#values) cuando especifique el servidor DNS.
-
 ### Especificación de un servidor DNS
 
 [AZURE.INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## 4\. Creación de una subred de puerta de enlace
 
-Antes de conectar la red virtual a una puerta de enlace, es preciso crear la subred de la puerta de enlace de la red virtual a la que desea conectarse. La subred de puerta de enlace que cree se debe denominar *GatewaySubnet* o no funcionará correctamente.
-
-El prefijo de la subred de puerta de enlace para algunas configuraciones requiere una subred de /28 o superior para alojar el número de direcciones IP necesarias en el grupo. Esto significa que el prefijo de la subred de puerta de enlace debe ser /28, /27, /26 etc. Puede que desee crear una subred mayor aquí para dar cabida a posibles adiciones futuras en la configuración.
+Antes de conectar la red virtual a una puerta de enlace, es preciso crear la subred de la puerta de enlace de la red virtual a la que desea conectarse. Si es posible, es preferible crear una subred de puerta de enlace con un bloque CIDR de /28 o /27 para proporcionar suficientes direcciones IP para adaptarse a nuevos requisitos de configuración que puedan surgir en el futuro.
 
 Si va a crear esta configuración como ejercicio, haga referencia a estos [valores](#values) al crear la subred de puerta de enlace.
 
 ### Creación de una subred de puerta de enlace
 
-[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [AZURE.INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## 5\. Creación de una puerta de enlace de red virtual
 
-Si va a crear esta configuración como ejercicio, haga referencia a estos [valores](#values) al crear la puerta de enlace.
+Si va a crear esta configuración como un ejercicio, puede hacer referencia a los [valores de configuración de ejemplo](#values).
 
 ### Creación de una puerta de enlace de red virtual
 
@@ -119,9 +113,9 @@ Si va a crear esta configuración como ejercicio, haga referencia a estos [valor
 
 ## 6\. Creación de una puerta de enlace de red local
 
-La *puerta de enlace de red local* hace referencia a la ubicación local. Asigne a la puerta de enlace de la red local un nombre a través del que Azure pueda hacer referencia a ella.
+La "puerta de enlace de red local" hace referencia a la ubicación local. Asigne a la puerta de enlace de la red local un nombre a través del que Azure pueda hacer referencia a ella.
 
-Si va a crear esta configuración como un ejercicio, haga referencia a estos [valores](#values) al agregar el sitio local.
+Si va a crear esta configuración como un ejercicio, puede hacer referencia a los [valores de configuración de ejemplo](#values).
 
 ### Creación de una puerta de enlace de red local
 
@@ -154,4 +148,4 @@ Puede comprobar la conexión de VPN en el portal, o bien mediante el uso de Powe
 
 - Para más información acerca de BGP, consulte [Información general de BGP](vpn-gateway-bgp-overview.md) y [Configuración de BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

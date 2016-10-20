@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/27/2016"   
+	ms.date="09/26/2016"   
 	ms.author="juliako"/>
  
 #Uso de Análisis multimedia de Azure para convertir el contenido de texto de archivos de vídeo en texto digital 
@@ -26,7 +26,7 @@ Cuando se utiliza junto con un motor de búsqueda, puede indexar fácilmente el 
 
 El procesador multimedia **Azure Media OCR** está actualmente en versión preliminar.
 
-En este tema se proporcionan detalles sobre **Azure Media OCR** y se muestra cómo se usa con el SDK de Servicios multimedia para .NET. Para obtener información adicional y ejemplos, consulte [este blog](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
+En este tema se proporcionan detalles sobre **Azure Media OCR** y se muestra cómo se usa con el SDK de Media Services para .NET. Para obtener información adicional y ejemplos, consulte [este blog](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
 
 ##Archivos de entrada para OCR
 
@@ -38,7 +38,7 @@ Configuración de tareas (valor predeterminado) Cuando se crea una tarea con **A
 
 ###Descripciones de atributos
 
-Nombre del atributo|Descripción
+Nombre del atributo|Description
 ---|---
 Idioma|(Opcional) Describe el idioma del texto que desea buscar. Está disponible en los idiomas siguientes: Detección automática (predeterminado), alemán, árabe, chino (simplificado y tradicional), checo, coreano, danés, español, finés, francés, griego, húngaro, inglés, italiano, japonés, neerlandés, noruego, polaco, portugués, rumano, ruso, serbio cirílico, serbio latino, eslovaco, sueco, turco.
 TextOrientation|(Opcional) Describe la orientación del texto que desea buscar. "Izquierda" significa que la parte superior de todas las letras apunta a la izquierda. El texto predeterminado (similar al que se encuentra en un libro) se puede denominar orientado "hacia arriba". Uno de los siguientes: detección automática (valor predeterminado), arriba, derecha, abajo, izquierda.
@@ -91,7 +91,7 @@ La salida de vídeo OCR proporciona datos segmentados en tiempo en los caractere
 
 La salida contiene los siguientes atributos:
 
-Elemento|Descripción
+Elemento|Description
 ---|---
 Escala de tiempo|"Tics" por segundo del vídeo
 Offset|Diferencia de tiempo para las marcas de tiempo En la versión 1.0 de las API de vídeo, será siempre 0.
@@ -350,4 +350,4 @@ El programa siguiente muestra cómo:
 
 [Azure Media Services Analytics Overview (Información general sobre análisis de Servicios multimedia de Azure)](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

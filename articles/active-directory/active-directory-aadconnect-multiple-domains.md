@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -153,4 +153,4 @@ Siga los pasos indicados a continuación para agregar una notificación personal
 ![Reemplazar notificación](./media/active-directory-multiple-domains/sub2.png)
 5.	Haga clic en Aceptar. Haga clic en Aplicar. Haga clic en Aceptar. Cierre Administración de AD FS.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

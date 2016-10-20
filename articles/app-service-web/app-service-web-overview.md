@@ -24,6 +24,7 @@ El siguiente vídeo de 5 minutos presenta Aplicaciones web del Servicio de aplic
 
 [AZURE.VIDEO azure-app-service-web-apps-with-yochay-kiriaty]
 
+
 ## ¿Qué es una aplicación web en el Servicio de aplicaciones?
 
 En el Servicio de aplicaciones, una *aplicación web* son recursos de procesos que Azure proporciona para hospedar un sitio web o una aplicación web.
@@ -62,4 +63,4 @@ Para comenzar mediante la implementación de código de ejemplo en una nueva apl
 
 Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_1005_2016-->

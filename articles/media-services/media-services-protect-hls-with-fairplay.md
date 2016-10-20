@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de Servicios multimedia de Azure para transmitir contenido HLS protegido con Apple FairPlay" 
+	pageTitle="Protección del contenido HLS con Apple FairPlay o Microsoft PlayReady | Microsoft Azure" 
 	description="Este tema ofrece información general y muestra cómo usar Servicios multimedia de Azure para cifrar dinámicamente el contenido HTTP Live Streaming (HLS) con Apple FairPlay. También muestra cómo utilizar el servicio de entrega de licencias de Servicios multimedia para entregar licencias de FairPlay a los clientes." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,22 +13,29 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/15/2016"
+	ms.date="09/27/2016"
 	ms.author="juliako"/>
 
-#Uso de Servicios multimedia de Azure para transmitir contenido HLS protegido con Apple FairPlay 
+# Protección del contenido HLS con Apple FairPlay o Microsoft PlayReady
 
 Servicios multimedia de Azure permite cifrar dinámicamente el contenido HTTP Live Streaming (HLS) mediante los siguientes formatos:
 
-- **Clave sin cifrado AES-128 Envelope**: el fragmento completo se cifra mediante el modo **CBC AES-128**. El reproductor de OSX e iOS admite el descifrado de la transmisión de forma nativa. Para obtener más información, consulte [este artículo](media-services-protect-with-aes128.md).
+- **Clave sin cifrado de sobre AES-128**
 
-- **Apple FairPlay**: las muestras de audio y vídeo individuales se cifran mediante el modo **AES-128 CBC**. **FairPlay Streaming** (FPS) se integra en los sistemas operativos de dispositivos, con compatibilidad nativa en iOS y TV de Apple. Safari en OS X permite FPS mediante la compatibilidad con la interfaz Encrypted Media Extensions (EME).
+	El fragmento completo se cifra mediante el modo **AES-128 CBC**. El reproductor de OSX e iOS admite el descifrado de la transmisión de forma nativa. Para obtener más información, consulte [este artículo](media-services-protect-with-aes128.md).
 
-La siguiente imagen muestra el flujo de trabajo de "cifrado dinámico de FairPlay".
+- **Apple FairPlay**
+
+	Las muestras de audio y vídeo individuales se cifran mediante el modo **AES-128 CBC**. **FairPlay Streaming** (FPS) se integra en los sistemas operativos de dispositivos, con compatibilidad nativa en iOS y TV de Apple. Safari en OS X permite FPS mediante la compatibilidad con la interfaz Encrypted Media Extensions (EME).
+- **Microsoft PlayReady**
+
+La siguiente imagen muestra el flujo de trabajo de **HLS más cifrado dinámico de FairPlay o PlayReady**.
 
 ![Protección con FairPlay](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
 
 Este tema muestra cómo usar Servicios multimedia de Azure para cifrar dinámicamente el contenido HLS con FairPlay de Apple. También muestra cómo utilizar el servicio de entrega de licencias de Servicios multimedia para entregar licencias de FairPlay a los clientes.
+
+>[AZURE.NOTE] Si también quiere cifrar el contenido HLS con PlayReady, debe crear una clave común y asociarla con el recurso. También debe configurar la directiva de autorización de la clave de contenido, como se describe en el tema [Uso de cifrado dinámico común de PlayReady](media-services-protect-with-drm.md).
 
 	
 ## Requisitos y consideraciones
@@ -115,6 +122,20 @@ Los clientes podían desarrollar aplicaciones de reproductor con el SDK de iOS. 
 
 >[AZURE.NOTE] Reproductor multimedia de Azure no admite la reproducción de FairPlay de fábrica. Los clientes tienen que obtener el reproductor de ejemplo de la cuenta de desarrollador de Apple para obtener la reproducción de FairPlay en MAC OSX.
  
+##Direcciones URL de streaming
+
+Si el recurso se cifró con más de un DRM, debe usar una etiqueta de cifrado en la dirección URL de streaming: (formato = 'm3u8-aapl', cifrado = 'xxx').
+
+Se aplican las siguientes consideraciones:
+
+- Se puede especificar solo un tipo de cifrado o ninguno.
+- El tipo de cifrado no tiene que especificarse en la dirección URL si solo se aplicó un cifrado al recurso.
+- El tipo de cifrado distingue mayúsculas de minúsculas.
+- Se pueden especificar los siguientes tipos de cifrado:
+	- **cenc**: cifrado común (Playready o Widevine)
+	- **cbcs-aapl**: Fairplay
+	- **cbc**: cifrado de sobre AES.
+
 
 ##Ejemplo de .NET
 
@@ -550,4 +571,4 @@ El ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de Serv
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

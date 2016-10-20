@@ -20,9 +20,7 @@
 	
 # Implementación de su primera aplicación web de Java en Azure en 5 minutos
 
-Este tutorial le ayudará a implementar su primera aplicación web de Java en [Azure App Service](../app-service/app-service-value-prop-what-is.md). 
-App Service se puede usar para crear aplicaciones web, [back-ends de aplicaciones móviles](/documentation/learning-paths/appservice-mobileapps/) 
-y [aplicaciones de API](../app-service-api/app-service-api-apps-why-best-platform.md).
+Este tutorial le ayudará a implementar su primera aplicación web de Java en [Azure App Service](../app-service/app-service-value-prop-what-is.md). App Service se puede usar para crear aplicaciones web, [back-ends de aplicaciones móviles](/documentation/learning-paths/appservice-mobileapps/) y [aplicaciones de API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
 Podrá:
 
@@ -33,9 +31,7 @@ Podrá:
 ## Requisitos previos
 
 - Obtenga un cliente FTP o FTPS, como [FileZilla](https://filezilla-project.org/).
-- Obtenga una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede 
-[registrarse para una evaluación gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) o 
-[activar las ventajas de suscriptor de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- Obtenga una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para una evaluación gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas de suscriptor de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 >[AZURE.NOTE] También puede [probar App Service](http://go.microsoft.com/fwlink/?LinkId=523751) sin una cuenta de Azure. Cree una aplicación de inicio y juegue con ella durante una hora como máximo; no se requiere ninguna tarjeta de crédito ni ningún compromiso.
 
@@ -52,8 +48,7 @@ Podrá:
 
     - **Nombre de la aplicación**: escriba un nombre único.
     - **Grupo de recursos**: seleccione **Crear nuevo** y asígnele un nombre.
-    - **Plan de App Service/Ubicación**: haga clic en esta opción para configurarla y, después, en **Crear nuevo** para establecer el nombre, la ubicación y 
-    el plan de tarifa del plan de App Service. Puede usar el plan de tarifa **Gratis**.
+    - **Plan de App Service/Ubicación**: haga clic en esta opción para configurarla y, después, en **Crear nuevo** para establecer el nombre, la ubicación y el plan de tarifa del plan de App Service. Puede usar el plan de tarifa **Gratis**.
 
     Cuando haya terminado, la hoja de creación de la aplicación debe tener este aspecto:
 
@@ -111,8 +106,7 @@ Ahora, vamos a implementar una aplicación de Java en Azure mediante FTPS.
 
     Haga clic en **Aceptar** para reemplazar el archivo en Azure.
 
-    >[AZURE.NOTE] Según el comportamiento predeterminado de Tomcat, el nombre del archivo **ROOT.war** en /site/wwwroot/webapps le proporciona la aplicación web raíz 
-    (http://*&lt;appname>*. azurewebsites.net) y el nombre de archivo ***&lt;cualquierNombre>*.war ** le ofrece una aplicación web con nombre (http://*&lt;appname>*.azurewebsites.net/*&lt;cualquierNombre>*).
+    >[AZURE.NOTE] Según el comportamiento predeterminado de Tomcat, el nombre del archivo **ROOT.war** en /site/wwwroot/webapps le proporciona la aplicación web raíz (http://*&lt;appname>*. azurewebsites.net) y el nombre de archivo ***&lt;cualquierNombre>*.war** le ofrece una aplicación web con nombre (http://*&lt;appname>*.azurewebsites.net/*&lt;cualquierNombre>*).
 
 Eso es todo. La aplicación de Java se ejecuta ahora en directo en Azure. En el explorador, vaya a http://*&lt;appname>*.azurewebsites.net para verlo en acción.
 
@@ -122,15 +116,13 @@ Cada vez que necesite realizar una actualización, bastará con cargar el nuevo 
 
 ## Pasos siguientes
 
-[Creación de una aplicación web de Java a partir de una plantilla en Azure Marketplace](app-service-web-java-get-started.md#marketplace). Puede obtener su propio contenedor de Tomcat totalmente personalizable y obtener la conocida UI del administrador.
+[Creación de una aplicación web de Java a partir de una plantilla en Azure Marketplace](web-sites-java-get-started.md#marketplace). Puede obtener su propio contenedor de Tomcat totalmente personalizable y obtener la conocida UI del administrador.
 
 Depure la aplicación web de Azure directamente en [IntelliJ](app-service-web-debug-java-web-app-in-intellij.md) o [Eclipse](app-service-web-debug-java-web-app-in-eclipse.md).
 
 También puede hacer más cosas con su primera aplicación web. Por ejemplo:
 
-- Pruebe [otras formas de implementar el código en Azure](../app-service-web/web-sites-deploy.md). Por ejemplo, para implementar desde uno de los repositorios de GitHub, simplemente seleccione 
-**GitHub** en lugar de **Repositorio de Git local** en **Opciones de implementación**.
-- Lleve su aplicación de Azure aún más lejos. Autentique los usuarios. Escálela según la demanda. Configure algunas alertas de rendimiento. Todo ello con unos cuantos clics. Consulte 
-[Incorporación de funcionalidad a su primera aplicación web](app-service-web-get-started-2.md).
+- Pruebe [otras formas de implementar el código en Azure](../app-service-web/web-sites-deploy.md). Por ejemplo, para implementar desde uno de los repositorios de GitHub, simplemente seleccione **GitHub** en lugar de **Repositorio de Git local** en **Opciones de implementación**.
+- Lleve su aplicación de Azure aún más lejos. Autentique los usuarios. Escálela según la demanda. Configure algunas alertas de rendimiento. Todo ello con unos cuantos clics. Consulte [Incorporación de funcionalidad a su primera aplicación web](app-service-web-get-started-2.md).
 
-<!----HONumber=AcomDC_0920_2016-->
+<!---HONumber=AcomDC_1005_2016-->

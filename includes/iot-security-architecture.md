@@ -218,7 +218,9 @@ Estos son algunos ejemplos de las amenazas de esta categoría:
 
 **Suplantación:** un atacante puede interceptar o invalidar parcialmente la difusión y suplantar al originador ("Man in the middle").
 
-**Manipulación:** un atacante puede interceptar o invalidar parcialmente la difusión y enviar información falsa. Divulgación de información: un atacante puede interceptar una difusión y obtener información sin autorización. Denegación de servicio: un atacante puede bloquear la señal de difusión y denegar la distribución de la información.
+**Alteración**: un atacante puede interceptar o invalidar parcialmente la difusión y enviar información falsa.
+
+**Divulgación de información**: un atacante puede interceptar una difusión y obtener información sin autorización. **Denegación de servicio**: un atacante puede bloquear la señal de difusión y denegar la distribución de la información.
 
 #### Almacenamiento
 
@@ -252,4 +254,4 @@ Para más información, consulte los artículos siguientes:
 - [Microsoft Azure IoT reference architecture available (Arquitectura de referencia de IoT de Microsoft Azure disponible)](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

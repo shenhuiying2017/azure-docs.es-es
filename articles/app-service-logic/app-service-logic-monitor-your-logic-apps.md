@@ -33,6 +33,8 @@ Hay algunas secciones de esta hoja que resultan útiles:
 	- En **Historial de desencadenadores** se muestra toda la actividad relacionada con los desencadenadores en esta aplicación lógica. Por ejemplo, podría ser una comprobación omitida de nuevos datos (al buscar si se ha agregado un nuevo archivo FTP), los datos que se han devuelto correctamente para activar una aplicación lógica o los errores de configuración.
 - El servicio **Diagnósticos** le permite ver detalles y eventos en tiempo de ejecución y suscribirse a [alertas de Azure](#adding-azure-alerts).
 
+>[AZURE.NOTE] Todos los eventos y los detalles de los entornos de tiempo de ejecución se cifran en reposo en el servicio Logic App. Solo se descifran cuando un usuario solicita permisos de visualización. El acceso a estos eventos también se puede controlar mediante el control de acceso basado en rol (RBAC) de Azure.
+
 ### Visualización de los detalles de ejecución
 
 Esta lista de ejecuciones muestra el **estado**, la **hora de inicio** y la **duración** de una ejecución en particular. Seleccione cualquier fila para ver detalles sobre esa ejecución.
@@ -131,11 +133,11 @@ Se pueden agregar propiedades controladas a acciones en la definición del flujo
 
 ### Ampliación de las soluciones
 
-Puede aprovechar esta información de telemetría del Centro de eventos o del almacenamiento en otros servicios, por ejemplo, [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite), [Análisis de transmisiones de Azure](https://azure.microsoft.com/services/stream-analytics/) y [Power BI](https://powerbi.com) para supervisar en tiempo real los flujos de trabajo de integración.
+Puede aprovechar esta información de telemetría del Centro de eventos o del almacenamiento en otros servicios, por ejemplo, [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite), [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) y [Power BI](https://powerbi.com) para supervisar en tiempo real los flujos de trabajo de integración.
 
 ## Pasos siguientes
 - [Ejemplos y escenarios habituales de las aplicaciones lógicas](app-service-logic-examples-and-scenarios.md)
 - [Creación de una implementación de aplicación lógica](app-service-logic-create-deploy-template.md)
 - [Características de Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

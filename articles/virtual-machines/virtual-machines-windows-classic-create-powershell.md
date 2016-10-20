@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Creación de una máquina virtual de Windows con PowerShell y el modelo de implementación clásica 
@@ -37,21 +37,21 @@ Si aún no lo ha hecho, siga las instrucciones de [Instalación y configuración
 
 ## Paso 1: agregar la cuenta
 
-1. En el símbolo del sistema de PowerShell, escriba **Add-AzureAccount** y haga clic en **Entrar**.
+1. En el símbolo del sistema de Powershell, escriba **Add-AzureAccount** y haga clic en **Entrar**.
 2. Escriba la dirección de correo electrónico asociada a su suscripción de Azure y haga clic en **Continuar**.
 3. Escriba la contraseña de su cuenta.
 4. Haga clic en **Iniciar sesión**.
 
-## Paso 2: Establecimiento de la cuenta de suscripción y almacenamiento
+## Paso 2: establecimiento de la cuenta de suscripción y almacenamiento
 
-Establezca su cuenta de suscripción y almacenamiento de Azure mediante la ejecución de estos comandos en el símbolo del sistema de Windows PowerShell. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < y >, por los nombres correctos.
+Para establecer su cuenta de suscripción y almacenamiento de Azure, ejecute estos comandos en el símbolo del sistema de Windows PowerShell. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < y >, por los nombres correctos.
 
 	$subscr="<subscription name>"
 	$staccount="<storage account name>"
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-Puede obtener el nombre de suscripción correcto con la propiedad SubscriptionName de la salida del comando **Get-AzureSubscription**. Puede obtener el nombre de cuenta de almacenamiento correcto de la propiedad “Label” de la salida del comando **Get-AzureStorageAccount**, una vez haya ejecutado el comando **Select-AzureSubscription**.
+El nombre de suscripción correcto se puede obtener de la propiedad SubscriptionName de la salida del comando **Get-AzureSubscription**. Puede obtener el nombre de cuenta de almacenamiento correcto de la propiedad “Label” de la salida del comando **Get-AzureStorageAccount**, una vez haya ejecutado el comando **Select-AzureSubscription**.
 
 ## Paso 3: Determinación de ImageFamily
 
@@ -108,7 +108,7 @@ De forma opcional, en un equipo de Windows independiente, especifique la cuenta 
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.Username -Password $cred.GetNetworkCredential().Password
 
- Elija una contraseña segura. Para comprobar su robustez, consulte [Comprobador de contraseñas: uso de contraseñas seguras](https://www.microsoft.com/security/pc-security/password-checker.aspx).
+Elija una contraseña segura. Para comprobar su robustez, consulte [Comprobador de contraseñas: uso de contraseñas seguras](https://www.microsoft.com/security/pc-security/password-checker.aspx).
 
 Opcionalmente, para agregar el equipo de Windows a un dominio de Active Directory existente, especifique la cuenta del administrador local y la contraseña, el dominio, y el nombre y contraseña de una cuenta de dominio.
 
@@ -262,4 +262,4 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 Si necesita un disco de sistema operativo con un tamaño superior a 127 GB, puede [ampliar la unidad del SO](virtual-machines-windows-expand-os-disk.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

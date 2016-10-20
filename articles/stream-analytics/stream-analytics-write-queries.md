@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jeffstok"/>
 
 # Cómo escribir consultas en Análisis de transmisiones
@@ -52,7 +52,7 @@ Puede probar que la consulta se comporta según lo esperado si la ejecuta en el 
 
     ![Consulta de datos de prueba](./media/stream-analytics-write-queries/4-stream-analytics-write-queries.png)
 
-3.	Vaya hasta un archivo de prueba. Hay varios archivos de ejemplo disponibles en [github](https://github.com/Azure/azure-stream-analytics/tree/master/Sample) y también puede recuperar datos de ejemplo de sus propias entradas de flujo de datos a través de la función de datos de ejemplo de la pestaña de entradas.
+3.	Vaya hasta un archivo de prueba. Hay varios archivos de ejemplo disponibles en [github](datos de https://github.com/Azure/azure-stream-analytics/tree/master/Sample) y también puede recuperar datos de ejemplo de sus propias entradas de flujo de datos a través de la función de datos de ejemplo de la pestaña de entradas.
 
     ![Entrada de consulta](./media/stream-analytics-write-queries/5-stream-analytics-write-queries.png)
 
@@ -71,4 +71,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="02/22/2016" 
+	ms.date="09/29/2016" 
 	ms.author="raynew"/>
 
 #  ¿Qué es Site Recovery?
@@ -28,11 +28,11 @@ Site Recovery es un servicio de Azure que contribuye a su estrategia de BCDR med
 
 ## Site Recovery en el Portal de Azure
 
-Azure tiene dos [modelos de implementación](../resource-manager-deployment-model.md) diferentes para crear recursos y trabajar con ellos: el modelo de Azure Resource Manager y el modelo clásico de administración de servicios. Azure también tiene dos portales: el [Portal de Azure clásico](https://manage.windowsazure.com/) que admite el modelo de implementación clásica y el [Portal de Azure](https://portal.azure.com) que es compatible con ambos modelos de implementación.
+Azure tiene dos [modelos de implementación](../resource-manager-deployment-model.md) diferentes para crear recursos y trabajar con ellos: el modelo de Azure Resource Manager y el modelo clásico de administración de servicios. Azure también tiene dos portales: el [Portal de Azure clásico](https://manage.windowsazure.com/) que admite el modelo de implementación clásico y el [Portal de Azure](https://portal.azure.com) que es compatible con ambos modelos de implementación.
 
 Site Recovery está disponible tanto en el portal clásico como en el Portal de Azure. En el Portal de Azure clásico, Site Recovery se puede usar con el modelo de administración de servicios clásico. En el Portal de Azure, se pueden usar tanto el modelo de implementación clásica como el modelo de Resource Manager. [Más información](site-recovery-overview.md#site-recovery-in-the-azure-portal) acerca de la implementación con el Portal de Azure.
 
-La información de este artículo se aplica a las tanto a la implementación clásica como a la del Portal de Azure. Las diferencias se indicarán cuando corresponda.
+La información de este artículo se aplica tanto a la implementación clásica como a la del Portal de Azure. Las diferencias se indicarán cuando corresponda.
 
 
 ## ¿Por qué usar Site Recovery? 
@@ -53,13 +53,13 @@ Este es un resumen de lo que puede replicar con Site Recovery.
 
 **REPLICATE** | **REPLICACIÓN DESDE (LOCAL)** | **REPLICACIÓN EN** | **ARTÍCULO**
 ---|---|---|---
-Máquinas virtuales de VMware | Servidor de VMware | Azure | [Más información](site-recovery-vmware-to-azure-classic.md)
+Máquinas virtuales de VMware | Servidor de VMware | Las tablas de Azure | [Más información](site-recovery-vmware-to-azure-classic.md)
 Máquinas virtuales de VMware | Servidor de VMware | Sitio secundario de VMware | [Más información](site-recovery-vmware-to-vmware.md) 
-Máquinas virtuales de Hyper-V | Host de Hyper-V en la nube VMM | Azure | [Más información](site-recovery-vmm-to-azure.md) 
+Máquinas virtuales de Hyper-V | Host de Hyper-V en la nube VMM | Las tablas de Azure | [Más información](site-recovery-vmm-to-azure.md) 
 Máquinas virtuales de Hyper-V | Host de Hyper-V en la nube VMM | Sitio secundario de VMM | [Más información](site-recovery-vmm-to-vmm.md)
 Máquinas virtuales de Hyper-V | Host de Hyper-V en la nube VMM con almacenamiento SAN| Sitio secundario de VMM con almacenamiento SAN | [Más información](site-recovery-vmm-san.md)
-Máquinas virtuales de Hyper-V | Host de Hyper-V (no VMM) | Azure | [Más información](site-recovery-hyper-v-site-to-azure.md)
-Servidores físicos de Windows/Linux | Servidor físico | Azure | [Más información](site-recovery-vmware-to-azure-classic.md)
+Máquinas virtuales de Hyper-V | Host de Hyper-V (no VMM) | Las tablas de Azure | [Más información](site-recovery-hyper-v-site-to-azure.md)
+Servidores físicos de Windows/Linux | Servidor físico | Las tablas de Azure | [Más información](site-recovery-vmware-to-azure-classic.md)
 Cargas de trabajo que se ejecutan en servidores físicos de Windows o Linux | Servidor físico | Centro de datos secundario | [Más información](site-recovery-vmware-to-vmware.md) 
 
 
@@ -81,4 +81,4 @@ Site Recovery puede ayudarle con la estrategia de BCDR en función de la aplicac
 - Más información acerca de la arquitectura de Site Recovery en [¿Cómo funciona Azure Site Recovery?](site-recovery-components.md)
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -81,4 +81,4 @@ Bus de servicio|5671 (TCP/UDP)| Salida
 ### 6b: Puntos de conexión para el agente de Azure AD Connect Health para (AD FS/sincronización) y Azure AD
 Para ver una lista de puntos de conexión, consulte [la sección de requisitos para el agente de Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md#requirements).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

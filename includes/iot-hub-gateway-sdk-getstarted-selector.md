@@ -2,7 +2,7 @@
 - [Linux](../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md)
 - [Windows](../articles/iot-hub/iot-hub-windows-gateway-sdk-get-started.md)
 
-En este artículo se ofrece un tutorial detallado sobre el [código de ejemplo Hello World][lnk-helloworld-sample] para ilustrar los componentes fundamentales de la arquitectura del [SDK de puerta de enlace de IoT de Azure][lnk-gateway-sdk]. En el ejemplo se usa el SDK de puerta de enlace para crear una puerta de enlace simple que registra un mensaje "hello world" en un archivo cada cinco segundos.
+En este artículo se ofrece un tutorial detallado sobre el [código de ejemplo Hello World][lnk-helloworld-sample] para ilustrar los componentes fundamentales de la arquitectura del [SDK de puerta de enlace de IoT de Azure][lnk-gateway-sdk]. En el ejemplo se usa el SDK de puerta de enlace de IoT Hub para crear una puerta de enlace simple que registra un mensaje "hello world" en un archivo cada cinco segundos.
 
 En este tutorial, se describen los siguientes procedimientos:
 
@@ -21,7 +21,7 @@ Antes de examinar el código de ejemplo o de crear su propia puerta de enlace de
 
 Una puerta de enlace se crea con el SDK de puerta de enlace de Azure mediante la creación y el ensamblado de *módulos*. Los módulos utilizan *mensajes* para intercambiarse datos. Un módulo recibe un mensaje, realiza alguna acción en él, opcionalmente lo transforma en un nuevo mensaje y luego lo publica para que otros módulos lo procesen. Existe la posibilidad de que algunos módulos solo produzcan nuevos mensajes y nunca procesen los mensajes entrantes. Una cadena de módulos crea una canalización de procesamiento de datos donde cada módulo realiza una transformación en los datos en un punto de esa canalización.
 
-![][1]
+![Cadena de módulos de puerta de enlace incorporada en el SDK de puerta de enlace de Azure IoT][1]
  
 El SDK está formado por los siguientes componentes:
 
@@ -31,7 +31,7 @@ El SDK está formado por los siguientes componentes:
 
 El SDK proporciona una capa de abstracción que permite crear puertas de enlace para trabajar en una diversidad de sistemas operativos y plataformas.
 
-![][2]
+![Capa de abstracción del SDK de puerta de enlace de Azure IoT Hub][2]
 
 ### error de Hadoop
 
@@ -39,7 +39,7 @@ Aunque una manera práctica de conceptualizar cómo funciona una puerta de enlac
 
 Un módulo usa la función **Broker\_Publish** para publicar un mensaje en el agente. El agente entrega los mensajes a un módulo mediante la invocación de una función de devolución de llamada. Un mensaje consta de un conjunto de propiedades de clave/valor y del contenido que se pasa como un bloque de memoria.
 
-![][3]
+![Rol del agente en el SDK de puerta de enlace de Azure IoT][3]
 
 ### Enrutamiento y filtro de mensajes
 
@@ -52,7 +52,7 @@ El ejemplo Hello World ilustra los conceptos descritos en la sección anterior. 
 -	El módulo *hello world* crea un mensaje cada cinco segundos y lo pasa al módulo logger.
 -	El módulo *logger* escribe los mensajes que recibe en un archivo.
 
-![][4]
+![Arquitectura del ejemplo Hello World incorporada en el SDK de puerta de enlace de Azure IoT][4]
 
 Como se ha descrito en la sección anterior, el módulo Hello World no pasa los mensajes directamente al módulo logger cada cinco segundos. En su lugar, lo que hace es publicar un mensaje en el agente cada cinco segundos.
 
@@ -60,7 +60,7 @@ El módulo logger recibe el mensaje del agente y actúa en él, escribe el conte
 
 El módulo logger solo consume mensajes del agente, nunca publica mensajes nuevos en el agente.
 
-![][5]
+![Cómo transmite el agente mensajes entre módulos en el SDK de puerta de enlace de Azure IoT][5]
 
 La ilustración anterior muestra la arquitectura del ejemplo Hello World y las rutas de acceso relativas a los archivos de origen que implementan diferentes partes del ejemplo en el [repositorio][lnk-gateway-sdk]. Explore el código por su cuenta, o use los siguientes fragmentos de código como guía.
 
@@ -75,4 +75,4 @@ La ilustración anterior muestra la arquitectura del ejemplo Hello World y las r
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -151,6 +151,8 @@ if (!namespaceManager.TopicExists("TestTopic"))
 
 También puede crear suscripciones de temas con la clase [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). A las suscripciones se les puede asignar un nombre y pueden tener un filtro opcional que restrinja el conjunto de mensajes que pasan a la cola virtual de la suscripción.
 
+> [AZURE.IMPORTANT] Para que una suscripción reciba mensajes, debe crear dicha suscripción antes de enviar mensajes al tema. Si no hay ninguna suscripción a un tema, este descartará los mensajes.
+
 ### Creación de una suscripción con el filtro predeterminado (MatchAll)
 
 El filtro predeterminado **MatchAll** se usa en caso de que no se haya especificado ninguno al crear una suscripción. Si se usa el filtro **MatchAll**, todos los mensajes publicados en el tema se colocan en la cola virtual de la suscripción. En el ejemplo siguiente se crea una suscripción llamada "AllMessages" que usa el filtro predeterminado **MatchAll**.
@@ -328,4 +330,4 @@ Ahora que conoce los fundamentos de los temas y las suscripciones de Service Bus
   [Tutorial de .NET de mensajería asíncrona de Service Bus]: service-bus-brokered-tutorial-dotnet.md
   [página de ejemplos de Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

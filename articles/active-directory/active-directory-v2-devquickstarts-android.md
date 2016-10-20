@@ -32,7 +32,7 @@ No todas las características y escenarios de Azure Active Directory son compati
 
 
 ## Descargue el código desde GitHub.
-El código de este tutorial se conserva [en GitHub](git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git). Para continuar, puede [descargar el esqueleto de la aplicación como un archivo .zip](git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git/archive/skeleton.zip) o clonar el esqueleto:
+El código de este tutorial se conserva [en GitHub](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2). Para continuar, puede [descargar el esqueleto de la aplicación como un archivo .zip](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2/archive/skeleton.zip) o clonar el esqueleto:
 
 ```
 git clone --branch skeleton git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git
@@ -197,4 +197,4 @@ Cuando se haya autenticado correctamente, haga clic en el botón **Request Prote
 
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite la página [TechCenter de seguridad](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de documentos informativos de seguridad.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

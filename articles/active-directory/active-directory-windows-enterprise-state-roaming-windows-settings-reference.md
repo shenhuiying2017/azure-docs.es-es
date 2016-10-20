@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Referencia de la configuración de movilidad de Windows 10
@@ -38,11 +38,11 @@ La configuración de Windows se sincroniza normalmente de forma predeterminada p
 ## Introducción a la configuración de Windows
 Los grupos de configuración siguientes están disponibles para que los usuarios finales puedan habilitar o deshabilitar en ellos la sincronización de configuración en dispositivos de Windows 10.
 
-- Tema: fondo de escritorio, icono de usuario, posición de la barra de tareas, etc. 
-- Configuración de Internet Explorer: historial de exploración, direcciones URL escritas, favoritos, etc. 
-- Contraseñas: [Caja de seguridad de credenciales de Windows](https://technet.microsoft.com/library/jj554668.aspx), incluidos perfiles de Wi-Fi 
-- Preferencias de idioma: diccionario de ortografía, configuración de idioma del sistema 
-- Facilidad de acceso: narrador, teclado en pantalla, lupa 
+- Tema: fondo de escritorio, icono de usuario, posición de la barra de tareas, etc.
+- Configuración de Internet Explorer: historial de exploración, direcciones URL escritas, favoritos, etc.
+- Contraseñas: [Caja de seguridad de credenciales de Windows](https://technet.microsoft.com/library/jj554668.aspx), incluidos perfiles de Wi-Fi
+- Preferencias de idioma: diccionario de ortografía, configuración de idioma del sistema
+- Facilidad de acceso: narrador, teclado en pantalla, lupa
 - Otras configuraciones de Windows: consultar Detalles de configuración de Windows
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
@@ -176,4 +176,4 @@ Las entradas Interno de la columna Grupo de la configuración hacen referencia a
 
   
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0928_2016-->

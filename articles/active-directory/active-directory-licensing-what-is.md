@@ -5,7 +5,7 @@
 	  keywords="Licencias de Azure AD"
     documentationCenter=""
     authors="curtand"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -87,8 +87,7 @@ Como se indica, Azure AD dispone de distintas versiones de pago. Estas versiones
 ![Planes de licencia de prueba activa](./media/active-directory-licensing-what-is/active_license_trials.png)
 
 ###Asignación de licencias
-Una vez que la suscripción esté activa, debe asignarse una licencia a usted mismo y actualizar el explorador para asegurarse de que ve todas las características. El siguiente paso es asignar licencias a los usuarios que necesitarán tener acceso a características de pago de pago de Azure AD o que tendrán que incluirse en ellas. Como se mencionó anteriormente en "Asignación de licencias", la mejor forma de hacer esto es identificar el grupo que representa a la audiencia deseada y asignarle la licencia; de esta forma, los usuarios que se agreguen o se quiten  
-del grupo durante su ciclo de vida se asignarán a la licencia o se quitarán de ella.
+Una vez que la suscripción esté activa, debe asignarse una licencia a usted mismo y actualizar el explorador para asegurarse de que ve todas las características. El siguiente paso es asignar licencias a los usuarios que necesitarán tener acceso a características de pago de pago de Azure AD o que tendrán que incluirse en ellas. Como se mencionó anteriormente en "Asignación de licencias", la mejor forma de hacer esto es identificar el grupo que representa a la audiencia deseada y asignarle la licencia; de esta forma, los usuarios que se agreguen o se quiten del grupo durante su ciclo de vida se asignarán a la licencia o se quitarán de ella.
 
 Para asignar una licencia a un grupo o a usuarios individuales, seleccione el plan de licencia que desee asignar y haga clic en **Asignar** en la barra de comandos.
 
@@ -141,4 +140,4 @@ Ahora ya está preparado para configurar y usar algunas características de Azur
 - [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 - [Compra directa de licencias de Azure AD Premium](http://aka.ms/buyaadp)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -35,15 +35,15 @@ Inicie una sesión de PowerShell de Azure e inicie sesión en su cuenta de Azure
 Login-AzureRmAccount
 ```
 
-En la ventana emergente del explorador, escriba el nombre de usuario y la contraseña de su cuenta de Azure. Azure PowerShell obtendrá todas las suscripciones que están asociadas a esta cuenta y, de forma predeterminada, usará la primera.
+En la ventana emergente del explorador, escriba el nombre de usuario y la contraseña de su cuenta de Azure. Azure PowerShell obtendrá todas las suscripciones asociadas a esta cuenta y, de forma predeterminada, usará la primera.
 
-Si tiene varias suscripciones, es posible que deba especificar la que se usó para crear el Almacén de claves de Azure. Escriba lo siguiente para ver las suscripciones de su cuenta:
+Si tiene varias suscripciones, es posible que deba especificar la que se usó para crear su instancia de Azure Key Vault. Escriba lo siguiente para ver las suscripciones de su cuenta:
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-A continuación, para especificar la suscripción asociada al Almacén de claves que registrará, escriba:
+A continuación, para especificar la suscripción asociada al almacén de claves que registrará, escriba:
 
 ```powershell
 Set-AzureRmContext -SubscriptionId <subscriptionID> 
@@ -241,7 +241,7 @@ Una vez habilitados, comenzarán a recopilarse registros de auditoría en la cue
 
 > [AZURE.NOTA] Tras la operación del almacén de claves, el tiempo máximo para acceder a la información de registro es de 10 minutos. En la mayoría de los casos, será más rápido que esto.
 
-El siguiente paso consiste en la [creación de una cola del Bus de servicio de Azure](../service-bus/service-bus-dotnet-get-started-with-queues.md). La cola estará en la misma ubicación en la que se insertan los registros de auditoría del almacén de claves. Una vez en la cola, la aplicación lógica los seleccionará y trabajará con ellos. El proceso para crear un Bus de servicio es relativamente sencillo. A continuación se indican los principales pasos:
+El siguiente paso consiste en la [creación de una cola de Azure Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md). La cola estará en la misma ubicación en la que se insertan los registros de auditoría del almacén de claves. Una vez en la cola, la aplicación lógica los seleccionará y trabajará con ellos. El proceso para crear un Bus de servicio es relativamente sencillo. A continuación se indican los principales pasos:
 
 1. Cree un espacio de nombres de Bus de servicio. Si ya tiene uno que quiera usar, puede saltar al paso 2.
 2. Busque el Bus de servicio en el portal y seleccione el espacio de nombres en el que quiere crear la cola.
@@ -424,4 +424,4 @@ En la acción, elija _Office 365 - send email_ (Office 365 - enviar correo elect
 
 En este momento, tiene una canalización integral que, una vez por minuto, busca nuevos registros de auditoría del Almacén de claves. Todos los registros que encuentre los insertará en una cola del Bus de servicio. La aplicación lógica se desencadenará en cuanto un nuevo mensaje llegue a la cola y, si el identificador de aplicación del evento no coincide con el identificador de la aplicación de llamada, enviará un correo electrónico.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

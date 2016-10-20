@@ -3,7 +3,7 @@
 	description="Obtenga información sobre cómo mover datos desde almacenes de datos ODBC mediante Factoría de datos de Azure." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/12/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Movimiento de datos desde almacenes de datos ODBC mediante Factoría de datos de Azure
 En este artículo se describe cómo se puede usar la actividad de copia en Factoría de datos de Azure para mover datos de un almacén de datos ODBC local a otro almacén de datos. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
@@ -359,7 +359,7 @@ Antes de usar el almacén GE Historian en una solución de Data Factory, comprue
 Lea el artículo desde el principio para obtener información general detallada de uso de almacenes de datos ODBC como almacenes de datos de origen en una operación de copia.
 
 ## Solución de problemas de conectividad
-Use la pestaña **Diagnósticos** del **Administrador de configuración de Data Management Gateway** para solucionar problemas de conexión.
+Use la pestaña **Diagnósticos** del **Administrador de configuración de puerta de enlace de administración de datos** para solucionar problemas de conexión.
 
 1. Inicie el **Administrador de configuración de Data Management Gateway**. Puede ejecutar C:\\Archivos de programa\\Microsoft Data Management Gateway\\1.0\\Shared\\ConfigManager.exe directamente, o bien buscar **Gateway** para encontrar un vínculo a la aplicación **Microsoft Data Management Gateway**, tal y como se muestra en la imagen siguiente.
 
@@ -374,4 +374,4 @@ Use la pestaña **Diagnósticos** del **Administrador de configuración de Data 
 ## Rendimiento y optimización  
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

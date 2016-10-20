@@ -13,14 +13,14 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="09/08/2016"
+	ms.date="09/29/2016"
 	ms.author="marsma"/>
 
 # Información general de las características de Lote para desarrolladores
 
 En este artículo se proporciona información general acerca los componentes principales del servicio Lote de Azure y se describen los principales recursos y características del servicio que pueden usar los desarrolladores de Lote para crear soluciones de proceso en paralelo a gran escala.
 
-Tanto si está desarrollando una aplicación informática distribuida o un servicio que emite llamadas directas a la API de [REST de Lote][batch_rest_api] como si usa uno de los [SDK de Lote](batch-technical-overview.md#batch-development-apis), utilizará muchos de los recursos y las características que se describen en este artículo.
+Tanto si está desarrollando una aplicación informática distribuida o un servicio que emite llamadas directas a la [API de REST][batch_rest_api] como si usa uno de los [SDK de Batch](batch-technical-overview.md#batch-development-apis), utilizará muchos de los recursos y las características que se describen en este artículo.
 
 > [AZURE.TIP] Para ver una introducción de nivel superior sobre el servicio Lote, consulte [Datos básicos de Lote de Azure](batch-technical-overview.md).
 
@@ -40,9 +40,9 @@ El siguiente flujo de trabajo de alto nivel es típico de casi todas las aplicac
 
 6. Supervise el progreso del trabajo y recupere el resultado de la tarea de Almacenamiento de Azure.
 
-Las secciones siguientes tratan estos, y otros, recursos de Lote que permitirán que haya un escenario de cálculo distribuido.
+Las secciones siguientes tratan estos, y otros, recursos de Batch que permitirán que haya un escenario de cálculo distribuido.
 
-> [AZURE.NOTE] Necesitará una [cuenta de Lote](batch-account-create-portal.md) para utilizar este servicio. Además, casi todas las soluciones usarán una cuenta de [Almacenamiento de Azure][azure_storage] para el almacenamiento y la recuperación de archivos. Actualmente, Lote solo admite el tipo de cuenta de almacenamiento de **uso general**, como se describe en el paso 5 de la sección [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md).
+> [AZURE.NOTE] Necesitará una [cuenta de Batch](batch-account-create-portal.md) para utilizar este servicio. Además, casi todas las soluciones usarán una cuenta de [Azure Storage][azure_storage] para el almacenamiento y la recuperación de archivos. Actualmente, Lote solo admite el tipo de cuenta de almacenamiento de **uso general**, como se describe en el paso 5 de la sección [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md).
 
 ## Recursos del servicio de Lote
 
@@ -109,9 +109,9 @@ Cuando se crea un grupo, puede especificar los siguientes atributos:
 
 	Los tamaños de los nodos de proceso de la **configuración de máquina virtual** se muestran en [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/virtual-machines-linux-sizes.md) y [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/virtual-machines-windows-sizes.md). Lote admite todos los tamaños de máquina virtual de Azure excepto `STANDARD_A0` y aquellos con almacenamiento premium (series `STANDARD_GS`, `STANDARD_DS` y `STANDARD_DSV2`).
 
-	Cuando seleccione un tamaño de nodo, debe considerar las características y los requisitos de la aplicación o aplicaciones que se ejecutarán en los nodos de proceso. Normalmente, se selecciona un tamaño de nodo bajo el supuesto de que se ejecutará una sola tarea en el nodo a la vez. Considere aspectos tales como si la aplicación es multiproceso y cuánta memoria consume como ayuda para determinar el tamaño de nodo más adecuado y rentable. Es posible [ejecutar en paralelo](batch-parallel-node-tasks.md) varias tareas y, por tanto, varias instancias de la aplicación, en cuyo caso normalmente conviene elegir un nodo más grande. Para más información, consulte la sección "Directiva de programación de tareas" a continuación.
+	Al seleccionar un tamaño de nodo de proceso, tenga en cuenta las características y los requisitos de las aplicaciones que se van a ejecutar en los nodos. Aspectos tales como si la aplicación es multiproceso y cuánta memoria consume pueden ayudar a determinar el tamaño de nodo más adecuado y rentable. Normalmente, se selecciona un tamaño de nodo bajo el supuesto de que se ejecutará una sola tarea en un nodo cada vez. No obstante, es posible [ejecutar en paralelo](batch-parallel-node-tasks.md) varias tareas y, por tanto, varias instancias de la aplicación, en varios nodos de proceso durante la ejecución del trabajo. En este caso, es habitual elegir un tamaño de nodo más grande para acomodar el aumento de la demanda por la ejecución de tareas en paralelo. Para más información, consulte [Directiva de programación de tareas](#task-scheduling-policy).
 
-	Todos los nodos de un grupo son del mismo tamaño. Si va a ejecutar aplicaciones con requisitos del sistema o niveles de carga diferentes, debe usar grupos separados.
+	Todos los nodos de un grupo son del mismo tamaño. Si va a ejecutar aplicaciones con requisitos del sistema o niveles de carga diferentes, es recomendable usar grupos separados.
 
 - **Número objetivo de nodos**
 
@@ -131,7 +131,7 @@ Cuando se crea un grupo, puede especificar los siguientes atributos:
 
 - **Estado de comunicación** de los nodos de proceso
 
-	En la mayoría de los escenarios, las tareas funcionan de forma independiente y no necesitan comunicarse entre sí. Sin embargo, puede que haya algunas aplicaciones en las que las tareas deban comunicarse (como en los [escenarios MPI](batch-mpi.md)).
+	En la mayoría de los escenarios, las tareas funcionan de forma independiente y no necesitan comunicarse entre sí. Sin embargo, hay algunas aplicaciones en las que las tareas deben comunicarse, como en los [escenarios MPI](batch-mpi.md).
 
 	Puede configurar un grupo que permita la comunicación entre los nodos que contiene: **comunicación entre nodos**. Cuando se habilita la comunicación entre nodos, los nodos en grupos de configuración de Servicios en la nube pueden comunicarse entre sí en los puertos superiores a 1100, mientras que los grupos de configuración de máquina virtual no restringen el tráfico en ningún puerto.
 
@@ -149,7 +149,7 @@ Cuando se crea un grupo, puede especificar los siguientes atributos:
 
 	Puede especificar el identificador de la [red virtual (VNet)](../virtual-network/virtual-networks-overview.md) de Azure en que se deben crear los nodos de proceso del grupo. Los requisitos para especificar una red virtual para un grupo se pueden encontrar en [Agregar un grupo a una cuenta][vnet], en la referencia de la API de REST de Lote.
 
-> [AZURE.IMPORTANT] Todas las cuentas de Lote tienen una **cuota** predeterminada que limita el número de **núcleos** (y por tanto, de nodos de proceso) en una cuenta de Lote. Encontrará las cuotas predeterminadas y las instrucciones para [aumentar una cuota](batch-quota-limit.md#increase-a-quota) (por ejemplo, el número máximo de núcleos de su cuenta de Lote) en [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md). Si se pregunta "¿Por qué mi grupo no llega a más de X nodos?", esta cuota de núcleos puede ser la causa.
+> [AZURE.IMPORTANT] Todas las cuentas de Lote tienen una **cuota** predeterminada que limita el número de **núcleos** (y por tanto, de nodos de proceso) en una cuenta de Lote. Tanto las cuotas predeterminadas como las instrucciones para [aumentar una cuota](batch-quota-limit.md#increase-a-quota) (por ejemplo, el número máximo de núcleos de su cuenta de Lote) se pueden encontrar en [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md). Si se pregunta "¿Por qué mi grupo no llega a más de X nodos?", esta cuota de núcleos puede ser la causa.
 
 ## Trabajo
 
@@ -157,7 +157,7 @@ Un trabajo es una colección de tareas. El trabajo administra cómo sus tareas r
 
 - El trabajo especifica el **grupo** en el que se va a ejecutar el trabajo. Puede crear un grupo para cada trabajo o usar uno solo para muchos de ellos. Puede crear un grupo para cada trabajo asociado con una programación de trabajo o para todos los trabajos asociados con ella.
 
-- Puede especificar una **prioridad del trabajo** opcional. Cuando se envía un trabajo con una prioridad más alta que la de otros trabajos actualmente en curso, las tareas del trabajo de prioridad más alta se insertan en la cola por delante de las tareas del trabajo de prioridad más baja. No adelantarán a las tareas de prioridad más baja que ya estén en ejecución.
+- Puede especificar una **prioridad del trabajo** opcional. Cuando se envía un trabajo con una prioridad más alta que la de otros trabajos actualmente en curso, las tareas del trabajo de prioridad más alta se insertan en la cola por delante de las tareas del trabajo de prioridad más baja. No adelantarán a las tareas de trabajos de prioridad más baja que ya estén en ejecución.
 
 - Puede utilizar **restricciones** de trabajo para fijar determinados límites para sus trabajos:
 
@@ -229,7 +229,7 @@ Sin embargo, también puede incluir datos de referencia que se utilizarán en to
 
 Habitualmente, es conveniente que el servicio Lote espere a que la tarea de inicio finalice antes de considerar que el nodo está listo para asignarle tareas, pero este procedimiento se puede configurar.
 
-Si una tarea de inicio da error en un nodo de ejecución, el estado del nodo se actualiza para reflejar el error y el nodo estará disponible para asignarle tareas. Una tarea de inicio puede generar un error si existe un problema al copiar sus archivos de recursos desde el almacenamiento o si el proceso ejecutado mediante su línea de comandos devuelve un código de salida distinto de cero.
+Si una tarea de inicio da error en un nodo de proceso, el estado del nodo se actualiza para reflejar el error y no se le asigna al nodo ninguna tarea. Una tarea de inicio puede generar un error si existe un problema al copiar sus archivos de recursos desde el almacenamiento o si el proceso ejecutado mediante su línea de comandos devuelve un código de salida distinto de cero.
 
 Si agrega o actualiza la tarea de inicio de un grupo *existente*, debe reiniciar sus nodos de proceso para la tarea de inicio que se va a aplicar a dichos nodos.
 
@@ -282,30 +282,13 @@ Consulte [Task dependencies in Azure Batch](batch-task-dependencies.md) (Depende
 
 ## Configuración del entorno para las tareas
 
-Cada tarea que se ejecuta dentro de un trabajo de Lote tiene acceso a variables de entorno establecidas por el servicio Lote (definidas por el servicio tal y como se describe en la siguiente tabla), así como a variables de entorno personalizadas que puede establecer para sus tareas. Las aplicaciones y los scripts ejecutados por las tareas en los nodos tienen acceso a estas variables de entorno durante la ejecución.
+Cada tarea que ejecuta el servicio Batch tiene acceso a las variables de entorno que establece en los nodos de proceso. Esto incluye las variables de entorno definidas por el servicio Batch ([definidas por el servicio][msdn_env_vars]) y las variables de entorno personalizadas que se pueden definir para las tareas. Las aplicaciones y los scripts que ejecutan las tareas tienen acceso a estas variables de entorno durante la ejecución.
 
 Puede establecer variables de entorno personalizadas en el nivel de tarea o de trabajo rellenando la propiedad *environment settings* de estas entidades. Por ejemplo, consulte la operación [Agregar una tarea a un trabajo][rest_add_task] \(API de REST de Lote) o las propiedades [CloudTask.EnvironmentSettings][net_cloudtask_env] y [CloudJob.CommonEnvironmentSettings][net_job_env] en .NET de Lote.
 
 La aplicación cliente o el servicio pueden obtener las variables de entorno de una tarea, tanto las definidas por el servicio como las personalizadas, mediante la operación [Obtener información acerca de una tarea][rest_get_task_info] \(REST de Lote) o accediendo a la propiedad [CloudTask.EnvironmentSettings][net_cloudtask_env] \(.NET de Lote). Los procesos que se ejecutan en un nodo de proceso pueden acceder a estas y a otras variables de entorno en el nodo, por ejemplo mediante la conocida sintaxis de `%VARIABLE_NAME%` (Windows) o `$VARIABLE_NAME` (Linux).
 
-Las siguientes variables de entorno son establecidas por el servicio Lote y están disponibles para que las tareas accedan a ellas:
-
-| Nombre de la variable de entorno | Description |
-|---------------------------------|--------------------------------------------------------------------------|
-| `AZ_BATCH_ACCOUNT_NAME` | El nombre de la cuenta a la que pertenece la tarea. |
-| `AZ_BATCH_JOB_ID` | El identificador de la cuenta a la que pertenece la tarea. |
-| `AZ_BATCH_JOB_PREP_DIR` | Ruta de acceso completa del directorio de tareas de preparación del trabajo en el nodo. |
-| `AZ_BATCH_JOB_PREP_WORKING_DIR` | Ruta de acceso completa del directorio de trabajo de tareas de preparación del trabajo en el nodo. |
-| `AZ_BATCH_NODE_ID` | El identificador del nodo en el que se ejecuta la tarea. |
-| `AZ_BATCH_NODE_ROOT_DIR` | Ruta de acceso completa del directorio raíz en el nodo. |
-| `AZ_BATCH_NODE_SHARED_DIR` | Ruta de acceso completa del directorio compartido en el nodo. |
-| `AZ_BATCH_NODE_STARTUP_DIR` | La ruta de acceso completa del directorio de la tarea de inicio del nodo de ejecución en el nodo. |
-| `AZ_BATCH_POOL_ID` | El identificador del grupo en el que se ejecuta la tarea. |
-| `AZ_BATCH_TASK_DIR` | Ruta de acceso completa del directorio de tareas en el nodo. |
-| `AZ_BATCH_TASK_ID` | El id. de la tarea actual. |
-| `AZ_BATCH_TASK_WORKING_DIR` | Ruta de acceso completa del directorio de trabajo en el nodo. |
-
->[AZURE.IMPORTANT] Estas variables de entorno solo están disponibles en el contexto de la **tarea de usuario**, es decir, la cuenta de usuario en el nodo donde se ejecuta una tarea. *No* las verá si [se conecta de forma remota](#connecting-to-compute-nodes) a un nodo de proceso a través del protocolo de escritorio remoto (RDP) o de Secure Shell (SSH) y muestra la lista de variables de entorno. Esto se debe a que la cuenta de usuario que se usa para la conexión remota no es la misma que la cuenta que utiliza la tarea.
+Puede encontrar una lista completa de todas las variables de entorno definidas por el servicio en [Compute node environment variables][msdn_env_vars] \(Variables de entorno en los nodos de proceso).
 
 ## Archivos y directorios
 
@@ -345,9 +328,9 @@ Para más información acerca de la característica de paquetes de aplicación, 
 
 Al diseñar la solución de Lote de Azure, se debe tomar una decisión de diseño con respecto a cómo y cuándo se crean los grupos y cuánto tiempo se mantendrán disponibles los nodos de proceso dentro de esos grupos.
 
-Por una parte, puede crear un grupo para cada trabajo cuando se envíe el trabajo y eliminar sus nodos a medida que se terminen de ejecutar las tareas. De esta manera, se maximiza su uso dado que los nodos solo se asignan cuando es absolutamente necesario y se apagan en cuanto se vuelven inactivos. Aunque esto significa que el trabajo debe esperar a que se asignen los nodos, es importante tener en cuenta que las tareas se programarán para los nodos tan pronto estén disponibles de forma individual, se asignen y se haya completado la tarea de inicio. El servicio Lote *no* espera a que todos los nodos dentro de un grupo estén disponibles antes de asignar las tareas. Esto garantiza la utilización máxima de todos los nodos disponibles.
+Por una parte, puede crear un grupo para cada trabajo que envíe el trabajo y eliminarlo a medida que se terminen de ejecutar las tareas. De esta manera, se maximiza su uso dado que los nodos solo se asignan cuando es necesario y se apagan en cuanto se vuelven inactivos. Aunque esto significa que el trabajo debe esperar a que se asignen los nodos, es importante tener en cuenta que las tareas se programarán para su ejecución tan pronto como los nodos estén disponibles de forma individual, se asignen y se haya completado la tarea de inicio. Batch *no* espera a que todos los nodos dentro de un grupo estén disponibles antes de asignar las tareas a estos. Esto garantiza la utilización máxima de todos los nodos disponibles.
 
-Por otro lado, si lo más importante es que los trabajos se inicien inmediatamente, se puede crear un grupo antes de tiempo y hacer que sus nodos estén disponibles antes de que se envíen los trabajos. En este escenario, las tareas de trabajo se pueden iniciar inmediatamente, pero los nodos pueden permanecer inactivos mientras esperan a que se asignen las tareas.
+Por otro lado, si lo más importante es que los trabajos se inicien inmediatamente, se puede crear un grupo antes de tiempo y hacer que sus nodos estén disponibles antes de que se envíen los trabajos. En este escenario, las tareas se pueden iniciar inmediatamente, pero los nodos permanecerán inactivos mientras esperan a que se les asignen las tareas.
 
 Normalmente, se utiliza un enfoque combinado para controlar una carga variable, pero en curso. Puede tener un grupo al que se envíen varios trabajos y puede aumentar o reducir el número de nodos según la carga de trabajo (consulte [Escalado de recursos de procesos](#scaling-compute-resources) en la sección siguiente). Puede realizar esto de manera reactiva, según la carga actual o de forma anticipada si se puede predecir la carga.
 
@@ -375,7 +358,7 @@ Para obtener más información sobre cómo escalar automáticamente una aplicaci
 
 ## Seguridad con certificados
 
-Normalmente necesitará usar certificados al cifrar o descifrar información confidencial para las tareas, como la clave de una [cuenta de Almacenamiento de Azure][azure_storage]. Para ello, puede instalar certificados en los nodos. Los secretos cifrados se pasan a las tareas mediante parámetros de línea de comandos o se insertan en uno de los recursos de tarea, y los certificados instalados se pueden usar para descifrarlos.
+Normalmente necesitará usar certificados al cifrar o descifrar información confidencial para las tareas, como la clave de una [cuenta de Azure Storage][azure_storage]. Para ello, puede instalar certificados en los nodos. Los secretos cifrados se pasan a las tareas mediante parámetros de línea de comandos o se insertan en uno de los recursos de tarea, y los certificados instalados se pueden usar para descifrarlos.
 
 Use la operación [Agregar un certificado a la cuenta][rest_add_cert] \(REST de Lote) o el método [CertificateOperations.CreateCertificate][net_create_cert] \(.NET de Lote) para agregar un certificado a una cuenta de Lote. Se puede asociar el certificado a un grupo nuevo o existente. Cuando se asocia un certificado a un grupo, el servicio Lote instala el certificado en cada nodo del grupo. El servicio Lote instala los certificados adecuados cuando se inicia el nodo, antes de iniciar ninguna tarea (incluidas la de inicio y la del Administrador de trabajos).
 
@@ -420,7 +403,7 @@ Los errores de las tareas se incluyen en estas categorías:
 
 En ocasiones, las tareas pueden presentar errores o interrumpirse. Se podría producir un error en la propia aplicación de la tarea, se podría reiniciar el nodo donde se ejecuta la tarea o se podría quitar el nodo del grupo durante una operación de cambio de tamaño si la directiva de desasignación del grupo está configurada para quitar los nodos de inmediato, sin esperar a que finalicen las tareas. En todos los casos, el servicio Lote puede volver a poner la tarea automáticamente en la cola para ejecutarla en otro nodo.
 
-También es posible que un problema intermitente haga que una tarea deje de responder o tarde demasiado tiempo en ejecutarse. Puede establecer el tiempo de ejecución máximo para una tarea. Si se supera, el servicio Lote interrumpirá la aplicación de la tarea.
+También es posible que un problema intermitente haga que una tarea deje de responder o tarde demasiado tiempo en ejecutarse. Puede establecer el tiempo de ejecución máximo para una tarea. Si se supera, el servicio Batch interrumpirá la aplicación de la tarea.
 
 ### Conexión a los nodos de proceso
 
@@ -434,7 +417,7 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 
 - **Reiniciar el nodo** ([REST][rest_reboot] | [.NET][net_reboot])
 
-	Reiniciar el nodo a veces puede solucionar problemas latentes tales como procesos bloqueados. Tenga en cuenta que si su grupo usa una tarea de inicio o el trabajo usa una tarea de preparación de trabajo, se ejecutarán cuando el nodo se reinicie.
+	Algunas veces, reiniciar el nodo puede solucionar problemas latentes tales como los procesos bloqueados. Tenga en cuenta que si su grupo usa una tarea de inicio o el trabajo usa una tarea de preparación de trabajo, se ejecutarán cuando el nodo se reinicie.
 
 - **Restablecer la imagen inicial del nodo** ([REST][rest_reimage] | [.NET][net_reimage])
 
@@ -473,6 +456,7 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 [github_sample_taskdeps]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
 [github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
+[msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
 [net_cloudjob_priority]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.priority.aspx
 [net_cloudpool_starttask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.starttask.aspx
@@ -516,4 +500,4 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

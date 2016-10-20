@@ -13,42 +13,43 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/19/2016" 
+	ms.date="09/27/2016" 
 	ms.author="juliako"/>
 
 #Información general de protección del contenido
 
 
-Servicios multimedia de Microsoft Azure le permite proteger su contenido multimedia desde el momento en que deja el equipo a través de almacenamiento, procesamiento y entrega. Servicios multimedia permite entregar el contenido cifrado de forma dinámica con Estándar de cifrado avanzado (AES) (mediante claves de cifrado de 128 bits) y cifrado común (CENC) mediante DRM de PlayReady o Widevine. Los Servicios multimedia también proporcionan un servicio para entregar claves AES y licencias de PlayReady a clientes autorizados. También puede usar los siguientes asociados de AMS para ayudarle a entregar licencias de Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+Servicios multimedia de Microsoft Azure le permite proteger su contenido multimedia desde el momento en que deja el equipo a través de almacenamiento, procesamiento y entrega. Media Services permite entregar el contenido cifrado de forma dinámica con Estándar de cifrado avanzado (AES) (mediante claves de cifrado de 128 bits) o cualquiera de los DRM principales: Microsoft PlayReady, Google Widevine y Apple FairPlay. Media Services también proporciona un servicio para entregar claves AES y licencias de DMR (PlayReady, Widevine y FairPlay) a los clientes autorizados.
 
-- La siguiente imagen muestra el flujo de trabajo "Cifrado dinámico común DRM de PlayReady o Widevine". Para obtener más información, consulte [Uso de cifrado dinámico común DRM de PlayReady o Widevine](media-services-protect-with-drm.md).
+La siguiente imagen muestra los flujos de trabajo de protección de contenido que admite AMS.
 
-![Protección con PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
-
-
-- La siguiente imagen muestra el flujo de trabajo "Cifrado dinámico de AES-128". Para obtener más información, consulte [Uso del cifrado dinámico AES-128 y del servicio de entrega de claves](media-services-protect-with-aes128.md).
-
-![Protección con AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
+![Protección con PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-multi-drm.png)
 
 >[AZURE.NOTE]Para poder usar el cifrado dinámico, primero debe obtener al menos una unidad reservada de streaming en el extremo de streaming desde la que desea transmitir el contenido cifrado.
 
-##Opciones de cifrado de recursos
+En este tema se explican los [conceptos y terminología](media-services-content-protection-overview.md) pertinentes para conocer la protección de contenido con AMS. El tema también contiene [vínculos](media-services-content-protection-overview.md#common-scenarios) a temas que muestran cómo realizar las tareas de protección de contenido.
 
-Según el tipo de contenido que desea cargar, almacenar y entregar, Servicios multimedia proporciona varias opciones de cifrado de las que puede elegir.
+##Cifrado dinámico
 
-###None
+Microsoft Azure Media Services permite proporcionar el contenido cifrado de forma dinámica con la clave sin cifrado AES o cifrado DRM: Microsoft PlayReady, Google Widevine y Apple FairPlay.
 
-No se utiliza cifrado. Este es el valor predeterminado. Cuando se utiliza esta opción, el contenido no está protegido en tránsito o en reposo en el almacenamiento.
+Actualmente puede cifrar los formatos de streaming siguientes: HLS, MPEG DASH y Smooth Streaming. No puede cifrar el formato de streaming HDS ni descargas progresivas.
 
-Si planifica entregar un MP4 mediante una descarga progresiva, use esta opción para cargar el contenido.
+Si desea que Servicios multimedia cifren un recurso, debe asociar una clave de cifrado (CommonEncryption o EnvelopeEncryption) con su recurso y, además, configurar directivas de autorización para la clave.
 
-###StorageEncrypted
+También necesita configurar la directiva de entrega del recurso. Si desea transmitir un recurso cifrado de almacenamiento, asegúrese de configurar la directiva de entrega del recurso para especificar cómo desea entregarlo.
 
-Utilice **StorageEncrypted** para cifrar el contenido no cifrado de manera local mediante el cifrado AES de 256 bits y, a continuación, cargarlo al almacenamiento de Azure donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
+Cuando un reproductor solicita una transmisión, Media Services usa la clave especificada para cifrar de forma dinámica el contenido mediante la clave sin cifrado de AES o el cifrado DRM. Para descifrar la secuencia, el reproductor solicitará la clave del servicio de entrega de claves. Para decidir si el usuario está o no autorizado para obtener la clave, el servicio evalúa las directivas de autorización que especificó para la clave.
+
+>[AZURE.NOTE]Para aprovechar al máximo el cifrado dinámico, primero debe obtener al menos una unidad de streaming a petición para el extremo de streaming desde el que va a entregar el contenido cifrado. Para obtener más información, consulte [Escalación de un Servicio multimedia](media-services-portal-manage-streaming-endpoints.md).
+
+##Cifrado de almacenamiento
+
+Utilice el cifrado de almacenamiento para cifrar el contenido no cifrado de manera local mediante el cifrado de AES de 256 bits y luego cargarlo a Azure Storage donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
 
 Para entregar a un recurso cifrado de almacenamiento, debe configurar la directiva de entrega del recurso para que Servicios multimedia sepa cómo desea entregar el contenido. Antes de poder transmitir el activo, el servidor de streaming quita el cifrado de almacenamiento y transmite el contenido usando la directiva de entrega especificada (por ejemplo, AES, cifrado común o sin cifrado).
 
-####Detalles de la implementación
+###Detalles de la implementación 
 
 El cifrado de almacenamiento de AMS aplica el cifrado de modo **AES-CTR** a todo el archivo. El modo AES-CTR es un cifrado de bloques que puede cifrar los datos de longitud arbitraria sin necesidad de relleno. Funciona mediante el cifrado de un bloque de contador con el algoritmo de AES y, a continuación, aplicando XOR al resultado de AES con los datos para el cifrado o el descifrado. El bloque de contador utilizado se crea copiando el valor de InitializationVector en bytes de 0 a 7 del valor de contador y los bytes de 8 y 15 del valor de contador se establecen en cero. Del bloque de contador de 16 bytes, los bytes de 8 a 15 (es decir, los bytes menos significativos) se utilizan como un entero sin firmar de 64 bits simple que se incrementa en uno por cada bloque siguiente de datos procesados y se mantiene en el orden de bytes de la red. Tenga en cuenta que si este entero alcanza el valor máximo (0xFFFFFFFFFFFFFFFF), incrementarlo restablece el contador de bloque a cero (bytes de 8 a 15) sin que afecte a los otros 64 bits del contador (es decir, bytes de 0 a 7). Para mantener la seguridad del cifrado del modo AES-CTR, el valor de InitializationVector para un KID determinado debe ser único para cada archivo y los archivos deben tener una longitud inferior a 2^64 bloques. Esto es para asegurarse de que un valor de contador nunca se reutiliza con una clave determinada. Para obtener más información sobre el modo CTR, consulte [esta página de la wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (el artículo de la wiki utiliza el término "Nonce" en lugar de "InitializationVector").
 
@@ -58,47 +59,21 @@ Si desea ver cómo funciona el algoritmo básico, consulte la implementación de
 - [AesCtr](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/FileEncryptionTransform.cs)
 
 
-###CommonEncryptionProtected
+## Cifrado común (CENC)
 
-Utilice **CommonEncryptionProtected** si desea cifrar contenido (o cargar contenido ya cifrado) con cifrado común. PlayReady y Widewine se cifran según la especificación de cifrado común (CENC) y son compatibles con AMS.
+El cifrado común se utiliza al cifrar el contenido con PlayReady o Widewine.
 
-###EnvelopeEncryptionProtected
+## Uso del cifrado cbcs-aapl
 
-Utilice **EnvelopeEncryptedProtected** si desea proteger HTTP Live Streaming (HLS) cifrado (o cargar uno ya protegido) con estándar de cifrado avanzado (AES). Tenga en cuenta que si carga HLS ya cifrado con AES, se debe haber cifrado con Transform Manager.
+Cbcs-aapl se usa al cifrar el contenido con FairPlay.
 
-##Cifrado dinámico
+## Cifrado de sobre 
 
-Servicios multimedia de Microsoft Azure le permite entregar el contenido cifrado de forma dinámica con Estándar de cifrado avanzado (AES) (mediante claves de cifrado de 128 bits) y PlayReady o Widevine DRM.
-
-Actualmente puede cifrar los formatos de streaming siguientes: HLS, MPEG DASH y Smooth Streaming. No puede cifrar el formato de streaming HDS ni descargas progresivas.
-
-Si desea que Servicios multimedia cifren un recurso, debe asociar una clave de cifrado (CommonEncryption o EnvelopeEncryption) con su recurso y, además, configurar directivas de autorización para la clave.
-
-También necesita configurar la directiva de entrega del recurso. Si desea transmitir un recurso cifrado de almacenamiento, asegúrese de configurar la directiva de entrega del recurso para especificar cómo desea entregarlo.
-
-Cuando un reproductor solicita una transmisión, Servicios multimedia usa la clave especificada para cifrar de forma dinámica el contenido mediante el cifrado AES o el cifrado común. Para descifrar la secuencia, el reproductor solicitará la clave del servicio de entrega de claves. Para decidir si el usuario está o no autorizado para obtener la clave, el servicio evalúa las directivas de autorización que especificó para la clave.
-
->[AZURE.NOTE]Para aprovechar al máximo el cifrado dinámico, primero debe obtener al menos una unidad de streaming a petición para el extremo de streaming desde el que va a entregar el contenido cifrado. Para obtener más información, consulte [Escalación de un Servicio multimedia](media-services-portal-manage-streaming-endpoints.md).
+Utilice esta opción si desea proteger su contenido con la clave sin cifrado de AES-128. Si desea una opción más segura, elija uno de los DRM enumerados en este tema.
 
 ##Servicio de entrega de licencias y claves
 
-Servicios multimedia proporciona un servicio para entregar licencias DRM (PlayReady y Widevine) y claves sin cifrado de AES a clientes autorizados. Puede utilizar el Portal de Azure clásico, API de REST o SDK de Servicios multimedia para .NET para configurar las directivas de autorización y autenticación de sus licencias y claves.
-
-Observe que si usa el portal puede configura una directiva AES (que se aplicará a todo el contenido cifrado por AES) y una directiva de PlayReady (que se aplicará a todo el contenido cifrado por PlayReady). Use el SDK de Servicios multimedia para .NET si desea tener más control sobre las configuraciones.
-
-##Licencias de DRM
-
-###Licencia de PlayReady
-
-Servicios multimedia proporciona un servicio para entregar licencias de PlayReady. Cuando el reproductor del usuario final (por ejemplo, Silverlight) intenta reproduce el contenido protegido de PlayReady, se envía una solicitud al servicio de entrega de licencias para obtener una licencia. Si el servicio de licencia aprueba la solicitud, emite la licencia, la que se envía al cliente y se puede usar para descifrar y reproducir el contenido especificado.
-
-Las licencias contienen los derechos y restricciones que desea para el tiempo de ejecución de DRM de PlayReady con la finalidad de hacer respetar los requisitos cuando un usuario intenta reproducir contenido protegido. Servicios multimedia proporciona API que le permiten configurar sus licencias de PlayReady. Para obtener más información, consulte [Información general de plantillas de licencias de PlayReady de Servicios multimedia](media-services-playready-license-template-overview.md).
-
-###Licencia de Widevine
-
-AMS también le permite entregar MPEG DASH cifrado con DRM de Widevine. PlayReady y Widewine se cifran según la especificación de cifrado común (CENC). Puede usar el [.NET SDK de AMS](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir de la versión 3.5.1) o la API de REST para configurar AssetDeliveryConfiguration para usar Widevine.
-
-A partir del SDK de Servicios multimedia para .NET versión 3.5.2, Servicios multimedia permite configurar la [plantilla de licencia Widevine](media-services-widevine-license-template-overview.md) y obtener licencias de Widevine. También puede usar los siguientes asociados de AMS para ayudarle a entregar licencias de Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+Media Services proporciona un servicio para proporcionar licencias DRM (PlayReady, Widevine, FairPlay) y claves sin cifrado de AES a clientes autorizados. Puede utilizar [Azure Portal](media-services-portal-protect-content.md), la API de REST o SDK de Media Services para .NET para configurar las directivas de autorización y autenticación de sus licencias y claves.
 
 ##Restricción de token
 
@@ -106,30 +81,33 @@ La directiva de autorización de claves de acceso podría tener una o más restr
 
 Al configurar la directiva de restricción de token, debe especificar los parámetros de clave de comprobación principal, emisor y público. La clave de comprobación principal contiene la clave con la que se firmó el token y el emisor es el servicio de tokens seguros que emite el token. El público (a veces denominado ámbito) describe la intención del token o del recurso cuyo acceso está autorizado por el token. El servicio de entrega de claves de los Servicios multimedia valida que estos valores del token coincidan con los valores de la plantilla.
 
+##Direcciones URL de streaming
+
+Si el recurso se cifró con más de un DRM, debe usar una etiqueta de cifrado en la dirección URL de streaming: (formato = 'm3u8-aapl', cifrado = 'xxx').
+
+Se aplican las siguientes consideraciones:
+
+- Se puede especificar solo un tipo de cifrado o ninguno.
+- El tipo de cifrado no tiene que especificarse en la dirección URL si solo se aplicó un cifrado al recurso.
+- El tipo de cifrado distingue mayúsculas de minúsculas.
+- Se pueden especificar los siguientes tipos de cifrado:
+	- **cenc**: cifrado común (Playready o Widevine)
+	- **cbcs-aapl**: Fairplay
+	- **cbc**: cifrado de sobre AES.
+
 ##Escenarios comunes
 
-###Protección del contenido en el almacenamiento, entrega de soportes de streaming cifrados dinámicamente, use el servicio de entrega de claves\\licencia de AMS
+Los temas siguientes muestran cómo proteger el contenido en el almacenamiento, proporcionar medios de streaming cifrados dinámicamente, uso del servicio de entrega de claves\\licencia de AMS
 
-1. Introduzca un archivo intermedio de alta calidad en un recurso. Aplique una opción de cifrado de almacenamiento al recurso.
-2. Configure de extremos de streaming.
-1. Codifique en conjunto de archivos MP4 de velocidad de bits adaptable. Aplique una opción de cifrado de almacenamiento al recurso de salida.
-1. Cree la clave de cifrado de contenido para el recurso que desee que se cifre dinámicamente durante la reproducción.
-2. Configure la directiva de autorización de claves de contenido.
-1. Configure la directiva de entrega de recursos (usada por el empaquetado y el cifrado dinámicos).
-1. Publique el recurso mediante la creación de un localizador a petición.
-1. Trasmita el contenido publicado.
+- [Protección con AES](media-services-protect-with-aes128.md)
+- [Protección con PlayReady y/o Widevine](media-services-protect-with-drm.md)
+- [Transmisión de contenido HLS protegido con Apple FairPlay o PlayReady](media-services-protect-hls-with-fairplay.md)
 
-Para obtener más información, consulte: [Protección con AES](media-services-protect-with-aes128.md) y [Protección con PlayReady o Widevine ](media-services-protect-with-drm.md).
+### Otros escenarios
 
-
-###Uso del servicio de entrega de clave y licencia de Servicios multimedia con su propio cifrado y servicios de streaming
-
-Para obtener más información, consulte [Integración del servicio de licencia de PlayReady de Azure con su propio servidor de streaming/sistema de cifrado](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server).
-
-###Integración con asociados
-
-[Uso de castLabs para entregar licencias de DRM a Servicios multimedia de Azure](media-services-castlabs-integration.md)
-
+- [How to integrate Azure PlayReady License service with your own encryptor/streaming server](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server) (Integración del servicio de licencia de PlayReady de Azure con su propio servidor de streaming/sistema de cifrado).
+- [Uso de castLabs para entregar licencias de DRM a Servicios multimedia de Azure](media-services-castlabs-integration.md)
+ 
 ##Rutas de aprendizaje de Servicios multimedia
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -137,7 +115,6 @@ Para obtener más información, consulte [Integración del servicio de licencia 
 ##Envío de comentarios
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 
 ##Vínculos relacionados
 
@@ -155,4 +132,4 @@ Para obtener más información, consulte [Integración del servicio de licencia 
 
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

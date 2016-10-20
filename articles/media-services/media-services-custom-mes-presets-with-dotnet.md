@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Codificación avanzada con Codificador multimedia estándar" 
+	pageTitle="Codificación avanzada con Media Encoder estándar | Microsoft Azure" 
 	description="En este tema se muestra cómo realizar codificación avanzada mediante la personalización de valores preestablecidos de tarea Media Encoder Estándar. En este tema se muestra cómo usar el SDK de .NET de Servicios multimedia para crear, actualizar y eliminar filtros. También se muestra cómo especificar valores preestablecidos personalizados para el trabajo de codificación." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"    
+	ms.date="09/26/2016"    
 	ms.author="juliako"/>
 
 
@@ -38,7 +38,7 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios 
 
 - Crear un trabajo de codificación.
 - Obtener una referencia al codificador Codificador multimedia estándar.
-- Cargar el valor preestablecido personalizado JSON o XML. Puede guardar el XML o JSON (por ejemplo, [XML](media-services-custom-mes-presets-with-dotnet.md#xml) o [JSON](media-services-custom-mes-presets-with-dotnet.md#json)) en un archivo y usar el siguiente código para cargar el archivo.
+- Cargar el valor preestablecido personalizado JSON o XML. Puede guardar el valor XML o JSON (por ejemplo, [XML](media-services-custom-mes-presets-with-dotnet.md#xml) o [JSON](media-services-custom-mes-presets-with-dotnet.md#json)) en un archivo y usar el siguiente código para cargar el archivo.
 
 			// Load the XML (or JSON) from the local file.
 		    string configuration = File.ReadAllText(fileName);  
@@ -246,7 +246,7 @@ Para obtener información sobre el esquema, consulte [este](https://msdn.microso
 
 Asegúrese de revisar la sección [Consideraciones](media-services-custom-mes-presets-with-dotnet.md#considerations).
 
-###<a id="json"></a>Valor preestablecido de JSON
+###<a id="json"></a>Valor preestablecido JSON
 
 
 	{
@@ -348,7 +348,7 @@ Asegúrese de revisar la sección [Consideraciones](media-services-custom-mes-pr
 	}
 
 
-###<a id="xml"></a>Valor preestablecido de XML
+###<a id="xml"></a>Valor preestablecido XML
 
 
 	<?xml version="1.0" encoding="utf-16"?>
@@ -569,7 +569,7 @@ Para recortar vídeos, puede usar cualquiera de los valores preestablecidos de M
 
 ###Valor preestablecido XML
 	
-Para recortar vídeos, puede usar cualquiera de los valores preestablecidos de MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y modificar el elemento **Sources** (como se muestra a continuación).
+Para recortar vídeos, puede usar cualquiera de los valores preestablecidos de MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y modificar el elemento **Sources**, tal y como se muestra a continuación.
 
 	<?xml version="1.0" encoding="utf-16"?>
 	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -692,7 +692,7 @@ Media Encoder Estándar permite superponer una imagen en un vídeo existente. Ac
 
 Además de definir un archivo de valores preestablecidos, también tiene que permitir que Servicios multimedia sepa qué archivo del recurso es la imagen de superposición y qué archivo contiene el vídeo de origen en el que desea superponer la imagen. El archivo de vídeo debe ser el archivo **principal**.
 
-El ejemplo anterior de .NET define dos funciones: **UploadMediaFilesFromFolder** y **EncodeWithOverlay**. La función UploadMediaFilesFromFolder carga archivos desde una carpeta (por ejemplo, BigBuckBunny.mp4 e Image001.png) y establece el archivo mp4 como el archivo principal del recurso. La función **EncodeWithOverlay** usa el archivo preestablecido personalizado que se le trasladó (por ejemplo, el archivo preestablecido siguiente) para crear la tarea de codificación.
+En el ejemplo anterior de .NET, se definen dos funciones: **UploadMediaFilesFromFolder** y **EncodeWithOverlay**. La función UploadMediaFilesFromFolder carga archivos desde una carpeta (por ejemplo, BigBuckBunny.mp4 e Image001.png) y establece el archivo mp4 como el archivo principal del recurso. La función **EncodeWithOverlay** usa el archivo preestablecido personalizado que se le pasó (por ejemplo, el archivo preestablecido que aparece a continuación) para crear la tarea de codificación.
 
 >[AZURE.NOTE]Limitaciones actuales:
 >
@@ -846,7 +846,7 @@ De forma predeterminada, si envía una entrada al codificador que solo contenga 
 
 Para forzar al codificador a producir un activo que contiene una pista de audio silenciosa cuando la entrada no tiene audio, especifique el valor de "InsertSilenceIfNoAudio".
 
-Puede usar cualquiera de los valores preestablecidos de MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y realizar la siguiente modificación:
+Puede usar cualquiera de los valores preestablecidos de MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y realizar los cambios siguientes:
 
 ###Valor preestablecido JSON
 
@@ -866,7 +866,7 @@ Puede usar cualquiera de los valores preestablecidos de MES que se documentan [a
       <Bitrate>96</Bitrate>
     </AACAudio>
 
-##<a id="deinterlacing"></a>Deshabilitación del desentrelazado automático
+##<a id="deinterlacing"></a>Deshabilitar el entrelazado automático
 
 Los clientes no tienen que hacer nada si prefieren que el enlazado del contenido entrelazado se anule automáticamente. Cuando la anulación de entrelazado automática está activada (valor predeterminado), el MES realiza la detección automática de fotogramas entrelazados y solo se anula el entrelazado de los fotogramas marcados como entrelazados.
 
@@ -959,4 +959,4 @@ Esta sección muestra dos valores preestablecidos de MES de solo audio: Audio AA
 
 [Información general sobre la codificación de Servicios multimedia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

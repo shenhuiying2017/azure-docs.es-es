@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="09/21/2016"
+	ms.author="MarkVi"/>
 
 # Configure el registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio
 
-Como administrador de TI, puede configurar sus dispositivos Windows 7 unidos a un dominio para registrarse automáticamente en Azure AD. Para ello, debe implementar el paquete de software de registro de dispositivos en sus dispositivos Windows 7 unidos a un dominio mediante un sistema de distribución de software como System Center Configuration Manager. Asegúrese de leer y completar los requisitos previos descritos en el registro automático de dispositivos en Azure Active Directory para dispositivos Windows unidos a un dominio.
+Como administrador de TI, puede configurar sus dispositivos Windows 7 unidos a un dominio para registrarse automáticamente en Azure AD. Para ello, debe implementar el paquete de software de registro de dispositivos en sus dispositivos Windows 7 unidos a un dominio mediante un sistema de distribución de software como System Center Configuration Manager. Asegúrese de leer y completar los requisitos previos enumerados en el documento que explica el registro automático de dispositivos con Azure Active Directory para dispositivos unidos a un dominio de Windows.
+
+>[AZURE.NOTE]
+ Para obtener la información más actualizada sobre cómo configurar el registro automático de dispositivos, consulte [Configuración del registro automático de dispositivos unidos a un dominio de Windows con Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
 
 ##Instalación del paquete de software de registro de dispositivos en dispositivos Windows 7 unidos a un dominio
 
@@ -60,4 +63,4 @@ El registro de eventos de Windows en el equipo con Windows 7 mostrará mensajes 
 - [Configuración del registro automático de dispositivos para dispositivos Windows 8.1 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Registro automático de dispositivos en Azure Active Directory para dispositivos Windows 10 unidos a un dominio](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

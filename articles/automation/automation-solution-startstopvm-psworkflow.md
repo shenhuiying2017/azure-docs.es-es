@@ -34,7 +34,7 @@ Es la versión de runbook del flujo de trabajo de PowerShell de este escenario. 
 
 Este escenario consta de dos runbooks de flujo de trabajo de PowerShell que se pueden descargar en los vínculos siguientes. Consulte la [versión gráfica](automation-solution-startstopvm-graphical.md) de este escenario para obtener vínculos a los runbooks gráficos.
 
-| Runbook | Vínculo | Escriba | Descripción |
+| Runbook | Vínculo | Tipo | Description |
 |:---|:---|:---|:---|
 | Start-AzureVMs | [Inicio de máquinas virtuales de Azure clásicas](https://gallery.technet.microsoft.com/Start-Azure-Classic-VMs-86ef746b) | Flujo de trabajo de PowerShell | Inicia todas las máquinas virtuales clásicas en una suscripción de Azure o en todas las máquinas virtuales con un nombre de servicio determinado. |
 | Stop-AzureVMs | [Detención de máquinas virtuales de Azure clásicas](https://gallery.technet.microsoft.com/Stop-Azure-Classic-VMs-7a4ae43e) | Flujo de trabajo de PowerShell | Detiene todas las máquinas virtuales de una cuenta de automatización o todas las máquinas virtuales con un nombre de servicio determinado. |
@@ -52,7 +52,7 @@ Los runbooks incluyen el texto de ayuda comentada que incluye una descripción y
 ### 3\. Configuración de activos
 Los runbooks requieren los siguientes activos que se deben crear y rellenar con los valores adecuados.
 
-| Tipo de recurso | Nombre de recurso | Descripción |
+| Tipo de recurso | Nombre de recurso | Description |
 |:---|:---|:---|:---|
 | Credential: | AzureCredential | Contiene las credenciales para una cuenta que tiene autoridad para iniciar y detener las máquinas virtuales en la suscripción de Azure. Además, puede especificar otro activo de credenciales en el parámetro **Credential** de la actividad **Add-AzureAccount**. |
 | Variable | AzureSubscriptionId | Contiene el identificador de suscripción de su suscripción a Azure. |
@@ -63,11 +63,11 @@ Los runbooks requieren los siguientes activos que se deben crear y rellenar con 
 
 Los runbooks tienen los siguientes parámetros. Debe proporcionar valores para los parámetros obligatorios y opcionalmente puede proporcionar valores para otros parámetros dependiendo de sus requisitos.
 
-| Parámetro | Escriba | Obligatorio | Descripción |
+| Parámetro | Tipo | Obligatorio | Description |
 |:---|:---|:---|:---|
-| ServiceName | cadena | No | Si se proporciona un valor, todas las máquinas virtuales con ese nombre de servicio se inician o se detienen. Si no se proporciona un valor, todas las máquinas virtuales clásicas de la suscripción de Azure se inician o se detienen. |
-| AzureSubscriptionIdAssetName | cadena | No | Contiene el nombre del [recurso de variables](#installing-and-configuring-the-scenario) que contiene a su vez el identificador de suscripción de su suscripción de Azure. Si no se especifica un valor, se usa *AzureSubscriptionId*. |
-| AzureCredentialAssetName | cadena | No | Contiene el nombre del [activo de credenciales](#installing-and-configuring-the-scenario) que contiene las credenciales que usará el runbook. Si no se especifica un valor, se usa *AzureCredential*. |
+| ServiceName | string | No | Si se proporciona un valor, todas las máquinas virtuales con ese nombre de servicio se inician o se detienen. Si no se proporciona un valor, todas las máquinas virtuales clásicas de la suscripción de Azure se inician o se detienen. |
+| AzureSubscriptionIdAssetName | string | No | Contiene el nombre del [recurso de variables](#installing-and-configuring-the-scenario) que contiene a su vez el identificador de suscripción de su suscripción de Azure. Si no se especifica un valor, se usa *AzureSubscriptionId*. |
+| AzureCredentialAssetName | string | No | Contiene el nombre del [activo de credenciales](#installing-and-configuring-the-scenario) que contiene las credenciales que usará el runbook. Si no se especifica un valor, se usa *AzureCredential*. |
 
 ### Inicio de los runbooks
 
@@ -87,9 +87,9 @@ Los runbooks [enviarán un mensaje](automation-runbook-output-and-messages.md) p
 | Start-AzureVMs | La máquina virtual ya se está ejecutando. | MyVM ya se está ejecutando. |
 | Start-AzureVMs | La solicitud de inicio de la máquina virtual ha enviado correctamente. | Se ha iniciado MyVM. |
 | Start-AzureVMs | Se produjo un error en la solicitud de inicio de la máquina virtual. | La MyVM no se pudo iniciar. |
-| Stop-AzureVMs | La máquina virtual ya se está ejecutando. | MyVM ya se ha detenido. |
-| Stop-AzureVMs | La solicitud de inicio de la máquina virtual ha enviado correctamente. | Se ha iniciado MyVM. |
-| Stop-AzureVMs | Se produjo un error en la solicitud de inicio de la máquina virtual. | La MyVM no se pudo iniciar. |
+| Stop-AzureVMs | La máquina virtual ya se ha detenido | MyVM ya se ha detenido. |
+| Stop-AzureVMs | La solicitud de detención de la máquina virtual ha enviado correctamente | Se ha detenido MyVM |
+| Stop-AzureVMs | Se produjo un error en la solicitud de detención de la máquina virtual | La MyVM no se pudo detener |
 
 Por ejemplo, el siguiente fragmento de código de un runbook intenta iniciar todas las máquinas virtuales con el nombre de servicio *MyServiceName*. Si se produce un error en las solicitudes de inicio, se pueden realizar acciones de error.
 
@@ -140,7 +140,7 @@ Esta línea declara que la salida del runbook será una cadena. Esto no es neces
 
 Las líneas siguientes establecen las [credenciales](automation-configuring.md#configuring-authentication-to-azure-resources) y la suscripción de Azure que se usarán para el resto del runbook. Primero se usa **Get-AutomationPSCredential** para obtener el activo que contiene las credenciales con acceso para iniciar y detener las máquinas virtuales en la suscripción de Azure. **Add-AzureAccount** usa después este activo para establecer las credenciales. La salida se asigna a una variable ficticia para que no se incluya en la salida del runbook.
 
-El activo de variables con el identificador de suscripción se recupera con **Get-AutomationVariable** y la suscripción establecida con **Select-AzureSubscription**.
+El recurso de variables con el identificador de suscripción se recupera con **Get-AutomationVariable** y la suscripción establecida con **Select-AzureSubscription**.
 
 ### Obtención de máquinas virtuales
 
@@ -193,4 +193,4 @@ Las líneas siguientes recorren cada máquina virtual. Primero se comprueba el *
 - Para obtener más información sobre cómo trabajar con Runbooks secundarios, vea [Runbooks secundarios en la Automatización de Azure](automation-child-runbooks.md).
 - Para obtener más información sobre los mensajes de salida durante la ejecución de un Runbook y el inicio de sesión para ayudar en la solución de problemas, vea [Salidas de Runbook y mensajes en la Automatización de Azure](automation-runbook-output-and-messages.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

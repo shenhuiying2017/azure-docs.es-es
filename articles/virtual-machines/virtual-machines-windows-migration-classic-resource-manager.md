@@ -198,7 +198,7 @@ No se puede anular la migración si se produce un error en la operación de conf
 
 **¿Tengo que comprar otro circuito de ExpressRoute para usar IaaS en Resource Manager?**
 
-No. Hace poco se ha habilitado la [coexistencia de un circuito de ExpressRoute en el modelo clásico y el de Resource Manager](../expressroute/expressroute-howto-coexist-resource-manager.md). No hace falta que compre un nuevo circuito de ExpressRoute si ya tiene uno.
+No. Hace poco hemos habilitado la [transición de los circuitos ExpressRoute del modelo de implementación clásica al modelo de implementación de Resource Manager](../expressroute/expressroute-move.md). No hace falta que compre un nuevo circuito de ExpressRoute si ya tiene uno.
 
 **¿Qué ocurre si había configurado las directivas de control de acceso basado en rol para mis recursos IaaS clásicos?**
 
@@ -237,4 +237,4 @@ Ahora que comprende la migración de recursos de IaaS del modelo clásico al de 
 - [Migración de recursos de IaaS de la implementación clásica a Azure Resource Manager con la CLI de Azure](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [Clonación de una máquina virtual clásica en Azure Resource Manager con scripts de PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

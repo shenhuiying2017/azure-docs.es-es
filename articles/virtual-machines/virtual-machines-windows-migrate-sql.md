@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="09/26/2016"
 	ms.author="carlasab"/>
 
 
@@ -134,7 +134,7 @@ Si va a realizar la migración a una máquina virtual de Azure existente, es pre
 11. Especifique el nombre de la base de datos de destino si es diferente del nombre de la base de datos de origen. Si la base de datos de destino ya existe, el sistema incrementará automáticamente el nombre de la base de datos, en lugar de sobrescribir la base de datos existente.
 12. Haga clic en Siguiente y, a continuación, en Finalizar.
 
-	![Resultados](./media/virtual-machines-windows-migrate-sql/results.png)
+	![Results](./media/virtual-machines-windows-migrate-sql/results.png)
 
 13. Cuando finalice el asistente, conéctese a la máquina virtual y compruebe que la base de datos ha migrado.
 14. Si creó una nueva máquina virtual, configure la máquina virtual de Azure y la instancia de SQL Server siguiendo los pasos para la [conexión a la instancia de máquina virtual de SQL Server desde SSMS en otro de equipo](virtual-machines-windows-sql-connect.md).
@@ -180,4 +180,4 @@ Para obtener más información sobre cómo ejecutar SQL Server en Máquinas virt
 
 Para obtener instrucciones acerca de cómo crear una máquina virtual de Azure SQL Server a partir de una imagen capturada, consulte [Tips & Tricks on ‘cloning’ Azure SQL virtual machines from captured images](https://blogs.msdn.microsoft.com/psssql/2016/07/06/tips-tricks-on-cloning-azure-sql-virtual-machines-from-captured-images/) (Sugerencias y trucos para la "clonación de máquinas virtuales de SQL Azure a partir de imágenes capturadas) en el blog de CSS SQL Server Engineers.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

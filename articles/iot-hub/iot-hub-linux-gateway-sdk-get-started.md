@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introducción al SDK de puerta de enlace del Centro de IoT | Microsoft Azure"
-	description="Tutorial del SDK de puerta de enlace del Centro de IoT de Azure usando Linux para ilustrar los conceptos clave que debe comprender cuando utilice este SDK."
+	description="Este tutorial del SDK de puerta de enlace de Azure IoT Hub usa Linux para ilustrar los conceptos clave que debe comprender cuando utilice este SDK."
 	services="iot-hub"
 	documentationCenter=""
 	authors="chipalost"
@@ -83,4 +83,4 @@ Antes de comenzar, debe [configurar el entorno de desarrollo][lnk-setupdevbox] p
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

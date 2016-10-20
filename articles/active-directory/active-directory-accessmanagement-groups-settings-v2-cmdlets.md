@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
+	ms.date="09/22/2016"
 	ms.author="curtand"/>
 
 # Cmdlets del módulo de vista previa de Azure Active Directory para administrar grupos
 
-En el siguiente documento se proporcionan ejemplos de cómo usar PowerShell para administrar grupos en Azure Active Directory (Azure AD). También se ofrece información sobre cómo configurar el módulo de vista previa de Azure AD PowerShell. En primer lugar, debe [descargar el módulo de Azure AD PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+En el siguiente documento se proporcionan ejemplos de cómo usar PowerShell para administrar grupos en Azure Active Directory (Azure AD). También se ofrece información sobre cómo configurar el módulo de vista previa de Azure AD PowerShell. En primer lugar, debe [descargar el módulo de Azure AD PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=828627).
 
 ## Instalación del módulo de Azure AD PowerShell
 
@@ -223,4 +223,4 @@ Puede encontrar más documentación de Azure Active Directory PowerShell en el a
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

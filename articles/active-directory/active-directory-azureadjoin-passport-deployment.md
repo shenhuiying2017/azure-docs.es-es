@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Habilitación de Microsoft Passport for Work en la organización | Microsoft Azure"
+	pageTitle="Habilitación de Windows Hello para empresas en la organización | Microsoft Azure"
 	description="Instrucciones de implementación para habilitar Microsoft Passport en su organización."
 	services="active-directory"
 	documentationCenter=""
-	keywords="configurar Microsoft Passport, Microsoft Passport para la implementación de Work"
-	authors="femila"
-	manager="swadhwa"
+	keywords="configurar Microsoft Passport, implementación de Windows Hello para empresas"
+	authors="markusvi"
+	manager="femila"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -15,103 +15,104 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="09/28/2016"
+	ms.author="femila;markvi"/>
 
 
-# Habilitación de Microsoft Passport for Work en la organización
+# Habilitación de Windows Hello para empresas en su organización
 
-Una vez conectados dispositivos Windows 10 unidos a un dominio con Azure Active Directory (Azure AD), realice lo siguiente para habilitar Microsoft Passport for Work en la organización.
+Tras conectar dispositivos con Windows 10 unidos a un dominio mediante Azure Active Directory (Azure AD), lleve a cabo los siguientes pasos para habilitar Windows Hello para empresas en la organización.
 
-## Implemente System Center Configuration Manager Versión 1509 para Technical Preview
-Para implementar certificados de usuario según las claves de Microsoft Passport, necesita lo siguiente:
+## Implementación de la rama actual de System Center Configuration Manager 
+Para implementar certificados de usuario según las claves de Windows Hello para empresas, necesita lo siguiente:
 
-- **Versión 1509 de System Center Configuration Manager para Technical Preview**. Para más información, consulte [Microsoft System Center Configuration Manager Technical Preview](https://technet.microsoft.com/library/dn965439.aspx#BKMK_TP3Update) (versión preliminar técnica de Microsoft System Center Configuration Manager) y [System Center Configuration Manager Team Blog](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx) (bloque del equipo de System Center Configuration Manager).
-- **Infraestructura PKI**: para habilitar Microsoft Passport for Work mediante certificados de usuario tiene que tener una infraestructura de PKI establecida. Si no la tiene o no desea usar certificados de usuario, puede hacer lo siguiente:
+- **Rama actual de System Center Configuration Manager**: es preciso instalar la versión 1606 o una superior. Para obtener más información, consulte [Documentación para System Center Configuration Manager](https://technet.microsoft.com/library/mt346023.aspx) y el [blog del equipo de System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).
+- **Infraestructura de clave pública (PKI)**: para habilitar Windows Hello para empresas mediante certificados de usuario, tiene que haber implantado una PKI. Si no la tiene o no desea usar certificados de usuario, puede hacer lo siguiente:
  - **Implementar un controlador de dominio**: implemente un nuevo controlador de dominio que tenga Windows Server 2016 compilación 10551 (o posterior) instalado y siga los pasos para [instalar un controlador de dominio de réplica en un dominio existente](https://technet.microsoft.com/library/jj574134.aspx) o [instalar un nuevo bosque de Active Directory, si está creando un nuevo entorno](https://technet.microsoft.com/library/jj574166). (Las archivos ISO están disponibles para su descarga en [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true)).
 
-## Configuración de Microsoft Passport for Work mediante directivas de grupo en Active Directory
+## Configuración de Windows Hello para empresas mediante directiva de grupo en Active Directory
 
- Puede usar una directiva de grupo de Windows Server Active Directory para configurar los dispositivos unidos al dominio de Windows 10 para aprovisionar las credenciales del usuario de Microsoft Passport al iniciar sesión en Windows:
+ Puede usar directivas de grupo de Windows Server Active Directory para configurar los dispositivos unidos a un dominio de Windows 10 con el fin de aprovisionar credenciales de usuario de Windows Hello para empresas al iniciar sesión en Windows:
 
 1. 	Abra el Administrador del servidor y vaya a **Herramientas** > **Administración de directivas de grupo**.
 2.	En Administración de directivas de grupo, vaya al nodo de dominio que corresponde al dominio en el que desea habilitar Azure AD Join.
-3.	Haga clic con el botón derecho en **Objetos de directiva de grupo** y seleccione **Nuevo**. Asigne un nombre a su objeto de directiva de grupo; por ejemplo, Habilitar Microsoft Passport. Haga clic en **Aceptar**.
+3.	Haga clic con el botón derecho en **Objetos de directiva de grupo** y seleccione **Nuevo**. Asigne un nombre a su objeto de directiva de grupo; por ejemplo, Habilitar Windows Hello para empresas. Haga clic en **Aceptar**.
 4.	Haga clic con el botón derecho en el nuevo objeto de directiva de grupo y luego seleccione **Editar**.
-5.	Vaya a **Configuración del equipo** > **Directivas** > **Plantillas administrativas** > **Componentes de Windows** > **Passport for Work**.
-6.	Haga clic con el botón derecho en **Habilitar Passport for Work** y seleccione **Editar**.
-7.	Seleccione el botón de opción **Habilitado** y luego haga clic en **Aplicar**. Haga clic en **Aceptar**.
+5.	Vaya a **Configuración del equipo** > **Directivas** > **Plantillas administrativas** > **Componentes de Windows** > **Windows Hello para empresas**.
+6.	Haga clic con el botón derecho en **Windows Hello para empresas** y, a continuación, seleccione **Editar**.
+7.	Seleccione el botón de opción **Habilitado** y, luego, haga clic en **Aplicar**. Haga clic en **Aceptar**.
 8.	Ahora puede vincular el objeto de directiva de grupo a la ubicación que elija. Para habilitar esta directiva para todos los dispositivos de Windows 10 unidos a un dominio en su organización, vincule la Directiva de grupo al dominio. Por ejemplo:
  - Una unidad organizativa (OU) específica en Active Directory donde se encontrarán los equipos unidos a un dominio de Windows 10.
  - Un grupo de seguridad específico que contiene equipos unidos a un dominio de Windows 10 que se registrarán automáticamente en Azure AD.
 
-## Configurar Microsoft Passport for Work con PowerShell mediante el Administrador de configuración
 
-Ejecute el siguiente comando de PowerShell:
+## Configuración de Windows Hello para empresas mediante System Center Configuration Manager
 
-    powershell.exe -ExecutionPolicy Bypass -NoLogo -NoProfile -Command "& {New-ItemProperty "HKLM:\Software\Policies\Microsoft\PassportForWork" -Name "Enabled" -Value 1 -PropertyType "DWord" -Force}"
+Solo puede usar System Center Configuration Manager para implementar directivas de Windows Hello para empresas con la versión 1607 de Windows 10. Inicie winver en el equipo de Windows 10 si necesita averiguar la versión de este.
 
-## Configuración del perfil de certificado para usar el certificado de inscripción "Passport for Work" en el Administrador de configuración
-Para usar el inicio de sesión/Microsoft Hello basado en certificado de Passport for Work, configure el perfil de certificado (**Activos y compatibilidad** -> **Configuración de cumplimiento** -> **Acceso a los recursos de la compañía** -> **Perfiles de certificado**). Seleccione una plantilla que tenga el uso mejorado de clave de inicio de sesión de la tarjeta inteligente.
+1. Abra **System Center Configuration Manager** y, a continuación, vaya a **Activos y compatibilidad > Configuración de cumplimiento > Acceso a los recursos de la compañía > Perfiles de Windows Hello para la empresa**.
 
-## Configuración de una tarea programada para la evaluación de certificados de solicitud
-Esta tarea programada es una solución a corto plazo. Los administradores tienen que crear una tarea programada que escuche la creación de un contenedor de Passport for Work y, después, solicite una evaluación de certificados. La tarea programada se desencadena cuando se habilita el contenedor Passport for Work. La tarea reduce el retraso en la configuración del contenedor y el PIN y su disponibilidad para su uso en el siguiente inicio de sesión.
+	![Configuración de Windows Hello para empresas](./media/active-directory-azureadjoin-passport-deployment/01.png)
 
-**Para crear la tarea programada, puede usar la interfaz de usuario o usar el comando siguiente:**
 
-    schtasks /create /xml %0\..<EnrollCertificate.xml> /tn <Task Name>
+2. En la barra de herramientas de la parte superior, haga clic en **Crear perfil de Windows Hello para la empresa**.
 
-Este es el xml de ejemplo:
+	![Configuración de Windows Hello para empresas](./media/active-directory-azureadjoin-passport-deployment/02.png)
 
-    <?xml version="1.0" encoding="UTF-16"?>
-    <Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
-       <RegistrationInfo>
-         <Date>2015-09-04T17:48:45.9973761</Date>
-          <Author><DomainName/UserName></Author>
-        <URI>\Enroll Certificates</URI>
-      </RegistrationInfo>
-      <Triggers>
-        <EventTrigger>
-          <Enabled>true</Enabled>
-          <Subscription>&lt;QueryList&gt;&lt;Query Id="0" Path="Microsoft-Windows-User Device Registration/Admin"&gt;&lt;Select Path="Microsoft-Windows-User Device Registration/Admin"&gt;*[System[Provider[@Name='Microsoft-Windows-User Device Registration'] and EventID=300]]&lt;/Select&gt;&lt;/Query&gt;&lt;/QueryList&gt;</Subscription>
-        </EventTrigger>
-      </Triggers>
-      <Principals>
-      </Principals>
-      <Settings>
-        <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
-        <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
-        <StopIfGoingOnBatteries>true</StopIfGoingOnBatteries>
-        <AllowHardTerminate>true</AllowHardTerminate>
-        <StartWhenAvailable>true</StartWhenAvailable>
-        <RunOnlyIfNetworkAvailable>false</RunOnlyIfNetworkAvailable>
-        <IdleSettings>
-          <StopOnIdleEnd>true</StopOnIdleEnd>
-          <RestartOnIdle>false</RestartOnIdle>
-        </IdleSettings>
-        <AllowStartOnDemand>true</AllowStartOnDemand>
-        <Enabled>true</Enabled>
-        <Hidden>false</Hidden>
-        <RunOnlyIfIdle>false</RunOnlyIfIdle>
-        <WakeToRun>false</WakeToRun>
-        <ExecutionTimeLimit>PT1H</ExecutionTimeLimit>
-        <Priority>7</Priority>
-        <RestartOnFailure>
-          <Interval>PT1M</Interval>
-          <Count>3</Count>
-        </RestartOnFailure>
-      </Settings>
-      <Actions Context="Author">
-        <Exec>
-          <Command>wmic</Command>
-          <Arguments>/namespace:\\root\ccm\dcm path SMS_DesiredConfiguration call TriggerEvaluation 1,0,"ScopeId_73F3BB5E-5EDC-4928-87BD-4E75EB4BBC34/ConfigurationPolicy_db89c51e-1d1b-4a17-8e42-a5459b742ccd",8</Arguments>
-        </Exec>
-      </Actions>
-    </Task>
+2. En el cuadro de diálogo **General**, realice los pasos siguientes:
 
- El identificador de ámbito, ScopeId\_73F3BB5E-5EDC-4928-87BD-4E75EB4BBC34/ConfigurationPolicy\_db89c51e-1d1b-4a17-8e42-a5459b742ccd, es el identificador del perfil del certificado creado en el paso "Configuración del perfil de certificado para usar el certificado de inscripción "Passport for Work" en el Administrador de configuración. A continuación del identificador de ámbito está la versión, 8.
+	![Configuración de Windows Hello para empresas](./media/active-directory-azureadjoin-passport-deployment/03.png)
 
-## Información adicional
+	a. En el cuadro de texto **Nombre**, escriba un nombre para el perfil, como **Mi perfil de WHpE**.
+
+	b. Haga clic en **Next**.
+
+
+2. En el cuadro de diálogo **Plataformas admitidas**, seleccione las plataformas que se aprovisionarán con este perfil de Windows Hello para empresas y, a continuación, haga clic en **Siguiente**.
+
+	![Configuración de Windows Hello para empresas](./media/active-directory-azureadjoin-passport-deployment/04.png)
+
+
+2. En el cuadro de diálogo **Configuración**, siga estos pasos:
+
+	![Configuración de Windows Hello para empresas](./media/active-directory-azureadjoin-passport-deployment/05.png)
+
+	a. Como valor de **Configurar Windows Hello para la empresa**, seleccione **Habilitado**.
+
+	b. Como valor de **Usar un Módulo de plataforma segura (TPM)**, seleccione **Obligatorio**.
+
+	c. Como valor de **Método de autenticación**, seleccione Basada en certificados.
+
+	d. Haga clic en **Next**.
+
+
+
+2. En el cuadro de diálogo **Resumen**, haga clic en **Siguiente**.
+
+2. En el cuadro de diálogo **Finalización**, haga clic en **Cerrar**.
+
+
+2. En la barra de herramientas de la parte superior, haga clic en **Implementar**.
+
+	![Configuración de Windows Hello para empresas](./media/active-directory-azureadjoin-passport-deployment/06.png)
+
+
+
+## Configuración del perfil de certificado para usar el certificado de inscripción de Windows Hello para empresas en Configuration Manager
+
+
+Si utiliza la autenticación basada en certificados para la autenticación local, debe configurar e implementar un perfil de certificado. Esta tarea requiere configurar un rol de sitio de punto de registro de certificados y un servidor NDES en System Center Configuration Manager. Para obtener más información, consulte [Requisitos previos de perfiles de certificado en Configuration Manager](https://technet.microsoft.com/library/dn261205.aspx).
+
+1. Abra **System Center Configuration Manager** y vaya a **Activos y compatibilidad > Configuración de cumplimiento > Acceso a los recursos de la compañía > Perfiles de certificado**.
+
+
+2. Seleccione una plantilla que tenga el uso mejorado de clave de inicio de sesión de la tarjeta inteligente.
+
+En la página **Inscripción de SCEP** del perfil de certificado, tiene que seleccionar **Instalar en Passport for Work o generar un error** como valor de **Proveedor de almacenamiento de claves**.
+
+
+
+## Pasos siguientes
 * [Windows 10 para la empresa: formas de usar dispositivos para trabajar](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [Autenticación de identidades sin contraseñas a través de Microsoft Passport](active-directory-azureadjoin-passport.md)
@@ -119,4 +120,4 @@ Este es el xml de ejemplo:
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

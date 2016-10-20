@@ -148,8 +148,9 @@ Para ver los nombres de dominios, haga clic en **Toda la configuración** > **Do
 
 ### Implementaciones
 
-- Configure la implementación continua. Consulte [Uso de Git para implementar Aplicaciones web en el Servicio de aplicaciones de Azure].
+- Configure la implementación continua. Consulte el artículo sobre el[uso de Git para implementar aplicaciones web en Azure App Service](./web-sites-deploy.md).
 - Ranuras de implementación. Consulte [Configuración de entornos de ensayo para aplicaciones web en el Servicio de aplicaciones de Azure].
+
 
 Para ver las ranuras de implementación, haga clic en **Toda la configuración** > **Ranuras de implementación**.
 
@@ -188,4 +189,4 @@ Para obtener más información, consulte [Supervisión de estado de extremo web]
 [configure02]: ./media/web-sites-configure/configure02.png
 [configure03]: ./media/web-sites-configure/configure03.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

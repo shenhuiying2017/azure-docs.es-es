@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeffsta"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -54,7 +54,7 @@ El nombre de dominio principal de un directorio es el nombre de dominio que se p
 
 El nombre de dominio debe comprobarse en Azure AD antes de poder ser utilizado por otros servicios Microsoft Online Services, como Exchange Online, SharePoint Online e Intune. Estos otros servicios por lo general requieren que un administrador agregue una o más entradas de DNS que son específicas del servicio.
 
-Una aplicación web de Azure usa su propio mecanismo para comprobar la propiedad de un dominio. El dominio debe comprobarse para su uso con Azure AD, incluso si se ha comprobado anteriormente para su uso por una aplicación web de Azure en una suscripción que depende de dicha instancia de Azure AD. La aplicación web de Azure puede utilizar un nombre de dominio que se ha comprobado en otro directorio diferente del directorio que protege la aplicación web.
+Una aplicación web de Azure usa su propio mecanismo para comprobar la propiedad de un dominio. El dominio debe comprobarse para su uso con Azure AD, incluso si se ha hecho anteriormente para que lo utilice una aplicación web de Azure en una suscripción que depende de dicha instancia de Azure AD. La aplicación web de Azure puede utilizar un nombre de dominio que se ha comprobado en otro directorio diferente del directorio que protege la aplicación web.
 
 ## Administración de nombres de dominio
 
@@ -68,4 +68,4 @@ Las tareas de administración de dominio se pueden completar desde el Portal de 
 
 -   [Operations on domains (preview) | Graph API reference](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations) (Operaciones sobre dominios (versión preliminar) | Referencia de la API Graph)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

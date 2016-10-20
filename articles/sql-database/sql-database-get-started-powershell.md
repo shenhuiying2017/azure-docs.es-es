@@ -132,7 +132,7 @@ El siguiente script de PowerShell permite crear una base de datos SQL y todos su
 ## Pasos siguientes
 Después de crear una Base de datos SQL y de realizar las tareas de configuración básica de la base de datos, está listo para lo siguiente:
 
-- [Administración de Base de datos SQL con PowerShell](sql-database-command-line-tools.md)
+- [Administración de Base de datos SQL con PowerShell](sql-database-manage-powershell.md)
 - [Conexión a la Base de datos SQL con SQL Server Management Studio y realización de una consulta de T-SQL de ejemplo](sql-database-connect-query-ssms.md)
 
 
@@ -140,4 +140,4 @@ Después de crear una Base de datos SQL y de realizar las tareas de configuraci�
 
 - [Base de datos SQL de Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="dhanyahk"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -38,7 +38,7 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 
 ## Informes
 
-|	Informe |	Descripción |
+|	Informe |	Description |
 |	------												|	-----																						|
 |	**Informes de actividades anómalas**
 |	[Inicios de sesión desde orígenes desconocidos](active-directory-reporting-sign-ins-from-unknown-sources.md) |	Puede indicar un intento de iniciar sesión sin realizar ningún seguimiento. |
@@ -122,7 +122,7 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 
 ### Informe de auditoría
 
-| Descripción | Ubicación del informe |
+| Description | Ubicación del informe |
 | :-------------     | :-------        |
 | Muestra un registro de todos los eventos auditados en las últimas 24 horas, los últimos 7 días o los últimos 30 días. <br /> Para obtener más información, consulte [Eventos del informe de auditoría de Azure Active Directory](active-directory-reporting-audit-events.md). | Directorio > pestaña Informes |
 
@@ -130,7 +130,7 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 
 ### Actividad de restablecimiento de contraseña
 
-| Descripción | Ubicación del informe |
+| Description | Ubicación del informe |
 | :-------------     | :-------        |
 | Muestra los intentos de restablecimiento de contraseña que se han producido en su organización. | Directorio > pestaña Informes |
 
@@ -138,7 +138,7 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 
 ### Actividad de registro de restablecimiento de contraseñas
 
-| Descripción | Ubicación del informe |
+| Description | Ubicación del informe |
 | :-------------     | :-------        |
 | Muestra los registros de restablecimiento de contraseña que se han producido en su organización. | Directorio > pestaña Informes |
 
@@ -146,7 +146,7 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 
 ### Actividad de los grupos de autoservicio
 
-| Descripción | Ubicación del informe |
+| Description | Ubicación del informe |
 | :-------------     | :-------        |
 | Muestra toda la actividad de los grupos administrados de autoservicio en el directorio. | Directorio > Usuarios > <i>Usuario</i> > pestaña Dispositivos |
 
@@ -166,7 +166,7 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 
 ### Uso de la aplicación: resumen
 
-| Descripción | Ubicación del informe |
+| Description | Ubicación del informe |
 | :-------------     | :-------        |
 | Use este informe cuando quiera ver el uso de todas las aplicaciones SaaS en su directorio. Este informe se basa en el número de veces que los usuarios hacen clic en la aplicación en el Panel de acceso. | Directorio > pestaña Informes |
 
@@ -179,13 +179,13 @@ Entres las aplicaciones previamente integradas de Microsoft se incluyen Office 3
 
 ### Uso de la aplicación: detallado
 
-| Descripción | Ubicación del informe |
+| Description | Ubicación del informe |
 | :-------------     | :-------        |
 | Use este informe cuando quiera ver cuánto se está usando una aplicación SaaS específica. Este informe se basa en el número de veces que los usuarios hacen clic en la aplicación en el Panel de acceso. | Directorio > pestaña Informes |
 
 ### Panel de la aplicación
 
-| Descripción | Ubicación del informe |
+| Description | Ubicación del informe |
 | :-------------     | :-------        |
 | Este informe indica los inicios de sesión acumulados en la aplicación por los usuarios de su organización en un intervalo de tiempo seleccionado. El gráfico de la página Panel le ayudará a identificar las tendencias de uso de la aplicación. | Directorio > Aplicación > pestaña Panel |
 
@@ -193,7 +193,7 @@ Entres las aplicaciones previamente integradas de Microsoft se incluyen Office 3
 
 ### Errores de aprovisionamiento de cuentas
 
-| Descripción | Ubicación del informe |
+| Description | Ubicación del informe |
 | :-------------     | :-------        |
 | Úselo para supervisar los errores que se producen durante la sincronización de cuentas desde las aplicaciones SaaS a Azure Active Directory. | Directorio > pestaña Informes |
 
@@ -211,13 +211,13 @@ Entres las aplicaciones previamente integradas de Microsoft se incluyen Office 3
 
 ### Dispositivos
 
-| Descripción | Ubicación del informe |
+| Description | Ubicación del informe |
 | :-------------     | :-------        |
 | Use este informe si desea ver la dirección IP y la ubicación geográfica de los dispositivos que un usuario específico ha usado para tener acceso a Active Directory de Azure. | Directorio > Usuarios > <i>Usuario</i> > pestaña Dispositivos |
 
 ### Actividad
 
-| Descripción | Ubicación del informe |
+| Description | Ubicación del informe |
 | :-------------     | :-------        |
 | Muestra la actividad de inicio de sesión de un usuario. El informe incluye información como la aplicación en la que se ha iniciado sesión, el dispositivo usado, la dirección IP y la ubicación. No recopilamos el historial de los usuarios que inician sesión con una cuenta de Microsoft. | Directorio > Usuarios > <i>Usuario</i> > pestaña Actividad |
 
@@ -286,4 +286,4 @@ Para obtener más información sobre las notificaciones de informes de Azure AD,
 - [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Incorporación de la marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

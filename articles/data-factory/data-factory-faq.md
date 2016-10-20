@@ -69,6 +69,17 @@ Sí. Use el botón **Mover** situado en la hoja de la factoría de datos tal com
 
 ![Mover factoría de datos](media/data-factory-faq/move-data-factory.png)
 
+### ¿Cuáles son los entornos de proceso compatibles con Data Factory?
+En la tabla siguiente se proporciona una lista de entornos de proceso compatibles con Data Factory y las actividades que se pueden ejecutar en ellos.
+
+| Entorno de procesos | actividades |
+| ------------------- | -------- | 
+| [Clúster de HDInsight a petición](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) o [clúster HDInsight propio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md) y [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | 
+| [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |  
+| [Aprendizaje automático de Azure](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) | [Actividades de Machine Learning: ejecución de Batch y recurso de actualización](data-factory-azure-ml-batch-execution-activity.md) |
+| [Análisis con Azure Data Lake](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) | [U-SQL de análisis con Data Lake](data-factory-usql-activity.md)
+| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service) y [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) | [Procedimiento almacenado](data-factory-stored-proc-activity.md)
+
 ## Actividades: preguntas más frecuentes
 ### ¿Qué tipos de actividades diferentes se pueden usar en una canalización de Data Factory? 
 
@@ -82,8 +93,13 @@ La configuración de **disponibilidad** en la tabla de datos de salida determina
 ### ¿Es mejor tener una canalización con varias actividades o una canalización independiente para cada actividad? 
 Se supone que las canalizaciones incluyen actividades relacionadas. Si los conjuntos de datos que las conectan no se consumen en ninguna otra actividad fuera de la canalización, puede mantener estas actividades en una canalización. De este modo, no necesitará períodos activos de canalizaciones de cadena puesto que se alinean con las demás. Además, la integridad de los datos de las tablas internas de la canalización se conservará mejor cuando se actualice la canalización. La actualización de la canalización detiene fundamentalmente todas las actividades en la canalización, las elimina y las vuelve a crear. Desde la perspectiva de la creación, puede ser más fácil ver el flujo de datos dentro de las actividades relacionadas en un archivo JSON para la canalización.
 
-### ¿Dónde se realiza la operación de copia? 
+### ¿Qué almacenes de datos son compatibles?
+[AZURE.INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
+### ¿Qué formatos de archivo son compatibles? 
+[AZURE.INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
+
+### ¿Dónde se realiza la operación de copia? 
 Consulte la sección [Movimiento de datos disponible globalmente](data-factory-data-movement-activities.md#global) para obtener más información. En resumen, cuando en el proceso participa un almacén de datos local, la operación de copia la realiza Data Management Gateway en el entorno local. Asimismo, cuando el movimiento de datos se produce entre dos almacenes en la nube, la operación de copia se realiza en la región más cercana a la ubicación del receptor en la misma zona geográfica.
 
 
@@ -192,4 +208,4 @@ Si desea realmente detener todas las ejecuciones inmediatamente, la única maner
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

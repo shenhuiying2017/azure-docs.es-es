@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Filtros y manifiestos dinámicos" 
-	description="En este tema se describe cómo crear filtros para que su cliente pueda usarlos para el streaming de secciones específicas de una secuencia. Servicios multimedia crea manifiestos dinámicos par lograr este streaming selectivo." 
+	pageTitle="Filtros y manifiestos dinámicos | Microsoft Azure" 
+	description="En este tema se describe cómo crear filtros para que su cliente pueda usarlos para el streaming de secciones específicas de una transmisión. Servicios multimedia crea manifiestos dinámicos par lograr este streaming selectivo." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="cenkdin" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="cenkdin;juliako"/>
 
-#Filtros y manifiestos dinámicos
+# Filtros y manifiestos dinámicos
 
 A partir de la versión 2.11, los Servicios multimedia permiten definir filtros para los activos. Estos filtros son reglas del lado servidor que permitirán a los clientes elegir realizar acciones como: reproducir solo una sección de un vídeo (en lugar de reproducir el vídeo completo), o especificar solo un subconjunto de las representaciones de audio y vídeo que el dispositivo de su cliente puede controlar (en lugar de todas las copias asociadas al activo). Este filtrado de sus activos se archiva a través de los **manifiestos dinámicos** que se crean tras la solicitud del cliente para transmitir un vídeo en función de los filtros especificados.
 
@@ -172,7 +172,7 @@ Puede combinar varias reglas de filtrado en un filtro único. Por ejemplo, puede
 
 ##Crear filtros mediante programación
 
-En el siguiente tema se describen las entidades de los Servicios multimedia que están relacionadas con los filtros. En el tema también se muestra cómo crear filtros mediante programación.
+En el siguiente tema se describen las entidades de Media Services que están relacionadas con los filtros. En el tema también se muestra cómo crear filtros mediante programación.
 
 [Crear filtros con las API de REST](media-services-rest-dynamic-manifest.md).
 
@@ -236,4 +236,4 @@ Para obtener más información, consulte [este blog](https://azure.microsoft.com
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
-   manager="stevenpo"
+   manager="femila"
    editor="curtand"/>
 
 <tags
@@ -17,13 +17,13 @@
    ms.author="andkjell;billmath"/>
 
 # Requisitos previos de Azure AD Connect
-En este tema se describen los requisitos previos y los requisitos de hardware de Azure AD Connect.
+En este tema se describen los requisitos previos y los de hardware de Azure AD Connect.
 
 ## Antes de instalar Azure AD Connect
 Antes de instalar Azure AD Connect, hay algunas cosas que necesitará.
 
 ### Azure AD
-- Una suscripción de Azure o una [suscripción de prueba de Azure](https://azure.microsoft.com/pricing/free-trial/) Solo es necesario para el acceso al Portal de Azure, no para usar Azure AD Connect. Si usa PowerShell u Office 365 no es necesario utilizar una suscripción de Azure para usar Azure AD Connect. Si tiene una licencia de Office 365 también puede utilizar el portal de Office 365. Con una licencia de Office 365 de pago también puede entrar en el portal de Azure desde el portal de Office 365.
+- Una suscripción de Azure o una [suscripción de prueba de Azure](https://azure.microsoft.com/pricing/free-trial/) Solo es necesario para el acceso al Portal de Azure, no para usar Azure AD Connect. Si usa PowerShell u Office 365, no es necesario utilizar una suscripción de Azure para usar Azure AD Connect. Si tiene una licencia de Office 365 también puede utilizar el portal de Office 365. Con una licencia de Office 365 de pago también puede entrar en el portal de Azure desde el portal de Office 365.
 - [Agregue y compruebe el dominio](active-directory-add-domain.md) que pretende usar en Azure AD. Por ejemplo, si tiene previsto usar contoso.com para los usuarios, asegúrese de que este dominio se ha comprobado y no usa solamente el dominio predeterminado contoso.onmicrosoft.com.
 - De forma predeterminada, un directorio de Azure AD permitirá 50.000 objetos. Al comprobar el dominio, el límite se incrementará a 300 000 objetos. Si todavía necesita más objetos en Azure AD, tiene que abrir una incidencia para aumentar el límite aún más. Si necesita más de 500.000 objetos, necesitará una licencia como Office 365, Azure AD Básico, Azure AD Premium o Enterprise Mobility Suite.
 
@@ -51,7 +51,7 @@ Antes de instalar Azure AD Connect, hay algunas cosas que necesitará.
 ### Cuentas
 - Una cuenta de administrador global de Azure AD para el directorio de Azure AD con el que desea realizar la integración. Debe tratarse de una **cuenta profesional o educativa** y no puede ser una **cuenta Microsoft**.
 - Una cuenta de administrador de empresa para su Active Directory local si usa la configuración rápida o actualiza desde DirSync.
-- [Cuentas es Active Directory](active-directory-aadconnect-accounts-permissions.md) si usa la ruta de acceso de instalación de la configuración personalizada.
+- [Cuentas de Active Directory](active-directory-aadconnect-accounts-permissions.md) si usa la ruta de instalación de la configuración personalizada.
 
 ### Configuración de servidor de Azure AD Connect
 - Si los administradores globales tienen MFA habilitado, la dirección URL **https://secure.aadcdn.microsoftonline-p.com** debe estar en la lista de sitios de confianza. En caso de que no lo esté, se le pedirá que la agregue a la lista de sitios de confianza antes de que se le pida un desafío MFA. Puede utilizar Internet Explorer para agregarla a los sitios de confianza.
@@ -197,4 +197,4 @@ Los requisitos mínimos para equipos que ejecutan AD FS o servidores de aplicaci
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!----HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

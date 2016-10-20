@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="08/16/2016"
+   ms.date="09/08/2016"
    ms.author="mobandyo;sirishap;bryanla"/>
 
 # Integración de Cloud Cruiser y de las API de facturación de Microsoft Azure
@@ -25,36 +25,37 @@ Este artículo describe cómo puede utilizarse la información recopilada desde 
 ## API de RateCard de Azure
 La API de RateCard proporciona información de tarifas de Azure. Después de autenticarse con las credenciales adecuadas, puede consultar la API para recopilar metadatos acerca de los servicios disponibles en Azure, junto con las tarifas asociadas a su identificador de oferta.
 
-A continuación aparece una respuesta de ejemplo de la API que muestra los precios de la instancia A0 (Windows):
+A continuación, aparece una respuesta de ejemplo de la API que muestra los precios de la instancia A0 (Windows):
 
     {
-		"MeterId": "0e59ad56-03e5-4c3d-90d4-6670874d7e29",
-		"MeterName": "Compute Hours",
-		"MeterCategory": "Virtual Machines",
-		"MeterSubCategory": "A0 VM (Windows)",
-		"Unit": "Hours",
-		"MeterRates":
-		{
-			"0": 0.029
-		},
-		"EffectiveDate": "2014-08-01T00:00:00Z",
-		"IncludedQuantity": 0.0
-	},
+        "MeterId": "0e59ad56-03e5-4c3d-90d4-6670874d7e29",
+        "MeterName": "Compute Hours",
+        "MeterCategory": "Virtual Machines",
+        "MeterSubCategory": "A0 VM (Windows)",
+        "Unit": "Hours",
+        "MeterRates":
+        {
+            "0": 0.029
+        },
+        "EffectiveDate": "2014-08-01T00:00:00Z",
+        "IncludedQuantity": 0.0,
+        "MeterStatus": "Active"
+    },
 
 ### Interfaz de Cloud Cruiser con la API de RateCard de Azure
 Cloud Cruiser puede aprovechar la información de la API de RateCard de distintas maneras. En este artículo mostraremos cómo la vamos a utilizar para realizar la simulación y el análisis de costos de la carga de trabajo de IaaS.
 
 Para demostrar este caso de uso, imagine una carga de trabajo de varias instancias que se ejecutan en el paquete de Microsoft Azure (WAP). El objetivo es simular esta misma carga de trabajo en Azure y estimar los costes de tal migración. Para crear esta simulación, hay dos tareas principales que se pueden realizar:
 
-1. **Importación y proceso de la información de servicio recopilada de la API de RateCard**: esta tarea también se realiza en los libros, en lo que el extracto de la API de RateCard se transforma y publica en un nuevo plan de tarifas. Este nuevo plan de tarifas se utilizará en las simulaciones para realizar una estimación de los precios de Azure.
+1. **Importación y proceso de la información de servicio recopilada de la API de RateCard**. Esta tarea también se realiza en los libros, en lo que el extracto de la API de RateCard se transforma y publica en un nuevo plan de tarifas. Este nuevo plan de tarifas se utilizará en las simulaciones para realizar una estimación de los precios de Azure.
 
-2. **Normalización de servicios de WAP y servicios de Azure para IaaS**: de forma predeterminada, los servicios de WAP se basan en recursos individuales (CPU, tamaño de memoria, tamaño de disco, etc.) mientras que los de Azure se basan en el tamaño de instancia (A0, A1, A2, etc.). Esta primera tarea puede realizarla el motor ETL de Cloud Cruiser, llamado libros, en los que estos recursos se pueden integrar en tamaños de instancia, de forma análoga a los servicios de instancia de Azure.
+2. **Normalización de servicios de WAP y servicios de Azure para IaaS**. De forma predeterminada, los servicios de WAP se basan en recursos individuales (CPU, tamaño de memoria, tamaño de disco, etc.) mientras que los de Azure se basan en el tamaño de instancia (A0, A1, A2, etc.). Esta primera tarea puede realizarla el motor ETL de Cloud Cruiser, llamado libros, en los que estos recursos se pueden integrar en tamaños de instancia, de forma análoga a los servicios de instancia de Azure.
 
 ### Importación de datos desde la API de RateCard
 
 Los libros de Cloud Cruiser proporcionan una forma automatizada de recopilar y procesar información de la API de RateCard. Los libros ETL (extracción, transformación y carga) le permiten configurar la colección, transformación y publicación de datos en la base de datos de Cloud Cruiser.
 
-Cada libro puede tener una o varias colecciones. Esto permite correlacionar la información de distintas fuentes para complementar o aumentar los datos de uso. En las dos capturas de pantalla siguientes, se muestra la creación de una nueva *colección* en un libro existente y la importación de información a la *colección* de la API de RateCard:
+Cada libro puede tener una o varias colecciones, lo que permite correlacionar la información de distintas fuentes para complementar o aumentar los datos de uso. En las dos capturas de pantalla siguientes, se muestra la creación de una nueva *colección* en un libro existente y la importación de información a la *colección* de la API de RateCard:
 
 ![Ilustración 1 - Creación de una nueva colección][1]
 
@@ -104,7 +105,7 @@ Tras finalizar el libro, puede automatizar el procesamiento de los datos, agrega
 
 ### Creación de informes para análisis de simulación de costos de cargas de trabajo
 
-Según se va recopilando el uso y se van cargando los cargos en la base de datos de Cloud Cruiser, podemos aprovechar el módulo Cloud Cruiser Insights, una herramienta de creación de informes de análisis avanzada, para crear la simulación de costos de cargas de trabajo que deseamos.
+Según se va recopilando el uso y se van cargando los cargos en la base de datos de Cloud Cruiser, podemos aprovechar el módulo Cloud Cruiser Insights para crear la simulación de costos de cargas de trabajo que deseamos.
 
 Para demostrar este escenario, hemos creado el informe siguiente:
 
@@ -112,7 +113,7 @@ Para demostrar este escenario, hemos creado el informe siguiente:
 
 El gráfico superior muestra una comparación de costos dividida por servicios y compara el precio de la ejecución de la carga de trabajo para cada servicio específico entre WAP (color azul oscuro) y Azure (color azul claro).
 
-En el gráfico inferior aparecen los mismos datos pero desglosados por departamento, lo que muestra los costos de cada departamento para ejecutar su carga de trabajo en WAP y Azure, junto con la diferencia entre estos dos: barra Savings (Ahorros) (color verde).
+El gráfico inferior muestra los mismos datos, pero desglosados por departamento. Este muestra los costos de cada departamento por ejecutar sus cargas de trabajo en WAP y Azure, junto con la diferencia entre ellos en la barra de ahorro (color verde).
 
 ## API de uso de Azure
 
@@ -123,7 +124,7 @@ Recientemente, Microsoft presentó la API de uso de Azure, que permite a los sus
 
 Cloud Cruiser puede aprovechar la integración con la API de uso de varias maneras. La granularidad (información de uso cada hora) y la información de metadatos de recursos disponible a través de la API proporciona el conjunto de datos necesario para admitir los modelos flexibles de visualización completa de los gastos o contracargo.
 
-En este tutorial, presentamos un ejemplo de cómo Cloud Cruiser puede beneficiarse de la información de la API de uso. Más específicamente, crearemos un nuevo grupo de recursos en Azure, asociaremos etiquetas para la estructura de la cuenta y después describiremos el proceso de extracción y procesamiento de la información de las etiquetas en Cloud Cruiser.
+En este tutorial, presentamos un ejemplo de cómo Cloud Cruiser puede beneficiarse de la información de la API de uso. Más específicamente, crearemos un grupo de recursos en Azure, asociaremos etiquetas para la estructura de la cuenta y después describiremos el proceso de extracción y procesamiento de la información de las etiquetas en Cloud Cruiser.
  
 El objetivo final es poder crear informes como el que aparece a continuación y ser capaces de analizar el costo y el consumo basándose en la estructura de la cuenta rellenada por las etiquetas.
 
@@ -138,15 +139,15 @@ Los datos disponibles a través de la API de uso de Azure no solo incluyen infor
 
 Ambos de estos requisitos pueden ser complicados, especialmente cuando hay algún tipo de proceso manual en el aprovisionamiento o cobro. Las etiquetas mal escritas, incorrectas o, incluso, omitidas constituyen quejas comunes de los clientes cuando se usan etiquetas y estos errores puede dificultar la vida desde el punto de vista del cobro.
 
-Con la nueva API de uso de Azure, Cloud Cruiser puede extraer información de etiquetado de recursos y, a través de una herramienta ETL muy sofisticada llamada libros, corregir estos errores habituales de etiquetado. A través de los pasos de transformación que aprovechan las expresiones regulares y la correlación de los datos, Cloud Cruiser es capaz de identificar recursos incorrectamente etiquetados y aplicar las etiquetas correctas, rellenar los huecos y garantizar la asociación correcta de los recursos con el consumidor.
+Con la nueva API de uso de Azure, Cloud Cruiser puede extraer información de etiquetado de recursos y, a través de una herramienta ETL sofisticada llamada libros, corregir estos errores habituales de etiquetado. A través de los pasos de transformación que aprovechan las expresiones regulares y la correlación de los datos, Cloud Cruiser es capaz de identificar recursos incorrectamente etiquetados y aplicar las etiquetas correctas, rellenar los huecos y garantizar la asociación correcta de los recursos con el consumidor.
 
 En lo que al cobro se refiere, Cloud Cruiser automatiza el proceso de visualización completa de los gastos y contracargo y pueden aprovechar la información de las etiquetas para asociar el uso al consumidor adecuado (departamento, división, proyecto, etc.). Esta automatización proporciona una enorme mejora y puede garantizar un proceso de cobro coherente y auditable.
  
 
 ### Creación de un grupo de recursos con etiquetas en Microsoft Azure
-El primer paso de este tutorial es crear un nuevo grupo de recursos en el Portal de Azure y después crear nuevas etiquetas para asociar a los recursos. En este ejemplo, crearemos las siguientes etiquetas: Departamento, Entorno, Propietario y Proyecto.
+El primer paso de este tutorial es crear un grupo de recursos en Azure Portal y después crear nuevas etiquetas para asociar a los recursos. En este ejemplo, crearemos las siguientes etiquetas: Departamento, Entorno, Propietario y Proyecto.
 
-La captura de pantalla que aparece a continuación correspondiente al Portal de Azure muestra un grupo de recursos con las etiquetas asociadas.
+La captura de pantalla que aparece a continuación muestra un grupo de recursos con las etiquetas asociadas.
 
 ![Ilustración 11 - Grupo de recursos con etiquetas asociadas en el Portal de Azure][11]
 
@@ -186,15 +187,15 @@ Cada libro puede tener una o varias colecciones. Esto permite correlacionar la i
 
 Observe que este libro ya tiene otras hojas para importar servicios desde Azure (_ImportServices_) y procesar la información de consumo de la API de facturación (_PublishData_).
 
-Vamos a extraer y procesar la información de la API de uso en la hoja _UsageAPI_ y a correlacionar la información con los datos de consumo de la API de facturación en la hoja _PublishData_.
+Vamos a usar la API de uso para rellenar la hoja _UsageAPI_ y correlacionar la información con los datos de consumo de la API de facturación en la hoja _PublishData_.
 
 ### Procesamiento de la información de las etiquetas de la API de uso
 
-Después de importar los datos en el libro, vamos a crear pasos de transformación en la hoja _UsageAPI_ para procesar la información de la API. El primer paso consiste en usar un procesador "División de JSON" para extraer las etiquetas de un solo campo (como se importan desde la API) y crear nuevos campos para cada uno de ellas (Departamento, Proyecto, Propietario y Entorno).
+Después de importar los datos en el libro, vamos a crear pasos de transformación en la hoja _UsageAPI_ para procesar la información de la API. El primer paso consiste en usar un procesador "División de JSON" para extraer las etiquetas de un solo campo y crear nuevos campos para cada uno de ellas (Departamento, Proyecto, Propietario y Entorno).
 
 ![Ilustración 4 - Creación de nuevos campos para la información de etiqueta][13]
 
-Tenga en cuenta que en el servicio "Redes" falta la información de las etiquetas (cuadro amarillo), pero podemos decir que este servicio es parte del mismo grupo de recursos echando un vistazo al campo _ResourceGroupName_. Puesto que tenemos las etiquetas para los otros recursos de este mismo grupo de recursos, podemos usar esta información para aplicar las etiquetas que faltan a este recurso posteriormente en el proceso.
+Tenga en cuenta que en el servicio Redes falta la información de las etiquetas (cuadro amarillo), pero podemos comprobar que este servicio es parte del mismo grupo de recursos echando un vistazo al campo _ResourceGroupName_. Puesto que tenemos las etiquetas para los otros recursos de este grupo de recursos, podemos usar esta información para aplicar las etiquetas que faltan a este recurso posteriormente en el proceso.
 
 El siguiente paso es crear una tabla de búsqueda que asocie la información de las etiquetas al campo _ResourceGroupName_. Esta tabla de búsqueda se utilizará en el paso siguiente para enriquecer los datos de consumo con información de etiqueta.
 
@@ -206,9 +207,9 @@ Ahora podemos ir a la hoja _PublishData_, que procesa la información de consumo
 
 Observe que se han aplicado los campos de la estructura de la cuenta adecuados para el servicio "Redes", lo que corrige el problema con las etiquetas que faltan. También rellenamos los campos de la estructura de la cuenta para los recursos que no sean de nuestro grupo de recursos de destino con “Otro”, para diferenciarlos en los informes.
 
-Ahora solo tenemos que agregar otro paso para publicar los datos de uso. Durante este paso, las tarifas adecuadas para cada servicio definido en el plan de tarifas se aplicarán a la información de uso, de manera que la cuota resultante se cargará en la base de datos.
+Ahora solo tenemos que agregar un paso para publicar los datos de uso. Durante este paso, las tarifas adecuadas para cada servicio definido en el plan de tarifas se aplicarán a la información de uso, de manera que la cuota resultante se cargará en la base de datos.
 
-Lo mejor de todo es que solamente tiene que realizar este proceso una vez. Cuando el libro se completa, simplemente tiene que agregarlo al programador y se ejecutará cada hora o día a la hora programada. Después, es cuestión de crear nuevos informes, o personalizar los existentes, para visualizar y analizar los datos para obtener información útil del uso de la nube.
+Lo mejor de todo es que solamente tiene que realizar este proceso una vez. Cuando el libro se completa, simplemente tiene que agregarlo al programador y se ejecutará cada hora o día a la hora programada. Después, es cuestión de crear nuevos informes, o personalizar los existentes, para analizar los datos para obtener información útil del uso de la nube.
 
 ### Pasos siguientes
 
@@ -237,4 +238,4 @@ Lo mejor de todo es que solamente tiene que realizar este proceso una vez. Cuand
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Ilustración 13 - Creación de nuevos campos para la información de etiqueta"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Ilustración 14 - Relleno de la estructura de la cuenta con la información de las búsquedas"
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

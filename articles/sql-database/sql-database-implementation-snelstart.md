@@ -18,7 +18,7 @@
 
 # Con Azure, SnelStart ha expandido rápidamente sus servicios empresariales con una cifra de 1000 nuevas bases de datos SQL de Azure cada mes
 
-![Logotipo](./media/sql-database-case-study-snelstart/snelstartlogo.png)
+![SnelStartLogo](./media/sql-database-implementation-snelstart/snelstartlogo.png)
 
 SnelStart desarrolla conocidos software de administración financiera y empresarial para pequeñas y medianas empresas (pymes) de los Países Bajos. Un personal compuesto por 110 empleados —entre ellos, un equipo de TI de 35 miembros— atiende a 55 000 clientes. Al migrar su infraestructura a la oferta de software como servicio (SaaS) de Azure, SnelStart pudo integrar la mayoría de los servicios, con lo que automatizó la administración mediante un entorno familiar en C#, y optimizó el rendimiento y la escalabilidad sin tener que provocar el exceso o la falta de aprovisionamiento de negocios gracias a los grupos de bases de datos elásticas. Azure proporciona a SnelStart fluidez para migrar clientes entre entornos locales y en la nube.
 
@@ -80,7 +80,7 @@ Gracias a Azure, SnelStart puede prestar servicios a sus clientes y contables de
 
 Además, los servicios web SnelStart permiten a los clientes y contables acceder fácilmente a los datos en grupos de bases de datos elásticas de Azure SQL Database. Este modelo de SaaS, junto con la elasticidad de las bases de datos y Azure Resource Manager, brinda a SnelStart las características de escalabilidad que complementan cada implementación de Azure. La implementación se automatiza por completo mediante el uso de bibliotecas de administración en C#.
 
-![En la Ilustración 1](./media/sql-database-case-study-snelstart/figure1.png)
+![Arquitectura de SnelStart](./media/sql-database-implementation-snelstart/figure1.png)
 
 Figura 1. Desde junio de 2016, SnelStart tiene más de 11 000 bases de datos y más de 50 grupos de bases de datos elásticas
  
@@ -105,4 +105,4 @@ SnelStart también valora el sólido vínculo que han establecido con el equipo 
 
 - Para obtener más información sobre SnelStart, vea [este artículo](http://www.snelstart.nl).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

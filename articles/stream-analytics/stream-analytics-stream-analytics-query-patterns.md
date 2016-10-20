@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/27/2016"
+	ms.date="09/26/2016"
 	ms.author="jeffstok"/>
 
 
@@ -25,7 +25,7 @@
 Las consultas de Análisis de transmisiones de Azure se expresan en un lenguaje de consulta similar a SQL que se documenta en [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx). En este artículo se describen las soluciones para varios patrones de consulta comunes basados en situaciones del mundo real. Es un trabajo en curso y continuará actualizándose con nuevos patrones de forma continuada.
 
 ## Ejemplo de consulta: conversiones de tipos de datos
-**Descripción**: defina los tipos de las propiedades en la transmisión de entrada, p. ej., el peso del vehículo se incorpora a la transmisión de entrada como cadena y se debe convertir en INT para realizar la operación SUM.
+**Descripción**: defina el tipo de las propiedades en la transmisión de entrada. Por ejemplo, el peso del vehículo se incorpora a la transmisión de entrada como cadena y se debe convertir en INT para realizar la operación SUM.
 
 **Entrada**:
 
@@ -55,7 +55,7 @@ Las consultas de Análisis de transmisiones de Azure se expresan en un lenguaje 
 
 
 ## Ejemplo de consulta: uso de Like/Not like para realizar la correspondencia de patrones
-**Descripción**: compruebe que un valor de campo en el evento coincide con un determinado patrón, p. ej., devolver matrículas que empiezan por A y terminan por 9.
+**Descripción**: compruebe que cada valor de campo en el evento coincide con un determinado patrón, p. ej., devolver matrículas que empiezan por A y terminan por 9.
 
 **Entrada**:
 
@@ -84,7 +84,7 @@ Las consultas de Análisis de transmisiones de Azure se expresan en un lenguaje 
 **Explicación**: use la instrucción LIKE para comprobar que el valor del campo LicensePlate comienza por A, tiene cualquier cadena de cero o más caracteres y termina por 9.
 
 ## Ejemplo de consulta: especificación de la lógica para los distintos casos/valores (instrucciones CASE)
-**Descripción**: proporcione un cálculo diferente para un campo en función de determinados criterios, p. ej., proporcionar una descripción de cadena para el número de automóviles de la misma marca que pasaron con un caso especial para 1.
+**Descripción**: proporcione un cálculo diferente para un campo en función de determinados criterios. Por ejemplo, proporcione una descripción de cadena para el número de vehículos que han pasado de la misma marca con un caso especial para 1.
 
 **Entrada**:
 
@@ -118,7 +118,7 @@ Las consultas de Análisis de transmisiones de Azure se expresan en un lenguaje 
 **Explicación**: la cláusula CASE nos permite proporcionar un cálculo diferente en función de criterios determinados (en nuestro caso, el número de automóviles en la ventana de agregado).
 
 ## Ejemplo de consulta: envío de datos a varias salidas
-**Descripción**: envíe datos a varios destinos de salida desde una sola tarea, p. ej., analizar los datos para una alerta basada en umbral y archivar todos los eventos en el almacenamiento de blobs.
+**Descripción**: envíe datos a varios destinos de salida desde un único trabajo. Por ejemplo, analice los datos para una alerta de umbral y archive todos los eventos en Blob Storage.
 
 **Entrada**:
 
@@ -169,7 +169,7 @@ Las consultas de Análisis de transmisiones de Azure se expresan en un lenguaje 
 	HAVING
 		[Count] >= 3
 
-**Explicación**: la cláusula INTO indica a Análisis de transmisiones en cuál de las salidas se escribirán los datos de esta instrucción. La primera consulta es una transferencia de los datos que recibimos a una salida que denominamos ArchiveOutput. La segunda consulta hace una agregación y filtrado simples y envía los resultados a un sistema de alertas descendente. *Nota*: También puede volver a usar los resultados de CTE (es decir, instrucciones WITH) en varias instrucciones de salida. Esto tiene la ventaja adicional de abrir menos lectores en el origen de entrada.
+**Explicación**: la cláusula INTO indica a Análisis de transmisiones en cuál de las salidas se escribirán los datos de esta instrucción. La primera consulta es una transferencia de los datos que recibimos a una salida que denominamos ArchiveOutput. La segunda consulta hace una agregación y filtrado simples y envía los resultados a un sistema de alertas descendente. *Nota*: también puede volver a usar los resultados de CTE (es decir, instrucciones WITH) en varias instrucciones de salida. Esto tiene la ventaja adicional de abrir menos lectores en el origen de entrada. Por ejemplo,
 
 	WITH AllRedCars AS (
 		SELECT
@@ -183,7 +183,7 @@ Las consultas de Análisis de transmisiones de Azure se expresan en un lenguaje 
 	SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
 
 ## Ejemplo de consultas: recuento de valores únicos
-**Descripción**: cuente el número de valores de campo únicos que aparecen en la transmisión dentro de una ventana de tiempo, por ejemplo, ¿cuántas marcas únicas de vehículo pasaron por el peaje en una ventana de 2 segundos?
+**Descripción**: cuente el número de valores de campo únicos que aparecen en la transmisión durante un período de tiempo determinado. Por ejemplo, ¿cuántas marcas de vehículos únicas pasan a través de la cabina de peaje en un intervalo de 2 segundos?
 
 **Entrada**:
 
@@ -226,7 +226,7 @@ Las consultas de Análisis de transmisiones de Azure se expresan en un lenguaje 
 **Explicación:** hacemos una agregación inicial para obtener marcas únicas con su recuento en la ventana. A continuación, hacemos una agregación de todas las ventanas que tenemos; dado que todos los valores únicos en una ventana obtienen la misma marca de tiempo, la segunda ventana de agregación debe ser mínima para no agregar las dos ventanas del primer paso.
 
 ## Ejemplo de consulta: determinar si un valor ha cambiado#
-**Descripción**: mire el valor anterior para determinar si es diferente del valor actual, por ejemplo, ¿el automóvil anterior en Carretera con peaje es de la misma marca que el automóvil actual?
+**Descripción**: mire el valor anterior para determinar si es diferente del actual. Por ejemplo, ¿el vehículo anterior en Carretera con peaje es de la misma marca que el actual?
 
 **Entrada**:
 
@@ -353,7 +353,7 @@ Ahora vamos a cambiar el problema y buscaremos el primer vehículo de una marca 
 **Explicación**: hay dos pasos en la consulta, el primero busca la marca de tiempo más reciente en ventanas de 10 minutos. El segundo paso combina los resultados de la primera consulta con la transmisión original para buscar eventos que coinciden con las últimas marcas de tiempo en cada ventana.
 
 ## Ejemplo de consulta: detectar la ausencia de eventos
-**Descripción**: compruebe que una transmisión no tiene valores que coinciden con un criterio determinado, por ejemplo, ¿han entrado dos vehículos consecutivos de la misma marca en la carretera con peaje en un plazo de 90 segundos?
+**Descripción**: compruebe que una transmisión no tiene ningún valor que cumpla determinados criterios. Por ejemplo, ¿han entrado 2 vehículos consecutivos de la misma marca en la carretera con peaje dentro en un plazo de 90 segundos?
 
 **Entrada**:
 
@@ -386,7 +386,7 @@ Ahora vamos a cambiar el problema y buscaremos el primer vehículo de una marca 
 **Explicación**: use LAG para revisar en la transmisión de entrada un evento anterior y obtener el valor Marca. A continuación, compárelo con el del evento actual y genere el evento si son iguales, y use LAG para obtener los datos del vehículo anterior.
 
 ## Ejemplo de consulta: detectar la duración entre eventos
-**Descripción**: busque la duración de un evento dado. Por ejemplo, al proporcionar una secuencia de clics de web, determine el tiempo invertido en una característica.
+**Descripción**: busque la duración de un evento determinado. Por ejemplo, dada una secuencia de clics de web, determine el tiempo invertido en una característica.
 
 **Entrada**:
   
@@ -415,7 +415,7 @@ Ahora vamos a cambiar el problema y buscaremos el primer vehículo de una marca 
 **Explicación**: use la función LAST para recuperar el último valor Time en el que el tipo de evento era "Start". Tenga en cuenta que la última LAST usa PARTITION BY [user] para indicar que el resultado se calculará por usuario único. La consulta tiene un umbral máximo de 1 hora para el intervalo de tiempo entre eventos "Start" y "Stop", pero se puede configurar como según sea necesario (LIMIT DURATION(hour, 1).
 
 ## Ejemplo de consulta: detectar la duración de una condición
-**Descripción**: averigüe durante cuánto tiempo se produjo una condición; por ejemplo, supongamos que por error todos los vehículos tienen un peso incorrecto (por encima de 20.000 libras) y queremos calcular la duración del error.
+**Descripción**: averigüe la duración de una condición. Por ejemplo, supongamos que por error todos los vehículos tienen un peso incorrecto (por encima de 20 000 libras) y queremos calcular la duración del error.
 
 **Entrada**:
 
@@ -514,4 +514,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->
