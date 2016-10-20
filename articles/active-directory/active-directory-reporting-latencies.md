@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="dhanyahk"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -52,4 +52,4 @@ Uso de aplicaciones habilitadas para RMS | 2 horas | 4 horas | 8 horas
 **Informes de vista previa privada** | | |
 Actividad de inicio de sesión de todos los usuarios | 2 horas | 4 horas | 8 horas
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

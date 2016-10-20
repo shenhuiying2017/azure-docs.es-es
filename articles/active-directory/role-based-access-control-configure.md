@@ -13,15 +13,19 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="07/21/2016"
+	ms.date="09/30/2016"
 	ms.author="kgremban"/>
 
 # Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure
 
-El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso para Azure. Con RBAC, puede conceder únicamente el grado de acceso que los usuarios necesiten para realizar sus trabajos. Este artículo lo ayuda a ponerse en funcionamiento con RBAC en el Portal de Azure. Si desea más detalles sobre cómo RBAC ayuda a administrar el acceso, consulte [¿Qué es el control de acceso basado en rol?](role-based-access-control-what-is.md)
+> [AZURE.SELECTOR]
+- [Portal de Azure](role-based-access-control-azure-portal.md)
+- [Portal de Azure clásico](role-based-access-control-configure.md)
+
+El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso para Azure. Con RBAC, puede conceder únicamente el grado de acceso que los usuarios necesiten para realizar sus trabajos. Este artículo lo ayuda a ponerse en funcionamiento con RBAC en el Portal de Azure. Si desea más detalles sobre cómo RBAC ayuda a administrar el acceso, consulte la información sobre el [control de acceso basado en roles](role-based-access-control-what-is.md).
 
 ## Vista de acceso
-Puede ver quién tiene acceso a un recurso, a un grupo de recursos o a una suscripción desde la hoja principal del [Portal de Azure](https://portal.azure.com). Por ejemplo, queremos ver quién tiene acceso a uno de nuestros grupos de recursos:
+Puede ver quién tiene acceso a un recurso, a un grupo de recursos o a una suscripción desde la hoja principal de [Azure Portal](https://portal.azure.com). Por ejemplo, queremos ver quién tiene acceso a uno de nuestros grupos de recursos:
 
 1. Seleccione **Grupos de recursos** en la barra de navegación de la izquierda. ![Grupos de recursos - icono](./media/role-based-access-control-configure/resourcegroups_icon.png)
 2. Seleccione el nombre del grupo de recursos en la hoja **Grupos de recursos**.
@@ -36,7 +40,7 @@ Tenga en cuenta que algunos usuarios tienen un acceso **Asignado** mientras que 
 
 
 ## Agregación de acceso
-Puede conceder acceso desde el recurso, el grupo de recursos o la suscripción que constituya el ámbito de la asignación de rol.
+Puede conceder acceso desde el recurso, el grupo de recursos o la suscripción que constituya el ámbito de la asignación de roles.
 
 1. Seleccione **Agregar** en la hoja **Usuarios**. ![Agregar - icono](./media/role-based-access-control-configure/add_icon.png)
 2. Seleccione el rol que desea asignar en la hoja **Seleccionar un rol**.
@@ -70,4 +74,4 @@ Puede asignar roles y administrar el acceso con los comandos de RBAC de Azure en
 - Consulte los [roles integrados en RBAC](role-based-access-built-in-roles.md).
 - Defina sus propios [roles personalizados en RBAC de Azure](role-based-access-control-custom-roles.md).
 
-<!----HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_1005_2016-->

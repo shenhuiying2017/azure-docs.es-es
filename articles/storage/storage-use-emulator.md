@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/07/2016" 
-	ms.author="tamram"/>
+	ms.author="micurd;tamram"/>
 
 # Uso del emulador de almacenamiento de Azure para desarrollo y pruebas
 
@@ -229,7 +229,7 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 ### Versión 4.1
 
-- El emulador de almacenamiento admite ahora la versión 2015-02-21 de los servicios de almacenamiento en los extremos de servicio Blob, Cola y Tabla, con la excepción de las nuevas características de blob en anexos.
+- El emulador de almacenamiento admite ahora la versión 2015-02-21 de los servicios de almacenamiento en los extremos de servicio Blob, Cola y Tabla, con la excepción de las nuevas características de blob en anexos. 
 
 - El emulador de almacenamiento ahora devuelve un mensaje de error descriptivo si usa una versión de los servicios de almacenamiento que no es compatible aún con esa versión del emulador. Se recomienda usar la versión más reciente del emulador. Si se produce un error VersionNotSupportedByEmulator (código de estado HTTP 400 - Solicitud incorrecta), descargue la última versión del emulador de almacenamiento.
 
@@ -255,4 +255,4 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 - La versión 2013-08-15 de los servicios de almacenamiento de Azure ahora es totalmente compatible. (Anteriormente esta versión solo era compatible con versión la versión 2.2.1 Preview del emulador de almacenamiento.)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

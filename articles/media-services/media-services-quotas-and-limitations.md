@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Cuotas y limitaciones de Servicios multimedia" 
-	description="En este tema se describen las cuotas y limitaciones relacionadas con los Servicios multimedia de Microsoft Azure." 
+	pageTitle="Cuotas y limitaciones de Media Services | Microsoft Azure" 
+	description="En este tema se describen las cuotas y limitaciones relacionadas con Microsoft Azure Media Services." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 
 #Cuotas y limitaciones
 
-En este tema se describen las cuotas y limitaciones relacionadas con los Servicios multimedia de Microsoft Azure.
+En este tema se describen las cuotas y limitaciones relacionadas con Microsoft Azure Media Services.
 
 [AZURE.INCLUDE [azure-mediaservices-limits](../../includes/azure-mediaservices-limits.md)]
 
@@ -32,4 +32,4 @@ En este tema se describen las cuotas y limitaciones relacionadas con los Servici
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

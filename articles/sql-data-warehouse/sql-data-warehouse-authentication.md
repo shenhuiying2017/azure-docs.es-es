@@ -14,15 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/04/2016"
+   ms.date="09/24/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Autenticación a Almacenamiento de datos SQL de Azure
 
 > [AZURE.SELECTOR]
-- [Información general](sql-data-warehouse-connect-overview.md)
+- [Información general sobre seguridad](sql-data-warehouse-overview-manage-security.md)
 - [Autenticación](sql-data-warehouse-authentication.md)
-- [Controladores](sql-data-warehouse-connection-strings.md)
+- [Cifrado (Portal)](sql-data-warehouse-encryption-tde.md)
+- [Cifrado (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
 Para conectarse a Almacenamiento de datos SQL, debe transmitir las credenciales de seguridad para realizar la autenticación. Después de establecer una conexión, determinados valores de conexión se configuran como parte del establecimiento de la sesión de la consulta.
 
@@ -90,4 +91,4 @@ Para empezar a realizar consultas en el almacenamiento de datos con Visual Studi
 [What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 [Características y limitaciones de Azure AD]: ../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

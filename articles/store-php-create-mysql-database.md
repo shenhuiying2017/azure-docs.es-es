@@ -19,7 +19,7 @@
 
 # Creación y conexión de una base de datos MySQL en Azure
 
-En esta guía se le enseñará a crear una base de datos MySQL en el [Portal de Azure](https://portal.azure.com) (el proveedor es [ClearDB](http://www.cleardb.com/)) y cómo conectarse a ella desde una aplicación web PHP que se ejecute en el [Servicio de aplicaciones de Azure](./app-service/app-service-value-prop-what-is.md).
+En este tutorial se le enseñará a crear una base de datos MySQL en [Azure Portal](https://portal.azure.com) (el proveedor es [ClearDB](http://www.cleardb.com/)) y cómo conectarse a ella desde una aplicación web PHP que se ejecute en [Azure App Service](./app-service/app-service-value-prop-what-is.md).
 
 > [AZURE.NOTE] También puede crear una base de datos MySQL como parte de una [plantilla de aplicación de Marketplace](./app-service-web/app-service-web-create-web-app-from-marketplace.md).
 
@@ -56,15 +56,16 @@ Para restaurar una base de datos MySQL en el Portal de Azure, haga lo siguiente:
 
 	Se mostrará otra ventana emergente cuando se complete correctamente la implementación. El Portal también abrirá automáticamente la hoja de la base de datos MySQL.
 
-## Conexión a la base de datos MySQL desde una aplicación web PHP en Azure
+<a name="connect"></a>
+## Conexión a la base de datos MySQL
 
-Para ver la información de conexión de la nueva base de datos MySQL, haga clic en **Propiedades**. Si no ve la hoja **Configuración**, haga clic en **Configuración** > **Propiedades**.
+Para ver la información de conexión de la nueva base de datos MySQL, haga clic en **Propiedades** en la hoja de la aplicación web.
 	
 ![Creación una base de datos MySQL en Azure: hoja Base de datos MySQL](./media/store-php-create-mysql-database/create-db-5-finished-db-blade.png)
 
 Ahora puede emplear esa información de conexión en cualquier aplicación web. [Aquí](https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-mysql) puede encontrar un ejemplo que muestra cómo utilizar la información de conexión de una aplicación PHP simple.
 
-### Conexión de una aplicación web de Laravel (del tutorial de introducción de PHP)
+## Conexión de una aplicación web de Laravel (del tutorial de introducción de PHP)
 
 Si, por ejemplo, acaba de finalizar el tutorial [Create, configure, and deploy a PHP web app to Azure](./app-service-web/app-service-web-php-get-started.md) (Creación, configuración e implementación de aplicaciones web PHP en Azure) y tiene una aplicación web de [Laravel](https://www.laravel.com/) que se ejecuta en Azure, podrá agregar fácilmente las funcionalidades de base de datos a la aplicación Laravel. Siga los pasos que se indican a continuación:
 
@@ -139,4 +140,4 @@ Si, por ejemplo, acaba de finalizar el tutorial [Create, configure, and deploy a
 
 Para obtener más información, consulte el [Centro para desarrolladores de PHP](/develop/php/).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

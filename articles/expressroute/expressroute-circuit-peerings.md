@@ -29,7 +29,7 @@ Los circuitos ExpressRoute no se asignan a entidades físicas. Un circuito se id
 
 Un circuito ExpressRoute puede tener hasta tres emparejamientos: público de Azure, privado de Azure y Microsoft. Cada emparejamiento es un par de sesiones de BGP independientes configuradas cada una de ellas de forma redundante para una alta disponibilidad. Hay una asignación 1 (1 <= N <= 3) entre un circuito ExpressRoute y los dominios de enrutamiento. Un circuito ExpressRoute puede tener uno, dos o los tres emparejamientos habilitados por circuito ExpressRoute.
  
-Cada circuito tiene un ancho de banda fijo (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 10 Gbps) y se asigna a un proveedor de conectividad y una ubicación de emparejamiento. El ancho de banda que seleccione se compartirá entre todos los emparejamientos del circuito.
+Cada circuito tiene un ancho de banda fijo (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 10 Gbps) y se asigna a un proveedor de conectividad y una ubicación de emparejamiento. El ancho de banda que seleccione se comparte entre todos los emparejamientos del circuito.
 
 ### Cuotas, límites y limitaciones
 
@@ -45,13 +45,13 @@ Un circuito ExpressRoute tiene asociados varios dominios de enrutamiento: públi
 
 ### Emparejamiento privado
 
-Los servicios de proceso de Azure, concretamente las máquinas virtuales (IaaS) y los servicios en la nube (PaaS), que se implementan en una red virtual, pueden estar conectados mediante el dominio de emparejamiento privado. El dominio de emparejamiento privado se considera una extensión confiable de la red principal en Microsoft Azure. Puede configurar una conectividad bidireccional entre la red principal y las redes virtuales de Azure (VNet). De esta forma podrá conectarse a máquinas virtuales y servicios en la nube directamente en sus direcciones IP privadas.
+Los servicios de proceso de Azure, concretamente las máquinas virtuales (IaaS) y los servicios en la nube (PaaS), que se implementan en una red virtual, pueden estar conectados mediante el dominio de emparejamiento privado. El dominio de emparejamiento privado se considera una extensión confiable de la red principal en Microsoft Azure. Puede configurar una conectividad bidireccional entre la red principal y las redes virtuales de Azure (VNet). De esta forma se puede conectar a máquinas virtuales y servicios en la nube directamente en sus direcciones IP privadas.
 
 Puede conectar más de una red virtual al dominio de emparejamiento privado. Revise la [página de P+G](expressroute-faqs.md) para obtener información sobre los límites y las limitaciones. Para obtener información actualizada sobre los límites, visite la página [Suscripción de Azure y límites, cuotas y restricciones de servicio](../azure-subscription-service-limits.md). Consulte la página [Enrutamiento](expressroute-routing.md) para obtener información detallada sobre la configuración de enrutamiento.
 
 ### Emparejamiento público
 
-Se ofrecen los servicios como Almacenamiento de Azure, Bases de datos SQL y Sitios web en direcciones IP públicas. Puede conectarse de forma privada a servicios hospedados en direcciones IP públicas (incluida las VIP de servicios en la nube) a través del dominio de enrutamiento de emparejamiento público. Puede conectar el dominio de emparejamiento público a la red perimetral y conectarse a todos los servicios de Azure en sus direcciones IP públicas desde la WAN sin tener que conectarse a través de Internet.
+Se ofrecen servicios como Azure Storage, SQL Databases, y Websites en direcciones IP públicas. Puede conectarse de forma privada a servicios hospedados en direcciones IP públicas (incluida las VIP de servicios en la nube) a través del dominio de enrutamiento de emparejamiento público. Puede conectar el dominio de emparejamiento público a la red perimetral y conectarse a todos los servicios de Azure en sus direcciones IP públicas desde la WAN sin tener que conectarse a través de Internet.
 
 La conectividad siempre se inicia desde la WAN a los servicios de Microsoft Azure. Servicios de Microsoft Azure no podrá iniciar conexiones en la red a través de este dominio de enrutamiento. Una vez que se habilita el emparejamiento público, podrá conectarse a todos los servicios de Azure. No se permite elegir de forma selectiva servicios para los que anunciemos rutas. Puede revisar la lista de prefijos que anunciamos mediante este emparejamiento en la página [Intervalos de direcciones IP de centro de datos de Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=41653). La página se actualiza semanalmente.
 
@@ -92,4 +92,4 @@ Si decide tener las tres sesiones de emparejamiento, necesita tres pares de sesi
 	- [Configuración del enrutamiento (emparejamientos de circuitos)](expressroute-howto-routing-classic.md)
 	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

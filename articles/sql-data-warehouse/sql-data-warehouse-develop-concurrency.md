@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/30/2016"
+   ms.date="09/27/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL
 
-Para proporcionar un rendimiento predecible a escala, Almacenamiento de datos SQL de Microsoft Azure le permite controlar los niveles de simultaneidad y las asignaciones de recursos, como la asignación de prioridades de CPU y memoria. En este artículo se presentan los conceptos de simultaneidad y administración de cargas de trabajo, y se explica cómo se han implementado ambas características y cómo puede controlarlas en su almacenamiento de datos. La administración de cargas de trabajo de Almacenamiento de datos SQL está diseñada para admitir entornos de varios usuarios. No está diseñada para cargas de trabajo multiinquilino.
+Para proporcionar un rendimiento predecible a escala, Almacenamiento de datos SQL de Microsoft Azure le permite controlar los niveles de simultaneidad y las asignaciones de recursos, como la asignación de prioridades de CPU y memoria. En este artículo se presentan los conceptos de simultaneidad y administración de cargas de trabajo, y se explica cómo se han implementado ambas características y cómo puede controlarlas en su almacenamiento de datos. La administración de cargas de trabajo de Almacenamiento de datos SQL está diseñada para admitir entornos de varios usuarios. No está diseñada para cargas de trabajo de multiinquilino.
 
 ## Límites de simultaneidad
 
@@ -48,9 +48,9 @@ La tabla siguiente describe los límites de consultas simultáneas y espacios de
 | DW3000 | 32 | 120 |
 | DW6000 | 32 | 240 |
 
-Cuando se alcanza uno de estos umbrales, las consultas nuevas se ponen en cola. Almacenamiento de datos SQL ejecuta las consultas en cola en función del modelo "el primero en entrar es el primero en salir" a medida que otras consultas van finalizando, mientras que el número de las mismas y de los espacios cae por debajo de los límites.
+Cuando se alcanza alguno de estos umbrales, se ponen a la cola nuevas consultas y se ejecutan según la regla "primero en entrar, primero en salir". A medida que las consultas finalizan y el número de consultas y ranuras desciende por debajo de los límites, las consultas en cola se liberan.
 
-> [AZURE.NOTE]  Las consultas *Select* que se ejecutan exclusivamente en vistas de administración dinámica (DMV) o vistas de catálogo no están reguladas por ninguno de los límites de simultaneidad. Los usuarios pueden supervisar el sistema independientemente del número de consultas que se ejecutan en él.
+> [AZURE.NOTE]  Las consultas *Select* que se ejecutan exclusivamente en vistas de administración dinámica (DMV) o vistas de catálogo no están reguladas por ninguno de los límites de simultaneidad. Puede supervisar el sistema independientemente del número de consultas que se ejecutan en él.
 
 ## Clases de recursos
 
@@ -76,9 +76,9 @@ Para un ejemplo detallado, consulte [Cambio de ejemplo de clase de recursos de u
 
 ## Asignación de memoria
 
-Aumentar clase de recursos de un usuario tiene ventajas y desventajas. A pesar de que aumentar una clase de recursos para un usuario puede significar que sus consultas tengan acceso a más memoria y se ejecuten clases de recursos superiores, también reduce el número de consultas simultáneas que se pueden ejecutar. Esto es consecuencia del principio de mantener el equilibrio entre asignar grandes cantidades de memoria a una sola consulta y permitir que otras consultas, que también necesitan asignaciones de memoria, se ejecuten al mismo tiempo. Si un usuario recibe asignaciones altas de memoria para una consulta, otros usuarios no tendrán acceso a esa misma memoria a fin de ejecutar una consulta.
+Aumentar clase de recursos de un usuario tiene ventajas y desventajas. Al aumentar una clase de recurso para un usuario se proporciona a sus consultas acceso a más memoria, lo que puede significar que las consultas se ejecutan más rápido. Sin embargo, las clases de recursos más altas también reducen el número de consultas simultáneas que se pueden ejecutar. Esto es consecuencia del principio de mantener el equilibrio entre asignar grandes cantidades de memoria a una sola consulta o permitir que otras consultas, que también necesitan asignaciones de memoria, se ejecuten al mismo tiempo. Si un usuario recibe asignaciones altas de memoria para una consulta, otros usuarios no tendrán acceso a esa misma memoria a fin de ejecutar una consulta.
 
-La tabla siguiente presenta un esquema de la memoria asignada a cada distribución por DWU y clases de recursos. En Almacenamiento de datos SQL, existe 60 distribuciones. Por ejemplo, una consulta que se ejecuta en DW2000 en la clase de recursos xlargerc, tendría acceso a 6400 MB de memoria en cada una de las 60 bases de datos distribuidas.
+La tabla siguiente presenta un esquema de la memoria asignada a cada distribución por DWU y clases de recursos.
 
 ### Asignaciones de memoria por distribución (MB)
 
@@ -97,7 +97,7 @@ La tabla siguiente presenta un esquema de la memoria asignada a cada distribuci�
 | DW3000 | 100 | 1600 | 3\.200 | 6\.400 |
 | DW6000 | 100 | 3\.200 | 6\.400 | 12\.800 |
 
-En el ejemplo anterior, a una consulta que se ejecuta en DW2000 en la clase de recursos xlargerc se le asigna un total de 375 GB de memoria (6400 MB * 60 distribuciones/1024 para convertir a GB) sobre la totalidad de Almacenamiento de datos SQL.
+A partir de la tabla anterior, puede ver que una consulta que se ejecuta en DW2000 en la clase de recurso xlargerc, tendría acceso a 6400 MB de memoria en cada una de las 60 bases de datos distribuidas. En Almacenamiento de datos SQL, existe 60 distribuciones. Por lo tanto, para calcular la asignación de memoria total para una consulta en una clase de recurso dada, los valores anteriores se deben multiplicar por 60.
 
 ### Asignaciones de memoria en todo el sistema (GB)
 
@@ -116,10 +116,11 @@ En el ejemplo anterior, a una consulta que se ejecuta en DW2000 en la clase de r
 | DW3000 | 6 | 94 | 188 | 375 |
 | DW6000 | 6 | 188 | 375 | 750 |
 
+Por esta tabla de asignaciones de memoria de todo el sistema, puede ver que a una consulta que se ejecuta en DW2000 en la clase de recurso xlargercs se le asigna un total de 375 GB de memoria (6400 MB * 60 distribuciones / 1024 para pasar a GB) sobre la totalidad del almacenamiento de SQL Data Warehouse.
 
 ## Consumo de ranuras de simultaneidad
 
-Almacenamiento de datos SQL concederá más memoria a las consultas que se ejecutan en clases de recursos superiores. Debido a que la memoria es un recurso fijo, cuanta más memoria se asigne por consulta, menos simultaneidad se puede admitir. En la tabla siguiente se reiteran todos los conceptos anteriores en una vista única donde se muestra el número de intervalos de simultaneidad disponibles por DWU, así como los espacios que consume cada clase de recurso.
+Almacenamiento de datos SQL concederá más memoria a las consultas que se ejecutan en clases de recursos superiores. La memoria es un recurso fijo. Por lo tanto, cuanta más memoria asignada por consulta, menos consultas simultáneas se pueden ejecutar. En la tabla siguiente se reiteran todos los conceptos anteriores en una vista única donde se muestra el número de intervalos de simultaneidad disponibles por DWU, así como los espacios que consume cada clase de recurso.
 
 ### Asignación y consumo de espacios de simultaneidad
 
@@ -149,27 +150,27 @@ La tabla siguiente muestra las asignaciones de importancia para cada grupo de ca
 
 ### Asignaciones de grupos de cargas de trabajo a los espacios de simultaneidad e importancia
 
-| Grupos de carga de trabajo | Asignación de espacio de simultaneidad | Asignación de importancia |
-| :-------------- | :----------------------: | :----------------- |
-| SloDWGroupC00 | 1 | Mediano |
-| SloDWGroupC01 | 2 | Mediano |
-| SloDWGroupC02 | 4 | Mediano |
-| SloDWGroupC03 | 8 | Mediano |
-| SloDWGroupC04 | 16 | Alto |
-| SloDWGroupC05 | 32 | Alto |
-| SloDWGroupC06 | 64 | Alto |
-| SloDWGroupC07 | 128 | Alto |
+| Grupos de carga de trabajo | Asignación de espacio de simultaneidad | MB/Distribución | Asignación de importancia |
+| :-------------- | :----------------------: | :---------------: | :----------------- |
+| SloDWGroupC00 | 1 | 100 | Mediano |
+| SloDWGroupC01 | 2 | 200 | Mediano |
+| SloDWGroupC02 | 4 | 400 | Mediano |
+| SloDWGroupC03 | 8 | 800 | Mediano |
+| SloDWGroupC04 | 16 | 1600 | Alto |
+| SloDWGroupC05 | 32 | 3\.200 | Alto |
+| SloDWGroupC06 | 64 | 6\.400 | Alto |
+| SloDWGroupC07 | 128 | 12\.800 | Alto |
 
 Desde el gráfico **Asignación y consumo de espacios de simultaneidad**, es posible ver que un DW500 usa 1, 4, 8 o 16 espacios de simultaneidad para smallrc, mediumrc, largerc y xlargerc, respectivamente. Puede buscar estos valores en el gráfico anterior para encontrar la importancia de cada clase de recursos.
 
 ### Asignación de DW500 de las clases de recursos a importancia
 
-| Clase de recursos | Grupo de cargas de trabajo | Espacios de simultaneidad usados | Importancia |
-| :------------- | :------------- | :--------------------: | :--------- |
-| smallrc | SloDWGroupC00 | 1 | Mediano |
-| mediumrc | SloDWGroupC02 | 4 | Mediano |
-| largerc | SloDWGroupC03 | 8 | Mediano |
-| xlargerc | SloDWGroupC04 | 16 | Alto |
+| Clase de recursos | Grupo de cargas de trabajo | Espacios de simultaneidad usados | MB/Distribución | Importancia |
+| :------------- | :------------- | :--------------------: | :---------------: | :--------- |
+| smallrc | SloDWGroupC00 | 1 | 100 | Mediano |
+| mediumrc | SloDWGroupC02 | 4 | 400 | Mediano |
+| largerc | SloDWGroupC03 | 8 | 800 | Mediano |
+| xlargerc | SloDWGroupC04 | 16 | 1600 | Alto |
 
 
 Puede usar la siguiente consulta DMV para ver las diferencias en la asignación de recursos de memoria en detalle desde la perspectiva del regulador de recursos, o bien para analizar el uso activo e histórico de los grupos de cargas de trabajo en el momento de solucionar problemas.
@@ -429,4 +430,4 @@ Para más información sobre cómo administrar los usuarios y la seguridad de la
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -41,22 +41,23 @@ Para crear una asignación de roles, agregue el siguiente esquema a la sección 
 
 Las tablas siguientes describen los valores que debe establecer en el esquema.
 
-| Nombre | Valor |
-| ---- | ---- |
-| type | Enum<br />Obligatorio<br />**Microsoft.Authorization/roleAssignments**<br /><br />Tipo de recurso que se creará. |
-| apiVersion | Enum<br />Obligatorio<br />**2014-10-01-preview**<br /><br />Versión de la API que se usará para crear el recurso. |  
-| name | Cadena<br />Obligatorio<br />**Globally-unique identifier**<br /><br />Identificador de la nueva asignación de roles. |
-| dependsOn | Matriz<br />Opcional<br />Lista separada por comas de nombres o identificadores únicos de recursos.<br /><br />Colección de recursos de los que depende esta asignación de roles. Si asigna un rol que se centra en un recurso y ese recurso se implementa en la misma plantilla, incluya el nombre de ese recurso en este elemento para asegurarse de que el recurso se implementa en primer lugar. | 
-| propiedades | Object<br />Obligatorio<br />[Objeto de propiedades](#properties)<br /><br />Objeto que identifica la definición de rol, la entidad y el ámbito. |  
+| Nombre | Valor | Description |
+| ---- | ---- | ---- |
+| type | Enum<br />Obligatorio<br />**Microsoft.Authorization/roleAssignments** | El tipo de recurso que se creará. |
+| apiVersion | Enum<br />Obligatorio<br />**2014-10-01-preview** | La versión de la API que se usará para crear el recurso. |  
+| name | Cadena<br />Obligatorio<br />**Globally-unique identifier** | Un identificador para la nueva asignación de roles. |
+| dependsOn | Matriz<br />Opcional<br />Una lista separada por comas de nombres de recursos o identificadores de recursos únicos. | La colección de recursos de la que depende esta asignación de roles. Si asigna un rol que se centra en un recurso y ese recurso se implementa en la misma plantilla, incluya el nombre de ese recurso en este elemento para asegurarse de que el recurso se implementa en primer lugar. | 
+| propiedades | Objeto<br />Obligatorio<br />[properties object](#properties) | Un objeto que identifica la definición de rol, la entidad y el ámbito. |  
 
 <a id="properties" />
-### properties object
 
-| Nombre | Valor |
-| ------- | ---- |
-| roleDefinitionId | Cadena<br />Obligatorio<br /> **/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}**<br /><br />Identificador de una definición de rol existente que se utilizará en la asignación de roles. |
-| principalId | Cadena<br />Obligatorio<br />**Globally-unique identifier**<br /><br />Identificador de una entidad existente. Se asigna al identificador dentro del directorio y puede señalar a un usuario, una entidad de servicio o un grupo de seguridad. |
-| ámbito | Cadena<br />Obligatorio<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}** (para grupos de recursos) o<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}** (para recursos)<br /><br />Ámbito al que se aplica esta asignación de roles. |
+### Properties object
+
+| Nombre | Valor1 | Description |
+| ---- | ---- | ---- |
+| roleDefinitionId | String <br />Required <br /><br /> **/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}** | El identificador de una definición de rol existente que se usará en la asignación de roles. |
+| principalId | Cadena<br />Obligatorio <br /><br /> **Globally-unique identifier** | El identificador de una entidad existente. Se asigna al identificador dentro del directorio y puede señalar a un usuario, una entidad de servicio o un grupo de seguridad. |
+| ámbito | Cadena<br />Obligatorio <br /><br /> **/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}** (para grupos de recursos)<br /> o<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}** (para recursos) | El ámbito en el que se aplica esta asignación de roles. |
 
 
 ## Cómo usar el recurso de asignación de rol
@@ -133,4 +134,4 @@ Las plantillas siguientes muestran cómo usar el recurso de asignación de rol:
 - Para obtener más información sobre la estructura de la plantilla, consulte [Crear plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para obtener más información acerca del control de acceso basado en roles, vea [Control de acceso basado en roles de Azure Active Directory](active-directory/role-based-access-control-configure.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0928_2016-->

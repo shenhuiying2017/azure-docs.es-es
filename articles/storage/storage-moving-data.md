@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
-	ms.author="micurd"/>
+	ms.date="09/21/2016"
+	ms.author="micurd;tamram"/>
 
 # Movimiento de datos hacia y desde Almacenamiento de Azure
 
@@ -82,4 +82,4 @@ Si tiene aplicaciones y cargas de trabajo locales, necesitará una solución que
 
 Consulte [Azure Site Recovery](../site-recovery/site-recovery-overview.md) para más información.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

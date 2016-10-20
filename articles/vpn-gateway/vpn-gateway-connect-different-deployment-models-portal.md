@@ -41,15 +41,15 @@ Antes de comenzar, compruebe lo siguiente:
 
 ### <a name="values"></a>Configuración de ejemplo
 
-La configuración de ejemplo puede usarla como referencia cuando utilice los cmdlets de PowerShell en los pasos siguientes.
+Puede usar la configuración de ejemplo como referencia al usar los cmdlets de PowerShell en los pasos siguientes:
 
 **Configuración de redes virtuales clásicas**
 
-Nombre de red virtual = ClassicVNet <br> Ubicación = Oeste de EE. UU. (West US)<br> Espacios de direcciones de la red virtual = 10.0.0.0/8 <br> Subnet-1 = 10.0.0.0/11 <br> GatewaySubnet = 10.32.0.0/29 <br> Nombre de red local = RMVNetLocal <br>
+Nombre de red virtual = ClassicVNet <br> Ubicación = Oeste de EE. UU. (West US)<br> Espacios de direcciones de la red virtual = 10.0.0.0/24 <br> Subnet-1 = 10.0.0.0/27 <br> GatewaySubnet = 10.0.0.32/29 <br> Nombre de red local = RMVNetLocal <br>
 
 **Configuración de redes virtuales de Resource Manager**
 
-Nombre de red virtual = RMVNet <br> Grupo de recursos = RG1 <br> Espacios de direcciones IP de red virtual = 192.168.1.0/16 <br> Subnet -1 = 192.168.1.0/24 <br> GatewaySubnet = 192.168.0.0/26 <br> Ubicación = Este de EE. UU. (East US) <br> Nombre de puerta de enlace de red virtual = RMGateway <br> Nombre de dirección IP pública de puerta de enlace = gwpip <br> Tipo de puerta de enlace = VPN <br> Tipo de VPN = Basada en ruta <br> Puerta de enlace de red local = ClassicVNetLocal <br>
+Nombre de red virtual = RMVNet <br> Grupo de recursos = RG1 <br> Espacios de direcciones IP de red virtual = 192.168.0.0/16 <br> Subnet -1 = 192.168.1.0/24 <br> GatewaySubnet = 192.168.0.0/26 <br> Ubicación = Este de EE. UU. (East US) <br> Nombre de puerta de enlace de red virtual = RMGateway <br> Nombre de dirección IP pública de puerta de enlace = gwpip <br> Tipo de puerta de enlace = VPN <br> Tipo de VPN = Basada en ruta <br> Puerta de enlace de red local = ClassicVNetLocal <br>
 
 ## <a name="createsmgw"></a>Sección 1: configuración de la red virtual con el modelo clásico
 
@@ -156,7 +156,7 @@ En esta sección, se crea la conexión entre las redes virtuales. Los pasos para
 		Set-AzureVNetGatewayKey -VNetName ClassicVNet `
 		-LocalNetworkSiteName RMVNetLocal -SharedKey abc123
 
-4. Ejecute los comandos siguientes para crear la conexión de VPN.
+4. Ejecute los comandos siguientes para crear la conexión de VPN:
 	
 	**Establecimiento de las variables**
 
@@ -182,4 +182,4 @@ Vea los detalles de preguntas más frecuentes para más información acerca de l
 
 [AZURE.INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

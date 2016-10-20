@@ -18,12 +18,12 @@
 
 # Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure
 
-Configure un clúster de Microsoft HPC Pack en Azure que contenga un nodo principal en el que se ejecuta Windows Server y varios nodos de proceso en los que se ejecuta una distribución de Linux compatible. Explore las opciones para mover datos entre los nodos de Linux y el nodo principal de Windows del clúster. Aprenda a enviar trabajos de HPC de Linux al clúster.
+Configure un clúster de Microsoft HPC Pack en Azure que contenga un nodo principal en el que se ejecute Windows Server y varios nodos de proceso en los que se ejecute una distribución de Linux compatible. Explore las opciones para mover datos entre los nodos de Linux y el nodo principal de Windows del clúster. Aprenda a enviar trabajos de HPC de Linux al clúster.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)].
 
 
-En un nivel alto, el diagrama siguiente muestra el clúster de HPC Pack que creará y con el que trabajará.
+En un nivel alto, el diagrama siguiente muestra el clúster de HPC Pack que se crea para trabajar.
 
 ![Clúster de HPC con nodos de Linux][scenario]
 
@@ -36,7 +36,7 @@ A continuación se muestran dos maneras recomendadas de crear un clúster de HPC
 
 * **Script de PowerShell**: use el [script de implementación de IaaS de Microsoft HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) (**New-HpcIaaSCluster.ps1**) para automatizar una implementación de clúster completa en el modelo de implementación clásica. Este script de Azure PowerShell usa una imagen de VM de HPC Pack en Azure Marketplace para una implementación rápida y proporciona un conjunto completo de parámetros de configuración para implementar nodos de proceso de Linux.
 
-Para obtener información general sobre las opciones de implementación de clústeres de HPC Pack en Azure , consulte [Opciones para crear y administrar un clúster de informática de alto rendimiento (HPC) en Azure con Microsoft HPC Pack](virtual-machines-linux-hpcpack-cluster-options.md).
+Para información general sobre las opciones de implementación de clústeres de HPC Pack en Azure, consulte las [opciones para crear y administrar un clúster de informática de alto rendimiento (HPC) en Azure con Microsoft HPC Pack](virtual-machines-linux-hpcpack-cluster-options.md).
 
 ### Requisitos previos
 
@@ -53,11 +53,11 @@ Para obtener información general sobre las opciones de implementación de clús
 
 
 
-    >[AZURE.TIP]Para utilizar la red RDMA de Azure con máquinas virtuales de nodo de proceso de tamaño A8 y A9, especifique una de las imágenes HPC de SUSE Linux Enterprise Server 12 o basada en CentOS desde Marketplace. Para obtener más información, consulte [Sobre las instancias de proceso intensivo A8, A9, A10 y A11](virtual-machines-linux-a8-a9-a10-a11-specs.md).
+    >[AZURE.TIP]Para utilizar la red RDMA de Azure con tamaños de máquina virtual compatibles con RDMA, especifique una de las imágenes HPC de SUSE Linux Enterprise Server 12 o basada en CentOS desde Azure Marketplace. Para más información, consulte [Acerca de las máquinas virtuales de la serie H y A de proceso intensivo](virtual-machines-linux-a8-a9-a10-a11-specs.md).
 
 Requisitos previos adicionales si implementa el clúster mediante el script de implementación de IaaS de HPC Pack:
 
-* **Equipo cliente**: necesitará un equipo cliente basado en Windows para ejecutar el script de implementación del clúster.
+* **Equipo cliente**: necesita un equipo cliente basado en Windows para ejecutar el script de implementación del clúster.
 
 * **Azure PowerShell**: [instale y configure Azure PowerShell](../powershell-install-configure.md) (versión 0.8.10 o posterior) en el equipo cliente.
 
@@ -71,7 +71,7 @@ Requisitos previos adicionales si implementa el clúster mediante el script de i
 
     ![Creación del portal][portal]
 
-3. En la hoja **Aspectos básicos**, escriba un nombre para el clúster, que también dará nombre a la máquina virtual del nodo principal. Puede elegir un grupo de recursos existente o crear un nuevo grupo para la implementación.
+3. En la hoja **Datos básicos**, escriba un nombre para el clúster, que también dará nombre a la máquina virtual del nodo principal. Puede elegir un grupo de recursos existente o crear un grupo para la implementación.
 
 4. En la hoja **Configuración del nodo principal**, para una primera implementación, puede generalmente aceptar la configuración predeterminada.
 
@@ -79,7 +79,7 @@ Requisitos previos adicionales si implementa el clúster mediante el script de i
     
 5. En la hoja **Configuración del nodo de proceso**, seleccione un nombre de modelo para los nodos, el número y tamaño de los nodos y la distribución de Linux que implementar.
 
-6. En la hoja **Configuración de infraestructura**, escriba los nombres de la red virtual y el dominio de Active Directory para el clúster, el dominio y las credenciales de administrador de la máquina virtual y un patrón de nomenclatura para las cuentas de almacenamiento necesarias para el clúster.
+6. En la hoja **Infrastructure settings** (Configuración de infraestructura), escriba los nombres de la red virtual y el dominio de Active Directory, el dominio y las credenciales de administrador de la máquina virtual y un patrón de nomenclatura para las cuentas de almacenamiento.
 
     >[AZURE.NOTE]HPC Pack utiliza el dominio de Active Directory para autenticar los usuarios del clúster.
 
@@ -88,7 +88,7 @@ Requisitos previos adicionales si implementa el clúster mediante el script de i
 
 ### Opción de implementación 2. Uso del script de implementación de IaaS
 
-El script de implementación de HPC Pack IaaS usa un archivo de configuración XML como entrada que describe la infraestructura del clúster HPC. En el siguiente archivo de configuración de ejemplo se implementa un pequeño clúster que consta de un nodo principal de HPC Pack y dos nodos de proceso de CentOS 7.0 Linux de tamaño A7. Modifique el archivo según sea necesario para su entorno y la configuración de clúster deseada y guárdelo con un nombre como HPCDemoConfig.xml. Por ejemplo, deberá proporcionar el nombre de la suscripción y un nombre de cuenta de almacenamiento único y el nombre del servicio en la nube, y quizá desee elegir una imagen de Linux admitida diferente para los nodos de proceso. Para obtener más información sobre los elementos en el archivo de configuración, vea el archivo Manual.rtf en la carpeta de script y [Creación de un clúster de HPC de Windows con el script de implementación de IaaS de HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
+El script de implementación de HPC Pack IaaS usa un archivo de configuración XML como entrada que describe la infraestructura del clúster HPC. En el siguiente archivo de configuración de ejemplo se implementa un pequeño clúster que consta de un nodo principal de HPC Pack y dos nodos de proceso de CentOS 7.0 Linux de tamaño A7. Modifique el archivo según sea necesario para su entorno y la configuración de clúster deseada y guárdelo con un nombre como HPCDemoConfig.xml. Por ejemplo, debe proporcionar el nombre de la suscripción y un nombre de cuenta de almacenamiento único, así como el nombre del servicio en la nube. Además, para los nodos de proceso, puede elegir una imagen de Linux compatible diferente. Para obtener más información sobre los elementos en el archivo de configuración, vea el archivo Manual.rtf en la carpeta de script y [Creación de un clúster de HPC de Windows con el script de implementación de IaaS de HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -142,7 +142,7 @@ El script de implementación de HPC Pack IaaS usa un archivo de configuración X
     .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
     ```
 
-    El script genera un archivo de registro automáticamente porque el parámetro **-LogFile** no está especificado. Los registros no se escriben en tiempo real, pero se recopilan al final de la validación y la implementación. Si se detiene el proceso de PowerShell mientras se ejecuta el script, se perderán algunos registros.
+    El script genera un archivo de registro automáticamente porque el parámetro **-LogFile** no está especificado. Los registros no se escriben en tiempo real, pero se recopilan al final de la validación y la implementación. Si se detiene el proceso de PowerShell mientras se ejecuta el script, se pierden algunos registros.
 
     a. Como **AdminPassword** no se ha especificado en el comando anterior, se le pedirá que escriba la contraseña del usuario *MyAdminName*.
 
@@ -150,11 +150,11 @@ El script de implementación de HPC Pack IaaS usa un archivo de configuración X
 
     ![Validación][validate]
 
-    c. Una vez pasadas las validaciones, el script enumera los recursos que se crearán para el clúster HPC. Escriba *Y* para continuar.
+    c. Una vez superadas las validaciones, el script enumera los recursos de clúster que se van a crear. Escriba *Y* para continuar.
 
     ![Recursos][resources]
 
-    d. El script empieza a implementar el clúster de HPC Pack y completa la configuración sin más pasos manuales. Esto puede tardar varios minutos.
+    d. El script empieza a implementar el clúster de HPC Pack y completa la configuración sin más pasos manuales. El script puede tardar varios minutos en ejecutarse.
 
     ![Implementación][deploy]
 
@@ -174,7 +174,7 @@ También verá los nodos de Linux en la vista **Mapa térmico**.
 
 Hay varias opciones para mover datos entre los nodos de Linux y el nodo principal de Windows del clúster. A continuación se muestran tres métodos comunes.
 
-* **Archivo de Azure**: expone un recurso compartido de archivos SMB administrado para almacenar archivos de datos en Almacenamiento de Azure. Los nodos de Windows y los nodos de Linux pueden montar un recurso compartido de archivo de Azure como una unidad o carpeta al mismo tiempo incluso si se implementan en diferentes redes virtuales.
+* **Archivo de Azure**: expone un recurso compartido de archivos SMB administrado para almacenar archivos de datos en Almacenamiento de Azure. Los nodos de Windows y de Linux pueden montar un recurso compartido de archivo de Azure como una unidad o carpeta al mismo tiempo, incluso si se implementan en diferentes redes virtuales.
 
 * **Recurso compartido de SMB del nodo principal**: monta una carpeta compartida de Windows estándar del nodo principal en los nodos de Linux.
 
@@ -193,11 +193,11 @@ En el siguiente ejemplo, cree un recurso compartido de Archivos de Azure en una 
 > net use Z: \\allvhdje.file.core.windows.net\rdma /persistent:yes
 ```
 
-En este ejemplo, allvhdsje es el nombre de la cuenta de almacenamiento, storageaccountkey es la clave de la cuenta de almacenamiento y rdma es el nombre del recurso compartido de Archivo de Azure. El recurso compartido de Archivo de Azure se montará en Z: en el nodo principal.
+En este ejemplo, allvhdsje es el nombre de la cuenta de almacenamiento, storageaccountkey es la clave de la cuenta de almacenamiento y rdma es el nombre del recurso compartido de Archivo de Azure. El recurso compartido de archivo de Azure se montará en Z: en el nodo principal.
 
 Para montar el recurso compartido de Archivo de Azure en los nodos de Linux, ejecute un comando **clusrun** en el nodo principal. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)** es una herramienta de HPC Pack útil para llevar a cabo tareas administrativas en varios nodos (vea también [ClusRun para nodos de Linux](#Clusrun-for-Linux-nodes) en este artículo).
 
-Abra una ventana de Windows PowerShell y escriba los comandos siguientes.
+Abra una ventana de Windows PowerShell y escriba los comandos siguientes:
 
 ```
 PS > clusrun /nodegroup:LinuxNodes mkdir -p /rdma
@@ -211,7 +211,7 @@ El primer comando crea una carpeta denominada /rdma en todos los nodos en el gru
 
 ### Recurso compartido del nodo principal
 
-Si lo prefiere, puede montar una carpeta compartida del nodo principal en los nodos de Linux. Esta es la manera más sencilla de compartir archivos, pero el nodo principal y todos los nodos de Linux deben implementarse en la misma red virtual. A continuación se muestran los pasos que se deben seguir.
+Si lo prefiere, puede montar una carpeta compartida del nodo principal en los nodos de Linux. Un recurso compartido es la manera más sencilla de compartir archivos, pero el nodo principal y todos los nodos de Linux deben implementarse en la misma red virtual. A continuación se muestran los pasos que se deben seguir.
 
 1. Cree una carpeta en el nodo principal y compártala con Todos con permisos de lectura y escritura. Por ejemplo, comparta D:\\OpenFOAM en el nodo principal como \\CentOS7RDMA-HN\\OpenFOAM. En el ejemplo, CentOS7RDMA-HN es el nombre de host del nodo principal.
 
@@ -219,7 +219,7 @@ Si lo prefiere, puede montar una carpeta compartida del nodo principal en los no
 
     ![Uso compartido de archivos][filesharing]
 
-2. Abra una ventana de Windows PowerShell y ejecute los siguientes comandos para montar la carpeta compartida.
+2. Abra una ventana de Windows PowerShell y ejecute los comandos siguientes:
 
 ```
 PS > clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
@@ -234,11 +234,11 @@ El primer comando crea una carpeta denominada /openfoam en todos los nodos del g
 
 ### Servidor NFS
 
-El servicio NFS le permite compartir y migrar archivos entre equipos que ejecutan el sistema operativo Windows Server 2012 con el protocolo SMB y equipos basados en Linux con el protocolo NFS. El servidor NFS y todos los demás nodos tienen que implementarse en la misma red virtual. Proporciona mayor compatibilidad con los nodos de Linux en comparación con un recurso compartido de SMB; por ejemplo, es compatible con los vínculos de archivos.
+El servicio NFS le permite compartir y migrar archivos entre equipos que ejecutan el sistema operativo Windows Server 2012 con el protocolo SMB y equipos basados en Linux con el protocolo NFS. El servidor NFS y todos los demás nodos tienen que implementarse en la misma red virtual. Proporciona mayor compatibilidad con los nodos de Linux en comparación con un recurso compartido de SMB. Por ejemplo, admite vínculos de archivo.
 
 1. Para instalar y configurar un servidor NFS, siga los pasos indicados en [Server for Network File System First Share End-to-End](http://blogs.technet.com/b/filecab/archive/2012/10/08/server-for-network-file-system-first-share-end-to-end.aspx).
 
-    Por ejemplo, cree un recurso compartido de NFS denominado nfs con las siguientes propiedades.
+    Por ejemplo, cree un recurso compartido de NFS denominado nfs con las siguientes propiedades:
 
     ![Autorización de NFS][nfsauth]
 
@@ -248,7 +248,7 @@ El servicio NFS le permite compartir y migrar archivos entre equipos que ejecuta
 
     ![Propiedades de administración de NFS][nfsmanage]
 
-2. Abra una ventana de Windows PowerShell y ejecute los siguientes comandos para montar el recurso compartido de NFS.
+2. Abra una ventana de Windows PowerShell y ejecute los comandos siguientes:
 
   ```
   PS > clusrun /nodegroup:LinuxNodes mkdir -p /nfsshare
@@ -268,7 +268,7 @@ Hay varias formas de enviar trabajos al clúster de HPC Pack:
 
 El envío de trabajos al clúster en Azure a través de herramientas de GUI de HPC Pack y el portal web de HPC es igual que para los nodos de proceso de Windows. Consulte [Administrador de trabajos de HPC Pack](https://technet.microsoft.com/library/ff919691.aspx) y [Envío de trabajos desde un equipo cliente local](virtual-machines-windows-hpcpack-cluster-submit-jobs.md).
 
-Para enviar trabajos mediante la API de REST, consulte [Creating and Submitting Jobs by Using the REST API in Microsoft HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Consulte también el ejemplo de Python en el [SDK de HPC Pack](https://www.microsoft.com/download/details.aspx?id=47756) para enviar trabajos desde un cliente Linux.
+Para enviar trabajos mediante la API de REST, consulte [Creating and Submitting Jobs by Using the REST API in Microsoft HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Para enviar trabajos desde un cliente Linux, consulte también el ejemplo de Python en el [SDK de HPC Pack](https://www.microsoft.com/download/details.aspx?id=47756).
 
 ## ClusRun para nodos de Linux
 
@@ -317,4 +317,4 @@ La herramienta **clusrun** de HPC Pack se puede usar para ejecutar comandos en l
 [nfsperm]: ./media/virtual-machines-linux-classic-hpcpack-cluster/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-classic-hpcpack-cluster/nfsmanage.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

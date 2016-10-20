@@ -164,6 +164,34 @@ El encabezado de host que se utiliza en las comprobaciones de estado de HTTPS es
 
 Este valor forma parte de la configuración del punto de conexión. El valor utilizado en el encabezado host no se puede especificar por separado de la propiedad 'target'.
 
+### ¿Cuáles son las direcciones IP desde las que proceden las comprobaciones de estado?
+
+La siguiente lista contiene las direcciones IP desde donde puede esperar que proceda el estado de Traffic Manager. Puede usar esta lista para asegurarse de que se permiten conexiones entrantes de estas direcciones IP en los puntos de conexión para comprobar su estado de mantenimiento.
+
+
+
+- 13\.75.153.124
+- 13\.75.152.253
+- 191\.232.214.62
+- 191\.232.208.52
+- 52\.172.155.168
+- 52\.172.158.37
+- 13\.75.124.254
+- 13\.75.127.63
+- 137\.135.82.249
+- 137\.135.80.149
+- 104\.41.190.203
+- 104\.41.187.209
+- 65\.52.217.19
+- 23\.96.236.252
+- 40\.87.147.10
+- 40\.87.151.34
+- 104\.215.91.84
+- 13\.84.222.37
+- 40\.68.30.66
+- 40\.68.31.178
+- 137\.135.47.215
+- 137\.135.46.163
 
 ## Pasos siguientes
 
@@ -175,4 +203,4 @@ Aprenda a [crear un perfil del Administrador de tráfico](traffic-manager-manage
 
 [Solución de problemas de estado degradado en el Administrador de tráfico de Azure](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

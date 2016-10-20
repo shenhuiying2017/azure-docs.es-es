@@ -21,8 +21,8 @@
 
 > [AZURE.SELECTOR]
 - [Portal de Azure](site-recovery-hyper-v-site-to-azure.md)
-- [Azure clásico](site-recovery-hyper-v-site-to-azure-classic.md)
-- [ARM de PowerShell](site-recovery-deploy-with-powershell-resource-manager.md)
+- [PowerShell: administrador de recursos](site-recovery-deploy-with-powershell-resource-manager.md)
+- [Portal clásico](site-recovery-hyper-v-site-to-azure-classic.md)
 
 
 
@@ -88,7 +88,7 @@ Esto es lo que necesita en el entorno local.
 **Requisito previo** | **Detalles**
 --- | ---
 **Hyper-V**| Uno o varios servidores locales ejecutan Windows Server 2012 R2 con el rol de Hyper-V y las últimas actualizaciones.<br/><br/>El servidor de Hyper-V debe contener una o varias máquinas virtuales.<br/><br/>Los servidores de Hyper-V deben estar conectados a Internet, directamente o a través de un proxy.<br/><br/>Los servidores de Hyper-V deben tener correcciones mencionados en la actualización [KB2961977](https://support.microsoft.com/es-ES/kb/2961977 "KB2961977") instalada.
-**Proveedor y agente** | Durante la implementación de Azure Site Recovery, se instala el proveedor de Azure Site Recovery. La instalación del proveedor también instalará el agente de Servicios de recuperación de Azure en cada servidor de Hyper-V que ejecuta máquinas virtuales que desea proteger. Todos los servidores de Hyper-V en un almacén de Site Recovery deben tener las mismas versiones del proveedor y el agente.<br/><br/>El proveedor necesitará conectarse a Azure Site Recovery a través de Internet. El tráfico puede enviarse directamente o a través de un proxy. Tenga en cuenta que no se admite el proxy basado en HTTPS. El servidor proxy debe permitir el acceso a: <br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net <br/><br/> *.backup.windowsazure.com <br/><br/> *.blog.core.windows.net <br/><br/> *store.core.windows.net <br/><br/> https://www.msftncsi.com/ncsi.txt<br/><br/>Si tiene reglas de firewall basadas en direcciones IP en el servidor, compruebe que las reglas permitan la comunicación con Azure. Debe permitir los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) y el protocolo HTTPS (433).<br/><br/>Permita los intervalos IP para la región de Azure de su suscripción y para el oeste de EE. UU.
+**Proveedor y agente** | Durante la implementación de Azure Site Recovery, se instala el proveedor de Azure Site Recovery. La instalación del proveedor también instalará el agente de Servicios de recuperación de Azure en cada servidor de Hyper-V que ejecuta máquinas virtuales que desea proteger. Todos los servidores de Hyper-V en un almacén de Site Recovery deben tener las mismas versiones del proveedor y el agente.<br/><br/>El proveedor necesitará conectarse a Azure Site Recovery a través de Internet. El tráfico puede enviarse directamente o a través de un proxy. Tenga en cuenta que no se admite el proxy basado en HTTPS. El servidor proxy debe permitir el acceso a: <br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net <br/><br/> *.backup.windowsazure.com <br/><br/> *.blog.core.windows.net <br/><br/> *store.core.windows.net <br/><br/> https://www.msftncsi.com/ncsi.txt<br/><br/>Si tiene reglas de firewall basadas en direcciones IP en el servidor, compruebe que las reglas permitan la comunicación con Azure. Debe permitir los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) y el puerto HTTPS (443).<br/><br/>Permita los intervalos de direcciones IP para la región de Azure de su suscripción y para el oeste de EE. UU.
 
 ## Requisitos previos de equipos protegidos
 
@@ -113,7 +113,7 @@ Configure una red de Azure. Debe hacer esto para que las máquinas virtuales de 
 - Según el modelo de recursos que desee usar para las máquinas virtuales de Azure conmutadas por error, va a configurar la red de Azure en [modo ARM](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) o en [modo clásico](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 - Es recomendable configurar una red antes de empezar. Si no lo hace, deberá hacerlo durante la implementación de Site Recovery.
 
-> [AZURE.NOTE] [Migration of networks]El (../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las redes usadas para implementar Site Recovery.
+> [AZURE.NOTE] El [Migration of networks](../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las redes usadas para implementar Site Recovery.
 
 ### Configuración de una cuenta de almacenamiento de Azure
 
@@ -121,7 +121,7 @@ Configure una red de Azure. Debe hacer esto para que las máquinas virtuales de 
 - Según el modelo de recursos que desee usar para las máquinas virtuales de Azure conmutadas por error, configurará una cuenta en el [modo ARM](../storage/storage-create-storage-account.md) o en el [modo clásico](../storage/storage-create-storage-account-classic-portal.md).
 - Es recomendable configurar una cuenta de almacenamiento antes de empezar. Si no lo hace, deberá hacerlo durante la implementación de Site Recovery. Las cuentas deben estar en la misma región que el almacén de Servicios de recuperación.
 
-> [AZURE.NOTE] [Migration of storage accounts]El (../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las cuentas de almacenamiento usadas para implementar Site Recovery.
+> [AZURE.NOTE] El [Migration of storage accounts](../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones no se admite en las cuentas de almacenamiento usadas para implementar Site Recovery.
 
 ### Preparación de los hosts de Hyper-V
 
@@ -197,7 +197,7 @@ Configure el sitio Hyper-V, instale el Proveedor de Azure Site Recovery y el age
 
 	![Registro de servidor](./media/site-recovery-hyper-v-site-to-azure/provider3.png)
 
-5. En **Configuración de proxy**, especifique cómo se conectará el proveedor que se instalará en el servidor a Azure Site Recovery a través de Internet.
+5.En **Configuración de proxy**, especifique cómo se conectará el proveedor que se instalará en el servidor a Azure Site Recovery a través de Internet.
 
 - Si quiere que el proveedor se conecte directamente, seleccione **Connect directly without a proxy** (Conectarse directamente sin un proxy).
 - Si quiere conectarse con el proxy configurado actualmente en el servidor, seleccione **Connect with existing proxy settings** (Conectarse con la configuración de proxy existente).
@@ -207,10 +207,10 @@ Configure el sitio Hyper-V, instale el Proveedor de Azure Site Recovery y el age
 
 	![Internet](./media/site-recovery-hyper-v-site-to-azure/provider7.PNG)
 
-6. Una vez finalizada la instalación, haga clic en **Registrar** para registrar el servidor en el almacén. 
-![Ubicación de instalación](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
+6.Una vez finalizada la instalación, haga clic en **Registrar** para registrar el servidor en el almacén.	
+	![Ubicación de instalación](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
 
-7. Después de que finalice el registro, los metadatos de Hyper-V Server se recuperan mediante Azure Site Recovery y el servidor se muestra en la hoja **Configuración** > **Site Recovery Infrastructure** (Infraestructura de Site Recovery) > **Hyper-V Hosts** (Hosts de Hyper-V).
+7.Después de que finalice el registro, los metadatos de Hyper-V Server se recuperan mediante Azure Site Recovery y el servidor se muestra en la hoja **Configuración** > **Site Recovery Infrastructure** (Infraestructura de Site Recovery) > **Hyper-V Hosts** (Hosts de Hyper-V).
 
 
 ### Instalación de la línea de comandos
@@ -470,4 +470,4 @@ Le mostramos cómo puede supervisar la configuración y el estado de la implemen
 
 Después de que la implementación esté configurada y en ejecución, [obtenga más información](site-recovery-failover.md) sobre los diferentes tipos de conmutación por error.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

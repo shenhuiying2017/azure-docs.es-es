@@ -17,7 +17,7 @@
 
 # Información general sobre redes virtuales
 
-Una red virtual de Azure (VNet) es una representación de su propia red en la nube. Es un aislamiento lógico de la nube de Azure dedicada a su suscripción. Puede controlar por completo los bloques de direcciones IP, la configuración DNS, las directivas de seguridad y las tablas de rutas dentro de esta red. También puede segmentar aún más la red virtual en subredes e iniciar máquinas virtuales de IaaS de Azure (VM) o [Servicios en la nube (instancias de rol de PaaS)](../cloud-services/cloud-services-choose-me.md). Además, puede conectar la red virtual a su red local mediante una de las [opciones de conectividad](../vpn-gateway/vpn-gateway-cross-premises-options.md) disponibles en Azure. En esencia, puede ampliar su red en Azure, con control total sobre bloques de direcciones IP con la ventaja de la escala empresarial que ofrece Azure.
+Una red virtual de Azure (VNet) es una representación de su propia red en la nube. Es un aislamiento lógico de la nube de Azure dedicada a su suscripción. Puede controlar por completo los bloques de direcciones IP, la configuración DNS, las directivas de seguridad y las tablas de rutas dentro de esta red. También puede segmentar aún más la red virtual en subredes e iniciar máquinas virtuales de IaaS de Azure (VM) o [Servicios en la nube (instancias de rol de PaaS)](../cloud-services/cloud-services-choose-me.md). Además, puede conectar la red virtual a su red local mediante una de las [opciones de conectividad](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) disponibles en Azure. En esencia, puede ampliar su red en Azure, con control total sobre bloques de direcciones IP con la ventaja de la escala empresarial que ofrece Azure.
 
 Para entender mejor las redes virtuales, eche un vistazo en la figura siguiente, que muestra una red local simplificada.
 
@@ -83,7 +83,7 @@ Por ejemplo, pueden usarse NSG para proporcionar seguridad en la red virtual. Si
 Los dispositivos virtuales dependen de las [rutas definidas por el usuario y reenvío IP](virtual-networks-udr-overview.md).
 
 ## Límites
-Hay límites en el número de redes virtuales permitidas en una suscripción. Consulte [Límites de redes de Azure](../azure-subscription-service-limits.md#networking-limits) para más información.
+Hay límites en el número de redes virtuales permitidas en una suscripción. Consulte la sección sobre [límites de red de Azure](../azure-subscription-service-limits.md#networking-limits) para más información.
 
 ## Precios
 No hay ningún coste adicional para el uso de redes virtuales en Azure. A las instancias de proceso iniciadas dentro de la red virtual se les cobrarán las tarifas estándar como se describe en [Precios de máquinas virtuales de Azure](https://azure.microsoft.com/pricing/details/virtual-machines/). A las [Puertas de enlace de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) y a las [Direcciones IP públicas](https://azure.microsoft.com/pricing/details/ip-addresses/) usadas en la red virtual también se les cobrarán tarifas estándar.
@@ -95,4 +95,4 @@ No hay ningún coste adicional para el uso de redes virtuales en Azure. A las in
 - Más información sobre [NSG](virtual-networks-nsg.md).
 - Obtención de más información sobre [rutas definidas por el usuario y reenvío IP](virtual-networks-udr-overview.md).
 
-<!----HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_1005_2016-->

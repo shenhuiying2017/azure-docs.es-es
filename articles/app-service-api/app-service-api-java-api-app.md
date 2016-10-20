@@ -24,7 +24,7 @@ En este tutorial se muestra cómo crear una aplicación de Java e implementarla 
 
 ## Requisitos previos
 
-1. [Kit para desarrolladores de Java 8] (o superior)
+1. [Kit para desarrolladores de Java 8] \(o superior)
 1. [Maven] instalado en el equipo de desarrollo
 1. [GIT] instalado en el equipo de desarrollo
 1. Una suscripción de [evaluación gratuita] o de pago a [Microsoft Azure]
@@ -338,4 +338,4 @@ Para obtener más información sobre del uso de Java en Azure, consulte el [Cent
 [copy-git-repo-url]: ./media/app-service-api-java-api-app/copy-git-repo-url.png
 [postman-calling-azure-contacts]: ./media/app-service-api-java-api-app/postman-calling-azure-contacts.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_1005_2016-->

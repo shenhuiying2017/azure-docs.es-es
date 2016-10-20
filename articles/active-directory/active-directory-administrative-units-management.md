@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -37,4 +37,4 @@ Para obtener más información sobre los requisitos de software y la instalació
 ## Pasos siguientes
 [Ediciones de Azure Active Directory](active-directory-editions.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Creación de filtros con la API de REST de Servicios multimedia de Azure" 
-	description="En este tema se describe cómo crear filtros para que su cliente pueda usarlos para el streaming de secciones específicas de una secuencia. Servicios multimedia crea manifiestos dinámicos para lograr este streaming selectivo."
+	pageTitle="Creación de filtros con la API de REST de Azure Media Services | Microsoft Azure" 
+	description="En este tema se describe cómo crear filtros para que su cliente pueda usarlos para el streaming de secciones específicas de una transmisión. Servicios multimedia crea manifiestos dinámicos para lograr este streaming selectivo."
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako;cenkdin"/>
 
 #Creación de filtros con la API de REST de Servicios multimedia de Azure
@@ -374,4 +374,4 @@ En los ejemplos siguientes se muestra cómo agregar filtros a sus URL de streami
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

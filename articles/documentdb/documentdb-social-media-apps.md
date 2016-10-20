@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="09/27/2016" 
 	ms.author="mimig"/>
 
 # Redes sociales y DocumentDB
 
-Vivir en una sociedad enormemente interconectada significa que, en algún momento de la vida, uno formará parte de una **red social**. Las redes sociales se usan para mantenerse en contacto con amigos, compañeros de trabajo y  
-familiares y, a veces, para compartir intereses comunes con otras personas.
+Vivir en una sociedad enormemente interconectada significa que, en algún momento de la vida, uno formará parte de una **red social**. Las redes sociales se usan para mantenerse en contacto con amigos, compañeros de trabajo y familiares y, a veces, para compartir intereses comunes con otras personas.
 
 Como ingenieros o desarrolladores, es probable que nos hayamos preguntado cómo almacenan e interconectan nuestros datos estas redes sociales, o incluso puede que nos hayan encargado crear o diseñar la arquitectura de una nueva red social para un segmento de mercado específico. Y ahí surge la gran duda: ¿cómo se almacenan todos estos datos?
 
@@ -215,9 +214,11 @@ Pero, ¿qué podemos aprender? Por ejemplo, [análisis de opinión](https://en.w
 
 Ahora que ya está interesado, probablemente pensará que necesita un doctorado en ciencias matemáticas para extraer estos patrones y la información de los archivos y las bases de datos, pero no es así.
 
-[Aprendizaje automático de Azure](https://azure.microsoft.com/services/machine-learning/), que forma parte de [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), es un servicio en la nube totalmente administrado que permite crear flujos de trabajo mediante algoritmos en una sencilla interfaz de arrastrar y colocar, programar sus propios algoritmos en [R] \(https://en.wikipedia.org/wiki/R_(programming_language)) o usar algunas de las API integradas y listas para usar, como [Text Analytics](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator](https://www.microsoft.com/moderator) o [Recommendations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+[Aprendizaje automático de Azure](https://azure.microsoft.com/services/machine-learning/), que forma parte de [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), es un servicio en la nube totalmente administrado que permite crear flujos de trabajo mediante algoritmos en una sencilla interfaz de arrastrar y colocar, programar sus propios algoritmos en [R](https://en.wikipedia.org/wiki/R_(programming_language)) o usar algunas de las API integradas y listas para usar, como [Text Analytics](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator](https://www.microsoft.com/moderator) o [Recommendations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
 Para posibilitar cualquiera de estos escenarios de Aprendizaje automático, podemos usar [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) para introducir la información de distintos orígenes, así como [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) para procesar dicha información y generar una salida que pueda tratar Aprendizaje automático de Azure.
+
+Otra opción disponible es usar [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services) para analizar el contenido de nuestros usuarios; no solo podemos comprenderlos mejor (mediante el análisis de lo que escriben con [Text Analytics API](https://www.microsoft.com/cognitive-services/es-ES/text-analytics-api)), sino que también podemos detectar contenido no deseado o contenido para adultos y actuar en consecuencia con [Computer Vision API](https://www.microsoft.com/cognitive-services/es-ES/computer-vision-api). Cognitive Services incluye una gran cantidad de soluciones listas para usar que no requieren ningún conocimiento de Machine Learning para usarlas.
 
 ## Conclusión
 
@@ -233,4 +234,4 @@ Obtenga más información sobre el modelado de datos en el artículo [Modelado d
 
 También puede obtener más información sobre DocumentDB siguiendo la [ruta de aprendizaje de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

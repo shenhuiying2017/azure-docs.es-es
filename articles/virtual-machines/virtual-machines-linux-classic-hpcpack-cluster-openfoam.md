@@ -18,29 +18,29 @@
 
 # Ejecución de OpenFoam con Microsoft HPC Pack en un clúster de Linux RDMA en Azure
 
-En este artículo se muestra una manera de ejecutar OpenFoam en máquinas virtuales de Azure. Va a implementar un clúster de Microsoft HPC Pack en Azure y ejecutar un trabajo [OpenFoam](http://openfoam.com/) con Intel MPI en varios nodos de proceso de Linux que se conectan a través de la red de acceso directo a memoria remota (RDMA) de Azure. Otras opciones para ejecutar OpenFoam en Azure incluyen imágenes comerciales totalmente configuradas en Marketplace, como [OpenFoam 2.3 en CentOS 6](https://azure.microsoft.com/marketplace/partners/ubercloud/openfoam-v2dot3-centos-v6/) de UberCloud, y la ejecución de [Lote de Azure](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/).
+En este artículo se muestra una manera de ejecutar OpenFoam en máquinas virtuales de Azure. Aquí se implementa un clúster de Microsoft HPC Pack con nodos de proceso de Linux en Azure y se ejecuta un trabajo de [OpenFoam](http://openfoam.com/) con Intel MPI. Puede usar máquinas virtuales compatibles con RDMA de Azure para los nodos de proceso para que se comuniquen a través de la red RDMA de Azure. Otras opciones para ejecutar OpenFoam en Azure incluyen imágenes comerciales totalmente configuradas en Marketplace, como [OpenFoam 2.3 en CentOS 6](https://azure.microsoft.com/marketplace/partners/ubercloud/openfoam-v2dot3-centos-v6/) de UberCloud, y la ejecución de [Lote de Azure](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-OpenFOAM (del inglés operación y manipulación de campo abierto) es un paquete de software gratuito de código abierto de cálculo de dinámicas de fluidos (CFD) que se utiliza ampliamente en ingeniería y ciencias en organizaciones académicas y comerciales. Incluye herramientas para la creación de mallas, especialmente snappyHexMesh, una herramienta de creación de mallas en paralelo para las geometrías complejas de CAD y para el preprocesamiento y el posprocesamiento. Casi todos los procesos se ejecutan en paralelo, lo que permite a los usuarios aprovechar al máximo el hardware del equipo a su disposición.
+OpenFOAM (del inglés, operación y manipulación de campo abierto) es un paquete de software de código abierto de cálculo de dinámicas de fluidos (CFD) que se utiliza ampliamente en ingeniería y ciencias en organizaciones académicas y comerciales. Incluye herramientas para la creación de mallas, especialmente snappyHexMesh, una herramienta de creación de mallas en paralelo para las geometrías complejas de CAD y para el preprocesamiento y el posprocesamiento. Casi todos los procesos se ejecutan en paralelo, lo que permite a los usuarios aprovechar al máximo el hardware del equipo a su disposición.
 
-Microsoft HPC Pack proporciona características para ejecutar una variedad de aplicaciones HPC y paralelas a gran escala, incluidas las aplicaciones MPI, en clústeres de máquinas virtuales de Microsoft Azure. HPC Pack también admite la ejecución de aplicaciones Linux HPC en máquinas virtuales de nodos de proceso Linux implementadas en un clúster de HPC Pack. Consulte [Introducción a los nodos de ejecución de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-classic-hpcpack-cluster.md) para ver información básica relativa al uso de los nodos de ejecución de Linux con HPC Pack.
+Microsoft HPC Pack proporciona características para ejecutar aplicaciones HPC y paralelas a gran escala, incluidas las aplicaciones MPI, en clústeres de máquinas virtuales de Microsoft Azure. HPC Pack también admite la ejecución de aplicaciones Linux HPC en máquinas virtuales de nodos de proceso Linux implementadas en un clúster de HPC Pack. Consulte [Introducción a los nodos de ejecución de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-classic-hpcpack-cluster.md) para ver información básica relativa al uso de los nodos de ejecución de Linux con HPC Pack.
 
->[AZURE.NOTE] En este artículo se ilustra cómo ejecutar una carga de trabajo MPI de Linux con HPC Pack y se supone que tiene cierta familiaridad con la administración del sistema Linux y con la ejecución de cargas de trabajo MPI en clústeres de Linux. Si usa versiones de MPI y OpenFOAM diferentes a las mostradas en este artículo, es posible que deba modificar algunos pasos de instalación y configuración.
+>[AZURE.NOTE] Este artículo muestra cómo ejecutar una carga de trabajo de Linux MPI con HPC Pack. Se supone que tiene cierta familiaridad con la administración del sistema Linux y con la ejecución de cargas de trabajo MPI en clústeres de Linux. Si usa versiones de MPI y OpenFOAM diferentes a las mostradas en este artículo, es posible que deba modificar algunos pasos de instalación y configuración.
 
 ## Requisitos previos
 
-*   **Clúster de HPC Pack con nodos de proceso de Linux de tamaño A8 o A9**: implemente un clúster de HPC Pack con nodos de proceso de Linux de tamaño A8 o A9 mediante una [plantilla de Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) o un [script de Azure PowerShell](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). Consulte [Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-classic-hpcpack-cluster.md) para ver los requisitos previos y los pasos para cada opción. Si elige la opción de implementar un script de PowerShell, consulte el archivo de configuración de ejemplo que se encuentra entre los archivos de ejemplo al final de este artículo para implementar un clúster de HPC Pack basado en Azure que consta de un nodo principal Windows Server 2012 R2 de tamaño A8 y dos nodos de ejecución SUSE Linux Enterprise Server 12 de tamaño A8. Sustituya los valores apropiados por su nombre de suscripción y servicio.
+*   **Clúster de HPC Pack con nodos de proceso de Linux compatibles con RDMA**: implemente un clúster de HPC Pack con nodos de proceso de Linux de tamaño A8, A9, H16r o H16rm mediante una [plantilla de Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) o un [script de Azure PowerShell](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). Consulte [Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-classic-hpcpack-cluster.md) para ver los requisitos previos y los pasos para cada opción. Si elige la opción de implementación de scripts de PowerShell, consulte el archivo de configuración de ejemplo en los archivos de ejemplo al final de este artículo. Use esta configuración para implementar un clúster de HPC Pack basado en Azure que conste de un nodo principal de Windows Server 2012 R2 de tamaño A8 y 2 nodos de proceso SUSE Linux Enterprise Server 12 de tamaño A8. Sustituya los valores apropiados por su nombre de suscripción y de servicio.
 
     **Aspectos adicionales que debe conocer**
 
-    *   Actualmente, las redes RDMA de Linux en Azure solo se admiten en máquinas virtuales de tamaño A8 o A9, que ejecutan SUSE Linux Enterprise Server (SLES) 12 para HPC, SLES 12 para HPC (Premium), HPC 7.1 basado en CentOS o distribución de HPC 6.5 basado en CentOS desde una imagen de Azure Marketplace. Para más información, consulte [Sobre las instancias de proceso intensivo A8, A9, A10 y A11](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+    *   Para los requisitos previos de las redes Linux RDMA en Azure, consulte [Acerca de las máquinas virtuales de la serie H y A de proceso intensivo](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
     *   Si elige la opción de implementar un script de Powershell, implemente todos los nodos de proceso de Linux en un servicio en la nube para usar la conexión de red RDMA.
 
-    *   Después de implementar los nodos de Linux, si necesita conectarse mediante SSH para realizar tareas administrativas adicionales, debe encontrar los detalles de conexión de SSH para cada máquina virtual de Linux en el portal de Azure.
+    *   Después de implementar los nodos de Linux, conéctese mediante SSH para realizar otras tareas administrativas. En Azure Portal encontrará los detalles de conexión mediante SSH para las máquinas virtuales Linux.
         
-*   **Intel MPI**: para ejecutar OpenFOAM en nodos de proceso de SLES 12 HPC en Azure, necesita instalar el entorno de tiempo de ejecución de Intel MPI Library 5 desde el [sitio web Intel.com](https://software.intel.com/es-ES/intel-mpi-library/). (Intel MPI 5 ya está preinstalado en las imágenes de HPC basadas en CentOS). En un paso posterior, si es necesario, instalará Intel MPI en los nodos de proceso de Linux. Para prepararse, después de registrarse con Intel, siga el vínculo del correo electrónico de confirmación a la página web relacionada y copie el vínculo de descarga para el archivo .tgz para obtener la versión adecuada de Intel MPI. Este artículo se basa en Intel MPI versión 5.0.3.048.
+*   **Intel MPI**: para ejecutar OpenFOAM en nodos de proceso de SLES 12 HPC en Azure, necesita instalar el entorno de tiempo de ejecución de Intel MPI Library 5 desde el [sitio web Intel.com](https://software.intel.com/es-ES/intel-mpi-library/). (Intel MPI 5 ya está instalado en las imágenes de HPC basadas en CentOS). En un paso posterior, si es necesario, instale Intel MPI en los nodos de proceso de Linux. Como preparativos para este paso, después de registrarse con Intel, siga el vínculo del mensaje de confirmación a la página web relacionada. Después, copie el vínculo de descarga para el archivo .tgz de la versión correspondiente de Intel MPI. Este artículo se basa en Intel MPI versión 5.0.3.048.
 
 *   **Paquete de origen OpenFOAM**: descargue el software del paquete de origen OpenFOAM para Linux desde el [sitio de OpenFOAM Foundation](http://openfoam.org/download/2-3-1-source/). Este artículo se basa en la versión del paquete de origen 2.3.1, disponible para su descarga como OpenFOAM 2.3.1.tgz. Siga las instrucciones que aparecen más adelante en este artículo para desempaquetar y compilar OpenFOAM en los nodos de ejecución de Linux.
 
@@ -49,7 +49,7 @@ Microsoft HPC Pack proporciona características para ejecutar una variedad de ap
 
 ## Configuración de la confianza mutua entre nodos de proceso
 
-La ejecución de un trabajo entre nodos en varios nodos de Linux requiere que los nodos confíen entre sí (por **rsh** o **ssh**). Al crear el clúster de HPC Pack con el script de implementación IaaS de Microsoft HPC Pack, el script establece automáticamente una confianza mutua permanente con la cuenta de administrador que especifique. Para los usuarios sin privilegios de administrador que ha creado en el dominio del clúster, tiene que configurar la confianza mutua temporal entre los nodos cuando se les asigna un trabajo y destruir la relación una vez completado el trabajo. Para hacerlo para cada usuario, proporcione un par de claves RSA al clúster que usa HPC Pack para establecer la relación de confianza.
+La ejecución de un trabajo entre nodos en varios nodos de Linux requiere que los nodos confíen entre sí (por **rsh** o **ssh**). Al crear el clúster de HPC Pack con el script de implementación IaaS de Microsoft HPC Pack, el script establece automáticamente una confianza mutua permanente con la cuenta de administrador que especifique. Para los usuarios sin privilegios de administrador que ha creado en el dominio del clúster, tiene que configurar la confianza mutua temporal entre los nodos cuando se les asigna un trabajo y destruir la relación una vez completado el trabajo. Para establecer la confianza para cada usuario, proporcione un par de claves RSA al clúster que usa HPC Pack para establecer la relación de confianza.
 
 ### Generación de un par de claves RSA
 
@@ -57,7 +57,7 @@ Es fácil generar un par de claves RSA, con clave pública y clave privada, medi
 
 1.	Inicie sesión en un equipo con Linux.
 
-2.	Ejecute el siguiente comando.
+2.	Ejecute el siguiente comando:
 
     ```
     ssh-keygen -t rsa
@@ -76,7 +76,7 @@ Es fácil generar un par de claves RSA, con clave pública y clave privada, medi
 
 2. Use los procedimientos estándar de Windows Server para crear una cuenta de usuario de dominio en el dominio de Active Directory del clúster. Por ejemplo, use la herramienta Usuario y equipos de Active Directory en el nodo principal. Los ejemplos de este artículo asumen que crean un usuario de dominio denominado hpclab\\hpcuser.
 
-3.	Cree un archivo denominado C:\\cred.xml y copie los datos de la clave RSA en él. Puede encontrar un ejemplo de este archivo en los archivos de ejemplo, al final de este artículo.
+3.	Cree un archivo denominado C:\\cred.xml y copie los datos de la clave RSA en él. Al final de este artículo se encuentra un ejemplo de archivo cred.xml.
 
     ```
     <ExtendedData>
@@ -93,17 +93,17 @@ Es fácil generar un par de claves RSA, con clave pública y clave privada, medi
 
     Este comando se completa correctamente sin salida. Después de establecer las credenciales para las cuentas de usuario que se necesitan para ejecutar los trabajos, guarde el archivo cred.xml en una ubicación segura o elimínelo.
 
-5.	Si generó el par de claves RSA en uno de los nodos de Linux, no se olvide de eliminar las claves después de acabar de usarlas. HPC Pack no establece una confianza mutua si encuentra un archivo id\_rsa o id\_rsa.pub existente.
+5.	Si generó el par de claves RSA en uno de los nodos de Linux, no se olvide de eliminar las claves después de acabar de usarlas. Si HPC Pack encuentra un archivo id\_rsa o id\_rsa.pub existentes, no establece una confianza mutua.
 
->[AZURE.IMPORTANT] No se recomienda ejecutar un trabajo de Linux como administrador de clústeres en un clúster compartido, porque un trabajo enviado por un administrador se ejecuta bajo la cuenta raíz en los nodos de Linux. Un trabajo enviado por un usuario sin privilegios de administrador se ejecuta bajo una cuenta de usuario de Linux local con el mismo nombre que el usuario del trabajo y HPC Pack establece una confianza mutua para este usuario de Linux en todos los nodos asignados al trabajo. Puede configurar el usuario de Linux manualmente en los nodos de Linux antes de ejecutar el trabajo o bien HPC Pack crea el usuario automáticamente cuando se envía el trabajo. Si HPC Pack crea el usuario, HPC Pack lo elimina una vez finalizado el trabajo. Se quitan las claves después de la finalización del trabajo en los nodos para reducir las amenazas de seguridad.
+>[AZURE.IMPORTANT] No se recomienda ejecutar un trabajo de Linux como administrador de clústeres en un clúster compartido, porque un trabajo enviado por un administrador se ejecuta bajo la cuenta raíz en los nodos de Linux. Sin embargo, un trabajo enviado por un usuario sin privilegios de administrador se ejecuta en una cuenta de usuario de Linux local con el mismo nombre que el usuario de trabajo. En este caso, HPC Pack establece la confianza mutua para este usuario de Linux en todos los nodos asignados al trabajo. Puede configurar el usuario de Linux manualmente en los nodos de Linux antes de ejecutar el trabajo o bien HPC Pack crea el usuario automáticamente cuando se envía el trabajo. Si HPC Pack crea el usuario, HPC Pack lo elimina una vez finalizado el trabajo. Para reducir las amenazas de seguridad, HPC Pack quita las claves después de la finalización del trabajo.
 
 ## Configuración de un recurso compartido de archivos para nodos de Linux
 
-Ahora configure un recurso compartido SMB estándar en una carpeta en el nodo principal y monte la carpeta compartida en todos los nodos de Linux para permitir que los nodos de Linux tengan acceso a los archivos de la aplicación con una ruta de acceso común. Si lo desea, puede usar otra opción para compartir archivos, como un recurso compartido de archivos de Azure, recomendado para muchos escenarios, o un recurso compartido NFS. Consulte la información y los pasos detallados sobre el uso compartido de archivos en [Introducción a los nodos de ejecución de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
+Ahora, configure un recurso compartido SMB estándar en una carpeta en el nodo principal. Para permitir que los nodos de Linux accedan a los archivos de aplicación con una ruta de acceso común, monte la carpeta compartida en los nodos de Linux. Si lo desea, puede usar otra opción para compartir archivos, como un recurso compartido de archivos de Azure, recomendado para muchos escenarios, o un recurso compartido NFS. Consulte la información y los pasos detallados sobre el uso compartido de archivos en [Introducción a los nodos de ejecución de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
 
 1.	Cree una carpeta en el nodo principal y compártala con todos los usuarios estableciendo privilegios de lectura y escritura. Por ejemplo, comparta C:\\OpenFOAM en el nodo principal como \\\SUSE12RDMA-HN\\OpenFOAM. En donde *SUSE12RDMA-HN* es el nombre de host del nodo principal.
 
-2.	Abra una ventana de Windows PowerShell y ejecute los siguientes comandos para montar la carpeta compartida.
+2.	Abra una ventana de Windows PowerShell y ejecute los comandos siguientes:
 
     ```
     clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
@@ -119,9 +119,9 @@ El primer comando crea una carpeta denominada /openfoam en todos los nodos del g
 
 Para ejecutar OpenFOAM como un trabajo de MPI en la red RDMA, debe compilar OpenFOAM con las bibliotecas de Intel MPI.
 
-En primer lugar, ejecutará varios comandos **clusrun** para instalar las bibliotecas de Intel MPI (si todavía no están instaladas) y OpenFOAM en todos los nodos de Linux. Use el recurso compartido de nodo principal configurado previamente para compartir los archivos de instalación entre los nodos de Linux.
+En primer lugar, ejecute varios comandos **clusrun** para instalar las bibliotecas de Intel MPI (si todavía no están instaladas) y OpenFOAM en los nodos de Linux. Use el recurso compartido de nodo principal configurado previamente para compartir los archivos de instalación entre los nodos de Linux.
 
->[AZURE.IMPORTANT]Estos pasos de instalación y compilación son ejemplos y requieren cierto conocimiento de la administración del sistema Linux para asegurarse de que los compiladores y las bibliotecas dependientes estén instalados correctamente. Es posible que deba modificar ciertas variables de entorno u otros valores para sus versiones de Intel MPI y OpenFOAM. Para más información, consulte [Intel MPI Library for Linux Installation Guide](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html) (Guía de instalación de la biblioteca Intel MPI para Linux) y [OpenFOAM Source Pack Installation](http://openfoam.org/download/2-3-1-source/) (Instalación del paquete de origen de OpenFOAM) para su entorno.
+>[AZURE.IMPORTANT]Estos pasos de instalación y compilación son ejemplos. Necesita cierto conocimiento de la administración del sistema Linux para asegurarse de que los compiladores y las bibliotecas dependientes estén instalados correctamente. Es posible que deba modificar ciertas variables de entorno u otros valores para sus versiones de Intel MPI y OpenFOAM. Para más información, consulte [Intel MPI Library for Linux Installation Guide](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html) (Guía de instalación de la biblioteca Intel MPI para Linux) y [OpenFOAM Source Pack Installation](http://openfoam.org/download/2-3-1-source/) (Instalación del paquete de origen de OpenFOAM) para su entorno.
 
 
 ### Instalación de Intel MPI
@@ -140,7 +140,7 @@ Guarde el paquete de instalación descargado para Intel MPI (l\_mpi\_p\_5.0.3.04
 
 2.  Para instalar la biblioteca Intel MPI de forma silenciosa, use un archivo silent.cfg. Puede encontrar un ejemplo en los archivos de ejemplo, al final de este artículo. Coloque este archivo en la carpeta compartida /openfoam. Para más información acerca del archivo silent.cfg, consulte [Intel MPI Library for Linux Installation Guide - Silent Installation](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html#silentinstall) (Guía de instalación de la biblioteca Intel MPI para Linux).
 
-    >[AZURE.TIP]Asegúrese de que guarda el archivo silent.cfg como un archivo de texto con finales de línea de Linux (solo LF, no CR LF). Esto garantiza que se ejecuta correctamente en los nodos de Linux.
+    >[AZURE.TIP]Asegúrese de que guarda el archivo silent.cfg como un archivo de texto con finales de línea de Linux (solo LF, no CR LF). Este paso garantiza que se ejecuta correctamente en los nodos de Linux.
 
 3.  Instale la biblioteca Intel MPI en modo silencioso.
  
@@ -157,7 +157,7 @@ Para realizar las pruebas, debe agregar las siguientes líneas al archivo /etc/s
     clusrun /nodegroup:LinuxNodes echo "*               soft    memlock         unlimited" `>`> /etc/security/limits.conf
 
 
-Reinicie los nodos de Linux después de actualizar el archivo limits.conf. Por ejemplo, use el siguiente comando **clusrun**.
+Reinicie los nodos de Linux después de actualizar el archivo limits.conf. Por ejemplo, use el siguiente comando **clusrun**:
 
 ```
 clusrun /nodegroup:LinuxNodes systemctl reboot
@@ -180,7 +180,7 @@ Guarde el paquete de instalación descargado para el paquete de origen de OpenFO
     clusrun /nodegroup:LinuxNodes tar -xzf /opt/OpenFOAM/OpenFOAM-2.3.1.tgz -C /opt/OpenFOAM/
     ```
 
-2.  Para compilar OpenFOAM con la biblioteca Intel MPI, configure primero algunas variables de entorno tanto para Intel MPI como para OpenFOAM. Para ello puede utilizar un script de bash llamado settings.sh. Puede encontrar un ejemplo en los archivos de ejemplo, al final de este artículo. Coloque este archivo (guardado con el fin de línea de Linux) en la carpeta compartida /openfoam. Este archivo también contiene la configuración para los tiempos de ejecución de MPI y OpenFOAM que utiliza posteriormente para ejecutar un trabajo de OpenFOAM.
+2.  Para compilar OpenFOAM con la biblioteca Intel MPI, configure primero algunas variables de entorno tanto para Intel MPI como para OpenFOAM. Para definir las variables puede utilizar un script de bash llamado settings.sh. Puede encontrar un ejemplo en los archivos de ejemplo, al final de este artículo. Coloque este archivo (guardado con el fin de línea de Linux) en la carpeta compartida /openfoam. Este archivo también contiene la configuración para los tiempos de ejecución de MPI y OpenFOAM que utiliza posteriormente para ejecutar un trabajo de OpenFOAM.
 
 3. Instale los paquetes dependientes necesarios para compilar OpenFOAM. Dependiendo de la distribución de Linux, puede que primero necesite agregar un repositorio para hacerlo. Ejecute los comandos **clusrun** que sean similares al siguiente:
 
@@ -192,7 +192,7 @@ Guarde el paquete de instalación descargado para el paquete de origen de OpenFO
     
     Si fuera necesario, use el script SSH con cada nodo de Linux para ejecutar los comandos y así confirmar que se ejecutan correctamente.
 
-4.  Ejecute el siguiente comando para compilar OpenFOAM. El proceso de compilación tardará algún tiempo en completarse y generará una gran cantidad de información de registro en la salida estándar, así que use la opción **/ interleaved** para mostrar el resultado intercalado.
+4.  Ejecute el siguiente comando para compilar OpenFOAM. El proceso de compilación tarda un tiempo en completarse y genera una gran cantidad de información de registro en la salida estándar, así que use la opción **/ interleaved** para mostrar el resultado intercalado.
 
     ```
     clusrun /nodegroup:LinuxNodes /interleaved source /openfoam/settings.sh `&`& /opt/OpenFOAM/OpenFOAM-2.3.1/Allwmake
@@ -202,11 +202,11 @@ Guarde el paquete de instalación descargado para el paquete de origen de OpenFO
 
 ## Preparación para ejecutar un trabajo de OpenFOAM
 
-Prepárese ahora para ejecutar un trabajo MPI denominado sloshingTank3D, que es uno de los ejemplos de OpenFoam, en 2 nodos de Linux.
+Prepárese ahora para ejecutar un trabajo MPI denominado sloshingTank3D, que es uno de los ejemplos de OpenFoam, en dos nodos de Linux.
 
 ### Configuración de entorno en tiempo de ejecución
 
-Ejecute el siguiente comando en una ventana de Windows PowerShell en el nodo principal para configurar los entornos en tiempo de ejecución para MPI y OpenFOAM en todos los nodos de Linux. (Este comando sólo es válido para SUSE Linux).
+Ejecute el siguiente comando en una ventana de Windows PowerShell en el nodo principal para configurar los entornos en tiempo de ejecución para MPI y OpenFOAM en los nodos de Linux. (Este comando sólo es válido para SUSE Linux).
 
 ```
 clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
@@ -232,11 +232,11 @@ Use el recurso compartido del nodo principal configurado anteriormente para comp
     $ cd /openfoam/sloshingTank3D
     ```
 
-4.  Cuando use los parámetros predeterminados de este ejemplo, puede tardar decenas de minutos o más en ejecutarse, por lo que si lo desea, puede modificar algunos parámetros para que se ejecute más rápido. Una opción sencilla es modificar las variables de período deltaT y writeInterval en el archivo system/controlDict, que almacena todos los datos de entrada sobre el control de tiempo y los datos de la solución de lectura y escritura. Por ejemplo, puede cambiar el valor de deltaT de 0,05 a 0,5 y el valor de writeInterval de 0,05 a 0,5.
+4.  Cuando use los parámetros predeterminados de este ejemplo, puede tardar decenas de minutos en ejecutarse; para que se ejecute más rápido, puede modificar algunos parámetros. Una opción sencilla es modificar las variables de paso de tiempo deltaT y writeInterval en el archivo de sistema/controlDict. Este archivo almacena todos los datos de entrada sobre el control de tiempo y los datos de solución de lectura y escritura. Por ejemplo, puede cambiar el valor de deltaT de 0,05 a 0,5 y el valor de writeInterval de 0,05 a 0,5.
 
     ![Modificar variables de paso][step_variables]
 
-5.  Especifique los valores deseados para las variables en el archivo system/decomposeParDict. Este ejemplo utiliza 2 nodos de Linux con 8 núcleos cada uno, así que establezca numberOfSubdomains en 16 y n de hierarchicalCoeffs en (1 1 16), lo que significa ejecutar OpenFOAM en paralelo con 16 procesos. Para más información, consulte [OpenFOAM User Guide: 3.4 Running applications in parallel](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4) (Guía de usuario de OpenFOAM: 3.4 Ejecución de aplicaciones en paralelo).
+5.  Especifique los valores deseados para las variables en el archivo system/decomposeParDict. Este ejemplo utiliza dos nodos de Linux con 8 núcleos cada uno, así que establezca numberOfSubdomains en 16 y n de hierarchicalCoeffs en (1 1 16), lo que significa ejecutar OpenFOAM en paralelo con 16 procesos. Para más información, consulte [OpenFOAM User Guide: 3.4 Running applications in parallel](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4) (Guía de usuario de OpenFOAM: 3.4 Ejecución de aplicaciones en paralelo).
 
     ![Descomponer procesos][decompose]
 
@@ -260,24 +260,24 @@ Use el recurso compartido del nodo principal configurado anteriormente para comp
 
 ### Archivo de host para mpirun
 
-En este paso creará un archivo de host (una lista de nodos de ejecución) que el comando **mpirun** utilizará.
+En este paso creará un archivo de host (una lista de nodos de proceso) que utilizará el comando **mpirun**.
 
-1.	En uno de los nodos de Linux, cree un nuevo archivo denominado hostfile en /openfoam, de tal modo que se pueda llegar a este archivo en /openfoam/hostfile en todos los nodos de Linux.
+1.	En uno de los nodos de Linux, cree un archivo denominado hostfile en /openfoam, de tal modo que se pueda encontrar este archivo en /openfoam/hostfile en todos los nodos de Linux.
 
-2.	Escriba los nombres de los nodos de Linux en este archivo. En este ejemplo, el archivo tiene el siguiente aspecto:
+2.	Escriba los nombres de los nodos de Linux en este archivo. En este ejemplo, el archivo contiene los nombres siguientes:
     
     ```       
     SUSE12RDMA-LN1
     SUSE12RDMA-LN2
     ```
     
-    >[AZURE.TIP]También puede crear este archivo en C:\\OpenFoam\\hostfile en el nodo principal. En ese caso, guarde el script como un archivo de texto con finales de línea de Linux (solo LF, no CR LF). Esto garantiza que se ejecuta correctamente en los nodos de Linux.
+    >[AZURE.TIP]También puede crear este archivo en C:\\OpenFoam\\hostfile en el nodo principal. Si elige esta opción, guarde el script como archivo de texto con finales de línea de Linux (solo LF, no CR LF). Esto garantiza que se ejecuta correctamente en los nodos de Linux.
 
     **Contenedor de script de Bash**
 
-    Si tiene muchos nodos de Linux y el trabajo se ejecutará solo en algunos de ellos, no es una buena idea usar un archivo de host fijo, ya que no sabe qué nodos se asignarán al trabajo. En este caso, escriba un contenedor de script de Bash para **mpirun** y así poder crear el archivo de host automáticamente. Puede encontrar un contenedor de script de Bash de ejemplo denominado hpcimpirun.sh en los archivos de emplo que están al final de este artículo, y guardarlo como /openfoam/hpcimpirun.sh. Este script de ejemplo hace lo siguiente:
+    Si tiene muchos nodos de Linux y quiere que el trabajo se ejecute solo en algunos, no es buena idea usar un archivo de host fijo, ya que no sabrá qué nodos se asignarán al trabajo. En este caso, escriba un contenedor de script de Bash para **mpirun** y así poder crear el archivo de host automáticamente. Encontrará un contenedor de script de Bash de ejemplo denominado hpcimpirun.sh al final de este artículo, guárdelo como /openfoam/hpcimpirun.sh. Este script de ejemplo hace lo siguiente:
 
-    1.	Configura las variables de entorno para **mpirun** y algunos parámetros de comando adicionales para ejecutar el trabajo MPI a través de la red RDMA. En este caso, establece lo siguiente:
+    1.	Configura las variables de entorno para **mpirun** y algunos parámetros de comando adicionales para ejecutar el trabajo MPI a través de la red RDMA. En este caso, establece las variables siguientes:
 
         *	I\_MPI\_FABRICS=shm:dapl
         *	I\_MPI\_DAPL\_PROVIDER=ofa-v2-ib0
@@ -299,13 +299,13 @@ En este paso creará un archivo de host (una lista de nodos de ejecución) que e
         
         * `<Cores of node_n_...>`: número de núcleos en el nodo asignado a este trabajo.
 
-        Por ejemplo, si el trabajo necesita 2 núcleos para ejecutarse, $CCP\_NODES\_CORES será similar a
+        Por ejemplo, si el trabajo necesita dos núcleos para ejecutarse, $CCP\_NODES\_CORES será similar a
         
         ```
         2 SUSE12RDMA-LN1 8 SUSE12RDMA-LN2 8
         ```
         
-    3.	Llama al comando **mpirun** y anexa 2 parámetros a la línea de comandos.
+    3.	Llama al comando **mpirun** y anexa dos parámetros a la línea de comandos.
 
         * `--hostfile <hostfilepath>: <hostfilepath>`: es la ruta de acceso del archivo de host que crea el script
 
@@ -326,7 +326,7 @@ Ahora puede enviar un trabajo en el Administrador de clústeres HPC. Debe pasar 
 
     ![Detalles del trabajo][job_details]
 
-5.	En **Recursos del trabajo**, seleccione el tipo de recurso como “Nodo” y establezca el valor de Mínimo en 2. Esto hará que se ejecute el trabajo en 2 nodos de Linux, cada uno de los cuales tiene 8 núcleos en este ejemplo.
+5.	En **Recursos del trabajo**, seleccione el tipo de recurso como “Nodo” y establezca el valor de Mínimo en 2. Esta configuración ejecuta el trabajo de dos nodos de Linux, cada uno de los cuales tiene ocho núcleos en este ejemplo.
 
     ![Recursos del trabajo][job_resources]
 
@@ -336,7 +336,7 @@ Ahora puede enviar un trabajo en el Administrador de clústeres HPC. Debe pasar 
 
     *   **Tarea 1**. Ejecute **decomposePar** para generar archivos de datos para ejecutar **interDyMFoam** en paralelo.
     
-        *   Asigne 1 nodo a la tarea
+        *   Asigne un nodo a la tarea
 
         *   **Línea de comandos**: `source /openfoam/settings.sh && decomposePar -force > /openfoam/decomposePar${CCP_JOBID}.log`
     
@@ -348,15 +348,15 @@ Ahora puede enviar un trabajo en el Administrador de clústeres HPC. Debe pasar 
 
     *   **Tarea 2**. Ejecute **interDyMFoam** en paralelo para calcular el ejemplo.
 
-        *   Asigne 2 nodos a la tarea
+        *   Asigne dos nodos a la tarea
 
         *   **Línea de comandos**: `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh interDyMFoam -parallel > /openfoam/interDyMFoam${CCP_JOBID}.log`
 
         *   **Directorio de trabajo**: /openfoam/sloshingTank3D
 
-    *   **Tarea 3**. Ejecute **reconstructPar** para combinar los conjuntos de directorios de tiempo de cada directorio de procesador\_N\_ en un único conjunto de directorios de tiempo.
+    *   **Tarea 3**. Ejecute **reconstructPar** para combinar los conjuntos de directorios de tiempo de cada directorio de procesador\_N\_ en un único conjunto.
 
-        *   Asigne 1 nodo a la tarea
+        *   Asigne un nodo a la tarea
 
         *   **Línea de comandos**: `source /openfoam/settings.sh && reconstructPar > /openfoam/reconstructPar${CCP_JOBID}.log`
 
@@ -364,7 +364,7 @@ Ahora puede enviar un trabajo en el Administrador de clústeres HPC. Debe pasar 
 
     *   **Tarea 4**. Ejecute **foamToEnsight** en paralelo para convertir los archivos de resultados de OpenFOAM a formato EnSight y colocar los archivos de EnSight en un directorio denominado Ensight en el directorio de casos.
 
-        *   Asigne 2 nodos a la tarea
+        *   Asigne dos nodos a la tarea
 
         *   **Línea de comandos**: `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh foamToEnsight -parallel > /openfoam/foamToEnsight${CCP_JOBID}.log`
 
@@ -380,17 +380,17 @@ Ahora puede enviar un trabajo en el Administrador de clústeres HPC. Debe pasar 
 
     ![Credenciales del trabajo][creds]
 
-    En determinadas condiciones, HPC Pack recuerda la información de usuario que escribió y no muestra este cuadro de diálogo. Para que HPC Pack la muestre de nuevo, escriba lo siguiente en una ventana del símbolo del sistema y después envíe el trabajo.
+    En determinadas condiciones, HPC Pack recuerda la información de usuario que escribió y no muestra este cuadro de diálogo. Para que HPC Pack lo muestre de nuevo, escriba el siguiente comando en el símbolo del sistema y envíe el trabajo.
 
     ```
     hpccred delcreds
     ```
 
-8.	El trabajo puede tardar desde decenas de minutos a varias horas, según los parámetros que haya definido para el ejemplo. En el mapa de calor, verá el trabajo en ejecución en los nodos de Linux.
+8.	El trabajo puede tardar desde decenas de minutos a varias horas, según los parámetros que haya definido para el ejemplo. En el mapa de calor verá el trabajo en ejecución en los nodos de Linux.
 
     ![Mapa térmico][heat_map]
 
-    En cada nodo se inician los 8 procesos.
+    En cada nodo se inician ocho procesos.
 
     ![Procesos de Linux][linux_processes]
 
@@ -409,7 +409,7 @@ Opcionalmente, puede usar [EnSight](https://www.ceisoftware.com/) para visualiza
 
     ![Depósito de EnSight][tank]
 
-3.	Cree una **Isosuperficie** a partir de **internalMesh** y, a continuación, elija la variable **alpha\_water**.
+3.	Cree una **Isosurface** (isosuperficie) a partir de **internalMesh** y elija la variable **alpha\_water**.
 
     ![Crear una isosuperficie][isosurface]
 
@@ -419,7 +419,7 @@ Opcionalmente, puede usar [EnSight](https://www.ceisoftware.com/) para visualiza
 
 5.  Cree un **Isovolumen** desde **muros** seleccionando **muros** en el panel **Piezas** y haga clic en el botón **Isosuperficies** de la barra de herramientas.
 
-6.	En el cuadro de diálogo, seleccione **Tipo** como **Isovolumen** y establezca el valor mínimo de **Intervalo de isovolumen** en 0,5. Haga clic en **Crear con piezas seleccionadas** para crear el isovolumen.
+6.	En el cuadro de diálogo, seleccione **Tipo** como **Isovolumen** y establezca el valor mínimo de **Intervalo de isovolumen** en 0,5. Para crear el isovolumen, haga clic en **Create with selected parts** (Crear con piezas seleccionadas).
 
 7.	Establezca el color de la **Iso\_volume\_part** creada en el paso anterior. Por ejemplo, establézcalo como deep water blue (azul marino).
 
@@ -655,4 +655,4 @@ exit ${RTNSTS}
 [isosurface_color]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/isosurface_color.png
 [linux_processes]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/linux_processes.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

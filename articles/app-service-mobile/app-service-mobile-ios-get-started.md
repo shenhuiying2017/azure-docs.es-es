@@ -3,8 +3,8 @@
 	description="Siga este tutorial para aprender a usar back-ends de la aplicación móvil de Azure para el desarrollo de iOS en Objective-C o Swift."
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="krisragh"
-	manager="dwrede"
+	authors="yuaxu"
+	manager="yochayk"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="08/17/2016"
-	ms.author="krisragh"/>
+	ms.date="10/01/2016"
+	ms.author="yuaxu"/>
 
 #Creación de una aplicación iOS
 
@@ -47,4 +47,4 @@ Para completar este tutorial, es preciso tener un Mac y una [cuenta de Azure](ht
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_1005_2016-->

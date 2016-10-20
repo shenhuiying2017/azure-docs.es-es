@@ -22,6 +22,8 @@
 
 El Portal de Azure clásico proporciona la capacidad necesaria para crear reglas avanzadas para habilitar pertenencias dinámicas basadas en atributos más complejas para grupos de Azure Active Directory (Azure AD).
 
+Cuando los atributos de un usuario cambian, el sistema evalúa todas las reglas de grupos dinámicos de un directorio para ver si la modificación de los atributos del usuario en cuestión desencadenaría adiciones o retiradas en el grupo. Si un usuario cumple una regla de un grupo, se agrega a este como miembro. Si, por el contrario, deja de cumplir la regla del grupo al que pertenece, se le quita como miembro de este.
+
 ## Para crear la regla avanzada
 
 1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **Active Directory** y luego abra el directorio de su organización.
@@ -201,13 +203,24 @@ Ahora puede rellenar los miembros de un grupo en función del atributo de admini
 También puede crear una regla que selecciona objetos de dispositivo para la pertenencia de un grupo. Pueden utilizarse los siguientes atributos del dispositivo:
 
 | Propiedades | Valores permitidos | Uso |
-|----------------------|---------------------------------|------------------------------------------------------|
+|-------------------------|---------------------------------|-------------------------------------------------------------|
 | DisplayName | cualquier valor de cadena | (device.displayName -eq "Rob Iphone”) |
 | deviceOSType | cualquier valor de cadena | (device.deviceOSType -eq "IOS") |
 | deviceOSVersion | cualquier valor de cadena | (device.OSVersion -eq "9.1") |
 | isDirSynced | true false null | (device.isDirSynced -eq "true") |
 | isManaged | true false null | (device.isManaged -eq "false") |
 | isCompliant | true false null | (device.isCompliant -eq "true") |
+| deviceCategory | cualquier valor de cadena | (device.deviceCategory -eq "") |
+| deviceManufacturer | cualquier valor de cadena | (device.deviceManufacturer - eq "Microsoft") |
+| deviceModel | cualquier valor de cadena | (device.deviceModel -eq "IPhone 7+") |
+| deviceOwnership | cualquier valor de cadena | (device.deviceOwnership -eq "") |
+| domainName | cualquier valor de cadena | (device.domainName -eq "contoso.com") |
+| enrollmentProfileName | cualquier valor de cadena | (device.enrollmentProfileName -eq "") |
+| enrollmentType | cualquier valor de cadena | (device.enrollmentType -eq "") |
+| isRooted | true false null | (device.deviceOSType -eq "true") |
+| managementType | cualquier valor de cadena | (device.managementType -eq "") |
+| organizationalUnit | cualquier valor de cadena | (device.organizationalUnit -eq "") |
+| deviceId | un valor válido de deviceId | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
 
 > [AZURE.NOTE]
 No se pueden crear estas reglas de dispositivo mediante la lista desplegable de "regla simple" en el Portal de Azure clásico.
@@ -226,4 +239,4 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

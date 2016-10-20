@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/13/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 # Introducción al Almacén de Azure Data Lake mediante la línea de comandos de Azure
@@ -37,36 +37,40 @@ La CLI de Azure se implementa en Node.js y se puede usar en cualquier plataforma
 Antes de empezar este artículo, debe tener lo siguiente:
 
 - **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
+
 - **CLI de Azure** - Vea [Instalar y configurar la CLI de Azure](../xplat-cli-install.md) para obtener información de instalación y configuración. Asegúrese de reiniciar el equipo después de instalar la CLI.
+
+## Autenticación
+
+En este artículo se utiliza un enfoque de autenticación más sencillo con Data Lake Store, donde inicia sesión como usuario final. El nivel de acceso a la cuenta de Data Lake Store y al sistema de archivos está determinado por el nivel de acceso del usuario que ha iniciado sesión. No obstante, existen otros enfoques para realizar la autenticación con Data Lake Store, que son **autenticación de usuario final** o **autenticación de servicio a servicio**. Para instrucciones y más información acerca de cómo realizar la autenticación, consulte [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) (Autenticación con Data Lake Store mediante Azure Active Directory).
 
 ##Inicio de sesión en la suscripción de Azure
 
-Siga los pasos que se documentan en [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](../xplat-cli-connect.md) y conéctese a su suscripción con el método __login__.
+1. Siga los pasos documentados en [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](../xplat-cli-connect.md) y conéctese a su suscripción mediante el método `azure login`.
+
+2. Enumere las suscripciones que están asociadas a su cuenta mediante el comando `azure account list`.
+
+		info:    Executing command account list
+		data:    Name              Id                                    Current
+		data:    ----------------  ------------------------------------  -------
+		data:    Azure-sub-1       ####################################  true
+		data:    Azure-sub-2       ####################################  false
+
+	En la salida anterior, **Azure-sub-1** está habilitada y la otra suscripción es **Azure-sub-2**.
+
+3. Seleccione la suscripción con la que desea trabajar. Si desea trabajar con la suscripción de Azure-sub-2, utilice el comando `azure account set`.
+
+		azure account set Azure-sub-2
 
 
 ## Creación de una cuenta de Almacén de Azure Data Lake
 
 Abra un símbolo del sistema, el shell o sesión de Terminal y ejecute los comandos siguientes.
 
-1. Inicie sesión en la suscripción de Azure:
-
-		azure login
-
-	Se le pedirá que abra una página web y escriba un código de autenticación. Siga las instrucciones de la página para iniciar sesión en su suscripción de Azure.
-
 2. Cambie al modo de Administrador de recursos de Azure con el siguiente comando:
 
 		azure config mode arm
 
-
-3. Enumere las suscripciones de Azure para su cuenta.
-
-		azure account list
-
-
-4. Si tiene varias suscripciones de Azure, puede usar el comando siguiente para establecer la suscripción que usarán los comandos de la CLI de Azure:
-
-		azure account set <subscriptionname>
 
 5. Cree un nuevo grupo de recursos. En el siguiente comando, proporcione los valores de los parámetros que desee usar.
 
@@ -188,4 +192,4 @@ Cuando se le solicite, escriba **Y** para eliminar la cuenta.
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

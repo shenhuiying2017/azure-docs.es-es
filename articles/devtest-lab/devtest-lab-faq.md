@@ -110,7 +110,7 @@ Puesto que los ámbitos son jerárquicos, cuando un usuario tiene permisos en un
 ### ¿Cómo se crea un rol para permitir que los usuarios realicen una tarea específica?
 Aquí encontrará un artículo completo sobre cómo crear roles personalizados y asignar permisos a ese rol. Este es un ejemplo de un script que crea el rol "Usuario avanzado de DevTest Labs", que tiene permiso para iniciar y detener todas las máquinas virtuales del laboratorio:
  
-	$policyRoleDef = (Get-AzureRmRoleDefinition "DevTest Labs User") 
+	$policyRoleDef = Get-AzureRmRoleDefinition "DevTest Labs User" 
 	$policyRoleDef.Actions.Remove('Microsoft.DevTestLab/Environments/*') 
 	$policyRoleDef.Id = $null 
 	$policyRoleDef.Name = "DevTest Labs Advance User" 
@@ -119,7 +119,7 @@ Aquí encontrará un artículo completo sobre cómo crear roles personalizados y
 	$policyRoleDef.AssignableScopes.Add("subscriptions/<subscription Id>") 
 	$policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Start/action") 
 	$policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Stop/action") 
-	$policyRoleDef = (New-AzureRmRoleDefinition -Role $policyRoleDef)  
+	$policyRoleDef = New-AzureRmRoleDefinition -Role $policyRoleDef  
  
 ### ¿Se integra Azure DevTest Labs con mi cadena de herramientas de CI/CD? 
 Si va a utilizar VSTS, hay una [extensión de Tareas de Azure DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) que le permite automatizar la canalización de entrega de versiones de Azure DevTest Labs. Algunos de los usos de esta extensión incluyen:
@@ -244,4 +244,4 @@ Consulte la entrada de blog [How to troubleshoot failing Artifacts in AzureDevTe
 ### ¿Por qué mi máquina virtual existente no se guarda correctamente?  
 Una posibilidad es que el nombre de la red virtual contenga puntos. Si es así, pruebe a quitar los puntos, o reemplácelos por guiones, y luego intente guardar de nuevo la máquina virtual.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

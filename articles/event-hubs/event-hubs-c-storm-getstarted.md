@@ -3,7 +3,7 @@
 	description="Siga este tutorial para empezar a usar Centros de eventos de Azure; a enviar eventos en C y a recibirlos en un clúster de Apache Storm."
 	services="event-hubs"
 	documentationCenter=""
-	authors="fsautomata"
+	authors="jtaubensee"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="java"
 	ms.topic="article"
 	ms.date="08/16/2016"
-	ms.author="sethm"/>
+	ms.author="jotaub;sethm"/>
 
 # Introducción a los Centros de eventos
 
@@ -74,4 +74,4 @@ Los siguientes recursos están disponibles para desarrollar aplicaciones que int
 [Análisis de datos de sensores con Apache Storm, Centro de eventos y HBase en HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 [Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

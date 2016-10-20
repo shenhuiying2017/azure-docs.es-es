@@ -33,7 +33,7 @@ La API de recomendaciones de Aprendizaje automático de Azure se puede dividir e
 - <ins>Limitaciones</ins>: Limitaciones de la API de recomendaciones.
 - <ins>Información general</ins>: Información sobre la autenticación, el identificador URI de servicio y el control de versiones.
 - <ins>Modelo básico</ins>: las API que le permiten realizar las operaciones básicas en el modelo (por ejemplo, crear, actualizar y eliminar un modelo).
-- <ins>Modelo avanzado</ins>: las API que le permiten obtener información avanzada de datos en el modelo
+- <ins>Modelo avanzado</ins>: las API que le permiten obtener información avanzada de datos en el modelo.
 - <ins>Reglas de negocio de modelo</ins>: las API que le permiten administrar reglas de negocio en los resultados de recomendación de modelo.
 - <ins>Catálogo</ins>: las API que le permiten realizar operaciones básicas en un catálogo de modelo. Un catálogo contiene información de metadatos sobre los elementos de los datos de uso.
 - <ins>Característica</ins>: Las API que permiten obtener información sobre el elemento del catálogo y cómo usar esta información para crear mejores recomendaciones.
@@ -104,7 +104,7 @@ Crea una solicitud "crear modelo".
 
 código de estado HTTP: 200
 
-- `feed/entry/content/properties/id`: contiene el Id. de modelo. **Nota**: el Id. de modelo distingue mayúsculas de minúsculas.
+- `feed/entry/content/properties/id`: contiene el id. de modelo. **Nota**: el Id. de modelo distingue mayúsculas de minúsculas.
 
 OData XML
 
@@ -268,7 +268,7 @@ OData XML
 
 ###5\.4. Actualizar modelo
 
-Puede actualizar la descripción del modelo o el Id. de compilación activa.<br> <ins>Id. de compilación activa</ins>: cada compilación para cada modelo tiene un Id. de compilación. El Id. de compilación activa es la primera compilación correcta de cada nuevo modelo. Una vez que tiene un Id. de compilación activa y realiza compilaciones adicionales para el mismo modelo, necesitará establecerlo explícitamente como el Id. de compilación predeterminado si lo desea. Cuando se usan recomendaciones, si no se especifica el Id. de compilación que desea usar, se utilizará automáticamente el predeterminado.<br> Este mecanismo le permite tener un modelo de recomendación en producción para compilar nuevos modelos y probarlos antes de promoverlos a producción.
+Puede actualizar la descripción del modelo o el Id. de compilación activa.<br> <ins>Id. de compilación activa</ins>: cada compilación para cada modelo tiene un identificador de compilación. El Id. de compilación activa es la primera compilación correcta de cada nuevo modelo. Una vez que tiene un Id. de compilación activa y realiza compilaciones adicionales para el mismo modelo, necesitará establecerlo explícitamente como el Id. de compilación predeterminado si lo desea. Cuando se usan recomendaciones, si no se especifica el Id. de compilación que desea usar, se utilizará automáticamente el predeterminado.<br> Este mecanismo le permite tener un modelo de recomendación en producción para compilar nuevos modelos y probarlos antes de promoverlos a producción.
 
 
 | Método HTTP | URI |
@@ -355,7 +355,7 @@ Los datos se devuelven como una colección de propiedades.
 
 En la tabla siguiente se muestra el valor que representa cada clave.
 
-|Clave|Descripción|
+|Clave|Description|
 |:-----|:----|
 | AvgItemLength | Número promedio de usuarios distintos por elemento. |
 | AvgUserLength | Número promedio de usuarios distintos por usuario. |
@@ -593,7 +593,7 @@ Los datos se devuelven como una colección de propiedades.
 
 En la tabla siguiente se muestra el valor que representa cada clave.
 
-| Clave | Descripción |
+| Clave | Description |
 |:---- |:----|
 | CatalogCoverage | ¿Qué parte del catálogo puede modelarse con patrones de uso? El resto de los elementos necesitará características basadas en el contenido. |
 | Mpr | Clasificación de percentil de promedio del modelo. Un valor bajo es mejor. |
@@ -1062,8 +1062,8 @@ código de estado HTTP: 200
 
 La respuesta incluye una entrada por cada elemento de catálogo. Cada entrada tiene los siguientes datos:
 
-- `feed/entry/content/properties/ExternalId`: id. externo de elemento de catálogo, proporcionado por el cliente.
-- `feed/entry/content/properties/InternalId`: id. interno de elemento de catálogo, que ha generado las recomendaciones de Aprendizaje automático de Azure.
+- `feed/entry/content/properties/ExternalId`: identificador externo de elemento de catálogo, proporcionado por el cliente.
+- `feed/entry/content/properties/InternalId`: identificador interno de elemento de catálogo, que ha generado las Recomendaciones de Aprendizaje automático de Azure.
 - `feed/entry/content/properties/Name`: nombre de elemento de catálogo.
 - `feed/entry/content/properties/Category`: categoría de elemento de catálogo.
 - `feed/entry/content/properties/Description`: descripción de elemento de catálogo.
@@ -1165,12 +1165,12 @@ código de estado HTTP: 200
 
 La respuesta incluye una entrada por cada elemento de catálogo. Cada entrada tiene los siguientes datos:
 
-- `feed/entry/content/properties/InternalId`: id. interno de elemento de catálogo, que ha generado las recomendaciones de Aprendizaje automático de Azure.
+- `feed/entry/content/properties/InternalId`: identificador interno de elemento de catálogo, que ha generado las Recomendaciones de Aprendizaje automático de Azure.
 - `feed/entry/content/properties/Name`: nombre de elemento de catálogo.
-- `feed/entry/content/properties/Rating` – (para un uso futuro)
-- `feed/entry/content/properties/Reasoning` – (para un uso futuro)
-- `feed/entry/content/properties/Metadata` – (para un uso futuro)
-- `feed/entry/content/properties/FormattedRating` – (para un uso futuro)
+- `feed/entry/content/properties/Rating`: (para un uso futuro)
+- `feed/entry/content/properties/Reasoning`: (para un uso futuro)
+- `feed/entry/content/properties/Metadata`: (para un uso futuro)
+- `feed/entry/content/properties/FormattedRating`: (para un uso futuro)
 
 OData XML
 
@@ -1212,7 +1212,7 @@ En esta sección se muestra cómo cargar datos de uso mediante un archivo. Puede
 |:--------			|:--------								|
 |	modelId |	Identificador único del modelo |
 | filename | Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y carácter de subrayado (\_).<br>Longitud máxima: 50 |
-|	apiVersion | 1\.0 |
+|apiVersion | 1\.0 |
 |||
 | Cuerpo de la solicitud | Datos de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nombre</th><th>Obligatorio</th><th>Tipo</th><th>Descripción</th></tr><tr><td>Id. de usuario</td><td></td><td>[A-z], [a-z], [0-9], [\_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Longitud máx.: 255 </td><td>Identificador único de un usuario.</td></tr><tr><td>Id. de elemento</td><td></td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Carácter de subrayado&#41;, [-] &#40;Guión&#41;<br> Longitud máx.: 50</td><td>Identificador único de un elemento.</td></tr><tr><td></td><td>No</td><td>Fecha en formato: AAAA/MM/DDTHH:MM:SS (por ejemplo, 2013/06/20T10:00:00)</td><td>.</td></tr><tr><td>Evento</td><td>No; también se debe indicar la fecha cuando se proporciona</td><td>Uno de los siguientes:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamaño máximo de archivo: 200 MB<br><br>Ejemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
@@ -1925,9 +1925,9 @@ Estado de compilación válido:
 - Crear: se ha creado la solicitud de compilación.
 - En cola: la solicitud de compilación se ha enviado y puesto en cola.
 - Compilando: la compilación está en curso.
-- Success: la compilación finalizó correctamente.
+- Correcto: la compilación finalizó correctamente.
 - Error: la compilación finalizó con un error.
-- Cancelled: se canceló la compilación.
+- Cancelada: se canceló la compilación.
 - Cancelando: se ha enviado una solicitud de cancelación de la compilación.
 
 
@@ -1999,12 +1999,12 @@ No puede usar recomendaciones hasta que no finalice la compilación.
 Estado de compilación válido:
 
 - Crear: se creó el modelo.
-- Queued: se desencadenó la compilación del modelo y está en la cola.
-- Building: el modelo se está compilando.
-- Success: la compilación finalizó correctamente.
+- En cola: se desencadenó la compilación del modelo y está en la cola.
+- Compilando: el modelo se está compilando.
+- Correcto: la compilación finalizó correctamente.
 - Error: la compilación finalizó con un error.
-- Cancelled: se canceló la compilación.
-- Cancelling: la compilación se está cancelando.
+- Cancelada: se canceló la compilación.
+- Cancelando: la compilación se está cancelando.
 
 Tenga en cuenta que el Id. de compilación se puede encontrar en la ruta siguiente: `Feed\entry\content\properties\Id`
 
@@ -2074,25 +2074,25 @@ La respuesta incluye una entrada por compilación. Cada entrada tiene los siguie
 - `feed/entry/content/properties/UserName`: nombre del usuario.
 - `feed/entry/content/properties/ModelName`: nombre del modelo.
 - `feed/entry/content/properties/ModelId`: identificador único de modelo.
-- `feed/entry/content/properties/IsDeployed` : si se implementa la compilación (también conocido como compilación activa).
+- `feed/entry/content/properties/IsDeployed`: si se implementa la compilación (también conocido como compilación activa).
 - `feed/entry/content/properties/BuildId`: identificador único de compilación.
 - `feed/entry/content/properties/BuildType`: tipo de la compilación.
 - `feed/entry/content/properties/Status`: estado de la compilación. Puede ser uno de los siguientes: Error, Building, Queued, Cancelling, Cancelled o Success.
-- `feed/entry/content/properties/StatusMessage`: mensaje de estado detallado (se aplica sólo a estados concretos).
+- `feed/entry/content/properties/StatusMessage`: mensaje de estado detallado (se aplica solo a estados concretos).
 - `feed/entry/content/properties/Progress`: progreso de la compilación (%).
 - `feed/entry/content/properties/StartTime`: hora de inicio de la compilación.
 - `feed/entry/content/properties/EndTime`: hora de finalización de la compilación.
 - `feed/entry/content/properties/ExecutionTime`: duración de la compilación.
-- `feed/entry/content/properties/ProgressStep`: detalles acerca de la fase actual de una compilación en curso.
+- `feed/entry/content/properties/ProgressStep`: detalles sobre la fase actual de una compilación en curso.
 
 Estado de compilación válido:
 - Creado: se creó la entrada de solicitud de compilación.
 - En cola: la solicitud de compilación se ha desencadenado y puesto en cola.
 - Compilando: la compilación está en curso.
-- Success: la compilación finalizó correctamente.
+- Correcto: la compilación finalizó correctamente.
 - Error: la compilación finalizó con un error.
-- Cancelled: se canceló la compilación.
-- Cancelling: la compilación se está cancelando.
+- Cancelada: se canceló la compilación.
+- Cancelando: la compilación se está cancelando.
 
 Valores válidos para el tipo de compilación:
 - Rango: compilación de rango.
@@ -2162,21 +2162,21 @@ La respuesta incluye una entrada por compilación. Cada entrada tiene los siguie
 - `feed/entry/content/properties/BuildId`: identificador único de compilación.
 - `feed/entry/content/properties/BuildType`: tipo de la compilación.
 - `feed/entry/content/properties/Status`: estado de la compilación. Puede ser uno de los siguientes: Error, Building, Queued, Cancelled, Cancelling o Success.
-- `feed/entry/content/properties/StatusMessage`: mensaje de estado detallado (se aplica sólo a estados concretos).
+- `feed/entry/content/properties/StatusMessage`: mensaje de estado detallado (se aplica solo a estados concretos).
 - `feed/entry/content/properties/Progress`: progreso de la compilación (%).
 - `feed/entry/content/properties/StartTime`: hora de inicio de la compilación.
 - `feed/entry/content/properties/EndTime`: hora de finalización de la compilación.
 - `feed/entry/content/properties/ExecutionTime`: duración de la compilación.
-- `feed/entry/content/properties/ProgressStep`: detalles acerca de la fase actual de una compilación en curso.
+- `feed/entry/content/properties/ProgressStep`: detalles sobre la fase actual de una compilación en curso.
 
 Estado de compilación válido:
 - Creado: se creó la entrada de solicitud de compilación.
 - En cola: la solicitud de compilación se ha desencadenado y puesto en cola.
 - Compilando: la compilación está en curso.
-- Success: la compilación finalizó correctamente.
+- Correcto: la compilación finalizó correctamente.
 - Error: la compilación finalizó con un error.
-- Cancelled: se canceló la compilación.
-- Cancelling: la compilación se está cancelando.
+- Cancelada: se canceló la compilación.
+- Cancelando: la compilación se está cancelando.
 
 
 Valores válidos para el tipo de compilación:
@@ -2696,7 +2696,7 @@ código de estado HTTP: 200
 La respuesta incluye una entrada por cada elemento recomendado (un conjunto de elementos que normalmente se compran junto con el elemento de entrada/inicialización). Cada entrada tiene los siguientes datos:
 - `Feed\entry\content\properties\Id1`: id. de elemento recomendado.
 - `Feed\entry\content\properties\Name1`: nombre del elemento.
-- `Feed\entry\content\properties\Id2`: id. del 2º elemento recomendado: (opcional).
+- `Feed\entry\content\properties\Id2`: id. del 2º elemento recomendado (opcional).
 - `Feed\entry\content\properties\Name2`: nombre del 2º elemento (opcional).
 - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
 - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
@@ -2788,7 +2788,7 @@ código de estado HTTP: 200
 La respuesta incluye una entrada por cada elemento recomendado (un conjunto de elementos que normalmente se compran junto con el elemento de entrada/inicialización). Cada entrada tiene los siguientes datos:
 - `Feed\entry\content\properties\Id1`: id. de elemento recomendado.
 - `Feed\entry\content\properties\Name1`: nombre del elemento.
-- `Feed\entry\content\properties\Id2`: id. del 2º elemento recomendado: (opcional).
+- `Feed\entry\content\properties\Id2`: id. del 2º elemento recomendado (opcional).
 - `Feed\entry\content\properties\Name2`: nombre del 2º elemento (opcional).
 - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
 - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
@@ -3027,11 +3027,11 @@ código de estado HTTP: 200
 OData XML
 
     The response includes one entry per notification. Each entry has the following data:
-		* feed\entry\content\properties\UserName – Internal user name identification.
-		* feed\entry\content\properties\ModelId – Model ID.
-		* feed\entry\content\properties\Message – Notification message.
-		* feed\entry\content\properties\DateCreated – Date that this notification was created in UTC format.
-		* feed\entry\content\properties\NotificationType – Notification types. Values are BuildFailure, RecommendationFailure, and DataAquisitionFailure.
+		* feed\entry\content\properties\UserName - Internal user name identification.
+		* feed\entry\content\properties\ModelId - Model ID.
+		* feed\entry\content\properties\Message - Notification message.
+		* feed\entry\content\properties\DateCreated - Date that this notification was created in UTC format.
+		* feed\entry\content\properties\NotificationType - Notification types. Values are BuildFailure, RecommendationFailure, and DataAquisitionFailure.
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetNotifications" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
@@ -3101,4 +3101,4 @@ código de estado HTTP: 200
 Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso.<br><br> Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse.<br><br> Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia.<br><br> © 2015 Microsoft. Todos los derechos reservados.
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

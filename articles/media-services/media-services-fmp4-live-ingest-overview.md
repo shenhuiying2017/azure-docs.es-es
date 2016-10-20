@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Especificación de la introducción en directo de MP4 fragmentado de Servicios multimedia de Azure" 
+	pageTitle="Especificación de la introducción en directo de MP4 fragmentado de Azure Media Services | Microsoft Azure" 
 	description="En esta especificación se describe el protocolo y el formato para inserción de streaming en vivo basada en MP4 fragmentado para Servicios multimedia de Microsoft Azure. Servicios multimedia de Microsoft Azure ofrece streaming en vivo que permite a los clientes la transmisión de eventos en directo y difundir contenido en tiempo real con Microsoft Azure como la plataforma de nube. En este documento también se describen los prácticas recomendadas en la creación de mecanismos de introducción en directo sólidos y altamente redundantes." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"     
+	ms.date="09/26/2016"     
 	ms.author="cenkdin;juliako"/>
 
-#Especificación de la introducción en directo de MP4 fragmentado de Servicios multimedia de Azure
+#Especificación de la introducción en directo de MP4 fragmentado de Azure Media Services
 
 En esta especificación se describe el protocolo y el formato para inserción de streaming en vivo basada en MP4 fragmentado para Servicios multimedia de Microsoft Azure. Servicios multimedia de Microsoft Azure ofrece streaming en vivo que permite a los clientes la transmisión de eventos en directo y difundir contenido en tiempo real con Microsoft Azure como la plataforma de nube. En este documento también se describen los prácticas recomendadas en la creación de mecanismos de introducción en directo sólidos y altamente redundantes.
 
@@ -221,4 +221,4 @@ A continuación se muestra una implementación recomendada de las pistas de audi
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

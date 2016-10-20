@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -72,4 +72,4 @@ También puede configurar Azure AD para permitir que el motor de sincronización
 
 - Use este vínculo para obtener soporte técnico mediante el Portal de Azure.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

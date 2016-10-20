@@ -34,8 +34,9 @@ La tabla siguiente muestra cómo se asignan estas soluciones a las característi
 
 | Solución | Ingesta de datos | Identidad de dispositivos | Comando y control | Reglas y acciones | Análisis predictivo |
 |------------------------|-----|-----|-----|-----|-----|
-| [Supervisión remota][lnk-remote-monitoring] | Sí | Sí | Sí | Sí | - | 
+| [Supervisión remota][lnk-getstarted-preconfigured] | Sí | Sí | Sí | Sí | - | 
 | [Mantenimiento predictivo][lnk-predictive-maintenance] | Sí | Sí | Sí | Sí | Sí |
+
 - *Ingesta de datos*: entrada de datos a escala en la nube.
 - *Identidad de dispositivo*: administración de las identidades únicas de cada dispositivo conectado.
 - *Comando y control*: envío de mensajes a un dispositivo desde la nube para que el dispositivo realice alguna acción.
@@ -124,10 +125,10 @@ Ahora que ya sabe qué es una solución preconfigurada, puede comenzar por imple
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
 [lnk-web-job]: ../app-service-web/web-sites-create-web-jobs.md
-[lnk-identity-registry]: ../iot-hub/iot-hub-devguide.md#device-identity-registry
+[lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_1005_2016-->

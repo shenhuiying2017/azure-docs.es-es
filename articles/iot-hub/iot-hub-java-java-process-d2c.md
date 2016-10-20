@@ -114,7 +114,7 @@ En esta sección, modificará la aplicación de dispositivo simulado que creó e
 
 4. Guarde y cierre el archivo simulated-device\\src\\main\\java\\com\\mycompany\\app\\App.java.
 
-    > [AZURE.NOTE] Para simplificar, en este tutorial no se implementa ninguna directiva de reintentos. En el código de producción, debe implementar una directiva de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling] (Control de errores transitorios).
+    > [AZURE.NOTE] Para simplificar, en este tutorial no se implementa ninguna directiva de reintentos. En el código de producción, debe implementar una directiva de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling] \(Control de errores transitorios).
 
 5. Para compilar la aplicación **simulated-device** con Maven, ejecute el siguiente comando en el símbolo del sistema en la carpeta simulated-device:
 
@@ -726,8 +726,8 @@ Para más información sobre cómo desarrollar soluciones con el Centro de IoT, 
 [Almacenamiento de blobs de Azure]: ../storage/storage-dotnet-how-to-use-blobs.md
 [Data Factory de Azure]: https://azure.microsoft.com/documentation/services/data-factory/
 [HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
-[Service Bus queue]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
-[cola del Bus de servicio]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
+[Service Bus queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
+[cola del Bus de servicio]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
 [Guía del desarrollador del Centro de IoT de Azure - Dispositivo a nube]: iot-hub-devguide.md#d2c
 
@@ -762,4 +762,4 @@ Para más información sobre cómo desarrollar soluciones con el Centro de IoT, 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
 [lnk-create-an-iot-hub]: iot-hub-java-java-getstarted.md#create-an-iot-hub
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

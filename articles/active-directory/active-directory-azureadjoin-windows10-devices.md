@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Uso de dispositivos de Windows 10 en el área de trabajo
@@ -110,8 +110,8 @@ Todos los métodos descritos anteriormente (unión a un dominio, Azure AD Join y
 Para implementar Azure AD Join para cualquier conjunto de usuarios necesita lo siguiente:
 
 - Una suscripción de Azure AD.
-- Una suscripción de Azure AD Premium, como la inscripción automática en administración de dispositivos móviles, si requiere más funcionalidades.
-- Administración de dispositivos móviles: por ejemplo una suscripción a Microsoft Intune, administración de dispositivos móviles para Office 365 o cualquiera de los proveedores de administración de dispositivos móviles asociados integrados en Azure AD. Para obtener más información, consulte la sección [Preguntas más frecuentes](#frequently-asked-questions) al final de este artículo.
+- Una suscripción de Azure AD Premium, como la inscripción automática a la administración de dispositivos móviles, en el caso de que requiera más funcionalidades.
+- Administración de dispositivos móviles: por ejemplo, una suscripción de Microsoft Intune, de la administración de dispositivos móviles para Office 365 o de cualquiera de los proveedores de administración de dispositivos móviles asociados que se integran con Azure AD. Para obtener más información, consulte la sección [Preguntas más frecuentes](#frequently-asked-questions) al final de este artículo.
 
 Si sus instalaciones son híbridas, se recomienda encarecidamente implementar Azure AD Connect para ampliar el directorio local a Azure AD.
 
@@ -132,14 +132,14 @@ Para obtener más información sobre la unión a un dominio en Windows 10, consu
 Para habilitar Bring Your Own Device (BYOD) con cuentas profesionales o educativas, necesita lo siguiente:
 
 - Una suscripción de Azure AD.
-- Una suscripción de Azure AD Premium, como la inscripción automática en administración de dispositivos móviles, si requiere más funcionalidades.
+- Una suscripción de Azure AD Premium, como la inscripción automática a la administración de dispositivos móviles, en el caso de que requiera más funcionalidades.
 
 ## Requisitos para usar Microsoft Passport
 
 Para habilitar Microsoft Passport, necesitará lo siguiente:
 
 - Una infraestructura de clave pública (PKI) para compatibilidad de autenticación basada en certificados que usa Microsoft Passport.
-- Una suscripción de Intune para compatibilidad de autenticación basada en certificados que usa Microsoft Passport para Azure AD Join y cuentas profesionales o educativas.
+- Una suscripción de Intune para la compatibilidad con la autenticación basada en certificados que usa Microsoft Passport para Azure AD Join y cuentas profesionales o educativas.
 - System Center Configuration Manager version 1509 for Technical Preview (consulte la documentación de TechNet y las publicaciones de los blog) para compatibilidad de autenticación basada en certificados mediante Microsoft Passport para la unión a un dominio.
 - Una directiva para habilitar Microsoft Passport en la organización.
 
@@ -177,4 +177,4 @@ Los usuarios que actualizan desde dispositivos unidos a un dominio de Windows 8.
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

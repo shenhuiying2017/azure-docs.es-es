@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Preguntas más frecuentes sobre itinerancia de datos y configuración
@@ -136,4 +136,4 @@ Si su organización ya está usando la itinerancia en Windows 10 con la suscripc
 - [Configuración de MDM y directivas de grupo](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 - [Referencia de la configuración de movilidad de Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -2,18 +2,18 @@
    pageTitle="SAP NetWeaver en máquinas virtuales (VM) Windows: guía de implementación de DBMS | Microsoft Azure"
    description="SAP NetWeaver en máquinas virtuales (VM) Windows: guía de implementación de DBMS"
    services="virtual-machines-windows,virtual-network,storage"
-   documentationCenter="saponazure"
+   documentationCenter=""
    authors="MSSedusch"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
-   ms.workload="na"
+   ms.workload="infrastructure-services"
    ms.date="08/18/2016"
    ms.author="sedusch"/>
 
@@ -1367,4 +1367,4 @@ Todos los demás temas generales, como los conjuntos de disponibilidad de Azure 
 
 Consulte también el capítulo [Resumen general de SQL Server para SAP en Azure][dbms-guide-5.8].
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

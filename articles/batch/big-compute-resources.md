@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="06/08/2016"
+   ms.date="09/22/2016"
    ms.author="danlep"/>
 
-# Big Compute en Azure: Recursos técnicos para informática de alto rendimiento (HPC) y computación por lotes
-Se trata de una guía sobre recursos técnicos que le ayudará a ejecutar cargas de trabajo de HPC, por lotes y en paralelo a gran escala en Azure. Amplíe sus cargas de trabajo de HPC o de lotes existentes a la nube de Azure, o cree nuevas soluciones de Big Compute en Azure mediante una gama de los servicios de Azure.
+# Big Compute en Azure: Recursos técnicos para informática de alto rendimiento y computación por lotes 
+Esta es una guía de recursos técnicos para ayudarle a ejecutar cargas de trabajo por lotes, a gran escala en paralelo y de informática de alto rendimiento (HPC) en Azure. Amplíe sus cargas de trabajo de HPC o de lotes existentes a la nube de Azure, o cree nuevas soluciones de Big Compute mediante una gama de los servicios de Azure.
 
 ## Opciones de soluciones
 
@@ -30,7 +30,7 @@ Obtenga información sobre las opciones de Big Compute en Azure y elija el enfoq
 
 ## Azure Batch
 
-[Lote](https://azure.microsoft.com/services/batch/) es un servicio de plataforma que facilita el proceso de habilitar para la nube sus aplicaciones y de ejecutar trabajos sin configurar y administrar un clúster y un programador de trabajos. Use el SDK para integrar aplicaciones cliente con Azure Batch a través de una variedad de lenguajes, almacenar datos en Azure y crear canalizaciones de ejecución de trabajos.
+[Lote](https://azure.microsoft.com/services/batch/) es un servicio de plataforma que facilita el proceso de habilitar para la nube sus aplicaciones y de ejecutar trabajos sin configurar y administrar un clúster y un programador de trabajos. Use el SDK para integrar aplicaciones cliente con Azure Batch a través de varios lenguajes, almacenar datos en Azure y crear canalizaciones de ejecución de trabajos.
 
 * [Documentación](https://azure.microsoft.com/documentation/services/batch/)
 
@@ -87,9 +87,9 @@ Use estas plantillas de Azure para implementar clústeres de HPC de Linux.
 
 * [Foro de MPI](https://social.microsoft.com/Forums/es-ES/home?forum=windowshpcmpi)
 
-## Instancias intensivas de proceso
+## Instancias de proceso intensivo
 
-Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-windows-sizes.md), que incluye instancias de proceso intensivo [A8 y A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) con capacidad para conectarse con una red RDMA de back-end, para ejecutar cargas de trabajo HPC de Linux y Windows.
+Azure ofrece un [intervalo de tamaños de VM](../virtual-machines/virtual-machines-windows-sizes.md), que incluye instancias de [proceso intensivo](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) con capacidad para conectarse con una red RDMA de back-end, para ejecutar cargas de trabajo HPC de Linux y Windows.
 
 
 * [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](../virtual-machines/virtual-machines-linux-classic-rdma-cluster.md)
@@ -101,6 +101,8 @@ Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-win
 ## Ejemplos y demos
 
 * [Ejemplos de código de Lote de Azure para C# y Python](https://github.com/Azure/azure-batch-samples)
+
+* Kit de herramientas de [Batch Shipyard](https://azure.github.io/batch-shipyard/) para facilitar la implementación sencilla de cargas de trabajo de acoplamiento en estilo de lote
 
 * [Versión de prueba de SUSE Linux Enterprise Server para HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
 
@@ -118,7 +120,11 @@ Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-win
 
 * [Servicios en la nube](https://azure.microsoft.com/documentation/services/cloud-services/)
 
+* [Servicio de aplicaciones](https://azure.microsoft.com/documentation/services/app-service/)
+
 * [Servicios multimedia](https://azure.microsoft.com/documentation/services/media-services/)
+
+* [Funciones](https://azure.microsoft.com/documentation/services/functions/)
 
 ## Proyectos de arquitectura
 
@@ -132,7 +138,7 @@ Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-win
 
 ## Testimonios de clientes
 
-* [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168) 
+* [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168)
 
 * [d3View](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088)
 
@@ -157,4 +163,4 @@ Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-win
 * Para los anuncios más recientes, vea el [blog del equipo de Microsoft HPC y Batch](http://blogs.technet.com/b/windowshpc/) y el [blog de Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Vea también [Novedades de Batch](https://azure.microsoft.com/updates/?service=batch) o suscríbase a la [fuente RSS](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0928_2016-->

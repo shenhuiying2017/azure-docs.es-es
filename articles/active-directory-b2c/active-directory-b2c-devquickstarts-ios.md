@@ -151,7 +151,7 @@ Vamos a verlos con detalle.
 
 Para `authURL`, `loginURL`, `bhh` y `tokenURL`, observará que debe rellenar su nombre de inquilino. Se trata del nombre del inquilino B2C que se le ha asignado. Por ejemplo, `kidventusb2c.onmicrosoft.com`. Si utiliza nuestras bibliotecas de identidad de código abierto de Microsoft Azure, estos datos los extraeríamos mediante nuestro punto de conexión de metadatos. Hemos hecho lo más difícil al extraer estos valores.
 
-Para más información sobre los nombres de inquilino B2C, mire aquí: [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md).
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 El valor de `keychain` es el contenedor que la biblioteca NXOAuth2Client utilizará para crear una cadena de claves para almacenar los tokens. Si desea obtener el inicio de sesión único en varias aplicaciones, puede especificar la misma cadena de claves en cada una de las aplicaciones, así como solicitar el uso de esa cadena de claves en el código XCode. Esto se trata en la documentación de Apple.
 
@@ -244,7 +244,7 @@ La biblioteca de NXOAuthClient requiere algunos valores para configurar la aplic
 
 * Agregue el método `setupOAuth2AccountStore` en AppDelegate.
 
-Necesitamos crear un objeto AccountStore y luego suministrarle los datos que acabamos de leer del archivo `settings.plist`.
+Es necesario crear un objeto AccountStore y luego suministrarle los datos que se acaban de leer del archivo `settings.plist`.
 
 En este punto, hay algunas cosas que debemos tener en cuenta respecto al servicio B2C que harán que este código sea más comprensible:
 
@@ -646,4 +646,4 @@ Ahora puede pasar a temas más avanzados de B2C. Puede probar:
 
 [Personalización de la experiencia de usuario en una aplicación B2C]()
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_1005_2016-->

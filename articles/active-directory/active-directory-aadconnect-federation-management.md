@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="anandyadavmsft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -211,4 +211,4 @@ Para tener solo el dominio raíz en el valor de notificación del emisor, cambie
 
 Obtenga más información sobre las [opciones de inicio de sesión del usuario](active-directory-aadconnect-user-signin.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

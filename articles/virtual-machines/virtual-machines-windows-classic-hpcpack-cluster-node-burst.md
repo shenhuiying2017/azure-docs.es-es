@@ -20,7 +20,7 @@ ms.service="virtual-machines-windows"
 
 
 
-En este artículo se muestra cómo agregar nodos de "ráfaga" Azure (instancias de rol de trabajo que se ejecutan un servicio en la nube) a petición como recursos de proceso a un nodo principal de HPC Pack existente en Azure. De este modo, podrá escalar verticalmente la capacidad de proceso del clúster de HPC en Azure a petición, sin mantener un conjunto de máquinas virtuales de nodos de ejecución preconfiguradas.
+En este artículo se muestra cómo agregar nodos de "ráfaga" de Azure (instancias de rol de trabajo que se ejecutan un servicio en la nube) como recursos de proceso a un nodo principal de HPC Pack existente en Azure. Con el nodo de ráfaga, podrá escalar o reducir verticalmente la capacidad de proceso del clúster de HPC en Azure a petición, sin tener que mantener un conjunto de máquinas virtuales de nodos de proceso preconfiguradas.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
@@ -28,7 +28,7 @@ En este artículo se muestra cómo agregar nodos de "ráfaga" Azure (instancias 
 
 Los pasos descritos en este artículo le ayudarán a agregar nodos de Azure rápidamente a una máquina virtual de nodo principal de HPC Pack basado en la nube para la implementación de una prueba o una prueba de concepto. El procedimiento es básicamente el mismo que el de "ráfaga en Azure" para agregar capacidad de proceso en la nube a un clúster de HPC Pack local. Si desea conseguir un tutorial, consulte [Configurar un clúster de proceso híbrido con Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Para obtener instrucciones detalladas y consideraciones acerca de las implementaciones de producción, consulte [Ráfaga en Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
-Para más información sobre el uso del tamaño de instancia de proceso intensivo A8 o A9, consulte [Sobre las instancias de proceso intensivo A8, A9, A10 y A11](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+Para más información sobre el uso del tamaño de instancia de proceso intensivo para los nodos de ráfaga, consulte [Acerca de las máquinas virtuales de la serie H y A de proceso intensivo](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 ## Requisitos previos
 
@@ -36,33 +36,33 @@ Para más información sobre el uso del tamaño de instancia de proceso intensiv
 
     >[AZURE.TIP] Si usa el [script de implementación de HPC Pack IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) para crear el clúster en Azure, puede incluir nodos de ráfaga de Azure en la implementación automatizada. Consulte los ejemplos del artículo correspondiente.
 
-* **Suscripción de Azure** : para agregar nodos de Azure, puede elegir la misma suscripción usada para implementar la máquina virtual del nodo principal o una suscripción (o suscripciones) diferente.
+* **Suscripción de Azure**: para agregar nodos de Azure, puede elegir la misma suscripción usada para implementar la máquina virtual del nodo principal o una suscripción (o suscripciones) diferente.
 
 * **Cuota de núcleos**: tal vez tenga que aumentar la cuota de núcleos, especialmente si decide implementar varios nodos de Azure con tamaños de núcleos múltiples. Para aumentar una cuota, [abra una solicitud de soporte técnico al cliente en línea](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sin cargo alguno.
 
-## Step 1: Crear un servicio en la nube y una cuenta de almacenamiento para agregar nodos de Azure
+## Paso 1: Crear un servicio en la nube y una cuenta de almacenamiento para los nodos de Azure
 
-Use el Portal de Azure clásico o las herramientas equivalentes para configurar lo siguiente; recuerde que esto es necesario para implementar los nodos de Azure:
+Use el Portal de Azure clásico o herramientas equivalentes para configurar los siguientes recursos, necesarios para implementar los nodos de Azure:
 
 * Un nuevo servicio en la nube de Azure
 * Una nueva cuenta de almacenamiento de Azure
 
->[AZURE.NOTE] No vuelva a usar un servicio en la nube existente en su suscripción.
+>[AZURE.NOTE] No reutilice un servicio en la nube existente en su suscripción.
 
 **Consideraciones**
 
 * Configure un servicio en la nube independiente para cada plantilla de nodo de Azure que planea crear. Sin embargo, puede usar la misma cuenta de almacenamiento para varias plantillas de nodos.
 
-* Por lo general debería buscar el servicio en la nube y la cuenta de almacenamiento para la implementación en la misma región de Azure.
+* Le recomendamos ubicar el servicio en la nube y la cuenta de almacenamiento para la implementación en la misma región de Azure.
 
 
 
 
 ## Paso 2: Configurar un certificado de administración de Azure
 
-Para agregar nodos de Azure como recursos de proceso, debe tener un certificado de administración en el nodo principal y cargar un certificado correspondiente a la suscripción de Azure usada para la implementación.
+Para agregar nodos de Azure como recursos de proceso, necesita un certificado de administración en el nodo principal y cargar un certificado correspondiente a la suscripción de Azure usada para la implementación.
 
-En este escenario, puede elegir el **Certificado de administración de Azure de HPC predeterminado** que HPC Pack instala y configura automáticamente en el nodo principal. Este certificado resulta de utilidad para pruebas e implementaciones de prueba de concepto. Para usar este certificado, solo tiene que cargar el archivo C:\\Program Files\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer desde la máquina virtual del nodo principal a la suscripción. Puede encontrarlo en el [Portal de Azure clásico](https://manage.windowsazure.com). Haga clic en **Configuración** > **Certificados de administración**.
+En este escenario, puede elegir el **Certificado de administración de Azure de HPC predeterminado** que HPC Pack instala y configura automáticamente en el nodo principal. Este certificado resulta de utilidad para pruebas e implementaciones de prueba de concepto. Para usar este certificado, cargue el archivo C:\\Archivos de programa\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer desde la máquina virtual del nodo principal a la suscripción. Para cargar el certificado en el [portal de Azure clásico](https://manage.windowsazure.com), haga clic en **Configuración** > **Certificados de administración**.
 
 Para ver opciones adicionales para configurar el certificado de administración, consulte [Escenarios para configurar el certificado de administración de Azure para implementaciones de ráfaga de Azure](http://technet.microsoft.com/library/gg481759.aspx).
 
@@ -84,9 +84,9 @@ Si tiene problemas al implementar nodos de Azure, consulte [Solución de problem
 
 ## Pasos siguientes
 
-* Si quiere aumentar o reducir automáticamente los recursos informáticos de Azure según la carga de trabajo actual de los trabajos y las tareas en el clúster, consulte [Escalar automáticamente los recursos de proceso de Azure hacia arriba y abajo en un clúster de HPC Pack según la carga de trabajo del clúster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
+* Si quiere aumentar o reducir automáticamente los recursos de proceso de Azure según la carga de trabajo del clúster, consulte [Aumento y reducción automáticos de los recursos de clúster de HPC Pack en Azure según la carga de trabajo de clúster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

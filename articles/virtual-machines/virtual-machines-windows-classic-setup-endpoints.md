@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Configuración de puntos de conexión en una máquina virtual de Windows clásica en Azure
@@ -38,4 +38,4 @@ Al crear una máquina virtual Windows en el Portal de Azure clásico, los puntos
 
 * Si ha creado una máquina virtual en el modelo de implementación de Resource Manager, también puede usar Azure PowerShell para [crear grupos de seguridad de red](../virtual-network/virtual-networks-create-nsg-arm-ps.md) con el fin de controlar el tráfico en la máquina virtual.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

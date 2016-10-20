@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creación de claves de contenido con .NET" 
+	pageTitle="Creación de claves de contenido con .REST | Microsoft Azure" 
 	description="Aprenda a crear claves de contenido que proporcionen un acceso seguro a los recursos." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 
@@ -262,4 +262,4 @@ Respuesta:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

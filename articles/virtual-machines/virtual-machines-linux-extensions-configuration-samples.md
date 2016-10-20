@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="03/29/2016"
+   ms.date="09/13/2016"
    ms.author="kundanap"/>
 
 # Ejemplos de configuración de la extensión de máquina virtual Linux
@@ -92,9 +92,10 @@ El resto del artículo proporciona ejemplos de configuraciones para las extensio
 
 ### Extensión de CustomScript para Linux.
     {
-        "publisher": " Microsoft.OSTCExtensions",
-        "type": "CustomScriptForLinux",
-        "typeHandlerVersion": "1.3",
+        "publisher": " Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
+        "autoUpgradeMinorVersion": true,
         "settings": {
             "fileUris": [
                 "http: //Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
@@ -216,4 +217,4 @@ Esta es una plantilla de máquina virtual completa para la creación de una VM d
 
 [Extensión del script personalizado en una máquina virtual de Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0928_2016-->

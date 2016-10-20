@@ -3,7 +3,7 @@
 	description="Obtenga información acerca de cómo resolver problemas cuando se rechaza la tarjeta de crédito o débito al intentar suscribirse a Azure."
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="felixwu"
 	editor=""
 	tags="billing,top-support-issue"
@@ -74,4 +74,4 @@ Si desea actualizar los detalles de la tarjeta, cambiar o quitar una tarjeta, ob
 
 > [AZURE.NOTE] Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para que resuelvan el problema rápidamente.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -29,7 +29,7 @@ El acceso a la aplicación de autoservicio es una característica de [Azure Acti
 
 Hoy en día se admite esta funcionalidad para todas las aplicaciones preintegradas y personalizadas que admiten el inicio de sesión único basado en contraseña en la [galería de aplicaciones de Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/), incluidas aplicaciones como Salesforce, Dropbox, Google Apps y mucho más. En este artículo se describe cómo:
 
-* Configurar el acceso a aplicaciones de autoservicio para usuarios finales, incluida la configuración de un flujo de trabajo de aprobación opcional. 
+* Configurar el acceso a aplicaciones de autoservicio para usuarios finales, incluida la configuración de un flujo de trabajo de aprobación opcional.
 * Delegar la administración del acceso para aplicaciones específicas a las personas más adecuadas de su organización y permitirles utilizar el panel de acceso de Azure AD para aprobar las solicitudes de acceso, asignar el acceso directamente a usuarios seleccionados u, opcionalmente, establecer credenciales para el acceso a aplicaciones cuando está configurado el inicio de sesión único basado en contraseña.
 
 
@@ -109,4 +109,4 @@ El icono **Configurar** solo se muestra si el administrador de TI ha configurado
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
 [3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0928_2016-->

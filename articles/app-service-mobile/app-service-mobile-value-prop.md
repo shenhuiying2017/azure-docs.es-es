@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="adrianhall"
-	manager="dwrede"
+	manager="yochayk"
 	editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
-	ms.author="glennga"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
-# <a name="getting-started"> </a>¿Qué son las aplicaciones móviles?
+# <a name="getting-started"></a>¿Qué es Mobile Apps?
 
 El Servicio de aplicaciones de Azure es una [plataforma como servicio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) totalmente administrada para desarrolladores profesionales que ofrece un amplio conjunto de funcionalidades para escenarios de integración, web y móviles. Las *aplicaciones móviles* del *Servicio de aplicaciones de Azure* ofrecen una plataforma de desarrollo de aplicaciones móviles altamente escalable y disponible globalmente para desarrolladores empresariales e integradores de sistemas que proporciona un amplio conjunto de funcionalidades a desarrolladores móviles.
 
@@ -98,8 +98,8 @@ Para más información sobre Aplicaciones móviles de Azure, revise nuestro [map
 [opciones de implementación]: ../app-service-web/web-sites-deploy.md
 [conexiones híbridas]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 [redes virtuales]: ../app-service-web/web-sites-integrate-with-vnet.md
-[ExpressRoute]: ../app-service/app-service-app-service-environment-network-configuration-expressroute.md
+[ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
 [entornos del Servicio de aplicaciones]: ../app-service-web/app-service-app-service-environment-intro.md
 [mapa de aprendizaje]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

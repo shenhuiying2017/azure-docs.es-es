@@ -43,7 +43,7 @@ En esta solución, hay tres dispositivos IoT conectados al Centro de IoT:
 
 ### Software de puerta de enlace
 
-El software de puerta de enlace se ejecuta como un servicio en la placa Edison. Dos dispositivos simulados generan telemetría de temperatura. El módulo de asignación asigna estos dispositivos simulados a dispositivos registrados en el Centro de IoT y el módulo HTTP administra la comunicación con el punto de conexión del Centro de IoT. En el artículo [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado][lnk-gateway-scenario] se describe este escenario con detalle.
+El software de puerta de enlace se ejecuta como un servicio en la placa Edison. Dos dispositivos simulados generan telemetría de temperatura. El módulo de asignación asigna estos dispositivos simulados a dispositivos registrados en IoT Hub y el módulo IoT Hub administra la comunicación con el punto de conexión de IoT Hub. En el artículo [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado][lnk-gateway-scenario] se describe este escenario con detalle.
 
 ### Cliente de administración de dispositivos
 
@@ -425,4 +425,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

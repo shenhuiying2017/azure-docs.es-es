@@ -13,19 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/01/2016"
+   ms.date="09/24/2016"
    ms.author="sonyama;barbkess"/>
 
 
 # Controladores de Almacenamiento de datos SQL de Azure
 
-> [AZURE.SELECTOR]
-- [Información general](sql-data-warehouse-connect-overview.md)
-- [Autenticación](sql-data-warehouse-authentication.md)
-- [Controladores](sql-data-warehouse-connection-strings.md)
-
-
-Puede conectarse al almacenamiento de datos SQL con varios protocolos de aplicación diferente como [ADO.NET][], [ODBC][], [PHP][] y [JDBC][]. A continuación se muestran algunos ejemplos de cadenas de conexión para cada protocolo. También puede usar el Portal de Azure para crear la cadena de conexión. Para generar la cadena de conexión mediante el Portal de Azure, vaya a la hoja de la base de datos en *Essentials* y haga clic en *Mostrar cadenas de conexión de base de datos*.
+Puede conectarse a SQL Data Warehouse con varios protocolos de aplicación diferentes como [ADO.NET][], [ODBC][], [PHP][] y [JDBC][]. A continuación se muestran algunos ejemplos de cadenas de conexión para cada protocolo. También puede usar el Portal de Azure para crear la cadena de conexión. Para generar la cadena de conexión mediante Azure Portal, vaya a la hoja de la base de datos en *Aspectos básicos* y haga clic en *Mostrar cadenas de conexión de base de datos*.
 
 ## Cadena de conexión ADO.NET de ejemplo
 
@@ -70,4 +64,4 @@ Para empezar a realizar consultas en el almacenamiento de datos con Visual Studi
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

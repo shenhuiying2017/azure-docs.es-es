@@ -127,7 +127,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 
 	d. Haga clic en **Siguiente**.
 
-	> [AZURE.NOTE] Tenga en cuenta que será preciso que actualice estos valores con los valores reales de URL de inicio de sesión, Identificador y URL de respuesta. Para obtener estos valores, póngase en contacto con el equipo de soporte técnico del software Cezanne HR a través de < mailto:info@cezannehr.com>.
+	> [AZURE.NOTE] Tenga en cuenta que será preciso que actualice estos valores con los valores reales de URL de inicio de sesión, Identificador y URL de respuesta. Para obtener estos valores, póngase en contacto con el equipo de soporte técnico del software Cezanne HR a través de <mailto:info@cezannehr.com>.
 
 4. En la página **Configurar inicio de sesión único en el software Cezanne HR**, lleve a cabo estos pasos y haga clic en **Siguiente**:
 

@@ -3,7 +3,7 @@
 	description="Solución de los problemas que pueden producirse al realizar la suscripción a Azure."
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="felixwu"
 	editor=""
 	tags="billing,top-support-issue"/>
@@ -87,4 +87,4 @@ Si ya activó una suscripción de Azure en el pasado y se produce un error en la
 
 > [AZURE.NOTE] Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para que resuelvan el problema rápidamente.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

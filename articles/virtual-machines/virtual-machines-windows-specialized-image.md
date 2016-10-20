@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Creación de una copia de una máquina virtual con Windows en el modelo de implementación de Azure Resource Manager
@@ -32,7 +32,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos antes de comenzar
 
 - **Tiene una máquina virtual de Azure con Windows** creada mediante el modelo de implementación clásica o de Resource Manager. Ha configurado el sistema operativo y conectado los discos de datos. Además, ha realizado otras personalizaciones como la instalación de las aplicaciones requeridas. Va a utilizar esta máquina virtual para crear la copia. Si necesita ayuda para crear la máquina virtual de origen, consulte [Creación de una máquina virtual de Windows con Resource Manager y PowerShell](virtual-machines-windows-ps-create.md).
 
-- Tiene** Azure PowerShell 1.0 o posterior** instalado en su equipo y ha iniciado sesión en la suscripción de Azure. Para más información, consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
+- Tiene **Azure PowerShell 1.0 o posterior** instalado en su máquina y ha iniciado sesión en la suscripción de Azure. Para más información, consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
 
 - Ha descargado e instalado la **herramienta AzCopy**. Para más información sobre esta herramienta, consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](../storage/storage-use-azcopy.md).
 
@@ -126,4 +126,4 @@ Para iniciar sesión en la nueva máquina virtual, examine la máquina virtual e
 
 Para administrar la nueva máquina virtual de Azure PowerShell, consulte [Administración de máquinas virtuales de Azure con Resource Manager y PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0928_2016-->

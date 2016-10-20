@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2016" 
+	ms.date="09/26/2016" 
 	ms.author="nitinme"/>
 
 
@@ -51,24 +51,7 @@ Debe instalar Python para poder instalar cuadernos de Jupyter Notebook. Python y
 
 ## Instalación de kernels y Sparkmagic
 
-En esta sección, instalará Sparkmagic, los kernels de PySpark y Spark y luego configurará los kernels para conectarse a un clúster Apache Spark que se ejecuta en HDInsight de Azure.
-
-1. Descargue la versión preliminar pública más reciente de Sparkmagic desde [Github](https://github.com/jupyter-incubator/sparkmagic/archive/publicpreview0.5.zip).
-
-2. Descomprima el archivo descargado en una ubicación del disco. En estas instrucciones, nos referiremos a esta ruta de acceso como `$SPARKMAGIC_PATH`.
-
-2. Ejecute el siguiente comando.
-
-		pip install -r $SPARKMAGIC_PATH/requirements.txt  
-
-3. Ejecute el siguiente comando para instalar Sparkmagic.
-
-		pip install -e $SPARKMAGIC_PATH
-
-4. Instale los kernels de PySpark y Spark. Ejecute los comandos siguientes:
-
-		jupyter-kernelspec install $SPARKMAGIC_PATH/remotespark/kernels/sparkkernel
-		jupyter-kernelspec install $SPARKMAGIC_PATH/remotespark/kernels/pysparkkernel
+Para instrucciones sobre cómo instalar los kernels de PySpark y Spark, además de Sparkmagic, consulte la [documentación de sparkmagic](https://github.com/jupyter-incubator/sparkmagic#installation) en GitHub.
 
 ## Configuración de Sparkmagic para acceder al clúster de Spark en HDInsight
 
@@ -97,7 +80,7 @@ En esta sección, configurará el conjunto de Sparkmagic que instaló anteriorme
 		  },
 		  "kernel_scala_credentials" : {
 		    "username": "{USERNAME}",
-		    " base64_password ": "{BASE64ENCODEDPASSWORD}",
+		    "base64_password": "{BASE64ENCODEDPASSWORD}",
 		    "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
 		  }
 		}
@@ -185,4 +168,4 @@ Puede haber varios motivos por los que podría querer instalar Jupyter en el equ
 
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

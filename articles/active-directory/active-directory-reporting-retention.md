@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="dhanyahk"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -22,7 +22,7 @@
 
 Los informes de Azure Active Directory (Azure AD) conservan los datos durante un número determinado de días, que indicamos a continuación.
 
-Informe | Descripción
+Informe | Description
 ------------------------------------------------------- | -----------
 Inicios de sesión desde orígenes desconocidos | 30 días
 Inicios de sesión tras varios errores | 30 días
@@ -48,4 +48,4 @@ Usuarios de RMS más activos | 30 días
 Uso de dispositivos RMS | 30 días
 Uso de aplicaciones habilitadas para RMS | 30 días
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="karavar"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -124,11 +124,10 @@ Para permitir a un usuario acceder al nivel de *todas las instancias de servicio
 2. Seleccione "Agregar".
 3. Seleccione "Rol" como "Propietario"<br> 
 ![Agregar usuario de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_add.png)
-4. Escriba el nombre o identificador del usuario o grupo de destino. Puede seleccionar uno o más usuarios o grupos al mismo tiempo. Haga clic en "Seleccionar".
-![Seleccionar usuario de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_select_users.png)
+4. Escriba el nombre o identificador del usuario o grupo de destino. Puede seleccionar uno o más usuarios o grupos al mismo tiempo. Haga clic en "Seleccionar". ![Seleccionar usuario de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. Seleccione "Aceptar".<br>
 
-6. Después de finalizar la asignación de roles, los usuarios y grupos aparecerán en la lista.<br>
+6. Después de finalizar la asignación de roles, los usuarios y grupos aparecerán en la lista.<br> 
 ![Lista de usuarios de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
 Estos pasos permitirán a los usuarios y grupos enumerados el acceso según sus roles asignados.
@@ -160,4 +159,4 @@ Puede quitar un usuario o grupo agregado a la parte Control de acceso basado en 
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

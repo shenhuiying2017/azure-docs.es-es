@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/29/2016" 
 	ms.author="anwestg"/>
 
 # Notas del producto sobre ofertas de Aplicaciones web del Servicio de aplicaciones de Azure para empresas #
@@ -159,4 +159,4 @@ Para obtener más información sobre el servicio Aplicaciones web del Servicio d
  
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

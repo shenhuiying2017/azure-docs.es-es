@@ -55,21 +55,21 @@ Tenga en cuenta que los ejemplos de mensajería asíncrona requieren una cadena 
 
 Estos ejemplos describen la funcionalidad básica de mensajería y retransmisión.
 
-|Nombre del ejemplo|Descripción|Versión mínima del SDK|Disponibilidad|
+|Nombre del ejemplo|Description|Versión mínima del SDK|Disponibilidad|
 |---|---|---|---|
 |[Introducción: mensajería con colas](http://code.msdn.microsoft.com/Getting-Started-Brokered-aa7a0ac3)|Muestra cómo usar el Bus de servicio de Microsoft Azure para enviar y recibir mensajes de una cola.|1\.8|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
-|[Introducción: mensajería con temas](http://code.msdn.microsoft.com/Getting-Started-Brokered-614d42e5)|Muestra cómo usar el Bus de servicio de Microsoft Azure para enviar y recibir mensajes desde un tema con varias suscripciones.|1\.8|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
+|[Introducción: mensajería con temas](http://code.msdn.microsoft.com/Getting-Started-Brokered-614d42e5)|Muestra cómo usar Microsoft Azure Service Bus para enviar y recibir mensajes desde un tema con varias suscripciones.|1\.8|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
 |[Introducción a los Centros de eventos](http://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)|Muestra las capacidades básicas de los Centros de eventos, como la creación de un Centro de eventos, el envío de eventos a un Centro de eventos y el consumo de eventos con el procesador de eventos.|2\.4|Bus de servicio de Microsoft Azure|
 
 ### Exploración de las características
 
 Los ejemplos siguientes muestran diversas características del Bus de servicio.
 
-|Nombre del ejemplo|Descripción|Versión mínima del SDK|Disponibilidad|
+|Nombre del ejemplo|Description|Versión mínima del SDK|Disponibilidad|
 |---|---|---|---|
 |[Proveedores de tokens HTTP](http://code.msdn.microsoft.com/Service-Bus-HTTP-Token-38f2cfc5)|Muestra las distintas formas de autenticar a un cliente HTTP/REST con el Bus de servicio.|2\.1|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
 |[Cliente HTTP del Bus de servicio](http://code.msdn.microsoft.com/Service-Bus-HTTP-client-fe7da74a)|Muestra cómo enviar y recibir mensajes del Bus de servicio mediante HTTP/REST.|2\.3|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
-|[Reenvío automático del Bus de servicio](http://code.msdn.microsoft.com/Service-Bus-Autoforwarding-b9df470b)|Muestra cómo reenviar automáticamente los mensajes de una cola, suscripción o cola de mensajes fallidos en otra cola o tema. También muestra cómo enviar un mensaje a una cola o tema mediante una cola de transferencia.|2\.3|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
+|[Reenvío automático del Bus de servicio](http://code.msdn.microsoft.com/Service-Bus-Autoforwarding-b9df470b)|Muestra cómo reenviar automáticamente los mensajes de una cola, suscripción o cola de correos procesados como devueltos en otra cola o tema. También muestra cómo enviar un mensaje a una cola o tema mediante una cola de transferencia.|2\.3|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
 |[Mensajería asíncrona: ejemplo de sesión de canal de WCF](http://code.msdn.microsoft.com/Brokered-Messaging-WCF-0a526451)|Muestra cómo usar el Bus de servicio de Microsoft Azure mediante canales de Windows Communication Foundation (WCF). El ejemplo muestra el uso de canales WCF para enviar y recibir mensajes mediante una cola del Bus de servicio. El ejemplo muestra la sesión y comunicación no de la sesión en el Bus de servicio.|1\.8|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
 |[Mensajería asíncrona: transacciones](http://code.msdn.microsoft.com/Brokered-Messaging-8cd41d1e)|Muestra cómo usar las características de mensajería del Bus de servicio de Microsoft Azure dentro de un ámbito de transacción para garantizar que las operaciones de mensajería se confirman atómicamente.|1\.8|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
 |[Mensajería asíncrona: operaciones de administración con REST](http://code.msdn.microsoft.com/Brokered-Messaging-569cff88)|Muestra cómo realizar operaciones de administración del Bus de servicio con REST.|1\.8|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
@@ -79,7 +79,7 @@ Los ejemplos siguientes muestran diversas características del Bus de servicio.
 |[Mensajería asíncrona: cola de mensajes fallidos](http://code.msdn.microsoft.com/Brokered-Messaging-Dead-22536dd8)|Muestra cómo usar el Bus de servicio de Microsoft Azure y la funcionalidad de mensajería "cola de mensajes fallidos". El ejemplo muestra un remitente y un receptor simples que se comunican mediante una cola del Bus de servicio.|1\.8|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
 |[Mensajería asíncrona: mensajes aplazados](http://code.msdn.microsoft.com/Brokered-Messaging-ccc4f879)|Muestra cómo usar la característica de aplazamiento de mensajes del Bus de servicio de Microsoft Azure. El ejemplo muestra un remitente y un receptor simples que se comunican mediante una cola del Bus de servicio.|1\.8|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
 |[Mensajería asíncrona: mensajes de la sesión](http://code.msdn.microsoft.com/Brokered-Messaging-Session-41c43fb4)|Muestra cómo usar el Bus de servicio de Microsoft Azure y la funcionalidad de sesión de mensajería. El ejemplo muestra remitentes y receptores simples que se comunican mediante una cola del Bus de servicio.|1\.8|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
-|[Mensajería asíncrona: solicitar tema de respuesta](http://code.msdn.microsoft.com/Brokered-Messaging-Request-6759a36e)|Muestra cómo implementar el patrón de solicitud/respuesta con temas y suscripciones del Bus de servicio de Microsoft Azure. El ejemplo muestra clientes y servidores simples que se comunican mediante un tema del Bus de servicio.|1\.8|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
+|[Mensajería asincrónica: solicitar tema de respuesta](http://code.msdn.microsoft.com/Brokered-Messaging-Request-6759a36e)|Muestra cómo implementar el patrón de solicitud/respuesta con temas y suscripciones de Microsoft Azure Service Bus. El ejemplo muestra clientes y servidores simples que se comunican mediante un tema de Service Bus.|1\.8|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
 |[Mensajería asíncrona: solicitar cola de respuesta](http://code.msdn.microsoft.com/Brokered-Messaging-Request-0ce8fcaf)|Muestra cómo usar el Bus de servicio de Microsoft Azure y la funcionalidad de solicitud/respuesta. El ejemplo muestra clientes y servidores simples que se comunican mediante dos colas del Bus de servicio.|1\.8|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
 |[Mensajería asíncrona: detección de duplicados](http://code.msdn.microsoft.com/Brokered-Messaging-c0acea25)|Muestra cómo usar la detección de mensajes duplicados del Bus de servicio de Microsoft Azure con colas. Crea dos colas, una con la detección de duplicados activada y otra sin detección de duplicados.|1\.8|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
 |[Mensajería asíncrona: mensajería asincrónica](http://code.msdn.microsoft.com/Brokered-Messaging-Async-211c1e74)|Muestra cómo usar el Bus de servicio de Microsoft Azure para enviar y recibir mensajes de forma asincrónica desde una cola. La cola ofrece comunicación asincrónica desacoplada entre un remitente y cualquier número de receptores (aquí, un único receptor).|1\.8|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
@@ -92,7 +92,7 @@ Ejemplos que muestran retransmisión del Bus de servicio.
 
 ### Introducción
 
-|Nombre del ejemplo|Descripción|Versión mínima del SDK|Disponibilidad|
+|Nombre del ejemplo|Description|Versión mínima del SDK|Disponibilidad|
 |---|---|---|---|
 |[Mensajería retransmitida: Azure](http://code.msdn.microsoft.com/Relayed-Messaging-Windows-0d2cede3)|Muestra cómo ejecutar un cliente y un servicio del Bus de servicio en Azure. Este ejemplo configura el Bus de servicio mediante programación. Solo se almacena información de entorno y de seguridad en los archivos de configuración.|1\.8|Bus de servicio de Microsoft Azure|
 |[Autenticación de mensajería retransmitida: secreto compartido](http://code.msdn.microsoft.com/Relayed-Messaging-92b04c02)|Muestra cómo usar un nombre de emisor y el secreto del emisor para autenticar con el Bus de servicio.|1\.8|Bus de servicio de Microsoft Azure|
@@ -104,7 +104,7 @@ Ejemplos que muestran retransmisión del Bus de servicio.
 
 Ejemplos que muestran diversas características de retransmisión del Bus de servicio.
 
-|Nombre del ejemplo|Descripción|Versión mínima del SDK|Disponibilidad|
+|Nombre del ejemplo|Description|Versión mínima del SDK|Disponibilidad|
 |---|---|---|---|
 |[Autenticación de mensajería retransmitida: WebToken simple](http://code.msdn.microsoft.com/Relayed-Messaging-32c74392)|Muestra cómo usar una credencial de token web simple para autenticar con el Bus de servicio. El ejemplo es similar al ejemplo Echo, con algunos cambios. En concreto, este ejemplo agrega un comportamiento en las aplicaciones ServiceHost (servicio) y ChannelFactory (cliente).|1\.8|Bus de servicio de Microsoft Azure|
 |[Mensajería retransmitida: equilibrio de la carga](http://code.msdn.microsoft.com/Relayed-Messaging-Load-bd76a9f8)|Muestra cómo usar el Bus de servicio de Microsoft Azure para redirigir mensajes a varios receptores. Muestra varias instancias de un servicio simple que se comunica con un cliente mediante el enlace **NetTcpRelayBinding**|1\.8|Bus de servicio de Microsoft Azure|
@@ -121,17 +121,17 @@ Ejemplos que muestran diversas características de retransmisión del Bus de ser
 
 Los ejemplos siguientes muestran otras características del servicio.
 
-|Nombre del ejemplo|Descripción|Versión mínima del SDK|Disponibilidad|
+|Nombre del ejemplo|Description|Versión mínima del SDK|Disponibilidad|
 |---|---|---|---|
 |[Explorador del Bus de servicio](http://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)|El Explorador del Bus de servicio permite a los usuarios conectarse a un espacio de nombres del servicio del Bus de servicio y administrar las entidades de mensajería de una forma sencilla. La herramienta ofrece características avanzadas, como la funcionalidad de importación y exportación y la capacidad de probar las entidades de mensajería y servicios de retransmisión.|1\.8|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
 |[Autorización: SBAzTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93)|Este ejemplo muestra cómo crear y administrar las identidades del servicio del Control de acceso de Microsoft Azure Active Directory (también llamado Servicio de control de acceso o ACS) para su uso con el Bus de servicio.|N/D|Bus de servicio de Microsoft Azure|
 
 ## Pasos siguientes
 
-Consulte los siguientes temas para obtener conceptos generales sobre el Bus de servicio.
+Consulte los siguientes temas para obtener conceptos generales sobre Service Bus.
 
-- [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
+- [Introducción a la mensajería del Bus de servicio](../service-bus-messaging/service-bus-messaging-overview.md)
 - [Arquitectura del Bus de servicio](service-bus-architecture.md)
 - [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0928_2016-->

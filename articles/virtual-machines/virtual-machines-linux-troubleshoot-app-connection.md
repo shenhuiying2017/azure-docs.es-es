@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure | Microsoft Azure"
-	description="Si no puede iniciar o utilizar un programa que se ejecuta en una máquina virtual de Azure, siga estos pasos para aislar la causa del problema."
+	pageTitle="Solución de problemas de acceso de aplicaciones en una máquina virtual de Linux | Microsoft Azure"
+	description="Use estos pasos detallados de solución de problemas para aislar problemas de conexión a aplicaciones que se ejecutan en máquinas virtuales Linux en Azure."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -14,12 +14,12 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2016"
+	ms.topic="support-article"
+	ms.date="09/27/2016"
 	ms.author="iainfou"/>
 
-# Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure
+# Solucionar problemas de conectividad de aplicaciones en una máquina virtual de Linux en Azure
 
 [AZURE.INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../includes/virtual-machines-common-troubleshoot-app-connection.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

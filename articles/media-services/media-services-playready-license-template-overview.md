@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Información general de plantillas de licencias de PlayReady de Servicios multimedia" 
-	description="Este tema proporciona información general sobre la plantilla de licencia de PlayReady que se usó para configurar las licencias de PlayReady." 
+	pageTitle="Información general de plantillas de licencias de PlayReady de Media Services" 
+	description="En este tema se ofrece información general sobre la plantilla de licencia de PlayReady que se usó para configurar las licencias de PlayReady." 
 	authors="juliako" 
 	manager="erikre" 
 	editor="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="06/22/2016"  
+ 	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
-#Información general de plantillas de licencias de PlayReady de Servicios multimedia
+#Información general de plantillas de licencias de PlayReady de Media Services
 
 Servicios multimedia de Azure proporciona un servicio para entregar licencias de Microsoft PlayReady. Cuando el reproductor del usuario final (por ejemplo, Silverlight) intenta reproduce el contenido protegido de PlayReady, se envía una solicitud al servicio de entrega de licencias para obtener una licencia. Si el servicio de licencia aprueba la solicitud, emite la licencia, la que se envía al cliente y se puede usar para descifrar y reproducir el contenido especificado.
 
@@ -311,4 +311,4 @@ Para ver un ejemplo de los niveles de protección que admite Silverlight, consul
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,0 +1,220 @@
+<properties
+    pageTitle="Referencia de la API de informes de actividad de inicio de sesión de Azure Active Directory | Microsoft Azure"
+    description="Referencia de la API de informes de actividad de inicio de sesión de Azure Active Directory"
+    services="active-directory"
+    documentationCenter=""
+    authors="dhanyahk"
+    manager="femila"
+    editor=""/>
+
+<tags
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="09/25/2016"
+    ms.author="dhanyahk;markvi"/>
+
+# Referencia de la API de informes de actividad de inicio de sesión de Azure Active Directory
+
+
+Este tema forma parte de una serie de temas sobre la API de informes de Azure Active Directory. La característica de generación de informes de Azure AD proporciona una API que permite acceder a los datos de informes de actividades de inicio de sesión mediante el uso de código o herramientas relacionadas. El objetivo de este tema es ofrecer información de referencia sobre la **API de informes de actividad de inicio de sesión**.
+
+Consulte:
+
+- [Actividades de inicio de sesión](active-directory-reporting-azure-portal.md#sign-in-activities) para obtener más información
+- [Introducción a la API de generación de informes de Azure Active Directory](active-directory-reporting-api-getting-started.md) para obtener más información sobre esta API
+
+Para ver preguntas, problemas o comentarios, póngase en contacto con el equipo de [ayuda de informes de AAD](mailto:aadreportinghelp@microsoft.com).
+
+
+
+## ¿Quién puede acceder a los datos de la API?
+
+- Usuarios de los roles de administrador o lector de seguridad
+
+- Administradores globales
+
+- Cualquier aplicación que tenga autorización para acceder a la API (la autorización de aplicaciones solo puede configurarse según los permisos del administrador global).
+
+
+
+## Requisitos previos
+
+Para acceder a este informe a través de la API de generación de informes, debe cumplir los siguientes requisitos:
+
+- Tener una [edición de Azure Active Directory Premium P1 o P2](active-directory-editions.md)
+
+- Completar los [requisitos previos para acceder a la API de generación de informes de Azure AD](active-directory-reporting-api-prerequisites.md)
+
+
+##Acceso a la API
+
+Puede acceder a esta API a través del [Probador de Graph](https://graphexplorer2.cloudapp.net) o mediante programación con, por ejemplo, PowerShell. Para que PowerShell pueda interpretar correctamente la sintaxis de filtro de OData empleada en las llamadas a la API REST Graph de AAD, debe usar el carácter de acento grave para escapar $. El carácter de acento grave actúa como [carácter de escape de PowerShell](https://technet.microsoft.com/library/hh847755.aspx), de modo que PowerShell puede hacer una interpretación literal del carácter $ y evitar que lo confunda con un nombre de variable de PowerShell (por ejemplo, $filter).
+
+Este tema se centra en el Probador de Graph. Para ver un ejemplo de PowerShell, consulte este [script de PowerShell](active-directory-reporting-api-sign-in-activity-samples.md#powershell-script).
+
+
+## Punto de conexión de API
+
+Puede acceder a esta API con el siguiente URI base:
+	
+	https://graph.windows.net/contoso.com/activities/signinEvents?api-version=beta  
+
+
+
+Debido al volumen de datos, esta API tiene un límite de un millón de registros devueltos.
+
+Esta llamada devuelve los datos en lotes. Cada lote tiene un máximo de 1000 registros. Para obtener el siguiente lote de registros, haga clic en el vínculo Siguiente. Obtenga la información de [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) desde el primer conjunto de registros devueltos. El token de omisión estará al final del conjunto de resultados.
+
+	https://graph.windows.net/$tenantdomain/activities/signinEvents?api-version=beta&%24skiptoken=-1339686058
+
+
+## Filtros admitidos
+
+Puede limitar el número de registros que se devuelven mediante una llamada de API usando un filtro. En lo que respecta a los datos relacionados con las API de inicio de sesión, se admiten los siguientes filtros:
+
+- **$top=<número de registros que se devolverán>**: limita el número de registros devueltos. Se trata de una operación costosa. No debe utilizar este filtro si quiere devolver miles de objetos.
+- **$filter=<declaración del filtro>**: sirve para especificar, en función de los campos de filtro compatibles, el tipo de registros que desea obtener.
+
+
+
+## Operadores y campos de filtro compatibles
+
+Para especificar el tipo de registros que le interesa, puede crear una instrucción de filtro que puede contener uno o una combinación de los campos de filtro siguientes:
+
+- [signinDateTime](#signindatetime): define una fecha o un intervalo de fechas.
+
+- [userId](#userid): define un determinado usuario según su identificador.
+
+- [userPrincipalName](#userprincipalname): define un determinado usuario según el nombre principal del usuario (UPN).
+
+- [appId](#appid): define una determinada aplicación según el identificador de la aplicación.
+
+- [appDisplayName](#appdisplayname): define una determinada aplicación según el nombre para mostrar de la aplicación.
+
+- [loginStatus](#loginStatus): define el estado de los inicios de sesión (success o failure).
+
+
+> [AZURE.NOTE] Al utilizar el Probador de Graph, tenga en cuenta que los campos de filtro distinguen mayúsculas y minúsculas.
+
+
+Para limitar el ámbito de los datos devueltos, puede crear combinaciones de los filtros y campos de filtro disponibles. Por ejemplo, la siguiente instrucción devuelve los 10 principales registros entre el 1 y el 6 de julio de 2016:
+
+	https://graph.windows.net/contoso.com/activities/signinEvents?api-version=beta&$top=10&$filter=signinDateTime+ge+2016-07-01T17:05:21Z+and+signinDateTime+le+2016-07-07T00:00:00Z
+
+
+----------
+
+### signinDateTime
+
+**Operadores compatibles**: eq, ge, le, gt y lt
+
+**Ejemplo**:
+
+Uso de una fecha concreta
+
+	$filter=signinDateTime+eq+2016-04-25T23:59:00Z	
+
+
+
+Uso de un intervalo de fechas
+
+	$filter=signinDateTime+ge+2016-07-01T17:05:21Z+and+signinDateTime+le+2016-07-07T17:05:21Z
+
+
+**Notas**:
+
+El parámetro datetime debe estar en formato UTC
+
+
+----------
+
+### userId
+
+**Operadores compatibles**: eq
+
+**Ejemplo**:
+
+	$filter=userId+eq+’00000000-0000-0000-0000-000000000000’
+
+**Notas**:
+
+El valor de userId es un valor de cadena.
+
+
+
+----------
+
+### userPrincipalName
+
+**Operadores compatibles**: eq
+
+**Ejemplo**:
+
+	$filter=userPrincipalName+eq+'audrey.oliver@wingtiptoysonline.com' 
+
+
+**Notas**:
+
+El valor de userPrincipalName es un valor de cadena.
+
+----------
+
+### appId
+
+**Operadores compatibles**: eq
+
+**Ejemplo**:
+
+	$filter=appId+eq+’00000000-0000-0000-0000-000000000000’
+
+
+
+**Notas**:
+
+El valor de appId es un valor de cadena.
+
+----------
+
+
+### appDisplayName
+
+**Operadores compatibles**: eq
+
+**Ejemplo**:
+
+	$filter=appDisplayName+eq+'Azure+Portal' 
+
+
+**Notas**:
+
+El valor de appDisplayName es un valor de cadena.
+
+----------
+
+### loginStatus
+
+**Operadores compatibles**: eq
+
+**Ejemplo**:
+
+	$filter=loginStatus+eq+'1'  
+
+
+**Notas**:
+
+Hay dos opciones para loginStatus: 0: success; 1: failure
+
+----------
+
+
+
+## Pasos siguientes
+
+- ¿Quiere ver ejemplos de actividades de inicio de sesión filtradas? Consulte [Azure Active Directory sign-in activity report API samples](active-directory-reporting-api-sign-in-activity-samples.md) (Ejemplos de API de informes de actividad de inicio de sesión de Azure Active Directory).
+
+- ¿Quiere obtener más información sobre la API de generación de informes de Azure AD? Consulte [Introducción a la API de informes de Azure Active Directory](active-directory-reporting-api-getting-started.md).
+
+<!---HONumber=AcomDC_0928_2016-->

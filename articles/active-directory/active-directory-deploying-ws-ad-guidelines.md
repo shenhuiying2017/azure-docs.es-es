@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/04/2016"
+   ms.date="09/27/2016"
    ms.author="femila"/>
 
 # Directrices para implementar Windows Server Active Directory en máquinas virtuales de Microsoft Azure
@@ -67,7 +67,7 @@ Conectar de nuevo máquinas virtuales de Azure a una red corporativa local requi
 
 Consulte [Red virtual](http://azure.microsoft.com/documentation/services/virtual-network/) para ver una demostración en vídeo y una lista de tutoriales paso a paso, incluido el de [Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure clásico](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
-> [AZURE.NOTE] También puede implementar Windows Server Active Directory en una red virtual de Azure que no tenga conectividad con una red local. Las instrucciones de este tema, sin embargo, dan por supuesto que se usa una red virtual de Azure ya que esta proporciona funcionalidades de direccionamiento IP que son esenciales para Windows Server.
+> [AZURE.NOTE] También puede implementar Windows Server Active Directory en una red virtual de Azure que no tenga conectividad con una red local. Las instrucciones de este tema, sin embargo, dan por supuesto que se usa una red virtual de Azure, ya que esta proporciona funcionalidades de direccionamiento IP que son esenciales para Windows Server.
 
 ### Las direcciones IP estáticas se deben configurar con Azure PowerShell.
 
@@ -176,7 +176,7 @@ Sin embargo, dado que Azure no proporciona una funcionalidad nativa de firewall 
 
 En este caso, los pasos para implementar AD FS son los siguientes:
 
-1. Crear una [red virtual con conectividad entre locales](../vpn-gateway/vpn-gateway-cross-premises-options.md), mediante una VPN o mediante [ExpressRoute](http://azure.microsoft.com/services/expressroute/).
+1. Crear una red virtual con conectividad entre locales, mediante una VPN o mediante [ExpressRoute](http://azure.microsoft.com/services/expressroute/).
 
 2. Implementar controladores de dominio en la red virtual. Este paso es opcional pero recomendable.
 
@@ -211,7 +211,7 @@ El tráfico hacia los servidores de AD FS se le permite únicamente a través de
 
 > [AZURE.WARNING] El diseño debe impedir que los nodos de proxy de la aplicación web lleguen a otras máquinas virtuales de la red virtual de Azure o a cualquier otra ubicación en la red local. Esto se puede hacer mediante la configuración de reglas de firewall en la aplicación local para las conexiones de Express Route o en el dispositivo VPN para las conexiones VPN de sitio a sitio.
 
-Una desventaja de esta opción es la necesidad de configurar las ACL de red para varios dispositivos, incluidos el equilibrador de carga interno, los servidores de AD FS y cualquier otro servidor que se agregue a la red virtual. Si se agrega cualquier dispositivo a la implementación sin configurar las ACL de red para restringir el tráfico hacia la misma, toda la implementación puede estar en peligro. Si alguna vez cambian las direcciones IP de los nodos de proxy de la aplicación web, se deben restablecer las ACL de red (lo que significa que los proxy se deben configurar para usar [direcciones IP dinámicas estáticas](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/)).
+Una desventaja de esta opción es la necesidad de configurar las ACL de red para varios dispositivos, incluidos el equilibrador de carga interno, los servidores de AD FS y cualquier otro servidor que se agregue a la red virtual. Si se agrega cualquier dispositivo a la implementación sin configurar las ACL de red para restringir el tráfico hacia la misma, toda la implementación puede estar en peligro. Si alguna vez cambian las direcciones IP de los nodos de proxy de aplicación web, se deben restablecer las ACL de red (lo que significa que los proxy se deben configurar para usar [direcciones IP dinámicas estáticas](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/)).
 
 ![ADFS en Azure con ACL de red.](media/active-directory-deploying-ws-ad-guidelines/ADFS_Azure.png)
 
@@ -221,7 +221,7 @@ En este caso, se implementan dos redes virtuales en lugar de una. Las llamaremos
 
 ![ADFS en Azure con firewall.](media/active-directory-deploying-ws-ad-guidelines/ADFS_Azure_firewall.png)
 
-Para más información, consulte [AD FS: expansión de una aplicación front-end local de notificaciones a Internet](#BKMK_CloudOnlyFed).
+Para obtener más información, consulte [AD FS: expansión de una aplicación front-end local de notificaciones a Internet](#BKMK_CloudOnlyFed).
 
 ### Alternativa a la implementación de AD FS si el objetivo es solo el inicio de sesión único para Office 365
 
@@ -275,15 +275,15 @@ La siguiente sección describe los escenarios de implementación comunes para ll
 
 ![Implementación de AD DS solo en la nube](media/active-directory-deploying-ws-ad-guidelines/ADDS_cloud.png) **Ilustración 1**
 
-#### Descripción
+#### Description
 
-SharePoint se implementa en una máquina virtual de Azure y la aplicación no tiene dependencias en recursos de la red corporativa. La aplicación requiere Windows Server AD DS pero *no* corporativo. No son necesarias relaciones de confianza de Kerberos ni federadas ya que los usuarios se aprovisionan automáticamente a través de la aplicación en el dominio de Windows Server AD DS que también se hospeda en la nube en las máquinas virtuales de Azure.
+SharePoint se implementa en una máquina virtual de Azure y la aplicación no tiene dependencias en recursos de la red corporativa. La aplicación requiere Windows Server AD DS, pero *no* la versión corporativa. No son necesarias relaciones de confianza de Kerberos ni federadas ya que los usuarios se aprovisionan automáticamente a través de la aplicación en el dominio de Windows Server AD DS que también se hospeda en la nube en las máquinas virtuales de Azure.
 
 #### Consideraciones sobre el escenario y cómo se aplican las áreas de tecnología al mismo
 
-- [Topología de red](#BKMK_NetworkTopology): cree una red virtual de Azure sin conectividad entre locales (también conocida como conectividad de sitio a sitio).
+- [Topología de red](#BKMK_NetworkTopology): cree una red virtual de Azure sin conectividad entre locales (también conocida como "conectividad de sitio a sitio").
 
-- [Configuración de la implementación del controlador de dominio](#BKMK_DeploymentConfig): implemente un nuevo controlador de dominio en un bosque nuevo, de dominio único y de Windows Server Active Directory. Esto se debe implementar junto con el servidor DNS de Windows.
+- [Configuración de la implementación del controlador de dominio](#BKMK_DeploymentConfig): implemente un nuevo controlador de dominio en un bosque nuevo de Windows Server Active Directory de dominio único. Esto se debe implementar junto con el servidor DNS de Windows.
 
 - [Topología del sitio de Windows Server Active Directory](#BKMK_ADSiteTopology): use el sitio predeterminado de Windows Server Active Directory (todos los equipos estarán en Default-First-Site-Name).
 
@@ -303,7 +303,7 @@ SharePoint se implementa en una máquina virtual de Azure y la aplicación no ti
 
 ![Federación con conectividad entre locales](media/active-directory-deploying-ws-ad-guidelines/Federation_xprem.png) **Ilustración 2**
 
-#### Descripción
+#### Description
 
 Una aplicación de notificaciones que se ha implementado correctamente de forma local, utilizada por usuarios corporativos, y que debe ser accesible directamente desde Internet. La aplicación actúa como un front-end web para una Base de datos SQL en la que almacena los datos. Los servidores de SQL Server utilizados por la aplicación también se encuentran en la red corporativa. Se han implementado dos STS de Windows Server AD FS y un equilibrador de carga de forma local para proporcionar acceso a los usuarios corporativos. Ahora, tanto los socios comerciales mediante sus propias identidades corporativas como los usuarios corporativos ya existentes necesitan acceder adicionalmente a la aplicación directamente a través de Internet.
 
@@ -315,7 +315,7 @@ En un esfuerzo por simplificar y satisfacer las necesidades de implementación y
 
  > [AZURE.NOTE] Para cada uno de los certificados de Windows Server AD FS, asegúrese de que se pueda acceder a la dirección URL definida dentro de la plantilla de certificado y los certificados resultantes a través de las instancias de Windows Server AD FS que se ejecutan en Azure. Esto puede requerir la conectividad entre locales a partes de la infraestructura PKI. Por ejemplo, si el punto de conexión de la CRL está basado en LDAP y se hospeda exclusivamente de forma local, entonces se necesitará conectividad entre locales. Si esto no es conveniente, puede que necesite utilizar certificados emitidos por una entidad de certificación cuya CRL sea accesible a través de Internet.
 
-- [Configuración de servicios en la nube](#BKMK_CloudSvcConfig): asegúrese de que tiene dos servicios en la nube para proporcionar dos direcciones IP virtuales con equilibrio de carga. La primera dirección IP virtual del servicio en la nube se dirigirá a las dos máquinas virtuales de proxy de Windows Server AD FS en los puertos 80 y 443. Las máquinas virtuales de proxy de Windows Server AD FS se configurarán para que señalen a la dirección IP del equilibrador de carga local que se sitúa frente a los STS de Windows Server AD FS. La segunda dirección IP virtual del servicio en la nube se dirigirá a las dos máquinas virtuales que están ejecutando de nuevo el front-end web en los puertos 80 y 443. Configure un sondeo personalizado para asegurarse de que el equilibrador de carga solo dirige tráfico a máquinas virtuales de proxy y front-end web de Windows Server AD FS.
+- [Configuración de servicios en la nube](#BKMK_CloudSvcConfig): asegúrese de que tiene dos servicios en la nube para proporcionar dos direcciones IP virtuales de carga equilibrada. La primera dirección IP virtual del servicio en la nube se dirigirá a las dos máquinas virtuales de proxy de Windows Server AD FS en los puertos 80 y 443. Las máquinas virtuales de proxy de Windows Server AD FS se configurarán para que señalen a la dirección IP del equilibrador de carga local que se sitúa frente a los STS de Windows Server AD FS. La segunda dirección IP virtual del servicio en la nube se dirigirá a las dos máquinas virtuales que están ejecutando de nuevo el front-end web en los puertos 80 y 443. Configure un sondeo personalizado para asegurarse de que el equilibrador de carga solo dirige tráfico a máquinas virtuales de proxy y front-end web de Windows Server AD FS.
 
 - [Configuración del servidor de federación](#BKMK_FedSrvConfig): configure Windows Server AD FS como un servidor de federación (STS) para generar tokens de seguridad para el bosque de Windows Server Active Directory creado en la nube. Establezca relaciones federadas de confianza de proveedor de notificaciones con los distintos asociados de los que desea aceptar identidades y configure relaciones con usuarios de confianza con las distintas aplicaciones para las que desea generar tokens.
 
@@ -323,14 +323,14 @@ En un esfuerzo por simplificar y satisfacer las necesidades de implementación y
 
 - [Configuración de alta disponibilidad de Windows Server AD FS](#BKMK_ADFSHighAvail): es conveniente implementar una granja de Windows Server AD FS con al menos dos servidores para la conmutación por error y el equilibrio de carga. Podría considerar usar Windows Internal Database (WID) para los datos de configuración de Windows Server AD FS y utilizar la funcionalidad de equilibrio de carga interno de Azure para distribuir las solicitudes entrantes entre los servidores de la granja.
 
-Para más información, consulte la [Guía de implementación de AD DS](https://technet.microsoft.com/library/cc753963).
+Para obtener más información, consulte la [guía de implementación de AD DS](https://technet.microsoft.com/library/cc753963).
 
 
 ### <a name="BKMK_HybridExt"></a>3. AD DS: Implementación de una aplicación compatible con Windows Server AD DS que requiere conectividad a la red corporativa
 
 ![Implementación de AD DS entre locales](media/active-directory-deploying-ws-ad-guidelines/ADDS_xprem.png) **Ilustración 3**
 
-#### Descripción
+#### Description
 
 Una aplicación compatible con LDAP se implementa en una máquina virtual de Azure. Admite la autenticación integrada de Windows y usa Windows Server AD DS como repositorio para los datos de configuración y de perfil de usuario. El objetivo para la aplicación es aprovechar la aplicación Windows Server AD DS corporativa ya existente y proporcionar un inicio de sesión único. La aplicación no es compatible con notificaciones. Los usuarios también necesitan tener acceso a la aplicación directamente desde Internet. Para optimizar el rendimiento y el costo, se decide que dos controladores de dominio adicionales que forman parte del dominio corporativo se implementen junto con la aplicación en Azure.
 
@@ -350,7 +350,7 @@ Una aplicación compatible con LDAP se implementa en una máquina virtual de Azu
 
 - [Controladores de dominio distribuidos geográficamente](#BKMK_DistributedDCs): configure tantas redes virtuales adicionales como sea necesario. Si la topología de sitio de Active Directory requiere controladores de dominio en ubicaciones geográficas que se corresponden con regiones de Azure, es recomendable crear sitios de Active Directory según corresponda.
 
-- [Controladores de dominio de solo lectura](#BKMK_RODC): puede implementar un RODC en el sitio de Azure, dependiendo de los requisitos para realizar operaciones de escritura en el controlador de dominio y la compatibilidad de las aplicaciones y servicios del sitio con los RODC. Para más información acerca de la compatibilidad de aplicaciones, consulte la guía sobre [Compatibilidad de aplicaciones con controladores de dominio de solo lectura](https://technet.microsoft.com/library/cc755190).
+- [Controladores de dominio de solo lectura](#BKMK_RODC): puede implementar un RODC en el sitio de Azure, dependiendo de los requisitos que se establezcan para realizar operaciones de escritura en el controlador de dominio y la compatibilidad de las aplicaciones y servicios del sitio con los RODC. Para obtener más información acerca de la compatibilidad de aplicaciones, consulte la [guía sobre compatibilidad de aplicaciones con controladores de dominio de solo lectura](https://technet.microsoft.com/library/cc755190).
 
 - [Catálogo global](#BKMK_GC): se necesitan catálogos globales para atender las solicitudes de inicio de sesión en los bosques con varios dominios. Si no implementa un catálogo global en el sitio de Azure, incurrirá en costos de tráfico de salida ya que las solicitudes de autenticación generan catálogos globales de consultas en otros sitios. Para minimizar ese tráfico, puede habilitar el almacenamiento en caché de pertenencia al grupo universal para el sitio de Azure en Sitios y servicios de Active Directory.
 
@@ -369,35 +369,35 @@ Por ejemplo, si implementa un controlador de dominio de réplica en una red virt
 | Área de tecnología en Windows Server Active Directory | Decisiones | Factores |
 | ---- | ---- | ---- |
 | [Topología de red](#BKMK_NetworkTopology) | ¿Crear una red virtual? | <li>Requisitos de acceso a recursos corporativos</li> <li>Autenticación</li> <li>Administración de cuentas</li> |
-| [Configuración de la implementación del controlador de dominio](#BKMK_DeploymentConfig) | <li>¿Implementar un bosque independiente sin ninguna relación de confianza?</li> <li>¿Implementar un nuevo bosque con federación?</li> <li>¿Implementar un nuevo bosque con confianza de bosque de Windows Server Active Directory o Kerberos?</li> <li>¿Extender el bosque corporativo implementando un controlador de dominio de réplica?</li> <li>¿Extender el bosque corporativo implementando un nuevo dominio secundario o árbol de dominios?</li> | <li>Seguridad</li> <li>Cumplimiento</li> <li>Costo</li> <li>Resistencia y tolerancia a errores</li> <li>Compatibilidad entre aplicaciones</li> |
-| [Topología del sitio en Windows Server Active Directory](#BKMK_ADSiteTopology) | ¿Cómo configurar subredes, sitios y vínculos de sitio con Red virtual de Azure para optimizar el tráfico y minimizar los costos? | <li>Definiciones de sitio y de subred</li> <li>Notificación de cambios y propiedades de vínculo de sitio</li> <li>Compresión de replicación</li> |
-| [Direccionamiento IP y DNS](#BKMK_IPAddressDNS) | ¿Cómo configurar la resolución de nombres y direcciones IP? | <li>Use el cmdlet Set-AzureStaticVNetIP para asignar una dirección IP estática</li> <li>Instale el servidor DNS de Windows Server y configure las propiedades de la red virtual con el nombre y la dirección IP de la máquina virtual que hospeda los roles de controlador de dominio y servidor DNS</li> |
-| [Controladores de dominio distribuidos geográficamente](#BKMK_DistributedDCs) | ¿Cómo replicar en controladores de dominio de redes virtuales independientes? | Si la topología de sitio de Active Directory requiere controladores de dominio en ubicaciones geográficas que se corresponden con regiones de Azure, es recomendable crear sitios de Active Directory según corresponda. [Configure una conexión de red virtual a red virtual](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) para replicar entre controladores de dominio de redes virtuales independientes. |
+| [Configuración de la implementación del controlador de dominio](#BKMK_DeploymentConfig) | <li>¿Implementar un bosque independiente sin ninguna relación de confianza?</li> <li>¿Implementar un nuevo bosque con federación?</li> <li>¿Implementar un nuevo bosque con confianza de bosque de Windows Server Active Directory o Kerberos?</li> <li>¿Extender el bosque corporativo implementando un controlador de dominio de réplica?</li> <li>¿Extender el bosque corporativo implementando un nuevo dominio secundario o árbol de dominios?</li> | <li>Seguridad</li> <li>Cumplimiento</li> <li>Costo</li> <li>Resistencia y tolerancia a errores</li> <li>Compatibilidad de aplicaciones</li> |
+| [Topología del sitio en Windows Server Active Directory](#BKMK_ADSiteTopology) | ¿Cómo configurar subredes, sitios y vínculos de sitio con Red virtual de Azure para optimizar el tráfico y minimizar los costos? | <li>Definiciones de sitio y de subred</li> <li>Notificación de cambios y propiedades de vínculo de sitios</li> <li>Compresión de replicación</li> |
+| [Direccionamiento IP y DNS](#BKMK_IPAddressDNS) | ¿Cómo configurar la resolución de nombres y direcciones IP? | <li>Use el cmdlet Set-AzureStaticVNetIP para asignar una dirección IP estática.</li> <li>Instale el servidor DNS de Windows Server y configure las propiedades de la red virtual con el nombre y la dirección IP de la máquina virtual que hospeda los roles de controlador de dominio y servidor DNS.</li> |
+| [Controladores de dominio distribuidos geográficamente](#BKMK_DistributedDCs) | ¿Cómo replicar en controladores de dominio de redes virtuales independientes? | Si la topología de sitio de Active Directory requiere controladores de dominio en ubicaciones geográficas que se corresponden con regiones de Azure, es recomendable crear sitios de Active Directory según corresponda. [Configure una conexión de red virtual a red virtual](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) para efectuar la replicación entre controladores de dominio de redes virtuales independientes. |
 | [Controladores de dominio de solo lectura](#BKMK_RODC) | ¿Usar controladores de dominio de solo lectura o de escritura? | <li>Filtrar atributos HBI/PII</li> <li>Filtrar secretos</li> <li>Limitar el tráfico saliente</li> |
-| [Catálogo global](#BKMK_GC) | ¿Instalar un catálogo global? | <li>Para un bosque de dominio único, convierta todos los controladores de dominio en catálogos globales </li> <li>Para un bosque con varios dominios, los catálogos globales son necesarios para la autenticación</li> |
-| [Método de instalación](#BKMK_InstallMethod) | ¿Cómo instalar el controlador de dominio en Azure? | Opciones: <li>Instale AD DS mediante Windows PowerShell o Dcpromo</li> <li>Mueva el VHD de un controlador de dominio virtual local</li> |
-| [Selección de ubicación de la base de datos y SYSVOL de Windows Server AD DS](#BKMK_PlaceDB) | ¿Dónde almacenar la base de datos, los registros y SYSVOL de Windows Server AD DS? | Cambie los valores predeterminados de Dcpromo.exe. Estos archivos críticos de Active Directory *deben* colocarse en discos de datos de Azure en lugar de discos del sistema operativo que implementan almacenamiento en caché de escritura. |
+| [Catálogo global](#BKMK_GC) | ¿Instalar un catálogo global? | <li>Para un bosque de dominio único, convierta todos los controladores de dominio en catálogos globales. </li> <li>Para un bosque con varios dominios, los catálogos globales son necesarios para la autenticación.</li> |
+| [Método de instalación](#BKMK_InstallMethod) | ¿Cómo instalar el controlador de dominio en Azure? | Opciones: <li>Instale AD DS mediante Windows PowerShell o Dcpromo.</li> <li>Mueva el VHD de un controlador de dominio virtual local.</li> |
+| [Selección de ubicación de la base de datos y SYSVOL de Windows Server AD DS](#BKMK_PlaceDB) | ¿Dónde almacenar la base de datos, los registros y SYSVOL de Windows Server AD DS? | Cambie los valores predeterminados de Dcpromo.exe. Estos archivos críticos de Active Directory *deben* colocarse en discos de datos de Azure en lugar de en discos del sistema operativo que implementan almacenamiento en caché de escritura. |
 | [Copia de seguridad y restauración](#BKMK_BUR) | ¿Cómo proteger y recuperar datos? | Creación de copias de seguridad del estado del sistema |
-| [Configuración del servidor de federación](#BKMK_FedSrvConfig) | <li>¿Implementar un nuevo bosque con federación en la nube?</li> <li>¿Implementar AD FS local y exponer un proxy en la nube?</li> | <li>Seguridad</li> <li>Cumplimiento</li> <li>Costo</li> <li>Acceso a las aplicaciones por parte de socios comerciales</li> |
-| [Configuración de servicios en la nube](#BKMK_CloudSvcConfig) | Un servicio en la nube se implementa de forma implícita la primera vez que crea una máquina virtual. ¿Necesita implementar servicios en la nube adicionales? | <li>¿Requiere una o varias máquinas virtuales exposición directa a Internet?</li> <li> ¿Necesita el servicio equilibrio de carga?</li> |
-| [Requisitos del servidor de federación para el direccionamiento IP público y privado (IP dinámica frente a IP virtual)](#BKMK_FedReqVIPDIP) | <li>¿Necesita la instancia de Windows Server AD FS ser accesible directamente desde Internet?</li> <li>¿Necesita la aplicación que se va a implementar en la nube su propia dirección IP y puerto accesibles a través de Internet?</li> | Creación de un servicio en la nube para cada dirección IP virtual que necesite la implementación |
-| [Configuración de alta disponibilidad de Windows Server AD FS](#BKMK_ADFSHighAvail) | <li>¿Cuántos nodos debe tener la granja de servidores de Windows Server AD FS?</li> <li>¿Cuántos nodos se deben implementar en la granja proxy de Windows Server AD FS?</li> | Resistencia y tolerancia a errores |
+| [Configuración del servidor de federación](#BKMK_FedSrvConfig) | <li>¿Implementar un nuevo bosque con federación en la nube?</li> <li>¿Implementar AD FS local y exponer un proxy en la nube?</li> | <li>Seguridad</li> <li>Cumplimiento</li> <li>Costo</li> <li>Acceso a las aplicaciones por parte de asociados comerciales</li> |
+| [Configuración de servicios en la nube](#BKMK_CloudSvcConfig) | Un servicio en la nube se implementa de forma implícita la primera vez que crea una máquina virtual. ¿Necesita implementar servicios en la nube adicionales? | <li>¿Una o varias máquinas virtuales requieren exposición directa a Internet?</li> <li> ¿El servicio necesita equilibrio de carga?</li> |
+| [Requisitos del servidor de federación para el direccionamiento IP público y privado (IP dinámica frente a IP virtual)](#BKMK_FedReqVIPDIP) | <li>¿Necesita la instancia de Windows Server AD FS ser accesible directamente desde Internet?</li> <li>¿Necesita la aplicación que se va a implementar en la nube su propia dirección IP y puerto accesibles desde Internet?</li> | Creación de un servicio en la nube para cada dirección IP virtual que necesite la implementación |
+| [Configuración de alta disponibilidad de Windows Server AD FS](#BKMK_ADFSHighAvail) | <li>¿Cuántos nodos debe tener la granja de servidores de Windows Server AD FS?</li> <li>¿Cuántos nodos se deben implementar en la granja de servidores proxy de Windows Server AD FS?</li> | Resistencia y tolerancia a errores |
 
 ### <a name="BKMK_NetworkTopology"></a>Topología de red
 
 Para cumplir con los requisitos de coherencia de direcciones IP y de DNS de Windows Server AD DS, es necesario crear primero una [red virtual de Azure](../virtual-network/virtual-networks-overview.md) y conectar las máquinas virtuales a ella. Durante su creación, debe decidir si desea ampliar la conectividad a la red corporativa local, que conecta de forma transparente máquinas virtuales de Azure a máquinas locales. Esto se logra mediante tecnologías tradicionales de VPN y requiere exponer un punto de conexión de VPN en el borde de la red corporativa. Es decir, la VPN se inicia desde Azure a la red corporativa, no a la inversa.
 
-Tenga en cuenta que se aplican cargos adicionales al extender una red virtual a la red local además de los cargos estándar que se aplican a cada máquina virtual. En concreto, se aplican cargos para el tiempo de CPU de la puerta de enlace de la Red virtual de Azure y para el tráfico de salida generado por cada máquina virtual que se comunica con máquinas locales a través de la VPN. Para más información acerca de los gastos por tráfico de red, consulte [Precios de Azure](http://azure.microsoft.com/pricing/).
+Tenga en cuenta que se aplican cargos adicionales al extender una red virtual a la red local además de los cargos estándar que se aplican a cada máquina virtual. En concreto, se aplican cargos para el tiempo de CPU de la puerta de enlace de la Red virtual de Azure y para el tráfico de salida generado por cada máquina virtual que se comunica con máquinas locales a través de la VPN. Para obtener más información acerca de los gastos por tráfico de red, consulte [Precios de Azure](http://azure.microsoft.com/pricing/).
 
 ### <a name="BKMK_DeploymentConfig"></a>Configuración de la implementación del controlador de dominio
 
 La forma de configurar el controlador de dominio depende de los requisitos del servicio que desee ejecutar en Azure. Por ejemplo, podría implementar un nuevo bosque, aislado de su propio bosque corporativo, para comprobar una prueba de concepto, una nueva aplicación o algún otro proyecto a corto plazo que requiera servicios de directorio pero no acceso específico a recursos internos corporativos.
 
-Como ventaja, un controlador de dominio de bosque aislado no se replica en controladores de dominio locales, lo cual resulta en menos tráfico de red de salida generado por el propio sistema, reduciendo así directamente los costos. Para más información acerca de los gastos por tráfico de red, consulte [Precios de Azure](http://azure.microsoft.com/pricing/).
+Como ventaja, un controlador de dominio de bosque aislado no se replica en controladores de dominio locales, lo cual resulta en menos tráfico de red de salida generado por el propio sistema, reduciendo así directamente los costos. Para obtener más información acerca de los gastos por tráfico de red, consulte [Precios de Azure](http://azure.microsoft.com/pricing/).
 
 Otro ejemplo. Supongamos que tiene requisitos de privacidad para un servicio, pero el servicio depende del acceso a su Windows Server Active Directory interno. Si se le permite hospedar datos para el servicio en la nube, podría implementar un nuevo dominio secundario en el bosque interno en Azure. En este caso, puede implementar un controlador de dominio para el nuevo dominio secundario (sin el catálogo global para ayudar a solucionar problemas de privacidad). Este escenario, junto con una implementación de controlador de dominio de réplica, requiere una red virtual para la conectividad con los controladores de dominio locales.
 
-Si crea un nuevo bosque, elija si desea usar [confianzas de Active Directory](https://technet.microsoft.com/library/cc771397) o [confianzas de federación](https://technet.microsoft.com/library/dd807036). Equilibre los requisitos según los criterios de compatibilidad, seguridad, cumplimiento, costo y resistencia. Por ejemplo, para aprovechar las ventajas de la [autenticación selectiva](https://technet.microsoft.com/library/cc755844) puede implementar un nuevo bosque en Azure y crear una relación de confianza de Windows Server Active Directory entre los bosques locales y el bosque de la nube. Sin embargo, si la aplicación es compatible con notificaciones, puede implementar confianzas de federación en lugar de confianzas de bosque de Active Directory. Otro factor será el costo por replicar más datos extendiendo Windows Server Active Directory local a la nube o por generar más tráfico de salida como resultado de la carga de autenticación y consultas.
+Si crea un nuevo bosque, elija si desea usar [confianzas de Active Directory](https://technet.microsoft.com/library/cc771397) o [confianzas de federación](https://technet.microsoft.com/library/dd807036). Equilibre los requisitos según los criterios de compatibilidad, seguridad, cumplimiento, costo y resistencia. Por ejemplo, para aprovechar las ventajas de la [autenticación selectiva](https://technet.microsoft.com/library/cc755844), puede optar por implementar un nuevo bosque en Azure y crear una relación de confianza de Windows Server Active Directory entre el bosque local y el de la nube. Sin embargo, si la aplicación es compatible con notificaciones, puede implementar confianzas de federación en lugar de confianzas de bosque de Active Directory. Otro factor será el costo por replicar más datos extendiendo Windows Server Active Directory local a la nube o por generar más tráfico de salida como resultado de la carga de autenticación y consultas.
 
 Los requisitos de disponibilidad y tolerancia a errores también influyen en su elección. Por ejemplo, si se interrumpe el vínculo, aquellas aplicaciones que aprovechan una confianza de Kerberos o una de federación probablemente dejen de funcionar a no ser que haya implementado una infraestructura suficiente en Azure. Las configuraciones de implementación alternativas como las de controladores de dominio de réplica (grabable o RODC) aumentan la probabilidad de que puedan tolerar interrupciones del vínculo.
 
@@ -417,14 +417,14 @@ Debe definir correctamente los sitios y los vínculos de sitios para optimizar e
 
  - Si usa varias redes virtuales, configure los vínculos de sitios y sus costos correctamente para evitar que Windows Server AD DS dé prioridad al sitio de Azure sobre uno que puede proporcionar los mismos niveles de servicio de forma gratuita. También puede deshabilitar la opción Enlazar todos los vínculos de sitios (BASL) (que está habilitada de forma predeterminada). Esto garantiza que solo sitios con conexión directa se replican entre sí. Los controladores de dominio en sitios conectados de forma transitiva ya no se pueden replicar directamente entre sí, sino que se deben replicar a través de sitios comunes. Si los sitios intermedios no están disponibles por algún motivo, no se producirá la replicación entre controladores de dominio en sitios conectados de forma transitiva incluso aunque haya conectividad disponible entre los sitios. Por último, en las secciones en las que aún se desee un comportamiento de replicación transitivo, cree puentes de vínculos de sitios que contengan los sitios y vínculos de sitios adecuados, como los sitios locales o los de la red corporativa.
 
- - [Configure los costos del vínculo de sitio](https://technet.microsoft.com/library/cc794882) adecuadamente para evitar el tráfico no intencionado. Por ejemplo, si la opción **Intentar siguiente sitio más cercano** está habilitada, asegúrese de que los sitios de red virtual no sean los siguientes sitios más cercanos mediante el aumento del costo asociado del objeto de vínculo de sitio que conecta el sitio de Azure a la red corporativa.
+ - [Configure los costos del vínculo de sitio](https://technet.microsoft.com/library/cc794882) adecuadamente para evitar el tráfico no intencionado. Por ejemplo, si la opción **Intentar siguiente sitio más cercano** está habilitada, asegúrese de que los sitios de red virtual no sean los siguientes sitios más cercanos mediante el aumento del costo asociado del objeto de vínculo de sitio que vuelve a conectar el sitio de Azure a la red corporativa.
 
  - Configure los [intervalos](https://technet.microsoft.com/library/cc794878) y las [programaciones](https://technet.microsoft.com/library/cc816906) de vínculos de sitios según los requisitos de coherencia y la tasa de cambios de objeto. Alinee la programación de replicación con la tolerancia de latencia. Los controladores de dominio replican solo el último estado de un valor, por lo que disminuir el intervalo de replicación puede ahorrar costos si hay una frecuencia de cambio de objetos suficiente.
 
 - Si la reducción de costos es una prioridad, asegúrese de que se programa la replicación y que no está habilitada la notificación de cambios. Esta es la configuración predeterminada cuando se replica entre sitios. Esto no es importante si va a implementar un RODC en una red virtual ya que el RODC no replicará ningún cambio de salida. Pero si implementa un controlador de dominio de escritura, debe asegurarse de que no esté configurado el vínculo de sitio para replicar actualizaciones con una frecuencia innecesaria. Si implementa un servidor de catálogo global (GC), asegúrese de que todos los sitios que contienen un catálogo global replican las particiones de dominio desde un controlador de dominio de origen en un sitio que está conectado con uno o varios vínculos de sitios que tienen un costo menor que el del catálogo global del sitio de Azure.
 
 
-- Es posible reducir aún más el tráfico de red generado por la replicación entre sitios mediante el cambio del algoritmo de compresión de replicación. El algoritmo de compresión se controla mediante la entrada de registro REG\_DWORD HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\NTDS\\Parameters\\Replicator compression algorithm. El valor predeterminado es 3, que corresponde al algoritmo de compresión Xpress. Puede cambiar el valor a 2, lo cual cambia el algoritmo a MSZip. En la mayoría de los casos, esto aumentará la compresión, pero a costa de la utilización de la CPU. Para más información, consulte [How Active Directory replication topology works (Funcionamiento de la topología de replicación de Active Directory)](https://technet.microsoft.com/library/cc755994).
+- Es posible reducir aún más el tráfico de red generado por la replicación entre sitios mediante el cambio del algoritmo de compresión de replicación. El algoritmo de compresión se controla mediante la entrada de registro REG\_DWORD HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\NTDS\\Parameters\\Replicator compression algorithm. El valor predeterminado es 3, que corresponde al algoritmo de compresión Xpress. Puede cambiar el valor a 2, lo cual cambia el algoritmo a MSZip. En la mayoría de los casos, esto aumentará la compresión, pero a costa de la utilización de la CPU. Para obtener más información, consulte [How Active Directory replication topology works](https://technet.microsoft.com/library/cc755994) (Funcionamiento de la topología de replicación de Active Directory).
 
 ### <a name="BKMK_IPAddressDNS"></a>Direccionamiento IP y DNS
 
@@ -440,7 +440,7 @@ Para la resolución de nombres, implemente su propia infraestructura de servidor
 
 Las máquinas virtuales registran su nombre DNS automáticamente al iniciarse o cuando hay un cambio de nombre.
 
-Para más información acerca de este ejemplo y otro ejemplo que muestra cómo aprovisionar la primera máquina virtual e instalar AD DS en ella, consulte [Instalación de un bosque nuevo de Active Directory en una red virtual de Azure](active-directory-new-forest-virtual-machine.md). Para más información acerca del uso de Windows PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) y [Azure Management Cmdlets (Cmdlets de administración de Azure)](https://msdn.microsoft.com/library/azure/jj152841).
+Para obtener más información acerca de este ejemplo y otro ejemplo que muestra cómo aprovisionar la primera máquina virtual e instalar AD DS en ella, consulte [Instalación de un bosque nuevo de Active Directory en una red virtual de Azure](active-directory-new-forest-virtual-machine.md). Si desea conocer más detalles sobre el uso de Windows PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) y [Azure Management Cmdlets](https://msdn.microsoft.com/library/azure/jj152841) (Cmdlets de administración de Azure).
 
 ### <a name="BKMK_DistributedDCs"></a>Controladores de dominio distribuidos geográficamente
 
@@ -450,7 +450,7 @@ Azure ofrece diversas ventajas cuando se hospedan varios controladores de domini
 
 - Proximidad física a sucursales (menor latencia)
 
-Para más información acerca de cómo configurar la comunicación directa entre redes virtuales, consulte [Configurar una conexión de red virtual a red virtual en el Portal de Azure clásico](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+Para obtener más información acerca de cómo configurar la comunicación directa entre redes virtuales, consulte [Configuración de una conexión de red virtual a red virtual para el modelo de implementación clásico](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 ### <a name="BKMK_RODC"></a>Controladores de dominio de solo lectura
 
@@ -460,7 +460,7 @@ Azure no presenta el riesgo de la seguridad física de una sucursal, pero los RO
 
 Los RODC proporcionan una ventaja adicional en relación con los datos de alto impacto de negocio (HBI) y los de información de identificación personal (PII) porque se pueden agregar atributos que contengan datos confidenciales al conjunto de atributos filtrados (FAS) de RODC. Este conjunto es un conjunto personalizable de atributos que no se replican en los RODC. Puede utilizar este conjunto como medida de seguridad en caso de que no se le permita o no desee almacenar datos de alto impacto de negocio o información de identificación personal en Azure. Para más información, consulte [RODC filtered attribute set (Conjunto de atributos filtrados de RODC) en [(https://technet.microsoft.com/library/cc753459)]
 
-Asegúrese de que las aplicaciones sean compatibles con los RODC que planea utilizar. Muchas aplicaciones habilitadas para Windows Server Active Directory funcionan bien con los RODC, pero algunas de ellas pueden realizar su función de forma ineficaz o se pueden producir errores si no tiene acceso a un controlador de dominio de escritura. Para más información, consulte la guía [Compatibilidad de aplicaciones con controladores de dominio de solo lectura](https://technet.microsoft.com/library/cc755190).
+Asegúrese de que las aplicaciones sean compatibles con los RODC que planea utilizar. Muchas aplicaciones habilitadas para Windows Server Active Directory funcionan bien con los RODC, pero algunas de ellas pueden realizar su función de forma ineficaz o se pueden producir errores si no tiene acceso a un controlador de dominio de escritura. Para obtener más información, consulte la [guía de compatibilidad de aplicaciones con controladores de dominio de solo lectura](https://technet.microsoft.com/library/cc755190).
 
 ### <a name="BKMK_GC"></a>Catálogo global
 
@@ -474,7 +474,7 @@ Los costos asociados con los catálogos globales son menos predecibles porque ho
 
 Debe elegir cómo instalar los controladores de dominio en la red virtual:
 
-- Promoción de nuevos controladores de dominio. Para más información, consulte [Instalación de un bosque de Active Directory nuevo en una red virtual de Azure](active-directory-new-forest-virtual-machine.md).
+- Promoción de nuevos controladores de dominio. Para obtener más información, consulte [Instalación de un bosque nuevo de Active Directory en una red virtual de Azure](active-directory-new-forest-virtual-machine.md).
 
 - Traslado del VHD de un controlador de dominio virtual local a la nube. En este caso, debe asegurarse de que el controlador de dominio virtual local se "mueva" y no se "copie" o "clone" simplemente.
 
@@ -500,7 +500,7 @@ Como procedimiento recomendado para controladores de dominio virtuales, realice 
 
 ### <a name="BKMK_BUR"></a>Copia de seguridad y restauración
 
-Tenga en cuenta lo que es compatible y lo que no a la hora de realizar una copia de seguridad y restauración de un controlador de dominio en general y, más concretamente, de aquellos que se ejecutan en una máquina virtual. Consulte la sección [Consideraciones relacionadas con la copia de seguridad y la restauración para controladores de dominio virtualizados](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv#backup_and_restore_considerations_for_virtualized_domain_controllers).
+Tenga en cuenta lo que es compatible y lo que no a la hora de realizar una copia de seguridad y restauración de un controlador de dominio en general y, más concretamente, de aquellos que se ejecutan en una máquina virtual. Consulte la sección de [consideraciones relacionadas con la copia de seguridad y la restauración para controladores de dominio virtualizados](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv#backup_and_restore_considerations_for_virtualized_domain_controllers).
 
 Cree copias de seguridad del estado del sistema solo mediante software que sea compatible específicamente con los requisitos de copia de seguridad para Windows Server AD DS como, por ejemplo, Copias de seguridad de Windows Server.
 
@@ -548,7 +548,7 @@ Los servicios en la nube son necesarios si desea exponer una máquina virtual di
 
 Cada máquina virtual de Azure recibe una dirección IP dinámica. Una dirección IP dinámica es una dirección privada accesible únicamente desde dentro de Azure. En la mayoría de los casos, sin embargo, será necesario configurar una dirección IP virtual para las implementaciones de Windows Server AD FS. La dirección IP virtual es necesaria para exponer los puntos de conexión de Windows Server AD FS a Internet y la utilizarán los socios y clientes federados para la autenticación y la administración continua. Una dirección IP virtual es una propiedad de un servicio en la nube que contiene una o más máquinas virtuales de Azure. Si las aplicaciones compatibles con notificaciones implementadas en Azure y en Windows Server AD FS son accesibles desde Internet y comparten puertos comunes, cada una necesitará una dirección IP virtual propia y, por tanto, será necesario crear un servicio en la nube para la aplicación y otro para Windows Server AD FS.
 
-Para obtener definiciones de los términos dirección IP virtual y dirección IP dinámica, consulte la sección [Términos y definiciones](#BKMK_Glossary).
+Para obtener definiciones de los términos "dirección IP virtual" y "dirección IP dinámica", consulte la sección [Términos y definiciones](#BKMK_Glossary).
 
 ### <a name="BKMK_ADFSHighAvail"></a>Configuración de alta disponibilidad de Windows Server AD FS
 
@@ -556,6 +556,6 @@ Aunque es posible implementar servicios de federación de Windows Server AD FS i
 
 Consulte [Consideraciones sobre la topología de implementación de AD FS](https://technet.microsoft.com/library/gg982489) en la [Guía de diseño de AD FS en Windows Server 2012](https://technet.microsoft.com/library/dd807036) para decidir qué opciones de configuración de implementación satisfacen mejor sus necesidades específicas.
 
-> [AZURE.NOTE] Para obtener el equilibrio de carga de los puntos de conexión de Windows Server AD FS en Azure, configure todos los miembros de la granja de Windows Server AD FS en el mismo servicio en la nube y utilice la funcionalidad de equilibrio de carga de Azure para los puertos HTTP (el 80 de forma predeterminada) y HTTPS (el 443 de forma predeterminada). Para más información, consulte [Azure load-balancer probe (Sondeo de equilibrador de carga de Azure)](https://msdn.microsoft.com/library/azure/jj151530). No se admite el equilibrio de carga de red (NLB) de Windows Server en Azure.
+> [AZURE.NOTE] Para obtener el equilibrio de carga de los puntos de conexión de Windows Server AD FS en Azure, configure todos los miembros de la granja de Windows Server AD FS en el mismo servicio en la nube y utilice la funcionalidad de equilibrio de carga de Azure para los puertos HTTP (el 80 de forma predeterminada) y HTTPS (el 443 de forma predeterminada). Para obtener más información, consulte [Azure load-balancer probe](https://msdn.microsoft.com/library/azure/jj151530) (Sondeo de equilibrador de carga de Azure). No se admite el equilibrio de carga de red (NLB) de Windows Server en Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0928_2016-->

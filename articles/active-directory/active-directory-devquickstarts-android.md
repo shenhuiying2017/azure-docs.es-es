@@ -32,6 +32,8 @@ Para los clientes de Android que necesitan tener acceso a recursos protegidos, A
 
 Para comenzar, necesitará a un inquilino de Azure AD en el que pueda crear usuarios y registrar una aplicación. Si aún no tiene un inquilino, [descubra cómo conseguir uno](active-directory-howto-tenant.md).
 
+> [AZURE.TIP] Pruebe la versión preliminar de nuestro nuevo [portal para desarrolladores](https://identity.microsoft.com/Docs/Android), que lo ayudará a empezar a trabajar con Azure Active Directory en tan solo unos minutos. El portal para desarrolladores lo guiará a través del proceso de registro de una aplicación y de integración de Azure AD en el código. Cuando haya terminado, tendrá una aplicación sencilla que podrá autenticar a los usuarios del inquilino, así como un back-end con capacidad para aceptar tokens y realizar validaciones.
+
 ## Paso 1: descargue y ejecute el servidor de ejemplos TODO de la API de REST de Node.js
 
 Este ejemplo está escrito específicamente para que funcione con nuestro ejemplo existente para crear una API de REST To-Do de un solo inquilino para Microsoft Azure Active Directory. Se trata de un requisito previo para el Inicio rápido.
@@ -288,9 +290,9 @@ Puede llamar a **acquireTokenSilent** para controlar el almacenamiento en caché
 
  El manifiesto de aplicación debe tener permisos para usar cuentas del administrador de cuentas: http://developer.android.com/reference/android/accounts/AccountManager.html
 
- * GET_ACCOUNTS
- * USE_CREDENTIALS
- * MANAGE_ACCOUNTS
+ * GET\_ACCOUNTS
+ * USE\_CREDENTIALS
+ * MANAGE\_ACCOUNTS
 
 
 Con procedimiento, debe contar con todo lo necesario para lograr una integración correcta con Azure Active Directory. Para obtener más ejemplos de este trabajo, visite el repositorio AzureADSamples/ en GitHub.
@@ -386,7 +388,7 @@ private syncronized void writeToLogFile(Context ctx, String msg) {
 + Info (información)
 + Verbose (más detalles)
 
-El nivel de registro se define de la siguiente forma:
+El nivel de registro se define de la siguiente forma: 
 ```Java
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
@@ -397,7 +399,7 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
   adb logcat > "C:\logmsg\logfile.txt"
  ```
- Más ejemplos sobre comandos adb: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+Más ejemplos sobre comandos adb: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### Seguimiento de red
 
@@ -422,14 +424,14 @@ La clase AuthenticationParameters proporciona funcionalidad para obtener el auth
 
 ### Cookies de sesión en WebView
 
-Android WebView no elimina las cookies de sesión después de cerrar la aplicación. Se puede controlar con el código de ejemplo siguiente:
+Android WebView no elimina las cookies de sesión después de cerrar la aplicación. Se puede controlar con el código de ejemplo siguiente: 
 ```java
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
 ```
-Más información sobre las cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+ Más información sobre las cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
 
 ### Reemplazos de recursos
 
@@ -458,4 +460,4 @@ Obtenga información sobre la [Habilitación de SSO entre aplicaciones en Androi
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

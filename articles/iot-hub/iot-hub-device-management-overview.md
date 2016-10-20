@@ -1,9 +1,9 @@
 <properties
  pageTitle="Información general sobre la administración de dispositivos | Microsoft Azure"
- description="Información general de la administración de dispositivos de Centro de IoT de Azure: dispositivos gemelos, consultas de dispositivo, trabajos de dispositivo"
+ description="Una descripción general de la administración de dispositivos con Centro de IoT de Azure"
  services="iot-hub"
  documentationCenter=""
- authors="juanjperez"
+ authors="bzurcher"
  manager="timlt"
  editor=""/>
 
@@ -13,113 +13,107 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
- ms.author="juanpere"/>
+ ms.date="09/16/2016"
+ ms.author="bzurcher"/>
+
+
 
 # Introducción a la administración de dispositivos desde Centro de IoT de Azure (versión preliminar)
 
-La administración de dispositivos desde Centro de IoT de Azure permite la administración de dispositivos de IoT basada en los estándares para que pueda administrar, configurar y actualizar los dispositivos de forma remota.
+## El enfoque de administración de dispositivos de IoT de Azure
 
-Hay tres conceptos principales para la administración de dispositivos de IoT de Azure:
+La administración de dispositivos de Azure IoT Hub proporciona las características y el modelo de extensibilidad para dispositivos y back-ends a fin de sacar partido de la administración de dispositivos de IoT para los distintos dispositivos y protocolos de IoT. Dispositivos de la gama de IoT desde sensores muy limitados y microcontroladores de finalidad única hasta puertas de enlace más eficaces que habilitan otros dispositivos y protocolos. Las soluciones de IoT también varían considerablemente en dominios verticales y aplicaciones con casos de uso exclusivo para los operadores de cada dominio. Las soluciones de IoT pueden aprovechar las funcionalidades de administración de dispositivos, los patrones y las bibliotecas de código de IoT Hub para habilitar la administración de dispositivos del variado conjunto de dispositivos y usuarios.
 
-1.  **Dispositivo gemelo:** la representación del dispositivo físico en Centro de IoT.
+## Introducción
 
-2.  **Consultas de dispositivo**: permiten buscar dispositivos gemelos y conocerlos globalmente. Por ejemplo, puede buscar todos los dispositivos gemelos con versión de firmware 1.0.
+Una parte fundamental de la creación de una solución de IoT adecuada es proporcionar una estrategia sobre el modo en que los operadores controlan la administración continua de su flota de dispositivos. Los operadores de IoT requieren herramientas y aplicaciones que sean sencillas y confiables, que les permitan centrarse en los aspectos más estratégicos de sus trabajos. Azure IoT Hub proporciona bloques de creación para crear aplicaciones de IoT que facilitan los patrones más importantes de administración de dispositivos.
 
-3.  **Trabajos del dispositivo**: acción que se realiza en uno o varios dispositivos físicos, como la actualización del firmware, el reinicio y el restablecimiento de fábrica.
+Se considera que los dispositivos se administran mediante IoT Hub cuando ejecutan una aplicación sencilla llamada agente de administración de dispositivos que conecta el dispositivo de forma segura a la nube. El código de agente permite que un operador del lado de la aplicación confirme el estado del dispositivo y realice operaciones de administración de forma remota, como aplicar cambios de configuración de red o implementar actualizaciones de firmware.
 
-## Dispositivo gemelo
+## Principios de administración de dispositivos de IoT
 
-El dispositivo gemelo es la representación de un dispositivo físico en IoT de Azure. El objeto **Microsoft.Azure.Devices.Device** se utiliza para representar el dispositivo gemelo.
+IoT incorpora un conjunto único de desafíos de administración y una solución debe tener en cuenta los siguientes principios de administración de dispositivos de IoT:
 
-![][img-twin]
+![][img-dm_principles]
 
-El dispositivo gemelo tiene los siguientes componentes:
+- **Escala y automatización**: IoT requiere herramientas sencillas que puedan automatizar tareas rutinarias y permitir que un personal de operaciones relativamente reducido administre millones de dispositivos. Los operadores diarios esperan controlar las operaciones de dispositivos de forma remota y masiva, y que solo se les alerte cuando surjan problemas que requieran su atención directa.
 
-1.  **Campos del dispositivo:** los campos del dispositivo son propiedades predefinidas que se usan tanto para la administración de dispositivos como la mensajería de Centro de IoT. Dichos campos ayudan al Centro de IoT a identificar los dispositivos físicos y a y conectar con ellos. Los campos del dispositivo no se sincronizan con el dispositivo y se almacenan exclusivamente en el dispositivo gemelo. Los campos del dispositivo incluyen el identificador del dispositivo y la información de autenticación.
+- **Versatilidad y compatibilidad**: el ecosistema de dispositivos de IoT es sumamente variado. Se deben personalizar las herramientas de administración para que se adapten a una gran variedad de clases de dispositivos, plataformas y protocolos. Los operadores deben ser capaces de admitir todos los dispositivos, desde los chips de proceso único incrustados más limitados hasta los equipos potentes y totalmente funcionales.
 
-2.  **Propiedades del dispositivo:** Las propiedades del dispositivo son un diccionario predefinido de propiedades que describen el dispositivo físico. El dispositivo físico es el maestro de cada propiedad del dispositivo y es el almacén de autoridad de cada valor correspondiente. Una representación coherente en última instancia de estas propiedades se almacena en el dispositivo gemelo que está en la nube. La coherencia y actualización están sujetos a la configuración de la sincronización, que se describe en [Tutorial: how to use the device twin][lnk-tutorial-twin] \(Tutorial: Uso del dispositivo gemelo). Algunos ejemplos de propiedades del dispositivo incluyen la versión del firmware, el nivel de la batería y el nombre del fabricante.
+- **Reconocimiento del contexto**: los entornos de IoT son dinámicos y cambiantes. La confiabilidad del servicio es primordial. Las operaciones de administración de dispositivos deben tener en cuenta las ventanas de mantenimiento del Acuerdo de Nivel de Servicio, los estados de energía y de red, las condiciones de uso y la ubicación geográfica de los dispositivos para asegurarse de que el tiempo de inactividad de mantenimiento no afecte a las operaciones empresariales críticas o cree condiciones peligrosas.
 
-3.  **Propiedades del servicio:** las propiedades del servicio son pares **& lt; clave, valor &gt;** que el programador agrega al diccionario de propiedades del servicio. Estas propiedades extienden el modelo de datos del dispositivo gemelo, lo que permite caracterizar mejor el dispositivo. Las propiedades del servicio no se sincronizan con el dispositivo y se almacenan exclusivamente en el dispositivo gemelo en la nube. Un ejemplo de propiedad de servicio es **& lt; NextServiceDate, 12/11/2017 &gt;**, que se puede utilizar para buscar dispositivos por su siguiente fecha de servicio.
+- **Dar servicio a numerosos roles**: la compatibilidad con flujos de trabajo únicos y procesos de roles de operaciones de IoT es fundamental. El personal de operaciones también debe trabajar en armonía con las limitaciones específicas de los departamentos de TI internos y transmitir información importante sobre las operaciones de dispositivos a los supervisores y otros roles de administración.
 
-4.  **Etiquetas:** las etiquetas son un subconjunto de propiedades del servicio que son cadenas arbitrarias, en lugar de propiedades del diccionario. Se puede utilizar para anotar dispositivos gemelos u organizar dispositivos en grupos. Las etiquetas no se sincronizan con el dispositivo y se almacenan exclusivamente en el dispositivo gemelo. Por ejemplo, si un dispositivo gemelo representa un camión físico, puede agregar una etiqueta para cada tipo de carga del camión: **manzanas**, **naranjas** y **plátanos**.
+## Ciclo de vida de dispositivos de IoT 
 
-## Consultas del dispositivo
+Aunque los proyectos de IoT difieren en gran medida, existe una serie de patrones comunes a la hora de administrar los dispositivos. En Azure IoT, estos patrones se identifican en el ciclo de vida de los dispositivos de IoT, que consta de cinco fases distintas:
 
-En la sección anterior, conoció los diferentes componentes del dispositivo gemelo. A continuación, explicaremos cómo buscar dispositivos en el registro de dispositivos de Centro de IoT basándose en las propiedades del dispositivo, en las propiedades del servicio o en las etiquetas. Un ejemplo de cuándo podría utilizar una consulta es la búsqueda de los dispositivos que necesitan actualizarse. Puede consultar todos los dispositivos con una versión de firmware especificado e introducir el resultado en una acción específica (que se conoce en Centro de IoT como un trabajo del dispositivo, que se explica en la sección siguiente).
+![][img-device_lifecycle]
 
-Puede realizar consultas mediante etiquetas y propiedades:
+1. **Planeación**: habilitar a los operadores para que creen un esquema de propiedad de los dispositivos, que les permita consultar y centrarse, con facilidad y precisión, en un grupo de dispositivos para operaciones de administración masiva.
 
--   Para consultar dispositivos gemelos mediante etiquetas, pase una matriz de cadenas y la consulta devolverá el conjunto de dispositivos etiquetados con todas esas cadenas.
+    *Bloques de creación relacionados*: [Introducción a dispositivos gemelos][lnk-twins-getstarted], [Cómo usar propiedades gemelas][lnk-twin-properties]
 
--   Para consultar dispositivos gemelos mediante propiedades del servicio o propiedades del dispositivo, se usa una expresión de consulta JSON. El ejemplo siguiente muestra cómo se pueden consultar todos los dispositivos con la propiedad del dispositivo con la clave **FirmwareVersion** y el valor **1.0**. Puede ver que el **tipo** de la propiedad es **device**, lo que indica que la consulta se realiza según las propiedades del dispositivo, no las propiedades del servicio:
+2. **Aprovisionamiento**: autenticar de forma segura nuevos dispositivos en IoT Hub y permitir que los operadores puedan detectar de inmediato las funcionalidades de los dispositivos y el estado actual.
 
-  ```
-  {                           
-      "filter": {                  
-        "property": {                
-          "name": "FirmwareVersion",   
-          "type": "device"             
-        },                           
-        "value": "1.0",              
-        "comparisonOperator": "eq",  
-        "type": "comparison"         
-      },                           
-      "project": null,             
-      "aggregate": null,           
-      "sort": null                 
-  }
-  ```
+    *Bloques de creación relacionados*: [Introducción a IoT Hub][lnk-hub-getstarted], [Cómo usar propiedades gemelas][lnk-twin-properties]
 
-## Trabajos del dispositivo
+3. **Configuración**: facilitar los cambios de configuración de forma masiva y las actualizaciones de firmware en dispositivos, a la vez que se mantienen el estado y la seguridad.
 
-El siguiente concepto de la administración de dispositivos es los trabajos del dispositivo, que permiten la coordinación de orquestaciones de varios pasos en varios dispositivos.
+    *Bloques de creación relacionados*: [Cómo usar propiedades gemelas][lnk-twin-properties], [Métodos D2C][lnk-c2d-methods], [Programación y difusión de trabajos][lnk-jobs]
 
-La administración de dispositivos de Centro de IoT de Azure proporciona en la actualidad seis tipos de trabajos de dispositivo (agregaremos mas trabajos a medida que los clientes los necesiten):
+4. **Supervisión**: supervisar la situación general de la flota de dispositivos y el estado de las implementaciones de actualización en curso para alertar a los operadores sobre los problemas que puedan necesitar su atención.
 
-- **Actualización de firmware**: actualiza el firmware (o la imagen del sistema operativo) en el dispositivo físico.
-- **Reinicio**: reinicia el dispositivo físico.
-- **Restablecimiento de fábrica**: revierte el firmware (o imagen del sistema operativo) del dispositivo físico a una imagen de copia de seguridad de fábrica almacenada en el dispositivo.
-- **Actualización de la configuración**: configura el agente de cliente de Centro de IoT que se ejecuta en el dispositivo físico.
-- **Lectura de propiedad de dispositivo**: obtiene el valor más reciente de una propiedad de dispositivo en el dispositivo físico.
-- **Escritura de propiedad de dispositivo**: cambia una propiedad de dispositivo en el dispositivo físico.
+    *Bloques de creación relacionados*: [Cómo usar propiedades gemelas][lnk-twin-properties]
 
-Para más información sobre cómo usar cada uno de estos trabajos, consulte la [documentación de la API para C# y node.js][lnk-apidocs].
+5. **Retirada**: reemplazar o retirar dispositivos después de un error, ciclo de actualización o al final de la duración del servicio.
 
-Un trabajo puede operar en varios dispositivos. Al iniciar un trabajo, se crea un trabajo secundario asociado para cada uno de los dispositivos. Los trabajos secundarios operan en dispositivos individuales. Cada trabajo secundario tiene un puntero a su trabajo primario. El trabajo primario es solo un contenedor para los trabajos secundarios, no implementa ninguna lógica que distinga los tipos de dispositivos (como la actualización de Intel Edison frente a la actualización de un Raspberry Pi). El diagrama siguiente ilustra la relación entre un trabajo primario, sus elementos secundarios y los dispositivos físicos asociados.
+    *Bloques de creación relacionados*:
+    
+## Patrones de administración de dispositivos de IoT Hub
 
-![][img-jobs]
+IoT Hub habilita el siguiente conjunto de patrones de administración de dispositivos (iniciales). Tal como se muestra en los [tutoriales][lnk-get-started], puede ampliar estos patrones para que se ajusten al escenario exacto que necesite y diseñar nuevos patrones para otros escenarios basándose en estos patrones principales.
 
-Puede consultar el historial de trabajos para conocer el estado de los trabajos que ha iniciado. Para ver consultas de ejemplo, consulte [nuestra biblioteca de consultas][lnk-query-samples].
+1. **Reinicio**: la aplicación back-end informa al dispositivo mediante un método D2C que se ha lanzado un reinicio. El dispositivo usa las propiedades notificadas de dispositivos gemelos para actualizar el estado de reinicio del dispositivo.
 
-## Implementación de dispositivos
+    ![][img-reboot_pattern]
 
-Una vez que hemos tratado los conceptos del servicio, veamos cómo crear un dispositivo físico administrado. La biblioteca de cliente de administración de dispositivos de Centro de IoT de Azure permite administrar dispositivos IoT con Centro de IoT de Azure. "Administrar" incluye acciones tales como el reinicio, el restablecimiento de fábrica y la actualización del firmware. Actualmente se ofrece una biblioteca de C independiente de la plataforma, pero pronto se agregará compatibilidad con otros idiomas.
+2. **Restablecimiento de fábrica**: la aplicación back-end informa al dispositivo mediante un método D2C que se ha iniciado un restablecimiento de fábrica. El dispositivo usa las propiedades notificadas de dispositivos gemelos para actualizar el estado de restablecimiento de fábrica del dispositivo.
 
-La biblioteca de cliente de administración de dispositivos tiene dos responsabilidades principales:
+    ![][img-facreset_pattern]
 
-- Sincronizar las propiedades del dispositivo físico con su correspondiente dispositivo gemelo en Centro de IoT
-- Organizar los trabajos de dispositivo enviados por Centro de IoT al dispositivo
+3. **Configuración**: la aplicación back-end utiliza las propiedades deseadas de dispositivos gemelos para configurar el software que se ejecuta en el dispositivo. El dispositivo usa las propiedades notificadas de dispositivos gemelos para actualizar el estado de configuración del dispositivo.
 
-Para obtener más información sobre estas responsabilidades y sobre la implementación en el dispositivo físico, consulte [Introducing the Azure IoT Hub device management library for C][lnk-library-c] \(Introducción a la biblioteca de administración de dispositivos del Centro de IoT de Azure para C).
+    ![][img-config_pattern]
+
+4. **Actualización de firmware**: la aplicación back-end informa al dispositivo mediante un método D2C que se ha iniciado una Actualización de firmware. El dispositivo inicia un proceso de varios pasos para descargar el paquete de firmware, aplicarlo y volver a conectar por último con el servicio de IoT Hub. A lo largo del proceso de varios pasos, el dispositivo usa las propiedades notificadas de dispositivos gemelos para actualizar el progreso y el estado del dispositivo.
+
+    ![][img-fwupdate_pattern]
+
+5. **Informes de progreso y estado**: la aplicación back-end ejecuta consultas de dispositivos gemelos, entre un conjunto de dispositivos, para informar sobre el estado y el progreso de acciones que se ejecutan en el dispositivo.
+
+    ![][img-report_progress_pattern]
 
 ## Pasos siguientes
 
-Para implementar aplicaciones cliente que se ejecuten en una gran variedad de plataformas de hardware de dispositivos y sistemas operativos, puede usar los SDK de dispositivos IoT. Los SDK de dispositivos IoT incluyen bibliotecas que facilitan el envío de telemetría a un Centro de IoT y la recepción de comandos de nube a dispositivo. Al usar los SDK, puede elegir entre una serie de protocolos de red para comunicarse con el Centro de IoT. Para más información, vea la [información sobre los SDK de dispositivo][lnk-device-sdks].
+Con los bloques de creación que ofrece Azure IoT Hub, los desarrolladores pueden crear aplicaciones de IoT que cumplan los requisitos exclusivos de los operadores de IoT dentro en cada etapa del ciclo de vida de los dispositivos.
 
-Para continuar aprendiendo sobre las características de administración de dispositivos de Centro de IoT de Azure, consulte el tutorial [Introducción a la administración de dispositivos de Centro de IoT de Azure con C# (versión preliminar)][lnk-get-started].
+Para continuar aprendiendo sobre las características de administración de los dispositivos de IoT Hub, consulte el tutorial [Introducción a la administración de dispositivos de Azure IoT Hub][lnk-get-started].
 
 <!-- Images and links -->
-[img-twin]: media/iot-hub-device-management-overview/image1.png
-[img-jobs]: media/iot-hub-device-management-overview/image2.png
-[img-client]: media/iot-hub-device-management-overview/image3.png
+[img-dm_principles]: media/iot-hub-device-management-overview/image4.png
+[img-device_lifecycle]: media/iot-hub-device-management-overview/image5.png
+[img-config_pattern]: media/iot-hub-device-management-overview/configuration-pattern.png
+[img-facreset_pattern]: media/iot-hub-device-management-overview/facreset-pattern.png
+[img-fwupdate_pattern]: media/iot-hub-device-management-overview/fwupdate-pattern.png
+[img-reboot_pattern]: media/iot-hub-device-management-overview/reboot-pattern.png
+[img-report_progress_pattern]: media/iot-hub-device-management-overview/report-progress-pattern.png
 
-[lnk-lwm2m]: http://technical.openmobilealliance.org/Technical/technical-information/release-program/current-releases/oma-lightweightm2m-v1-0
-[lnk-library-c]: iot-hub-device-management-library.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
-[lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
-[lnk-apidocs]: http://azure.github.io/azure-iot-sdks/
-[lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
-[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
+[lnk-twins-getstarted]: iot-hub-node-node-twin-getstarted.md
+[lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
+[lnk-hub-getstarted]: iot-hub-csharp-csharp-getstarted.md
+[lnk-c2d-methods]: iot-hub-c2d-methods.md
+[lnk-jobs]: iot-hub-schedule-jobs.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

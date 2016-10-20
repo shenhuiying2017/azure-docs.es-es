@@ -29,7 +29,7 @@ Para los administradores de TI, Azure AD proporciona una solución asequible y f
 
 Para los desarrolladores de aplicaciones, Azure AD permite al usuario centrarse en la creación de su aplicación facilitando y acelerando la integración de la misma con una solución de administración de identidades de clase mundial usada por millones de organizaciones de todo el mundo.
 
-Azure AD también incluye una serie completa de capacidades de administración de identidades, incluida Multi-Factor Authentication, el registro de dispositivos, la administración de contraseñas de autoservicio, la administración de grupos de autoservicio, la administración de cuentas con privilegios, el control de acceso basado en roles, la supervisión del uso de aplicaciones, la auditoría enriquecida y la supervisión y alertas de seguridad. Estas capacidades pueden ayudar a proteger aplicaciones basadas en la nube, optimizar los procesos de TI, reducir costos y asegurar que se cumplen los objetivos de cumplimiento corporativos.
+Azure AD también incluye una serie completa de capacidades de administración de identidades, incluida Multi-Factor Authentication, el registro de dispositivos, la administración de contraseñas de autoservicio, la administración de grupos de autoservicio, la administración de cuentas con privilegios, el control de acceso basado en roles, la supervisión del uso de aplicaciones, la auditoría enriquecida y la supervisión y alertas de seguridad. Estas funcionalidades pueden ayudar a proteger aplicaciones basadas en la nube, optimizar los procesos de TI, reducir costos y asegurar que se cumplen los objetivos de cumplimiento normativo corporativos.
 
 Además, con solo [cuatro clics](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx), Azure AD puede integrarse con un Windows Server Active Directory existente, lo que da a las organizaciones la capacidad de aprovechar sus inversiones en identidad locales existentes para administrar el acceso a aplicaciones SaaS basadas en la nube.
 
@@ -55,7 +55,7 @@ Para más información, consulta los [Contratos de nivel de servicio](https://az
 Su organización puede usar Azure AD para mejorar la productividad de los empleados, optimizar los procesos de TI, mejorar la seguridad y reducir los costos de muchas formas:
 
 -	Adopte rápidamente servicios en la nube, proporcionando a los empleados y asociados una sencilla experiencia de inicio de sesión único gracias a las capacidades automatizadas de aprovisionamiento de servicios y administración del acceso a aplicaciones SaaS de Azure AD.
--	Proporcione a los empleados acceso a aplicaciones en la nube de clase mundial y a capacidades de servicio y autoservicio desde dondequiera que necesiten para trabajar en los dispositivos que les encanta usar.
+-	Proporcione a los empleados acceso a aplicaciones en la nube de clase mundial y a funcionalidades de servicio y autoservicio desde dondequiera que necesiten para trabajar en los dispositivos que les encanta usar.
 -	Administre fácilmente y de forma segura el acceso de los empleados y proveedores a sus cuentas de medios sociales corporativas.
 -	Mejore la seguridad de las aplicaciones con la autenticación multifactor y acceso condicional de Azure AD.
 -	Implemente una administración de acceso a las aplicaciones constante y de autoservicio, proporcionando a los propietarios de empresas los medios para avanzar rápidamente, reduciendo al mismo tiempo los costos de TI y la sobrecarga.
@@ -70,7 +70,7 @@ Su organización puede usar Azure AD para mejorar la productividad de los emplea
 ## ¿Cómo puedo comenzar?
 -	Si es un administrador de TI:
  - [¡Pruébalo!](https://azure.microsoft.com/trial/get-started-active-directory/) Puedes suscribirte a una evaluación gratuita de 30 días hoy e implementar la primera solución en la nube en menos de 5 minutos desde este vínculo
- - Lea nuestra "Introducción a Azure AD" para obtener sugerencias y trucos sobre cómo preparar un inquilino de Azure AD y tenerlo en funcionamiento rápidamente.
+ - Lea nuestra Introducción a Azure AD para obtener sugerencias y trucos sobre cómo preparar un inquilino de Azure AD y tenerlo en funcionamiento rápidamente.
 -	Si es un desarrollador:
  - Consulta las [Instrucciones para desarrolladores](active-directory-developers-guide.md) de Azure Active Directory
  - [Inicie una evaluación](https://azure.microsoft.com/trial/get-started-active-directory/): suscríbase a una prueba evaluación gratuita de 30 días hoy mismo y comience a integrar su aplicación con Azure AD.
@@ -104,4 +104,4 @@ Tenemos una gran cantidad de excelentes recursos en línea para ayudarle a apren
 
 - [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

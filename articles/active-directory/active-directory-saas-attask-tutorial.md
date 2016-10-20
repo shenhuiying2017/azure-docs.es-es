@@ -147,7 +147,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     e. En el Portal de Azure clásico, copie el valor de **Cambiar dirección URL de contraseña** y péguelo en el cuadro de texto **Cambiar dirección URL de contraseña**.
 
-    e. Haga clic en **Save**.
+    f. Haga clic en **Guardar**.
 
 6. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
 
@@ -314,4 +314,4 @@ Al hacer clic en el icono de @Task en el panel de acceso, debería iniciar sesi�
 [204]: ./media/active-directory-saas-attask-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-attask-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

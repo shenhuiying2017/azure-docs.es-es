@@ -13,23 +13,16 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="08/29/2016" 
+   ms.date="09/24/2016" 
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Auditoría en Almacenamiento de datos SQL de Azure
 
 > [AZURE.SELECTOR]
-- [Información general sobre seguridad](sql-data-warehouse-overview-manage-security.md)
+- [Auditoría](sql-data-warehouse-auditing-overview.md)
 - [Detección de amenazas](sql-data-warehouse-security-threat-detection.md)
-- [Cifrado (Portal)](sql-data-warehouse-encryption-tde.md)
-- [Cifrado (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-- [Introducción a la auditoría](sql-data-warehouse-auditing-overview.md)
-- [Auditoría de los clientes de nivel inferior](sql-data-warehouse-auditing-downlevel-clients.md)
 
-
-La auditoría de Almacenamiento de datos SQL de Azure realiza el seguimiento de los eventos de base de datos y escribe los eventos auditados en un registro de auditoría en la cuenta de Almacenamiento de Azure.
-
-La auditoría puede ayudarle a mantener el cumplimiento de normativas, comprender la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o infracciones de seguridad sospechosas.
+La auditoría de SQL Data Warehouse permite grabar los eventos de la base de datos en un registro de auditoría de una cuenta de Azure Storage. La auditoría puede ayudarle a mantener el cumplimiento de normativas, comprender la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o infracciones de seguridad sospechosas. La auditoría de SQL Data Warehouse también se integra con Microsoft Power BI, con el fin de facilitar la generación de análisis e informes detallados.
 
 Las herramientas de auditoría posibilitan y facilitan la observancia de estándares reguladores pero no garantizan el cumplimiento. Para obtener más información acerca de los programas de Azure compatibles con el cumplimiento de estándares, consulte el <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Centro de confianza de Azure</a>.
 
@@ -151,4 +144,4 @@ Cuando esté en el modo Administrador de recursos de Azure, ejecute `Get-Command
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

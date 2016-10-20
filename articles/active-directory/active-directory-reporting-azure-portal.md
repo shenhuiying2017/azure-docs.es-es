@@ -13,10 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/25/2016"
+   ms.date="09/30/2016"
    ms.author="markvi"/>
 
 # Informes de Azure Active Directory - versión preliminar
+
+> [AZURE.SELECTOR]
+- [Portal de Azure](active-directory-reporting-azure-portal.md)
+- [Portal de Azure clásico](active-directory-reporting-guide.md)
 
 *Esta documentación forma parte de la [guía de informes de Azure Active Directory](active-directory-reporting-guide.md).*
 
@@ -216,4 +220,4 @@ Otro método para filtrar las entradas del registro de auditoría es buscar entr
 
 Consulte la [guía de informes de Azure Active Directory](active-directory-reporting-guide.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

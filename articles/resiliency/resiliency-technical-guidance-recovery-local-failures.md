@@ -160,7 +160,7 @@ Las aplicaciones que se basan en Azure se benefician de las capacidades de la pl
 
 ###Bus de servicio
 
-Para mitigar una interrupción temporal del Bus de servicio de Azure, considere la posibilidad de crear una cola duradera en el lado de cliente. Con ello, utilizará temporalmente un mecanismo de almacenamiento local alternativo para almacenar los mensajes que no se puedan agregar a la cola del Bus de servicio. La aplicación puede decidir cómo controlar los mensajes almacenados temporalmente una vez restaurado el servicio. Para obtener más información, consulte [Procedimientos recomendados para mejorar el rendimiento mediante la mensajería asincrónica del Bus de servicio](../service-bus/service-bus-performance-improvements.md) y [Guía técnica sobre resistencia en Azure: recuperación ante una interrupción del servicio en toda la región](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
+Para mitigar una interrupción temporal del Bus de servicio de Azure, considere la posibilidad de crear una cola duradera en el lado de cliente. Con ello, utilizará temporalmente un mecanismo de almacenamiento local alternativo para almacenar los mensajes que no se puedan agregar a la cola del Bus de servicio. La aplicación puede decidir cómo controlar los mensajes almacenados temporalmente una vez restaurado el servicio. Para obtener más información, consulte [Procedimientos recomendados para mejorar el rendimiento mediante la mensajería asincrónica del Bus de servicio](../service-bus-messaging/service-bus-performance-improvements.md) y [Guía técnica sobre resistencia en Azure: recuperación ante una interrupción del servicio en toda la región](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ###Servicios móviles
 
@@ -223,4 +223,4 @@ Los datos asociados a HDInsight de Azure se almacenan de forma predeterminada en
 
 Este artículo forma parte de una serie que se centra en la [Guía técnica sobre resistencia en Azure](./resiliency-technical-guidance.md). El siguiente artículo de esta serie es [Guía técnica sobre resistencia en Azure: recuperación ante una interrupción del servicio en toda la región](./resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

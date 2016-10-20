@@ -16,7 +16,7 @@
     ms.date="08/22/2016"
     ms.author="jotaub"/>
 
-# Creación de un espacio de nombres del Bus de servicio mediante el Portal de Azure
+# Creación de un espacio de nombres de Service Bus mediante Azure Portal
 
 Un espacio de nombres es un contenedor común para todos los componentes de mensajería. Varias colas y temas pueden residir en un único espacio de nombres, y los espacios de nombres suelen servir de contenedores de aplicación. Actualmente existen dos formas diferentes de crear espacios de nombres del Bus de servicio.
 
@@ -24,7 +24,7 @@ Un espacio de nombres es un contenedor común para todos los componentes de mens
 
 2.	[Plantillas de Administrador de recursos][create-namespace-using-arm]
 
-## Creación de un espacio de nombres en el Portal de Azure
+## Creación de un espacio de nombres en Azure Portal
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -37,4 +37,4 @@ Consulte nuestro [repositorio de GitHub](https://github.com/Azure-Samples/azure-
 [create-namespace-using-arm]: ../service-bus-messaging/service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="ihenkel"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
    <tags
@@ -89,4 +89,4 @@ Si quiere agregar su aplicación personalizada a la Galería de aplicaciones de 
 
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -117,10 +117,12 @@ Como un nodo principal ejecuta una única copia de los servicios del sistema, te
 ### **nodeTypes**
 La sección **nodeTypes** describe el tipo de los nodos que tiene el clúster. Se debe especificar al menos un tipo de nodo en un clúster, tal y como se muestra en el siguiente fragmento de código.
 
-	"nodeTypes": [{
+    "nodeTypes": [{
         "name": "NodeType0",
         "clientConnectionEndpointPort": "19000",
         "clusterConnectionEndpoint": "19001",
+        "leaseDriverEndpointPort": "19002"
+        "serviceConnectionEndpointPort": "19003",
         "httpGatewayEndpointPort": "19080",
         "applicationPorts": {
 			"startPort": "20001",
@@ -133,7 +135,7 @@ La sección **nodeTypes** describe el tipo de los nodos que tiene el clúster. S
         "isPrimary": true
     }]
 
-**name** es el nombre descriptivo de este tipo de nodo específico. Para crear un nodo de este tipo, debe asignar el nombre descriptivo de este tipo de nodo a la variable **nodeTypeRef** de ese nodo, tal y como se mencionó en la sección [Nodos del clúster](#clusternodes) anterior. Para cada tipo de nodo, puede definir varios puntos de conexión a este clúster. Puede elegir cualquier número de puerto para estos puntos de conexión, siempre que no entren en conflicto con otros puntos de conexión de este clúster. En un clúster con varios tipos de nodos, habrá un tipo de nodo principal, cuyo valor de **isPrimary** es *true*. En el resto de los nodos, el valor de **isPrimary** es *false*. Lea [Consideraciones de planeación de capacidad del clúster de Service Fabric](service-fabric-cluster-capacity.md) para más información sobre los valores **nodeTypes** y **reliabilityLevel** según la capacidad de su clúster, y para conocer las diferencias entre los tipos de nodo principal y no principal.
+**name** es el nombre descriptivo de este tipo de nodo específico. Para crear un nodo de este tipo, debe asignar el nombre descriptivo de este tipo de nodo a la variable **nodeTypeRef** de ese nodo, tal y como se mencionó en la sección [Nodos del clúster](#clusternodes) anterior. Para cada tipo de nodo, puede definir varios puntos de conexión a este clúster. Puede elegir cualquier número de puerto para estos puntos de conexión, siempre que no entren en conflicto con otros puntos de conexión de este clúster. Si desea crear un puerto de puerta de enlace de aplicación http, puede especificar "reverseProxyEndpointPort": [número de puerto] además de otros puertos como se indicó anteriormente. En un clúster con varios tipos de nodos, habrá un tipo de nodo principal, cuyo valor de **isPrimary** es *true*. En el resto de los nodos, el valor de **isPrimary** es *false*. Lea [Consideraciones de planeación de capacidad del clúster de Service Fabric](service-fabric-cluster-capacity.md) para más información sobre los valores **nodeTypes** y **reliabilityLevel** según la capacidad de su clúster, y para conocer las diferencias entre los tipos de nodo principal y no principal.
 
 
 ### **fabricSettings**
@@ -156,4 +158,4 @@ Se recomienda usar una unidad sin sistema operativo como FabricDataRoot y Fabric
 
 Cuando ya tenga un archivo ClusterConfig.JSON completo configurado según la configuración del clúster independiente, puede implementar el clúster siguiendo el artículo [Creación de un clúster de Azure Service Fabric local o en la nube](service-fabric-cluster-creation-for-windows-server.md) y luego continúe con [Visualización del clúster mediante Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

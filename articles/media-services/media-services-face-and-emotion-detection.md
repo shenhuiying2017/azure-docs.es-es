@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Detección de caras y emociones con Análisis multimedia de Azure"
+	pageTitle="Detección de caras y emociones con Análisis multimedia de Azure | Microsoft Azure"
 	description="Este tema muestra cómo detectar caras y emociones con Análisis multimedia de Azure."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"   
+	ms.date="09/26/2016"   
 	ms.author="milanga;juliako;"/>
  
 #Detección de caras y emociones con Análisis multimedia de Azure
@@ -34,7 +34,7 @@ El procesador de multimedia (MP) **Azure Media Face Detector** (Detector de cara
 
 El procesador de multimedia **Azure Media Face Detector** (Detector de caras multimedia de Azure) está actualmente en versión preliminar.
 
-En este tema se proporcionan detalles sobre **Azure Media Face Detector** (Detector de caras multimedia de Azure) y se muestra cómo se usa con el SDK de Servicios multimedia para .NET
+En este tema se proporcionan detalles sobre el **Azure Media Face Detector** y muestra cómo se usa con el SDK de Media Services para .NET.
 
 ##Archivos de entrada de Face Detector (Detector de caras)
 
@@ -52,7 +52,7 @@ Para la operación de detección y seguimiento de caras, el resultado de salida 
 
 El archivo JSON de detección y seguimiento de caras incluye los siguientes atributos:
 
-Elemento|Descripción
+Elemento|Description
 ---|---
 Versión|Esto se refiere a la versión de la API de vídeo.
 Escala de tiempo|"Tics" por segundo del vídeo.
@@ -166,7 +166,7 @@ Al crear una tarea con **Azure Media Face Detector** (Detector de caras multimed
 
 ####Descripciones de atributos
 
-Nombre del atributo|Descripción
+Nombre del atributo|Description
 ---|---
 Mode|Faces: Solo detección de caras <br/>AggregateEmotion: Devolver valores de emociones medios para todas las caras del fotograma.
 AggregateEmotionWindowMs|Utilizar si se selecciona el modo AggregateEmotion. Especifica la longitud del vídeo que se utiliza para generar cada resultado agregado, en milisegundos.
@@ -537,4 +537,4 @@ El programa siguiente muestra cómo:
 
 [Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

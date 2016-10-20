@@ -3,7 +3,7 @@
 	description="Más información sobre el modelado de datos para DocumentDB, una base de datos de documentos NoSQL." 
 	keywords="modelado de datos"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="mimig1" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/05/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 #Modelado de datos en DocumentDB#
 Mientras que las bases de datos libres de esquemas, como Azure DocumentDB, facilitan notablemente la adopción de cambios en el modelo de datos, debe dedicar algo de tiempo a pensar en los datos.
@@ -393,4 +393,4 @@ Para comprender cómo particionar los datos en varias particiones, consulte [Par
 Y por último, para obtener información sobre el particionamiento y el modelado de datos en aplicaciones multiempresa, consulte [Scaling a Multi-Tenant Application with Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx) (Escalación de una aplicación multiempresa con Azure DocumentDB).
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

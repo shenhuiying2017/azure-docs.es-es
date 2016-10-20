@@ -101,15 +101,29 @@ Siga la guía indicada a continuación: [Cómo preparar la aplicación para las 
 
 *En este momento la aplicación debe tener un certificado de inserción de Apple registrado en el frontend de Engagement.*
 
-Si no lo ha hecho ya, deberá registrar su aplicación para recibir notificaciones de inserción. Agregue la siguiente línea al iniciarse la aplicación (normalmente, en `application:didFinishLaunchingWithOptions:`):
+Si no lo ha hecho ya, deberá registrar su aplicación para recibir notificaciones de inserción.
 
-	if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-	  	[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
-	  	[application registerForRemoteNotifications];
-	}
-	else {
-	  	[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-	}
+* Importe la plataforma `User Notification`:
+
+		#import <UserNotifications/UserNotifications.h>
+
+* Agregue la siguiente línea al iniciarse la aplicación (normalmente, en `application:didFinishLaunchingWithOptions:`):
+
+		if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
+		{
+			if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
+			{
+				[UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
+			}else
+			{
+				[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)   categories:nil]];
+			}
+			[application registerForRemoteNotifications];
+		}
+		else
+		{
+			[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+		}
 
 A continuación, deberá proporcionar a Engagement el token de dispositivo devuelto por servidores de Apple. Esto se hace en el método llamado `application:didRegisterForRemoteNotificationsWithDeviceToken:` del delegado de aplicación:
 
@@ -486,4 +500,4 @@ Al igual que para la personalización de notificación avanzada, se recomienda m
 
 	@end
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

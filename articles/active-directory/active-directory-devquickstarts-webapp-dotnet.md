@@ -16,7 +16,7 @@
 	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
-# Inicio y cierre de sesión de la aplicación web con Azure AD
+# Inicio y cierre de sesión de la aplicación web de ASP.NET con Azure AD
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -178,4 +178,4 @@ Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

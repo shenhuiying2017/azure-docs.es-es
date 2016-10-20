@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="07/04/2016"
+     ms.date="09/23/2016"
      ms.author="dobett"/>
 
 # Tutorial: cómo enviar mensajes de la nube a un dispositivo con el Centro de IoT y Node.js
@@ -24,7 +24,7 @@
 
 Centro de IoT de Azure es un servicio totalmente administrado que ayuda a habilitar la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y un back-end de aplicación. El tutorial [Introducción al Centro de IoT] muestra cómo crear un Centro de IoT, aprovisionar la identidad de un dispositivo en él y codificar un dispositivo simulado que envía mensajes de dispositivo a nube.
 
-Este tutorial se basa en el artículo [Introducción al Centro de IoT de Azure para Node.js]. En él se muestra cómo realizar las siguientes acciones:
+Este tutorial se basa en la [introducción al Centro de IoT]. En él se muestra cómo realizar las siguientes acciones:
 
 - Desde el back-end de la nube de la aplicación, envíe mensajes de la nube al dispositivo en un único dispositivo a través de Centro de IoT.
 - Reciba mensajes de nube a dispositivo en un dispositivo.
@@ -32,7 +32,7 @@ Este tutorial se basa en el artículo [Introducción al Centro de IoT de Azure p
 
 Encontrará más información sobre los mensajes de nube a dispositivo en la [Guía para desarrolladores del Centro de IoT][IoT Hub Developer Guide - C2D].
 
-Al final de este tutorial, ejecutará dos aplicaciones de consola de Node.js:
+Al final de este tutorial, usted ejecuta dos aplicaciones de consola de Node.js:
 
 * **SimulatedDevice**, versión modificada de la aplicación creada en [Introducción al Centro de IoT], que se conecta al Centro de IoT y recibe mensajes de nube a dispositivo.
 * **SendCloudToDeviceMessage**, que envía un mensaje de la nube al dispositivo simulado mediante el Centro de IoT y, luego, recibe su confirmación de entrega.
@@ -41,13 +41,13 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de Node.js:
 
 Para completar este tutorial, necesitará lo siguiente:
 
-+ Node.js versión 0.12.x o posteriores. <br/>En [Prepare your development environment][lnk-dev-setup] \(Preparación de un entorno de desarrollo) se describe cómo instalar Node.js para este tutorial en Windows o Linux.
++ Node.js versión 0.12.x o posteriores. <br/>En [Preparación del entorno de desarrollo][lnk-dev-setup] se describe cómo instalar Node.js para este tutorial en Windows o Linux.
 
 + Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para más información, consulte [Evaluación gratuita de Azure][lnk-free-trial].
 
 ## Recepción de mensajes en el dispositivo simulado
 
-En esta sección, modificará la aplicación de dispositivo simulado que creó en [Introducción al Centro de IoT de Azure para .NET] para recibir mensajes de la nube a un dispositivo desde el Centro de IoT.
+En esta sección, modificará la aplicación de dispositivo simulado que creó en el tutorial de [introducción IoT Hub de Azure] para recibir mensajes de la nube a un dispositivo desde IoT Hub.
 
 1. Con un editor de texto, abra el archivo SimulatedDevice.js.
 
@@ -79,9 +79,9 @@ En esta sección, modificará la aplicación de dispositivo simulado que creó e
 
 ## Envío de mensajes de nube a dispositivo
 
-En esta sección, creará una aplicación de consola de Node.js que envía mensajes de nube a dispositivo a la aplicación del dispositivo simulado. Necesitará el identificador del dispositivo que agregó en el tutorial de [introducción al Centro de IoT] y la cadena de conexión de su centro de IoT que encontrará en el [Portal de Azure].
+En esta sección, usted crea una aplicación de consola de Node.js que envía mensajes de nube a dispositivo a la aplicación del dispositivo simulado. Necesita el identificador de dispositivo que agregó en el tutorial de [introducción IoT Hub de Azure]. También necesita la cadena de conexión para IoT Hub que encontrará en [Azure Portal].
 
-1. Cree una nueva carpeta vacía denominada **sendcloudtodevicemessage**. En la carpeta **sendcloudtodevicemessage**, cree un nuevo archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
+1. Cree una carpeta vacía denominada **sendcloudtodevicemessage**. En la carpeta **sendcloudtodevicemessage**, cree un archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
 
     ```
     npm init
@@ -104,7 +104,7 @@ En esta sección, creará una aplicación de consola de Node.js que envía mensa
     var Message = require('azure-iot-common').Message;
     ```
 
-5. Agregue el código siguiente al archivo **SendCloudToDeviceMessage.js** y reemplace el valor del marcador de posición de la cadena de conexión por la cadena de conexión para el Centro de IoT que creó en el tutorial [Introducción al Centro de IoT] y el marcador de posición del dispositivo de destino por el identificador de dispositivo del dispositivo que agregó en el tutorial [Introducción al Centro de IoT] tutorial:
+5. Agregue el código siguiente al archivo **SendCloudToDeviceMessage.js**. Sustituya el valor de marcador de posición de cadena de conexión por la cadena de conexión del IoT Hub que creó en el tutorial [Introducción a IoT Hub]. Sustituya el marcador de posición de dispositivo por el identificador de dispositivo que agregó en el tutorial [Introducción a IoT Hub]\:
 
     ```
     var connectionString = '{iot hub connection string}';
@@ -175,7 +175,7 @@ Ahora está preparado para ejecutar las aplicaciones.
 
     ![Ejecución de la aplicación para enviar el comando C2D][img-send-command]
 
-    > [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling] (Control de errores transitorios).
+    > [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling] \(Control de errores transitorios).
 
 ## Pasos siguientes
 
@@ -191,16 +191,16 @@ Para más información sobre cómo desarrollar soluciones con el Centro de IoT, 
 
 <!-- Links -->
 
+[Introducción a IoT Hub]: iot-hub-node-node-getstarted.md
 [Introducción al Centro de IoT]: iot-hub-node-node-getstarted.md
-[Introducción al Centro de IoT de Azure para .NET]: iot-hub-node-node-getstarted.md
-[Introducción al Centro de IoT de Azure para Node.js]: iot-hub-node-node-getstarted.md
+[introducción IoT Hub de Azure]: iot-hub-node-node-getstarted.md
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 [Guía del desarrollador del Centro de IoT de Azure]: iot-hub-devguide.md
 [Centro para desarrolladores de IoT de Azure]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Portal de Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Documentación del Conjunto de aplicaciones de IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

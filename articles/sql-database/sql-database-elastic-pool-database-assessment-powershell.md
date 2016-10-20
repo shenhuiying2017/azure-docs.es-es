@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Script de PowerShell para identificar bases de datos individuales adecuadas para un grupo"
+	pageTitle="Script de PowerShell para identificar bases de datos individuales adecuadas para un grupo | Microsoft Azure"
 	description="Un grupo de bases de datos elásticas es una colección de recursos disponibles que comparte un grupo de bases de datos elásticas. Este documento ofrece un script de Powershell para ayudarle a evaluar la idoneidad de usar un grupo de bases de datos elásticas para un grupo de base de datos."
 	services="sql-database"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/06/2016"
+	ms.date="09/22/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -28,7 +28,7 @@ Este script es especialmente útil para evaluar las bases de datos en servidores
 
 Instale lo siguientes antes de ejecutar el script:
 
-- Las últimas [herramientas de línea de comandos de Powershell](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
+- La versión más reciente de Azure PowerShell. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 - El [paquete de características de SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
 
 ### Detalles del script
@@ -266,4 +266,4 @@ Cuando el script se completa, proporciona el número estimado de eDTU necesarias
 
         
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

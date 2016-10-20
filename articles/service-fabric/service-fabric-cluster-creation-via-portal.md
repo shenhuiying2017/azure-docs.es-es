@@ -1,4 +1,3 @@
-
 <properties
    pageTitle="Creación de un clúster de Service Fabric mediante el Portal de Azure | Microsoft Azure"
    description="En este artículo se describe cómo configurar un clúster de Service Fabric seguro en Azure mediante el Portal de Azure y el Almacén de claves de Azure."
@@ -14,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/19/2016"
+   ms.date="09/21/2016"
    ms.author="vturecek"/>
 
 # Creación de un clúster de Service Fabric en Azure mediante el Portal de Azure
@@ -32,6 +31,8 @@ Esta guía paso a paso le lleva por la configuración de un clúster de Service 
 >[AZURE.NOTE] Para información sobre opciones de seguridad más avanzadas, como la autenticación de usuarios con Azure Active Directory y la configuración de certificados para la seguridad de las aplicaciones, [cree el clúster mediante Azure Resource Manager][create-cluster-arm].
 
 Un clúster seguro es un clúster que impide el acceso no autorizado a operaciones de administración, lo que incluye la implementación, actualización y eliminación de aplicaciones y servicios y los datos que contienen. Un clúster no seguro es un clúster al que cualquiera puede conectarse en cualquier momento y realizar operaciones de administración. Aunque se puede crear un clúster no seguro, se **recomienda firmemente crear uno seguro**. Un clúster no seguro **no se puede proteger en un momento posterior** -se debe crear uno nuevo.
+
+Los conceptos son los mismos para crear clústeres seguros, tanto si se trata de clústeres de Linux como de Windows. Para más información y scripts de aplicaciones auxiliares para crear clústeres seguros de Linux, consulte [Creación de clústeres seguros en Linux](service-fabric-cluster-creation-via-arm.md#secure-linux-cluster). Los parámetros obtenidos por el script de la aplicación auxiliar pueden especificarse en el portal como se describe en la sección [Creación de un clúster en Azure Portal](#create-cluster-portal).
 
 ## Inicie sesión en Azure.
 En esta guía se usa [Azure PowerShell][azure-powershell]. Al iniciar una nueva sesión de PowerShell, inicie sesión en su cuenta de Azure y seleccione su suscripción antes de ejecutar comandos de Azure.
@@ -51,7 +52,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 
 ## Configuración del Almacén de claves
 
-Esta parte de la guía le lleva por la creación de un Almacén de claves para un clúster de Service Fabric de Azure y para aplicaciones de Service Fabric. Para obtener una guía completa sobre el Almacén de claves, consulte [Introducción al Almacén de claves de Azure][key-vault-get-started].
+Esta parte de la guía le lleva por la creación de un Almacén de claves para un clúster de Service Fabric de Azure y para aplicaciones de Service Fabric. Para obtener una guía completa sobre Key Vault, consulte [Introducción a Key Vault][key-vault-get-started].
 
 Service Fabric usa certificados X.509 para proteger un clúster. El Almacén de claves de Azure se usa para administrar certificados para clústeres de Service Fabric en Azure. Cuando un clúster se implementa en Azure, el proveedor de recursos de Azure responsable de crear clústeres de Service Fabric extrae los certificados del Almacén de claves y los instala en las máquinas virtuales del clúster.
 
@@ -133,13 +134,13 @@ Para servir a estos propósitos, el certificado debe cumplir los siguientes requ
 
  - El certificado debe contener una clave privada.
  - El certificado debe crearse para el intercambio de claves, que se puedan exportar a un archivo Personal Information Exchange (.pfx).
- - El nombre de sujeto del certificado debe coincidir con el nombre del dominio usado para acceder al clúster de Service Fabric. Este es un requisito para proporcionar SSL a los puntos de conexión de administración HTTPS y de Service Fabric Explorer del clúster. No puede obtener un certificado SSL de una entidad de certificación (CA) para el dominio `.cloudapp.azure.com`. Debe adquirir un nombre de dominio personalizado para el clúster. Cuando solicite un certificado de una CA, el nombre de sujeto del certificado debe coincidir con el nombre del dominio personalizado que se usó para el clúster.
+ - El nombre de sujeto del certificado debe coincidir con el nombre del dominio usado para acceder al clúster de Service Fabric. Este es un requisito para proporcionar SSL a los puntos de conexión de administración HTTPS y de Service Fabric Explorer del clúster. No puede obtener un certificado SSL de una entidad de certificación (CA) para el dominio `.cloudapp.azure.com`. Adquiera un nombre de dominio personalizado para el clúster. Cuando solicite un certificado de una CA, el nombre de sujeto del certificado debe coincidir con el nombre del dominio personalizado que se usó para el clúster.
 
 ### Certificados de autenticación de cliente
 
 Los certificados de cliente adicionales autentican a los administradores en las tareas de administración del clúster. Service Fabric tiene dos niveles de acceso: **administrador** y **usuario de solo lectura**. Se debe usar como mínimo un certificado para el acceso administrativo. Para accesos de nivel de usuario adicionales, se debe proporcionar un certificado diferente. Para más información sobre los roles de acceso, consulte [Control de acceso basado en roles para clientes de Service Fabric][service-fabric-cluster-security-roles].
 
-No es necesario cargar los certificados de autenticación de cliente en el Almacén de claves para trabajar con Service Fabric. Estos certificados solo se deben proporcionar a los administradores que están autorizados para la administración del clúster.
+No es necesario cargar los certificados de autenticación de cliente en Key Vault para trabajar con Service Fabric. Estos certificados solo se deben proporcionar a los usuarios que están autorizados para la administración del clúster.
 
 >[AZURE.NOTE] Azure Active Directory es el método recomendado para autenticar a los clientes en las operaciones de administración del clúster. Para usar Azure Active Directory, debe [crear un clúster mediante Azure Resource Manager][create-cluster-arm].
 
@@ -161,11 +162,11 @@ Para facilitar este proceso, hay un módulo de PowerShell [disponible en GitHub]
  1. Descargue todo el contenido del repositorio en un directorio local.
  2. Importe el módulo en la ventana de PowerShell:
 
-  ```powershell
+```powershell
   PS C:\Users\vturecek> Import-Module "C:\users\vturecek\Documents\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
-  ```
+```
      
-El comando `Invoke-AddCertToKeyVault` de este módulo de PowerShell convierte automáticamente una clave privada de certificado en una cadena JSON y la carga en el Almacén de claves. Úsela para agregar el certificado de clúster y cualquier certificado de aplicación adicional al Almacén de claves. Basta con que repita este paso con cualquier certificado adicional que quiera instalar en el clúster.
+El comando `Invoke-AddCertToKeyVault` de este módulo de PowerShell convierte automáticamente una clave privada de certificado en una cadena JSON y la carga en el Almacén de claves. Úsela para agregar el certificado de clúster y cualquier certificado de aplicación adicional al Almacén de claves. Repita este paso con cualquier certificado adicional que quiera instalar en el clúster.
 
 ```powershell
 PS C:\Users\vturecek> Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "West US" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
@@ -195,6 +196,7 @@ Estos son todos los requisitos previos del Almacén de claves para configurar un
    - Almacén de claves
      - Certificado de autenticación de servidor de clúster
 
+</a "create-cluster-portal" ></a>
 ## Creación de un clúster en el Portal de Azure
 
 ### Búsqueda del recurso de clúster de Service Fabric
@@ -209,7 +211,7 @@ Estos son todos los requisitos previos del Almacén de claves para configurar un
 
  4. Vaya a la hoja **Clúster de Service Fabric** y haga clic en **Crear**.
 
- 5. Ahora aparecerá una hoja **Crear clúster de Service Fabric** con cuatro pasos.
+ 5. La hoja **Crear clúster de Service Fabric** consta de los siguientes cuatro pasos.
 
 #### 1\. Aspectos básicos
 
@@ -233,7 +235,7 @@ En la hoja Básico, se deben proporcionar los datos básicos del clúster.
 
 ![Creación de un tipo de nodo][CreateNodeType]
 
-Configure los nodos del clúster. Los tipos de nodos definen los tamaños de máquina virtual, el número de máquinas virtuales y sus propiedades. El clúster puede tener más de un tipo de nodo, pero el tipo de nodo principal (el primero que se define en el portal) debe tener al menos cinco máquinas virtuales. Este es el tipo de nodo donde se encuentran los servicios del sistema de Service Fabric. No necesita configurar **Propiedades de ubicación** porque el sistema agrega automáticamente una propiedad de ubicación predeterminada de "NodeTypeName".
+Configure los nodos del clúster. Los tipos de nodos definen los tamaños de máquina virtual, el número de máquinas virtuales y sus propiedades. El clúster puede tener más de un tipo de nodo, pero el tipo de nodo principal (el primero que se define en el portal) debe tener al menos cinco máquinas virtuales. Este es el tipo de nodo donde se encuentran los servicios del sistema de Service Fabric. No configure **Propiedades de ubicación** porque el sistema agrega automáticamente una propiedad de ubicación predeterminada de "NodeTypeName".
 
    >[AZURE.NOTE] Un escenario común para varios tipos de nodos es una aplicación que contiene un servicio front-end y un servicio back-end. Quiere colocar el servicio front-end en máquinas virtuales más pequeñas (como D2) con puertos abiertos a Internet, pero el servicio back-end lo quiere poner en máquinas virtuales más grandes (como D4, D6, D15, etc.) sin puertos abiertos accesibles desde Internet.
 
@@ -241,7 +243,7 @@ Configure los nodos del clúster. Los tipos de nodos definen los tamaños de má
 
  2. El **tamaño** mínimo de máquinas virtuales para el tipo de nodo principal depende del nivel de **durabilidad** que elija para el clúster. El valor predeterminado del nivel de durabilidad es Bronze. Para más información sobre la durabilidad, consulte [Elección de los niveles de confiabilidad y durabilidad del clúster de Service Fabric][service-fabric-cluster-capacity].
 
- 3. Seleccione el tamaño de máquina virtual y el plan de tarifa. Las máquinas virtuales de la serie D tienen unidades SSD y son muy recomendables para aplicaciones con estado.
+ 3. Seleccione el tamaño de máquina virtual y el plan de tarifa. Las máquinas virtuales de la serie D tienen unidades SSD y son muy recomendables para aplicaciones con estado. No utilice cualquier SKU de máquina virtual que tenga núcleos parciales o menos de 7 GB de capacidad de disco disponible.
 
  4. El **número** mínimo de máquinas virtuales para el tipo de nodo principal depende del nivel de **confiabilidad** que elija. El valor predeterminado del nivel de confiabilidad es Silver. Para más información sobre la confiabilidad, consulte [Elección de los niveles de confiabilidad y durabilidad del clúster de Service Fabric][service-fabric-cluster-capacity].
 
@@ -251,6 +253,10 @@ Configure los nodos del clúster. Los tipos de nodos definen los tamaños de má
 
  7. Configure los **diagnósticos** de clúster. De forma predeterminada, los diagnósticos se habilitan en el clúster para ayudar a solucionar los problemas. Si quiere deshabilitar los diagnósticos, cambie el botón de alternancia **Estado** a **Desactivado**. **No** se recomienda desactivar los diagnósticos.
 
+ 9. Seleccione el modo de actualización de Service Fabric que desea establecer en el clúster. Seleccione **Automático** si desea que el sistema coja la última versión disponible automáticamente e intente actualizar el clúster con ella. Establezca el modo en **Manual** si desea elegir una versión compatible.
+
+>[AZURE.NOTE] Se admiten solo los clústeres que ejecutan versiones compatibles de Service Fabric. Si selecciona el modo **Manual**, está aceptando la responsabilidad de actualizar el clúster a una versión compatible. Para más información sobre el modo de actualización de Service Fabric, consulte el [documento de actualización de un clúster de Service Fabric.][service-fabric-cluster-upgrade]
+
 
 #### 3\. Seguridad
 
@@ -258,7 +264,8 @@ Configure los nodos del clúster. Los tipos de nodos definen los tamaños de má
 
 El paso final consiste en proporcionar información del certificado para proteger el clúster mediante el Almacén de claves y la información del certificado creada anteriormente.
 
- 1. Rellene los campos del certificado principal con el resultado obtenido de cargar el **certificado del clúster** en el Almacén de claves mediante el comando `Invoke-AddCertToKeyVault` de PowerShell.
+ 
+- Rellene los campos del certificado principal con el resultado obtenido de cargar el **certificado del clúster** en el Almacén de claves mediante el comando `Invoke-AddCertToKeyVault` de PowerShell.
 
 ```powershell
 Name  : CertificateThumbprint
@@ -271,7 +278,7 @@ Name  : CertificateURL
 Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
 ```
 
- 2. Marque el cuadro **Configurar opciones avanzadas** para insertar certificados de cliente para el **cliente de administración** y el **cliente de solo lectura**. En estos campos, inserte simplemente la huella digital del certificado de cliente de administración y la huella digital del certificado de cliente de solo lectura, si procede. Cuando los administradores intenten conectarse al clúster, se les concederá acceso únicamente si tienen un certificado con una huella digital que coincida con los valores de huella digital especificados aquí.
+- Marque el cuadro **Configurar opciones avanzadas** para insertar certificados de cliente para el **cliente de administración** y el **cliente de solo lectura**. En estos campos, inserte la huella digital del certificado de cliente de administración y la huella digital del certificado de cliente de solo lectura, si procede. Cuando los administradores intenten conectarse al clúster, se les concederá acceso únicamente si tienen un certificado con una huella digital que coincida con los valores de huella digital especificados aquí.
 
 
 #### 4\. Resumen
@@ -320,6 +327,7 @@ En este punto, tiene un clúster seguro mediante certificados para la autenticac
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md
 [remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md#remote-connect-to-a-vm-scale-set-instance-or-a-cluster-node
+[service-fabric-cluster-upgrade]: service-fabric-cluster-upgrade.md
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png
@@ -330,4 +338,4 @@ En este punto, tiene un clúster seguro mediante certificados para la autenticac
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [cluster-security-cert-installation]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-cert-installation.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

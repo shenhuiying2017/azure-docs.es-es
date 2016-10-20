@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Administración de recursos de Servicios multimedia entre varias cuentas de almacenamiento" 
+	pageTitle="Administración de recursos de Media Services entre varias cuentas de almacenamiento | Microsoft Azure" 
 	description="En este artículo se dan instrucciones sobre cómo administrar recursos de servicios de multimedia en varias cuentas de almacenamiento." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"    
+	ms.date="09/26/2016"    
 	ms.author="juliako"/>
 
 
@@ -24,7 +24,7 @@ A partir de Servicios multimedia de Microsoft Azure 2.2, puede asociar varias cu
 - Equilibrio de carga de sus activos entre varias cuentas de almacenamiento.
 - Escalado de Servicios multimedia para grandes cantidades de procesamiento de contenido (ya que actualmente una única cuenta de almacenamiento tiene un límite máximo de 500 TB).
 
-En este tema se muestra cómo asociar varias cuentas de almacenamiento a una cuenta de Servicios multimedia mediante la API de REST de administración de servicios de Azure. También muestra cómo especificar diferentes cuentas de almacenamiento al crear activos mediante el SDK de Servicios multimedia.
+En este tema se muestra cómo asociar varias cuentas de almacenamiento a una cuenta de Media Services mediante Azure Service Management API de REST. También muestra cómo especificar diferentes cuentas de almacenamiento al crear activos mediante el SDK de Servicios multimedia.
 
 ##Consideraciones
 
@@ -40,7 +40,7 @@ Los Servicios multimedia usan el valor de la propiedad **IAssetFile.Name** al ge
 
 ##Para asociar una cuenta de almacenamiento con la API de REST de administración de servicios de Azure
 
-Actualmente, la única manera de asociar varias cuentas de almacenamiento es usando la [API de REST de administración de servicios de Azure](http://msdn.microsoft.com/library/azure/dn167014.aspx). El ejemplo de código en el tema [Cómo usar la API de REST de administración de Servicios multimedia](https://msdn.microsoft.com/library/azure/dn167656.aspx) define el método **AttachStorageAccountToMediaServiceAccount** que asocia una cuenta de almacenamiento a la cuenta de Servicios multimedia especificada. El código del mismo tema define el método **ListStorageAccountDetails** que muestra todas las cuentas de almacenamiento asociadas a la cuenta de Servicios multimedia especificada.
+Actualmente, la única manera de asociar varias cuentas de almacenamiento es usando la [API de REST de administración de servicios de Azure](http://msdn.microsoft.com/library/azure/dn167014.aspx). El ejemplo de código en el tema [Cómo usar la API de REST de administración de Media Services](https://msdn.microsoft.com/library/azure/dn167656.aspx) define el método **AttachStorageAccountToMediaServiceAccount** que asocia una cuenta de almacenamiento a la cuenta de Media Services especificada. El código del mismo tema define el método **ListStorageAccountDetails** que muestra todas las cuentas de almacenamiento asociadas a la cuenta de Media Services especificada.
 
 
 ##Para administrar los recursos de Servicios multimedia entre varias cuentas de almacenamiento
@@ -259,4 +259,4 @@ El código siguiente usa el último SDK de Servicios multimedia para realizar la
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 
@@ -30,7 +30,7 @@ En los Servicios multimedia, un procesador multimedia es un componente que contr
 
 La siguiente tabla proporciona el nombre y la descripción de cada procesador multimedia disponible.
 
-Nombre de procesador multimedia|Descripción|Más información
+Nombre de procesador multimedia|Description|Más información
 ---|---|---
 Media Encoder Estándar|Proporciona funciones estándar de codificación a petición. |[Información general y comparación de codificadores multimedia a petición de Azure](media-services-encode-asset.md)
 Flujo de trabajo del Codificador multimedia|Le permite ejecutar tareas de codificación con el flujo de trabajo Premium del Codificador multimedia.|[Información general y comparación de codificadores multimedia a petición de Azure](media-services-encode-asset.md)
@@ -97,6 +97,6 @@ Respuesta:
 
 ##Pasos siguientes
 
-Ahora que sabe cómo obtener una instancia de procesador multimedia, consulte el tema [Codificación de un recurso mediante Codificador multimedia estándar](media-services-rest-get-started.md), que le mostrará cómo utilizar Codificador multimedia estándar para codificar un recurso.
+Ahora que sabe cómo obtener una instancia de procesador multimedia, consulte el tema sobre la [codificación de un recurso](media-services-rest-get-started.md), que le mostrará cómo utilizar el servicio Media Encoder estándar para codificar un recurso.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

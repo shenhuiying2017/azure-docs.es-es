@@ -102,13 +102,13 @@ Recupere las propiedades del grupo existentes. Modifique los valores y ejecute e
 
 ## Administración de un ejemplo de grupo con C#
 
-Las bibliotecas siguientes son necesarias para ejecutar este ejemplo. Puede instalarlas ejecutando los siguientes comandos en la [Consola del Administrador de paquetes](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**)
+Las bibliotecas siguientes son necesarias para ejecutar este ejemplo. Puede instalarlas ejecutando los siguientes comandos en la [Consola del Administrador de paquetes](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**):
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Cree una aplicación de consola y reemplace el contenido de Program.cs por el código siguiente. Para obtener el identificador de cliente necesario y los valores relacionados, consulte [Obtención del identificador de cliente y la clave para conectarse a Base de datos SQL desde el código](sql-database-client-id-keys.md).
+Cree una aplicación de consola y reemplace el contenido de Program.cs por el código siguiente. Para obtener el identificador de cliente requerido y los valores relacionados, consulte [Uso de Azure PowerShell para crear una entidad de servicio para acceder a recursos](../resource-group-authenticate-service-principal.md).
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
@@ -430,4 +430,4 @@ Cree una aplicación de consola y reemplace el contenido de Program.cs por el c�
 - [¿Cuándo se debe utilizar un grupo de bases de datos elásticas?](sql-database-elastic-pool-guidance.md)
 - Consulte [Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md): use herramientas de bases de datos elásticas para realizar un escalado horizontal, mover los datos, realizar consultas o crear transacciones.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

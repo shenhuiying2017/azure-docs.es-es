@@ -2,7 +2,7 @@
 	pageTitle="Implementación de DocumentDB y aplicaciones web del Servicio de aplicaciones de Azure mediante una plantilla del Administrador de recursos de Azure | Microsoft Azure" 
 	description="Aprenda a implementar una cuenta de DocumentDB, aplicaciones web del Servicio de aplicaciones de Azure y una aplicación web de ejemplo mediante una plantilla del Administrador de recursos de Azure." 
 	services="documentdb, app-service\web" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/02/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # Implementación de DocumentDB y aplicaciones web de servicio de aplicación de Azure mediante una plantilla del Administrador de recursos de Azure
 
@@ -33,7 +33,7 @@ Después de completar este tutorial, podrá responder a las siguientes preguntas
 
 Antes de seguir las instrucciones de este tutorial, asegúrese de contar con lo siguiente:
 
-- Una suscripción de Azure. Azure es una plataforma basada en suscripción. Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra](https://azure.microsoft.com/pricing/purchase-options/), [Ofertas para miembros](https://azure.microsoft.com/pricing/member-offers/) o [Prueba gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Una suscripción de Azure. Azure es una plataforma basada en suscripción. Para más información sobre cómo obtener una suscripción, consulte [Opciones de compra](https://azure.microsoft.com/pricing/purchase-options/), [Ofertas para miembros](https://azure.microsoft.com/pricing/member-offers/) o [Prueba gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 ##<a id="CreateDB"></a>Paso 1: Descarga de los archivos de plantilla ##
 Para comenzar, vamos a descargar los archivos de plantilla que usaremos en este tutorial.
@@ -141,4 +141,4 @@ Ahora implementaremos nuestra segunda plantilla. Esta plantilla es útil para mo
 >[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

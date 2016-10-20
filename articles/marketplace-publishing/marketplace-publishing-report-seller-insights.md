@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="02/05/2016"
    ms.author="v-jeana; hascipio"/>
 
 # Descripción del informe de perspectivas de vendedor
@@ -92,7 +92,9 @@ Navegue a https://publish.windowsazure.com/ e inicie sesión con las credenciale
 Seleccione la pestaña **Publicadores**. ![selectpublisherstab][8]
 
 
-Busque el identificador del publicador en la dirección URL y use este identificador como contraseña para abrir el archivo de Excel de perspectivas de vendedor. Esta es su contraseña hasta nuevo aviso. - Se recomienda usar Microsoft Office 2013 con Windows como lector de libro de su elección. Algunos usuarios han notificado problemas con Microsoft Office para Mac.
+Busque el identificador del publicador en la dirección URL:
+- Use este identificador como contraseña para abrir el archivo de Excel de perspectivas de vendedor. Esta es su contraseña hasta nuevo aviso.
+- Se recomienda usar Microsoft Office 2013 con Windows como lector de libro de su elección. Algunos usuarios han notificado problemas con Microsoft Office para Mac.
 
 ![publisherid][9]
 
@@ -118,4 +120,4 @@ Si tiene alguna pregunta relacionada con los informes y perspectivas, póngase e
 [9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png
 [10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -20,10 +20,13 @@
 
 Con el punto de conexión v2.0 puede agregar rápidamente la autenticación a sus aplicaciones web y API web compatibles tanto con las cuentas personales de Microsoft como con las cuentas profesionales o educativas. Aquí compilaremos una aplicación web MVC que inicia la sesión de los usuarios mediante OpenID Connect, con un poco de ayuda del middleware OWIN de Microsoft. La aplicación web obtendrá tokens de acceso de OAuth 2.0 para una API web protegida por OAuth 2.0 que permite las tareas de creación, lectura y eliminación en la "lista de tareas pendientes" de un usuario determinado.
 
-> [AZURE.NOTE]
-	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe utilizar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
+> [AZURE.WARNING]
+	Actualmente, este tutorial usa una biblioteca de cliente obsoleta y no compatible, `Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory` (ADAL Experimental). Estamos trabajando para actualizar este tutorial a la biblioteca de versión preliminar `Microsoft.Identity.Client` (MSAL). Mientras tanto, se recomienda reemplazar el uso de ADAL Experimental en este tutorial con MSAL. Obtenga más información sobre las opciones para elegir una biblioteca de cliente en nuestro [artículo de limitaciones](active-directory-v2-limitations.md).
 
 Este tutorial se centra principalmente en el uso de ADAL para obtener y usar tokens de acceso en una aplicación web. Encontrará [aquí](active-directory-v2-flows.md#web-apps) la descripción completa. Como requisitos previos, es aconsejable que aprenda primero cómo [agregar un inicio de sesión básico a una aplicación web](active-directory-v2-devquickstarts-dotnet-web.md) o cómo [proteger correctamente una API web](active-directory-v2-devquickstarts-dotnet-api.md).
+
+> [AZURE.NOTE]
+	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe utilizar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
 
 ## Descarga de código de ejemplo
 
@@ -201,4 +204,4 @@ Para obtener recursos adicionales, consulte:
 
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite [esta página](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de avisos de seguridad.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->
