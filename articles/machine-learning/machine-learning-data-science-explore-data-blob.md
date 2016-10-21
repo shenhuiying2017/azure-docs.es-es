@@ -1,118 +1,123 @@
 <properties 
-	pageTitle="Exploración de datos en el almacenamiento de blobs de Azure con Pandas | Microsoft Azure" 
-	description="Cómo explorar los datos almacenados en el contenedor de blobs de Azure mediante Pandas." 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="jhubbard" 
-	editor="cgronlun" />
+    pageTitle="Explore data in Azure blob storage with Pandas | Microsoft Azure" 
+    description="How to explore data that is stored in Azure blob container using Pandas." 
+    services="machine-learning,storage" 
+    documentationCenter="" 
+    authors="bradsev" 
+    manager="jhubbard" 
+    editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/13/2016" 
-	ms.author="bradsev" />
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/13/2016" 
+    ms.author="bradsev" /> 
 
-#Exploración de datos en el almacenamiento de blobs de Azure con Pandas
 
-Este documento explica cómo explorar los datos almacenados en el contenedor de blobs de Azure mediante el paquete de Python [Pandas](http://pandas.pydata.org/).
+#<a name="explore-data-in-azure-blob-storage-with-pandas"></a>Explore data in Azure blob storage with Pandas
 
-El siguiente **menú** vincula a temas que describen cómo usar herramientas para explorar los datos desde varios entornos de almacenamiento. Esta tarea constituye un paso del [proceso de ciencia de datos en equipos (TDSP)]().
+This document covers how to explore data that is stored in Azure blob container using [Pandas](http://pandas.pydata.org/) Python package.
+
+The following **menu** links to topics that describe how to use tools to explore data from various storage environments. This task is a step in the [Data Science Process]().
 
 [AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
 
-## Requisitos previos
-En este artículo se supone que ha:
+## <a name="prerequisites"></a>Prerequisites
+This article assumes that you have:
 
-* Creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de almacenamiento de Azure](../storage/storage-create-storage-account.md).
-* Almacenó los datos en una cuenta de almacenamiento de blobs de Azure. Si necesita instrucciones, consulte el artículo sobre cómo [mover con Azure Storage como origen y destino](../storage/storage-moving-data.md).
+* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../storage/storage-create-storage-account.md#create-a-storage-account)
+* Stored your data in an Azure blob storage account. If you need instructions, see [Moving data to and from Azure Storage](../storage/storage-moving-data.md)
 
-## Carga de los datos en una trama de datos de Pandas
-Para explorar y manipular un conjunto de datos, se debe descargar desde el origen de blob en un archivo local que se pueda cargar en una trama de datos de Pandas. Estos son los pasos a seguir para realizar este procedimiento:
+## <a name="load-the-data-into-a-pandas-dataframe"></a>Load the data into a Pandas DataFrame
+To explore and manipulate a dataset, it must first be downloaded from the blob source to a local file, which can then be loaded in a Pandas DataFrame. Here are the steps to follow for this procedure:
 
-1. Descargue los datos del blob de Azure con el siguiente código de ejemplo Python mediante el servicio BLOB. Reemplace la variable en el código siguiente por sus valores específicos:
+1. Download the data from Azure blob with the following Python code sample using blob service. Replace the variable in the following code with your specific values: 
 
-	    from azure.storage.blob import BlobService
-    	import tables
-    	
-		STORAGEACCOUNTNAME= <storage_account_name>
-		STORAGEACCOUNTKEY= <storage_account_key>
-		LOCALFILENAME= <local_file_name>		
-		CONTAINERNAME= <container_name>
-		BLOBNAME= <blob_name>
+        from azure.storage.blob import BlobService
+        import tables
+        
+        STORAGEACCOUNTNAME= <storage_account_name>
+        STORAGEACCOUNTKEY= <storage_account_key>
+        LOCALFILENAME= <local_file_name>        
+        CONTAINERNAME= <container_name>
+        BLOBNAME= <blob_name>
 
-    	#download from blob
-    	t1=time.time()
-    	blob_service=BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
-    	blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
-    	t2=time.time()
-    	print(("It takes %s seconds to download "+blobname) % (t2 - t1))
+        #download from blob
+        t1=time.time()
+        blob_service=BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
+        blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
+        t2=time.time()
+        print(("It takes %s seconds to download "+blobname) % (t2 - t1))
 
 
-2. Lea los datos en una trama de datos de Pandas desde el archivo descargado.
+2. Read the data into a Pandas data-frame from the downloaded file.
 
-	    #LOCALFILE is the file path	
-    	dataframe_blobdata = pd.read_csv(LOCALFILE)
+        #LOCALFILE is the file path 
+        dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-Ya puede explorar los datos y generar características en este conjunto de datos.
+Now you are ready to explore the data and generate features on this dataset.
 
-##<a name="blob-dataexploration"></a>Ejemplos de exploración de datos con Pandas
+##<a name="<a-name="blob-dataexploration"></a>examples-of-data-exploration-using-pandas"></a><a name="blob-dataexploration"></a>Examples of data exploration using Pandas
 
-A continuación, se muestran algunos ejemplos de formas de explorar datos mediante Pandas:
+Here are a few examples of ways to explore data using Pandas:
 
-1. Inspeccionar el **número de filas y columnas**
+1. Inspect the **number of rows and columns** 
 
-		print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
+        print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 
-2. **Inspeccionar** las primeras o las últimas **filas** del conjunto de datos, como se indica a continuación:
+2. **Inspect** the first or last few **rows** in the following dataset:
 
-		dataframe_blobdata.head(10)
-		
-		dataframe_blobdata.tail(10)
+        dataframe_blobdata.head(10)
+        
+        dataframe_blobdata.tail(10)
 
-3. Comprobar el **tipo de datos** como el que se importó cada columna mediante el siguiente código de ejemplo:
- 	
-		for col in dataframe_blobdata.columns:
-		    print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
+3. Check the **data type** each column was imported as using the following sample code
+    
+        for col in dataframe_blobdata.columns:
+            print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
 
-4. Comprobar las **estadísticas básicas** de las columnas del conjunto de datos de la siguiente forma:
+4. Check the **basic stats** for the columns in the data set as follows
  
-		dataframe_blobdata.describe()
-	
-5. Observar el número de entradas de cada valor de columna, como se indica a continuación
+        dataframe_blobdata.describe()
+    
+5. Look at the number of entries for each column value as follows
 
-		dataframe_blobdata['<column_name>'].value_counts()
+        dataframe_blobdata['<column_name>'].value_counts()
 
-6. **Contar los valores que faltan** frente al número real de entradas de cada columna, mediante el siguiente código de ejemplo:
+6. **Count missing values** versus the actual number of entries in each column using the following sample code
 
-		miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
-		print miss_num
-	 
-7.	Si hay **valores que faltan** para una columna determinada en los datos, puede quitarlos como se indica:
+        miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
+        print miss_num
+     
+7.  If you have **missing values** for a specific column in the data, you can drop them as follows:
 
-		dataframe_blobdata_noNA = dataframe_blobdata.dropna()
-		dataframe_blobdata_noNA.shape
+        dataframe_blobdata_noNA = dataframe_blobdata.dropna()
+        dataframe_blobdata_noNA.shape
 
-	Otra forma de reemplazar los valores que faltan es a través de la función de modo:
-	
-		dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})		
+    Another way to replace missing values is with the mode function:
+    
+        dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})        
 
-8. Crear un gráfico de **histograma** con un número variable de discretizaciones para trazar la distribución de una variable.
-	
-		dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
-		
-		np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
-	
-9. Examinar las **correlaciones** entre las variables mediante un gráfico de dispersión o con la función de correlación integrada.
+8. Create a **histogram** plot using variable number of bins to plot the distribution of a variable 
+    
+        dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
+        
+        np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
+    
+9. Look at **correlations** between variables using a scatterplot or using the built-in correlation function
 
-		#relationship between column_a and column_b using scatter plot
-		plt.scatter(dataframe_blobdata['<column_a>'], dataframe_blobdata['<column_b>'])
-		
-		#correlation between column_a and column_b
-		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
+        #relationship between column_a and column_b using scatter plot
+        plt.scatter(dataframe_blobdata['<column_a>'], dataframe_blobdata['<column_b>'])
+        
+        #correlation between column_a and column_b
+        dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

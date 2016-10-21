@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Incorporación del conector de Búsqueda de Bing a aplicaciones lógicas | Microsoft Azure"
-    description="Información general del conector de Búsqueda de Bing con parámetros de la API de REST"
+    pageTitle="Add the Bing Search connector logic apps | Microsoft Azure"
+    description="Overview of the Bing Search connector with REST API parameters"
     services=""
     suite=""
     documentationCenter="" 
@@ -18,254 +18,262 @@
    ms.date="08/18/2016"
    ms.author="mandia"/>
 
-# Introducción al conector de Búsqueda de Bing 
-Conéctese a Búsqueda de Bing para buscar noticias, vídeos y mucho más. Con Búsqueda de Bing, puede hacer lo siguiente:
 
-- Compilar el flujo de negocio en función de los datos obtenidos de la búsqueda.
-- Usar acciones para buscar imágenes, noticias, etc. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, puede buscar un vídeo y luego usar Twitter para publicar ese vídeo en una fuente de Twitter.
+# <a name="get-started-with-the-bing-search-connector"></a>Get started with the Bing Search connector 
+Connect to Bing Search to search news, search videos, and more. With Bing Search, you can: 
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+- Build your business flow based on the data you get from your search. 
+- Use actions to search images, search the news, and more. These actions get a response, and then make the output available for other actions. For example, you can search for a video, and then use Twitter to post that video to a Twitter feed.
 
-## Desencadenadores y acciones
-Búsqueda de Bing incluye las siguientes acciones. No hay desencadenadores.
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Desencadenadores | Acciones
+## <a name="triggers-and-actions"></a>Triggers and actions
+Bing Search includes the following actions. There are no triggers. 
+
+Triggers | Actions
 --- | ---
-None | <ul><li>Buscar en web</li><li>Buscar vídeos</li><li>Buscar imágenes</li><li>Buscar noticias</li><li>Buscar relacionados</li><li>Buscar ortografías</li><li>Buscar todo</li></ul>
+None | <ul><li>Search web</li><li>Search videos</li><li>Search images</li><li>Search news</li><li>Search related</li><li>Search spellings</li><li>Search all</li></ul>
 
-Todos los conectores admiten datos en formato JSON y XML.
+All connectors support data in JSON and XML formats.
 
 
-## Referencia de la API de REST de Swagger
-Se aplica a la versión: 1.0.
+## <a name="swagger-rest-api-reference"></a>Swagger REST API reference
+Applies to version: 1.0.
 
-### Buscar en web 
-Recupera los sitios web de una búsqueda de Bing. ```GET: /Web```
+### <a name="search-web"></a>Search web 
+Retrieves web sites from a Bing search.  
+```GET: /Web```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|query|cadena|yes|query|Ninguna |Texto que se va a buscar (ejemplo, 'xbox')|
-|maxResult|integer|no|query|Ninguna |El número máximo de resultados que se devolverán|
-|startOffset|integer|no|query| Ninguna|Número de resultados que se van a omitir|
-|adultContent|string|no|query|Ninguna |Filtro de contenido para adultos. Valores válidos: <ul><li>Off (Desactivado)</li><li>Moderate (Moderado)</li><li>Strict (Estricto)</li></ul>|
-|market|string|no|query|Ninguna |Mercado o región para restringir la búsqueda (ejemplo, es-ES)|
-|longitude|número|no|query| Ninguna|Longitud (coordenada este y oeste) para restringir la búsqueda (ejemplo, 47.603450)|
-|latitude|número|no|query| Ninguna|Latitud (coordenada norte/sur) para restringir la búsqueda (ejemplo, -122.329696)|
-|webFileType|string|no|query|Ninguna |Tipo de archivo para restringir la búsqueda (ejemplo, 'DOC')|
+|query|string|yes|query|none |Text to search for (example: 'xbox')|
+|maxResult|integer|no|query|none |Maximum number of results to return|
+|startOffset|integer|no|query| none|Number of results to skip|
+|adultContent|string|no|query|none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|market|string|no|query|none |Market or region to narrow the search (example: en-US)|
+|longitude|number|no|query| none|Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
+|latitude|number|no|query| none|Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
+|webFileType|string|no|query|none |File type to narrow the search (example: 'DOC')|
 
-#### Response
-|Nombre|Descripción|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
 |200|OK|
-|default|Error en la operación.|
+|default|Operation Failed.|
 
 
-### Buscar vídeos 
-Recupera vídeos de una búsqueda de Bing. ```GET: /Video```
+### <a name="search-videos"></a>Search videos 
+Retrieves videos from a Bing search.  
+```GET: /Video```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|query|cadena|yes|query|Ninguna |Texto que se va a buscar (ejemplo, 'xbox')|
-|maxResult|integer|no|query| Ninguna|El número máximo de resultados que se devolverán|
-|startOffset|integer|no|query|Ninguna |Número de resultados que se van a omitir|
-|adultContent|string|no|query|Ninguna |Filtro de contenido para adultos. Valores válidos: <ul><li>Off (Desactivado)</li><li>Moderate (Moderado)</li><li>Strict (Estricto)</li></ul>|
-|market|string|no|query|Ninguna |Mercado o región para restringir la búsqueda (ejemplo, es-ES)|
-|longitude|número|no|query|Ninguna |Longitud (coordenada este y oeste) para restringir la búsqueda (ejemplo, 47.603450)|
-|latitude|número|no|query|Ninguna |Latitud (coordenada norte/sur) para restringir la búsqueda (ejemplo, -122.329696)|
-|videoFilters|string|no|query|Ninguna |Filtro de búsqueda en función del tamaño, el aspecto, el color, el estilo, la cara o cualquier combinación de estos. Valores válidos: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>Por ejemplo: "Duration:Short+Resolution:High"|
-|videoSortBy|string|no|query|Ninguna |Criterio de ordenación de los resultados. Valores válidos: <ul><li>Date (Fecha)</li><li>Relevance (Relevancia)</li></ul> <p>El orden de clasificación por fecha implica un orden descendente.</p>|
+|query|string|yes|query|none |Text to search for (example: 'xbox')|
+|maxResult|integer|no|query| none|Maximum number of results to return|
+|startOffset|integer|no|query|none |Number of results to skip|
+|adultContent|string|no|query|none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|market|string|no|query|none |Market or region to narrow the search (example: en-US)|
+|longitude|number|no|query|none |Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
+|latitude|number|no|query|none |Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
+|videoFilters|string|no|query|none |Filter search based on size, aspect, color, style, face or any combination thereof.  Valid values: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>For example: 'Duration:Short+Resolution:High'|
+|videoSortBy|string|no|query|none |Sort order for results. Valid values: <ul><li>Date</li><li>Relevance</li></ul> <p>Date sort order implies descending.</p>|
 
-#### Response
-|Nombre|Descripción|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
 |200|OK|
-|default|Error en la operación.|
+|default|Operation Failed.|
 
 
-### Buscar imágenes    
-Recupera las imágenes de una búsqueda de Bing. ```GET: /Image```
+### <a name="search-images"></a>Search images    
+Retrieves images from a Bing search.  
+```GET: /Image```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|query|cadena|yes|query|Ninguna |Texto que se va a buscar (ejemplo, 'xbox')|
-|maxResult|integer|no|query|Ninguna |El número máximo de resultados que se devolverán|
-|startOffset|integer|no|query|Ninguna |Número de resultados que se van a omitir|
-|adultContent|string|no|query|Ninguna |Filtro de contenido para adultos. Valores válidos: <ul><li>Off (Desactivado)</li><li>Moderate (Moderado)</li><li>Strict (Estricto)</li></ul>|
-|market|string|no|query|Ninguna |Mercado o región para restringir la búsqueda (ejemplo, es-ES)|
-|longitude|número|no|query| Ninguna|Longitud (coordenada este y oeste) para restringir la búsqueda (ejemplo, 47.603450)|
-|latitude|número|no|query|Ninguna |Latitud (coordenada norte/sur) para restringir la búsqueda (ejemplo, -122.329696)|
-|imageFilters|string|no|query|Ninguna |Filtro de búsqueda en función del tamaño, el aspecto, el color, el estilo, la cara o cualquier combinación de estos. Valores válidos: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[ancho]</li><li>Size:Height:[alto]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>Por ejemplo: "Size:Small+Aspect:Square"|
+|query|string|yes|query|none |Text to search for (example: 'xbox')|
+|maxResult|integer|no|query|none |Maximum number of results to return|
+|startOffset|integer|no|query|none |Number of results to skip|
+|adultContent|string|no|query|none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|market|string|no|query|none |Market or region to narrow the search (example: en-US)|
+|longitude|number|no|query| none|Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
+|latitude|number|no|query|none |Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
+|imageFilters|string|no|query|none |Filter search based on size, aspect, color, style, face or any combination thereof. Valid values: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>For example: 'Size:Small+Aspect:Square'|
 
-#### Response
-|Nombre|Descripción|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
 |200|OK|
-|default|Error en la operación.|
+|default|Operation Failed.|
 
 
-### Buscar noticias    
-Recupera los resultados de noticias de una búsqueda de Bing. ```GET: /News```
+### <a name="search-news"></a>Search news    
+Retrieves news results from a Bing search.  
+```GET: /News```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|query|cadena|yes|query|Ninguna |Texto que se va a buscar (ejemplo, 'xbox')|
-|maxResult|integer|no|query|Ninguna |El número máximo de resultados que se devolverán|
-|startOffset|integer|no|query| Ninguna|Número de resultados que se van a omitir|
-|adultContent|string|no|query|Ninguna |Filtro de contenido para adultos. Valores válidos: <ul><li>Off (Desactivado)</li><li>Moderate (Moderado)</li><li>Strict (Estricto)</li></ul>|
-|market|string|no|query|Ninguna |Mercado o región para restringir la búsqueda (ejemplo, es-ES)|
-|longitude|número|no|query|Ninguna |Longitud (coordenada este y oeste) para restringir la búsqueda (ejemplo, 47.603450)|
-|latitude|número|no|query|Ninguna |Latitud (coordenada norte/sur) para restringir la búsqueda (ejemplo, -122.329696)|
-|newsSortBy|string|no|query| Ninguna|Criterio de ordenación de los resultados. Valores válidos: <ul><li>Date (Fecha)</li><li>Relevance (Relevancia)</li></ul> <p>El orden de clasificación por fecha implica un orden descendente.</p>|
-|newsCategory|string|no|query| |Categoría de noticias para restringir la búsqueda (ejemplo: 'rt\_Business')|
-|newsLocationOverride|string|no|query|Ninguna |Invalida la detección de ubicación de Bing. Este parámetro solo es aplicable en el mercado de es-ES. El formato de entrada es US./<estado/> (ejemplo: "US.WA")|
+|query|string|yes|query|none |Text to search for (example: 'xbox')|
+|maxResult|integer|no|query|none |Maximum number of results to return|
+|startOffset|integer|no|query| none|Number of results to skip|
+|adultContent|string|no|query|none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|market|string|no|query|none |Market or region to narrow the search (example: en-US)|
+|longitude|number|no|query|none |Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
+|latitude|number|no|query|none |Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
+|newsSortBy|string|no|query| none|Sort order for results. Valid values: <ul><li>Date</li><li>Relevance</li></ul> <p>Date sort order implies descending.</p>|
+|newsCategory|string|no|query| |Category of news to narrow the search (example: 'rt_Business')|
+|newsLocationOverride|string|no|query|none |Override for Bing location detection. This parameter is only applicable in en-US market. The format for input is US./<state /> (example: 'US.WA')|
 
-#### Response
-|Nombre|Descripción|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
 |200|OK|
-|default|Error en la operación.|
+|default|Operation Failed.|
 
 
-### Buscar ortografías    
-Recupera sugerencias de ortografía. ```GET: /SpellingSuggestions```
+### <a name="search-spellings"></a>Search spellings    
+Retrieves spelling suggestions.  
+```GET: /SpellingSuggestions```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|query|cadena|yes|query| Ninguna|Texto que se va a buscar (ejemplo, 'xbox')|
-|maxResult|integer|no|query|Ninguna |El número máximo de resultados que se devolverán|
-|startOffset|integer|no|query| Ninguna|Número de resultados que se van a omitir|
-|adultContent|string|no|query|Ninguna |Filtro de contenido para adultos. Valores válidos: <ul><li>Off (Desactivado)</li><li>Moderate (Moderado)</li><li>Strict (Estricto)</li></ul>|
-|market|string|no|query| Ninguna|Mercado o región para restringir la búsqueda (ejemplo, es-ES)|
-|longitude|número|no|query|Ninguna |Longitud (coordenada este y oeste) para restringir la búsqueda (ejemplo, 47.603450)|
-|latitude|número|no|query|Ninguna |Latitud (coordenada norte/sur) para restringir la búsqueda (ejemplo, -122.329696)|
+|query|string|yes|query| none|Text to search for (example: 'xbox')|
+|maxResult|integer|no|query|none |Maximum number of results to return|
+|startOffset|integer|no|query| none|Number of results to skip|
+|adultContent|string|no|query|none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|market|string|no|query| none|Market or region to narrow the search (example: en-US)|
+|longitude|number|no|query|none |Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
+|latitude|number|no|query|none |Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
 
-#### Response
-|Nombre|Descripción|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
 |200|OK|
-|default|Error en la operación.|
+|default|Operation Failed.|
 
 
-### Buscar relacionados    
-Recupera los resultados de búsqueda relacionados de una búsqueda de Bing. ```GET: /RelatedSearch```
+### <a name="search-related"></a>Search related    
+Retrieves related search results from a Bing search.  
+```GET: /RelatedSearch```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|query|cadena|yes|query|Ninguna |Texto que se va a buscar (ejemplo, 'xbox')|
-|maxResult|integer|no|query|Ninguna |El número máximo de resultados que se devolverán|
-|startOffset|integer|no|query| Ninguna|Número de resultados que se van a omitir|
-|adultContent|string|no|query|Ninguna |Filtro de contenido para adultos. Valores válidos: <ul><li>Off (Desactivado)</li><li>Moderate (Moderado)</li><li>Strict (Estricto)</li></ul>|
-|market|string|no|query|Ninguna |Mercado o región para restringir la búsqueda (ejemplo, es-ES)|
-|longitude|número|no|query|Ninguna |Longitud (coordenada este y oeste) para restringir la búsqueda (ejemplo, 47.603450)|
-|latitude|número|no|query| Ninguna|Latitud (coordenada norte/sur) para restringir la búsqueda (ejemplo, -122.329696)|
+|query|string|yes|query|none |Text to search for (example: 'xbox')|
+|maxResult|integer|no|query|none |Maximum number of results to return|
+|startOffset|integer|no|query| none|Number of results to skip|
+|adultContent|string|no|query|none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|market|string|no|query|none |Market or region to narrow the search (example: en-US)|
+|longitude|number|no|query|none |Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
+|latitude|number|no|query| none|Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
 
-#### Response
-|Nombre|Descripción|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
 |200|OK|
-|default|Error en la operación.|
+|default|Operation Failed.|
 
 
-### Buscar todo    
-Recupera todos los sitios web, vídeos, imágenes, etc., de una búsqueda de Bing. ```GET: /CompositeSearch```
+### <a name="search-all"></a>Search all    
+Retrieves all web sites, videos, images, etc. from a Bing search.  
+```GET: /CompositeSearch```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|query|cadena|yes|query|Ninguna |Texto que se va a buscar (ejemplo, 'xbox')|
-|maxResult|integer|no|query|Ninguna |El número máximo de resultados que se devolverán|
-|startOffset|integer|no|query|Ninguna |Número de resultados que se van a omitir|
-|adultContent|string|no|query|Ninguna |Filtro de contenido para adultos. Valores válidos: <ul><li>Off (Desactivado)</li><li>Moderate (Moderado)</li><li>Strict (Estricto)</li></ul>|
-|market|string|no|query|Ninguna |Mercado o región para restringir la búsqueda (ejemplo, es-ES)|
-|longitude|número|no|query|Ninguna |Longitud (coordenada este y oeste) para restringir la búsqueda (ejemplo, 47.603450)|
-|latitude|número|no|query|Ninguna |Latitud (coordenada norte/sur) para restringir la búsqueda (ejemplo, -122.329696)|
-|webFileType|string|no|query|Ninguna |Tipo de archivo para restringir la búsqueda (ejemplo, 'DOC')|
-|videoFilters|string|no|query|Ninguna |Filtro de búsqueda en función del tamaño, el aspecto, el color, el estilo, la cara o cualquier combinación de estos. Valores válidos: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>Por ejemplo: "Duration:Short+Resolution:High"|
-|videoSortBy|string|no|query|Ninguna |Criterio de ordenación de los resultados. Valores válidos: <ul><li>Date (Fecha)</li><li>Relevance (Relevancia)</li></ul> <p>El orden de clasificación por fecha implica un orden descendente.</p>|
-|imageFilters|string|no|query|Ninguna |Filtro de búsqueda en función del tamaño, el aspecto, el color, el estilo, la cara o cualquier combinación de estos. Valores válidos: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[ancho]</li><li>Size:Height:[alto]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>Por ejemplo: "Size:Small+Aspect:Square"|
-|newsSortBy|string|no|query|Ninguna |Criterio de ordenación de los resultados. Valores válidos: <ul><li>Date (Fecha)</li><li>Relevance (Relevancia)</li></ul> <p>El orden de clasificación por fecha implica un orden descendente.</p>|
-|newsCategory|string|no|query|Ninguna |Categoría de noticias para restringir la búsqueda (ejemplo: 'rt\_Business')|
-|newsLocationOverride|string|no|query|Ninguna |Invalida la detección de ubicación de Bing. Este parámetro solo es aplicable en el mercado de es-ES. El formato de entrada es US./<estado/> (ejemplo: "US.WA")|
+|query|string|yes|query|none |Text to search for (example: 'xbox')|
+|maxResult|integer|no|query|none |Maximum number of results to return|
+|startOffset|integer|no|query|none |Number of results to skip|
+|adultContent|string|no|query|none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|market|string|no|query|none |Market or region to narrow the search (example: en-US)|
+|longitude|number|no|query|none |Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
+|latitude|number|no|query|none |Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
+|webFileType|string|no|query|none |File type to narrow the search (example: 'DOC')|
+|videoFilters|string|no|query|none |Filter search based on size, aspect, color, style, face or any combination thereof.  Valid values: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>For example: 'Duration:Short+Resolution:High'|
+|videoSortBy|string|no|query|none |Sort order for results. Valid values: <ul><li>Date</li><li>Relevance</li></ul> <p>Date sort order implies descending.</p>|
+|imageFilters|string|no|query|none |Filter search based on size, aspect, color, style, face or any combination thereof. Valid values: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>For example: 'Size:Small+Aspect:Square'|
+|newsSortBy|string|no|query|none |Sort order for results. Valid values: <ul><li>Date</li><li>Relevance</li></ul> <p>Date sort order implies descending.</p>|
+|newsCategory|string|no|query|none |Category of news to narrow the search (example: 'rt_Business')|
+|newsLocationOverride|string|no|query|none |Override for Bing location detection. This parameter is only applicable in en-US market. The format for input is US./<state /> (example: 'US.WA')|
 
-#### Response
-|Nombre|Descripción|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
 |200|OK|
-|default|Error en la operación.|
+|default|Operation Failed.|
 
 
-## Definiciones de objeto
+## <a name="object-definitions"></a>Object definitions
 
-#### WebResultModel: resultados de búsqueda en web de Bing
+#### <a name="webresultmodel:-bing-web-search-results"></a>WebResultModel: Bing web search results
 
-|Nombre de propiedad | Tipo de datos | Obligatorio |
+|Property Name | Data Type | Required |
 |---|---|---|
-|Título|string|no|
+|Title|string|no|
 |Description|string|no|
 |DisplayUrl|string|no|
 |Id|string|no|
 |FullUrl|string|no|
 
-#### VideoResultModel: resultados de la búsqueda de vídeo de Bing
+#### <a name="videoresultmodel:-bing-video-search-results"></a>VideoResultModel: Bing video search results
 
-|Nombre de propiedad | Tipo de datos |Obligatorio |
+|Property Name | Data Type |Required |
 |---|---|---|
-|Título|string|no|
+|Title|string|no|
 |DisplayUrl|string|no|
 |Id|string|no|
 |MediaUrl|string|no|
-|Tiempo de ejecución|integer|no|
-|Miniatura|not defined|no|
+|Runtime|integer|no|
+|Thumbnail|not defined|no|
 
-#### ThumbnailModel: propiedades de vista en miniatura del elemento multimedia
+#### <a name="thumbnailmodel:-thumbnail-properties-of-the-multimedia-element"></a>ThumbnailModel: Thumbnail properties of the multimedia element
 
-|Nombre de propiedad | Tipo de datos |Obligatorio |
+|Property Name | Data Type |Required |
 |---|---|---|
 |MediaUrl|string|no|
 |ContentType|string|no|
-|Ancho|integer|no|
-|Alto|integer|no|
+|Width|integer|no|
+|Height|integer|no|
 |FileSize|integer|no|
 
-#### ImageResultModel: resultados de búsqueda de imagen de Bing
+#### <a name="imageresultmodel:-bing-image-search-results"></a>ImageResultModel: Bing image search results
 
-|Nombre de propiedad | Tipo de datos |Obligatorio |
+|Property Name | Data Type |Required |
 |---|---|---|
-|Título|string|no|
+|Title|string|no|
 |DisplayUrl|string|no|
 |Id|string|no|
 |MediaUrl|string|no|
 |SourceUrl|string|no|
-|Miniatura|not defined|no|
+|Thumbnail|not defined|no|
 
-#### NewsResultModel: resultados de búsqueda de noticias de Bing
+#### <a name="newsresultmodel:-bing-news-search-results"></a>NewsResultModel: Bing news search results
 
-|Nombre de propiedad | Tipo de datos |Obligatorio |
+|Property Name | Data Type |Required |
 |---|---|---|
-|Título|string|no|
+|Title|string|no|
 |Description|string|no|
 |DisplayUrl|string|no|
 |Id|string|no|
-|Origen|string|no|
+|Source|string|no|
 |Date|string|no|
 
-#### SpellResultModel: resultados de sugerencias de ortografía de Bing
+#### <a name="spellresultmodel:-bing-spelling-suggestions-results"></a>SpellResultModel: Bing spelling suggestions results
 
-|Nombre de propiedad | Tipo de datos |Obligatorio |
+|Property Name | Data Type |Required |
 |---|---|---|
 |Id|string|no|
-|Valor|string|no|
+|Value|string|no|
 
-#### RelatedSearchResultModel: resultados de búsqueda relacionados de Bing
+#### <a name="relatedsearchresultmodel:-bing-related-search-results"></a>RelatedSearchResultModel: Bing related search results
 
-|Nombre de propiedad | Tipo de datos |Obligatorio |
+|Property Name | Data Type |Required |
 |---|---|---|
-|Título|string|no|
+|Title|string|no|
 |Id|string|no|
 |BingUrl|string|no|
 
-#### CompositeSearchResultModel: resultados de búsqueda compuesta de Bing
+#### <a name="compositesearchresultmodel:-bing-composite-search-results"></a>CompositeSearchResultModel: Bing composite search results
 
-|Nombre de propiedad | Tipo de datos |Obligatorio |
+|Property Name | Data Type |Required |
 |---|---|---|
 |WebResultsTotal|integer|no|
 |ImageResultsTotal|integer|no|
@@ -279,10 +287,14 @@ Recupera todos los sitios web, vídeos, imágenes, etc., de una búsqueda de Bin
 |SpellSuggestionResults|array|no|
 |RelatedSearchResults|array|no|
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Volver a la [lista de API](apis-list.md).
+Go back to the [APIs list](apis-list.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

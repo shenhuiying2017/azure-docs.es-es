@@ -1,132 +1,136 @@
 <properties
-	pageTitle="Diseño y selección de características en Aprendizaje automático de Azure | Microsoft Azure"
-	description="Explica el propósito del diseño de características y de la selección de características, además de proporcionar ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático."
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Feature engineering and selection in Azure Machine Learning | Microsoft Azure"
+    description="Explains the purposes of feature selection and feature engineering and provides examples of their role in the data-enhancement process of machine learning."
+    services="machine-learning"
+    documentationCenter=""
+    authors="bradsev"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="zhangya;bradsev" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/12/2016"
+    ms.author="zhangya;bradsev" />
 
 
-# Diseño y selección de características en Aprendizaje automático de Azure
 
-En este tema se explica el propósito del diseño de funciones y la selección de funciones en el proceso de mejora de los datos del aprendizaje automático. Este tema muestra lo que implican estos procesos con ejemplos que proporciona Estudio de aprendizaje automático de Azure.
+# <a name="feature-engineering-and-selection-in-azure-machine-learning"></a>Feature engineering and selection in Azure Machine Learning
+
+This topic explains the purposes of feature engineering and feature selection in the data-enhancement process of machine learning. It illustrates what these processes involve by using examples provided by Azure Machine Learning Studio.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Los datos de entrenamiento que se usan en el aprendizaje automático a menudo pueden mejorarse gracias a la selección o extracción de características desde los datos sin procesar que se han recopilado. Un ejemplo de una función diseñada en el contexto de aprender cómo clasificar las imágenes de caracteres manuscritos es un mapa de densidad de bits construido a partir de los datos de distribución de bits sin procesar. Este mapa puede ayudar a ubicar los bordes de los caracteres de manera más eficiente que la distribución sin procesar.
+The training data used in machine learning can often be enhanced by the selection or extraction of features from the raw data collected. An example of an engineered feature in the context of learning how to classify the images of handwritten characters is a bit-density map constructed from the raw bit distribution data. This map can help locate the edges of the characters more efficiently than the raw distribution.
 
-Las funciones diseñadas y seleccionadas aumentan la eficiencia del proceso de entrenamiento, el que intenta extraer la información clave contenida en los datos. También mejoran la eficacia de estos modelos para clasificar los datos de entrada de manera precisa y para predecir resultados de interés de manera más sólida. El diseño y la selección de características también se pueden combinar para que sea posible hacer un mejor seguimiento computacional del aprendizaje. Para ello, mejora y luego reduce el número de características que se necesitan para calibrar o entrenar un modelo. Matemáticamente hablando, las características seleccionadas para entrenar el modelo son un conjunto mínimo de variables independientes que explican los patrones existentes en los datos y, a continuación, predicen correctamente los resultados.
+Engineered and selected features increase the efficiency of the training process, which attempts to extract the key information contained in the data. They also improve the power of these models to classify the input data accurately and to predict outcomes of interest more robustly. Feature engineering and selection can also combine to make the learning more computationally tractable. It does so by enhancing and then reducing the number of features needed to calibrate or train a model. Mathematically speaking, the features selected to train the model are a minimal set of independent variables that explain the patterns in the data and then predict outcomes successfully.
 
-El diseño y la selección de las características es solo una parte de un proceso más grande, el que normalmente consta de cuatro pasos:
+The engineering and selection of features is one part of a larger process, which typically consists of four steps:
 
-* recopilación de datos
-* mejora de datos
-* construcción del modelo
-* procesamiento posterior
+* Data collection
+* Data enhancement
+* Model construction
+* Post-processing
 
-El diseño y la selección se encuentran en el paso de **mejora de datos** del aprendizaje automático. Para nuestros propósitos, es posible distinguir tres aspectos de este proceso:
+Engineering and selection make up the data enhancement step of machine learning. Three aspects of this process may be distinguished for our purposes:
 
-* **procesamiento previo de los datos**: este proceso intenta asegurarse de que los datos recopilados estén limpios y sean coherentes. Incluye tareas como la integración de varios conjuntos de datos, el control de los datos que faltan, el control de datos incoherentes y la conversión de los tipos de datos.
-* **Diseño de características**: este proceso intenta crear características pertinentes adicionales a partir de características existentes sin procesar en los datos y mejorar la eficacia predictiva del algoritmo de aprendizaje.
-* **selección de características**: este proceso selecciona el subconjunto de claves de las características de datos originales en un intento por reducir la dimensionalidad del problema de entrenamiento.
+* **Data pre-processing**: This process tries to ensure that the collected data is clean and consistent. It includes tasks such as integrating multiple data sets, handling missing data, handling inconsistent data, and converting data types.
+* **Feature engineering**: This process attempts to create additional relevant features from the existing raw features in the data and to increase predictive power to the learning algorithm.
+* **Feature selection**: This process selects the key subset of original data features to reduce the dimensionality of the training problem.
 
-En este tema solo se abarcan los aspectos de diseño y selección de funciones del proceso de mejora de los datos. Para obtener información adicional sobre el paso de procesamiento previo de los datos, vea el vídeo [Procesamiento previo de datos en Estudio de aprendizaje automático de Azure](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
-
-
-## Creación de características a partir de sus datos: diseño de características
-
-Los datos de entrenamiento constan de una matriz compuesta de ejemplos (registros u observaciones almacenados en filas), cada uno de los cuales cuenta con un conjunto de características (variables o campos almacenados en columnas). Se espera que las características especificadas en el diseño experimental caractericen los patrones de los datos. A pesar de que muchos de los campos de datos sin procesar se pueden incluir directamente en el conjunto de características seleccionado que se usa para entrenar un modelo, a menudo se da el caso de que se requiere construir características adicionales (diseñadas) a partir de las características existentes en los datos sin procesar para generar un conjunto de datos de entrenamiento mejorado.
-
-¿Qué tipo de características se deben crear para mejorar el conjunto de datos cuando se entrena un modelo? Las características diseñadas que mejoran el entrenamiento proporcionan información que ayuda a diferenciar de mejor manera los patrones de los datos. Se espera que las características nuevas proporcionen información adicional que no está claramente capturada o no es fácilmente evidente en el conjunto de características original o existente. Pero este proceso es, en cierto modo, un arte. Las decisiones acertadas y productivas a menudo requieren cierto conocimiento especializado.
-
-Al comenzar con Aprendizaje automático de Azure, es más fácil comprender este proceso de manera concreta si se usan ejemplos proporcionados en Estudio. Aquí se muestran dos ejemplos:
-
-* Un ejemplo de regresión, [Predicción del número de bicicletas alquiladas](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4), en un experimento supervisado en el que se conocen los valores de destino
-* Un ejemplo de clasificación de minería de texto con [Hash de características][feature-hashing]
-
-### Ejemplo 1: incorporación de características temporales para el modelo de regresión ###
-
-Usemos el experimento "Previsión de demanda de bicicletas" en Azure Machine Learning Studio para mostrar cómo diseñar funciones para una tarea de regresión. El objetivo de este experimento es predecir la demanda de bicicletas, es decir, el número de bicicletas alquiladas dentro de un mes/día/hora específico. El conjunto de datos "Conjunto de datos de UCI de alquiler de bicicletas" se usa como los datos de entrada sin procesar. Este conjunto de datos se basa en datos reales provenientes de la empresa Capital Bikeshare que mantiene una red de alquiler de bicicletas en Washington DC, en Estados Unidos. El conjunto de datos representa el número de bicicletas alquiladas dentro de una hora específica durante un día en el año 2011 a 2012 y contiene 17379 filas y 17 columnas. El conjunto de características sin procesar contiene condiciones climáticas (temperatura/humedad/velocidad del viento) y el tipo de día (festivo/día de semana). El campo para la predicción es "cnt", un contador que representa las bicicletas alquiladas dentro de una hora específica y cuyos intervalos van de 1 a 977.
-
-Con el objetivo de construir características eficaces en los datos de entrenamiento, se crean cuatro modelos de regresión con el mismo algoritmo, pero con cuatro conjuntos de datos de entrenamiento distintos. Los cuatro conjuntos de datos representan los mismos datos de entrada sin procesar, pero con un número creciente del conjunto de características. Estas características se agrupan en cuatro categorías:
-
-1. A = características de clima + festivo + día de semana + fin de semana correspondiente al día de la predicción
-2. B = el número de bicicletas alquiladas en cada una de las 12 horas anteriores
-3. C = el número de bicicletas alquiladas en cada uno de los 12 días anteriores a la misma hora
-4. D = el número de bicicletas arrendadas en cada una de las 12 semanas anteriores a la misma hora y el mismo día
-
-Aparte del conjunto de funciones A, que ya existe en los datos sin procesar originales, los otros tres conjuntos de funciones se crean mediante el proceso de diseño de funciones. El conjunto de funciones B captura la demanda de bicicletas reciente. El conjunto de características C captura la demanda de bicicletas en una hora específica. El conjunto de características D captura la demanda de bicicletas en una hora específica y un día de la semana específico. Los conjuntos de datos de entrenamiento incluyen el conjunto de características A, A+B, A+B+C y A+B+C+D, respectivamente.
-
-En el experimento de Aprendizaje automático de Azure, estos cuatro conjuntos de datos de entrenamiento se forman a través de cuatro ramas del conjunto de datos de entrada procesado previamente. Con la excepción de la rama que se encuentra más a la izquierda, cada una de estas ramas contiene un módulo [Ejecutar script de R][execute-r-script], en el que un conjunto de funciones derivadas (conjunto de funciones B, C y D) se construye y anexa respectivamente al conjunto de datos importado. En la siguiente figura se muestra el script de R que se usa para crear el conjunto de características B en la segunda rama a la izquierda.
-
-![crear funciones](./media/machine-learning-feature-selection-and-engineering/addFeature-Rscripts.png)
-
-La comparación de los resultados de rendimiento de los cuatro modelos se resume en la siguiente tabla. Las características A+B+C muestran los mejores resultados. Observe que la tasa de errores disminuye cuando se incluyen conjuntos de datos adicionales en los datos de entrenamiento. Esto comprueba nuestra presunción con respecto a que los conjuntos de características B, C proporcionan información pertinente adicional para la tarea de regresión. Sin embargo, agregar la característica D no parece proporcionar reducción adicional ninguna en lo que respecta a la tasa de errores.
-
-![comparación de resultados](./media/machine-learning-feature-selection-and-engineering/result1.png)
-
-### <a name="example2"></a> Ejemplo 2: creación de características en minería de texto  
-
-El diseño de características se aplica ampliamente en las tareas relacionadas con la minería de texto, como la clasificación de documentos y el análisis de opiniones. Por ejemplo, cuando deseamos clasificar documentos en varias categorías, una hipótesis típica es que las palabras/frases incluidas que se encuentran en una categoría de documento tienen menos probabilidades de presentarse en otra categoría de documento. Dicho de otro modo, la frecuencia de la distribución de palabras/frases puede caracterizar distintas categorías de documento. En las aplicaciones de minería de texto, debido a que partes individuales de contenidos de texto normalmente sirven como los datos de entrada, es necesario el proceso de diseño de características para crear las características que implican las frecuencias de palabras/frases.
-
-Para llevar a cabo esta tarea, se aplica una técnica llamada **hash de características** para convertir eficazmente las características arbitrarias de texto en índices. En lugar de asociar cada característica de texto (palabras/frases) a un índice determinado, este método funciona mediante la aplicación de una función de hash a las características y el uso de sus valores de hash como índices directamente.
-
-En Aprendizaje automático de Azure, existe un módulo llamado [Hash de características][feature-hashing] que crea oportunamente estas características de palabras/frases. La figura siguiente muestra un ejemplo del uso de este módulo. El conjunto de datos de entrada contiene dos columnas: la clasificación de libro, que va de 1 a 5, y el contenido mismo de la reseña. El objetivo de este módulo [Hash de características][feature-hashing] es recuperar una gran cantidad de características nuevas que muestran la frecuencia de repetición de las palabras/frases correspondientes dentro de la reseña de ese libro en especial. Para usar este módulo, es necesario realizar los siguientes pasos:
-
-* Primero, seleccione la columna que contiene el texto de entrada ("Col2" en este ejemplo).
-* Segundo, defina el "Tamaño de bits de hash" en 8, lo que significa que se crearán 2^8=256 funciones. La palabra/frase en el texto tendrá hash en 256 índices. El parámetro "Tamaño de bits de hash" va de 1 a 31. Es menos probable que las palabras/frases tengan hash en el mismo índice si este valor se define para que sea un número mayor.
-* Tercero, defina el parámetro "N-gramas" en 2. Con esto se obtiene la frecuencia de repetición de unigramas (una característica para cada palabra única) y bigramas (una características para cada par de palabras adyacentes) a partir del texto de entrada. El parámetro "N-gramas" va de 0 a 10, lo que indica el número máximo de palabras secuenciales que se incluirán en una característica.
-
-![Módulo "Hash de características"](./media/machine-learning-feature-selection-and-engineering/feature-Hashing1.png)
-
-La figura siguiente muestra cómo se ven estas nuevas funciones.
-
-![Ejemplo de "Hash de características"](./media/machine-learning-feature-selection-and-engineering/feature-Hashing2.png)
-
-## Filtrado de características desde sus datos: selección de características  ##
-
-La selección de características es un proceso que normalmente se aplica para la construcción de conjuntos de datos de entrenamiento para tareas de modelado predictivo, como las tareas de clasificación o de regresión. El objetivo es seleccionar un subconjunto de las características a partir del conjunto de datos original que reduce sus dimensiones al usar un conjunto de características mínimo para que represente la cantidad máxima de varianza en los datos. Este subconjunto de funciones contiene las únicas funciones que se incluirán para entrenar el modelo. La selección de características tiene dos propósitos principales.
-
-* En primer lugar, la selección de características a menudo aumenta la precisión de la clasificación a través de la eliminación de características irrelevantes, redundantes o altamente correlacionadas.
-* En segundo lugar, disminuye la cantidad de funciones, lo que hace que el proceso de entrenamiento del modelo sea más eficiente. Esto resulta especialmente importante cuando se trata de sistemas aprendices que son costosos de entrenar, como las máquinas de vectores de soporte.
-
-A pesar de que la selección de características sí busca disminuir la cantidad de características en el conjunto de datos que se usa para entrenar el modelo, no es frecuente referirse a ella con el término "reducción de la dimensionalidad". Los métodos de selección de características extraen un subconjunto de las características originales de los datos sin cambiarlas. Los métodos de reducción de dimensionalidad emplean características diseñadas que pueden transformar las características originales y, de ese modo, modificarlas. Algunos ejemplos de los métodos de reducción de dimensionalidad incluyen el análisis del componente principal, el análisis de correlación canónica y la descomposición en valores singulares.
-
-Entre otros aspectos, una categoría ampliamente aplicada de los métodos de selección de categorías en un contexto supervisado se llama "selección de características basada en filtro". Mediante la evaluación de la correlación entre cada característica y el atributo de destino, estos métodos aplican una medida estadística para asignar una puntuación a cada característica. A continuación, las características se clasifican según la puntuación, lo que se puede usar para definir el umbral para conservar o eliminar una característica específica. Algunos ejemplos de las medidas estadísticas que se usan en estos métodos incluyen la correlación de Pearson, la información mutua y la prueba de Chi-cuadrado.
-
-En Estudio de aprendizaje automático de Azure, estos son los módulos proporcionados para la selección de características. Tal como aparece en la figura siguiente, estos módulos incluyen [Selección de características basada en filtro][filter-based-feature-selection] y [Análisis discriminante lineal de Fisher][fisher-linear-discriminant-analysis].
-
-![Ejemplo de selección de características](./media/machine-learning-feature-selection-and-engineering/feature-Selection.png)
+This topic only covers the feature engineering and feature selection aspects of the data enhancement process. For more information on the data pre-processing step, see [Pre-processing data in Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
 
 
-Por ejemplo, considere el uso del módulo [Selección de características basada en filtro][filter-based-feature-selection]. Para mayor comodidad, seguiremos usando el ejemplo de minería de texto descrito anteriormente. Suponga que deseamos crear un modelo de regresión una vez creado un conjunto de 256 funciones mediante el módulo [Hash de funciones][feature-hashing] y que la variable de respuesta es la "Col1" y representa una clasificación de las reseñas de un libro, que van desde 1 a 5. Defina el "Método de puntuación de características" en "Correlación de Pearson", la "Columna de destino" en "Col1" y el "Número de características deseadas" en 50. A continuación, el módulo [Selección de funciones basada en filtro][filter-based-feature-selection] generará un conjunto de datos con 50 funciones, junto con el atributo de destino "Col1". La figura siguiente muestra el flujo de este experimento y los parámetros de entrada que acabamos de describir.
+## <a name="creating-features-from-your-data--feature-engineering"></a>Creating features from your data--feature engineering
 
-![Ejemplo de selección de características](./media/machine-learning-feature-selection-and-engineering/feature-Selection1.png)
+The training data consists of a matrix composed of examples (records or observations stored in rows), each of which has a set of features (variables or fields stored in columns). The features specified in the experimental design are expected to characterize the patterns in the data. Although many of the raw data fields can be directly included in the selected feature set used to train a model, additional engineered features often need to be constructed from the features in the raw data to generate an enhanced training data set.
 
-La figura siguiente muestra los conjuntos de datos resultantes. Cada características recibe una puntuación según la correlación de Pearson entre sí misma y el atributo de destino "Col1". Las características con las mayores puntuaciones se conservan.
+What kind of features should be created to enhance the data set when training a model? Engineered features that enhance the training provide information that better differentiates the patterns in the data. You expect the new features to provide additional information that is not clearly captured or easily apparent in the original or existing feature set, but this process is something of an art. Sound and productive decisions often require some domain expertise.
 
-![Ejemplo de selección de características](./media/machine-learning-feature-selection-and-engineering/feature-Selection2.png)
+When starting with Azure Machine Learning, it is easiest to grasp this process concretely by using samples provided in Machine Learning Studio. Two examples are presented here:
 
-La figura siguiente muestra las puntuaciones correspondientes de las características seleccionadas.
+* A regression example ([Prediction of the number of bike rentals](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4)) in a supervised experiment where the target values are known
+* A text-mining classification example using [Feature Hashing][feature-hashing]
 
-![Ejemplo de selección de características](./media/machine-learning-feature-selection-and-engineering/feature-Selection3.png)
+### <a name="example-1:-adding-temporal-features-for-a-regression-model"></a>Example 1: Adding temporal features for a regression model ###
 
-A través de la aplicación de este módulo [Selección de características basada en filtro][filter-based-feature-selection], se seleccionan 50 de las 256 características, debido a que tienen las características más correlacionadas con la variable de destino "Col1", según el método de puntuación "Correlación de Pearson".
+To demonstrate how to engineer features for a regression task, let's use the experiment "Demand forecasting of bikes" in Azure Machine Learning Studio. The objective of this experiment is to predict the demand for the bikes, that is, the number of bike rentals within a specific month, day, or hour. The data set **Bike Rental UCI data set** is used as the raw input data.
 
-## Conclusión
-El diseño y la selección de características son dos pasos que se completan normalmente para preparar los datos de entrenamiento cuando se crea un modelo de aprendizaje automático. Normalmente, el diseño de características se aplica primero para generar características adicionales y, a continuación, se realiza el paso de selección de características para eliminar características irrelevantes, redundantes o altamente correlacionadas.
+This data set is based on real data from the Capital Bikeshare company that maintains a bike rental network in Washington DC in the United States. The data set represents the number of bike rentals within a specific hour of a day, from 2011 to 2012, and it contains 17379 rows and 17 columns. The raw feature set contains weather conditions (temperature, humidity, wind speed) and the type of the day (holiday or weekday). The field to predict is **cnt**, a count that represents the bike rentals within a specific hour and that ranges from 1 to 977.
 
-No siempre es necesario realizar el diseño o la selección de funciones. Si es necesario o no depende de los datos que se tengan o que se hayan recopilado, del algoritmo que se elija y del objetivo del experimento.
+To construct effective features in the training data, four regression models are built by using the same algorithm, but with four different training data sets. The four data sets represent the same raw input data, but with an increasing number of features set. These features are grouped into four categories:
+
+1. A = weather + holiday + weekday + weekend features for the predicted day
+2. B = number of bikes that were rented in each of the previous 12 hours
+3. C = number of bikes that were rented in each of the previous 12 days at the same hour
+4. D = number of bikes that were rented in each of the previous 12 weeks at the same hour and the same day
+
+Besides feature set A, which already exists in the original raw data, the other three sets of features are created through the feature engineering process. Feature set B captures the recent demand for the bikes. Feature set C captures the demand for bikes at a particular hour. Feature set D captures demand for bikes at particular hour and particular day of the week. Each of the four training data sets includes feature sets A, A+B, A+B+C, and A+B+C+D, respectively.
+
+In the Azure Machine Learning experiment, these four training data sets are formed via four branches from the pre-processed input data set. Except for the leftmost branch, each of these branches contains an [Execute R Script][execute-r-script] module in which a set of derived features (feature sets B, C, and D) is respectively constructed and appended to the imported data set. The following figure demonstrates the R script used to create feature set B in the second left branch.
+
+![Create a feature set](./media/machine-learning-feature-selection-and-engineering/addFeature-Rscripts.png)
+
+The following table summarizes the comparison of the performance results of the four models. The best results are shown by features A+B+C. Note that the error rate decreases when additional feature sets are included in the training data. This verifies our presumption that the feature sets B and C provide additional relevant information for the regression task. Adding the D feature set does not seem to provide any additional reduction in the error rate.
+
+![Compare performance results](./media/machine-learning-feature-selection-and-engineering/result1.png)
+
+### <a name="<a-name="example2"></a>-example-2:-creating-features-in-text-mining"></a><a name="example2"></a> Example 2: Creating features in text mining  
+
+Feature engineering is widely applied in tasks related to text mining, such as document classification and sentiment analysis. For example, when you want to classify documents into several categories, a typical assumption is that the words or phrases included in one document category are less likely to occur in another document category. In other words, the frequency of the word or phrase distribution is able to characterize different document categories. In text mining applications, the feature engineering process is needed to create the features involving word or phrase frequencies because individual pieces of text-contents usually serve as the input data.
+
+To achieve this task, a technique called *feature hashing* is applied to efficiently turn arbitrary text features into indices. Instead of associating each text feature (words or phrases) to a particular index, this method functions by applying a hash function to the features and by using their hash values as indices directly.
+
+In Azure Machine Learning, there is a [Feature Hashing][feature-hashing] module that creates these word or phrase features. The following figure shows an example of using this module. The input data set contains two columns: the book rating ranging from 1 to 5 and the actual review content. The goal of this [Feature Hashing][feature-hashing] module is to retrieve new features that show the occurrence frequency of the corresponding words or phrases within the particular book review. To use this module, you need to complete the following steps:
+
+1. Select the column that contains the input text (**Col2** in this example).
+2. Set *Hashing bitsize* to 8, which means 2^8=256 features are created. The word or phrase in the text is then hashed to 256 indices. The parameter *Hashing bitsize* ranges from 1 to 31. If the parameter is set to a larger number, the words or phrases are less likely to be hashed into the same index.
+3. Set the parameter *N-grams* to 2. This retrieves the occurrence frequency of unigrams (a feature for every single word) and bigrams (a feature for every pair of adjacent words) from the input text. The parameter *N-grams* ranges from 0 to 10, which indicates the maximum number of sequential words to be included in a feature.  
+
+![Feature hashing module](./media/machine-learning-feature-selection-and-engineering/feature-Hashing1.png)
+
+The following figure shows what these new features look like.
+
+![Feature hashing example](./media/machine-learning-feature-selection-and-engineering/feature-Hashing2.png)
+
+## <a name="filtering-features-from-your-data--feature-selection"></a>Filtering features from your data--feature selection  ##
+
+*Feature selection* is a process that is commonly applied to the construction of training data sets for predictive modeling tasks such as classification or regression tasks. The goal is to select a subset of the features from the original data set that reduces its dimensions by using a minimal set of features to represent the maximum amount of variance in the data. This subset of features contains the only features to be included to train the model. Feature selection serves two main purposes:
+
+* Feature selection often increases classification accuracy by eliminating irrelevant, redundant, or highly correlated features.
+* Feature selection decreases the number of features, which makes the model training process more efficient. This is particularly important for learners that are expensive to train such as support vector machines.
+
+Although feature selection seeks to reduce the number of features in the data set used to train the model, it is not usually referred to by the term *dimensionality reduction.* Feature selection methods extract a subset of original features in the data without changing them.  Dimensionality reduction methods employ engineered features that can transform the original features and thus modify them. Examples of dimensionality reduction methods include principal component analysis, canonical correlation analysis, and singular value decomposition.
+
+One widely applied category of feature selection methods in a supervised context is filter-based feature selection. By evaluating the correlation between each feature and the target attribute, these methods apply a statistical measure to assign a score to each feature. The features are then ranked by the score, which you can use to set the threshold for keeping or eliminating a specific feature. Examples of the statistical measures used in these methods include Pearson Correlation, mutual information, and the Chi-squared test.
+
+Azure Machine Learning Studio provides modules for feature selection. As shown in the following figure, these modules include [Filter-Based Feature Selection][filter-based-feature-selection] and [Fisher Linear Discriminant Analysis][fisher-linear-discriminant-analysis].
+
+![Feature selection example](./media/machine-learning-feature-selection-and-engineering/feature-Selection.png)
+
+
+For example, use the [Filter-Based Feature Selection][filter-based-feature-selection] module with the text mining example outlined previously. Assume that you want to build a regression model after a set of 256 features is created through the [Feature Hashing][feature-hashing] module, and that the response variable is **Col1** and represents a book review rating ranging from 1 to 5. Set **Feature scoring method** to **Pearson Correlation**, **Target column** to **Col1**, and **Number of desired features** to **50**. The module [Filter-Based Feature Selection][filter-based-feature-selection] then produces a data set containing 50 features together with the target attribute **Col1**. The following figure shows the flow of this experiment and the input parameters.
+
+![Feature selection example](./media/machine-learning-feature-selection-and-engineering/feature-Selection1.png)
+
+The following figure shows the resulting data sets. Each feature is scored based on the Pearson Correlation between itself and the target attribute **Col1**. The features with top scores are kept.
+
+![Filter-based feature selection data sets](./media/machine-learning-feature-selection-and-engineering/feature-Selection2.png)
+
+The following figure shows the corresponding scores of the selected features.
+
+![Selected feature scores](./media/machine-learning-feature-selection-and-engineering/feature-Selection3.png)
+
+By applying this [Filter-Based Feature Selection][filter-based-feature-selection] module, 50 out of 256 features are selected because they have the most features correlated with the target variable **Col1** based on the scoring method **Pearson Correlation**.
+
+## <a name="conclusion"></a>Conclusion
+Feature engineering and feature selection are two steps commonly performed to prepare the training data when building a machine learning model. Normally, feature engineering is applied first to generate additional features, and then the feature selection step is performed to eliminate irrelevant, redundant, or highly correlated features.
+
+It is not always necessarily to perform feature engineering or feature selection. Whether it is needed depends on the data you have or collect, the algorithm you pick, and the objective of the experiment.
+
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
@@ -134,4 +138,8 @@ No siempre es necesario realizar el diseño o la selección de funciones. Si es 
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

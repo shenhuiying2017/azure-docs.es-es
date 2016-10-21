@@ -1,44 +1,45 @@
 <properties
-	pageTitle="Enlaces y desencadenadores de funciones de Azure para almacenamiento de Azure | Microsoft Azure"
-	description="Descubra cómo utilizar desencadenadores y enlaces de almacenamiento de Azure en funciones de Azure."
-	services="functions"
-	documentationCenter="na"
-	authors="christopheranderson"
-	manager="erikre"
-	editor=""
-	tags=""
-	keywords="funciones de azure, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor"/>
+    pageTitle="Azure Functions triggers and bindings for Azure Storage | Microsoft Azure"
+    description="Understand how to use Azure Storage triggers and bindings in Azure Functions."
+    services="functions"
+    documentationCenter="na"
+    authors="christopheranderson"
+    manager="erikre"
+    editor=""
+    tags=""
+    keywords="azure functions, functions, event processing, dynamic compute, serverless architecture"/>
 
 <tags
-	ms.service="functions"
-	ms.devlang="multiple"
-	ms.topic="reference"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/22/2016"
-	ms.author="chrande"/>
+    ms.service="functions"
+    ms.devlang="multiple"
+    ms.topic="reference"
+    ms.tgt_pltfrm="multiple"
+    ms.workload="na"
+    ms.date="08/22/2016"
+    ms.author="chrande"/>
 
-# Enlaces y desencadenadores de funciones de Azure para almacenamiento de Azure
+
+# <a name="azure-functions-triggers-and-bindings-for-azure-storage"></a>Azure Functions triggers and bindings for Azure Storage
 
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Este artículo explica cómo configurar y codificar desencadenadores y enlaces de almacenamiento de Azure en funciones de Azure.
+This article explains how to configure and code Azure Storage triggers and bindings in Azure Functions. 
 
-[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
-## <a id="storagequeuetrigger"></a> Desencadenador de cola de Almacenamiento de Azure
+## <a name="<a-id="storagequeuetrigger"></a>-azure-storage-queue-trigger"></a><a id="storagequeuetrigger"></a> Azure Storage queue trigger
 
-#### function.json con desencadenador de cola de almacenamiento
+#### <a name="function.json-for-storage-queue-trigger"></a>function.json for storage queue trigger
 
-El archivo *function.json* especifica las siguientes propiedades.
+The *function.json* file specifies the following properties.
 
-- `name`: nombre de la variable utilizado en el código de la función de la cola o el mensaje de la cola.
-- `queueName`: nombre de la cola que se sondea. Para conocer las reglas de nomenclatura de colas, consulte [Asignar nombres a colas y metadatos](https://msdn.microsoft.com/library/dd179349.aspx).
-- `connection`: nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. Si `connection` se queda vacía, el desencadenador funcionará con la cadena de conexión de almacenamiento predeterminada para la aplicación de función, que se especifica mediante la configuración de la aplicación AzureWebJobsStorage.
-- `type`: debe establecerse en *queueTrigger*.
-- `direction`: debe establecerse en *in*.
+- `name` : The variable name used in function code for the queue or the queue message. 
+- `queueName` : The name of the queue to poll. For queue naming rules, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/dd179349.aspx).
+- `connection` : The name of an app setting that contains a storage connection string. If you leave `connection` empty, the trigger will work with the default storage connection string for the function app, which is specified by the AzureWebJobsStorage app setting.
+- `type` : Must be set to *queueTrigger*.
+- `direction` : Must be set to *in*. 
 
-Ejemplo de *function.json* con un desencadenador de la cola de almacenamiento:
+Example *function.json* for a storage queue trigger:
 
 ```json
 {
@@ -55,18 +56,18 @@ Ejemplo de *function.json* con un desencadenador de la cola de almacenamiento:
 }
 ```
 
-#### Tipos admitidos de desencadenador de cola
+#### <a name="queue-trigger-supported-types"></a>Queue trigger supported types
 
-El mensaje de la cola se puede deserializar en cualquiera de los siguientes tipos:
+The queue message can be deserialized to any of the following types:
 
-* Object (de JSON)
+* Object (from JSON)
 * String
-* Byte array
-* `CloudQueueMessage` (C#)
+* Byte array 
+* `CloudQueueMessage` (C#) 
 
-#### Metadatos de desencadenador de cola
+#### <a name="queue-trigger-metadata"></a>Queue trigger metadata
 
-Puede obtener metadatos de la cola en la función mediante estos nombres de variable:
+You can get queue metadata in your function by using these variable names:
 
 * expirationTime
 * insertionTime
@@ -74,9 +75,9 @@ Puede obtener metadatos de la cola en la función mediante estos nombres de vari
 * id
 * popReceipt
 * dequeueCount
-* queueTrigger (otra manera de recuperar el texto del mensaje en cola como una cadena)
+* queueTrigger (another way to retrieve the queue message text as a string)
 
-Este ejemplo de código de C# recupera y registra metadatos de la cola:
+This C# code example retrieves and logs queue metadata:
 
 ```csharp
 public static void Run(string myQueueItem, 
@@ -100,29 +101,29 @@ public static void Run(string myQueueItem,
 }
 ```
 
-#### Control de mensajes dudosos en la cola
+#### <a name="handling-poison-queue-messages"></a>Handling poison queue messages
 
-Los mensajes cuyo contenido produce un error de una función se denominan *mensajes dudosos*. Cuando se produce un error en la función, el mensaje de la cola no se elimina y se recoge de nuevo, provocando que el ciclo se repita. El SDK puede interrumpir automáticamente el ciclo después de un número limitado de iteraciones, o puede hacerlo usted manualmente.
+Messages whose content causes a function to fail are called *poison messages*. When the function fails, the queue message is not deleted and eventually is picked up again, causing the cycle to be repeated. The SDK can automatically interrupt the cycle after a limited number of iterations, or you can do it manually.
 
-El SDK llamará a una función hasta 5 veces para procesar un mensaje de la cola. Si se produce un error en el quinta intento, el mensaje se mueve a una cola de mensajes dudosos.
+The SDK will call a function up to 5 times to process a queue message. If the fifth try fails, the message is moved to a poison queue.
 
-La cola de mensajes dudosos se denomina *{originalqueuename}*-poison. Puede escribir una función para procesar los mensajes desde la cola de mensajes dudosos registrándolos o enviando una notificación indicando que se necesita atención manual.
+The poison queue is named *{originalqueuename}*-poison. You can write a function to process messages from the poison queue by logging them or sending a notification that manual attention is needed. 
 
-Si desea gestionar manualmente los mensajes dudosos, puede conocer el número de veces que un mensaje se recogió para su procesamiento mediante la comprobación de `dequeueCount`.
+If you want to handle poison messages manually, you can get the number of times a message has been picked up for processing by checking `dequeueCount`.
 
-## <a id="storagequeueoutput"></a> Enlace de salida de la cola de Almacenamiento de Azure
+## <a name="<a-id="storagequeueoutput"></a>-azure-storage-queue-output-binding"></a><a id="storagequeueoutput"></a> Azure Storage queue output binding
 
-#### function.json con un enlace de salida de la cola de almacenamiento
+#### <a name="function.json-for-storage-queue-output-binding"></a>function.json for storage queue output binding
 
-El archivo *function.json* especifica las siguientes propiedades.
+The *function.json* file specifies the following properties.
 
-- `name`: nombre de la variable utilizado en el código de la función de la cola o el mensaje de la cola.
-- `queueName`: nombre de la cola. Para conocer las reglas de nomenclatura de colas, consulte [Asignar nombres a colas y metadatos](https://msdn.microsoft.com/library/dd179349.aspx).
-- `connection`: nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. Si `connection` se queda vacía, el desencadenador funcionará con la cadena de conexión de almacenamiento predeterminada para la aplicación de función, que se especifica mediante la configuración de la aplicación AzureWebJobsStorage.
-- `type`: debe establecerse en *queue*.
-- `direction`: debe establecerse en *out*.
+- `name` : The variable name used in function code for the queue or the queue message. 
+- `queueName` : The name of the queue. For queue naming rules, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/dd179349.aspx).
+- `connection` : The name of an app setting that contains a storage connection string. If you leave `connection` empty, the trigger will work with the default storage connection string for the function app, which is specified by the AzureWebJobsStorage app setting.
+- `type` : Must be set to *queue*.
+- `direction` : Must be set to *out*. 
 
-Ejemplo de *function.json* con un enlace de salida de la cola de almacenamiento que usa un desencadenador de cola y escribe un mensaje de cola:
+Example *function.json* for a storage queue output binding that uses a queue trigger and writes a queue message:
 
 ```json
 {
@@ -146,20 +147,20 @@ Ejemplo de *function.json* con un enlace de salida de la cola de almacenamiento 
 }
 ``` 
 
-#### Tipos admitidos de enlace de salida de la cola
+#### <a name="queue-output-binding-supported-types"></a>Queue output binding supported types
 
-El enlace `queue` puede serializar los siguientes tipos para un mensaje de cola:
+The `queue` binding can serialize the following types to a queue message:
 
-* Object (`out T` en C#; crea un mensaje con un objeto nulo si el parámetro es nulo cuando termina la función)
-* String (`out string` en C#; crea un mensaje de cola si el valor del parámetro es no nulo cuando termina la función)
-* Byte array (`out byte[]` en C#; funciona como una cadena)
-* `out CloudQueueMessage` (C#; funciona como una cadena)
+* Object (`out T` in C#, creates a message with a null object if the parameter is null when the function ends)
+* String (`out string` in C#, creates queue message if parameter value is non-null when the function ends)
+* Byte array (`out byte[]` in C#, works like string) 
+* `out CloudQueueMessage` (C#, works like string) 
 
-En C# también puede enlazar a `ICollector<T>` o `IAsyncCollector<T>`, donde `T` es uno de los tipos admitidos.
+In C# you can also bind to `ICollector<T>` or `IAsyncCollector<T>` where `T` is one of the supported types.
 
-#### Ejemplos de código de enlace de salida de cola
+#### <a name="queue-output-binding-code-examples"></a>Queue output binding code examples
 
-Este ejemplo de código de C# escribe un mensaje de cola de salida única para cada mensaje de la cola de entrada.
+This C# code example writes a single output queue message for each input queue message.
 
 ```csharp
 public static void Run(string myQueueItem, out string myOutputQueueItem, TraceWriter log)
@@ -168,7 +169,7 @@ public static void Run(string myQueueItem, out string myOutputQueueItem, TraceWr
 }
 ```
 
-Este ejemplo de código de C# escribe varios mensajes mediante `ICollector<T>` (use `IAsyncCollector<T>` en una función asincrónica):
+This C# code example writes multiple messages by using  `ICollector<T>` (use `IAsyncCollector<T>` in an async function):
 
 ```csharp
 public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWriter log)
@@ -178,19 +179,19 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 }
 ```
 
-## <a id="storageblobtrigger"></a> Desencadenador de blobs de Almacenamiento de Azure
+## <a name="<a-id="storageblobtrigger"></a>-azure-storage-blob-trigger"></a><a id="storageblobtrigger"></a> Azure Storage blob trigger
 
-#### function.json con desencadenador de blobs de almacenamiento
+#### <a name="function.json-for-storage-blob-trigger"></a>function.json for storage blob trigger
 
-El archivo *function.json* especifica las siguientes propiedades.
+The *function.json* file specifies the following properties.
 
-- `name`: nombre de la variable utilizado en el código de la función con el blob.
-- `path`: ruta de acceso que especifica el contenedor que se supervisa y, opcionalmente, un patrón de nombre de blob.
-- `connection`: nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. Si `connection` se queda vacía, el desencadenador funcionará con la cadena de conexión de almacenamiento predeterminada para la aplicación de función, que se especifica mediante la configuración de la aplicación AzureWebJobsStorage.
-- `type`: debe establecerse en *blobTrigger*.
-- `direction`: debe establecerse en *in*.
+- `name` : The variable name used in function code for the blob. 
+- `path` : A path that specifies the container to monitor, and optionally a blob name pattern.
+- `connection` : The name of an app setting that contains a storage connection string. If you leave `connection` empty, the trigger will work with the default storage connection string for the function app, which is specified by the AzureWebJobsStorage app setting.
+- `type` : Must be set to *blobTrigger*.
+- `direction` : Must be set to *in*.
 
-Ejemplo de *function.json* con un desencadenador de blob de almacenamiento que inspecciona los blobs que se agregan al contenedor de elementos de trabajo de ejemplos:
+Example *function.json* for a storage blob trigger that watches for blobs that are added to the samples-workitems container:
 
 ```json
 {
@@ -207,14 +208,14 @@ Ejemplo de *function.json* con un desencadenador de blob de almacenamiento que i
 }
 ```
 
-#### Tipos admitidos de desencadenador de blobs
+#### <a name="blob-trigger-supported-types"></a>Blob trigger supported types
 
-El blob se puede deserializar en cualquiera de las siguientes funciones de Node o C#:
+The blob can be deserialized to any of the following types in Node or C# functions:
 
-* Object (de JSON)
+* Object (from JSON)
 * String
 
-En las funciones de C# también puede enlazar a cualquiera de los siguientes tipos:
+In C# functions you can also bind to any of the following types:
 
 * `TextReader`
 * `Stream`
@@ -225,11 +226,11 @@ En las funciones de C# también puede enlazar a cualquiera de los siguientes tip
 * `CloudBlobDirectory`
 * `IEnumerable<CloudBlockBlob>`
 * `IEnumerable<CloudPageBlob>`
-* Otros tipos deserializados por [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb)
+* Other types deserialized by [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb) 
 
-#### Ejemplo de código de C# de desencadenador de blobs
+#### <a name="blob-trigger-c#-code-example"></a>Blob trigger C# code example
 
-Este ejemplo de código de C# registra el contenido de cada blob que se agrega al contenedor supervisado.
+This C# code example logs the contents of each blob that is added to the monitored container.
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
@@ -238,79 +239,79 @@ public static void Run(string myBlob, TraceWriter log)
 }
 ```
 
-#### Patrones de nombre para desencadenadores de blobs
+#### <a name="blob-trigger-name-patterns"></a>Blob trigger name patterns
 
-Puede especificar un patrón de nombre de blob en la propiedad `path`. Por ejemplo:
+You can specify a blob name pattern in the `path` property. For example:
 
 ```json
 "path": "input/original-{name}",
 ```
 
-Esta ruta de acceso encontraría un blob denominado *original-Blob1.txt* en el contenedor *input* y el valor de la variable `name` en el código de la función sería `Blob1`.
+This path would find a blob named *original-Blob1.txt* in the *input* container, and the value of the `name` variable in function code would be `Blob1`.
 
-Otro ejemplo:
+Another example:
 
 ```json
 "path": "input/{blobname}.{blobextension}",
 ```
 
-Esta ruta de acceso también encontraría un blob denominado *original-Blob1.txt* y el valor de las variables `blobname` y `blobextension` en el código de la función sería *original-Blob1* y *txt*.
+This path would also find a blob named *original-Blob1.txt*, and the value of the `blobname` and `blobextension` variables in function code would be *original-Blob1* and *txt*.
 
-Puede restringir los tipos de blobs que desencadenan la función especificando un patrón con un valor fijo para la extensión de archivo. Si establece la propiedad `path` en *samples/{nombre}.png*, solo los blobs *.png* del contenedor *samples* desencadenarán la función.
+You can restrict the types of blobs that trigger the function by specifying a pattern with a fixed value for the file extension. If you set the `path` to  *samples/{name}.png*, only *.png* blobs in the *samples* container will trigger the function.
 
-Si necesita especificar un patrón de nombre para nombres de blob que contienen llaves en el nombre, duplique las llaves. Por ejemplo, si desea encontrar blobs en el contenedor *images* que tengan nombres como este:
+If you need to specify a name pattern for blob names that have curly braces in the name, double the curly braces. For example, if you want to find blobs in the *images* container that have names like this:
 
-		{20140101}-soundfile.mp3
+        {20140101}-soundfile.mp3
 
-úselo para la propiedad `path`:
+use this for the `path` property:
 
-		images/{{20140101}}-{name}
+        images/{{20140101}}-{name}
 
-En el ejemplo, el valor de la variable `name` sería *soundfile.mp3*.
+In the example, the `name` variable value would be *soundfile.mp3*. 
 
-#### Recepciones de blobs
+#### <a name="blob-receipts"></a>Blob receipts
 
-El sistema en tiempo de ejecución de Funciones de Azure garantiza que a ninguna función de desencadenador de blobs se le llamará más de una vez para el mismo blob nuevo o actualizado. Para hacerlo, mantiene *recepciones de blobs* para determinar si se ha procesado alguna versión de blob determinada.
+The Azure Functions runtime makes sure that no blob trigger function gets called more than once for the same new or updated blob. It does this by maintaining *blob receipts* in order to determine if a given blob version has been processed.
 
-Las recepciones de blobs se almacenan en un contenedor llamado *azure-webjobs-hosts* en la cuenta de almacenamiento de Azure que especifica la cadena de conexión AzureWebJobsStorage. Una recepción de blobs tiene la información siguiente:
+Blob receipts are stored in a container named *azure-webjobs-hosts* in the Azure storage account specified by the AzureWebJobsStorage connection string. A blob receipt has the following  information:
 
-* La función que se llamó para el blob ("*{nombre de aplicación de función}*.Functions.*{nombre de función}*", por ejemplo: "functionsf74b96f7.Functions.CopyBlob")
-* El nombre del contenedor
-* El tipo de blob ("BlockBlob" o "PageBlob")
-* El nombre del blob
-* ETag (un identificador de la versión del blob, por ejemplo: "0x8D1DC6E70A277EF")
+* The function that was called for the blob ("*{function app name}*.Functions.*{function name}*", for example: "functionsf74b96f7.Functions.CopyBlob")
+* The container name
+* The blob type ("BlockBlob" or "PageBlob")
+* The blob name
+* The ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
 
-Si desea forzar el reprocesamiento de un blob, puede eliminar manualmente la recepción de blob de ese blob desde el contenedor *azure-webjobs-hosts*.
+If you want to force reprocessing of a blob, you can manually delete the blob receipt for that blob from the *azure-webjobs-hosts* container.
 
-#### Control de blobs dudosos
+#### <a name="handling-poison-blobs"></a>Handling poison blobs
 
-Cuando una función de desencadenador de blobs genera un error, el SDK la llamará de nuevo por si se hubiese producido por un error transitorio. Si el error se produce debido al contenido del blob, la función presentará un error cada vez que intente procesar el blob. De manera predeterminada, el SDK llama una función hasta cinco veces para un blob determinado. Si el quinto intento falla, el SDK agrega un mensaje a una cola llamada *webjobs-blobtrigger-poison*.
+When a blob trigger function fails, the SDK calls it again, in case the failure was caused by a transient error. If the failure is caused by the content of the blob, the function fails every time it tries to process the blob. By default, the SDK calls a function up to 5 times for a given blob. If the fifth try fails, the SDK adds a message to a queue named *webjobs-blobtrigger-poison*.
 
-El mensaje de cola para los blobs dudosos es un objeto JSON que contiene las siguientes propiedades:
+The queue message for poison blobs is a JSON object that contains the following properties:
 
-* FunctionId (con el formato *{nombre de aplicación de función}*.Functions.*{nombre de función}*)
-* BlobType ("BlockBlob" o "PageBlob")
+* FunctionId (in the format *{function app name}*.Functions.*{function name}*)
+* BlobType ("BlockBlob" or "PageBlob")
 * ContainerName
 * BlobName
-* ETag (un identificador de la versión del blob, por ejemplo: "0x8D1DC6E70A277EF")
+* ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
 
-#### Sondeo de blobs en contenedores grandes
+#### <a name="blob-polling-for-large-containers"></a>Blob polling for large containers
 
-Si el contenedor de blobs que el desencadenador está supervisando contiene más de 10 000 blobs, el sistema en tiempo de ejecución de Funciones examinará los archivos de registro para detectar los blobs nuevos o modificados. Este proceso no se produce en tiempo real; podrían tardarse varios minutos o más en desencadenar una función después de crear el blob. Además, los [registros de almacenamiento se crean como "el mejor esfuerzo"](https://msdn.microsoft.com/library/azure/hh343262.aspx); no hay ninguna garantía de que se capturarán todos los eventos. En algunos casos, podrían faltar registros. Si los límites de velocidad y confiabilidad de los desencadenadores de blobs para contenedores grandes no son aceptables para su aplicación, el método recomendado consiste en crear un mensaje en cola al crear el blob y usar un desencadenador de cola en lugar de un desencadenador de blobs para procesar el blob.
+If the blob container that the trigger is monitoring contains more than 10,000 blobs, the Functions runtime scans log files to watch for new or changed blobs. This process is not real-time; a function might not get triggered until several minutes or longer after the blob is created. In addition, [storage logs are created on a "best efforts"](https://msdn.microsoft.com/library/azure/hh343262.aspx) basis; there is no guarantee that all events will be captured. Under some conditions, logs might be missed. If the speed and reliability limitations of blob triggers for large containers are not acceptable for your application, the recommended method is to create a queue message when you create the blob, and use a queue trigger instead of a blob trigger to process the blob.
  
-## <a id="storageblobbindings"></a> Enlaces de entrada y salida de blobs de Almacenamiento de Azure
+## <a name="<a-id="storageblobbindings"></a>-azure-storage-blob-input-and-output-bindings"></a><a id="storageblobbindings"></a> Azure Storage blob input and output bindings
 
-#### function.json con una enlace de entrada y salida de blob de almacenamiento
+#### <a name="function.json-for-a-storage-blob-input-or-output-binding"></a>function.json for a storage blob input or output binding
 
-El archivo *function.json* especifica las siguientes propiedades.
+The *function.json* file specifies the following properties.
 
-- `name`: nombre de la variable utilizado en el código de la función con el blob.
-- `path`: ruta de acceso que especifica el contenedor del que se lee o en el que se escribe el blob y, opcionalmente, un patrón de nombre de blob.
-- `connection`: nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. Si `connection` se queda vacía, el enlace funcionará con la cadena de conexión de almacenamiento predeterminada para la aplicación de función, que se especifica mediante la configuración de la aplicación AzureWebJobsStorage.
-- `type`: debe establecerse en *blob*.
-- `direction`: se establece en *in* u *out*.
+- `name` : The variable name used in function code for the blob . 
+- `path` : A path that specifies the container to read the blob from or write the blob to, and optionally a blob name pattern.
+- `connection` : The name of an app setting that contains a storage connection string. If you leave `connection` empty, the binding will work with the default storage connection string for the function app, which is specified by the AzureWebJobsStorage app setting.
+- `type` : Must be set to *blob*.
+- `direction` : Set to *in* or *out*. 
 
-Ejemplo de *function.json* con un enlace de entrada o salida de un blob de almacenamiento que emplea un desencadenador de cola para copiar un blob:
+Example *function.json* for a storage blob input or output binding, using a queue trigger to copy a blob:
 
 ```json
 {
@@ -341,26 +342,26 @@ Ejemplo de *function.json* con un enlace de entrada o salida de un blob de almac
 }
 ``` 
 
-#### Tipos compatibles de entrada y salida de blobs
+#### <a name="blob-input-and-output-supported-types"></a>Blob input and output supported types
 
-El enlace `blob` puede serializar o deserializar los siguientes tipos en las funciones de Node.js o C#:
+The `blob` binding can serialize or deserialize the following types in Node.js or C# functions:
 
-* Object (`out T` en C# para blobs de salida: crea un blob como objeto nulo si el valor del parámetro es nulo cuando finaliza la función)
-* String (`out string` en C# para blobs de salida: crea un blob solo si el parámetro de cadena es no nulo cuando se devuelve la función)
+* Object (`out T` in C# for output blob: creates a blob as null object if parameter value is null when the function ends)
+* String (`out string` in C# for output blob: creates a blob only if the string parameter is non-null when the function returns)
 
-En las funciones de C#, también puede enlazar a los siguientes tipos:
+In C# functions, you can also bind to the following types:
 
-* `TextReader` (solo de entrada)
-* `TextWriter` (solo de salida)
+* `TextReader` (input only)
+* `TextWriter` (output only)
 * `Stream`
-* `CloudBlobStream` (solo de salida)
+* `CloudBlobStream` (output only)
 * `ICloudBlob`
-* `CloudBlockBlob`
-* `CloudPageBlob`
+* `CloudBlockBlob` 
+* `CloudPageBlob` 
 
-#### Ejemplo de código de C# de salida de blobs
+#### <a name="blob-output-c#-code-example"></a>Blob output C# code example
 
-Este ejemplo de código de C# copia un blob cuyo nombre se recibe en un mensaje en cola.
+This C# code example copies a blob whose name is received in a queue message.
 
 ```csharp
 public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
@@ -370,22 +371,22 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-## <a id="storagetablesbindings"></a> Enlaces de entrada y salida de tablas de Almacenamiento de Azure
+## <a name="<a-id="storagetablesbindings"></a>-azure-storage-tables-input-and-output-bindings"></a><a id="storagetablesbindings"></a> Azure Storage tables input and output bindings
 
-#### function.json con tablas de almacenamiento
+#### <a name="function.json-for-storage-tables"></a>function.json for storage tables
 
-El archivo *function.json* especifica las siguientes propiedades.
+The *function.json* specifies the following properties.
 
-- `name`: nombre de la variable utilizado en el código de la función para el enlace de la tabla.
-- `tableName`: nombre de la tabla.
-- `partitionKey` y `rowKey`: se utilizan conjuntamente para leer una entidad individual en una función de C# o de Node, o para escribir una entidad individual en una función de Node.
-- `take`: número máximo de filas que se leen en la entrada de la tabla en una función de Node.
-- `filter`: expresión de filtro de OData en la entrada de la tabla en una función de Node.
-- `connection`: nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. Si `connection` se queda vacía, el enlace funcionará con la cadena de conexión de almacenamiento predeterminada para la aplicación de función, que se especifica mediante la configuración de la aplicación AzureWebJobsStorage.
-- `type`: debe establecerse en *table*.
-- `direction`: se establece en *in* u *out*.
+- `name` : The variable name used in function code for the table binding. 
+- `tableName` : The name of the table.
+- `partitionKey` and `rowKey` : Used together to read a single entity in a C# or Node function, or to write a single entity in a Node function.
+- `take` : The maximum number of rows to read for table input in a Node function.
+- `filter` : OData filter expression for table input in a Node function.
+- `connection` : The name of an app setting that contains a storage connection string. If you leave `connection` empty, the binding will work with the default storage connection string for the function app, which is specified by the AzureWebJobsStorage app setting.
+- `type` : Must be set to *table*.
+- `direction` : Set to *in* or *out*. 
 
-En el ejemplo siguiente, *function.json* usa un desencadenador de cola para leer una fila de tabla única. El archivo JSON proporciona un valor de clave de partición codificado de forma rígida y especifica que la clave de fila procede del mensaje en cola.
+The following example *function.json* uses a queue trigger to read a single table row. The JSON provides a hard-coded partition key value and specifies that the row key comes from the queue message.
 
 ```json
 {
@@ -411,40 +412,40 @@ En el ejemplo siguiente, *function.json* usa un desencadenador de cola para leer
 }
 ```
 
-#### Tipos compatibles de entrada y salida de tablas de almacenamiento
+#### <a name="storage-tables-input-and-output-supported-types"></a>Storage tables input and output supported types
 
-El enlace `table` puede serializar o deserializar objetos en las funciones de Node.js o C#. Los objetos tendrán las propiedades RowKey y PartitionKey.
+The `table` binding can serialize or deserialize objects in Node.js or C# functions. The objects will have RowKey and PartitionKey properties. 
 
-En las funciones de C#, también puede enlazar a los siguientes tipos:
+In C# functions, you can also bind to the following types:
 
-* `T` donde `T` implementa `ITableEntity`
-* `IQueryable<T>` (solo de entrada)
-* `ICollector<T>` (solo de salida)
-* `IAsyncCollector<T>` (solo de salida)
+* `T` where `T` implements `ITableEntity`
+* `IQueryable<T>` (input only)
+* `ICollector<T>` (output only)
+* `IAsyncCollector<T>` (output only)
 
-#### Escenarios de enlace de tablas de almacenamiento
+#### <a name="storage-tables-binding-scenarios"></a>Storage tables binding scenarios
 
-El enlace de tablas admite los siguientes escenarios:
+The table binding supports the following scenarios:
 
-* Lectura de una sola fila de una función de C# o Node.
+* Read a single row in a C# or Node function.
 
-	Establezca `partitionKey` y `rowKey`. Las propiedades `filter` y `take` no se utilizan en este escenario.
+    Set `partitionKey` and `rowKey`. The `filter` and `take` properties are not used in this scenario.
 
-* Lectura de varias filas en una función de C#.
+* Read multiple rows in a C# function.
 
-	El tiempo de ejecución de Funciones proporciona un objeto `IQueryable<T>` enlazado a la tabla. El tipo `T` debe derivar de `TableEntity` o implementar `ITableEntity`. Las propiedades `partitionKey`, `rowKey`, `filter` y `take` no se utilizan en este escenario; puede utilizar el objeto `IQueryable` para realizar todo el filtrado requerido.
+    The Functions runtime provides an `IQueryable<T>` object bound to the table. Type `T` must derive from `TableEntity` or implement `ITableEntity`. The `partitionKey`, `rowKey`, `filter`, and `take` properties are not used in this scenario; you can use the `IQueryable` object to do any filtering required. 
 
-* Lectura de varias filas en una función de Node.
+* Read multiple rows in a Node function.
 
-	Establezca las propiedades `filter` y `take`. No establezca `partitionKey` o `rowKey`.
+    Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`.
 
-* Escriba una o varias filas en una función de C#.
+* Write one or more rows in a C# function.
 
-	El tiempo de ejecución de Funciones proporciona un `ICollector<T>` o `IAsyncCollector<T>` enlazado a la tabla, donde `T` especifica el esquema de las entidades que desea agregar. Normalmente, el tipo `T` deriva de `TableEntity` o implementa `ITableEntity`, pero no tiene por qué ser así. Las propiedades `partitionKey`, `rowKey`, `filter` y `take` no se utilizan en este escenario.
+    The Functions runtime provides an `ICollector<T>` or `IAsyncCollector<T>` bound to the table, where `T` specifies the schema of the entities you want to add. Typically, type `T` derives from `TableEntity` or implements `ITableEntity`, but it doesn't have to. The `partitionKey`, `rowKey`, `filter`, and `take` properties are not used in this scenario.
 
-#### Ejemplo de tablas de almacenamiento: lectura de una entidad de tabla individual en C# o Node
+#### <a name="storage-tables-example:-read-a-single-table-entity-in-c#-or-node"></a>Storage tables example: Read a single table entity in C# or Node
 
-El siguiente ejemplo de código de C# funciona con el archivo *function.json* anterior para leer una entidad de tabla individual. El mensaje en cola tiene el valor de la clave de fila y la entidad de tabla se lee en un tipo que se define en el archivo *run.csx*. El tipo incluye las propiedades `PartitionKey` y `RowKey`, y no se deriva de `TableEntity`.
+The following C# code example works with the preceding *function.json* file shown earlier to read a single table entity. The queue message has the row key value and the table entity is read into a type that is defined in the *run.csx* file. The type includes `PartitionKey` and `RowKey` properties and does not derive from `TableEntity`. 
 
 ```csharp
 public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
@@ -461,7 +462,7 @@ public class Person
 }
 ```
 
-El siguiente ejemplo de código de F# también funciona con el archivo *function.json* anterior para leer una entidad de tabla individual.
+The following F# code example also works with the preceding *function.json* file to read a single table entity.
 
 ```fsharp
 [<CLIMutable>]
@@ -476,7 +477,7 @@ let Run(myQueueItem: string, personEntity: Person) =
     log.Info(sprintf "Name in Person entity: %s" personEntity.Name)
 ```
 
-El siguiente ejemplo de código de Node también funciona con el archivo *function.json* anterior para leer una entidad de tabla individual.
+The following Node code example also works with the preceding *function.json* file to read a single table entity.
 
 ```javascript
 module.exports = function (context, myQueueItem) {
@@ -486,9 +487,9 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-#### Ejemplo de tablas de almacenamiento: lectura de varias entidades de tabla en C# 
+#### <a name="storage-tables-example:-read-multiple-table-entities-in-c#"></a>Storage tables example: Read multiple table entities in C# 
 
-El siguiente ejemplo de *function.json* y de código de C# lee las entidades de una clave de partición que se especifica en el mensaje en cola.
+The following *function.json* and C# code example reads entities for a partition key that is specified in the queue message.
 
 ```json
 {
@@ -512,7 +513,7 @@ El siguiente ejemplo de *function.json* y de código de C# lee las entidades de 
 }
 ```
 
-El código de C# agrega una referencia al SDK de Almacenamiento de Azure con el fin de que el tipo de entidad pueda derivar de `TableEntity`.
+The C# code adds a reference to the Azure Storage SDK so that the entity type can derive from `TableEntity`.
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
@@ -533,9 +534,9 @@ public class Person : TableEntity
 }
 ``` 
 
-#### Ejemplo de tablas de almacenamiento: creación de entidades de tabla en C# 
+#### <a name="storage-tables-example:-create-table-entities-in-c#"></a>Storage tables example: Create table entities in C# 
 
-El siguiente ejemplo de *function.json* y *run.csx* muestra cómo escribir entidades de tabla en C#.
+The following *function.json* and *run.csx* example shows how to write table entities in C#.
 
 ```json
 {
@@ -582,9 +583,9 @@ public class Person
 
 ```
 
-#### Ejemplo de tablas de almacenamiento: creación de entidades de tabla en F#
+#### <a name="storage-tables-example:-create-table-entities-in-f#"></a>Storage tables example: Create table entities in F#
 
-El siguiente ejemplo de *function.json* y *run.csx* muestra cómo escribir entidades de tabla en F#.
+The following *function.json* and *run.fsx* example shows how to write table entities in F#.
 
 ```json
 {
@@ -623,9 +624,9 @@ let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
               Name = "Name" + i.ToString() })
 ```
 
-#### Ejemplo de tablas de almacenamiento: creación de una entidad de tabla en Node
+#### <a name="storage-tables-example:-create-a-table-entity-in-node"></a>Storage tables example: Create a table entity in Node
 
-El siguiente ejemplo de *function.json* y *run.csx* muestra cómo escribir una entidad de tabla en Node.
+The following *function.json* and *run.csx* example shows how to write a table entity in Node.
 
 ```json
 {
@@ -659,8 +660,12 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-[AZURE.INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
+[AZURE.INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)] 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

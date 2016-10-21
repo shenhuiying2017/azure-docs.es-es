@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Presentación del servicio Contenedor de Azure | Microsoft Azure"
-   description="El servicio Contenedor de Azure ofrece una forma de simplificar la creación, configuración y administración de un clúster de máquinas virtuales preconfiguradas para ejecutar aplicaciones en contenedor."
+   pageTitle="Azure Container Service Introduction | Microsoft Azure"
+   description="Azure Container Service provides a way to simplify the creation, configuration, and management of a cluster of virtual machines that are preconfigured to run containerized applications."
    services="container-service"
    documentationCenter=""
    authors="rgardler"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, contenedores, microservicios, Mesos, Azure"/>
+   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -18,92 +18,97 @@
    ms.date="09/13/2016"
    ms.author="rogardle"/>
 
-# Presentación del servicio Contenedor de Azure
 
-El servicio Contenedor de Azure simplifica la creación, configuración y administración de un clúster de máquinas virtuales preconfiguradas para ejecutar aplicaciones en contenedor. Usa una configuración optimizada de herramientas de programación y orquestación de código abierto conocidas. Esto le permite usar sus conocimientos o recurrir a un importante y creciente grupo de expertos comunitarios para implementar y administrar aplicaciones basadas en contenedores en Microsoft Azure.
+# <a name="azure-container-service-introduction"></a>Azure Container Service introduction
 
-
-![El servicio Contenedor de Azure proporciona un medio para administrar aplicaciones en contenedor en varios hosts de Azure.](./media/acs-intro/acs-cluster.png)
+Azure Container Service makes it simpler for you to create, configure, and manage a cluster of virtual machines that are preconfigured to run containerized applications. It uses an optimized configuration of popular open-source scheduling and orchestration tools. This enables you to use your existing skills, or draw upon a large and growing body of community expertise, to deploy and manage container-based applications on Microsoft Azure.
 
 
-El servicio Contenedor de Azure usa el formato de contenedor Docker para garantizar que los contenedores de su aplicación sean completamente portátiles. También es compatible con su elección de Marathon y DC/OS o Docker Swarm para que pueda escalar estas aplicaciones a miles e incluso a decenas de miles de contenedores.
+![Azure Container Service provides a means to manage containerized applications on multiple hosts on Azure.](./media/acs-intro/acs-cluster.png)
 
-Con el servicio Contenedor de Azure puede aprovechar las características empresariales de Azure sin dejar de mantener la portabilidad de aplicaciones, incluida la portabilidad en las capas de orquestación.
 
-Uso del servicio Contenedor de Azure
+Azure Container Service leverages the Docker container format to ensure that your application containers are fully portable. It also supports your choice of Marathon and DC/OS or Docker Swarm so that you can scale these applications to thousands of containers, or even tens of thousands.
+
+By using Azure Container Service, you can take advantage of the enterprise-grade features of Azure, while still maintaining application portability--including portability at the orchestration layers.
+
+<a name="using-azure-container-service"></a>Using Azure Container Service
 -----------------------------
 
-Nuestro objetivo con el servicio Contenedor de Azure es proporcionar un entorno de hospedaje de contenedores mediante el uso de tecnologías y herramientas de código abierto, conocidas por nuestros clientes. Con este fin, se exponen los puntos de conexión de API estándar y el orquestador que haya elegido (DC/OS o Docker Swarm). Al usar estos puntos de conexión, puede aprovechar cualquier software que se comunique con estos. Por ejemplo, en el caso del punto de conexión de Docker Swarm, puede usar la interfaz de la línea de comandos (CLI) de Docker. Para DC/OS, puede usar la CLI de DCOS.
+Our goal with Azure Container Service is to provide a container hosting environment by using open-source tools and technologies that are popular among our customers today. To this end, we expose the standard API endpoints for your chosen orchestrator (DC/OS or Docker Swarm). By using these endpoints, you can leverage any software that is capable of talking to those endpoints. For example, in the case of the Docker Swarm endpoint, you might choose to use the Docker command-line interface (CLI). For DC/OS, you might choose to use the DCOS CLI.
 
-Creación de un clúster de Docker con el servicio Contenedor de Azure
+<a name="creating-a-docker-cluster-by-using-azure-container-service"></a>Creating a Docker cluster by using Azure Container Service
 -------------------------------------------------------
 
-Para comenzar a usar Azure Container Service, implemente un clúster del servicio de contenedor de Azure a través del portal (busque "Azure Container Service") mediante una plantilla de Azure Resource Manager ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm) o [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)), o bien con la [CLI](/documentation/articles/xplat-cli-install/). Las plantillas de inicio rápido que se proporcionan se pueden modificar para que incluyan una configuración de Azure adicional o avanzada. Para obtener más información sobre la implementación de un clúster del servicio de contenedores de Azure, consulte [Implementación de un clúster de Azure Container Service](container-service-deployment.md).
+To begin using Azure Container Service, you deploy an Azure Container Service cluster via the portal (search for 'Azure Container Service'), by using an Azure Resource Manager template ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm) or [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)) or with the [CLI](/documentation/articles/xplat-cli-install/). The provided quickstart templates can be modified to include additional or advanced Azure configuration. For more information on deploying an Azure Container Service cluster, see [Deploy an Azure Container Service cluster](container-service-deployment.md).
 
-Implementación de una aplicación
+<a name="deploying-an-application"></a>Deploying an application
 ------------------------
 
-Azure Container Service permite elegir Docker Swarm o DC/OS como orquestación. El procedimiento para implementar la aplicación dependerá del orquestador que elija.
+Azure Container Service provides a choice of either Docker Swarm or DC/OS for orchestration. How you deploy your application depends on your choice of orchestrator.
 
-### Uso de DC/OS
+### <a name="using-dc/os"></a>Using DC/OS
 
-DC/OS es un sistema operativo distribuido basado en el kernel de sistemas distribuidos Apache Mesos. Apache Mesos se hospeda en Apache Software Foundation e incluye algunos de los [principales nombres de TI](http://mesos.apache.org/documentation/latest/powered-by-mesos/) como usuarios y colaboradores.
+DC/OS is a distributed operating system based on the Apache Mesos distributed systems kernel. Apache Mesos is housed at the Apache Software Foundation and lists some of the [biggest names in IT](http://mesos.apache.org/documentation/latest/powered-by-mesos/) as users and contributors.
 
-![Servicio Contenedor de Azure está configurado para Swarm, que muestra agentes y patrones.](media/acs-intro/dcos.png)
+![Azure Container Service configured for Swarm showing agents and masters.](media/acs-intro/dcos.png)
 
-DC/OS y Apache Mesos presentan una impresionante serie de características:
+DC/OS and Apache Mesos include an impressive feature set:
 
--   Escalabilidad demostrada
+-   Proven scalability
 
--   Patrón y esclavos replicados tolerantes a errores que usan Apache ZooKeeper
+-   Fault-tolerant replicated master and slaves using Apache ZooKeeper
 
--   Compatibilidad con los contenedores en formato Docker
+-   Support for Docker-formatted containers
 
--   Aislamiento nativo entre las tareas con contenedores de Linux
+-   Native isolation between tasks with Linux containers
 
--   Programación de varios recursos (memoria, CPU, disco y puertos)
+-   Multiresource scheduling (memory, CPU, disk, and ports)
 
--   API de Java, Python y C++ para desarrollar nuevas aplicaciones paralelas
+-   Java, Python, and C++ APIs for developing new parallel applications
 
--   Una IU web para ver el estado del clúster
+-   A web UI for viewing cluster state
 
-De forma predeterminada, la instancia de DC/OS que se ejecuta en el servicio de contenedor de Azure incluye la plataforma de orquestación Marathon para cargas de trabajo de programación. Sin embargo, al implementar DC/OS de ACS, se incluye el universo de servicios de Mesosphere, que pueden agregarse al servicio, entre ellas Spark, Hadoop, Cassandra y muchos más.
+By default, DC/OS running on Azure Container Service includes the Marathon  orchestration platform for scheduling workloads. However, included with the DC/OS deployment of ACS is the Mesosphere Universe of services that can be added to your service, these include Spark, Hadoop, Cassandra and much more.
 
-![Universo de DC/OS en el servicio de contenedor de Azure](media/dcos/universe.png)
+![DC/OS Universe in Azure Container Service](media/dcos/universe.png)
 
-#### Uso de Marathon
+#### <a name="using-marathon"></a>Using Marathon
 
-Marathon es un sistema de inicialización y control de todo el clúster para servicios en cgroups o, en el caso del servicio Contenedor de Azure, contenedores en formato Docker. Marathon proporciona una IU web desde la que puede implementar aplicaciones. Puede acceder a esta desde una dirección URL semejante a `http://DNS_PREFIX.REGION.cloudapp.azure.com`, donde DNS\_PREFIX y REGION se definen en el momento de la implementación. Por supuesto, también puede proporcionar su propio nombre DNS. Para obtener más información sobre cómo ejecutar un contenedor mediante la interfaz de usuario web de Marathon, consulte [Administración de contenedores a través de la interfaz de usuario web](container-service-mesos-marathon-ui.md).
+Marathon is a cluster-wide init and control system for services in cgroups--or, in the case of Azure Container Service, Docker-formatted containers. Marathon provides a web UI from which you can deploy your applications. You can access this at a URL that looks something like `http://DNS_PREFIX.REGION.cloudapp.azure.com` where DNS\_PREFIX and REGION are both defined at deployment time. Of course, you can also provide your own DNS name. For more information on running a container using the Marathon web UI, see [Container management through the web UI](container-service-mesos-marathon-ui.md).
 
-![Lista de aplicaciones de Marathon](media/dcos/marathon-applications-list.png)
+![Marathon Applications List](media/dcos/marathon-applications-list.png)
 
-Además, puede usar las API de REST para comunicarse con Marathon. Existen varias bibliotecas de cliente que están disponibles para cada herramienta. Abarcan una variedad de lenguajes y, por supuesto, puede usar el protocolo HTTP en cualquier lenguaje. Muchas herramientas de DevOps conocidas también proporcionan compatibilidad con Marathon. Esto proporciona la máxima flexibilidad a su equipo de operaciones cuando trabaja con un clúster del servicio Contenedor de Azure. Para obtener más información sobre cómo ejecutar un contenedor mediante la API de REST de Marathon, consulte [Administración de contenedores con la API de REST](container-service-mesos-marathon-rest.md).
+You can also use the REST APIs for communicating with Marathon. There are a number of client libraries that are available for each tool. They cover a variety of languages--and, of course, you can use the HTTP protocol in any language. In addition, many popular DevOps tools provide support for Marathon. This provides maximum flexibility for your operations team when you are working with an Azure Container Service cluster. For more information on running a container by using the Marathon REST API, see [Container management with the REST API](container-service-mesos-marathon-rest.md).
 
-### Uso de Docker Swarm
+### <a name="using-docker-swarm"></a>Using Docker Swarm
 
-Docker Swarm proporciona agrupación en clústeres nativa para Docker. Como Docker Swarm proporciona servicio a la API de Docker estándar, cualquier herramienta que ya se comunique con Docker daemon podrá usar Swarm para escalar de forma transparente a varios hosts en el servicio Contenedor de Azure.
+Docker Swarm provides native clustering for Docker. Because Docker Swarm serves the standard Docker API, any tool that already communicates with a Docker daemon can use Swarm to transparently scale to multiple hosts on Azure Container Service.
 
-![Azure Container Service está configurado para usar DC/O, que muestra JumpBox, agentes y patrones.](media/acs-intro/acs-swarm2.png)
+![Azure Container Service configured to use DC/OS--showing jumpbox, agents, and masters.](media/acs-intro/acs-swarm2.png)
 
-Entre las herramientas compatibles para administrar contenedores en un clúster Swarm se incluyen las siguientes:
+Supported tools for managing containers on a Swarm cluster include, but are not limited to, the following:
 
 -   Dokku
 
--   CLI de Docker y Docker Compose
+-   Docker CLI and Docker Compose
 
 -   Krane
 
 -   Jenkins
 
-Vídeos
+<a name="videos"></a>Videos
 ------
 
-Introducción a Azure Container Service:
+Getting started with Azure Container Service (101):  
 
 > [AZURE.VIDEO azure-container-service-101]
 
-Building Applications Using the Azure Container Service (Creación de aplicaciones mediante Azure Container Service) (Build 2016)
+Building Applications Using the Azure Container Service (Build 2016)
 
 > [AZURE.VIDEO build-2016-building-applications-using-the-azure-container-service]
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

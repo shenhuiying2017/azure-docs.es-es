@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introducción a Detección de amenazas de Base de datos SQL"
-   description="Cómo empezar a usar Detección de amenazas de Base de datos SQL en el Portal de Azure"
+   pageTitle="Get started with SQL Database Threat Detection"
+   description="How to get started with SQL Database Threat Detection in the Azure Portal"
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
@@ -17,65 +17,69 @@
    ms.author="ronmat; ronitr"/>
 
 
-# Introducción a Detección de amenazas de Base de datos SQL
 
-## Información general
+# <a name="get-started-with-sql-database-threat-detection"></a>Get started with SQL Database Threat Detection
 
-Detección de amenazas detecta actividades anómalas en la base de datos que indican posibles amenazas de seguridad a la base de datos. Detección de amenazas está en vista previa y es compatible con la versión V12 de Base de datos SQL de Azure.
+## <a name="overview"></a>Overview
 
-Detección de amenazas ofrece un nuevo nivel de seguridad, que permite a los clientes detectar amenazas potenciales y responder a ellas a medida que se producen, gracias a las alertas de seguridad sobre actividades anómalas que se proporcionan. Los usuarios pueden explorar los eventos sospechosos mediante la [auditoría de Base de datos SQL de Azure](sql-database-auditing-get-started.md) para determinar si proceden de un intento de acceder a los datos en la base de datos, infringir su seguridad o aprovecharlos. Detección de amenazas facilita la solución de las posibles amenazas a la base de datos sin necesidad de ser un experto en seguridad ni administrar sistemas de supervisión de seguridad avanzada.
+Threat Detection detects anomalous database activities indicating potential security threats to the database.  Threat Detection is in preview and is supported for the V12 version of Azure SQL Database.
 
-Por ejemplo, Detección de amenazas detecta determinadas actividades anómalas en la base de datos que sugieren posibles intentos de inyección de código SQL. La inyección de código SQL es uno de los problemas de seguridad habituales entre las aplicaciones web en Internet y se usa para atacar aplicaciones controladas por datos. Los atacantes aprovechan las vulnerabilidades de la aplicación para inyectar instrucciones SQL malintencionadas en los campos de entrada de la aplicación, con el fin de infringir la seguridad o modificar datos en la base de datos.
+Threat Detection provides a new layer of security, which enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities.  Users can explore the suspicious events using [Azure SQL Database Auditing](sql-database-auditing-get-started.md) to determine if they result from an attempt to access, breach or exploit data in the database.
+Threat Detection makes it simple to address potential threats to the database without the need to be a security expert or manage advanced security monitoring systems.
 
-
-## Configuración de la detección de amenazas para la base de datos
-
-1. Inicie el Portal de Azure en [https://portal.azure.com](https://portal.azure.com).
-
-2. Vaya a la hoja de configuración de Base de datos SQL que desea supervisar. En la hoja Configuración, seleccione **Auditoría y detección de amenazas**.
-
-	![Panel de navegación][1]
-
-3. En la hoja de configuración de **Auditoría y detección de amenazas**, **active** la auditoría; se mostrará la configuración de Detección de amenazas.
-
-	![Panel de navegación][2]
-
-4. **Active** Detección de amenazas.
-
-5. Configure la lista de correos electrónicos que recibirán alertas de seguridad cuando se detecten actividades anómalas en la base de datos.
-
-6. Haga clic en **Guardar** en la hoja de configuración de **Auditoría y detección de amenazas** para guardar la directiva de auditoría y detección de amenazas nueva o actualizada.
-
-	![Panel de navegación][3]
+For example, Threat Detection detects certain anomalous database activities indicating potential SQL injection attempts. SQL injection is one of the common Web application security issues on the Internet, used to attack data-driven applications. Attackers take advantage of application vulnerabilities to inject malicious SQL statements into application entry fields, for breaching or modifying data in the database.
 
 
-## Exploración de las actividades anómalas en la base de datos cuando se detecta un evento sospechoso
+## <a name="set-up-threat-detection-for-your-database"></a>Set up threat detection for your database
 
-1. Recibirá una notificación por correo electrónico tras la detección de actividades anómalas en la base de datos. <br/> El correo electrónico proporciona información sobre el evento de seguridad sospechoso, en la que se incluyen la naturaleza de las actividades anómalas, el nombre de la base de datos, el nombre del servidor y la hora del evento. Además, se proporcionará información sobre las posibles causas y las medidas recomendadas para investigar y mitigar la amenaza potencial para la base de datos.<br/>
+1. Launch the Azure Portal at [https://portal.azure.com](https://portal.azure.com).
 
-	![Panel de navegación][4]
+2. Navigate to the configuration blade of the SQL Database you want to monitor. In the Settings blade, select **Auditing & Threat Detection**.
 
-2. En el correo electrónico, haga clic en el vínculo **Registro de auditoría SQL de Azure**, lo que iniciará el Portal de Azure y mostrará los registros de auditoría pertinentes en torno a la hora del evento sospechoso.
+    ![Navigation pane][1]
 
-	![Panel de navegación][5]
+3. In the **Auditing & Threat Detection** configuration blade turn **ON** auditing, which will display the Threat detection settings.
 
-3. Haga clic en los registros de auditoría para ver más detalles sobre las actividades sospechosas en la base de datos, como instrucción SQL, motivo del error e IP de cliente.
+    ![Navigation pane][2]
 
-	![Panel de navegación][6]
+4. Turn **ON** Threat detection.
 
-4. En la hoja Registros de auditoría, haga clic en **Abrir en Excel** para abrir una plantilla de Excel ya configurada para importar y ejecutar un análisis más profundo del registro de auditoría en torno a la hora del evento sospechoso.<br/> **Nota:** en Excel 2010 o posterior, se necesitan Power Query y la configuración **Combinación rápida**.
+5. Configure the list of emails that will receive security alerts upon detection of anomalous database activities.
 
-	![Panel de navegación][7]
+6. Click **Save** in the **Auditing & Threat detection** configuration blade to save the new or updated auditing and threat detection policy.
 
-5. Para definir la configuración **Combinación rápida**: en la pestaña **POWER QUERY** de la cinta, seleccione **Opciones** para mostrar el cuadro de diálogo Opciones. Seleccione la sección Privacidad y elija la segunda opción, "Omitir los niveles de privacidad para mejorar el rendimiento":
+    ![Navigation pane][3]
 
-	![Panel de navegación][8]
 
-6. Para cargar registros de auditoría SQL, asegúrese de que los parámetros de la pestaña Configuración sean correctos y después seleccione "Datos" en la cinta y haga clic en el botón "Actualizar todo".
+## <a name="explore-anomalous-database-activities-upon-detection-of-a-suspicious-event"></a>Explore anomalous database activities upon detection of a suspicious event
 
-	![Panel de navegación][9]
+1. You will receive an email notification upon detection of anomalous database activities. <br/>
+The email will provide information on the suspicious security event including the nature of the anomalous activities, database name, server name and the event time. In addition, it will provide information on possible causes and recommended actions to investigate and mitigate the potential threat to the database.<br/>
 
-7. Los resultados aparecen en la hoja **Registros de auditoría SQL**, que permite ejecutar un análisis más profundo de las actividades anómalas que se detectaron y mitigar el impacto del evento de seguridad en la aplicación.
+    ![Navigation pane][4]
+
+2. In the email, click on the **Azure SQL Auditing Log** link, which will launch the Azure portal and show the relevant Auditing records around the time of the suspicious event.
+
+    ![Navigation pane][5]
+
+3. Click on the audit records to view more details on the suspicious database activities such as SQL statement, failure reason and client IP.
+
+    ![Navigation pane][6]
+
+4. In the Auditing Records blade, click  **Open in Excel** to open a pre-configured excel template to import and run deeper analysis of the audit log around the time of the suspicious event.<br/>
+**Note:** In Excel 2010 or later, Power Query and the **Fast Combine** setting is required
+
+    ![Navigation pane][7]
+
+5. To configure the **Fast Combine** setting - In the **POWER QUERY** ribbon tab, select **Options** to display the Options dialog. Select the Privacy section and choose the second option - 'Ignore the Privacy Levels and potentially improve performance':
+
+    ![Navigation pane][8]
+
+6. To load SQL audit logs, ensure that the parameters in the settings tab are set correctly and then select the 'Data' ribbon and click the 'Refresh All' button.
+
+    ![Navigation pane][9]
+
+7. The results appear in the **SQL Audit Logs** sheet which enables you to run deeper analysis of the anomalous activities that were detected, and mitigate the impact of the security event in your application.
 
 
 <!--Image references-->
@@ -89,4 +93,8 @@ Por ejemplo, Detección de amenazas detecta determinadas actividades anómalas e
 [8]: ./media/sql-database-threat-detection-get-started/8_td_excel_fast_combine.png
 [9]: ./media/sql-database-threat-detection-get-started/9_td_excel_parameters.png
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

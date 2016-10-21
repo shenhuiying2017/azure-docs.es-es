@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Adición del conector de Office 365 Outlook a Aplicaciones lógicas | Microsoft Azure"
-    description="Cree aplicaciones lógicas con el conector de Office 365 para habilitar la interacción con Office 365. Por ejemplo: crear, editar y actualizar contactos y elementos de calendario."
+    pageTitle="Add the Office 365 Outlook connector in your Logic Apps | Microsoft Azure"
+    description="Create logic apps with Office 365 connector to enable interaction with Office 365. For example: creating, editing, and updating contacts and calendar items."
     services=""    
     documentationCenter=""     
     authors="MandiOhlinger"    
-    manager="erikre"    
+    manager="anneta"    
     editor="" 
     tags="connectors" />
 
@@ -14,758 +14,762 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="07/26/2016"
+ms.date="10/18/2016"
 ms.author="mandia"/>
 
-# Introducción al conector de Office 365 Outlook 
 
-El conector de Office 365 Outlook permite la interacción con Outlook en Office 365. Utilice este conector para crear, editar y actualizar elementos de calendario y contactos, y también recibir, enviar y responder al correo electrónico.
+# <a name="get-started-with-the-office-365-outlook-connector"></a>Get started with the Office 365 Outlook connector 
 
-Con Office 365 Outlook:
+The Office 365 Outlook connector enables interaction with Outlook in Office 365. Use this connector to create, edit, and update contacts and calendar items, and also get, send, and reply to email.
 
-- Creará el flujo de trabajo con las características de correo electrónico y calendario de Office 365.
-- Usará desencadenadores para iniciar el flujo de trabajo cuando reciba un correo electrónico nuevo, se actualice un elemento de calendario, etc.
-- Usará acciones para enviar correos electrónicos, crear eventos de calendario y mucho más. Por ejemplo, cuando reciba un nuevo objeto de Salesforce (un desencadenador), el envío de un correo electrónico a Office 365 Outlook (acción).
+With Office 365 Outlook, you:
 
-En este tema se muestra cómo usar el conector de Office 365 Outlook en una aplicación lógica, y se enumeran los desencadenadores y las acciones.
+- Build your workflow using the email and calendar features within Office 365. 
+- Use triggers to start your workflow when there is a new email, when a calendar item is updated, and more.
+- Use actions to send an email, create a new calendar event, and more. For example, when there is a new object in Salesforce (a trigger), send an email to your Office 365 Outlook (an action). 
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la disponibilidad general de las aplicaciones lógicas.
+This topic shows you how to use the Office 365 Outlook connector in a logic app, and also lists the triggers and actions.
 
-Para más información sobre Logic Apps, consulte [¿Qué son las aplicaciones lógicas?](../app-service-logic/app-service-logic-what-are-logic-apps.md) y [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+>[AZURE.NOTE] This version of the article applies to Logic Apps general availability (GA).
 
-## Conectarse a Office 365
+To learn more about Logic Apps, see [What are logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Antes de que la aplicación lógica pueda acceder a cualquier servicio, cree primero una *conexión* a este. Una conexión proporciona conectividad entre una aplicación lógica y otro servicio. Por ejemplo, para conectarse a Office 365 Outlook, primero necesita *conexión* a Office 365. Para crear una conexión, escriba las credenciales que utiliza normalmente para acceder al servicio al que desea conectarse. Por lo tanto, para crear la conexión con Office 365 Outlook, escriba las credenciales de la cuenta de Office 365.
+## <a name="connect-to-office-365"></a>Connect to Office 365
 
-
-## Creación de la conexión
-
->[AZURE.INCLUDE [Pasos para crear una conexión a Office 365](../../includes/connectors-create-api-office365-outlook.md)]
-
-## Uso de un desencadenador
-
-Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. Los desencadenadores "sondean" el servicio en el intervalo y la frecuencia que desee. [Más información sobre los desencadenadores](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
-
-1. En la aplicación lógica, escriba "office 365" para obtener una lista de los desencadenadores:
-
-	![](./media/connectors-create-api-office365-outlook/office365-trigger.png)
-
-2. Seleccione **Office 365 Outlook - When an upcoming event is starting soon** (Office 365 Outlook - Cuando un evento vaya a empezar pronto). Si ya existe una conexión, seleccione un calendario de la lista desplegable.
-
-	![](./media/connectors-create-api-office365-outlook/sample-calendar.png)
-
-	Si se le solicita que inicie sesión, escriba los datos de inicio de sesión para crear la conexión. En este tema, en [Creación de la conexión](connectors-create-api-office365-outlook.md#create-the-connection) se enumeran los pasos.
-
-	> [AZURE.NOTE] En este ejemplo, la aplicación lógica se ejecuta cuando se actualiza un evento de calendario. Para ver los resultados de este desencadenador, agregue otra acción que le envíe un mensaje de texto. Por ejemplo, agregue la acción de Twilio *Send message* (Enviar mensaje) que envía un mensaje de texto cuando quedan 15 minutos para que empiece el evento de calendario.
-
-3. Seleccione el botón **Editar** y defina los valores para **Frecuencia** e **Intervalo**. Por ejemplo, si desea que el desencadenador sondee cada 15 minutos, establezca el valor **Frecuencia** en **Minuto** y el de **Intervalo** en **15**.
-
-	![](./media/connectors-create-api-office365-outlook/calendar-settings.png)
-
-4. **Guarde** los cambios (esquina superior izquierda de la barra de herramientas). La aplicación lógica se guarda y se puede habilitar automáticamente.
+Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to Office 365 Outlook, you first need an Office 365 *connection*. To create a connection, enter the credentials you normally use to access the service you wish to connect to. So with Office 365 Outlook, enter the credentials to your Office 365 account to create the connection.
 
 
-## Uso de una acción
+## <a name="create-the-connection"></a>Create the connection
 
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información sobre las acciones](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+>[AZURE.INCLUDE [Steps to create a connection to Office 365](../../includes/connectors-create-api-office365-outlook.md)]
 
-1. Seleccione el signo más. Aparecen varias opciones: **Add an action** (Agregar una acción), **Add a condition** (Agregar una condición) o una de las opciones de **More** (Más).
+## <a name="use-a-trigger"></a>Use a trigger
 
-	![](./media/connectors-create-api-office365-outlook/add-action.png)
+A trigger is an event that can be used to start the workflow defined in a logic app. Triggers "poll" the service at an interval and frequency that you want. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-2. Elija **Add an action** (Agregar una acción).
+1. In the logic app, type "office 365" to get a list of the triggers:  
 
-3. En el cuadro de texto, escriba "office 365" para obtener una lista de todas las acciones disponibles.
+    ![](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-	![](./media/connectors-create-api-office365-outlook/office365-actions.png)
+2. Select **Office 365 Outlook - When an upcoming event is starting soon**. If a connection already exists, then select a calendar from the drop-down list.
 
-4. En nuestro ejemplo, elija **Office 365 Outlook - Create contact** (Office 365 Outlook - Crear contacto). Si ya existe una conexión, elija las propiedades **Folder ID** (Identificador de carpeta), **Given Name** (Nombre), etc.:
+    ![](./media/connectors-create-api-office365-outlook/sample-calendar.png)
 
-	![](./media/connectors-create-api-office365-outlook/office365-sampleaction.png)
+    If you are prompted to sign in, then enter the sign in details to create the connection. [Create the connection](connectors-create-api-office365-outlook.md#create-the-connection) in this topic lists the steps. 
 
-	Si se le solicita la información de conexión, escriba los detalles para crear la conexión. Estas propiedades se describen en la sección [Creación de la conexión](connectors-create-api-office365-outlook.md#create-the-connection) de este tema.
+    > [AZURE.NOTE] In this example, the logic app runs when a calendar event is updated. To see the results of this trigger, add another action that sends you a text message. For example, add the Twilio *Send message* action that texts you when the calendar event is starting in 15 minutes. 
 
-	> [AZURE.NOTE] En este ejemplo, creamos un nuevo contacto en Office 365 Outlook. Para crear el contacto puede utilizar la salida de otro desencadenador. Por ejemplo, agregue el desencadenador SalesForce *Cuando se crea un objeto*. A continuación, agregue la acción *Create contact* (Crear contacto) de Office 365 Outlook, que usa los campos de SalesForce para crear el contacto nuevo en Office 365.
+3. Select the **Edit** button and set the **Frequency** and **Interval** values. For example, if you want the trigger to poll every 15 minutes, then set the **Frequency** to **Minute**, and set the **Interval** to **15**. 
 
-5. **Guarde** los cambios (esquina superior izquierda de la barra de herramientas). La aplicación lógica se guarda y se puede habilitar automáticamente.
+    ![](./media/connectors-create-api-office365-outlook/calendar-settings.png)
+
+4. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
 
 
-## Detalles técnicos
+## <a name="use-an-action"></a>Use an action
 
-Estos son los detalles sobre los desencadenadores, las acciones y las respuestas compatibles con esta conexión:
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-## Desencadenadores de Office 365
+1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
 
-|Desencadenador | Descripción|
+    ![](./media/connectors-create-api-office365-outlook/add-action.png)
+
+2. Choose **Add an action**.
+
+3. In the text box, type “office 365” to get a list of all the available actions.
+
+    ![](./media/connectors-create-api-office365-outlook/office365-actions.png) 
+
+4. In our example, choose **Office 365 Outlook - Create contact**. If a connection already exists, then choose the **Folder ID**, **Given Name**, and other properties:  
+
+    ![](./media/connectors-create-api-office365-outlook/office365-sampleaction.png)
+
+    If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-office365-outlook.md#create-the-connection) in this topic describes these properties. 
+
+    > [AZURE.NOTE] In this example, we create a new contact in Office 365 Outlook. You can use output from another trigger to create the contact. For example, add the SalesForce *When an object is created* trigger. Then add the Office 365 Outlook *Create contact* action that uses the SalesForce fields to create the new new contact in Office 365. 
+
+5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+
+
+## <a name="technical-details"></a>Technical Details
+
+Here are the details about the triggers, actions and responses that this connection supports:
+
+## <a name="office-365-triggers"></a>Office 365 triggers
+
+|Trigger | Description|
 |--- | ---|
-|[Cuando un evento vaya a empezar pronto](connectors-create-api-office365-outlook.md#when-an-upcoming-event-is-starting-soon)|Con esta operación se desencadena un flujo cuando se va a iniciar un evento próximamente.|
-|[Cuando llegue un correo electrónico nuevo](connectors-create-api-office365-outlook.md#when-a-new-email-arrives)|Con esta operación se desencadena un flujo cuando llega un nuevo correo electrónico.|
-|[Cuando se cree un evento nuevo](connectors-create-api-office365-outlook.md#when-a-new-event-is-created)|Con esta operación se desencadena un flujo cuando se crea un evento nuevo en un calendario.|
-|[Cuando se modifique un evento](connectors-create-api-office365-outlook.md#when-an-event-is-modified)|Con esta operación se desencadena un flujo cuando se modifica un evento en un calendario.|
+|[When an upcoming event is starting soon](connectors-create-api-office365-outlook.md#when-an-upcoming-event-is-starting-soon)|This operation triggers a flow when an upcoming calendar event is starting.|
+|[When a new email arrives](connectors-create-api-office365-outlook.md#when-a-new-email-arrives)|This operation triggers a flow when a new email arrives|
+|[When a new event is created](connectors-create-api-office365-outlook.md#when-a-new-event-is-created)|This operation triggers a flow when a new event is created in a calendar.|
+|[When an event is modified](connectors-create-api-office365-outlook.md#when-an-event-is-modified)|This operation triggers a flow when an event is modified in a calendar.|
 
 
-## Acciones de Office 365
+## <a name="office-365-actions"></a>Office 365 actions
 
-|Acción|Descripción|
+|Action|Description|
 |--- | ---|
-|[Obtener correos electrónicos](connectors-create-api-office365-outlook.md#get-emails)|Con esta operación se obtienen mensajes de correo electrónico de una carpeta.|
-|[un correo electrónico](connectors-create-api-office365-outlook.md#send-an-email)|Con esta operación se envía un mensaje de correo electrónico.|
-|[Eliminar correo electrónico](connectors-create-api-office365-outlook.md#delete-email)|Con esta operación se eliminan correos electrónicos por identificador.|
-|[Marcar como leído](connectors-create-api-office365-outlook.md#mark-as-read)|Con esta operación se marca el correo electrónico como leído.|
-|[Responder al mensaje](connectors-create-api-office365-outlook.md#reply-to-email)|Con esta operación se responde a un correo electrónico.|
-|[Obtener datos adjuntos](connectors-create-api-office365-outlook.md#get-attachment)|Con esta operación se obtienen datos adjuntos de correo electrónico por identificador.|
-|[Enviar correo electrónico con opciones](connectors-create-api-office365-outlook.md#send-email-with-options)|Con esta operación se envía un correo electrónico con varias opciones y espera de una respuesta del destinatario con una de las opciones.|
-|[Enviar correo electrónico de aprobación](connectors-create-api-office365-outlook.md#send-approval-email)|Con esta operación se envía un correo electrónico de aprobación y se espera una respuesta del destinatario.|
-|[Obtener calendarios](connectors-create-api-office365-outlook.md#get-calendars)|Con esta operación se enumeran los calendarios disponibles.|
-|[Obtención de eventos](connectors-create-api-office365-outlook.md#get-events)|Con esta operación se obtienen los eventos de calendario.|
-|[Crear evento](connectors-create-api-office365-outlook.md#create-event)|Con esta operación se crea un nuevo evento de calendario.|
-|[Obtener evento](connectors-create-api-office365-outlook.md#get-event)|Con esta operación se obtienen eventos específicos de un calendario.|
-|[Eliminar evento](connectors-create-api-office365-outlook.md#delete-event)|Con esta operación se eliminan eventos de calendario.|
-|[Actualizar evento](connectors-create-api-office365-outlook.md#update-event)|Con esta operación se actualizan eventos de calendario.|
-|[Obtener carpetas de contactos](connectors-create-api-office365-outlook.md#get-contact-folders)|Con esta operación se enumeran las carpetas de contactos disponibles.|
-|[Obtener contactos](connectors-create-api-office365-outlook.md#get-contacts)|Con esta operación se recuperan contactos de una carpeta.|
-|[Crear contacto](connectors-create-api-office365-outlook.md#create-contact)|Con esta operación se crean contactos en una carpeta.|
-|[Obtener contacto](connectors-create-api-office365-outlook.md#get-contact)|Con esta operación se obtienen contactos específicos de una carpeta.|
-|[Eliminar contacto](connectors-create-api-office365-outlook.md#delete-contact)|Con esta operación se eliminan contactos de una carpeta.|
-|[Actualizar contacto](connectors-create-api-office365-outlook.md#update-contact)|Con esta operación se actualizan contactos en una carpeta.|
+|[Get emails](connectors-create-api-office365-outlook.md#get-emails)|This operation gets emails from a folder.|
+|[Send an email](connectors-create-api-office365-outlook.md#send-an-email)|This operation sends an email message.|
+|[Delete email](connectors-create-api-office365-outlook.md#delete-email)|This operation deletes an email by id.|
+|[Mark as read](connectors-create-api-office365-outlook.md#mark-as-read)|This operation marks an email as having been read.|
+|[Reply to email](connectors-create-api-office365-outlook.md#reply-to-email)|This operation replies to an email.|
+|[Get attachment](connectors-create-api-office365-outlook.md#get-attachment)|This operation gets an email attachment by id.|
+|[Send email with options](connectors-create-api-office365-outlook.md#send-email-with-options)|This operation sends an email with multiple options and waits for the recipient to respond back with one of the options.|
+|[Send approval email](connectors-create-api-office365-outlook.md#send-approval-email)|This operation sends an approval email and waits for a response from the recipient.|
+|[Get calendars](connectors-create-api-office365-outlook.md#get-calendars)|This operation lists available calendars.|
+|[Get events](connectors-create-api-office365-outlook.md#get-events)|This operation gets events from a calendar.|
+|[Create event](connectors-create-api-office365-outlook.md#create-event)|This operation creates a new event in a calendar.|
+|[Get event](connectors-create-api-office365-outlook.md#get-event)|This operation gets a specific event from a calendar.|
+|[Delete event](connectors-create-api-office365-outlook.md#delete-event)|This operation deletes an event in a calendar.|
+|[Update event](connectors-create-api-office365-outlook.md#update-event)|This operation updates an event in a calendar.|
+|[Get contact folders](connectors-create-api-office365-outlook.md#get-contact-folders)|This operation lists available contacts folders.|
+|[Get contacts](connectors-create-api-office365-outlook.md#get-contacts)|This operation gets contacts from a contacts folder.|
+|[Create contact](connectors-create-api-office365-outlook.md#create-contact)|This operation creates a new contact in a contacts folder.|
+|[Get contact](connectors-create-api-office365-outlook.md#get-contact)|This operation gets a specific contact from a contacts folder.|
+|[Delete contact](connectors-create-api-office365-outlook.md#delete-contact)|This operation deletes a contact from a contacts folder.|
+|[Update contact](connectors-create-api-office365-outlook.md#update-contact)|This operation updates a contact in a contacts folder.|
 
-### Detalles de los desencadenadores y las acciones
+### <a name="trigger-and-action-details"></a>Trigger and Action details
 
-En esta sección podrá consultar los detalles específicos acerca de los desencadenadores y las acciones, como las propiedades de entrada obligatorias u opcionales y cualquier salida correspondiente asociada con el conector.
+In this section, see the specific details about each trigger and action, including any required or optional input properties, and any corresponding output associated with the connector.
 
-#### Cuando un evento vaya a empezar pronto
-Con esta operación se desencadena un flujo cuando se va a iniciar un evento próximamente.
+#### <a name="when-an-upcoming-event-is-starting-soon"></a>When an upcoming event is starting soon
+This operation triggers a flow when an upcoming calendar event is starting. 
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|table*|Calendar id (Identificador de calendario)|Identificador único del calendario|
-|lookAheadTimeInMinutes|Look ahead time (Tiempo para inicio)|Tiempo (en minutos) por delante para buscar próximos eventos|
+|table*|Calendar id|Unique identifier of the calendar|
+|lookAheadTimeInMinutes|Look ahead time|Time (in minutes) to look ahead for upcoming events|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-CalendarItemsList: Lista de elementos de calendario
+##### <a name="output-details"></a>Output Details
+CalendarItemsList: The list of calendar items
 
-| Nombre de propiedad | Tipo de datos | Descripción |
+| Property Name | Data Type | Description |
 |---|---|---|
-|value|array|Lista de elementos de calendario|
+|value|array|List of calendar items|
 
 
-#### Obtener correos electrónicos
-Con esta operación se obtienen mensajes de correo electrónico de una carpeta.
+#### <a name="get-emails"></a>Get emails
+This operation gets emails from a folder. 
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|folderPath|Ruta de acceso a la carpeta|Ruta de acceso de la carpeta para recuperar mensajes (predeterminada: 'Bandeja de entrada')|
-|top|Top (Máximo)|Número de correos electrónicos para recuperar (valor predeterminado: 10)|
-|fetchOnlyUnread|Fetch Only Unread Messages (Recuperar solo mensajes no leídos)|¿Recuperar solo correos electrónicos no leídos?|
-|includeAttachments|Include Attachments (Incluir datos adjuntos)|Si se establece en true, los datos adjuntos también se recuperarán junto con el correo electrónico|
-|searchQuery|Search Query (Consulta de búsqueda)|Consulta de búsqueda para filtrar correos electrónicos|
-|skip|Skip|Número de correos electrónicos para omitir (valor predeterminado: 0)|
-|skipToken|Skip Token (Token de omisión)|Omitir token para obtener la página nueva|
+|folderPath|Folder Path|Path of the folder to retrieve emails (default: 'Inbox')|
+|top|Top|Number of emails to retrieve (default: 10)|
+|fetchOnlyUnread|Fetch Only Unread Messages|Retrieve only unread emails?|
+|includeAttachments|Include Attachments|If set to true, attachments will also be retrieved along with the email|
+|searchQuery|Search Query|Search query to filter emails|
+|skip|Skip|Number of emails to skip (default: 0)|
+|skipToken|Skip Token|Skip token to fetch new page|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-ReceiveMessage: Recibir mensaje de correo electrónico
+##### <a name="output-details"></a>Output Details
+ReceiveMessage: Receive Email Message
 
-| Nombre de propiedad | Tipo de datos | Descripción |
+| Property Name | Data Type | Description |
 |---|---|---|
-|De|cadena|De|
-|Para|cadena|Para|
-|Asunto|cadena|Asunto|
-|Cuerpo|cadena|Cuerpo|
-|Importancia|cadena|Importancia|
-|HasAttachment|boolean|Tiene datos adjuntos|
-|Id|cadena|Id. de mensaje|
-|IsRead|boolean|Es de lectura|
-|DateTimeReceived|cadena|Fecha y hora de recibo|
-|Datos adjuntos|array|Datos adjuntos|
-|Cc|cadena|Las direcciones de correo electrónico, como someone@contoso.com, se separan por punto y coma|
-|CCO|cadena|Las direcciones de correo electrónico, como someone@contoso.com, se separan por punto y coma|
-|IsHtml|boolean|Es HTML|
+|From|string|From|
+|To|string|To|
+|Subject|string|Subject|
+|Body|string|Body|
+|Importance|string|Importance|
+|HasAttachment|boolean|Has Attachment|
+|Id|string|Message Id|
+|IsRead|boolean|Is Read|
+|DateTimeReceived|string|Date time received|
+|Attachments|array|Attachments|
+|Cc|string|Specify email addresses separated by semicolons like someone@contoso.com|
+|Bcc|string|Specify email addresses separated by semicolons like someone@contoso.com|
+|IsHtml|boolean|Is Html|
 
 
-#### un correo electrónico
-Con esta operación se envía un mensaje de correo electrónico.
+#### <a name="send-an-email"></a>Send an email
+This operation sends an email message. 
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
 |emailMessage*|Email|Email|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-Ninguno.
+##### <a name="output-details"></a>Output Details
+None.
 
-#### Eliminar correo electrónico
-Con esta operación se eliminan correos electrónicos por identificador.
+#### <a name="delete-email"></a>Delete email
+This operation deletes an email by id. 
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|messageId*|Id. de mensaje|Identificador del correo electrónico que se va a eliminar|
+|messageId*|Message Id|Id of the email to delete|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-Ninguno.
+##### <a name="output-details"></a>Output Details
+None.
 
-#### Marcar como leído
-Con esta operación se marca el correo electrónico como leído.
+#### <a name="mark-as-read"></a>Mark as read
+This operation marks an email as having been read. 
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|messageId*|Id. de mensaje|Identificador del correo electrónico que se va a marcar como leído|
+|messageId*|Message Id|Id of the email to be marked as read|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-Ninguno.
+##### <a name="output-details"></a>Output Details
+None.
 
 
-#### Responder al mensaje
-Con esta operación se responde a un correo electrónico.
+#### <a name="reply-to-email"></a>Reply to email
+This operation replies to an email. 
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|messageId*|Id. de mensaje|Identificador del correo electrónico al que se va a responder|
-|comment*|Comentario|Comentario de respuesta|
-|replyAll|Reply All (Responder a todos)|Responder a todos los destinatarios|
+|messageId*|Message Id|Id of the email to reply to|
+|comment*|Comment|Reply comment|
+|replyAll|Reply All|Reply to all recipients|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-Ninguno.
+##### <a name="output-details"></a>Output Details
+None.
 
 
-#### Obtener datos adjuntos
-Con esta operación se obtienen datos adjuntos de correo electrónico por identificador.
+#### <a name="get-attachment"></a>Get attachment
+This operation gets an email attachment by id. 
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|messageId*|Id. de mensaje|Identificador del correo electrónico|
-|attachmentId*|Attachment Id (Identificador de datos adjuntos)|Identificador de los datos adjuntos para descargar|
+|messageId*|Message Id|Id of the email|
+|attachmentId*|Attachment Id|Id of the attachment to download|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-Ninguno.
+##### <a name="output-details"></a>Output Details
+None.
 
 
-#### Cuando llegue un correo electrónico nuevo
-Con esta operación se desencadena un flujo cuando llega un nuevo correo electrónico.
+#### <a name="when-a-new-email-arrives"></a>When a new email arrives
+This operation triggers a flow when a new email arrives.
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|folderPath|Ruta de acceso a la carpeta|Carpeta de correo electrónico para recuperar (predeterminada: Bandeja de entrada)|
-|to|Para|Direcciones de correo electrónico de destinatarios|
-|from|De|Dirección De|
-|importance|Importancia|Importancia del correo electrónico (alta, normal o baja) (predeterminada: Normal)|
-|fetchOnlyWithAttachment|Has Attachments (Con datos adjuntos)|Recuperar solo correos electrónicos con datos adjuntos|
-|includeAttachments|Include Attachments (Incluir datos adjuntos)|Incluir datos adjuntos|
-|subjectFilter|Subject Filter (Filtro de asunto)|Cadena que se va a buscar en el asunto|
+|folderPath|Folder Path|Email folder to retrieve (default: Inbox)|
+|to|To|Recipient email addresses|
+|from|From|From address|
+|importance|Importance|Importance of the email (High, Normal, Low) (default: Normal)|
+|fetchOnlyWithAttachment|Has Attachments|Retrieve only emails with an attachment|
+|includeAttachments|Include Attachments|Include attachments|
+|subjectFilter|Subject Filter|String to look for in the subject|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
+##### <a name="output-details"></a>Output Details
 TriggerBatchResponse[ReceiveMessage]
 
-| Nombre de propiedad | Tipo de datos |
+| Property Name | Data Type |
 |---|---|
 |value|array|
 
 
-#### Enviar correo electrónico con opciones
-Con esta operación se envía un correo electrónico con varias opciones y espera de una respuesta del destinatario con una de las opciones.
+#### <a name="send-email-with-options"></a>Send email with options
+This operation sends an email with multiple options and waits for the recipient to respond back with one of the options. 
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|optionsEmailSubscription*|Solicitud de suscripción para correo electrónico con opciones|Solicitud de suscripción para correo electrónico con opciones|
+|optionsEmailSubscription*|Subscription request for options email|Subscription request for options email|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-SubscriptionResponse: Modelo de suscripción de correo electrónico de aprobación
+##### <a name="output-details"></a>Output Details
+SubscriptionResponse: Model for Approval Email Subscription
 
-| Nombre de propiedad | Tipo de datos | Descripción |
+| Property Name | Data Type | Description |
 |---|---|---|
-|id|cadena|Identificador de la suscripción|
-|resource|cadena|Recurso de la solicitud de suscripción|
-|notificationType|cadena|Tipo de notificación|
-|notificationUrl|cadena|URL de la notificación|
+|id|string|Id of the subscription|
+|resource|string|Resource of the subscription request|
+|notificationType|string|Notification Type|
+|notificationUrl|string|Notification Url|
 
 
-#### Enviar correo electrónico de aprobación
-Con esta operación se envía un correo electrónico de aprobación y se espera una respuesta del destinatario.
+#### <a name="send-approval-email"></a>Send approval email
+This operation sends an approval email and waits for a response from the recipient. 
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|approvalEmailSubscription*|Solicitud de suscripción para correo electrónico de aprobación|Solicitud de suscripción para correo electrónico de aprobación|
+|approvalEmailSubscription*|Subscription request for approval email|Subscription request for approval email|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-SubscriptionResponse: Modelo de suscripción de correo electrónico de aprobación
+##### <a name="output-details"></a>Output Details
+SubscriptionResponse: Model for Approval Email Subscription
 
-| Nombre de propiedad | Tipo de datos | Descripción |
+| Property Name | Data Type | Description |
 |---|---|---|
-|id|cadena|Identificador de la suscripción|
-|resource|cadena|Recurso de la solicitud de suscripción|
-|notificationType|cadena|Tipo de notificación|
-|notificationUrl|cadena|URL de la notificación|
+|id|string|Id of the subscription|
+|resource|string|Resource of the subscription request|
+|notificationType|string|Notification Type|
+|notificationUrl|string|Notification Url|
 
 
-#### Obtener calendarios
-Con esta operación se enumeran los calendarios disponibles.
+#### <a name="get-calendars"></a>Get calendars
+This operation lists available calendars. 
 
-No hay parámetros para esta llamada.
+There are no parameters for this call.
 
-##### Detalles de salida
+##### <a name="output-details"></a>Output Details
 TablesList
 
-| Nombre de propiedad | Tipo de datos |
+| Property Name | Data Type |
 |---|---|
 |value|array|
 
 
-#### Obtención de eventos
-Con esta operación se obtienen los eventos de calendario.
+#### <a name="get-events"></a>Get events
+This operation gets events from a calendar. 
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|table*|Calendar id (Identificador de calendario)|Selección de calendario|
-|$filter|Consulta de filtro|Consulta de filtro de ODATA para restringir la devolución de entradas|
-|$orderby|Ordenar por|Consulta orderBy de ODATA para especificar el orden de las entradas|
-|$skip|Omitir conteo|Número de entradas para omitir (valor predeterminado = 0)|
-|$top|Número máximo de entradas|Número máximo de entradas para recuperar (valor predeterminado = 256)|
+|table*|Calendar id|Select a calendar|
+|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
+|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+|$skip|Skip Count|Number of entries to skip (default = 0)|
+|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-CalendarEventList: Lista de elementos de calendario
+##### <a name="output-details"></a>Output Details
+CalendarEventList: The list of calendar items
 
-| Nombre de propiedad | Tipo de datos | Descripción |
+| Property Name | Data Type | Description |
 |---|---|---|
-|value|array|Lista de elementos de calendario|
+|value|array|List of calendar items|
 
 
-#### Crear evento
-Con esta operación se crea un nuevo evento de calendario.
+#### <a name="create-event"></a>Create event
+This operation creates a new event in a calendar. 
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|table*|Calendar id (Identificador de calendario)|Selección de calendario|
-|item*|Elemento|Evento para crear|
+|table*|Calendar id|Select a calendar|
+|item*|Item|Event to create|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-CalendarEvent: Tipo de modelo de evento de calendario específico del conector
+##### <a name="output-details"></a>Output Details
+CalendarEvent: Connector specific calendar event model class.
 
-| Nombre de propiedad | Tipo de datos | Descripción |
+| Property Name | Data Type | Description |
 |---|---|---|
-|Id|cadena|Identificador único del evento.|
-|Attendees|array|Lista de asistentes al evento.|
-|Cuerpo|not defined|Cuerpo del mensaje asociado al evento.|
-|BodyPreview|cadena|Vista previa del cuerpo del mensaje asociado al evento.|
-|Categorías|array|Categorías asociadas al evento.|
-|ChangeKey|cadena|Identifica la versión del objeto del evento. Cada vez que el evento cambia, también lo hace ChangeKey.|
-|DateTimeCreated|cadena|Fecha y la hora de creación del evento.|
-|DateTimeLastModified|cadena|Fecha y la hora de la última modificación del evento.|
-|End|cadena|hora de finalización del evento.|
-|EndTimeZone|cadena|Especifica la zona horaria para la hora de finalización del encuentro. Este valor debe ser como se define en Windows (ejemplo: "Hora estándar del Pacífico").|
-|HasAttachments|boolean|Se establece en true si el evento tiene datos adjuntos.|
-|Importancia|cadena|Importancia del evento: baja, normal o alta.|
-|IsAllDay|boolean|Se establece en true si el evento dura todo el día.|
-|IsCancelled|boolean|Se establece en true si el evento se ha cancelado.|
-|IsOrganizer|boolean|Se establece en true si el remitente del mensaje es también el organizador.|
-|Ubicación|not defined|Ubicación del vehículo.|
-|Organizer|not defined|Organizador del evento.|
-|Periodicidad|not defined|Patrón de periodicidad del evento.|
-|Reminder|integer|Tiempo de recordatorio de inicio del evento en minutos.|
-|ResponseRequested|boolean|Se establece en true si el remitente quiere recibir una respuesta cuando se acepte o se rechace el evento.|
-|ResponseStatus|not defined|Indica el tipo de respuesta que se envía al recibir un mensaje de evento.|
-|SeriesMasterId|cadena|Identificador único para el tipo de evento principal de la serie.|
-|ShowAs|cadena|Se muestra como libre u ocupado.|
-|Iniciar|cadena|Hora de inicio del evento.|
-|StartTimeZone|cadena|Especifica la zona horaria para la hora de inicio del encuentro. Este valor debe ser como se define en Windows (ejemplo: "Hora estándar del Pacífico").|
-|Asunto|cadena|Asunto del evento.|
-|Tipo|cadena|Tipo de evento: Instancia única, Repetición, Excepción o Series Master (patrón de serie).|
-|WebLink|cadena|Vista previa del cuerpo del mensaje asociado al evento.|
+|Id|string|The Event's unique identifier.|
+|Attendees|array|List of attendees for the event.|
+|Body|not defined|The body of the message associated with the event.|
+|BodyPreview|string|The preview of the message associated with the event.|
+|Categories|array|The categories associated with the event.|
+|ChangeKey|string|Identifies the version of the event object. Every time the event is changed, ChangeKey changes as well.|
+|DateTimeCreated|string|The date and time that the event was created.|
+|DateTimeLastModified|string|The date and time that the event was last modified.|
+|End|string|The end time of the event.|
+|EndTimeZone|string|Specifies the time zone of the meeting end time. This value must be as defined in Windows (example: 'Pacific Standard Time').|
+|HasAttachments|boolean|Set to true if the event has attachments.|
+|Importance|string|The importance of the event: Low, Normal or High.|
+|IsAllDay|boolean|Set to true if the event lasts all day.|
+|IsCancelled|boolean|Set to true if the event has been canceled.|
+|IsOrganizer|boolean|Set to true if the message sender is also the organizer.|
+|Location|not defined|The location of the event.|
+|Organizer|not defined|The organizer of the event.|
+|Recurrence|not defined|The recurrence pattern for the event.|
+|Reminder|integer|Time in minutes before event start to remind.|
+|ResponseRequested|boolean|Set to true if the sender would like a response when the event is accepted or declined.|
+|ResponseStatus|not defined|Indicates the type of response sent in response to an event message.|
+|SeriesMasterId|string|Unique identifier for Series Master event type.|
+|ShowAs|string|Shows as free or busy.|
+|Start|string|The start time of the event.|
+|StartTimeZone|string|Specifies the time zone of the meeting start time. This value must be as defined in Windows (example: "Pacific Standard Time").|
+|Subject|string|Event subject.|
+|Type|string|The event type: Single Instance, Occurrence, Exception, or Series Master.|
+|WebLink|string|The preview of the message associated with the event.|
 
 
-#### Obtener evento
-Con esta operación se obtienen eventos específicos de un calendario.
+#### <a name="get-event"></a>Get event
+This operation gets a specific event from a calendar. 
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|table*|Calendar id (Identificador de calendario)|Selección de calendario|
-|id*|Item id (Identificador de elemento)|Selección de evento|
+|table*|Calendar id|Select a calendar|
+|id*|Item id|Select an event|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-CalendarEvent: Tipo de modelo de evento de calendario específico del conector
+##### <a name="output-details"></a>Output Details
+CalendarEvent: Connector specific calendar event model class.
 
-| Nombre de propiedad | Tipo de datos | Descripción |
+| Property Name | Data Type | Description |
 |---|---|---|
-|Id|cadena|Identificador único del evento.|
-|Attendees|array|Lista de asistentes al evento.|
-|Cuerpo|not defined|Cuerpo del mensaje asociado al evento.|
-|BodyPreview|cadena|Vista previa del cuerpo del mensaje asociado al evento.|
-|Categorías|array|Categorías asociadas al evento.|
-|ChangeKey|cadena|Identifica la versión del objeto del evento. Cada vez que el evento cambia, también lo hace ChangeKey.|
-|DateTimeCreated|cadena|Fecha y la hora de creación del evento.|
-|DateTimeLastModified|cadena|Fecha y la hora de la última modificación del evento.|
-|End|cadena|hora de finalización del evento.|
-|EndTimeZone|cadena|Especifica la zona horaria para la hora de finalización del encuentro. Este valor debe ser como se define en Windows (ejemplo: "Hora estándar del Pacífico").|
-|HasAttachments|boolean|Se establece en true si el evento tiene datos adjuntos.|
-|Importancia|cadena|Importancia del evento: baja, normal o alta.|
-|IsAllDay|boolean|Se establece en true si el evento dura todo el día.|
-|IsCancelled|boolean|Se establece en true si el evento se ha cancelado.|
-|IsOrganizer|boolean|Se establece en true si el remitente del mensaje es también el organizador.|
-|Ubicación|not defined|Ubicación del vehículo.|
-|Organizer|not defined|Organizador del evento.|
-|Periodicidad|not defined|Patrón de periodicidad del evento.|
-|Reminder|integer|Tiempo de recordatorio de inicio del evento en minutos.|
-|ResponseRequested|boolean|Se establece en true si el remitente quiere recibir una respuesta cuando se acepte o se rechace el evento.|
-|ResponseStatus|not defined|Indica el tipo de respuesta que se envía al recibir un mensaje de evento.|
-|SeriesMasterId|cadena|Identificador único para el tipo de evento principal de la serie.|
-|ShowAs|cadena|Se muestra como libre u ocupado.|
-|Iniciar|cadena|Hora de inicio del evento.|
-|StartTimeZone|cadena|Especifica la zona horaria para la hora de inicio del encuentro. Este valor debe ser como se define en Windows (ejemplo: "Hora estándar del Pacífico").|
-|Asunto|cadena|Asunto del evento.|
-|Tipo|cadena|Tipo de evento: Instancia única, Repetición, Excepción o Series Master (patrón de serie).|
-|WebLink|cadena|Vista previa del cuerpo del mensaje asociado al evento.|
+|Id|string|The Event's unique identifier.|
+|Attendees|array|List of attendees for the event.|
+|Body|not defined|The body of the message associated with the event.|
+|BodyPreview|string|The preview of the message associated with the event.|
+|Categories|array|The categories associated with the event.|
+|ChangeKey|string|Identifies the version of the event object. Every time the event is changed, ChangeKey changes as well.|
+|DateTimeCreated|string|The date and time that the event was created.|
+|DateTimeLastModified|string|The date and time that the event was last modified.|
+|End|string|The end time of the event.|
+|EndTimeZone|string|Specifies the time zone of the meeting end time. This value must be as defined in Windows (example: 'Pacific Standard Time').|
+|HasAttachments|boolean|Set to true if the event has attachments.|
+|Importance|string|The importance of the event: Low, Normal or High.|
+|IsAllDay|boolean|Set to true if the event lasts all day.|
+|IsCancelled|boolean|Set to true if the event has been canceled.|
+|IsOrganizer|boolean|Set to true if the message sender is also the organizer.|
+|Location|not defined|The location of the event.|
+|Organizer|not defined|The organizer of the event.|
+|Recurrence|not defined|The recurrence pattern for the event.|
+|Reminder|integer|Time in minutes before event start to remind.|
+|ResponseRequested|boolean|Set to true if the sender would like a response when the event is accepted or declined.|
+|ResponseStatus|not defined|Indicates the type of response sent in response to an event message.|
+|SeriesMasterId|string|Unique identifier for Series Master event type.|
+|ShowAs|string|Shows as free or busy.|
+|Start|string|The start time of the event.|
+|StartTimeZone|string|Specifies the time zone of the meeting start time. This value must be as defined in Windows (example: "Pacific Standard Time").|
+|Subject|string|Event subject.|
+|Type|string|The event type: Single Instance, Occurrence, Exception, or Series Master.|
+|WebLink|string|The preview of the message associated with the event.|
 
 
-#### Eliminar evento
-Con esta operación se eliminan eventos de calendario.
+#### <a name="delete-event"></a>Delete event
+This operation deletes an event in a calendar. 
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|table*|Calendar id (Identificador de calendario)|Selección de calendario|
-|id*|Id|Selección de evento|
+|table*|Calendar id|Select a calendar|
+|id*|Id|Select an event|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-Ninguno.
+##### <a name="output-details"></a>Output Details
+None.
 
 
-#### Actualizar evento
-Con esta operación se actualizan eventos de calendario.
+#### <a name="update-event"></a>Update event
+This operation updates an event in a calendar. 
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|table*|Calendar id (Identificador de calendario)|Selección de calendario|
-|id*|Id|Selección de evento|
-|item*|Elemento|Evento para actualizar|
+|table*|Calendar id|Select a calendar|
+|id*|Id|Select an event|
+|item*|Item|Event to update|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-CalendarEvent: Tipo de modelo de evento de calendario específico del conector
+##### <a name="output-details"></a>Output Details
+CalendarEvent: Connector specific calendar event model class.
 
-| Nombre de propiedad | Tipo de datos | Descripción |
+| Property Name | Data Type | Description |
 |---|---|---|
-|Id|cadena|Identificador único del evento.|
-|Attendees|array|Lista de asistentes al evento.|
-|Cuerpo|not defined|Cuerpo del mensaje asociado al evento.|
-|BodyPreview|cadena|Vista previa del cuerpo del mensaje asociado al evento.|
-|Categorías|array|Categorías asociadas al evento.|
-|ChangeKey|cadena|Identifica la versión del objeto del evento. Cada vez que el evento cambia, también lo hace ChangeKey.|
-|DateTimeCreated|cadena|Fecha y la hora de creación del evento.|
-|DateTimeLastModified|cadena|Fecha y la hora de la última modificación del evento.|
-|End|cadena|hora de finalización del evento.|
-|EndTimeZone|cadena|Especifica la zona horaria para la hora de finalización del encuentro. Este valor debe ser como se define en Windows (ejemplo: "Hora estándar del Pacífico").|
-|HasAttachments|boolean|Se establece en true si el evento tiene datos adjuntos.|
-|Importancia|cadena|Importancia del evento: baja, normal o alta.|
-|IsAllDay|boolean|Se establece en true si el evento dura todo el día.|
-|IsCancelled|boolean|Se establece en true si el evento se ha cancelado.|
-|IsOrganizer|boolean|Se establece en true si el remitente del mensaje es también el organizador.|
-|Ubicación|not defined|Ubicación del vehículo.|
-|Organizer|not defined|Organizador del evento.|
-|Periodicidad|not defined|Patrón de periodicidad del evento.|
-|Reminder|integer|Tiempo de recordatorio de inicio del evento en minutos.|
-|ResponseRequested|boolean|Se establece en true si el remitente quiere recibir una respuesta cuando se acepte o se rechace el evento.|
-|ResponseStatus|not defined|Indica el tipo de respuesta que se envía al recibir un mensaje de evento.|
-|SeriesMasterId|cadena|Identificador único para el tipo de evento principal de la serie.|
-|ShowAs|cadena|Se muestra como libre u ocupado.|
-|Iniciar|cadena|Hora de inicio del evento.|
-|StartTimeZone|cadena|Especifica la zona horaria para la hora de inicio del encuentro. Este valor debe ser como se define en Windows (ejemplo: "Hora estándar del Pacífico").|
-|Asunto|cadena|Asunto del evento.|
-|Tipo|cadena|Tipo de evento: Instancia única, Repetición, Excepción o Series Master (patrón de serie).|
-|WebLink|cadena|Vista previa del cuerpo del mensaje asociado al evento.|
+|Id|string|The Event's unique identifier.|
+|Attendees|array|List of attendees for the event.|
+|Body|not defined|The body of the message associated with the event.|
+|BodyPreview|string|The preview of the message associated with the event.|
+|Categories|array|The categories associated with the event.|
+|ChangeKey|string|Identifies the version of the event object. Every time the event is changed, ChangeKey changes as well.|
+|DateTimeCreated|string|The date and time that the event was created.|
+|DateTimeLastModified|string|The date and time that the event was last modified.|
+|End|string|The end time of the event.|
+|EndTimeZone|string|Specifies the time zone of the meeting end time. This value must be as defined in Windows (example: 'Pacific Standard Time').|
+|HasAttachments|boolean|Set to true if the event has attachments.|
+|Importance|string|The importance of the event: Low, Normal or High.|
+|IsAllDay|boolean|Set to true if the event lasts all day.|
+|IsCancelled|boolean|Set to true if the event has been canceled.|
+|IsOrganizer|boolean|Set to true if the message sender is also the organizer.|
+|Location|not defined|The location of the event.|
+|Organizer|not defined|The organizer of the event.|
+|Recurrence|not defined|The recurrence pattern for the event.|
+|Reminder|integer|Time in minutes before event start to remind.|
+|ResponseRequested|boolean|Set to true if the sender would like a response when the event is accepted or declined.|
+|ResponseStatus|not defined|Indicates the type of response sent in response to an event message.|
+|SeriesMasterId|string|Unique identifier for Series Master event type.|
+|ShowAs|string|Shows as free or busy.|
+|Start|string|The start time of the event.|
+|StartTimeZone|string|Specifies the time zone of the meeting start time. This value must be as defined in Windows (example: "Pacific Standard Time").|
+|Subject|string|Event subject.|
+|Type|string|The event type: Single Instance, Occurrence, Exception, or Series Master.|
+|WebLink|string|The preview of the message associated with the event.|
 
 
-#### Cuando se cree un evento nuevo
-Con esta operación se desencadena un flujo cuando se crea un evento nuevo en un calendario.
+#### <a name="when-a-new-event-is-created"></a>When a new event is created
+This operation triggers a flow when a new event is created in a calendar. 
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|table*|Calendar id (Identificador de calendario)|Selección de calendario|
-|$filter|Consulta de filtro|Consulta de filtro de ODATA para restringir la devolución de entradas|
-|$orderby|Ordenar por|Consulta orderBy de ODATA para especificar el orden de las entradas|
-|$skip|Omitir conteo|Número de entradas para omitir (valor predeterminado = 0)|
-|$top|Número máximo de entradas|Número máximo de entradas para recuperar (valor predeterminado = 256)|
+|table*|Calendar id|Select a calendar|
+|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
+|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+|$skip|Skip Count|Number of entries to skip (default = 0)|
+|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-CalendarItemsList: Lista de elementos de calendario
+##### <a name="output-details"></a>Output Details
+CalendarItemsList: The list of calendar items
 
-| Nombre de propiedad | Tipo de datos | Descripción |
+| Property Name | Data Type | Description |
 |---|---|---|
-|value|array|Lista de elementos de calendario|
+|value|array|List of calendar items|
 
 
-#### Cuando se modifique un evento
-Con esta operación se desencadena un flujo cuando se modifica un evento en un calendario.
+#### <a name="when-an-event-is-modified"></a>When an event is modified
+This operation triggers a flow when an event is modified in a calendar. 
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|table*|Calendar id (Identificador de calendario)|Selección de calendario|
-|$filter|Consulta de filtro|Consulta de filtro de ODATA para restringir la devolución de entradas|
-|$orderby|Ordenar por|Consulta orderBy de ODATA para especificar el orden de las entradas|
-|$skip|Omitir conteo|Número de entradas para omitir (valor predeterminado = 0)|
-|$top|Número máximo de entradas|Número máximo de entradas para recuperar (valor predeterminado = 256)|
+|table*|Calendar id|Select a calendar|
+|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
+|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+|$skip|Skip Count|Number of entries to skip (default = 0)|
+|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-CalendarItemsList: Lista de elementos de calendario
+##### <a name="output-details"></a>Output Details
+CalendarItemsList: The list of calendar items
 
 
-| Nombre de propiedad | Tipo de datos | Descripción |
+| Property Name | Data Type | Description |
 |---|---|---|
-|value|array|Lista de elementos de calendario|
+|value|array|List of calendar items|
 
 
-#### Obtener carpetas de contactos
-Con esta operación se enumeran las carpetas de contactos disponibles.
+#### <a name="get-contact-folders"></a>Get contact folders
+This operation lists available contacts folders. 
 
-No hay parámetros para esta llamada.
+There are no parameters for this call.
 
-##### Detalles de salida
+##### <a name="output-details"></a>Output Details
 TablesList
 
-| Nombre de propiedad | Tipo de datos |
+| Property Name | Data Type |
 |---|---|
 |value|array|
 
 
-#### Obtener contactos
-Con esta operación se recuperan contactos de una carpeta.
+#### <a name="get-contacts"></a>Get contacts
+This operation gets contacts from a contacts folder. 
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|table*|Folder id (Identificador de carpeta)|Identificador único de la carpeta de contactos que se va a recuperar|
-|$filter|Consulta de filtro|Consulta de filtro de ODATA para restringir la devolución de entradas|
-|$orderby|Ordenar por|Consulta orderBy de ODATA para especificar el orden de las entradas|
-|$skip|Omitir conteo|Número de entradas para omitir (valor predeterminado = 0)|
-|$top|Número máximo de entradas|Número máximo de entradas para recuperar (valor predeterminado = 256)|
+|table*|Folder id|Unique identifier of the contacts folder to retrieve|
+|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
+|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+|$skip|Skip Count|Number of entries to skip (default = 0)|
+|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-ContactList: Lista de contactos
+##### <a name="output-details"></a>Output Details
+ContactList: The list of contacts
 
-| Nombre de propiedad | Tipo de datos | Descripción |
+| Property Name | Data Type | Description |
 |---|---|---|
-|value|array|Lista de contactos|
+|value|array|List of contacts|
 
 
-#### Crear contacto
-Con esta operación se crean contactos en una carpeta.
+#### <a name="create-contact"></a>Create contact
+This operation creates a new contact in a contacts folder. 
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|table*|Folder id (Identificador de carpeta)|Selección de una carpeta de contactos|
-|item*|Elemento|Contacto para crear|
+|table*|Folder id|Select a contacts folder|
+|item*|Item|Contact to create|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-Contact: Contacto
+##### <a name="output-details"></a>Output Details
+Contact: Contact
 
-| Nombre de propiedad | Tipo de datos | Descripción |
+| Property Name | Data Type | Description |
 |---|---|---|
-|Id|cadena|Identificador único del contacto.|
-|ParentFolderId|cadena|Identificador de la carpeta del contacto principal.|
-|Birthday|cadena|Cumpleaños del contacto.|
-|FileAs|cadena|Nombre de archivo del contacto.|
-|DisplayName|cadena|Nombre para mostrar del contacto.|
-|GivenName|cadena|Nombre de pila del contacto.|
-|Initials|cadena|Iniciales del contacto.|
-|MiddleName|cadena|Segundo nombre del contacto.|
-|NickName|cadena|Apodo del contacto.|
-|Surname|cadena|Apellidos del contacto.|
-|Título|cadena|Título del contacto.|
-|Generation|cadena|Generación del contacto.|
-|EmailAddresses|array|Direcciones de correo electrónico del contacto.|
-|ImAddresses|array|Direcciones de mensajería instantánea (MI) del contacto.|
-|JobTitle|cadena|Puesto del contacto.|
-|CompanyName|cadena|Nombre de la empresa del contacto.|
-|Departamento|cadena|Departamento del contacto.|
-|OfficeLocation|cadena|Ubicación de la oficina del contacto.|
-|Profession|cadena|Profesión del contacto.|
-|BusinessHomePage|cadena|Página principal del negocio del contacto.|
-|AssistantName|cadena|Nombre del asistente del contacto.|
-|Manager|cadena|Nombre del gerente del contacto.|
-|HomePhones|array|Números de teléfono particulares del contacto.|
-|BusinessPhones|array|Números de teléfono de trabajo del contacto.|
-|MobilePhone1|cadena|Número de teléfono móvil del contacto.|
-|HomeAddress|not defined|Dirección del domicilio del contacto.|
-|BusinessAddress|not defined|Dirección de la oficina del contacto.|
-|OtherAddress|not defined|Otras direcciones del contacto.|
-|YomiCompanyName|cadena|Nombre fonético del negocio japonés del contacto.|
-|YomiGivenName|cadena|Nombre de pila fonético (nombre) japonés del contacto.|
-|YomiSurname|cadena|Apellido fonético (apellido) japonés del contacto.|
-|Categorías|array|Categorías asociadas al contacto.|
-|ChangeKey|cadena|Identifica la versión del objeto del evento.|
-|DateTimeCreated|cadena|Hora a la que se creó el contacto.|
-|DateTimeLastModified|cadena|Hora a la que se modificó el contacto.|
+|Id|string|The contact's unique identifier.|
+|ParentFolderId|string|The ID of the contact's parent folder|
+|Birthday|string|The contact's birthday.|
+|FileAs|string|The name the contact is filed under.|
+|DisplayName|string|The contact's display name.|
+|GivenName|string|The contact's given name.|
+|Initials|string|The contact's initials.|
+|MiddleName|string|The contact's middle name.|
+|NickName|string|The contact's nickname.|
+|Surname|string|The contact's surname.|
+|Title|string|The contact's title.|
+|Generation|string|The contact's generation.|
+|EmailAddresses|array|The contact's email addresses.|
+|ImAddresses|array|The contact's instant messaging (IM) addresses.|
+|JobTitle|string|The contact's job title.|
+|CompanyName|string|The name of the contact's company.|
+|Department|string|The contact's department.|
+|OfficeLocation|string|The location of the contact's office.|
+|Profession|string|The contact's profession.|
+|BusinessHomePage|string|The business home page of the contact.|
+|AssistantName|string|The name of the contact's assistant.|
+|Manager|string|The name of the contact's manager.|
+|HomePhones|array|The contact's home phone numbers.|
+|BusinessPhones|array|The contact's business phone numbers|
+|MobilePhone1|string|The contact's mobile phone number.|
+|HomeAddress|not defined|The contact's home address.|
+|BusinessAddress|not defined|The contact's business address.|
+|OtherAddress|not defined|Other addresses for the contact.|
+|YomiCompanyName|string|The phonetic Japanese company name of the contact.|
+|YomiGivenName|string|The phonetic Japanese given name (first name) of the contact.|
+|YomiSurname|string|The phonetic Japanese surname (last name) of the contact|
+|Categories|array|The categories associated with the contact.|
+|ChangeKey|string|Identifies the version of the event object|
+|DateTimeCreated|string|The time the contact was created.|
+|DateTimeLastModified|string|The time the contact was modified.|
 
 
-#### Obtener contacto
-Con esta operación se obtienen contactos específicos de una carpeta.
+#### <a name="get-contact"></a>Get contact
+This operation gets a specific contact from a contacts folder. 
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|table*|Folder id (Identificador de carpeta)|Selección de una carpeta de contactos|
-|id*|Item id (Identificador de elemento)|Identificador único de un contacto para recuperar|
+|table*|Folder id|Select a contacts folder|
+|id*|Item id|Unique identifier of a contact to retrieve|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-Contact: Contacto
+##### <a name="output-details"></a>Output Details
+Contact: Contact
 
-| Nombre de propiedad | Tipo de datos | Descripción |
+| Property Name | Data Type | Description |
 |---|---|---|
-|Id|cadena|Identificador único del contacto.|
-|ParentFolderId|cadena|Identificador de la carpeta del contacto principal.|
-|Birthday|cadena|Cumpleaños del contacto.|
-|FileAs|cadena|Nombre de archivo del contacto.|
-|DisplayName|cadena|Nombre para mostrar del contacto.|
-|GivenName|cadena|Nombre de pila del contacto.|
-|Initials|cadena|Iniciales del contacto.|
-|MiddleName|cadena|Segundo nombre del contacto.|
-|NickName|cadena|Apodo del contacto.|
-|Surname|cadena|Apellidos del contacto.|
-|Título|cadena|Título del contacto.|
-|Generation|cadena|Generación del contacto.|
-|EmailAddresses|array|Direcciones de correo electrónico del contacto.|
-|ImAddresses|array|Direcciones de mensajería instantánea (MI) del contacto.|
-|JobTitle|cadena|Puesto del contacto.|
-|CompanyName|cadena|Nombre de la empresa del contacto.|
-|Departamento|cadena|Departamento del contacto.|
-|OfficeLocation|cadena|Ubicación de la oficina del contacto.|
-|Profession|cadena|Profesión del contacto.|
-|BusinessHomePage|cadena|Página principal del negocio del contacto.|
-|AssistantName|cadena|Nombre del asistente del contacto.|
-|Manager|cadena|Nombre del gerente del contacto.|
-|HomePhones|array|Números de teléfono particulares del contacto.|
-|BusinessPhones|array|Números de teléfono de trabajo del contacto.|
-|MobilePhone1|cadena|Número de teléfono móvil del contacto.|
-|HomeAddress|not defined|Dirección del domicilio del contacto.|
-|BusinessAddress|not defined|Dirección de la oficina del contacto.|
-|OtherAddress|not defined|Otras direcciones del contacto.|
-|YomiCompanyName|cadena|Nombre fonético del negocio japonés del contacto.|
-|YomiGivenName|cadena|Nombre de pila fonético (nombre) japonés del contacto.|
-|YomiSurname|cadena|Apellido fonético (apellido) japonés del contacto.|
-|Categorías|array|Categorías asociadas al contacto.|
-|ChangeKey|cadena|Identifica la versión del objeto del evento.|
-|DateTimeCreated|cadena|Hora a la que se creó el contacto.|
-|DateTimeLastModified|cadena|Hora a la que se modificó el contacto.|
+|Id|string|The contact's unique identifier.|
+|ParentFolderId|string|The ID of the contact's parent folder|
+|Birthday|string|The contact's birthday.|
+|FileAs|string|The name the contact is filed under.|
+|DisplayName|string|The contact's display name.|
+|GivenName|string|The contact's given name.|
+|Initials|string|The contact's initials.|
+|MiddleName|string|The contact's middle name.|
+|NickName|string|The contact's nickname.|
+|Surname|string|The contact's surname.|
+|Title|string|The contact's title.|
+|Generation|string|The contact's generation.|
+|EmailAddresses|array|The contact's email addresses.|
+|ImAddresses|array|The contact's instant messaging (IM) addresses.|
+|JobTitle|string|The contact's job title.|
+|CompanyName|string|The name of the contact's company.|
+|Department|string|The contact's department.|
+|OfficeLocation|string|The location of the contact's office.|
+|Profession|string|The contact's profession.|
+|BusinessHomePage|string|The business home page of the contact.|
+|AssistantName|string|The name of the contact's assistant.|
+|Manager|string|The name of the contact's manager.|
+|HomePhones|array|The contact's home phone numbers.|
+|BusinessPhones|array|The contact's business phone numbers|
+|MobilePhone1|string|The contact's mobile phone number.|
+|HomeAddress|not defined|The contact's home address.|
+|BusinessAddress|not defined|The contact's business address.|
+|OtherAddress|not defined|Other addresses for the contact.|
+|YomiCompanyName|string|The phonetic Japanese company name of the contact.|
+|YomiGivenName|string|The phonetic Japanese given name (first name) of the contact.|
+|YomiSurname|string|The phonetic Japanese surname (last name) of the contact|
+|Categories|array|The categories associated with the contact.|
+|ChangeKey|string|Identifies the version of the event object|
+|DateTimeCreated|string|The time the contact was created.|
+|DateTimeLastModified|string|The time the contact was modified.|
 
 
-#### Eliminar contacto
-Con esta operación se eliminan contactos de una carpeta.
+#### <a name="delete-contact"></a>Delete contact
+This operation deletes a contact from a contacts folder. 
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|table*|Folder id (Identificador de carpeta)|Selección de una carpeta de contactos|
-|id*|Id|Identificador único de contacto para eliminar|
+|table*|Folder id|Select a contacts folder|
+|id*|Id|Unique identifier of contact to delete|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-Ninguno.
+##### <a name="output-details"></a>Output Details
+None.
 
 
-#### Actualizar contacto
-Con esta operación se actualizan contactos en una carpeta.
+#### <a name="update-contact"></a>Update contact
+This operation updates a contact in a contacts folder. 
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|table*|Folder id (Identificador de carpeta)|Selección de una carpeta de contactos|
-|id*|Id|Identificador único de contacto para actualizar|
-|item*|Elemento|Elemento de contacto para actualizar|
+|table*|Folder id|Select a contacts folder|
+|id*|Id|Unique identifier of contact to update|
+|item*|Item|Contact item to update|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-Contact: Contacto
+##### <a name="output-details"></a>Output Details
+Contact: Contact
 
-| Nombre de propiedad | Tipo de datos | Descripción |
+| Property Name | Data Type | Description |
 |---|---|---|
-|Id|cadena|Identificador único del contacto.|
-|ParentFolderId|cadena|Identificador de la carpeta del contacto principal.|
-|Birthday|cadena|Cumpleaños del contacto.|
-|FileAs|cadena|Nombre de archivo del contacto.|
-|DisplayName|cadena|Nombre para mostrar del contacto.|
-|GivenName|cadena|Nombre de pila del contacto.|
-|Initials|cadena|Iniciales del contacto.|
-|MiddleName|cadena|Segundo nombre del contacto.|
-|NickName|cadena|Apodo del contacto.|
-|Surname|cadena|Apellidos del contacto.|
-|Título|cadena|Título del contacto.|
-|Generation|cadena|Generación del contacto.|
-|EmailAddresses|array|Direcciones de correo electrónico del contacto.|
-|ImAddresses|array|Direcciones de mensajería instantánea (MI) del contacto.|
-|JobTitle|cadena|Puesto del contacto.|
-|CompanyName|cadena|Nombre de la empresa del contacto.|
-|Departamento|cadena|Departamento del contacto.|
-|OfficeLocation|cadena|Ubicación de la oficina del contacto.|
-|Profession|cadena|Profesión del contacto.|
-|BusinessHomePage|cadena|Página principal del negocio del contacto.|
-|AssistantName|cadena|Nombre del asistente del contacto.|
-|Manager|cadena|Nombre del gerente del contacto.|
-|HomePhones|array|Números de teléfono particulares del contacto.|
-|BusinessPhones|array|Números de teléfono de trabajo del contacto.|
-|MobilePhone1|cadena|Número de teléfono móvil del contacto.|
-|HomeAddress|not defined|Dirección del domicilio del contacto.|
-|BusinessAddress|not defined|Dirección de la oficina del contacto.|
-|OtherAddress|not defined|Otras direcciones del contacto.|
-|YomiCompanyName|cadena|Nombre fonético del negocio japonés del contacto.|
-|YomiGivenName|cadena|Nombre de pila fonético (nombre) japonés del contacto.|
-|YomiSurname|cadena|Apellido fonético (apellido) japonés del contacto.|
-|Categorías|array|Categorías asociadas al contacto.|
-|ChangeKey|cadena|Identifica la versión del objeto del evento.|
-|DateTimeCreated|cadena|Hora a la que se creó el contacto.|
-|DateTimeLastModified|cadena|Hora a la que se modificó el contacto.|
+|Id|string|The contact's unique identifier.|
+|ParentFolderId|string|The ID of the contact's parent folder|
+|Birthday|string|The contact's birthday.|
+|FileAs|string|The name the contact is filed under.|
+|DisplayName|string|The contact's display name.|
+|GivenName|string|The contact's given name.|
+|Initials|string|The contact's initials.|
+|MiddleName|string|The contact's middle name.|
+|NickName|string|The contact's nickname.|
+|Surname|string|The contact's surname.|
+|Title|string|The contact's title.|
+|Generation|string|The contact's generation.|
+|EmailAddresses|array|The contact's email addresses.|
+|ImAddresses|array|The contact's instant messaging (IM) addresses.|
+|JobTitle|string|The contact's job title.|
+|CompanyName|string|The name of the contact's company.|
+|Department|string|The contact's department.|
+|OfficeLocation|string|The location of the contact's office.|
+|Profession|string|The contact's profession.|
+|BusinessHomePage|string|The business home page of the contact.|
+|AssistantName|string|The name of the contact's assistant.|
+|Manager|string|The name of the contact's manager.|
+|HomePhones|array|The contact's home phone numbers.|
+|BusinessPhones|array|The contact's business phone numbers|
+|MobilePhone1|string|The contact's mobile phone number.|
+|HomeAddress|not defined|The contact's home address.|
+|BusinessAddress|not defined|The contact's business address.|
+|OtherAddress|not defined|Other addresses for the contact.|
+|YomiCompanyName|string|The phonetic Japanese company name of the contact.|
+|YomiGivenName|string|The phonetic Japanese given name (first name) of the contact.|
+|YomiSurname|string|The phonetic Japanese surname (last name) of the contact|
+|Categories|array|The categories associated with the contact.|
+|ChangeKey|string|Identifies the version of the event object|
+|DateTimeCreated|string|The time the contact was created.|
+|DateTimeLastModified|string|The time the contact was modified.|
 
 
 
-## Respuestas HTTP
+## <a name="http-responses"></a>HTTP responses
 
-Las acciones y los desencadenadores anteriores pueden devolver uno o varios de los siguientes códigos de estado HTTP:
+The actions and triggers above can return one or more of the following HTTP status codes: 
 
-|Nombre|Descripción|
+|Name|Description|
 |---|---|
 |200|OK|
 |202|Accepted|
 |400|Bad Request|
-|401|No autorizado|
-|403|Prohibido|
-|404|No encontrado|
-|500|Error interno del servidor. Error desconocido|
-|default|Error en la operación.|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occurred|
+|default|Operation Failed.|
 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next Steps
 
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

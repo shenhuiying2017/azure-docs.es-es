@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Procedimientos recomendados de seguridad de la red de Azure | Microsoft Azure"
-   description="Este artículo proporciona un conjunto de procedimientos recomendados de seguridad de la red con funcionalidades de Azure integradas."
+   pageTitle="Azure Network Security Best Practices | Microsoft Azure"
+   description="This article provides a set of best practices for network security using built in Azure capabilities."
    services="security"
    documentationCenter="na"
    authors="TomShinder"
@@ -16,219 +16,228 @@
    ms.date="05/25/2016"
    ms.author="TomSh"/>
 
-# Procedimientos recomendados de seguridad de la red de Azure
 
-Microsoft Azure permite conectar máquinas virtuales y aplicaciones a otros dispositivos en red, colocándolos en redes virtuales de Azure. Una red virtual de Azure es una construcción de red virtual que permite conectar tarjetas de interfaz de red virtual a una red virtual para permitir las comunicaciones basadas en TCP/IP entre dispositivos habilitados para red. Las máquinas virtuales conectadas a una red virtual de Azure pueden conectarse a dispositivos en la misma red virtual de Azure, distintas redes virtuales de Azure, en Internet o, incluso, en sus propias redes locales.
+# <a name="azure-network-security-best-practices"></a>Azure Network Security Best Practices
 
-En este artículo veremos un conjunto de procedimientos recomendados de seguridad de la red de Azure. Estos procedimientos recomendados se derivan de nuestra experiencia con las redes en Azure, y las experiencias de clientes como usted.
+Microsoft Azure enables you to connect virtual machines and appliances to other networked devices by placing them on Azure Virtual Networks. An Azure Virtual Network is a virtual network construct that allows you to connect virtual network interface cards to a virtual network to allow TCP/IP-based communications between network enabled devices. Azure Virtual Machines connected to an Azure Virtual Network are able to connect to devices on the same Azure Virtual Network, different Azure Virtual Networks, on the Internet or even on your own on-premises networks.
 
-Para cada procedimiento recomendado, explicaremos:
+In this article we will discuss a collection of Azure network security best practices. These best practices are derived from our experience with Azure networking and the experiences of customers like yourself.
 
-- Qué es el procedimiento recomendado
-- Por qué le conviene habilitar este procedimiento recomendado
-- Cuál podría ser el resultado si no habilita el procedimiento recomendado
-- Alternativas posibles al procedimiento recomendado
-- Cómo aprender a habilitar el procedimiento recomendado
+For each best practice, we’ll explain:
 
-Este artículo de Procedimientos recomendados de seguridad de la red de Azure se basa en las funcionalidades y los conjuntos de características de la plataforma Azure existentes cuando se redactó. Las opiniones y las tecnologías cambian con el tiempo, por lo que se actualizará de forma periódica para reflejar esos cambios.
+- What the best practice is
+- Why you want to enable that best practice
+- What might be the result if you fail to enable the best practice
+- Possible alternatives to the best practice
+- How you can learn to enable the best practice
 
-Los procedimientos recomendados de seguridad de la red de Azure descritos en este artículo incluyen:
+This Azure Network Security Best Practices article is based on a consensus opinion, and Azure platform capabilities and feature sets, as they exist at the time this article was written. Opinions and technologies change over time and this article will be updated on a regular basis to reflect those changes.
 
-- Segmentación lógica de subredes
-- Control del comportamiento de enrutamiento
-- Habilitación de la tunelización forzada
-- Uso de aplicaciones de red virtual
-- Implementación de redes perimetrales para zonas de seguridad
-- Uso de vínculos WAN dedicados para evitar la exposición en Internet
-- Optimización del rendimiento y el tiempo de actividad
-- Uso del equilibrio de carga global
-- Deshabilitación del acceso RDP a máquinas virtuales de Azure
-- Habilitación de Azure Security Center
-- Extensión de su centro de datos en Azure
+Azure Network security best practices discussed in this article include:
+
+- Logically segment subnets
+- Control routing behavior
+- Enable Forced Tunneling
+- Use Virtual network appliances
+- Deploy DMZs for security zoning
+- Avoid exposure to the Internet with dedicated WAN links
+- Optimize uptime and performance
+- Use global load balancing
+- Disable RDP Access to Azure Virtual Machines
+- Enable Azure Security Center
+- Extend your datacenter into Azure
 
 
-## Segmentación lógica de subredes
+## <a name="logically-segment-subnets"></a>Logically segment subnets
 
-Las [redes virtuales de Azure](https://azure.microsoft.com/documentation/services/virtual-network/) son similares a una LAN de la red local. La idea detrás de una red virtual de Azure es crear una sola red basada en espacios de direcciones IP privados en la que puede colocar todas las [máquinas virtuales de Azure](https://azure.microsoft.com/services/virtual-machines/). Los espacios de direcciones IP privados están en los intervalos de clase A (10.0.0.0/8), B (172.16.0.0/12) y C (192.168.0.0/16).
+[Azure Virtual Networks](https://azure.microsoft.com/documentation/services/virtual-network/) are similar to a LAN on your on-premises network. The idea behind an Azure Virtual Network is that you create a single private IP address space-based network on which you can place all your [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/). The private IP address spaces available are in the Class A (10.0.0.0/8), Class B (172.16.0.0/12) and Class C (192.168.0.0/16) ranges.
 
-Similar a lo que lo hace en local, querrá segmentar el mayor espacio de direcciones en subredes. Puede usar los principios de subred basado en [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) para crear las subredes.
+Similar to what you do on-premises, you’ll want to segment the larger address space into subnets. You can use [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) based subnetting principles to create your subnets.
 
-El enrutamiento entre subredes se realizará automáticamente y no es necesario configurar manualmente las tablas de enrutamiento. Sin embargo, el valor predeterminado es que no hay ningún control de acceso a la red entre las subredes creadas en la red virtual de Azure. Para crear controles de acceso a la red entre subredes, debe poner algo entre las subredes.
+Routing between subnets will happen automatically and you do not need to manually configure routing tables. However, the default setting is that there are no network access controls between the subnets you create on the Azure Virtual Network. In order to create network access controls between subnets, you’ll need to put something between the subnets.
 
-Una de las cosas que puede usar para realizar esta tarea es un [grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md) (NSG). Los NSG son dispositivos de inspección de paquetes con estado simple que utilizan el enfoque tupla 5 (IP de origen, puerto de origen, dirección IP de destino, puerto de destino y el protocolo de nivel 4) para crear reglas de permiso o denegación del tráfico de la red. Puede permitir o denegar el tráfico a y de una sola dirección IP, a y de varias direcciones IP o, incluso, a y de subredes enteras.
+One of the things you can use to accomplish this task is a [Network Security Group](../virtual-network/virtual-networks-nsg.md) (NSG). NSGs are simple stateful packet inspection devices that use the 5-tuple (the source IP, source port, destination IP, destination port, and layer 4 protocol) approach to create allow/deny rules for network traffic. You can allow or deny traffic to and from single IP address, to and from multiple IP addresses or even to and from entire subnets.
 
-El uso de NSG para el control de acceso a la red entre subredes permite poner recursos que pertenecen a la misma zona de seguridad o función en sus propias subredes. Por ejemplo, imagine una aplicación sencilla de 3 niveles con un nivel de web, un nivel lógico de aplicación y un nivel de base de datos. Las máquinas virtuales que pertenecen a cada uno de estos niveles se colocan en sus propias subredes. A continuación, se usan los NSG para controlar el tráfico entre las subredes:
+Using NSGs for network access control between subnets enables you to put resources that belong to the same security zone or role in their own subnets. For example, think of a simple 3-tier application that has a web tier, an application logic tier and a database tier. You put virtual machines that belong to each of these tiers into their own subnets. Then you use NSGs to control traffic between the subnets:
 
-- Las máquinas virtuales del nivel de web solo pueden iniciar conexiones con las máquinas del nivel lógico de aplicación y aceptar conexiones de Internet.
-- Las máquinas virtuales del nivel lógico de aplicación solo pueden iniciar conexiones con el nivel de base de datos y aceptar conexiones de la capa de web.
-- Las máquinas virtuales de nivel de base de datos no pueden iniciar la conexión con nada fuera de su propia subred y solo pueden aceptar conexiones del nivel lógico de aplicación.
+- Web tier virtual machines can only initiate connections to the application logic machines and can only accept connections from the Internet
+- Application logic virtual machines can only initiate connections with database tier and can only accept connections from the web tier
+- Database tier virtual machines cannot initiate connection with anything outside of their own subnet and can only accept connections from the application logic tier
 
-Para más información acerca de los grupos de seguridad de red y cómo puede usarlos para segmentar lógicamente las redes virtuales de Azure, lea el artículo [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md) (NSG).
+To learn more about Network Security Groups and how you can use them to logically segment your Azure Virtual Networks, please read the article [What is a Network Security Group](../virtual-network/virtual-networks-nsg.md) (NSG).
 
-## Control del comportamiento de enrutamiento
+## <a name="control-routing-behavior"></a>Control routing behavior
 
-Cuando coloca una máquina virtual en una red virtual de Azure, observará que la máquina virtual puede conectarse a cualquier otra máquina virtual de la misma red virtual de Azure, incluso si las otras máquinas virtuales están en subredes diferentes. El motivo es que hay una colección de rutas del sistema que están habilitadas de forma predeterminada y que permiten a este tipo de comunicación. Estas rutas predeterminadas permiten a las máquinas virtuales de la misma red virtual de Azure iniciar conexiones entre sí y con Internet (solo para comunicaciones salientes a Internet).
+When you put a virtual machine on an Azure Virtual Network, you’ll notice that the virtual machine can connect to any other virtual machine on the same Azure Virtual Network, even if the other virtual machines are on different subnets. The reason why this is possible is that there is a collection of system routes that are enabled by default that allow this type of communication. These default routes allow virtual machines on the same Azure Virtual Network to initiate connections with each other, and with the Internet (for outbound communications to the Internet only).
 
-Si bien las rutas del sistema predeterminadas son útiles para muchos escenarios de implementación, habrá veces en las que preferirá personalizar la configuración de enrutamiento para las implementaciones. Estas personalizaciones permiten configurar la dirección del próximo salto para que acceda a destinos específicos.
+While the default system routes are useful for many deployment scenarios, there are times when you want to customize the routing configuration for your deployments. These customizations will allow you to configure the next hop address to reach specific destinations.
 
-Se recomienda configurar rutas definidas por el usuario al implementar una aplicación de seguridad de la red virtual; en otro procedimiento recomendado, más adelante, se tratará este tema.
+We recommend that you configure User Defined Routes when you deploy a virtual network security appliance, which we’ll talk about in a later best practice.
 
-> [AZURE.NOTE] No son necesarias rutas definidas por el usuario, y las rutas del sistema predeterminadas funcionan en la mayoría de lo casos.
+> [AZURE.NOTE] user Defined Routes are not required and the default system routes will work in most instances.
 
-Para aprender más acerca de las rutas definidas por el usuario y cómo configurarlas, lea el artículo [¿Qué son las rutas definidas por el usuario y el reenvío IP?](../virtual-network/virtual-networks-udr-overview.md).
+You can learn more about User Defined Routes and how to configure them by reading the article [What are User Defined Routes and IP Forwarding](../virtual-network/virtual-networks-udr-overview.md).
 
-## Habilitación de la tunelización forzada
+## <a name="enable-forced-tunneling"></a>Enable Forced Tunneling
 
-Para entender mejor la tunelización forzada, resulta útil entender qué es el "túnel dividido". El ejemplo más común de túnel dividido se ve con conexiones VPN. Imagine que establece una conexión VPN de la habitación de hotel a su red corporativa. Esta conexión le permite conectarse a recursos de la red corporativa y todas las comunicaciones a los recursos de la red corporativa pasan a través del túnel VPN.
+To better understand forced tunneling, it’s useful to understand what “split tunneling” is.
+The most common example of split tunneling is seen with VPN connections. Imagine that you establish a VPN connection from your hotel room to your corporate network. This connection allows you to connect to resources on your corporate network and all communications to resources on your corporate network go through the VPN tunnel.
 
-¿Qué ocurre si desea conectarse a recursos de Internet? Cuando se habilita el túnel dividido, esas conexiones van directamente a Internet, no a través del túnel VPN. Algunos expertos en seguridad lo consideran un riesgo potencial y, por tanto, recomiendan deshabilitar el túnel dividido y que todas las conexiones, las destinadas a Internet y las destinadas a recursos corporativos, pasen a través del túnel VPN. La ventaja de hacerlo es que se fuerza que las conexiones a Internet pasen a través de los dispositivos de seguridad de la red corporativa, lo que no ocurriría si el cliente VPN se conectara a Internet fuera del túnel VPN.
+What happens when you want to connect to resources on the Internet? When split tunneling is enabled, those connections go directly to the Internet and not through the VPN tunnel. Some security experts consider this to be a potential risk and therefore recommend that split tunneling be disabled and all connections, those destined for the Internet and those destined for corporate resources, go through the VPN tunnel. The advantage of doing this is that connections to the Internet are then forced through the corporate network security devices, which wouldn’t be the case if the VPN client connected to the Internet outside of the VPN tunnel.
 
-Ahora volvamos a las máquinas virtuales en una red virtual de Azure. Las rutas predeterminadas para una red virtual de Azure permiten a las máquinas virtuales iniciar el tráfico a Internet. Esto también puede representar un riesgo de seguridad, ya que estas conexiones salientes podrían aumentar la superficie de ataque de una máquina virtual y los atacantes podrían aprovecharlo. Por este motivo, se recomienda habilitar la tunelización forzada en las máquinas virtuales cuando tiene conectividad entre locales entre la red virtual de Azure y su red local. Hablaremos acerca de conectividad entre entornos locales más adelante en este documento de procedimientos recomendados de redes de Azure.
+Now let’s bring this back to virtual machines on an Azure Virtual Network. The default routes for an Azure Virtual Network allow virtual machines to initiate traffic to the Internet. This too can represent a security risk, as these outbound connections could increase the attack surface of a virtual machine and be leveraged by attackers.
+For this reason, we recommend that you enable forced tunneling on your virtual machines when you have cross-premises connectivity between your Azure Virtual Network and your on-premises network. We will talk about cross premises connectivity later in this Azure networking best practices document.
 
-Si no tiene ninguna conexión entre locales, asegúrese de que puede aprovechar los grupos de seguridad de red (descritos antes) o las aplicaciones de seguridad de la red virtual de Azure (descritas a continuación) para impedir las conexiones salientes a Internet desde sus máquinas virtuales de Azure.
+If you do not have a cross premises connection, make sure you take advantage of Network Security Groups (discussed earlier) or Azure virtual network security appliances (discussed next) to prevent outbound connections to the Internet from your Azure Virtual Machines.
 
-Para más información sobre la tunelización forzada y cómo habilitarla, consulte el artículo [Configuración de tunelización forzada mediante PowerShell y Azure Resource Manager](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md).
+To learn more about forced tunneling and how to enable it, please read the article [Configure Forced Tunneling using PowerShell and Azure Resource Manager](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md).
 
-## Uso de aplicaciones de red virtual
+## <a name="use-virtual-network-appliances"></a>Use virtual network appliances
 
-Si bien los grupos de seguridad de red y el enrutamiento definido por el usuario pueden proporcionar un cierto grado de seguridad de la red en los niveles de red y de transporte del [modelo OSI](https://en.wikipedia.org/wiki/OSI_model), habrá situaciones en la que deseará o necesitará habilitar la seguridad en los niveles altos de la pila. En tales situaciones, se recomienda implementar aplicaciones de seguridad de la red virtual proporcionadas por asociados de Azure.
+While Network Security Groups and User Defined Routing can provide a certain measure of network security at the network and transport layers of the [OSI model](https://en.wikipedia.org/wiki/OSI_model), there are going to be situations where you’ll want or need to enable security at high levels of the stack. In such situations, we recommend that you deploy virtual network security appliances provided by Azure partners.
 
-Las aplicaciones de seguridad de la red de Azure pueden proporcionar niveles de seguridad mucho mejores que los proporcionados por los controles de nivel de red. Algunas de las funcionalidades de seguridad de la red proporcionadas por las aplicaciones de seguridad de la red virtual son:
+Azure network security appliances can deliver significantly enhanced levels of security over what is provided by network level controls. Some of the network security capabilities provided by virtual network security appliances include:
 
-- Firewalls
-- Detección y prevención de intrusiones
-- Administración de vulnerabilidades
-- Control de aplicaciones
-- Detección de anomalías basadas en la red
-- Filtrado de web
+- Firewalling
+- Intrusion detection/Intrusion Prevention
+- Vulnerability management
+- Application control
+- Network-based anomaly detection
+- Web filtering
 - Antivirus
-- Protección de redes de robots (botnets)
+- Botnet protection
 
-Si necesita un nivel de seguridad de la red mayor que el que se puede obtener con los controles de acceso al nivel de red, se recomienda investigar e implementar aplicaciones de seguridad de la red virtual de Azure.
+If you require a higher level of network security than you can obtain with network level access controls, then we recommend that you investigate and deploy Azure virtual network security appliances.
 
-Para aprender acerca de qué las aplicaciones de seguridad de la red virtual están disponibles y sus funcionalidades, visite [Azure Marketplace](https://azure.microsoft.com/marketplace/) y busque "seguridad" y "seguridad de la red".
+To learn about what Azure virtual network security appliances are available, and about their capabilities, please visit the [Azure Marketplace](https://azure.microsoft.com/marketplace/) and search for “security” and “network security”.
 
-##Implementación de redes perimetrales para zonas de seguridad
-Una red perimetral es un segmento de red físico o lógico que está diseñado para proporcionar un nivel de seguridad adicional entre los recursos e Internet. El objetivo de la red perimetral es colocar dispositivos de control de acceso a la red especializados en el borde de la red perimetral, de forma que solo se permita al tráfico deseado pasar por el dispositivo de seguridad de la red y en la red virtual de Azure.
+##<a name="deploy-dmzs-for-security-zoning"></a>Deploy DMZs for security zoning
+A DMZ or “perimeter network” is a physical or logical network segment that is designed to provide an additional layer of security between your assets and the Internet. The intent of the DMZ is to place specialized network access control devices on the edge of the DMZ network so that only desired traffic is allowed past the network security device and into your Azure Virtual Network.
 
-Las redes perimetrales son útiles porque permiten centrar la administración, supervisión, registro y generación de informes sobre los dispositivos del control de acceso a la red en el borde de la red virtual de Azure. Aquí normalmente habilitaría la prevención DDoS, los sistemas de prevención y detección de intrusiones (IDS/IPS), las reglas y directivas de firewall, el filtrado web, el antimalware de la red, etc. Los dispositivos de seguridad de la red se sitúan entre Internet y la red virtual de Azure y tienen una interfaz en ambas redes.
+DMZs are useful because you can focus your network access control management, monitoring, logging and reporting on the devices at the edge of your Azure Virtual Network. Here you would typically enable DDoS prevention, Intrusion Detection/Intrusion Prevention systems (IDS/IPS), firewall rules and policies, web filtering, network antimalware and more. The network security devices sit between the Internet and your Azure Virtual Network and have an interface on both networks.
 
-Aunque este es el diseño básico de una red perimetral, existen muchos diseños diferentes, como configuración opuesta, con triple alojamiento, con múltiple alojamiento, etc.
+While this is the basic design of a DMZ, there are many different DMZ designs, such as back-to-back, tri-homed, multi-homed, and others.
 
-Para todas las implementaciones de alta seguridad, se recomienda tener en cuenta la posibilidad de implementar una red perimetral para mejorar el nivel de seguridad de la red para los recursos de Azure.
+We recommend for all high security deployments that you consider deploying a DMZ to enhance the level of network security for your Azure resources.
 
-Para más información acerca de las redes perimetrales y cómo implementarlas en Azure, consulte el artículo [Servicios en la nube de Microsoft y seguridad de red](../best-practices-network-security.md).
+To learn more about DMZs and how to deploy them in Azure, please read the article [Microsoft Cloud Services and Network Security](../best-practices-network-security.md).
 
-## Uso de vínculos WAN dedicados para evitar la exposición en Internet
-Muchas organizaciones han elegido la ruta de TI híbrida. En la TI híbrida, algunos de los recursos de información de la compañía están en Azure, mientras que otros siguen siendo locales. En muchos casos, algunos componentes de un servicio se ejecutan en Azure, mientras que otros componentes siguen siendo locales.
+## <a name="avoid-exposure-to-the-internet-with-dedicated-wan-links"></a>Avoid exposure to the Internet with dedicated WAN links
+Many organizations have chosen the Hybrid IT route. In hybrid IT, some of the company’s information assets are in Azure, while others remain on-premises. In many cases some components of a service will be running in Azure while other components remain on-premises.
 
-En el escenario de TI híbrida, suele haber algún tipo de conectividad entre locales. Esta conectividad entre locales permite a la compañía conectar sus redes locales con redes virtuales de Azure. Hay dos soluciones de conectividad entre locales:
+In the hybrid IT scenario, there is usually some type of cross-premises connectivity. This cross-premises connectivity allows the company to connect their on-premises networks to Azure Virtual Networks. There are two cross-premises connectivity solutions available:
 
-- VPN de sitio a sitio
+- Site-to-site VPN
 - ExpressRoute
 
-[VPN de sitio a sitio](../vpn-gateway/vpn-gateway-site-to-site-create.md) representa una conexión privada virtual entre su red local y una red virtual de Azure. Esta conexión tiene lugar a través de Internet y permite colocar la información en un "túnel" dentro de un vínculo cifrado entre la red y Azure. La VPN de sitio a sitio es una tecnología segura y madura que empresas de todos los tamaños han implementado durante décadas. El cifrado del túnel se realiza con el [modo de túnel IPsec](https://technet.microsoft.com/library/cc786385.aspx).
+[Site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) represents a virtual private connection between your on-premises network and an Azure Virtual Network. This connection takes place over the Internet and allows you to “tunnel” information inside an encrypted link between your network and Azure. Site-to-site VPN is a secure, mature technology that has been deployed by enterprises of all sizes for decades. Tunnel encryption is performed using [IPsec tunnel mode](https://technet.microsoft.com/library/cc786385.aspx).
 
-Si bien la VPN de sitio a sitio es una tecnología de confianza y establecida, el tráfico del túnel no atraviesa Internet. Además, el ancho de banda está relativamente limitado a un máximo de aproximadamente 200 Mbps.
+While site-to-site VPN is a trusted, reliable, and established technology, traffic within the tunnel does traverse the Internet. In addition, bandwidth is relatively constrained to a maximum of about 200Mbps.
 
-Si necesita un nivel de seguridad o de rendimiento excepcional para las conexiones entre locales, se recomienda utilizar Azure ExpressRoute para su conectividad. ExpressRoute es un vínculo de WAN dedicada entre su ubicación local o un proveedor de hospedaje de Exchange. Se trata de una conexión de telecomunicaciones, los datos no viajan a través de Internet y, por tanto, no se exponen a los posibles riesgos inherentes a las comunicaciones de Internet.
+If you require an exceptional level of security or performance for your cross-premises connections, we recommend that you use Azure ExpressRoute for your cross-premises connectivity. ExpressRoute is a dedicated WAN link between your on-premises location or an Exchange hosting provider. Because this is a telco connection, your data doesn’t travel over the Internet and therefore is not exposed to the potential risks inherent in Internet communications.
 
-Para aprender más sobre cómo funciona Azure ExpressRoute y cómo implementarlo, consulte el artículo [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md).
+To learn more about how Azure ExpressRoute works and how to deploy, please read the article [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md).
 
-## Optimización del rendimiento y el tiempo de actividad
-La confidencialidad, la integridad y la disponibilidad (CIA) constituyen la triada del modelo de seguridad más influyente en la actualidad. La confidencialidad se refiere al cifrado y la privacidad, la integridad consiste en garantizar que personas no autorizadas no modifiquen los datos, y la disponibilidad consiste en asegurarse de que las personas autorizadas puedan acceder a la información para la que tengan autorización. Un error en cualquiera de estas áreas representa una posible infracción de seguridad.
+## <a name="optimize-uptime-and-performance"></a>Optimize uptime and performance
+Confidentiality, integrity and availability (CIA) comprise the triad of today’s most influential security model. Confidentiality is about encryption and privacy, integrity is about making sure that data is not changed by unauthorized personnel, and availability is about making sure that authorized individuals are able to access the information they are authorized to access. Failure in any one of these areas represents a potential breach in security.
 
-La disponibilidad puede referirse al tiempo de actividad y el rendimiento. Si un servicio está inactivo, no puede accederse a la información. Si el rendimiento es tan bajo que no se pueden utilizar los datos, podemos considerar que los datos son inaccesibles. Por lo tanto, desde una perspectiva de seguridad, necesitamos hacer todo lo posible para asegurarnos de que nuestros servicios tienen un rendimiento y un tiempo de actividad óptimos. Un método popular y eficaz usado para mejorar la disponibilidad y el rendimiento es usar el equilibrio de carga. El equilibrio de carga es un método para distribuir el tráfico de la red entre los servidores que forman parte de un servicio. Por ejemplo, si tiene servidores web front-end que forman parte de su servicio, puede usar el equilibrio de carga para distribuir el tráfico entre ellos.
+Availability can be thought of as being about uptime and performance. If a service is down, information can’t be accessed. If performance is so poor as to make the data unusable, then we can consider the data to be inaccessible. Therefore, from a security perspective, we need to do whatever we can to make sure our services have optimal uptime and performance.
+A popular and effective method used to enhance availability and performance is to use load balancing. Load balancing is a method of distributing network traffic across servers that are part of a service. For example, if you have front-end web servers as part of your service, you can use load balancing to distribute the traffic across your multiple front-end web servers.
 
-Esta distribución del tráfico aumenta la disponibilidad, ya que si uno de los servidores web no está disponible, el equilibrio de carga dejará de enviarle tráfico y lo redirigirá a los servidores que aún están en línea. El equilibrio de carga también mejora el rendimiento, ya que la sobrecarga del procesador, la red y la memoria para atender a las solicitudes se distribuye entre todos los servidores con carga equilibrada.
+This distribution of traffic increases availability because if one of the web servers becomes unavailable, the load balancer will stop sending traffic to that server and redirect traffic to the servers that are still online. Load balancing also helps performance, because the processor, network and memory overhead for serving requests is distributed across all the load balanced servers.
 
-Se recomienda usar el equilibrio de carga siempre que se pueda y, según sea adecuado para los servicios. Abordaremos la adecuación en las secciones siguientes. En el nivel de red virtual de Azure, Azure proporciona tres opciones principales para el equilibrio de carga:
+We recommend that you employ load balancing whenever you can, and as appropriate for your services. We’ll address appropriateness in the following sections.
+At the Azure Virtual Network level, Azure provides you with three primary load balancing options:
 
-- Equilibrio de carga basado en HTTP
-- Equilibrio de carga externo
-- Equilibrio de carga interno
+- HTTP-based load balancing
+- External load balancing
+- Internal load balancing
 
-## Equilibrio de carga basado en HTTP
-El equilibrio de carga basado en HTTP toma las decisiones acerca de a qué servidor enviar las conexiones de acuerdo con las características del protocolo HTTP. Azure tiene un equilibrio de carga HTTP llamado Puerta de enlace de aplicaciones.
+## <a name="http-based-load-balancing"></a>HTTP-based Load Balancing
+HTTP-based load balancing bases decisions about what server to send connections using characteristics of the HTTP protocol. Azure has an HTTP load balancer that goes by the name of Application Gateway.
 
-Se recomienda usar la Puerta de enlace de aplicaciones de Azure cuando hay:
+We recommend that you us Azure Application Gateway when:
 
-- Aplicaciones que requieren solicitudes de la misma sesión de usuario o cliente para llegar a la misma máquina virtual back-end. Ejemplos de esto serían las aplicaciones de carro de la compra y los servidores de correo web.
-- Aplicaciones que desean liberar las granjas de servidores web de la sobrecarga de la terminación SSL mediante la característica [Descarga SSL](https://f5.com/glossary/ssl-offloading) de la Puerta de enlace de aplicaciones.
-- Aplicaciones, como la red de entrega de contenido, que requieren que varias solicitudes HTTP en la misma conexión TCP de ejecución prolongada se enruten a servidores backend diferentes o su carga se equilibre entre estos.
+- Applications that require requests from the same user/client session to reach the same back-end virtual machine. Examples of this would be shopping cart apps and web mail servers.
+- Applications that want to free web server farms from SSL termination overhead by taking advantage of Application Gateway’s [SSL offload](https://f5.com/glossary/ssl-offloading) feature.
+- Applications, such as a content delivery network, that require multiple HTTP requests on the same long-running TCP connection to be routed or load balanced to different back-end servers.
 
-Para aprender más acerca sobre cómo funciona Puerta de enlace de aplicaciones de Azure y cómo usarla en sus implementaciones, lea el artículo [Introducción a Puerta de enlace de aplicaciones](../application-gateway/application-gateway-introduction.md).
+To learn more about how Azure Application Gateway works and how you can use it in your deployments, please read the article [Application Gateway Overview](../application-gateway/application-gateway-introduction.md).
 
-## Equilibrio de carga externo
-El equilibrio de carga externo tiene lugar cuando se realiza una carga equilibrada de las conexiones entrantes de Internet entre los servidores situados en una red virtual de Azure. El equilibrio de carga externo de Azure puede proporcionar esta funcionalidad, y se recomienda utilizarlo cuando no se requieren sesiones persistentes o la descarga SSL.
+## <a name="external-load-balancing"></a>External Load Balancing
+External load balancing takes place when incoming connections from the Internet are load balanced among your servers located in an Azure Virtual Network. The Azure External Load balancer can provide you this capability and we recommend that you use it when you don’t require the sticky sessions or SSL offload.
 
-A diferencia de equilibrio de carga basado en HTTP, el equilibrio de carga externo utiliza información en los niveles de red y transporte del modelo de redes OSI para tomar decisiones sobre en qué servidor equilibrar la carga de la conexión.
+In contrast to HTTP-based load balancing, the External Load Balancer uses information at the network and transport layers of the OSI networking model to make decisions on what server to load balance connection to.
 
-Recomendamos usar el equilibrio de carga externo siempre que tenga [aplicaciones sin estado](http://whatis.techtarget.com/definition/stateless-app) que aceptan solicitudes entrantes de Internet.
+We recommend that you use External Load Balancing whenever you have [stateless applications](http://whatis.techtarget.com/definition/stateless-app) accepting incoming requests from the Internet.
 
-Para aprender más acerca de cómo funciona el equilibrio de carga externo de Azure y cómo implementarlo, lea el artículo [Introducción a la creación de un equilibrio de carga orientado a Internet en Resource Manager con PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
+To learn more about how the Azure External Load Balancer works and how you can deploy it, please read the article [Get Started Creating an Internet Facing Load Balancer in Resource Manager using PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
-## Equilibrio de carga interno
-El equilibrio de carga interno es similar al equilibrio de carga externo y utiliza el mismo mecanismo para equilibrar las conexiones a los servidores tras ellas. La única diferencia es que, en este caso, el equilibrio de carga acepta conexiones procedentes de máquinas virtuales que no están en Internet. En la mayoría de los casos, las conexiones que se aceptan para el equilibrio de carga son iniciadas por dispositivos en una red virtual de Azure.
+## <a name="internal-load-balancing"></a>Internal Load Balancing
+Internal load balancing is similar to external load balancing and uses the same mechanism to load balance connections to the servers behind them. The only difference is that the load balancer in this case is accepting connections from virtual machines that are not on the Internet. In most cases, the connections that are accepted for load balancing are initiated by devices on an Azure Virtual Network.
 
-Se recomienda utilizar el equilibrio de carga interno para escenarios que se beneficiarán de esta funcionalidad, como cuando necesite equilibrar las conexiones a servidores SQL o servidores web internos.
+We recommend that you use internal load balancing for scenarios that will benefit from this capability, such as when you need to load balance connections to SQL Servers or internal web servers.
 
-Para aprender más acerca de cómo funciona el equilibrio de carga interno de Azure y cómo se puede implementar, lea el artículo [Introducción a la creación de un equilibrio de carga orientado a Internet en Resource Manager con PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md#update-an-existing-load-balancer).
+To learn more about how Azure Internal Load Balancing works and how you can deploy it, please read the article [Get Started Creating an Internal Load Balancer using PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md#update-an-existing-load-balancer).
 
-## Uso del equilibrio de carga global
-El proceso de la nube pública permite implementar globalmente aplicaciones distribuidas que tienen componentes ubicados en centros de datos de todo el mundo. Esto es posible en Microsoft Azure gracias a la presencia de un centro de datos global de Azure. A diferencia de la tecnologías de equilibrio de carga mencionadas anteriormente, el equilibrio de carga global permite que los servicios estén disponibles incluso aunque ninguno de los centros de datos esté disponible.
+## <a name="use-global-load-balancing"></a>Use global load balancing
+Public cloud computing makes it possible to deploy globally distributed applications that have components located in datacenters all over the world. This is possible on Microsoft Azure due to Azure’s global datacenter presence. In contrast to the load balancing technologies mentioned earlier, global load balancing makes it possible to make services available even when entire datacenters might become unavailable.
 
-Puede obtener este tipo de equilibrio de carga global en Azure mediante el [Administrador de tráfico de Azure ](https://azure.microsoft.com/documentation/services/traffic-manager/). El Administrador de tráfico permite equilibrar las conexiones a los servicios según la ubicación del usuario.
+You can get this type of global load balancing in Azure by taking advantage of [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/). Traffic Manager makes is possible to load balance connections to your services based on the location of the user.
 
-Por ejemplo, si el usuario realiza una solicitud a su servicio desde la Unión Europea, la conexión se dirige a sus servicios situados en un centro de datos de la Unión Europea. Esta parte del equilibrio de carga global del Administrador de tráfico ayuda a mejorar el rendimiento, ya que la conexión al centro de datos más cercano es más rápida que a los centros de datos que están lejos.
+For example, if the user is making a request to your service from the EU, the connection is directed to your services located in an EU datacenter. This part of Traffic Manager global load balancing helps to improve performance because connecting to the nearest datacenter is faster than connecting to datacenters that are far away.
 
-En relación a la disponibilidad, el equilibrio de carga global garantiza que el servicio esté disponible incluso si todo un centro de datos deja de estar disponible.
+On the availability side, global load balancing makes sure that your service is available even if an entire datacenter should become available.
 
-Por ejemplo, si un centro de datos de Azure deja de estar disponible por motivos ambientales o debido a interrupciones (como errores en la red regional), las conexiones al servicio se vuelven a enrutar al centro de datos en línea más cercano. Este equilibrio de carga global se logra al aprovechar las directivas DNS que se pueden crear en el Administrador de tráfico.
+For example, if an Azure datacenter should become unavailable due to environmental reasons or due to outages (such as regional network failures), connections to your service would be rerouted to the nearest online datacenter. This global load balancing is accomplished by taking advantage of DNS policies that you can create in Traffic Manager.
 
-Se recomienda usar el Administrador de tráfico para cualquier solución en la nube que desarrolle, tenga un ámbito ampliamente distribuido en varias regiones y requiera el tiempo de actividad más alto posible.
+We recommend that you use Traffic Manager for any cloud solution you develop that has a widely distributed scope across multiple regions and requires the highest level of uptime possible.
 
-Para aprender más acerca del Administrador de tráfico de Azure y cómo implementarlo, lea el artículo [¿Qué es el Administrador de tráfico?](../traffic-manager/traffic-manager-overview.md).
+To learn more about Azure Traffic Manager and how to deploy it, please read the article [What is Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 
-## Deshabilitación del acceso RDP o SSH para máquinas virtuales de Azure
-Es posible acceder a máquinas virtuales de Azure mediante los protocolos [Protocolo de escritorio remoto](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP) y [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) (SSH). Estos protocolos permiten administrar máquinas virtuales desde ubicaciones remotas y son estándar para calcular el centro de datos.
+## <a name="disable-rdp/ssh-access-to-azure-virtual-machines"></a>Disable RDP/SSH Access to Azure Virtual Machines
+It is possible to reach Azure Virtual Machines using the [Remote Desktop Protocol](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP)and the [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) (SSH) protocols. These protocols make it possible to manage virtual machines from remote locations and are standard in datacenter computing.
 
-El posible problema de seguridad con el uso de estos protocolos a través de Internet es que los atacantes pueden utilizar diversas técnicas [por fuerza bruta](https://en.wikipedia.org/wiki/Brute-force_attack) para obtener acceso a las máquinas virtuales de Azure. Una vez que los atacantes obtienen acceso, pueden utilizar la máquina virtual como punto de inicio para poner en peligro otros equipos de la red virtual de Azure o incluso atacar dispositivos en red fuera de Azure.
+The potential security problem with using these protocols over the Internet is that attackers can use various [brute force](https://en.wikipedia.org/wiki/Brute-force_attack) techniques to gain access to Azure Virtual Machines. Once the attackers gain access, they can use your virtual machine as a launch point for compromising other machines on your Azure Virtual Network or even attack networked devices outside of Azure.
 
-Por este motivo, se recomienda deshabilitar el acceso directo de RDP y SSH a las máquinas virtuales de Azure desde Internet. Cuando se deshabilita el acceso directo de RDP y SSH desde Internet, tiene otras opciones que puede utilizar para acceder a estas máquinas virtuales para la administración remota:
+Because of this, we recommend that you disable direct RDP and SSH access to your Azure Virtual Machines from the Internet. After direct RDP and SSH access from the Internet is disabled, you have other options you can use to access these virtual machines for remote management:
 
-- VPN de punto a sitio
-- VPN de sitio a sitio
+- Point-to-site VPN
+- Site-to-site VPN
 - ExpressRoute
 
-[VPN de punto a sitio](../vpn-gateway/vpn-gateway-point-to-site-create.md) es otro término para una conexión cliente/servidor de VPN con acceso remoto. Una VPN de punto a sitio permite a un solo usuario conectarse a una red virtual de Azure a través de Internet. Una vez establecida la conexión de punto a sitio, el usuario podrá usar RDP o SSH para conectarse a cualquier máquina virtual situada en la red virtual de Azure a la que el usuario se conectó mediante la VPN de punto a sitio. Esto supone que el usuario está autorizado para acceder a dichas máquinas virtuales.
+[Point-to-site VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md) is another term for a remote access VPN client/server connection. A point-to-site VPN enables a single user to connect to an Azure Virtual Network over the Internet. After the point-to-site connection is established, the user will be able to use RDP or SSH to connect to any virtual machines located on the Azure Virtual Network that the user connected to via point-to-site VPN. This assumes that the user is authorized to reach those virtual machines.
 
-La VPN de punto a sitio es más segura que las conexiones de RDP o SSH directas, ya que el usuario tiene que autenticarse dos veces antes de conectarse a una máquina virtual. En primer lugar, el usuario debe autenticar (y ser autorizado) para establecer la conexión VPN de sitio a punto; en segundo lugar, el usuario debe autenticar (y ser autorizado) para establecer la sesión RDP o SSH.
+Point-to-site VPN is more secure than direct RDP or SSH connections because the user has to authenticate twice before connecting to a virtual machine. First, the user needs to authenticate (and be authorized) to establish the point-to-site VPN connection; second, the user needs to authenticate (and be authorized) to establish the RDP or SSH session.
 
-Una [VPN de sitio a sitio](../vpn-gateway/vpn-gateway-site-to-site-create.md) conecta toda una red a otra a través de Internet. Puede usar una VPN de sitio a sitio para conectar su red local a una red virtual de Azure. Si va a implementar una VPN de sitio a sitio, los usuarios de la red local podrán conectarse a máquinas virtuales de la red virtual de Azure mediante el protocolo RDP o SSH a través de la conexión VPN de sitio a sitio; no requiere que permita el acceso RDP o SSH directo a través de Internet.
+A [site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) connects an entire network to another network over the Internet. You can use a site-to-site VPN to connect your on-premises network to an Azure Virtual Network. If you deploy a site-to-site VPN, users on your on-premises network will be able to connect to virtual machines on your Azure Virtual Network by using the RDP or SSH protocol over the site-to-site VPN connection and does not require you to allow direct RDP or SSH access over the Internet.
 
-También puede utilizar un vínculo WAN dedicado para ofrecer una funcionalidad similar a la VPN de sitio a sitio. Las principales diferencias son 1. el vínculo WAN dedicado no atraviesa Internet y 2. los vínculos WAN dedicados suelen ser más estables y eficaces. Azure proporciona una solución de vínculo WAN dedicado mediante [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
+You can also use a dedicated WAN link to provide functionality similar to the site-to-site VPN. The main differences are 1. the dedicated WAN link doesn’t traverse the Internet, and 2. dedicated WAN links are typically more stable and performant. Azure provides you a dedicated WAN link solution in the form of [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 
-## Habilitación de Azure Security Center
-Azure Security Center ayuda a evitar, detectar y responder a amenazas, al tiempo que proporciona más visibilidad y control de la seguridad de los recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
+## <a name="enable-azure-security-center"></a>Enable Azure Security Center
+Azure Security Center helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
-Azure Security Center le ayuda a optimizar y controlar la seguridad de la red al:
+Azure Security Center helps you optimize and monitor network security by:
 
-- Proporcionar recomendaciones de seguridad de la red
-- Supervisar el estado de la configuración de seguridad de la red
-- Alertar de las amenazas basadas en la red en los niveles de red y de punto de conexión
+- Providing network security recommendations
+- Monitoring the state of your network security configuration
+- Alerting you to network based threats both at the endpoint and network levels
 
-Recomendamos encarecidamente habilitar Azure Security Center para todas las implementaciones de Azure.
+We highly recommend that you enable Azure Security Center for all of your Azure deployments.
 
-Para aprender más acerca de Azure Security Center y cómo habilitarlo para las implementaciones, lea el artículo [Introducción a Azure Security Center](../security-center/security-center-intro.md).
+To learn more about Azure Security Center and how to enable it for your deployments, please read the article [Introduction to Azure Security Center](../security-center/security-center-intro.md).
 
-## Extensión de su centro de datos en Azure de forma segura
-Muchas organizaciones de TI desean expandirse en la nube en lugar de hacer que crezcan sus centros de datos locales. Esta expansión representa una extensión de la infraestructura de TI existente en la nube pública. Al aprovechar las opciones de conectividad entre locales, es posible tratar las redes virtuales de Azure como otra subred en la infraestructura de red local.
+## <a name="securely-extend-your-datacenter-into-azure"></a>Securely extend your datacenter into Azure
+Many enterprise IT organizations are looking to expand into the cloud instead of growing their on-premises datacenters. This expansion represents an extension of existing IT infrastructure into the public cloud. By taking advantage of cross-premises connectivity options it’s possible to treat your Azure Virtual Networks as just another subnet on your on-premises network infrastructure.
 
-Sin embargo, hay mucho planeamiento y problemas de diseño que deben solucionarse antes. Esto es especialmente importante en el área de seguridad de la red. Una de las mejores formas de comprender cómo enfocar dicho diseño es ver un ejemplo.
+However, there is a lot of planning and design issues that need to be addressed first. This is especially important in the area of network security. One of the best ways to understand how you approach such a design is to see an example.
 
-Microsoft ha creado el [Datacenter Extension Reference Architecture Diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content) (Diagrama de arquitectura de referencia de extensión de centro de datos) y otro material auxiliar para ayudarle a comprender cuál sería la apariencia de una extensión del centro de datos. Esto proporciona un ejemplo de implementación de referencia que puede usar para planear y diseñar una extensión del centro de datos empresarial seguro en la nube. Se recomienda leer este documento para hacerse una idea de los componentes clave de una solución segura.
+Microsoft has created the [Datacenter Extension Reference Architecture Diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content) and supporting collateral to help you understand what such a datacenter extension would look like. This provides an example reference implementation that you can use to plan and design a secure enterprise datacenter extension to the cloud. We recommend that you review this document to get an idea of the key components of a secure solution.
 
-Para aprender más sobre cómo extender su centro de datos de forma segura en Azure, vea el vídeo [Extending Your Datacenter to Microsoft Azure](https://www.youtube.com/watch?v=Th1oQQCb2KA) (Extensión de su centro de datos a Azure).
+To learn more about how to securely extend your datacenter into Azure, please view the video [Extending Your Datacenter to Microsoft Azure](https://www.youtube.com/watch?v=Th1oQQCb2KA).
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

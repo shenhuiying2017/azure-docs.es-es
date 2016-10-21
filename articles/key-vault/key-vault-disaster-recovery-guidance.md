@@ -1,49 +1,54 @@
 <properties
-	pageTitle="Qué hacer si se produce una interrupción del servicio de Azure que afecta al Almacén de claves de Azure | Microsoft Azure"
-	description="Descubra qué hacer en caso de que se produzca una interrupción del servicio de Azure que afecte al Almacén de claves de Azure."
-	services="key-vault"
-	documentationCenter=""
-	authors="adamglick"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="What to do in the event of an Azure service disruption that impacts Azure Key Vault | Microsoft Azure"
+    description="Learn what to do in the event of an Azure service disruption that impacts Azure Key Vault."
+    services="key-vault"
+    documentationCenter=""
+    authors="adamglick"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="key-vault"
-	ms.workload="key-vault"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2016"
-	ms.author="sumedhb;aglick"/>
+    ms.service="key-vault"
+    ms.workload="key-vault"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/26/2016"
+    ms.author="sumedhb;aglick"/>
 
 
-# Redundancia y disponibilidad del Almacén de claves de Azure
 
-El Almacén de claves de Azure tiene varias capas de redundancia para garantizar la disponibilidad de las claves y los secretos para su aplicación, aunque se produzcan errores de componentes individuales del servicio.
+# <a name="azure-key-vault-availability-and-redundancy"></a>Azure Key Vault availability and redundancy
 
-El contenido del almacén de claves se replica dentro de la región, así como en una región secundaria que se encuentra a una distancia mínima de 241 km (pero dentro de la misma ubicación geográfica). Así se mantiene la durabilidad de las claves y los secretos.
+Azure Key Vault features multiple layers of redundancy to make sure that your keys and secrets remain available to your application even if individual components of the service fail.
 
-Si se produce un error en algún componente individual dentro del servicio Almacén de claves, los componentes alternativos de la región se encargan de atender la solicitud para garantizar que no se pierde funcionalidad. No es necesario realizar ninguna acción para ello. Se llevará a cabo automáticamente y será transparente para el programador.
+The contents of your key vault are replicated within the region as well as to a secondary region at least 150 miles away but within the same geography. This maintains high durability of your keys and secrets.
 
-En el caso excepcional de que toda una región de Azure pase a estar no disponible, las solicitudes efectuadas a Almacén de claves de Azure de esa región se enrutarán automáticamente (un proceso conocido como "conmutación por error") a una región secundaria. Cuando la región primaria vuelva a estar disponible, las solicitudes se enrutarán a ella nuevamente ("conmutación por recuperación"). Conviene insistir en que no es necesaria ninguna acción, ya que este proceso se realizará automáticamente.
+If individual components within the Key Vault service fail, alternate components within the region step in to serve your request to make sure that there is no degradation of functionality. You do not need to take any action to trigger this. It will happen automatically and will be transparent to you.
 
-Hay algunas advertencias que deben tenerse en cuenta:
+In the rare event that an entire Azure region is unavailable, the requests that you make of Azure Key Vault in that region are automatically routed (“failed over”) to a secondary region. When the primary region is available again, requests are routed back (“failed back”) to the primary region. Again, you do not need to take any action because this will happen automatically.
 
-* La conmutación por error de región, en caso de producirse, puede tardar varios minutos en completarse. Las solicitudes realizadas durante este intervalo podrían no efectuarse correctamente mientras no se complete la conmutación.
-* Una vez finalizada una conmutación por error, el almacén de claves se encontrará en modo de ___solo lectura___. Las solicitudes compatibles con este modo son las siguientes:
- * Enumeración de almacenes de claves
- * Obtención de propiedades de los almacenes de claves
- * Enumeración de secretos
- * Obtención de secretos
- * Enumeración de claves
- * Obtención de (propiedades de) claves
+There are a few caveats that you should be aware of:
+
+* In the event of a region fail-over, it may take a few minutes for the service to fail over. Requests that are made during this time may fail until the fail-over completes.
+* After a fail-over is complete, your key vault is in ___read-only___ mode. Requests that are supported in this mode are:
+ * list key vaults
+ * get properties of key vaults
+ * list secrets
+ * get secrets
+ * list keys
+ * get (properties of) keys
  * encrypt
- * Descifrado
- * Encapsulado
- * Desencapsulado
- * Comprobación
- * Firma
+ * decrypt
+ * wrap
+ * unwrap
+ * verify
+ * sign
  * backup
-* Cuando tenga lugar la conmutación por recuperación, todos los tipos de solicitud (es decir, de lectura ___y___ escritura) pasarán a estar disponibles.
+* After a failover is failed back, all request types (i.e. read ___and___ write requests) are available.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

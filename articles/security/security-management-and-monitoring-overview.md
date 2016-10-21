@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Información general sobre la administración y la supervisión de la seguridad en Azure | Microsoft Azure"
-   description=" Azure proporciona mecanismos de seguridad que ayudan en la administración y la supervisión de servicios en la nube y máquinas virtuales de Azure. En este artículo se proporciona información general sobre estas características y servicios básicos de seguridad. "
+   pageTitle="Azure Security Management and Monitoring Overview | Microsoft Azure"
+   description=" Azure provides security mechanisms to aid in the management and monitoring of Azure cloud services and virtual machines.  This article provides an overview of these core security features and services. "
    services="security"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -16,122 +16,128 @@
    ms.date="08/16/2016"
    ms.author="terrylan"/>
 
-# Información general sobre la administración y la supervisión de la seguridad en Azure
 
-Azure proporciona mecanismos de seguridad que ayudan en la administración y la supervisión de servicios en la nube y máquinas virtuales de Azure. En este artículo se proporciona información general sobre estas características y servicios básicos de seguridad. Además, se incluyen vínculos a artículos que ofrecen detalles de cada uno de estos servicios o características para que pueda tener más información al respecto.
+# <a name="azure-security-management-and-monitoring-overview"></a>Azure Security Management and Monitoring Overview
 
-La seguridad de los servicios en la nube de Microsoft se basa en la colaboración y la responsabilidad compartida entre usted y Microsoft. Responsabilidad compartida significa que Microsoft es responsable de Microsoft Azure y de la seguridad física de sus centros de datos (mediante el uso de protecciones de seguridad, como puertas de entrada con notificación de bloqueo, barreras y restricciones). Además, Azure proporciona fuertes niveles de seguridad en la nube en la capa de software que satisfacen las necesidades de seguridad, privacidad y cumplimiento de sus exigentes clientes.
+Azure provides security mechanisms to aid in the management and monitoring of Azure cloud services and virtual machines. This article provides an overview of these core security features and services. Links are provided to articles that will give details of each so you can learn more.
 
-Usted es el propietario de sus datos e identidades, es responsable de protegerlos, de la seguridad de los recursos locales y de la seguridad de los componentes de nube sobre los que tiene el control. Microsoft proporciona controles de seguridad y funcionalidades que ayudan a proteger los datos y las aplicaciones. Su responsabilidad de la seguridad se basa en el tipo de servicio en la nube.
+The security of your Microsoft cloud services is a partnership and shared responsibility between you and Microsoft. Shared responsibility means Microsoft is responsible for the Microsoft Azure and physical security of its data centers (through the use of security protections such as locked badge entry doors, fences, and guards). In addition, Azure provides strong levels of cloud security at the software layer that meets the security, privacy, and compliance needs of its demanding customers.
 
-En el siguiente gráfico se resume cómo se reparte la responsabilidad entre Microsoft y el cliente.
+You own your data and identities, the responsibility for protecting them, the security of your on-premises resources, and the security of cloud components over which you have control. Microsoft provides you with security controls and capabilities to help you protect your data and applications. Your responsibility for security is based on the type of cloud service.
 
-![Responsabilidad compartida][1]
+The following chart summarizes the balance of responsibility for both Microsoft and the customer.
 
-Para un análisis más profundo sobre la administración de la seguridad, consulte [Administración de la seguridad en Azure](azure-security-management.md).
+![Shared responsibility][1]
 
-Estas son las características principales que se tratan en este artículo:
+For a deeper dive into security management, see [Security management in Azure](azure-security-management.md).
 
-- Control de acceso basado en roles
+Here are the core features to be covered in this article:
+
+- Role-Based Access Control
 - Antimalware
 - Multi-Factor Authentication
 - ExpressRoute
-- Puertas de enlace de red virtual
-- Privileged Identity Management
-- Protección de identidad
-- Centro de seguridad
+- Virtual network gateways
+- Privileged identity management
+- Identity protection
+- Security Center
 
-## Control de acceso basado en roles
+## <a name="role-based-access-control"></a>Role-Based Access Control
 
-El control de acceso basado en roles (RBAC) de Azure permite realizar una administración avanzada del acceso a los recursos de Azure. Con RBAC, puede conceder a los usuarios únicamente el grado de acceso que necesitan para realizar sus trabajos. RBAC también puede ayudarle a garantizar que cuando los usuarios dejan la organización, pierden el acceso a los recursos en la nube.
+Role-Based Access Control (RBAC) provides fine-grained access management for Azure resources. Using RBAC, you can grant people only the amount of access that they need to perform their jobs.  RBAC can also help you ensure that when people leave the organization they lose access to resources in the cloud.
 
-Más información:
+Learn more:
 
-- [Blog del equipo de Active Directory sobre RBAC](http://i1.blogs.technet.com/b/ad/archive/2015/10/12/azure-rbac-is-ga.aspx)
-- [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md)
+- [Active Directory team blog on RBAC](http://i1.blogs.technet.com/b/ad/archive/2015/10/12/azure-rbac-is-ga.aspx)
+- [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
 
-## Antimalware
+## <a name="antimalware"></a>Antimalware
 
-Con Azure, puede utilizar software antimalware de los principales proveedores de seguridad, como Microsoft, Symantec, Trend Micro, McAfee y Kaspersky, para proteger las máquinas virtuales de archivos malintencionados, adware y otras amenazas.
+With Azure you can use antimalware software from major security vendors such as Microsoft, Symantec, Trend Micro, McAfee, and Kaspersky to help protect your virtual machines from malicious files, adware, and other threats.
 
-Microsoft Antimalware ofrece la posibilidad de instalar un agente antimalware tanto para roles PaaS como máquinas virtuales. Esta característica, basada en System Center Endpoint Protection, lleva a la nube tecnología de seguridad local de demostrada eficacia.
+Microsoft Antimalware offers you the ability to install an antimalware agent for both PaaS roles and virtual machines. Based on System Center Endpoint Protection, this feature brings proven on-premises security technology to the cloud.
 
-También ofrecemos una profunda integración con los productos [Deep Security](http://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/)™ y [SecureCloud](http://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/)™ de Trend en la plataforma de Azure. DeepSecurity es una solución antivirus y SecureCloud es una solución de cifrado. DeepSecurity se implementará dentro de máquinas virtuales con un modelo de extensión. Con la interfaz de usuario del portal y PowerShell, puede elegir usar DeepSecurity dentro de nuevas máquinas virtuales que se están implementando, o en máquinas virtuales existentes que ya están implementadas.
+We also offer deep integration for Trend’s [Deep Security](http://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/)™ and [SecureCloud](http://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/)™ products in the Azure platform. DeepSecurity is an Antivirus solution and SecureCloud is an encryption solution. DeepSecurity will be deployed inside of VMs using an extension model. Using the portal UI and PowerShell, you can choose to use DeepSecurity inside of new VMs that are being spun up, or existing VMs that are already deployed.
 
-Symantec End Point Protection (SEP) también se admite en Azure. Gracias a la integración del portal, los clientes tienen la posibilidad de especificar su intención de usar SEP dentro de una máquina virtual. SEP puede instalarse en una máquina virtual nueva a través del Portal de Azure, o bien en una máquina virtual existente mediante PowerShell.
+Symantec End Point Protection (SEP) is also supported on Azure. Through portal integration, customers have the ability to specify that they intend to use SEP within a VM. SEP can be installed on a brand new VM via the Azure Portal or can be installed on an existing VM using PowerShell.
 
-Más información:
+Learn more:
 
-- [Implementación de soluciones antimalware en máquinas virtuales de Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-- [Microsoft Antimalware para Servicios en la nube y Máquinas virtuales de Azure](../security/azure-security-antimalware.md)
-- [Instalación y configuración de Trend Micro Deep Security como servicio en una máquina virtual de Azure](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
-- [Instalación y configuración de Endpoint Protection en una máquina virtual de Azure](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
-- [New Antimalware Options for Protecting Azure Virtual Machines – McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/) (Nuevas opciones antimalware para proteger las máquinas virtuales de Azure: McAfee Endpoint Protection)
+- [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
+- [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../security/azure-security-antimalware.md)
+- [How to install and configure Trend Micro Deep Security as a Service on a Windows VM](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
+- [How to install and configure Symantec Endpoint Protection on a Windows VM](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
+- [New Antimalware Options for Protecting Azure Virtual Machines – McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
-## Multi-Factor Authentication
+## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Azure Multi-factor Authentication (MFA) es un método de autenticación que requiere el uso de más de un método de verificación y agrega un segundo nivel de seguridad crítico a las transacciones e inicios de sesión del usuario. MFA ayuda a proteger el acceso a los datos y las aplicaciones, al tiempo que satisface la demanda de los usuarios de un proceso de inicio de sesión simple. Proporciona autenticación segura mediante una gran variedad de opciones de verificación, como llamadas telefónicas, mensajes de texto, notificaciones de aplicaciones móviles, códigos de verificación y tokens OATH de terceros.
+Azure Multi-factor authentication (MFA) is a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions. MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification options—phone call, text message, or mobile app notification or verification code and 3rd party OATH tokens.
 
-Más información:
+Learn more:
 
-- [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-- [¿Qué es Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
-- [Cómo funciona Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
+- [Multi-factor authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
+- [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+- [How Azure Multi-Factor Authentication works](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
 
-## ExpressRoute
+## <a name="expressroute"></a>ExpressRoute
 
-Microsoft Azure ExpressRoute le permite ampliar sus redes de local en la nube de Microsoft a través de una conexión privada y dedicada que facilita un proveedor de conectividad. Con ExpressRoute, se pueden establecer conexiones con servicios en la nube de Microsoft, como Microsoft Azure, Office 365 y CRM Online. La conectividad puede ser desde una red de conectividad universal (IP VPN), una red Ethernet de punto a punto, o una conexión cruzada virtual a través de un proveedor de conectividad en una instalación de ubicación compartida. Las conexiones ExpressRoute no pasan por la red pública de Internet. Esto permite a las conexiones de ExpressRoute ofrecer más confiabilidad, más velocidad, menor latencia y mayor seguridad que las conexiones normales a través de Internet.
+Microsoft Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a dedicated private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and CRM Online. Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility. ExpressRoute connections do not go over the public Internet. This allows ExpressRoute connections to offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the Internet.
 
-Más información:
+Learn more:
 
-- [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md)
+- [ExpressRoute technical overview](../expressroute/expressroute-introduction.md)
 
-## Puertas de enlace de red virtual
+## <a name="virtual-network-gateways"></a>Virtual network gateways
 
-Las puertas de enlace de VPN, también llamadas puertas de enlace de red virtual de Azure, se usan para enviar tráfico de red entre las redes virtuales y las ubicaciones locales. También se usan para enviar el tráfico entre varias redes virtuales dentro de Azure (red virtual a red virtual). Las puertas de enlace de VPN proporcionan conectividad local segura entre Azure y su infraestructura.
+VPN Gateways, also called Azure Virtual Network Gateways, are used to send network traffic between virtual networks and on-premises locations. They are also used to send traffic between multiple virtual networks within Azure (VNet-to-VNet).  VPN gateways provide secure cross-premises connectivity between Azure and your infrastructure.
 
-Más información:
+Learn more:
 
-- [Información acerca de las puertas de enlace de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)
-- [Azure Network Security Overview](security-network-overview.md) (Información general sobre Azure Network Security)
+- [About VPN gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md)
+- [Azure Network Security Overview](security-network-overview.md)
 
-## Privileged Identity Management
+## <a name="privileged-identity-management"></a>Privileged Identity Management
 
-En ocasiones, los usuarios necesitan llevar a cabo operaciones con privilegios en recursos de Azure u otras aplicaciones para SaaS. A menudo esto significa que las organizaciones tienen que concederles acceso con privilegios permanente en Azure Active Directory (Azure AD). Este hecho representa un riesgo creciente para la seguridad de los recursos hospedados en la nube, ya que las organizaciones no pueden supervisar todo lo que deberían lo que hacen esos usuarios con su acceso con privilegios. Además, si se pone en peligro la seguridad de una cuenta de usuario que tiene acceso con privilegios, esta situación podría afectar a la seguridad general en la nube. Privileged Identity Management de Azure AD ayuda a resolver este riesgo al reducir el tiempo de exposición de los privilegios y aumentar la visibilidad sobre el uso.
+Sometimes users need to carry out privileged operations in Azure resources or other SaaS applications. This often means organizations have to give them permanent privileged access in Azure Active Directory (Azure AD). This is a growing security risk for cloud-hosted resources because organizations can't sufficiently monitor what those users are doing with their privileged access.
+Additionally, if a user account with privileged access is compromised, that one breach could impact your overall cloud security. Azure AD Privileged Identity Management helps to resolve this risk by lowering the exposure time of privileges and increasing visibility into usage.  
 
-Privileged Identity Management introduce el concepto de administrador temporal de un rol o acceso de administrador "justo a tiempo", para referirse al usuario que debe realizar un proceso de activación para ese rol asignado. El proceso de activación cambia la asignación del usuario a un rol en Azure AD de inactiva a activa durante un período de tiempo especificado, como 8 horas.
+Privileged Identity Management introduces the concept of a temporary admin for a role or “just in time” administrator access, which is a user who needs to complete an activation process for that assigned role. The activation process changes the assignment of the user to a role in Azure AD from inactive to active, for a specified time period such as 8 hours.
 
-Más información:
+Learn more:
 
-- [Administración de identidades con privilegios de Azure AD](../active-directory/active-directory-privileged-identity-management-configure.md)
-- [Introducción a Privileged Identity Management de Azure AD](../active-directory/active-directory-privileged-identity-management-getting-started.md)
+- [Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-configure.md)
+- [Get started with Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-getting-started.md)
 
-## Identity Protection
+## <a name="identity-protection"></a>Identity Protection
 
-Azure Active Directory (AD) Identity Protection proporciona una vista consolidada de actividades de inicio de sesión sospechosas y posibles vulnerabilidades que ayudan a proteger su negocio. Identity Protection detecta las actividades sospechosas de usuarios e identidades con privilegios (administrador) según determinadas señales, como ataques por fuerza bruta, pérdida de credenciales, inicios de sesión de ubicaciones desconocidas y dispositivos infectados.
+Azure Active Directory (AD) Identity Protection provides a consolidated view of suspicious sign-in activities and potential vulnerabilities to help protect your business. Identity Protection detects suspicious activities for users and privileged (admin) identities, based on signals like brute-force attacks, leaked credentials, and sign-ins from unfamiliar locations and infected devices.
 
-Al proporcionar notificaciones y soluciones recomendadas, Identity Protection ayuda a mitigar los riesgos en tiempo real. Asimismo, calcula la gravedad del riesgo para el usuario y permite configurar directivas basadas en el riesgo que ayudan a proteger automáticamente el acceso a la aplicación frente a futuras amenazas.
+By providing notifications and recommended remediation, Identity Protection helps to mitigate risks in real time. It calculates user risk severity, and you can configure risk-based policies to automatically help safeguard application access from future threats.
 
-Más información:
+Learn more:
 
 - [Azure Active Directory Identity Protection](../active-directory/active-directory-identityprotection.md)
-- [Channel 9: Azure AD and Identity Show: Identity Protection Preview (Channel 9: Presentación de Azure AD e Identity: versión preliminar de Identity Protection)](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+- [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
-## Centro de seguridad
+## <a name="security-center"></a>Security Center
 
-Azure Security Center ayuda a evitar, detectar y responder a amenazas, al tiempo que proporciona más visibilidad y control de la seguridad de los recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
+Azure Security Center helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
-Security Center ayuda a optimizar y supervisar la seguridad de los recursos de Azure de la manera siguiente:
+Security Center helps you optimize and monitor the security of your Azure resources by:
 
-- Le permite definir directivas para los recursos de su suscripción de Azure de acuerdo con las necesidades de seguridad de su empresa y el tipo de aplicaciones o confidencialidad de los datos de cada suscripción.
-- Supervisa el estado de las máquinas virtuales, las redes y las aplicaciones de Azure.
-- Proporciona una lista de alertas de seguridad, entre las que se incluyen alertas de soluciones de socios integradas, junto con la información que necesita investigar rápidamente, así como recomendaciones sobre cómo hacer frente a un ataque.
+- Enabling you to define policies for your Azure subscription resources according to your company’s security needs and the type of applications or sensitivity of the data in each subscription.
+- Monitoring the state of your Azure virtual machines, networking, and applications.
+- Providing a list of prioritized security alerts, including alerts from integrated partner solutions, along with the information you need to quickly investigate and recommendations on how to remediate an attack.
 
-Más información:
+Learn more:
 
-- [Introducción al Centro de seguridad de Azure](../security-center/security-center-intro.md)
+- [Introduction to Azure Security Center](../security-center/security-center-intro.md)
 
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

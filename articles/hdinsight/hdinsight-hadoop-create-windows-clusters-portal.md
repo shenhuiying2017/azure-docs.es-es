@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creación de clústeres de Hadoop en HDInsight | Microsoft Azure"
-   	description="Aprenda a crear clústeres para HDInsight de Azure con el Portal de Azure."
+   pageTitle="Create Hadoop clusters in HDInsight | Microsoft Azure"
+    description="Learn how to create clusters for Azure HDInsight by using the Azure Portal."
    services="hdinsight"
    documentationCenter=""
    tags="azure-portal"
@@ -17,133 +17,144 @@
    ms.date="09/02/2016"
    ms.author="jgao"/>
 
-# Creación de clústeres de Hadoop basados en Windows en HDInsight con el Portal de Azure
+
+# <a name="create-windows-based-hadoop-clusters-in-hdinsight-using-the-azure-portal"></a>Create Windows-based Hadoop clusters in HDInsight using the Azure Portal
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Aprenda a crear un clúster de Hadoop en HDInsight con el Portal de Azure. El [Portal de Microsoft Azure](../azure-portal-overview.md) es una ubicación central desde donde se pueden aprovisionar y administrar los recursos de Azure. El Portal de Azure es una de las herramientas que puede utilizar para crear el clúster de Hadoop basado en Linux o en Windows en HDInsight. Para consultar otras herramientas y características de creación de clústeres, haga clic en la selección de pestaña de la parte superior de esta página o consulte los [métodos de creación de clústeres](hdinsight-provision-clusters.md#cluster-creation-methods).
+Learn how to create an Hadoop cluster in HDInsight using Azure Portal. The Microsoft [Azure portal](../azure-portal-overview.md) is a central place where you can provision and manage your Azure resources. Azure Portal is one of the tools you can use to create either Linux-based or Windows-based Hadoop cluster in HDInsight. For other cluster creation tools and features click the tab select on the top of this page or see [Cluster creation methods](hdinsight-provision-clusters.md#cluster-creation-methods).
 
-##Requisitos previos:
+##<a name="prerequisites:"></a>Prerequisites:
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
+Before you begin the instructions in this article, you must have the following:
 
-- Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-## Creación de clústeres
+### <a name="access-control-requirements"></a>Access control requirements
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+
+## <a name="create-clusters"></a>Create clusters
 
 
-**Para crear un clúster de HDInsight**
+**To create an HDInsight cluster**
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2. Haga clic en **NUEVO**, en **Análisis de datos** y luego en **HDInsight**.
+1. Sign in to the [Azure Portal](https://portal.azure.com).
+2. Click **NEW**, Click **Data Analytics**, and then click **HDInsight**.
 
-    ![Creación de un clúster en el Portal de Azure](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Creación de un clúster en el Portal de Azure")
+    ![Creating a new cluster in the Azure Portal](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Portal")
 
-3. Escriba o seleccione los valores siguientes:
+3. Type or select the following values:
 
-  * **Nombre del clúster**: escriba un nombre para el clúster. Si el nombre está disponible, aparecerá una marca de verificación verde junto al nombre del clúster.
-  * **Tipo de clúster**: seleccione **Hadoop**. Otra opciones incluyen **HBase**, **Storm** y **Spark**.
-  * **Sistema operativo del clústeres**: seleccione **Windows**. Para crear un clúster basado en Linux, seleccione **Linux**.
-  * **Versión**: consulte [Versiones de HDInsight](hdinsight-component-versioning.md).
-  * **Suscripción**: seleccione la suscripción de Azure que se usará para crear este clúster.
-  * **Grupo de recursos**: seleccione un grupo de recursos existente o cree uno nuevo. Esta entrada se establecerá de manera predeterminada en uno de sus grupos de recursos existentes, si hay alguno disponible.
-  * **Credenciales**: configure el nombre de usuario y la contraseña del usuario de Hadoop (usuario HTTP). Si habilita Escritorio remoto para el clúster, deberá configurar el nombre de usuario y la contraseña del Escritorio remoto y una fecha de caducidad de la cuenta. Haga clic en **Seleccionar** en la parte inferior para guardar los cambios.
+  * **Cluster Name**: Enter a name for the cluster. A green check will appear beside the cluster name if the name is available.
+  * **Cluster Type**: Select **Hadoop**. Other options inclue **HBase**, **Storm**, and **Spark**.
+  * **Cluster Operating System**: Select **Windows**. To create a Linux-base cluster, select **Linux**.
+  * **Version**: See [HDInsight versions](hdinsight-component-versioning.md).
+  * **Subscription**: Select the Azure subscription that will be used for creating this cluster.
+  * **Resource Group**: Select an existing or create a new resource group. This entry will default to one of your existing resource groups, if any are available.
+  * **Credentials**: Configure the username and the password for the Hadoop user (HTTP user). If you enable remote desktop for the cluster, you will need to configure the remote desktop user username and password, and an account expiration date. Click **Select** at the bottom to save the changes.
 
-	   	![Proporcione las credenciales del clúster](./media/hdinsight-provision-clusters/HDI.CreateCluster.3.png "Proporcione las credenciales del clúster")
+        ![Provide cluster credentials](./media/hdinsight-provision-clusters/HDI.CreateCluster.3.png "Provide cluster credentials")
 
-  * **Origen de datos**: cree una cuenta de Almacenamiento de Azure o seleccione una ya existente para usar como sistema de archivos predeterminado para el clúster.
+  * **Data Source**: Create a new or select an existing Azure Storage account to be used as the default file system for the cluster.
 
-   		![Hoja Origen de datos](./media/hdinsight-provision-clusters/HDI.CreateCluster.4.png "Proporcione la configuración del origen de datos")
+        ![Data source blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.4.png "Provide data source configuration")
 
-  		* **Método de selección**: establézcalo en **De todas las suscripciones** para habilitar la exploración de cuentas de almacenamiento en todas sus suscripciones. Establézcalo en **Clave de acceso** si desea especificar el **Nombre de almacenamiento** y la **Clave de acceso** de una cuenta de almacenamiento existente.
-  		* **Seleccionar cuenta de almacenamiento o Crear nueva**: haga clic en **Seleccionar cuenta de almacenamiento** para buscar y seleccionar una cuenta de almacenamiento existente que desee asociar con el clúster. O bien, haga clic en **Crear nueva** para crear una nueva cuenta de almacenamiento. Use el campo que aparece para especificar el nombre de la cuenta de almacenamiento. Si el nombre está disponible, aparecerá una marca de verificación verde.
-  		* **Elegir contenedor predeterminado**:  use esta opción para escribir el nombre del contenedor predeterminado que se usará para el clúster. Aunque se puede escribir cualquier nombre aquí, se recomienda usar el mismo nombre que el del clúster para que pueda reconocer fácilmente que el contenedor se usa para este clúster concreto.
-  		* **Ubicación**: región geográfica en la que se encuentra la cuenta de almacenamiento o donde se creará. Esta ubicación determinará la ubicación del clúster.  El clúster y su cuenta de almacenamiento predeterminada debe colocarse en el mismo centro de datos Azure.
-  	
-  * **Niveles de precios de nodo**: establezca el número de nodos de trabajo que requiere para el clúster. El costo estimado del clúster se mostrará en la hoja.
+        * **Selection Method**: Set this to **From all subscriptions** to enable browsing of storage accounts from all your subscriptions. Set this to **Access Key** if you want to enter the **Storage Name** and **Access Key** of an existing storage account.
+        * **Select storage account / Create New**: Click **Select storage account** to browse and select an existing storage account you want to associate with the cluster. Or, click **Create New** to create a new storage account. Use the field that appears to enter the name of the storage account. A green check will appear if the name is available.
+        * **Choose Default Container**: Use this to enter the name of the default container to use for the cluster. While you can enter any name here, we recommend using the same name as the cluster so that you can easily recognize that the container is used for this specific cluster.
+        * **Location**: The geographic region that the storage account is in, or will be created in. This location will determine the cluster location.  The cluster and its default storage account must co-locate in the same Azure data center.
+    
+  * **Node Pricing Tiers**: Set the number of worker nodes that you need for the cluster. The estimated cost of the cluster will be shown within the blade.
   
 
-		![Hoja Niveles de precios de nodo](./media/hdinsight-provision-clusters/HDI.CreateCluster.5.png "Especifique el número de nodos de clúster")
+        ![Node pricing tiers blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.5.png "Specify number of cluster nodes")
 
 
-  * **Configuración opcional** para seleccionar la versión del clúster y configurar otros valores opcionales como, por ejemplo, unirse a una **Red virtual**, configurar una **Tienda de metadatos externa** para almacenar datos de Hive y Oozie, usar Acciones de script a fin de personalizar un clúster para instalar componentes personalizados o usar cuentas de almacenamiento adicionales con el clúster.
+  * **Optional Configuration** to select the cluster version, as well as configure other optional settings such as joining a **Virtual Network**, setting up an **External Metastore** to hold data for Hive and Oozie, use Script Actions to customize a cluster to install custom components, or use additional storage accounts with the cluster.
 
-  		* **Versión de HDInsight**: seleccione la versión que desee usar para el clúster. Para obtener más información, consulte  [Versiones de clústeres de HDInsight](hdinsight-component-versioning.md).
-  		* **Red virtual**: seleccione una red virtual de Azure y la subred si quiere colocar el clúster en una red virtual.  
+  * **HDInsight Version**: Select the version you want to use for the cluster. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
+  * **Virtual Network**: Select an Azure virtual network and the subnet if you want to place the cluster into a virtual network.  
 
-			![Hoja de red virtual](./media/hdinsight-provision-clusters/HDI.CreateCluster.6.png "Especifique detalles de red virtual")
+    ![Virtual network blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.6.png "Specify virtual network details")
 
-			Para obtener información sobre el uso de HDInsight con una red virtual, como los requisitos de configuración específicos de la red virtual, consulte [Extensión de las funcionalidades de HDInsight con Red virtual de Azure](hdinsight-extend-hadoop-virtual-network.md).
+    For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capbilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
   
 
-  		
-		* **Tiendas de metadatos externas**: especifique una Base de datos SQL de Azure para guardar los metadatos de Hive y Oozie asociados con el clúster.
+        
+    * **External Metastores**: Specify an Azure SQL database to store Hive and Oozie metadata associated with the cluster.
  
-            > [AZURE.NOTE] La configuración de la tienda de metadatos no está disponible para los tipos de clúster de HBase.
+        > [AZURE.NOTE] Metastore configuration is not available for HBase cluster types.
 
-			![Hoja de tiendas de metadatos personalizados](./media/hdinsight-provision-clusters/HDI.CreateCluster.7.png "Especificar tiendas de metadatos externas")
-
-
-			En **Usar una Base de datos SQL existente para metadatos de Hive**, haga clic en **Sí**, seleccione una base de datos SQL y luego escriba el nombre de usuario y la contraseña para la base de datos. Repita estos pasos si desea **Usar una Base de datos SQL existente para los metadatos de Oozie**. Haga clic en **Seleccionar** hasta volver a la hoja **Configuración opcional**.
+    ![Custom metastores blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.7.png "Specify external metastores")
 
 
-			>[AZURE.NOTE] La base de datos SQL de Azure usada para la tienda de metadatos debe permitir la conectividad con otros servicios de Azure, incluido HDInsight de Azure. En el panel de la base de datos SQL de Azure, en el lado derecho, haga clic en el nombre de servidor. Este es el servidor en el que se ejecuta la instancia de base de datos SQL. Cuando se encuentre en la vista de servidor, haga clic en **Configurar** y luego, en **Servicios de Azure**, haga clic en **Sí** y en **Guardar**.
+    For **Use an existing SQL DB for Hive** metadata, click **Yes**, select a SQL database, and then provide the username/password for the database. Repeat these steps if you want to **Use an existing SQL DB for Oozie metadata**. Click **Select** till you are back on the **Optional Configuration** blade.
+
+
+    >[AZURE.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Azure Services**, click **Yes**, and then click **Save**.
 
             &nbsp;
 
-            > [AZURE.IMPORTANT] Al crear una tienda de metadatos, no debe usar un nombre de base de datos que contenga guiones, ya que esto puede producir un error en el proceso de creación del clúster.
-		
-  		* **Acciones de script** si quiere usar un script personalizado para personalizar un clúster, conforme se crea el clúster. Para obtener más información sobre acciones de script, vea [Personalización de clústeres de HDInsight con una acción de script](hdinsight-hadoop-customize-cluster.md). En la hoja Acciones de script, proporcione los detalles como se muestra en la captura de pantalla.
-  	
-
-			![Hoja de acción de script](./media/hdinsight-provision-clusters/HDI.CreateCluster.8.png "Especifique una acción de script")
-
-
-    	* **Claves de Almacenamiento de Azure**: especifique cuentas de almacenamiento adicionales para asociar con el clúster. En la hoja **Claves de Almacenamiento de Azure**, haga clic en **Agregar una clave de almacenamiento** y, luego, seleccione una cuenta de almacenamiento existente o cree una nueva.
+            > [AZURE.IMPORTANT] When creating a metastore, do not use a database name that contains dashes or hyphens, as this can cause the cluster creation process to fail.
+        
+        * **Script Actions** if you want to use a custom script to customize a cluster, as the cluster is being created. For more information about script actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md). On the Script Actions blade provide the details as shown in the screen capture.
     
 
-			![Hoja de almacenamiento adicional](./media/hdinsight-provision-clusters/HDI.CreateCluster.9.png "Especificar cuentas de almacenamiento adicionales")
+            ![Script action blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.8.png "Specify script action")
 
 
-4. Haga clic en **Crear**. Si selecciona **Anclar a Panel de inicio**, se agregará un icono del clúster en el Panel de inicio de su Portal. El icono indicará que el clúster se está creando y cambiará para mostrar el icono de HDInsight cuando se haya completado el proceso.
-	
-    El clúster tardará algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del Panel de inicio o la entrada **Notificaciones** de la izquierda de la página para comprobar el proceso de aprovisionamiento.
-	
+        * **Azure Storage Keys**: Specify additional storage accounts to associate with the cluster. In the **Azure Storage Keys** blade, click **Add a storage key**, and then select an existing storage account or create a new account.
+    
 
-5. Cuando termine la creación, haga clic en el icono del clúster desde el panel de inicio para iniciar la hoja del clúster. La hoja de clúster proporciona información esencial sobre el clúster, como el nombre, el grupo de recursos al que pertenece, la ubicación, el sistema operativo, la dirección URL para el panel del clúster, etc.
+            ![Additional storage blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.9.png "Specify additional storage accounts")
 
 
-	![Hoja de clúster](./media/hdinsight-provision-clusters/HDI.Cluster.Blade.png "Propiedades de clúster")
+4. Click **Create**. Selecting **Pin to Startboard** will add a tile for cluster to the Startboard of your Portal. The icon will indicate that the cluster is being created, and will change to display the HDInsight icon once creation has completed.
+    
+    It will take some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the provisioning process.
+    
+
+5. Once the creation completes, click the tile for the cluster from the Startboard to launch the cluster blade. The cluster blade provides essential information about the cluster such as the name, the resource group it belongs to, the location, the operating system, URL for the cluster dashboard, etc.
 
 
-	Use las siguientes opciones para comprender los iconos de la parte superior de esta hoja y, en la sección **Conceptos básicos**:
+    ![Cluster blade](./media/hdinsight-provision-clusters/HDI.Cluster.Blade.png "Cluster properties")
 
 
-	* **Configuración** y **Toda la configuración**: Muestra la hoja **Configuración** del clúster, que permite obtener acceso a información de configuración detallada para el clúster.
-	* **Panel**, **Panel de clúster** y **URL**: se trata de formas de tener acceso al panel del clúster, que es un portal web que ejecuta trabajos en el clúster.
-	* **Escritorio remoto**: permite habilitar o deshabilitar Escritorio remoto en los nodos de clúster.
-	* **Escalar clúster**: Permite cambiar el número de nodos de trabajo para este clúster.
-	* **Eliminar**: elimina el clúster de HDInsight.
-	* **Inicio rápido** (![icono de nube y rayo = inicio rápido](./media/hdinsight-provision-clusters/quickstart.png)): muestra información que le ayudará a empezar a usar HDInsight.
-	* **Usuarios** (![icono de usuarios](./media/hdinsight-provision-clusters/users.png)): permite establecer permisos de _administración del portal_ de este clúster para otros usuarios de su suscripción de Azure.
-	
+    Use the following to understand the icons at the top of this blade, and in the **Essentials** section:
 
-		> [AZURE.IMPORTANT] Esto _solo_ afecta al acceso y los permisos para este clúster en el Portal, y no tiene ningún efecto sobre quién puede conectarse o enviar trabajos al clúster de HDInsight.
-		
-	* **Etiquetas** (![icono de etiqueta](./media/hdinsight-provision-clusters/tags.png)): las etiquetas permiten establecer pares clave-valor para definir una taxonomía personalizada de sus servicios en la nube. Por ejemplo, puede crear una clave denominada __proyecto__ y luego usar un valor común para todos los servicios asociados a un proyecto específico.
 
-##Personalización de los clústeres
+    * **Settings** and **All Settings**: Displays the **Settings** blade for the cluster, which allows you to access detailed configuration information for the cluster.
+    * **Dashboard**, **Cluster Dashboard**, and **URL**: These are all ways to access the cluster dashboard, which is a Web portal to run jobs on the cluster.
+    * **Remote Desktop**: Enables you to enable/disable remote desktop on the cluster nodes.
+    * **Scale Cluster**: Allows you to change the number of worker nodes for this cluster.
+    * **Delete**: Deletes the HDInsight cluster.
+    * **Quickstart** (![cloud and thunderbolt icon = quickstart](./media/hdinsight-provision-clusters/quickstart.png)): Displays information that will help you get started using HDInsight.
+    * **Users** (![users icon](./media/hdinsight-provision-clusters/users.png)): Allows you to set permissions for _portal management_ of this cluster for other users on your Azure subscription.
+    
 
-- Consulte [Personalización de los clústeres de HDInsight con Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
-- Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Windows)](hdinsight-hadoop-customize-cluster.md).
+        > [AZURE.IMPORTANT] This _only_ affects access and permissions to this cluster in the Portal, and has no effect on who can connect to or submit jobs to the HDInsight cluster.
+        
+    * **Tags** (![tag icon](./media/hdinsight-provision-clusters/tags.png)): Tags allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named __project__, and then use a common value for all services associated with a specific project.
 
-##Pasos siguientes
-En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight. Para obtener más información, consulte los artículos siguientes:
+##<a name="customize-clusters"></a>Customize clusters
 
-* [Introducción a HDInsight de Azure](hdinsight-hadoop-linux-tutorial-get-started.md): aprenda a empezar a trabajar con su clúster de HDInsight
-* [Envío de trabajos de Hadoop mediante programación](hdinsight-submit-hadoop-jobs-programmatically.md): aprenda a enviar trabajos a HDInsight mediante programación
-* [Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure](hdinsight-administer-use-management-portal.md)
+- See [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
+- See [Customize Windows-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+##<a name="next-steps"></a>Next steps
+In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:
+
+* [Get started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) - Learn how to start working with your HDInsight cluster
+* [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md) - Learn how to programmatically submit jobs to HDInsight
+* [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-management-portal.md)
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Modos de implementación de Resource Manager y administración de servicios (clásica) | Microsoft Azure"
-   description="Comprenda las diferencias entre los modelos de implementación Administrador de recursos y Clásico."
+   pageTitle="Resource Manager and Service Management (classic) deployment modes | Microsoft Azure"
+   description="Learn the differences between Resource Manager and classic deployment models."
    services="virtual-network"
    documentationCenter=""
    authors="telmosampaio"
@@ -17,54 +17,59 @@
    ms.date="02/11/2016"
    ms.author="telmos"/>
 
-# Modelos de implementación de Azure
 
-La plataforma Azure está en transición. Si está familiarizado con Azure o lo ha usado durante años, es importante que comprenda algunos de los principales cambios que hacemos en la plataforma durante esta transición.
+# <a name="azure-deployment-models"></a>Azure Deployment Models
 
-Todos los recursos de Azure admiten uno o los dos modelos de implementación siguientes:
+The Azure platform is in transition.  Whether you're new to Azure or have been using it for years, it's important to understand some of the key changes we're making to the platform during this transition.
 
-- **Administrador de recursos:** se trata del modelo de implementación más reciente para recursos de Azure. La mayoría de los recursos más recientes ya son compatibles con este modelo de implementación y, a la larga, todos los recursos lo serán.
+All Azure resources support one or both of the following deployment models:
+
+- **Resource Manager:** This is the newest deployment model for Azure resources. Most newer resources already support this deployment model and eventually all resources will.   
  
-- **Clásico:** este modelo es compatible con la mayoría de los recursos de Azure existentes hoy en día. Los nuevos recursos que se agreguen a Azure no serán compatibles con este modelo.
+- **Classic:** This model is supported by most existing Azure resources today. New resources added to Azure will not support this model.
 
-La documentación sobre cada recurso de Azure describe detalladamente los modelos de servicio con los que se puede crear.
+The documentation for each Azure resource details which service models it can be created with.
 
-## ¿Por qué es importante? 
+## <a name="why-does-this-matter?"></a>Why does this matter? 
 
-Es importante por los motivos siguientes:
+It matters for the following reasons:
 
-- Las características de la plataforma Azure que se usan son diferentes en estos dos modelos. Por ejemplo, los recursos creados con el modelo de implementación Administrador de recursos (o simplemente, Administrador de recursos) pueden generarse a partir de [plantillas del Administrador de recursos de Azure](resource-group-overview.md#template-deployment), mientras que los recursos creados con el modelo de implementación Clásico, no.
-- Las características o los comportamientos de cada uno de los recursos de Azure pueden ser diferentes en los dos modelos o solo existir en uno de los modelos. Por ejemplo, el tráfico de equilibrio de carga entre máquinas virtuales creadas con el modelo de implementación Clásico está *implícito* porque las máquinas virtuales son miembros de un servicio en la nube de Azure y la carga se equilibra automáticamente entre máquinas virtuales dentro de un servicio en la nube. Las máquinas virtuales creadas con el Administrador de recursos no son miembros de un servicio en la nube, por lo que debe crearse *explícitamente* un recurso de equilibrador de carga de Azure aparte para el tráfico de equilibrio de carga entre varias máquinas virtuales.
-- La forma de crear, configurar y administrar los recursos de Azure es diferente entre estos dos modelos.
-- Los recursos creados con un modelo de implementación no necesariamente pueden interoperar con los recursos creados mediante otro modelo de implementación. Por ejemplo, las máquinas virtuales de Azure creadas con un modelo de implementación solo pueden conectarse a redes virtuales de Azure creadas con el mismo modelo de implementación.
+- The Azure platform features that you use are different across these two models.  For example, resources created using the Resource Manager deployment model (or just Resource Manager) can be created with [Azure Resource Manager templates](resource-group-overview.md#template-deployment), whereas resources created with the Classic deployment model cannot.
+- The individual Azure resource features or behaviors can be different across the two models, or only exist in one model or the other.  For example, load balancing traffic across virtual machines created with the Classic deployment model is *implicit* because virtual machines are members of an Azure Cloud Service, and load is automatically balanced across virtual machines within a cloud service. Virtual machines created using Resource Manager are not members of a cloud service, and a separate Azure Load Balancer resource must be *explicitly* created to load balance traffic across multiple virtual machines.  
+- How you create, configure, and manage your Azure resources is different between these two models.
+- Resources created using one deployment model can't necessarily interoperate with resources created using a different deployment model. For example, Azure Virtual Machines created using one deployment model can only be connected to Azure Virtual Networks created using the same deployment model.    
 
-En cada uno de los modelos de implementación existe una interfaz de programación de aplicaciones (API) subyacente para cada recurso. Hay una [API del Administrador de recursos](https://msdn.microsoft.com/library/azure/dn948464.aspx) para el modelo de implementación Administrador de recursos y una [API de administración de servicios](https://msdn.microsoft.com/library/azure/ee460799.aspx) para el modelo de implementación Clásico. Los desarrolladores pueden escribir código para interactuar con estas API *directamente*.
+Underlying each of the deployment models is an application programming interface (API) for each resource.  There's a [Resource Manager API](https://msdn.microsoft.com/library/azure/dn948464.aspx) for the Resource Manager deployment model and a [Service Management API](https://msdn.microsoft.com/library/azure/ee460799.aspx) for the Classic deployment model. Developers can write code to interact with these APIs *directly*.  
 
-Los profesionales de TI, sin embargo, suele interactuar con estas API *indirectamente* por medio de un portal gráfico en un explorador web, usando cmdlets de Azure PowerShell en un equipo Windows o usando la interfaz de línea de comandos (CLI) de Azure en un equipo Windows, OS X o Linux. Estos tres métodos indirectos que usa el profesional de TI interactúan directamente con las API. Esto significa que cuando se implementa una nueva funcionalidad en la plataforma o los recursos de Azure, siempre está disponible directamente a través de la API en primer lugar, mientras que los métodos indirectos admiten las características y los recursos nuevos cuando la API pasa a estar disponible.
+IT pros however, typically interact with these APIs *indirectly* by using a graphical portal in a web browser, by using Azure PowerShell cmdlets on a Windows computer, or by using the Azure Command Line Interface (CLI) on either a Windows, OS X, or Linux computer. All three of these indirect methods used by the IT pro interact directly with the APIs. This means that when new functionality is introduced to the Azure platform or resources, it's always directly available through the API first, with the indirect methods gaining support for the new resources and features after the API is made available.  
 
-En las secciones siguientes se explica cómo se configuran los recursos de Azure con los diferentes modelos de implementación a través de los tres métodos indirectos.
+The sections below explain how Azure resources are configured using the different deployment models through the three indirect methods.
 
-## Portales
-Azure tiene dos portales:
+## <a name="portals"></a>Portals
+Azure has two portals:
 
-- **[Portal de Azure](https://manage.windowsazure.com):** si lleva tiempo usando Azure, ya utiliza este portal. Sirve para crear y configurar recursos de Azure anteriores que admiten el modelo de implementación Clásico. No se puede usar para crear o configurar recursos que solo admiten el Administrador de recursos.
-- **[Portal de vista previa de Azure](https://azure.microsoft.com/overview/preview-portal/):** si usa un recurso de Azure más reciente, es probable que ya utilice este portal. Sirve para crear y configurar algunos recursos de Azure. Con el tiempo, podrá crear y configurar todos los recursos de Azure con él. En el caso de algunos recursos que admitan ambos modelos de implementación, puede usarse este portal para crear y configurar un recurso con cualquier modelo de implementación.
+- **[Azure portal](https://manage.windowsazure.com):** If you've been using Azure for a while, you've used this portal. It is used to create and configure older Azure resources that support the classic deployment model. You cannot use it to create or configure resources that only support Resource Manager. 
+- **[Azure preview portal](https://azure.microsoft.com/overview/preview-portal/):** If you're using a newer Azure resource, you've likely used this portal. It can be used to create and configure some Azure resources. You'll eventually be able to create and configure all Azure resources with it. For some resources that support both deployment models, this portal can be used to create and configure a resource using either deployment model. 
 
-Algunos recursos y características solo se pueden crear y configurar en un portal o en el otro. Algunos recursos o características (todavía) no se pueden crear ni configurar en ninguno de los portales, solo pueden configurarse con PowerShell, la CLI o ambos. La documentación sobre cada recurso de Azure describe detalladamente el método con el que se puede crear.
+Some resources and features can only be created and configured in one portal or the other. Some resources or features can't (yet) be created or configured in either portal, and can only be configured with PowerShell, the CLI, or both. The documentation for each Azure resource details which method it can be created with. 
 
-## PowerShell
-Con [PowerShell](powershell-install-configure.md) puede usar una línea de comandos o crear scripts para crear y configurar recursos de Azure desde un equipo Windows. Cada uno de los recursos de Azure tiene [cmdlets del Administrador de recursos](https://msdn.microsoft.com/library/azure/mt125356.aspx), [cmdlets de administración de servicios](https://msdn.microsoft.com/library/azure/dn708504.aspx) o ambos. Algunos recursos y características solo se pueden crear y configurar con PowerShell o la CLI. Según el recurso, al usar cmdlets de PowerShell del Administrador de recursos puede tener dos opciones para crear y configurar recursos de Azure:
+## <a name="powershell"></a>PowerShell
+With [PowerShell](powershell-install-configure.md) you can use a command line or author scripts to create and configure Azure resources from a Windows computer.  Individual Azure resources have [Resource Manager cmdlets](https://msdn.microsoft.com/library/azure/mt125356.aspx), [Service Management cmdlets](https://msdn.microsoft.com/library/azure/dn708504.aspx), or both.  Some resources and features can only be created and/or configured using PowerShell or the CLI. Depending on the resource, when using Resource Manager PowerShell cmdlets you may have two options for creating and configuring Azure resources:
 
-- **Solo cmdlets de PowerShell:** puede crear y configurar cada recurso de Azure individualmente con los cmdlets para cada recurso. Puede hacerlo desde una línea de comandos o mediante la inclusión de varios comandos en un script de PowerShell que puede almacenar y modificar para crear versiones.
+- **PowerShell cmdlets only:** You can create and configure each Azure resource individually using the cmdlets for each resource. You can do this from a command line, or by including multiple commands in a PowerShell script that you can store and version.
 
-- **Cmdlets de PowerShell con una plantilla del Administrador de recursos de Azure:** puede usar PowerShell para crear recursos de Azure con una plantilla del Administrador de recursos de Azure. Las plantillas se pueden guardar y modificar para crear versiones. Lea el artículo [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md) para obtener más información. Existen varias [plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) para soluciones comunes que también se pueden descargar y modificar.
+- **PowerShell cmdlets with an Azure Resource Manager template:** You can use PowerShell to create Azure resources using an Azure Resource Manager template. Templates can be saved and versioned. Learn more by reading the [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md) article. Several [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/) exist for common solutions that can be downloaded and modified too.
 
-## CLI
-Puede crear y configurar recursos de Azure desde equipos Windows, OS X o Linux mediante la CLI. Lea el artículo [Instalación de la CLI de Azure](xplat-cli-install.md) para instalar la CLI en el sistema operativo que prefiera. Como en el caso de PowerShell, existen distintos comandos que deben usarse en función de que se estén creando recursos con el modelo de implementación [Administrador de recursos](xplat-cli-azure-resource-manager.md) o [Clásico (administración de servicios)](./virtual-machines/virtual-machines-linux-classic-manage-visual-studio.md).
+## <a name="cli"></a>CLI
+You can create and configure Azure resources from Windows, OS X, or Linux computers using the CLI.  Read the [Install the Azure CLI](xplat-cli-install.md) article to install the CLI on your operating system of choice. Like PowerShell, there are different commands that must be used depending on whether you're creating resources using [Resource Manager](xplat-cli-azure-resource-manager.md) or the [Classic (Service Management)](./virtual-machines/virtual-machines-linux-classic-manage-visual-studio.md) deployment models.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-- Obtenga más información sobre el [Administrador de recursos de Azure](resource-group-overview.md).
-- Aprenda a [diseñar plantillas](best-practices-resource-manager-design-templates.md).
+- Learn more about [Resource Manager](resource-group-overview.md).
+- Understand how to [design templates](best-practices-resource-manager-design-templates.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

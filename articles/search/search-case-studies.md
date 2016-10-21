@@ -1,57 +1,58 @@
 <properties
-	pageTitle="Quién usa la Búsqueda de Azure: casos prácticos y testimonios de clientes | Microsoft Azure | Escenarios de usuario"
-	description="Casos prácticos e historias de clientes acerca de Búsqueda de Azure, un servicio de búsqueda hospedado en la nube en Microsoft Azure."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="jhubbard"
-	editor=""
+    pageTitle="Who's using Azure Search: case studies and customer stories | Microsoft Azure | User scenarios"
+    description="Case studies and customer stories about Azure Search, a hosted cloud search service on Microsoft Azure."
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="jhubbard"
+    editor=""
     tags="azure-portal"/>
 
 <tags
-	ms.service="search"
-	ms.devlang="NA"
-	ms.workload="search"
-	ms.topic="article" 
-	ms.tgt_pltfrm="na"
-	ms.date="08/29/2016"
-	ms.author="heidist"/>
-
-# Quién usa la Búsqueda de Azure: casos prácticos y testimonios de clientes
-
-Obtenga información sobre cómo las siguientes organizaciones desarrollaron sus negocios mediante la integración de la experiencia enriquecida de Búsqueda de Azure en sus aplicaciones en línea.
-
-##[autoTrader](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18596)
-
-autoTRADER.ca está avanzando hacia la creación de una infraestructura de TI basada en las capacidades de la plataforma como servicio (PaaS) de Microsoft Azure. La compañía comenzó a usar Azure para hospedar y proporcionar sus millones de imágenes. Ahora está moviendo su funcionalidad de búsqueda de aplicación a Azure y está preparada para migrar todas sus propiedades web a Azure. En consecuencia, la empresa está mejor preparada para mejorar los servicios y crear nuevas ofertas, a la vez que elimina la necesidad de administrar su propia infraestructura. [Más información...](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18596)
+    ms.service="search"
+    ms.devlang="NA"
+    ms.workload="search"
+    ms.topic="article" 
+    ms.tgt_pltfrm="na"
+    ms.date="08/29/2016"
+    ms.author="heidist"/>
 
 
-##[gjirafa](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18633)
+# <a name="who's-using-azure-search:-case-studies-and-customer-stories"></a>Who's using Azure Search: case studies and customer stories
 
-¿Cómo puede un motor de búsqueda pequeño para hablantes de albanés desafiar a los gigantes de la búsqueda actuales? Gracias a que entienden el idioma local, crean una experiencia de usuario enfocada y confían en la tecnología de búsqueda en la nube de Microsoft. [Más información...](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18633)
+Learn how the following organizations moved their businesses forward by integrating a rich Azure Search experience into their online applications.
 
+##<a name="[autotrader](https://customers.microsoft.com/pages/customerstory.aspx?recid=18596)"></a>[autoTrader](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18596)
 
-##[JLL](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18662)
-
-JLL (anteriormente Jones Lang LaSalle) desea cambiar la manera en que se diseñan y hospedan sus aplicaciones sacando partido de las ventajas de la nube. Con Microsoft Azure, JLL puede atender mejor a sus empleados y clientes, de manera más ágil y escalable, y puede centrarse en las soluciones en lugar de la infraestructura. [Más información...](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18662)
-
-##[XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667)
-
-Se trata de una historia clásica de una empresa tecnológica que acaba de empezar: los desarrolladores con una idea ven un mercado y quieren comenzar de inmediato. ¿El mercado? La interacción con los minoristas. ¿La idea? Unos servicios back-end para web y desarrollo de aplicaciones móviles a fin de reactivar una experiencia de comercios minoristas en declive. XOMNI usa Microsoft Azure a fin de implementar rápidamente una base de datos No SQL y un servicio de búsqueda de texto completo para que los clientes tengan ahora una plataforma escalable para el desarrollo de aplicaciones de software cliente que se integran con redes sociales y analizan datos para promover experiencias enriquecidas e interactivas de consumidores. [Más información...](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667)
+autoTRADER.ca is on the road to creating an IT infrastructure based on Microsoft Azure’s platform-as-a-service (PaaS) capabilities. The company started using Azure to host and serve its millions of images. It is now moving its application search functionality to Azure and is poised to migrate all its web properties to Azure. As a result, the company is better able to improve services and create new offerings—all while eliminating the need to manage its own infrastructure. [Learn more...](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18596)
 
 
-##[Medihoo](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19540)
+##<a name="[gjirafa](https://customers.microsoft.com/pages/customerstory.aspx?recid=18633)"></a>[gjirafa](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18633)
 
-Como nueva empresa con grandes planes para su sitio web de búsqueda de servicios sanitarios, Medihoo necesitaba unas capacidades de búsqueda rápidas y potentes que no necesitaran grandes inversiones en infraestructura nueva. La compañía decidió crear el sitio en la plataforma en la nube de Microsoft Azure, con la solución de Búsqueda de Azure, que ofrece un rendimiento rápido, funcionalidad completa, así como capacidades geoespaciales y compatibilidad en varios idiomas. Ahora pueden ayudar a todos los usuarios, especialmente expatriados y viajeros, a encontrar servicios sanitarios de gran calidad, independientemente del lugar del mundo en el que se encuentren. [Más información...](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19540)
+How does a small search engine for Albanian speakers take on today’s search giants? By understanding the local language, creating a targeted user experience, and relying on Microsoft cloud search technology. [Learn more...](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18633)
 
 
-##[Agente inmobiliario Weichert](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=21252)
+##<a name="[jll](https://customers.microsoft.com/pages/customerstory.aspx?recid=18662)"></a>[JLL](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18662)
 
-El agente inmobiliario Weichert se traslada a la nube y está dando un vuelco total al modo en que la empresa lleva sus negocios. La migración a Microsoft Azure permitió a la empresa reducir los costos operativos en un 60 por ciento después de decir que no a costosos hardware y software locales, modernizar por completo la solución de CRM con unas capacidades de búsqueda eficaces y facilitar nuevos y variados servicios de datos críticos para el futuro de la empresa. [Más información...](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=21252)
+JLL (formerly Jones Lang LaSalle) is looking to change the way its applications are designed and hosted by taking advantage of the cloud. Using Microsoft Azure, JLL can better serve its global workforce and customers in a more agile and scalable way, and it can focus on solutions instead of infrastructure. [Learn more...](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18662)
 
-##[Whattopedia.com](search-dev-case-study-whattopedia.md)
+##<a name="[xomni](https://customers.microsoft.com/pages/customerstory.aspx?recid=18667)"></a>[XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667)
 
-Obtenga información acerca de cómo una nueva empresa sueca creó un portal de información que conecta a los compradores con los distribuidores, a través de una experiencia muy importante de búsqueda de ámbito, similar a cómo los portales de viajes establecen correspondencias entre turistas y hoteles, restaurantes y opciones de entretenimiento en territorios no registrados..[Más información...](search-dev-case-study-whattopedia.md)
+It’s a classic tech startup story: developers with an idea see a market and want to jump. The market? Retail engagement. The idea? Back-end services for web and mobile application development to revive a flagging in-store retail experience. XOMNI used Microsoft Azure to rapidly implement a NoSQL database and a full-text search service, so customers now have a scalable platform for developing client software apps, integrating with social networks, and analyzing data to promote rich, interactive consumer experiences. [Learn more...](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667)
+
+
+##<a name="[medihoo](https://customers.microsoft.com/pages/customerstory.aspx?recid=19540)"></a>[Medihoo](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19540)
+
+As a startup with big plans for its healthcare search website, Medihoo needed fast, powerful search capabilities that didn’t require a heavy investment in new infrastructure. The company chose to build its site on the Microsoft Azure cloud platform, with the Azure Search solution, which offers fast performance, comprehensive functionality, and geospatial and support in multiple languages. They now can help everyone—especially expatriates and travelers—find high-quality healthcare no matter where in the world they are. [Learn more...](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19540)
+
+
+##<a name="[weichert-realtors](https://customers.microsoft.com/pages/customerstory.aspx?recid=21252)"></a>[Weichert Realtors](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=21252)
+
+Weichert Realtors is moving to the cloud—and it’s leading to a complete shift in how the company conducts its business. Migrating to Microsoft Azure has enabled the company to reduce operating costs by 60 percent after saying goodbye to expensive on-premises hardware and software, completely revamp its CRM solution with robust search capabilities, and opened up a variety of new data services critical to the future of the business. [Learn more...](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=21252)
+
+##<a name="[whattopedia.com](search-dev-case-study-whattopedia.md)"></a>[Whattopedia.com](search-dev-case-study-whattopedia.md)
+
+Learn how one Swedish start-up built an infomedia portal that connects shoppers with retailers through a highly-relevant, scoped-search experience, similar to how travel portals match tourists up with the hotels, restaurants, and entertainment when in uncharted territory.[Learn more...](search-dev-case-study-whattopedia.md)
 
 <!--Image References -- here for future reference. Had to -->
 [1]: ./media/search-case-studies/autotrader_m.png
@@ -61,4 +62,8 @@ Obtenga información acerca de cómo una nueva empresa sueca creó un portal de 
 [5]: ./media/search-case-studies/weichert_m.png
 [xomni]: ./media/search-case-studies/xomni_m.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
