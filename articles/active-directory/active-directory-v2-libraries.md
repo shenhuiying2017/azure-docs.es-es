@@ -20,7 +20,7 @@
 # Azure Active Directory (AD) v2.0 y bibliotecas de autenticación
 El punto de conexión v2.0 de Azure AD admite los protocolos OAuth 2.0 y OpenID Connect 1.0 estándar del sector. Una variedad de bibliotecas de Microsoft y de otros clientes pueden utilizarse con el punto de conexión v2.0.
 
-Al compilar una aplicación que utiliza el punto de conexión v2.0, se recomienda usar las bibliotecas que han escrito expertos en los protocolos que siguen una metodología de ciclo de vida de desarrollo de seguridad (SDL), [como el que cumple Microsoft]\[Microsoft-SDL]. Si decide codificar manualmente los protocolos, se recomienda seguir SDL y observar detenidamente las consideraciones de seguridad de las especificaciones de los estándares de cada uno de los protocolos.
+Al compilar una aplicación que utiliza el punto de conexión v2.0, se recomienda usar las bibliotecas que han escrito expertos en los protocolos que siguen una metodología de ciclo de vida de desarrollo de seguridad (SDL), [como el que cumple Microsoft](Microsoft-SDL). Si decide codificar manualmente los protocolos, se recomienda seguir SDL y observar detenidamente las consideraciones de seguridad de las especificaciones de los estándares de cada uno de los protocolos.
 
 ## Tipos de bibliotecas
 Hay dos tipos de bibliotecas que funcionan con la versión 2.0:
