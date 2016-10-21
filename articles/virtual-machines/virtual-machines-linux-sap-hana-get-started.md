@@ -260,7 +260,8 @@ Si hubiera un problema con la conexión RDP, pruebe a reiniciar (quizás fuera d
 
 Si el reinicio de xrdp mencionado antes no funciona, compruebe si hay un archivo .pid y quítelo:
 
-  Compruebe /var/run y busque xrdp.pid; quítelo y después vuelva a reiniciar.
+  Compruebe /var/run y busque xrdp.pid;   
+  quítelo y después vuelva a reiniciar.
 
 
 
