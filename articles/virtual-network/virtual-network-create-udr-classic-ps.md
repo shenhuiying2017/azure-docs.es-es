@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Control del enrutamiento y uso de aplicaciones virtuales mediante PowerShell en el modelo de implementación clásico | Microsoft Azure"
-   description="Obtenga información sobre cómo controlar el enrutamiento en redes virtuales mediante PowerShell en el modelo de implementación clásico"
+   pageTitle="Control routing and use virtual appliances using PowerShell in the classic deployment model | Microsoft Azure"
+   description="Learn how to control routing in VNets using PowerShell in the classic deployment model"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -17,97 +17,100 @@
    ms.date="02/02/2016"
    ms.author="jdial" />
 
-#Control del enrutamiento y uso de aplicaciones virtuales (clásico) mediante PowerShell
+
+#<a name="control-routing-and-use-virtual-appliances-(classic)-using-powershell"></a>Control routing and use virtual appliances (classic) using PowerShell
 
 [AZURE.INCLUDE [virtual-network-create-udr-classic-selectors-include.md](../../includes/virtual-network-create-udr-classic-selectors-include.md)]
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-Este artículo trata sobre el modelo de implementación clásico.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the classic deployment model.
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
-En los siguientes comandos de Azure PowerShell de ejemplo se presupone que ya se ha creado un entorno simple según el escenario anterior. Si desea ejecutar los comandos según aparecen en este documento, cree primero el entorno mostrado en la [creación de una red virtual (clásico) mediante PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md).
+The sample Azure PowerShell commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, create the environment shown in [create a VNet (classic) using PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## Creación de la ruta definida por el usuario para la subred front-end
-Para crear la tabla de rutas y la ruta necesaria para la subred front-end según el escenario anterior, siga estos pasos.
+## <a name="create-the-udr-for-the-front-end-subnet"></a>Create the UDR for the front end subnet
+To create the route table and route needed for the front end subnet based on the scenario above, follow the steps below.
 
-3. Ejecute el cmdlet **`New-AzureRouteTable`** para crear una tabla de rutas para la subred front-end.
+3. Run the **`New-AzureRouteTable`** cmdlet to create a route table for the front end subnet.
 
-		New-AzureRouteTable -Name UDR-FrontEnd `
-			-Location uswest `
-			-Label "Route table for front end subnet"
+        New-AzureRouteTable -Name UDR-FrontEnd `
+            -Location uswest `
+            -Label "Route table for front end subnet"
 
-	Salida:
+    Output:
 
-		Name         Location   Label                          
-		----         --------   -----                          
-		UDR-FrontEnd West US    Route table for front end subnet
+        Name         Location   Label                          
+        ----         --------   -----                          
+        UDR-FrontEnd West US    Route table for front end subnet
 
-4. Ejecute el cmdlet **`Set-AzureRoute`** para crear una ruta en la tabla de rutas creada anteriormente para enviar todo el tráfico destinado a la subred back-end (192.168.2.0/24) a la VM **FW1** (192.168.0.4).
-	
-		Get-AzureRouteTable UDR-FrontEnd `
-			|Set-AzureRoute -RouteName RouteToBackEnd -AddressPrefix 192.168.2.0/24 `
-			-NextHopType VirtualAppliance `
-			-NextHopIpAddress 192.168.0.4
+4. Run the **`Set-AzureRoute`** cmdlet to create a route in the route table created above to send all traffic destined to the back end subnet (192.168.2.0/24) to the **FW1** VM (192.168.0.4).
+    
+        Get-AzureRouteTable UDR-FrontEnd `
+            |Set-AzureRoute -RouteName RouteToBackEnd -AddressPrefix 192.168.2.0/24 `
+            -NextHopType VirtualAppliance `
+            -NextHopIpAddress 192.168.0.4
 
-	Salida:
+    Output:
 
-		Name     : UDR-FrontEnd
-		Location : West US
-		Label    : Route table for frontend subnet
-		Routes   : 
-		           Name                 Address Prefix    Next hop type        Next hop IP address
-		           ----                 --------------    -------------        -------------------
-		           RouteToBackEnd       192.168.2.0/24    VirtualAppliance     192.168.0.4  
+        Name     : UDR-FrontEnd
+        Location : West US
+        Label    : Route table for frontend subnet
+        Routes   : 
+                   Name                 Address Prefix    Next hop type        Next hop IP address
+                   ----                 --------------    -------------        -------------------
+                   RouteToBackEnd       192.168.2.0/24    VirtualAppliance     192.168.0.4  
 
-5. Ejecute el cmdlet **`Set-AzureSubnetRouteTable`** para asociar la tabla de rutas creada anteriormente a la subred **FrontEnd**.
+5. Run the **`Set-AzureSubnetRouteTable`** cmdlet to associate the route table created above with the **FrontEnd** subnet.
 
-		Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
-			-SubnetName FrontEnd `
-			-RouteTableName UDR-FrontEnd
+        Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
+            -SubnetName FrontEnd `
+            -RouteTableName UDR-FrontEnd
  
-## Creación de la ruta definida por el usuario para la subred back-end
-Para crear la tabla de rutas y la ruta necesaria para la subred back-end según el escenario anterior, siga estos pasos.
+## <a name="create-the-udr-for-the-back-end-subnet"></a>Create the UDR for the back end subnet
+To create the route table and route needed for the back end subnet based on the scenario above, follow the steps below.
 
-3. Ejecute el cmdlet **`New-AzureRouteTable`** para crear una tabla de rutas para la subred back-end.
+3. Run the **`New-AzureRouteTable`** cmdlet to create a route table for the back end subnet.
 
-		New-AzureRouteTable -Name UDR-BackEnd `
-			-Location uswest `
-			-Label "Route table for back end subnet"
+        New-AzureRouteTable -Name UDR-BackEnd `
+            -Location uswest `
+            -Label "Route table for back end subnet"
 
-4. Ejecute el cmdlet **`Set-AzureRoute`** para crear una ruta en la tabla de rutas creada anteriormente para enviar todo el tráfico destinado a la subred front-end (192.168.1.0/24) a la VM **FW1** (192.168.0.4).
+4. Run the **`Set-AzureRoute`** cmdlet to create a route in the route table created above to send all traffic destined to the front end subnet (192.168.1.0/24) to the **FW1** VM (192.168.0.4).
 
-		Get-AzureRouteTable UDR-BackEnd `
-			|Set-AzureRoute -RouteName RouteToFrontEnd -AddressPrefix 192.168.1.0/24 `
-			-NextHopType VirtualAppliance `
-			-NextHopIpAddress 192.168.0.4
+        Get-AzureRouteTable UDR-BackEnd `
+            |Set-AzureRoute -RouteName RouteToFrontEnd -AddressPrefix 192.168.1.0/24 `
+            -NextHopType VirtualAppliance `
+            -NextHopIpAddress 192.168.0.4
 
-5. Ejecute el cmdlet **`Set-AzureSubnetRouteTable`** para asociar la tabla de rutas creada anteriormente a la subred **BackEnd**.
+5. Run the **`Set-AzureSubnetRouteTable`** cmdlet to associate the route table created above with the **BackEnd** subnet.
 
-		Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
-			-SubnetName BackEnd `
-			-RouteTableName UDR-BackEnd
+        Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
+            -SubnetName BackEnd `
+            -RouteTableName UDR-BackEnd
 
-## Habilitar el reenvío IP en la VM FW1
-Para habilitar el reenvío IP en la VM FW1, siga estos pasos.
+## <a name="enable-ip-forwarding-on-the-fw1-vm"></a>Enable IP forwarding on the FW1 VM
+To enable IP forwarding in the FW1 VM, follow the steps below.
 
-1. Ejecute el cmdlet **`Get-AzureIPForwarding`** para comprobar el estado del reenvío IP.
+1. Run the **`Get-AzureIPForwarding`** cmdlet to chec the status of IP forwarding
 
-		Get-AzureVM -Name FW1 -ServiceName TestRGFW `
-			| Get-AzureIPForwarding
+        Get-AzureVM -Name FW1 -ServiceName TestRGFW `
+            | Get-AzureIPForwarding
 
-	Salida:
+    Output:
 
-		Disabled
+        Disabled
 
-2. Ejecute el comando **`Set-AzureIPForwarding`** para habilitar el reenvío IP para la VM *FW1*.
+2. Run the **`Set-AzureIPForwarding`** command to enable IP forwarding for the *FW1* VM.
 
-		Get-AzureVM -Name FW1 -ServiceName TestRGFW `
-			| Set-AzureIPForwarding -Enable
+        Get-AzureVM -Name FW1 -ServiceName TestRGFW `
+            | Set-AzureIPForwarding -Enable
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

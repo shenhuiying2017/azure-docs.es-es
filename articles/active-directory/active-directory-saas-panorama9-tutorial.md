@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Integración de Azure Active Directory con Panorama9 | Microsoft Azure" 
-    description="Aprenda cómo usar Panorama9 con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    pageTitle="Tutorial: Azure Active Directory integration with Panorama9 | Microsoft Azure" 
+    description="Learn how to use Panorama9 with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,142 +11,150 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/08/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Tutorial: Integración de Azure Active Directory con Panorama9
+
+#<a name="tutorial:-azure-active-directory-integration-with-panorama9"></a>Tutorial: Azure Active Directory integration with Panorama9
   
-El objetivo de este tutorial es mostrar la integración de Azure y Panorama9. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+The objective of this tutorial is to show the integration of Azure and Panorama9.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Una suscripción de Azure válida
--   Una suscripción habilitada para el inicio de sesión único en Panorama9
+-   A valid Azure subscription
+-   A Panorama9 single sign-on enabled subscription
   
-Después de completar este tutorial, los usuarios de Azure AD asignados a Panorama9 podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía Panorama9 (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to Panorama9 will be able to single sign into the application at your Panorama9 company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-La situación descrita en este tutorial consta de los siguientes bloques de creación:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Habilitación de la integración de aplicaciones en Panorama9
-2.  Configuración del inicio de sesión único
-3.  Configuración del aprovisionamiento de usuario
-4.  Asignación de usuarios
+1.  Enabling the application integration for Panorama9
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Escenario](./media/active-directory-saas-panorama9-tutorial/IC790016.png "Escenario")
-##Habilitación de la integración de aplicaciones en Panorama9
+![Scenario](./media/active-directory-saas-panorama9-tutorial/IC790016.png "Scenario")
+##<a name="enabling-the-application-integration-for-panorama9"></a>Enabling the application integration for Panorama9
   
-El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para Panorama9.
+The objective of this section is to outline how to enable the application integration for Panorama9.
 
-###Siga estos pasos para habilitar la integración de aplicaciones para Panorama9:
+###<a name="to-enable-the-application-integration-for-panorama9,-perform-the-following-steps:"></a>To enable the application integration for Panorama9, perform the following steps:
 
-1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-panorama9-tutorial/IC700993.png "Active Directory")
 
-2.  En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Aplicaciones](./media/active-directory-saas-panorama9-tutorial/IC700994.png "Aplicaciones")
+    ![Applications](./media/active-directory-saas-panorama9-tutorial/IC700994.png "Applications")
 
-4.  Haga clic en **Agregar** en la parte inferior de la página.
+4.  Click **Add** at the bottom of the page.
 
-    ![Agregar aplicación](./media/active-directory-saas-panorama9-tutorial/IC749321.png "Agregar aplicación")
+    ![Add application](./media/active-directory-saas-panorama9-tutorial/IC749321.png "Add application")
 
-5.  En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Agregar una aplicación de la galería](./media/active-directory-saas-panorama9-tutorial/IC749322.png "Agregar una aplicación de la galería")
+    ![Add an application from gallerry](./media/active-directory-saas-panorama9-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  En el **cuadro de búsqueda**, escriba **Panorama9**.
+6.  In the **search box**, type **Panorama9**.
 
-    ![Galería de aplicaciones](./media/active-directory-saas-panorama9-tutorial/IC790017.png "Galería de aplicaciones")
+    ![Application Gallery](./media/active-directory-saas-panorama9-tutorial/IC790017.png "Application Gallery")
 
-7.  En el panel de resultados, seleccione **Panorama9** y luego haga clic en **Completar** para agregar la aplicación.
+7.  In the results pane, select **Panorama9**, and then click **Complete** to add the application.
 
     ![Panorama9](./media/active-directory-saas-panorama9-tutorial/IC790018.png "Panorama9")
-##Configuración del inicio de sesión único
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Panorama9 con su cuenta de Azure AD usando el protocolo SAML basado en la federación. La configuración de un inicio de sesión único para Panorama9 requiere la recuperación de un valor de huella digital de un certificado. Si no está familiarizado con este procedimiento, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
+The objective of this section is to outline how to enable users to authenticate to Panorama9 with their account in Azure AD using federation based on the SAML protocol.  
+Configuring single sign-on for Panorama9 requires you to retrieve a thumbprint value from a certificate.  
+If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
-###Siga estos pasos para configurar el inicio de sesión único:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Panorama9**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  In the Azure classic portal, on the **Panorama9** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-panorama9-tutorial/IC790019.png "Configurar inicio de sesión único")
+    ![Configure Single Sign-On](./media/active-directory-saas-panorama9-tutorial/IC790019.png "Configure Single Sign-On")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en Panorama9?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
+2.  On the **How would you like users to sign on to Panorama9** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-panorama9-tutorial/IC790020.png "Configurar inicio de sesión único")
+    ![Configure Single Sign-On](./media/active-directory-saas-panorama9-tutorial/IC790020.png "Configure Single Sign-On")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Panorama9**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en Panorama9 (por ejemplo: "*https://dashboard.panorama9.com/saml/access/3262*") y, luego, haga clic en **Siguiente**.
+3.  On the **Configure App URL** page, in the **Panorama9 Sign On URL** textbox, type your URL used by your users to sign in to Panorama9 (e.g.: “*https://dashboard.panorama9.com/saml/access/3262*"), and then click **Next**.
 
-    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-panorama9-tutorial/IC790021.png "Configurar dirección URL de la aplicación")
+    ![Configure App URL](./media/active-directory-saas-panorama9-tutorial/IC790021.png "Configure App URL")
 
-4.  En la página **Configurar inicio de sesión único en Panorama9**, para descargar el certificado, haga clic en **Descargar certificado** y, a continuación, guárdelo en el equipo.
+4.  On the **Configure single sign-on at Panorama9** page, to download your certificate, click **Download certificate**, and then save it locally on your computer.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-panorama9-tutorial/IC790022.png "Configurar inicio de sesión único")
+    ![Configure Single Sign-On](./media/active-directory-saas-panorama9-tutorial/IC790022.png "Configure Single Sign-On")
 
-5.  En otra ventana del explorador web, inicie sesión en el sitio de la compañía Panorama9 como administrador.
+5.  In a different web browser window, log into your Panorama9 company site as an administrator.
 
-6.  En la barra de herramientas de la parte superior, haga clic en **Administrar**y luego en **Extensiones**.
+6.  In the toolbar on the top, click **Manage**, and then click **Extensions**.
 
-    ![Extensiones](./media/active-directory-saas-panorama9-tutorial/IC790023.png "Extensiones")
+    ![Extensions](./media/active-directory-saas-panorama9-tutorial/IC790023.png "Extensions")
 
-7.  En el cuadro de diálogo **Extensiones**, haga clic en **Inicio de sesión único**.
+7.  On the **Extensions** dialog, click **Single Sign-On**.
 
-    ![Inicio de sesión único](./media/active-directory-saas-panorama9-tutorial/IC790024.png "Inicio de sesión único")
+    ![Single Sign-On](./media/active-directory-saas-panorama9-tutorial/IC790024.png "Single Sign-On")
 
-8.  En la sección **Configuración**, lleve a cabo estos pasos:
+8.  In the **Settings** section, perform the following steps:
 
     ![Settings](./media/active-directory-saas-panorama9-tutorial/IC790025.png "Settings")
 
-    1.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Panorama9**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Dirección URL del proveedor de identidades**.
-    2.  Copie el valor de **Huella digital** del certificado exportado y péguelo en el cuadro de texto **Huella digital del certificado**.
+    1.  In the Azure classic portal, on the **Configure single sign-on at Panorama9** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **Identity provider URL** textbox.
+    2.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Certificate fingerprint** textbox.  
 
-        >[AZURE.TIP]Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
+        >[AZURE.TIP]For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
 
-    3.  Haga clic en **Guardar**.
+    3.  Click **Save**.
 
-9.  En el Portal de Azure AD clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  On the Azure AD classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-panorama9-tutorial/IC790026.png "Configurar inicio de sesión único")
-##Configuración del aprovisionamiento de usuario
+    ![Configure Single Sign-On](./media/active-directory-saas-panorama9-tutorial/IC790026.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Para permitir que los usuarios de Azure AD inicien sesión en Panorama9, deben aprovisionarse en Panorama9. En el caso de Panorama9, el aprovisionamiento es una tarea manual.
+In order to enable Azure AD users to log into Panorama9, they must be provisioned into Panorama9.  
+In the case of Panorama9, provisioning is a manual task.
 
-###Siga estos pasos para configurar el aprovisionamiento de usuario:
+###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-1.  Inicie sesión en el sitio de la compañía **Panorama9** como administrador.
+1.  Log in to your **Panorama9** company site as an administrator.
 
-2.  En el menú en la parte superior, haga clic en **Administrar** y luego haga clic en **Usuarios**.
+2.  In the menu on the top, click **Manage**, and then click **Users**.
 
-    ![Usuarios](./media/active-directory-saas-panorama9-tutorial/IC790027.png "Usuarios")
+    ![Users](./media/active-directory-saas-panorama9-tutorial/IC790027.png "Users")
 
-3.  Haga clic en **+**.
+3.  Click **+**.
 
-4.  En la sección de datos del usuario, lleve a cabo estos pasos:
+4.  In the User data section, perform the following steps:
 
-    ![Usuarios](./media/active-directory-saas-panorama9-tutorial/IC790028.png "Usuarios")
+    ![Users](./media/active-directory-saas-panorama9-tutorial/IC790028.png "Users")
 
-    1.  En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de un usuario válido de Azure Active Directory que quiera aprovisionar.
-    2.  Haga clic en **Guardar**.
+    1.  In the **Email** textbox, type the email address of a valid Azure Active Directory user you want to provision.
+    2.  Click **Save**.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Panorama9 ofrecida por Panorama9 para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE]You can use any other Panorama9 user account creation tools or APIs provided by Panorama9 to provision AAD user accounts.
 
-##Asignación de usuarios
+##<a name="assigning-users"></a>Assigning users
   
-Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Para asignar usuarios a Panorama9, lleve a cabo los siguientes pasos:
+###<a name="to-assign-users-to-panorama9,-perform-the-following-steps:"></a>To assign users to Panorama9, perform the following steps:
 
-1.  En el Portal de Azure clásico, cree una cuenta de prueba.
+1.  In the Azure classic portal, create a test account.
 
-2.  En la página de integración de aplicaciones de **Panorama9**, haga clic en **Asignar usuarios**.
+2.  On the **Panorama9** application integration page, click **Assign users**.
 
-    ![Asignar usuarios](./media/active-directory-saas-panorama9-tutorial/IC790029.png "Asignar usuarios")
+    ![Assign Users](./media/active-directory-saas-panorama9-tutorial/IC790029.png "Assign Users")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sí](./media/active-directory-saas-panorama9-tutorial/IC767830.png "Sí")
+    ![Yes](./media/active-directory-saas-panorama9-tutorial/IC767830.png "Yes")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

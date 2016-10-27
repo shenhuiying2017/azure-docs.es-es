@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creación de una red virtual usando el portal de Azure | Microsoft Azure"
-   description="Obtenga información sobre cómo crear una red virtual usando el portal de Azure."
+   pageTitle="Create a virtual network using the Azure portal | Microsoft Azure"
+   description="Learn how to create a virtual network using the Azure portal."
    services="virtual-network"
    documentationCenter=""
    authors="jimdial"
@@ -17,15 +17,16 @@
    ms.date="03/15/2016"
    ms.author="jdial"/>
 
-# Creación de una red virtual (clásica) usando el portal de Azure
+
+# <a name="create-a-virtual-network-(classic)-by-using-the-azure-portal"></a>Create a virtual network (classic) by using the Azure portal
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este documento describe la creación de una red virtual mediante el modelo de implementación clásica. También puede [crear una red virtual con el modelo de implementación del Administrador de recursos mediante el portal de vista previa de Azure](virtual-networks-create-vnet-arm-pportal.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This document covers creating a VNet by using the classic deployment model. You can also [create a virtual network in the Resource Manager deployment model by using the Azure preview portal](virtual-networks-create-vnet-arm-pportal.md).
 
-Aprenderá a crear una red virtual desde el portal de Azure mediante la interfaz de usuario e implementando un archivo netcfg.
+You will learn to create a VNet from the Azure portal by using the UI, and by deploying a netcfg file.
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -33,4 +34,8 @@ Aprenderá a crear una red virtual desde el portal de Azure mediante la interfaz
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-classic-netcfg-portal-include](../../includes/virtual-networks-create-vnet-classic-netcfg-portal-include.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

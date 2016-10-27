@@ -1,73 +1,74 @@
 <properties
-	pageTitle="Azure Active Directory B2C | Microsoft Azure"
-	description="Creación de una aplicación web que tiene registro, inicio de sesión y administración de perfiles mediante Azure Active Directory B2C."
-	services="active-directory-b2c"
-	documentationCenter=".net"
-	authors="dstrockis"
-	manager="msmbaldwin"
-	editor=""/>
+    pageTitle="Azure Active Directory B2C | Microsoft Azure"
+    description="How to build a web application that has sign-in, sign-up, and profile management by using Azure Active Directory B2C."
+    services="active-directory-b2c"
+    documentationCenter=".net"
+    authors="dstrockis"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/22/2016"
-	ms.author="dastrock"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="07/22/2016"
+    ms.author="dastrock"/>
 
-# Azure AD B2C: creación de una aplicación web de .NET
+
+# <a name="azure-ad-b2c:-build-a-.net-web-app"></a>Azure AD B2C: Build a .NET web app
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
-Con Azure Active Directory (Azure AD) B2C, puede agregar eficaces características de administración de identidades de autoservicio a su aplicación web en unos cuantos pasos. En este artículo se muestra cómo crear una aplicación web de controlador de vista de modelos de .NET que incluya el registro, el inicio de sesión y la administración de perfiles de usuarios. La aplicación incluirá compatibilidad para el registro y el inicio de sesión mediante un nombre de usuario o correo electrónico, y mediante el uso de cuentas sociales como Facebook y Google.
+By using Azure Active Directory (Azure AD) B2C, you can add powerful self-service identity management features to your web app in a few short steps. This article will discuss how to create a .NET Model-View-Controller (MVC) web app that includes user sign-up, sign-in, and profile management. The app will include support for sign-up and sign-in by using a user name or email, and by using social accounts such as Facebook and Google.
 
-## Obtener un directorio de Azure AD B2C
+## <a name="get-an-azure-ad-b2c-directory"></a>Get an Azure AD B2C directory
 
-Para poder usar Azure AD B2C, debe crear un directorio o inquilino. Un directorio es un contenedor para todos los usuarios, las aplicaciones, los grupos, etc. Si aún no tiene uno, [cree un directorio B2C](active-directory-b2c-get-started.md) antes de continuar con esta guía.
+Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all of your users, apps, groups, and more.  If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue in this guide.
 
-## Creación de una aplicación
+## <a name="create-an-application"></a>Create an application
 
-A continuación, debe crear una aplicación en su directorio B2C. Esto proporciona a Azure AD la información que necesita para comunicarse de forma segura con la aplicación. Para crear una aplicación, siga [estas instrucciones](active-directory-b2c-app-registration.md). Asegúrese de:
+Next, you need to create an app in your B2C directory. This gives Azure AD information that it needs to securely communicate with your app. To create an app, follow [these instructions](active-directory-b2c-app-registration.md).  Be sure to:
 
-- Incluir una **aplicación web o una API web** en la aplicación.
-- Escriba `https://localhost:44316/` como **URI de redireccionamiento**. Es la dirección URL predeterminada para este ejemplo de código.
-- Escribir el **Id. de aplicación** asignado a la aplicación. Lo necesitará más adelante.
+- Include a **web app/web API** in the application.
+- Enter `https://localhost:44316/` as a **Redirect URI**. It is the default URL for this code sample.
+- Copy down the **Application ID** that is assigned to your app.  You will need it later.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## Crear sus directivas
+## <a name="create-your-policies"></a>Create your policies
 
-En Azure AD B2C, cada experiencia de usuario se define mediante una [directiva](active-directory-b2c-reference-policies.md). Este ejemplo de código contiene tres experiencias de identidad: registro, inicio de sesión y edición de perfil. Es preciso que cree una directiva de cada tipo, como se describe en el [artículo de referencia de las directivas](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).
+In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This code sample contains three identity experiences: sign up, sign in, and edit profile. You need to create one policy of each type, as described in the [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).
 
->[AZURE.NOTE] Azure AD B2C también admite una directiva de inicio de sesión o registro combinados que no se incluye en este tutorial. La directiva de inicio de sesión o registro se muestra en [este tutorial equivalente](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
+>[AZURE.NOTE] Azure AD B2C also supports a combined sign up or sign in policy which is not featured in this tutorial.  The sign up or sign in policy is shown in [this equivalent tutorial](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
 
-Cuando cree las tres directivas, asegúrese de:
+When you create the three policies, be sure to:
 
-- Elegir **User ID sign-up** (Registro de id. de usuario) o **Email sign-up** (Registro de correo electrónico) en la hoja de proveedores de identidades.
-- Elegir el **nombre para mostrar** y los restantes atributos de registro en la directiva de registro.
-- Elegir la notificación de **Nombre para mostrar** como una notificación de aplicación en cada directiva. Puede elegir también otras notificaciones.
-- Copiar el **Nombre** de cada directiva después de crearla. Necesitará esos nombres de directiva más adelante.
+- Choose **User ID sign-up** or **Email sign-up** in the identity providers blade.
+- Choose the **Display name** and other sign-up attributes in your sign-up policy.
+- Choose the **Display name** claim as an application claim in every policy. You can choose other claims as well.
+- Copy the **Name** of each policy after you create it. You'll need those policy names later.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Después de crear las tres directivas, está listo para compilar la aplicación.
+After you create your three policies, you're ready to build your app.  
 
-## Descargar el código y configurar la autenticación
+## <a name="download-the-code-and-configure-authentication"></a>Download the code and configure authentication
 
-El código de esta muestra [se conserva en GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet). Para generar el ejemplo a medida que avance, puede [descargar un proyecto de esqueleto como un archivo .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip). También puede clonar el esqueleto:
+The code for this sample [is maintained on GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet). To build the sample as you go, you can [download the skeleton project as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip). You can also clone the skeleton:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet.git
 ```
 
-La muestra completada también estará [disponible como archivo .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip) o en la rama `complete` del mismo repositorio.
+The completed sample is also [available as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip) or on the `complete` branch of the same repository.
 
-Una vez descargado el código de ejemplo, abra el archivo .sln de Visual Studio para empezar.
+After you download the sample code, open the Visual Studio .sln file to get started.
 
-Su aplicación se comunica con Azure AD B2C mediante el envío de solicitudes de autenticación HTTP que especifican la directiva que desea ejecutar como parte de la solicitud. En el caso de las aplicaciones web. NET, puede usar el middleware OWIN de Microsoft para enviar solicitudes de autenticación de OpenID Connect, ejecutar directivas, administrar sesiones de usuario, etc.
+Your app communicates with Azure AD B2C by sending authentication messages that specify the policy they want to execute as part of the HTTP request. For .NET web applications, you can use Microsoft's OWIN middleware to send OpenID Connect authentication requests, execute policies, manage user sessions, and more.
 
-Para comenzar, agregue los paquetes de NuGet de middleware OWIN al proyecto mediante la Consola del Administrador de paquetes de Visual Studio.
+To begin, add the OWIN middleware NuGet packages to the project by using the Visual Studio Package Manager Console.
 
 ```
 PM> Install-Package Microsoft.Owin.Security.OpenIdConnect
@@ -75,7 +76,7 @@ PM> Install-Package Microsoft.Owin.Security.Cookies
 PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
-Luego, abra el archivo `web.config` en la raíz del proyecto y escriba los valores de configuración de su aplicación en la sección `<appSettings>` reemplazando los valores existentes.
+Next, open the `web.config` file in the root of the project and enter your app's configuration values in the `<appSettings>` section, replacing the existing values.
 
 ```
 <configuration>
@@ -97,7 +98,7 @@ Luego, abra el archivo `web.config` en la raíz del proyecto y escriba los valor
 
 [AZURE.INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Ahora, agregue una clase de inicio de OWIN al proyecto llamado "`Startup.cs`". Haga clic con el botón derecho en el proyecto, seleccione **Agregar** y **Nuevo elemento**; después, busque "OWIN". **Asegúrese de cambiar la declaración de clase a `public partial class Startup`**. Hemos implementado parte de esta clase automáticamente en otro archivo. El middleware OWIN invocará el método `Configuration(...)` al iniciarse la aplicación. En este método, realice una llamada a `ConfigureAuth(...)`, donde se configura la autenticación para la aplicación.
+Next, add an OWIN startup class to the project called `Startup.cs`. Right-click on the project, select **Add** and **New Item**, and then Search for "OWIN." **Make sure to change the class declaration to `public partial class Startup`**. We implemented part of this class for you in another file. The OWIN middleware will invoke the `Configuration(...)` method when your app starts. In this method, make a call to `ConfigureAuth(...)`, where you set up authentication for your app.
 
 ```C#
 // Startup.cs
@@ -111,7 +112,7 @@ public partial class Startup
 }
 ```
 
-Abra el archivo `App_Start\Startup.Auth.cs` e implemente el método `ConfigureAuth(...)`. Los parámetros que proporciona en `OpenIdConnectAuthenticationOptions` sirven como coordenadas para que su aplicación se comunique con Azure AD. También debe configurar la autenticación de cookies. El middleware OpenID Connect usa cookies para mantener las sesiones de usuario, entre otras cosas.
+Open the file `App_Start\Startup.Auth.cs` and implement the `ConfigureAuth(...)` method.  The parameters you provide in `OpenIdConnectAuthenticationOptions` serve as coordinates for your app to communicate with Azure AD. You also need to set up cookie authentication. The OpenID Connect middleware uses cookies to maintain user sessions, among other things.
 
 ```C#
 // App_Start\Startup.Auth.cs
@@ -187,10 +188,10 @@ public partial class Startup
 }
 ```
 
-## Enviar solicitudes de autenticación a Azure AD
-Ahora la aplicación está correctamente configurada para comunicarse con Azure AD B2C mediante el protocolo de autenticación OpenID Connect. OWIN se ha ocupado de todos los detalles de la creación de mensajes de autenticación, validación de tokens de Azure AD y mantenimiento de la sesión de usuario. Todo lo que queda es iniciar cada flujo de usuarios.
+## <a name="send-authentication-requests-to-azure-ad"></a>Send authentication requests to Azure AD
+Your app is now properly configured to communicate with Azure AD B2C by using the OpenID Connect authentication protocol.  OWIN has taken care of all of the details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.  All that remains is to initiate each user's flow.
 
-Cuando un usuario selecciona **Registrarse**, **Iniciar sesión** o **Editar perfil** en la aplicación web, se invoca la acción asociada en `Controllers\AccountController.cs`. En cada caso, puede usar métodos integrados de OWIN para desencadenar la directiva correcta:
+When a user selects **Sign up**, **Sign in**, or **Edit profile** in the web app, the associated action is invoked in `Controllers\AccountController.cs`. In each case, you can use built-in OWIN methods to trigger the right policy:
 
 ```C#
 // Controllers\AccountController.cs
@@ -226,7 +227,7 @@ public void Profile()
 }
 ```
 
-También puede utilizar una etiqueta `[Authorize]` en los controladores, que requiere la ejecución de una directiva determinada si el usuario no ha iniciado sesión. Abra `Controllers\HomeController.cs` y agregue la etiqueta `[Authorize]` al controlador de notificaciones. OWIN seleccionará la última directiva configurada para ejecutarse cuando se invoca la etiqueta Authorize.
+You can also use an `[Authorize]` tag in your controllers that requires the execution of a certain policy if the user is not signed in. Open `Controllers\HomeController.cs` and add the `[Authorize]` tag to the claims controller.  OWIN will select the last policy configured to execute when the Authorize tag is invoked.
 
 ```C#
 // Controllers\HomeController.cs
@@ -238,7 +239,7 @@ public ActionResult Claims()
   ...
 ```
 
-También puede usar OWIN para cerrar la sesión del usuario de la aplicación. En `Controllers\AccountController.cs`:
+You can also use OWIN to sign out the user from the app. In `Controllers\AccountController.cs`:  
 
 ```C#
 // Controllers\AccountController.cs
@@ -255,10 +256,10 @@ public void SignOut()
 }
 ```
 
-## Mostrar información de usuario
-Cuando se autentican los usuarios mediante OpenID Connect, Azure AD devuelve un token de identificador a la aplicación que contiene **notificaciones**. Se trata de aserciones sobre el usuario. Puede usar notificaciones para personalizar su aplicación.
+## <a name="display-user-information"></a>Display user information
+When you authenticate users by using OpenID Connect, Azure AD returns an ID token to the app that contains **claims**. These are assertions about the user. You can use claims to personalize your app.  
 
-Abra el archivo `Controllers\HomeController.cs`. Puede acceder a las notificaciones del usuario en sus controladores a través del objeto principal de seguridad `ClaimsPrincipal.Current`.
+Open the `Controllers\HomeController.cs` file. You can access user claims in your controllers via the `ClaimsPrincipal.Current` security principal object.
 
 ```C#
 // Controllers\HomeController.cs
@@ -266,34 +267,34 @@ Abra el archivo `Controllers\HomeController.cs`. Puede acceder a las notificacio
 [Authorize]
 public ActionResult Claims()
 {
-	Claim displayName = ClaimsPrincipal.Current.FindFirst(ClaimsPrincipal.Current.Identities.First().NameClaimType);
-	ViewBag.DisplayName = displayName != null ? displayName.Value : string.Empty;
+    Claim displayName = ClaimsPrincipal.Current.FindFirst(ClaimsPrincipal.Current.Identities.First().NameClaimType);
+    ViewBag.DisplayName = displayName != null ? displayName.Value : string.Empty;
     return View();
 }
 ```
 
-Puede tener acceso a cualquier notificación que recibe su aplicación de la misma manera. Tiene disponible una lista de todas las notificaciones que recibe la aplicación en la página **Reclamaciones**.
+You can access any claim that your application receives in the same way.  A list of all the claims the app receives is available for you on the **Claims** page.
 
-## Ejecutar la aplicación de ejemplo
+## <a name="run-the-sample-app"></a>Run the sample app
 
-Por último, puede compilar y ejecutar la aplicación. Regístrese en la aplicación con una dirección de correo electrónico o un nombre de usuario. Cierre la sesión y vuelva a iniciarla como el mismo usuario. Edite el perfil de ese usuario. Cierre la sesión y regístrese como otro usuario. Observe que la información que se muestra en la pestaña **Reclamaciones** se corresponde con la información configurada en las directivas.
+Finally, you can build and run your app. Sign up for the app by using an email address or user name. Sign out and sign back in as the same user. Edit that user's profile. Sign out and sign up as a different user. Note that the information displayed on the **Claims** tab corresponds to the information that you configured on your policies.
 
-## Agregar IDP sociales
+## <a name="add-social-idps"></a>Add social IDPs
 
-Actualmente, la aplicación admite solo registros e inicios de sesión de usuarios mediante **cuentas locales**. Se trata de cuentas almacenadas en el directorio B2C que utilizan un nombre de usuario y una contraseña. Con Azure AD B2C, puede agregar compatibilidad con otros **proveedores de identidades** (IDP) sin cambiar el código.
+Currently, the app supports only user sign-up and sign-in by using **local accounts**. These are accounts stored in your B2C directory that use a user name and password. By using Azure AD B2C, you can add support for other **identity providers** (IDPs) without changing any of your code.
 
-Para agregar proveedores de identidades sociales a su aplicación, comience siguiendo las instrucciones detalladas en estos artículos. Para cada proveedor de identidades que desee admitir, necesitará registrar una aplicación en ese sistema y obtener un identificador de cliente.
+To add social IDPs to your app, begin by following the detailed instructions in these articles. For each IDP you want to support, you need to register an application in that system and obtain a client ID.
 
-- [Configurar Facebook como una IDP](active-directory-b2c-setup-fb-app.md)
-- [Configurar Google como una IDP](active-directory-b2c-setup-goog-app.md)
-- [Configurar Amazon como una IDP](active-directory-b2c-setup-amzn-app.md)
-- [Configurar LinkedIn como una IDP](active-directory-b2c-setup-li-app.md)
+- [Set up Facebook as an IDP](active-directory-b2c-setup-fb-app.md)
+- [Set up Google as an IDP](active-directory-b2c-setup-goog-app.md)
+- [Set up Amazon as an IDP](active-directory-b2c-setup-amzn-app.md)
+- [Set up LinkedIn as an IDP](active-directory-b2c-setup-li-app.md)
 
-Después de agregar los proveedores de identidades a su directorio B2C, tendrá que editar cada una de las tres directivas para incluir los nuevos proveedores de identidades, tal y como se describe en el [artículo de referencia de las directivas](active-directory-b2c-reference-policies.md). Después de guardar las directivas, vuelva a ejecutar la aplicación. Debería ver los proveedores de identidades nuevos agregados como opciones de inicio de sesión y registro en cada una de sus experiencias de identidad.
+After you add the identity providers to your B2C directory, you need to edit each of your three policies to include the new IDPs, as described in the [policy reference article](active-directory-b2c-reference-policies.md). After you save your policies, run the app again.  You should see the new IDPs added as sign-in and sign-up options in each of your identity experiences.
 
-Puede experimentar con las directivas y observar el efecto en la aplicación de ejemplo. Agregue o quite proveedores de identidades, manipule notificaciones de aplicación o cambie atributos de registro. Experimente para ver cómo se combinan las directivas, las solicitudes de autenticación y OWIN.
+You can experiment with your policies and observe the effect on your sample app. Add or remove IDPs, manipulate application claims, or change sign-up attributes. Experiment until you can see how policies, authentication requests, and OWIN tie together.
 
-Como referencia, se proporciona el ejemplo completado (sin sus valores de configuración) [en forma de archivo .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip). También puede clonarlo desde GitHub:
+For reference, the completed sample (without your configuration values) [is provided as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip). You can also clone it from GitHub:
 
 ```
 git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet.git
@@ -311,4 +312,8 @@ You can now move on to more advanced B2C topics. You might try:
 
 -->
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

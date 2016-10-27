@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Comparación de funcionalidades para administrar identidades externas con Azure Active Directory | Microsoft Azure"
-   description="Compara la colaboración B2B de Azure Active Directory, B2C y la aplicación multiinquilino para admitir la autenticación y autorización de identidades externas."
+   pageTitle="Comparing capabilities for managing external identities using Azure Active Directory | Microsoft Azure"
+   description="Compares Azure Active Directory B2B collaboration, B2C, and Multi-tenant App for supporting authentication and authorization for external identities"
    services="active-directory"
    documentationCenter="" 
    authors="arvindsuthar"
@@ -17,38 +17,43 @@
    ms.date="02/24/2016"
    ms.author="asuthar"/>
 
-# Comparación de funcionalidades para administrar identidades externas con Azure Active Directory
 
-Además de administrar el acceso de los recursos móviles a aplicaciones SaaS, Azure Active Directory (Azure AD) puede ayudar a su organización a compartir recursos con sus socios comerciales y entregar aplicaciones a las empresas y los consumidores.
+# <a name="comparing-capabilities-for-managing-external-identities-using-azure-active-directory"></a>Comparing capabilities for managing external identities using Azure Active Directory
 
-## Desarrollo de aplicaciones para empresas
+In addition to managing mobile workforce access to SaaS apps, Azure Active Directory (Azure AD) can help your organization share resources with business partners and deliver applications to businesses and consumers.
 
-¿Ofrece a las empresas algún servicio o aplicación como, por ejemplo, un servicio de nóminas? Azure AD proporciona la plataforma de identidad que le permite crear aplicaciones que se integran perfectamente con millones de organizaciones que ya han configurado Azure AD como parte de la implementación de Office 365 u otros servicios de empresa.
+## <a name="developing-applications-for-businesses"></a>Developing applications for businesses
 
-**Ejemplo:** un distribuidor farmacéutico proporciona suministros médicos y sistemas de información para el sector sanitario. Necesitaban implementar una aplicación de análisis para procedimientos médicos y querían que los clientes administrasen sus propias identidades. Esta compañía eligió Azure AD como la plataforma de identidad para su aplicación de administración de procedimientos, proporcionando identidades de Azure AD a sus clientes al suscribirse cuando era necesario. Para obtener más información, consulte la [Guía para desarrolladores de Azure Active Directory](active-directory-developers-guide.md).
+Do you provide a service or application, such as a payroll service, to businesses? Azure AD provides the identity platform that allows you to build applications that seamlessly integrate with millions of organizations that have already configured Azure AD as part of deploying Office 365 or other enterprise services.
 
-## Habilitación de acceso de socio comercial a los recursos corporativos
+**Example:** A pharmaceutical distributor provides medical supplies and information systems to the healthcare industry. They needed to field an analytics application to medical practices and wanted customers to manage their own identities. This company chose Azure AD as the identity platform for their practice management application, providing Azure AD identities to their customers at sign up when necessary. For more information, see [Azure Active Directory developer's guide](active-directory-developers-guide.md).
 
-¿Tiene socios comerciales u otros usuarios fuera de la compañía que necesitan acceso a los recursos de la empresa como un sitio de SharePoint o el sistema ERP? Azure AD permite que los administradores concedan a los usuarios externos (que pueden o no existir en Azure AD) acceso de inicio de sesión único a aplicaciones corporativas. Esto mejora la seguridad ya que los usuarios pierden el acceso cuando abandonan la organización del asociado, al tiempo que usted sigue controlando las directivas de acceso dentro de su organización. Esto también simplifica la administración ya que no necesita administrar un directorio de socios externos ni relaciones de federación por socio.
+## <a name="enabling-business-partner-access-to-your-corporate-resources"></a>Enabling business partner access to your corporate resources
 
-**Ejemplo:** una empresa de creación de imágenes proporciona a los distribuidores servicios de creación de imágenes fotográficas y dirige la red comercial más grande de quioscos de impresión. Eligieron Azure AD para permitir que miles de usuarios de sus socios comerciales de distribución usaran sus propias credenciales para descargar los materiales de marketing comercial más recientes y reorganizar los suministros de procesamiento fotográfico desde la extranet del proveedor de la compañía. Para obtener más información, consulte [Colaboración B2B de Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md).
+Do you have business partners or others outside your company who need to access your enterprise resources, such as a SharePoint site or your ERP system? Azure AD enables admins to grant external users (who may or may not exist in Azure AD) single sign on access to corporate applications. This improves security as users lose access when they leave the partner organization, while you control access policies within your organization. This also simplifies administration as you don’t need to manage an external partner directory or per partner federation relationships.
 
-## Desarrollo de aplicaciones para consumidores
+**Example:** An imaging company provides retailers with photo imaging services and operates the largest retail network of printing kiosks. They chose Azure AD to enable thousands of users at their retail business partners to use their own credentials to download the latest partner marketing materials and reorder photo processing supplies from the company’s supplier extranet. For more information, see [Azure AD B2B collaboration](active-directory-b2b-what-is-azure-ad-b2b.md).
 
-¿Necesita publicar de manera segura y rentable aplicaciones en línea como, por ejemplo, una interfaz de tienda, para millones de consumidores? Azure AD proporciona una plataforma que permite el inicio de sesión a través de redes sociales, así como el inicio de sesión con usuario y contraseña, el registro de autoservicio de marca y el autoservicio de restablecimiento de contraseña para los consumidores de la aplicación. Esto aumenta la comodidad para los consumidores al tiempo que reduce la carga de trabajo de sus desarrolladores.
+## <a name="developing-applications-for-consumers"></a>Developing applications for consumers
 
-**Ejemplo:** la principal franquicia de deportes del mundo necesitaba relacionarse directamente con sus 450 millones de aficionados. Para ello, crearon una aplicación móvil con Azure AD para la autenticación y almacenamiento de perfiles de usuario. Los aficionados tienen un registro y un inicio de sesión simplificado mediante el empleo de cuentas sociales como Facebook, o bien pueden usar el método tradicional con nombre de usuario y contraseña para poder disfrutar de una experiencia de conexión directa desde teléfonos iOS, Android y Windows. La creación de la plataforma de Azure AD establecida redujo considerablemente el código personalizado al tiempo que proporcionaba a la franquicia una experiencia de marca personalizada y redujo la preocupación sobre seguridad, infracciones de datos y escalabilidad. Para obtener más información, consulte [B2C de Azure AD](https://azure.microsoft.com/documentation/services/active-directory-b2c/).
+Do you need to securely and cost-effectively publish online applications, such as a retail store front, to millions of consumers? Azure AD provides a platform enabling social as well as username/password sign-in, branded self-service sign up, and self-service password reset for consumers of your application. This increases convenience for your consumers while reducing load on your developers.
 
-## Comparación de funcionalidades de Azure AD
+**Example:** The \#1 sports franchise in the world needed to directly engage with its 450 million fans. To do this, they built a mobile app using Azure AD for user authentication and profile storage. Fans get simplified registration and sign-in through use of social accounts like Facebook, or they can use traditional username/passwords for a seamless experience across iOS, Android, and Windows phones. Building on the established Azure AD platform significantly reduced custom code while giving the franchise customized branding and alleviating concerns about security, data breaches, and scalability. For more information, see [Azure AD B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/).
 
-Cada uno de los escenarios que ya se han descrito en este artículo pueden resolverse con funcionalidades de Azure AD. Esta tabla le ayudará a aclarar las funcionalidades más relevantes para usted:
+## <a name="comparison-of-azure-ad-capabilities"></a>Comparison of Azure AD capabilities
 
-| **Tenga presente este producto...** | [Aplicación SaaS multiempresa de Azure AD](active-directory-developers-guide.md) | [Colaboración B2B de Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md) | [Azure AD B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/) |
+Each of the scenarios already discussed in this article is addressed by capabilities within Azure AD. This table should help clarify which capabilities are most relevant to you:
+
+| **Consider this product...**       | [Azure AD multi-tenant SaaS app](active-directory-developers-guide.md)    | [Azure AD B2B collaboration](active-directory-b2b-what-is-azure-ad-b2b.md)        | [Azure AD B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)                |
 |-----------------------|-------------------------|----------------------------|------------------------|
-| **Si tengo que proporcionar...** | un servicio para empresas | acceso de socio a mis aplicaciones | un servicio para consumidores |
-| **Y mi empresa se parece a...** | Un distribuidor farmacéutico | Una empresa de creación de imágenes | Una franquicia de deportes |
-| **Que implementa una aplicación para...** | Administrar procedimientos | La extranet del proveedor | Aficionados al fútbol |
-| **Dirigida a...** | Consultorios médicos | Socios comerciales aprobados | Cualquier persona con correo electrónico |
-| **Accesible cuando...** | El administrador del cliente da su consentimiento | Mi administrador le invita | El cliente se registra |
+| **If I need to provide...** | a service to businesses | partner access to my apps  | a service to consumers |
+| **And I am similar to...**  | Pharma distributor      | Imaging company            | Sports franchise       |
+| **Deploying an app for...**  | Practice management     | Supplier extranet          | Soccer fans            |
+| **Targeting...**        | Doctor’s offices        | Approved business partners | Anyone with email      |
+| **Accessible when...**      | Customer admin consents | My admin invites           | The consumer signs up      |
 
-<!---HONumber=AcomDC_0224_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,13 +1,15 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Para salir del modo de mantenimiento
+#### <a name="to-exit-maintenance-mode"></a>To exit Maintenance mode
 
-1. En el símbolo del sistema, escriba:
+1. At the command prompt type:
 
      `Exit-HcsMaintenanceMode`
 
-2. Aparecerán un mensaje de advertencia y un mensaje de confirmación. Escriba **Y** para salir del modo de mantenimiento.
+2. A warning message and a confirmation message will appear. Type **Y** to exit Maintenance mode.
 
-    Ambos controladores se reiniciarán. Una vez completado el reinicio, aparecerá otro mensaje que indica que el dispositivo está en modo normal.
+    Both controllers will restart. When the restart is complete, another message will appear indicating that the device is in Normal mode.
 
-<!---HONumber=Oct15_HO3-->
+<!--HONumber=Oct16_HO2-->
+
+

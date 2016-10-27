@@ -1,125 +1,126 @@
 <properties
-	pageTitle="Serialización de datos con Microsoft Avro Library | Microsoft Azure"
-	description="Obtenga información sobre cómo HDInsight de Azure usa Avro para serializar grandes volúmenes de datos."
-	services="hdinsight"
-	documentationCenter=""
-	tags="azure-portal"
-	authors="mumian" 
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Serialize data with the Microsoft Avro Library | Microsoft Azure"
+    description="Learn how Azure HDInsight uses Avro to serialize big data."
+    services="hdinsight"
+    documentationCenter=""
+    tags="azure-portal"
+    authors="mumian" 
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/14/2016"
-	ms.author="jgao"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/14/2016"
+    ms.author="jgao"/>
 
 
-# Serialización de datos en Hadoop con Microsoft Avro Library
 
-En este tema, se explica el uso de <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> para serializar objetos y otras estructuras de datos en secuencias con el fin de guardarlos en memoria, en una base de datos o en un archivo, y cómo deserializarlos para recuperar los objetos originales.
+# <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Serialize data in Hadoop with the Microsoft Avro Library
+
+This topic shows how to use the <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> to serialize objects and other data structures into streams in order to persist them to memory, a database, or a file, and also how to deserialize them to recover the original objects.
 
 [AZURE.INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
 
-##Apache Avro
-<a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> implementa el sistema de serialización de datos de Apache Avro para el entorno de Microsoft.NET. Apache Avro proporciona un formato compacto de intercambio de datos binarios para la serialización. Utiliza <a href="http://www.json.org" target="_blank">JSON</a> para definir un esquema independiente del lenguaje que garantiza la interoperabilidad de lenguajes. Los datos serializados en un lenguaje se pueden leer en otro. Actualmente, se admiten C, C++, C#, Java, PHP, Python y Ruby. Puede encontrar información detallada sobre el formato en la <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">especificación de Apache Avro</a>. Tenga en cuenta que la versión actual de Microsoft Avro Library no admite la parte de llamadas a procedimientos remotos (RPC) de esta especificación.
+##<a name="apache-avro"></a>Apache Avro
+The <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> implements the Apache Avro data serialization system for the Microsoft.NET environment. Apache Avro provides a compact binary data interchange format for serialization. It uses <a href="http://www.json.org" target="_blank">JSON</a> to define a language-agnostic schema that underwrites language interoperability. Data serialized in one language can be read in another. Currently C, C++, C#, Java, PHP, Python, and Ruby are supported. Detailed information on the format can be found in the <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">Apache Avro Specification</a>. Note that the current version of the Microsoft Avro Library does not support the remote procedure calls (RPCs) part of this specification.
 
-La representación serializada de un objeto en el sistema Avro consta de dos partes: el esquema y el valor real. El esquema de Avro describe el modelo de datos independiente del lenguaje de los datos serializados con JSON. Está presente en paralelo con una representación binaria de los datos. Tener el esquema aparte de la representación binaria permite escribir cada objeto sin sobrecargas por valor, lo que agiliza la serialización y reduce la representación.
+The serialized representation of an object in the Avro system consists of two parts: schema and actual value. The Avro schema describes the language-independent data model of the serialized data with JSON. It is present side-by-side with a binary representation of data. Having the schema separate from the binary representation permits each object to be written with no per-value overheads, making serialization fast and the representation small.
 
-##Escenario de Hadoop
-El formato de serialización de Apache Avro se utiliza de forma generalizada en HDIngisht de Azure y otros entornos de Apache Hadoop. Avro proporciona una forma práctica de representar estructuras de datos complejas dentro de un trabajo MapReduce de Hadoop. El formato de los archivos de Avro (archivo contenedor de objetos Avro) está diseñado para admitir el modelo de programación distribuida de MapReduce. La característica clave que permite la distribución es que los archivos son "divisibles" en el sentido de que se puede buscar cualquier punto en un archivo y comenzar a leer desde un bloque concreto.
+##<a name="the-hadoop-scenario"></a>The Hadoop scenario
+The Apache Avro serialization format is widely used in Azure HDInsight and other Apache Hadoop environments. Avro provides a convenient way to represent complex data structures within a Hadoop MapReduce job. The format of Avro files (Avro object container file) has been designed to support the distributed MapReduce programming model. The key feature that enables the distribution is that the files are “splittable” in the sense that one can seek any point in a file and start reading from a particular block.
 
-##Serialización de Avro Library
-La biblioteca de .NET para Avro admite dos formas de serialización de objetos:
+##<a name="serialization-in-avro-library"></a>Serialization in Avro Library
+The .NET Library for Avro supports two ways of serializing objects:
 
-- **reflexión**: el esquema JSON para los tipos se compila automáticamente a partir de los atributos del contrato de datos de los tipos .NET que se van a serializar.
-- **registro genérico**: el esquema JSON se especifica de forma explícita en un registro representado por la clase [**AvroRecord**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) cuando no hay tipos .NET para describir el esquema de los datos que se van a serializar.
+- **reflection** - The JSON schema for the types is automatically built from the data contract attributes of the .NET types to be serialized.
+- **generic record** - A JSON schema is explicitly specified in a record represented by the [**AvroRecord**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) class when no .NET types are present to describe the schema for the data to be serialized.
 
-Cuando tanto el escritor como el lector de la secuencia conocen el esquema de los datos, se pueden enviar los datos sin el esquema. En aquellos casos en los que se utiliza el archivo contenedor de objetos Avro, el esquema se almacena en el archivo. Se pueden especificar otros parámetros, como el códec utilizado para la compresión de datos. Estos escenarios se explican e ilustran con más detalle en los ejemplos de código siguientes.
+When the data schema is known to both the writer and reader of the stream, the data can be sent without its schema. In cases when an Avro object container file is used, the schema is stored within the file. Other parameters, such as the codec used for data compression, can be specified. These scenarios are outlined in more detail and illustrated in the code examples below.
 
 
-## Instalación de Avro Library
+## <a name="install-avro-library"></a>Install Avro Library
 
-Antes de instalar la biblioteca necesitará lo siguiente:
+The following are required before you install the library:
 
 - <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
-- <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (v5.6.0.4 o posterior)
+- <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 or later)
 
-Tenga en cuenta que la dependencia de Newtonsoft.Json.dll se descarga automáticamente con la instalación de Microsoft Avro Library. En la sección siguiente se detalla el procedimiento para ello.
-
-
-Microsoft Avro Library se distribuye como un paquete de NuGet que se puede instalar desde Visual Studio mediante el siguiente procedimiento:
-
-1. Elija la pestaña **Proyecto** -> **Administrar paquetes de NuGet...**
-2. Busque "Microsoft.Hadoop.Avro" en el cuadro **Búsqueda en línea**.
-3. Haga clic en el botón **Instalar** junto a **Microsoft Azure HDInsight Avro Library**.
-
-Tenga en cuenta que la dependencia de Newtonsoft.Json.dll (>= .6.0.4) se descarga también automáticamente con Microsoft Avro Library.
-
-Puede que desee visitar la <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">página principal de Microsoft Avro Library</a> para leer las notas de la versión actual.
+Note that the Newtonsoft.Json.dll dependency is downloaded automatically with the installation of the Microsoft Avro Library. The procedure for this is provided in the following section.
 
 
-El código fuente de Microsoft Avro Library está disponible en la <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">página principal de Microsoft Avro Library</a>.
+The Microsoft Avro Library is distributed as a NuGet package that can be installed from Visual Studio via the following procedure:
 
-##Compilación de esquemas con Avro Library
+1. Select the **Project** tab -> **Manage NuGet Packages...**
+2. Search for "Microsoft.Hadoop.Avro" in the **Search Online** box.
+3. Click the **Install** button next to **Microsoft Azure HDInsight Avro Library**.
 
-Microsoft Avro Library contiene una utilidad de generación de código que permite la creación de tipos de C# automáticamente en función del esquema JSON previamente definido. La utilidad de generación de código no se distribuye como un ejecutable binario, pero se puede compilar fácilmente mediante el siguiente procedimiento:
+Note that the Newtonsoft.Json.dll (>=6.0.4) dependency is also downloaded automatically with the Microsoft Avro Library.
 
-1. Descargue el archivo ZIP con la versión más reciente del código fuente del SDK de HDInsight desde <a href="http://hadoopsdk.codeplex.com/SourceControl/latest#" target="_blank">Microsoft .NET SDK para Hadoop</a>. (Haga clic en el icono de **Descargar**, no en la pestaña **Descargas**).
-
-2. Extraiga el SDK de HDInsight en un directorio que se encuentre en el equipo que tiene .NET Framework 4 instalado y conectado a Internet para descargar los paquetes de NuGet de dependencias necesarios. Supongamos que el código fuente se ha extraído en C:\\SDK.
-
-3. Vaya a la carpeta C:\\SDK\\src\\Microsoft.Hadoop.Avro.Tools y ejecute build.bat. (El archivo llamará a MS Build desde la distribución de 32 bits de .NET Framework. Si desea utilizar una versión de 64 bits, edite build.bat siguiendo los comentarios que se encuentran dentro del archivo). Asegúrese de que la compilación se haya realizado correctamente. (En algunos sistemas, MSBuild puede producir advertencias. Estas advertencias no afectan a la utilidad siempre que no haya ningún error de compilación).
-
-4. La utilidad compilada se encuentra en C:\\SDK\\Bin\\Unsigned\\Release\\Microsoft.Hadoop.Avro.Tools.
+You may want to visit the <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library home page</a> to read the current release notes.
 
 
-Para familiarizarse con la sintaxis de la línea de comandos, ejecute el comando siguiente desde la carpeta en donde se encuentra la utilidad de generación de código: `Microsoft.Hadoop.Avro.Tools help /c:codegen`
+The Microsoft Avro Library source code is available at the <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library home page</a>.
 
-Para probar la utilidad, puede generar clases de C# a partir del archivo de esquema JSON de muestra proporcionado con el código fuente. Ejecute el comando siguiente:
+##<a name="compile-schemas-using-avro-library"></a>Compile schemas using Avro Library
 
-	Microsoft.Hadoop.Avro.Tools codegen /i:C:\SDK\src\Microsoft.Hadoop.Avro.Tools\SampleJSON\SampleJSONSchema.avsc /o:
+The Microsoft Avro Library contains a code generation utility that allows creating C# types automatically based on the previously defined JSON schema. The code generation utility is not distributed as a binary executable, but can be easily built via the following procedure:
 
-Se supone que va a producir dos archivos C# en el directorio actual: SensorData.cs y Location.cs.
+1. Download the .zip file with the latest version of HDInsight SDK source code from <a href="http://hadoopsdk.codeplex.com/SourceControl/latest#" target="_blank">Microsoft .NET SDK For Hadoop</a>. (Click the **Download** icon, not the **Downloads** tab.)
 
-Para comprender la lógica que está utilizando la utilidad de generación de código mientras convierte el esquema JSON en tipos de C#, consulte el archivo GenerationVerification.feature que se encuentra en C:\\SDK\\src\\Microsoft.Hadoop.Avro.Tools\\Doc.
+2. Extract the HDInsight SDK to a directory on the machine with .NET Framework 4 installed and connected to the Internet for downloading necessary dependency NuGet packages. Below we will assume that the source code is extracted to C:\SDK.
 
-Tenga en cuenta que los espacios de nombres se extraen del esquema JSON mediante la lógica descrita en el archivo mencionado en el párrafo anterior. Los espacios de nombres extraídos del esquema tienen prioridad sobre lo que se proporcione con el parámetro /n en la línea de comandos de la utilidad. Si desea reemplazar los espacios de nombres contenidos en el esquema, utilice el parámetro /nf. Por ejemplo, para cambiar todos los espacios de nombres de SampleJSONSchema.avsc a my.own.nspace, ejecute el comando siguiente:
+3. Go to the folder C:\SDK\src\Microsoft.Hadoop.Avro.Tools and run build.bat. (The file will call MSBuild from the 32-bit distribution of the .NET Framework. If you would like to use the 64-bit version, edit build.bat, following the comments inside the file.) Ensure that the build is successful. (On some systems, MSBuild may produce warnings. These warnings do not affect the utility as long as there are no build errors.)
+
+4. The compiled utility is located in C:\SDK\Bin\Unsigned\Release\Microsoft.Hadoop.Avro.Tools.
+
+
+To get familiar with the command-line syntax, execute the following command from the folder where the code generation utility is located: `Microsoft.Hadoop.Avro.Tools help /c:codegen`
+
+To test the utility, you can generate C# classes from the sample JSON schema file provided with the source code. Execute the following command:
+
+    Microsoft.Hadoop.Avro.Tools codegen /i:C:\SDK\src\Microsoft.Hadoop.Avro.Tools\SampleJSON\SampleJSONSchema.avsc /o:
+
+This is supposed to produce two C# files in the current directory: SensorData.cs and Location.cs.
+
+To understand the logic that the code generation utility is using while converting the JSON schema to C# types, see the file GenerationVerification.feature located in C:\SDK\src\Microsoft.Hadoop.Avro.Tools\Doc.
+
+Please note that namespaces are extracted from the JSON schema, using the logic described in the file mentioned in the previous paragraph. Namespaces extracted from the schema take precedence over whatever is provided with the /n parameter in the utility command line. If you want to override the namespaces contained within the schema, use the /nf parameter. For example, to change all namespaces from the SampleJSONSchema.avsc to my.own.nspace, execute the following command:
 
     Microsoft.Hadoop.Avro.Tools codegen /i:C:\SDK\src\Microsoft.Hadoop.Avro.Tools\SampleJSON\SampleJSONSchema.avsc /o:. /nf:my.own.nspace
 
-## Muestras
-En este tema se proporcionan seis ejemplos que ilustran escenarios diferentes admitidos por Microsoft Avro Library. Microsoft Avro Library está diseñada para funcionar con cualquier secuencia. En estos ejemplos, los datos se manipulan usando secuencias de memoria en lugar de secuencias de archivos o bases de datos por simplicidad y coherencia. El método que se elija en un entorno de producción dependerá de los requisitos exactos del escenario, el origen de datos y el volumen, restricciones de rendimiento y otros factores.
+## <a name="samples"></a>Samples
+Six examples provided in this topic illustrate different scenarios supported by the Microsoft Avro Library. The Microsoft Avro Library is designed to work with any stream. In these examples, data is manipulated via memory streams rather than file streams or databases for simplicity and consistency. The approach taken in a production environment will depend on the exact scenario requirements, data source and volume, performance constraints, and other factors.
 
-Los dos primeros ejemplos muestran cómo serializar y deserializar datos en búferes de secuencias de memoria usando reflexión y registros genéricos. Se supone que el esquema en estos dos casos se va a compartir entre los lectores y escritores no conectados.
+The first two examples show how to serialize and deserialize data into memory stream buffers by using reflection and generic records. The schema in these two cases is assumed to be shared between the readers and writers out-of-band.
 
-Los ejemplos tercero y cuarto muestran cómo serializar y deserializar datos mediante los archivos contenedores de objetos de Avro. Cuando los datos se almacenan en un archivo contenedor de Avro, el esquema se almacena siempre con ellos porque debe compartirse para la deserialización.
+The third and fourth examples show how to serialize and deserialize data by using the Avro object container files. When data is stored in an Avro container file, its schema is always stored with it because the schema must be shared for deserialization.
 
-La muestra que contiene los cuatro ejemplos primeros se puede descargar del sitio de <a href="http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-86055923" target="_blank">muestras de código de Azure</a>.
+The sample containing the first four examples can be downloaded from the <a href="http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-86055923" target="_blank">Azure code samples</a> site.
 
-El quinto ejemplo muestra cómo usar un códec de compresión personalizado para archivos contenedores de objetos de Avro. Puede descargar una muestra que contiene el código para este ejemplo en el sitio de <a href="http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111" target="_blank">muestras de código de Azure</a>.
+The fifth example shows how to how to use a custom compression codec for Avro object container files. A sample containing the code for this example can be downloaded from the <a href="http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111" target="_blank">Azure code samples</a> site.
 
-El sexto ejemplo muestra cómo utilizar la serialización de Avro para cargar datos en el almacenamiento de blobs de Azure y después analizarlos mediante Hive con un clúster HDInsight (Hadoop). Se puede descargar desde el sitio de <a href="https://code.msdn.microsoft.com/windowsazure/Using-Avro-to-upload-data-ae81b1e3" target="_blank">muestras de código de Azure</a>.
+The sixth sample shows how to use Avro serialization to upload data to Azure Blob storage and then analyze it by using Hive with an HDInsight (Hadoop) cluster. It can be downloaded from the <a href="https://code.msdn.microsoft.com/windowsazure/Using-Avro-to-upload-data-ae81b1e3" target="_blank">Azure code samples</a> site.
 
-Estos son los vínculos a los seis ejemplos tratados en el tema:
+Here are links to the six samples discussed in the topic:
 
- * <a href="#Scenario1">**Serialización mediante reflexión**</a>: el esquema JSON para los tipos que se van a serializar se compila automáticamente a partir de los atributos del contrato de datos.
- * <a href="#Scenario2">**Serialización mediante un registro genérico**</a>: el esquema JSON se especifica de forma explícita en un registro cuando no hay ningún tipo .NET disponible para reflexión.
- * <a href="#Scenario3">**Serialización mediante archivos contenedores de objetos con reflexión**</a>: el esquema JSON se compila de manera automática y se comparte junto con los datos serializados mediante el uso de un archivo contenedor de objetos de Avro.
- * <a href="#Scenario4">**Serialización mediante archivos contenedores de objetos con un registro genérico**</a>: el esquema JSON se especifica explícitamente antes de la serialización y se comparte junto con los datos mediante el uso de un archivo contenedor de objetos de Avro.
- * <a href="#Scenario5">**Serialización mediante archivos contenedores de objetos con un códec de compresión personalizado**</a>: este ejemplo muestra cómo crear un archivo contenedor de objetos de Avro con una implementación .NET personalizada del códec de compresión de datos Deflate.
- * <a href="#Scenario6">**Uso de Avro para cargar datos para el servicio HDInsight de Microsoft Azure**</a>: muestra cómo la serialización de Avro interactúa con el servicio HDInsight. Para ejecutar este ejemplo, se requiere una suscripción activa a Azure y acceso al clúster HDInsight de Azure.
+ * <a href="#Scenario1">**Serialization with reflection**</a> - The JSON schema for types to be serialized is automatically built from the data contract attributes.
+ * <a href="#Scenario2">**Serialization with generic record**</a> - The JSON schema is explicitly specified in a record when no .NET type is available for reflection.
+ * <a href="#Scenario3">**Serialization using object container files with reflection**</a> - The JSON schema is automatically built and shared together with the serialized data via an Avro object container file.
+ * <a href="#Scenario4">**Serialization using object container files with generic record**</a> - The JSON schema is explicitly specified before the serialization and shared together with the data via an Avro object container file.
+ * <a href="#Scenario5">**Serialization using object container files with a custom compression codec**</a> - The example shows how to create an Avro object container file with a customized .NET implementation of the Deflate data compression codec.
+ * <a href="#Scenario6">**Using Avro to upload data for the Microsoft Azure HDInsight service**</a> - The example illustrates how Avro serialization interacts with the HDInsight service. An active Azure subscription and access to an Azure HDInsight cluster are required to run this example.
 
-###<a name="Scenario1"></a>Muestra 1: serialización mediante el uso de reflexión
+###<a name="<a-name="scenario1"></a>sample-1:-serialization-with-reflection"></a><a name="Scenario1"></a>Sample 1: Serialization with reflection
 
-El esquema JSON para los tipos se puede compilar automáticamente con Microsoft Avro Library usando reflexión a partir de los atributos del contrato de datos de los objetos de C# que se van a serializar. Microsoft Avro Library crea un [**IAvroSeralizer<T>**](http://msdn.microsoft.com/library/dn627341.aspx) para identificar los campos que se van a serializar.
+The JSON schema for the types can be automatically built by the Microsoft Avro Library via reflection from the data contract attributes of the C# objects to be serialized. The Microsoft Avro Library creates an [**IAvroSeralizer<T>**](http://msdn.microsoft.com/library/dn627341.aspx) to identify the fields to be serialized.
 
-En este ejemplo, los objetos (una clase **SensorData** con un miembro struct **Location**) se serializan en una secuencia de memoria que, a su vez, se deserializa. Después, se compara el resultado con la instancia inicial para confirmar que el objeto **SensorData** recuperado es idéntico al original.
+In this example, objects (a **SensorData** class with a member **Location** struct) are serialized to a memory stream, and this stream is in turn deserialized. The result is then compared to the initial instance to confirm that the **SensorData** object recovered is identical to the original.
 
-En este ejemplo, se supone que el esquema está compartido entre los lectores y escritores, por lo que no es necesario el formato de contenedor de objetos de Avro. Para ver un ejemplo de cómo serializar y deserializar datos en búferes de memoria usando reflexión con el formato de contenedor de objetos cuando debe compartirse el esquema con los datos, consulte <a href="#Scenario3">Serialización mediante el uso de archivos contenedores de objetos con reflexión</a>.
+The schema in this example is assumed to be shared between the readers and writers, so the Avro object container format is not required. For an example of how to serialize and deserialize data into memory buffers by using reflection with the object container format when the schema must be shared with the data, see <a href="#Scenario3">Serialization using object container files with reflection</a>.
 
     namespace Microsoft.Hadoop.Avro.Sample
     {
@@ -129,7 +130,7 @@ En este ejemplo, se supone que el esquema está compartido entre los lectores y 
         using System.Linq;
         using System.Runtime.Serialization;
         using Microsoft.Hadoop.Avro.Container;
-		using Microsoft.Hadoop.Avro;
+        using Microsoft.Hadoop.Avro;
 
         //Sample class used in serialization samples
         [DataContract(Name = "SensorDataValue", Namespace = "Sensors")]
@@ -239,17 +240,17 @@ En este ejemplo, se supone que el esquema está compartido entre los lectores y 
     // Press any key to exit.
 
 
-###Ejemplo 2: Serialización con un registro genérico
+###<a name="sample-2:-serialization-with-a-generic-record"></a>Sample 2: Serialization with a generic record
 
-Cuando no se puede usar reflexión porque los datos no se pueden representar mediante clases .NET con un contrato de datos, se puede especificar el esquema JSON de forma explícita en un registro genérico. Este método suele ser más lento que cuando se utiliza la reflexión. En estos casos, el esquema de los datos puede ser dinámico, es decir, no se conoce hasta el momento de la compilación. Los datos representados como archivos de valores separados por comas (CSV) cuyo esquema se desconoce hasta que se transforman con el formato de Avro en tiempo de ejecución son un ejemplo de este tipo de escenario dinámico.
+A JSON schema can be explicitly specified in a generic record when reflection cannot be used because the data cannot be represented via .NET classes with a data contract. This method is generally slower than using reflection. In such cases, the schema for the data may also be dynamic, i.e., not be known at compile time. Data represented as comma-separated values (CSV) files whose schema is unknown until it is transformed to the Avro format at run time is an example of this sort of dynamic scenario.
 
-En este ejemplo se muestra cómo crear y usar un objeto [**AvroRecord**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) para especificar un esquema JSON de forma explícita, cómo rellenarlo con los datos y cómo serializarlo y deserializarlo. Después, se compara el resultado con la instancia inicial para confirmar que el registro recuperado es idéntico al original.
+This example shows how to create and use an [**AvroRecord**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) to explicitly specify a JSON schema, how to populate it with the data, and then how to serialize and deserialize it. The result is then compared to the initial instance to confirm that the record recovered is identical to the original.
 
-En este ejemplo, se supone que el esquema está compartido entre los lectores y escritores, por lo que no es necesario el formato de contenedor de objetos de Avro. Para ver un ejemplo de cómo serializar y deserializar datos en búferes de memoria usando un registro genérico con el formato de contenedor de objetos cuando debe incluirse el esquema con los datos serializados, consulte <a href="#Scenario4">Serialización mediante el uso de archivos contenedores de objetos con un registro genérico</a>.
+The schema in this example is assumed to be shared between the readers and writers, so the Avro object container format is not required. For an example of how to serialize and deserialize data into memory buffers by using a generic record with the object container format when the schema must be included with the serialized data, see the <a href="#Scenario4">Serialization using object container files with generic record</a> example.
 
 
-	namespace Microsoft.Hadoop.Avro.Sample
-	{
+    namespace Microsoft.Hadoop.Avro.Sample
+    {
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -257,7 +258,7 @@ En este ejemplo, se supone que el esquema está compartido entre los lectores y 
     using System.Runtime.Serialization;
     using Microsoft.Hadoop.Avro.Container;
     using Microsoft.Hadoop.Avro.Schema;
-	using Microsoft.Hadoop.Avro;
+    using Microsoft.Hadoop.Avro;
 
     //This class contains all methods demonstrating
     //the usage of Microsoft Avro Library
@@ -351,7 +352,7 @@ En este ejemplo, se supone que el esquema está compartido entre los lectores y 
             Console.Read();
         }
     }
-	}
+    }
     // The example is expected to display the following output:
     // SERIALIZATION USING GENERIC RECORD
     //
@@ -364,13 +365,13 @@ En este ejemplo, se supone que el esquema está compartido entre los lectores y 
     // Press any key to exit.
 
 
-###Ejemplo 3: Serialización mediante el uso de archivos contenedores de objetos y serialización con reflexión
+###<a name="sample-3:-serialization-using-object-container-files-and-serialization-with-reflection"></a>Sample 3: Serialization using object container files and serialization with reflection
 
-Este ejemplo es similar al escenario del <a href="#Scenario1">primer ejemplo</a>, donde el esquema se especifica de forma implícita con reflexión. La diferencia es que aquí no se presupone su conocimiento por parte del lector que lo deserializa. Los objetos **SensorData** que se van a serializar y el esquema especificado de forma implícita se almacenan en un archivo contenedor de objetos representado por la clase [**AvroContainer**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx).
+This example is similar to the scenario in the <a href="#Scenario1"> first example</a>, where the schema is implicitly specified with reflection. The difference is that here, the schema is not assumed to be known to the reader that deserializes it. The **SensorData** objects to be serialized and their implicitly specified schema are stored in an Avro object container file represented by the [**AvroContainer**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx) class.
 
-En este ejemplo, los datos se serializan con [**SequentialWriter<SensorData>**](http://msdn.microsoft.com/library/dn627340.aspx) y se deserializan con [**SequentialReader<SensorData>**](http://msdn.microsoft.com/library/dn627340.aspx). Después, se compara el resultado con las instancias iniciales para asegurarse de la identidad.
+The data is serialized in this example with [**SequentialWriter<SensorData>**](http://msdn.microsoft.com/library/dn627340.aspx) and deserialized with [**SequentialReader<SensorData>**](http://msdn.microsoft.com/library/dn627340.aspx). The result then is compared to the initial instances to ensure identity.
 
-Los datos del archivo contenedor de objetos se comprimen usando el códec de compresión predeterminado [**Deflate**][deflate-100] de .NET Framework 4. Consulte el <a href="#Scenario5">quinto ejemplo</a> de este tema para ver cómo se utiliza una versión más reciente y superior del códec de compresión [**Deflate**][deflate-110] disponible en .NET Framework 4.5.
+The data in the object container file is compressed via the default [**Deflate**][deflate-100] compression codec from .NET Framework 4. See the <a href="#Scenario5"> fifth example</a> in this topic to learn how to use a more recent and superior version of the [**Deflate**][deflate-110] compression codec available in .NET Framework 4.5.
 
     namespace Microsoft.Hadoop.Avro.Sample
     {
@@ -380,7 +381,7 @@ Los datos del archivo contenedor de objetos se comprimen usando el códec de com
         using System.Linq;
         using System.Runtime.Serialization;
         using Microsoft.Hadoop.Avro.Container;
-		using Microsoft.Hadoop.Avro;
+        using Microsoft.Hadoop.Avro;
 
         //Sample class used in serialization samples
         [DataContract(Name = "SensorDataValue", Namespace = "Sensors")]
@@ -520,14 +521,14 @@ Los datos del archivo contenedor de objetos se comprimen usando el códec de com
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine("The following exception was thrown during creation and writing to the file "{0}"", path);
+                        Console.WriteLine("The following exception was thrown during creation and writing to the file \"{0}\"", path);
                         Console.WriteLine(e.Message);
                         return false;
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Can not create file "{0}". File already exists", path);
+                    Console.WriteLine("Can not create file \"{0}\". File already exists", path);
                     return false;
 
                 }
@@ -546,7 +547,7 @@ Los datos del archivo contenedor de objetos se comprimen usando el códec de com
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("The following exception was thrown during reading from the file "{0}"", path);
+                    Console.WriteLine("The following exception was thrown during reading from the file \"{0}\"", path);
                     Console.WriteLine(e.Message);
                     return false;
                 }
@@ -563,13 +564,13 @@ Los datos del archivo contenedor de objetos se comprimen usando el códec de com
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine("The following exception was thrown during deleting the file "{0}"", path);
+                        Console.WriteLine("The following exception was thrown during deleting the file \"{0}\"", path);
                         Console.WriteLine(e.Message);
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Can not delete file "{0}". File does not exist", path);
+                    Console.WriteLine("Can not delete file \"{0}\". File does not exist", path);
                 }
             }
 
@@ -605,13 +606,13 @@ Los datos del archivo contenedor de objetos se comprimen usando el códec de com
     // Press any key to exit.
 
 
-###Ejemplo 4: Serialización mediante el uso de archivos contenedores de objetos y serialización con registro genérico
+###<a name="sample-4:-serialization-using-object-container-files-and-serialization-with-generic-record"></a>Sample 4: Serialization using object container files and serialization with generic record
 
-Este ejemplo es similar al escenario del <a href="#Scenario2">segundo ejemplo</a>, donde el esquema se especifica de forma implícita con JSON. La diferencia es que aquí no se presupone su conocimiento por parte del lector que lo deserializa.
+This example is similar to the scenario in the <a href="#Scenario2"> second example</a>, where the schema is explicitly specified with JSON. The difference is that here, the schema is not assumed to be known to the reader that deserializes it.
 
-El conjunto de datos de prueba se recopila en una lista de objetos [**AvroRecord**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) usando un esquema JSON definido de forma explícita y se almacenan en un archivo contenedor de objetos representado por la clase [**AvroContainer**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx). Este archivo contenedor crea un escritor que se usa para serializar los datos, descomprimidos, en una secuencia de memoria que se guarda después en un archivo. El parámetro [**Codex.Null**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.codec.null.aspx) que se usa para crear el lector especifica que estos datos no se van a comprimir.
+The test data set is collected into a list of [**AvroRecord**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) objects via an explicitly defined JSON schema and then stored in an object container file represented by the [**AvroContainer**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx) class. This container file creates a writer that is used to serialize the data, uncompressed, to a memory stream that is then saved to a file. The [**Codec.Null**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.codec.null.aspx) parameter used for creating the reader specifies that this data will not be compressed.
 
-Los datos se leen después en el archivo y se deserializan en una colección de objetos. Esta colección se compara con la lista inicial de registros de Avro para confirmar que son idénticos.
+The data is then read from the file and deserialized into a collection of objects. This collection is compared to the initial list of Avro records to confirm that they are identical.
 
 
     namespace Microsoft.Hadoop.Avro.Sample
@@ -623,7 +624,7 @@ Los datos se leen después en el archivo y se deserializan en una colección de 
         using System.Runtime.Serialization;
         using Microsoft.Hadoop.Avro.Container;
         using Microsoft.Hadoop.Avro.Schema;
-		using Microsoft.Hadoop.Avro;
+        using Microsoft.Hadoop.Avro;
 
         //This class contains all methods demonstrating
         //the usage of Microsoft Avro Library
@@ -781,14 +782,14 @@ Los datos se leen después en el archivo y se deserializan en una colección de 
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine("The following exception was thrown during creation and writing to the file "{0}"", path);
+                        Console.WriteLine("The following exception was thrown during creation and writing to the file \"{0}\"", path);
                         Console.WriteLine(e.Message);
                         return false;
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Can not create file "{0}". File already exists", path);
+                    Console.WriteLine("Can not create file \"{0}\". File already exists", path);
                     return false;
 
                 }
@@ -807,7 +808,7 @@ Los datos se leen después en el archivo y se deserializan en una colección de 
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("The following exception was thrown during reading from the file "{0}"", path);
+                    Console.WriteLine("The following exception was thrown during reading from the file \"{0}\"", path);
                     Console.WriteLine(e.Message);
                     return false;
                 }
@@ -824,13 +825,13 @@ Los datos se leen después en el archivo y se deserializan en una colección de 
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine("The following exception was thrown during deleting the file "{0}"", path);
+                        Console.WriteLine("The following exception was thrown during deleting the file \"{0}\"", path);
                         Console.WriteLine(e.Message);
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Can not delete file "{0}". File does not exist", path);
+                    Console.WriteLine("Can not delete file \"{0}\". File does not exist", path);
                 }
             }
 
@@ -869,11 +870,11 @@ Los datos se leen después en el archivo y se deserializan en una colección de 
 
 
 
-###Ejemplo 5: Serialización mediante el uso de archivos contenedores de objetos con un códec de compresión personalizado
+###<a name="sample-5:-serialization-using-object-container-files-with-a-custom-compression-codec"></a>Sample 5: Serialization using object container files with a custom compression codec
 
-El quinto ejemplo muestra cómo usar un códec de compresión personalizado para archivos contenedores de objetos de Avro. Puede descargar una muestra que contiene el código para este ejemplo desde el sitio de [muestras de código de Azure](http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111).
+The fifth example shows how to how to use a custom compression codec for Avro object container files. A sample containing the code for this example can be downloaded from the [Azure code samples](http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111) site.
 
-La [especificación de Avro](http://avro.apache.org/docs/current/spec.html#Required+Codecs) permite el uso de un códec de compresión opcional (además de los predeterminados **Null** y **Deflate**). En este ejemplo, no se implementa el códec totalmente nuevo Snappy (mencionado como códec opcional admitido en la [especificación de Avro](http://avro.apache.org/docs/current/spec.html#snappy)). Se muestra cómo usar la implementación de .NET Framework 4.5 del códec [**Deflate**][deflate-110], que proporciona un algoritmo de compresión basado en la biblioteca de compresión [zlib](http://zlib.net/) mejor que el predeterminado de la versión .NET Framework 4.
+The [Avro Specification](http://avro.apache.org/docs/current/spec.html#Required+Codecs) allows usage of an optional compression codec (in addition to **Null** and **Deflate** defaults). This example is not implementing a completely new codec such as Snappy (mentioned as a supported optional codec in the [Avro Specification](http://avro.apache.org/docs/current/spec.html#snappy)). It shows how to use the .NET Framework 4.5 implementation of the [**Deflate**][deflate-110] codec, which provides a better compression algorithm based on the [zlib](http://zlib.net/) compression library than the default .NET Framework 4 version.
 
 
     //
@@ -892,7 +893,7 @@ La [especificación de Avro](http://avro.apache.org/docs/current/spec.html#Requi
         using System.Linq;
         using System.Runtime.Serialization;
         using Microsoft.Hadoop.Avro.Container;
-		using Microsoft.Hadoop.Avro;
+        using Microsoft.Hadoop.Avro;
 
         #region Defining objects for serialization
         //Sample class used in serialization samples
@@ -1282,14 +1283,14 @@ La [especificación de Avro](http://avro.apache.org/docs/current/spec.html#Requi
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine("The following exception was thrown during creation and writing to the file "{0}"", path);
+                        Console.WriteLine("The following exception was thrown during creation and writing to the file \"{0}\"", path);
                         Console.WriteLine(e.Message);
                         return false;
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Can not create file "{0}". File already exists", path);
+                    Console.WriteLine("Can not create file \"{0}\". File already exists", path);
                     return false;
 
                 }
@@ -1308,7 +1309,7 @@ La [especificación de Avro](http://avro.apache.org/docs/current/spec.html#Requi
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("The following exception was thrown during reading from the file "{0}"", path);
+                    Console.WriteLine("The following exception was thrown during reading from the file \"{0}\"", path);
                     Console.WriteLine(e.Message);
                     return false;
                 }
@@ -1325,13 +1326,13 @@ La [especificación de Avro](http://avro.apache.org/docs/current/spec.html#Requi
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine("The following exception was thrown during deleting the file "{0}"", path);
+                        Console.WriteLine("The following exception was thrown during deleting the file \"{0}\"", path);
                         Console.WriteLine(e.Message);
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Can not delete file "{0}". File does not exist", path);
+                    Console.WriteLine("Can not delete file \"{0}\". File does not exist", path);
                 }
             }
             #endregion
@@ -1367,40 +1368,45 @@ La [especificación de Avro](http://avro.apache.org/docs/current/spec.html#Requi
     // ----------------------------------------
     // Press any key to exit.
 
-###Ejemplo 6: Uso de Avro para cargar datos para el servicio HDInsight de Microsoft Azure
+###<a name="sample-6:-using-avro-to-upload-data-for-the-microsoft-azure-hdinsight-service"></a>Sample 6: Using Avro to upload data for the Microsoft Azure HDInsight service
 
-El sexto ejemplo muestra algunas técnicas de programación relacionadas para interactuar con el servicio HDInsight de Azure. Puede descargar una muestra con el código para este ejemplo desde el sitio de [muestras de código de Azure](https://code.msdn.microsoft.com/windowsazure/Using-Avro-to-upload-data-ae81b1e3).
+The sixth example illustrates some programming techniques related to interacting with the Azure HDInsight service. A sample containing the code for this example can be downloaded from the [Azure code samples](https://code.msdn.microsoft.com/windowsazure/Using-Avro-to-upload-data-ae81b1e3) site.
 
-La muestra hace lo siguiente:
+The sample does the following:
 
-* Se conecta a un clúster del servicio HDInsight existente.
-* Serializa varios archivos CSV y carga el resultado en el almacenamiento de blobs de Azure. (Los archivos CSV se distribuyen junto con la muestra y representan un extracto de los datos históricos del mercado de valores AMEX distribuidos por [Infochimps](http://www.infochimps.com/) para el período 1970-2010. La muestra lee los datos de los archivos CSV, convierte los registros en instancias de la clase **Stock** y, después, los serializa mediante el uso de la reflexión. La definición del tipo de valores se crea en un esquema JSON utilizando la utilidad de generación de código de Microsoft Avro Library.
-* Crea una nueva tabla externa denominada **Stocks** en Hive y la vincula a los datos cargados en el paso anterior.
-* Ejecuta una consulta mediante Hive en la tabla **Stocks**.
+* Connects to an existing HDInsight service cluster.
+* Serializes several CSV files and uploads the result to Azure Blob storage. (The CSV files are distributed together with the sample and represent an extract from AMEX Stock historical data distributed by [Infochimps](http://www.infochimps.com/) for the period 1970-2010. The sample reads CSV file data, converts the records to instances of the **Stock** class, and then serializes them by using reflection. Stock type definition is created from a JSON schema via the Microsoft Avro Library code generation utility.
+* Creates a new external table called **Stocks** in Hive, and links it to the data uploaded in the previous step.
+* Executes a query by using Hive over the **Stocks** table.
 
-Además, la muestra realiza un procedimiento de limpieza antes y después de realizar las principales operaciones. Durante la limpieza, todos los datos y carpetas de blobs de Azure se quitan, y se elimina la tabla de Hive. También puede llamar al procedimiento de limpieza desde la línea de comandos de la muestra.
+In addition, the sample performs a clean-up procedure before and after performing major operations. During the clean-up, all of the related Azure Blob data and folders are removed, and the Hive table is dropped. You can also invoke the clean-up procedure from the sample command line.
 
-La muestra cuenta con los siguientes requisitos previos:
+The sample has the following prerequisites:
 
-* Una suscripción activa a Microsoft Azure y su identificador de suscripción.
-* Un certificado de administración para la suscripción con la clave privada correspondiente. El certificado debe estar instalado en el almacenamiento privado del usuario actual en el equipo utilizado para ejecutar la muestra.
-* Un clúster de HDInsight activo.
-* Una cuenta de almacenamiento de Azure vinculada a un clúster de HDInsight desde el requisito previo anterior junto con la clave de acceso secundaria o primaria correspondiente.
+* An active Microsoft Azure subscription and its subscription ID.
+* A management certificate for the subscription with the corresponding private key. The certificate should be installed in the current user private storage on the machine used to run the sample.
+* An active HDInsight cluster.
+* An Azure Storage account linked to the HDInsight cluster from the previous prerequisite, together with the corresponding primary or secondary access key.
 
-Debe introducirse toda la información de los requisitos previos en el archivo de configuración de muestra antes de ejecutar la muestra. Existen dos formas posibles de hacerlo:
+All of the information from the prerequisites should be entered to the sample configuration file before the sample is run. There are two possible ways to do it:
 
-* Editar el archivo app.config en el directorio raíz de la muestra y después compilar la muestra.
-* Compilar primero la muestra y después editar AvroHDISample.exe.config en el directorio de compilación.
+* Edit the app.config file in the sample root directory and then build the sample
+* First build the sample, and then edit AvroHDISample.exe.config in the build directory
 
-En ambos casos, todas las modificaciones deben realizarse en la sección de configuración **<appSettings>**. Siga los comentarios del archivo. La muestra se ejecuta en la línea de comandos ejecutando el comando siguiente (donde se supone que el archivo .zip con la muestra se va a extraer en C:\\AvroHDISample; en caso contrario, utilice la ruta de acceso al archivo pertinente):
+In both cases all edits should be done in the **<appSettings>** settings section. Please follow the comments in the file.
+The sample is run from the command line by executing the following command (where the .zip file with the sample was assumed to be extracted to C:\AvroHDISample; if otherwise, use the relevant file path):
 
     AvroHDISample run C:\AvroHDISample\Data
 
-Para limpiar el clúster, ejecute el comando siguiente:
+To clean up the cluster, run the following command:
 
     AvroHDISample clean
 
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

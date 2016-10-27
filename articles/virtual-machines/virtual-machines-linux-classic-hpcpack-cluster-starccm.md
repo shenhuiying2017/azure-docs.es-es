@@ -1,6 +1,6 @@
 <properties
- pageTitle="Ejecución de STAR-CCM+ con HPC Pack en máquinas virtuales de Linux | Microsoft Azure"
- description="Implemente un clúster de Microsoft HPC Pack en Azure y ejecute un trabajo STAR-CCM+ en varios nodos de proceso Linux en una red RDMA."
+ pageTitle="Run STAR-CCM+ with HPC Pack on Linux VMs | Microsoft Azure"
+ description="Deploy a Microsoft HPC Pack cluster on Azure and run an STAR-CCM+ job on multiple Linux compute nodes across an RDMA network."
  services="virtual-machines-linux"
  documentationCenter=""
  authors="xpillons"
@@ -16,29 +16,30 @@
  ms.date="09/13/2016"
  ms.author="xpillons"/>
 
-# Ejecución de STAR-CCM+ con Microsoft HPC Pack en un clúster de Linux RDMA en Azure
-En este artículo se muestra cómo implementar un clúster de Microsoft HPC Pack en Azure y ejecutar un trabajo [CD-Adapco STAR-CCM+](http://www.cd-adapco.com/products/star-ccm%C2%AE) en varios nodos de proceso Linux interconectados con InfiniBand.
+
+# <a name="run-star-ccm+-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Run STAR-CCM+ with Microsoft HPC Pack on a Linux RDMA cluster in Azure
+This article shows you how to deploy a Microsoft HPC Pack cluster on Azure and run a [CD-adapco STAR-CCM+](http://www.cd-adapco.com/products/star-ccm%C2%AE) job on multiple Linux compute nodes that are interconnected with InfiniBand.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Microsoft HPC Pack proporciona características para ejecutar una variedad de aplicaciones HPC y paralelas a gran escala, incluidas las aplicaciones MPI, en clústeres de máquinas virtuales de Microsoft Azure. HPC Pack también admite la ejecución de aplicaciones Linux HPC en máquinas virtuales de nodos de proceso Linux implementadas en un clúster de HPC Pack. Consulte [Introducción a los nodos de ejecución de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-classic-hpcpack-cluster.md) para ver información básica relativa al uso de los nodos de ejecución de Linux con HPC Pack.
+Microsoft HPC Pack provides features to run a variety of large-scale HPC and parallel applications, including MPI applications, on clusters of Microsoft Azure virtual machines. HPC Pack also supports running Linux HPC applications on Linux compute-node VMs that are deployed in an HPC Pack cluster. For an introduction to using Linux compute nodes with HPC Pack, see [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
 
-## Configuración de un clúster de HPC Pack
-Descargue los scripts de implementación IaaS de HPC Pack del [Centro de descarga](https://www.microsoft.com/es-ES/download/details.aspx?id=44949) y extráigalos localmente.
+## <a name="set-up-an-hpc-pack-cluster"></a>Set up an HPC Pack cluster
+Download the HPC Pack IaaS deployment scripts from the [Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=44949) and extract them locally.
 
-Azure PowerShell es un requisito previo. Si PowerShell no está configurado en el equipo local, lea el artículo [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
+Azure PowerShell is a prerequisite. If PowerShell is not configured on your local machine, please read the article [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-En el momento de redactar este artículo, las imágenes de Linux de Azure Marketplace (que contiene los controladores de Infiniband para Azure) son para SLES 12, CentOS 6.5 y CentOS 7.1. Este artículo se basa en el uso de SLES 12. Para recuperar el nombre de todas las imágenes de Linux que admiten HPC en Marketplace, puede ejecutar el siguiente comando de PowerShell:
+At the time of this writing, the Linux images from the Azure Marketplace (which contains the InfiniBand drivers for Azure) are for SLES 12, CentOS 6.5, and CentOS 7.1. This article is based on the usage of SLES 12. To retrieve the name of all Linux images that support HPC in the Marketplace, you can run the following PowerShell command:
 
 ```
     get-azurevmimage | ?{$_.ImageName.Contains("hpc") -and $_.OS -eq "Linux" }
 ```
 
-La salida muestra la ubicación en que están disponibles estas imágenes y el nombre de la imagen (**ImageName**) que se utilizará después en la plantilla de implementación.
+The output lists the location in which these images are available and the image name (**ImageName**) to be used in the deployment template later.
 
-Antes de implementar el clúster, tendrá que crear un archivo de plantilla de implementación de HPC Pack. Dado que nos vamos a centrar en un clúster pequeño, el nodo principal será el controlador de dominio y hospedará una base de datos SQL local.
+Before you deploy the cluster, you have to build an HPC Pack deployment template file. Because we're targeting a small cluster, the head node will be the domain controller and host a local SQL database.
 
-La plantilla siguiente implementará ese nodo principal, creará un archivo XML llamado **MyCluster.xml** y reemplazará los valores de **SubscriptionId**, **StorageAccount**, **Location**, **VMName** y **ServiceName** por los suyos.
+The following template will deploy such a head node, create an XML file named **MyCluster.xml**, and replace the values of **SubscriptionId**, **StorageAccount**, **Location**, **VMName**, and **ServiceName** with yours.
 
     <?xml version="1.0" encoding="utf-8" ?>
     <IaaSClusterConfig>
@@ -74,98 +75,99 @@ La plantilla siguiente implementará ese nodo principal, creará un archivo XML 
       </LinuxComputeNodes>
     </IaaSClusterConfig>
 
-Comience la creación del nodo principal ejecutando el comando de PowerShell en un símbolo del sistema con privilegios elevados:
+Start the head-node creation by running the PowerShell command in an elevated command prompt:
 
 ```
     .\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml
 ```
 
-Después de 20 a 30 minutos, el nodo principal estará listo. Puede conectarse a él desde el Portal de Azure, haciendo clic en el icono **Conectar** de la máquina virtual.
+After 20 to 30 minutes, the head node should be ready. You can connect to it from the Azure portal by clicking the **Connect** icon of the virtual machine.
 
-Es posible que tenga que corregir el reenviador DNS. Para hacerlo, inicie el Administrador de DNS.
+You might eventually have to fix the DNS forwarder. To do so, start DNS Manager.
 
-1.  Haga clic con el botón derecho en el nombre del servidor en el Administrador de DNS, seleccione **Propiedades** y haga clic en la pestaña **Reenviadores**.
+1.  Right-click the server name in DNS Manager, select **Properties**, and then click the **Forwarders** tab.
 
-2.  Haga clic en el botón **Editar** para quitar los reenviadores que haya y después haga clic en **Aceptar**.
+2.  Click the **Edit** button to remove any forwarders, and then click **OK**.
 
-3.  Asegúrese de que esté activada la casilla **Usar sugerencias de raíz si no hay reenviadores disponibles** y haga clic en **Aceptar**.
+3.  Make sure that the **Use root hints if no forwarders are available** check box is selected, and then click **OK**.
 
-## Configuración de nodos de proceso Linux
-Implemente los nodos de proceso de Linux mediante la misma plantilla de implementación que usó para crear el nodo principal.
+## <a name="set-up-linux-compute-nodes"></a>Set up Linux compute nodes
+You deploy the Linux compute nodes by using the same deployment template that you used to create the head node.
 
-Copie el archivo **MyCluster.xml** del equipo local al nodo principal y actualice la etiqueta **NodeCount** con el número de nodos que desee implementar (<=20). Procure tener suficientes núcleos disponibles en la cuota de Azure, ya que cada instancia A9 consumirá 16 núcleos de su suscripción. Puede usar instancias A8 (8 núcleos) en lugar de A9 si desea utilizar más máquinas virtuales con el mismo presupuesto.
+Copy the file **MyCluster.xml** from your local machine to the head node, and update the **NodeCount** tag with the number of nodes that you want to deploy (<=20). Be careful to have enough available cores in your Azure quota, because each A9 instance will consume 16 cores in your subscription. You can use A8 instances (8 cores) instead of A9 if you want to use more VMs in the same budget.
 
-En el nodo principal, copie los scripts de implementación IaaS de HPC Pack.
+On the head node, copy the HPC Pack IaaS deployment scripts.
 
-Ejecute los comandos siguientes de Azure PowerShell en un símbolo del sistema con privilegios elevados:
+Run the following Azure PowerShell commands in an elevated command prompt:
 
-1.  Ejecute **Add-AzureAccount** para conectarse a la suscripción de Azure.
+1.  Run **Add-AzureAccount** to connect to your Azure subscription.
 
-2.  Si tiene varias suscripciones, ejecute **Get-AzureSubscription** para enumerarlas.
+2.  If you have multiple subscriptions, run **Get-AzureSubscription** to list them.
 
-3.  Establezca una suscripción predeterminada con el comando **Select-AzureSubscription -SubscriptionName xxxx -Default**.
+3.  Set a default subscription by running the **Select-AzureSubscription -SubscriptionName xxxx -Default** command.
 
-4.  Ejecute **.\\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml** para empezar a implementar nodos de proceso Linux.
+4.  Run **.\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml** to start deploying Linux compute nodes.
 
-    ![Implementación del nodo principal en acción][hndeploy]
+    ![Head-node deployment in action][hndeploy]
 
-Abra la herramienta de administrador de clústeres de HPC Pack. Después de algunos minutos, normalmente los nodos de proceso Linux aparecerán en la lista de nodos de proceso del clúster. Con el modo de implementación clásico, las máquinas virtuales de IaaS se crean secuencialmente. Por lo que si el número de nodos es importante, implementarlos todos puede tardar una cantidad considerable de tiempo.
+Open the HPC Pack Cluster Manager tool. After few minutes, Linux compute nodes will regularly appear in list of cluster compute nodes. With the classic deployment mode, IaaS VMs are created sequentially. So if the number of nodes is important, getting them all deployed can take a significant amount of time.
 
-![Nodos Linux en el administrador de clústeres de HPC Pack][clustermanager]
+![Linux nodes in HPC Pack Cluster Manager][clustermanager]
 
-Ahora que todos los nodos están en ejecución en el clúster, hay que establecer diversas configuraciones de infraestructura adicionales.
+Now that all nodes are up and running in the cluster, there are additional infrastructure settings to make.
 
-## Configuración de un recurso compartido de archivos de Azure para nodos Linux y Windows
-Puede utilizar el servicio de archivos de Azure para almacenar los scripts, los paquetes de aplicaciones y los archivos de datos. El servicio de archivos de Azure proporciona funcionalidades CIFS en el almacenamiento de blobs de Azure como un almacén persistente. Tenga en cuenta que no se trata de la solución más escalable, pero sí es la más sencilla y no requiere máquinas virtuales dedicadas.
+## <a name="set-up-an-azure-file-share-for-windows-and-linux-nodes"></a>Set up an Azure File share for Windows and Linux nodes
+You can use the Azure File service to store scripts, application packages, and data files. Azure File provides CIFS capabilities on top of Azure Blob storage as a persistent store. Be aware that this is not the most scalable solution, but it is the simplest one and doesn’t require dedicated VMs.
 
-Cree un recurso compartido de archivos de Azure siguiendo las instrucciones descritas en el artículo [Introducción a Almacenamiento de archivos de Azure en Windows](..\storage\storage-dotnet-how-to-use-files.md).
+Create an Azure File share by following the instructions in the article [Get started with Azure File storage on Windows](..\storage\storage-dotnet-how-to-use-files.md).
 
-Mantenga **saname** como nombre de la cuenta de almacenamiento, **sharename** como nombre del recurso compartido de archivos y **sakey** como clave de la cuenta de almacenamiento.
+Keep the name of your storage account as **saname**, the file share name as **sharename**, and the storage account key as **sakey**.
 
-### Montaje del recurso compartido de archivos de Azure en el nodo principal
-Abra un símbolo del sistema con privilegios elevados y ejecute el siguiente comando para almacenar las credenciales en el almacén del equipo local:
+### <a name="mount-the-azure-file-share-on-the-head-node"></a>Mount the Azure File share on the head node
+Open an elevated command prompt and run the following command to store the credentials in the local machine vault:
 
 ```
     cmdkey /add:<saname>.file.core.windows.net /user:<saname> /pass:<sakey>
 ```
 
-Después, para montar el recurso compartido de archivos de Azure, ejecute:
+Then, to mount the Azure File share, run:
 
 ```
-    net use Z: \<saname>.file.core.windows.net<sharename> /persistent:yes
+    net use Z: \\<saname>.file.core.windows.net\<sharename> /persistent:yes
 ```
 
-### Montaje del recurso compartido de archivos de Azure en nodos de proceso Linux
-Una herramienta útil que se incluye con HPC Pack es la herramienta clusrun. Puede usar esta herramienta de línea de comandos para ejecutar el mismo comando simultáneamente en un conjunto de nodos de proceso. En nuestro caso, se usa para montar el recurso compartido de archivos de Azure y hacerlo persistente para que permanezca tras los reinicios. En un símbolo del sistema con privilegios elevados en el nodo principal, ejecute los siguientes comandos.
+### <a name="mount-the-azure-file-share-on-linux-compute-nodes"></a>Mount the Azure File share on Linux compute nodes
+One useful tool that comes with HPC Pack is the clusrun tool. You can use this command-line tool to run the same command simultaneously on a set of compute nodes. In our case, it's used to mount the Azure File share and persist it to survive reboots.
+In an elevated command prompt on the head node, run the following commands.
 
-Para crear el directorio de montaje:
+To create the mount directory:
 
 ```
     clusrun /nodegroup:LinuxNodes mkdir -p /hpcdata
 ```
 
-Para montar el recurso compartido de archivos de Azure:
+To mount the Azure File share:
 
 ```
     clusrun /nodegroup:LinuxNodes mount -t cifs //<saname>.file.core.windows.net/<sharename> /hpcdata -o vers=2.1,username=<saname>,password='<sakey>',dir_mode=0777,file_mode=0777
 ```
 
-Para hacer persistente el recurso compartido de montaje:
+To persist the mount share:
 
 ```
     clusrun /nodegroup:LinuxNodes "echo //<saname>.file.core.windows.net/<sharename> /hpcdata cifs vers=2.1,username=<saname>,password='<sakey>',dir_mode=0777,file_mode=0777 >> /etc/fstab"
 ```
 
-## Instalación de STAR-CCM+
-Las instancias A8 y A9 de máquina virtual de Azure proporcionan compatibilidad con InfiniBand y funcionalidad de RDMA. Los controladores de kernel que habilitan tales funcionalidades están disponibles para Windows Server 2012 R2, SUSE 12, CentOS 6.5 e imágenes de CentOS 7.1 en Azure Marketplace. Microsoft MPI e Intel MPI (versión 5.x) son las dos bibliotecas MPI compatibles con estos controladores en Azure.
+## <a name="install-star-ccm+"></a>Install STAR-CCM+
+Azure VM instances A8 and A9 provide InfiniBand support and RDMA capabilities. The kernel drivers that enable those capabilities are available for Windows Server 2012 R2, SUSE 12, CentOS 6.5, and CentOS 7.1 images in the Azure Marketplace. Microsoft MPI and Intel MPI (release 5.x) are the two MPI libraries that support those drivers in Azure.
 
-Se incluyen CD-Adapco StarCCM+ versión 11.x y posteriores con la versión 5.x de Intel MPI, por lo que se proporciona compatibilidad con InfiniBand para Azure.
+CD-adapco STAR-CCM+ release 11.x and later is bundled with Intel MPI version 5.x, so InfiniBand support for Azure is included.
 
-Obtenga el paquete de Linux64 STAR-CCM+ del [portal de CD-adapco](https://steve.cd-adapco.com). En nuestro caso, se usa la versión 11.02.010 en precisión mixta.
+Get the Linux64 STAR-CCM+ package from the [CD-adapco portal](https://steve.cd-adapco.com). In our case, we used version 11.02.010 in mixed precision.
 
-En el nodo principal, en el recurso compartido de archivos **/hpcdata** de Azure, cree un script de shell denominado **setupstarccm.sh** con el siguiente contenido. Este script se ejecutará en cada nodo de proceso para configurar STAR-CCM+ localmente.
+On the head node, in the **/hpcdata** Azure File share, create a shell script named **setupstarccm.sh** with the following content. This script will be run on each compute node to set up STAR-CCM+ locally.
 
-#### Script setupstarcm.sh de ejemplo
+#### <a name="sample-setupstarcm.sh-script"></a>Sample setupstarcm.sh script
 ```
     #!/bin/bash
     # setupstarcm.sh to set up STAR-CCM+ locally
@@ -186,35 +188,35 @@ En el nodo principal, en el recurso compartido de archivos **/hpcdata** de Azure
     echo "*               hard    memlock         unlimited" >> /etc/security/limits.conf
     echo "*               soft    memlock         unlimited" >> /etc/security/limits.conf
 ```
-Ahora, para configurar StarCCM+ en todos los nodos de proceso Linux, abra un símbolo del sistema con privilegios elevados y ejecute el siguiente comando:
+Now, to set up STAR-CCM+ on all your Linux compute nodes, open an elevated command prompt and run the following command:
 
 ```
     clusrun /nodegroup:LinuxNodes bash /hpcdata/setupstarccm.sh
 ```
 
-Mientras se ejecuta el comando, puede supervisar el uso de CPU con el mapa térmico del Administrador de clústeres. Tras unos minutos todos los nodos deberían estar correctamente configurados.
+While the command is running, you can monitor the CPU usage by using the heat map of Cluster Manager. After few minutes, all nodes should be correctly set up.
 
-## Ejecución de trabajos de STAR-CCM+
-Se usa HPC Pack por su funcionalidad como programador de trabajos para ejecutar trabajos STAR-CCM+. Para hacerlo, necesitaremos la ayuda de algunos scripts que sirven para iniciar el trabajo y ejecutar STAR-CCM+. Los datos de entrada se mantienen en el recurso compartido de archivos de Azure por simplicidad.
+## <a name="run-star-ccm+-jobs"></a>Run STAR-CCM+ jobs
+HPC Pack is used for its job scheduler capabilities in order to run STAR-CCM+ jobs. To do so, we need the support of a few scripts that are used to start the job and run STAR-CCM+. The input data is kept on the Azure File share first for simplicity.
 
-El siguiente script de PowerShell sirve para poner en cola un trabajo STAR-CCM+. Toma tres argumentos:
+The following PowerShell script is used to queue a STAR-CCM+ job. It takes three arguments:
 
-*  El nombre del modelo
+*  The model name
 
-*  El número de nodos que se usarán
+*  The number of nodes to be used
 
-*  El número de núcleos en cada nodo que se vaya a usar
+*  The number of cores on each node to be used
 
-Como STAR-CCM+ puede llenar el ancho de banda de memoria, suele ser mejor usar menos núcleos por nodo de proceso y agregar nuevos nodos. El número exacto de núcleos por nodo dependerá de la familia de procesadores y la velocidad de la interconexión.
+Because STAR-CCM+ can fill the memory bandwidth, it's usually better to use fewer cores per compute nodes and add new nodes. The exact number of cores per node will depend on the processor family and the interconnect speed.
 
-Los nodos se asignan exclusivamente para el trabajo y no se pueden compartir con otros trabajos. El trabajo no se inicia como un trabajo de MPI directamente. El script de shell **runstarccm.sh** iniciará el iniciador MPI.
+The nodes are allocated exclusively for the job and can’t be shared with other jobs. The job is not started as an MPI job directly. The **runstarccm.sh** shell script will start the MPI launcher.
 
-El modelo de entrada y el script **runstarccm.sh** se almacenan en el recurso compartido **/hpcdata** montado anteriormente.
+The input model and the **runstarccm.sh** script are stored in the **/hpcdata** share that was previously mounted.
 
-Los archivos de registro reciben un nombre que incluye el identificador del trabajo y se almacenan en el **recurso compartido /hpcdata**, junto con los archivos de salida de STAR-CCM+.
+Log files are named with the job ID and are stored in the **/hpcdata share**, along with the STAR-CCM+ output files.
 
 
-#### Script SubmitStarccmJob.ps1 de ejemplo
+#### <a name="sample-submitstarccmjob.ps1-script"></a>Sample SubmitStarccmJob.ps1 script
 ```
     Add-PSSnapin Microsoft.HPC -ErrorAction silentlycontinue
     $scheduler="headnodename"
@@ -229,7 +231,7 @@ Los archivos de registro reciben un nombre que incluye el identificador del trab
     $jobId = [String]$job.Id
 
     #---------------------------------------------------------------------------------------------------------
-    # Submit the job 	
+    # Submit the job    
     $workdir =  "/hpcdata"
     $execName = "$nbCoresPerNode runner.java $modelName.sim"
 
@@ -238,9 +240,9 @@ Los archivos de registro reciben un nombre que incluye el identificador del trab
 
     Submit-HpcJob -Job $job -Scheduler $scheduler
 ```
-Reemplace **runner.java** por el iniciador de modelo Java de STAR-CCM+ y el código de registro que prefiera.
+Replace **runner.java** with your preferred STAR-CCM+ Java model launcher and logging code.
 
-#### Script runstarccm.sh de ejemplo
+#### <a name="sample-runstarccm.sh-script"></a>Sample runstarccm.sh script
 ```
     #!/bin/bash
     echo "start"
@@ -267,82 +269,86 @@ Reemplace **runner.java** por el iniciador de modelo Java de STAR-CCM+ y el cód
     NBNODES=0
     while [ ${I} -lt ${COUNT} ]
     do
-    	echo "${NODESCORES[${I}]}" >> ${NODELIST_PATH}
-    	let "I=${I}+2"
-    	let "NBNODES=${NBNODES}+1"
+        echo "${NODESCORES[${I}]}" >> ${NODELIST_PATH}
+        let "I=${I}+2"
+        let "NBNODES=${NBNODES}+1"
     done
     let "NBCORES=${NBNODES}*${NBCORESPERNODE}"
 
     # Run STAR-CCM with the hostfile argument
     #  
     ${STARCCM} -np ${NBCORES} -machinefile ${NODELIST_PATH} \
-    	-power -podkey "<yourkey>" -rsh ssh \
-    	-mpi intel -fabric UDAPL -cpubind bandwidth,v \
-    	-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0" \
-    	-batch $2 $3
+        -power -podkey "<yourkey>" -rsh ssh \
+        -mpi intel -fabric UDAPL -cpubind bandwidth,v \
+        -mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0" \
+        -batch $2 $3
     RTNSTS=$?
     rm -f ${NODELIST_PATH}
 
     exit ${RTNSTS}
 ```
 
-En nuestra prueba, se ha utilizado un token de licencia Power-On-Demand. Con ese token deberá establecer la variable de entorno **$CDLMD\_LICENSE\_FILE** en **1999@flex.cd-adapco.com** y la clave en la opción **-podkey** de la línea de comandos.
+In our test, we used a Power-On-Demand license token. For that token, you have to set the **$CDLMD_LICENSE_FILE** environment variable to **1999@flex.cd-adapco.com** and the key in the **-podkey** option of the command line.
 
-Después de la inicialización, el script extrae de las variables de entorno **$CCP\_NODES\_CORES** establecidas por HPC Pack la lista de nodos para crear un archivo de host utilizado por el iniciador de MPI. Este archivo de host contendrá la lista de nombres de nodos de proceso usados para el trabajo, con un nombre por línea.
+After some initialization, the script extracts--from the **$CCP_NODES_CORES** environment variables that HPC Pack set--the list of nodes to build a hostfile that the MPI launcher uses. This hostfile will contain the list of compute node names that are used for the job, one name per line.
 
-El formato de **$CCP\_NODES\_CORES** sigue este patrón:
+The format of **$CCP_NODES_CORES** follows this pattern:
 
 ```
 <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>...`
 ```
 
-Donde:
+Where:
 
-* `<Number of nodes>`: es el número de nodos asignados a este trabajo.
+* `<Number of nodes>` is the number of nodes allocated to this job.
 
-* `<Name of node_n_...>`: es el nombre de cada nodo asignado a este trabajo.
+* `<Name of node_n_...>` is the name of each node allocated to this job.
 
-* `<Cores of node_n_...>`: es el número de núcleos en el nodo asignado a este trabajo.
+* `<Cores of node_n_...>` is the number of cores on the node allocated to this job.
 
-El número de núcleos (**$NBCORES**) también se calcula en función del número de nodos (**$NBNODES**) y el número de núcleos por nodo (proporcionado como parámetro **$NBCORESPERNODE**).
+The number of cores (**$NBCORES**) is also calculated based on the number of nodes (**$NBNODES**) and the number of cores per node (provided as parameter **$NBCORESPERNODE**).
 
-Para las opciones de MPI, las usadas con Intel MPI en Azure son:
+For the MPI options, the ones that are used with Intel MPI on Azure are:
 
-*   `-mpi intel` para especificar Intel MPI.
+*   `-mpi intel` to specify Intel MPI.
 
-*   `-fabric UDAPL` para usar los verbos de InfiniBand de Azure.
+*   `-fabric UDAPL` to use Azure InfiniBand verbs.
 
-*   `-cpubind bandwidth,v` para optimizar el ancho de banda de MPI con STAR-CCM+.
+*   `-cpubind bandwidth,v` to optimize bandwidth for MPI with STAR-CCM+.
 
-*   `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"` para que Intel MPI funcione con InfiniBand de Azure y para establecer el número necesario de núcleos por nodo.
+*   `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"` to make Intel MPI work with Azure InfiniBand, and to set the required number of cores per node.
 
-*   `-batch` para iniciar STAR-CCM+ en el modo por lotes sin interfaz de usuario.
+*   `-batch` to start STAR-CCM+ in batch mode with no UI.
 
 
-Por último, para iniciar un trabajo, asegúrese de que los nodos estén en funcionamiento y en línea en el Administrador de clústeres. Después, desde un símbolo del sistema de PowerShell, ejecute esto:
+Finally, to start a job, make sure that your nodes are up and running and are online in Cluster Manager. Then from a PowerShell command prompt, run this:
 
 ```
     .\ SubmitStarccmJob.ps1 <model> <nbNodes> <nbCoresPerNode>
 ```
 
-## Detención de nodos
-Más adelante, cuando haya terminado las pruebas, puede usar los siguientes comandos de PowerShell de HPC Pack para detener e iniciar nodos:
+## <a name="stop-nodes"></a>Stop nodes
+Later on, after you're done with your tests, you can use the following HPC Pack PowerShell commands to stop and start nodes:
 
 ```
     Stop-HPCIaaSNode.ps1 -Name <prefix>-00*
     Start-HPCIaaSNode.ps1 -Name <prefix>-00*
 ```
 
-## Pasos siguientes
-Pruebe a ejecutar otras cargas de trabajo Linux. Por ejemplo, consulte:
+## <a name="next-steps"></a>Next steps
+Try running other Linux workloads. For example, see:
 
-* [Ejecución de NAMD con Microsoft HPC Pack en nodos de proceso de Linux en Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md)
+* [Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md)
 
-* [Ejecución de OpenFoam con Microsoft HPC Pack en un clúster de Linux RDMA en Azure.](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
+* [Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
 
 
 <!--Image references-->
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png
 [clustermanager]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/ClusterManager.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,74 +1,75 @@
 <properties
-	pageTitle="Selección de características en el proceso de ciencia de datos en equipos | Microsoft Azure" 
-	description="Aquí se explica el propósito de la selección de características y ofrece ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático."
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Feature selection in the Team Data Science Process | Microsoft Azure" 
+    description="Explains the purpose of feature selection and provides examples of their role in the data enhancement process of machine learning."
+    services="machine-learning"
+    documentationCenter=""
+    authors="bradsev"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/19/2016"
-	ms.author="zhangya;bradsev" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/19/2016"
+    ms.author="zhangya;bradsev" />
 
 
-# Selección de características en el proceso de ciencia de datos en equipos (TDSP)
 
-En este artículo se explican los propósitos de la selección de características y ofrece ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático. Estos ejemplos se extraen de Estudio de aprendizaje automático de Azure.
+# <a name="feature-selection-in-the-team-data-science-process-(tdsp)"></a>Feature selection in the Team Data Science Process (TDSP)
+
+This article explains the purposes of feature selection and provides examples of its role in the data enhancement process of machine learning. These examples are drawn from Azure Machine Learning Studio. 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 
-En este tema se explica el propósito de la selección de características y ofrece ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático. Estos ejemplos se extraen de Estudio de aprendizaje automático de Azure.
+This topic explains the purpose of feature selection and provides examples of its role in the data enhancement process of machine learning. These examples are drawn from Azure Machine Learning Studio. 
 
-La ingeniería y la selección de características forman parte del proceso TDSP descrito en [¿Qué es el proceso de ciencia de datos en equipos (TDSP)?](data-science-process-overview.md) La selección y la ingeniería de características son partes del paso del **desarrollo de características** del TDSP.
+The engineering and selection of features is one part of the TDSP outlined in the [What is the Team Data Science Process?](data-science-process-overview.md). Feature engineering and selection are parts of the **Develop features** step of the TDSP.
 
-* **Diseño de características**: este proceso intenta crear características pertinentes adicionales a partir de características existentes sin procesar en los datos y mejorar la eficacia predictiva del algoritmo de aprendizaje.
+* **feature engineering**: This process attempts to create additional relevant features from the existing raw features in the data, and to increase predictive power to the learning algorithm.
 
-* **selección de características**: este proceso selecciona el subconjunto de claves de las características de datos originales en un intento por reducir la dimensionalidad del problema de entrenamiento.
+* **feature selection**: This process selects the key subset of original data features in an attempt to reduce the dimensionality of the training problem.
 
-Normalmente, la **ingeniería de características** se aplica primero para generar características adicionales y, a continuación, se realiza el paso de **selección de características** para eliminar características irrelevantes, redundantes o altamente correlacionadas.
-
-
-## Filtrado de características desde sus datos: selección de características 
-
-La selección de características es un proceso que normalmente se aplica para la construcción de conjuntos de datos de entrenamiento para tareas de modelado predictivo, como las tareas de clasificación o de regresión. El objetivo es seleccionar un subconjunto de las características a partir del conjunto de datos original que reduce sus dimensiones al usar un conjunto de características mínimo para que represente la cantidad máxima de varianza en los datos. De este modo, este subconjunto de características son las únicas características que se incluirán para entrenar el modelo. La selección de características tiene dos propósitos principales.
-
-* En primer lugar, la selección de características a menudo aumenta la precisión de la clasificación a través de la eliminación de características irrelevantes, redundantes o altamente correlacionadas.
-* En segundo lugar, disminuye la cantidad de características, lo que hace que el proceso de entrenamiento del modelo sea más eficiente. Esto resulta especialmente importante cuando se trata de sistemas aprendices que son costosos de entrenar, como las máquinas de vectores de soporte.
-
-A pesar de que la selección de características sí busca disminuir la cantidad de características en el conjunto de datos que se usa para entrenar el modelo, no es frecuente referirse a ella con el término "reducción de la dimensionalidad". Los métodos de selección de características extraen un subconjunto de las características originales de los datos sin cambiarlas. Los métodos de reducción de dimensionalidad emplean características diseñadas que pueden transformar las características originales y, de ese modo, modificarlas. Algunos ejemplos de los métodos de reducción de dimensionalidad incluyen el análisis del componente principal, el análisis de correlación canónica y la descomposición en valores singulares.
-
-Entre otros aspectos, una categoría ampliamente aplicada de los métodos de selección de categorías en un contexto supervisado se llama "selección de características basada en filtro". Mediante la evaluación de la correlación entre cada característica y el atributo de destino, estos métodos aplican una medida estadística para asignar una puntuación a cada característica. A continuación, las características se clasifican según la puntuación, lo que se puede usar para definir el umbral para conservar o eliminar una característica específica. Algunos ejemplos de las medidas estadísticas que se usan en estos métodos incluyen la correlación de Pearson, la información mutua y la prueba de Chi-cuadrado.
-
-En Estudio de aprendizaje automático de Azure, estos son los módulos proporcionados para la selección de características. Tal como aparece en la figura siguiente, estos módulos incluyen [Selección de características basada en filtro][filter-based-feature-selection] y [Análisis discriminante lineal de Fisher][fisher-linear-discriminant-analysis].
-
-![Ejemplo de selección de características](./media/machine-learning-data-science-select-features/feature-Selection.png)
+Normally **feature engineering** is applied first to generate additional features, and then the **feature selection** step is performed to eliminate irrelevant, redundant, or highly correlated features.
 
 
-Por ejemplo, considere el uso del módulo [Selección de características basada en filtro][filter-based-feature-selection]. Para mayor comodidad, seguiremos usando el ejemplo de minería de texto descrito anteriormente. Suponga que deseamos crear un modelo de regresión una vez creado un conjunto de 256 características mediante el módulo [Hash de características][feature-hashing] y que la variable de respuesta es la "Col1" y representa una clasificación de las reseñas de un libro, que van desde 1 a 5. Defina el "Método de puntuación de características" en "Correlación de Pearson", la "Columna de destino" en "Col1" y el "Número de características deseadas" en 50. A continuación, el módulo [Selección de características basada en filtro][filter-based-feature-selection] generará un conjunto de datos con 50 características, junto con el atributo de destino "Col1". La figura siguiente muestra el flujo de este experimento y los parámetros de entrada que acabamos de describir.
+## <a name="filtering-features-from-your-data---feature-selection"></a>Filtering Features from Your Data - Feature Selection 
 
-![Ejemplo de selección de características](./media/machine-learning-data-science-select-features/feature-Selection1.png)
+Feature selection is a process that is commonly applied for the construction of training datasets for predictive modeling tasks such as classification or regression tasks. The goal is to select a subset of the features from the original dataset that reduce its dimensions by using a minimal set of features to represent the maximum amount of variance in the data. This subset of features are, then, the only features to be included to train the model. Feature selection serves two main purposes.
 
-La figura siguiente muestra los conjuntos de datos resultantes. Cada características recibe una puntuación según la correlación de Pearson entre sí misma y el atributo de destino "Col1". Las características con las mayores puntuaciones se conservan.
+* First, feature selection often increases classification accuracy by eliminating irrelevant, redundant, or highly correlated features.
+* Second, it decreases the number of features which makes model training process more efficient. This is particularly important for learners that are expensive to train such as support vector machines.
 
-![Ejemplo de selección de características](./media/machine-learning-data-science-select-features/feature-Selection2.png)
+Although feature selection does seek to reduce the number of features in the dataset used to train the model, it is not usually referred to by the term "dimensionality reduction". Feature selection methods extract a subset of original features in the data without changing them.  Dimensionality reduction methods employ engineered features that can transform the original features and thus modify them. Examples of dimensionality reduction methods include Principal Component Analysis, canonical correlation analysis, and Singular Value Decomposition.
 
-La figura siguiente muestra las puntuaciones correspondientes de las características seleccionadas.
+Among others, one widely applied category of feature selection methods in a supervised context is called "filter based feature selection". By evaluating the correlation between each feature and the target attribute, these methods apply a statistical measure to assign a score to each feature. The features are then ranked by the score, which may be used to help set the threshold for keeping or eliminating a specific feature. Examples of the statistical measures used in these methods include Person correlation, mutual information, and the Chi squared test.
 
-![Ejemplo de selección de características](./media/machine-learning-data-science-select-features/feature-Selection3.png)
+In Azure Machine Learning Studio, there are modules provided for feature selection. As shown in the following figure, these modules include [Filter-Based Feature Selection][filter-based-feature-selection] and [Fisher Linear Discriminant Analysis][fisher-linear-discriminant-analysis].
 
-A través de la aplicación de este módulo [Selección de características basada en filtro][filter-based-feature-selection], se seleccionan 50 de las 256 características, debido a que tienen las características más correlacionadas con la variable de destino "Col1", según el método de puntuación "Correlación de Pearson".
+![Feature selection example](./media/machine-learning-data-science-select-features/feature-Selection.png)
 
-## Conclusión
-La selección de características y la ingeniería de características son dos características diseñadas y seleccionadas frecuentemente que aumentan la eficiencia del proceso de entrenamiento en el que se intenta extraer la información clave que contienen los datos. También mejoran la eficacia de estos modelos para clasificar los datos de entrada de manera precisa y para predecir resultados de interés de manera más sólida. El diseño y la selección de características también se pueden combinar para que sea posible hacer un mejor seguimiento computacional del aprendizaje. Para ello, mejora y luego reduce el número de características que se necesitan para calibrar o entrenar un modelo. Matemáticamente hablando, las características seleccionadas para entrenar el modelo son un conjunto mínimo de variables independientes que explican los patrones existentes en los datos y, a continuación, predicen correctamente los resultados.
 
-Observe que no siempre es necesario realizar el diseño o la selección de características. Si es necesario o no depende de los datos que se tengan o que se hayan recopilado, del algoritmo que se elija y del objetivo del experimento.
+Consider, for example, the use of the [Filter-Based Feature Selection][filter-based-feature-selection] module. For the purpose of convenience, we continue to use the text mining example outlined above. Assume that we want to build a regression model after a set of 256 features are created through the [Feature Hashing][feature-hashing] module, and that the response variable is the "Col1" and represents a book review ratings ranging from 1 to 5. By setting "Feature scoring method" to be "Pearson Correlation", the "Target column" to be "Col1", and the "Number of desired features" to 50. Then the module [Filter-Based Feature Selection][filter-based-feature-selection] will produce a dataset containing 50 features together with the target attribute "Col1". The following figure shows the flow of this experiment and the input parameters we just described.
+
+![Feature selection example](./media/machine-learning-data-science-select-features/feature-Selection1.png)
+
+The following figure shows the resulting datasets. Each feature is scored based on the Pearson Correlation between itself and the target attribute "Col1". The features with top scores are kept.
+
+![Feature selection example](./media/machine-learning-data-science-select-features/feature-Selection2.png)
+
+The corresponding scores of the selected features are shown in the following figure.
+
+![Feature selection example](./media/machine-learning-data-science-select-features/feature-Selection3.png)
+
+By applying this [Filter-Based Feature Selection][filter-based-feature-selection] module, 50 out of 256 features are selected because they have the most correlated features with the target variable "Col1", based on the scoring method "Pearson Correlation".
+
+## <a name="conclusion"></a>Conclusion
+Feature engineering and feature selection are two commonly Engineered and selected features increase the efficiency of the training process which attempts to extract the key information contained in the data. They also improve the power of these models to classify the input data accurately and to predict outcomes of interest more robustly. Feature engineering and selection can also combine to make the learning more computationally tractable. It does so by enhancing and then reducing the number of features needed to calibrate or train a model. Mathematically speaking, the features selected to train the model are a minimal set of independent variables that explain the patterns in the data and then predict outcomes successfully.
+
+Note that it is not always necessarily to perform feature engineering or feature selection. Whether it is needed or not depends on the data we have or collect, the algorithm we pick, and the objective of the experiment.
 
 <!-- Module References -->
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
@@ -76,4 +77,8 @@ Observe que no siempre es necesario realizar el diseño o la selección de carac
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

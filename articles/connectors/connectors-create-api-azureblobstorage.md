@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Incorporación del conector de almacenamiento de blobs de Azure en las aplicaciones lógicas | Microsoft Azure"
-    description="Información general sobre el conector de almacenamiento de blobs de Azure con los parámetros de la API de REST"
+    pageTitle="Add the Azure blob storage Connector in your Logic Apps | Microsoft Azure"
+    description="Overview of Azure blob storage Connector with REST API parameters"
     services=""
     documentationCenter="" 
     authors="MandiOhlinger"
-    manager="erikre"
+    manager="anneta"
     editor=""
     tags="connectors"/>
 
@@ -14,299 +14,307 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/25/2016"
+   ms.date="10/18/2016"
    ms.author="mandia"/>
 
-# Introducción al conector de almacenamiento de blobs de Azure
-Almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados. Puede realizar diversas acciones en archivos como cargar, actualizar, obtener y eliminar blobs en el almacenamiento de blobs de Azure.
 
-Con Almacenamiento de blobs de Azure:
+# <a name="get-started-with-the-azure-blob-storage-connector"></a>Get started with the Azure blob storage connector
+Azure Blob storage is a service for storing large amounts of unstructured data. Perform various actions such as upload, update, get, and delete blobs in Azure blob storage. 
 
-- Genere el flujo de trabajo mediante la carga de nuevos proyectos o la obtención de archivos que se hayan actualizado recientemente.
-- Use acciones para obtener metadatos de archivos, eliminar un archivo, copiar archivos y muchas otras cosas. Por ejemplo, si se actualiza una herramienta en un sitio web de Azure (un desencadenador), actualice a continuación un archivo en el almacenamiento de blobs (una acción).
+With Azure blob storage, you:
 
-En este tema se muestra cómo usar el conector de almacenamiento de blobs en una aplicación lógica y también se enumeran las acciones.
+- Build your workflow by uploading new projects, or getting files that have been  recently updated.
+- Use actions to get file metadata, delete a file, copy files, and more. For example,  when a tool is updated in an Azure web site (a trigger), then update a file in blob storage (an action). 
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la disponibilidad general de las aplicaciones lógicas.
+This topic shows you how to use the blob storage connector in a logic app, and also lists the actions.
 
-Para más información sobre Logic Apps, consulte [¿Qué son las aplicaciones lógicas?](../app-service-logic/app-service-logic-what-are-logic-apps.md) y [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+>[AZURE.NOTE] This version of the article applies to Logic Apps general availability (GA). 
 
-## Conexión con el almacenamiento de blobs de Azure
+To learn more about Logic Apps, see [What are logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Para que la aplicación lógica pueda acceder a un servicio, primero debe crear una *conexión* con dicho servicio. Una conexión proporciona conectividad entre una aplicación lógica y otro servicio. Por ejemplo, para conectarse a una cuenta de almacenamiento, debe crear primero una *conexión* con Almacenamiento de blobs. Para crear una conexión, escriba las credenciales que utiliza normalmente para acceder al servicio al que se está conectando. En el caso de Almacenamiento de Azure, para crear la conexión, deberá escribir las credenciales de la cuenta de almacenamiento.
+## <a name="connect-to-azure-blob-storage"></a>Connect to Azure blob storage
 
-#### Creación de la conexión
+Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to a storage account, you first create a blob storage *connection*. To create a connection, enter the credentials you normally use to access the service you are connecting to. So with Azure storage, enter the credentials to your storage account to create the connection. 
 
->[AZURE.INCLUDE [Creación de una conexión a Almacenamiento de blobs de Azure](../../includes/connectors-create-api-azureblobstorage.md)]
+#### <a name="create-the-connection"></a>Create the connection
+
+>[AZURE.INCLUDE [Create a connection to Azure blob storage](../../includes/connectors-create-api-azureblobstorage.md)]
  
-## Uso de un desencadenador
+## <a name="use-a-trigger"></a>Use a trigger
 
-Este conector no tiene ningún desencadenador. Utilice otros desencadenadores para iniciar la aplicación lógica; por ejemplo, un desencadenador de periodicidad, un desencadenador HTTP webhook, los desencadenadores disponibles con otros conectores, etc. En [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md), podemos ver un ejemplo.
+This connector does not have any triggers. Use other triggers to start the logic app, such as a Recurrence trigger, an HTTP Webhook trigger, triggers available with other connectors, and more. [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) provides an example.
 
-## Uso de una acción
-	
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica.
+## <a name="use-an-action"></a>Use an action
+    
+An action is an operation carried out by the workflow defined in a logic app.
 
-1. Seleccione el signo más. Aparecen varias opciones: **Add an action** (Agregar una acción), **Add a condition** (Agregar una condición) o una de las opciones de **More** (Más).
+1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
 
-	![](./media/connectors-create-api-azureblobstorage/add-action.png)
+    ![](./media/connectors-create-api-azureblobstorage/add-action.png)
 
-2. Elija **Add an action** (Agregar una acción).
+2. Choose **Add an action**.
 
-3. En el cuadro de texto, escriba "blob" para obtener una lista de todas las acciones disponibles.
+3. In the text box, type “blob” to get a list of all the available actions.
 
-	![](./media/connectors-create-api-azureblobstorage/actions.png)
+    ![](./media/connectors-create-api-azureblobstorage/actions.png) 
 
-4. En nuestro ejemplo, elija **AzureBlob - Get file metadata using path** (AzureBlob: obtener metadatos de archivo mediante la ruta de acceso). Si ya existe una conexión, seleccione el botón **...** (Mostrar selector) para seleccionar un archivo.
+4. In our example, choose **AzureBlob - Get file metadata using path**. If a connection already exists, then select the **...** (Show Picker) button to select a file.
 
-	![](./media/connectors-create-api-azureblobstorage/sample-file.png)
+    ![](./media/connectors-create-api-azureblobstorage/sample-file.png)
 
-	Si se le solicita la información de conexión, escriba los detalles para crear la conexión. Estas propiedades se describen en la sección [Creación de la conexión](connectors-create-api-azureblobstorage.md#create-the-connection) de este tema.
+    If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-azureblobstorage.md#create-the-connection) in this topic describes these properties. 
 
-	> [AZURE.NOTE] En este ejemplo, obtenemos los metadatos de un archivo. Para ver los metadatos, agregue otra acción que cree un archivo nuevo mediante otro conector. Por ejemplo, agregue una acción de OneDrive que cree un nuevo archivo de "prueba" basándose en los metadatos.
+    > [AZURE.NOTE] In this example, we get the metadata of a file. To see the metadata, add another action that creates a new file using another connector. For example, add a OneDrive action that creates a new "test" file based on the metadata. 
 
-5. **Guarde** los cambios (esquina superior izquierda de la barra de herramientas). La aplicación lógica se guarda y se puede habilitar automáticamente.
+5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
 
-> [AZURE.TIP] [Storage Explorer](http://storageexplorer.com/) es una excelente herramienta para administrar varias cuentas de almacenamiento.
+> [AZURE.TIP] [Storage Explorer](http://storageexplorer.com/) is a great tool to  manage multiple storage accounts.
 
-## Detalles técnicos
+## <a name="technical-details"></a>Technical Details
 
-## Acciones de Storage Blob
+## <a name="storage-blob-actions"></a>Storage Blob actions
 
-|Acción|Descripción|
+|Action|Description|
 |--- | ---|
-|[Obtención de metadatos de archivo](connectors-create-api-azureblobstorage.md#get-file-metadata)|Esta operación obtiene metadatos de archivo mediante el identificador de archivo.|
-|[Actualizar archivo](connectors-create-api-azureblobstorage.md#update-file)|Esta operación actualiza un archivo.|
-|[Eliminar archivo](connectors-create-api-azureblobstorage.md#delete-file)|Esta operación elimina un archivo.|
-|[Obtener metadatos de archivo mediante la ruta de acceso](connectors-create-api-azureblobstorage.md#get-file-metadata-using-path)|Esta operación obtiene metadatos de archivo mediante la ruta de acceso.|
-|[Obtener contenido de archivo mediante la ruta de acceso](connectors-create-api-azureblobstorage.md#get-file-content-using-path)|Esta operación obtiene el contenido de archivo mediante la ruta de acceso.|
-|[Obtener contenido de archivo](connectors-create-api-azureblobstorage.md#get-file-content)|Esta operación obtiene el contenido de archivo mediante el identificador.|
-|[Crear archivo](connectors-create-api-azureblobstorage.md#create-file)|Esta operación carga un archivo.|
-|[Copiar archivo](connectors-create-api-azureblobstorage.md#copy-file)|Esta operación copia un archivo en el Almacenamiento de blobs de Azure.|
-|[Extraer archivo en la carpeta](connectors-create-api-azureblobstorage.md#extract-archive-to-folder)|Esta operación extrae un archivo de almacenamiento en una carpeta (por ejemplo: .zip).|
+|[Get file metadata](connectors-create-api-azureblobstorage.md#get-file-metadata)|This operation gets file metadata using file id.|
+|[Update file](connectors-create-api-azureblobstorage.md#update-file)|This operation updates a file.|
+|[Delete file](connectors-create-api-azureblobstorage.md#delete-file)|This operation deletes a file.|
+|[Get file metadata using path](connectors-create-api-azureblobstorage.md#get-file-metadata-using-path)|This operation gets file metadata using the path.|
+|[Get file content using path](connectors-create-api-azureblobstorage.md#get-file-content-using-path)|This operation gets file contents using the path.|
+|[Get file content](connectors-create-api-azureblobstorage.md#get-file-content)|This operation gets file contents using id.|
+|[Create file](connectors-create-api-azureblobstorage.md#create-file)|This operation uploads a file.|
+|[Copy file](connectors-create-api-azureblobstorage.md#copy-file)|This operation copies a file to Azure Blob Storage.|
+|[Extract archive to folder](connectors-create-api-azureblobstorage.md#extract-archive-to-folder)|This operation extracts an archive file into a folder (example: .zip).|
 
-### Detalles de la acción
+### <a name="action-details"></a>Action details
 
-En esta sección, consulte los detalles específicos acerca de cada acción, incluidas las propiedades de entrada obligatorias u opcionales y cualquier salida correspondiente asociada con el conector.
+In this section, see the specific details about each action, including any required or optional input properties, and any corresponding output associated with the connector.
 
-#### Obtención de metadatos de archivo
-Esta operación obtiene metadatos de archivo mediante el identificador de archivo.
+#### <a name="get-file-metadata"></a>Get file metadata
+This operation gets file metadata using file id.  
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Archivo|Seleccionar un archivo|
+|id*|File|Select a file|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| Nombre de propiedad | Tipo de datos |
+| Property Name | Data Type |
 |---|---|
-|Id|cadena|
-|Nombre|cadena|
-|DisplayName|cadena|
-|Ruta de acceso|cadena|
-|LastModified|cadena|
-|Tamaño|integer|
-|MediaType|cadena|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
 |IsFolder|boolean|
-|ETag|cadena|
-|FileLocator|cadena|
+|ETag|string|
+|FileLocator|string|
 
 
-#### Actualizar archivo
-Esta operación actualiza un archivo.
+#### <a name="update-file"></a>Update file
+This operation updates a file.  
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Archivo|Seleccionar un archivo|
-|body*|Contenido del archivo|Contenido del archivo que se va a actualizar|
+|id*|File|Select a file|
+|body*|File content|Content of the file to update|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| Nombre de propiedad | Tipo de datos |
+| Property Name | Data Type |
 |---|---|
-|Id|cadena|
-|Nombre|cadena|
-|DisplayName|cadena|
-|Ruta de acceso|cadena|
-|LastModified|cadena|
-|Tamaño|integer|
-|MediaType|cadena|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
 |IsFolder|boolean|
-|ETag|cadena|
-|FileLocator|cadena|
+|ETag|string|
+|FileLocator|string|
 
 
-#### Eliminar archivo
-Esta operación elimina un archivo.
+#### <a name="delete-file"></a>Delete file
+This operation deletes a file.  
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Archivo|Seleccionar un archivo|
+|id*|File|Select a file|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-Ninguno.
+##### <a name="output-details"></a>Output Details
+None.
 
 
-#### Obtener metadatos de archivo mediante la ruta de acceso
-Esta operación obtiene metadatos de archivo mediante la ruta de acceso.
+#### <a name="get-file-metadata-using-path"></a>Get file metadata using path
+This operation gets file metadata using the path.  
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|path*|Ruta de acceso del archivo|Seleccionar un archivo|
+|path*|File path|Select a file|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| Nombre de propiedad | Tipo de datos |
+| Property Name | Data Type |
 |---|---|
-|Id|cadena|
-|Nombre|cadena|
-|DisplayName|cadena|
-|Ruta de acceso|cadena|
-|LastModified|cadena|
-|Tamaño|integer|
-|MediaType|cadena|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
 |IsFolder|boolean|
-|ETag|cadena|
-|FileLocator|cadena|
+|ETag|string|
+|FileLocator|string|
 
 
-#### Obtener contenido de archivo mediante la ruta de acceso
-Esta operación obtiene el contenido de archivo mediante la ruta de acceso.
+#### <a name="get-file-content-using-path"></a>Get file content using path
+This operation gets file contents using the path.  
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|path*|Ruta de acceso del archivo|Seleccionar un archivo|
+|path*|File path|Select a file|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-Ninguno.
+##### <a name="output-details"></a>Output Details
+None.
 
 
-#### Obtener contenido de archivo
-Esta operación obtiene el contenido de archivo mediante el identificador.
+#### <a name="get-file-content"></a>Get file content
+This operation gets file contents using id.  
 
-|Nombre de propiedad| Tipo de datos|Descripción|
+|Property Name| Data Type|Description|
 | ---|---|---|
-|id*|cadena|Seleccionar un archivo|
+|id*|string|Select a file|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
-Ninguno.
+##### <a name="output-details"></a>Output Details
+None.
 
 
-#### Crear archivo
-Esta operación carga un archivo.
+#### <a name="create-file"></a>Create file
+This operation uploads a file.  
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|folderPath*|Ruta de acceso a la carpeta|Seleccionar una carpeta|
-|name*|Nombre de archivo|Nombre del archivo que va a cargar|
-|body*|Contenido del archivo|Contenido del archivo que va a cargar|
+|folderPath*|Folder path|Select a folder|
+|name*|File name|Name of file to upload|
+|body*|File content|Content of the file to upload|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| Nombre de propiedad | Tipo de datos | 
+| Property Name | Data Type | 
 |---|---|
-|Id|cadena|
-|Nombre|cadena|
-|DisplayName|cadena|
-|Ruta de acceso|cadena|
-|LastModified|cadena|
-|Tamaño|integer|
-|MediaType|cadena|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
 |IsFolder|boolean|
-|ETag|cadena|
-|FileLocator|cadena|
+|ETag|string|
+|FileLocator|string|
 
 
-#### Copiar archivo
-Esta operación copia un archivo en el Almacenamiento de blobs de Azure.
+#### <a name="copy-file"></a>Copy file
+This operation copies a file to Azure Blob Storage.  
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|source*|Dirección URL de origen|Especifica la dirección URL al archivo de origen|
-|destination*|Ruta de acceso del archivo de destino|Especifica la ruta de acceso al archivo de destino, incluido el nombre de archivo de destino|
-|overwrite|¿Sobrescribir?|¿Se debe sobrescribir un archivo de destino existente (verdadero/falso)? |
+|source*|Source url|Specify Url to source file|
+|destination*|Destination file path|Specify the destination file path, including target filename|
+|overwrite|Overwrite?|Should an existing destination file be overwritten (true/false)?  |
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| Nombre de propiedad | Tipo de datos |
+| Property Name | Data Type |
 |---|---|
-|Id|cadena|
-|Nombre|cadena|
-|DisplayName|cadena|
-|Ruta de acceso|cadena|
-|LastModified|cadena|
-|Tamaño|integer|
-|MediaType|cadena|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
 |IsFolder|boolean|
-|ETag|cadena|
-|FileLocator|cadena|
+|ETag|string|
+|FileLocator|string|
 
-#### Extraer archivo en la carpeta
-Esta operación extrae un archivo de almacenamiento en una carpeta (por ejemplo: .zip).
+#### <a name="extract-archive-to-folder"></a>Extract archive to folder
+This operation extracts an archive file into a folder (example: .zip).  
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|source*|Ruta de acceso del archivo de origen|Seleccionar un archivo de almacenamiento|
-|destination*|Ruta de acceso a la carpeta de destino|Selecciona el contenido que se va a extraer|
-|overwrite|¿Sobrescribir?|¿Se debe sobrescribir un archivo de destino existente (verdadero/falso)?|
+|source*|Source archive file path|Select an archive file|
+|destination*|Destination folder path|Select the contents to extract|
+|overwrite|Overwrite?|Should an existing destination file be overwritten (true/false)?|
 
-Un asterisco (*) significa que la propiedad es obligatoria.
+An asterisk (*) means the property is required.
 
-##### Detalles de salida
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| Nombre de propiedad | Tipo de datos |
+| Property Name | Data Type |
 |---|---|
-|Id|cadena|
-|Nombre|cadena|
-|DisplayName|cadena|
-|Ruta de acceso|cadena|
-|LastModified|cadena|
-|Tamaño|integer|
-|MediaType|cadena|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
 |IsFolder|boolean|
-|ETag|cadena|
-|FileLocator|cadena|
+|ETag|string|
+|FileLocator|string|
 
 
-## Respuestas HTTP
+## <a name="http-responses"></a>HTTP responses
 
-Al realizar llamadas a las distintas acciones, es posible que obtenga determinadas respuestas. En la tabla siguiente se describen las respuestas y sus descripciones:
+When making calls to the different actions, you may get certain responses. The following table outlines the responses and their descriptions:  
 
-|Nombre|Descripción|
+|Name|Description|
 |---|---|
 |200|OK|
 |202|Accepted|
 |400|Bad Request|
-|401|No autorizado|
-|403|Prohibido|
-|404|No encontrado|
-|500|Error interno del servidor. Error desconocido|
-|default|Error en la operación.|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occurred|
+|default|Operation Failed.|
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,10 +1,13 @@
 
-Recurso | Límite flexible
+Resource | Soft limit
 ---------|-----------
-Perfiles de CDN | 8
-Puntos de conexión de CDN por perfil | 10
-Dominios personalizados por punto de conexión | 10 
+CDN profiles | 8
+CDN endpoints per profile | 10
+Custom domains per endpoint | 10 
 
-Solicite una actualización de los límites flexibles de la suscripción abriendo una incidencia de soporte técnico.
+Request an update to your subscription's soft limits by opening a support ticket.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

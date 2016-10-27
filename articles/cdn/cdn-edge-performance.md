@@ -1,195 +1,200 @@
 <properties
-	pageTitle="Análisis del rendimiento perimetral en la red CDN de Azure | Microsoft Azure"
-	description="Análisis del rendimiento del nodo perimetral en la red CDN de Microsoft Azure. El análisis del rendimiento perimetral proporciona información pormenorizada sobre tráfico y uso del ancho de banda para la red CDN."
-	services="cdn"
-	documentationCenter=""
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Analyze Edge Performance in Azure CDN | Microsoft Azure"
+    description="Analyze edge node performance in Microsoft Azure CDN. Edge Performance Analytics provides granular information traffic and bandwidth usage for the CDN."
+    services="cdn"
+    documentationCenter=""
+    authors="camsoper"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2016"
-	ms.author="casoper"/>
+    ms.service="cdn"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/28/2016"
+    ms.author="casoper"/>
 
-# Análisis del rendimiento del nodo perimetral en la red CDN de Microsoft Azure
+
+# <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analyze edge node performance in Microsoft Azure CDN
 
 [AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## Información general
-El análisis del rendimiento perimetral proporciona información pormenorizada sobre tráfico y uso del ancho de banda para la red CDN. Esta información puede usarse para generar estadísticas de tendencias que permiten obtener información sobre cómo los activos se almacenan en caché y se entregan a los clientes. A su vez, esto permite diseñar una estrategia sobre la forma de optimizar la entrega de contenido y determinar qué problemas se deben abordar para aprovechar mejor la red CDN. Como resultado, no solo podrá mejorar el rendimiento de la entrega de datos, sino que también podrá reducir los costos de la red CDN.
+## <a name="overview"></a>Overview
+Edge performance analytics provides granular information traffic and bandwidth usage for the CDN. This information can then be used to generate trending statistics, which allow you to gain insight on how your assets are being cached and delivered to your clients. In turn, this allows you to form a strategy on how to optimize the delivery of your content and to determine what issues should be tackled to better leverage the CDN. As a result, not only will you be able to improve data delivery performance, but you will also be able to reduce your CDN costs.
 
-> [AZURE.NOTE] Todos los informes usan la notación de hora UTC/GMT al especificar una fecha y hora.
+> [AZURE.NOTE] All reports use UTC/GMT notation when specifying a date/time.
 
-## Informes y recopilación de registros
+## <a name="reports-and-log-collection"></a>Reports and log collection
 
-Para poder generar los informes, el módulo Análisis del rendimiento perimetral tiene que recopilar datos de actividad de la red CDN. Este proceso de recopilación se produce una vez al día y se centra en la actividad que tuvo lugar a lo largo del día anterior. Esto quiere decir que las estadísticas de un informe representan una muestra de las estadísticas del día en el momento en el que se procesó, y no contienen necesariamente el conjunto completo de datos para el día actual. Es la función principal de estos informes evaluar el rendimiento. No deben usarse con fines de facturación o estadísticas numéricas exactas.
+CDN activity data must be collected by the Edge Performance Analytics module before it can generate reports on it. This collection process occurs once a day and it covers the activity that took place during the previous day. This means that a report's statistics represent a sample of the day's statistics at the time it was processed, and do not necessarily contain the complete set of data for the current day. The primary function of these reports is to assess performance. They should not be used for billing purposes or exact numeric statistics.
 
-> [AZURE.NOTE] Los datos sin procesar a partir de los que se generan los informes de Análisis del rendimiento perimetral están disponibles al menos durante 90 días.
+> [AZURE.NOTE] The raw data from which Edge Performance Analytic reports are generated is available for at least 90 days.
 
-## Panel
+## <a name="dashboard"></a>Dashboard
 
-El panel de Análisis de rendimiento perimetral realiza un seguimiento actual e histórico del tráfico de la red CDN a través de un gráfico y de estadísticas. Use este panel para detectar las tendencias recientes y a largo plazo en el rendimiento del tráfico de la red CDN de su cuenta.
+The Edge Performance Analytics dashboard tracks current and historical CDN traffic through a chart and statistics. Use this dashboard to detect recent and long-term trends on the performance of CDN traffic for your account.
 
-Este panel consta de:
+This dashboard consists of:
 
-* Un gráfico interactivo que permite la visualización de métricas clave y tendencias.
-* Una escala de tiempo que proporciona una sensación de patrones a largo plazo de las tendencias y las métricas clave.
-* Las métricas clave y la información estadística acerca de cómo nuestra red CDN mejora el tráfico del sitio con relación al rendimiento general, el uso y la eficiencia.
+* An interactive chart that allows the visualization of key metrics and trends.
+* A timeline that provides a sense of long term patterns for key metrics and trends.
+* Key metrics and statistical information on how our CDN network improves site traffic as measured by overall performance, usage, and efficiency.
 
-### Acceso al panel de rendimiento perimetral
+### <a name="accessing-the-edge-performance-dashboard"></a>Accessing the edge performance dashboard
 
-1. En la hoja de perfil de la red CDN, haga clic en el botón **Administrar**.
+1. From the CDN profile blade, click the **Manage** button.
 
-	![Botón Administrar en la hoja Perfil de red CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
+    ![CDN profile blade manage button](./media/cdn-edge-performance/cdn-manage-btn.png)
 
-	Se abre el portal de administración de la red CDN.
+    The CDN management portal opens.
 
-2. Mantenga el puntero sobre la pestaña **Análisis** y, después sobre el control flotante **Análisis del rendimiento perimetral**. Haga clic en **Panel**.
+2. Hover over the **Analytics** tab, then hover over the **Edge Perfomance Analytics** flyout.  Click on **Dashboard**.
 
-	Se muestra el panel de análisis de nodo perimetral.
+    The edge node analytics dashboard is displayed.
 
-### Gráfico
+### <a name="chart"></a>Chart
 
-El panel contiene un gráfico que realiza el seguimiento de una métrica durante el período de tiempo seleccionado en la escala de tiempo que aparece justo debajo de ella. Se muestra una escala de tiempo que presenta hasta los últimos dos años de actividad de la red CDN directamente debajo del gráfico.
+The dashboard contains a chart that tracks a metric over the time period selected in the timeline that appears directly below it.  A timeline that graphs up to the last two years of CDN activity is displayed directly below the chart.
 
-#### Uso del gráfico
+#### <a name="using-the-chart"></a>Using the chart
 
-* De forma predeterminada, el gráfico muestra la tasa de eficiencia de la memoria caché durante los últimos 30 días.
-* Este gráfico se genera a partir de datos que se recopilan a diario.
-* Al mantener el puntero sobre un día en el gráfico de líneas, indicará una fecha y el valor de la métrica en esa fecha.
-* Haga clic en Resaltar fines de semana para alternar a una superposición de barras verticales de color gris claro que representan los fines de semana en el gráfico. Este tipo de superposición es útil para identificar patrones de tráfico durante los fines de semana.
-* Haga clic en Ver hace un año para alternar a una superposición de la actividad del año anterior en el mismo período de tiempo en el gráfico. Este tipo de comparación proporciona información sobre los patrones de uso de la red CDN a largo plazo. La esquina superior derecha del gráfico contiene una leyenda que indica el código de color para cada gráfico de líneas.
+* By default, the cache efficiency rate for the last 30 days will be charted.
+* This chart is generated from data collated on a daily basis.
+* Hovering over a day on the line graph will indicate a date and the value of the metric on that date.
+* Click Highlight Weekends to toggle an overlay of light gray vertical bars that represent weekends onto the chart. This type of overlay is useful for identifying traffic patterns over weekends.
+* Click View One Year Ago to toggle an overlay of the previous year's activity over the same time period onto the chart. This type of comparison provides insight into long-term CDN usage patterns. The upper-right hand corner of the chart contains a legend that indicates the color code for each line graph.
 
-#### Actualización del gráfico
+#### <a name="updating-the-chart"></a>Updating the chart
 
-* Intervalo de tiempo: realice una de las siguientes acciones:
-	* Seleccione la región que desee en la escala de tiempo. El gráfico se actualizará con los datos que se corresponden con el período de tiempo seleccionado.
-	* Haga doble clic en el gráfico para mostrar todos los datos históricos disponibles hasta un máximo de dos años.
-* Métrica: Haga clic en el icono de gráfico que aparece junto a la métrica deseada. El gráfico y la escala de tiempo se actualizarán con los datos de la métrica correspondiente.
+* Time Range: Perform one of the following:
+    * Select the desired region in the timeline. The chart will be updated with data that corresponds to the selected time period.
+    * Double-click the chart to display all available historical data up to a maximum of two years.
+* Metric: Click the chart icon that appears next to the desired metric. The chart and the timeline will be refreshed with data for the corresponding metric.
 
 
-### Estadísticas y mediciones clave
+### <a name="key-metrics-and-statistics"></a>Key metrics and statistics
 
-#### Métricas de eficiencia
+#### <a name="efficiency-metrics"></a>Efficiency metrics
 
-El propósito de estas métricas es ver si se puede mejorar la eficiencia de la memoria caché. Las principales ventajas derivadas de la eficiencia de la caché son:
+The purpose of these metrics is to see whether cache efficiency can be improved. The main benefits derived from cache efficiency are:
 
-* Reducción de la carga en el servidor de origen que a su vez puede dar lugar a:
-	* Mejor rendimiento del servidor web
-	* Reducción de los costos operacionales.
-* Mejora en la aceleración de la entrega de datos ya que atenderá más solicitudes directamente desde la red CDN.
+* Reduced load on the origin server which may lead to:
+    * Better web server performance.
+    * Reduced operational costs.
+* Improved data delivery acceleration since more requests will be served directly from the CDN.
 
-Campo | Descripción
+Field | Description
 ------|------------
-Eficiencia de la memoria caché | Indica el porcentaje de los datos transferidos que se atendieron desde la memoria caché. Esta métrica mide cuándo una versión almacenada en caché del contenido solicitado se sirvió directamente desde la red CDN (servidores perimetrales) al solicitante (por ejemplo, un explorador web)
-Frecuencia de aciertos | Indica el porcentaje de solicitudes que se atendieron desde la caché. Esta métrica mide cuándo una versión almacenada en caché del contenido solicitado se sirvió directamente desde la red CDN (servidores perimetrales) al solicitante (por ejemplo, un explorador web).
-% de bytes remotos - ninguna configuración de caché | Indica el porcentaje de tráfico que se atendió desde los servidores de origen en la red CDN (servidores perimetrales) que no se almacenará en caché como resultado de la característica de omisión de la caché (motor de reglas de HTTP).
-% de bytes remotos - caché expirada | Indica el porcentaje de tráfico que se atendió desde servidores de origen en la red CDN (servidores perimetrales) como resultado de una revalidación de contenido obsoleto.
+Cache Efficiency | Indicates the percentage of data transferred that was served from cache. This metric measures when a cached version of the requested content was served directly from the CDN (edge servers) to requesters (e.g., web browser)
+Hit Rate | Indicates the percentage of requests that were served from cache. This metric measures when a cached version of the requested content was served directly from the CDN (edge servers) to requesters (e.g., web browser).
+% of Remote Bytes - No Cache Config | Indicates the percentage of traffic that was served from origin servers to the CDN (edge servers) that will not be cached as a result of the Bypass Cache feature (HTTP Rules Engine).
+% of Remote Bytes - Expired Cache | Indicates the percentage of traffic that was served from origin servers to the CDN (edge servers) as a result of stale content revalidation.
 
-#### Métricas de uso
+#### <a name="usage-metrics"></a>Usage metrics
 
-El propósito de estas métricas es proporcionar información sobre las siguientes medidas de reducción de costos:
+The purpose of these metrics is to provide insight into the following cost-cutting measures:
 
-* Reducción de los costos operativos a través de la red CDN.
-* Reducción de gastos de red CDN mediante compresión y la eficiencia de la memoria caché.
+* Minimizing operational costs through the CDN.
+* Reducing CDN expenditures through cache efficiency and compression.
 
-> [AZURE.NOTE] Los números del volumen de tráfico representan el tráfico que se usó en los cálculos de proporciones y porcentajes y puede mostrar solo una parte del tráfico total para los clientes de gran volumen.
+> [AZURE.NOTE] Traffic volume numbers represent traffic that was used in calculations of ratios and percentages, and may only show a portion of the total traffic for high-volume customers.
 
-Campo | Descripción
+Field | Description
 ------|------------
-Promedio de bytes de salida | Indica el número medio de bytes transferidos por cada solicitud que se sirvió desde la red CDN (servidores perimetrales) al solicitante (por ejemplo, un explorador web).
-Velocidad de bytes de ninguna configuración de caché | Indica el porcentaje de tráfico que se sirvió desde la red CDN (servidores perimetrales) al solicitante (por ejemplo, un explorador web) que no se almacenará en caché debido a la característica de omisión de la caché.
-Velocidad de bytes comprimidos | Indica el porcentaje de tráfico enviado desde la red CDN (servidores perimetrales) al solicitantes (por ejemplo, un explorador web) en un formato comprimido.
-Bytes de salida | Indica la cantidad de datos, en bytes, que se enviaron desde la red CDN (servidores perimetrales) al solicitante (por ejemplo, un explorador web).  
-Bytes de entrada | Indica la cantidad de datos, en bytes, que se enviaron desde el solicitante (por ejemplo, un explorador web) a la red CDN (servidores perimetrales).
-Bytes remotos | Indica la cantidad de datos, en bytes, que se enviaron desde la red CDN y los servidores de origen del cliente a la red CDN (servidores perimetrales).
+Ave Bytes Out | Indicates the average number of bytes transferred for each request served from the CDN (edge servers) to the requester (e.g., web browser).
+No Cache Config Byte Rate | Indicates the percentage of traffic served from the CDN (edge servers) to the requester (e.g., web browser) that will not be cached due to the Bypass Cache feature.
+Compressed Byte Rate | Indicates the percentage of traffic sent from the CDN (edge servers) to requesters (e.g., web browser) in a compressed format.
+Bytes Out | Indicates the amount of data, in bytes, that were delivered from the CDN (edge servers) to the requester (e.g., web browser).  
+Bytes In | Indicates the amount of data, in bytes, sent from requesters (e.g., web browser) to the CDN (edge servers).
+Bytes Remote | Indicates the amount of data, in bytes, sent from CDN and customer origin servers to the CDN (edge servers).
 
-#### Métricas de rendimiento.
+#### <a name="performance-metrics"></a>Performance Metrics
 
-El propósito de estas métricas es realizar un seguimiento del rendimiento general para el tráfico de red CDN.
+The purpose of these metrics is to track overall CDN performance for your traffic.
 
-Campo | Descripción
+Field | Description
 ------|------------
-Transfer Rate | Indica la velocidad media a la que se transfirió contenido de la red CDN a un solicitante.
-Duración | Indica el tiempo medio, en milisegundos, que se tardó en entregar un activo a un solicitante (por ejemplo, un explorador web).
-Compressed Request Rate | Indica el porcentaje de aciertos que se enviaron desde la red CDN (servidores perimetrales) al solicitante (por ejemplo, un explorador web) en un formato comprimido.
-4xx Error Rate | Indica el porcentaje de aciertos que generan un código de estado 4xx.
-5xx Error Rate | Indica el porcentaje de aciertos que generan un código de estado 5xx.
-Aciertos | Indica el número de solicitudes para contenido de red CDN.
+Transfer Rate | Indicates the average rate at which content was transferred from the CDN to a requester.
+Duration | Indicates the average time, in milliseconds, it took to deliver an asset to a requester (e.g., web browser).
+Compressed Request Rate | Indicates the percentage of hits that were delivered from the CDN (edge servers) to the requester (e.g., web browser) in a compressed format.
+4xx Error Rate | Indicates the percentage of hits that generated a 4xx status code.
+5xx Error Rate | Indicates the percentage of hits that generated a 5xx status code.
+Hits | Indicates the number of requests for CDN content.
 
-#### Secure Traffic Metrics
+#### <a name="secure-traffic-metrics"></a>Secure Traffic Metrics
 
-El propósito de estas métricas es realizar un seguimiento del rendimiento de la red CDN para el tráfico HTTPS.
+The purpose of these metrics is to track CDN performance for HTTPS traffic.
 
-Campo | Descripción
+Field | Description
 ------|------------
-Secure Cache Efficiency | Indica el porcentaje de datos transferidos para solicitudes HTTPS que se atendieron desde la memoria caché. Esta métrica mide cuándo una versión almacenada en caché del contenido solicitado se sirvió directamente desde la red CDN (servidores perimetrales) al solicitante (por ejemplo, un explorador web) a través de HTTPS.
-Secure Transfer Rate | Indica la velocidad media a la que se transfirió contenido desde la red CDN (servidores perimetrales) a los solicitantes (por ejemplo, servidores web) a través de HTTPS.
-Average Secure Duration | Indica el tiempo medio, en milisegundos, que se tardó en entregar un activo a un solicitante (por ejemplo, un explorador web) a través de HTTPS.
-Secure Hits | Indica el número de solicitudes HTTPS para contenido de red CDN.
-Secure Bytes Out | Indica la cantidad de tráfico HTTPS, en bytes, que se enviaron desde la red CDN (servidores perimetrales) al solicitante (por ejemplo, un explorador web).
+Secure Cache Efficiency | Indicates the percentage of data transferred for HTTPS requests that were served from cache. This metric measures when a cached version of the requested content was served directly from the CDN (edge servers) to requesters (e.g., web browser) over HTTPS.
+Secure Transfer Rate | Indicates the average rate at which content was transferred from the CDN (edge servers) to requesters (e.g., web servers) over HTTPS.
+Average Secure Duration | Indicates the average time, in milliseconds, it took to deliver an asset to a requester (e.g., web browser) over HTTPS.
+Secure Hits | Indicates the number of HTTPS requests for CDN content.
+Secure Bytes Out | Indicates the amount of HTTPS traffic, in bytes, that were delivered from the CDN (edge servers) to the requester (e.g., web browser).
 
-## Informes
+## <a name="reports"></a>Reports
 
-Cada informe de este módulo contiene un gráfico y las estadísticas de uso del ancho de banda y del tráfico para distintos tipos de métricas (por ejemplo, códigos de estado HTTP, códigos de estado de la memoria caché, solicitud de dirección URL, etc.). Esta información puede usarse para profundizar más en cómo se ofrece el contenido a los clientes y para ajustar el comportamiento de la red CDN para mejorar el rendimiento de la entrega de datos.
+Each report in this module contains a chart and statistics on bandwidth and traffic usage for different types of metrics (e.g., HTTP status codes, cache status codes, request URL, etc.). This information may be used to delve deeper into how content is being served to your clients and to fine-tune CDN behavior to improve data delivery performance.
 
-### Acceso a los informes de rendimiento perimetral
+### <a name="accessing-the-edge-performance-reports"></a>Accessing the edge performance reports
 
-1. En la hoja de perfil de la red CDN, haga clic en el botón **Administrar**.
+1. From the CDN profile blade, click the **Manage** button.
 
-	![Botón Administrar en la hoja Perfil de red CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
+    ![CDN profile blade manage button](./media/cdn-edge-performance/cdn-manage-btn.png)
 
-	Se abre el portal de administración de la red CDN.
+    The CDN management portal opens.
 
-2. Mantenga el puntero sobre la pestaña **Análisis** y, después sobre el control flotante **Análisis del rendimiento perimetral**. Haga clic en **Objeto grande HTTP**.
+2. Hover over the **Analytics** tab, then hover over the **Edge Perfomance Analytics** flyout.  Click on **HTTP Large Object**.
 
-	Se muestra la pantalla de informes de análisis de nodo perimetral.
+    The edge node analytics reports screen is displayed.
 
-Informe | Descripción
+Report | Description
 -------|------------
-Daily Summary | Permite ver tendencias de tráfico diarias durante un período de tiempo especificado. Cada barra de este gráfico representa una fecha determinada. El tamaño de la barra indica el número total de aciertos de que se produjeron en esa fecha.
-Hourly Summary | Permite ver tendencias de tráfico por horas durante un período de tiempo especificado. Cada barra de este gráfico representa una sola hora de una fecha determinada. El tamaño de la barra indica el número total de aciertos de que se produjeron en esa hora.
-Protocolos | Muestra el desglose del tráfico entre los protocolos HTTP y HTTPS. Un gráfico de anillos indica el porcentaje de aciertos que se produjo para cada tipo de protocolo.
-HTTP Methods | Le permite obtener una impresión rápida de cuáles son los métodos HTTP que se están usando para solicitar los datos. Normalmente, los métodos de solicitud HTTP más comunes son GET, HEAD y POST. Un gráfico de anillos indica el porcentaje de aciertos que se produjo para cada tipo de método de solicitud HTTP.
-URLs | Contiene un gráfico que muestra las 10 URL más solicitadas. Se muestra una barra para cada dirección URL. La altura de la barra indica cuántos aciertos generó la dirección URL en particular durante el período de tiempo que cubre el informe. Las estadísticas de las 100 direcciones URL más solicitadas se muestran directamente debajo de este gráfico.
-CNAMEs | Contiene un gráfico que muestra los 10 CNAME más usados para solicitar recursos durante el periodo de tiempo que abarca un informe. Las estadísticas de los 100 CNAME más solicitados se muestran directamente debajo de este gráfico.
-Origins | Contiene un gráfico que muestra las 10 principales redes CDN o servidores de origen de cliente desde los que se solicitaron activos durante un período de tiempo especificado. Las estadísticas de las 100 redes CDN o servidores de origen de cliente más solicitados, se muestran directamente debajo de este gráfico. Los servidores de origen de cliente se identifican mediante el nombre definido en la opción de nombre de directorio.
-Geo POPs | Muestra la cantidad del tráfico que se enruta a través de un determinado punto de presencia (POP). La abreviatura de tres letras representa un POP en nuestra red CDN.
-Clientes | Contiene un gráfico que muestra los 10 principales clientes que solicitaron activos durante un período de tiempo especificado. Para los fines de este informe, todas las solicitudes que se originan en la misma dirección IP se consideran del mismo cliente. Las estadísticas de los 100 principales clientes se muestran directamente debajo de este gráfico. Este informe resulta útil para determinar los patrones de actividad de descarga para los clientes principales.
-Estados de la memoria caché | Proporciona un desglose detallado del comportamiento de la memoria caché, que puede revelar los métodos para mejorar la experiencia global del usuario final. Puesto que el rendimiento más rápido procede de los aciertos de caché, para optimizar velocidades de entrega de datos puede minimizar los errores de caché y aciertos de caché expirados.
-NONE Details | Contiene un gráfico que muestra las 10 principales URL para activos para los que la actualización de contenido de la caché no se comprobó durante un período de tiempo especificado. Las estadísticas de las 100 principales URL para este tipo de activos se muestran directamente debajo de este gráfico.
-CONFIG\_NOCACHE Details | Contiene un gráfico que muestra las 10 principales direcciones URL para activos que no se almacenaron en caché debido a la configuración de la red CDN del cliente. Estos tipos de activos se sirvieron directamente desde el servidor de origen. Las estadísticas de las 100 principales URL para este tipo de activos se muestran directamente debajo de este gráfico.
-UNCACHEABLE Details | Contiene un gráfico que muestra las 10 principales URL para activos que no pudieron almacenar debido a los datos de encabezado de la solicitud. Las estadísticas de las 100 principales URL para este tipo de activos se muestran directamente debajo de este gráfico.
-TCP\_HIT Details | Contiene un gráfico que muestra las 10 principales URL para activos que se atendieron inmediatamente desde la caché. Las estadísticas de las 100 principales URL para este tipo de activos se muestran directamente debajo de este gráfico.
-TCP\_MISS Details | Contiene un gráfico que muestra las 10 principales URL de activos que tienen un estado de memoria caché de TCP\_MISS. Las estadísticas de las 100 principales URL para este tipo de activos se muestran directamente debajo de este gráfico.
-TCP\_EXPIRED\_HIT Details | Contiene un gráfico que muestra las 10 principales URL para activos obsoletos que se sirvieron directamente desde la caché. Las estadísticas de las 100 principales URL para este tipo de activos se muestran directamente debajo de este gráfico.
-TCP\_EXPIRED\_MISS Details | Contiene un gráfico que muestra las 10 URL principales para los recursos obsoletos para que una nueva versión tenía que recuperarse desde el servidor de origen. Las estadísticas de las 100 principales URL para este tipo de activos se muestran directamente debajo de este gráfico.
-TCP\_CLIENT\_REFRESH\_MISS Details | Contiene un gráfico de barras que muestra las direcciones URL de las 10 para activos se recuperaron de un servidor de origen debido a una solicitud no almacenar en caché del cliente. Las estadísticas de las 100 principales URL para este tipo de solicitudes se muestran directamente debajo de este gráfico.
-Client Request Types | Indica el tipo de solicitudes que realizaron clientes HTTP (por ejemplo, exploradores) Este informe incluye un gráfico de anillos que proporciona una idea sobre cómo se controlan las solicitudes. Debajo del gráfico se muestra el ancho de banda y el tráfico de información para cada tipo de solicitud.
-User Agent | Contiene un gráfico de barras que muestra los 10 principales agentes de usuario que solicitan contenido a través de nuestra red CDN. Normalmente, un agente de usuario es un explorador web, un reproductor multimedia o un explorador de teléfono móvil. Las estadísticas de los 100 principales agentes de usuario se muestran directamente debajo de este gráfico.
-Referrers | Contiene un gráfico de barras que muestra los 10 principales orígenes de referencia del contenido al que se accedió a través de la red CDN. Normalmente, un origen de referencia es la dirección URL de la página web o el recurso que se vincula al contenido. Debajo del gráfico se proporciona información detallada para los 100 primeros orígenes de referencia.
-Compression Types | Contiene un gráfico de anillos que divide los activos solicitados dependiendo de si fueron o no comprimidos por nuestros servidores perimetrales. El porcentaje de activos comprimidos se divide por el tipo de compresión usada. Debajo del gráfico se proporciona información detallada sobre cada estado y tipo de compresión.
-File Types | Contiene un gráfico de barras que muestra los 10 principales tipos de archivo que se solicitaron a través de nuestra red CDN para su cuenta. Para los fines de este informe, se define un tipo de archivo por la extensión de nombre de archivo y el tipo de medio de Internet (por ejemplo, .html [texto/html], .htm [texto/html], .aspx [texto/html], etc.) del activo. Debajo del gráfico se proporciona información detallada para los 100 primeros tipos de archivo.
-Unique Files | Contiene un gráfico que represente el número total de activos únicos que se solicitaron en un día determinado durante un período de tiempo especificado.
-Token Auth Summary | Contiene un gráfico circular que proporciona una descripción general acerca de si los activos solicitados se protegieron con una autenticación basada en token. Los activos protegidos se muestran en el gráfico según los resultados de la autenticación que se intentó.
-Token Auth Deny Details | Contiene un gráfico de barras que le permite ver las 10 principales solicitudes que se denegaron debido a la autenticación basada en token.
-HTTP Response Codes | Proporciona un desglose de los códigos de estado HTTP (por ejemplo, 200 OK, 403 Prohibido, 404 No encontrado, etc.) que nuestros servidores perimetrales entregaron a los clientes HTTP. Un gráfico circular permite evaluar rápidamente cómo se sirvieron los activos. Debajo del gráfico se proporcionan datos estadísticos detallados para cada código de respuesta.
-404 Errors | Contiene un gráfico de barras que le permite ver las 10 principales solicitudes que dieron como resultado un código de respuesta 404 No encontrado.
-403 Errors | Contiene un gráfico de barras que le permite ver las 10 principales solicitudes que dieron como resultado un código de respuesta 403 Prohibido. Un código de respuesta 403 Prohibido se produce cuando una solicitud ha sido denegada por el servidor de origen de un cliente o un servidor perimetral en nuestro POP.
-4xx Errors | Contiene un gráfico de barras que le permite ver las 10 principales solicitudes que dieron como resultado un código de respuesta de la gama 400. Los códigos de respuesta 403 Prohibido y 404 No encontrado están excluidos de este informe. Normalmente, un código de respuesta 4xx se produce cuando se deniega una solicitud debido a un error de cliente.
-504 Errors | Contiene un gráfico de barras que le permite ver las 10 principales solicitudes que dieron como resultado un código de respuesta 504 Tiempo de espera agotado para la puerta de enlace. Un código de respuesta 504 Tiempo de espera agotado para la puerta de enlace aparece cuando se agota el tiempo de espera mientras un proxy HTTP está intentando comunicarse con otro servidor. En el caso de nuestra red CDN, un código de respuesta 504 Tiempo de espera agotado para la puerta de enlace se produce normalmente cuando un servidor perimetral no puede establecer comunicación con un servidor de origen del cliente.
-502 Errors | Contiene un gráfico de barras que le permite ver las 10 principales solicitudes que dieron como resultado un código de respuesta 502 Puerta de enlace incorrecta. Un código de respuesta 502 Puerta de enlace incorrecta aparece cuando se produce un error de protocolo HTTP entre un servidor y un proxy HTTP. En el caso de nuestra red CDN, un código 502 Puerta de enlace incorrecta normalmente se produce cuando un servidor de origen del cliente devuelve una respuesta no válida a un servidor perimetral. Una respuesta no es válida si no se puede analizar o si está incompleta.
-5xx Errors | Contiene un gráfico de barras que le permite ver las 10 principales solicitudes que dieron como resultado un código de respuesta de la gama 500. Los códigos de respuesta 502 Puerta de enlace incorrecta y 504 Tiempo de espera agotado para la puerta de enlace, están excluidos de este informe.
+Daily Summary | Allows you to view daily traffic trends over a specified time period. Each bar on this graph represents a particular date. The size of the bar indicates the total number of hits that occurred on that date.
+Hourly Summary | Allows you to view hourly traffic trends over a specified time period. Each bar on this graph represents a single hour on a particular date. The size of the bar indicates the total number of hits that occurred during that hour.
+Protocols | Displays the breakdown of traffic between the HTTP and HTTPS protocols. A donut chart indicates the percentage of hits that occurred for each type of protocol.
+HTTP Methods | Allows you to get a quick sense of which HTTP methods are being used to request your data. Typically, the most common HTTP request methods are GET, HEAD, and POST. A donut chart indicates the percentage of hits that occurred for each type of HTTP request method.
+URLs | Contains a graph that displays the top 10 requested URLs. A bar is displayed for each URL. The height of the bar indicates how many hits that particular URL has generated over the time span covered by the report. Statistics for the top 100 requested URLs are displayed directly below this graph.
+CNAMEs | Contains a graph that displays the top 10 CNAMEs used to request assets over the time span of a report. Statistics for the top 100 requested CNAMEs are displayed directly below this graph.
+Origins | Contains a graph that displays the top 10 CDN or customer origin servers from which assets were requested over a specified period of time. Statistics for the top 100 requested CDN or customer origin servers are displayed directly below this graph. Customer origin servers are identified by the name defined in the Directory Name option.
+Geo POPs | Shows how much of your traffic is being routed through a particular point-of-presence (POP). The three-letter abbreviation represents a POP in our CDN network.
+Clients | Contains a graph that displays the top 10 clients that requested assets over a specified period of time. For the purposes of this report, all requests that originate from the same IP address are considered to be from the same client. Statistics for the top 100 clients are displayed directly below this graph. This report is useful for determining download activity patterns for your top clients.
+Cache Statuses | Gives a detailed breakdown of cache behavior, which may reveal approaches for improving the overall end-user experience. Since the fastest performance comes from cache hits, you can optimize data delivery speeds by minimizing cache misses and expired cache hits.
+NONE Details | Contains a graph that displays the top 10 URLs for assets for which cache content freshness was not checked over a specified period of time. Statistics for the top 100 URLs for these types of assets are displayed directly below this graph.
+CONFIG_NOCACHE Details | Contains a graph that displays the top 10 URLs for assets that were not cached due to the customer's CDN configuration. These types of assets were served directly from the origin server. Statistics for the top 100 URLs for these types of assets are displayed directly below this graph.
+UNCACHEABLE Details | Contains a graph that displays the top 10 URLs for assets that could not be cached due to request header data. Statistics for the top 100 URLs for these types of assets are displayed directly below this graph.
+TCP_HIT Details | Contains a graph that displays the top 10 URLs for assets that are served immediately from cache. Statistics for the top 100 URLs for these types of assets are displayed directly below this graph.
+TCP_MISS Details | Contains a graph that displays the top 10 URLs for assets that have a cache status of TCP_MISS. Statistics for the top 100 URLs for these types of assets are displayed directly below this graph.
+TCP_EXPIRED_HIT Details | Contains a graph that displays the top 10 URLs for stale assets that were served directly from the POP. Statistics for the top 100 URLs for these types of assets are displayed directly below this graph.
+TCP_EXPIRED_MISS Details | Contains a graph that displays the top 10 URLs for stale assets for which a new version had to be retrieved from the origin server. Statistics for the top 100 URLs for these types of assets are displayed directly below this graph.
+TCP_CLIENT_REFRESH_MISS Details | Contains a bar chart that displays the top 10 URLs for assets were retrieved from an origin server due to a no-cache request from the client. Statistics for the top 100 URLs for these types of requests are displayed directly below this chart.
+Client Request Types | Indicates the type of requests that were made by HTTP clients (e.g., browsers). This report includes a donut chart that provides a sense as to how requests are being handled. Bandwidth and traffic information for each request type is displayed below the chart.
+User Agent | Contains a bar graph displaying the top 10 user agents to request your content through our CDN. Typically, a user agent is a web browser, media player, or a mobile phone browser. Statistics for the top 100 user agents are displayed directly below this chart.
+Referrers | Contains a bar graph displaying the top 10 referrers to content accessed through our CDN. Typically, a referrer is the URL of the web page or resource that links to your content. Detailed information is provided below the graph for the top 100 referrers.
+Compression Types | Contains a donut chart that breaks down requested assets by whether they were compressed by our edge servers. The percentage of compressed assets is broken down by the type of compression used. Detailed information is provided below the graph for each compression type and status.
+File Types | Contains a bar graph that displays the top 10 file types that have been requested through our CDN for your account. For the purposes of this report, a file type is defined by the asset's file name extension and Internet media type (e.g., .html \[text/html\], .htm \[text/html\], .aspx \[text/html\], etc.). Detailed information is provided below the graph for the top 100 file types.
+Unique Files | Contains a graph that plots the total number of unique assets that were requested on a particular day over a specified period of time.
+Token Auth Summary | Contains a pie chart that provides a quick overview on whether requested assets were protected by Token-Based Authentication. Protected assets are displayed in the chart according to the results of their attempted authentication.
+Token Auth Deny Details | Contains a bar graph that allows you to view the top 10 requests that were denied due to Token-Based Authentication.
+HTTP Response Codes | Provides a breakdown of the HTTP status codes (e.g., 200 OK, 403 Forbidden, 404 Not Found, etc.) that were delivered to your HTTP clients by our edge servers. A pie chart allows you to quickly assess how your assets were served. Detailed statistical data is provided for each response code below the graph.
+404 Errors | Contains a bar graph that allows you to view the top 10 requests that resulted in a 404 Not Found response code.
+403 Errors | Contains a bar graph that allows you to view the top 10 requests that resulted in a 403 Forbidden response code. A 403 Forbidden response code occurs when a request is denied by a customer origin server or an edge server on our POP.
+4xx Errors | Contains a bar graph that allows you to view the top 10 requests that resulted in a response code in the 400 range. Excluded from this report are 403 Not Found and 404 Forbidden response codes. Typically, a 4xx response code occurs when a request is denied as a result of a client error.
+504 Errors | Contains a bar graph that allows you to view the top 10 requests that resulted in a 504 Gateway Timeout response code. A 504 Gateway Timeout response code occurs when a timeout occurs when an HTTP proxy is trying to communicate with another server. In the case of our CDN, a 504 Gateway Timeout response code typically occurs when an edge server is unable to establish communication with a customer origin server.
+502 Errors | Contains a bar graph that allows you to view the top 10 requests that resulted in a 502 Bad Gateway response code. A 502 Bad Gateway response code occurs when an HTTP protocol failure occurs between a server and an HTTP proxy. In the case of our CDN, a 502 Bad Gateway response code typically occurs when a customer origin server returns an invalid response to an edge server. A response is invalid if it cannot be parsed or if it is incomplete.
+5xx Errors | Contains a bar graph that allows you to view the top 10 requests that resulted in a response code in the 500 range.  Excluded from this report are 502 Bad Gateway and 504 Gateway Timeout response codes.
 
-## Consulte también
-* [Información general de la red CDN de Azure](cdn-overview.md)
-* [Estadísticas en tiempo real en CDN de Microsoft Azure](cdn-real-time-stats.md)
-* [Invalidación del comportamiento HTTP predeterminado mediante el motor de reglas](cdn-rules-engine.md)
-* [Informes de HTTP avanzados](cdn-advanced-http-reports.md)
+## <a name="see-also"></a>See also
+* [Azure CDN Overview](cdn-overview.md)
+* [Real-time stats in Microsoft Azure CDN](cdn-real-time-stats.md)
+* [Overriding default HTTP behavior using the rules engine](cdn-rules-engine.md)
+* [Advanced HTTP Reports](cdn-advanced-http-reports.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

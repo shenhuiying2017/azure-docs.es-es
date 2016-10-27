@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Administración de los NSG con PowerShell en Resource Manager | Microsoft Azure"
-   description="Obtenga información sobre cómo administrar NSG existentes con PowerShell en Resource Manager"
+   pageTitle="Manage NSGs using PowerShell in Resource Manager | Microsoft Azure"
+   description="Learn how to manage exising NSGs using PowerShell in Resource Manager"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -17,471 +17,475 @@
    ms.date="03/14/2016"
    ms.author="jdial" />
 
-# Administración de los NSG con PowerShell
+
+# <a name="manage-nsgs-using-powershell"></a>Manage NSGs using PowerShell
 
 [AZURE.INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## Recuperar información
-
-Puede consultar los NSG existentes, recuperar las reglas de un NSG existente y averiguar cuáles son los recursos a los que está asociado un NSG.
-
-### Consultar los NSG existentes
-Para consultar todos los NSG existentes en una suscripción, ejecute el cmdlet `Get-AzureRmNetworkSecurityGroup` como se muestra a continuación.
-
-	Get-AzureRmNetworkSecurityGroup
-
-Resultado esperado:
-
-	Name                 : NSG-BackEnd
-	ResourceGroupName    : RG-NSG
-	Location             : westus
-	Id                   : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/
-	                       Microsoft.Network/networkSecurityGroups/NSG-BackEnd
-	Etag                 : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-	ResourceGuid         : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-	ProvisioningState    : Succeeded
-	Tags                 : 	                       
-	SecurityRules        : [...]
-	DefaultSecurityRules : [...]
-	NetworkInterfaces    : [...]
-	Subnets              : [...]
-	
-	Name                 : NSG-FrontEnd
-	ResourceGroupName    : RG-NSG
-	Location             : eastus
-	Id                   : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/NRP-RG/providers/
-	                       Microsoft.Network/networkSecurityGroups/NSG-FrontEnd
-	Etag                 : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-	ResourceGuid         : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-	ProvisioningState    : Succeeded
-	Tags                 : 
-	SecurityRules        : [...]
-	DefaultSecurityRules : [...]
-	NetworkInterfaces    : [...]
-	Subnets              : [...]
-	                     	
-	Name                 : WEB1
-	ResourceGroupName    : RG101
-	Location             : eastus2
-	Id                   : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG101/providers/M
-	                       icrosoft.Network/networkSecurityGroups/WEB1
-	Etag                 : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-	ResourceGuid         : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-	ProvisioningState    : Succeeded
-	Tags                 : 
-	SecurityRules        : [...]
-	DefaultSecurityRules : [...]
-	NetworkInterfaces    : [...]
-	Subnets              : [...]
-
-
-Para consultar la lista de NSG de un grupo de recursos específico, ejecute el cmdlet `Get-AzureRmNetworkSecurityGroup` como se muestra a continuación.
-
-	Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG
-
-Resultado esperado:
-
-	Name                 : NSG-BackEnd
-	ResourceGroupName    : RG-NSG
-	Location             : westus
-	Id                   : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/
-	                       Microsoft.Network/networkSecurityGroups/NSG-BackEnd
-	Etag                 : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-	ResourceGuid         : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-	ProvisioningState    : Succeeded
-	Tags                 : 	                       
-	SecurityRules        : [...]
-	DefaultSecurityRules : [...]
-	NetworkInterfaces    : [...]
-	Subnets              : [...]
-	
-	Name                 : NSG-FrontEnd
-	ResourceGroupName    : RG-NSG
-	Location             : eastus
-	Id                   : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/NRP-RG/providers/
-	                       Microsoft.Network/networkSecurityGroups/NSG-FrontEnd
-	Etag                 : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-	ResourceGuid         : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-	ProvisioningState    : Succeeded
-	Tags                 : 
-	SecurityRules        : [...]
-	DefaultSecurityRules : [...]
-	NetworkInterfaces    : [...]
-	Subnets              : [...]
-		 
-### Mostrar todas las reglas de un NSG
-
-Para consultar las reglas de un NSG llamado **NSG-FrontEnd**, ejecute el cmdlet `Get-AzureRmNetworkSecurityGroup` como se muestra a continuación.
-
-	Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd | Select SecurityRules -ExpandProperty SecurityRules
-
-Resultado esperado:
-	
-	Name                     : rdp-rule
-	Id                       : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/						   Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/rdp-rule
-	Etag                     : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-	ProvisioningState        : Succeeded
-	Description              : Allow RDP
-	Protocol                 : Tcp
-	SourcePortRange          : *
-	DestinationPortRange     : 3389
-	SourceAddressPrefix      : Internet
-	DestinationAddressPrefix : *
-	Access                   : Allow
-	Priority                 : 100
-	Direction                : Inbound
-	
-	Name                     : web-rule
-	Id                       : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/						   Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/web-rule
-	Etag                     : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-	ProvisioningState        : Succeeded
-	Description              : Allow HTTP
-	Protocol                 : Tcp
-	SourcePortRange          : *
-	DestinationPortRange     : 80
-	SourceAddressPrefix      : Internet
-	DestinationAddressPrefix : *
-	Access                   : Allow
-	Priority                 : 101
-	Direction                : Inbound
-
->[AZURE.NOTE] También puede usar `Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name "NSG-FrontEnd" | Select DefaultSecurityRules -ExpandProperty DefaultSecurityRules` para enumerar las reglas predeterminadas desde el NSG **NSG-FrontEnd**.
-
-### Consultar las asociaciones de NSG
-
-Para consultar cuáles son los recursos con que está asociado el NSG **NSG-FrontEnd**, ejecute el cmdlet `Get-AzureRmNetworkSecurityGroup` como se muestra a continuación.
-
-	Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
-
-Busque las propiedades **NetworkInterfaces** y **Subnets** como se muestra a continuación:
-
-	NetworkInterfaces    : []
-	Subnets              : [
-	                         {
-	                           "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-	                           "IpConfigurations": []
-	                         }
-	                       ]
-
-En el ejemplo anterior, el NSG no está asociado a ninguna interfaz de red (NIC) y está asociado a una subred llamada **FrontEnd**.
-
-## Administrar las reglas
-
-Puede agregar reglas a un NSG existente, editar reglas existentes y quitar reglas.
-
-### Agregar una regla
-
-Para agregar una regla que permite el tráfico **de entrada** al puerto **443** desde cualquier máquina al NSG **NSG-FrontEnd**, siga estos pasos.
-
-1. Ejecute el cmdlet `Get-AzureRmNetworkSecurityGroup` para recuperar el NSG existente y almacenarlo en una variable, tal como se muestra a continuación.
-
-		$nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG `
-		    -Name NSG-FrontEnd
-
-2. Ejecute el cmdlet `Add-AzureRmNetworkSecurityRuleConfig`, tal como aparece a continuación.
-
-		Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
-		    -Name https-rule `
-		    -Description "Allow HTTPS" `
-		    -Access Allow `
-		    -Protocol Tcp `
-		    -Direction Inbound `
-		    -Priority 102 `
-		    -SourceAddressPrefix * `
-		    -SourcePortRange * `
-		    -DestinationAddressPrefix * `
-		    -DestinationPortRange 443
-
-3. Para guardar los cambios hechos en el NSG, ejecute el cmdlet `Set-AzureRmNetworkSecurityGroup`, tal como aparece a continuación.
-
-		Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-
-	La salida esperada que solo muestra las reglas de seguridad:
-
-		Name                 : NSG-FrontEnd
-		...
-		SecurityRules        : [
-		                         {
-		                           "Name": "rdp-rule",
-		                           ...
-		                         },
-		                         {
-		                           "Name": "web-rule",
-		                           ...
-		                         },
-		                         {
-		                           "Name": "https-rule",
-		                           "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
-		                           "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/https-rule",
-		                           "Description": "Allow HTTPS",
-		                           "Protocol": "Tcp",
-		                           "SourcePortRange": "*",
-		                           "DestinationPortRange": "443",
-		                           "SourceAddressPrefix": "*",
-		                           "DestinationAddressPrefix": "*",
-		                           "Access": "Allow",
-		                           "Priority": 102,
-		                           "Direction": "Inbound",
-		                           "ProvisioningState": "Succeeded"
-		                         }
-		                       ]
-
-### Cambiar una regla
-
-Para cambiar la regla que se creó anteriormente y permitir el tráfico de entrada solo desde **Internet**, siga estos pasos.
-
-1. Ejecute el cmdlet `Get-AzureRmNetworkSecurityGroup` para recuperar el NSG existente y almacenarlo en una variable, tal como se muestra a continuación.
-
-		$nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG `
-		    -Name NSG-FrontEnd
-
-2. Ejecute el cmdlet `Set-AzureRmNetworkSecurityRuleConfig`, tal como aparece a continuación.
-
-		Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
-		    -Name https-rule `
-		    -Description "Allow HTTPS" `
-		    -Access Allow `
-		    -Protocol Tcp `
-		    -Direction Inbound `
-		    -Priority 102 `
-		    -SourceAddressPrefix * `
-		    -SourcePortRange Internet `
-		    -DestinationAddressPrefix * `
-		    -DestinationPortRange 443
-
-3. Para guardar los cambios hechos en el NSG, ejecute el cmdlet `Set-AzureRmNetworkSecurityGroup`, tal como aparece a continuación.
-
-		Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-
-	La salida esperada que solo muestra las reglas de seguridad:
-
-		Name                 : NSG-FrontEnd
-		...
-		SecurityRules        : [
-		                         {
-		                           "Name": "rdp-rule",
-		                           ...
-		                         },
-		                         {
-		                           "Name": "web-rule",
-		                           ...
-		                         },
-		                         {
-		                           "Name": "https-rule",
-		                           "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
-		                           "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/https-rule",
-		                           "Description": "Allow HTTPS",
-		                           "Protocol": "Tcp",
-		                           "SourcePortRange": "*",
-		                           "DestinationPortRange": "443",
-		                           "SourceAddressPrefix": "Internet",
-		                           "DestinationAddressPrefix": "*",
-		                           "Access": "Allow",
-		                           "Priority": 102,
-		                           "Direction": "Inbound",
-		                           "ProvisioningState": "Succeeded"
-		                         }
-		                       ]
+## <a name="retrieve-information"></a>Retrieve Information
+
+You can view your existing NSGs, retrieve rules for an existing NSG, and find out what resources an NSG is associated to.
+
+### <a name="view-existing-nsgs"></a>View existing NSGs
+To view all existing NSGs in a subscription, run the `Get-AzureRmNetworkSecurityGroup` cmdlet as shown below.
+
+    Get-AzureRmNetworkSecurityGroup
+
+Expected result:
+
+    Name                 : NSG-BackEnd
+    ResourceGroupName    : RG-NSG
+    Location             : westus
+    Id                   : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/
+                           Microsoft.Network/networkSecurityGroups/NSG-BackEnd
+    Etag                 : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ResourceGuid         : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    ProvisioningState    : Succeeded
+    Tags                 :                         
+    SecurityRules        : [...]
+    DefaultSecurityRules : [...]
+    NetworkInterfaces    : [...]
+    Subnets              : [...]
+    
+    Name                 : NSG-FrontEnd
+    ResourceGroupName    : RG-NSG
+    Location             : eastus
+    Id                   : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/NRP-RG/providers/
+                           Microsoft.Network/networkSecurityGroups/NSG-FrontEnd
+    Etag                 : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ResourceGuid         : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    ProvisioningState    : Succeeded
+    Tags                 : 
+    SecurityRules        : [...]
+    DefaultSecurityRules : [...]
+    NetworkInterfaces    : [...]
+    Subnets              : [...]
+                            
+    Name                 : WEB1
+    ResourceGroupName    : RG101
+    Location             : eastus2
+    Id                   : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG101/providers/M
+                           icrosoft.Network/networkSecurityGroups/WEB1
+    Etag                 : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ResourceGuid         : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    ProvisioningState    : Succeeded
+    Tags                 : 
+    SecurityRules        : [...]
+    DefaultSecurityRules : [...]
+    NetworkInterfaces    : [...]
+    Subnets              : [...]
+
+
+To view the list of NSGs in a specific resource group, run the `Get-AzureRmNetworkSecurityGroup` cmdlet as shown below. 
+
+    Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG
+
+Expected output:
+
+    Name                 : NSG-BackEnd
+    ResourceGroupName    : RG-NSG
+    Location             : westus
+    Id                   : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/
+                           Microsoft.Network/networkSecurityGroups/NSG-BackEnd
+    Etag                 : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ResourceGuid         : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    ProvisioningState    : Succeeded
+    Tags                 :                         
+    SecurityRules        : [...]
+    DefaultSecurityRules : [...]
+    NetworkInterfaces    : [...]
+    Subnets              : [...]
+    
+    Name                 : NSG-FrontEnd
+    ResourceGroupName    : RG-NSG
+    Location             : eastus
+    Id                   : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/NRP-RG/providers/
+                           Microsoft.Network/networkSecurityGroups/NSG-FrontEnd
+    Etag                 : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ResourceGuid         : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    ProvisioningState    : Succeeded
+    Tags                 : 
+    SecurityRules        : [...]
+    DefaultSecurityRules : [...]
+    NetworkInterfaces    : [...]
+    Subnets              : [...]
+         
+### <a name="list-all-rules-for-an-nsg"></a>List all rules for an NSG
+
+To view the rules of an NSG named **NSG-FrontEnd**, run the `Get-AzureRmNetworkSecurityGroup` cmdlet as shown below. 
+
+    Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd | Select SecurityRules -ExpandProperty SecurityRules
+
+Expected output:
+    
+    Name                     : rdp-rule
+    Id                       : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/                        Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/rdp-rule
+    Etag                     : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ProvisioningState        : Succeeded
+    Description              : Allow RDP
+    Protocol                 : Tcp
+    SourcePortRange          : *
+    DestinationPortRange     : 3389
+    SourceAddressPrefix      : Internet
+    DestinationAddressPrefix : *
+    Access                   : Allow
+    Priority                 : 100
+    Direction                : Inbound
+    
+    Name                     : web-rule
+    Id                       : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/                        Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/web-rule
+    Etag                     : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ProvisioningState        : Succeeded
+    Description              : Allow HTTP
+    Protocol                 : Tcp
+    SourcePortRange          : *
+    DestinationPortRange     : 80
+    SourceAddressPrefix      : Internet
+    DestinationAddressPrefix : *
+    Access                   : Allow
+    Priority                 : 101
+    Direction                : Inbound
+
+>[AZURE.NOTE] You can also use `Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name "NSG-FrontEnd" | Select DefaultSecurityRules -ExpandProperty DefaultSecurityRules` to list the default rules from the **NSG-FrontEnd** NSG.
+
+### <a name="view-nsgs-associations"></a>View NSGs associations
+
+To view what resources the **NSG-FrontEnd** NSG is associate with, run the `Get-AzureRmNetworkSecurityGroup` cmdlet as shown below.
+
+    Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
+
+Look for the **NetworkInterfaces** and **Subnets** properties as shown below:
+
+    NetworkInterfaces    : []
+    Subnets              : [
+                             {
+                               "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+                               "IpConfigurations": []
+                             }
+                           ]
+
+In the example above, the NSG is not associated to any network interfaces (NICs), and it is associated to a subnet named **FrontEnd**.
+
+## <a name="manage-rules"></a>Manage rules
+
+You can add rules to an existing NSG, edit existing rules, and remove rules.
+
+### <a name="add-a-rule"></a>Add a rule
+
+To add a rule allowing **inbound** traffic to port **443** from any machine to the **NSG-FrontEnd** NSG, follow the steps below.
+
+1. Run the `Get-AzureRmNetworkSecurityGroup` cmdlet to retrieve the existing NSG and store it in a variable, as shown below.
+
+        $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG `
+            -Name NSG-FrontEnd
+
+2. Run the `Add-AzureRmNetworkSecurityRuleConfig` cmdlet, as shown below.
+
+        Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+            -Name https-rule `
+            -Description "Allow HTTPS" `
+            -Access Allow `
+            -Protocol Tcp `
+            -Direction Inbound `
+            -Priority 102 `
+            -SourceAddressPrefix * `
+            -SourcePortRange * `
+            -DestinationAddressPrefix * `
+            -DestinationPortRange 443
+
+3. To save the changes made to the NSG, run the `Set-AzureRmNetworkSecurityGroup` cmdlet as shown below.
+
+        Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+
+    Expected output showing only the security rules:
+
+        Name                 : NSG-FrontEnd
+        ...
+        SecurityRules        : [
+                                 {
+                                   "Name": "rdp-rule",
+                                   ...
+                                 },
+                                 {
+                                   "Name": "web-rule",
+                                   ...
+                                 },
+                                 {
+                                   "Name": "https-rule",
+                                   "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+                                   "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/https-rule",
+                                   "Description": "Allow HTTPS",
+                                   "Protocol": "Tcp",
+                                   "SourcePortRange": "*",
+                                   "DestinationPortRange": "443",
+                                   "SourceAddressPrefix": "*",
+                                   "DestinationAddressPrefix": "*",
+                                   "Access": "Allow",
+                                   "Priority": 102,
+                                   "Direction": "Inbound",
+                                   "ProvisioningState": "Succeeded"
+                                 }
+                               ]
+
+### <a name="change-a-rule"></a>Change a rule
+
+To change the rule created above to allow inbound traffic from the **Internet** only, follow the steps below.
+
+1. Run the `Get-AzureRmNetworkSecurityGroup` cmdlet to retrieve the existing NSG and store it in a variable, as shown below.
+
+        $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG `
+            -Name NSG-FrontEnd
+
+2. Run the `Set-AzureRmNetworkSecurityRuleConfig` cmdlet, as shown below.
+
+        Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+            -Name https-rule `
+            -Description "Allow HTTPS" `
+            -Access Allow `
+            -Protocol Tcp `
+            -Direction Inbound `
+            -Priority 102 `
+            -SourceAddressPrefix * `
+            -SourcePortRange Internet `
+            -DestinationAddressPrefix * `
+            -DestinationPortRange 443
+
+3. To save the changes made to the NSG, run the `Set-AzureRmNetworkSecurityGroup` cmdlet as shown below.
+
+        Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+
+    Expected output showing only the security rules:
+
+        Name                 : NSG-FrontEnd
+        ...
+        SecurityRules        : [
+                                 {
+                                   "Name": "rdp-rule",
+                                   ...
+                                 },
+                                 {
+                                   "Name": "web-rule",
+                                   ...
+                                 },
+                                 {
+                                   "Name": "https-rule",
+                                   "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+                                   "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/https-rule",
+                                   "Description": "Allow HTTPS",
+                                   "Protocol": "Tcp",
+                                   "SourcePortRange": "*",
+                                   "DestinationPortRange": "443",
+                                   "SourceAddressPrefix": "Internet",
+                                   "DestinationAddressPrefix": "*",
+                                   "Access": "Allow",
+                                   "Priority": 102,
+                                   "Direction": "Inbound",
+                                   "ProvisioningState": "Succeeded"
+                                 }
+                               ]
 
-### Eliminar una regla
+### <a name="delete-a-rule"></a>Delete a rule
 
-1. Ejecute el cmdlet `Get-AzureRmNetworkSecurityGroup` para recuperar el NSG existente y almacenarlo en una variable, tal como se muestra a continuación.
+1. Run the `Get-AzureRmNetworkSecurityGroup` cmdlet to retrieve the existing NSG and store it in a variable, as shown below.
 
-		$nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG `
-		    -Name NSG-FrontEnd
+        $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG `
+            -Name NSG-FrontEnd
 
-2. Ejecute el cmdlet `Remove-AzureRmNetworkSecurityRuleConfig`, tal como aparece a continuación.
+2. Run the `Remove-AzureRmNetworkSecurityRuleConfig` cmdlet, as shown below.
 
-		Remove-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
-		    -Name https-rule
+        Remove-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+            -Name https-rule
 
-3. Para guardar los cambios hechos en el NSG, ejecute el cmdlet `Set-AzureRmNetworkSecurityGroup`, tal como aparece a continuación.
+3. To save the changes made to the NSG, run the `Set-AzureRmNetworkSecurityGroup` cmdlet as shown below.
 
-		Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+        Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
 
-	La salida esperada que solo muestra las reglas de seguridad. Observe que ya no aparece **https-rule**:
+    Expected output showing only the security rules, notice the **https-rule** is no longer listed:
 
-		Name                 : NSG-FrontEnd
-		...
-		SecurityRules        : [
-		                         {
-		                           "Name": "rdp-rule",
-		                           ...
-		                         },
-		                         {
-		                           "Name": "web-rule",
-		                           ...
-		                         }
-		                       ]
+        Name                 : NSG-FrontEnd
+        ...
+        SecurityRules        : [
+                                 {
+                                   "Name": "rdp-rule",
+                                   ...
+                                 },
+                                 {
+                                   "Name": "web-rule",
+                                   ...
+                                 }
+                               ]
 
-## Administrar las asociaciones
+## <a name="manage-associations"></a>Manage associations
 
-Puede asociar un NSG a subredes y NIC. También puede desasociar un NSG de cualquier recurso al que está asociado.
+You can associate an NSG to subnets and NICs. You can also dissociate an NSG from any resource it's associated to.
 
-### Asociar un NSG a una NIC
+### <a name="associate-an-nsg-to-a-nic"></a>Associate an NSG to a NIC
 
-Para asociar el NSG **NSG-FrontEnd** a la NIC **TestNICWeb1**, siga estos pasos.
+To associate the **NSG-FrontEnd** NSG to the **TestNICWeb1** NIC, follow the steps below.
 
-1. Ejecute el cmdlet `Get-AzureRmNetworkSecurityGroup` para recuperar el NSG existente y almacenarlo en una variable, tal como se muestra a continuación.
+1. Run the `Get-AzureRmNetworkSecurityGroup` cmdlet to retrieve the existing NSG and store it in a variable, as shown below.
 
-		$nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG `
-		    -Name NSG-FrontEnd
+        $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG `
+            -Name NSG-FrontEnd
 
-2. Ejecute el cmdlet `Get-AzureRmNetworkInterface` para recuperar la NIC existente y almacenarla en una variable, tal como se muestra a continuación.
+2. Run the `Get-AzureRmNetworkInterface` cmdlet to retrieve the existing NIC and store it in a variable, as shown below.
 
-		$nic = Get-AzureRmNetworkInterface -ResourceGroupName RG-NSG `
-		    -Name TestNICWeb1
+        $nic = Get-AzureRmNetworkInterface -ResourceGroupName RG-NSG `
+            -Name TestNICWeb1
 
-3. Defina la propiedad **NetworkSecurityGroup** de la variable **NIC** en el valor de la variable **NSG**, tal como se muestra a continuación.
+3. Set the **NetworkSecurityGroup** property of the **NIC** variable to the value of the **NSG** variable, as shown below.
 
-		$nic.NetworkSecurityGroup = $nsg
+        $nic.NetworkSecurityGroup = $nsg
 
-4. Para guardar los cambios hechos en la NIC, ejecute el cmdlet `Set-AzureRmNetworkInterface`, tal como se muestra a continuación.
+4. To save the changes made to the NIC, run the `Set-AzureRmNetworkInterface` cmdlet as shown below.
 
-		Set-AzureRmNetworkInterface -NetworkInterface $nic
+        Set-AzureRmNetworkInterface -NetworkInterface $nic
 
-	La salida esperada que solo muestra la propiedad **NetworkSecurityGroup**:
+    Expected output showing only the **NetworkSecurityGroup** property:
 
-		NetworkSecurityGroup : {
-		                         "SecurityRules": [],
-		                         "DefaultSecurityRules": [],
-		                         "NetworkInterfaces": [],
-		                         "Subnets": [],
-		                         "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
-		                       }
+        NetworkSecurityGroup : {
+                                 "SecurityRules": [],
+                                 "DefaultSecurityRules": [],
+                                 "NetworkInterfaces": [],
+                                 "Subnets": [],
+                                 "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
+                               }
 
-### Desasociar un NSG de una NIC
+### <a name="dissociate-an-nsg-from-a-nic"></a>Dissociate an NSG from a NIC
 
-Para desasociar el NSG **NSG-FrontEnd** de la NIC **TestNICWeb1**, siga estos pasos.
+To dissociate the **NSG-FrontEnd** NSG from the **TestNICWeb1** NIC, follow the steps below.
 
-1. Ejecute el cmdlet `Get-AzureRmNetworkSecurityGroup` para recuperar el NSG existente y almacenarlo en una variable, tal como se muestra a continuación.
+1. Run the `Get-AzureRmNetworkSecurityGroup` cmdlet to retrieve the existing NSG and store it in a variable, as shown below.
 
-		$nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG `
-		    -Name NSG-FrontEnd
+        $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG `
+            -Name NSG-FrontEnd
 
-2. Ejecute el cmdlet `Get-AzureRmNetworkInterface` para recuperar la NIC existente y almacenarla en una variable, tal como se muestra a continuación.
+2. Run the `Get-AzureRmNetworkInterface` cmdlet to retrieve the existing NIC and store it in a variable, as shown below.
 
-		$nic = Get-AzureRmNetworkInterface -ResourceGroupName RG-NSG `
-		    -Name TestNICWeb1
+        $nic = Get-AzureRmNetworkInterface -ResourceGroupName RG-NSG `
+            -Name TestNICWeb1
 
-3. Defina la propiedad **NetworkSecurityGroup** de la variable **NIC** en **$null**, tal como se muestra a continuación.
+3. Set the **NetworkSecurityGroup** property of the **NIC** variable to **$null**, as shown below.
 
-		$nic.NetworkSecurityGroup = $null
+        $nic.NetworkSecurityGroup = $null
 
-4. Para guardar los cambios hechos en la NIC, ejecute el cmdlet `Set-AzureRmNetworkInterface`, tal como se muestra a continuación.
+4. To save the changes made to the NIC, run the `Set-AzureRmNetworkInterface` cmdlet as shown below.
 
-		Set-AzureRmNetworkInterface -NetworkInterface $nic
+        Set-AzureRmNetworkInterface -NetworkInterface $nic
 
-	La salida esperada que solo muestra la propiedad **NetworkSecurityGroup**:
+    Expected output showing only the **NetworkSecurityGroup** property:
 
-		NetworkSecurityGroup : null
+        NetworkSecurityGroup : null
 
-### Desasociar un NSG de una subred
+### <a name="dissociate-an-nsg-from-a-subnet"></a>Dissociate an NSG from a subnet
 
-Para desasociar el NSG **NSG-FrontEnd** de la subred **FrontEnd**, siga estos pasos.
+To dissociate the **NSG-FrontEnd** NSG from the **FrontEnd** subnet, follow the steps below.
 
-1. Ejecute el cmdlet `Get-AzureRmVirtualNetwork` para recuperar la red virtual existente y almacenarla en una variable, tal como se muestra a continuación.
+1. Run the `Get-AzureRmVirtualNetwork` cmdlet to retrieve the existing VNet and store it in a variable, as shown below.
 
-		$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName RG-NSG `
-		    -Name TestVNet
+        $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName RG-NSG `
+            -Name TestVNet
 
-2. Ejecute el cmdlet `Get-AzureRmVirtualNetworkSubnetConfig` para recuperar la subred **FrontEnd** y almacenarla en una variable, tal como se muestra a continuación.
+2. Run the `Get-AzureRmVirtualNetworkSubnetConfig` cmdlet to retrieve the **FrontEnd** subnet and store it in a variable, as shown below.
 
-		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet `
-		    -Name FrontEnd 
+        $subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet `
+            -Name FrontEnd 
 
-3. Defina la propiedad **NetworkSecurityGroup** de la variable **subnet** en **$null**, tal como se muestra a continuación.
+3. Set the **NetworkSecurityGroup** property of the **subnet** variable to **$null**, as shown below.
 
-		$subnet.NetworkSecurityGroup = $null
+        $subnet.NetworkSecurityGroup = $null
 
-4. Para guardar los cambios hechos en la subred, ejecute el cmdlet `Set-AzureRmVirtualNetwork`, tal como se muestra a continuación.
+4. To save the changes made to the subnet, run the `Set-AzureRmVirtualNetwork` cmdlet as shown below.
 
-		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+        Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-	La salida esperada que solo muestra las propiedades de la subred **FrontEnd**. Observe que no hay una propiedad para **NetworkSecurityGroup**:
+    Expected output showing only the properties of the **FrontEnd** subnet. Notice there isn't a property for **NetworkSecurityGroup**:
 
-			...
-			Subnets           : [
-			                      {
-			                        "Name": "FrontEnd",
-			                        "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
-			                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-			                        "AddressPrefix": "192.168.1.0/24",
-			                        "IpConfigurations": [
-			                          {
-			                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ipConfigurations/ipconfig1"
-			                          },
-			                          {
-			                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1"
-			                          }
-			                        ],
-			                        "ProvisioningState": "Succeeded"
-			                      },
-									...
-			                    ]
+            ...
+            Subnets           : [
+                                  {
+                                    "Name": "FrontEnd",
+                                    "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+                                    "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+                                    "AddressPrefix": "192.168.1.0/24",
+                                    "IpConfigurations": [
+                                      {
+                                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ipConfigurations/ipconfig1"
+                                      },
+                                      {
+                                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1"
+                                      }
+                                    ],
+                                    "ProvisioningState": "Succeeded"
+                                  },
+                                    ...
+                                ]
 
-### Asociación de un grupo de seguridad de red a una máquina virtual
+### <a name="associate-an-nsg-to-a-subnet"></a>Associate an NSG to a subnet
 
-Para asociar nuevamente el NSG **NSG-FrontEnd** a la subred **FrontEnd**, siga estos pasos.
+To associate the **NSG-FrontEnd** NSG to the **FronEnd** subnet again, follow the steps below.
 
-1. Ejecute el cmdlet `Get-AzureRmVirtualNetwork` para recuperar la red virtual existente y almacenarla en una variable, tal como se muestra a continuación.
+1. Run the `Get-AzureRmVirtualNetwork` cmdlet to retrieve the existing VNet and store it in a variable, as shown below.
 
-		$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName RG-NSG `
-		    -Name TestVNet
+        $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName RG-NSG `
+            -Name TestVNet
 
-2. Ejecute el cmdlet `Get-AzureRmVirtualNetworkSubnetConfig` para recuperar la subred **FrontEnd** y almacenarla en una variable, tal como se muestra a continuación.
+2. Run the `Get-AzureRmVirtualNetworkSubnetConfig` cmdlet to retrieve the **FrontEnd** subnet and store it in a variable, as shown below.
 
-		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet `
-		    -Name FrontEnd 
+        $subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet `
+            -Name FrontEnd 
 
-1. Ejecute el cmdlet `Get-AzureRmNetworkSecurityGroup` para recuperar el NSG existente y almacenarlo en una variable, tal como se muestra a continuación.
+1. Run the `Get-AzureRmNetworkSecurityGroup` cmdlet to retrieve the existing NSG and store it in a variable, as shown below.
 
-		$nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG `
-		    -Name NSG-FrontEnd
+        $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG `
+            -Name NSG-FrontEnd
 
-3. Defina la propiedad **NetworkSecurityGroup** de la variable **subnet** en **$null**, tal como se muestra a continuación.
+3. Set the **NetworkSecurityGroup** property of the **subnet** variable to **$null**, as shown below.
 
-		$subnet.NetworkSecurityGroup = $nsg
+        $subnet.NetworkSecurityGroup = $nsg
 
-4. Para guardar los cambios hechos en la subred, ejecute el cmdlet `Set-AzureRmVirtualNetwork`, tal como se muestra a continuación.
+4. To save the changes made to the subnet, run the `Set-AzureRmVirtualNetwork` cmdlet as shown below.
 
-		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+        Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-	La salida esperada que solo muestra la propiedad **NetworkSecurityGroup** de la subred **FrontEnd**:
+    Expected output showing only the **NetworkSecurityGroup** property of the **FrontEnd** subnet:
 
-		...
-		"NetworkSecurityGroup": {
-		                          "SecurityRules": [],
-		                          "DefaultSecurityRules": [],
-		                          "NetworkInterfaces": [],
-		                          "Subnets": [],
-		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
-		                        }
-		...
+        ...
+        "NetworkSecurityGroup": {
+                                  "SecurityRules": [],
+                                  "DefaultSecurityRules": [],
+                                  "NetworkInterfaces": [],
+                                  "Subnets": [],
+                                  "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
+                                }
+        ...
 
-## Eliminación de un grupo de seguridad de red
+## <a name="delete-an-nsg"></a>Delete an NSG
 
-Solo se puede eliminar un NSG que no está asociado a ningún recurso. Para eliminar un NSG, siga estos pasos.
+You can only delete an NSG if it's not associated to any resource. To delete an NSG, follow the steps below.
 
-1. Para comprobar los recursos asociados a un NSG, ejecute `azure network nsg show` tal como aparece en [Consultar las asociaciones de NSG](#View-NSGs-associations).
-2. Si el NSG está asociado a alguna NIC, ejecute `azure network nic set` tal como aparece en [Desasociar un NSG de una NIC](#Dissociate-an-NSG-from-a-NIC) para cada NIC.
-3. Si el NSG está asociado a alguna subred, ejecute `azure network vnet subnet set` tal como aparece en [Desasociar un NSG de una subred](#Dissociate-an-NSG-from-a-subnet) para cada subred.
-4. Para eliminar el NSG, ejecute el cmdlet `Remove-AzureRmNetworkSecurityGroup`, tal como se muestra a continuación.
+1. To check the resources associated to an NSG, run the `azure network nsg show` as shown in [View NSGs associations](#View-NSGs-associations).
+2. If the NSG is associated to any NICs, run the `azure network nic set` as shown in [Dissociate an NSG from a NIC](#Dissociate-an-NSG-from-a-NIC) for each NIC. 
+3. If the NSG is associated to any subnet, run the `azure network vnet subnet set` as shown in [Dissociate an NSG from a subnet](#Dissociate-an-NSG-from-a-subnet) for each subnet.
+4. To delete the NSG, run the `Remove-AzureRmNetworkSecurityGroup` cmdlet as shown below.
 
-		Remove-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd -Force
+        Remove-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd -Force
 
-	>[AZURE.NOTE] El parámetro **-Force** le asegura que no necesita confirmar la eliminación.
+    >[AZURE.NOTE] The **-Force** parameter ensures you don't need to confirm the deletion.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-- [Habilite el registro](virtual-network-nsg-manage-log.md) para los NSG.
+- [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,41 +1,46 @@
 <properties
-	pageTitle="¿Qué es DevTest Labs? | Microsoft Azure"
-	description="Aprenda cómo DevTest Labs puede facilitar la creación, la administración y la supervisión de máquinas virtuales de Azure"
-	services="devtest-lab,virtual-machines"
-	documentationCenter="na"
-	authors="tomarcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="What is DevTest Labs? | Microsoft Azure"
+    description="Learn how DevTest Labs can make it easy to create, manage, and monitor Azure virtual machines"
+    services="devtest-lab,virtual-machines"
+    documentationCenter="na"
+    authors="tomarcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="devtest-lab"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2016"
-	ms.author="tarcher"/>
+    ms.service="devtest-lab"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/25/2016"
+    ms.author="tarcher"/>
 
-#¿Qué es DevTest Labs?
+
+#<a name="what-is-devtest-labs?"></a>What is DevTest Labs?
 
 > [AZURE.NOTE]
-Este artículo es la parte 1 de una serie de 3:
+> This article is part 1 of a 3 part series:
 > 
-> 1. **[¿Qué es DevTest Labs?](devtest-lab-overview.md)**
-> 1. [¿Por qué usar DevTest Labs?](devtest-lab-why.md)
-> 1. [Conceptos de DevTest Labs](devtest-lab-concepts.md)
+> 1. **[What is DevTest Labs?](devtest-lab-overview.md)**
+> 1. [Why DevTest Labs?](devtest-lab-why.md)
+> 1. [DevTest Labs concepts](devtest-lab-concepts.md)
 
-##Información general
-Los desarrolladores y evaluadores están buscando la manera de resolver los retrasos en la creación y administración de sus entornos trasladándolos a la nube. Azure soluciona el problema de los retrasos en el entorno y hace posible el autoservicio dentro de una estructura nueva y rentable. Sin embargo, los desarrolladores y evaluadores necesitan aún dedicar mucho tiempo a la configuración de los entornos que se administran automáticamente. Además, los encargados de la toma de decisiones no tienen claro cómo aprovechar la nube para maximizar sus ahorros sin agregar demasiada sobrecarga al proceso.
+##<a name="overview"></a>Overview
+Developers and testers are looking to solve the delays in creating and managing their environments by going to the cloud.  Azure solves the problem of environment delays and allows self-service within a new cost efficient structure.  However, developers and testers still need to spend considerable time configuring their self-served environments. Also, decision makers are uncertain about how to leverage the cloud to maximize their cost savings without adding too much process overhead.
 
-Azure DevTest Labs es un servicio que ayuda a los desarrolladores y evaluadores a crear rápidamente entornos de Azure al tiempo que se optimizan los recursos y se controlan los costos. Puede probar la versión más reciente de la aplicación aprovisionando rápidamente entornos de Windows y Linux mediante plantillas y artefactos reutilizables. Integre fácilmente la canalización de la implementación con DevTest Labs para aprovisionar entornos a petición. Escale verticalmente las pruebas de carga mediante el aprovisionamiento de varios agentes de prueba y cree entornos previamente aprovisionados con fines de capacitación y demostración.
+Azure DevTest Labs is a service that helps developers and testers quickly create environments in Azure while minimizing waste and controlling cost. You can test the latest version of your application by quickly provisioning Windows and Linux environments using reusable templates and artifacts. Easily integrate your deployment pipeline with DevTest Labs to provision on-demand environments. Scale up your load testing by provisioning multiple test agents, and create pre-provisioned environments for training and demos.
 
 > [AZURE.VIDEO what-is-azure-devtest-labs]
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-##Pasos siguientes
+##<a name="next-steps"></a>Next steps
 
-[¿Por qué usar DevTest Labs?](devtest-lab-why.md)
+[Why DevTest Labs?](devtest-lab-why.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

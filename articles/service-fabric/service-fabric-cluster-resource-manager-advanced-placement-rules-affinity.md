@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Administrador de recursos de clúster de Service Fabric: afinidad | Microsoft Azure"
-   description="Información general sobre la configuración de afinidad para servicios de Service Fabric"
+   pageTitle="Service Fabric Cluster Resource Manager - Affinity | Microsoft Azure"
+   description="Overview of configuring affinity for Service Fabric Services"
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -16,24 +16,25 @@
    ms.date="08/19/2016"
    ms.author="masnider"/>
 
-# Configuración y uso de la afinidad de servicio en Service Fabric
 
-La afinidad es un control que se proporciona principalmente para facilitar la transición de aplicaciones grandes y monolíticas al mundo de la nube y los microservicios. Además, también puede usarse en ciertos casos como una optimización legítima para mejorar el rendimiento de servicios, aunque esto puede tener efectos secundarios.
+# <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configuring and using service affinity in Service Fabric
 
-Supongamos que desea llevar a Service Fabric una aplicación de mayor tamaño, o bien una aplicación que simplemente no se diseñó teniendo en mente los microservicios. Esta transición es bastante habitual, y ya ha habido varios clientes (internos y externos) en esta situación. Para empezar, traslade toda la aplicación al entorno y haga que se empaquete y se ejecute. A continuación, divídala en servicios más pequeños que se comuniquen entre sí.
+Affinity is a control that is provided mainly to help ease the transition of larger monolithic applications into the cloud and microservices world. That said it can also be used in certain cases as a legitimate optimization for improving the performance of services, though this can have side effects.
 
-Ahora es cuando surge un problema. Generalmente pertenece a una de estas categorías:
+Let’s say you’re bringing a larger app, or one that just wasn’t designed with microservices in mind, to Service Fabric. This transition is actually common, and we’ve had several customers (both internal and external) in this situation. You start by lifting up the entire app into the environment, getting it packaged and running. Then you start breaking it down into different smaller services that all talk to each other.
 
-1. Uno de los componentes X de la aplicación monolítica tenía una dependencia sin documentar del componente Y, y acabamos de convertirlos en servicios independientes. Como ahora se ejecutan en diferentes nodos del clúster, están separados.
-2.	Estos elementos se comunican a través de (canalizaciones con nombre local | memoria compartida | archivos en disco), pero se necesita poder realizar la actualización de forma independiente para acelerar el proceso. Eliminaré la dependencia física más adelante.
-3.	Todo es correcto, pero resulta que estos dos componentes están muy fragmentados o son muy sensibles al rendimiento. Cuando se mueven a servicios independientes, el rendimiento general de la aplicación se reduce y aumenta la latencia. Como resultado, la aplicación en su conjunto no cumple las expectativas.
+Then there’s an “Oops...”. The “Oops” usually falls into one of these categories:
 
-En estos casos, no queremos perder nuestro trabajo de refactorización, y no queremos volver a lo monolítico, pero necesitamos algún sentido de localidad. Esta situación se mantendrá hasta que podamos rediseñar los componentes para que funcionen de manera natural como servicios o hasta que podamos resolver las expectativas de rendimiento de alguna otra forma, si es posible.
+1. Some component X in the monolithic app had an undocumented dependency on component Y, and we just turned those into separate services. Since these are now running on different nodes in the cluster, they're broken.
+2.  These things communicate via (local named pipes | shared memory | files on disk) but I really need to be able to update it independently to speed things up a bit. I'll remove the hard dependency later.
+3.  Everything is fine, but it turns out that these two components are actually very chatty/performance sensitive. When they moved them into separate services overall application performance tanked or latency increased. As a result, the overall application is not meeting expectations.
 
-¿Qué debe hacer? Podemos intentar activar la afinidad.
+In these cases we don’t want to lose our refactoring work, and don’t want to go back to the monolith, but we do need some sense of locality. This will persist either until we can redesign the components to work naturally as services, or until we can solve the performance expectations some other way, if possible.
 
-## Configuración de la afinidad
-Para configurar la afinidad, debe definir una relación de afinidad entre dos servicios diferentes. Es como si hiciera que un servicio "apuntara" a otro y dijera "Este servicio solo se puede ejecutar donde se esté ejecutando ese otro". A veces se denominan relaciones de tipo primario-secundario (en las que el elemento secundario apunta al elemento primario). La afinidad garantiza que las réplicas o las instancias de un servicio se colocan en los mismos nodos que las réplicas o las instancias de otro.
+What to do? Well you could try turning on affinity.
+
+## <a name="how-to-configure-affinity"></a>How to configure affinity
+To set up affinity, you define an affinity relationship between two different services. You can think of affinity as “pointing” one service at another and saying “This service can only run where that service is running.” Sometimes we refer to affinity as a parent/child relationship (where you point the child at the parent). Affinity ensures that the replicas or instances of one service are placed on the same nodes as the replicas or instances of another.
 
 ``` csharp
 ServiceCorrelationDescription affinityDescription = new ServiceCorrelationDescription();
@@ -43,29 +44,33 @@ serviceDescription.Correlations.Add(affinityDescription);
 await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
-## Diferentes opciones de afinidad
-La afinidad se representa mediante uno de varios esquemas de correlación y tiene dos modos diferentes. El modo de afinidad más común es el denominado NonAlignedAffinity. En NonAlignedAffinity, las réplicas o las instancias de los diferentes servicios se colocan en los mismos nodos. El otro modo es AlignedAffinity. AlignedAffinity resulta de utilidad con servicios con estado. Configurar dos servicios con estado para tener afinidad alineada garantiza que los elementos principales de esos servicios se colocan en los mismos nodos. También hace que cada par de elementos secundarios de esos servicios se coloquen en los mismos nodos. También es posible (aunque menos frecuente) configurar NonAlignedAffinity para servicios con estado. Para NonAlignedAffinity, las diferentes réplicas de los dos servicios con estado se colocarían en los mismos nodos, pero no se realizaría ningún intento por alinear sus elementos principales o secundarios.
+## <a name="different-affinity-options"></a>Different affinity options
+Affinity is represented via one of several correlation schemes, and has two different modes. The most common mode of affinity is what we call NonAlignedAffinity. In NonAlignedAffinity the replicas or instances of the different services are placed on the same nodes. The other mode is AlignedAffinity. Aligned Affinity is useful only with stateful services. Configuring two stateful services to have aligned affinity ensures that the primaries of those services are placed on the same nodes as each other. It also causes each pair of secondaries for those services to be placed on the same nodes. It is also possible (though less common) to configure NonAlignedAffinity for stateful services. For NonAlignedAffinity the different replicas of the two stateful services would be collocated on the same nodes, but no attempt would be made to align their primaries or secondaries.
 
-![Modos de afinidad y consecuencias][Image1]
+![Affinity Modes and Their Effects][Image1]
 
-### Estado de mejor esfuerzo deseado
-Existen algunas diferencias entre las arquitecturas monolíticas y las de afinidad. Muchas de ellas se deben a que la relación de afinidad es la mejor opción. Los servicios en una relación de afinidad son entidades básicamente diferentes que pueden producir error y moverse de forma independiente. También existen motivos por los que una relación de afinidad se podría romper. Por ejemplo, las limitaciones de capacidad por las que solo algunos de los objetos de servicio de la relación de afinidad pueden caber en un determinado nodo. En estos casos, aunque exista una relación de afinidad, no se puede aplicar debido a las otras restricciones. Si más adelante es posible aplicar todas las demás restricciones y la afinidad, la infracción de la restricción de afinidad se corregirá automáticamente.
+### <a name="best-effort-desired-state"></a>Best effort desired state
+There are a few differences between affinity and monolithic architectures. Many of them are because an affinity relationship is best effort. The services in an affinity relationship are fundamentally different entities that can fail and be moved independently. There are also causes for why an affinity relationship could break. For example, capacity limitations where only some of the service objects in the affinity relationship can fit on a given node. In these cases even though there's an affinity relationship in place, it can't be enforced due to the other constraints. If it is possible to enforce all the other constraints and affinity at a later time the violation of the affinity constraint will be automatically corrected.  
 
-### Cadenas frente a estrellas
-Actualmente no es posible crear cadenas de relaciones de afinidad. Esto significa que un servicio que es un elemento secundario de una relación de afinidad no puede ser un elemento primario de otra relación de afinidad. Si desea modelar este tipo de relación, tendrá que crear una estrella, en lugar de una cadena. Para ello, el elemento secundario de la parte inferior se convertiría en el elemento primario del elemento secundario del medio. Dependiendo de la disposición de los servicios, puede que sea necesario crear un servicio "marcador de posición" que actúe como el elemento primario de varios elementos secundarios.
+### <a name="chains-vs.-stars"></a>Chains vs. stars
+Today we aren’t able to model chains of affinity relationships. What this means is that a service that is a child in one affinity relationship can’t be a parent in another affinity relationship. If you want to model this type of relationship, you effectively have to model it as a star, rather than a chain. In order to do this, the bottommost child would be parented to the “middle” child’s parent instead. Depending on the arrangement of your services, this may require creating a "placeholder" service to serve as the parent for multiple children.
 
-![Cadenas frente a estrellas en el contexto de las relaciones de afinidad][Image2]
+![Chains vs. Stars in the Context of Affinity Relationships][Image2]
 
-Otra cuestión que debe tener en cuenta sobre las relaciones de afinidad en la actualidad es que son direccionales. Esto significa que la regla de "afinidad" solo se aplica si el elemento secundario está donde el elemento primario. Si, por ejemplo, el elemento primario conmuta por error de forma repentina a otro nodo, Cluster Resource Manager no cree que algo vaya mal hasta que se da cuenta de que el elemento secundario no está con el primario; la relación no se aplica inmediatamente.
+Another thing to note about affinity relationships today is that they are directional. This means that the “affinity” rule only enforces that the child is where the parent is. If for example the parent suddenly fails over to another node then the Cluster Resource Manager doesn’t actually think there’s anything wrong until it notices that the child is not located with a parent; the relationship is not immediately enforced.
 
-### Compatibilidad con particiones
-Lo último que debe tener en cuenta sobre la afinidad es que no se admiten relaciones de afinidad en caso de que el elemento primario esté particionado. Esto es algo que se podría admitir finalmente, pero actualmente no es el caso.
+### <a name="partitioning-support"></a>Partitioning support
+The final thing to notice about affinity is that affinity relationships aren’t supported where the parent is partitioned. This is something that we may support eventually, but today it is not allowed.
 
-## Pasos siguientes
-- Para más información sobre las otras opciones disponibles para configurar servicios, consulte el tema sobre las demás configuraciones de Cluster Resource Manager disponibles en [Más información sobre la configuración de servicios](service-fabric-cluster-resource-manager-configure-services.md).
-- Muchas de las razones por las que la gente usa la afinidad, por ejemplo, para limitar los servicios a un conjunto pequeño de máquinas o para intentar agregar la carga a una colección de servicios, se sostienen mejor mediante grupos de aplicaciones. Consulte [Application Groups](service-fabric-cluster-resource-manager-application-groups.md) (Grupos de aplicaciones).
+## <a name="next-steps"></a>Next steps
+- For more information about the other options available for configuring services check out the topic on the other Cluster Resource Manager configurations available [Learn about configuring Services](service-fabric-cluster-resource-manager-configure-services.md)
+- Many reasons where people use affinity, such as limiting services to a small set of machines and trying to aggregate the load of a collection of services, are better supported through Application Groups. Check out [Application Groups](service-fabric-cluster-resource-manager-application-groups.md)
 
-[Image1]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
-[Image2]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png
+[Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
+[Image2]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

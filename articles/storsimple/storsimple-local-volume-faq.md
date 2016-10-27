@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Volúmenes de StorSimple anclados localmente: (P+F)| Microsoft Azure"
-   description="Proporciona respuestas a las preguntas más frecuentes acerca de los volúmenes anclados localmente de StorSimple."
+   pageTitle="StorSimple locally pinned volumes FAQ|Microsoft Azure"
+   description="Provides answers to frequently asked questions about StorSimple locally pinned volumes."
    services="storsimple"
    documentationCenter="NA"
    authors="manuaery"
@@ -15,202 +15,209 @@
    ms.date="08/16/2016"
    ms.author="manuaery" />
 
-# Volúmenes de StorSimple anclados localmente: preguntas más frecuentes (P+F)
 
-## Información general
+# <a name="storsimple-locally-pinned-volumes:-frequently-asked-questions-(faq)"></a>StorSimple locally pinned volumes: frequently asked questions (FAQ)
 
-Las siguientes son preguntas y respuestas que podrían surgirle al crear un volumen de StorSimple anclado localmente, convertir un volumen en capas en un volumen anclado localmente (y viceversa) o crear una copia de seguridad y restaurar uno de dichos volúmenes.
+## <a name="overview"></a>Overview
 
-Las preguntas y respuestas se organizan en las siguientes categorías
+The following are questions and answers that you might have when you create a StorSimple locally pinned volume, convert a tiered volume to a locally pinned volume (and vice versa), or back up and restore a locally pinned volume.
 
-- Creación de un volumen anclado localmente
-- Copia de seguridad de un volumen anclado localmente
-- Conversión de un volumen en capas en un volumen anclado localmente
-- Restauración de un volumen anclado localmente
-- Conmutación por error de un volumen anclado localmente
+Questions and answers are arranged into the following categories
 
-## Preguntas sobre la creación de un volumen anclado localmente
+- Creating a locally pinned volume
+- Backing up a locally pinned
+- Converting a tiered volume to a locally pinned volume
+- Restoring a locally pinned volume
+- Failing over a locally pinned volume
 
-**P.** ¿Cuál es el tamaño máximo de un volumen anclado localmente que puedo crear en los dispositivos de la serie 8000?
+## <a name="questions-about-creating-a-locally-pinned-volume"></a>Questions about creating a locally pinned volume
 
-**R.** Puede aprovisionar volúmenes anclados localmente de hasta 8,5 TB o volúmenes en capas de hasta 200 TB en el dispositivo 8100. En el dispositivo 8600 de mayor tamaño, puede aprovisionar volúmenes anclados localmente de hasta 22,5 TB o volúmenes en capas de hasta 500 TB.
+**Q.** What is the maximum size of a locally pinned volume that I can create on the 8000 series devices?
 
-**P.** Hace poco, actualicé mi dispositivo 8100 a Update 2 y cuando trato de crear un volumen anclado localmente, el tamaño máximo disponible es solo de 6 TB, no de 8,5 TB. ¿Por qué no puedo crear un volumen de 8,5 TB?
+**A** You can provision locally pinned volumes up to 8.5 TB or tiered volumes up to 200 TB on the 8100 device. On the larger 8600 device, you can provision locally pinned volumes up to 22.5 TB or tiered volumes up to 500 TB.
 
-**R.** Puede aprovisionar volúmenes anclados localmente de hasta 8,5 TB o volúmenes en capas de hasta 200 TB en el dispositivo 8100. Si el dispositivo ya tiene volúmenes en capas, el espacio disponible para crear un volumen anclado localmente será proporcionalmente inferior a este límite máximo. Por ejemplo, si ya se han aprovisionado 100 TB de volúmenes en capas en el dispositivo 8100 (la mitad de la capacidad en capas), el tamaño máximo de un volumen local que puede crear en el dispositivo 8100 disminuirá a 4 TB (la mitad de la capacidad máxima de los volúmenes anclados localmente).
+**Q.** I recently upgraded my 8100 device to Update 2 and when I try to create a locally pinned volume, the maximum available size is only 6 TB and not 8.5 TB. Why can’t I create an 8.5 TB volume?
 
-Puesto que parte del espacio en el dispositivo local se utiliza para hospedar el espacio de trabajo de los volúmenes en capas, el espacio disponible para crear un volumen anclado localmente se reducirá si el dispositivo tiene volúmenes en capas. Por el contrario, la creación de un volumen anclado localmente reducirá el espacio disponible proporcionalmente para volúmenes en capas. La tabla siguiente resume la capacidad en capas disponible en los dispositivos 8100 y 8600 cuando se crean volúmenes anclados localmente.
+**A** You can provision locally pinned volumes up to 8.5 TB OR tiered volumes up to 200 TB on the 8100 device. If your device already has tiered volumes, then the space available for creating a locally pinned volume will be proportionally lower than this maximum limit. For example, if 100 TB of tiered volumes have already been provisioned on your 8100 device (which is half of the tiered capacity), then the maximum size of a local volume that you can create on the 8100 device will be correspondingly reduced to 4 TB (roughly half of the maximum locally pinned volume capacity).
 
-|Capacidad aprovisionada de los volúmenes anclados localmente|Capacidad disponible para aprovisionar para volúmenes en capas: 8100|Capacidad disponible para aprovisionar para volúmenes en capas: 8600|
+Because some local space on the device is used to host the working set of tiered volumes, the available space for creating a locally pinned volume is reduced if the device has tiered volumes. Conversely, creating a locally pinned volume proportionally reduces the available space for tiered volumes. The following table summarizes the available tiered capacity on the 8100 and 8600 devices when locally pinned volumes are created.
+
+|Locally pinned volumes provisioned capacity|Available capacity to be provisioned for tiered volumes - 8100|Available capacity to be provisioned for tiered volumes - 8600|
 |-----|------|------|
 |0 | 200 TB | 500 TB |
-|1 TB | 176,5 TB | 477,8 TB|
-|4 TB | 105,9 TB | 411,1 TB |
-|8,5 TB | 0 TB | 311,1 TB|
-|10 TB | N/D | 277,8 TB |
-|15 TB | N/D | 166,7 TB |
-|22,5 TB | N/D | 0 TB |
+|1 TB | 176.5 TB | 477.8 TB|
+|4 TB | 105.9 TB | 411.1 TB |
+|8.5 TB | 0 TB | 311.1 TB|
+|10 TB | NA | 277.8 TB |
+|15 TB | NA | 166.7 TB |
+|22.5 TB | NA | 0 TB |
 
 
-**P.** ¿Por qué la creación de volúmenes anclados localmente es una operación de larga duración?
+**Q.** Why is locally pinned volume creation a long running operation? 
 
-**R.** Los volúmenes anclados localmente tienen un aprovisionamiento denso. Para crear espacio en las capas del dispositivo, se pueden insertar algunos datos de los volúmenes en capas existentes en la nube durante el proceso de aprovisionamiento. Puesto que esto depende del tamaño del volumen que se está aprovisionando, los datos existentes en el dispositivo y el ancho de banda disponible en la nube, la creación de un volumen local puede tardar varias horas.
+**A.** Locally pinned volumes are thickly provisioned. To create space on the local tiers of the device, some data from existing tiered volumes might be pushed to the cloud during the provisioning process. And since this depends upon the size of the volume being provisioned, the existing data on your device and the available bandwidth to the cloud, the time taken to create a local volume may be several hours.
 
-**P.** ¿Cuánto tarda en crearse un volumen anclado localmente?
+**Q.** How long does it take to create a locally pinned volume?
 
-**R.** Puesto que los volúmenes anclados localmente tienen un aprovisionamiento denso, se podrían insertar algunos datos existentes de volúmenes en capas en la nube durante el proceso de aprovisionamiento. Por lo tanto, el tiempo necesario para crear un volumen anclado localmente depende de varios factores, incluidos el tamaño del volumen, los datos en el dispositivo y el ancho de banda disponible. En un dispositivo recién instalado que no tiene volúmenes, el tiempo para crear un volumen anclado localmente es aproximadamente de 10 minutos por terabyte de datos. Sin embargo, la creación de volúmenes locales puede tardar varias horas en función de los factores anteriores en un dispositivo que ya está en uso.
+**A.** Because locally pinned volumes are thickly provisioned, some existing data from tiered volumes might be pushed to the cloud during the provisioning process. Therefore, the time taken to create a locally pinned volume depends upon multiple factors, including the size of the volume, the data on your device and the available bandwidth. On a freshly installed device that has no volumes, the time to create a locally pinned volume is about 10 minutes per terabyte of data. However, creation of local volumes may take several hours based on the factors explained above on a device that is in use.
 
-**P.** Deseo crear un volumen anclado localmente. ¿Existe algún procedimiento recomendado que deba conocer?
+**Q.** I want to create a locally pinned volume. Are there any best practices I need to be aware of?
 
-**R.** Los volúmenes anclados localmente son adecuados para cargas de trabajo que requieren garantías locales de los datos en todo momento y que son sensibles a las latencias de la nube. Al considerar el uso de los volúmenes locales para cualquiera de las cargas de trabajo, tenga en cuenta lo siguiente:
+**A.** Locally pinned volumes are suitable for workloads that require local guarantees of data at all times and are sensitive to cloud latencies. While considering usage of local volumes for any of your workloads, please be aware of the following:
 
-- Los volúmenes anclados localmente tienen un aprovisionamiento denso, y crear volúmenes locales afectará el espacio disponible para los volúmenes en capas. Por lo tanto, se recomienda comenzar con los volúmenes de menor tamaño y escalar verticalmente a medida que los requisitos de almacenamiento aumentan.
+- Locally pinned volumes are thickly provisioned, and creating local volumes impacts the available space for tiered volumes. Therefore, we suggest you start with smaller-sized volumes and scale up as your storage requirement increases.
 
-- El aprovisionamiento de los volúmenes locales es una operación de larga duración que podría implicar la inserción en la nube de datos existentes de volúmenes en capas. Como resultado, puede experimentar un rendimiento reducido en estos volúmenes.
+- Provisioning of local volumes is a long running operation that might involve pushing existing data from tiered volumes to the cloud. As a result, you may experience reduced performance on these volumes.
 
-- El aprovisionamiento de los volúmenes locales es una operación que tarda mucho tiempo. El tiempo real necesario depende de varios factores: el tamaño del volumen que se está aprovisionando, los datos del dispositivo y el ancho de banda disponible. Si no ha realizado ninguna copia de seguridad en la nube de los volúmenes existentes, la creación del volumen será más lenta. Se recomienda tomar instantáneas en la nube de los volúmenes existentes antes de aprovisionar un volumen local.
+- Provisioning of local volumes is a time consuming operation. The actual time involved depends on multiple factors: the size of the volume being provisioned, data on your device, and available bandwidth. If you have not backed up your existing volumes to the cloud, then volume creation is slower. We suggest you take cloud snapshots of your existing volumes before you provision a local volume.
  
-- Puede convertir los volúmenes en capas existentes en volúmenes anclados localmente, y esta conversión implica el aprovisionamiento de espacio en el dispositivo para el volumen anclado localmente resultante (además de incorporar datos en capas [si existen] de la nube). De nuevo, se trata de una operación de larga duración que depende de los factores mencionados anteriormente. Se recomienda realizar una copia de seguridad de los volúmenes existentes antes de la conversión, ya que el proceso será aún más lento si no se realiza. El dispositivo también puede experimentar un rendimiento reducido durante este proceso.
-	
-Más información acerca de cómo [crear un volumen anclado localmente](storsimple-manage-volumes-u2.md#add-a-volume)
+- You can convert existing tiered volumes to locally pinned volumes, and this conversion involves provisioning of space on the device for the resulting locally pinned volume (in addition to bringing down tiered data [if any] from the cloud). Again, this is a long running operation that depends on factors we’ve discussed above. We suggest that you back up your existing volumes prior to conversion as the process will be even slower if existing volumes are not backed up. Your device might also experience reduced performance during this process.
+    
+More information on how to [create a locally pinned volume](storsimple-manage-volumes-u2.md#add-a-volume)
 
-**P.** ¿Puedo crear varios volúmenes anclados localmente al mismo tiempo?
+**Q.** Can I create multiple locally pinned volumes at the same time?
 
-**R.** Sí, pero los trabajos de creación y expansión de volúmenes anclados localmente se procesarán secuencialmente.
+**A.** Yes, but any locally pinned volume creation and expansion jobs are processed sequentially.
 
-Los volúmenes anclados localmente tienen un aprovisionamiento denso, y esto requiere la creación de un espacio local en el dispositivo (lo que podría ocasionar que los datos existentes de los volúmenes en capas se inserten en la nube durante el proceso de aprovisionamiento). Por lo tanto, si un trabajo de aprovisionamiento está en curso, otros trabajos de creación de un volumen local se pondrán en cola hasta que el trabajo finalice.
+Locally pinned volumes are thickly provisioned and this requires creation of local space on the device (which might result in existing data from tiered volumes to be pushed to the cloud during the provisioning process). Therefore, if a provisioning job is in progress, other local volume creation jobs will be queued until that job is finished.
 
-De forma similar, si se expande un volumen local existente o se convierte un volumen en capas en un volumen anclado localmente, la creación de un nuevo volumen anclado localmente se pondrá en cola hasta que se complete el trabajo anterior. La expansión del tamaño de un volumen anclado localmente implica la expansión del espacio local existente para dicho volumen. La conversión de un volumen en capas en uno anclado localmente también implica la creación de espacio local para el volumen anclado localmente resultante. En estas operaciones, la creación o expansión del espacio local es un trabajo de larga duración.
+Similarly, if an existing local volume is being expanded or a tiered volume is being converted to a locally pinned volume, then the creation of a new locally pinned volume is queued until the previous job is completed. Expanding the size of a locally pinned volume involves the expansion of the existing local space for that volume. Conversion from a tiered to locally pinned volume also involves the creation of local space for the resulting locally pinned volume. In both of these operations, creation or expansion of local space is a long running job.
 
-Puede ver estos trabajos en la página **Trabajos** del servicio Azure StorSimple Manager. El trabajo que se está procesando activamente se actualizará continuamente para reflejar el progreso del aprovisionamiento del espacio. El resto de los trabajos de los volúmenes anclados localmente se marcarán como en ejecución, pero su progreso se detendrá y se procesarán en el orden en que se pusieron en cola.
+You can view these jobs in the **Jobs** page of the Azure StorSimple Manager service. The job that is actively being processed is continually updated to reflect the progress of space provisioning. The remaining locally pinned volume jobs is marked as running, but their progress is stalled and they are picked in the order they were queued.
 
-**P.** He eliminado un volumen anclado localmente. ¿Por qué no veo el espacio recuperado reflejado en el espacio disponible cuando intento crear un nuevo volumen?
+**Q.** I deleted a locally pinned volume. Why don't I see the reclaimed space reflected in the available space when I try to create a new volume? 
 
-**R.** Si elimina un volumen anclado localmente, puede que el espacio disponible para los volúmenes nuevos no se actualice inmediatamente. El servicio StorSimple Manager actualiza el espacio local disponible aproximadamente cada hora. Espere una hora antes de intentar crear el nuevo volumen.
+**A.** If you delete a locally pinned volume, the space available for new volumes may not be updated immediately. The StorSimple Manager Service updates the local space available approximately every hour. We suggest you wait for an hour before you try to create the new volume.
 
-**P.** ¿Se admiten volúmenes anclados localmente en el dispositivo en la nube?
+**Q.** Are locally pinned volumes supported on the cloud appliance?
 
-**R.** No se admiten volúmenes anclados localmente en el dispositivo en la nube (dispositivos 8010 y 8020, antes denominados "el dispositivo virtual de StorSimple").
+**A.** Locally pinned volumes are not supported on the cloud appliance (8010 and 8020 devices formerly referred to as the StorSimple virtual device).
 
-**P.** ¿Puedo usar los cmdlets de Azure PowerShell para crear y administrar volúmenes anclados localmente?
+**Q.** Can I use the Azure PowerShell cmdlets to create and manage locally pinned volumes? 
 
-**R.** No, no puede crear volúmenes anclados localmente mediante los cmdlets de Azure PowerShell (cualquier volumen creado mediante Azure PowerShell será de tipo en capas). También se recomienda no utilizar los cmdlets de Azure PowerShell para modificar las propiedades de un volumen anclado localmente, ya que tendrá el efecto no deseado de modificar el tipo de volumen a en capas.
+**A.** No, you cannot create locally pinned volumes via Azure PowerShell cmdlets (any volume you create via Azure PowerShell is tiered). We also suggest that you do not use the Azure PowerShell cmdlets to modify any properties of a locally pinned volume, as it will have the undesired effect of modifying the volume type to tiered.
 
-## Preguntas acerca de la copia de seguridad de un volumen anclado localmente
+## <a name="questions-about-backing-up-a-locally-pinned-volume"></a>Questions about backing up a locally pinned volume
 
-**P.** ¿Son compatibles las instantáneas locales de volúmenes anclados localmente?
+**Q.** Are local snapshots of locally pinned volumes supported?
 
-**R.** Sí, puede tomar instantáneas locales de sus volúmenes anclados localmente. Sin embargo, se recomienda encarecidamente realizar copias de seguridad periódicas de los volúmenes anclados localmente con instantáneas en la nube para asegurarse de que los datos están protegidos en caso de un desastre.
+**A.** Yes, you can take local snapshots of your locally pinned volumes. However, we strongly suggest that you regularly back up your locally pinned volumes with cloud snapshots to ensure that your data is protected in the eventuality of a disaster.
 
-**P.** ¿Existen instrucciones para administrar las instantáneas locales para volúmenes anclados localmente?
+**Q.** Are there any guidelines for managing local snapshots for locally pinned volumes?
 
-**R.** Las instantáneas locales frecuentes, junto con una alta tasa de renovación de los datos en el volumen anclado localmente, pueden hacer que el espacio local en el dispositivo se consuma rápidamente y de lugar a que los datos de los volúmenes en capas se inserten en la nube. Por lo tanto, se recomienda minimizar el número de instantáneas locales.
+**A.** Frequent local snapshots alongside a high rate of data churn in the locally pinned volume might cause local space on the device to be consumed quickly and result in data from tiered volumes being pushed to the cloud. We therefore suggest you minimize the number of local snapshots.
 
-**P.** Recibo una alerta que indica que es posible que se invaliden mis instantáneas de volúmenes anclados localmente. ¿Cuándo puede ocurrir?
+**Q.** I received an alert stating that my local snapshots of locally pinned volumes might be invalidated. When can this happen?
 
-**R.** Las instantáneas locales frecuentes, junto con una alta tasa de renovación de datos en el volumen anclado localmente, pueden hacer que el espacio local en el dispositivo se consuma rápidamente. Si las capas locales del dispositivo se utilizan mucho, una interrupción en la nube extendida podría causar que el dispositivo se llene, y las escrituras entrantes en el volumen pueden provocar la invalidación de las instantáneas (ya que no hay espacio para actualizar las instantáneas para hacer referencia a los bloques de datos más antiguos que se han sobrescrito). En esta situación, se seguirán atendiendo las escrituras en el volumen, pero es posible que las instantáneas locales no sean válidas. No hay ningún impacto en las instantáneas existentes en la nube.
+**A.** Frequent local snapshots alongside a high rate of data churn in the locally pinned volume might cause local space on the device to be consumed quickly. If the local tiers of the device are heavily used, an extended cloud outage might result in the device becoming full, and incoming writes to the volume might result in invalidation of the snapshots (as no space exists to update the snapshots to refer to the older blocks of data that have been overwritten). In such a situation the writes to the volume will continue to be served, but the local snapshots might be invalid. There is no impact to your existing cloud snapshots.
 
-La advertencia de alerta es para informarle de que esa situación puede surgir y se asegure de afrontarla de manera oportuna mediante la revisión de las programaciones de instantáneas locales para tomar instantáneas locales menos frecuentes o eliminar las instantáneas locales más antiguas que ya no son necesarias.
+The alert warning is to notify you that such a situation can arise and ensure you address the same in a timely manner by either reviewing your local snapshots schedules to take less frequent local snapshots or deleting older local snapshots that are no longer required.
 
-Si se invalidan las instantáneas locales, recibirá una alerta informativa que le notifica que se han invalidado las instantáneas locales para la directiva de copia de seguridad específica, junto con la lista de marcas de tiempo de las instantáneas locales invalidadas. Estas instantáneas se eliminarán automáticamente y ya no podrá verlas en la página **Catálogos de copias de seguridad** del Portal de Azure clásico.
+If the local snapshots are invalidated, you will receive an information alert notifying you that the local snapshots for the specific backup policy have been invalidated alongside the list of timestamps of the local snapshots that were invalidated. These snapshots will be auto-deleted and you will no longer be able to view them in the **Backup Catalogs** page in the Azure classic portal.
 
-## Preguntas sobre la conversión de un volumen en capas en un volumen anclado localmente
+## <a name="questions-about-converting-a-tiered-volume-to-a-locally-pinned-volume"></a>Questions about converting a tiered volume to a locally pinned volume
 
-**P.** Estoy observando cierta lentitud en el dispositivo al convertir un volumen en capas en un volumen anclado localmente. ¿Por qué ocurre esto?
+**Q.** I’m observing some slowness on the device while converting a tiered volume to a locally pinned volume. Why is this happening? 
 
-**R.** El proceso de conversión implica dos pasos:
+**A.** The conversion process involves two steps: 
 
-  1. Aprovisionamiento de espacio en el dispositivo para el volumen que se va a convertir en anclado localmente.
-  2. Descarga de los datos en capas de la nube para asegurar garantías locales.
+  1. Provisioning of space on the device for the soon-to-be-converted locally pinned volume.
+  2. Downloading any tiered data from the cloud to ensure local guarantees.
 
-Estos pasos son operaciones de larga duración que dependen del tamaño del volumen que se va a convertir, los datos en el dispositivo y el ancho de banda disponible. Puesto que algunos datos de los volúmenes en capas existentes pueden desperdigarse en la nube como parte del proceso de aprovisionamiento, el dispositivo puede experimentar un rendimiento reducido durante este tiempo. Además, el proceso de conversión puede ser más lento si:
+Both of these steps are long running operations that are dependent on the size of the volume being converted, data on the device, and available bandwidth. As some data from existing tiered volumes might spill to the cloud as part of the provisioning process, your device might experience reduced performance during this time. In addition, the conversion process can be slower if:
 
-- No se ha hecho ninguna copia de seguridad de los volúmenes existentes en la nube; por lo que se recomienda hacer una copia de seguridad de los volúmenes antes de iniciar una conversión.
+- Existing volumes have not been backed up to the cloud; so we suggest you backup your volumes prior to initiating a conversion.
 
-- Se han aplicado directivas de limitación del ancho de banda, lo que podría restringir el ancho de banda disponible en la nube; por lo tanto, se recomienda tener una conexión a la nube dedicada de 40 Mbps o más.
+- Bandwidth throttling policies have been applied, which might constrain the available bandwidth to the cloud; we therefore recommend you have a dedicated 40 Mbps or more connection to the cloud.
 
-- El proceso de conversión puede tardar varias horas debido a los diversos factores explicados anteriormente; por lo tanto, se sugiere realizar esta operación fuera de horas punta o en un fin de semana para evitar el impacto en los consumidores finales.
+- The conversion process can take several hours due to the multiple factors explained above; therefore, we suggest that you perform this operation during non-peaks times or on a weekend to avoid the impact on end consumers.
 
-Más información acerca de la [conversión de un volumen en capas en un volumen anclado localmente](storsimple-manage-volumes-u2.md#change-the-volume-type)
+More information on how to [convert a tiered volume to a locally pinned volume](storsimple-manage-volumes-u2.md#change-the-volume-type)
 
-**P.** ¿Puedo cancelar la operación de conversión de un volumen?
+**Q.** Can I cancel the volume conversion operation?
 
-**R.** No, no puede cancelar la operación de conversión una vez iniciada. Como se describe en la pregunta anterior, tenga en cuenta los posibles problemas de rendimiento que pueden surgir durante el proceso y siga los procedimientos recomendados descritos anteriormente al planear la conversión.
+**A.** No, you cannot the cancel the conversion operation once initiated. As discussed in the previous question, please be aware of the potential performance issues that you might encounter during the process, and follow the best practices listed above when you plan your conversion.
 
-**P.** ¿Qué ocurre con mi volumen si se produce un error en la operación de conversión?
+**Q.** What happens to my volume if the conversion operation fails?
 
-**R.** La conversión de un volumen puede fallar debido a problemas de conectividad en la nube. El dispositivo puede detener el proceso de conversión tras una serie de intentos fallidos para incorporar los datos en capas de la nube. En ese escenario, el tipo de volumen seguirá siendo el tipo de volumen de origen antes de la conversión, y:
+**A.** Volume conversion can fail due to cloud connectivity issues. The device may eventually stop the conversion process after a series of unsuccessful attempts to bring down tiered data from the cloud. In such a scenario, the volume type will continue to be the source volume type prior to conversion, and:
 
-- Se generará una alerta crítica para notificarle el error de conversión del volumen. Más información acerca de las [alertas relacionadas con volúmenes anclados localmente](storsimple-manage-alerts.md#locally-pinned-volume-alerts)
+- A critical alert will be raised to notify you of the volume conversion failure. More information on [alerts related to locally pinned volumes](storsimple-manage-alerts.md#locally-pinned-volume-alerts)
 
-- Si va a convertir un volumen en capas en uno anclado localmente, el volumen continuará mostrando las propiedades de un volumen en capas, ya que los datos todavía pueden residir en la nube. Se sugiere resolver los problemas de conectividad y volver a intentar la operación de conversión.
+- If you are converting a tiered to a locally pinned volume, the volume will continue to exhibit properties of a tiered volume as data might still reside on the cloud. We suggest that you resolve the connectivity issues and then retry the conversion operation.
  
-- De forma similar, cuando se produce la conversión de un volumen anclado localmente a uno en capas, aunque el volumen se marcará como anclado localmente, funcionará como un volumen en capas (ya que es posible que los datos se hayan desperdigado en la nube). Sin embargo, continuará ocupando espacio en las capas locales del dispositivo. Este espacio no estará disponible para otros volúmenes anclados localmente. Se recomienda volver a intentar esta operación para asegurarse de que la conversión del volumen está completa y se puede reclamar el espacio en el dispositivo local.
+- Similarly, when conversion from a locally pinned to a tiered volume fails, although the volume will be marked as a locally pinned volume, it will function as a tiered volume (because data could have spilled to the cloud). However, it will continue to occupy space on the local tiers of the device. This space will not be available for other locally pinned volumes. We suggest that you retry this operation to ensure that the volume conversion is complete and the local space on the device can be reclaimed.
 
-## Preguntas sobre la restauración de un volumen anclado localmente
+## <a name="questions-about-restoring-a-locally-pinned-volume"></a>Questions about restoring a locally pinned volume
 
-**P.** ¿Los volúmenes anclados localmente se restauran instantáneamente?
+**Q.** Are locally pinned volumes restored instantly?
 
-**R.** Sí, los volúmenes anclados localmente se restauran al instante. En cuanto se extrae la información de metadatos para el volumen de la nube como parte de la operación de restauración, el volumen se pone en línea y el host puede acceder a él. Sin embargo, no estarán presentes las garantías locales para los datos del volumen hasta que todos los datos se hayan descargado de la nube, y es posible que experimente una reducción del rendimiento en estos volúmenes mientras dura la restauración.
+**A.** Yes, locally pinned volumes are restored instantly. As soon as the metadata information for the volume is pulled from the cloud as part of the restore operation, the volume is brought online and can be accessed by the host. However, local guarantees for the volume data will not be present until all the data has been downloaded from the cloud, and you may experience reduced performance on these volumes for the duration of the restore.
 
-**P.** ¿Cuánto tarda en restaurarse un volumen anclado localmente?
+**Q.** How long does it take to restore a locally pinned volume?
 
-**R.** Los volúmenes anclados localmente se restauran al instante y se ponen en línea en cuanto se recupera la información de los metadatos del volumen de la nube, al tiempo que los datos del volumen se descargan en segundo plano. Esta última parte de la operación de restauración, obtener las garantías locales para los datos del volumen, es una operación de larga duración y puede tardar varias horas para que todos los datos vuelvan a ser locales. El tiempo necesario para completarla depende de varios factores, como el tamaño del volumen que se está restaurando y el ancho de banda disponible. Si se ha eliminado el volumen original que se está restaurando, crear el espacio local en el dispositivo como parte de la operación de restauración llevará más tiempo.
+**A.** Locally pinned volumes are restored instantly and brought online as soon as the volume metadata information is retrieved from the cloud, while the volume data continues to be downloaded in the background. This latter part of the restore operation--getting back the local guarantees for the volume data--is a long running operation and might take several hours for all the data to be made local again. The time taken to complete the same depends on multiple factors, such as the size of the volume being restored and the available bandwidth. If the original volume that is being restored has been deleted, additional time will be taken to create the local space on the device as part of the restore operation.
 
-**P.** Necesito restaurar mi volumen anclado localmente existente en una instantánea anterior (realizada cuando el volumen tenía capas). ¿El volumen se restaurará con el tipo en capas en ese caso?
+**Q.** I need to restore my existing locally pinned volume to an older snapshot (taken when the volume was tiered). Will the volume be restored as tiered in this case?
 
-**R.** No, el volumen se restaurará como un volumen anclado localmente. Aunque la fecha de la instantánea es de cuando el volumen tenía capas, al restaurar los volúmenes existentes, StorSimple siempre utiliza el tipo de volumen en el disco tal como existe actualmente.
+**A.** No, the volume will be restored as a locally pinned volume. Although the snapshot dates to the time when the volume was tiered, while restoring existing volumes, StorSimple always uses the type of volume on the disk as it exists currently.
 
-**P.** Recientemente, he extendido mi volumen anclado localmente, pero ahora necesito restaurar los datos a un momento en que el volumen tenía menor tamaño. ¿La restauración cambiará el tamaño del volumen actual y tendré que extenderlo una vez completada la restauración?
+**Q.** I extended my locally pinned volume recently, but I now need to restore the data to a time when the volume was smaller in size. Will restore resize the current volume and will I need to extend the size of the volume once the restore is completed?
 
-**R.** Sí, la restauración cambiará el tamaño del volumen y será necesario extenderlo una vez completada la restauración.
+**A.** Yes, the restore will resize the volume, and you will need to extend the size of the volume after the restore is completed.
 
-**P.** ¿Puedo cambiar el tipo de un volumen durante la restauración?
+**Q.** Can I change the type of a volume during restore?
 
-**A.** No, no se puede cambiar el tipo de volumen durante la restauración.
+**A.**No, you cannot change the volume type during restore.
 
-- Los volúmenes que se han eliminado se restaurarán con el tipo almacenado en la instantánea.
+- Volumes that have been deleted are restored as the type stored in the snapshot.
 
-- Los volúmenes existentes se restauran de acuerdo con el tipo actual, independientemente del tipo almacenado en la instantánea (consulte las dos preguntas anteriores).
+- Existing volumes are restored based on their current type, irrespective of the type stored in the snapshot (refer to the previous two questions).
  
-**P.** Necesito restaurar mi volumen anclado localmente, pero elegí un punto de tiempo en la instantánea incorrecto. ¿Puedo cancelar la operación de restauración actual?
+**Q.** I need to restore my locally pinned volume, but I picked an incorrect point in time snapshot. Can I cancel the current restore operation?
 
-**R.** Sí, puede cancelar una operación de restauración en curso. El estado del volumen se revertirá al estado que tenía al principio de la restauración. Sin embargo, se perderán las escrituras que se realizaron en el volumen mientras la restauración estaba en curso.
+**A.** Yes, you can cancel an on-going restore operation. The state of the volume will be rolled back to the state at the start of the restore. However, any writes that were made to the volume while the restore was in progress will be lost.
 
-**P.** Comencé una operación de restauración en uno de mis volúmenes anclados localmente y ahora veo una instantánea de mi catálogo de trabajos pendientes que no he creado. ¿Para qué se usa?
+**Q.** I started a restore operation on one of my locally pinned volumes, and now I see a snapshot in my backlog catalog that I don't recollect creating. What is this used for?
 
-**R.** Se trata de la instantánea temporal que se crea antes de la operación de restauración y se usa para la reversión en caso de que la restauración se cancele o falle. No elimine esta instantánea; se eliminará automáticamente una vez completada la restauración. Este comportamiento puede producirse si el trabajo de restauración ha anclado solo localmente volúmenes o una mezcla de volúmenes nivelados y anclados localmente. Si el trabajo de restauración incluye solo volúmenes nivelados, este comportamiento no se producirá.
+**A.** This is the temporary snapshot that is created prior to the restore operation and is used for rollback in case the restore is canceled or fails. Do not delete this snapshot; it will be automatically deleted when the restore is complete. This behavior can occur if your restore job has only locally pinned volumes or a mix of locally pinned and tiered volumes. If the restore job includes only tiered volumes, then this behavior will not occur.
 
-**P.** ¿Puedo clonar un volumen anclado localmente?
+**Q.** Can I clone a locally pinned volume?
 
-**R.** Sí, puede hacerlo. Sin embargo, un volumen anclado localmente se clonará como un volumen en capas. Más información sobre cómo [clonar un volumen anclado localmente](storsimple-clone-volume-u2.md)
+**A.** Yes, you can. However, the locally pinned volume will be cloned as a tiered volume by default. More information on how to [clone a  locally pinned volume](storsimple-clone-volume-u2.md)
 
-## Preguntas acerca de la conmutación por error de un volumen anclado localmente
+## <a name="questions-about-failing-over-a-locally-pinned-volume"></a>Questions about failing over a locally pinned volume
 
-**P.** Necesito conmutar por error mi dispositivo a otro dispositivo físico. ¿Mis volúmenes anclados localmente realizarán la conmutación por error como anclados localmente o en capas?
+**Q.** I need to fail over my device to another physical device. Will my locally pinned volumes be failed over as locally pinned or tiered?
 
-**R.** En función de la versión del software del dispositivo de destino, los volúmenes anclados localmente se conmutan por error como:
+**A.** Depending on the software version of the target device, locally pinned volumes will be failed over as:
 
-- Anclados localmente si el dispositivo de destino se está ejecutando en la serie StorSimple 8000 Update 2.
-- En capas si el dispositivo de destino se está ejecutando en la serie StorSimple 8000 Update 1.x.
-- En capas si el dispositivo de destino es el dispositivo en la nube (versión del software Update 2 o Update 1.x).
+- Locally pinned if the target device is running StorSimple 8000 series update 2
+- Tiered if the target device is running StorSimple 8000 series update 1.x
+- Tiered if the target device is the cloud appliance (software version update 2 or update 1.x)
 
-Más información sobre la [conmutación por error y la recuperación ante desastres de volúmenes anclados localmente en las distintas versiones](storsimple-device-failover-disaster-recovery.md#device-failover-across-software-versions).
+More information on [failover and DR of locally pinned volumes across versions](storsimple-device-failover-disaster-recovery.md#device-failover-across-software-versions)
 
-**P.** ¿Se restauran los volúmenes anclados localmente al instante durante la recuperación ante desastres?
+**Q.** Are locally pinned volumes instantly restored during disaster recovery (DR)?
 
-**R.** Sí, los volúmenes anclados localmente se restauran al instante durante la conmutación por error. En cuanto se extrae de la nube la información de los metadatos para el volumen como parte de la operación de conmutación por error, el volumen se pone en línea en el dispositivo de destino y el host puede acceder a él. Mientras tanto, los datos del volumen seguirán descargándose en segundo plano y puede experimentar un rendimiento reducido en los volúmenes mientras dura la conmutación por error.
+**A.** Yes, locally pinned volumes are restored instantly during failover. As soon as the metadata information for the volume is pulled from the cloud as part of the failover operation, the volume is brought online on the target device and can be accessed by the host. Meanwhile, the volume data will continue to download in the background, and you may experience reduced performance on these volumes for the duration of the failover.
 
-**P.** Veo que el trabajo de conmutación por error se ha completado, ¿cómo puedo seguir el progreso del volumen anclado localmente que se está restaurando en el dispositivo de destino?
+**Q.** I see the failover job completed, how can I track the progress of locally pinned volume that is being restored on the target device?
 
-**R.** Durante una operación de conmutación por error, ese trabajo se marca como completado una vez que todos los volúmenes del conjunto de conmutación por error se han restaurado instantáneamente y se han puesto en línea en el dispositivo de destino. Esto incluye todos los volúmenes anclados localmente que se han conmutado por error; sin embargo, las garantías locales de los datos solo estarán disponibles cuando se hayan descargado todos los datos de los volúmenes. Puede realizar un seguimiento de este progreso para cada volumen anclado localmente que se ha conmutado por error supervisando los trabajos de restauración correspondientes que se crean como parte de la conmutación por error. Estos trabajos de restauración individuales solo se crearán para los volúmenes anclados localmente.
+**A.** During a failover operation, the failover job is marked as complete once all the volumes in the failover set have been instantly restored and brought online on the target device. This includes any locally pinned volumes that might have been failed over; however, local guarantees of the data will only be available when all the data for the volume has been downloaded. You can track this progress for each locally pinned volume that was failed over by monitoring the corresponding restore jobs that are created as part of the failover. These individual restore jobs will only be created for locally pinned volumes.
 
-**P.** ¿Puedo cambiar el tipo de un volumen durante la conmutación por error?
+**Q.** Can I change the type of a volume during failover?
 
-**R.** No, no puede cambiar el tipo de volumen durante una conmutación por error. Si realiza la conmutación por error en otro dispositivo físico que ejecuta la serie StorSimple 8000 Update 2, los volúmenes se conmutarán por error según el tipo de volumen almacenado en la instantánea. Si realiza la conmutación por error en cualquier otra versión del dispositivo, consulte la pregunta anterior acerca del tipo de volumen después de una conmutación por error.
+**A.** No, you cannot change the volume type during a failover. If you are failing over to another physical device that is running StorSimple 8000 series update 2, the volumes will be failed over based on the volume type stored in the snapshot. When failing over to any other device version, refer to the question above on the volume type after a failover.
 
-**P.** ¿Puedo conmutar un contenedor de volúmenes con volúmenes anclados localmente en el dispositivo en la nube?
+**Q.** Can I fail over a volume container with locally pinned volumes to the cloud appliance?
 
-**R.** Sí, puede hacerlo. Los volúmenes anclados localmente se conmutarán por error como volúmenes en capas. Más información sobre la [conmutación por error y la recuperación ante desastres de volúmenes anclados localmente en las distintas versiones](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover).
+**A.** Yes, you can. The locally pinned volumes will be failed over as tiered volumes. More information on [failover and DR of locally pinned volumes across versions](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

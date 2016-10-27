@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Inicio de sesión en Azure como una organización"
-	description="Obtenga información acerca de cómo puede utilizar una cuenta profesional o educativa para aprovechar las cuentas de usuario, las directivas, las configuraciones o las implementaciones de servidor local que ya tiene y mejorar la eficacia entre la infraestructura de identidad local de su organización y Azure AD."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila"
-	editor=""/>
+    pageTitle="Inicio de sesión en Azure como una organización"
+    description="Obtenga información acerca de cómo puede utilizar una cuenta profesional o educativa para aprovechar las cuentas de usuario, las directivas, las configuraciones o las implementaciones de servidor local que ya tiene y mejorar la eficacia entre la infraestructura de identidad local de su organización y Azure AD."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/13/2016"
-	ms.author="markvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/10/2016"
+    ms.author="markvi"/>
 
 
-# Inicio de sesión en Azure como una organización
+
+# <a name="sign-up-for-azure-as-an-organization"></a>Inicio de sesión en Azure como una organización
 
 Hasta hace poco, solo era posible registrarse para obtener una suscripción a Microsoft Azure con su cuenta Microsoft (Windows Live ID). Azure ahora es compatible con cualquiera de los dos métodos de cuenta siguientes para registrarse:
 
@@ -25,7 +26,7 @@ Hasta hace poco, solo era posible registrarse para obtener una suscripción a Mi
 
 * **Cuentas profesionales o educativas** (generadas por un administrador para uso empresarial o académico): proporcionan acceso a todos los servicios en la nube de Microsoft de nivel pequeño, mediano y empresarial, como Azure, Microsoft Intune u Office 365. Cuando se registre en uno de estos servicios como organización, se aprovisionará automáticamente un directorio basado en la nube en Azure Active Directory para representar a su organización. [Más información](active-directory-administer.md)
 
-	Después de crear este directorio, un administrador puede crear usuarios y asignarles licencias basándose en las suscripciones de servicio de nube a las que necesiten acceso, como Azure.
+    Después de crear este directorio, un administrador puede crear usuarios y asignarles licencias basándose en las suscripciones de servicio de nube a las que necesiten acceso, como Azure.
 
 ¿Desea registrarse como organización en Azure? [**Regístrese ahora**](https://azure.microsoft.com/pricing/purchase-options/)
 
@@ -35,4 +36,8 @@ Hasta hace poco, solo era posible registrarse para obtener una suscripción a Mi
 * [¿Qué es Azure AD?](active-directory-whatis.md)
 * [Uso de la infraestructura de identidad local en la nube](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

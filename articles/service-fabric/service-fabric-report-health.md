@@ -16,7 +16,8 @@
    ms.date="09/28/2016"
    ms.author="oanapl"/>
 
-# Incorporación de informes de mantenimiento de Service Fabric personalizados
+
+# <a name="add-custom-service-fabric-health-reports"></a>Incorporación de informes de mantenimiento de Service Fabric personalizados
 Azure Service Fabric presenta un [modelo de estado](service-fabric-health-introduction.md) diseñado para marcar las condiciones poco favorables del clúster o de la aplicación en entidades específicas. El modelo de mantenimiento utiliza **informadores de estado** (componentes del sistema y guardianes). El objetivo es obtener un diagnóstico y reparación sencillo y rápido. Los escritores de servicio deben pensar por adelantado sobre el estado. Cualquier condición que pueda afectar al estado debe notificarse, sobre todo si puede ayudar a marcar la causa raíz de los problemas. La información del mantenimiento puede suponer un gran ahorro en tiempo y esfuerzo en la depuración y la investigación una vez que el servicio está en funcionamiento a escala en la nube (privada o Azure).
 
 Los generadores de informes de Service Fabric identificaron las condiciones de interés. Informan sobre esas condiciones en función de su vista local. El [almacén de estado](service-fabric-health-introduction.md#health-store) agrega datos de mantenimiento que todos los informadores envían para determinar si el estado de las entidades es bueno en general. La intención es que el modelo sea completo, flexible y fácil de usar. La calidad de los informes de mantenimiento determina la precisión de la vista de estado del clúster. Los falsos positivos que muestran erróneamente problemas pueden afectar negativamente a las actualizaciones u otros servicios que usan datos de mantenimiento. Ejemplos de estos servicios son los servicios de reparación y los mecanismos de alerta. Por lo tanto, se necesita cierto grado de reflexión para proporcionar informes que capturen condiciones que resulten interesantes de la mejor manera posible.
@@ -51,7 +52,7 @@ Una vez que el diseño de informes de mantenimiento está vacío, los informes d
 
 > [AZURE.NOTE] El informe de mantenimiento es sincrónico y solo representa el trabajo de validación en el cliente. El hecho de que el cliente de mantenimiento o los objetos `Partition` o `CodePackageActivationContext` acepten el informe no significa que se aplique en el almacén. Se envía de forma asincrónica y posiblemente por lotes con otros informes. El procesamiento en el servidor todavía puede seguir dando error: el número de secuencia puede estar obsoleto, la entidad en la que se debe aplicar el informe ha sido eliminada, etc.
 
-## Cliente de mantenimiento
+## <a name="health-client"></a>Cliente de mantenimiento
 Los informes de mantenimiento se envían al almacén de estado por medio de un cliente de mantenimiento, que reside en el cliente de Fabric. El cliente de mantenimiento puede configurarse con lo siguiente:
 
 - **HealthReportSendInterval**: el retraso entre el momento en que el informe se agrega al cliente y el momento en que se envía al almacén de estado. Se usa para procesar por lotes los informes en un único mensaje, en lugar de enviar un mensaje para cada informe. El procesamiento por lotes mejora el rendimiento. Valor predeterminado: 30 segundos.
@@ -62,7 +63,8 @@ Los informes de mantenimiento se envían al almacén de estado por medio de un c
 
 > [AZURE.NOTE] Cuando los informes se procesan por lotes, el cliente de Fabric se debe mantener activo durante al menos el valor de HealthReportSendInterval para tener la seguridad de que se envían. Si el mensaje se pierde o el almacén de estado no es capaz de aplicarlos debido a errores transitorios, el cliente de Fabric debe mantenerse activo más tiempo para darle una oportunidad de volver a intentarlo.
 
-El almacenamiento en búfer en el cliente toma en consideración el carácter único de los informes. Por ejemplo, si un informador incorrecto determinado notifica 100 informes por segundo en la misma propiedad de la misma entidad, los informes se reemplazan por la versión más reciente. A lo sumo existirá un informe de este tipo en la cola de cliente. Si se configura el procesamiento por lotes, el número de informes que se envían al almacén de estado es simplemente uno por intervalo de envío. Este informe es el último informe agregado, que refleja el estado más reciente de la entidad. Todos los parámetros de configuración pueden especificarse al crear `FabricClient`, pasando [FabricClientSettings](https://msdn.microsoft.com/library/azure/system.fabric.fabricclientsettings.aspx) con los valores deseados para las entradas relacionadas con el mantenimiento.
+El almacenamiento en búfer en el cliente toma en consideración el carácter único de los informes. Por ejemplo, si un informador incorrecto determinado notifica 100 informes por segundo en la misma propiedad de la misma entidad, los informes se reemplazan por la versión más reciente. A lo sumo existirá un informe de este tipo en la cola de cliente. Si se configura el procesamiento por lotes, el número de informes que se envían al almacén de estado es simplemente uno por intervalo de envío. Este informe es el último informe agregado, que refleja el estado más reciente de la entidad.
+Todos los parámetros de configuración pueden especificarse al crear `FabricClient` , pasando [FabricClientSettings](https://msdn.microsoft.com/library/azure/system.fabric.fabricclientsettings.aspx) con los valores deseados para las entradas relacionadas con el mantenimiento.
 
 Lo siguiente crea un cliente de Fabric y especifica que se deben enviar los informes cuanto se agregan. En tiempos de espera y errores que se pueden reintentar, los reintentos se producen cada 40 segundos.
 
@@ -106,7 +108,7 @@ GatewayInformation   : {
 
 > [AZURE.NOTE] Para asegurarse de que los servicios no autorizados no puedan notificar el estado en las entidades del clúster, el servidor se puede configurar para que acepte solamente solicitudes de clientes protegidos. El objeto `FabricClient` utilizado para la creación de informes debe tener habilitada la seguridad para poder comunicarse con el clúster (por ejemplo, con la autenticación Kerberos o de certificados). Obtenga más información sobre la [seguridad del clúster](service-fabric-cluster-security.md).
 
-## Informes desde servicios con pocos privilegios
+## <a name="report-from-within-low-privilege-services"></a>Informes desde servicios con pocos privilegios
 Desde los servicios de Service Fabric que no tienen acceso de administrador al clúster, puede informar sobre el mantenimiento de las entidades desde el contexto actual mediante `Partition` o `CodePackageActivationContext`.
 
 - Para los servicios sin estado, use [IStatelessServicePartition.ReportInstanceHealth](https://msdn.microsoft.com/library/system.fabric.istatelessservicepartition.reportinstancehealth.aspx) para informar sobre la instancia de servicio actual.
@@ -121,9 +123,9 @@ Desde los servicios de Service Fabric que no tienen acceso de administrador al c
 
 - Use [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth.aspx) para informar sobre un paquete de servicio para la aplicación actual implementada en el nodo actual.
 
-> [AZURE.NOTE] Internamente, `Partition` y `CodePackageActivationContext` contienen un cliente de mantenimiento que está configurado con los valores predeterminados. Se aplican las mismas consideraciones que se explicaron para el [cliente de mantenimiento](service-fabric-report-health.md#health-client): los informes se incluyen en lotes y se envían en un temporizador, por lo que los objetos deben mantenerse activos para que puedan enviar el informe.
+> [AZURE.NOTE] Internamente, `Partition` y `CodePackageActivationContext` contienen un cliente de mantenimiento que está configurado con los valores predeterminados. Se aplican las mismas consideraciones que se explicaron para el [cliente de mantenimiento](service-fabric-report-health.md#health-client) : los informes se incluyen en lotes y se envían en un temporizador, por lo que los objetos deben mantenerse activos para que puedan enviar el informe.
 
-## Informes de estado del diseño
+## <a name="design-health-reporting"></a>Informes de estado del diseño
 El primer paso en la generación de informes de alta calidad es identificar las condiciones que pueden afectar al estado del servicio. Cualquier condición que puede ayudar a indicar los problemas en el servicio o el clúster cuando se inicia, o mejor aún, antes de que ocurran, puede suponer un ahorro potencial de miles de millones de dólares. Las ventajas incluyen menos tiempo de inactividad, menos noches dedicadas a investigar y reparar problemas y una mayor satisfacción del cliente.
 
 Una vez identificadas las condiciones, los escritores de guardianes deben averiguar cuál es la mejor forma de supervisarlas para obtener un mejor equilibrio entre sobrecarga y utilidad. Por ejemplo, considere un servicio que realiza cálculos complejos mediante el uso de algunos archivos temporales en un recurso compartido. Un guardián podría supervisar el recurso compartido para asegurarse de que hay suficiente espacio disponible. Podría escuchar las notificaciones de cambios en un archivo o un directorio. Podría notificar una advertencia si se alcanza un umbral anticipadamente, y un error si el recurso compartido está lleno. Con una advertencia, un sistema de reparación podría iniciar la limpieza de los archivos antiguos en el recurso compartido. En caso de error, un sistema de reparación podría mover la réplica de servicio a otro nodo. Observe cómo los estados de la condición se describen en términos de mantenimiento: el estado de la condición que se puede considerar correcto o incorrecto (advertencia o error).
@@ -154,7 +156,7 @@ Se puede traducir la condición supervisada como Advertencia si la tarea no se r
 
 Sin embargo, los informes se crean en los casos que se han descrito anteriormente y se capturan en el mantenimiento de la aplicación cuando se evalúe el mantenimiento.
 
-## Informar periódicamente frente a en transiciones
+## <a name="report-periodically-vs.-on-transition"></a>Informar periódicamente frente a en transiciones
 Con el modelo de informes de mantenimiento, los guardianes pueden enviar informes periódicamente o en las transiciones. Se recomienda que los informes guardián sean periódicos, ya que el código es mucho más sencillo y menos propenso a errores. Los guardianes deben esforzarse por ser los más simples posible para evitar errores que desencadenen informes incorrectos. Los informes de *mal estado* incorrectos afectarán a los escenarios y las evaluaciones de mantenimiento en función del estado, como las actualizaciones. Los informes de *buen estado* incorrectos ocultan problemas en el clúster, lo cual no es deseable.
 
 Para los informes periódicos, el guardián puede implementarse con un temporizador. En la devolución de llamada del temporizador, el guardián puede comprobar el estado y enviar un informe según el estado actual. No es necesario comprobar qué informe se ha enviado anteriormente ni realizar ninguna optimización en términos de mensajería. El cliente de mantenimiento tiene una lógica de procesamiento por lotes para ayudarle con el rendimiento. Mientras el cliente de mantenimiento se mantenga activo, vuelve a intentarlo internamente hasta que el informe sea confirmado por parte del Almacén de estado o que el guardián genere un informe más reciente con la misma entidad, propiedad y origen.
@@ -163,10 +165,10 @@ Los informes en las transiciones requieren un tratamiento especial del estado. E
 
 La creación de informes sobre las transiciones tiene sentido para los servicios que crean informes sobre sí mismos, mediante `Partition` o `CodePackageActivationContext`. Cuando se quita el objeto local (paquete de servicio de réplica o implementado / aplicación implementada), también se quitan todos sus informes. Esta limpieza automática reduce la necesidad de sincronización entre el informador y el Almacén de estado. Si el informe es para la partición o la aplicación primaria, debe tener cuidado en la conmutación por error para evitar informes obsoletos en el almacén de estado. Debe agregarse lógica para mantener el estado correcto y borrar el informe del almacén cuando ya no sea necesario.
 
-## Implementación de la generación de informes de estado
+## <a name="implement-health-reporting"></a>Implementación de la generación de informes de estado
 Una vez que los detalles de entidades e informes están claros, el envío de informes de estado puede realizarse a través de API, Powershell o REST.
 
-### API
+### <a name="api"></a>API
 Para informar a través de API, debe crear un informe de mantenimiento específico del tipo de entidad sobre la que desea informar. Entregue el informe a un cliente de mantenimiento. Como alternativa, cree información de mantenimiento y pásela para corregir los métodos de creación de informes en `Partition` o `CodePackageActivationContext` a fin de informar sobre entidades actuales.
 
 El ejemplo siguiente muestra informes periódicos de un guardián dentro del clúster. El guardián comprueba si se puede acceder a un recurso externo desde dentro de un nodo. El recurso es necesario para un manifiesto de servicio de dentro de la aplicación. Si el recurso no está disponible, los demás servicios de dentro de la aplicación pueden seguir funcionando correctamente. Por lo tanto, el informe se envía en la entidad del paquete de servicio implementado cada 30 segundos.
@@ -199,8 +201,8 @@ public static void SendReport(object obj)
 }
 ```
 
-### PowerShell
-Envíe informes de mantenimiento con **Send-ServiceFabric*EntityType*HealthReport**.
+### <a name="powershell"></a>PowerShell
+Envíe informes de mantenimiento con **Send-ServiceFabric*EntityType*HealthReport.
 
 El ejemplo siguiente muestra informes periódicos sobre valores de la CPU en un nodo. Los informes se deben enviar cada 30 segundos, y tienen un período de vida de dos minutos. Si caducan, significa que el informador tiene problemas, por lo que el nodo se ha evaluado con error. Cuando la CPU está por encima de un umbral, el informe tiene un estado de advertencia. Cuando la CPU se mantiene por encima de un umbral un tiempo superior al configurado, se notifica como error. De lo contrario, el informador envía un estado correcto.
 
@@ -283,10 +285,10 @@ HealthEvents          :
                         Transitions           : ->Warning = 4/21/2015 9:12:32 PM
 ```
 
-### REST
+### <a name="rest"></a>REST
 Envíe informes de mantenimiento mediante REST con solicitudes POST que vayan a la entidad deseada y tengan en el cuerpo la descripción del informe de mantenimiento. Por ejemplo, consulte cómo enviar [informes de mantenimiento de clúster](https://msdn.microsoft.com/library/azure/dn707640.aspx) o [informes de mantenimiento de servicio](https://msdn.microsoft.com/library/azure/dn707640.aspx) de REST. Se admiten todas las entidades.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Según los datos del estado, los escritores del servicio y los administradores de clúster/aplicación pueden pensar en maneras de utilizar la información. Por ejemplo, pueden configurar alertas basadas en el estado de mantenimiento para detectar problemas graves antes de provocar interrupciones. Los administradores también pueden configurar sistemas de reparación para solucionar problemas de forma automática.
 
@@ -302,4 +304,8 @@ Según los datos del estado, los escritores del servicio y los administradores d
 
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

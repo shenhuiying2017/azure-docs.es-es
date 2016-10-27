@@ -1,94 +1,98 @@
 <properties 
-	pageTitle="Crear una API para Aplicaciones lógicas" 
-	description="Creación de una API personalizada para usar con aplicaciones lógicas" 
-	authors="jeffhollan" 
-	manager="dwrede" 
-	editor="" 
-	services="logic-apps" 
-	documentationCenter=""/>
+    pageTitle="Create an API for Logic Apps" 
+    description="Creating a custom API to use with Logic Apps" 
+    authors="jeffhollan" 
+    manager="dwrede" 
+    editor="" 
+    services="logic-apps" 
+    documentationCenter=""/>
 
 <tags
-	ms.service="logic-apps"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"	
-	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="jehollan"/>
+    ms.service="logic-apps"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na" 
+    ms.topic="article"
+    ms.date="10/18/2016"
+    ms.author="jehollan"/>
     
-# Creación de una API personalizada para usar con aplicaciones lógicas
 
-Si desea ampliar la plataforma Aplicaciones lógicas, hay muchas maneras para poder llamar a API o sistemas que no están disponibles, como uno de nuestros numerosos conectores sin necesidad de configuración. Se puede llamar a uno de esos métodos para crear una aplicación de API desde dentro de un flujo de trabajo de la Aplicación lógica.
+# <a name="creating-a-custom-api-to-use-with-logic-apps"></a>Creating a custom API to use with Logic Apps
 
-## Herramientas útiles
+If you want to extend the Logic Apps platform, there are many ways you can call into APIs or systems that aren't available as one of our many out-of-the-box connectors.  One of those ways to create an API App you can call from within a Logic App workflow.
 
-Para que las API funcionen mejor con Aplicaciones lógicas, se recomienda generar un documento [swagger](http://swagger.io) que detalla los parámetros y operaciones admitidos para la API. Hay muchas bibliotecas (como [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle)) que generarán automáticamente el documento swagger. También puede usar [TRex](https://github.com/nihaue/TRex) para ayudar a anotar el documento swagger para que funcione bien con Aplicaciones lógicas (mostrar nombres, tipos de propiedades, etc.). Para ver algunos ejemplos de Aplicaciones de API integradas para Aplicaciones lógicas, asegúrese de consultar nuestro [repositorio de GitHub](http://github.com/logicappsio) o [blog](http://aka.ms/logicappsblog).
+## <a name="helpful-tools"></a>Helpful Tools
 
-## Acciones
+For APIs to work best with Logic Apps, we recommend generating a [swagger](http://swagger.io) doc detailing the supported operations and parameters for your API.  There are many libraries (like [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle)) that will automatically generate the swagger for you.  You can also use [TRex](https://github.com/nihaue/TRex) to help annotate the swagger to work well with Logic Apps (display names, property types, etc.).  For some samples of API Apps built for Logic Apps, be sure to check out our [GitHub repository](http://github.com/logicappsio) or [blog](http://aka.ms/logicappsblog).
 
-La acción básica de una Aplicación lógica es un controlador que aceptará una solicitud HTTP y devolverá una respuesta (normalmente, 200). Sin embargo, hay patrones diferentes que puede seguir para ampliar las acciones según sus necesidades.
+## <a name="actions"></a>Actions
 
-De forma predeterminada, el motor de Aplicación lógica superará el tiempo de espera de una solicitud después de un minuto. Sin embargo, puede hacer que su API ejecute acciones que tardan más tiempo, y que el motor espere a que terminen, siguiendo un patrón async o webhook descrito a continuación.
+The basic action for a Logic App is a controller that will accept an HTTP Request and return a response (usually 200).  However there are different patterns you can follow to extend actions based on your needs.
 
-Para acciones estándar, basta con escribir un método de solicitud HTTP en la API que se expone mediante swagger. Puede ver ejemplos de aplicaciones de API que funcionan con Logic Apps en nuestra [repositorio de GitHub](https://github.com/logicappsio). A continuación se muestran varias formas de conseguir patrones comunes con un conector personalizado.
+By default the Logic App engine will timeout a request after 1 minute.  However, you can have your API execute on actions that take longer, and have the engine wait for completion, by following either an async or webhook pattern detailed below.
 
-### Patrón de acciones de larga duración: asincrónico
+For standard actions, simply write an HTTP request method in your API which is exposed via swagger.  You can see samples of API apps that work with Logic Apps in our [GitHub repository](https://github.com/logicappsio).  Below are ways to accomplish common patterns with a custom connector.
 
-Al ejecutar un paso o una tarea largos, lo primero que debe hacer es asegurarse de que el motor sabe que no se ha agotado el tiempo de espera. También debe comunicarse con el motor para que sepa cuando ha terminado la tarea y, finalmente, debe devolver datos relevantes para el motor para poder seguir con el flujo de trabajo. Para completarlo mediante una API, siga el flujo que aparece a continuación. Estos pasos son desde el punto de vista de la API personalizada:
+### <a name="long-running-actions---async-pattern"></a>Long Running Actions - Async Pattern
 
-1. Cuando se recibe una solicitud, se devuelve una respuesta inmediatamente (antes de realizar el trabajo). Esta respuesta será una respuesta `202 ACCEPTED`, que permite al motor saber que ha obtenido los datos, ha aceptado la carga útil y ahora se está procesando. La respuesta 202 debe contener los siguientes encabezados:
- * Encabezado `location` (obligatorio): se trata de una ruta absoluta a la dirección URL que Logic Apps puede usar para comprobar el estado del trabajo.
- * `retry-after` (opcional, con el valor predeterminado 20 para las acciones). Se trata del número de segundos que el motor debe esperar antes de sondear la dirección URL de encabezado de ubicación para comprobar el estado.
+When running a long step or task, the first thing you need to do is make sure the engine knows you haven’t timed out. You also need to communicate with the engine how it will know when you are finished with the task, and finally, you need to return relevant data to the engine so it can continue with the workflow. You can complete that via an API by following the flow below. These steps are from the point-of-view of the custom API:
 
-2. Una vez comprobado el estado del trabajo, realice las siguientes comprobaciones:
- * Si el trabajo ha terminado: devuelve una respuesta `200 OK`, con la carga útil de la respuesta.
- * Si el trabajo todavía se está procesando: devuelve otra respuesta `202 ACCEPTED`, con los mismos encabezados que la respuesta inicial.
+1. When a request is received, immediately return a response (before work is done). This response will be a `202 ACCEPTED` response, letting the engine know you got the data, accepted the payload, and are now processing. The 202 response should contain the following headers: 
+ * `location` header (required): This is an absolute path to the URL Logic Apps can use to check the status of the job.
+ * `retry-after` (optional, will default to 20 for actions). This is the number of seconds the engine should wait before polling the location header URL to check status.
 
-Este patrón permite ejecutar tareas extremadamente largas en un subproceso de la API personalizada, pero mantiene una conexión activa con el motor de Aplicaciones lógicas para que no agote el tiempo de espera o continúe antes de que finalice el trabajo. Al agregarlo a la Aplicación lógica, es importante tener en cuenta que no es necesario hacer nada en la definición de la Aplicación lógica para continuar sondeando y comprobando el estado. En cuanto el motor ve una respuesta 202 ACCEPTED con un encabezado de ubicación válida, respetará el patrón asincrónico y continuará sondeando el encabezado de ubicación hasta que se devuelve una respuesta que no es 202.
+2. When a job status is checked, perform the following checks: 
+ * If the job is done: return a `200 OK` response, with the response payload.
+ * If the job is still processing: return another `202 ACCEPTED` response, with the same headers as the initial response
 
-Puede ver un ejemplo de este patrón en GitHub: [aquí](https://github.com/jeffhollan/LogicAppsAsyncResponseSample).
+This pattern allows you to run extremely long tasks within a thread of your custom API, but keep an active connection alive with the Logic Apps engine so it doesn’t timeout or continue before work is completed. When adding this into your Logic App, it’s important to note you do not need do anything in your definition for the Logic App to continue to poll and check the status. As soon as the engine sees a 202 ACCEPTED response with a valid location header, it will honor the async pattern and continue to poll the location header until a non-202 is returned.
 
-### Acciones de Webhook
+You can see a sample of this pattern in GitHub [here](https://github.com/jeffhollan/LogicAppsAsyncResponseSample)
 
-Durante el flujo de trabajo, puede hacer que la Aplicación lógica haga una pausa y espere a recibir una devolución de llamada. Esta devolución de llamada tiene el formato de una solicitud HTTP POST. Para implementar este patrón, debe proporcionar dos puntos de conexión en el controlador: subscribe y unsubscribe.
+### <a name="webhook-actions"></a>Webhook Actions
 
-Con "subscribe", la Aplicación lógica creará y registrará una URL de devolución de llamada que su API puede almacenar y devolver la llamada con listo como HTTP POST. El contenido y los encabezados se pasarán a la Aplicación lógica y se podrán usar en el resto del flujo de trabajo. El motor de Aplicación lógica llamará a la ejecución del punto subscribe en cuanto llegue a ese paso.
+During your workflow, you can have the Logic App pause and wait for a "callback" to continue.  This callback comes in the form of an HTTP POST.  To implement this pattern, you need to provide two endpoints on your controller: subscribe and unsubscribe.
 
-Si se canceló la ejecución, el motor de Aplicación lógica hará una llamada al punto de conexión "unsubscribe". A continuación, la API puede anular el registro de la URL de devolución de llamada según sea necesario.
+On 'subscribe', the Logic App will create and register a callback URL which your API can store and callback with ready as an HTTP POST.  Any content/headers will be passed into the Logic App and can be used within the remainder of the workflow.  The Logic App engine will call the subscribe point on execution as soon as it hits that step.
 
-Actualmente, el diseñador de Aplicación lógica no admite la detección de un punto de conexión de webhook mediante swagger, por lo que, para utilizar este tipo de acción debe agregar la acción "Webhook" y especificar la dirección URL, los encabezados y el cuerpo de la solicitud. Puede usar la función del flujo de trabajo `@listCallbackUrl()` en cualquiera de esos campos según sea necesario para pasar la URL de devolución de llamada.
+If the run was cancelled, the Logic App engine will make a call to the 'unsubscribe' endpoint.  Your API can then unregister the callback URL as needed.
 
-Puede ver un ejemplo del patrón de webhook en GitHub: [aquí](https://github.com/jeffhollan/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
+Currently the Logic App Designer doesn't support discovering a webhook endpoint through swagger, so to use this type of action you must add the "Webhook" action and specify the URL, headers, and body of your request.  You can use the `@listCallbackUrl()` workflow function in any of those fields as needed to pass in the callback URL.
 
-## Desencadenadores
+You can see a sample of a webhook pattern in GitHub [here](https://github.com/jeffhollan/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs)
 
-Además de las acciones, puede hacer que la API personalizada funcione como un desencadenador para una Aplicación lógica. Hay dos patrones que puede seguir para desencadenar una Aplicación lógica:
+## <a name="triggers"></a>Triggers
 
-### Desencadenadores de sondeo
+In addition to actions, you can have your custom API act as a trigger to a Logic App.  There are two patterns you can follow below to trigger a Logic App:
 
-Los desencadenadores de sondeo actúan de forma muy parecida a las acciones de larga duración: asincrónico antes descrita. El motor de Aplicación lógica llamará el punto de conexión del desencadenador una vez transcurrido un período determinado (según la SKU, 15 segundos para Premium, 1 minuto para Standard y 1 hora para gratis).
+### <a name="polling-triggers"></a>Polling Triggers
 
-Si no hay ningún dato disponible, el desencadenador devuelve una respuesta `202 ACCEPTED`, con un encabezado `location` y `retry-after`. Sin embargo, para los desencadenadores se recomienda que el encabezado `location` contenga un parámetro de consulta de `triggerState`. Se trata de un identificador para que la API sepa cuándo se activó por última vez la Aplicación lógica. Si hay datos disponibles, el desencadenador devuelve una respuesta `200 OK`, con la carga útil de contenido. Esto desencadenará la Aplicación lógica.
+Polling triggers act much like the Long Running Async actions above.  The Logic App engine will call the trigger endpoint after a certain period of time elapsed (dependent on SKU, 15 seconds for Premium, 1 minute for Standard, and 1 hour for Free).
 
-Por ejemplo, si yo estaba sondeando para ver si un archivo estaba disponible, usted podría crear un desencadenador de sondeo que haría lo siguiente:
+If there is no data available, the trigger returns a `202 ACCEPTED` response, with a `location` and `retry-after` header.  However, for triggers it is recommended the `location` header contains a query parameter of `triggerState`.  This is some identifier for your API to know when the last time the Logic App fired.  If there is data available, the trigger returns a `200 OK` response with the content payload.  This will fire the Logic App.
 
-* Si se recibió una solicitud sin triggerState, la API devolverá una respuesta `202 ACCEPTED` con un encabezado `location` que tiene un elemento triggerState de la hora actual y un valor `retry-after` de 15.
-* Si se recibió una solicitud con triggerState:
- * Compruebe si se agregó algún archivo después de la fecha y hora de triggerState.
-  * Si hay un archivo, devuelve una respuesta `200 OK` con la carga de contenido, aumenta triggerState a la fecha y hora del archivo que he devuelto y establece el valor de `retry-after` en 15.
-  * Si hay varios archivos, puedo devolver uno cada vez con una respuesta `200 OK`, aumentar mi elemento triggerState en el encabezado `location` y establecer `retry-after` en 0. Esto indicará al motor que hay más datos disponibles y los solicitará inmediatamente en el encabezado `location` especificado.
-  * Si no hay ningún archivo disponible, devuelve una respuesta `202 ACCEPTED` y deja el elemento triggerState `location` igual. Establece `retry-after` en 15.
+For example if I was polling to see if a file was available, you could build a polling trigger that would do the following:
 
-Puede ver un ejemplo de un desencadenador de sondeo en GitHub: [aquí](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers).
+* If a request was received with no triggerState the API would return a `202 ACCEPTED` with a `location` header that has a triggerState of the current time and a `retry-after` of 15.
+* If a request was received with a triggerState:
+ * Check to see if any files were added after the triggerState DateTime. 
+  * If there is 1 file, return a `200 OK` response with the content payload, increment the triggerState to the DateTime of the file I returned, and set the `retry-after` to 15.
+  * If there are multiple files, I can return 1 at a time with a `200 OK`, increment my triggerState in the `location` header, and set `retry-after` to 0.  This will let the engine know there is more data available and it will immediately request it at the `location` header specified.
+  * If there are no files available, return a `202 ACCEPTED` response, and leave the `location` triggerState the same.  Set `retry-after` to 15.
 
-### Desencadenadores de Webhook
+You can see a sample of a polling trigger in GitHub [here](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers)
 
-Los desencadenadores de Webhook funcionan de forma muy parecida a las acciones de Webhook antes descritas. El motor de Aplicación lógica llamará al punto de conexión "subscribe" siempre que se agregue y guarde un desencadenador de webhook. La API puede registrar la dirección URL de webhook y llamarla mediante HTTP POST cada vez que los datos están disponibles. La carga de contenido y los encabezados se pasarán a la ejecución de la Aplicación lógica.
+### <a name="webhook-triggers"></a>Webhook Triggers
 
-Si alguna vez se elimina un desencadenador webhook (la Aplicación de lógica completa o solo el desencadenador de webhook), el motor realizará una llamada a la dirección URL "unsubscribe", donde la API puede anular el registro de la dirección URL de devolución de llamada y detener los procesos según sea necesario.
+Webhook triggers act much like Webhook Actions above.  The Logic App engine will call the 'subscribe' endpoint whenever a webhook trigger is added and saved.  Your API can register the webhook URL and call it via HTTP POST whenever data is available.  The content payload and headers will be passed into the Logic App run.
 
-Actualmente, el diseñador de Aplicación lógica no admite la detección de un desencadenador de webhook mediante swagger, por lo que, para utilizar este tipo de acción debe agregar el desencadenador "Webhook" y especificar la dirección URL, los encabezados y el cuerpo de la solicitud. Puede usar la función del flujo de trabajo `@listCallbackUrl()` en cualquiera de esos campos según sea necesario para pasar la URL de devolución de llamada.
+If a webhook trigger is ever deleted (either the Logic App entirely, or just the webhook trigger), the engine will make a call to the 'unsubscribe' URL where your API can unregister the callback URL and stop any processes as needed.
 
-Puede ver un ejemplo de un desencadenador de webhook en GitHub: [aquí](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers).
+Currently the Logic App Designer doesn't support discovering a webhook trigger through swagger, so to use this type of action you must add the "Webhook" trigger and specify the URL, headers, and body of your request.  You can use the `@listCallbackUrl()` workflow function in any of those fields as needed to pass in the callback URL.
 
-<!---HONumber=AcomDC_0803_2016-->
+You can see a sample of a webhook trigger in GitHub [here](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers)
+
+
+<!--HONumber=Oct16_HO2-->
+
+

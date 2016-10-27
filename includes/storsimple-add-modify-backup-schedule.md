@@ -1,33 +1,37 @@
 
 <!--author=SharS last changed: 9/15/15-->
 
-#### Para agregar o modificar una programación de copia de seguridad de StorSimple
+#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>To add or modify a StorSimple backup schedule
 
-1. En la página **Inicio rápido** del dispositivo, haga clic en la pestaña **Directivas de copia de seguridad**. Esto le llevará a la página **Directivas de copia de seguridad**.
+1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
 
-2. En la lista tabular de las directivas, seleccione y haga clic en la directiva que desea editar.
+2. In the tabular listing of the policies, select and click the policy that you want to edit.
 
-3. En **General**, puede modificar el nombre de la directiva de copia de seguridad.
+3. Under **general**, you can modify the backup policy name.
 
-4. En **Programaciones**, haga clic en **Administrar programaciones** para agregar o quitar programas. En el cuadro de diálogo **Administrar programaciones**, haga lo siguiente:
+4. Under **schedules**, click **manage schedules** to add or remove schedules. In the **Manage Schedule** dialog box, do the following:
 
-    1. Elija una programación existente o cree una nueva programación.
+    1. Choose an existing schedule or create a new schedule.
 
-    2. Seleccione el tipo de copia de seguridad de instantánea local o en la nube.
+    2. Select the type of backup as local or cloud snapshot.
 
-    3. Especifique la frecuencia de copia de seguridad, la retención y la hora de inicio de la programación.
+    3. Specify the backup frequency, retention, and starting time of the schedule.
 
-    4. Habilite o deshabilite la programación.
+    4. Enable or disable the schedule.
 
-    5. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png) para guardar los cambios de la programación.
+    5. Click the check icon ![check icon](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png) to save the changes to the schedule.
 
-5. En la sección **Volúmenes**, agregue o quite los volúmenes de esta directiva.
+5. In the **Volumes** section, add or remove the volumes to this policy.
 
-6. Guarde los cambios de esta directiva.
+6. Save the changes to this policy.
 
-7. Se le pedirá confirmación. Haga clic en **Aceptar** para guardar la directiva.
+7. You will prompted for confirmation. Click **OK** to save the policy.
 
-La página **Directivas de copia de seguridad** se actualizará para guardar los cambios en la directiva.
+The **Backup Policies** page will be updated to save the changes to the policy.
  
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

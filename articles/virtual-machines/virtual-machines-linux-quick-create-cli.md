@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creación de una máquina virtual Linux en Azure mediante la CLI | Microsoft Azure"
-   description="Creación de una máquina virtual Linux en Azure mediante la CLI."
+   pageTitle="Create a Linux VM on Azure by using the CLI | Microsoft Azure"
+   description="Create a Linux VM on Azure by using the CLI."
    services="virtual-machines-linux"
    documentationCenter=""
    authors="vlivech"
@@ -17,54 +17,55 @@
    ms.author="v-livech"/>
 
 
-# Creación de una máquina virtual Linux en Azure mediante la CLI
 
-En este artículo se muestra cómo implementar rápidamente una máquina virtual Linux en Azure mediante el comando `azure vm quick-create` en la interfaz de la línea de comandos (CLI) de Azure. El comando `quick-create` implementa una máquina virtual dentro de una infraestructura básica y segura que puede usar para crear un prototipo o hacer una prueba de concepto rápidamente. Este artículo requiere:
+# <a name="create-a-linux-vm-on-azure-by-using-the-cli"></a>Create a Linux VM on Azure by using the CLI
 
-- Una cuenta de Azure ([obtenga aquí una prueba gratuita](https://azure.microsoft.com/pricing/free-trial/)).
+This article shows how to quickly deploy a Linux virtual machine (VM) on Azure by using the `azure vm quick-create` command in the Azure command-line interface (CLI). The `quick-create` command deploys a VM inside a basic, secure infrastructure that you can use to prototype or test a concept rapidly. The article requires:
 
-- Una [CLI de Azure](../xplat-cli-install.md) en la que se inició sesión con `azure login`.
+- an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)).
 
-- La CLI de Azure _debe estar en_ el modo Azure Resource Manager `azure config mode arm`.
+- the [Azure CLI](../xplat-cli-install.md) logged in with `azure login`
 
-También puede implementar rápidamente una máquina virtual Linux mediante [Azure Portal](virtual-machines-linux-quick-create-portal.md).
+- the Azure CLI _must be in_ Azure Resource Manager mode `azure config mode arm`
 
-## Comandos rápidos
+You can also quickly deploy a Linux VM by using the [Azure portal](virtual-machines-linux-quick-create-portal.md).
 
-En el ejemplo siguiente se muestra cómo implementar una máquina virtual CoreOS y asociar su clave de Shell seguro (SSH) (los argumentos pueden ser diferentes):
+## <a name="quick-commands"></a>Quick commands
+
+The following example shows how to deploy a CoreOS VM and attach your Secure Shell (SSH) key (your arguments might be different):
 
 ```bash
 azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
 ```
 
-En las siguientes secciones se explican los comandos y sus requisitos con la distribución de Linux Ubuntu Server 14.04 LTS.
+The following sections explain the command and its requirements using Ubuntu Server 14.04 LTS as the Linux distribution.  
 
-## Alias de creación rápida para máquinas virtuales
+## <a name="vm-quick-create-aliases"></a>VM quick-create aliases
 
-Una forma rápida de elegir una distribución es usar los alias de la CLI de Azure asignados a las distribuciones de sistemas operativos más comunes. En la siguiente tabla se enumeran los alias (desde la versión 0.10 de la CLI de Azure). Todas las implementaciones que usan `quick-create` utilizan de forma predeterminada las máquinas virtuales que están respaldadas por el almacenamiento en una unidad de estado sólido (SSD), lo que proporciona un aprovisionamiento más rápido y un acceso al disco de alto rendimiento. (Estos alias representan una mínima parte de las distribuciones disponibles en Azure. Para encontrar más imágenes en Azure Marketplace, [busque una imagen](virtual-machines-linux-cli-ps-findimage.md) o [cargue su propia imagen personalizada](virtual-machines-linux-create-upload-generic.md)).
+A quick way to choose a distribution is to use the Azure CLI aliases mapped to the most common OS distributions. The following table lists the aliases (as of Azure CLI version 0.10). All deployments that use `quick-create` default to VMs that are backed by solid-state drive (SSD) storage, which offers faster provisioning and high-performance disk access. (These aliases represent a tiny portion of the available distributions on Azure. Find more images in the Azure Marketplace by [searching for an image](virtual-machines-linux-cli-ps-findimage.md), or [upload your own custom image](virtual-machines-linux-create-upload-generic.md).)
 
-| Alias | Publicador | Oferta | SKU | Versión |
+| Alias     | Publisher | Offer        | SKU         | Version |
 |:----------|:----------|:-------------|:------------|:--------|
-| CentOS | OpenLogic | CentOS | 7,2 | más reciente |
-| CoreOS | CoreOS | CoreOS | Stable | más reciente |
-| Debian | credativ | Debian | 8 | más reciente |
-| openSUSE | SUSE | openSUSE | 13\.2 | más reciente |
-| RHEL | Red Hat | RHEL | 7,2 | más reciente |
-| UbuntuLTS | Canonical | Ubuntu Server | 14\.04.4-LTS | más reciente |
+| CentOS    | OpenLogic | CentOS       | 7.2         | latest  |
+| CoreOS    | CoreOS    | CoreOS       | Stable      | latest  |
+| Debian    | credativ  | Debian       | 8           | latest  |
+| openSUSE  | SUSE      | openSUSE     | 13.2        | latest  |
+| RHEL      | Red Hat    | RHEL         | 7.2         | latest  |
+| UbuntuLTS | Canonical | Ubuntu Server | 14.04.4-LTS | latest  |
 
-En las siguientes secciones se usa el alias `UbuntuLTS` de la opción **ImageURN** (`-Q`) para implementar una instancia de Ubuntu 14.04.4 LTS Server.
+The following sections use the `UbuntuLTS` alias for the **ImageURN** option (`-Q`) to deploy an Ubuntu 14.04.4 LTS Server.
 
-## Tutorial detallado
+## <a name="detailed-walkthrough"></a>Detailed walkthrough
 
-En el anterior ejemplo `quick-create` solo se llama a la marca `-M` para identificar la clave pública de SSH que se cargará, al tiempo que se deshabilitan las contraseñas de SSH, por lo que se le solicitan los siguientes argumentos:
+The previous `quick-create` example only called out the `-M` flag to identify the SSH public key to upload while disabling SSH passwords, so you are prompted for the following arguments:
 
-- El nombre del grupo de recursos (normalmente cualquier cadena vale para el primer grupo de recursos de Azure).
-- Nombre de la máquina virtual
-- Ubicación (`westus` o `westeurope` son valores predeterminados adecuados).
-- Linux (para informar a Azure qué sistema operativo desea).
-- nombre de usuario
+- resource group name (any string is typically fine for your first Azure resource group)
+- VM name
+- location (`westus` or `westeurope` are good defaults)
+- linux (to let Azure know which OS you want)
+- username
 
-En el ejemplo siguiente se especifican todos los valores para que no sea necesaria ninguna otra solicitud. Siempre que tenga un archivo de clave pública `~/.ssh/id_rsa.pub` con formato ssh-rsa, funciona tal cual:
+The following example specifies all the values so that no further prompting is required. So long as you have an `~/.ssh/id_rsa.pub` as a ssh-rsa format public key file, it works as is:
 
 ```bash
 azure vm quick-create \
@@ -77,7 +78,7 @@ azure vm quick-create \
 -Q UbuntuLTS
 ```
 
-La salida debe tener un aspecto similar al siguiente bloque de salida:
+The output should look like the following output block:
 
 ```bash
 info:    Executing command vm quick-create
@@ -155,13 +156,13 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-Inicie sesión en la máquina virtual con la dirección IP pública indicada en la salida. También puede utilizar el nombre de dominio completo (FQDN) que aparece:
+Log in to your VM by using the public IP address listed in the output. You can also use the fully qualified domain name (FQDN) that's listed:
 
 ```bash
 ssh -i ~/.ssh/id_rsa.pub exampleAdminUser@138.91.247.29
 ```
 
-El proceso de inicio de sesión debe tener un aspecto similar al siguiente bloque de salida:
+The login process should look something like the following output block:
 
 ```bash
 Warning: Permanently added '138.91.247.29' (ECDSA) to the list of known hosts.
@@ -195,14 +196,18 @@ applicable law.
 exampleAdminUser@exampleVMName:~$
 ```
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-El comando `azure vm quick-create` es una forma rápida de implementar una máquina virtual para poder iniciar sesión en un shell de Bash y empezar a trabajar. Sin embargo, el uso de `vm quick-create` no ofrece un control amplio ni permite crear un entorno más complejo. Para implementar una máquina virtual Linux personalizada para su infraestructura, puede seguir cualquiera de estos artículos.
+The `azure vm quick-create` command is the way to quickly deploy a VM so you can log in to a bash shell and get working. However, using `vm quick-create` does not give you extensive control nor does it enable you to create a more complex environment.  To deploy a Linux VM that's customized for your infrastructure, you can follow any of these articles:
 
-- [Uso de una plantilla de Azure Resource Manager para crear una implementación específica](virtual-machines-linux-cli-deploy-templates.md)
-- [Creación de un entorno personalizado para una máquina virtual Linux mediante el uso de comandos de la CLI de Azure directamente](virtual-machines-linux-create-cli-complete.md)
-- [Creación de una máquina virtual Linux protegida con SSH en Azure mediante plantillas](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+- [Use an Azure Resource Manager template to create a specific deployment](virtual-machines-linux-cli-deploy-templates.md)
+- [Create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-create-cli-complete.md)
+- [Create an SSH Secured Linux VM on Azure using templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
-También puede [utilizar el controlador `docker-machine` de Azure con diversos comandos para crear rápidamente una máquina virtual Linux como host de docker](virtual-machines-linux-docker-machine.md).
+You can also [use the `docker-machine` Azure driver with various commands to quickly create a Linux VM as a docker host](virtual-machines-linux-docker-machine.md).
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

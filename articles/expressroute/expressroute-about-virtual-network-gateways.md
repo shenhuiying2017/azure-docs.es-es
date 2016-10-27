@@ -13,35 +13,36 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/21/2016"
+   ms.date="10/03/2016"
    ms.author="cherylmc" />
 
-# Acerca de las puertas de enlace de red virtual para ExpressRoute
+
+# <a name="about-virtual-network-gateways-for-expressroute"></a>Acerca de las puertas de enlace de red virtual para ExpressRoute
 
 
 Una puerta de enlace de red virtual se usa para enviar tráfico de red entre redes virtuales y ubicaciones locales de Azure. Cuando configure una conexión ExpressRoute, debe crear y configurar una puerta de enlace de red virtual y una conexión de puerta de enlace de red virtual.
 
 Al crear una puerta de enlace de red virtual, se especifican varios valores de configuración. Uno de los valores de configuración necesarios especifica si la puerta de enlace se usará para el tráfico de Express Route o de VPN de sitio a sitio. En el modelo de implementación de Resource Manager, el valor es '-GatewayType'.
 
-Cuando se envíe el tráfico de red en una conexión privada dedicada, use el tipo de puerta de enlace "ExpressRoute". Esto también se conoce como puerta de enlace de ExpressRoute. Cuando envíe el tráfico de red cifrado a través de una conexión a Internet pública, use el tipo de puerta de enlace "VPN". Esto se conoce como puerta de enlace de VPN. Las conexiones de sitio a sitio, de punto a sitio y de red virtual a red virtual utilizan una puerta de enlace de VPN.
+Cuando se envíe el tráfico de red en una conexión privada dedicada, use el tipo de puerta de enlace "ExpressRoute". Esto también se conoce como puerta de enlace de ExpressRoute. Cuando envíe el tráfico de red cifrado a través de una conexión a Internet pública, use el tipo de puerta de enlace "VPN". Esto se conoce como puerta de enlace de VPN. Las conexiones de sitio a sitio, de punto a sitio y de red virtual a red virtual utilizan una puerta de enlace de VPN. 
 
 Cada red virtual tiene una única puerta de enlace de red virtual por cada tipo de puerta de enlace. Por ejemplo, puede tener una puerta de enlace de una red virtual que use -GatewayType Vpn y otra que use -GatewayType ExpressRoute. Este artículo se centra en la puerta de enlace de red virtual de ExpressRoute.
 
-## <a name="gwsku"></a>SKU de puerta de enlace
+## <a name="<a-name="gwsku"></a>gateway-skus"></a><a name="gwsku"></a>SKU de puerta de enlace
 
 [AZURE.INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-Si usa Azure Portal para crear una puerta de enlace de red virtual de Resource Manager, dicha puerta de enlace se configura de forma predeterminada mediante SKU estándar. Actualmente, no se pueden especificar otras SKU para el modelo de implementación de Resource Manager en Azure Portal. Sin embargo, después de crear la puerta de enlace, puede actualizar a una SKU de puerta de enlace más eficaz (por ejemplo, de básica o estándar a alto rendimiento) mediante el cmdlet 'Resize-AzureRmVirtualNetworkGateway' de PowerShell.
+Si desea actualizar la puerta de enlace a una SKU de puerta de enlace más eficaz, en la mayoría de los casos puede usar el cmdlet de PowerShell Resize-AzureRmVirtualNetworkGateway. Esto funcionará para las actualizaciones de SKU Standard y HighPerformance. Sin embargo, para actualizar a la SKU UltraPerformance, debe volver a crear la puerta de enlace.
 
-###  <a name="aggthroughput"></a>Rendimiento agregado estimado por SKU de puerta de enlace
+###  <a name="<a-name="aggthroughput"></a>estimated-aggregate-throughput-by-gateway-sku"></a><a name="aggthroughput"></a>Rendimiento agregado estimado por SKU de puerta de enlace
 
 
 En la tabla siguiente se muestran los tipos de puerta de enlace y el rendimiento agregado estimado. Esta tabla se aplica a los modelos de implementación del Administrador de recursos y clásico.
 
-[AZURE.INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
+[AZURE.INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)] 
 
 
-## <a name="resources"></a>API de REST y cmdlets de PowerShell
+## <a name="<a-name="resources"></a>rest-apis-and-powershell-cmdlets"></a><a name="resources"></a>API de REST y cmdlets de PowerShell
 
 Para más información sobre recursos técnicos y requisitos de sintaxis específicos al usar API de REST y cmdlets de PowerShell para configuraciones de puerta de enlace de red virtual, consulte las páginas siguientes:
 
@@ -51,9 +52,9 @@ Para más información sobre recursos técnicos y requisitos de sintaxis especí
 |[API DE REST](https://msdn.microsoft.com/library/jj154113.aspx)|[API DE REST](https://msdn.microsoft.com/library/mt163859.aspx)|
 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
-Consulte [Información técnica de ExpressRoute](expressroute-introduction.md) para más información sobre configuraciones de conexión disponibles.
+Consulte [Información técnica de ExpressRoute](expressroute-introduction.md) para más información sobre configuraciones de conexión disponibles. 
 
 
 
@@ -63,4 +64,8 @@ Consulte [Información técnica de ExpressRoute](expressroute-introduction.md) p
 
  
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

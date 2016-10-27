@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Extensión de script personalizada en una máquina virtual Windows | Microsoft Azure"
-   description="Automatizar tareas de configuración de máquina virtual de Azure mediante la extensión de script personalizada para ejecutar scripts de PowerShell en una máquina virtual remota de Windows"
+   pageTitle="Custom Script extension on a Windows VM | Microsoft Azure"
+   description="Automate Azure VM configuration tasks by using the Custom Script extension to run PowerShell scripts on a remote Windows VM"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="kundanap"
@@ -17,33 +17,33 @@
    ms.date="08/06/2015"
    ms.author="kundanap"/>
 
-# Extensión de script personalizada para máquinas virtuales Windows
 
-Este artículo ofrece información general del uso de la extensión de script personalizada en máquinas virtuales Windows mediante los cmdlets de Azure PowerShell con las API de Azure Service Management.
+# <a name="custom-script-extension-for-windows-virtual-machines"></a>Custom Script extension for Windows virtual machines
 
-Las extensiones de máquina virtual (VM) se crean por Microsoft y editores de confianza de terceros para extender la funcionalidad de la máquina virtual. Para obtener información general de las extensiones de máquina virtual, vea 
-[Características y extensiones de máquina virtual de Azure](virtual-machines-windows-extensions-features.md).
+This article gives an overview of how to use the Custom Script extension on Windows VMs by using Azure PowerShell cmdlets with Azure Service Management APIs.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Obtenga información acerca de cómo [realizar estos pasos con el modelo de Resource Manager](virtual-machines-windows-extensions-customscript.md).
+Virtual machine (VM) extensions are built by Microsoft and trusted third-party publishers to extend the functionality of the VM. For an overview of VM extensions, see [Azure VM extensions and features](virtual-machines-windows-extensions-features.md).
 
-## Introducción a la extensión de script personalizada
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps by using the Resource Manager model](virtual-machines-windows-extensions-customscript.md).
 
-La extensión de script personalizada para Windows le permite ejecutar scripts de PowerShell en una VM remota, sin iniciar sesión en ella. Puede ejecutar los scripts después de aprovisionar la VM o en cualquier momento durante el ciclo de vida de la VM sin necesidad de abrir los puertos adicionales. Los casos de uso más comunes para la ejecución de la extensión de script personalizada incluyen la ejecución, la instalación y la configuración de software adicional en la VM después de su aprovisionamiento.
+## <a name="custom-script-extension-overview"></a>Custom Script extension overview
 
-### Requisitos previos para ejecutar la extensión de script personalizada
+With the Custom Script extension for Windows, you can run PowerShell scripts on a remote VM without signing in to it. You can run the scripts after provisioning the VM, or at any time during the lifecycle of the VM without opening any additional ports. The most common use cases for running Custom Script extension include running, installing, and configuring additional software on the VM after it's provisioned.
 
-1. Instale <a href="http://azure.microsoft.com/downloads" target="_blank">cmdlets de Azure PowerShell</a>, versión 0.8.0 o superior.
-2. Si desea que los scripts se ejecuten en una VM existente, asegúrese de que el Agente de VM está habilitado en la VM. Si no está instalado, siga estos [pasos](virtual-machines-windows-classic-agents-and-extensions.md). Si la VM se crea en el portal de Azure, el agente de VM se instala de forma predeterminada.
-3. Cargue las secuencias de comandos que desea ejecutar en la máquina virtual para el almacenamiento de Azure. Las secuencias de comandos pueden proceder de un único contenedor de almacenamiento o de varios.
-4. El script debe crearse de forma tal que el script de entrada que inicia la extensión inicie, a su vez, otros scripts.
+### <a name="prerequisites-for-running-the-custom-script-extension"></a>Prerequisites for running the Custom Script extension
 
-## Escenarios de la extensión de script personalizada
+1. Install <a href="http://azure.microsoft.com/downloads" target="_blank">Azure PowerShell cmdlets</a> version 0.8.0 or later.
+2. If you want the scripts to run on an existing VM, make sure VM Agent is enabled on the VM. If it is not installed, follow these  [steps](virtual-machines-windows-classic-agents-and-extensions.md). If the VM is created from the Azure portal, then VM Agent is installed by default.
+3. Upload the scripts that you want to run on the VM to Azure Storage. The scripts can come from a single container or multiple storage containers.
+4. The script should be authored so that the entry script, which is started by the extension, starts other scripts.
 
-### Cargar archivos en el contenedor predeterminado
+## <a name="custom-script-extension-scenarios"></a>Custom Script extension scenarios
 
-El siguiente ejemplo le muestra cómo puede ejecutar los scripts en la VM si están en el contenedor de almacenamiento de la cuenta predeterminada de su suscripción. Cargue los scripts en ContainerName. Puede comprobar la cuenta de almacenamiento predeterminada mediante el comando **Get-AzureSubscription –Default**.
+### <a name="upload-files-to-the-default-container"></a>Upload files to the default container
 
-En el ejemplo siguiente se crea una nueva VM, pero puede ejecutar el mismo escenario en una VM existente.
+The following example shows how you can run your scripts on the VM if they are in the storage container of the default account of your subscription. You upload your scripts to ContainerName. You can verify the default storage account by using the **Get-AzureSubscription –Default** command.
+
+The following example creates a VM, but you can also run the same scenario on an existing VM.
 
     # Create a new VM in Azure.
     $vm = New-AzureVMConfig -Name $name -InstanceSize Small -ImageName $imagename
@@ -58,37 +58,41 @@ En el ejemplo siguiente se crea una nueva VM, pero puede ejecutar el mismo escen
     # Use the position of the extension in the output as index.
     $vm.ResourceExtensionStatusList[i].ExtensionSettingStatus.SubStatusList
 
-### Cargar archivos a un contenedor de almacenamiento no predeterminado
+### <a name="upload-files-to-a-non-default-storage-container"></a>Upload files to a non-default storage container
 
-Este escenario muestra cómo usar un contenedor de almacenamiento no predeterminado en la misma suscripción o en una suscripción diferente para cargar archivos y scripts. Este ejemplo muestra una VM existente, pero se pueden realizar las mismas operaciones al crear una VM.
+This scenario shows how to use a non-default storage container within the same subscription or in a different subscription for uploading scripts and files. This example shows an existing VM, but the same operations can be done while you're creating a VM.
 
         Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileName 'file1.ps1','file2.ps1' -Run 'file.ps1' | Update-AzureVM
 
-### Carga de secuencias de comandos en varios contenedores en diferentes cuentas de almacenamiento
+### <a name="upload-scripts-to-multiple-containers-across-different-storage-accounts"></a>Upload scripts to multiple containers across different storage accounts
 
-  Si los archivos de scripts se almacenan en varios contenedores, debe ofrecer la dirección URL de firmas de acceso compartido (SAS) completas para que los archivos ejecuten los scripts.
+  If the script files are stored across multiple containers, you have to provide the full shared access signatures (SAS) URL for the files to run the scripts.
 
       Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileUri $fileUrl1, $fileUrl2 -Run 'file.ps1' | Update-AzureVM
 
 
-### Agregar la extensión de script personalizada desde el Portal de Azure
+### <a name="add-the-custom-script-extension-from-the-azure-portal"></a>Add the Custom Script extension from the Azure portal
 
-Vaya a la VM en el <a href="https://portal.azure.com/ " target="_blank">Portal de Azure </a> y especifique el archivo de scripts que se debe ejecutar para agregar la extensión.
+Go to the VM in the <a href="https://portal.azure.com/ " target="_blank">Azure portal</a> and add the extension by specifying the script file to run.
 
-  ![Especificar l archivo de script][5]
+  ![Specify the script file][5]
 
 
-### Desinstalar la extensión de script personalizada
+### <a name="uninstall-the-custom-script-extension"></a>Uninstall the Custom Script extension
 
-Puede desinstalar la extensión del script personalizado de la VM con el siguiente comando.
+You can uninstall the Custom Script extension from the VM by using the following command.
 
       get-azureVM -ServiceName KPTRDemo -Name KPTRDemo | Set-AzureVMCustomScriptExtension -Uninstall | Update-AzureVM
 
-### Usar la extensión de scripts personalizada con plantillas
+### <a name="use-the-custom-script-extension-with-templates"></a>Use the Custom Script extension with templates
 
-Para obtener información sobre cómo utilizar la extensión del script personalizado con plantillas de Azure Resource Manager, consulte [Uso de la extensión de script personalizada para máquinas virtuales de Windows con plantillas de Azure Resource Manager](virtual-machines-windows-extensions-customscript.md).
+To learn about how to use the Custom Script extension with Azure Resource Manager templates, see [Using the Custom Script extension for Windows VMs with Azure Resource Manager templates](virtual-machines-windows-extensions-customscript.md).
 
 <!--Image references-->
 [5]: ./media/virtual-machines-windows-classic-extensions-customscript/addcse.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

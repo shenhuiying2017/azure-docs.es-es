@@ -1,103 +1,105 @@
 <properties
-	pageTitle="Introducción a las consultas entre bases de datos (particiones verticales) | Microsoft Azure"	
-	description="cómo usar la consulta de base de datos elástica con bases de datos con particiones verticales"
-	services="sql-database"
-	documentationCenter=""  
-	manager="jhubbard"
-	authors="torsteng"/>
+    pageTitle="Get started with cross-database queries (vertical partitioning) | Microsoft Azure"   
+    description="how to use elastic database query with vertically partitioned databases"
+    services="sql-database"
+    documentationCenter=""  
+    manager="jhubbard"
+    authors="torsteng"/>
 
 <tags
-	ms.service="sql-database"
-	ms.workload="sql-database"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/23/2016"
-	ms.author="torsteng" />
+    ms.service="sql-database"
+    ms.workload="sql-database"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="05/23/2016"
+    ms.author="torsteng" />
 
-# Introducción a las consultas entre bases de datos (particiones verticales) (versión preliminar)
 
-La consulta de base de datos elástica (vista previa) para Base de datos SQL de Azure le permite ejecutar consultas T-SQL que distribuyen varias bases de datos con un único punto de conexión. Este tema se aplica a [bases de datos con particiones verticales](sql-database-elastic-query-vertical-partitioning.md).
+# <a name="get-started-with-cross-database-queries-(vertical-partitioning)-(preview)"></a>Get started with cross-database queries (vertical partitioning) (preview)
 
-Una vez completado, sabrá: cómo configurar y usar una Base de datos SQL de Azure para realizar consultas que distribuyan múltiples bases de datos relacionadas.
+Elastic database query (preview) for Azure SQL Database allows you to run T-SQL queries that span multiple databases using a single connection point. This topic applies to [vertically partitioned databases](sql-database-elastic-query-vertical-partitioning.md).  
 
-Para obtener más información sobre la característica de la consulta de base de datos elástica, consulte la [Información general sobre consulta de bases de datos elásticas de Base de datos SQL de Azure](sql-database-elastic-query-overview.md).
+When completed, you will: learn how to configure and use an Azure SQL Database to perform queries that span multiple related databases. 
 
-## Crear las base de datos de ejemplo
+For more information about the elastic database query feature, please see  [Azure SQL Database elastic database query overview](sql-database-elastic-query-overview.md). 
 
-Para empezar, debemos crear dos bases de datos, **Clientes** y **Pedidos**, ya sea en el mismo servidor o en diferentes servidores lógicos.
+## <a name="create-the-sample-databases"></a>Create the sample databases
 
-Ejecute las siguientes consultas en la base de datos **Pedidos** para crear la tabla **OrderInformation** e introducir los datos de ejemplo.
+To start with, we need to create two databases, **Customers** and **Orders**, either in the same or different logical servers.   
 
-	CREATE TABLE [dbo].[OrderInformation]( 
-		[OrderID] [int] NOT NULL, 
-		[CustomerID] [int] NOT NULL 
-		) 
-	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (123, 1) 
-	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (149, 2) 
-	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (857, 2) 
-	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1) 
-	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8) 
+Execute the following queries on the **Orders** database to create the **OrderInformation** table and input the sample data. 
 
-Ahora, ejecute la siguiente consulta en la base de datos **Clientes** para crear la tabla **CustomerInformation** e introducir los datos de ejemplo.
+    CREATE TABLE [dbo].[OrderInformation]( 
+        [OrderID] [int] NOT NULL, 
+        [CustomerID] [int] NOT NULL 
+        ) 
+    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (123, 1) 
+    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (149, 2) 
+    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (857, 2) 
+    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1) 
+    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8) 
 
-	CREATE TABLE [dbo].[CustomerInformation]( 
-		[CustomerID] [int] NOT NULL, 
-		[CustomerName] [varchar](50) NULL, 
-		[Company] [varchar](50) NULL 
-		CONSTRAINT [CustID] PRIMARY KEY CLUSTERED ([CustomerID] ASC) 
-	) 
-	INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (1, 'Jack', 'ABC') 
-	INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (2, 'Steve', 'XYZ') 
-	INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (3, 'Lylla', 'MNO') 
+Now, execute following query on the **Customers** database to create the **CustomerInformation** table and input the sample data. 
 
-## Creación de objetos de base de datos
-### Clave maestra y credenciales de ámbito de base de datos
+    CREATE TABLE [dbo].[CustomerInformation]( 
+        [CustomerID] [int] NOT NULL, 
+        [CustomerName] [varchar](50) NULL, 
+        [Company] [varchar](50) NULL 
+        CONSTRAINT [CustID] PRIMARY KEY CLUSTERED ([CustomerID] ASC) 
+    ) 
+    INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (1, 'Jack', 'ABC') 
+    INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (2, 'Steve', 'XYZ') 
+    INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (3, 'Lylla', 'MNO') 
 
-1. Abra SQL Server Management Studio o SQL Server Data Tools en Visual Studio.
-2. Conéctese a la base de datos Pedidos y ejecute los siguientes comandos de T-SQL:
+## <a name="create-database-objects"></a>Create database objects
+### <a name="database-scoped-master-key-and-credentials"></a>Database scoped master key and credentials
 
-		CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>'; 
-		CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred 
-		WITH IDENTITY = '<username>', 
-		SECRET = '<password>';  
+1. Open SQL Server Management Studio or SQL Server Data Tools in Visual Studio.
+2. Connect to the Orders database and execute the following T-SQL commands:
 
-	"username" y "contraseña" deben ser el nombre de usuario y la contraseña usados para iniciar sesión en la base de datos Clientes. Actualmente no se admite la autenticación usando Azure Active Directory con consultas elásticas.
+        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>'; 
+        CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred 
+        WITH IDENTITY = '<username>', 
+        SECRET = '<password>';  
 
-### Orígenes de datos externos
-Para crear un origen de datos externo, ejecute el siguiente comando en la base de datos Pedidos:
+    The "username" and "password" should be the username and password used to login into the Customers database.
+    Authentication using Azure Active Directory with elastic queries is not currently supported.
 
-	CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH 
-		(TYPE = RDBMS, 
-		LOCATION = '<server_name>.database.windows.net', 
-		DATABASE_NAME = 'Customers', 
-		CREDENTIAL = ElasticDBQueryCred, 
-	) ;
+### <a name="external-data-sources"></a>External data sources
+To create an external data source, execute the following command on the Orders database: 
 
-### Tablas externas
-Cree una tabla externa en la base de datos Pedidos, que coincida con la definición de la tabla CustomerInformation:
+    CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH 
+        (TYPE = RDBMS, 
+        LOCATION = '<server_name>.database.windows.net', 
+        DATABASE_NAME = 'Customers', 
+        CREDENTIAL = ElasticDBQueryCred, 
+    ) ;
 
-	CREATE EXTERNAL TABLE [dbo].[CustomerInformation] 
-	( [CustomerID] [int] NOT NULL, 
-	  [CustomerName] [varchar](50) NOT NULL, 
-	  [Company] [varchar](50) NOT NULL) 
-	WITH 
-	( DATA_SOURCE = MyElasticDBQueryDataSrc) 
+### <a name="external-tables"></a>External tables
+Create an external table on the Orders database, which matches the definition of the CustomerInformation table:
 
-## Ejecución de la consulta de T-SQL de la base de datos elástica de ejemplo
+    CREATE EXTERNAL TABLE [dbo].[CustomerInformation] 
+    ( [CustomerID] [int] NOT NULL, 
+      [CustomerName] [varchar](50) NOT NULL, 
+      [Company] [varchar](50) NOT NULL) 
+    WITH 
+    ( DATA_SOURCE = MyElasticDBQueryDataSrc) 
 
-Una vez que haya definido su origen de datos externo y las tablas externas, puede usar el T-SQL para consultar sus las tablas externas. Ejecute esta consulta en la base de datos Pedidos:
+## <a name="execute-a-sample-elastic-database-t-sql-query"></a>Execute a sample elastic database T-SQL query
 
-	SELECT OrderInformation.CustomerID, OrderInformation.OrderId, CustomerInformation.CustomerName, CustomerInformation.Company 
-	FROM OrderInformation 
-	INNER JOIN CustomerInformation 
-	ON CustomerInformation.CustomerID = OrderInformation.CustomerID 
+Once you have defined your external data source and your external tables you can now use T-SQL to query your external tables. Execute this query on the Orders database: 
 
-## Coste
+    SELECT OrderInformation.CustomerID, OrderInformation.OrderId, CustomerInformation.CustomerName, CustomerInformation.Company 
+    FROM OrderInformation 
+    INNER JOIN CustomerInformation 
+    ON CustomerInformation.CustomerID = OrderInformation.CustomerID 
 
-En la actualidad, la característica de consulta de base de datos elástica se incluye en el coste de la base de datos SQL de Azure.
+## <a name="cost"></a>Cost
 
-Para obtener información de precios, vea [Precio de Base de datos SQL](/pricing/details/sql-database).
+Currently, the elastic database query feature is included into the cost of your Azure SQL Database.  
+
+For pricing information see [SQL Database Pricing](/pricing/details/sql-database). 
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -106,4 +108,8 @@ Para obtener información de precios, vea [Precio de Base de datos SQL](/pricing
 
 <!--anchors-->
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

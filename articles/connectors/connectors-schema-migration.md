@@ -1,49 +1,57 @@
 <properties
-	pageTitle="Migración de aplicaciones lógicas a la versión de esquema 2015-08-01-preview | Servicio de aplicaciones de Microsoft Azure"
-	description="Puede migrar fácilmente las aplicaciones lógicas a la última versión de esquema. Simplemente, siga estos pasos:"
-	services="logic-apps"
-	documentationCenter=""
-	authors="MSFTMAN"
-	manager="erikre"
-	editor=""
+    pageTitle="How to migrate logic apps to schema version 2015-08-01-preview | Microsoft Azure App Service"
+    description="You can easily migrate your logic apps to the latest schema version. Just follow these steps."
+    services="logic-apps"
+    documentationCenter=""
+    authors="MSFTMAN"
+    manager="erikre"
+    editor=""
     tags="connectors"/>
 
 <tags
-	ms.service="logic-apps"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/23/2016"
-	ms.author="deonhe"/>
-
-# Migración de aplicaciones lógicas a la versión de esquema 2015-08-01-preview
-
-Para mover las aplicaciones lógicas existentes al nuevo esquema, realice lo siguiente:  
-1. Abra la aplicación lógica en el Portal de Azure  
-2. Haga clic en Actualizar esquema:
-
-![Icono de API][step1]
-
-La página Actualizar esquema aparece y ofrece un vínculo a un documento que proporciona más información acerca de las mejoras del nuevo esquema:
-
-![Icono de API][step2]
-
->[AZURE.NOTE] Al seleccionar **Actualizar esquema**, automáticamente se ejecutan los pasos de migración y se le proporciona la salida de código. Con ello puede actualizar la definición, sin embargo, asegúrese de seguir las buenas prácticas de codificación descritas en la sección **Procedimientos recomendados** de más adelante.
-
-## Procedimientos recomendados al migrar las aplicaciones lógicas a la última versión de esquema:  
-
-- Copie el script migrado a una nueva aplicación lógica: no sobrescriba el antiguo hasta que haya completado las pruebas y confirmado que la aplicación migrada funciona según lo previsto.
-- Pruebe la aplicación lógica **antes de** ponerla en producción
-- Una vez finalizada la migración, comience la actualización de las aplicaciones lógicas para usar las [API administradas](./apis-list.md) siempre que sea posible. Por ejemplo, puede empezar a utilizar Dropbox v2, en cualquier ocasión que esté utilizando DropBox v1.
+    ms.service="logic-apps"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/23/2016"
+    ms.author="deonhe"/>
 
 
-## Pasos siguientes
--  [Obtenga información sobre cómo migrar las aplicaciones lógicas de forma manual](../app-service-logic/app-service-logic-schema-2015-08-01.md)
+# <a name="how-to-migrate-logic-apps-to-schema-version-2015-08-01-preview"></a>How to migrate logic apps to schema version 2015-08-01-preview
+
+To move your existing logic apps to the new schema, do the following:  
+1. Open your logic app in the Azure portal  
+2. Click Update Schema:
+
+ ![API Icon][step1]   
+The Update Schema page displays and provides a link to a document that provide details on the improvements in the new schema: ![API Icon][step2]
+
+>[AZURE.NOTE] When you select **Update Schema**, we automatically run the migration steps and provide the code output for you. You can use this to update your definition, however, ensure you follow good coding practices such as those outlined in the **Best practices** section below.
+
+## <a name="best-practices-when-migrating-your-logic-apps-to-the-latest-schema-version:"></a>Best practices when migrating your Logic apps to the latest schema version:  
+
+- Copy the migrated script to a new Logic App - don't overwrite the old one until you've completed your testing and confirmed the migrated app works as expected.
+- Test your Logic app **before** putting in production
+- After migration completes, start updating your Logic apps to use the [managed APIs](./apis-list.md) where possible. For example, you can start using Dropbox v2, whereever you are using DropBox v1.
+
+
+## <a name="what's-next"></a>What's next
+-  [Learn how to manually migrate your Logic apps](../app-service-logic/app-service-logic-schema-2015-08-01.md)
 
 
 <!--Icon references-->
 [step1]: ./media/connectors-schema-migration/migrateschema1.png
 [step2]: ./media/connectors-schema-migration/migrateschema2.png
 
-<!----HONumber=AcomDC_0824_2016-->
+
+
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

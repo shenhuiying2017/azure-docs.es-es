@@ -1,38 +1,43 @@
 <properties
-	pageTitle="Inicios de sesión desde varias ubicaciones geográficas"
-	description="Informe que señala usuarios en los que dos inicios de sesión parecían originarse en distintas regiones y, por el tiempo transcurrido entre inicios de sesión, resultaba imposible que el usuario viajase entre dichas regiones."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="gchander"
-	editor=""/>
+    pageTitle="Sign ins from multiple geographies"
+    description="A report that indicates users where two sign ins appeared to originate from different regions and the time between the sign ins makes it impossible for the user to have travelled between those regions."
+    services="active-directory"
+    documentationCenter=""
+    authors="SSalahAhmed"
+    manager="gchander"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>
-
-# Inicios de sesión desde varias ubicaciones geográficas
-
-En este informe se incluyen inicios de sesión correctos de un usuario en los que parece que dos inicios de sesión se originaron desde distintas regiones y que, según el tiempo transcurrido entre ellos, parece imposible que el usuario haya viajado entre dichas regiones. Entre las posibles causas se incluyen las siguientes:
-
-- El usuario comparte su contraseña con otros usuarios.
-
-- El usuario usa un escritorio remoto para iniciar un navegador web para el inicio de sesión.
-
-- Un hacker inició sesión en la cuenta de un usuario desde un país diferente.
-
-- El usuario está utilizando un proxy o una VPN.
-
-- El usuario ha iniciado sesión desde varios dispositivos al mismo tiempo, como un equipo de escritorio y un teléfono móvil, y la dirección IP del teléfono móvil es poco común.
-
-Los resultados de este informe mostrarán los eventos de inicio de sesión correctos, así como el tiempo transcurrido entre ellos, las regiones de donde parecían provenir y el tiempo de viaje estimado entre dichas regiones. El tiempo de viaje mostrado constituye solo una estimación y puede diferir del tiempo de viaje real entre las ubicaciones.
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="03/04/2016"
+    ms.author="saah;kenhoff"/>
 
 
-![Inicios de sesión desde varias ubicaciones geográficas](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
+# <a name="sign-ins-from-multiple-geographies"></a>Sign-ins from multiple geographies
 
-<!---HONumber=AcomDC_0309_2016-->
+This report includes successful sign-ins from a user where two sign-ins appeared to originate from different regions and the time between the sign-ins makes it impossible for the user to have traveled between those regions. Possible causes include:
+
+- User is sharing their password with other users
+
+- User is using a remote desktop to launch a web browser for sign-in
+
+- A hacker has signed in to the account of a user from a different country
+
+- User is using a VPN or proxy
+
+- User is signed in from multiple devices at the same time, such as a desktop and a mobile phone, and the IP address of the mobile phone is unusual.
+
+Results from this report will show you the successful sign-in events, together with the time between the sign-ins, the regions where the sign-ins appeared to originate from, and the estimated travel time between those regions. The travel time shown is only an estimate and may be different from the actual travel time between the locations.
+
+
+![Sign ins from multiple geographies](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

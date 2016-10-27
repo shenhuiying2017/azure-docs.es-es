@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Solución de problemas de errores del cliente Docker en Windows con Visual Studio | Microsoft Azure"
-   description="Solucione los problemas que encuentre al usar Visual Studio para crear e implementar aplicaciones web en Docker en Windows mediante Visual Studio."
+   pageTitle="Troubleshooting Docker Client Errors on Windows Using Visual Studio | Microsoft Azure"
+   description="Troubleshoot problems you encounter when using Visual Studio to create and deploy web apps to Docker on Windows by using Visual Studio."
    services="azure-container-service"
    documentationCenter="na"
    authors="mlearned"
@@ -15,39 +15,42 @@
    ms.date="06/08/2016"
    ms.author="allclark" />
 
-# Solución de problemas de desarrollo de Docker en Visual Studio
 
-Cuando se trabaja con la versión preliminar de Visual Studio Tools para Docker, pueden surgir ciertos problemas debido a la propia naturaleza de la versión preliminar. Éstos son algunos problemas frecuentes y sus soluciones.
+# <a name="troubleshooting-visual-studio-docker-development"></a>Troubleshooting Visual Studio Docker Development
+
+When working with Visual Studio Tools for Docker Preview, you may encounter some problems due to the preview nature.
+The following are some common issues and resolutions.
 
 
-## No se puede validar la asignación de volumen
-Se necesita la asignación de volumen para compartir el código fuente y los archivos binarios de la aplicación con la carpeta de la aplicación en el contenedor. Las asignaciones de volumen específicas se encuentran dentro de los archivos docker-compose.dev.debug.yml y docker-compose.dev.release.yml. A medida que se cambian los archivos en el equipo host, los contenedores reflejan estos cambios en una estructura de carpetas similar.
+## <a name="unable-to-validate-volume-mapping"></a>Unable to validate volume mapping
+Volume mapping is required to share the source code and binaries of your application with the app folder in the container.  Specific volume mappings are contained within the docker-compose.dev.debug.yml and docker-compose.dev.release.yml files. As files are changed on your host machine, the containers reflect these changes in a similar folder structure.
 
-Para habilitar la asignación de volumen, abra **Settings...** (Configuración) en el icono de bandeja "moby" de Docker for Windows y seleccione la pestaña **Shared Drives** (Unidades compartidas). Para asegurarse de que la letra de la unidad que hospeda el proyecto y la letra de la unidad donde reside % USERPROFILE % se compartan, actívelas y haga clic en **Apply** (Aplicar).
+To enable volume mapping, open **Settings...** from the Docker For Windows "moby" tray icon and then select the **Shared Drives** tab.  Ensure that the drive letter which hosts your project as well as the drive letter where %USERPROFILE% resides are shared by checking them, and then clicking **Apply**.
 
-Para probar si funciona la asignación de volumen, una vez que las unidades se hayan compartido, recompile y presione F5 desde Visual Studio o pruebe lo siguiente desde un símbolo del sistema:
+To test if volume mapping is functioning, once the drive(s) have been shared, either Rebuild and F5 from within Visual Studio or try the following from a command prompt:
 
-*En un símbolo del sistema de Windows*
+*In a Windows command prompt*
 
-*[Nota: Esto da por supuesto que la carpeta Usuarios se encuentra en la unidad "C" y se ha compartido. Se debe actualizar si ha compartido una unidad diferente]*
+*[Note: This assumes your Users folder is located on the "C" drive and that it has been shared.  Update as necessary if you have shared a different drive]*
 ```
 docker run -it -v /c/Users/Public:/wormhole busybox
 ```
 
-*En el contenedor de Linux*
+*In the Linux container*
 
 ```
 / # ls
 ```
 
-Debería ver una lista de directorios de la carpeta Usuarios/Público. Si no se muestran archivos y la carpeta /c/Usuarios/Público no está vacía, significa que la asignación de volúmenes no está configurada correctamente.
+You should see a directory listing from the Users/Public folder.
+If no files are displayed, and your /c/Users/Public folder isn't empty, volume mapping is not configured properly. 
 
 ```
 bin       etc       proc      sys       usr       wormhole
 dev       home      root      tmp       var
 ```
 
-Cambie al directorio wormhole para ver el contenido del directorio `/c/Users/Public`:
+Change into the wormhole directory to see the contents of the `/c/Users/Public` directory:
 
 ```
 / # cd wormhole/
@@ -58,25 +61,25 @@ Documents        Libraries        Pictures
 /wormhole #
 ```
 
-**Nota:** *Al trabajar con máquinas virtuales Linux, el sistema de archivos del contenedor distingue mayúsculas de minúsculas.*
+**Note:** *When working with Linux VMs, the container file system is case sensitive.*
 
-##Compilación: Error inesperado en la tarea "PrepareForBuild".
+##<a name="build-:-"prepareforbuild"-task-failed-unexpectedly."></a>Build : "PrepareForBuild" task failed unexpectedly.
 
-Microsoft.DotNet.Docker.CommandLine.ClientException: An error occurred trying to connect: (Microsoft.DotNet.Docker.CommandLine.ClientException: Error al intentar conectarse:)
+Microsoft.DotNet.Docker.CommandLine.ClientException: An error occurred trying to connect:
 
-Compruebe que se ejecuta el host de Docker predeterminado. Abra un símbolo del sistema y ejecute:
+Verify the default docker host is running. Open a command prompt and execute:
 
 ```
 docker info
 ```
 
-Si esto devuelve un error, intente iniciar la aplicación de escritorio **Docker for Windows**. Si la aplicación de escritorio se está ejecutando, el icono **moby** de la bandeja debería estar visible. Haga clic con el botón derecho en el icono de bandeja y abra **Settings** (Configuración). Haga clic en la pestaña **Reset** (Restablecer) y en **Restart Docker** (Reiniciar Docker).
+If this returns an error then attempt to start the **Docker For Windows** desktop app.  If the desktop app is running then the **moby** icon in the tray should be visible. Right click on the tray icon and open **Settings**.  Click on the **Reset** tab and then **Restart Docker..**.
 
-##Actualización manual de la versión 0.31 a la 0.40
+##<a name="manually-upgrading-from-version-0.31-to-0.40"></a>Manually upgrading from version 0.31 to 0.40
 
 
-1. Haga una copia de seguridad del proyecto.
-1. Elimine los siguientes archivos en el proyecto:
+1. Backup the project
+1. Delete the following files in the project:
 
     ```
       Dockerfile
@@ -89,7 +92,7 @@ Si esto devuelve un error, intente iniciar la aplicación de escritorio **Docker
       Properties\Docker.targets
     ```
 
-1. Cierre la solución y quite las líneas siguientes del archivo .xproj:
+1. Close the Solution and remove the following lines from the .xproj file:
 
     ```
       <DockerToolsMinVersion>0.xx</DockerToolsMinVersion>
@@ -97,8 +100,8 @@ Si esto devuelve un error, intente iniciar la aplicación de escritorio **Docker
       <Import Project="Properties\Docker.targets" />
     ```
 
-1. Vuelva a abrir la solución.
-1. Quite las líneas siguientes del archivo Properties\\launchSettings.json:
+1. Reopen the Solution
+1. Remove the following lines from the Properties\launchSettings.json file:
 
     ```
       "Docker": {
@@ -107,7 +110,7 @@ Si esto devuelve un error, intente iniciar la aplicación de escritorio **Docker
       }
     ```
 
-1. Elimine los siguientes archivos relacionados con Docker de project.json, bajo publishOptions:
+1. Remove the following files related to Docker from project.json in the publishOptions:
 
     ```
     "publishOptions": {
@@ -122,21 +125,25 @@ Si esto devuelve un error, intente iniciar la aplicación de escritorio **Docker
     },
     ```
 
-1. Desinstale la versión anterior e instale Docker Tools 0.40; Después, elija otra vez **Agregar->Compatibilidad con Docker** en el menú contextual de la aplicación de consola o web ASP.NET Core. Esto volverá a agregar los nuevos artefactos Docker necesarios a su proyecto.
+1. Uninstall the previous version and install Docker Tools 0.40, and then **Add->Docker Support** again from the context menu for your ASP.Net Core Web or Console Application. This will add the new required Docker artifacts back to your project. 
 
-## Aparece un cuadro de diálogo de error al intentar seleccionar **Agregar->Compatibilidad con Docker** o depurar (F5) una aplicación ASP.NET Core en un contenedor
+## <a name="an-error-dialog-occurs-when-attempting-to-**add->docker-support**-or-debug-(f5)-an-asp.net-core-application-in-a-container"></a>An error dialog occurs when attempting to **Add->Docker Support** or Debug (F5) an ASP.NET Core Application in a container
 
-En algunas ocasiones, después de desinstalar e instalar extensiones, la memoria caché de MEF (Managed Extensibility Framework) de Visual Studio puede dañarse. Cuando esto ocurre, puede hacer que aparezcan diversos cuadros de diálogo de error cuando se agrega la compatibilidad con Docker o se intenta ejecutar o depurar (F5) la aplicación ASP.NET Core. Como solución temporal, ejecute los siguientes pasos para eliminar la caché de MEF y volver a generarla.
+We have occasionally seen after uninstalling and installing extensions, Visual Studio's MEF (Managed Extensibility Framework) cache can become corrupt. When this occurs it can cause various error dialogs when adding Docker Support and/or attempting to run or Debug (F5) your ASP.NET Core Application. As a temporary workaround, execute the following steps to delete and regenerate the MEF cache.
 
-1. Cierre todas las instancias de Visual Studio.
-1. Abra %USERPROFILE%\\AppData\\Local\\Microsoft\\VisualStudio\\14.0\\.
-1. Elimine las siguientes carpetas.
+1. Close all instances of Visual Studio
+1. Open %USERPROFILE%\AppData\Local\Microsoft\VisualStudio\14.0\
+1. Delete the following folders
      ```
        ComponentModelCache
        Extensions
        MEFCacheBackup
     ```
-1. Abra Visual Studio.
-1. Vuelva a intentar el escenario.
+1. Open Visual Studio
+1. Attempt the scenario again 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

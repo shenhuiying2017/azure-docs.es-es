@@ -1,19 +1,23 @@
-Esta condición evaluará el campo de dirección de correo electrónico de cada nuevo cliente potencial de Salesforce. Si la dirección de correo electrónico contiene *amazon.com*, el resultado de la condición será *True*.
+This condition will evaluate the email address field of each new Salesforce lead. If the email address contains *amazon.com*, the condition result will be *True*.
 
-1. Seleccione **+ New step** (+ Nuevo paso).  
-![Imagen 1 de condición de Salesforce](./media/connectors-create-api-salesforce/condition-1.png)  
-- Seleccione **Agregar una condición**.  
-![Imagen 2 de condición de Salesforce](./media/connectors-create-api-salesforce/condition-2.png)  
-- Seleccione **Choose a value** (Elegir un valor).  
-![Imagen 3 de condición de Salesforce](./media/connectors-create-api-salesforce/condition-3.png)  
-- Seleccione el token *Correo electrónico* del cliente potencial del desencadenador.  
-![Imagen 4 de condición de Salesforce](./media/connectors-create-api-salesforce/condition-4.png)  
-- Seleccione *Contiene*.  
-![Imagen 5 de condición de Salesforce](./media/connectors-create-api-salesforce/condition-5.png)  
-- Seleccione **Choose a value** (Elegir un valor) en la parte inferior del control.  
-![Imagen 6 de condición de Salesforce](./media/connectors-create-api-salesforce/condition-6.png)  
-- Escriba *amazon.com* como el valor para el que desea evaluar la dirección de correo electrónico del nuevo cliente potencial. Si la dirección de correo electrónico contiene *amazon.com*, la condición se evaluará como *True* y se puede continuar con el resto de los pasos de la aplicación lógica.  
-![Imagen 7 de condición de Salesforce](./media/connectors-create-api-salesforce/condition-7.png)  
-- Guarde las aplicaciones lógicas.
+1. Select **+ New step**.  
+![Salesforce condition image 1](./media/connectors-create-api-salesforce/condition-1.png)   
+- Select **Add a condition**.    
+![Salesforce condition image 2](./media/connectors-create-api-salesforce/condition-2.png)  
+- Select **Choose a value**.    
+![Salesforce condition image 3](./media/connectors-create-api-salesforce/condition-3.png)  
+- Select the *Email* token from the lead of the trigger.    
+![Salesforce condition image 4](./media/connectors-create-api-salesforce/condition-4.png)  
+- Select *Contains*.      
+![Salesforce condition image 5](./media/connectors-create-api-salesforce/condition-5.png)  
+- Select **Choose a value** at the bottom of the control.     
+![Salesforce condition image 6](./media/connectors-create-api-salesforce/condition-6.png)  
+- Enter *amazon.com* as the value you would like to evaluate the email address of the new lead for. If the email address contains *amazon.com*, the condition will evaluate to *True* and the other steps in your logic app can proceed.    
+![Salesforce condition image 7](./media/connectors-create-api-salesforce/condition-7.png)  
+- Save your logic apps.  
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

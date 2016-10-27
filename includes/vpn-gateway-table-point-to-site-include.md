@@ -1,7 +1,11 @@
-| | **Implementación clásica** | **Implementación del Administrador de recursos** |
-|----------------------------------------|--------------|------------------------|
-| **Portal clásico** | [Artículo](../articles/vpn-gateway/vpn-gateway-point-to-site-create.md) | No compatible |
-| **Portal de Azure** | Compatible | No compatible |
-| **PowerShell** | Compatible | [Artículo](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)|
+|**Método/modelo de implementación**|**Portal de Azure**| **Portal clásico** | **PowerShell**|
+|-------------------------------------|-----------------|---------------------|---------------|
+|**Clásico** |  [Artículo](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)| [Artículo](../articles/vpn-gateway/point-to-site-create.md)  | Compatible |
+|**Resource Manager** |No compatible| No compatible   | [Artículo](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)  |
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

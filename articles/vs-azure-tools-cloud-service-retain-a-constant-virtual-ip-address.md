@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Cómo conservar una dirección IP virtual constante para un servicio en la nube | Microsoft Azure"
-   description="Obtenga información para garantizar que no cambia la dirección IP virtual (VIP) de su servicio en la nube de Azure."
+   pageTitle="How to retain a constant virtual IP address for a cloud service | Microsoft Azure"
+   description="Learn how to ensure that the virtual IP address (VIP) of your Azure cloud service doesn't change."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,34 +15,39 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Cómo conservar una dirección IP virtual constante para un servicio en la nube
 
-Al actualizar un servicio en la nube que se hospeda en Azure, es posible que deba asegurarse de que no cambia la dirección IP virtual (VIP) del servicio. Muchos de los servicios de administración de dominio usan el Sistema de nombres de dominio (DNS) para registrar nombres de dominio. DNS solo funciona si la dirección VIP sigue siendo la misma. Puede usar el **Asistente para publicación** en Azure Tools para asegurarse de que la dirección VIP del servicio en la nube no cambia cuando la actualiza. Para obtener más información sobre cómo usar la administración de dominios DNS para servicios en la nube, vea [Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure](./cloud-services/cloud-services-custom-domain-name.md).
+# <a name="how-to-retain-a-constant-virtual-ip-address-for-a-cloud-service"></a>How to retain a constant virtual IP address for a cloud service
 
-## Publicar un servicio en la nube sin cambiar su VIP
+When you update a cloud service that's hosted in Azure, you might need to ensure that the virtual IP address (VIP) of the service doesn't change. Many domain management services use the Domain Name System (DNS) for registering domain names. DNS works only if the VIP remains the same. You can use the **Publish Wizard** in Azure Tools to ensure that the VIP of your cloud service doesn’t change when you update it. For more information about how to use DNS domain management for cloud services, see [Configuring a custom domain name for an Azure cloud service](./cloud-services/cloud-services-custom-domain-name.md).
 
-La dirección VIP de un servicio en la nube se asigna al implementarla por primera vez en Azure en un entorno determinado, como el entorno de producción. La dirección VIP no cambia a menos que elimine la implementación de manera explícita o que se elimine implícitamente por el proceso de actualización de implementación. Para conservar la dirección VIP, no debe eliminar su implementación y también debe asegurarse de que Visual Studio no elimina su implementación automáticamente. Puede controlar el comportamiento mediante la especificación de la configuración de implementación en el **Asistente para publicación**, que admite varias opciones de implementación. Puede especificar una nueva implementación o una implementación de actualización, que puede ser incremental o simultánea, y ambos tipos de implementaciones de actualización conservan la dirección VIP. Para obtener definiciones de estos tipos diferentes de implementación, vea [Asistente Publicar aplicaciones de Azure](vs-azure-tools-publish-azure-application-wizard.md). Además, puede controlar si la implementación anterior de un servicio en la nube se elimina si se produce un error. La dirección VIP podría cambiar de forma inesperada si esa opción no se establece correctamente.
+## <a name="publishing-a-cloud-service-without-changing-its-vip"></a>Publishing a cloud service without changing its VIP
 
-### Para actualizar un servicio en la nube sin cambiar su VIP
+The VIP of a cloud service is allocated when you first deploy it to Azure in a particular environment, such as the Production environment. The VIP doesn’t change unless you delete the deployment explicitly or it is implicitly deleted by the deployment update process. To retain the VIP, you must not delete your deployment, and you must also make sure that Visual Studio doesn’t delete your deployment automatically. You can control the behavior by specifying deployment settings in the **Publish Wizard**, which supports several deployment options. You can specify a fresh deployment or an update deployment, which can be incremental or simultaneous, and both kinds of update deployments retain the VIP. For definitions of these different types of deployment, see [Publish Azure Application Wizard](vs-azure-tools-publish-azure-application-wizard.md).  In addition, you can control whether the previous deployment of a cloud service is deleted if an error occurs. The VIP might unexpectedly change if you don't set that option correctly.
 
-1. Cuando haya implementado el servicio en la nube al menos una vez, abra el menú contextual para su proyecto de Azure y luego elija **Publicar**. Aparecerá el asistente **Publicar aplicación de Azure**.
+### <a name="to-update-a-cloud-service-without-changing-its-vip"></a>To update a cloud service without changing its VIP
 
-1. En la lista de suscripciones, elija la que quiere implementar y luego el botón **Siguiente**. Aparecerá la página **Configuración** del asistente.
+1. After you deploy your cloud service at least once, open the shortcut menu for the node for your Azure project, and then choose **Publish**. The **Publish Azure Application** wizard appears.
 
-1. En la pestaña **Configuración común**, compruebe que el nombre del servicio en la nube en el que está implementando, el **Entorno**, la **Configuración de compilación** y el **Configuración del servicio** son todos correctos.
+1. In the list of subscriptions, choose the one to which you want to deploy, and then choose the **Next** button. The **Settings** page of the wizard appears.
 
-1. En la pestaña **Configuración avanzada**, compruebe que la cuenta de almacenamiento y la etiqueta de implementación son correctas, que la casilla **Eliminar implementación en caso de error** está desactivada y que la casilla de actualización **Implementación** está activada. Seleccione la casilla de verificación **Implementación** para asegurarse de que no se eliminará la implementación y de que no se perderá la dirección VIP al volver a publicar la aplicación. Desactive la casilla **Eliminar implementación en caso de error** para asegurarse de que no se perderá la dirección VIP si se produce un error durante la implementación.
+1. On the **Common Settings** tab, verify that the name of the cloud service to which you’re deploying, the **Environment**, the **Build Configuration**, and the **Service Configuration** are all correct.
 
-1. Para especificar más cómo quiere que se actualicen los roles, elija el vínculo **Configuración** junto al cuadro **Actualización de implementación** y elija la opción de actualización simultánea o actualización incremental en el cuadro de diálogo de configuración **Actualización de implementación**. Si elige la actualización incremental, se actualizará cada instancia una tras otra, para que la aplicación esté siempre disponible. Si elige la actualización simultánea, se actualizarán todas las instancias al mismo tiempo. La actualización simultánea es más rápida, pero es posible que el servicio no esté disponible durante el proceso de actualización.
+1. On the **Advanced Settings** tab, verify that the storage account and the deployment label are correct, that the **Delete deployment on failure** check box is cleared, and that the **Deployment** update check box is selected. By selecting the **Deployment** update check box, you ensure that your deployment won't be deleted and your VIP won't be lost when you republish your application. By clearing the **Delete deployment on failure check box**, you ensure that your VIP won't be lost if an error occurs during deployment.
 
-1. Cuando esté satisfecho con la configuración, elija el botón **Siguiente**.
+1. To further specify how you want the roles to be updated, choose the  **Settings** link next to the **Deployment update** box, and then choose either the incremental update or simultaneous update option in the **Deployment update** settings dialog box. If you choose incremental update, each instance is updated one after another, so that the application is always available. If you choose simultaneous update, all instances are updated at the same time. Simultaneous updating is faster, but your service might not be available during the update process.
 
-1. En la página **Resumen** del asistente, compruebe la configuración y luego elija el botón **Publicar**.
+1. When you’re satisfied with your settings, choose the **Next** button.
 
-  >[AZURE.WARNING] Si se produce un error en la implementación, debe tratar por qué se produjo el error y volver a implementar rápidamente, para evitar dejar el servicio en la nube en un estado dañado.
+1. On the **Summary** page of the wizard, verify your settings, and then choose the **Publish** button.
 
-## Pasos siguientes
+  >[AZURE.WARNING] If the deployment fails, you should address why it failed and redeploy promptly, to avoid leaving your cloud service in a corrupted state.
 
-Para obtener información sobre la publicación en Azure desde Visual Studio, consulte [Asistente Publicar aplicaciones de Azure](vs-azure-tools-publish-azure-application-wizard.md).
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0817_2016-->
+To learn about publishing to Azure from Visual Studio, see [Publish Azure application wizard](vs-azure-tools-publish-azure-application-wizard.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -8,33 +8,33 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 -->
 
 
-### Obtenga la cadena de conexión del portal de Azure
+### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Obtain the connection string from the Azure portal
 
 
-Utilice el [Portal de Azure](https://portal.azure.com/) para obtener la cadena de conexión necesaria para que su programa cliente interactúe con Base de datos SQL de Azure:
+Use the [Azure portal](https://portal.azure.com/) to obtain the connection string necessary for your client program to interact with Azure SQL Database: 
 
 
-1. Haga clic en **EXAMINAR** > **Bases de datos SQL**.
+1. Click **BROWSE** > **SQL databases**.
 
-2. Escriba el nombre de la base de datos en el cuadro de texto de filtro que aparece junto a la esquina superior izquierda de la hoja **Bases de datos SQL**.
+2. Enter the name of your database into the filter text box near the upper-left of the **SQL databases** blade.
 
-3. Haga clic en la fila correspondiente a la base de datos.
+3. Click the row for your database.
 
-4. Cuando aparezca la hoja de su base de datos, para una mayor comodidad visual puede hacer clic en los controles estándar para minimizar y contraer las hojas que utilizó para examinar y filtrar de la base de datos.
+4. After the blade appears for your database, for visual convenience you can click the standard minimize controls to collapse the blades  you used for browsing and database filtering. 
  
-	![Aplique un filtro para aislar la base de datos][10-FilterDatabase]
+    ![Filter to isolate your database][10-FilterDatabase]
 
-5. En la hoja de la base de datos, haga clic en **Mostrar cadenas de conexión de la base de datos**.
+5. On the blade for your database, click **Show database connection strings**.
 
-6. Si piensa utilizar la biblioteca de conexiones de ADO.NET, copie la cadena etiquetada con **ADO**.
+6. If you intend to use the ADO.NET connection library, copy the string labeled **ADO**. 
  
-	![Copie la cadena de conexión ADO correspondiente a la base de datos][20-CopyAdoConnectionString]
+    ![Copy the ADO connection string for your database][20-CopyAdoConnectionString]
  
-7. En un formato u otro, pegue la información de la cadena de conexión en el código del programa cliente.
+7. In one format or another, paste the connection string information into your client program code.
 
 
 
-Para obtener más información, consulte <br/>[Cadenas de conexión y archivos de configuración](http://msdn.microsoft.com/library/ms254494.aspx).
+For more information, see:<br/>[Connection Strings and Configuration Files](http://msdn.microsoft.com/library/ms254494.aspx).
 
 
 
@@ -53,4 +53,7 @@ includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
 
-<!---HONumber=AcomDC_0406_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

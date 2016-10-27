@@ -1,36 +1,39 @@
 <!--author=jgerend last changed: 03/16/16-->
 
-## Preparación de las actualizaciones
-Deberá realizar los siguientes pasos antes de buscar y aplicar la actualización:
+## <a name="preparing-for-updates"></a>Preparing for updates
+You will need to perform the following steps before you scan and apply the update:
 
 
-1. Tome una instantánea de la nube de los datos del dispositivo.
+1. Take a cloud snapshot of the device data.
 
-2. Las direcciones IP fijas del controlador son enrutables y se pueden conectar a Internet. Estas direcciones IP fijas se usarán para atender las actualizaciones en el dispositivo. Para comprobarlo, ejecute el siguiente cmdlet en cada controlador de la interfaz de Windows PowerShell del dispositivo:
+2. Ensure that your controller fixed IPs are routable and can connect to the Internet. These fixed IPs will be used to service updates to your device. You can test this by running the following cmdlet on each controller from the Windows PowerShell interface of the device:
 
- 	`Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
+    `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
 
-	**Salida de ejemplo para la conexión de prueba cuando los IP fijos pueden conectarse a Internet**
+    **Sample output for Test-Connection when fixed IPs can connect to the Internet**
 
 
-		Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
+        Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
 
-	    Source	  Destination 	IPV4Address      IPV6Address
-	    ----------------- -----------  -----------
-	    HCSNODE0  bing.com		204.79.197.200
-	    HCSNODE0  bing.com		204.79.197.200
-	    HCSNODE0  bing.com		204.79.197.200
-	    HCSNODE0  bing.com		204.79.197.200
+        Source    Destination   IPV4Address      IPV6Address
+        ----------------- -----------  -----------
+        HCSNODE0  bing.com      204.79.197.200
+        HCSNODE0  bing.com      204.79.197.200
+        HCSNODE0  bing.com      204.79.197.200
+        HCSNODE0  bing.com      204.79.197.200
 
-		Controller0>Test-Connection -Source 10.126.173.91 -Destination  204.79.197.200
+        Controller0>Test-Connection -Source 10.126.173.91 -Destination  204.79.197.200
 
-	    Source	  Destination 	  IPV4Address    IPV6Address
-	    ----------------- -----------  -----------
-	    HCSNODE0  204.79.197.200  204.79.197.200
-	    HCSNODE0  204.79.197.200  204.79.197.200
-	    HCSNODE0  204.79.197.200  204.79.197.200
-	    HCSNODE0  204.79.197.200  204.79.197.200
+        Source    Destination     IPV4Address    IPV6Address
+        ----------------- -----------  -----------
+        HCSNODE0  204.79.197.200  204.79.197.200
+        HCSNODE0  204.79.197.200  204.79.197.200
+        HCSNODE0  204.79.197.200  204.79.197.200
+        HCSNODE0  204.79.197.200  204.79.197.200
 
-Después de haber completado correctamente estas comprobaciones previas manuales, puede buscar e instalar las actualizaciones.
+After you have successfully completed these manual pre-checks, you can proceed to scan and install the updates.
 
-<!---HONumber=AcomDC_0323_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

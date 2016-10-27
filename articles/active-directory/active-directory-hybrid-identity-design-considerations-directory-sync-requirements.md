@@ -1,25 +1,26 @@
 <properties
-	pageTitle="Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: determinación de los requisitos de sincronización de directorios| Microsoft Azure"
-	description="Identifique qué requisitos son necesarios para sincronizar todos los usuarios entre el entorno local y la nube en la empresa."
-	documentationCenter=""
-	services="active-directory"
-	authors="billmath"
-	manager="femila"
-	editor=""/>
+    pageTitle="Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: determinación de los requisitos de sincronización de directorios| Microsoft Azure"
+    description="Identifique qué requisitos son necesarios para sincronizar todos los usuarios entre el entorno local y la nube en la empresa."
+    documentationCenter=""
+    services="active-directory"
+    authors="billmath"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/08/2016"
-	ms.author="billmath"/>
+    ms.date="08/08/2016"
+    ms.author="billmath"/>
 
-# Determinación de los requisitos de sincronización de directorios
-La sincronización consiste en proporcionar a los usuarios una identidad en la nube en función de su identidad local. Tanto si usan una cuenta sincronizada para la autenticación como la autenticación federada, los usuarios deben tener una identidad en la nube. Esta identidad se debe mantener y actualizar periódicamente. Las actualizaciones pueden adoptar muchas formas, desde cambios en los títulos a cambios de contraseña.
 
-Para comenzar, evalúe la solución de identidad local de la organización y los requisitos de los usuarios. Esta evaluación es importante para definir los requisitos técnicos respecto a cómo se crean y mantienen las identidades de los usuarios en la nube. En la mayoría de las organizaciones, Active Directory es local y estará en el directorio local desde el que se sincronizarán los usuarios; sin embargo, otras veces, no será este el caso.
+# <a name="determine-directory-synchronization-requirements"></a>Determinación de los requisitos de sincronización de directorios
+La sincronización consiste en proporcionar a los usuarios una identidad en la nube en función de su identidad local. Tanto si usan una cuenta sincronizada para la autenticación como la autenticación federada, los usuarios deben tener una identidad en la nube.  Esta identidad se debe mantener y actualizar periódicamente.  Las actualizaciones pueden adoptar muchas formas, desde cambios en los títulos a cambios de contraseña.  
+
+Para comenzar, evalúe la solución de identidad local de la organización y los requisitos de los usuarios. Esta evaluación es importante para definir los requisitos técnicos respecto a cómo se crean y mantienen las identidades de los usuarios en la nube.  En la mayoría de las organizaciones, Active Directory es local y estará en el directorio local desde el que se sincronizarán los usuarios; sin embargo, otras veces, no será este el caso.  
 
 Asegúrese de responder a las siguientes preguntas:
 
@@ -30,16 +31,16 @@ Asegúrese de responder a las siguientes preguntas:
     1. ¿Usará filtrado?
     2. ¿Tiene varios servidores de Azure AD Connect planeados?
   
-- ¿Dispone actualmente de una herramienta de sincronización local?
+- ¿Dispone actualmente de  una herramienta de sincronización local?
   - En caso afirmativo, ¿tienen sus usuarios una directorio virtual o integración de identidades?
 - ¿Tiene algún otro directorio local que quiera sincronizar (por ejemplo, un directorio LDAP, una base de datos HR, etc.)?
   - ¿Va a realizar alguna operación GALSync?
-  - ¿Cuál es el estado actual de los UPN de su organización?
+  - ¿Cuál es el estado actual de los UPN de su organización? 
   - ¿Tiene un directorio diferente en el que se autentican los usuarios?
   - ¿Usa su organización Microsoft Exchange?
     - ¿Tienen previsto tener una implementación híbrida de Exchange?
 
-Ahora que ya se ha hecho una idea de los requisitos de sincronización, debe determinar qué herramienta es la correcta para satisfacer estos requisitos. Microsoft proporciona varias herramientas para llevar a cabo la sincronización y la integración de directorios. Consulte la [tabla de comparación de las herramientas para la integración de directorios de identidades híbridas](active-directory-hybrid-identity-design-considerations-tools-comparison.md) para obtener más información.
+Ahora que ya se ha hecho una idea de los requisitos de sincronización, debe determinar qué herramienta es la correcta para satisfacer estos requisitos.  Microsoft proporciona varias herramientas para llevar a cabo la sincronización y la integración de directorios.  Consulte la [tabla de comparación de las herramientas para la integración de directorios de identidades híbridas](active-directory-hybrid-identity-design-considerations-tools-comparison.md) para obtener más información. 
    
 Ahora que ya se ha hecho una idea de los requisitos de sincronización y de la herramienta con la que la llevará a cabo para su empresa, debe evaluar las aplicaciones que usan estos servicios de directorio. Esta evaluación es importante para definir los requisitos técnicos para integrar estas aplicaciones en la nube. Asegúrese de responder a las siguientes preguntas:
 
@@ -60,12 +61,16 @@ También deberá determinar los requisitos de seguridad y las restricciones de l
 - Si tiene sincronización de varios bosques, ¿podrá llegar el servidor de sincronización a cada bosque?
  
 >[AZURE.NOTE]
-Asegúrese de anotar cada respuesta y de que comprende las razones que se esconden detrás. En la sección [Determinación de los requisitos de respuesta a incidentes](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) recorrerá las opciones disponibles. Las respuestas que obtenga partir de estas preguntas le servirán para seleccionar la opción que mejor se adapte a sus necesidades empresariales.
+Asegúrese de anotar cada respuesta y de que comprende las razones que se esconden detrás. [Determinación de los requisitos de respuesta a incidentes](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) recorrerá las opciones disponibles. Las respuestas que obtenga partir de estas preguntas le servirán para seleccionar la opción que mejor se adapte a sus necesidades empresariales.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Determinación de los requisitos de autenticación multifactor](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
-## Otras referencias
+## <a name="see-also"></a>Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,26 +1,31 @@
 <properties
-	pageTitle="Implementación de aplicaciones en Servicio de aplicaciones de Azure"
-	description="Obtenga información acerca de cómo implementar aplicaciones en el trabajo de Servicio de aplicaciones"
-	keywords="servicio de aplicaciones, servicio de aplicaciones de azure, implementar, implementación"
-	services="app-service"
-	documentationCenter=""
-	authors="dariagrigoriu"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Deploying Applications to Azure App Service"
+    description="Learn how to Deploy applications to App Service work"
+    keywords="app service, azure app service, deploying, deployment"
+    services="app-service"
+    documentationCenter=""
+    authors="dariagrigoriu"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/09/2016"
-	ms.author="dariagrigoriu"/>
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="02/09/2016"
+    ms.author="dariagrigoriu"/>
 
-# Descripción general de la implementación de Servicio de aplicaciones de Azure
 
-Servicio de aplicaciones de Azure proporciona un conjunto de características enriquecido e integrado para permitir la creación de flujos de trabajo de implementación eficaces y flexibles. La implementación de aplicaciones puede aprovechar opciones como la integración continua, la publicación de control de código fuente local, WebDeploy y FTP. El método recomendado para la implementación de aplicaciones de producción es el intercambio de ranuras de implementación. Las ranuras de implementación representan entornos de ensayo e integración asociados con aplicaciones de producción. Las ranuras de implementación pueden configurarse y dirigirse con tráfico web para su validación, y el tráfico se puede intercambiar bajo demanda para su implementación en producción sin tiempo de inactividad o de preparación automatizada. Los pasos de un flujo de trabajo de implementación se pueden automatizar fácilmente mediante productos de administración de versiones como Release Management para Visual Studio. Esto es útil para la coordinación con otros recursos de la solución (por ejemplo, almacén de datos), periodicidad y replicación en varias unidades de implementación.
+# <a name="azure-app-service-deployment-overview"></a>Azure App Service Deployment Overview
+
+Azure App Service provides a rich and integrated feature set to support creating powerful and flexible deployment workflows. App deployment can leverage options that include continuous integration or local source control publishing, WebDeploy, and FTP. The recommended method for production app deployment is deployment slot swap. Deployment slots represent staging and integration environments associated with production apps. Deployment slots can be configured and targeted with web traffic for validation, and traffic can be swapped on demand for deployment to production with no down time and automated warm-up. The steps of a deployment workflow can be easily automated via release management products such as Visual Studio Release Management. This is useful for coordination with other solution resources (e.g. data store), recurrence, and replication across multiple units of deployment. 
 
 [AZURE.INCLUDE [app-service-blueprint-deployment](../../includes/app-service-blueprint-deployment.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,33 +1,36 @@
-### Requisitos previos
-- Una cuenta de Azure; puede crear una [gratuita](https://azure.microsoft.com/free)
-- Una [cuenta de Almacenamiento de blobs de Azure](../articles/storage/storage-create-storage-account.md) que incluya el nombre de la cuenta de almacenamiento y su clave de acceso. Esta información aparece en las propiedades de la cuenta de almacenamiento en el Portal de Azure. Más información sobre [Almacenamiento de Azure](../articles/storage/storage-introduction.md).
+### <a name="prerequisites"></a>Prerequisites
+- An Azure account; you can create a [free account](https://azure.microsoft.com/free)
+- An [Azure Blob Storage account](../articles/storage/storage-create-storage-account.md) including the storage account name, and its access key. This information is listed in the properties of the storage account in the Azure portal. Read more about [Azure Storage](../articles/storage/storage-introduction.md).
 
-Antes de usar la cuenta de Almacenamiento de blobs de Azure en una aplicación lógica, conéctese a la cuenta de Almacenamiento de blobs de Azure. Esto lo puede hacer fácilmente dentro de la aplicación lógica en el Portal de Azure.
+Before using your Azure Blob Storage account in a logic app, connect to your Azure Blob Storage account. You can do this easily within your logic app on the Azure  portal.  
 
-Para conectarse a la cuenta de Almacenamiento de blobs de Azure, siga estos pasos:
+Connect to your Azure Blob Storage account using the following steps:  
 
-1. Cree una aplicación lógica. En el diseñador de Logic Apps, agregue un desencadenador y luego agregue una acción. Seleccione **Mostrar las API administradas por Microsoft** en la lista desplegable y luego escriba "blob" en el cuadro de búsqueda. Seleccione una de las acciones:
+1. Create a logic app. In the Logic Apps designer, add a trigger, and then add an action. Select **Show Microsoft managed APIs** in the drop down list, and then enter "blob" in the search box. Select one of the actions:  
 
-	![paso de creación de la conexión de Almacenamiento de blobs de Azure](./media/connectors-create-api-azureblobstorage/azureblobstorage-1.png)
+    ![Azure Blob Storage connection creation step](./media/connectors-create-api-azureblobstorage/azureblobstorage-1.png)  
 
-2. Si no ha creado anteriormente ninguna conexión al Almacenamiento de Azure, se le pedirán los detalles de conexión:
+2. If you haven't previously created any connections to Azure storage, you are prompted for the connection details:   
 
-	![paso de creación de la conexión de Almacenamiento de blobs de Azure](./media/connectors-create-api-azureblobstorage/connection-details.png)
+    ![Azure Blob Storage connection creation step](./media/connectors-create-api-azureblobstorage/connection-details.png)  
 
-3. Escriba los detalles de la cuenta de almacenamiento. Aquellas propiedades con un asterisco son obligatorias.
+3. Enter the storage account details. Properties with an asterisk are required.
 
-	| Propiedad | Detalles |
+    | Property | Details |
 |---|---|
-| Nombre de la conexión * | Escriba cualquier nombre para la conexión. |
-| Nombre de la cuenta de Almacenamiento de Azure * | Escriba el nombre de la cuenta de almacenamiento. El nombre de la cuenta de almacenamiento se muestra en las propiedades de almacenamiento del Portal de Azure. |
-| Clave de acceso de la cuenta de Almacenamiento de Azure * | Escriba la clave de la cuenta de almacenamiento. Las claves de acceso se muestran en las propiedades de almacenamiento del Portal de Azure. |
+| Connection Name * | Enter any name for your connection. |
+| Azure Storage Account Name * | Enter the storage account name. The storage account name is displayed in the storage properties in the Azure portal. |
+| Azure Storage Account Access Key * | Enter the storage account key. The access keys are displayed in the storage properties in the Azure portal. |
 
-	Estas credenciales se usan para autorizar a la aplicación lógica a conectarse y acceder a sus datos.
+    These credentials are used to authorize your logic app to connect, and access your data. 
 
-4. Seleccione **Crear**.
+4. Select **Create**.
 
-5. Observe que la conexión se ha creado en el portal. Ahora, continúe con el resto de los pasos en la aplicación lógica:
+5. Notice the connection has been created. Now, proceed with the other steps in your logic app: 
 
-	![paso de creación de la conexión de Almacenamiento de blobs de Azure](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)
+    ![Azure Blob Storage connection creation step](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)  
 
-<!---HONumber=AcomDC_0727_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

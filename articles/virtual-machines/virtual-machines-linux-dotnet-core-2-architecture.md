@@ -17,19 +17,20 @@
    ms.date="09/21/2016"
    ms.author="nepeters"/>
 
-# Arquitectura de aplicaciones con plantillas de Azure Resource Manager
 
-Al desarrollar una implementación de Azure Resource Manager, los requisitos de procesos deben asignarse a servicios y recursos de Azure. Si una aplicación consta de puntos de conexión HTTP, una base de datos y un servicio de almacenamiento en caché de datos, los recursos de Azure que hospedan cada uno de estos componentes deben racionalizarse. Por ejemplo, la aplicación Music Store de ejemplo incluye una aplicación web que se hospeda en una máquina virtual y una base de datos SQL que se hospeda en la base de datos SQL de Azure.
+# <a name="application-architecture-with-azure-resource-manager-templates"></a>Arquitectura de aplicaciones con plantillas de Azure Resource Manager
 
-Este documento describe cómo se configuran los recursos de procesos de Music Store en la plantilla de Azure Resource Manager de ejemplo. Se resaltan todas las dependencias y configuraciones únicas. Para obtener la mejor experiencia, realice una implementación previa de una instancia de la solución en su suscripción de Azure y trabaje con la plantilla de Azure Resource Manager. La plantilla completa se puede encontrar aquí: [Music Store Deployment on Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux) (Implementación de Music Store en Ubuntu).
+Al desarrollar una implementación de Azure Resource Manager, los requisitos de procesos deben asignarse a servicios y recursos de Azure. Si una aplicación consta de puntos de conexión HTTP, una base de datos y un servicio de almacenamiento en caché de datos, los recursos de Azure que hospedan cada uno de estos componentes deben racionalizarse. Por ejemplo, la aplicación Music Store de ejemplo incluye una aplicación web que se hospeda en una máquina virtual y una base de datos SQL que se hospeda en la base de datos SQL de Azure. 
 
-## Máquina virtual
+Este documento describe cómo se configuran los recursos de procesos de Music Store en la plantilla de Azure Resource Manager de ejemplo. Se resaltan todas las dependencias y configuraciones únicas. Para obtener la mejor experiencia, realice una implementación previa de una instancia de la solución en su suscripción de Azure y trabaje con la plantilla de Azure Resource Manager. La plantilla completa se puede encontrar aquí: [Music Store Deployment on Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)(Implementación de Music Store en Ubuntu).
+
+## <a name="virtual-machine"></a>Máquina virtual
 
 La aplicación Music Store incluye una aplicación web donde los clientes pueden buscar y comprar música. Aunque hay varios servicios de Azure que pueden hospedar aplicaciones web, en este ejemplo se utiliza una máquina virtual. Con la plantilla de Music Store de ejemplo, se implementa una máquina virtual, se instala un servidor web, y se instala y configura el sitio web de Music Store. Este artículo se centra únicamente en la implementación de la máquina virtual. La configuración del servidor web y la aplicación se detalla en un artículo posterior.
 
 Se puede agregar una máquina virtual a una plantilla mediante el asistente Agregar nuevo recurso de Visual Studio o insertando un recurso JSON válido en la plantilla de implementación. Al implementar una máquina virtual, también se necesitan varios recursos relacionados. Si utiliza Visual Studio para crear la plantilla, estos recursos se crean automáticamente. Si la plantilla se crea manualmente, estos recursos deben insertarse y configurarse.
 
-Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manager: [Virtual Machine JSON](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L295) (JSON de máquina virtual).
+Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manager: [Virtual Machine JSON](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L295)(JSON de máquina virtual).
 
 ```none
 {
@@ -61,11 +62,11 @@ Una vez implementada, las propiedades de la máquina virtual pueden verse en Azu
 
 ![Máquina virtual](./media/virtual-machines-linux-dotnet-core/vm.png)
 
-## Cuenta de almacenamiento
+## <a name="storage-account"></a>Cuenta de almacenamiento
 
-Las cuentas de almacenamiento tienen numerosas funcionalidades y opciones de almacenamiento. En el contexto de las máquinas virtuales de Azure, una cuenta de almacenamiento contiene los discos duros virtuales de la máquina virtual y todos los discos de datos adicionales. El ejemplo de Music Store incluye una cuenta de almacenamiento que contiene la unidad de disco duro virtual de cada máquina virtual de la implementación.
+Las cuentas de almacenamiento tienen numerosas funcionalidades y opciones de almacenamiento. En el contexto de las máquinas virtuales de Azure, una cuenta de almacenamiento contiene los discos duros virtuales de la máquina virtual y todos los discos de datos adicionales. El ejemplo de Music Store incluye una cuenta de almacenamiento que contiene la unidad de disco duro virtual de cada máquina virtual de la implementación. 
 
-Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manager: [Storage Account](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L109) (Cuenta de almacenamiento).
+Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manager: [Storage Account](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L109)(Cuenta de almacenamiento).
 
 
 ```none
@@ -83,9 +84,9 @@ Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manag
 },
 ```
 
-Una cuenta de almacenamiento se asocia a una máquina virtual dentro de la declaración de plantilla de Resource Manager de la máquina virtual.
+Una cuenta de almacenamiento se asocia a una máquina virtual dentro de la declaración de plantilla de Resource Manager de la máquina virtual. 
 
-Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manager: [Virtual Machine and Storage Account association](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L341) (Asociación de cuenta de almacenamiento con una máquina virtual).
+Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manager: [Virtual Machine and Storage Account association](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L341)(Asociación de cuenta de almacenamiento con una máquina virtual).
 
 ```none
 "osDisk": {
@@ -102,17 +103,17 @@ Después de la implementación, la cuenta de almacenamiento puede verse en Azure
 
 ![Cuenta de almacenamiento](./media/virtual-machines-linux-dotnet-core/storacct.png)
 
-Si hace clic en el contenedor de blobs de la cuenta de almacenamiento, puede ver el archivo de controlador de disco duro virtual para cada máquina virtual implementada con la plantilla.
+Si hace clic en el contenedor de blobs de la cuenta de almacenamiento, puede ver el archivo de unidad de disco duro virtual para cada máquina virtual implementada con la plantilla.
 
 ![Unidades de disco duro virtuales](./media/virtual-machines-linux-dotnet-core/vhd.png)
 
-Para más información sobre Azure Storage, consulte [Documentación de Almacenamiento ](https://azure.microsoft.com/documentation/services/storage/).
+Para más información sobre Azure Storage, consulte [Documentación de Almacenamiento](https://azure.microsoft.com/documentation/services/storage/).
 
-## Red virtual
+## <a name="virtual-network"></a>Red virtual
 
-Si una máquina virtual requiere una conexión en red interna, como la capacidad de comunicarse con otras máquinas virtuales y recursos de Azure, se requiere Azure Virtual Network. Una red virtual no permite el acceso a la máquina virtual a través de Internet. La conectividad pública requiere una dirección IP pública, que se detalla más adelante en esta serie.
+Si una máquina virtual requiere una conexión en red interna, como la capacidad de comunicarse con otras máquinas virtuales y recursos de Azure, se requiere Azure Virtual Network.  Una red virtual no permite el acceso a la máquina virtual a través de Internet. La conectividad pública requiere una dirección IP pública, que se detalla más adelante en esta serie.
 
-Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manager: [Virtual Network and Subnets](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L136) (Red virtual y subredes).
+Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manager: [Virtual Network and Subnets](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L136)(Red virtual y subredes).
 
 ```none
 {
@@ -151,11 +152,11 @@ En Azure Portal, la red virtual se asemeja a la siguiente imagen. Observe que to
 
 ![Red virtual](./media/virtual-machines-linux-dotnet-core/vnet.png)
 
-## Interfaz de red
+## <a name="network-interface"></a>Interfaz de red
 
- Una interfaz de red conecta una máquina virtual a una red virtual, en concreto a una subred que se ha definido en la red virtual.
+ Una interfaz de red conecta una máquina virtual a una red virtual, en concreto a una subred que se ha definido en la red virtual. 
  
- Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manager: [Network Interface](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L166) (Interfaz de red).
+ Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manager: [Network Interface](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L166)(Interfaz de red).
  
 ```none
 {
@@ -202,9 +203,9 @@ En Azure Portal, la red virtual se asemeja a la siguiente imagen. Observe que to
 }
 ```
 
-Cada recurso de la máquina virtual incluye un perfil de red. La interfaz de red está asociada a la máquina virtual de este perfil.
+Cada recurso de la máquina virtual incluye un perfil de red. La interfaz de red está asociada a la máquina virtual de este perfil.  
 
-Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manager: [Virtual Machine Network Profile](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L350) (Perfil de red de la máquina virtual).
+Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manager: [Virtual Machine Network Profile](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L350)(Perfil de red de la máquina virtual).
 
 
 ```none
@@ -223,13 +224,13 @@ En Azure Portal, la red virtual se asemeja a la siguiente imagen. La dirección 
 
 Para más información acerca de Azure Virtual Network, consulte [Documentación de Red virtual](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-## Base de datos SQL de Azure
+## <a name="azure-sql-database"></a>Base de datos SQL de Azure
 
 Además de la máquina virtual que hospeda el sitio web de Music Store, se implementa Azure SQL Database para hospedar la base de datos de la tienda de música. La ventaja de utilizar Azure SQL Database aquí es que no es necesario un segundo conjunto de máquinas virtuales, además de que en el servicio se integran la disponibilidad y la escala.
 
-Se puede agregar una base de datos SQL de Azure mediante el asistente Agregar nuevo recurso de Visual Studio o insertando un recurso JSON válido en una plantilla. El recurso de SQL Server incluye un nombre de usuario y una contraseña con derechos administrativos concedidos en la instancia de SQL. Además, se agrega un recurso de firewall de base de datos SQL. De forma predeterminada, las aplicaciones hospedadas en Azure pueden conectarse con la instancia de SQL. Para permitir que una aplicación externa, como SQL Server Management Studio, se conecte a la instancia de SQL, debe configurarse el firewall. Para esta demostración de Music Store, la configuración predeterminada es correcta.
+Se puede agregar una base de datos SQL de Azure mediante el asistente Agregar nuevo recurso de Visual Studio o insertando un recurso JSON válido en una plantilla. El recurso de SQL Server incluye un nombre de usuario y una contraseña con derechos administrativos concedidos en la instancia de SQL. Además, se agrega un recurso de firewall de base de datos SQL. De forma predeterminada, las aplicaciones hospedadas en Azure pueden conectarse con la instancia de SQL. Para permitir que una aplicación externa, como SQL Server Management Studio, se conecte a la instancia de SQL, debe configurarse el firewall. Para esta demostración de Music Store, la configuración predeterminada es correcta. 
 
-Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manager: [Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401).
+Siga este vínculo para ver el ejemplo de JSON dentro de la plantilla de Resource Manager – [Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401.
 
 
 ```none
@@ -271,10 +272,14 @@ Vista del servidor SQL y la base de datos de Music Store tal como se muestran en
 
 Para más información sobre la implementación de Azure SQL Database, consulte [Documentación de Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/).
 
-## Paso siguiente
+## <a name="next-step"></a>Paso siguiente
 
 <hr>
 
 [Paso 2: acceso y seguridad en plantillas de Azure Resource Manager](./virtual-machines-linux-dotnet-core-3-access-security.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

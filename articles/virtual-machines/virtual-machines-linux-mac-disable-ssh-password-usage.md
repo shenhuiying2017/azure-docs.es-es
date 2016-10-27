@@ -1,61 +1,62 @@
 <properties
-	pageTitle="Deshabilitación de las contraseñas SSH en la máquina virtual de Linux mediante la configuración de SSHD | Microsoft Azure"
-	description="Proteja su máquina virtual de Linux en Azure mediante la deshabilitación de los inicios de sesión mediante contraseña para SSH."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="vlivech"
-	manager="timlt"
-	editor=""
-	tags="" />
+    pageTitle="Disable SSH passwords on your Linux VM by configuring SSHD | Microsoft Azure"
+    description="Secure your Linux VM on Azure by disabling password logins for SSH."
+    services="virtual-machines-linux"
+    documentationCenter=""
+    authors="vlivech"
+    manager="timlt"
+    editor=""
+    tags="" />
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2016"
-	ms.author="v-livech"/>
-
-# Deshabilitación de las contraseñas SSH en la máquina virtual de Linux mediante la configuración de SSHD
-
-Este artículo se centra en cómo bloquear la seguridad de inicio de sesión de la máquina virtual de Linux. En cuanto se abre el puerto SSH 22 al mundo, los bots intentan iniciar sesión adivinando las contraseñas. Lo que haremos en este artículo es deshabilitar los inicios de sesión de contraseña a través de SSH. Si quitamos completamente la capacidad de usar contraseñas, protegemos la máquina virtual de Linux de este tipo de ataque por fuerza bruta. La ventaja es que configuraremos SSHD de Linux para permitir solo los inicios de sesión a través de claves públicas y privadas de SSH, que son sin duda la forma más segura de iniciar sesión en Linux. Las combinaciones posibles para adivinar la clave privada son inmensas y, por lo tanto, disuade a los bots de incluso en molestarse en obtener las claves SSH por fuerza bruta.
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/26/2016"
+    ms.author="v-livech"/>
 
 
-## Objetivos
+# <a name="disable-ssh-passwords-on-your-linux-vm-by-configuring-sshd"></a>Disable SSH passwords on your Linux VM by configuring SSHD
 
-- Configurar SSHD para impedir:
-  - Inicios de sesión de contraseña
-  - Inicio de sesión de usuario raíz
-  - Autenticación de desafío/respuesta
-- Configurar SSHD para permitir:
-  - solo inicios de sesión de claves de SSH
-- Reiniciar SSHD mientras sigue conectado
-- Probar la nueva configuración SSHD
+This article focuses on how to lock down the login security of your Linux VM.  As soon as the SSH port 22 is opened to the world bots start trying to login by guessing passwords.  What we will do in this article is disable password logins over SSH.  By completely removing the ability to use passwords we protect the Linux VM from this type of brute force attack.  The added bonus is we will configure Linux SSHD to only allow logins via SSH public & private keys, by far the most secure way to login to Linux.  The possible combinations of it would require to guess the private key is immense and therefore discourages bots from even bothering to try to brute force SSH keys.
 
-## Introducción
 
-[SSH definido](https://en.wikipedia.org/wiki/Secure_Shell)
+## <a name="goals"></a>Goals
 
-SSHD es el servidor SSH que se ejecuta en la máquina virtual de Linux. SSH es un cliente que se ejecuta desde un shell en la estación de trabajo MacBook o Linux. SSH es también el protocolo usado para proteger y cifrar la comunicación entre su estación de trabajo y la máquina virtual de Linux.
+- Configure SSHD to disallow:
+  - Password logins
+  - Root user login
+  - Challenge-response authentication
+- Configure SSHD to allow:
+  - only SSH key logins
+- Restart SSHD while still logged in
+- Test the new SSHD configuration
 
-Para este artículo es muy importante mantener abierto un inicio de sesión en la máquina virtual de Linux para el tutorial completo. Por este motivo, abriremos dos terminales y SSH en la máquina virtual de Linux de ambos. Usaremos el primer terminal para realizar los cambios en el archivo de configuración de SSHD y reiniciar el servicio SSHD. Usaremos el segundo terminal para probar los cambios una vez que se reinicia el servicio. Puesto que estamos deshabilitando las contraseñas SSH y confiando estrictamente en las claves SSH, si las claves SSH no son correctas y cierra la conexión con la máquina virtual, la máquina virtual se bloqueará permanentemente y nadie podrá iniciar sesión en ella y solicitar que se elimine y vuelva a crear.
+## <a name="introduction"></a>Introduction
 
-## Requisitos previos
+[SSH defined](https://en.wikipedia.org/wiki/Secure_Shell)
 
-- [Creación de claves SSH en Linux y Mac para máquinas virtuales de Linux en Azure](virtual-machines-linux-mac-create-ssh-keys.md)
-- Cuenta de Azure
-  - [registro de versión de prueba gratuita](https://azure.microsoft.com/pricing/free-trial/)
-  - [Portal de Azure](http://portal.azure.com)
-- Máquina virtual de Linux que se ejecuta en Azure
-- Par de claves públicas y privadas SSH en `~/.ssh/`
-- Clave pública SSH en `~/.ssh/authorized_keys` en la máquina virtual de Linux
-- Derechos de SUDO en la máquina virtual
-- Puerto 22 abierto
+SSHD is the SSH Server that runs on the Linux VM.  SSH is a client that runs from a shell on your MacBook or Linux workstation.  SSH is also the protocol used to secure and encrypt the communication between your workstation and the Linux VM.
 
-## Comandos rápidos
+For this article it is very important to keep one login to your Linux VM open for the entire walk through.  For this reason we will open two terminals and SSH to the Linux VM from both of them.  We will use the first terminal to make the changes to SSHDs configuration file and restart the SSHD service.  We will use the second terminal to test those changes once the service is restarted.  Because we are disabling SSH passwords and relying strictly on SSH keys, if your SSH keys are not correct and you close the connection to the VM, the VM will be permanently locked and no one will be able to login to it requiring it to be deleted and recreated.
 
-_Administradores con experiencia de Linux que desean que la versión TLDR comience aquí. Para cualquier otra persona que desee que la explicación detallada y el tutorial omitan esta sección._
+## <a name="prerequisites"></a>Prerequisites
+
+- [Create SSH keys on Linux and Mac for Linux VMs in Azure](virtual-machines-linux-mac-create-ssh-keys.md)
+- Azure account
+  - [free trial signup](https://azure.microsoft.com/pricing/free-trial/)
+  - [Azure portal](http://portal.azure.com)
+- Linux VM running on azure
+- SSH public & private key pair in `~/.ssh/`
+- SSH public key in `~/.ssh/authorized_keys` on the Linux VM
+- Sudo rights on the VM
+- Port 22 open
+
+## <a name="quick-commands"></a>Quick Commands
+
+_Seasoned Linux Admins who just want the TLDR version start here.  For everyone else that wants the detailed explanation and walk through skip this section._
 
 ```
 username@macbook$ sudo vim /etc/ssh/sshd_config
@@ -79,19 +80,19 @@ username@macbook$ sudo service ssh restart
 username@macbook$ sudo service sshd restart
 ```
 
-## Tutorial detallado
+## <a name="detailed-walk-through"></a>Detailed Walk Through
 
-Inicie sesión en la máquina virtual de Linux en el terminal 1 (T1). Inicie sesión en la máquina virtual de Linux en el terminal 2 (T2).
+Login to the Linux VM on terminal 1 (T1).  Login to the Linux VM on terminal 2 (T2).
 
-En T2, vamos a editar el archivo de configuración SSHD.
+On T2 we are going to edit the SSHD configuration file.  
 
 ```
 username@macbook$ sudo vim /etc/ssh/sshd_config
 ```
 
-Desde aquí, editaremos solo la configuración para deshabilitar las contraseñas y habilitar los inicios de sesión de claves SSH. Hay muchas opciones de configuración en este archivo que debe investigar y cambiar para que Linux y SSH proporcionen la seguridad que necesita.
+From here we will edit just the settings to disable passwords and enable SSH key logins.  There are many settings in this file that you should research and change to make Linux & SSH as secure as you need.
 
-#### Desactivación de inicios de sesión de contraseña
+#### <a name="disable-password-logins"></a>Disable Password logins
 
 ```
 username@macbook$ sudo vim /etc/ssh/sshd_config
@@ -100,7 +101,7 @@ username@macbook$ sudo vim /etc/ssh/sshd_config
 PasswordAuthentication no
 ```
 
-#### Habilitación de la autenticación de clave pública
+#### <a name="enable-public-key-authentication"></a>Enable Public Key Authentication
 
 ```
 username@macbook$ sudo vim /etc/ssh/sshd_config
@@ -109,7 +110,7 @@ username@macbook$ sudo vim /etc/ssh/sshd_config
 PubkeyAuthentication yes
 ```
 
-#### Deshabilitación del inicio de sesión raíz
+#### <a name="disable-root-login"></a>Disable Root Login
 
 ```
 username@macbook$ sudo vim /etc/ssh/sshd_config
@@ -118,31 +119,35 @@ username@macbook$ sudo vim /etc/ssh/sshd_config
 PermitRootLogin no
 ```
 
-#### Deshabilitación de la autenticación de desafío/respuesta
+#### <a name="disable-challenge-response-authentication"></a>Disable Challenge-response Authentication
 
 ```
 # Change ChallengeResponseAuthentication to this:
 ChallengeResponseAuthentication no
 ```
 
-### Reinicio de SSHD
+### <a name="restart-sshd"></a>Restart SSHD
 
-Desde el shell T1, compruebe que la sesión sigue iniciada. Esto es importante, por lo que no bloquee la máquina virtual si las claves SSH no son correctas, ya que las contraseñas están ahora deshabilitadas. Si la configuración es incorrecta en la máquina virtual de Linux, puede usar T1 para corregir shd\_config, ya que la sesión seguirá iniciada y SSH mantendrá la conexión activa durante el reinicio del servicio de SSHD.
+From the T1 shell verify that you are still logged in.  This is critical so you do not get locked out of your VM if your SSH keys are not correct since passwords are now disabled.  If any setting are incorrect on your Linux VM you can use T1 to fix sshd_config as you will still be logged in and SSH will keep the connection alive during the SSHD service restart.
 
-Desde la ejecución de T2:
+From T2 run:
 
-##### En la familia Debian
+##### <a name="on-the-debian-family"></a>On the Debian Family
 
 ```
 username@macbook$ sudo service ssh restart
 ```
 
-##### En la familia RedHat
+##### <a name="on-the-redhat-family"></a>On the RedHat Family
 
 ```
 username@macbook$ sudo service sshd restart
 ```
 
-Las contraseñas ahora están deshabilitadas en la máquina virtual, por lo que se protegen de los intentos de inicio de sesión de contraseña por fuerza bruta. Si solo se permiten las claves SSH, podrá iniciar sesión más rápido y de forma mucho más segura.
+Passwords are now disabled on your VM protecting it from brute force password login attempts.  With only SSH Keys allowed you will be able to login faster and much more secure.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

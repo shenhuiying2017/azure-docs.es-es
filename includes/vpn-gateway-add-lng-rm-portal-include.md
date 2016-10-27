@@ -1,19 +1,22 @@
-1. En el portal, vaya a **Nuevo** > **Redes** > **Puerta de enlace de red local**.
+1. In the portal, from **All resources**, click **+Add**. In the **Everything** blade search box, type **Local network gateway**, then click to search. This will return a list. Click **Local network gateway** to open the blade, then click **Create** to open the **Create local network gateway** blade.
 
-	![crear una puerta de enlace de red local](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
+    ![create local network gateway](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
 
-2. En la hoja **Crear puertas de enlace de red local**, especifique un **nombre** para el objeto de puerta de enlace de red local.
+2. On the **Create local network gateway blade**, specify a **Name** for your local network gateway object.
  
-3. Especifique una **dirección IP** pública para el dispositivo VPN o la puerta de enlace de red virtual a la que quiera conectarse.<br>Si esta red local representa una ubicación local, será dirección IP pública del dispositivo VPN al que quiere conectarse. No puede encontrarse detrás de NAT y debe estar al alcance de Azure.<br>Si esta red local representa otra red virtual, especificará la dirección IP pública que se asignó a la puerta de enlace de red virtual de esa red virtual.<br>
+3. Specify a valid public **IP address** for the VPN device or virtual network gateway to which you want to connect.<br>If this local network represents an on-premises location, this is the public IP address of the VPN device that you want to connect to. It cannot be behind NAT and has to be reachable by Azure.<br>If this local network represents another VNet, you will specify the public IP address that was assigned to the virtual network gateway for that VNet.<br>
 
-4. **Espacio de direcciones** hace referencia a los intervalos de direcciones de la red que representa esta red local. Puede agregar varios intervalos de espacios de direcciones. Asegúrese de que los intervalos que especifique aquí no se superpongan con los de otras redes a las que quiera conectarse.
+4. **Address Space** refers to the address ranges for the network that this local network represents. You can add multiple address space ranges. Make sure that the ranges you specify here do not overlap with ranges of other networks that you want to connect to.
  
-5. En **Suscripción**, compruebe que se muestra la suscripción correcta.
+5. For **Subscription**, verify that the correct subscription is showing.
 
-6. En **Grupo de recursos**, seleccione el grupo de recursos que desea utilizar. Puede crear un grupo de recursos nuevo o seleccionar uno ya creado.
+6. For **Resource Group**, select the resource group that you want to use. You can either create a new resource group, or select one that you have already created.
 
-7. En **Ubicación**, seleccione la ubicación en la que se creará este objeto. Puede seleccionar la misma ubicación en la que reside la red, pero no es obligatorio.
+7. For **Location**, select the location that this object will be created in. You may want to select the same location that your VNet resides in, but you are not required to do so.
 
-8. Haga clic en **Crear** para crear la puerta de enlace de red local.
+8. Click **Create** to create the local network gateway.
 
-<!----HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Integración de Azure Active Directory con Boomi | Microsoft Azure" 
-    description="Aprenda a usar Boomi con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    pageTitle="Tutorial: Azure Active Directory integration with Boomi | Microsoft Azure" 
+    description="Learn how to use Boomi with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,143 +11,150 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/11/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Tutorial: Integración de Azure Active Directory con Boomi
 
-El objetivo de este tutorial es mostrar la integración de Azure y Boomi. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+#<a name="tutorial:-azure-active-directory-integration-with-boomi"></a>Tutorial: Azure Active Directory integration with Boomi
 
--   Una suscripción de Azure válida
--   Una suscripción habilitada para inicio de sesión único en Boomi
+The objective of this tutorial is to show the integration of Azure and Boomi.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
-Después de completar este tutorial, los usuarios de Azure AD que ha asignado a Boomi podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Boomi (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+-   A valid Azure subscription
+-   A Boomi single sign-on enabled subscription
 
-La situación descrita en este tutorial consta de los siguientes bloques de creación:
+After completing this tutorial, the Azure AD users you have assigned to Boomi will be able to single sign into the application at your Boomi company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-1.  Habilitación de la integración de aplicaciones para Boomi
-2.  Configuración del inicio de sesión único
-3.  Configuración del aprovisionamiento de usuario
-4.  Asignación de usuarios
+The scenario outlined in this tutorial consists of the following building blocks:
 
-![Escenario](./media/active-directory-saas-boomi-tutorial/IC791134.png "Escenario")
-##Habilitación de la integración de aplicaciones para Boomi
+1.  Enabling the application integration for Boomi
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-El objetivo de esta sección es describir cómo se habilita la integración de las aplicaciones para Boomi.
+![Scenario](./media/active-directory-saas-boomi-tutorial/IC791134.png "Scenario")
+##<a name="enabling-the-application-integration-for-boomi"></a>Enabling the application integration for Boomi
 
-###Siga estos pasos para habilitar la integración de aplicaciones para Boomi:
+The objective of this section is to outline how to enable the application integration for Boomi.
 
-1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
+###<a name="to-enable-the-application-integration-for-boomi,-perform-the-following-steps:"></a>To enable the application integration for Boomi, perform the following steps:
+
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-boomi-tutorial/IC700993.png "Active Directory")
 
-2.  En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Aplicaciones](./media/active-directory-saas-boomi-tutorial/IC700994.png "Aplicaciones")
+    ![Applications](./media/active-directory-saas-boomi-tutorial/IC700994.png "Applications")
 
-4.  Haga clic en **Agregar** en la parte inferior de la página.
+4.  Click **Add** at the bottom of the page.
 
-    ![Agregar aplicación](./media/active-directory-saas-boomi-tutorial/IC749321.png "Agregar aplicación")
+    ![Add application](./media/active-directory-saas-boomi-tutorial/IC749321.png "Add application")
 
-5.  En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Agregar una aplicación de la galería](./media/active-directory-saas-boomi-tutorial/IC749322.png "Agregar una aplicación de la galería")
+    ![Add an application from gallerry](./media/active-directory-saas-boomi-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  En el **cuadro de búsqueda**, escriba **Boomi**.
+6.  In the **search box**, type **Boomi**.
 
-    ![Galería de aplicaciones](./media/active-directory-saas-boomi-tutorial/IC790822.png "Galería de aplicaciones")
+    ![Application Gallery](./media/active-directory-saas-boomi-tutorial/IC790822.png "Application Gallery")
 
-7.  En el panel de resultados, seleccione **Boomi** y luego haga clic en **Completar** para agregar la aplicación.
+7.  In the results pane, select **Boomi**, and then click **Complete** to add the application.
 
     ![Boomi](./media/active-directory-saas-boomi-tutorial/IC790823.png "Boomi")
-##Configuración del inicio de sesión único
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
 
-El objetivo de esta sección es describir cómo se habilita la autenticación de usuarios en Boomi con su cuenta de Azure AD mediante la federación basada en el protocolo SAML.
+The objective of this section is to outline how to enable users to authenticate to Boomi with their account in Azure AD using federation based on the SAML protocol.
 
-###Siga estos pasos para configurar el inicio de sesión único:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Boomi**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  In the Azure classic portal, on the **Boomi** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-boomi-tutorial/IC790824.png "Configurar inicio de sesión único")
+    ![Configure Single Sign-On](./media/active-directory-saas-boomi-tutorial/IC790824.png "Configure Single Sign-On")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en Boomi?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
+2.  On the **How would you like users to sign on to Boomi** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-boomi-tutorial/IC790825.png "Configurar inicio de sesión único")
+    ![Configure Single Sign-On](./media/active-directory-saas-boomi-tutorial/IC790825.png "Configure Single Sign-On")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **URL de respuesta de Boomi**, escriba la **Dirección URL de inicio de sesión de Boomi AtomSphere** (por ej.: "*https://platform.boomi.com/sso/AccountName/saml*”) y haga clic en **Siguiente**.
+3.  On the **Configure App URL** page, in the **Boomi Reply URL** textbox, type your **Boomi AtomSphere Login URL** (e.g.: “*https://platform.boomi.com/sso/AccountName/saml*”), and then click **Next**.
 
-    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-boomi-tutorial/IC790826.png "Configurar dirección URL de la aplicación")
+    ![Configure App URL](./media/active-directory-saas-boomi-tutorial/IC790826.png "Configure App URL")
 
-4.  En la página **Configurar inicio de sesión único en Boomi**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado en el equipo.
+4.  On the **Configure single sign-on at Boomi** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-boomi-tutorial/IC790827.png "Configurar inicio de sesión único")
+    ![Configure Single Sign-On](./media/active-directory-saas-boomi-tutorial/IC790827.png "Configure Single Sign-On")
 
-5.  En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de Boomi.
+5.  In a different web browser window, log into your Boomi company site as an administrator.
 
-6.  En la barra de herramientas de la parte superior, haga clic en el nombre de su empresa y en **Configuración**.
+6.  In the toolbar on the top, click your company name, and then **Setup**.
 
-    ![Configuración](./media/active-directory-saas-boomi-tutorial/IC790828.png "Configuración")
+    ![Setup](./media/active-directory-saas-boomi-tutorial/IC790828.png "Setup")
 
-7.  Haga clic en **Opciones de SSO**.
+7.  Click **SSO Options**.
 
-    ![Opciones SSO](./media/active-directory-saas-boomi-tutorial/IC790829.png "Opciones SSO")
+    ![SSO Options](./media/active-directory-saas-boomi-tutorial/IC790829.png "SSO Options")
 
-8.  En la sección **Opciones de inicio de sesión único**, siga estos pasos:
+8.  In the **Single Sign-On Options** section, perform the following steps:
 
-    ![Opciones de inicio de sesión único](./media/active-directory-saas-boomi-tutorial/IC790830.png "Opciones de inicio de sesión único")
+    ![Single Sign-On Options](./media/active-directory-saas-boomi-tutorial/IC790830.png "Single Sign-On Options")
 
-    1.  Seleccione **Habilitar inicio de sesión único de SAML**.
-    2.  Haga clic en **Importar** para cargar el certificado descargado.
-    3.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Boomi**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **URL de inicio de sesión del proveedor de identidades**.
-    4.  Como **Ubicación del id. de federación**, seleccione **El id. de federación está en el elemento NameID de Subject**.
-    5.  Haga clic en **Guardar**.
+    1.  Select **Enable SAML Single Sign-On**.
+    2.  Click **Import**, to upload the downloaded certificate.
+    3.  In the Azure classic portal, on the **Configure single sign-on at Boomi** dialog page, copy the **Remote Login URL** value, and then paste it into the **Identity Provider Login URL** textbox.
+    4.  As **Federation Id Location**, select **Federation Id is in NameID element of the Subject**.
+    5.  Click **Save**.
 
-9.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-boomi-tutorial/IC775560.png "Configurar inicio de sesión único")
-##Configuración del aprovisionamiento de usuario
+    ![Configure Single Sign-On](./media/active-directory-saas-boomi-tutorial/IC775560.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
 
-Para permitir que los usuarios de Azure AD inicien sesión en Boomi, tienen que aprovisionarse en Boomi. En el caso de Boomi, el aprovisionamiento es una tarea manual.
+In order to enable Azure AD users to log into Boomi, they must be provisioned into Boomi.  
+In the case of Boomi, provisioning is a manual task.
 
-###Siga estos pasos para configurar el aprovisionamiento de usuario:
+###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-1.  Inicie sesión como administrador en el sitio de la compañía de **Boomi**.
+1.  Log in to your **Boomi** company site as administrator.
 
-2.  Vaya a **Administración de usuarios > Usuarios**.
+2.  Go to **User Management \> Users**.
 
-    ![Usuarios](./media/active-directory-saas-boomi-tutorial/IC790831.png "Usuarios")
+    ![Users](./media/active-directory-saas-boomi-tutorial/IC790831.png "Users")
 
-3.  Haga clic en **Agregar usuario**.
+3.  Click **Add User**.
 
-    ![Agregar usuario](./media/active-directory-saas-boomi-tutorial/IC790832.png "Agregar usuario")
+    ![Add User](./media/active-directory-saas-boomi-tutorial/IC790832.png "Add User")
 
-4.  En la página del cuadro de diálogo **Agregar roles de usuario**, realice los siguientes pasos:
+4.  On the **Add User Roles** dialog page, perform the following steps:
 
-    ![Agregar usuario](./media/active-directory-saas-boomi-tutorial/IC790833.png "Agregar usuario")
+    ![Add User](./media/active-directory-saas-boomi-tutorial/IC790833.png "Add User")
 
-    1.  Escriba los datos de una cuenta de AAD válida que desee aprovisionar en los cuadros de texto correspondientes: **Nombre**, **Apellido** y **Correo electrónico**.
-    2.  Haga clic en Aceptar.
+    1.  Type the **First Name**, **Last Name** and **Email** of a valid AAD account you want to provision into the related textboxes.
+    2.  Click OK.
 
->[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Boomi que proporcione Boomi para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] You can use any other Boomi user account creation tools or APIs provided by Boomi to provision AAD user accounts.
 
-##Asignación de usuarios
+##<a name="assigning-users"></a>Assigning users
 
-Para probar la configuración, debe asignar los usuarios de Azure AD que quiera que usen su aplicación para concederles acceso a ella.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Para asignar usuarios a Boomi, lleve a cabo los siguientes pasos:
+###<a name="to-assign-users-to-boomi,-perform-the-following-steps:"></a>To assign users to Boomi, perform the following steps:
 
-1.  En el Portal de Azure clásico, cree una cuenta de prueba.
+1.  In the Azure classic portal, create a test account.
 
-2.  En la página de integración de aplicaciones de **Boomi**, haga clic en **Asignar usuarios**.
+2.  On the **Boomi **application integration page, click **Assign users**.
 
-    ![Asignar usuarios](./media/active-directory-saas-boomi-tutorial/IC790834.png "Asignar usuarios")
+    ![Assign Users](./media/active-directory-saas-boomi-tutorial/IC790834.png "Assign Users")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sí](./media/active-directory-saas-boomi-tutorial/IC767830.png "Sí")
+    ![Yes](./media/active-directory-saas-boomi-tutorial/IC767830.png "Yes")
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

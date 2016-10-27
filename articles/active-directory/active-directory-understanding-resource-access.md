@@ -13,18 +13,19 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/20/2016"
+    ms.date="10/10/2016"
     ms.author="markusvi"/>
 
 
-# Descripción de acceso a los recursos de Azure
+
+# <a name="understanding-resource-access-in-azure"></a>Descripción de acceso a los recursos de Azure
 
 
 > [AZURE.NOTE] En este tema se explican conceptos acerca del uso de los administradores de suscripciones para controlar el acceso a los recursos en todo el Portal de Azure. Como alternativa, el Portal de vista previa de Azure proporciona [control de acceso basado en rol](role-based-access-control-configure.md) para que los recursos de Azure se puedan administrar con mayor precisión.
 
 En octubre de 2013, el Portal de Azure clásico y las API de administración de servicios se integraron con Azure Active Directory para sentar las bases para mejorar la experiencia del usuario al administrar el acceso a los recursos de Azure. Azure Active Directory ya proporciona excelentes funcionalidades, como la administración de usuarios, la sincronización de directorios locales, la autenticación multifactor y el control de acceso a aplicaciones. Naturalmente, también deben estar disponibles para administrar los recursos globales de Azure.
 
-El control de acceso de Azure se inicia desde una perspectiva de facturación. El propietario de una cuenta de Azure, a la que se obtiene acceso al visitar el [Centro de cuentas de Azure](https://account.windowsazure.com/subscriptions), es el administrador de cuenta (AA). Las suscripciones son un contenedor para la facturación, pero también actúan como límite de seguridad: cada suscripción tiene un administrador de servicios (SA) que puede agregar, quitar y modificar recursos de Azure en esa suscripción mediante el [Portal de Azure clásico](https://manage.windowsazure.com/). El administrador de servicios predeterminado de una suscripción nueva es el administrador de cuenta, pero este puede cambiar al administrador de servicios en el Centro de cuentas de Azure.
+El control de acceso de Azure se inicia desde una perspectiva de facturación. El propietario de una cuenta de Azure, a la que se accede desde el [Centro de cuentas de Azure](https://account.windowsazure.com/subscriptions), es el administrador de la cuenta (AA). Las suscripciones son un contenedor para la facturación, pero también actúan como límite de seguridad: cada suscripción tiene un administrador de servicios (SA) que puede agregar, quitar y modificar recursos de Azure en esa suscripción mediante el [Portal de Azure clásico](https://manage.windowsazure.com/). El administrador de servicios predeterminado de una suscripción nueva es el administrador de cuenta, pero este puede cambiar al administrador de servicios en el Centro de cuentas de Azure.
 
 <br><br>![Cuentas de Azure][1]
 
@@ -33,7 +34,7 @@ Las suscripciones también tienen una asociación con un directorio. El director
 <br><br>![Control de acceso de Azure][2]
 
 
-La funcionalidad del Portal de Azure clásico permite a los SA que han iniciado sesión con una cuenta Microsoft cambiar el directorio al que está asociada una suscripción mediante el comando **Editar directorio** de la página **Suscripciones** en **Configuración**. Tenga en cuenta que esta operación tiene implicaciones sobre el control de acceso de esa suscripción.
+Una funcionalidad del Portal de Azure clásico permite a las asociaciones de seguridad que han iniciado sesión con una cuenta Microsoft cambiar el directorio al que está asociada una suscripción mediante el uso del comando **Editar directorio** de la página **Suscripciones** de **Configuración**. Tenga en cuenta que esta operación tiene implicaciones sobre el control de acceso de esa suscripción.
 
 
 
@@ -54,15 +55,15 @@ En un caso simple, una organización (como Contoso) aplicará la facturación y 
 
 Los usuarios con suscripciones en varios directorios tienen la posibilidad de cambiar el contexto actual del Portal de Azure clásico mediante el filtro de suscripciones. De forma encubierta, esto da lugar a un inicio de sesión diferente en un directorio distinto, pero se realiza de forma transparente mediante el inicio de sesión único (SSO).
 
-Operaciones tales como mover recursos entre suscripciones pueden ser más difíciles como resultado de esta vista única del directorio de suscripciones. Para realizar la transferencia de recursos, puede ser necesario usar primero el comando **Editar directorio** en la página Suscripciones de **Configuración** para asociar las suscripciones al mismo directorio.
+Operaciones tales como mover recursos entre suscripciones pueden ser más difíciles como resultado de esta vista única del directorio de suscripciones. Para realizar la transferencia de recursos, puede que sea necesario usar primero el comando **Editar directorio** de la página Suscripciones de **Configuración** para asociar las suscripciones al mismo directorio.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información acerca de cómo cambiar los administradores de una suscripción de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing-add-change-azure-subscription-administrator.md).
+- Para más información acerca de cómo cambiar los administradores de una suscripción de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing-add-change-azure-subscription-administrator.md)
 
-- Para obtener más información sobre cómo se relaciona Azure Active Directory con la suscripción de Azure, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
+- Para obtener más información sobre cómo se relaciona Azure Active Directory con la suscripción de Azure, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 
-- Para más información sobre cómo asignar roles en Azure AD, consulte [Asignación de roles de administrador en Azure Active Directory (Azure AD)](active-directory-assign-admin-roles.md).
+- Para más información sobre cómo asignar roles en Azure AD, consulte [Asignación de roles de administrador en Azure Active Directory (Azure AD)](active-directory-assign-admin-roles.md)
 
 
 
@@ -72,4 +73,8 @@ Operaciones tales como mover recursos entre suscripciones pueden ser más difíc
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

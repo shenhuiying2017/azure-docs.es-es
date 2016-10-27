@@ -1,118 +1,123 @@
 <properties
-	pageTitle="Explorador de scripts de DocumentDB, un editor de JavaScript | Microsoft Azure"
-	description="Obtenga información sobre el Explorador de scripts de DocumentDB, una herramienta del Portal de Azure para administrar los artefactos de programación del lado servidor de DocumentDB, entre los que se incluyen procedimientos almacenados, desencadenadores y funciones definidas por el usuario."
-	keywords="editor de javascript"
-	services="documentdb"
-	authors="AndrewHoh"
-	manager="jhubbard"
-	editor="monicar"
-	documentationCenter=""/>
+    pageTitle="DocumentDB Script Explorer, a JavaScript editor | Microsoft Azure"
+    description="Learn about the DocumentDB Script Explorer, an Azure Portal tool to manage DocumentDB server-side programming artifacts including stored procedures, triggers, and user-defined functions."
+    keywords="javascript editor"
+    services="documentdb"
+    authors="kirillg"
+    manager="jhubbard"
+    editor="monicar"
+    documentationCenter=""/>
 
 <tags
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2016"
-	ms.author="anhoh"/>
+    ms.service="documentdb"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/30/2016"
+    ms.author="kirillg"/>
 
-# Creación y ejecución de procedimientos almacenados, desencadenadores y funciones definidas por el usuario mediante el Explorador de scripts de DocumentDB
 
-En este artículo se ofrece información general sobre el Explorador de scripts de [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), un editor de JavaScript del Portal de Azure que le permite ver los artefactos de programación del lado servidor de DocumentDB, entre los que se incluyen procedimientos almacenados, desencadenadores y funciones definidas por el usuario. Más información sobre programación del lado servidor de DocumentDB en el artículo [Procedimientos almacenados, desencadenadores de base de datos y UDF](documentdb-programming.md)
+# <a name="create-and-run-stored-procedures,-triggers,-and-user-defined-functions-using-the-documentdb-script-explorer"></a>Create and run stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer
 
-## Inicio del Explorador de scripts
+This article provides an overview of the [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) Script Explorer, which is a JavaScript editor in the Azure portal that enables you to view and execute DocumentDB server-side programming artifacts including stored procedures, triggers, and user-defined functions. Read more about DocumentDB server-side programming in the [Stored procedures, database triggers, and UDFs](documentdb-programming.md) article.
 
-1. En la barra de accesos directos del Portal de Azure, haga clic en **DocumentDB (NoSQL)**. Si **Cuentas de DocumentDB** no está visible, haga clic en **Más servicios** y, después, en **DocumentDB (NoSQL)**.
+## <a name="launch-script-explorer"></a>Launch Script Explorer
 
-2. En el menú de recursos, haga clic en **Explorador de scripts**.
+1. In the Azure portal, in the Jumpbar, click **DocumentDB (NoSQL)**. If **DocumentDB Accounts** is not visible, click **More Services** and then click **DocumentDB (NoSQL)**.
 
-	![Captura de pantalla del comando del Explorador de scripts](./media/documentdb-view-scripts/scriptexplorercommand.png)
+2. In the resources menu, click **Script Explorer**.
+
+    ![Screenshot of the Script Explorer command](./media/documentdb-view-scripts/scriptexplorercommand.png)
  
-    Los cuadros de lista desplegable **Base de datos** y **Colección** se rellenan previamente según el contexto en el que se ejecute el Explorador de scripts. Por ejemplo, si efectúa el inicio desde una hoja de base de datos, la base de datos actual se rellena previamente. Si el inicio se realiza desde una hoja de colección, la colección actual será la que se rellene previamente.
+    The **Database** and **Collection** drop-down list boxes are pre-populated depending on the context in which you launch Script Explorer.  For example, if you launch from a database blade, then the current database is pre-populated.  If you launch from a collection blade, then the current collection is pre-populated.
 
-4.  Los cuadros de lista desplegable **Base de datos** y **Colección** pueden usarse para cambiar fácilmente la colección desde la que se ven los scripts en ese momento sin tener que cerrar y reiniciar el Explorador de scripts.
+4.  Use the **Database** and **Collection** drop-down list boxes to easily change the collection from which scripts are currently being viewed without having to close and re-launch Script Explorer.  
 
-5. Asimismo, el Explorador de scripts también admite el filtrado del conjunto de scripts cargado actualmente por su propiedad de identificador. Simplemente escriba en el cuadro de filtro y los resultados de la lista del Explorador de scripts se filtran en función de los criterios indicados.
+5. Script Explorer also supports filtering the currently loaded set of scripts by their id property.  Simply type in the filter box and the results in the Script Explorer list are filtered based on your supplied criteria.
 
-	![Captura de pantalla del Explorador de scripts con los resultados filtrados](./media/documentdb-view-scripts/scriptexplorerfilterresults.png)
-
-
-	> [AZURE.IMPORTANT] La funcionalidad de filtro del Explorador de scripts solo filtra desde el conjunto de documentos cargado ***actualmente*** y no actualiza la colección seleccionada actualmente.
-
-5. Para actualizar la lista de scripts cargados en el Explorador de scripts, simplemente haga clic en el comando **Actualizar** de la parte superior de la hoja.
-
-	![Captura de pantalla del comando actualizar del Explorador de scripts](./media/documentdb-view-scripts/scriptexplorerrefresh.png)
+    ![Screenshot of Script Explorer with filtered results](./media/documentdb-view-scripts/scriptexplorerfilterresults.png)
 
 
-## Procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF)
+    > [AZURE.IMPORTANT] The Script Explorer filter functionality only filters from the ***currently*** loaded set of scripts and does not automatically refresh the currently selected collection.
 
-El Explorador de scripts le permite llevar a cabo con facilidad operaciones de CRUD en artefactos de programación del lado de servidor de DocumentDB.
+5. To refresh the list of scripts loaded by Script Explorer, simply click the **Refresh** command at the top of the blade.
 
-- Para crear un script, solo tiene que hacer clic en el comando de creación correspondiente del Explorador de scripts, proporcionar un identificador, escribir el contenido del script y hacer clic en **Guardar**.
+    ![Screenshot of Script Explorer refresh command](./media/documentdb-view-scripts/scriptexplorerrefresh.png)
 
-	![Captura de pantalla de la opción de creación del Explorador de scripts que muestra el editor de JavaScript](./media/documentdb-view-scripts/scriptexplorercreatecommand.png)
 
-- Al crear un desencadenador, debe especificar también la operación del desencadenador y del tipo de desencadenador.
+## <a name="create,-view,-and-edit-stored-procedures,-triggers,-and-user-defined-functions"></a>Create, view, and edit stored procedures, triggers, and user-defined functions
 
-	![Captura de pantalla de la opción de crear desencadenador del Explorador de scripts](./media/documentdb-view-scripts/scriptexplorercreatetrigger.png)
+Script Explorer allows you to easily perform CRUD operations on DocumentDB server-side programming artifacts.  
 
-- Para ver un script, basta con hacer clic en el script que le interesa.
+- To create a script, simply click on the applicable create command within script explorer, provide an id, enter the contents of the script, and click **Save**.
 
-	![Captura de pantalla de la experiencia de vista de script del Explorador de scripts](./media/documentdb-view-scripts/scriptexplorerviewscript.png)
+    ![Screenshot of Script Explorer create option, showing the JavaScript editor](./media/documentdb-view-scripts/scriptexplorercreatecommand.png)
 
-- Para editar un script, solo tiene que realizar los cambios que desee en el editor de JavaScript y hacer clic en **Guardar**.
+- When creating a trigger, you must also specify the trigger type and trigger operation
 
-	![Captura de pantalla de la experiencia de vista de script del Explorador de scripts](./media/documentdb-view-scripts/scriptexplorereditscript.png)
+    ![Screenshot of Script Explorer create trigger option](./media/documentdb-view-scripts/scriptexplorercreatetrigger.png)
 
-- Para descartar los cambios pendientes a un script, solo tiene que hacer clic en el comando **Descartar**.
+- To view a script, simply click the script in which you're interested.
 
-	![Captura de pantalla de la experiencia de descartar cambios del Explorador de scripts](./media/documentdb-view-scripts/scriptexplorerdiscardchanges.png)
+    ![Screenshot of Script Explorer view script experience](./media/documentdb-view-scripts/scriptexplorerviewscript.png)
 
-- El Explorador de scripts también le permite ver fácilmente las propiedades del sistema del script cargado actualmente, si hace clic en el comando **Propiedades**.
+- To edit a script, simply make the desired changes in the JavaScript editor and click **Save**.
 
-	![Captura de pantalla de la vista de propiedades de script del Explorador de scripts](./media/documentdb-view-scripts/scriptproperties.png)
+    ![Screenshot of Script Explorer view script experience](./media/documentdb-view-scripts/scriptexplorereditscript.png)
 
-	> [AZURE.NOTE] La propiedad de marca de tiempo (\_ts) se representa internamente como tiempo de época, pero el Explorador de scripts muestra el valor en formato GMT en lenguaje natural.
+- To discard any pending changes to a script, simply click the **Discard** command.
 
-- Para eliminar un script, selecciónelo en el Explorador de scripts y haga clic en el comando **Eliminar**.
+    ![Screenshot of Script Explorer discard changes experience](./media/documentdb-view-scripts/scriptexplorerdiscardchanges.png)
 
-	![Captura de pantalla del comando eliminar del Explorador de scripts](./media/documentdb-view-scripts/scriptexplorerdeletescript1.png)
+- Script Explorer also allows you to easily view the system properties of the currently loaded script by clicking the **Properties** command.
 
-- Para confirmar la acción de eliminación, haga clic en **Sí** o para cancelar la acción de eliminación, haga clic en **No**.
+    ![Screenshot of Script Explorer script properties view](./media/documentdb-view-scripts/scriptproperties.png)
 
-	![Captura de pantalla del comando eliminar del Explorador de scripts](./media/documentdb-view-scripts/scriptexplorerdeletescript2.png)
+    > [AZURE.NOTE] The timestamp (_ts) property is internally represented as epoch time, but Script Explorer displays the value in a human readable GMT format.
 
-## Ejecutar un procedimiento almacenado
+- To delete a script, select it in Script Explorer and click the **Delete** command.
 
-> [AZURE.WARNING] En el Explorador de scripts aún no se admite la ejecución de los procedimientos almacenados para colecciones de particiones del servidor. Para obtener más información, visite [Partición y escalado de datos en DocumentDB](documentdb-partition-data.md).
+    ![Screenshot of Script Explorer delete command](./media/documentdb-view-scripts/scriptexplorerdeletescript1.png)
 
-Explorador de scripts permite ejecutar procedimientos almacenados de servidor del Portal de Azure.
+- Confirm the delete action by clicking **Yes** or cancel the delete action by clicking **No**.
 
-- Al abrir una hoja para crear un procedimiento almacenado, ya se proporciona un script predeterminado (*prefix*). Para ejecutar el script *prefix* o su propio script, agregue valores para *id* e *inputs*. Para los procedimientos almacenados que aceptan varios parámetros, todas las entradas deben estar incluidas en una matriz (por ejemplo, *["foo", "bar"]*).
+    ![Screenshot of Script Explorer delete command](./media/documentdb-view-scripts/scriptexplorerdeletescript2.png)
 
-	![Captura de pantalla de la hoja Procedimientos almacenados del Explorador de scripts para agregar la entrada y ejecutar un procedimiento almacenado](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure-input.png)
+## <a name="execute-a-stored-procedure"></a>Execute a stored procedure
 
-- Para ejecutar un procedimiento almacenado, simplemente haga clic en el comando **Guardar y ejecutar** en el panel del editor de scripts.
+> [AZURE.WARNING] Executing stored procedures in Script Explorer is not yet supported for server side partitioned collections. For more information, visit [Partitioning and Scaling in DocumentDB](documentdb-partition-data.md).
 
-	> [AZURE.NOTE] El comando **Guardar y ejecutar** guardará el procedimiento almacenado antes de ejecutarlo, lo que significa que sobrescribirá la versión del procedimiento almacenado guardada anteriormente.
+Script Explorer allows you to execute server-side stored procedures from the Azure portal.
 
-- Las ejecuciones de procedimientos almacenados correctas tendrán un estado *El procedimiento almacenado se ha guardado y ejecutado correctamente* y los resultados devueltos se rellenarán en el panel *Resultados*.
+- When opening a new create stored procedure blade, a default script (*prefix*) will already be provided. In order to run the *prefix* script or your own script, add an *id* and *inputs*. For stored procedures that accept multiple parameters, all inputs must be within an array (e.g. *["foo", "bar"]*).
 
-	![Captura de pantalla de la hoja Procedimientos almacenados del Explorador de scripts para ejecutar un procedimiento almacenado](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure.png)
+    ![Screenshot of Script Explorer Stored Procedures blade to add input and execute a stored procedure](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure-input.png)
 
-- Si la ejecución encuentra un error, el error se rellenará en el panel *Resultados*.
+- To execute a stored procedure, simply click on the **Save & Execute** command within script editor pane.
 
-	![Captura de pantalla de la vista de propiedades de script del Explorador de scripts Ejecución de un procedimiento almacenado con errores](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure-error.png)
+    > [AZURE.NOTE] The **Save & Execute** command will save your stored procedure before executing, which means it will overwrite the previously saved version of the stored procedure.
 
-## Trabajo con scripts fuera del portal
+- Successful stored procedure executions will have a *Successfully saved and executed the stored procedure* status and the returned results will be populated in the *Results* pane.
 
-El Explorador de scripts en el Portal de Azure es simplemente una forma de trabajar con procedimientos almacenados, desencadenadores y funciones definidas por el usuario en DocumentDB. También se puede trabajar con scripts mediante la API de REST y los [SDK de cliente](documentdb-sdk-dotnet.md). La documentación de API de REST incluye ejemplos para trabajar con [procedimientos almacenados mediante REST](https://msdn.microsoft.com/library/azure/mt489092.aspx), [funciones definidas por el usuario mediante REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) y [desencadenadores mediante REST](https://msdn.microsoft.com/library/azure/mt489116.aspx). También hay ejemplos disponibles que muestran cómo [trabajar con scripts mediante C#](documentdb-dotnet-samples.md#server-side-programming-examples) y [trabajar con scripts mediante Node.js](documentdb-nodejs-samples.md#server-side-programming-examples).
+    ![Screenshot of Script Explorer Stored Procedures blade, to execute a stored procedure](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure.png)
 
-## Pasos siguientes
+- If the execution encounters an error, the error will be populated in the *Results* pane.
 
-Más información sobre programación del lado servidor de DocumentDB en el artículo [Programación en el servidor de DocumentDB: procedimientos almacenados, desencadenadores de base de datos y UDF](documentdb-programming.md).
+    ![Screenshot of Script Explorer script properties view. Execute a stored procedure with errors](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure-error.png)
 
-La [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/) también es un recurso útil para guiarlo durante el proceso que le llevará a familiarizarse con DocumentDB.
+## <a name="work-with-scripts-outside-the-portal"></a>Work with scripts outside the portal
 
-<!---HONumber=AcomDC_0831_2016-->
+The Script Explorer in the Azure portal is just one way to work with stored procedures, triggers, and user-defined functions in DocumentDB. You can also work with scripts using the the REST API and the [client SDKs](documentdb-sdk-dotnet.md). The REST API documentation includes samples for working with [stored procedures using REST](https://msdn.microsoft.com/library/azure/mt489092.aspx), [user defined functions using REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), and [triggers using REST](https://msdn.microsoft.com/library/azure/mt489116.aspx). Samples are also available showing how to [work with scripts using C#](documentdb-dotnet-samples.md#server-side-programming-examples) and [work with scripts using Node.js](documentdb-nodejs-samples.md#server-side-programming-examples).
+
+## <a name="next-steps"></a>Next steps
+
+Learn more about DocumentDB server-side programming in the [Stored procedures, database triggers, and UDFs](documentdb-programming.md) article.
+
+The [Learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) is also a useful resource to guide you as you learn more about DocumentDB.  
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

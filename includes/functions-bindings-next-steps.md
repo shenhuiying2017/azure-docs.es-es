@@ -1,3 +1,6 @@
-Para más información sobre otros enlaces y desencadenadores para Funciones de Azure, consulte [Referencias para desarrolladores de desencadenadores y enlaces de Funciones de Azure](../articles/azure-functions/functions-triggers-bindings.md).
+For information about other bindings and triggers for Azure Functions, see [Azure Functions triggers and bindings developer reference](../articles/azure-functions/functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

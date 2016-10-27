@@ -10,11 +10,15 @@ articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-powershell
 articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-rest-api.md
 
 -->
-Al reanudar una base de datos:
+When you resume a database:
 
-- Almacenamiento de datos SQL adquiere recursos de memoria y proceso para su valor de DWU.
-- Calcule los gastos correspondientes a la reanudación de DWU.
-- Sus datos estarán disponibles.
-- Tendrá que reiniciar las consultas de la carga de trabajo.
+- SQL Data Warehouse acquires compute and memory resources for your DWU setting.
+- Compute charges for your DWUs resume.
+- Your data will be available.
+- You will need to restart your workload queries.
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

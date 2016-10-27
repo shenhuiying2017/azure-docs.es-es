@@ -1,117 +1,118 @@
 <properties 
-	pageTitle="Creación de definiciones de aplicación lógica | Microsoft Azure" 
-	description="Obtenga información sobre cómo escribir la definición de JSON para aplicaciones lógicas." 
-	authors="jeffhollan" 
-	manager="erikre" 
-	editor="" 
-	services="logic-apps" 
-	documentationCenter=""/>
+    pageTitle="Author Logic App definitions | Microsoft Azure" 
+    description="Learn how to write the JSON definition for Logic apps" 
+    authors="jeffhollan" 
+    manager="erikre" 
+    editor="" 
+    services="logic-apps" 
+    documentationCenter=""/>
 
 <tags
-	ms.service="logic-apps"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="jehollan"/>
-	
-# Creación de definiciones de aplicación lógica
-En este tema se explica cómo usar definiciones de [Azure Logic Apps](app-service-logic-what-are-logic-apps.md), que es un lenguaje JSON declarativo simple. Si no lo ha hecho todavía, consulte primero [Creación de una aplicación lógica nueva](app-service-logic-create-a-logic-app.md). También puede leer el [material de referencia completo del lenguaje de definición en MSDN](http://aka.ms/logicappsdocs).
+    ms.service="logic-apps"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/25/2016"
+    ms.author="jehollan"/>
+    
 
-## Varios pasos que se repiten en una lista
+# <a name="author-logic-app-definitions"></a>Author Logic App definitions
+This topic demonstrates how to use [Azure Logic Apps](app-service-logic-what-are-logic-apps.md) definitions, which is a simple, declarative JSON language. If you haven't done so yet, check out [how to Create a new Logic app](app-service-logic-create-a-logic-app.md) first. You can also read the [full reference material of the definition language on MSDN](http://aka.ms/logicappsdocs).
 
-Puede aprovechar el [tipo foreach](app-service-logic-loops-and-scopes.md) para repetir los elementos de una matriz de hasta 10 000 elementos y realizar una acción para cada uno.
+## <a name="several-steps-that-repeat-over-a-list"></a>Several steps that repeat over a list
 
-## Un paso de control de errores si algo va mal
+You can leverage the [foreach type](app-service-logic-loops-and-scopes.md) to repeat over an array of up to 10k items and perform an action for each.
 
-Normalmente desea poder escribir un *paso de corrección*; cierta lógica que se ejecuta, si, **y solo si**, una o varias llamadas no se han podido realizar correctamente. En este ejemplo, obtenemos datos desde diversos lugares, pero si se produce un error en la llamada, es necesario PUBLICAR un mensaje en alguna parte para poder localizar ese error más adelante:
+## <a name="a-failure-handling-step-if-something-goes-wrong"></a>A failure-handling step if something goes wrong
 
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"readData": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://myurl"
-			}
-		},
-		"postToErrorMessageQueue": {
-			"type": "ApiConnection",
-			"inputs": "...",
-			"runAfter": {
-				"readData": ["Failed"]
-			}
-		}
-	},
-	"outputs": {}
-}
-```
-
-Puede usar la propiedad `runAfter` para especificar que el elemento `postToErrorMessageQueue` solo debe ejecutarse cuando `readData` genere un **error**. También podría ser una lista de posibles valores, por lo que `runAfter` podría ser `["Succeeded", "Failed"]`.
-
-Por último, dado que ahora se ha controlado el error, la ejecución ya no genera ningún **error**. Como puede ver aquí, esta ejecución es **correcta** a pesar de que antes generara errores, porque escribí este paso para solucionar este error.
-
-## Dos pasos (o más) que se ejecutan en paralelo
-
-Para tener varias acciones que se ejecuten en paralelo, la propiedad `runAfter` debe ser equivalente en tiempo de ejecución.
+You commonly want to be able to write a *remediation step* — some logic that executes, if , **and only if**, one or more of your calls failed. In this example, we are getting data from a variety of places, but if the call fails, I want to POST a message somewhere so I can track down that failure later:  
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"readData": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://myurl"
-			}
-		},
-		"branch1": {
-			"type": "Http",
-			"inputs": "...",
-			"runAfter": {
-				"readData": ["Succeeded"]
-			}
-		},
-		"branch2": {
-			"type": "Http",
-			"inputs": "...",
-			"runAfter": {
-				"readData": ["Succeeded"]
-			}
-		}
-	},
-	"outputs": {}
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+    },
+    "triggers": {
+        "manual": {
+            "type": "manual"
+        }
+    },
+    "actions": {
+        "readData": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://myurl"
+            }
+        },
+        "postToErrorMessageQueue": {
+            "type": "ApiConnection",
+            "inputs": "...",
+            "runAfter": {
+                "readData": ["Failed"]
+            }
+        }
+    },
+    "outputs": {}
 }
 ```
 
-Como puede ver en el ejemplo anterior, `branch1` y `branch2` se establecen para ejecutarse después de `readData`. Como resultado, ambas ramas se ejecutarán en paralelo:
+You can make use of the `runAfter` property to specify the `postToErrorMessageQueue` should only run after `readData` is **Failed**.  This could also be a list of possible values, so `runAfter` could be `["Succeeded", "Failed"]`.
 
-![Paralelo](./media/app-service-logic-author-definitions/parallel.png)
+Finally, because you have now handled the error, we no longer mark the run as **Failed**. As you can see here, this run is **Succeeded** even though one step Failed, because I wrote the step to handle this failure.
 
-Puede ver que la marca de tiempo para ambas bifurcaciones es idéntica.
+## <a name="two-(or-more)-steps-that-execute-in-parallel"></a>Two (or more) steps that execute in parallel
 
-## Unión de dos ramas paralelas
+To have multiple actions execution in parallel, the `runAfter` property must be equivalent at runtime. 
 
-Puede unir dos acciones que se han establecido para ejecutarse en paralelo al agregar elementos a la propiedad `runAfter` similares a los anteriores.
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "triggers": {
+        "manual": {
+            "type": "manual"
+        }
+    },
+    "actions": {
+        "readData": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://myurl"
+            }
+        },
+        "branch1": {
+            "type": "Http",
+            "inputs": "...",
+            "runAfter": {
+                "readData": ["Succeeded"]
+            }
+        },
+        "branch2": {
+            "type": "Http",
+            "inputs": "...",
+            "runAfter": {
+                "readData": ["Succeeded"]
+            }
+        }
+    },
+    "outputs": {}
+}
+```
+
+As you can see in the example above, both `branch1` and `branch2` are set to run after `readData`. As a result, both of these branches will run in parallel:
+
+![Parallel](./media/app-service-logic-author-definitions/parallel.png)
+
+You can see the timestamp for both branches is identical. 
+
+## <a name="join-two-parallel-branches"></a>Join two parallel branches
+
+You can join two actions that were set to execute in parallel by adding items to the `runAfter` property similar to above.
 
 ```
 {
@@ -180,203 +181,203 @@ Puede unir dos acciones que se han establecido para ejecutarse en paralelo al ag
 }
 ```
 
-![Paralelo](./media/app-service-logic-author-definitions/join.png)
+![Parallel](./media/app-service-logic-author-definitions/join.png)
 
-## Asignación de elementos de una lista a una configuración diferente
+## <a name="mapping-items-in-a-list-to-some-different-configuration"></a>Mapping items in a list to some different configuration
 
-A continuación, supongamos que queremos obtener contenido completamente diferente según un valor de una propiedad. Podemos crear una asignación de valores a destinos como un parámetro:
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"specialCategories": {
-			"defaultValue": ["science", "google", "microsoft", "robots", "NSA"],
-			"type": "Array"
-		},
-		"destinationMap": {
-			"defaultValue": {
-				"science": "http://www.nasa.gov",
-				"microsoft": "https://www.microsoft.com/es-ES/default.aspx",
-				"google": "https://www.google.com",
-				"robots": "https://en.wikipedia.org/wiki/Robot",
-				"NSA": "https://www.nsa.gov/"
-			},
-			"type": "Object"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"getArticles": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
-			},
-			"conditions": []
-		},
-		"getSpecialPage": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "@parameters('destinationMap')[first(intersection(item().categories, parameters('specialCategories')))]"
-			},
-			"conditions": [{
-				"expression": "@greater(length(intersection(item().categories, parameters('specialCategories'))), 0)"
-			}],
-			"forEach": "@body('getArticles').responseData.feed.entries"
-		}
-	}
-}
-```
-
-En este caso, en primer lugar, obtenemos una lista de artículos y, a continuación, el segundo paso busca en una asignación, según la categoría que se ha definido como un parámetro, la dirección URL en la que obtener el contenido.
-
-Prestemos atención aquí a dos elementos: la función [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) se utiliza para comprobar si la categoría coincide con una de las categorías conocidas definidas. En segundo lugar, una vez que obtenemos la categoría, podemos extraer el elemento de la asignación mediante corchetes: `parameters[...]`.
-
-## Trabajo con cadenas
-
-Existen diversas funciones que pueden usarse para manipular la cadena. Veamos un ejemplo donde tenemos una cadena que se va a pasar a un sistema, pero no estamos seguros de que la codificación de caracteres se controlará correctamente. Una opción consiste en codificar esta cadena con base64. Sin embargo, para evitar escapes en una dirección URL, vamos a reemplazar algunos caracteres.
-
-También queremos una subcadena del nombre del pedido, porque los cinco primeros caracteres no se usan.
+Next, let's say that we want to get completely different content depending on a value of a property. We can create a map of values to destinations as a parameter:  
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"order": {
-			"defaultValue": {
-				"quantity": 10,
-				"id": "myorder1",
-				"orderer": "NAME=Stèphén__Šīçiłianö"
-			},
-			"type": "Object"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"order": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').orderer,5,sub(length(parameters('order').orderer), 5) )),'+','-') ,'/' ,'_' )}"
-			}
-		}
-	},
-	"outputs": {}
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "specialCategories": {
+            "defaultValue": ["science", "google", "microsoft", "robots", "NSA"],
+            "type": "Array"
+        },
+        "destinationMap": {
+            "defaultValue": {
+                "science": "http://www.nasa.gov",
+                "microsoft": "https://www.microsoft.com/en-us/default.aspx",
+                "google": "https://www.google.com",
+                "robots": "https://en.wikipedia.org/wiki/Robot",
+                "NSA": "https://www.nsa.gov/"
+            },
+            "type": "Object"
+        }
+    },
+    "triggers": {
+        "manual": {
+            "type": "manual"
+        }
+    },
+    "actions": {
+        "getArticles": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
+            },
+            "conditions": []
+        },
+        "getSpecialPage": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "@parameters('destinationMap')[first(intersection(item().categories, parameters('specialCategories')))]"
+            },
+            "conditions": [{
+                "expression": "@greater(length(intersection(item().categories, parameters('specialCategories'))), 0)"
+            }],
+            "forEach": "@body('getArticles').responseData.feed.entries"
+        }
+    }
 }
 ```
 
-Trabajar desde dentro hacia fuera:
+In this case, we first get a list of articles, and then the second step looks up in a map, based on the category that was defined as a parameter, which URL to get the content from. 
 
-1. Obtener la [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length) del nombre del solicitante; esto devuelve el número total de caracteres.
+Two items to pay attention here: the [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) function is used to check to see if the category matches one of the known categories defined. Second, once we get the category, we can pull the item of the map using square brackets: `parameters[...]`. 
 
-2. Restar 5 (porque desearemos una cadena más corta).
+## <a name="working-with-strings"></a>Working with Strings
 
-3. Obtener realmente la [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring). Comenzamos con el índice `5` y pasamos al resto de la cadena.
+There are variety of functions that can be used to manipulate string. Let's take an example where we have a string that we want to pass to a system, but we are not confident that character encoding will be handled properly. One option is to base64 encode this string. However, to avoid escaping in a URL we are going to replace a few characters. 
 
-4. Convertir esta subcadena en una cadena [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64).
-
-5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) todos los caracteres `+` por `-`.
-
-6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) todos los caracteres `/` por `_`.
-
-## Trabajo con fechas
-
-Las fechas puede ser útiles, especialmente cuando intenta extraer datos de un origen de datos que no admite de forma natural **desencadenadores**. También puede utilizar las fechas para averiguar cuánto duran los distintos pasos.
+We also want a substring of the the order's name because the first 5 characters are not used.
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"order": {
-			"defaultValue": {
-				"quantity": 10,
-				"id": "myorder1"
-			},
-			"type": "Object"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"order": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://www.example.com/?id=@{parameters('order').id}"
-			}
-		},
-		"timingWarning": {
-			"actions" {
-				"type": "Http",
-				"inputs": {
-					"method": "GET",
-					"uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
-				},
-				"runAfter": {}
-			}
-			"expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))"
-		}
-	},
-	"outputs": {}
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "order": {
+            "defaultValue": {
+                "quantity": 10,
+                "id": "myorder1",
+                "orderer": "NAME=Stèphén__Šīçiłianö"
+            },
+            "type": "Object"
+        }
+    },
+    "triggers": {
+        "manual": {
+            "type": "manual"
+        }
+    },
+    "actions": {
+        "order": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').orderer,5,sub(length(parameters('order').orderer), 5) )),'+','-') ,'/' ,'_' )}"
+            }
+        }
+    },
+    "outputs": {}
 }
 ```
 
-En este ejemplo, vamos a extraer el valor `startTime` del paso anterior. A continuación, vamos a obtener la hora actual y le vamos a restar un segundo:[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) (podría utilizar otras unidades de tiempo como `minutes` o `hours`). Por último, podemos comparar estos dos valores. Si el primero es menor que el segundo, significa que ha transcurrido más de un segundo desde la primera vez que se realizó el pedido.
+Working from the inside out:
 
-Observe también que podemos utilizar formateadores de cadena para dar formato a fechas: en la cadena de consulta utilizo [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow) para obtener el RFC1123. Todos los formatos de fecha [están documentados en MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow).
+1. Get the [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length)  of the orderer's name, this returns back the total number of characters
 
-## Uso de parámetros de tiempo de implementación para entornos diferentes
+2. Subtract 5 (because we'll want a shorter string)
 
-Es habitual tener un ciclo de vida de implementación donde tiene un entorno de desarrollo, un entorno de ensayo y, a continuación, un entorno de producción. En todos ellos puede querer la misma definición, pero usar bases de datos distintas, por ejemplo. Del mismo modo, es posible que desee utilizar la misma definición en muchas regiones diferentes para lograr una alta disponibilidad, pero que cada instancia de aplicación lógica se comunique con la base de datos de dicha región.
+3. Actually take the [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring) . We start at index `5` and go the remainder of the string.
 
-Tenga en cuenta que esto es diferente del uso de parámetros distintos en el *tiempo de ejecución*, para lo que debe usar la función `trigger()` según se ha descrito anteriormente.
+4. Convert this substring to a [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64) string
 
-Puede empezar con una definición muy sencilla, como esta:
+5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)  all of the `+` characters with `-`
+
+6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) all of the `/` characters with `_`
+
+## <a name="working-with-date-times"></a>Working with Date Times
+
+Date Times can be useful, particularly when you are trying to pull data from a data source that doesn't naturally support **Triggers**.  You can also use Date Times to figure out how long various steps are taking. 
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"uri": {
-			"type": "string"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"readData": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "@parameters('uri')"
-			}
-		}
-	},
-	"outputs": {}
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "order": {
+            "defaultValue": {
+                "quantity": 10,
+                "id": "myorder1"
+            },
+            "type": "Object"
+        }
+    },
+    "triggers": {
+        "manual": {
+            "type": "manual"
+        }
+    },
+    "actions": {
+        "order": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://www.example.com/?id=@{parameters('order').id}"
+            }
+        },
+        "timingWarning": {
+            "actions" {
+                "type": "Http",
+                "inputs": {
+                    "method": "GET",
+                    "uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
+                },
+                "runAfter": {}
+            }
+            "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))"
+        }
+    },
+    "outputs": {}
 }
 ```
 
-A continuación, en la solicitud `PUT` real para la aplicación lógica, puede proporcionar el parámetro `uri`. Tenga en cuenta que, como ya no hay ningún valor predeterminado, este parámetro es necesario en la carga de la aplicación lógica:
+In this example, we are extracting the `startTime` of the previous step. Then we are getting the current time and subtracting one second :[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) (you could use other units of time such as `minutes` or `hours`). Finally, we can compare these two values. If the first is less than the second, then that means more than one second has elapsed since the order was first placed. 
+
+Also note that we can use string formatters to format dates: in the query string I use [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow) to get the RFC1123. All date formatting [is documented on MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). 
+
+## <a name="using-deployment-time-parameters-for-different-environments"></a>Using deployment-time parameters for different environments
+
+It is common to have a deployment lifecycle where you have a development environment, a staging environment, and then a production environment. In all of these you may want the same definition, but use different databases, for example. Likewise, you may want to use the same definition across many different regions for high availability, but want each Logic app instance to talk to that region's database. 
+
+Note that this is different from taking different parameters at *runtime*, for that you should use the `trigger()` function as called out above. 
+
+You can start with a very simplistic definition like this one:
+
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "uri": {
+            "type": "string"
+        }
+    },
+    "triggers": {
+        "manual": {
+            "type": "manual"
+        }
+    },
+    "actions": {
+        "readData": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "@parameters('uri')"
+            }
+        }
+    },
+    "outputs": {}
+}
+```
+
+Then, in the actual `PUT` request for the Logic app you can provide the parameter `uri`. Note, as there is no longer a default value this parameter is required in the Logic app payload:
 
 ```
 {
@@ -394,8 +395,12 @@ A continuación, en la solicitud `PUT` real para la aplicación lógica, puede p
 }
 ``` 
 
-En cada entorno puede proporcionar un valor diferente para el parámetro `connection`.
+In each environment you can then provide a different value for the `connection` parameter. 
 
-Consulte la [documentación sobre la API de REST](https://msdn.microsoft.com/library/azure/mt643787.aspx) para conocer todas las opciones disponibles para crear y administrar aplicaciones lógicas.
+See the [REST API documentation](https://msdn.microsoft.com/library/azure/mt643787.aspx) for all of the options you have for creating and managing Logic apps. 
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,12 +1,15 @@
 
-| Tipo de transacciones | N.º máximo de transacciones permitidas en 10 segundos, por almacén y región
+| Transactions Type | Max transactions allowed in 10 seconds, per vault per region
 --- | ---
 | HSM- CREATE KEY | 5
-| HSM - otras transacciones | 1000
-| Clave "débil" - CREATE KEY | 10
-| Clave "débil" - otras transacciones | 1\.500
-| Todos los secretos, transacciones relacionadas con el almacén | 2000
+| HSM- other transactions | 1000
+| Soft-key CREATE KEY | 10
+| Soft-key other transactions | 1500
+| All secrets, vault related transactions | 2000
  
  
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

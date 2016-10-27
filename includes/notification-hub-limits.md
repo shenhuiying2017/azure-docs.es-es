@@ -1,12 +1,15 @@
 
-| NIVEL: | LIBRE | BASIC | ESTÁNDAR |
+| TIER: | FREE | BASIC | STANDARD |
 |----|----|----|----|
-| Push incluidos | 1 millón | 10 millones | 10 millones |
-| Dispositivos activos | 500 | Sin límite | Sin límite |
-| Cuota de etiquetas por instalación y registro | 60 | 60 | 60 |
+| Included Pushes | 1 Million | 10 Million | 10 Million |
+| Active Devices | 500 | Unlimited | Unlimited |
+| Tag quota per installation/registration | 60 | 60 | 60 |
 
 
 
-Para obtener más información acerca de estos límites y los precios, consulte [Precios de los Centros de notificaciones](https://azure.microsoft.com/pricing/details/notification-hubs/).
+For additional details on these limits and for information on pricing, see [Notification Hubs Pricing](https://azure.microsoft.com/pricing/details/notification-hubs/). 
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

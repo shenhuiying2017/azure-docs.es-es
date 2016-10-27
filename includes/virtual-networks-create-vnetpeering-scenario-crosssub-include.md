@@ -1,11 +1,14 @@
-## Emparejamiento entre suscripciones
+## <a name="peering-across-subscriptions"></a>Peering across subscriptions
 
-En este escenario creará un emparejamiento entre dos redes virtuales que pertenecen a distintas suscripciones.
+In this scenario you will create a peering between two VNets belonging to different subscriptions.
 
-![escenario entre suscripciones](./media/virtual-networks-create-vnetpeering-scenario-crosssub-include/figure01.PNG)
+![cross sub scenario](./media/virtual-networks-create-vnetpeering-scenario-crosssub-include/figure01.PNG)
 
-En el emparejamiento de VNET, la autorización se basa en el control de acceso basado en roles (RBAC). En el escenario entre suscripciones, debe conceder primero los permisos suficientes para los usuarios que crearán el vínculo de emparejamiento:
+VNet peering relies on Role based access control (RBAC) for authorization. For cross-subscriptions scenario, you first need to grant sufficient permission to users who will create the peering link:
 
-> [AZURE.NOTE] Si el mismo usuario tiene el privilegio sobre ambas suscripciones, puede ignorar los pasos 1 a 4 que se indican a continuación.
+> [AZURE.NOTE] If the same user has the privilege over both subscriptions, then you can skip step1-4 below.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

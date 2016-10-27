@@ -1,189 +1,190 @@
 <properties 
-	pageTitle="Cómo personalizar el portal para desarrolladores para Administración de API de Azure mediante plantillas | Microsoft Azure" 
-	description="Obtenga información sobre cómo personalizar el portal para desarrolladores para Administración de API de Azure mediante plantillas" 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="How to customize the Azure API Management developer portal using templates | Microsoft Azure" 
+    description="Learn how to customize the Azure API Management developer portal using templates." 
+    services="api-management" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+    ms.service="api-management" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/25/2016" 
+    ms.author="sdanie"/>
 
 
-# Cómo personalizar el portal para desarrolladores de Administración de API de Azure mediante plantillas
 
-Administración de API de Azure proporciona varias características de personalización que permiten a los administradores [personalizar la apariencia del portal para desarrolladores](api-management-customize-portal.md), así como personalizar el contenido de las páginas del portal para desarrolladores mediante un conjunto de plantillas que configuran el contenido de las páginas. Mediante el uso de la sintaxis [DotLiquid](http://dotliquidmarkup.org/) y del conjunto proporcionado de recursos de cadena localizada, iconos y controles de página, dispone de gran flexibilidad para configurar el contenido de las páginas según le convenga con estas plantillas.
+# <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>How to customize the Azure API Management developer portal using templates
 
-## Información general sobre las plantillas del portal para desarrolladores
+Azure API Management provides several customization features to allow administrators to [customize the look and feel of the developer portal](api-management-customize-portal.md), as well as customize the content of the developer portal pages using a set of templates that configure the content of the pages themselves. Using [DotLiquid](http://dotliquidmarkup.org/) syntax, and a provided set of localized string resources, icons, and page controls, you have great flexibility to configure the content of the pages as you see fit using these templates.
 
-Los administradores de la instancia del servicio de Administración de API pueden administrar las plantillas del portal para desarrolladores en el portal. Para administrar las plantillas de desarrollador, vaya a la instancia del servicio de Administración de API en el Portal de Azure clásico y haga clic en **Examinar**.
+## <a name="developer-portal-templates-overview"></a>Developer portal templates overview
 
-![Portal para desarrolladores][api-management-browse]
+Developer portal templates are managed in the developer portal by administrators of the API Management service instance. To manage developer templates, navigate to your API Management service instance in the Azure Classic Portal and click **Browse**.
 
-Si ya se encuentra en el portal del publicador, puede acceder al portal para desarrolladores haciendo clic en **Portal para desarrolladores**.
+![Developer portal][api-management-browse]
 
-![Menú del portal para desarrolladores][api-management-developer-portal-menu]
+If you are already in the publisher portal, you can access the developer portal by clicking **Developer portal**.
 
-Para acceder a las plantillas del portal para desarrolladores, haga clic en el icono de personalización de la izquierda para mostrar el menú de personalización y haga clic en **Plantillas**.
+![Developer portal menu][api-management-developer-portal-menu]
 
-![Plantillas del portal para desarrolladores][api-management-customize-menu]
+To access the developer portal templates, click the customize icon on the left to display the customization menu, and click **Templates**.
 
-La lista de plantillas muestra varias categorías de plantillas que abarcan las distintas páginas del portal para desarrolladores. Cada plantilla es diferente, pero los pasos para editarlas y publicar los cambios son los mismos. Para editar una plantilla, haga clic en el nombre.
+![Developer portal templates][api-management-customize-menu]
 
-![Plantillas del portal para desarrolladores][api-management-templates-menu]
+The templates list displays several categories of templates covering the different pages in the developer portal. Each template is different, but the steps to edit them and publish the changes are the same. To edit a template, click the name of the template.
 
-Cuando hace clic en una plantilla, se abre la página del portal para desarrolladores que se puede personalizar con esa plantilla. En este ejemplo se muestra la plantilla **Lista de productos**. La plantilla **Lista de productos** controla el área de la pantalla que se indica con un rectángulo rojo.
+![Developer portal templates][api-management-templates-menu]
 
-![Plantilla de lista de productos][api-management-developer-portal-templates-overview]
+Clicking a template takes you to the developer portal page that is customizable by that template. In this example the **Product list** template is displayed. The **Product list** template controls the area of the screen indicated by the red rectangle. 
 
-Algunas plantillas, como las plantillas **Perfil de usuario**, personalizan partes diferentes de la misma página.
+![Products list template][api-management-developer-portal-templates-overview]
 
-![Plantillas de perfil de usuario][api-management-user-profile-templates]
+Some templates, like the **User Profile** templates, customize different parts of the same page. 
 
-El editor de cada plantilla del portal para desarrolladores tiene dos secciones que se muestran en la parte inferior de la página. El lado izquierdo muestra el panel de edición de la plantilla y el lado derecho muestra el modelo de datos de la plantilla.
+![User profile templates][api-management-user-profile-templates]
 
-El panel de edición de plantillas contiene el marcado que controla la apariencia y el comportamiento de la página correspondiente en el portal para desarrolladores. El marcado de la plantilla usa la sintaxis [DotLiquid](http://dotliquidmarkup.org/). Un editor popular de DotLiquid es [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Todos los cambios que se realizan en la plantilla durante la edición se muestran en tiempo real en el explorador, pero no son visibles para los clientes mientras no se [guarde](#to-save-a-template) y se [publique](#to-publish-a-template) la plantilla.
+The editor for each developer portal template has two sections displayed at the bottom of the page. The left-hand side displays the editing pane for the template, and the right-hand side displays the data model for the template. 
 
-![Marcado de plantilla][api-management-template]
+The template editing pane contains the markup that controls the appearance and behavior of the corresponding page in the developer portal. The markup in the template uses the [DotLiquid](http://dotliquidmarkup.org/) syntax. One popular editor for DotLiquid is [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Any changes made to the template during editing are displayed in real-time in the browser, but are not visible to your customers until you [save](#to-save-a-template) and [publish](#to-publish-a-template) the template.
 
-El panel **Template data** (Datos de plantilla) proporciona indicaciones sobre el modelo de datos de las entidades que están disponibles para su uso en una plantilla determinada. Dichas indicaciones consisten en los datos actuales que se muestran actualmente en el portal para desarrolladores. Para expandir los paneles de plantilla, haga clic en el rectángulo de la esquina superior derecha del panel **Template data** (Datos de plantilla).
+![Template markup][api-management-template]
 
-![Modelo de datos de plantilla][api-management-template-data]
+The **Template data** pane provides a guide to the data model for the entities that are available for use in a particular template. It provides this guide by displaying the live data that are currently displayed in the developer portal. You can expand the template panes by clicking the rectangle in the upper-right corner of the **Template data** pane.
 
-En el ejemplo anterior, se muestran en el portal para desarrolladores dos productos que se recuperaron de los datos mostrados en el panel **Template data** (Datos de plantilla), tal como se muestra en el ejemplo siguiente.
+![Template data model][api-management-template-data]
 
-	{
-		"Paging": {
-			"Page": 1,
-			"PageSize": 10,
-			"TotalItemCount": 2,
-			"ShowAll": false,
-			"PageCount": 1
-		},
-		"Filtering": {
-			"Pattern": null,
-			"Placeholder": "Search products"
-		},
-		"Products": [
-			{
-				"Id": "56ec64c380ed850042060001",
-				"Title": "Starter",
-				"Description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",
-				"Terms": "",
-				"ProductState": 1,
-				"AllowMultipleSubscriptions": false,
-				"MultipleSubscriptionsCount": 1
-			},
-			{
-				"Id": "56ec64c380ed850042060002",
-				"Title": "Unlimited",
-				"Description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
-				"Terms": null,
-				"ProductState": 1,
-				"AllowMultipleSubscriptions": false,
-				"MultipleSubscriptionsCount": 1
-			}
-		]
-	}
+In the previous example there are two products displayed in the developer portal that were retrieved from the data displayed in the **Template data** pane, as shown in the following example.
 
-El marcado de la plantilla **Lista de productos** procesa los datos para proporcionar el resultado deseado. Para ello, itere a través de la colección de productos para mostrar información y un vínculo a cada producto. Observe los elementos `<search-control>` y `<page-control>` del marcado. Controlan la presentación de los controles de búsqueda y paginación de la página. `ProductsStrings|PageTitleProducts` es una referencia de cadena localizada que contiene el texto de encabezado `h2` de la página. Para obtener una lista de recursos de cadena, controles de página e iconos disponibles para su uso en plantillas del portal para desarrolladores, consulte la [referencia de plantillas del portal para desarrolladores de Administración de API](https://msdn.microsoft.com/library/azure/mt697540.aspx).
+    {
+        "Paging": {
+            "Page": 1,
+            "PageSize": 10,
+            "TotalItemCount": 2,
+            "ShowAll": false,
+            "PageCount": 1
+        },
+        "Filtering": {
+            "Pattern": null,
+            "Placeholder": "Search products"
+        },
+        "Products": [
+            {
+                "Id": "56ec64c380ed850042060001",
+                "Title": "Starter",
+                "Description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",
+                "Terms": "",
+                "ProductState": 1,
+                "AllowMultipleSubscriptions": false,
+                "MultipleSubscriptionsCount": 1
+            },
+            {
+                "Id": "56ec64c380ed850042060002",
+                "Title": "Unlimited",
+                "Description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
+                "Terms": null,
+                "ProductState": 1,
+                "AllowMultipleSubscriptions": false,
+                "MultipleSubscriptionsCount": 1
+            }
+        ]
+    }
 
-	<search-control></search-control>
-	<div class="row">
-	    <div class="col-md-9">
-	        <h2>{% localized "ProductsStrings|PageTitleProducts" %}</h2>
-	    </div>
-	</div>
-	<div class="row">
-	    <div class="col-md-12">
-		{% if products.size > 0 %}
-		<ul class="list-unstyled">
-		{% for product in products %}
-			<li>
-				<h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
-				{{product.description}}
-			</li>	
-		{% endfor %}
-		</ul>
-		<paging-control></paging-control>
-		{% else %}
-		{% localized "CommonResources|NoItemsToDisplay" %}
-		{% endif %}
-		</div>
-	</div>
+The markup in the **Product list** template processes the data to provide the desired output by iterating through the collection of products to display information and a link to each individual product. Note the `<search-control>` and `<page-control>` elements in the markup. These control the display of the searching and paging controls on the page. `ProductsStrings|PageTitleProducts` is a localized string reference that contains the `h2` header text for the page. For a list of string resources, page controls, and icons available for use in developer portal templates, see [API Management developer portal templates reference](https://msdn.microsoft.com/library/azure/mt697540.aspx).
 
-## Para guardar una plantilla
+    <search-control></search-control>
+    <div class="row">
+        <div class="col-md-9">
+            <h2>{% localized "ProductsStrings|PageTitleProducts" %}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+        {% if products.size > 0 %}
+        <ul class="list-unstyled">
+        {% for product in products %}
+            <li>
+                <h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
+                {{product.description}}
+            </li>   
+        {% endfor %}
+        </ul>
+        <paging-control></paging-control>
+        {% else %}
+        {% localized "CommonResources|NoItemsToDisplay" %}
+        {% endif %}
+        </div>
+    </div>
 
-Para guardar una plantilla, haga clic en guardar en el editor de plantillas.
+## <a name="to-save-a-template"></a>To save a template
 
-![Guardar plantilla][api-management-save-template]
+To save a template, click save in the template editor.
 
-Los cambios guardados no se activan en el portal para desarrolladores mientras no se publiquen.
+![Save template][api-management-save-template]
 
-## Para publicar una plantilla
+Saved changes are not live in the developer portal until they are published.
 
-Las plantillas guardadas se pueden publicar individualmente o todas juntas. Para publicar una plantilla individual, haga clic en publicar en el editor de plantillas.
+## <a name="to-publish-a-template"></a>To publish a template
 
-![Publicar plantilla][api-management-publish-template]
+Saved templates can be published either individually, or all together. To publish an individual template, click publish in the template editor.
 
-Haga clic en **Sí** para confirmar y hacer que la plantilla se active en el portal para desarrolladores.
+![Publish template][api-management-publish-template]
 
-![Confirmar publicación][api-management-publish-template-confirm]
+Click **Yes** to confirm and make the template live on the developer portal.
 
-Para publicar todas las versiones de plantillas actualmente sin publicar, haga clic en **Publicar** en la lista de plantillas. Las plantillas no publicadas se indican con un asterisco después del nombre de la plantilla. En este ejemplo, se van a publicar las plantillas **Lista de productos** y **Producto**.
+![Confirm publish][api-management-publish-template-confirm]
 
-![Publicar plantillas][api-management-publish-templates]
+To publish all currently unpublished template versions, click **Publish** in the templates list. Unpublished templates are designated by an asterisk following the template name. In this example, the **Product list** and **Product** templates are being published.
 
-Haga clic en **Publicar personalizaciones** para confirmar.
+![Publish templates][api-management-publish-templates]
 
-![Confirmar publicación][api-management-publish-customizations]
+Click **Publish customizations** to confirm.
 
-Las plantillas recién publicadas entran en vigor de inmediato en el portal para desarrolladores.
+![Confirm publish][api-management-publish-customizations]
 
-## Para revertir una plantilla a la versión anterior
+Newly published templates are effective immediately in the developer portal.
 
-Para revertir una plantilla a la versión publicada anterior, haga clic en revertir en el editor de plantillas.
+## <a name="to-revert-a-template-to-the-previous-version"></a>To revert a template to the previous version
 
-![Revertir plantilla][api-management-revert-template]
+To revert a template to the previous published version, click revert in the template editor.
 
-Haga clic en **Sí** para continuar.
+![Revert template][api-management-revert-template]
+
+Click **Yes** to confirm.
 
 ![Confirm][api-management-revert-template-confirm]
 
-La versión de una plantilla publicada anteriormente estará activa en el portal para desarrolladores en cuanto se complete la operación de reversión.
+The previously published version of a template is live in the developer portal once the revert operation is complete.
 
-## Para restaurar una plantilla a la versión predeterminada
+## <a name="to-restore-a-template-to-the-default-version"></a>To restore a template to the default version
 
-La restauración de las plantillas a su versión predeterminada es un proceso que consta de dos pasos. Primero deben restaurarse las plantillas y después deben publicarse las versiones restauradas.
+Restoring templates to their default version is a two-step process. First the templates must be restored, and then the restored versions must be published.
 
-Para restaurar una sola plantilla a la versión predeterminada, haga clic en restaurar en el editor de plantillas.
+To restore a single template to the default version click restore in the template editor.
 
-![Revertir plantilla][api-management-reset-template]
+![Revert template][api-management-reset-template]
 
-Haga clic en **Sí** para continuar.
+Click **Yes** to confirm.
 
 ![Confirm][api-management-reset-template-confirm]
 
-Para restaurar todas las plantillas a las versiones predeterminadas, haga clic en **Restore default templates** (Restaurar plantillas predeterminadas) en la lista de plantillas.
+To restore all templates to their default versions, click **Restore default templates** on the template list.
 
-![Restaurar plantillas][api-management-restore-templates]
+![Restore templates][api-management-restore-templates]
 
-Las plantillas restauradas deben publicarse individualmente o a la vez siguiendo los pasos descritos en [Para publicar una plantilla](#to-publish-a-template).
+The restored templates must then be published individually or all at once by following the steps in [To publish a template](#to-publish-a-template).
 
-## Referencia de plantillas del portal para desarrolladores
+## <a name="developer-portal-templates-reference"></a>Developer portal templates reference
 
-Para obtener información de referencia sobre plantillas del portal para desarrolladores, recursos de cadena, iconos y controles de página, consulte la [referencia de plantillas del portal para desarrolladores de Administración de API](https://msdn.microsoft.com/library/azure/mt697540.aspx).
+For reference information for developer portal templates, string resources, icons, and page controls, see [API Management developer portal templates reference](https://msdn.microsoft.com/library/azure/mt697540.aspx).
 
-## Vea un vídeo de introducción.
+## <a name="watch-a-video-overview"></a>Watch a video overview
 
-Vea el vídeo siguiente para obtener información sobre cómo agregar un panel de discusión y valoraciones a las páginas de API y de funcionamiento en el portal para desarrolladores mediante plantillas.
+Watch the following video to see how to add a discussion board and ratings to the API and operation pages in the developer portal using templates.
 
 > [AZURE.VIDEO adding-developer-portal-functionality-using-templates-in-azure-api-management]
 
@@ -207,4 +208,15 @@ Vea el vídeo siguiente para obtener información sobre cómo agregar un panel d
 [api-management-reset-template-confirm]: ./media/api-management-developer-portal-templates/api-management-reset-template-confirm.png
 [api-management-restore-templates]: ./media/api-management-developer-portal-templates/api-management-restore-templates.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

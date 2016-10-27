@@ -1,35 +1,37 @@
 <properties 
-	pageTitle="Modelo de datos de Application Insights" 
-	description="Describe las propiedades exportadas con la exportación continua de JSON y usadas como filtros." 
-	services="application-insights" 
+    pageTitle="Application Insights Data Model" 
+    description="Describes properties exported from continuous export in JSON, and used as filters." 
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/21/2016" 
-	ms.author="awills"/>
-
-# Modelo de exportación de datos de Application Insights
-
-En esta tabla se enumeran las propiedades de telemetría enviadas desde los SDK de [Application Insights](app-insights-overview.md) al portal. Verá estas propiedades en el resultado de datos de [Exportación continua](app-insights-export-telemetry.md). También aparecen en los filtros de propiedad del [Explorador de métricas](app-insights-metrics-explorer.md) y la [Búsqueda de diagnóstico](app-insights-diagnostic-search.md).
-
-Puntos a tener en cuenta:
-
-* `[0]` en estas tablas denota un punto en la ruta de acceso donde se debe insertar un índice; pero no siempre es 0.
-* Los períodos de tiempo se indican en décimas de microsegundo, así que 10000000 = 1 segundo.
-* Las fechas y horas son UTC y se proporcionan en el formato ISO `yyyy-MM-DDThh:mm:ss.sssZ`
-
-Hay varios [ejemplos](app-insights-export-telemetry.md#code-samples) que ilustran cómo usarlas.
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="03/21/2016" 
+    ms.author="awills"/>
 
 
+# <a name="application-insights-export-data-model"></a>Application Insights Export Data Model
 
-## Ejemplo
+This table lists the properties of telemetry sent from the [Application Insights](app-insights-overview.md) SDKs to the portal. You'll see these properties in data output from [Continuous Export](app-insights-export-telemetry.md).
+They also appear in property filters in [Metric Explorer](app-insights-metrics-explorer.md) and [Diagnostic Search](app-insights-diagnostic-search.md).
+
+Points to note:
+
+* `[0]` in these tables denotes a point in the path where you have to insert an index; but it isn't always 0.
+* Time durations are in tenths of a microsecond, so 10000000 == 1 second.
+* Dates and times are UTC, and are given in the ISO format `yyyy-MM-DDThh:mm:ss.sssZ`
+
+There are several [samples](app-insights-export-telemetry.md#code-samples) that illustrate how to use them.
+
+
+
+## <a name="example"></a>Example
 
     // A server report about an HTTP request
     {
@@ -113,222 +115,222 @@ Hay varios [ejemplos](app-insights-export-telemetry.md#code-samples) que ilustra
 
 
 
-## Context
+## <a name="context"></a>Context
 
-Una sección de contexto acompaña a todos los tipos de telemetría. No todos estos campos se transmiten con cada punto de datos.
+All types of telemetry are accompanied by a context section. Not all of these fields are transmitted with every data point.
 
 
 
-|Ruta de acceso|Tipo|Notas|
+|Path|Type|Notes|
 |---|---|---|
-| context.custom.dimensions [0] | objeto [ ] | Pares de cadenas de clave-valor establecidos por el parámetro de propiedades personalizadas. Longitud máxima de clave: 100, longitud máxima de valores: 1024. Más de 100 valores únicos, se pueden realizar búsquedas en la propiedad, pero no se puede usar para la segmentación. Máximo de 200 claves por ikey. |
-| context.custom.metrics [0] | objeto [ ] | Los pares de clave-valor se establecen mediante el parámetro de medidas personalizado y mediante TrackMetrics. Longitud máxima de clave: 100, los valores pueden ser numéricos. |
-| context.data.eventTime | cadena | UTC |
-| context.data.isSynthetic | boolean | La solicitud parece proceder de un bot o una prueba web. |
-| context.data.samplingRate | número | Porcentaje de telemetría generado por el SDK que se envía al portal. Intervalo 0,0 a 100,0.|
-| context.device | objeto | Dispositivo de cliente |
-| context.device.browser | cadena | IE, Chrome,… |
-| context.device.browserVersion | cadena | Chrome 48.0,… |
-| context.device.deviceModel | cadena | |
-| context.device.deviceName | cadena | |
-| context.device.id | cadena | |
-| context.device.locale | cadena | en-GB, de-DE,… |
-| context.device.network | cadena | |
-| context.device.oemName | cadena | |
-| context.device.osVersion | cadena | Sistema operativo del host |
-| context.device.roleInstance | cadena | Identificador del host del servidor |
-| context.device.roleName | cadena | |
-| context.device.type | cadena | PC, explorador,… |
-| context.location | objeto | Derivado de clientip. |
-| context.location.city | cadena | Derivado de clientip, si se conoce. |
-| context.location.clientip | cadena | El último octágono se hace anónimo en 0. |
-| context.location.continent | cadena | |
-| context.location.country | cadena | |
-| context.location.province | cadena | Estado o provincia |
-| context.operation.id | cadena | Los elementos que tienen el mismo identificador de operación se muestran como elementos relacionados en el portal. Normalmente, el identificador de solicitud. |
-| context.operation.name | cadena | Nombre de solicitud o dirección URL |
-| context.operation.parentId | cadena | Permite elementos relacionados anidados. |
-| context.session.id | cadena | Identificador de un grupo de operaciones del mismo origen. Un período de 30 minutos sin una operación señala el final de una sesión. |
+| context.custom.dimensions [0]  | object [ ]  | Key-value string pairs set by custom properties parameter. Key max length 100, values max length 1024. More than 100 unique values, the property can be searched but cannot be used for segmentation. Max 200 keys per ikey.  |
+| context.custom.metrics [0]  | object [ ]  | Key-value pairs set by custom measurements parameter and by TrackMetrics. Key max length 100, values may be numeric. |
+| context.data.eventTime | string | UTC |
+| context.data.isSynthetic | boolean | Request appears to come from a bot or web test. |
+| context.data.samplingRate | number | Percentage of telemetry generated by the SDK that is sent to portal. Range 0.0-100.0.|
+| context.device | object | Client device |
+| context.device.browser | string | IE, Chrome, ... |
+| context.device.browserVersion | string | Chrome 48.0, ... |
+| context.device.deviceModel | string | |
+| context.device.deviceName | string | |
+| context.device.id | string | |
+| context.device.locale | string | en-GB, de-DE, ... |
+| context.device.network | string | |
+| context.device.oemName | string | |
+| context.device.osVersion | string | Host OS |
+| context.device.roleInstance | string | ID of server host |
+| context.device.roleName | string | |
+| context.device.type | string | PC, Browser, ... |
+| context.location | object | Derived from clientip. |
+| context.location.city | string | Derived from clientip, if known  |
+| context.location.clientip | string | Last octagon is anonymized to 0. |
+| context.location.continent | string | |
+| context.location.country | string | |
+| context.location.province | string | State or province |
+| context.operation.id | string | Items that have the same operation id are shown as Related Items in the portal. Usually the request id. |
+| context.operation.name | string | url or request name |
+| context.operation.parentId | string | Allows nested related items. |
+| context.session.id | string | Id of a group of operations from the same source. A period of 30 minutes without an operation signals the end of a session. |
 | context.session.isFirst | boolean | |
-| context.user.accountAcquisitionDate | cadena | |
-| context.user.anonAcquisitionDate | cadena | |
-| context.user.anonId | cadena | |
-| context.user.authAcquisitionDate | cadena | [Usuario autenticado](app-insights-api-custom-events-metrics.md#authenticated-users) |
+| context.user.accountAcquisitionDate | string | |
+| context.user.anonAcquisitionDate | string | |
+| context.user.anonId | string | |
+| context.user.authAcquisitionDate | string | [Authenticated User](app-insights-api-custom-events-metrics.md#authenticated-users) |
 | context.user.isAuthenticated | boolean | |
-| internal.data.documentVersion | cadena | |
-| internal.data.id | cadena | |
+| internal.data.documentVersion | string | |
+| internal.data.id | string | |
 
 
 
-## Eventos
+## <a name="events"></a>Events
 
-Eventos personalizados generados por [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event).
+Custom events generated by [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event). 
 
 
-|Ruta de acceso|Tipo|Notas|
+|Path|Type|Notes|
 |---|---|---|
-| event [0] count | integer | 100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
-| event [0] name | cadena | Nombre del evento. Longitud máxima: 250. |
-| event [0] url | cadena | |
-| event [0] urlData.base | cadena | |
-| event [0] urlData.host | cadena | |
+| event [0] count | integer | 100/([sampling](app-insights-sampling.md) rate). For example 4 =&gt; 25%. |
+| event [0] name | string | Event name.  Max length 250. |
+| event [0] url | string | |
+| event [0] urlData.base | string | |
+| event [0] urlData.host | string | |
 
-## Excepciones
+## <a name="exceptions"></a>Exceptions
 
-Notifica sobre [excepciones](app-insights-asp-net-exceptions.md) en el servidor y en el explorador.
+Reports [exceptions](app-insights-asp-net-exceptions.md) in the server and in the browser. 
 
 
-|Ruta de acceso|Tipo|Notas|
+|Path|Type|Notes|
 |---|---|---|
-| basicException [0] assembly | cadena | |
-| basicException [0] count | integer | 100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
-| basicException [0] exceptionGroup | cadena | |
-| basicException [0] exceptionType | cadena | |cadena | |
-| basicException [0] failedUserCodeMethod | cadena | |
-| basicException [0] failedUserCodeAssembly | cadena | |
-| basicException [0] handledAt | cadena | |
+| basicException [0] assembly | string | |
+| basicException [0] count | integer | 100/([sampling](app-insights-sampling.md) rate). For example 4 =&gt; 25%. |
+| basicException [0] exceptionGroup | string | |
+| basicException [0] exceptionType | string | |string | |
+| basicException [0] failedUserCodeMethod | string | |
+| basicException [0] failedUserCodeAssembly | string | |
+| basicException [0] handledAt | string | |
 | basicException [0] hasFullStack | boolean | |
-| basicException [0] id | cadena | |
-| basicException [0] method | cadena | |
-| basicException [0] message | cadena | Mensaje de excepción. Longitud máxima: 10 000.|
-| basicException [0] outerExceptionMessage | cadena | |
-| basicException [0] outerExceptionThrownAtAssembly | cadena | |
-| basicException [0] outerExceptionThrownAtMethod | cadena | |
-| basicException [0] outerExceptionType | cadena | |
-| basicException [0] outerId | cadena | |
-| basicException [0] parsedStack [0] assembly | cadena | |
-| basicException [0] parsedStack [0] fileName | cadena | |
+| basicException [0] id | string | |
+| basicException [0] method | string | |
+| basicException [0] message | string | Exception message. Max length 10k.|
+| basicException [0] outerExceptionMessage | string | |
+| basicException [0] outerExceptionThrownAtAssembly | string | |
+| basicException [0] outerExceptionThrownAtMethod | string | |
+| basicException [0] outerExceptionType | string | |
+| basicException [0] outerId | string | |
+| basicException [0] parsedStack [0] assembly | string | |
+| basicException [0] parsedStack [0] fileName | string | |
 | basicException [0] parsedStack [0] level | integer | |
 | basicException [0] parsedStack [0] line | integer | |
-| basicException [0] parsedStack [0] method | cadena | |
-| basicException [0] stack | cadena | Longitud máxima: 10 000.|
-| basicException [0] typeName | cadena | |
+| basicException [0] parsedStack [0] method | string | |
+| basicException [0] stack | string | Max length 10k|
+| basicException [0] typeName | string | |
 
 
 
-## Mensajes de seguimiento
+## <a name="trace-messages"></a>Trace Messages
 
-Enviados por [TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) y por los [adaptadores de registro](app-insights-asp-net-trace-logs.md).
+Sent by [TrackTrace](app-insights-api-custom-events-metrics.md#track-trace), and by the [logging adapters](app-insights-asp-net-trace-logs.md).
 
 
-|Ruta de acceso|Tipo|Notas|
+|Path|Type|Notes|
 |---|---|---|
-| message [0] loggerName | cadena ||
-| message [0] parameters | cadena ||
-| message [0] raw | cadena | El mensaje de registro, longitud máxima: 10 000. |
-| message [0] severityLevel | cadena | |
+| message [0] loggerName | string ||
+| message [0] parameters | string ||
+| message [0] raw | string | The log message, max length 10k. |
+| message [0] severityLevel | string | |
 
 
 
-## Dependencia remota
+## <a name="remote-dependency"></a>Remote dependency
 
-Enviado por TrackDependency. Se usa para notificar el rendimiento y el uso de las [llamadas a dependencias](app-insights-asp-net-dependencies.md) en el servidor y de las llamadas AJAX en el explorador.
+Sent by TrackDependency. Used to report performance and usage of [calls to dependencies](app-insights-asp-net-dependencies.md) in the server, and AJAX calls in the browser.
 
-|Ruta de acceso|Tipo|Notas|
+|Path|Type|Notes|
 |---|---|---|
 | remoteDependency [0] async | boolean | |
-| remoteDependency [0] baseName | cadena | |
-| remoteDependency [0] commandName | cadena | Por ejemplo, "home/index". |
-| remoteDependency [0] count | integer | 100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
-| remoteDependency [0] dependencyTypeName | cadena | HTTP, SQL... |
-| remoteDependency [0] durationMetric.value | número | Tiempo desde la llamada hasta la finalización de respuesta de la dependencia |
-| remoteDependency [0] id | cadena | |
-| remoteDependency [0] name | cadena | URL Longitud máxima: 250.|
-| remoteDependency [0] resultCode | cadena | de la dependencia de HTTP |
+| remoteDependency [0] baseName | string |  |
+| remoteDependency [0] commandName | string | For example "home/index" |
+| remoteDependency [0] count | integer | 100/([sampling](app-insights-sampling.md) rate). For example 4 =&gt; 25%. |
+| remoteDependency [0] dependencyTypeName | string | HTTP, SQL, ... |
+| remoteDependency [0] durationMetric.value | number | Time from call to completion of response by dependency |
+| remoteDependency [0] id | string | |
+| remoteDependency [0] name | string | Url. Max length 250.|
+| remoteDependency [0] resultCode | string | from HTTP dependency |
 | remoteDependency [0] success | boolean | |
-| remoteDependency [0] type | cadena | Http, Sql,... |
-| remoteDependency [0] url | cadena | Longitud máxima: 2000 |
-| remoteDependency [0] urlData.base | cadena | Longitud máxima: 2000 |
-| remoteDependency [0] urlData.hashTag | cadena | |
-| remoteDependency [0] urlData.host | cadena | Longitud máxima: 200 |
+| remoteDependency [0] type | string | Http, Sql,... |
+| remoteDependency [0] url | string |  Max length 2000 |
+| remoteDependency [0] urlData.base | string | Max length 2000 |
+| remoteDependency [0] urlData.hashTag | string | |
+| remoteDependency [0] urlData.host | string | Max length 200 |
 
 
-## Solicitudes
+## <a name="requests"></a>Requests
 
-Enviado por [TrackRequest](app-insights-api-custom-events-metrics.md#track-request). Los módulos estándar usan esto para informar sobre el tiempo de respuesta del servidor, medido en el propio servidor.
+Sent by [TrackRequest](app-insights-api-custom-events-metrics.md#track-request). The standard modules use this to reports server response time, measured at the server. 
 
 
-|Ruta de acceso|Tipo|Notas|
+|Path|Type|Notes|
 |---|---|---|
-| request [0] count | integer | 100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
-| request [0] durationMetric.value | número | Tiempo desde que llega la solicitud hasta la respuesta. 1e7 = 1 s |
-| request [0] id | cadena | Identificador de operación |
-| request [0] name | cadena | GET y POST + dirección url base. Longitud máxima: 250 |
-| request [0] responseCode | integer | Respuesta HTTP enviada al cliente |
-| request [0] success | boolean | Predeterminado == (responseCode &lt; 400) |
-| request [0] url | cadena | No incluye el host |
-| request [0] urlData.base | cadena | |
-| request [0] urlData.hashTag | cadena | |
-| request [0] urlData.host | cadena | |
+| request [0] count | integer | 100/([sampling](app-insights-sampling.md) rate). For example: 4 =&gt; 25%. |
+| request [0] durationMetric.value | number | Time from request arriving to response. 1e7 == 1s |
+| request [0] id | string | Operation id |
+| request [0] name | string | GET/POST + url base.  Max length 250 |
+| request [0] responseCode | integer | HTTP response sent to client |
+| request [0] success | boolean | Default == (responseCode &lt; 400) |
+| request [0] url | string | Not including host |
+| request [0] urlData.base | string | |
+| request [0] urlData.hashTag | string |  |
+| request [0] urlData.host | string | |
 
 
-## Rendimiento de la vista de página
+## <a name="page-view-performance"></a>Page View Performance
 
-Enviado por el explorador. Mide el tiempo que se tarda en procesar una página desde que el usuario inicia la solicitud hasta que aparece por completo (excluidas las llamadas AJAX asincrónicas).
+Sent by the browser. Measures the time to process a page, from user initiating the request to display complete (excluding async AJAX calls).
 
-Los valores de contexto muestran el sistema operativo del cliente y la versión del explorador.
+Context values show client OS and browser version. 
 
 
-|Ruta de acceso|Tipo|Notas|
+|Path|Type|Notes|
 |---|---|---|
-| clientPerformance [0] clientProcess.value | integer | Tiempo transcurrido desde el fin de la recepción del código HTML hasta que se muestra la página. |
-| clientPerformance [0] name | cadena | |
-| clientPerformance [0] networkConnection.value | integer | Tiempo necesario para establecer una conexión de red. |
-| clientPerformance [0] receiveRequest.value | integer | Tiempo transcurrido desde la finalización del envío de la solicitud hasta la recepción del código HTML en la respuesta. |
-| clientPerformance [0] sendRequest.value | integer | Tiempo empleado en enviar la solicitud HTTP. |
-| clientPerformance [0] total.value | integer | Tiempo transcurrido desde que se empieza a enviar la solicitud hasta que se muestra la página. |
-| clientPerformance [0] url | cadena | Dirección URL de esta solicitud |
-| clientPerformance [0] urlData.base | cadena | |
-| clientPerformance [0] urlData.hashTag | cadena | |
-| clientPerformance [0] urlData.host | cadena | |
-| clientPerformance [0] urlData.protocol | cadena | |
+| clientPerformance [0] clientProcess.value | integer | Time from end of receiving the HTML to displaying the page. |
+| clientPerformance [0] name | string | |
+| clientPerformance [0] networkConnection.value | integer | Time taken to establish a network connection. |
+| clientPerformance [0] receiveRequest.value | integer | Time from end of sending the request to receiving the HTML in reply. |
+| clientPerformance [0] sendRequest.value | integer | Time from taken to send the HTTP request. |
+| clientPerformance [0] total.value | integer | Time from starting to send the request to displaying the page. |
+| clientPerformance [0] url | string | URL of this request |
+| clientPerformance [0] urlData.base | string | |
+| clientPerformance [0] urlData.hashTag | string | |
+| clientPerformance [0] urlData.host | string | |
+| clientPerformance [0] urlData.protocol | string | |
 
-## Vistas de página
+## <a name="page-views"></a>Page Views
 
-Enviado por trackPageView() o [stopTrackPage](app-insights-api-custom-events-metrics.md#page-view)
+Sent by trackPageView() or [stopTrackPage](app-insights-api-custom-events-metrics.md#page-view)
 
-|Ruta de acceso|Tipo|Notas|
+|Path|Type|Notes|
 |---|---|---|
-| view [0] count | integer | 100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
-| view [0] durationMetric.value | integer | Valor establecido opcionalmente en trackPageView() o mediante startTrackPage() - stopTrackPage(). No es igual que los valores de clientPerformance. |
-| view [0] name | cadena | Título de la página. Longitud máxima: 250 |
-| view [0] url | cadena | |
-| view [0] urlData.base | cadena | |
-| view [0] urlData.hashTag | cadena | |
-| view [0] urlData.host | cadena | |
+| view [0] count | integer | 100/([sampling](app-insights-sampling.md) rate). For example 4 =&gt; 25%. |
+| view [0] durationMetric.value | integer | Value optionally set in trackPageView() or by startTrackPage() - stopTrackPage(). Not the same as clientPerformance values. |
+| view [0] name | string | Page title.  Max length 250 |
+| view [0] url | string | |
+| view [0] urlData.base | string | |
+| view [0] urlData.hashTag | string | |
+| view [0] urlData.host | string | |
 
 
 
-## Disponibilidad
+## <a name="availability"></a>Availability
 
-Notifica sobre [pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md).
+Reports [availability web tests](app-insights-monitor-web-app-availability.md).
 
-|Ruta de acceso|Tipo|Notas|
+|Path|Type|Notes|
 |---|---|---|
-| availability [0] availabilityMetric.name | cadena | availability |
-| availability [0] availabilityMetric.value | número |1,0 o 0,0 |
-| availability [0] count | integer | 100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
-| availability [0] dataSizeMetric.name | cadena | |
+| availability [0] availabilityMetric.name | string | availability |
+| availability [0] availabilityMetric.value | number |1.0 or 0.0 |
+| availability [0] count | integer | 100/([sampling](app-insights-sampling.md) rate). For example 4 =&gt; 25%. |
+| availability [0] dataSizeMetric.name | string | |
 | availability [0] dataSizeMetric.value | integer | |
-| availability [0] durationMetric.name | cadena | |
-| availability [0] durationMetric.value | número | Duración de la prueba. 1e7 = 1 s |
-| availability [0] message | cadena | Diagnóstico de errores |
-| availability [0] result | cadena | Sin errores/Error |
-| availability [0] runLocation | cadena | Origen geográfica de la solicitud http |
-| availability [0] testName | cadena | |
-| availability [0] testRunId | cadena | |
-| availability [0] testTimestamp | cadena | |
+| availability [0] durationMetric.name | string | |
+| availability [0] durationMetric.value | number | Duration of test. 1e7==1s |
+| availability [0] message | string | Failure diagnostic |
+| availability [0] result | string | Pass/Fail |
+| availability [0] runLocation | string | Geo source of http req |
+| availability [0] testName | string | |
+| availability [0] testRunId | string | |
+| availability [0] testTimestamp | string | |
 
 
 
 
-## Métricas
+## <a name="metrics"></a>Metrics
 
-Generado por TrackMetric().
+Generated by TrackMetric().
 
-El valor de la métrica se encuentra en context.custom.metrics[0].
+The metric value is found in context.custom.metrics[0]
 
-Por ejemplo:
+For example:
 
     {
      "metric": [ ],
@@ -353,9 +355,9 @@ Por ejemplo:
          } ] }
     }
 
-## Acerca de los valores de métrica
+## <a name="about-metric-values"></a>About metric values
 
-Los valores de métrica, tanto en los informes de métrica como en otros lugares, se notifican con una estructura de objeto estándar. Por ejemplo:
+Metric values, both in metric reports and elsewhere, are reported with a standard object structure. For example:
 
       "durationMetric": {
         "name": "contoso.org",
@@ -368,25 +370,31 @@ Los valores de métrica, tanto en los informes de métrica como en otros lugares
         "sampledValue": 468.71603053650279
       }
 
-Actualmente, aunque esto podría cambiar en el futuro, en todos los valores notificados desde los módulos estándar de SDK, `count==1` y solo los campos `name` y `value` son útiles. El único caso donde podrían ser diferentes es si escribe sus propias llamadas de TrackMetric, en cuyo caso establecerá los demás parámetros.
+Currently - though this might change in the future - in all values reported from the standard SDK modules, `count==1` and only the `name` and `value` fields are useful. The only case where they would be different would be if you write your own TrackMetric calls in which you set the other parameters. 
 
-El propósito de los demás campos es permitir que las métricas se agreguen en el SDK, para reducir el tráfico hacia el portal. Por ejemplo, podría hacer el promedio de varias lecturas sucesivas antes de enviar cada informe métrica. A continuación, podría calcular el mínimo, el máximo, la desviación estándar y un valor agregado (suma o promedio) y establecer el recuento en el número de lecturas representado por el informe.
+The purpose of the other fields is to allow metrics to be aggregated in the SDK, to reduce traffic to the portal. For example, you could average several successive readings before sending each metric report. Then you would calculate the min, max, standard deviation and aggregate value (sum or average) and set count to the number of readings represented by the report. 
 
-En las tablas anteriores, hemos omitido los campos usados con poca frecuencia como count, min, max, stdDev y sampledValue.
+In the tables above, we have omitted the rarely-used fields count, min, max, stdDev and sampledValue.
 
-En lugar de la agregación previa de las métricas, puede usar el [muestreo](app-insights-sampling.md) si necesita reducir el volumen de datos de telemetría.
-
-
-### Duraciones
-
-Excepto donde se indique lo contrario, las duraciones se representan en décimas de microsegundo, por lo que 10000000,0 equivalen a 1 segundo.
+Instead of pre-aggregating metrics, you can use [sampling](app-insights-sampling.md) if you need to reduce the volume of telemetry.
 
 
+### <a name="durations"></a>Durations
 
-## Consulte también
+Except where otherwise noted, durations are represented in tenths of a microsecond, so that 10000000.0 means 1 second.
+
+
+
+## <a name="see-also"></a>See also
 
 * [Application Insights](app-insights-overview.md) 
-* [Exportación continua](app-insights-export-telemetry.md)
-* [Ejemplos de código](app-insights-export-telemetry.md#code-samples)
+* [Continuous Export](app-insights-export-telemetry.md)
+* [Code samples](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

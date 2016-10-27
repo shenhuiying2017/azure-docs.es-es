@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (REST) | Microsoft Azure"
-   description="Tareas de PowerShell para administrar la potencia de proceso. Escalado de los recursos de proceso ajustando DWU. Pausar y reanudar recursos de proceso para ahorrar costos."
+   pageTitle="Manage compute power in Azure SQL Data Warehouse (REST) | Microsoft Azure"
+   description="PowerShell tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -16,33 +16,35 @@
    ms.date="08/08/2016"
    ms.author="barbkess;sonyama"/>
 
-# Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (REST)
+
+# <a name="manage-compute-power-in-azure-sql-data-warehouse-(rest)"></a>Manage compute power in Azure SQL Data Warehouse (REST)
 
 > [AZURE.SELECTOR]
-- [Información general](sql-data-warehouse-manage-compute-overview.md)
+- [Overview](sql-data-warehouse-manage-compute-overview.md)
 - [Portal](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
 - [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 
 
-Escale el rendimiento mediante el escalado horizontal de los recursos de proceso y la memoria para satisfacer las necesidades cambiantes de la carga de trabajo. Ahorre costes reduciendo el escalado de los recursos fuera de horas punta o pausando el proceso por completo.
+Scale performance by scaling out compute resources and memory to meet the changing demands of your workload. Save costs by scaling back resources during non-peak times or pausing compute altogether. 
 
-Esta colección de tareas usa el Portal de Azure para:
+This collection of tasks uses the Azure portal to:
 
-- Escalado de proceso
-- Pausa del proceso
-- Reanudación del proceso
+- Scale compute
+- Pause compute
+- Resume compute
 
-Para más información, consulte [Manage compute power overview][] \(Administración de la eficacia de los procesos (información general)).
+To learn about this, see [Manage compute overview][].
 
-<a name="scale-performance-bk"></a> <a name="scale-compute-bk"></a>
+<a name="scale-performance-bk"></a>
+<a name="scale-compute-bk"></a>
 
-## Escalado de la potencia de proceso
+## <a name="scale-compute-power"></a>Scale compute power
 
-[AZURE.INCLUDE [SQL Data Warehouse scale DWUs description (Descripción de escalado de DWU de Almacenamiento de datos SQL)](../../includes/sql-data-warehouse-scale-dwus-description.md)]
+[AZURE.INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
-Para cambiar las DWU, use la API de REST [Crear o actualizar la base de datos][]. En el ejemplo siguiente se establece el objetivo de nivel de servicio en DW1000 para la base de datos MySQLDW que se hospeda en el servidor MyServer. El servidor está en un grupo de recursos de Azure denominado ResourceGroup1.
+To change the DWUs, use the [Create or Update Database][] REST API. The following example sets the service level objective to DW1000 for the database MySQLDW which is hosted on server MyServer. The server is in an Azure resource group named ResourceGroup1.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/MyServer/databases/MySQLDW?api-version=2014-04-01-preview HTTP/1.1
@@ -57,11 +59,11 @@ Content-Type: application/json; charset=UTF-8
 
 <a name="pause-compute-bk"></a>
 
-## Pausa del proceso
+## <a name="pause-compute"></a>Pause compute
 
-[AZURE.INCLUDE [SQL Data Warehouse pause description (Descripción de pausa de Almacenamiento de datos SQL)](../../includes/sql-data-warehouse-pause-description.md)]
+[AZURE.INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
-Para pausar una base de datos, use la API de REST [Pause Database][] \(Pausar la base de datos). El siguiente ejemplo pausa una base de datos denominada Database02 que está hospedada en un servidor llamado Server01. El servidor está en un grupo de recursos de Azure denominado ResourceGroup1.
+To pause a database, use the [Pause Database][] REST API. The following example pauses a database named Database02 hosted on a server named Server01. The server is in an Azure resource group named ResourceGroup1.
 
 ```
 POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/Server01/databases/Database02/pause?api-version=2014-04-01-preview HTTP/1.1
@@ -69,11 +71,11 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 
 <a name="resume-compute-bk"></a>
 
-## Reanudación del proceso
+## <a name="resume-compute"></a>Resume compute
 
-[AZURE.INCLUDE [SQL Data Warehouse resume description (Descripción de reanudación de Almacenamiento de datos SQL)](../../includes/sql-data-warehouse-resume-description.md)]
+[AZURE.INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
-Para iniciar una base de datos, use la API de REST [Resume Database][] \(Reanudar la base de datos). El siguiente ejemplo inicia una base de datos denominada Database02 que está hospedada en un servidor llamado Server01. El servidor está en un grupo de recursos de Azure denominado ResourceGroup1.
+To start a database, use the [Resume Database][] REST API. The following example starts a database named Database02 hosted on a server named Server01. The server is in an Azure resource group named ResourceGroup1. 
 
 ```
 POST https://management.azure.com/subscriptions{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/Server01/databases/Database02/resume?api-version=2014-04-01-preview HTTP/1.1
@@ -81,23 +83,27 @@ POST https://management.azure.com/subscriptions{subscription-id}/resourceGroups/
 
 <a name="next-steps-bk"></a>
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-Para otras tareas de administración, consulte [Management overview][] \(Información general de administración).
+For other management tasks, see [Management overview][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Management overview]: ./sql-data-warehouse-overview-manage.md
-[Manage compute power overview]: ./sql-data-warehouse-manage-compute-overview.md
+[Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 [Pause Database]: https://msdn.microsoft.com/library/azure/mt718817.aspx
 [Resume Database]: https://msdn.microsoft.com/library/azure/mt718820.aspx
-[Crear o actualizar la base de datos]: https://msdn.microsoft.com/library/azure/mt163685.aspx
+[Create or Update Database]: https://msdn.microsoft.com/library/azure/mt163685.aspx
 
 <!--Other Web references-->
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

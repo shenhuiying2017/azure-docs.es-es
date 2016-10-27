@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Cambiar la contraseña del administrador del dispositivo virtual StorSimple | Microsoft Azure"
-   description="Describe cómo usar el Portal de Azure clásico o la interfaz de usuario web de la matriz virtual de StorSimple para cambiar la contraseña del administrador de dispositivos."
+   pageTitle="Change the StorSimple virtual device admin password | Microsoft Azure"
+   description="Describes how to use either the Azure classic portal or the StorSimple Virtual Array web UI to change the device administrator password."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,58 +15,63 @@
    ms.date="06/17/2016"
    ms.author="alkohli" />
 
-# Cambiar la contraseña del administrador de dispositivos de la matriz virtual de StorSimple
 
-## Información general
+# <a name="change-the-storsimple-virtual-array-device-administrator-password"></a>Change the StorSimple Virtual Array device administrator password
 
-Cuando se usa la interfaz de Windows PowerShell para tener acceso al dispositivo virtual StorSimple, se le pedirá que escriba una contraseña del administrador de dispositivos. Cuando el dispositivo StorSimple se aprovisione e inicie por primera vez, la contraseña predeterminada es *Password1*. Para la seguridad de los datos, la contraseña predeterminada caduca la primera vez que inicia sesión y deberá cambiar esta contraseña.
+## <a name="overview"></a>Overview
 
-También puede utilizar la interfaz de usuario web local o el Portal de Azure clásico para cambiar la contraseña del administrador de dispositivos en cualquier momento después de que el dispositivo se implemente en el entorno de producción. En este artículo se describe cada uno de estos procedimientos.
+When you use the Windows PowerShell interface to access the StorSimple virtual device, you are required to enter a device administrator password. When the StorSimple device is first provisioned and started, the default password is *Password1*. For the security of your data, the default password expires the first time that you sign in and you are required to change this password.
 
-## Utilizar el Portal de Azure clásico para cambiar la contraseña
+You can also use either the local web UI or the Azure classic portal to change the device administrator password at any time after the device is deployed in  your production environment. Each of these procedures is described in this article.
 
-Realice los pasos siguientes para cambiar la contraseña del administrador de dispositivos a través del Portal de Azure clásico.
+## <a name="use-the-azure-classic-portal-to-change-the-password"></a>Use the Azure classic portal to change the password
 
-#### Para cambiar la contraseña del administrador de dispositivos a través del Portal de Azure clásico
+Perform the following steps to change the device administrator password through the Azure classic portal.
 
-1. En el portal, haga clic en **Dispositivos** > **Configuración** para el dispositivo.
+#### <a name="to-change-the-device-administrator-password-via-the-azure-classic-portal"></a>To change the device administrator password via the Azure classic portal
 
-2. Desplácese hacia abajo a la sección **Contraseña de administrador de dispositivos**. Proporcione una contraseña de administrador que tenga entre 8 y 15 caracteres. La contraseña debe ser una combinación de caracteres en mayúsculas, minúsculas, números y caracteres especiales.
+1. In the portal, click **Devices** > **Configuration** for your device.
 
-3. Confirme la contraseña.
+2. Scroll down to the **Device Administrator Password** section. Provide an administrator password that contains from 8 to 15 characters. The password must be a combination of uppercase, lowercase, numeric, and special characters.
 
-4. Haga clic en **Guardar** en la parte inferior de la página.
+3. Confirm the password.
 
-Ahora debe actualizarse la contraseña del administrador de dispositivos. Puede usar esta contraseña modificada para tener acceso al dispositivo de forma local.
+4. Click **Save** at the bottom of the page.
 
-## Utilizar la interfaz de usuario web de la matriz virtual de StorSimple para cambiar la contraseña
+The device administrator password should now be updated. You can use this modified password to access the device locally.
 
-Realice los pasos siguientes para cambiar la contraseña del administrador de dispositivos a través de la interfaz de usuario web local.
+## <a name="use-the-storsimple-virtual-array-web-ui-to-change-the-password"></a>Use the StorSimple Virtual Array web UI to change the password
 
-#### Para cambiar la contraseña del administrador de dispositivos a través de la interfaz de usuario web local
+Perform the following steps to change the device administrator password through the local web UI.
 
-1. En la interfaz de usuario de web local, haga clic en **Mantenimiento** > **Cambio de contraseña** para el dispositivo.
+#### <a name="to-change-the-device-administrator-password-via-the-local-web-ui"></a>To change the device administrator password via the local web UI
 
-    ![cambiar password1](./media/storsimple-ova-change-device-admin-password/image40.png)
+1. In the local web UI, click **Maintenance** > **Password change** for your device.
 
-2. Escriba la **Contraseña actual**.
+    ![change password1](./media/storsimple-ova-change-device-admin-password/image40.png)
 
-3. Introduzca una **Nueva contraseña**. La contraseña debe tener al menos 8 caracteres. Debe contener 3 de 4 de los siguientes requisitos: caracteres en mayúsculas, minúsculas, números y caracteres especiales.
+2. Enter the **Current password**.
 
-    Tenga en cuenta que la contraseña no puede ser la misma que ninguna de las 24 últimas contraseñas.
+3. Provide a **New Password**. The password must be at least 8 characters long. It must contain 3 of 4 of the following: uppercase, lowercase, numeric, and special characters.
 
-3. Vuelva a escribir la contraseña para confirmarla.
+    Note that your password cannot be the same as the last 24 passwords.
 
-    ![cambiar password2](./media/storsimple-ova-change-device-admin-password/image41.png)
+3. Reenter the password to confirm it.
 
-4. En la parte inferior de la página, haga clic en **Aplicar**. A continuación, se aplicará la nueva contraseña. Si el cambio de contraseña no se realiza correctamente, verá el siguiente error.
+    ![change password2](./media/storsimple-ova-change-device-admin-password/image41.png)
 
-    ![error de contraseña](./media/storsimple-ova-change-device-admin-password/image42.png)
+4. At the bottom of the page, click **Apply**. The new password will then be applied. If the password change is not successful, you will see the following error.
 
-    Después de que la contraseña se haya actualizado correctamente, se le notificará. A continuación, puede usar esta contraseña modificada para tener acceso al dispositivo de forma local.
+    ![password error](./media/storsimple-ova-change-device-admin-password/image42.png)
 
-## Pasos siguientes
+    After the password is successfully updated, you will be notified. You can then use this modified password to access the device locally.
 
-Obtenga más información sobre la [administración de la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0622_2016-->
+Learn more about [administering your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

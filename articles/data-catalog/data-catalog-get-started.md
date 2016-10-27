@@ -1,369 +1,379 @@
 <properties
-	pageTitle="Introducción al Catálogo de datos | Microsoft Azure"
-	description="Tutorial integral que muestra los escenarios y las funcionalidades del Catálogo de datos de Azure."
-	documentationCenter=""
-	services="data-catalog"
-	authors="steelanddata"
-	manager=""
-	editor=""
-	tags=""/>
+    pageTitle="Get started with Data Catalog | Microsoft Azure"
+    description="End-to-end tutorial presenting the scenarios and capabilities of Azure Data Catalog."
+    documentationCenter=""
+    services="data-catalog"
+    authors="steelanddata"
+    manager=""
+    editor=""
+    tags=""/>
 <tags
-	ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="09/20/2016"
-	ms.author="spelluru"/>
+    ms.service="data-catalog"
+    ms.devlang="NA"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="data-catalog"
+    ms.date="09/20/2016"
+    ms.author="spelluru"/>
 
-# Introducción al Catálogo de datos de Azure
-El Catálogo de datos de Azure es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección para recursos de datos empresariales. Si desea información detallada, consulte [¿Qué es el Catálogo de datos de Azure](data-catalog-what-is-data-catalog.md).
 
-Este tutorial le ayudará a empezar a trabajar con el Catálogo de datos de Azure. En este tutorial, se realizan los siguientes procedimientos:
+# <a name="get-started-with-azure-data-catalog"></a>Get started with Azure Data Catalog
+Azure Data Catalog is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data assets. For a detailed overview, see [What is Azure Data Catalog](data-catalog-what-is-data-catalog.md).
 
-| Procedimiento | Descripción |
+This tutorial helps you get started with Azure Data Catalog. You perform the following procedures in this tutorial:
+
+| Procedure | Description |
 | :--- | :---------- |
-| [Aprovisionamiento del catálogo de datos](#provision-data-catalog) | En este procedimiento, se aprovisiona o se configura Azure Data Catalog. Este paso solo se realiza si el catálogo no se ha configurado antes. Solo puede haber un catálogo de datos por organización (dominio de Microsoft Azure Active Directory), aunque haya varias suscripciones asociadas a su cuenta de Azure. |
-| [Registro de los recursos de datos](#register-data-assets) | En este procedimiento, se registran los recursos de datos de la base de datos de ejemplo AdventureWorks2014 con el catálogo de datos. Registro es el proceso de extraer metadatos estructurales clave (como nombres, tipos y ubicaciones) del origen de datos, y copiar esos metadatos en el catálogo. El origen de datos y los recursos de datos permanecen donde están, pero el catálogo usa los metadatos para que se puedan detectar y comprender más fácilmente. |
-| [Detección de los recursos de datos](#discover-data-assets) | En este procedimiento, se usa el portal de Azure Data Catalog para detectar los recursos de datos que se registraron en el paso anterior. Cuando un origen de datos se haya registrado en el Catálogo de datos de Azure, el servicio indexa sus metadatos, con el fin de que los usuarios puedan buscar fácilmente los datos que necesitan. |
-| [Anotación de los recursos de datos](#annotate-data-assets) | En este procedimiento, se proporcionan anotaciones (información como descripciones, etiquetas, documentación o expertos) para los recursos de datos. Esta información complementa los metadatos extraídos del origen de datos y hace que más personas comprendan mejor el origen de datos. |
-| [Conexión con los recursos de datos](#connect-to-data-assets) | En este procedimiento se abren los recursos de datos en herramientas de cliente integradas (como Excel y SQL Server Data Tools) y en una herramienta no integrada (SQL Server Management Studio). |
-| [Administración de recursos de datos](#manage-data-assets) | En este procedimiento, se configura la seguridad de los recursos de datos. Catálogo de datos no ofrece a los usuarios acceso a los mismos datos. El propietario del origen de datos controla el acceso a los datos. <br/><br/>Con Catálogo de datos se pueden detectar los orígenes de datos y ver los **metadatos** relacionados con los orígenes registrados en el catálogo. Sin embargo, puede haber situaciones en las que solo determinados usuarios o miembros de grupos concretos deberían poder ver los orígenes de datos. Para estos escenarios, Catálogo de datos se puede usar para tomar propiedad de los recursos de datos registrados en el catálogo y controlar la visibilidad de los recursos que se poseen. |
-| [Eliminación de los recursos de datos](#remove-data-assets) | En este procedimiento se aprende a quitar los recursos de datos del catálogo de datos. |  
+| [Provision data catalog](#provision-data-catalog) | In this procedure, you provision or set up Azure Data Catalog. You do this step only if the catalog has not been set up before. You can have only one data catalog per organization (Microsoft Azure Active Directory domain) even though there are multiple subscriptions associated with your Azure account. |
+| [Register data assets](#register-data-assets) | In this procedure, you register data assets from the AdventureWorks2014 sample database with the data catalog. Registration is the process of extracting key structural metadata such as names, types, and locations from the data source and copying that metadata to the catalog. The data source and data assets remain where they are, but the metadata is used by the catalog to make them more easily discoverable and understandable. |
+| [Discover data assets](#discover-data-assets) | In this procedure, you use the Azure Data Catalog portal to discover data assets that were registered in the previous step. After a data source has been registered with Azure Data Catalog, its metadata is indexed by the service so that users can easily search for the data they need. |
+| [Annotate data assets](#annotate-data-assets) | In this procedure, you provide annotations (information such as descriptions, tags, documentation, or experts) for the data assets. This information supplements the metadata extracted from the data source, and to make the data source more understandable to more people. |
+| [Connect to data assets](#connect-to-data-assets) | In this procedure, you open data assets in integrated client tools (such as Excel and SQL Server Data Tools) and a non-integrated tool (SQL Server Management Studio). |
+| [Manage data assets](#manage-data-assets) | In this procedure, you set up security for your data assets. Data Catalog does not give users access to the data itself. The owner of the data source controls data access. <br/><br/> With Data Catalog, you can discover data sources and view the **metadata** related to the sources registered in the catalog. There may be situations, however, where data sources should be visible only to specific users or to members of specific groups. For these scenarios, you can use Data Catalog to take ownership of registered data assets within the catalog and control the visibility of the assets you own. |
+| [Remove data assets](#remove-data-assets) | In this procedure, you learn how to remove data assets from the data catalog. |  
 
-## Requisitos previos de tutoriales
+## <a name="tutorial-prerequisites"></a>Tutorial prerequisites
 
-### Suscripción de Azure
-Para configurar el Catálogo de datos de Azure, debe ser propietario o copropietario de una suscripción de Azure.
+### <a name="azure-subscription"></a>Azure subscription
+To set up Azure Data Catalog, you must be the owner or co-owner of an Azure subscription.
 
-Las suscripciones de Azure le ayudan a organizar el acceso a los recursos de servicio en la nube como Catálogo de datos de Azure. También le ayudan a controlar cómo se informa, factura y paga el uso de recursos. Cada suscripción puede tener una configuración de facturación y pago diferente, por lo que puede tener varias suscripciones y planes diferentes por departamento, proyecto, oficina regional, etc. Cada servicio en la nube pertenece a una suscripción, y debe tener una suscripción para poder configurar el Catálogo de datos de Azure. Para más información, consulte [Administración de cuentas, suscripciones y roles administrativos](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+Azure subscriptions help you organize access to cloud service resources like Azure Data Catalog. They also help you control how resource usage is reported, billed, and paid for. Each subscription can have a different billing and payment setup, so you can have different subscriptions and different plans by department, project, regional office, and so on. Every cloud service belongs to a subscription, and you need to have a subscription before setting up Azure Data Catalog. To learn more, see [Manage accounts, subscriptions, and administrative roles](../active-directory/active-directory-how-subscriptions-associated-directory.md).
 
-Si no tiene una suscripción, puede crear una cuenta de prueba gratuita en tan solo un par de minutos. Para más información, consulte [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
+If you don't have a subscription, you can create a free trial account in just a couple of minutes. See [Free Trial](https://azure.microsoft.com/pricing/free-trial/) for details.
 
-### Azure Active Directory
-Para configurar el Catálogo de datos de Azure, debe haber iniciado sesión con una cuenta de usuario de Azure Active Directory (Azure AD). Debe ser propietario o copropietario de una suscripción de Azure.
+### <a name="azure-active-directory"></a>Azure Active Directory
+To set up Azure Data Catalog, you must be signed in with an Azure Active Directory (Azure AD) user account. You must be the owner or co-owner of an Azure subscription.  
 
-Azure AD proporciona una manera fácil de que cualquier empresa pueda administrar la identidad y el acceso, tanto en la nube como de forma local. Puede usar una única cuenta profesional o educativa para iniciar sesión en cualquier aplicación web en la nube o local. Catálogo de datos de Azure usa Azure AD para autenticar el inicio de sesión. Para más información, consulte [¿Qué es Azure Active Directory?](../active-directory/active-directory-whatis.md)
+Azure AD provides an easy way for your business to manage identity and access, both in the cloud and on-premises. You can use a single work or school account to sign in to any cloud or on-premises web application. Azure Data Catalog uses Azure AD to authenticate sign-in. To learn more, see [What is Azure Active Directory](../active-directory/active-directory-whatis.md).
 
-### Configuración de directivas de Azure Active Directory
+### <a name="azure-active-directory-policy-configuration"></a>Azure Active Directory policy configuration
 
-Se puede dar el caso de que pueda iniciar sesión en el portal del Catálogo de datos de Azure, pero al intentar iniciar sesión en la herramienta de registro de orígenes de datos, se mostrará un mensaje de error que le impedirá hacerlo. Dicho error puede aparecer cuando se utiliza la red de la empresa o cuando la conexión se realiza desde fuera de la red de la empresa.
+You may encounter a situation where you can sign in to the Azure Data Catalog portal, but when you attempt to sign in to the data source registration tool, you encounter an error message that prevents you from signing in. This error may occur when you are on the company network or when you are connecting from outside the company network.
 
-La herramienta de registro usa la *autenticación de formularios* para validar los inicios de sesión de usuario en Azure Active Directory. Para que el inicio de sesión sea correcto, un administrador de Azure Active Directory tiene que habilitar la autenticación de formularios en la *directiva de autenticación global*.
+The registration tool uses *forms authentication* to validate user sign-ins against Azure Active Directory. For successful sign-in, an Azure Active Directory administrator must enable forms authentication in the *global authentication policy*.
 
-Con la directiva de autenticación global se puede habilitar la autenticación de forma independiente para las conexiones de extranet y de intranet, como se muestra en la siguiente imagen. Pueden producirse errores de inicio de sesión si no está habilitada la autenticación de formularios en la red desde la que se conecta.
+With the global authentication policy, you can enable authentication separately for intranet and extranet connections, as shown in the following image. Sign-in errors may occur if forms authentication is not enabled for the network from which you're connecting.
 
- ![Directiva de autenticación global de Azure Active Directory](./media/data-catalog-prerequisites/global-auth-policy.png)
+ ![Azure Active Directory global authentication policy](./media/data-catalog-prerequisites/global-auth-policy.png)
 
-Para más información, consulte [Configuración de directivas de autenticación](https://technet.microsoft.com/library/dn486781.aspx).
+For more information, see [Configuring authentication policies](https://technet.microsoft.com/library/dn486781.aspx).
 
-## Aprovisionamiento del catálogo de datos
-Solo se puede aprovisionar un catálogo de datos por organización (dominio de Azure Active Directory). Por consiguiente, si el propietario o copropietario de una suscripción de Azure que pertenezca a dicho dominio de Active Directory ya ha creado un catálogo, no podrá volver a crear otro, aunque tenga varias suscripciones de Azure. Para comprobar si algún usuario ha creado un catálogo de datos en un dominio de Azure Active Directory, vaya a la [página principal de Azure Data Catalog](http://azuredatacatalog.com) y compruebe si ve un catálogo. Si ya hay un catálogo creado, omita el siguiente procedimiento y vaya a la siguiente sección.
+## <a name="provision-data-catalog"></a>Provision data catalog
+You can provision only one data catalog per organization (Azure Active Directory domain). Therefore, if the owner or co-owner of an Azure subscription who belongs to this Azure Active Directory domain has already created a catalog, you will not be able to create a catalog again even if you have multiple Azure subscriptions. To test whether a data catalog has been created by a user in your Azure Active Directory domain, go to the [Azure Data Catalog home page](http://azuredatacatalog.com) and verify whether you see the catalog. If a catalog has already been created for you, skip the following procedure and go to the next section.    
 
-1. Vaya a la [página del servicio Data Catalog](https://azure.microsoft.com/services/data-catalog) y haga clic en **Introducción**.
+1. Go to the [Data Catalog service page](https://azure.microsoft.com/services/data-catalog) and click **Get started**.
 
-	![Catálogo de datos de Azure: página de aterrizaje de marketing](media/data-catalog-get-started/data-catalog-marketing-landing-page.png)
-2. Inicie sesión con la cuenta de un usuario que sea el propietario o copropietario de una suscripción de Azure. Tras iniciar sesión verá la página siguiente.
+    ![Azure Data Catalog--marketing landing page](media/data-catalog-get-started/data-catalog-marketing-landing-page.png)
+2. Sign in with a user account that is the owner or co-owner of an Azure subscription. You see the following page after signing in.
 
-	![Catálogo de datos de Azure: aprovisionamiento del catálogo de datos](media/data-catalog-get-started/data-catalog-create-azure-data-catalog.png)
-3. Especifique el **nombre** del catálogo de datos, la **suscripción** que desea utilizar y la **ubicación** del catálogo.
-4. Expanda **Precios** y seleccione una **edición** de Azure Data Catalog (Gratis o Estándar). ![Catálogo de datos de Azure: selección de edición](media/data-catalog-get-started/data-catalog-create-catalog-select-edition.png)
-5. Expanda **Usuarios de catálogo** y haga clic en **Agregar** para agregar usuarios al catálogo de datos. Se le agregará automáticamente a este grupo. ![Catálogo de datos de Azure: usuarios](media/data-catalog-get-started/data-catalog-add-catalog-user.png)
-6. Expanda **Administradores de catálogo** y haga clic en **Agregar** para agregar más administradores al catálogo de datos. Se le agregará automáticamente a este grupo. ![Catálogo de datos de Azure: administradores](media/data-catalog-get-started/data-catalog-add-catalog-admins.png)
-7. Haga clic en **Crear catálogo** para crear el catálogo de datos de la organización. Una vez que el catálogo de datos se haya creado verá su página principal. ![Catálogo de datos de Azure: creado](media/data-catalog-get-started/data-catalog-created.png)
+    ![Azure Data Catalog--provision data catalog](media/data-catalog-get-started/data-catalog-create-azure-data-catalog.png)
+3. Specify a **name** for the data catalog, the **subscription** you want to use, and the **location** for the catalog.
+4. Expand **Pricing** and select an Azure Data Catalog **edition** (Free or Standard).
+    ![Azure Data Catalog--select edition](media/data-catalog-get-started/data-catalog-create-catalog-select-edition.png)
+5. Expand **Catalog Users** and click **Add** to add users for the data catalog. You are automatically added to this group.
+    ![Azure Data Catalog--users](media/data-catalog-get-started/data-catalog-add-catalog-user.png)
+6. Expand **Catalog Administrators** and click **Add** to add additional administrators for the data catalog. You are automatically added to this group.
+    ![Azure Data Catalog--administrators](media/data-catalog-get-started/data-catalog-add-catalog-admins.png)
+7. Click **Create Catalog** to create the data catalog for your organization. You see the home page for the data catalog after it is created.
+    ![Azure Data Catalog--created](media/data-catalog-get-started/data-catalog-created.png)    
 
-### Búsqueda de un catálogo de datos en el Portal de Azure
-1. En otra pestaña o en otra ventana del explorador web, vaya al [Azure Portal](https://portal.azure.com) e inicie sesión con la misma cuenta que usó para crear el catálogo de datos en el paso anterior.
-2. Seleccione **Examinar** y, luego, haga clic en **Catálogo de datos**.
+### <a name="find-a-data-catalog-in-the-azure-portal"></a>Find a data catalog in the Azure portal
+1. On a separate tab in the web browser or in a separate web browser window, go to the [Azure portal](https://portal.azure.com) and sign in with the same account that you used to create the data catalog in the previous step.
+2. Select **Browse** and then click **Data Catalog**.
 
-	![Catálogo de datos de Azure: exploración de Azure](media/data-catalog-get-started/data-catalog-browse-azure-portal.png) Verá el catálogo de datos que ha creado.
+    ![Azure Data Catalog--browse Azure](media/data-catalog-get-started/data-catalog-browse-azure-portal.png) You see the data catalog you created.
 
-	![Catálogo de datos de Azure: visualización de catálogo en lista](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
-4.  Haga clic en el catálogo que ha creado. Verá la hoja **Catálogo de datos** en el portal.
+    ![Azure Data Catalog--view catalog in list](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
+4.  Click the catalog that you created. You see the **Data Catalog** blade in the portal.
 
-	![Catálogo de datos de Azure: hoja en el portal](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
-5. Puede ver las propiedades del catálogo de datos y actualizarlas. Por ejemplo, haga clic en **Plan de tarifa** y cambie la edición.
+    ![Azure Data Catalog--blade in portal ](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
+5. You can view properties of the data catalog and update them. For example, click **Pricing tier** and change the edition.
 
-	![Catálogo de datos de Azure: plan de tarifa](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
+    ![Azure Data Catalog--pricing tier](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
 
-### Base de datos de ejemplo Adventure Works
-En este tutorial, registrará recursos de datos (tablas) de la base de datos de ejemplo Adventure Works2014 para el motor de base de datos de SQL Server, pero puede usar cualquier origen de datos compatible si prefiere trabajar con datos que conozca y que sean relevantes para su rol. Para ver una lista de los orígenes de datos compatibles, consulte [Orígenes de datos compatibles con Azure Data Catalog](data-catalog-dsr.md).
+### <a name="adventure-works-sample-database"></a>Adventure Works sample database
+In this tutorial, you register data assets (tables) from the AdventureWorks2014 sample database for the SQL Server Database Engine, but you can use any supported data source if you would prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
 
-### Instalación de la base de datos Adventure Works 2014 OLTP
-La base de datos Adventure Works admite escenarios de procesamiento de transacciones en línea estándar para un fabricante de bicicletas ficticio (Adventure Works Cycles), que incluyen productos, ventas y compras. En este tutorial registrará información acerca de los productos en Azure Data Catalog.
+### <a name="install-the-adventure-works-2014-oltp-database"></a>Install the Adventure Works 2014 OLTP database
+The Adventure Works database supports standard online transaction-processing scenarios for a fictitious bicycle manufacturer (Adventure Works Cycles), which includes products, sales, and purchasing. In this tutorial, you register information about products into Azure Data Catalog.
 
-Para instalar la base de datos de ejemplo Adventure Works:
+To install the Adventure Works sample database:
 
-1. Descargue el archivo [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661) en CodePlex.
-2. Para restaurar la base de datos en su máquina, siga las instrucciones de [Restore a Database Backup Using SSMS](http://msdn.microsoft.com/library/ms177429.aspx) (Restauración de una base de datos mediante SSMS) o realice estos pasos:
-	1. Abra SQL Server Management Studio y conéctese al motor de base de datos de SQL Server.
-	2. Haga clic con el botón derecho en **Bases de datos** y seleccione **Restaurar base de datos**.
-	3. En **Restaurar base de datos**, haga clic en la opción **Dispositivo** de **Origen** y luego en **Examinar**.
-	4. En **Seleccionar dispositivos de copia de seguridad**, haga clic en **Agregar**.
-	5. Vaya a la carpeta en la que tenga el archivo **AdventureWorks2014.bak**, selecciónelo y haga clic en **Aceptar** para cerrar el cuadro de diálogo **Buscar archivo de copia de seguridad**.
-	6. Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Seleccionar dispositivos de copia de seguridad**.
-	7. Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Restaurar base de datos**.
+1. Download [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661) on CodePlex.
+2. To restore the database on your machine, follow the instructions in [Restore a Database Backup by using SQL Server Management Studio](http://msdn.microsoft.com/library/ms177429.aspx), or by following these steps:
+    1. Open SQL Server Management Studio and connect to the SQL Server Database Engine.
+    2. Right-click **Databases** and click **Restore Database**.
+    3. Under **Restore Database**, click the **Device** option for **Source** and click **Browse**.
+    4. Under **Select backup devices**, click **Add**.
+    5. Go to the folder where you have the **AdventureWorks2014.bak** file, select the file, and click **OK** to close the **Locate Backup File** dialog box.
+    6. Click **OK** to close the **Select backup devices** dialog box.    
+    7. Click **OK** to close the **Restore Database** dialog box.
 
-Ya puede registrar recursos de datos de la base de datos de ejemplo Adventure Works mediante Catálogo de datos de Azure.
+You can now register data assets from the Adventure Works sample database by using Azure Data Catalog.
 
-## Registro de los recursos de datos
+## <a name="register-data-assets"></a>Register data assets
 
-En este ejercicio se usa la herramienta de registro para registrar los recursos de datos de la base de datos Adventure Works en el catálogo. El registro es el proceso de extraer metadatos estructurales clave (como nombres, tipos y ubicaciones) del origen de datos y los recursos que contiene, y copiar dichos metadatos en el catálogo. El origen de datos y los recursos de datos permanecen donde están, pero el catálogo usa los metadatos para que se puedan detectar y comprender más fácilmente.
+In this exercise, you use the registration tool to register data assets from the Adventure Works database with the catalog. Registration is the process of extracting key structural metadata such as names, types, and locations from the data source and the assets it contains, and copying that metadata to the catalog. The data source and data assets remain where they are, but the metadata is used by the catalog to make them more easily discoverable and understandable.
 
-### Registro de un origen de datos
+### <a name="register-a-data-source"></a>Register a data source
 
-1.	Vaya a la [página principal de Azure Data Catalog](https://azuredatacatalog.com) y haga clic en **Publicar datos**.
+1.  Go to the [Azure Data Catalog home page](https://azuredatacatalog.com) and click **Publish Data**.
 
-    ![Catálogo de datos de Azure: botón Publicar datos](media/data-catalog-get-started/data-catalog-publish-data.png)
+    ![Azure Data Catalog--Publish Data button](media/data-catalog-get-started/data-catalog-publish-data.png)
 
-2.	Haga clic en **Iniciar aplicación** para descargar, instalar y ejecutar la herramienta de registro en el equipo.
+2.  Click **Launch Application** to download, install, and run the registration tool on your computer.
 
-    ![Catálogo de datos de Azure: botón Iniciar](media/data-catalog-get-started/data-catalog-launch-application.png)
+    ![Azure Data Catalog--Launch button](media/data-catalog-get-started/data-catalog-launch-application.png)
 
-3. En la página **principal**, haga clic en **Iniciar sesión** y escriba sus credenciales.
+3. On the **Welcome** page, click **Sign in** and enter your credentials.    
 
-	![Catálogo de datos de Azure: página principal](media/data-catalog-get-started/data-catalog-welcome-dialog.png)
+    ![Azure Data Catalog--Welcome page](media/data-catalog-get-started/data-catalog-welcome-dialog.png)
 
-4. En la página **Microsoft Azure Data Catalog**, haga clic en **SQL Server** y en **Siguiente**.
+4. On the **Microsoft Azure Data Catalog** page, click **SQL Server** and **Next**.
 
-    ![Catálogo de datos de Azure: orígenes de datos](media/data-catalog-get-started/data-catalog-data-sources.png)
+    ![Azure Data Catalog--data sources](media/data-catalog-get-started/data-catalog-data-sources.png)
 
-5.	Especifique las propiedades de la conexión de SQL Server para **AdventureWorks2014** (consulte el ejemplo siguiente) y haga clic en **CONECTAR**.
+5.  Enter the SQL Server connection properties for **AdventureWorks2014** (see the following example) and click **CONNECT**.
 
-    ![Catálogo de datos de Azure: configuración de conexión con SQL Server](media/data-catalog-get-started/data-catalog-sql-server-connection.png)
+    ![Azure Data Catalog--SQL Server connection settings](media/data-catalog-get-started/data-catalog-sql-server-connection.png)
 
-6.	Registre los metadatos del recurso de datos. En este ejemplo, registre los objetos de **Production/Product** desde el espacio de nombres Production de AdventureWorks:
+6.  Register the metadata of your data asset. In this example, you register **Production/Product** objects from the AdventureWorks Production namespace:
 
-	1. En el árbol **Jerarquía de servidor**, expanda **AdventureWorks2014** y haga clic en **Production**.
-	2. Seleccione **Product**, **ProductCategory**, **ProductDescription** y **ProductPhoto** mediante Ctrl + clic.
-	3. Haga clic en la **flecha de movimiento de selección** (**>**). Esta acción mueve todos los objetos seleccionados a la lista **Objetos que se registrarán**.
+    1. In the **Server Hierarchy** tree, expand **AdventureWorks2014** and click **Production**.
+    2. Select **Product**, **ProductCategory**, **ProductDescription**, and **ProductPhoto** by using Ctrl+click.
+    3. Click the **move selected arrow** (**>**). This action moves all selected objects into the **Objects to be registered** list.
 
-    	![Catálogo de datos de Azure: examen o selección de objetos](media/data-catalog-get-started/data-catalog-server-hierarchy.png)
-	4. Seleccione **Include a Preview** (Incluir vista previa) para incluir una vista previa de instantánea de los datos. La instantánea incluye hasta 20 registros de cada tabla y se copia en el catálogo.
-	5. Seleccione **Incluir perfil de datos** para incluir una instantánea de las estadísticas del objeto del perfil de datos (por ejemplo: los valores mínimo, máximo y medio de una columna, o el número de filas).
-	6. En **Agregar etiquetas**, escriba **adventure works, cycles**. Esta acción agrega etiquetas de búsqueda a estos recursos de datos. Las etiquetas son una excelente manera de ayudar a los usuarios a buscar un origen de datos registrados.
-	7. Especifique el nombre de un **experto** en estos datos (opcional).
+        ![Azure Data Catalog tutorial--browse and select objects](media/data-catalog-get-started/data-catalog-server-hierarchy.png)
+    4. Select **Include a Preview** to include a snapshot preview of the data. The snapshot includes up to 20 records from each table, and it is copied into the catalog.
+    5. Select **Include Data Profile** to include a snapshot of the object statistics for the data profile (for example: minimum, maximum, and average values for a column, number of rows).
+    6. In the **Add tags** field, enter **adventure works, cycles**. This action adds search tags for these data assets. Tags are a great way to help users find a registered data source.
+    7. Specify the name of an **expert** on this data (optional).
 
-    	![Catálogo de datos de Azure: objetos que se registran](media/data-catalog-get-started/data-catalog-objects-register.png)
+        ![Azure Data Catalog tutorial--objects to be registered](media/data-catalog-get-started/data-catalog-objects-register.png)
 
-	8. Haga clic en **REGISTRAR**. Catálogo de datos de Azure registra los objetos seleccionados. En este ejercicio, se registran los objetos seleccionados de Adventure Works. La herramienta de registro extrae metadatos del recurso de datos y los copia en el servicio Catálogo de datos de Azure. Los datos permanecen donde residen en ese momento y quedan bajo el control de los administradores y las directivas del sistema actual.
+    8. Click **REGISTER**. Azure Data Catalog registers your selected objects. In this exercise, the selected objects from Adventure Works are registered. The registration tool extracts metadata from the data asset and copies that data into the Azure Data Catalog service. The data remains where it currently resides, and it remains under the control of the administrators and policies of the current system.
 
-		![Catálogo de datos de Azure: objetos registrados](media/data-catalog-get-started/data-catalog-registered-objects.png)
+        ![Azure Data Catalog--registered objects](media/data-catalog-get-started/data-catalog-registered-objects.png)
 
-	9. Para ver los objetos de origen de datos registrados, haga clic en **Ver portal**. En el portal del Catálogo de datos de Azure, confirme que ve las cuatro tablas y la base de datos en la vista de cuadrícula.
+    9. To see your registered data source objects, click **View Portal**. In the Azure Data Catalog portal, confirm that you see all four tables and the database in the grid view.
 
-    	![Objetos del portal del Catálogo de datos de Azure](media/data-catalog-get-started/data-catalog-view-portal.png)
+        ![Objects in the Azure Data Catalog portal ](media/data-catalog-get-started/data-catalog-view-portal.png)
 
 
-En este ejercicio ha registrado objetos de la base de datos de ejemplo Adventure Works para que los usuarios de la organización puedan detectarlos fácilmente. En el siguiente ejercicio aprenderá a detectar recursos de datos registrados.
+In this exercise, you registered objects from the Adventure Works sample database so that they can be easily discovered by users across your organization. In the next exercise, you learn how to discover registered data assets.
 
-## Detección de los recursos de datos
-La detección en el Catálogo de datos de Azure usa dos mecanismos principales: la búsqueda y el filtrado.
+## <a name="discover-data-assets"></a>Discover data assets
+Discovery in Azure Data Catalog uses two primary mechanisms: searching and filtering.
 
-La búsqueda está diseñada para ser intuitiva y eficaz. De forma predeterminada, los términos de la búsqueda se comparan todas las propiedades del catálogo, incluidas las anotaciones proporcionadas por el usuario.
+Searching is designed to be both intuitive and powerful. By default, search terms are matched against any property in the catalog, including user-provided annotations.
 
-El filtrado está diseñado para complementar la búsqueda. Puede seleccionar características específicas como expertos, tipos de origen de datos, tipos de objeto y etiquetas, para ver los recursos de datos que coincidan y para restringir los resultados de la búsqueda a los recursos correspondientes.
+Filtering is designed to complement searching. You can select specific characteristics such as experts, data source type, object type, and tags to view matching data assets and to constrain search results to matching assets.
 
-Con una combinación de la búsqueda y el filtrado, puede navegar rápidamente a través de los orígenes de datos registrados con el Catálogo de datos de Azure para detectar los recursos de datos que necesita.
+By using a combination of searching and filtering, you can quickly navigate the data sources that have been registered with Azure Data Catalog to discover the data assets you need.
 
-En este ejercicio se usa el portal de Azure Data Catalog para detectar los recursos de datos que registró en el ejercicio anterior. Para más información acerca de la sintaxis de búsqueda, consulte [Referencia de sintaxis de búsqueda en Data Catalog](https://msdn.microsoft.com/library/azure/mt267594.aspx).
+In this exercise, you use the Azure Data Catalog portal to discover data assets you registered in the previous exercise. See [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx) for details about search syntax.
 
-A continuación hay varios ejemplos de detección de recursos de datos en el catálogo.
+Following are a few examples for discovering data assets in the catalog.  
 
-### Detección de recursos de datos con la búsqueda básica
-La búsqueda básica permite buscar en un catálogo con uno o varios términos de búsqueda. Los resultados son los recursos que tienen alguna propiedad que coincide con uno o varios de los términos especificados.
+### <a name="discover-data-assets-with-basic-search"></a>Discover data assets with basic search
+Basic search helps you search a catalog by using one or more search terms. Results are any assets that match on any property with one or more of the terms specified.
 
-1. Haga clic en **Inicio** en el portal del Azure Data Catalog. Si ha cerrado el explorador web, vaya a la [página principal de Azure Data Catalog](https://www.azuredatacatalog.com).
-2. En el cuadro de búsqueda, escriba `cycles` y presione **ENTRAR**.
+1. Click **Home** in the Azure Data Catalog portal. If you have closed the web browser, go to the [Azure Data Catalog home page](https://www.azuredatacatalog.com).
+2. In the search box, enter `cycles` and press **ENTER**.
 
-	![Catálogo de datos de Azure: búsqueda de texto básica](media/data-catalog-get-started/data-catalog-basic-text-search.png)
-3. Confirme que ve las cuatro tablas y la base de datos (AdventureWorks2014) en los resultados. Para alternar entre la **vista de cuadrícula** y la **vista de lista**, haga clic en los botones de la barra de herramientas, como se muestra en la siguiente imagen. Observe que la palabra clave de la búsqueda aparece resaltada en los resultados de la búsqueda, ya que la opción **Resaltar** está **activada**. También puede especificar el número de **resultados por página**.
+    ![Azure Data Catalog--basic text search](media/data-catalog-get-started/data-catalog-basic-text-search.png)
+3. Confirm that you see all four tables and the database (AdventureWorks2014) in the results. You can switch between **grid view** and **list view** by clicking buttons on the toolbar as shown in the following image. Notice that the search keyword is highlighted in the search results because the **Highlight** option is **ON**. You can also specify the number of **results per page** in search results.
 
-	![Catálogo de datos de Azure: resultados de búsqueda de texto básica](media/data-catalog-get-started/data-catalog-basic-text-search-results.png)
+    ![Azure Data Catalog--basic text search results](media/data-catalog-get-started/data-catalog-basic-text-search-results.png)
 
-	El panel **Búsquedas** está a la izquierda, mientras que el panel **Propiedades** a la derecha. En panel **Búsquedas** se pueden cambiar los criterios de búsqueda y filtrar los resultados. El panel **Propiedades** muestra las propiedades de un objeto seleccionado en la cuadrícula o en la lista.
+    The **Searches** panel is on the left and the **Properties** panel is on the right. On the **Searches** panel, you can change search criteria and filter results. The **Properties** panel displays properties of a selected object in the grid or list.
 
-4. Haga clic en **Product** en los resultados de la búsqueda. Haga clic en las pestañas **Vista previa**, **Columnas**, **Perfil de datos**, y **Documentación**, o bien haga clic en la flecha para expandir el panel inferior.
+4. Click **Product** in the search results. Click the **Preview**, **Columns**, **Data Profile**, and **Documentation** tabs, or click the arrow to expand the bottom pane.  
 
-	![Catálogo de datos de Azure: panel inferior](media/data-catalog-get-started/data-catalog-data-asset-preview.png)
+    ![Azure Data Catalog--bottom pane](media/data-catalog-get-started/data-catalog-data-asset-preview.png)
 
-	En la pestaña **Vista previa**, se ve una vista previa de los datos de la tabla **Product**.
-5. Haga clic en la pestaña **Columnas** para buscar detalles de las columnas (como el **nombre** y el **tipo de datos**) en el recurso de datos.
-6. Haga clic en la pestaña **Perfil de datos** para ver la generación de perfiles de los datos (por ejemplo: número de filas, tamaño de los datos o valor mínimo de una columna) en el recurso de datos.
-7. Filtre los resultados con la pestaña **Filtros** de la izquierda. Por ejemplo, haga clic en **Tabla** en **Tipo de objeto** y verá solo las cuatro tablas, no la base de datos.
+    On the **Preview** tab, you see a preview of the data in the **Product** table.  
+5. Click the **Columns** tab to find details about columns (such as **name** and **data type**) in the data asset.
+6. Click the **Data Profile** tab to see the profiling of data (for example: number of rows, size of data, or minimum value in a column) in the data asset.
+7. Filter the results by using **Filters** on the left. For example, click **Table** for **Object Type**, and you see only the four tables, not the database.
 
-	![Catálogo de datos de Azure: resultados de búsqueda con filtro](media/data-catalog-get-started/data-catalog-filter-search-results.png)
+    ![Azure Data Catalog--filter search results](media/data-catalog-get-started/data-catalog-filter-search-results.png)
 
-### Detección de recursos de datos con ámbito de propiedad
-El ámbito de una propiedad le ayuda a detectar recursos de datos en los que el término de búsqueda coincide con la propiedad especificada.
+### <a name="discover-data-assets-with-property-scoping"></a>Discover data assets with property scoping
+Property scoping helps you discover data assets where the search term is matched with the specified property.
 
-1. Desactive el filtro **Tabla** en **Tipo de objeto** en **Filtros**.
-2. En el cuadro de búsqueda, escriba `tags:cycles` y presione **ENTRAR**. En [Referencia de sintaxis de búsqueda en Data Catalog](https://msdn.microsoft.com/library/azure/mt267594.aspx) encontrará todas las propiedades que se pueden usar en las búsquedas en el catálogo de datos.
-3. Confirme que ve las cuatro tablas y la base de datos (AdventureWorks2014) en los resultados.
+1. Clear the **Table** filter under **Object Type** in **Filters**.  
+2. In the search box, enter `tags:cycles` and press **ENTER**. See [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx) for all the properties you can use for searching the data catalog.
+3. Confirm that you see all four tables and the database (AdventureWorks2014) in the results.  
 
-	![Catálogo de datos: resultados de búsqueda de ámbito de propiedad](media/data-catalog-get-started/data-catalog-property-scoping-results.png)
+    ![Data Catalog--property scoping search results](media/data-catalog-get-started/data-catalog-property-scoping-results.png)
 
-### Guardado de una búsqueda
-1. En el panel **Búsquedas** de la sección **Búsqueda actual**, escriba el nombre de la búsqueda y haga clic en **Guardar**.
+### <a name="save-the-search"></a>Save the search
+1. In the **Searches** pane in the **Current Search** section, enter a name for the search and click **Save**.
 
-	![Catálogo de datos de Azure: guardado de búsqueda](media/data-catalog-get-started/data-catalog-save-search.png)
-2. Confirme que la búsqueda guardada se muestra en **Búsquedas guardadas**.
+    ![Azure Data Catalog--save search](media/data-catalog-get-started/data-catalog-save-search.png)
+2. Confirm that the saved search shows up under **Saved Searches**.
 
-	![Catálogo de datos de Azure: búsquedas guardadas](media/data-catalog-get-started/data-catalog-saved-search.png)
-3. Seleccione una de las acciones que puede realizar en la búsqueda guardada (**Cambiar nombre**, **Eliminar**, **Guardar como predeterminado**).
+    ![Azure Data Catalog--saved searches](media/data-catalog-get-started/data-catalog-saved-search.png)
+3. Select one of the actions you can take on the saved search (**Rename**, **Delete**, **Save As Default** search).
 
-	![Catálogo de datos de Azure: opciones de búsquedas guardadas](media/data-catalog-get-started/data-catalog-saved-search-options.png)
+    ![Azure Data Catalog--saved search options](media/data-catalog-get-started/data-catalog-saved-search-options.png)
 
-### Operadores booleanos
-Cualquier búsqueda puede ampliarse o restringirse con operadores booleanos.
+### <a name="boolean-operators"></a>Boolean operators
+You can broaden or narrow your search with Boolean operators.
 
-1. En el cuadro de búsqueda, escriba `tags:cycles AND objectType:table` y presione **ENTRAR**.
-2. Confirme que en los resultados solo ve tablas (no la base de datos).
+1. In the search box, enter `tags:cycles AND objectType:table`, and press **ENTER**.
+2. Confirm that you see only tables (not the database) in the results.  
 
-	![Catálogo de datos de Azure: operador booleano en búsqueda](media/data-catalog-get-started/data-catalog-search-boolean-operator.png)
+    ![Azure Data Catalog--Boolean operator in search](media/data-catalog-get-started/data-catalog-search-boolean-operator.png)
 
-### Agrupación con paréntesis
-Mediante los paréntesis se pueden agrupar partes de la consulta para conseguir el aislamiento lógico, especialmente junto con los operadores booleanos.
+### <a name="grouping-with-parentheses"></a>Grouping with parentheses
+By grouping with parentheses, you can group parts of the query to achieve logical isolation, especially along with Boolean operators.
 
-1. En el cuadro de búsqueda, escriba `name:product AND (tags:cycles AND objectType:table)` y presione **ENTRAR**.
-2. Confirme que en los resultados de la búsqueda solo ve la tabla **Product**.
+1. In the search box, enter `name:product AND (tags:cycles AND objectType:table)` and press **ENTER**.
+2. Confirm that you see only the **Product** table in the search results.
 
-	![Catálogo de datos de Azure: búsqueda con agrupación](media/data-catalog-get-started/data-catalog-grouping-search.png)
+    ![Azure Data Catalog--grouping search](media/data-catalog-get-started/data-catalog-grouping-search.png)   
 
-### Operadores de comparación
-Con los operadores de comparación puede usar comparaciones diferentes de la igualdad de propiedades que tengan tipos de datos numéricos y de fechas.
+### <a name="comparison-operators"></a>Comparison operators
+With comparison operators, you can use comparisons other than equality for properties that have numeric and date data types.
 
-1. En el cuadro de búsqueda, escriba `lastRegisteredTime:>"06/09/2016"`.
-2. Desactive el filtro **Tabla** en **Tipo de objeto**.
-3. Presione **ENTRAR**.
-4. Confirme que ve las tablas **Product**, **ProductCategory**, **ProductDescription** y **ProductPhoto**, y la base de datos AdventureWorks2014 que registró en los resultados de la búsqueda.
+1. In the search box, enter `lastRegisteredTime:>"06/09/2016"`.
+2. Clear the **Table** filter under **Object Type**.
+3. Press **ENTER**.
+4. Confirm that you see the **Product**, **ProductCategory**, **ProductDescription**, and **ProductPhoto** tables and the AdventureWorks2014 database you registered in search results.
 
-	![Catálogo de datos de Azure: resultados de búsqueda con comparación](media/data-catalog-get-started/data-catalog-comparison-operator-results.png)
+    ![Azure Data Catalog--comparison search results](media/data-catalog-get-started/data-catalog-comparison-operator-results.png)
 
-Consulte [Detección de recursos de datos](data-catalog-how-to-discover.md) para obtener información detallada acerca de la detección de recursos de datos y [Referencia de sintaxis de búsqueda en Data Catalog](https://msdn.microsoft.com/library/azure/mt267594.aspx) para conocer la sintaxis de búsqueda.
+See [How to discover data assets](data-catalog-how-to-discover.md) for detailed information about discovering data assets and [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx) for search syntax.
 
-## Anotación de los recursos de datos
-En este ejercicio, usará el portal del Catálogo de datos de Azure para anotar (agregar información como descripciones, etiquetas o expertos) los recursos de datos que ha registrado anteriormente en el catálogo. Las anotaciones complementan y mejoran los metadatos estructurales extraídos del origen de datos durante el registro y hace que los recursos de datos sean mucho más fáciles de detectar y entender.
+## <a name="annotate-data-assets"></a>Annotate data assets
+In this exercise, you use the Azure Data Catalog portal to annotate (add information such as descriptions, tags, or experts) data assets you have previously registered in the catalog. The annotations supplement and enhance the structural metadata extracted from the data source during registration and makes the data assets much easier to discover and understand.
 
-En este ejercicio, se anota un único recurso de datos (ProductPhoto). y se agrega un nombre descriptivo y una descripción al recurso de datos ProductPhoto.
+In this exercise, you annotate a single data asset (ProductPhoto). You add a friendly name and description to the ProductPhoto data asset.  
 
-1.  Vaya a la [página principal de Azure Data Catalog](https://www.azuredatacatalog.com) y busque con `tags:cycles` para encontrar los recursos de datos que ha registrado.
-2. Haga clic en **ProductPhoto** en los resultados de la búsqueda.
-3. Escriba **Product images** en **Nombre descriptivo** y **Product photos for marketing materials** en **Descripción**.
+1.  Go to the [Azure Data Catalog home page](https://www.azuredatacatalog.com) and search with `tags:cycles` to find the data assets you have registered.  
+2. Click **ProductPhoto** in search results.  
+3. Enter **Product images** for **Friendly Name** and **Product photos for marketing materials** for the **Description**.
 
-	![Catálogo de datos de Azure: descripción de ProductPhoto](media/data-catalog-get-started/data-catalog-productphoto-description.png)
+    ![Azure Data Catalog--ProductPhoto description](media/data-catalog-get-started/data-catalog-productphoto-description.png)
 
-	El contenido del campo **Descripción** ayuda a otros usuarios a detectar el recurso de datos seleccionado y entender por qué y cómo se usa. También se pueden agregar otras etiquetas y ver columnas. Ya puede intentar buscar y filtrar para detectar recursos de datos mediante los metadatos descriptivos que haya agregado al catálogo.
+    The **Description** helps others discover and understand why and how to use the selected data asset. You can also add more tags and view columns. Now you can try searching and filtering to discover data assets by using the descriptive metadata you’ve added to the catalog.
 
-Tenga en cuenta que en esta página también se pueden realizar estas otras acciones:
+You can also do the following on this page:
 
-- Agregar a expertos para el recurso de datos. Haga clic en **Agregar** en el área **Expertos**.
-- Agregar etiquetas en el nivel de conjunto de datos. Haga clic en **Agregar** en el área **Etiquetas**. Una etiqueta puede ser una etiqueta de usuario o una etiqueta de glosario. La edición estándar del Catálogo de datos incluye un glosario empresarial que ayuda a los administradores del catálogo a definir una taxonomía empresarial central. Después, los usuarios del catálogo pueden anotar los recursos de datos con los términos del glosario. Para más información, consulte [Configuración del glosario empresarial para el etiquetado regulado](data-catalog-how-to-business-glossary.md)
-- Agregar etiquetas a nivel de columna. Haga clic en **Agregar** en **Etiquetas** para la columna en la que desee realizar anotaciones.
-- Agregar descripción en el nivel de columna. En **Descripción**, escriba la descripción de la columna. También puede ver los metadatos de descripción extraídos del origen de datos.
-- Agregue la información de **Solicitar acceso** que muestra a los usuarios cómo solicitar acceso al recurso de datos.
+- Add experts for the data asset. Click **Add** in the **Experts** area.
+- Add tags at the dataset level. Click **Add** in the **Tags** area. A tag can be a user tag or a glossary tag. The Standard Edition of Data Catalog includes a business glossary that helps catalog administrators define a central business taxonomy. Catalog users can then annotate data assets with glossary terms. For more information, see [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md)
+- Add tags at the column level. Click **Add** under **Tags** for the column you want to annotate.
+- Add description at the column level. Enter **Description** for a column. You can also view the description metadata extracted from the data source.
+- Add **Request access** information that shows users how to request access to the data asset.
 
-	![Catálogo de datos de Azure: incorporación de etiquetas y descripciones](media/data-catalog-get-started/data-catalog-add-tags-experts-descriptions.png)
+    ![Azure Data Catalog--add tags, descriptions](media/data-catalog-get-started/data-catalog-add-tags-experts-descriptions.png)
 
-- Elija la pestaña **Documentación** y proporcione la documentación del recurso de datos. Con la documentación del Catálogo de datos de Azure se puede usar un catálogo de datos como repositorio de contenido para crear una descripción completa de los recursos de datos.
+- Choose the **Documentation** tab and provide documentation for the data asset. With Azure Data Catalog documentation, you can use your data catalog as a content repository to create a complete narrative of your data assets.
 
-	![Catálogo de datos de Azure: pestaña Documentación](media/data-catalog-get-started/data-catalog-documentation.png)
+    ![Azure Data Catalog--Documentation tab](media/data-catalog-get-started/data-catalog-documentation.png)
 
 
-También puede agregar una anotación a varios recursos de datos. Por ejemplo, puede seleccionar todos los recursos de datos que ha registrado y especificar un experto para ellos.
+You can also add an annotation to multiple data assets. For example, you can select all the data assets you registered and specify an expert for them.
 
-![Catálogo de datos de Azure: anotación de varios recursos de datos](media/data-catalog-get-started/data-catalog-multi-select-annotate.png)
+![Azure Data Catalog--annotate multiple data assets](media/data-catalog-get-started/data-catalog-multi-select-annotate.png)
 
-Catálogo de datos de Azure admite un enfoque de colaboración abierta distribuida con respecto a las anotaciones. Esto conlleva que cualquier usuario de Catálogo de datos puede agregar etiquetas (usuario o glosario), descripciones y otros metadatos. Por tanto, cualquier usuario con una perspectiva sobre un recurso de datos y su uso puede capturar dicha perspectiva para que esté disponible para otros usuarios.
+Azure Data Catalog supports a crowd-sourcing approach to annotations. Any Data Catalog user can add tags (user or glossary), descriptions, and other metadata, so that any user with a perspective on a data asset and its use can have that perspective captured and available to other users.
 
-Consulte [Anotación de recursos de datos](data-catalog-how-to-annotate.md) para ver información detallada acerca de cómo anotar recursos de datos.
+See [How to annotate data assets](data-catalog-how-to-annotate.md) for detailed information about annotating data assets.
 
-## Conexión con los recursos de datos
-En este ejercicio, se abren recursos de datos en una herramienta cliente integrada (Excel) y en una herramienta no integrada (SQL Server Management Studio) mediante la información de conexión.
+## <a name="connect-to-data-assets"></a>Connect to data assets
+In this exercise, you open data assets in an integrated client tool (Excel) and a non-integrated tool (SQL Server Management Studio) by using connection information.
 
-> [AZURE.NOTE] Es importante recordar que Azure Data Catalog no brinda acceso al origen de datos en sí, simplemente facilita su detección y comprensión. Al conectarse a un origen de datos, la aplicación cliente que elija usa sus credenciales de Windows o le solicita las credenciales cuando sea necesario. Si no se le ha otorgado previamente acceso al origen de datos, será preciso que se le otorgue para que se pueda conectar.
+> [AZURE.NOTE] It’s important to remember that Azure Data Catalog doesn’t give you access to the actual data source—it simply makes it easier for you to discover and understand it. When you connect to a data source, the client application you choose uses your Windows credentials or prompts you for credentials as necessary. If you have not previously been granted access to the data source, you need to be granted access before you can connect.
 
-### Conexión a un recurso de datos desde Excel
+### <a name="connect-to-a-data-asset-from-excel"></a>Connect to a data asset from Excel
 
-1. Seleccione **Product** en los resultados de la búsqueda. Haga clic en **Abrir en** en la barra de herramientas y, a continuación, en **Excel**.
+1. Select **Product** from search results. Click **Open In** on the toolbar and click **Excel**.
 
-    ![Catálogo de datos de Azure: conexión a recurso de datos](media/data-catalog-get-started/data-catalog-connect1.png)
-2. Haga clic en **Abrir** en la ventana emergente de descarga. Este proceso puede variar en función del explorador.
+    ![Azure Data Catalog--connect to data asset](media/data-catalog-get-started/data-catalog-connect1.png)
+2. Click **Open** in the download pop-up window. This experience may vary depending on the browser.
 
-	![Catálogo de datos de Azure: archivo de conexión de Excel descargado](media/data-catalog-get-started/data-catalog-download-open.png)
-3. En la ventana **Aviso de seguridad de Microsoft Excel**, haga clic en **Habilitar**.
+    ![Azure Data Catalog--downloaded Excel connection file](media/data-catalog-get-started/data-catalog-download-open.png)
+3. In the **Microsoft Excel Security Notice** window, click **Enable**.
 
-	![Catálogo de datos de Azure: mensaje emergente de seguridad de Excel](media/data-catalog-get-started/data-catalog-excel-security-popup.png)
-4. Mantenga los valores predeterminados del cuadro de diálogo **Importar datos** y haga clic en **Aceptar**.
+    ![Azure Data Catalog--Excel security popup](media/data-catalog-get-started/data-catalog-excel-security-popup.png)
+4. Keep the defaults in the **Import Data** dialog box and click **OK**.
 
-	![Catálogo de datos de Azure: datos de importación de Excel](media/data-catalog-get-started/data-catalog-excel-import-data.png)
-5. Vea el origen de datos en Excel.
+    ![Azure Data Catalog--Excel import data](media/data-catalog-get-started/data-catalog-excel-import-data.png)
+5. View the data source in Excel.
 
-    ![Catálogo de datos de Azure: tabla de producto en Excel](media/data-catalog-get-started/data-catalog-connect2.png)
+    ![Azure Data Catalog--product table in Excel](media/data-catalog-get-started/data-catalog-connect2.png)
 
-En este ejercicio se ha conectado a los recursos de datos detectados mediante Azure Data Catalog. Con el portal de Azure Data Catalog, puede conectarse directamente mediante las aplicaciones cliente integradas en el menú **Abrir en**. También puede conectarse con cualquier aplicación que elija mediante la información de la ubicación de la conexión incluida en los metadatos del recurso. Por ejemplo, puede utilizar SQL Server Management Studio para conectarse a la base de datos AdventureWorks2014 para acceder a los datos de los recursos de datos registrados en este tutorial.
+In this exercise, you connected to data assets discovered by using Azure Data Catalog. With the Azure Data Catalog portal, you can connect directly by using the client applications integrated into the **Open in** menu. You can also connect with any application you choose by using the connection location information included in the asset metadata. For example, you can use SQL Server Management Studio to connect to the AdventureWorks2014 database to access the data in the data assets registered in this tutorial.
 
-1. Abra **SQL Server Management Studio**.
-2. En el cuadro de diálogo **Conectar con el servidor** escriba el nombre del servidor desde el panel **Propiedades** del portal de Azure Data Catalog.
-3. Use la autenticación y las credenciales apropiadas para acceder al recurso de datos. Si no tiene acceso, utilice la información del campo **Solicitar acceso** para obtenerla.
+1. Open **SQL Server Management Studio**.
+2. In the **Connect to Server** dialog box, enter the server name from the **Properties** pane in the Azure Data Catalog portal.
+3. Use appropriate authentication and credentials to access the data asset. If you don't have access, use information in the **Request Access** field to get it.
 
-	![Catálogo de datos de Azure: solicitud de acceso](media/data-catalog-get-started/data-catalog-request-access.png)
+    ![Azure Data Catalog--request access](media/data-catalog-get-started/data-catalog-request-access.png)
 
-Haga clic en **Ver cadenas de conexión** para ver y copiar las cadenas de conexión ADF.NET, ODBC y OLEDB en el Portapapeles para utilizarlas en la aplicación.
+Click **View Connection Strings** to view and copy ADF.NET, ODBC, and OLEDB connection strings to the clipboard for use in your application.
 
-## Administración de recursos de datos
-En este paso, verá cómo se configura la seguridad de los recursos de datos. Catálogo de datos no ofrece a los usuarios acceso a los mismos datos. El propietario del origen de datos controla el acceso a los datos.
+## <a name="manage-data-assets"></a>Manage data assets
+In this step, you see how to set up security for your data assets. Data Catalog does not give users access to the data itself. The owner of the data source controls data access.
 
-Catálogo de datos se puede usar para detectar los orígenes de datos y ver los metadatos relacionados con los orígenes registrados en el catálogo. Sin embargo, puede haber situaciones en las que los orígenes de datos solo deben verlos determinados usuarios o miembros de grupos concretos. Para estos escenarios, Catálogo de datos se puede usar para tomar propiedad de los recursos de datos registrados en el catálogo y, posteriormente, controlar la visibilidad de los recursos que se poseen.
+You can use Data Catalog to discover data sources and to view the metadata related to the sources registered in the catalog. There may be situations, however, where data sources should only be visible to specific users or to members of specific groups. For these scenarios, you can use Data Catalog to take ownership of registered data assets within the catalog, and to then control the visibility of the assets you own.
 
-> [AZURE.NOTE] Las funcionalidades de administración descritas en este ejercicio solo están disponibles en la edición estándar del Catálogo de datos de Azure, no en la edición gratuita. En Catálogo de datos de Azure, puede tomar propiedad de los recursos de datos, agregar copropietarios a los recursos de datos y establecer la visibilidad de los recursos de datos.
+> [AZURE.NOTE] The management capabilities described in this exercise are available only in the Standard Edition of Azure Data Catalog, not in the Free Edition.
+In Azure Data Catalog, you can take ownership of data assets, add co-owners to data assets, and set the visibility of data assets.
 
-### Toma de propiedad de los recursos de datos y restricción de la visibilidad
+### <a name="take-ownership-of-data-assets-and-restrict-visibility"></a>Take ownership of data assets and restrict visibility
 
-1. Vaya a la [página principal de Azure Data Catalog](https://www.azuredatacatalog.com). En el cuadro de texto **Buscar**, escriba `tags:cycles` y presione **ENTRAR**.
-2. Haga clic en un elemento de la lista de resultados y haga clic en **Tomar propiedad** en la barra de herramientas.
-3. En la sección **Administración** del panel **Propiedades**, haga clic en **Tomar propiedad**.
+1. Go to the [Azure Data Catalog home page](https://www.azuredatacatalog.com). In the **Search** text box, enter `tags:cycles` and press **ENTER**.
+2. Click an item in the result list and click **Take Ownership** on the toolbar.
+3. In the **Management** section of the **Properties** panel, click **Take Ownership**.
 
-	![Catálogo de datos de Azure: toma de propiedad](media/data-catalog-get-started/data-catalog-take-ownership.png)
-4. Para restringir la visibilidad, elija **Propietarios y estos usuarios** en la sección **Visibilidad** y haga clic en **Agregar**. Escriba las direcciones de correo electrónico de los usuarios en el cuadro de texto y presione **ENTRAR**.
+    ![Azure Data Catalog--take ownership](media/data-catalog-get-started/data-catalog-take-ownership.png)
+4. To restrict visibility, choose **Owners & These Users** in the **Visibility** section and click **Add**. Enter user email addresses in the text box and press **ENTER**.
 
-    ![Catálogo de datos de Azure: restricción de acceso](media/data-catalog-get-started/data-catalog-ownership.png)
+    ![Azure Data Catalog--restrict access](media/data-catalog-get-started/data-catalog-ownership.png)
 
-## Eliminación de los recursos de datos
+## <a name="remove-data-assets"></a>Remove data assets
 
-En este ejercicio se usa el portal de Azure Data Catalog para quitar los datos de vista previa de los recursos de datos registrados y eliminar los recursos de datos del catálogo.
+In this exercise, you use the Azure Data Catalog portal to remove preview data from registered data assets and delete data assets from the catalog.
 
-En Azure Data Catalog se pueden eliminar uno o varios recursos.
+In Azure Data Catalog, you can delete an individual asset or delete multiple assets.
 
-1. Vaya a la [página principal de Azure Data Catalog](https://www.azuredatacatalog.com).
-2. En el cuadro de texto **Buscar**, escriba `tags:cycles` y haga clic en **ENTRAR**.
-3. Seleccione un elemento de la lista de resultados y haga clic en **Eliminar** en la barra de herramientas, como se muestra en la siguiente imagen:
+1. Go to the [Azure Data Catalog home page](https://www.azuredatacatalog.com).
+2. In the **Search** text box, enter `tags:cycles` and click **ENTER**.
+3. Select an item in the result list and click **Delete** on the toolbar as shown in the following image:
 
-	![Catálogo de datos de Azure: eliminación de elemento de cuadrícula](media/data-catalog-get-started/data-catalog-delete-grid-item.png)
+    ![Azure Data Catalog--delete grid item](media/data-catalog-get-started/data-catalog-delete-grid-item.png)
 
-	Si utiliza la vista de lista, la casilla está a la izquierda del elemento, como se muestra en la siguiente imagen:
+    If you are using the list view, the check box is to the left of the item as shown in the following image:
 
-	![Catálogo de datos de Azure: eliminación de elemento de lista](media/data-catalog-get-started/data-catalog-delete-list-item.png)
+    ![Azure Data Catalog--delete list item](media/data-catalog-get-started/data-catalog-delete-list-item.png)
 
-	También puede seleccionar varios recursos de datos y eliminarlos, según se muestra en la siguiente imagen:
+    You can also select multiple data assets and delete them as shown in the following image:
 
-	![Catálogo de datos de Azure: eliminación de varios recursos de datos](media/data-catalog-get-started/data-catalog-delete-assets.png)
+    ![Azure Data Catalog--delete multiple data assets](media/data-catalog-get-started/data-catalog-delete-assets.png)
 
 
-> [AZURE.NOTE] El comportamiento predeterminado del catálogo es permitir que cualquier usuario registre cualquier origen de datos y permitir que cualquier usuario elimine cualquier recurso de datos que se haya registrado. Las funcionalidades de administración que se incluyen en la edición estándar del Catálogo de datos de Azure proporcionan más opciones para la toma de propiedad de los recursos, ya que restringen quiénes puede detectar y eliminar los recursos.
+> [AZURE.NOTE] The default behavior of the catalog is to allow any user to register any data source, and to allow any user to delete any data asset that has been registered. The management capabilities included in the Standard Edition of Azure Data Catalog provide additional options for taking ownership of assets, restricting who can discover assets, and restricting who can delete assets.
 
 
-## Resumen
+## <a name="summary"></a>Summary
 
-En este tutorial ha explorado las funcionalidades esenciales del Catálogo de datos de Azure, entre las que se incluyen el registro, la anotación, la detección y la administración de recursos de datos empresariales. Ahora que ha completado el tutorial, ha llegado el momento de comenzar. Puede empezar hoy mismo por registrar los orígenes de datos en los que confían usted y su equipo, e invitando a compañeros a usar el catálogo.
+In this tutorial, you explored essential capabilities of Azure Data Catalog, including registering, annotating, discovering, and managing enterprise data assets. Now that you’ve completed the tutorial, it’s time to get started. You can begin today by registering the data sources you and your team rely on, and by inviting colleagues to use the catalog.
 
-## Referencias
+## <a name="references"></a>References
 
-- [Registro de recursos de datos](data-catalog-how-to-register.md)
-- [Detección de recursos de datos](data-catalog-how-to-discover.md)
-- [Anotación de recursos de datos](data-catalog-how-to-annotate.md)
-- [Documentación de recursos de datos](data-catalog-how-to-documentation.md)
-- [Conexión a recursos de datos](data-catalog-how-to-connect.md)
-- [Cómo administrar recursos de datos](data-catalog-how-to-manage.md)
+- [How to register data assets](data-catalog-how-to-register.md)
+- [How to discover data assets](data-catalog-how-to-discover.md)
+- [How to annotate data assets](data-catalog-how-to-annotate.md)
+- [How to document data assets](data-catalog-how-to-documentation.md)
+- [How to connect to data assets](data-catalog-how-to-connect.md)
+- [How to manage data assets](data-catalog-how-to-manage.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Solución de problemas comunes de soporte técnico de publicador | Microsoft Azure"
-   description="Conozca cómo solucionar problemas comunes de soporte técnico de publicador y cómo obtener soporte técnico."
+   pageTitle="How to troubleshoot common publisher support issues | Microsoft Azure"
+   description="Understand how to troubleshoot common publisher support issues and how to get support"
    services="marketplace-publishing"
    documentationCenter="na"
    authors="v-jeana"
@@ -16,99 +16,100 @@
       ms.date="09/21/2016"
       ms.author="v-jeana; hascipio; v-dabosl"/>
 
-# Solución de problemas comunes de publicador de Azure Marketplace
-En este artículo se explica cómo resolver u obtener soporte técnico para algunos escenarios comunes de Marketplace.
 
-## Abonos y reembolsos
+# <a name="how-to-troubleshoot-common-azure-marketplace-publisher-issues"></a>How to troubleshoot common Azure Marketplace publisher issues
+This article explains how to resolve or get support for some common Marketplace scenarios.
 
-En algunas circunstancias, puede que necesite solicitar un abono o un reembolso en nombre de un cliente. El servicio de soporte técnico de Microsoft puede ayudar a que las solicitudes de abono y reembolso del cliente se tengan en cuenta y se reciba respuesta a su debido tiempo.
+## <a name="credits-and-refunds"></a>Credits and refunds
 
-A continuación se muestra cómo solicitar un abono o un reembolso en nombre de un cliente.
+In some circumstances, you may need to request a credit or a refund on behalf of a customer.  Microsoft Support can help ensure that your customer’s credit and refund requests are considered and that a response is provided to you in due course.
 
-> [AZURE.NOTE] Si un cliente o distribuidor de Azure se pone en contacto con Microsoft para solicitar un reembolso o un abono, aplicaremos las mismas directivas que usamos para los servicios de Azure que ofrecemos. Si nuestras directivas indican que un abono o reembolso es pagadero, emitiremos de manera anticipada (y usted nos autorizará para que lo hagamos en su nombre) un abono o reembolso al cliente o distribuidor de Azure, según proceda. En cambio, si nuestras directivas no indican que un reembolso o abono es pagadero, instaremos al cliente o distribuidor de Azure a que se ponga en contacto con usted directamente.
+The following shows you how to request a credit or refund on behalf of a customer.
 
-  ![1\_RequestRefund][1]
+> [AZURE.NOTE] If a customer or Azure reseller contacts Microsoft to request a refund or credit, we will apply the same policies that we use for our provision of Azure services. If our policies indicate that a refund or credit is due, we will proactively issue (and you authorize us to issue on your behalf) a refund or credit to the customer or Azure reseller, as applicable. If our policies do not indicate that a refund or credit is due, we may invite the customer or Azure reseller to contact you directly.
 
-  1. Visite las páginas de soporte técnico aquí: [https://support.microsoft.com/es-ES/getsupport?tenant=ClassicCommercial&locale=es-ES&supportregion=es-ES&pesid=15635&sd=&oaspworkflow=start\_1.0.0.0&wf=0&ccsid=635562546535117884](https://support.microsoft.com/es-ES/getsupport?tenant=ClassicCommercial&locale=es-ES&supportregion=es-ES&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884).
-  2. En el cuadro **Tipo de problema**, seleccione **Administración de clientes**.
-  3. En el cuadro **Categoría**, seleccione **Aprobar o solicitar una devolución del cliente**.
-  4. Haga clic en **Solicitud de inicio**.
+  ![1_RequestRefund][1]
 
-  ![2\_RequestRefund][2]
+  1. Navigate to the support pages here: [https://support.microsoft.com/en-us/getsupport?tenant=ClassicCommercial&locale=en-us&supportregion=en-us&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884](https://support.microsoft.com/en-us/getsupport?tenant=ClassicCommercial&locale=en-us&supportregion=en-us&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884).
+  2. In the **Problem type** box, select **Managing Customers**.
+  3. In the **Category** box, select **Approve or request a customer refund**.
+  4. Click **Start request**.
 
-5. Ofrecer la información de contacto.
-6. En el cuadro **¿Cuál es el problema?**, escriba la siguiente información:
+  ![2_RequestRefund][2]
 
-    - Identificador de suscripción del cliente afectado
-    - Nombre del cliente
-    - A cuánto asciende el abono
-    - Período del abono
-    - Fecha de factura de ese período
-    - Motivo del abono
+5. Provide contact information.
+6. In the **What is the issue?** box, enter the following information:
 
-Antes de 24 horas, recibirá un correo electrónico de confirmación de que hemos recibido la información. Una vez tomada una decisión con respecto a su solicitud, se le informará del resultado.
+    - The subscription ID of the impacted customer
+    - The customer name
+    - How much the credit should be for
+    - The period of the credit
+    - The bill date of that period
+    - The reason for the credit
 
-## Validación de la suscripción de cliente
+You will then receive an acknowledgement email within 24 hours that we have received your information. After a decision has been made in relation to your request, you will be informed of the outcome.
 
-En algunas circunstancias, puede que necesite validar los detalles de suscripción para uno de sus clientes. Puede ponerse en contacto con el servicio de soporte técnico de Microsoft para que le ayude con esto. El servicio de soporte técnico de Microsoft le ayudará a confirmar que un identificador de suscripción y la dirección de facturación pertenecen a un cliente conocido.
+## <a name="customer-subscription-validation"></a>Customer subscription validation
+
+In some circumstances, you may need to validate the subscription details for one of your customers. You can contact Microsoft Support to help with this. Microsoft Support will help to confirm that a subscription ID and billing address belong to a known customer.
 
   ![subscriptionvalidation][3]
 
-- Es posible que un cliente se ponga en contacto para solicitar soporte técnico.
-- Tal vez no sepa cómo validar que el cliente sea un cliente legítimo de una oferta.
-- Puede registrar una solicitud de soporte técnico para solicitar la validación de la suscripción de cliente.
-- Tendrá que proporcionar un identificador de la suscripción y la dirección de facturación del cliente.
-- Microsoft se comunicará con usted para confirmarle que conocemos la dirección de facturación y el identificador de la suscripción.
+- A customer may contact you requesting support.
+- You may not know how to validate that a customer is a genuine customer for an offer.
+- You can log a support request to request customer subscription validation.
+- You will need to provide a customer subscription ID and billing address.
+- Microsoft will contact you to provide confirmation that the billing address and subscription ID are known to us.
 
 
-## ¿Cómo puedo actualizar mi perfil de publicador?
+## <a name="how-do-i-update-my-publisher-profile?"></a>How do I update my publisher profile?
 
-Si quiere actualizar su perfil de publicador, puede hacerlo a través del Centro de desarrollo de Microsoft:
+If you want to update your publisher profile, this can be done via the Microsoft Dev Center:
 
-**1. Inicie sesión en el Centro de desarrollo de Windows**.
+**1. Sign in to the Windows Dev Center**.
 
-- Abra una nueva sesión de exploración de incógnito en Chrome o de InPrivate en Internet Explorer para asegurarse de que no tiene una sesión iniciada en una cuenta personal.
-- Vaya a [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
+- Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to a personal account.
+- Go to [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
 
 ![inprivate][4]
 
-**2. Inicie sesión con la cuenta profesional o educativa de su compañía** (es decir, AzureStore@yourcompany.com).
+**2. Sign in with your company's work or school account** (that is, AzureStore@yourcompany.com).
 
 ![signin][5]
 
-**3. Complete la comprobación de "Ayúdenos a proteger su cuenta"**.
+**3. Complete the “Help us protect your account” verification**.
 
-> [AZURE.NOTE] Puede usar su dirección de correo electrónico o número de teléfono para realizar la comprobación.
+> [AZURE.NOTE] You can use your phone number or email address to verify.
 
 ![protectacct][6]
 
-**4. Vaya a Detalles de la cuenta e Información de contacto**.
+**4. Navigate to Account Details and Contact info**.
 
 ![acctdetails][7]
 
-## ¿Cómo se agrega o elimina un administrador de mi cuenta de Publicación?
+## <a name="how-do-i-add-or-delete-an-administrator-from-my-publishing-account?"></a>How do I add or delete an administrator from my publishing account?
 
 ![manageadmins][8]
 
-1. Navegue al Portal de publicación.
-2. Seleccione **Publicadores**.
-3. Seleccione **Administradores**.
-4. Agregue la dirección de correo electrónico del coadministrador que quiere agregar o quitar.
-5. Seleccione **Guardar**.
+1. Navigate to the Publishing Portal.
+2. Select **Publishers**.
+3. Select **Administrators**.
+4. Add the email address of the co-admin that you want to add or remove.
+5. Select **Save**.
 
-## Siguientes pasos: Otras consultas de soporte técnico
+## <a name="next-steps:-other-support-queries"></a>Next steps:  Other support queries
 
-Para los siguientes problemas, registre un problema en [https://portal.azure.com](https://portal.azure.com):
+For the following issues, please log an issue at [https://portal.azure.com](https://portal.azure.com):
 
-- ¿Cómo se notifica un error de facturación?
-- Observo discrepancias en los extractos de facturación o de uso.
-- Necesito ayuda para comprender el extracto de facturación.
+- How do I report a billing error?
+- I have noticed discrepancies in my billing or usage statements.
+- I need help understanding my billing statement.
 
 
-Para los problemas siguientes, cree una solicitud de soporte técnico en [http://go.microsoft.com/fwlink/?LinkId=272975](http://go.microsoft.com/fwlink/?LinkId=272975):
+For the following issues, please create a support request at [http://go.microsoft.com/fwlink/?LinkId=272975](http://go.microsoft.com/fwlink/?LinkId=272975):
 
-- Tengo problemas para administrar servicios web.
-- ¿Cómo cambio la cuenta de Microsoft asociada a mi cuenta de vendedor?
+- I have issues managing web services.
+- How do I change the Microsoft account associated with my seller account?
 
 
 [1]: ./media/marketplace-publishing-support-common-issues/requestrefund1.png
@@ -120,4 +121,8 @@ Para los problemas siguientes, cree una solicitud de soporte técnico en [http:/
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

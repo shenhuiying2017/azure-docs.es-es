@@ -1,21 +1,24 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Para agregar una nueva cuenta de almacenamiento en la versión de lanzamiento de StorSimple (GA)
+#### <a name="to-add-a-new-storage-account-in-storsimple-release-version-(ga)"></a>To add a new storage account in StorSimple Release version (GA)
 
-1. En la página de aterrizaje del servicio de Administrador de StorSimple, seleccione el servicio y haga doble clic en él. Esto le llevará a la página **Inicio rápido**. Seleccione la página **Configurar**.
+1. On the StorSimple Manager service landing page, select your service and double-click it. This will take you to the **Quick Start** page. Select the **Configure** page.
 
-2. Haga clic en **Agregar/editar cuenta de almacenamiento**.
+2. Click **Add/edit storage account**.
 
-3. En el cuadro de diálogo **Agregar/editar cuenta de almacenamiento**, haga lo siguiente:
+3. In the **Add/Edit Storage Account** dialog box, do the following:
 
-  1. Haga clic en **Agregar nuevo**.
-  2. Proporcione un nombre para la cuenta de almacenamiento.
-  3. Proporcione la **Clave de acceso** principal para la cuenta de almacenamiento de Microsoft Azure.
-  4. Seleccione **Habilitar modo SSL** para crear un canal seguro para la comunicación de red entre su dispositivo y la nube. Desactive la casilla **Habilitar modo SSL** solo si está trabajando dentro de una nube privada.
-  5. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). Recibirá una notificación cuando la cuenta de almacenamiento se cree correctamente.
+  1. Click **Add new**.
+  2. Provide a name for your storage account.
+  3. Supply the primary **Access Key** for your Microsoft Azure storage account.
+  4. Select **Enable SSL Mode** to create a secure channel for network communication between your device and the cloud. Clear the **Enable SSL Mode** check box only if you are operating within a private cloud.
+  5. Click the check icon ![check icon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). You will be notified after the storage account is successfully created.
 
-    ![Agregar cuenta de almacenamiento](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
+    ![Add storage account](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
 
-4. La cuenta de almacenamiento recién creada se mostrará en la página **Configurar** bajo **Cuentas de almacenamiento**. Haga clic en **Guardar** para guardar la cuenta de almacenamiento recién creada. Haga clic en **Aceptar** cuando se le pida confirmación.
+4. The newly created storage account will be displayed on the **Configure** page under **Storage accounts**. Click **Save** to save the newly created storage account. Click **OK** when prompted for confirmation.
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

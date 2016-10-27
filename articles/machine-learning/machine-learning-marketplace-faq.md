@@ -1,75 +1,76 @@
 <properties 
-	pageTitle="Preguntas frecuentes: Publicación y uso de aplicaciones de Aprendizaje automático en Azure Marketplace | Microsoft Azure" 
-	description="Preguntas frecuentes" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="bharaths" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+    pageTitle="FAQ: Publish and use Machine Learning apps in Azure Marketplace | Microsoft Azure" 
+    description="Frequently Asked Questions" 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="bharaths" 
+    manager="jhubbard" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/11/2016" 
-	ms.author="bharaths"/>
-
-#Publicación y uso de aplicaciones de Aprendizaje automático en Azure Marketplace: preguntas frecuentes
-
-##Preguntas acerca del consumo en Marketplace
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/11/2016" 
+    ms.author="bharaths"/> 
 
 
-**1. Por qué obtengo el siguiente mensaje de error tras especificar una entrada para el servicio web:**
+#<a name="publishing-and-using-machine-learning-apps-in-the-azure-marketplace:-faq"></a>Publishing and using Machine Learning apps in the Azure Marketplace: FAQ
 
-**La solicitud ha ocasionado un tiempo de espera de back-end o un error de back-end. El equipo está investigando el problema. Lamentamos los inconvenientes. (500)**
+##<a name="questions-about-consuming-from-marketplace"></a>Questions about consuming from Marketplace
 
-Los parámetros de entrada no pueden ajustarse al formato requerido para el servicio web específico. Consulte el vínculo correspondiente de la documentación para encontrar el formato correcto de los parámetros de entrada y las limitaciones de este servicio web.
+
+**1. Why do I get the following error message after I enter input for the web service:**
+
+**The request resulted in a back-end time out or back-end error. The team is investigating the issue. We are sorry for the inconvenience. (500)**
+
+Your input parameter(s) may not conform to the required format for the specific web service. Please refer to the corresponding documentation link to find the correct format for input parameters and the limitations of this web service.
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-**2. Si copio el vínculo de la API del servicio web que aparece en la página "Explorar este conjunto de datos" y lo pego en otra ventana del explorador, ¿qué credenciales tengo que usar para obtener acceso a los resultados y cómo puedo verlos?**
+**2. If I copy the API link for the web service that I see on the "Explore this dataset" page and paste it into another browser window, what credentials should I use to access the results, and how do I see them?**
 
-Debe usar la cuenta de Marketplace como nombre de usuario y la clave de la cuenta principal como contraseña. La clave de la cuenta principal se puede encontrar en la página **Explorar este conjunto de datos** en la descripción del servicio web (haga clic en el botón **Mostrar**). El resultado se puede mostrar en el explorador o estar disponible para descargarlo, en función de qué explorador use.
+You should use your Marketplace account as the username and the primary account key as the password. The primary account key can be found on the **Explore this dataset** page under the description of the web service (click the **show** button). The result may display in the browser or it may be available to  download, depending on which browser you are using.
 
-**3. ¿Por qué obtengo el siguiente mensaje de error tras especificar una entrada para el servicio web en la página "Explorar este conjunto de datos":**?
+**3. Why do I get the following error message after I enter the input for the web service on the "Explore this dataset" page:** 
 
-**Se ha producido un error inesperado al procesar la solicitud. Vuelva a intentarlo.**
+**An unexpected error occurred while processing your request. Please try again.**
 
-Uno o varios parámetros de entrada del servicio web pueden haber excedido el límite de longitud al consumir el servicio web en la página **Explorar este conjunto de datos** de Marketplace. Los servicios pueden llamarse con una longitud de entrada mediante los métodos HTTP POST. Para obtener ejemplos, consulte [Soluciones de ejemplo con R en Aprendizaje automático y publicados en Marketplace](machine-learning-r-csharp-web-service-examples.md).
+One or more input parameters of your web service may have exceeded the length limit when consuming the web service on the marketplace **Explore this dataset** page. The services can be called with a longer input length by using HTTP POST methods. For examples, see [Sample solutions using R on Machine Learning and published to Marketplace](machine-learning-r-csharp-web-service-examples.md).
 
-**4. ¿Por qué no veo nada en la pestaña "EXPLORADOR DE API" en el almacén en el Portal de Azure clásico?**
+**4. Why do I not see anything in the "API EXPLORER" tab int the Store in the Azure Classic Portal?** 
 
-Se trata de un problema conocido con el Portal de Azure clásico Marketplace. El equipo está trabajando para resolver este problema.
+This is a known issue with the Azure Classic Portal Marketplace. The team is working to resolve this issue. 
 
 
-##Preguntas acerca de la publicación desde Aprendizaje automático de Azure en Marketplace
+##<a name="questions-about-publishing-from-azure-machine-learning-on-marketplace"></a>Questions about publishing from Azure Machine Learning on Marketplace
 
-**1. ¿Por qué mis transacciones de logotipos o imágenes no se actualizan en mi servicio web?**
+**1. Why are my transactions of logos or images not refreshing for my web service?** 
 
-Los logotipos y las imágenes se almacenan en caché en el portal de publicación y la actualización del nuevo logotipo o de la nueva imagen en el portal puede tardar hasta 10 días en completarse.
+Logos and images are cached in the publishing portal, and it may take up to 10 days for the new logo or image to update on the portal.
 
-**2. ¿Por qué aparece un error en la pestaña "Detalles" del servicio web de Marketplace?**
+**2. Why is the “Detail" tab of my web service on Marketplace showing an error message?**
 
-Hay un problema conocido de Marketplace al conectarse a Aprendizaje automático de Azure para obtener detalles del servicio. El equipo está trabajando para resolver este problema.
+There is a known Marketplace issue when connecting to Azure Machine Learning for service details. The team is working to resolve this issue.
 
-**3. ¿Por qué no funciona el código de ejemplo R en los servicios web de Aprendizaje automático de Azure para consumir los servicios web en Marketplace?**
+**3. Why does the R sample code in the Azure Machine Learning web services not work for consuming the web services in Marketplace?**
 
-Los sistemas de autenticación son diferentes al conectarse a servicios web de Aprendizaje automático de Azure directamente y al conectarse a estos servicios web a través de Marketplace. Los servicios de Marketplace son servicios de OData y se les puede llamar con los métodos GET o POST.
+The authentication systems are different when connecting to Azure Machine Learning web services directly compared to connecting to these web services through the Marketplace. The services in Marketplace are OData services, and they can be called with GET or POST methods. 
 
-**4. ¿Por qué los vínculos de soporte técnico de las ofertas del servicio web no se actualizan correctamente para algunas de mis ofertas?**
+**4. Why are the support links of my web service offers not updating correctly for some of my offers?**
 
-Los vínculos de soporte técnico son globales por publicador, no por oferta.
+The support links are global per publisher, not per offer. 
 
-**5. ¿Cómo puedo publicar un servicio web con el modo de entrada por lotes en Marketplace?**
+**5. How do I publish a web service with batch input mode in Marketplace?**
 
-El modo de entrada por lotes no se admite actualmente en los servicios web de Marketplace.
+The batch input mode is currently not supported in Marketplace web services.
 
-**6. ¿Con quién debo comunicarme para obtener ayuda si tengo preguntas sobre cómo convertirme en un publicador de datos o si tengo problemas durante la publicación?**
+**6. Who should I contact to get help if I have questions about becoming a data publisher, or if I have issues during publishing?**
 
-Póngase en contacto con el equipo de Azure Marketplace en <datamarketbd@microsoft.com> para obtener más información.
+Please contact the Azure Marketplace team at <datamarketbd@microsoft.com> for more information.
 
 
 
@@ -77,4 +78,8 @@ Póngase en contacto con el equipo de Azure Marketplace en <datamarketbd@microso
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

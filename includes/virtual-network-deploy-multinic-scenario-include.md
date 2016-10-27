@@ -1,7 +1,11 @@
-## Escenario
+## <a name="scenario"></a>Scenario
 
-Este documento le guiará a través de una implementación que usa varias NIC en máquinas virtuales en un escenario concreto. En este escenario, tiene una carga de trabajo de IaaS de dos niveles hospedada en Azure. Cada nivel se implementa en su propia subred de una red virtual (VNet). El nivel de front-end se compone de varios servidores web, agrupados en un equilibrador de carga de alta disponibilidad. El nivel de back-end se compone de varios servidores de base de datos. Estos servidores de base de datos se implementarán con dos NIC cada uno: una para el acceso de base de datos y la otra para la administración. El escenario también incluye los grupos de seguridad de red (NSGs) para controlar qué tráfico se permite en cada subred y la NIC de la implementación. La siguiente ilustración muestra la arquitectura básica de este escenario.
+This document will walk through a deployment that uses multiple NICs in VMs in a specific scenario. In this scenario, you have a two-tiered IaaS workload hosted in Azure. Each tier is deployed in its own subnet in a virtual network (VNet). The front end tier is composed of several web servers, grouped together in a load balancer set for high availability. The back end tier is composed of several database servers. These database servers will be deployed with two NICs each, one for database access, the other for management. The scenario also includes Network Security Groups (NSGs) to control what traffic is allowed to each subnet, and NIC in the deployment. The figure below shows the basic architecture of this scenario.  
 
-![Escenario de MultiNIC](./media/virtual-network-deploy-multinic-scenario-include/Figure1.png)
+![MultiNIC scenario](./media/virtual-network-deploy-multinic-scenario-include/Figure1.png)
 
-<!---HONumber=Nov15_HO4-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

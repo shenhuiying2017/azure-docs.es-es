@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Información general sobre la mensajería del Bus de servicio | Microsoft Azure"
-	description="Mensajería de Bus de servicio: entrega flexible de datos en la nube"
-	services="service-bus-messaging"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Información general sobre la mensajería del Bus de servicio | Microsoft Azure"
+    description="Mensajería de Bus de servicio: entrega flexible de datos en la nube"
+    services="service-bus"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-bus-messaging"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="get-started-article"
-	ms.date="09/27/2016"
-	ms.author="sethm"/>
+    ms.service="service-bus"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="get-started-article"
+    ms.date="09/27/2016"
+    ms.author="sethm"/>
 
 
-# Mensajería de Bus de servicio: entrega flexible de datos en la nube
+
+# <a name="service-bus-messaging:-flexible-data-delivery-in-the-cloud"></a>Mensajería de Bus de servicio: entrega flexible de datos en la nube
 
 Microsoft Azure Service Bus es un servicio de entrega de información confiable. El propósito de este servicio es facilitar la comunicación. Cuando dos o más partes quieren intercambiar información, necesitan un mecanismo de comunicación. Service Bus es un mecanismo de comunicación asincrónica o de terceros. Esto es similar a un servicio postal en el mundo físico. Los servicios postales facilitan el envío distintos tipos de cartas y paquetes, con una variedad de garantías de entrega, a cualquier lugar del mundo.
 
@@ -27,7 +28,7 @@ El remitente del mensaje también puede requerir varias características de entr
 
 Service Bus admite dos patrones de mensajería distintos: mensajería *retransmitida* y mensajería *asincrónica*.
 
-## Retransmisión de bus de servicio
+## <a name="service-bus-relay"></a>Retransmisión de bus de servicio
 
 El componente [Relay](../service-bus-relay/service-bus-relay-overview.md) de Service Bus es un servicio centralizado (pero con gran equilibrio de carga) que admite una gran variedad de diferentes protocolos de transporte y estándares de servicios web. Incluye SOAP, WS-* e incluso REST. El [servicio de retransmisión](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) ofrece una variedad de opciones de conectividad de retransmisión diferentes y puede ayudar a facilitar la negociación de conexiones directas de punto a punto cuando sea posible. El Bus de servicio está optimizado para los desarrolladores de .NET que usan Windows Communication Foundation (WCF), tanto en términos de rendimiento como de facilidad de uso, y ofrece acceso completo a su servicio de retransmisión a través de interfaces SOAP y REST. Esto permite que cualquier entorno de programación SOAP o REST se integre con el Bus de servicio.
 
@@ -37,23 +38,26 @@ La conexión entre el servicio local y el servicio de retransmisión se inicia m
 
 Service Bus Relay ofrece muchas ventajas, pero requiere que tanto el servidor como el cliente estén en línea al mismo tiempo para enviar y recibir mensajes. Esto no es óptimo para la comunicación de estilo HTTP, en la que puede que las solicitudes no sean normalmente de larga duración, ni para los clientes que solo se conectan ocasionalmente, como exploradores, aplicaciones móviles, etc. La mensajería asíncrona admite la comunicación desacoplada y tiene sus propias ventajas; los clientes y servidores se pueden conectar cuando sea necesario y realizar sus operaciones de forma asincrónica.
 
-## Mensajería asíncrona
+## <a name="brokered-messaging"></a>Mensajería asíncrona
 
 A diferencia del esquema de mensajería retransmitida, la [mensajería asincrónica](service-bus-queues-topics-subscriptions.md) puede considerarse "temporalmente desacoplada". Los productores (remitentes) y consumidores (receptores) no tienen que estar en línea al mismo tiempo. La infraestructura de mensajería almacena de forma fiable los mensajes en un "agente" (como una cola) hasta que la parte consumidora esté preparada para recibirlos. De esta forma los componentes de la aplicación distribuida se pueden desconectar, ya sea voluntariamente, por ejemplo, para mantenimiento, o debido a un bloqueo del componente, sin que afecte a todo el sistema. Además, es posible que la aplicación receptora solo tenga que estar en línea durante determinadas horas del día, por ejemplo, como un sistema de administración de inventario que solo es necesario ejecutarse al final del día laborable.
 
-Los componentes principales de la infraestructura de mensajería asincrónica de Service Bus son las colas, los temas y las suscripciones. La principal diferencia es que los temas admiten funcionalidades de publicación o suscripción que se pueden usar para las características de enrutamiento basado en contenido y entrega lógica, incluido el envío a varios destinatarios. Estos componentes permiten nuevos escenarios de mensajería asincrónicos, como desacoplamiento temporal, publicación/suscripción y equilibrio de carga. Para más información sobre estas entidades de mensajería, vea [Colas, temas y suscripciones de Service Bus](service-bus-queues-topics-subscriptions.md).
+Los componentes principales de la infraestructura de mensajería asincrónica de Service Bus son las colas, los temas y las suscripciones.  La principal diferencia es que los temas admiten funcionalidades de publicación o suscripción que se pueden usar para las características de enrutamiento basado en contenido y entrega lógica, incluido el envío a varios destinatarios. Estos componentes permiten nuevos escenarios de mensajería asincrónicos, como desacoplamiento temporal, publicación/suscripción y equilibrio de carga. Para más información sobre estas entidades de mensajería, vea [Colas, temas y suscripciones de Service Bus](service-bus-queues-topics-subscriptions.md).
 
 Al igual que con la infraestructura de Relay, se ofrece funcionalidad de mensajería asincrónica para los programadores de WCF y de .NET Framework, y también a través de REST.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas.
 
-- [Elementos fundamentales del Bus de servicio](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
 - [Colas, temas y suscripciones de Service Bus](service-bus-queues-topics-subscriptions.md)
-- [Arquitectura del Bus de servicio](../service-bus/service-bus-architecture.md)
 - [Utilización de las colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md)
-- [Uso de temas y suscripciones del Bus de servicio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Uso de temas y suscripciones de Service Bus](./service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

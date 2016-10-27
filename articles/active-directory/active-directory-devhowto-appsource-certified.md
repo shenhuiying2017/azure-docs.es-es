@@ -16,18 +16,19 @@
    ms.date="09/22/2016"
    ms.author="skwan;bryanla"/>
 
-#Obtención de AppSource certificado para Azure Active Directory (AD) 
 
-Para recibir la certificación de AppSource para Azure AD, la aplicación debe implementar el patrón de inicio de sesión multiempresa con Azure AD mediante los protocolos de OpenID Connect, OAuth 2.0 o SAML 2.0.
+#<a name="how-to-get-appsource-certified-for-azure-active-directory-(ad)"></a>Obtención de AppSource certificado para Azure Active Directory (AD) 
+
+Para recibir la certificación de AppSource para Azure AD, la aplicación debe implementar el patrón de inicio de sesión multiempresa con Azure AD mediante los protocolos de OpenID Connect, OAuth 2.0 o SAML 2.0. 
 
 Si no está familiarizado con el desarrollo de aplicaciones multiempresa o el inicio de sesión de Azure AD, siga estos pasos:
 
-1. Para comenzar lea [Escenarios de autenticación para Azure AD][AAD-Auth-Scenarios-Browser-To-WebApp].
-2. A continuación, consulte las [guías de inicio rápido de aplicaciones web][AAD-QuickStart-Web-Apps] de Azure AD, que muestran cómo implementar el inicio de sesión e incluyen ejemplos de código complementarios.
+1. Para comenzar, consulte [Escenarios de autenticación para Azure AD][AAD-Auth-Scenarios-Browser-To-WebApp]. 
+2. A continuación, consulte las [guías de inicio rápido de aplicaciones web de Azure AD][AAD-QuickStart-Web-Apps], que muestran cómo implementar el inicio de sesión e incluyen ejemplos de código complementarios. 
 3. Para aprender a implementar el patrón de inicio de sesión multiempresa con Azure AD, consulte [Inicio de sesión de cualquier usuario de Azure Active Directory (AD) mediante el patrón de aplicación multiempresa][AAD-Howto-Multitenant-Overview].
 
-## Contenido relacionado
-Para obtener más información sobre la compilación de aplicaciones compatibles con el inicio de sesión de Azure AD, o para obtener ayuda y soporte técnico, consulte la [guía del desarrollador de Azure AD][AAD-Dev-Guide].
+## <a name="related-content"></a>Contenido relacionado
+Para más información sobre la compilación de aplicaciones compatibles con el inicio de sesión de Azure AD, o para obtener ayuda y soporte técnico, consulte la [guía del desarrollador de Azure AD][AAD-Dev-Guide].
 
 Use la siguiente sección de comentarios DISQUS para proporcionar sus opiniones y ayudarnos a refinar y remodelar nuestro contenido.
 
@@ -41,4 +42,18 @@ Use la siguiente sección de comentarios DISQUS para proporcionar sus opiniones 
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+
+
+
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

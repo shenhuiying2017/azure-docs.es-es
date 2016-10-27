@@ -1,481 +1,489 @@
 <properties 
-	pageTitle="Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple | Microsoft Azure" 
-	description="En este tema se describe cómo configurar un canal que recibe una transmisión en vivo de una sola velocidad de bits desde un codificador local y, a continuación, realiza la codificación en directo a una transmisión de velocidad de bits adaptable con Media Services. Posteriormente, la secuencia se puede enviar a aplicaciones de reproducción cliente a través de uno o más extremos de streaming, mediante uno de los siguientes protocolos de streaming adaptable: HLS, Smooth Stream, MPEG DASH o HDS." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="anilmur" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Live streaming using Azure Media Services to create multi-bitrate streams | Microsoft Azure" 
+    description="This topic describes how to set up a Channel that receives a single bitrate live stream from an on-premises encoder and then performs live encoding to adaptive bitrate stream with Media Services. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH, HDS." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="anilmur" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/19/2016"
-	ms.author="juliako;anilmur"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/12/2016"
+    ms.author="juliako;anilmur"/>
 
-#Streaming en vivo con Servicios multimedia de Azure para crear transmisiones con velocidad de bits múltiple
 
-##Información general
+#<a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Live streaming using Azure Media Services to create multi-bitrate streams
 
-En Servicios multimedia de Azure (AMS), un **canal** representa una canalización para procesar contenido de streaming en vivo. Los **canales** reciben el flujo de entrada en directo de dos maneras posibles:
+##<a name="overview"></a>Overview
 
-- Un codificador en directo local envía una secuencia de una sola velocidad de bits al canal que está habilitado para realizar codificación en directo con Servicios multimedia, con uno de los siguientes formatos: RTP (MPEG-TS), RTMP o Smooth Streaming (MP4 fragmentado). Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
+In Azure Media Services (AMS), a **Channel** represents a pipeline for processing live streaming content. A **Channel** receives live input streams in one of two ways:
 
-- Un codificador local en vivo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) de varias velocidades de bits al canal que no está habilitado para realizar la codificación en directo con AMS. Las secuencias recopiladas pasan a través de **canales** sin más procesamiento. Este método se llama **paso a través**. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de varias velocidades de bits: Elemental, Envivio y Cisco. Los siguientes codificadores en directo generan RTMP: transcodificadores Tricaster, Telestream Wirecast y Adobe Flash Live. El codificador en directo también puede enviar una secuencia de una sola velocidad de bits a un canal que no está habilitado para la codificación en directo, pero esto no es recomendable. Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
+- An on-premises live encoder sends a single-bitrate stream to the Channel that is enabled to perform live encoding with Media Services in one of the following formats: RTP (MPEG-TS), RTMP, or Smooth Streaming (Fragmented MP4). The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
 
-	>[AZURE.NOTE] El método de paso a través es la forma más económica de realizar un streaming en vivo.
+- An on-premises live encoder sends a multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel that is not enabled to perform live encoding with AMS. The ingested streams pass through **Channel**s without any further processing. This method is called **pass-through**. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders.  A live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
 
-A partir de la versión 2.10 de Servicios multimedia, al crear un canal, puede especificar la forma en que desea que este reciba el flujo de entrada y si quiere que el canal realice la codificación en directo de la secuencia. Tiene dos opciones:
+    >[AZURE.NOTE] Using a pass-through method is the most economical way to do live streaming.
 
-- **Ninguna**: especifique este valor si piensa usar un codificador en directo local que genere una secuencia de varias velocidades de bits (una transmisión de paso a través). En este caso, el flujo entrante pasa hasta la salida sin codificación alguna. Este es el comportamiento de un canal antes de la versión 2.10. Para más información sobre cómo trabajar con los canales de este tipo, consulte [Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales](media-services-live-streaming-with-onprem-encoders.md).
+Starting with the Media Services 2.10 release, when you create a Channel, you can specify in which way you want for your channel to receive the input stream and whether or not you want for the channel to perform live encoding of your stream. You have two options:
 
-- **Estándar**: elija este valor si piensa usar Servicios multimedia para codificar secuencias en directo con una sola velocidad de bits como secuencias de varias velocidades de bits. Tenga en cuenta que hay un impacto en la facturación para la codificación en directo y debe recordar que salir de un canal de codificación en directo en el estado "En ejecución" supondrá un coste adicional de facturación. Se recomienda detener inmediatamente sus canales de ejecución después que se complete su evento de transmisión en directo para evitar cargos por hora adicionales.
+- **None** – Specify this value, if you plan to use an on-premises live encoder which will output multi-bitrate stream (a pass-through stream). In this case, the incoming stream passed through to the output without any encoding. This is the behavior of a Channel prior to 2.10 release.  For more detailed information about working with channels of this type, see [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md).
 
->[AZURE.NOTE]En este tema se describen los atributos de los canales habilitados para realizar la codificación en directo (tipo de codificación **Estándar**). Para más información sobre cómo trabajar con los canales no habilitados para realizar la codificación en directo, consulte [Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales](media-services-live-streaming-with-onprem-encoders.md).
+- **Standard** – Choose this value, if you plan to use Media Services to encode your single bitrate live stream to multi-bitrate stream. Be aware that there is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges.
+
+>[AZURE.NOTE]This topic discusses attributes of channels that are enabled to perform live encoding (**Standard** encoding type). For information about working with channels that are not enabled to perform live encoding, see [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md).
 >
->Asegúrese de revisar la sección [Consideraciones](media-services-manage-live-encoder-enabled-channels.md#Considerations).
+>Make sure to review the [Considerations](media-services-manage-live-encoder-enabled-channels.md#Considerations) section.
 
 
-##Implicaciones de facturación
+##<a name="billing-implications"></a>Billing Implications
 
-Un canal de codificación en directo comienza la facturación tan pronto como su estado realiza la transición a "En ejecución" a través de la API. También puede ver el estado en el Portal de Azure clásico o en la herramienta del Explorador de servicios multimedia de Azure (http://aka.ms/amse).
+A live encoding channel begins billing as soon as it's state transitions to "Running" via the API.   You can also view the state in the Azure portal, or in the Azure Media Services Explorer tool (http://aka.ms/amse).
 
-En la tabla siguiente se muestra cómo se asignan los estados del canal a los estados de facturación en la API y en el Portal de Azure clásico. Tenga en cuenta que los estados son ligeramente diferentes entre la API y la experiencia de usuario del portal. Tan pronto como un canal se encuentre en el estado "En ejecución" a través de la API, o en el estado "Listo" o "Streaming" en el Portal de Azure clásico, la facturación estará activa. Para hacer que el canal deje de facturarle, tendrá que detener el canal a través de la API o en el Portal de Azure clásico. Usted es responsable de detener sus canales cuando haya terminado con el canal de codificación en directo. Si no se detiene un canal de codificación, la facturación continuará.
+The following table shows how Channel states map to billing states in the API and Azure portal. Note that the states are slightly different between the API and Portal UX. As soon as a channel is in the "Running" state via the API, or in the "Ready" or "Streaming" state in the Azure Classic Portal, billing will be active.
+To stop the Channel from billing you further, you have to Stop the Channel via the API or in the Azure portal.
+You are responsible for stopping your channels when you are done with the live encoding channel.  Failure to stop an encoding channel will result in continued billing.
 
-###<a id="states"></a>Estados del canal y cómo se asignan al modo de facturación 
+###<a name="<a-id="states"></a>channel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>Channel states and how they map to the billing mode 
 
-El estado actual de un canal. Los valores posibles son:
+The current state of a Channel. Possible values include:
 
-- **Detenido**. Este es el estado inicial del canal después de su creación (a menos que seleccionara el inicio automático en el portal.) No se produce ninguna facturación en este estado. En este estado, se pueden actualizar las propiedades del canal pero no se permite el streaming.
-- **Iniciando**. El canal se está iniciando. No se produce ninguna facturación en este estado. No se permiten actualizaciones ni streaming durante este estado. Si se produce un error, el canal vuelve al estado Detenido.
-- **En ejecución**. El canal es capaz de procesar secuencias en directo. Está ahora el uso de facturación. Debe detener el canal para evitar más facturación.
-- **Deteniéndose**. El canal se está deteniendo. No se produce facturación en este estado transitorio. No se permiten actualizaciones ni streaming durante este estado.
-- **Eliminando**. El canal se está eliminando. No se produce facturación en este estado transitorio. No se permiten actualizaciones ni streaming durante este estado.
+- **Stopped**. This is the initial state of the Channel after its creation (unless autostart was selected in the portal.) No billing occurs in this state. In this state, the Channel properties can be updated but streaming is not allowed.
+- **Starting**. The Channel is being started. No billing occurs in this state. No updates or streaming is allowed during this state. If an error occurs, the Channel returns to the Stopped state.
+- **Running**. The Channel is capable of processing live streams. It is now billing usage. You must stop the channel to prevent further billing. 
+- **Stopping**. The Channel is being stopped. No billing occurs in this transient state. No updates or streaming is allowed during this state.
+- **Deleting**. The Channel is being deleted. No billing occurs in this transient state. No updates or streaming is allowed during this state.
 
-En la tabla siguiente se muestra cómo se asignan los estados del canal al modo de facturación.
+The following table shows how Channel states map to the billing mode. 
  
-Estado del canal|Indicadores IU del portal|¿Es la facturación?
+Channel state|Portal UI Indicators|Is it Billing?
 ---|---|---
-Iniciando|Iniciando|No (estado transitorio)
-Ejecución|Listo (no hay programas en ejecución)<br/>o<br/>Streaming (al menos un programa en ejecución)|SÍ
-Deteniéndose|Deteniéndose|No (estado transitorio)
-Detenido|Stopped|No
+Starting|Starting|No (transient state)
+Running|Ready (no running programs)<br/>or<br/>Streaming (at least one running program)|YES
+Stopping|Stopping|No (transient state)
+Stopped|Stopped|No
 
-###Cierre automático para canales no utilizados
+###<a name="automatic-shut-off-for-unused-channels"></a>Automatic shut-off for unused Channels
 
-A partir del 25 de enero de 2016, Servicios multimedia implementó una actualización que detiene automáticamente un canal (con codificación en directo habilitada), después de haber estado ejecutándose en un estado no usado durante un largo período. Esto se aplica a los canales que no tienen ningún programa activo y que no han recibido una fuente de contribución de entrada durante un largo período de tiempo.
+Starting with January 25, 2016, Media Services rolled out an update that automatically stops a Channel (with live encoding enabled) after it has been running in an unused state for a long period. This applies to Channels that have no active Programs, and which have not received an input contribution feed for an extended period of time.
 
-El umbral para un período sin usar nominalmente es de 12 horas, pero está sujeta a cambios.
+The threshold for an unused period is nominally 12 hours, but is subject to change.
 
-##Flujo de trabajo de la codificación en directo
-El siguiente diagrama representa un flujo de trabajo de streaming en vivo donde un canal recibe una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS). A continuación, la codifica como secuencia de varias velocidades de bits.
+##<a name="live-encoding-workflow"></a>Live Encoding Workflow
+The following diagram represents a live streaming workflow where a channel receives a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS); it then encodes the stream to a multi-bitrate stream. 
 
-![Flujo de trabajo activo][live-overview]
-
-
-##En este tema
-
-- Información general de un [escenario común de streaming en vivo](media-services-manage-live-encoder-enabled-channels.md#scenario)
-- [Descripción de un canal y sus componentes relacionados](media-services-manage-live-encoder-enabled-channels.md#channel)
-- [Consideraciones](media-services-manage-live-encoder-enabled-channels.md#Considerations)
+![Live workflow][live-overview]
 
 
-##<a id="scenario"></a>Escenario común de streaming en vivo
+##<a name="in-this-topic"></a>In this topic
 
-A continuación se indican los pasos generales para crear aplicaciones comunes de streaming en vivo.
-
->[AZURE.NOTE] Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante períodos de tiempo más largos, póngase en contacto con amslived en Microsoft.com. Tenga en cuenta que hay un impacto en la facturación para la codificación en directo y debe recordar que salir de un canal de codificación en directo en el estado "En ejecución" incurrirá en cargos por hora. Se recomienda detener inmediatamente sus canales de ejecución después que se complete su evento de transmisión en directo para evitar cargos por hora adicionales.
-
-1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una **sola** velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS).
-	
-	Este paso también puede realizarse después de crear el canal.
-
-1. Cree e inicie un canal.
-
-1. Recupere la URL de ingesta de canales.
-
-	El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
-1. Recupere la URL de vista previa de canal.
-
-	Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en vivo.
-
-3. Cree un programa.
-
-	Con el Portal de Azure clásico, al crear un programa también se crea un recurso.
-
-	Con el SDK de .NET o REST, debe crear un recurso y especificar que este se use al crear un programa.
-1. Publique el recurso asociado al programa.
-
-	Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
-1. Inicie el programa cuando esté listo para iniciar el streaming y el archivo.
-2. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
-1. Detenga el programa cuando quiera detener el streaming y el archivo del evento.
-1. Elimine el programa (y, opcionalmente, elimine el recurso).
-
->[AZURE.NOTE]Es muy importante no olvidar detener un canal de codificación en directo de Live. Tenga en cuenta que hay un impacto en la facturación por hora para la codificación en directo y debe recordar que salir de un canal de codificación en directo en el estado "En ejecución" supondrá un coste adicional de facturación. Se recomienda detener inmediatamente sus canales de ejecución después que se complete su evento de transmisión en directo para evitar cargos por hora adicionales.
+- Overview of a [common live streaming scenario](media-services-manage-live-encoder-enabled-channels.md#scenario)
+- [Description of a Channel and its related components](media-services-manage-live-encoder-enabled-channels.md#channel)
+- [Considerations](media-services-manage-live-encoder-enabled-channels.md#Considerations)
 
 
-##<a id="channel"></a>Configuraciones de entrada de canal (ingesta)
+##<a name="<a-id="scenario"></a>common-live-streaming-scenario"></a><a id="scenario"></a>Common Live Streaming Scenario
 
-###<a id="Ingest_Protocols"></a>Protocolo de streaming de ingesta
+The following are general steps involved in creating common live streaming applications.
 
-Si el **Tipo de codificador** está establecido en **Estándar**, las opciones válidas son:
+>[AZURE.NOTE] Currently, the max recommended duration of a live event is 8 hours. Please contact  amslived at Microsoft.com if you need to run a Channel for longer periods of time.Be aware that there is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur hourly billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges. 
 
-- **RTP** (MPEG-TS): secuencia de transporte MPEG-2 a través de RTP.
-- **RTMP** de una sola velocidad de bits
-- **MP4 fragmentado** de una sola velocidad de bits (Smooth Streaming)
+1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a **single** bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). 
+    
+    This step could also be performed after you create your Channel.
 
-####RTP (MPEG-TS): secuencia de transporte MPEG-2 a través de RTP.  
+1. Create and start a Channel. 
 
-Caso de uso típico:
+1. Retrieve the Channel ingest URL. 
 
-Los emisores profesionales suelen trabajar con codificadores locales en directo de tecnología avanzada (de proveedores como Elemental Technologies, Ericsson, Ateme, Imagine o Envivio) para enviar secuencias. Estos suelen usarse conjuntamente con un departamento de TI y redes privadas.
+    The ingest URL is used by the live encoder to send the stream to the Channel.
+1. Retrieve the Channel preview URL. 
 
-Consideraciones:
+    Use this URL to verify that your channel is properly receiving the live stream.
 
-- Se recomienda encarecidamente el uso de una entrada de secuencias de transporte de un solo programa (SPTS).
-- Puede introducir un máximo de ocho secuencias de audio con MPEG-2 TS a través de RTP.
-- La secuencia de vídeo debe tener una velocidad de bits media inferior a 15 Mbps.
-- La suma de la velocidad de bits media de las secuencias de audio debe ser inferior a 1 Mbps.
-- A continuación, se indican los códecs admitidos:
-	- MPEG-2/H.262 Video
-		
-		- Perfil Principal (4:2:0)
-		- Perfil Alta (4:2:0, 4:2:2)
-		- Perfil 422 (4:2:0, 4:2:2)
+3. Create a program. 
 
-	- MPEG-4 AVC/H.264 Video
-	
-		- Perfil Línea de base, Principal, Alta (4:2:0 de 8 bits)
-		- Perfil Alta 10 (4:2:0 de 10 bits)
-		- Perfil Alta 422 (4:2:2 de 10 bits)
+    When using the Azure Classic Portal, creating a program also creates an asset. 
+
+    When using .NET SDK or REST you need to create an asset and specify to use this asset when creating a Program. 
+1. Publish the asset associated with the program.   
+
+    Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+1. Start the program when you are ready to start streaming and archiving.
+2. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
+1. Stop the program whenever you want to stop streaming and archiving the event.
+1. Delete the Program (and optionally delete the asset).   
+
+>[AZURE.NOTE]It is very important not to forget to Stop a Live Encoding Channel. Be aware that there is an hourly billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges. 
 
 
-	- MPEG-2 AAC-LC Audio
-	
-		- Mono, estéreo, Surround (5.1, 7.1)
-		- Empaquetado ADTS estilo MPEG-2
+##<a name="<a-id="channel"></a>channel's-input-(ingest)-configurations"></a><a id="channel"></a>Channel's input (ingest) configurations
 
-	- Audio Dolby Digital (AC-3)
+###<a name="<a-id="ingest_protocols"></a>ingest-streaming-protocol"></a><a id="Ingest_Protocols"></a>Ingest streaming protocol
 
-		- Mono, estéreo, Surround (5.1, 7.1)
+If the **Encoder Type** is set to **Standard**, valid options are:
 
-	- Audio MPEG (nivel II y III)
-			
-		- Mono, estéreo
+- **RTP** (MPEG-TS): MPEG-2 Transport Stream over RTP.  
+- Single bitrate **RTMP**
+- Single bitrate **Fragmented MP4** (Smooth Streaming)
 
-- Entre los codificadores de difusión recomendados se incluyen:
-	- Ateme AM2102
-	- Ericsson AVP2000
-	- eVertz 3480
-	- Ericsson RX8200
-	- Imagine Communications Selenio ENC 1
-	- Imagine Communications Selenio ENC 2
-	- AdTec EN-30
-	- AdTec EN-91P
-	- AdTec EN-100
-	- Harmonic ProStream 1000
-	- Thor H-2 4HD-EM
-	- eVertz 7880 SLKE
-	- Cisco Spinnaker
-	- Elemental Live
+####<a name="rtp-(mpeg-ts)---mpeg-2-transport-stream-over-rtp."></a>RTP (MPEG-TS) - MPEG-2 Transport Stream over RTP.  
 
-####<a id="single_bitrate_RTMP"></a>RTMP de una sola velocidad de bits
+Typical use case: 
 
-Consideraciones:
+Professional broadcasters typically work with high-end on-premises live encoders from vendors like Elemental Technologies, Ericsson, Ateme, Imagine or Envivio to send a stream. Often used in conjunction with  an IT department and private networks.
 
-- La secuencia de entrada no puede contener vídeo de varias velocidades de bits.
-- La secuencia de vídeo debe tener una velocidad de bits media inferior a 15 Mbps.
-- La secuencia de audio debe tener una velocidad de bits media inferior a 1 Mbps.
-- A continuación, se indican los códecs admitidos:
+Considerations:
 
-- MPEG-4 AVC/H.264 Video
+- The use of a single program transport stream (SPTS) input is strongly recommended. 
+- You can input up to 8 audio streams using MPEG-2 TS over RTP. 
+- The video stream should have an average bitrate below 15 Mbps
+- The aggregate average bitrate of the audio streams should be below 1 Mbps
+- Following are the supported codecs:
+    - MPEG-2 / H.262 Video 
+        
+        - Main Profile (4:2:0)
+        - High Profile (4:2:0, 4:2:2)
+        - 422 Profile (4:2:0, 4:2:2)
 
-- Perfil Línea de base, Principal, Alta (4:2:0 de 8 bits)
-- Perfil Alta 10 (4:2:0 de 10 bits)
-- Perfil Alta 422 (4:2:2 de 10 bits)
+    - MPEG-4 AVC / H.264 Video  
+    
+        - Baseline, Main, High Profile (8-bit 4:2:0)
+        - High 10 Profile (10-bit 4:2:0)
+        - High 422 Profile (10-bit 4:2:2)
+
+
+    - MPEG-2 AAC-LC Audio 
+    
+        - Mono, Stereo, Surround (5.1, 7.1)
+        - MPEG-2 style ADTS packaging
+
+    - Dolby Digital (AC-3) Audio 
+
+        - Mono, Stereo, Surround (5.1, 7.1)
+
+    - MPEG Audio (Layer II and III) 
+            
+        - Mono, Stereo
+
+- Recommended broadcast encoders include:
+    - Ateme AM2102
+    - Ericsson AVP2000
+    - eVertz 3480
+    - Ericsson RX8200
+    - Imagine Communications Selenio ENC 1
+    - Imagine Communications Selenio ENC 2
+    - AdTec EN-30
+    - AdTec EN-91P
+    - AdTec EN-100
+    - Harmonic ProStream 1000
+    - Thor H-2 4HD-EM
+    - eVertz 7880 SLKE
+    - Cisco Spinnaker
+    - Elemental Live
+
+####<a name="<a-id="single_bitrate_rtmp"></a>single-bitrate-rtmp"></a><a id="single_bitrate_RTMP"></a>Single bitrate RTMP
+
+Considerations:
+
+- The incoming stream cannot contain multi-bitrate video
+- The video stream should have an average bitrate below 15 Mbps
+- The audio stream should have an average bitrate below 1 Mbps
+- Following are the supported codecs:
+
+- MPEG-4 AVC / H.264 Video
+
+- Baseline, Main, High Profile (8-bit 4:2:0)
+- High 10 Profile (10-bit 4:2:0)
+- High 422 Profile (10-bit 4:2:2)
 
 - MPEG-2 AAC-LC Audio
 
-- Mono, estéreo, Surround (5.1, 7.1)
-- Velocidad de muestreo 44,1 kHz
-- Empaquetado ADTS estilo MPEG-2
+- Mono, Stereo, Surround (5.1, 7.1)
+- 44.1 kHz sampling rate
+- MPEG-2 style ADTS packaging
 
-- Entre los codificadores recomendados se incluyen:
+- Recommended encoders include:
 
 - Telestream Wirecast
 - Flash Media Live Encoder
 - Tricaster
 
-####MP4 fragmentado de una sola velocidad de bits (Smooth Streaming)
+####<a name="single-bitrate-fragmented-mp4-(smooth-streaming)"></a>Single bitrate Fragmented MP4 (Smooth Streaming)
 
-Caso de uso típico:
+Typical use case:
 
-Use codificadores locales en directo de proveedores como Elemental Technologies, Ericsson, Ateme y Envivio para enviar el flujo de entrada a través de Internet abierto a un centro de datos de Azure cercano.
+Use on-premises live encoders from vendors like Elemental Technologies, Ericsson, Ateme, Envivio to send the input stream over the open internet to a nearby Azure data center.
 
-Consideraciones:
+Considerations:
 
-Las mismas aplicables al apartado [RTMP de una sola velocidad de bits](media-services-manage-live-encoder-enabled-channels.md#single_bitrate_RTMP).
+Same as for [single bitrate RTMP](media-services-manage-live-encoder-enabled-channels.md#single_bitrate_RTMP).
 
-####Otras consideraciones
+####<a name="other-considerations"></a>Other considerations
 
-- No se puede cambiar el protocolo de entrada mientras el canal o sus programas asociados se están ejecutando. Si necesita diferentes protocolos, debe crear canales independientes para cada protocolo de entrada.
-- La resolución máxima de la secuencia de vídeo entrante es de 1920 x 1080, con un máximo de 60 campos por segundo, cuando es entrelazada, o 30 fotogramas por segundo, si es progresiva.
-
-
-###Direcciones URL de ingesta (extremos)
-
-Un canal proporciona un extremo de entrada (dirección URL de ingesta) que usted especifica en el codificador en directo, de modo que el codificador puede insertar secuencias en sus canales.
-
-Puede obtener las direcciones URL de ingesta al crear un canal. Para obtener estas direcciones URL, el canal no puede encontrarse en el estado **En ejecución**. Cuando esté listo para comenzar a insertar datos en el canal, este debe estar **En ejecución**. Una vez que el canal empieza a consumir datos, puede obtener una vista previa de la secuencia a través de la dirección URL de vista previa.
-
-Tiene la opción de consumir una secuencia en directo de MP4 fragmentado (Smooth Streaming) a través de una conexión SSL. Para introducir en SSL, asegúrese de actualizar la dirección URL de introducción a HTTPS.
-
-###Direcciones IP permitidas
-
-Puede definir las direcciones IP permitidas para publicar vídeo en el canal. Dichas direcciones se pueden especificar como dirección IP individual (por ejemplo, ‘10.0.0.1’), un intervalo de direcciones IP mediante una dirección IP y una máscara de subred CIDR (por ejemplo, ‘10.0.0.1/22’) o un intervalo de direcciones IP mediante una dirección IP y una máscara de subred decimal con puntos (por ejemplo, ‘10.0.0.1(255.255.252.0)’).
-
-Si no se especifican direcciones IP y no hay ninguna definición de regla, no se permitirá ninguna dirección IP. Para permitir las direcciones IP, cree una regla y establezca 0.0.0.0/0.
+- You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
+- Maximum resolution for the incoming video stream is 1920x1080, and at most 60 fields/second if interlaced, or 30 frames/second if progressive.
 
 
-##Vista previa de canal
+###<a name="ingest-urls-(endpoints)"></a>Ingest URLs (endpoints)
 
-###Direcciones URL de vista previa
+A Channel provides an input endpoint (ingest URL) that you specify in the live encoder, so the encoder can push streams to your Channels.
 
-Los canales proporcionan un extremo de vista previa (dirección URL de vista previa) que se puede utilizar para obtener una vista previa y validar la secuencia antes de mayor procesamiento y entrega.
+You can get the ingest URLs once you create a Channel. To get these URLs, the Channel does not have to be in the **Running** state. When you are ready to start pushing data into the Channel, it must be in the **Running** state. Once the Channel starts ingesting data, you can preview your stream through the preview URL.
 
-Puede obtener la dirección URL de vista previa al crear el canal. Para obtenerla, el canal no puede encontrarse en el estado **En ejecución**.
+You have an option of ingesting Fragmented MP4 (Smooth Streaming) live stream over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS.
 
-Una vez que el canal empieza a consumir datos, puede obtener una vista previa de la secuencia.
+###<a name="allowed-ip-addresses"></a>Allowed IP addresses
 
->[AZURE.NOTE]Actualmente la secuencia de vista previa solo se puede entregar en formato MP4 fragmentado (Smooth Streaming), independientemente del tipo de entrada especificado. Puede usar el reproductor [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) para probar el formato Smooth Stream. También puede usar un reproductor hospedado en el Portal de Azure clásico para ver la transmisión.
+You can define the IP addresses that are allowed to publish video to this channel. Allowed IP addresses can be specified as either a single IP address (e.g. ‘10.0.0.1’), an IP range using an IP address and a CIDR subnet mask (e.g. ‘10.0.0.1/22’), or an IP range using an IP address and a dotted decimal subnet mask (e.g. ‘10.0.0.1(255.255.252.0)’).
 
-###Direcciones IP permitidas
-
-Puede definir las direcciones IP permitidas para conectarse al extremo de vista previa. Si no se especifica ninguna dirección IP, se permitirá cualquier dirección IP. Dichas direcciones se pueden especificar como dirección IP individual (por ejemplo, ‘10.0.0.1’), un intervalo de direcciones IP mediante una dirección IP y una máscara de subred CIDR (por ejemplo, ‘10.0.0.1/22’) o un intervalo de direcciones IP mediante una dirección IP y una máscara de subred decimal con puntos (por ejemplo, ‘10.0.0.1(255.255.252.0)’).
-
-##Configuración de la codificación en directo
-
-En esta sección se describe cómo configurar los valores del codificador en directo dentro del canal cuando el **Tipo de codificación** del canal se establece en **Estándar**.
-
->[AZURE.NOTE]Al introducir varias pistas de idioma y realizar codificación en directo con Azure, solo se admite RTP como entrada de varios idiomas. Puede definir hasta ocho secuencias de audio con MPEG-2 TS a través de RTP. Actualmente no se admite la introducción de varias pistas de audio con Smooth Streaming ni RTMP. Al realizar la codificación en directo con [codificaciones en directo locales](media-services-live-streaming-with-onprem-encoders.md), no hay ninguna limitación de este tipo porque todo lo que se envía a AMS pasa a través de un canal sin más procesamiento.
-
-###Origen de marcador de anuncio
-
-Puede especificar el origen de las señales de los marcadores de anuncio. El valor predeterminado es **Api**, que indica que el codificador en directo del canal debe escuchar una **API de marcadores de anuncio** asincrónica.
-
-La otra opción válida es **Scte35** (solo permitida si el protocolo de streaming de ingesta está establecido en RTP (MPEG-TS). Cuando se especifica Scte35, el codificador en directo analizará las señales de SCTE-35 del flujo de entrada RTP (MPEG-TS).
-
-###Subtítulos CEA 708
-
-Marca opcional que indica al codificador en directo que omita cualquier dato de los subtítulos CEA 708 insertado en el vídeo entrante. Si la marca está establecida en false (valor predeterminado), el codificador detectará y volverá a insertar los datos de CEA 708 en las secuencias de vídeo salientes.
-
-###Secuencia de vídeo
-
-Opcional. Describe la secuencia de vídeo de entrada. Si este campo no se especifica, se usa el valor predeterminado. Este valor solo se permite si el protocolo de streaming de entrada está establecido en RTP (MPEG-TS).
-
-####Índice
-
-Índice basado en cero que especifica qué secuencia de vídeo de entrada debe procesar el codificador en directo dentro del canal. Esta configuración solo se aplica si el protocolo de streaming de ingesta es RTP (MPEG-TS).
-
-El valor predeterminado es cero. Se recomienda enviar una secuencia de transporte de un solo programa (SPTS). Si la secuencia de entrada contiene varios programas, el codificador en directo analiza la tabla de asignación de programas (PMT) en la entrada, identifica las entradas con un nombre de tipo de secuencia MPEG-2 Video o H.264 y las organiza en el orden especificado en la tabla PMT. A continuación, se usa el índice basado en cero para seleccionar la entrada concreta en esa disposición.
-
-###Secuencia de audio
-
-Opcional. Describe las secuencias de audio de entrada. Si este campo no se especifica, se aplican los valores predeterminados. Este valor solo se permite si el protocolo de streaming de entrada está establecido en RTP (MPEG-TS).
-
-####Índice
-
-Se recomienda enviar una secuencia de transporte de un solo programa (SPTS). Si la secuencia de entrada contiene varios programas, el codificador en directo del canal analiza la tabla de asignación de programas (PMT) en la entrada, identifica las entradas con un nombre de tipo de secuencia MPEG-2 AAC ADTS, AC-3 System-A, AC-3 System-B, MPEG-2 Private PES, MPEG-1 Audio o MPEG-2 Audio y las organiza en el orden especificado en la tabla PMT. A continuación, se usa el índice basado en cero para seleccionar la entrada concreta en esa disposición.
-
-####Idioma
-
-El identificador de idioma de la secuencia de audio, conforme a ISO 639-2, por ejemplo, ENG. Si no aparece, el valor predeterminado es UND (sin definir).
-
-Pueden especificarse hasta 8 conjuntos de secuencias de audio si la entrada al canal es MPEG-2 TS a través de RTP. Sin embargo, no puede haber dos entradas con el mismo valor para Índice.
-
-###<a id="preset"></a>Valor preestablecido del sistema
-
-Especifica el valor preestablecido que usará el codificador en directo dentro de este canal. Actualmente, el único valor permitido es **Default720p** (valor predeterminado).
-
-Tenga en cuenta que si necesita valores preestablecidos personalizados, debe ponerse en contacto con amslived en Microsoft.com.
-
-**Default720p** codificará el vídeo en las 7 capas siguientes.
+If no IP addresses are specified and there is no rule definition then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.
 
 
-####Secuencia de vídeo de salida
+##<a name="channel-preview"></a>Channel preview
 
-Velocidad de bits|Ancho|Alto|Fotogramas/seg. máx.|Perfil|Nombre secuencia salida
+###<a name="preview-urls"></a>Preview URLs
+
+Channels provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery.
+
+You can get the preview URL when you create the channel. To get the URL, the channel does not have to be in the **Running** state.
+
+Once the Channel starts ingesting data, you can preview your stream.
+
+>[AZURE.NOTE]Currently the preview stream can only be delivered in Fragmented MP4 (Smooth Streaming) format regardless of the specified input type. You can use the [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) player to test the Smooth Stream. You can also use a player hosted in the Azure Classic Portal to view your stream.
+
+###<a name="allowed-ip-addresses"></a>Allowed IP Addresses
+
+You can define the IP addresses that are allowed to connect to the preview endpoint. If no IP addresses are specified any IP address will be allowed. Allowed IP addresses can be specified as either a single IP address (e.g. ‘10.0.0.1’), an IP range using an IP address and a CIDR subnet mask (e.g. ‘10.0.0.1/22’), or an IP range using an IP address and a dotted decimal subnet mask (e.g. ‘10.0.0.1(255.255.252.0)’).
+
+##<a name="live-encoding-settings"></a>Live encoding settings
+
+This section describes how the settings for the live encoder within the Channel can be adjusted, when the **Encoding Type** of a Channel is set to **Standard**.
+
+>[AZURE.NOTE]When inputting multiple language tracks and doing live encoding with Azure, only RTP is supported for multi-language input. You can define up to 8 audio streams using MPEG-2 TS over RTP. Ingesting multiple audio tracks with RTMP or Smooth streaming is currently not supported. When doing live encoding with [on-premises live encodes](media-services-live-streaming-with-onprem-encoders.md), there is no such limitation because whatever is sent to AMS passes through a channel without any further processing.
+
+###<a name="ad-marker-source"></a>Ad marker source
+
+You can specify the source for ad markers signals. Default value is **Api**, which indicates that the live encoder within the Channel should listen to an asynchronous **Ad Marker API**.
+
+The other valid option is **Scte35** (allowed only if the ingest streaming protocol is set to RTP (MPEG-TS). When Scte35 is specified, the live encoder will parse SCTE-35 signals from the input RTP (MPEG-TS) stream.
+
+###<a name="cea-708-closed-captions"></a>CEA 708 Closed Captions
+
+An optional flag which tells the live encoder to ignore any CEA 708 captions data embedded in the incoming video. When the flag is set to false (default), the encoder will detect and re-insert CEA 708 data into the output video streams.
+
+###<a name="video-stream"></a>Video Stream
+
+Optional. Describes the input video stream. If this field is not specified, the default value is used. This setting is allowed only if the input streaming protocol is set to RTP (MPEG-TS).
+
+####<a name="index"></a>Index
+
+A zero-based index that specifies which input video stream should be processed by the live encoder within the Channel. This setting applies only if ingest streaming protocol is RTP (MPEG-TS).
+
+Default value is zero. It is recommended to send in a single program transport stream (SPTS). If the input stream contains multiple programs, the live encoder parses the Program Map Table (PMT) in the input, identifies the inputs that have a stream type name of MPEG-2 Video or H.264, and arranges them in the order specified in the PMT. The zero-based index is then used to pick up the n-th entry in that arrangement.
+
+###<a name="audio-stream"></a>Audio Stream
+
+Optional. Describes the input audio streams. If this field is not specified, the default values specified apply. This setting is allowed only if the input streaming protocol is set to RTP (MPEG-TS).
+
+####<a name="index"></a>Index
+
+It is recommended to send in a single program transport stream (SPTS). If the input stream contains multiple programs, the live encoder within the Channel parses the Program Map Table (PMT) in the input, identifies the inputs that have a stream type name of MPEG-2 AAC ADTS or AC-3 System-A or AC-3 System-B or MPEG-2 Private PES or MPEG-1 Audio or MPEG-2 Audio, and arranges them in the order specified in the PMT. The zero-based index is then used to pick up the n-th entry in that arrangement.
+
+####<a name="language"></a>Language
+
+The language identifier of the audio stream, conforming to ISO 639-2, such as ENG. If not present, the default is UND (undefined).
+
+There can be up to 8 audio stream sets specified if the input to the Channel is MPEG-2 TS over RTP. However, there can be no two entries with the same value of Index.
+
+###<a name="<a-id="preset"></a>system-preset"></a><a id="preset"></a>System Preset
+
+Specifies the preset to be used by the live encoder within this Channel. Currently, the only allowed value is **Default720p** (default).
+
+Note that if you need custom presets, you should contact  amslived at Microsoft.com.
+
+**Default720p** will encode the video into the following 7 layers.
+
+
+####<a name="output-video-stream"></a>Output Video Stream
+
+BitRate|Width|Height|MaxFPS|Profile|Output Stream Name
 ---|---|---|---|---|---
-3500|1280|720|30|Alto|Vídeo_1280x720_3500 kbps
-2200|960|540|30|Principal|Vídeo_960 x 540_2200 kbps
-1350|704|396|30|Principal|Vídeo_704 x 396_1350 kbps
-850|512|288|30|Principal|Vídeo_512 x 288_850 kbps
-550|384|216|30|Principal|Vídeo_384 x 216_550 kbps
-350|340|192|30|Línea base|Vídeo_340 x 192_350 kbps
-200|340|192|30|Línea base|Vídeo_340 x 192_200 kbps
+3500|1280|720|30|High|Video_1280x720_3500kbps
+2200|960|540|30|Main|Video_960x540_2200kbps
+1350|704|396|30|Main|Video_704x396_1350kbps
+850|512|288|30|Main|Video_512x288_850kbps
+550|384|216|30|Main|Video_384x216_550kbps
+350|340|192|30|Baseline|Video_340x192_350kbps
+200|340|192|30|Baseline|Video_340x192_200kbps
 
 
-####Secuencia de audio de salida
+####<a name="output-audio-stream"></a>Output Audio Stream
 
-El audio se codifica como estéreo AAC-LC a 64 kbps, con una frecuencia de muestreo de 44,1 kHz.
+Audio is encoded to stereo AAC-LC at 64 kbps, sampling rate of 44.1 kHz.
 
-##Señalización de anuncios
+##<a name="signaling-advertisements"></a>Signaling Advertisements
 
-Si el canal tiene habilitada la codificación en directo, dispone de un componente en la canalización de procesamiento de vídeo y puede manipularlo. Puede señalar que el canal inserte pizarras o anuncios en la secuencia de velocidad de bits adaptable saliente. Las pizarras son imágenes estáticas que puede usar para cubrir la fuente de entrada directa en determinados casos (por ejemplo, durante una pausa comercial). Las señales de anuncio son señales sincronizadas temporalmente que se insertan en la secuencia saliente para indicar al reproductor de vídeo que realice una acción determinada, por ejemplo, cambiar a un anuncio en el momento adecuado. Consulte este [blog](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) para obtener información general sobre el mecanismo de señalización SCTE-35 usado para este fin. A continuación se muestra un escenario típico que puede implementar en el evento en directo.
+When your Channel has Live Encoding enabled, you have a component in your pipeline that is processing video, and can manipulate it. You can signal for the Channel to insert slates and/or advertisements into the outgoing adaptive bitrate stream. Slates are still images that you can use to cover up the input live feed in certain cases (for example during a commercial break). Advertising signals, are time-synchronized signals you embed into the outgoing stream to tell the video player to take special action – such as to switch to an advertisement at the appropriate time. See this [blog](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) for an overview of the SCTE-35 signaling mechanism used for this purpose. Below is a typical scenario you could implement in your live event.
 
-1. Haga que los visores obtengan una imagen ANTERIOR AL EVENTO antes de que este empiece.
-1. Haga que los visores obtengan una imagen POSTERIOR AL EVENTO una vez que este finalice.
-1. Haga que los visores obtengan una imagen de ERROR DEL EVENTO si hay algún problema durante el mismo (por ejemplo, un corte de luz en el estadio).
-1. Envíe una imagen de PAUSA COMERCIAL para ocultar la fuente del evento en directo durante una pausa publicitaria.
+1. Have your viewers get a PRE-EVENT image before the event starts.
+1. Have your viewers get a POST-EVENT image after the event ends.
+1. Have your viewers get an ERROR-EVENT image if there is a problem during the event (for example, power failure in the stadium).
+1. Send an AD-BREAK image to hide the live event feed during a commercial break.
 
-A continuación se indican las propiedades que puede establecer al señalar anuncios.
+The following are the properties you can set when signaling advertisements. 
 
-###Duración
+###<a name="duration"></a>Duration
 
-La duración, en segundos, de la pausa comercial. Para que se inicie la pausa comercial, este debe ser un valor positivo distinto de cero. Si hay una pausa comercial en curso, la duración está establecida en cero y el identificador de pila coincide con el de dicha pausa comercial, la pausa se cancela.
+The duration, in seconds, of the commercial break. This has to be a non-zero positive value in order to start the commercial break. When a commercial break is in progress, and the duration is set to zero with the CueId matching the on-going commercial break, then that break is canceled.
 
-###Identificador de pila
+###<a name="cueid"></a>CueId
 
-Identificador único de la pausa comercial que la aplicación correspondiente usará para emprender las acciones adecuadas. Debe ser un entero positivo. Puede establecer este valor en un número entero positivo aleatorio o usar un sistema ascendente para realizar un seguimiento de los identificadores de pila. Asegúrese de normalizar los identificadores como enteros positivos antes de enviar a través de la API.
+A Unique ID for the commercial break, to be used by downstream application to take appropriate action(s). Needs to be a positive integer. You can set this value to any random positive integer or use an upstream system to track the Cue Ids. Make certain to normalize any ids to positive integers before submitting through the API.
 
-###Mostrar pizarra
+###<a name="show-slate"></a>Show slate
 
-Opcional. Indica al codificador en directo que cambie a la [careta predeterminada](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante una pausa comercial y oculte la fuente de vídeo entrante. El audio también está desactivado durante el uso de la pizarra. El valor predeterminado es **false**.
+Optional. Signals the live encoder to switch to the [default slate](media-services-manage-live-encoder-enabled-channels.md#default_slate) image during a commercial break and hide the incoming video feed. Audio is also muted during slate. Default is **false**. 
  
-La imagen usada será la especificada mediante la propiedad Id del recurso de pizarra predeterminado en el momento de la creación del canal. La pizarra se estira para ajustarse al tamaño de la imagen en pantalla.
+The image used will be the one specified via the default slate asset Id property at the time of the channel creation. The slate will be stretched to fit the display image size. 
 
 
-##Insertar imágenes de pizarra
+##<a name="insert-slate-images"></a>Insert Slate  images
 
-Puede señalarse al codificador en directo del canal que cambie a una imagen de pizarra. También puede se le puede indicar que finalice una pizarra en curso.
+The live encoder within the Channel can be signaled to switch to a slate image. It can also be signaled to end an on-going slate. 
 
-El codificador en directo puede configurarse para cambiar a una imagen de pizarra y ocultar la señal de vídeo entrante en determinadas situaciones, por ejemplo, durante una pausa de anuncio. Si no se ha configurado ninguna pizarra de este tipo, el vídeo de entrada no se enmascara durante esa pausa.
+The live encoder can be configured to switch to a slate image and hide the incoming video signal in certain situations – for example, during an ad break. If such a slate is not configured, input video is not masked during that ad break.
 
-###Duración
+###<a name="duration"></a>Duration
 
-La duración de la pizarra en segundos. Para iniciar la pizarra, este debe ser un valor positivo distinto de cero. Si hay una pizarra en curso y se especifica una duración de cero, dicha pizarra se terminará.
+The duration of the slate in seconds. This has to be a non-zero positive value in order to start the slate. If there is an on-going slate, and a duration of zero is specified, then that on-going slate will be terminated.
 
-###Insertar pizarra en marcador de anuncio
+###<a name="insert-slate-on-ad-marker"></a>Insert slate on ad marker
 
-Cuando está establecido en true, este valor configura el codificador en directo para insertar una imagen de pizarra durante una pausa de anuncio. El valor predeterminado es true.
+When set to true, this setting configures the live encoder to insert a slate image during an ad break. The default value is true. 
 
-###<a id="default_slate"></a>Identificador de activo de activo de tableta táctil predeterminado
+###<a name="<a-id="default_slate"></a>default-slate-asset-id"></a><a id="default_slate"></a>Default slate Asset Id
 
-Opcional. Especifica el identificador del recurso de Servicios multimedia que contiene la imagen de pizarra. El valor predeterminado es null.
+Optional. Specifies the Asset Id of the Media Services Asset which contains the slate image. Default is null. 
 
-**Nota**: antes de crear el canal, la imagen de careta debe cargarse con las siguientes restricciones como activo dedicado (no debe haber ningún otro archivo en este activo).
+**Note**: Before creating the Channel, the slate image with the following constraints should be uploaded as a dedicated asset (no other files should be in this asset). 
 
-- Máximo 1920x1080 de resolución.
-- Al menos 3 MB de tamaño.
-- El nombre de archivo debe tener una extensión *.jpg.
-- La imagen se debe cargar en un recurso como el único AssetFile en ese recurso y este AssetFile debe marcarse como el archivo principal. El recurso no se puede almacenar cifrado.
+- At most 1920x1080 in resolution.
+- At most 3 Mbytes in size.
+- The file name must have a *.jpg extension.
+- The image must be uploaded into an Asset as the only AssetFile in that Asset and this AssetFile should be marked as the primary file. The Asset cannot be storage encrypted.
 
-Si no se especifica el **Id. del recurso de pizarra predeterminado** y el valor **Insertar pizarra en marcador de anuncio** está establecido en **true**, se usará una imagen de Servicios multimedia de Azure predeterminada para ocultar la secuencia de vídeo de entrada. El audio también está desactivado durante el uso de la pizarra.
-
-
-##Programas del canal
-
-Un canal está asociado a programas que le permiten controlar la publicación y el almacenamiento de segmentos en una secuencia en directo. Los canales administran los programas. La relación entre canales y programas es muy similar a los medios tradicionales, donde un canal tiene un flujo constante de contenido y un programa se enfoca a algún evento programado en dicho canal.
-
-Puede especificar la cantidad de horas que desea conservar el contenido grabado del programa en la configuración de la duración de **Ventana de archivo**. Este valor se puede establecer desde un mínimo de cinco minutos a un máximo de 25 horas. La duración de la ventana de archivo también indica el tiempo máximo que los clientes pueden buscar hacia atrás a partir de la posición en vivo actual. Los programas pueden transmitirse durante la cantidad de tiempo especificada, pero el contenido que escape de esa longitud de ventana se descartará continuamente. El valor de esta propiedad también determina durante cuánto tiempo los manifiestos de cliente pueden crecer.
-
-Cada programa se asocia a un recurso que almacena el contenido transmitido por streaming. Un recurso se asigna a un contenedor de blobs en la cuenta de almacenamiento de Azure y los archivos del recurso se almacenan como blobs en ese contenedor. Para publicar el programa a fin de que los clientes puedan ver la secuencia, debe crear un localizador a petición para el recurso asociado. Contar con este localizador le permitirá crear una dirección URL de streaming que puede proporcionar a sus clientes.
-
-Un canal es compatible con hasta tres programas en ejecución simultánea, por lo que puede crear varios archivos del mismo flujo entrante. Esto le permite publicar y archivar distintas partes de un evento, según sea necesario. Por ejemplo, el requisito de su empresa es solo archivar seis horas de un programa, pero difundir solo los últimos diez minutos. Para lograrlo, necesita crear dos programas en ejecución simultánea. Un programa está definido para archivar seis horas del evento, pero no está publicado. El otro programa está definido para archivar durante diez minutos y este programa sí se publica.
-
-No debe volver a usar programas existentes para eventos nuevos. En su lugar, cree e inicie un programa nuevo para cada evento como se describe en la sección Programación de aplicaciones de streaming en vivo.
-
-Inicie el programa cuando esté listo para iniciar el streaming y el archivo. Detenga el programa cuando quiera detener el streaming y el archivo del evento.
-
-Para eliminar contenido archivado, detenga y elimine el programa y, a continuación, elimine el recurso asociado. No se puede eliminar un recurso si se usa un programa; primero se debe eliminar el programa.
-
-Incluso después de detener y eliminar el programa, los usuarios podrán transmitir el contenido archivado como un vídeo a petición siempre que no elimine el recurso.
-
-Si desea conservar el contenido archivado, pero no hacerlo disponible para la transmisión, elimine el localizador de streaming.
+If the **default slate Asset Id** is not specified, and **insert slate on ad marker** is set to **true**, a default Azure Media Services image will be used to hide the input video stream. Audio is also muted during slate. 
 
 
-##Obtención de una vista previa en miniatura de una fuente directa
+##<a name="channel's-programs"></a>Channel's programs
 
-Si la codificación en directo está habilitada, puede obtener una vista previa de la fuente directa cuando llega al canal. Esta puede ser una herramienta muy valiosa para comprobar si la fuente directa llega realmente al canal.
+A channel is associated with programs that enable you to control the publishing and storage of segments in a live stream. Channels manage Programs. The Channel and Program relationship is very similar to traditional media where a Channel has a constant stream of content and a program is scoped to some timed event on that Channel.
 
-##<a id="states"></a>Estados del canal y cómo se asignan los estados al modo de facturación 
+You can specify the number of hours you want to retain the recorded content for the program by setting the **Archive Window** length. This value can be set from a minimum of 5 minutes to a maximum of 25 hours. Archive window length also dictates the maximum amount of time clients can seek back in time from the current live position. Programs can run over the specified amount of time, but content that falls behind the window length is continuously discarded. This value of this property also determines how long the client manifests can grow.
 
-El estado actual de un canal. Los valores posibles son:
+Each program is associated with an Asset which stores the streamed content. An asset is mapped to a blob container in the Azure Storage account and the files in the asset are stored as blobs in that container. To publish the program so your customers can view the stream you must create an OnDemand locator for the associated asset. Having this locator will enable you to build a streaming URL that you can provide to your clients.
 
-- **Detenido**. Este es el estado inicial del canal después de su creación. En este estado, se pueden actualizar las propiedades del canal pero no se permite el streaming.
-- **Iniciando**. El canal se está iniciando. No se permiten actualizaciones ni streaming durante este estado. Si se produce un error, el canal vuelve al estado Detenido.
-- **En ejecución**. El canal es capaz de procesar secuencias en directo.
-- **Deteniéndose**. El canal se está deteniendo. No se permiten actualizaciones ni streaming durante este estado.
-- **Eliminando**. El canal se está eliminando. No se permiten actualizaciones ni streaming durante este estado.
+A Channel supports up to three concurrently running programs so you can create multiple archives of the same incoming stream. This allows you to publish and archive different parts of an event as needed. For example, your business requirement is to archive 6 hours of a program, but to broadcast only last 10 minutes. To accomplish this, you need to create two concurrently running programs. One program is set to archive 6 hours of the event but the program is not published. The other program is set to archive for 10 minutes and this program is published.
 
-En la tabla siguiente se muestra cómo se asignan los estados del canal al modo de facturación.
+You should not reuse existing programs for new events. Instead, create and start a new program for each event as described in the Programming Live Streaming Applications section.
+
+Start the program when you are ready to start streaming and archiving. Stop the program whenever you want to stop streaming and archiving the event. 
+
+To delete archived content, stop and delete the program and then delete the associated asset. An asset cannot be deleted if it is used by a program; the program must be deleted first. 
+
+Even after you stop and delete the program, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset.
+
+If you do want to retain the archived content, but not have it available for streaming, delete the streaming locator.
+
+
+##<a name="getting-a-thumbnail-preview-of-a-live-feed"></a>Getting a thumbnail preview of a live feed
+
+When Live Encoding is enabled, you can now get a preview of the live feed as it reaches the Channel. This can be a valuable tool to check whether your live feed is actually reaching the Channel. 
+
+##<a name="<a-id="states"></a>channel-states-and-how-states-map-to-the-billing-mode"></a><a id="states"></a>Channel states and how states map to the billing mode 
+
+The current state of a Channel. Possible values include:
+
+- **Stopped**. This is the initial state of the Channel after its creation. In this state, the Channel properties can be updated but streaming is not allowed.
+- **Starting**. The Channel is being started. No updates or streaming is allowed during this state. If an error occurs, the Channel returns to the Stopped state.
+- **Running**. The Channel is capable of processing live streams.
+- **Stopping**. The Channel is being stopped. No updates or streaming is allowed during this state.
+- **Deleting**. The Channel is being deleted. No updates or streaming is allowed during this state.
+
+The following table shows how Channel states map to the billing mode. 
  
-Estado del canal|Indicadores IU del portal|¿Facturado?
+Channel state|Portal UI Indicators|Billed?
 ---|---|---
-Iniciando|Iniciando|No (estado transitorio)
-Ejecución|Listo (no hay programas en ejecución)<br/>o<br/>Streaming (al menos un programa en ejecución)|Sí
-Deteniéndose|Deteniéndose|No (estado transitorio)
-Detenido|Stopped|No
+Starting|Starting|No (transient state)
+Running|Ready (no running programs)<br/>or<br/>Streaming (at least one running program)|Yes
+Stopping|Stopping|No (transient state)
+Stopped|Stopped|No
 
 
->[AZURE.NOTE] Actualmente, el promedio de inicio de canal es de aproximadamente 2 minutos, pero a veces puede tardar hasta más de 20 minutos. Los restablecimientos de canal pueden tardar hasta 5 minutos.
+>[AZURE.NOTE] Currently, the Channel start average is about 2 minutes, but at times could take up to 20+ minutes. Channel resets can take up to 5 minutes.
 
 
-##<a id="Considerations"></a>Consideraciones
+##<a name="<a-id="considerations"></a>considerations"></a><a id="Considerations"></a>Considerations
 
-- Cuando un canal de tipo de codificación **estándar** experimenta una pérdida de origen de entrada/fuente de contribución, la compensa reemplazando el audio y vídeo de origen por una careta de error y silencio. El canal continuará emitiendo una careta hasta que se reanude la fuente de contribución/entrada. Se recomienda no dejar un canal en directo en este estado durante más de dos horas. A partir de este momento, no se garantiza el comportamiento del canal en la reconexión de entrada, ni su comportamiento en respuesta a un comando de restablecimiento. Tendrá que detener el canal, eliminarlo y crear uno nuevo.
-- No se puede cambiar el protocolo de entrada mientras el canal o sus programas asociados se están ejecutando. Si necesita diferentes protocolos, debe crear canales independientes para cada protocolo de entrada.
-- Cada vez que vuelva a configurar el codificador en directo, llame al método **Restablecer** en el canal. Antes de restablecer el canal, debe detener el programa. Después de restablecer el canal, reinicie el programa.
-- Un canal se puede detener solo cuando está en el estado En ejecución y se han detenido todos los programas en el canal.
-- De forma predeterminada solo puede agregar 5 canales a su cuenta de Servicios multimedia. Esta es una cuota de advertencia a todas las cuentas nuevas. Para obtener más información, consulte [Cuotas y limitaciones](media-services-quotas-and-limitations.md).
-- No se puede cambiar el protocolo de entrada mientras el canal o sus programas asociados se están ejecutando. Si necesita diferentes protocolos, debe crear canales independientes para cada protocolo de entrada.
-- Solo se le cobrará cuando el canal esté en estado **En ejecución**. Para obtener más información, consulte [esta](media-services-manage-live-encoder-enabled-channels.md#states) sección.
-- Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante largos períodos de tiempo, póngase en contacto con amslived en Microsoft.com.
-- Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
-- Al introducir varias pistas de idioma y realizar codificación en directo con Azure, solo se admite RTP como entrada de varios idiomas. Puede definir hasta ocho secuencias de audio con MPEG-2 TS a través de RTP. Actualmente no se admite la introducción de varias pistas de audio con Smooth Streaming ni RTMP. Al realizar la codificación en directo con [codificaciones en directo locales](media-services-live-streaming-with-onprem-encoders.md), no hay ninguna limitación de este tipo porque todo lo que se envía a AMS pasa a través de un canal sin más procesamiento.
-- El valor predeterminado de codificación usa la noción de "velocidad de fotogramas máxima" de 30 fps. Por tanto, si la entrada es de 60fps 59.97i, los fotogramas de entrada se quitan o se elimina su entrelazado a 30/29.97 fps. Si la entrada es 50fps/50i, los fotogramas de entrada se quitan o se elimina su entrelazado a 25 fps. Si la entrada es de 25 fps, la salida permanece a 25 fps.
-- No olvide DETENER SUS CANALES cuando haya terminado. Si no lo hace, la facturación continuará.
+- When a Channel of **Standard** encoding type experiences a loss of input source/contribution feed, it compensates for it by replacing the source video/audio with an error slate and silence. The Channel will continue to emit a slate until the input/contribution feed resumes. We recommend that a live channel not be left in such a state for longer than 2 hours. Beyond that point, the behavior of the Channel on input reconnection is not guaranteed, neither is its behavior in response to a Reset command. You will have to stop the Channel, delete it and create a new one.
+- You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
+- Every time you reconfigure the live encoder, call the **Reset** method on the channel. Before you reset the channel, you have to stop the program. After you reset the channel, restart the program.
+- A channel can be stopped only when it is in the Running state, and all programs on the channel have been stopped.
+- By default you can only add 5 channels to your Media Services account. This is a soft quota on all new accounts. For more information, see [Quotas and Limitations](media-services-quotas-and-limitations.md).
+- You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
+- You are only billed when your Channel is in the **Running** state. For more information, refer to [this](media-services-manage-live-encoder-enabled-channels.md#states) section.
+- Currently, the max recommended duration of a live event is 8 hours. Please contact  amslived at Microsoft.com if you need to run a Channel for longer periods of time.
+- Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+- When inputting multiple language tracks and doing live encoding with Azure, only RTP is supported for multi-language input. You can define up to 8 audio streams using MPEG-2 TS over RTP. Ingesting multiple audio tracks with RTMP or Smooth streaming is currently not supported. When doing live encoding with [on-premises live encodes](media-services-live-streaming-with-onprem-encoders.md), there is no such limitation because whatever is sent to AMS passes through a channel without any further processing.
+- The encoding preset uses the notion of "max frame rate" of 30 fps. So if the input is 60fps/59.97i, the input frames are dropped/de-interlaced to 30/29.97 fps. If the input is 50fps/50i, the input frames are dropped/de-interlaced to 25 fps. If the input is 25 fps, output remains at 25 fps.
+- Don't forget to STOP YOUR CHANNELS when done. If you don't, billing will continue.
 
-##Problemas conocidos
+##<a name="known-issues"></a>Known Issues
 
-- El tiempo de inicio del canal se ha mejorado en un promedio de 2 minutos, pero cuando se produce mayor demanda, podría tardar hasta más de 20 minutos.
-- La compatibilidad con RTP está dirigida a los operadores de radiodifusión profesionales. Revise las notas sobre RTP en [este](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
-- Las imágenes de careta deben cumplir las restricciones descritas [aquí](media-services-manage-live-encoder-enabled-channels.md#default_slate). Si intenta crear un canal con una pizarra predeterminada que sea superior a 1920x1080, la solicitud terminará por producir un error.
-- Una vez más... no se olvide de DETENER SUS CANALES cuando haya terminado de realizar el streaming. Si no lo hace, la facturación continuará.
+- Channel start up time has been improved to an average of 2 minutes, but at times of increased demand could still take up to 20+ minutes.
+- RTP support is catered towards professional broadcasters. Please review the notes on RTP in [this](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
+- Slate images should conform to restrictions described [here](media-services-manage-live-encoder-enabled-channels.md#default_slate). If you attempt create a Channel with a default slate that is larger than 1920x1080, the request will eventually error out.
+- Once again....don't forget to STOP YOUR CHANNELS when you are done streaming. If you don't, billing will continue.
 
-###Creación de canales que realizan la codificación en directo desde una secuencia de una sola velocidad de bits a una secuencia de velocidad de bits adaptable
+###<a name="how-to-create-channels-that-perform-live-encoding-from-a-singe-bitrate-to-adaptive-bitrate-stream"></a>How to create channels that perform live encoding from a singe bitrate to adaptive bitrate stream
 
-Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar los canales y programas.
+Choose **Portal**, **.NET**, **REST API** to see how to create and manage channels and programs.
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-- [API DE REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 
-##Paso siguiente
+##<a name="next-step"></a>Next step
 
-Consulte las rutas de aprendizaje de Servicios multimedia.
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Envío de comentarios
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-##Temas relacionados
+##<a name="related-topics"></a>Related topics
 
-[Entrega de eventos de streaming en vivo con Servicios multimedia de Azure](media-services-overview.md)
+[Delivering Live Streaming Events with Azure Media Services](media-services-overview.md)
 
-[Conceptos de Servicios multimedia de Azure](media-services-concepts.md)
+[Media Services Concepts](media-services-concepts.md)
 
-[Especificación de la introducción en directo de MP4 fragmentado de Servicios multimedia de Azure](media-services-fmp4-live-ingest-overview.md)
+[Azure Media Services Fragmented MP4 Live Ingest Specification](media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

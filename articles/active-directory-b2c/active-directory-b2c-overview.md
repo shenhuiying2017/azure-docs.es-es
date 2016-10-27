@@ -1,69 +1,74 @@
 <properties
-	pageTitle="Información general de Azure Active Directory B2C | Microsoft Azure"
-	description="Desarrollo de aplicaciones orientadas al consumidor con Azure Active Directory B2C"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="bryanla"/>
+    pageTitle="Azure Active Directory B2C: Overview | Microsoft Azure"
+    description="Developing consumer-facing applications with Azure Active Directory B2C"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="mbaldwin"
+    editor="bryanla"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="07/24/2016"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="07/24/2016"
+    ms.author="swkrish"/>
 
-# Azure Active Directory B2C: Registro e inicio de sesión de los consumidores en sus aplicaciones
 
-Azure Active Directory B2C es una solución completa de administración de identidades en la nube, destinada a aplicaciones móviles y web orientadas al consumidor. Se trata de un servicio global de alta disponibilidad que se puede escalar a cientos de millones de identidades de consumidor. Basado en una plataforma segura de nivel empresarial, Azure Active Directory B2C protege las aplicaciones, la empresa y los consumidores.
+# <a name="azure-active-directory-b2c:-sign-up-and-sign-in-consumers-in-your-applications"></a>Azure Active Directory B2C: Sign up and sign in consumers in your applications
 
-En el pasado, los desarrolladores de aplicaciones que deseaban registrar e iniciar la sesión de los consumidores en sus aplicaciones tenían que escribir su propio código. Y usaban bases de datos o sistemas locales para almacenar nombres de usuario y contraseñas. Azure Active Directory B2C ofrece a los desarrolladores una manera mejor de integrar la administración de identidades de consumidor en sus aplicaciones gracias a la ayuda de una plataforma segura basada en estándares y un amplio conjunto de directivas extensibles. El uso de Azure Active Directory B2C permite a los consumidores registrarse en las aplicaciones con sus cuentas de redes sociales existentes (Facebook, Google, Amazon, LinkedIn) o creando nuevas credenciales (dirección de correo electrónico y contraseña o nombre de usuario y contraseña); a esto último lo llamamos "cuentas locales".
+Azure Active Directory B2C is a comprehensive cloud identity management solution for your consumer-facing web and mobile applications. It is a highly available global service that scales to hundreds of millions of consumer identities. Built on an enterprise-grade secure platform, Azure Active Directory B2C keeps your applications, your business, and your consumers protected.
 
-## Primeros pasos
+In the past, application developers who wanted to sign up and sign in consumers into their applications would have written their own code. And they would have used on-premises databases or systems to store usernames and passwords. Azure Active Directory B2C offers developers a better way to integrate consumer identity management into their applications with the help of a secure, standards-based platform and a rich set of extensible policies. When you use Azure Active Directory B2C, your consumers can sign up for your applications by using their existing social accounts (Facebook, Google, Amazon, LinkedIn) or by creating new credentials (email address and password, or username and password); we call the latter "local accounts."
 
-Para crear una aplicación que acepte registros e inicios de sesión de consumidores, primero deberá registrarla en un inquilino de Azure Active Directory B2C. Para obtener su propio inquilino, siga los pasos descritos en [Creación de un inquilino de Azure AD B2C](active-directory-b2c-get-started.md).
+## <a name="get-started"></a>Get started
 
-Puede escribir la aplicación para el servicio Azure Active Directory B2C de dos maneras: puede elegir enviar mensajes de protocolo directamente con [OAuth 2.0](active-directory-b2c-reference-protocols.md#oauth2-authorization-code-flow) u [Open ID Connect](active-directory-b2c-reference-protocols.md#openid-connect-sign-in-flow), o bien usar nuestras bibliotecas para que el trabajo se realice automáticamente. Elija su plataforma favorita en la tabla siguiente y empiece a trabajar.
+To build an application that accepts consumer sign up and sign in, you'll first need to register the application with an Azure Active Directory B2C tenant. Get your own tenant by using the steps outlined in [Create an Azure AD B2C tenant](active-directory-b2c-get-started.md).
+
+You can write your application against the Azure Active Directory B2C service either by choosing to send protocol messages directly, using [OAuth 2.0](active-directory-b2c-reference-protocols.md#oauth2-authorization-code-flow) or [Open ID Connect](active-directory-b2c-reference-protocols.md#openid-connect-sign-in-flow), or by using our libraries to do the work for you. Choose your favorite platform in the following table and get started.
 
 [AZURE.INCLUDE [active-directory-b2c-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
-## Novedades
+## <a name="what's-new"></a>What's new
 
-Vuelva a esta sección a menudo para conocer los cambios futuros en Azure Active Directory B2C. También enviaremos tweets acerca de las actualizaciones mediante @AzureAD.
+Check back here often to learn about future changes to the Azure Active Directory B2C. We'll also tweet about any updates by using @AzureAD.
 
-- Conozca nuestro [marco de directivas extensible](active-directory-b2c-reference-policies.md) y los tipos de directivas que puede crear y usar en sus aplicaciones.
-- Agregue un marcador a nuestro [blog de servicio](https://blogs.msdn.microsoft.com/azureadb2c/) para ver notificaciones sobre problemas de servicio menores, el estado y las mitigaciones. Continúe también con la supervisión del [panel de estado de Azure](https://azure.microsoft.com/status/).
-- [Limitaciones y restricciones actuales del servicio](active-directory-b2c-limitations.md).
-- Por último, un [código de ejemplo](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c) con Azure AD B2C y ASP.NET Core.
+- Learn about our [extensible policy framework](active-directory-b2c-reference-policies.md) and about the types of policies that you can create and use in your applications.
+- Bookmark our [service blog](https://blogs.msdn.microsoft.com/azureadb2c/) for notifications on minor service issues, updates, status and mitigations. Continue to monitor the [Azure status dashboard](https://azure.microsoft.com/status/) as well.
+- Current [service limitations, restrictions, and constraints](active-directory-b2c-limitations.md).
+- Finally, a [code sample](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c) using Azure AD B2C & ASP.NET Core.
 
-## Artículos de procedimientos
+## <a name="how-to-articles"></a>How-to articles
 
-Aprenda a usar determinadas características de Azure Active Directory B2C:
+Learn how to use specific Azure Active Directory B2C features:
 
-- Configure las cuentas de [Facebook](active-directory-b2c-setup-fb-app.md), [Google+](active-directory-b2c-setup-goog-app.md), [Cuenta Microsoft](active-directory-b2c-setup-msa-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) y [LinkedIn](active-directory-b2c-setup-li-app.md) para usarlas en las aplicaciones orientadas al consumidor.
-- [Uso de atributos personalizados para recopilar información sobre los consumidores](active-directory-b2c-reference-custom-attr.md).
-- [Habilitación de Azure Multi-Factor Authentication en las aplicaciones orientadas al consumidor](active-directory-b2c-reference-mfa.md).
-- [Configuración del restablecimiento de contraseña de autoservicio para los consumidores](active-directory-b2c-reference-sspr.md).
-- [Personalización de la apariencia de las páginas de registro, de inicio de sesión y de otras páginas orientadas al consumidor](active-directory-b2c-reference-ui-customization.md) a las que presta servicio Azure Active Directory B2C.
-- [Uso de la API Graph de Azure Active Directory para crear, leer, actualizar y eliminar consumidores mediante programación](active-directory-b2c-devquickstarts-graph-dotnet.md) en el directorio de Azure Active Directory B2C.
+- Configure [Facebook](active-directory-b2c-setup-fb-app.md), [Google+](active-directory-b2c-setup-goog-app.md), [Microsoft account](active-directory-b2c-setup-msa-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md), and [LinkedIn](active-directory-b2c-setup-li-app.md) accounts for use in your consumer-facing applications.
+- [Use custom attributes to collect information about your consumers](active-directory-b2c-reference-custom-attr.md).
+- [Enable Azure Multi-Factor Authentication in your consumer-facing applications](active-directory-b2c-reference-mfa.md).
+- [Set up self-service password reset for your consumers](active-directory-b2c-reference-sspr.md).
+- [Customize the look and feel of sign up, sign in, and other consumer-facing pages](active-directory-b2c-reference-ui-customization.md) that are served by Azure Active Directory B2C.
+- [Use the Azure Active Directory Graph API to programmatically create, read, update, and delete consumers](active-directory-b2c-devquickstarts-graph-dotnet.md) in your Azure Active Directory B2C tenant.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-Estos vínculos serán útiles para explorar el servicio en profundidad:
+These links will be useful for exploring the service in depth:
 
-- Consulte la [información de precios de Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
-- Obtenga ayuda sobre Stack Overflow con las etiquetas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) o [adal](http://stackoverflow.com/questions/tagged/adal).
-- Envíenos sus ideas mediante [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/); ¡queremos conocerlas! Use la frase "AzureADB2C:" en el título de la entrada para que podamos encontrarla.
-- Revise la [referencia del protocolo Azure AD B2C](active-directory-b2c-reference-protocols.md).
-- Revise la [referencia de token de Azure AD B2C](active-directory-b2c-reference-tokens.md).
-- Lea las [P+F sobre Azure Active Directory B2C](active-directory-b2c-faqs.md).
-- [Presentación de solicitudes de soporte técnico para Azure Active Directory B2C](active-directory-b2c-support.md).
+- See the [Azure Active Directory B2C pricing information](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+- Get help on Stack Overflow by using the [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) or [adal](http://stackoverflow.com/questions/tagged/adal) tags.
+- Give us your thoughts by using [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/)--we want to hear them! Use the phrase "AzureADB2C:" in the title of your post so we can find it.
+- Review the [Azure AD B2C Protocol Reference](active-directory-b2c-reference-protocols.md).
+- Review the [Azure AD B2C Token Reference](active-directory-b2c-reference-tokens.md).
+- Read the [Azure Active Directory B2C FAQs](active-directory-b2c-faqs.md).
+- [File support requests for Azure Active Directory B2C](active-directory-b2c-support.md).
 
-## Obtención de actualizaciones de seguridad para nuestros productos
+## <a name="get-security-updates-for-our-products"></a>Get security updates for our products
 
-Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite [esta página](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de avisos de seguridad.
+We encourage you to get notifications of when security incidents occur by visiting [this page](https://technet.microsoft.com/security/dd252948) and subscribing to Security Advisory Alerts.
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

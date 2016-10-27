@@ -1,33 +1,37 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### Para completar la instalación mínima del dispositivo StorSimple
+#### <a name="to-complete-the-minimum-storsimple-device-setup"></a>To complete the minimum StorSimple device setup
 
-1. Seleccione el dispositivo y haga clic en **Inicio rápido**. Haga clic en **Completar la instalación del dispositivo** para iniciar el Asistente para configurar dispositivos.
+1. Select the device and click **Quick Start**. Click **Complete device setup** to start the Configure device wizard.
 
-2. En el cuadro de diálogo **Configuración básica** del Asistente para configurar dispositivos, haga lo siguiente:
-  1. Proporcione un **nombre descriptivo** para el dispositivo. El nombre de dispositivo predeterminado refleja información como el modelo de dispositivo y el número de serie. Puede asignar un nombre descriptivo de hasta 64 caracteres para administrar el dispositivo.
-  2. Establezca la **zona horaria** según la ubicación geográfica en la que se va a implementar el dispositivo. El dispositivo usará esta zona horaria para todas las operaciones programadas.
-  3. En **Configuración DNS**, proporcione una dirección para el **Servidor DNS secundario**. Si usa IPv6, el campo se rellenará en función del prefijo IPv6 proporcionado en la interfaz de Windows PowerShell. Si el servidor DNS secundario no está configurado, no podrá guardar la configuración del dispositivo.
-  4. En Interfaces habilitadas para iSCSI, habilite al menos una red para iSCSI. Al menos una interfaz de red debe estar habilitada para la nube y una interfaz debe estar habilitada para iSCSI. DATA 0 se habilita para la nube automáticamente.
+2. In the Configure device wizard **Basic Settings** dialog box, do the following:
+  1. Supply a **friendly name** for your device. The default device name reflects information such as the device model and serial number. You can assign a friendly name of up to 64 characters to manage your device.
+  2. Set the **time zone** based on the geographic location in which the device is being deployed. Your device will use this time zone for all scheduled operations.
+  3. Under **DNS Settings**, provide an address for your **Secondary DNS Server**. If you are using IPv6, the field will be populated based on the IPv6 prefix provided in the Windows PowerShell interface. 
+  If the secondary DNS server is not configured, you will not be allowed to save your device configuration.
+  4. Under iSCSI enabled interfaces, enable at least one network for iSCSI. At least one network interface needs to be cloud-enabled and one interface needs to be iSCSI-enabled. DATA 0 is automatically cloud-enabled.
  
-      ![Configuración básica de la instalación mínima del dispositivo StorSimple](./media/storsimple-complete-minimum-device-setup-u1/HCS_MinDeviceSetupBasicSettings1-include.png)
+      ![StorSimple minimum device setup basic settings](./media/storsimple-complete-minimum-device-setup-u1/HCS_MinDeviceSetupBasicSettings1-include.png)
 
-3. Haga clic en el icono de flecha. ![Icono de flecha de StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_ArrowIcon-include.png)
+3. Click the arrow icon. ![StorSimple arrow icon](./media/storsimple-complete-minimum-device-setup/HCS_ArrowIcon-include.png)
 
-4. En el cuadro de diálogo **Interfaces de red**, proporcione las direcciones IP fijas para el Controlador 0 y el Controlador 1. **Las direcciones IP fijas del controlador deben ser direcciones IP libres dentro de la subred y accesibles mediante la dirección IP del dispositivo.** Si la interfaz DATA 0 estaba configurada para IPv4, las direcciones IP fijas deben suministrarse en formato IPv4. Si proporcionó un prefijo para la configuración de IPv6, las direcciones IP fijas se rellenarán automáticamente en estos campos.
+4. In the **Network Interfaces** dialog box, provide the fixed IP addresses for Controller 0 and Controller 1. **The controller fixed IP addresses need to be free IPs within the subnet accessible by the device IP address.** If the DATA 0 interface was configured for IPv4, the fixed IP addresses need to be provided in the IPv4 format. If you provided a prefix for IPv6 configuration, the fixed IP addresses will be populated automatically in these fields.
 
 
-    ![Interfaces de red de la instalación mínima del dispositivo StorSimple](./media/storsimple-complete-minimum-device-setup-u1/HCS_MinDeviceSetupNetworkInterfaces2-include.png)
+    ![StorSimple minimum device setup network interfaces](./media/storsimple-complete-minimum-device-setup-u1/HCS_MinDeviceSetupNetworkInterfaces2-include.png)
 
-    Las direcciones IP fijas del controlador se usan para el mantenimiento de las actualizaciones del dispositivo y, por tanto, las direcciones IP fijas deben ser enrutables y poder conectarse a Internet. Para comprobar que son enrutables, use el cmdlet [Test-HcsmConnection][Test]. En el ejemplo siguiente se muestra que las direcciones IP fijas del controlador se enrutan a Internet y pueden tener acceso a los servidores de Microsoft Update.
+    The fixed IP addresses for the controller are used for servicing the updates to the device, and therefore the fixed IPs must be routable and able to connect to the Internet. You can check that your fixed controller IPs are routable by using the [Test-HcsmConnection][Test] cmdlet. The following example shows fixed controller IPs are routed to the Internet and can access the Microsoft Update servers. 
 
-     ![Test-HcsmConnection que muestra direcciones IP enrutables](./media/storsimple-complete-minimum-device-setup-u1/Test-HcsmConnectionOutputRegisteredDevice.png)
+     ![Test-HcsmConnection showing routable IPs](./media/storsimple-complete-minimum-device-setup-u1/Test-HcsmConnectionOutputRegisteredDevice.png)
 
-5. Haga clic en el icono de marca de verificación ![Icono de verificación de StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png). Volverá a la página **Inicio rápido** del dispositivo.
+5. Click the check icon ![StorSimple check icon](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png).
+  You will return to the device **Quick Start** page.
 
- >[AZURE.NOTE]Puede modificar la configuración restante del dispositivo en cualquier momento accediendo a la página **Configurar**.
+ > [AZURE.NOTE] You can modify all the other device settings at any time by accessing the **Configure** page.
 
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,125 +1,126 @@
 <properties
-	pageTitle="Active Directory Domain Services: guía de administración | Microsoft Azure"
-	description="Una la máquina virtual de Windows a un dominio administrado con Azure PowerShell y el modelo de implementación clásica."
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="stevenpo"
-	editor="curtand"/>
+    pageTitle="Azure Active Directory Domain Services: Administration Guide | Microsoft Azure"
+    description="Join a Windows virtual machine to a managed domain using Azure PowerShell and the classic deployment model."
+    services="active-directory-ds"
+    documentationCenter=""
+    authors="mahesh-unnikrishnan"
+    manager="stevenpo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-ds"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/20/2016"
-	ms.author="maheshu"/>
+    ms.service="active-directory-ds"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/01/2016"
+    ms.author="maheshu"/>
 
 
-# Unión de una máquina virtual con Windows Server a un dominio administrado mediante PowerShell
+
+# <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-powershell"></a>Join a Windows Server virtual machine to a managed domain using PowerShell
 
 > [AZURE.SELECTOR]
-- [Portal de Azure clásico - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
+- [Azure classic portal - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
 - [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 
 <br>
 
-> [AZURE.IMPORTANT] Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../resource-manager-deployment-model.md). Este artículo trata del modelo de implementación clásico. Servicios de dominio de Azure AD no admite actualmente el modelo de Resource Manager.
+> [AZURE.IMPORTANT] Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the classic deployment model. Azure AD Domain Services does not currently support the Resource Manager model.
 
-En estos pasos se muestra cómo personalizar un conjunto de comandos de Azure PowerShell que creen y preconfiguren una máquina virtual de Azure basada en Windows mediante el uso de un enfoque de bloque de creación. Estos pasos ayudan a crear una máquina virtual de Azure basada en Windows y unirla a un dominio administrado de Servicios de dominio de Azure AD.
+These steps show you how to customize a set of Azure PowerShell commands that create and preconfigure a Windows-based Azure virtual machine by using a building block approach. These steps help you build a Windows-based Azure virtual machine and join it to an Azure AD Domain Services managed domain.
 
-En estos pasos se sigue un enfoque consistente en atar cabos para crear conjuntos de comandos de Azure PowerShell. Este enfoque puede ser útil si es la primera vez que se usa PowerShell o se desea saber qué valores se deben especificar para una configuración correcta. Los usuarios avanzados de PowerShell pueden tomar los comandos y sustituir sus propios valores de las variables (las líneas que comienzan con "$").
+These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to PowerShell or you want to know what values to specify for successful configuration. Advanced PowerShell users can take the commands and substitute their own values for the variables (the lines beginning with "$").
 
-Si aún no lo ha hecho, siga las instrucciones de [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para instalar Azure PowerShell en un equipo local. Después, abra el símbolo del sistema de Windows PowerShell.
+If you haven't done so already, use the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) to install Azure PowerShell on your local computer. Then, open a Windows PowerShell command prompt.
 
-## Paso 1: agregar la cuenta
+## <a name="step-1:-add-your-account"></a>Step 1: Add your account
 
-1. En el símbolo del sistema de Powershell, escriba **Add-AzureAccount** y haga clic en **Entrar**.
-2. Escriba la dirección de correo electrónico asociada a su suscripción de Azure y haga clic en **Continuar**.
-3. Escriba la contraseña de su cuenta.
-4. Haga clic en **Iniciar sesión**.
+1. At the PowerShell prompt, type **Add-AzureAccount** and click **Enter**.
+2. Type in the email address associated with your Azure subscription and click **Continue**.
+3. Type in the password for your account.
+4. Click **Sign in**.
 
-## Paso 2: establecimiento de la cuenta de suscripción y almacenamiento
+## <a name="step-2:-set-your-subscription-and-storage-account"></a>Step 2: Set your subscription and storage account
 
-Para establecer su cuenta de suscripción y almacenamiento de Azure, ejecute estos comandos en el símbolo del sistema de Windows PowerShell. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < y >, por los nombres correctos.
+Set your Azure subscription and storage account by running these commands at the Windows PowerShell command prompt. Replace everything within the quotes, including the < and > characters, with the correct names.
 
-	$subscr="<subscription name>"
-	$staccount="<storage account name>"
-	Select-AzureSubscription -SubscriptionName $subscr –Current
-	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
+    $subscr="<subscription name>"
+    $staccount="<storage account name>"
+    Select-AzureSubscription -SubscriptionName $subscr –Current
+    Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-El nombre de suscripción correcto se puede obtener de la propiedad SubscriptionName de la salida del comando **Get-AzureSubscription**. Puede obtener el nombre de cuenta de almacenamiento correcto de la propiedad “Label” de la salida del comando **Get-AzureStorageAccount**, una vez haya ejecutado el comando **Select-AzureSubscription**.
+You can get the correct subscription name from the SubscriptionName property of the output of the **Get-AzureSubscription** command. You can get the correct storage account name from the Label property of the output of the **Get-AzureStorageAccount** command after you run the **Select-AzureSubscription** command.
 
 
-## Paso 3: Tutorial paso a paso - Aprovisionamiento de la máquina virtual y unión al dominio administrado
-Este es el comando de Azure PowerShell correspondiente para crear esta máquina virtual, con líneas en blanco entre cada bloque para mejorar la legibilidad.
+## <a name="step-3:-step-by-step-walkthrough---provision-the-virtual-machine-and-join-it-to-the-managed-domain"></a>Step 3: Step-by-step walkthrough - provision the virtual machine and join it to the managed domain
+Here is the corresponding Azure PowerShell command set to create this virtual machine, with blank lines between each block for readability.
 
-Especifique la información sobre la máquina virtual de Windows que desea aprovisionar.
+Specify information about the Windows virtual machine to be provisioned.
 
     $family="Windows Server 2012 R2 Datacenter"
     $vmname="Contoso100-test"
     $vmsize="ExtraSmall"
 
-Para los valores de InstanceSize de las máquinas virtuales de las series D, DS o G, consulte [Máquina virtual y tamaños de servicios en la nube de Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+For the InstanceSize values for D-, DS-, or G-series virtual machines, see [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
-Proporcione información sobre el dominio administrado.
+Provide information about the managed domain.
 
     $domaindns="contoso100.com"
     $domacctdomain="contoso100"
 
-Especifique el nombre del servicio en la nube.
+Specify the name of the cloud service.
 
     $svcname="Contoso100-test"
 
-Especifique el nombre de la red virtual a la que se debe unir la máquina virtual. Asegúrese de que el dominio administrado de Servicios de dominio de Azure AD está disponible en esta red virtual.
+Specify the name of the virtual network to which the VM should be joined. Ensure that the AAD-DS managed domain is available in this virtual network.
 
     $vnetname="MyPreviewVnet"
 
-Seleccione la imagen de máquina virtual que se usará para aprovisionar la máquina virtual.
+Select the VM image to be used to provision the VM.
 
     $image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
-Configure la máquina virtual: nombre del conjunto de máquina virtual, tamaño de instancia e imagen que se usará.
+Configure the VM - set VM name, instance size & image to be used.
 
     $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-Obtenga las credenciales de administrador local para la máquina virtual. Elija una contraseña segura de administrador local. Para comprobar su robustez, consulte [Comprobador de contraseñas: uso de contraseñas seguras](https://www.microsoft.com/security/pc-security/password-checker.aspx).
+Obtain local administrator credentials for the VM. Choose a strong local administrator password.
 
     $localadmincred=Get-Credential –Message "Type the name and password of the local administrator account."
 
-Obtenga las credenciales para una cuenta de usuario que pertenezca al grupo de administradores de controlador de dominio de AAD para unir la máquina virtual al dominio administrado. No especifique el nombre de dominio; fíjese en nuestro ejemplo, donde "bob" es el nombre de usuario.
+Obtain credentials for a user account belonging to 'AAD DC Administrators' group to join VM to the managed domain. Do not specify the domain name - for instance, in our example, we specify 'bob' as the user name.
 
     $domainadmincred=Get-Credential –Message "Now type the name (DO NOT INCLUDE THE DOMAIN) and password of an account in the AAD DC Administrators group, that has permission to add the machine to the domain."
 
-Configure la máquina virtual: especifique el requisito de la unión a dominio y las credenciales necesarias.
+Configure the VM - specify domain join requirement & required credentials.
 
     $vm1 | Add-AzureProvisioningConfig -AdminUsername $localadmincred.Username -Password $localadmincred.GetNetworkCredential().Password -WindowsDomain -Domain $domacctdomain -DomainUserName $domainadmincred.Username -DomainPassword $domainadmincred.GetNetworkCredential().Password -JoinDomain $domaindns
 
-Establezca una subred para la máquina virtual.
+Set a subnet for the VM.
 
     $vm1 | Set-AzureSubnet -SubnetNames "Subnet-1"
 
-Opcional: señale a la dirección IP del dominio. Si establece las direcciones IP del dominio administrado de Servicios de dominio de Azure AD para que sean los servidores DNS de la red virtual, este paso no es necesario.
+Optional: Point to the IP address of the domain. If you set the IP addresses of the Azure AD Domain Services managed domain to be the DNS servers for the virtual network, this step is not required.
 
     $dns = New-AzureDns -Name 'contoso100-dc1' -IPAddress '10.0.0.4'
 
-Ahora, aprovisione la máquina virtual de Windows unida a un dominio.
+Now, provision the domain-joined Windows VM.
 
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname -Location "Central US" -DnsSettings $dns
 
 <br>
 
-## Script para aprovisionar una máquina virtual de Windows y unirla automáticamente a un dominio administrado de Servicios de dominio de AAD
-Este conjunto de comandos de PowerShell crea una máquina virtual para un servidor de línea de negocio que:
+## <a name="script-to-provision-a-windows-vm-and-automatically-join-it-to-an-aad-domain-services-managed-domain"></a>Script to provision a Windows VM and automatically join it to an AAD Domain Services managed domain
+This PowerShell command set creates a virtual machine for a line-of-business server that:
 
-- Utilice la imagen de Windows Server 2012 R2 Datacenter.
-- Es una máquina virtual extra pequeña.
-- Tiene como nombre contoso-test.
-- Se une automáticamente al dominio administrado contoso100.
-- Se agrega a la misma red virtual que el dominio administrado.
+- Uses the Windows Server 2012 R2 Datacenter image.
+- Is an extra small virtual machine.
+- Has the name contoso-test.
+- Is automatically domain joined to the contoso100 managed domain.
+- Is added to the same virtual network as the managed domain.
 
-Ese es el script de ejemplo completo para crear la máquina virtual de Windows y unirla automáticamente al dominio administrado de Servicios de dominio de Azure AD.
+Here is the full sample script to create the Windows virtual machine and automatically join it to the Azure AD Domain Services managed domain.
 
     $family="Windows Server 2012 R2 Datacenter"
     $vmname="Contoso100-test"
@@ -149,9 +150,13 @@ Ese es el script de ejemplo completo para crear la máquina virtual de Windows y
 
 <br>
 
-## Contenido relacionado
-- [Servicios de dominio de Azure AD (vista previa): introducción](./active-directory-ds-getting-started.md)
+## <a name="related-content"></a>Related Content
+- [Azure AD Domain Services - Getting Started guide](./active-directory-ds-getting-started.md)
 
-- [Administer an Azure AD Domain Services managed domain (Administración de un dominio administrado con Servicios de dominio de Azure AD)](./active-directory-ds-admin-guide-administer-domain.md)
+- [Administer an Azure AD Domain Services managed domain](./active-directory-ds-admin-guide-administer-domain.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

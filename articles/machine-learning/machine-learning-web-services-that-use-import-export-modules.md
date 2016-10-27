@@ -1,152 +1,158 @@
 <properties
-	pageTitle="Implementación de servicios web del aprendizaje automático de Azure que usan módulos de importación y exportación de datos | Microsoft Azure"
-	description="Aprenda a usar los módulos de importación y exportación de datos para enviar y recibir datos de un servicio web."
-	services="machine-learning"
-	documentationCenter=""
-	authors="vDonGlover"
-	manager="raymondlaghaeian"
-	editor=""/>
+    pageTitle="Deploying Azure ML web services that use Data Import and Data Export modules | Microsoft Azure"
+    description="Learn how to use the Import Data and Export Data modules to send and receive data from a web service."
+    services="machine-learning"
+    documentationCenter=""
+    authors="vDonGlover"
+    manager="raymondlaghaeian"
+    editor=""/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/12/2016"
-	ms.author="v-donglo"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/12/2016"
+    ms.author="v-donglo"/>
 
 
 
-# Implementación de servicios web del aprendizaje automático de Azure que usan módulos de importación y exportación de datos 
 
-Cuando se crea un experimento predictivo, normalmente se agregan una entrada y una salida de servicio web. Al implementar el experimento, los consumidores pueden enviar y recibir datos desde el servicio web a través de las entradas y salidas. En algunas aplicaciones, los datos del consumidor pueden estar disponibles desde una fuente de datos o ya residir en un origen de datos externo, como el Almacenamiento de blobs de Azure. En estos casos, no se requiere que lean y escriban datos mediante entradas y salidas del servicio web. En su lugar, pueden utilizar el servicio de ejecución por lotes (BES) para leer los datos del origen de datos mediante un módulo de importación de datos y escribir los resultados de puntuación en una ubicación de datos diferente mediante un módulo de exportación de datos.
+# <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>Deploying Azure ML web services that use Data Import and Data Export modules 
 
-Los módulos de importación y exportación de datos pueden leer y escribir en una serie de datos que proporcionan ubicaciones como una dirección URL web a través de HTTP, una consulta de Hive, una base de datos de SQL de Azure, Almacenamiento de tablas de Azure, Almacenamiento de blobs de Azure, una fuente de datos o una base de datos SQL local.
+When you create a predictive experiment, you typically add a web service input and output. When you deploy the experiment, consumers can send and receive data from the web service through the inputs and outputs. For some applications, a consumer's data may be available from a data feed or already reside in an external data source such as Azure Blob storage. In these cases, they do not need read and write data using web service inputs and outputs. They can, instead, use the Batch Execution Service (BES) to read data from the data source using an Import Data module and write the scoring results to a different data location using an Export Data module.
 
-En este tema se usa la muestra "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" (Muestra 5: Entrenar, probar, evaluar para clasificación binaria: Conjunto de datos para adultos) y presupone que el conjunto de datos ya se ha cargado en una tabla de SQL de Azure denominada censusdata.
+The Import Data and Export data modules, can read from and write to a number of data locations such as a Web URL via HTTP, a Hive Query, an Azure SQL database, Azure Table storage, Azure Blob storage, a Data Feed provide, or an on-premise SQL database.
 
-## Creación del experimento de entrenamiento 
+This topic uses the "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" sample and assumes the dataset has already been loaded into an Azure SQL table named censusdata.
+
+## <a name="create-the-training-experiment"></a>Create the training experiment 
  
-Al abrir la muestra "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" (Muestra 5: Entrenar, probar, evaluar para clasificación binaria: Conjunto de datos para adultos), se usa el conjunto de datos de clasificación binaria de ingresos en el censo adultos de ejemplo. El experimento en el lienzo tendrá una apariencia similar a la siguiente imagen.
+When you open the "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" sample it uses the sample Adult Census Income Binary Classification dataset. And the experiment in the canvas will look similar to the following image.
 
-![Configuración inicial del experimento.](./media/machine-learning-web-services-that-use-import-export-modules/initial-look-of-experiment.png)
+![Initial configuration of the experiment.](./media/machine-learning-web-services-that-use-import-export-modules/initial-look-of-experiment.png)
   
 
-Para leer los datos de la tabla de SQL de Azure:
+To read the data from the Azure SQL table:
 
-1. 	Elimine el módulo del conjunto de datos.
-2.	En el cuadro de búsqueda de componentes, escriba import.
-3.	En la lista de resultados, agregue un módulo *Importar datos* al lienzo del experimento.
-4.	Conecte la salida del módulo *Importar datos* a la entrada del módulo *Clean Missing Data* (Limpiar datos que faltan).
-5.	En el panel de propiedades, seleccione **Base de datos SQL de Azure** en el menú desplegable **Origen de datos**.
-6.	En los campos **Nombre del servidor de base de datos**, **Nombre de base de datos**, **Nombre de usuario** y **Contraseña** escriba la información apropiada para la base de datos.
-7.	En el campo Consulta de base de datos, escriba la siguiente consulta.
+1.  Delete the dataset module.
+2.  In the components search box, type import.
+3.  From the results list, add an *Import Data* module to the experiment canvas.
+4.  Connect output of the *Import Data* module the input of the *Clean Missing Data* module.
+5.  In properties pane, select **Azure SQL Database** in the **Data Source** dropdown.
+6.  In the **Database server name**, **Database name**, **User name**, and **Password** fields, enter the appropriate information for your database.
+7.  In the Database query field, enter the following query.
 
-		select [age],
-		   [workclass],
-		   [fnlwgt],
-		   [education],
-		   [education-num],
-		   [marital-status],
-		   [occupation],
-		   [relationship],
-		   [race],
-		   [sex],
-		   [capital-gain],
-		   [capital-loss],
-		   [hours-per-week],
-		   [native-country],
-		   [income]
-		from dbo.censusdata;
+        select [age],
+           [workclass],
+           [fnlwgt],
+           [education],
+           [education-num],
+           [marital-status],
+           [occupation],
+           [relationship],
+           [race],
+           [sex],
+           [capital-gain],
+           [capital-loss],
+           [hours-per-week],
+           [native-country],
+           [income]
+        from dbo.censusdata;
 
-8.	En la parte inferior del lienzo del experimento, haga clic en **Ejecutar**.
+8.  At the bottom of the experiment canvas, click **Run**.
 
-## Creación del experimento predictivo
+## <a name="create-the-predictive-experiment"></a>Create the predictive experiment
 
-Ahora, configure el experimento predictivo desde el que se implementa el servicio web.
+Next you set up the predictive experiment from which you will deploy your web service.
 
-1.	En la parte inferior del lienzo del experimento, haga clic en **Set Up Web Service** (Configurar servicio web) y seleccione **Predictive Web Service [Recommended]** (Servicio web predictivo [recomendado]).
-2.	Quite los módulos *Web Service Input* (Entrada del servicio web) y *Web Service Output* (Salida del servicio web) desde el experimento predictivo.
-3.	En el cuadro de búsqueda de componentes, escriba export.
-4.	En la lista de resultados, agregue un módulo *Exportar datos* al lienzo del experimento.
-5.	Conecte la salida del módulo *Score Model* (Puntuar modelo) a la entrada del módulo *Export Data*.
-6.	En el panel de propiedades, seleccione **Base de datos SQL de Azure** en el menú desplegable Origen de datos.
-7.	En los campos **Nombre del servidor de base de datos**, **Nombre de base de datos**, **Server user account name** (Nombre de la cuenta de usuario del servidor) y **Server user account password** (Contraseña de la cuenta de usuario del servidor) escriba la información apropiada para la base de datos.
-8.	En el campo **Comma separated list of columns to be saved** (Lista de elementos separados por comas de las columnas que guardar) escriba Scored Labels.
-9.	En el campo **Data table name** (Nombre de tabla de datos), escriba dbo.ScoredLabels. Si la tabla no existe, se crea cuando se ejecuta el experimento o se llama al servicio web.
-10.	En el campo **Comma separated list of datatable columns** (Lista de elementos separados por comas de las columnas de tablas de datos) escriba ScoredLabels.
+1.  At the bottom of the experiment canvas, click **Set Up Web Service** and select **Predictive Web Service [Recommended]**.
+2.  Remove the *Web Service Input* and *Web Service Output modules* from the predictive experiment. 
+3.  In the components search box, type export.
+4.  From the results list, add an *Export Data* module to the experiment canvas.
+5.  Connect output of the *Score Model* module the input of the *Export Data* module. 
+6.  In properties pane, select **Azure SQL Database** in the data destination dropdown.
+7.  In the **Database server name**, **Database name**, **Server user account name**, and **Server user account password** fields, enter the appropriate information for your database.
+8.  In the **Comma separated list of columns to be saved** field, type Scored Labels.
+9.  In the **Data table name field**, type dbo.ScoredLabels. If the table does not exist, it is created when the experiment is run or the web service is called.
+10. In the **Comma separated list of datatable columns** field, type ScoredLabels.
 
-Cuando se escribe una aplicación que llama al servicio web final, puede especificar una consulta de entrada diferente u otra tabla de destino en tiempo de ejecución. Para configurar estas entradas y salidas, puede utilizar la característica de parámetros del servicio web para establecer la propiedad *Origen de datos* del módulo *Importar datos* y la propiedad de destino de datos del módulo *Exportar datos*. Para obtener más información sobre los parámetros del servicio Web, consulte la entrada [AzureML Web Service Parameters](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) (Parámetros del servicio web AzureML) en Cortana Intelligence and Machine Learning Blog (blog de aprendizaje automático e inteligencia de Cortana).
+When you write an application that calls the final web service, you may want to specify a different input query or destination table at run time. To configure these inputs and outputs, you can use the Web Service Parameters feature to set the *Import Data* module *Data source* property and the *Export Data* mode data destination property.  For more information on Web Service Parameters, see the [AzureML Web Service Parameters entry](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) on the Cortana Intelligence and Machine Learning Blog.
 
-Para configurar los parámetros del servicio web para la consulta de importación y la tabla de destino:
+To configure the Web Service Parameters for the import query and the destination table:
 
-1.	En el panel de propiedades del módulo *Importar datos*, haga clic en el icono situado en la parte superior derecha del campo **Consulta de base de datos** y seleccione **Set as web service parameter** (Establecer como parámetro de servicio web).
-2.	En el panel de propiedades del módulo *Exportar datos*, haga clic en el icono situado en la parte superior derecha del campo **Nombre de la tabla de datos** y seleccione **Set as web service parameter** (Establecer como parámetro de servicio web).
-3.	En la parte inferior del panel de propiedades del módulo *Exportar datos*, en la sección **Parámetros del servicio web**, haga clic en Consulta de base de datos y cambie el nombre por Query.
-4.	Haga clic en **Nombre de la tabla de datos** y cambie el nombre por **Table**.
+1.  In the properties pane for the *Import Data* module, click the icon at the top right of the **Database query** field and select **Set as web service parameter**.
+2.  In the properties pane for the *Export Data* module, click the icon at the top right of the **Data table name** field and select **Set as web service parameter**.
+3.  At the bottom of the *Export Data* module properties pane, in the **Web Service Parameters** section, click Database query and rename it Query.
+4.  Click **Data table name** and rename it **Table**.
 
-Cuando haya terminado, el experimento debería tener un aspecto similar a la siguiente imagen.
+When you are done, your experiment should look similar to the following image.
  
-![Aspecto final del experimento.](./media/machine-learning-web-services-that-use-import-export-modules/experiment-with-import-data-added.png)
+![Final look of experiment.](./media/machine-learning-web-services-that-use-import-export-modules/experiment-with-import-data-added.png)
 
-Ahora puede implementar el experimento predictivo como servicio web.
+Now you can deploy the experiment as a web service.
 
-## Implementación del servicio web 
-Puede realizar la implementación en un servicio web clásico o nuevo.
+## <a name="deploy-the-web-service"></a>Deploy the web service 
+You can deploy to either a Classic or New web service.
 
-### Implementación de un servicio web clásico
+### <a name="deploy-a-classic-web-service"></a>Deploy a Classic Web Service
 
-Para realizar la implementación como un servicio web clásico y crear una aplicación para usarla:
+To deploy as a Classic Web Service and create an application to consume it:
 
-1.	En la parte inferior del lienzo del experimento, haga clic en Ejecutar.
-2.	Cuando la ejecución haya terminado, haga clic en **Deploy Web Service** (Implementar servicio web) y seleccione **Deploy Web Service [Classic]** (Implementar servicio web [clásico]).
-3.	En el panel del servicio web, busque la clave de API. Copie y guárdela para usarla más adelante.
-4.	En la tabla **Default Endpoint** (Punto de conexión predeterminado), haga clic en el vínculo **Ejecución de lotes** para abrir la página de Ayuda de API.
-5.	En Visual Studio, cree una aplicación de consola en C#.
-6.	En la página de Ayuda de API, busque la sección **Sample Code** (Ejemplo de código) en la parte inferior de la página.
-7.	Copie y pegue el ejemplo de código de C# en el archivo Program.cs y quite todas las referencias al Almacenamiento de blobs.
-8.	Actualice el valor de la variable *apiKey* con la clave de API guardada anteriormente.
-9.	Busque la declaración de solicitud y actualice los valores de los parámetros del servicio web que se pasan a los módulos *Importar datos* y *Exportar datos*. En este caso, utilice la consulta original, pero defina un nuevo nombre de tabla.
+1.  At the bottom of the experiment canvas, click Run.
+2.  When the run has completed, click **Deploy Web Service** and select **Deploy Web Service [Classic]**.
+3.  On the web service dashboard, locate your API key. Copy and save it to use later.
+4.  In the **Default Endpoint** table, click the **Batch Execution** link to open the API Help Page.
+5.  In Visual Studio, create a C# console application.
+6.  On the API Help Page, find the **Sample Code** section at the bottom of the page.
+7.  Copy and paste the C# sample code into your Program.cs file, and remove all references to the blob storage.
+8.  Update the value of the *apiKey* variable with the API key saved earlier.
+9.  Locate the request declaration and update the values of Web Service Parameters that are passed to the *Import Data* and *Export Data* modules. In this case, you will use the original query, but define a new table name.
 
-		var request = new BatchExecutionRequest() 
-		{	
-		    GlobalParameters = new Dictionary<string, string>() {
-			{ "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-			{ "Table", "dbo.ScoredTable2" },
-		    }
-		};
+        var request = new BatchExecutionRequest() 
+        {   
+            GlobalParameters = new Dictionary<string, string>() {
+            { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+            { "Table", "dbo.ScoredTable2" },
+            }
+        };
 
-10.	Ejecute la aplicación.
+10. Run the application. 
 
-Al término de la ejecución, se agrega una nueva tabla a la base de datos que contiene los resultados de puntuación.
+On completion of the run, a new table is added to the database containing the scoring results.
 
-### Implementación de servicios web nuevos
+### <a name="deploy-a-new-web-service"></a>Deploy a New Web Service
 
-Para realizar la implementación como un servicio web nuevo y crear una aplicación para usarla:
+To deploy as a New Web Service and create an application to consume it:
 
-1.	En la parte inferior del lienzo del experimento, haga clic en **Ejecutar**.
-2.	Cuando la ejecución haya terminado, haga clic en **Deploy Web Service** (Implementar servicio web) y seleccione **Deploy Web Service [New]** (Implementar servicio web [nuevo]).
-3.	En la página Deploy Experiment (Implementar experimento), escriba un nombre para el servicio web, seleccione un plan de precios y haga clic en **Implementar**.
-4.	En la página **Inicio rápido**, haga clic en **Consume** (Usar).
-5.	En la sección **Sample Code** (Ejemplo de código), haga clic en **Lote**.
-6.	En Visual Studio, cree una aplicación de consola en C#.
-7.	Copie y pegue el ejemplo de código de C# en el archivo Program.cs.
-8.	Actualice el valor de la variable *apiKey* con la **clave principal** ubicada en la sección **Basic consumption info** (Información básica de uso).
-9.	Busque la declaración *scoreRequest* y actualice los valores de los parámetros del servicio web que se pasan a los módulos *Importar datos* y *Exportar datos*. En este caso, utilice la consulta original, pero defina un nuevo nombre de tabla.
+1.  At the bottom of the experiment canvas, click **Run**.
+2.  When the run has completed, click **Deploy Web Service** and select **Deploy Web Service [New]**.
+3.  On the Deploy Experiment page, enter a name for your web service and select a pricing plan, then click **Deploy**.
+4.  On the **Quickstart** page, click **Consume**.
+5.  In the **Sample Code** section, click **Batch**.
+6.  In Visual Studio, create a C# console application.
+7.  Copy and paste the C# sample code into your Program.cs file.
+8.  Update the value of the *apiKey* variable with the **Primary Key** located in the **Basic consumption info** section.
+9.  Locate the *scoreRequest* declaration and update the values of Web Service Parameters that are passed to the *Import Data* and *Export Data* modules. In this case, you will use the original query, but define a new table name.
 
-		var scoreRequest = new
-		{
-		    Inputs = new Dictionary<string, StringTable>()
-		    {
-		    },
-		    GlobalParameters = new Dictionary<string, string>() {
-		         { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-		        { "Table", "dbo.ScoredTable3" },
-		    }
-		};
+        var scoreRequest = new
+        {
+            Inputs = new Dictionary<string, StringTable>()
+            {
+            },
+            GlobalParameters = new Dictionary<string, string>() {
+                 { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+                { "Table", "dbo.ScoredTable3" },
+            }
+        };
 
-10.	Ejecute la aplicación.
+10. Run the application. 
  
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

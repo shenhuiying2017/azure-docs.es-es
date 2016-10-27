@@ -1,9 +1,12 @@
-#### Para apagar un dispositivo virtual
+#### <a name="to-shut-down-a-virtual-device"></a>To shut down a virtual device
 
-1. Inicie sesión en el Portal de administración.
+1. Sign in to the Management Portal.
 
-2. Haga clic en **Máquinas virtuales** y, a continuación, seleccione el dispositivo virtual.
+2. Click **Virtual Machines**, and then select the virtual device.
 
-3. Haga clic en **Apagar**.
+3. Click **Shutdown**.
 
-<!---HONumber=AcomDC_1217_2015-->
+
+<!--HONumber=Oct16_HO2-->
+
+

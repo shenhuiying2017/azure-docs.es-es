@@ -1,146 +1,147 @@
 <properties 
-	pageTitle="Directivas de Administración de API de Azure | Microsoft Azure" 
-	description="Obtenga información acerca de cómo crear, editar y configurar directivas en Administración de API." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Policies in Azure API Management | Microsoft Azure" 
+    description="Learn how to create, edit, and configure policies in API Management." 
+    services="api-management" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+    ms.service="api-management" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/25/2016" 
+    ms.author="sdanie"/>
 
 
-#Directivas de Administración de API de Azure
 
-En Administración de API de Azure, las directivas constituyen una eficaz funcionalidad del sistema que permite al editor cambiar el comportamiento de la API a través de la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Entre las declaraciones más usadas se encuentran la conversión de formato de XML a JSON y la limitación de tasa de llamadas para restringir la cantidad de llamadas entrantes de un desarrollador. Hay muchas más directivas disponibles y listas para usar.
+#<a name="policies-in-azure-api-management"></a>Policies in Azure API Management
 
-Consulte la [Referencia de directivas][] para obtener una lista de declaraciones de directiva con su configuración.
+In Azure API Management, policies are a powerful capability of the system that allow the publisher to change the behavior of the API through configuration. Policies are a collection of Statements that are executed sequentially on the request or response of an API. Popular Statements include format conversion from XML to JSON and call rate limiting to restrict the amount of incoming calls from a developer. Many more policies are available out of the box.
 
-Las directivas se aplican en la puerta de enlace que se encuentra entre el consumidor de la API y la API administrada. La puerta de enlace recibe todas las solicitudes y normalmente las reenvía sin modificar a la API subyacente. Sin embargo, una directiva puede aplicar cambios a la solicitud de entrada y a la respuesta de salida.
+See the [Policy Reference][] for a full list of policy statements and their settings.
 
-Las expresiones de directiva pueden utilizarse como valores de atributos o valores de texto en cualquiera de las directivas de Administración de API, a menos que la directiva especifique lo contrario. Algunas directivas como [Flujo de control][] y [Establecer variable][] se basan en expresiones de directiva. Para obtener más información, consulte [Directivas avanzadas][] y [Expresiones de directiva][].
+Policies are applied inside the gateway which sits between the API consumer and the managed API. The gateway receives all requests and usually forwards them unaltered to the underlying API. However a policy can apply changes to both the inbound request and outbound response.
 
-## <a name="scopes"> </a>Configuración de directivas
-Las directivas se pueden configurar globalmente o en el ámbito de un [producto][], una [API][] o una [operación][]. Para configurar una directiva, vaya al editor de directivas del portal de publicadores.
+Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow][] and [Set variable][] policies are based on policy expressions. For more information, see [Advanced policies][] and [Policy expressions][].
+
+## <a name="<a-name="scopes">-</a>how-to-configure-policies"></a><a name="scopes"> </a>How to configure policies
+Policies can be configured globally or at the scope of a [Product][], [API][] or [Operation][]. To configure a policy, navigate to the Policies editor in the publisher portal.
 
 ![Policies menu][policies-menu]
 
-El editor de directivas consta de tres secciones principales: el ámbito de la directiva (superior), la definición de la directiva donde se editan las directivas (izquierda) y la lista de instrucciones (derecha):
+The policies editor consists of three main sections: the policy scope (top), the policy definition where policies are edited (left) and the statements list (right):
 
 ![Policies editor][policies-editor]
 
-Para comenzar a configurar una directiva, se debe seleccionar en primer lugar el ámbito en el que se debe aplicar. En la captura de pantalla siguiente, se selecciona el producto **Starter**. Tenga en cuenta que el símbolo de recuadro junto al nombre de la directiva indica que ya se aplica una directiva en este nivel.
+To begin configuring a policy you must first select the scope at which the policy should apply. In the screenshot below the **Starter** product is selected. Note that the square symbol next to the policy name indicates that a policy is already applied at this level.
 
 ![Scope][policies-scope]
 
-Puesto que ya se ha aplicado una directiva, la configuración se muestra en la vista de definición.
+Since a policy has already been applied, the configuration is shown in the definition view.
 
-![Configuración][policies-configure]
+![Configure][policies-configure]
 
-La directiva aparece como de solo lectura al principio. Para editar la definición, haga clic en la acción **Configurar directiva**.
+The policy is displayed read-only at first. In order to edit the definition click the **Configure Policy** action.
 
 ![Edit][policies-edit]
 
-La definición de la directiva es un documento XML simple que describe una secuencia de declaraciones de entrada y de salida. El XML se puede editar directamente en la ventana de definición. Se ofrece una lista de instrucciones a la derecha y las instrucciones aplicables al ámbito actual están habilitadas y resaltadas; como demuestra la instrucción **Límite de tasa de llamadas** de la captura de pantalla anterior.
+The policy definition is a simple XML document that describes a sequence of inbound and outbound statements. The XML can be edited directly in the definition window. A list of statements is provided to the right and statements applicable to the current scope are enabled and highlighted; as demonstrated by the **Limit Call Rate** statement in the screenshot above.
 
-Al hacer clic en una declaración habilitada se agregará el XML correspondiente en la ubicación del cursor en la vista de definición.
+Clicking an enabled statement will add the appropriate XML at the location of the cursor in the definition view. 
 
->[AZURE.NOTE] Si la directiva que desea agregar no está habilitada, asegúrese de que se encuentra en el ámbito correcto para esa directiva. Cada instrucción de la directiva está diseñada para su uso en determinados ámbitos y secciones de la directiva. Para revisar las secciones y los ámbitos de una directiva, compruebe la sección **Uso** de esa directiva en la [Referencia de directivas][].
+>[AZURE.NOTE] If the policy that you want to add is not enabled, ensure that you are in the correct scope for that policy. Each policy statement is designed for use in certain scopes and policy sections. To review the policy sections and scopes for a policy, check the **Usage** section for that policy in the [Policy Reference][].
 
-Hay una lista completa de instrucciones de directivas y su configuración disponible en la [Referencia de directivas][].
+A full list of policy statements and their settings are available in the [Policy Reference][].
 
-Por ejemplo, para agregar una nueva instrucción a fin de restringir las solicitudes de entrada a las direcciones IP especificadas, sitúe el cursor exactamente dentro del contenido del elemento XLM `inbound` y haga clic en la instrucción **Restringir las IP del autor de llamada**.
+For example, to add a new statement to restrict incoming requests to specified IP addresses, place the cursor just inside the content of the `inbound` XML element and click the **Restrict caller IPs** statement.
 
 ![Restriction policies][policies-restrict]
 
-Así, se agregará un fragmento de código XML al elemento `inbound` que ofrece orientación sobre cómo configurar la instrucción.
+This will add an XML snippet to the `inbound` element that provides guidance on how to configure the statement.
 
-	<ip-filter action="allow | forbid">
-		<address>address</address>
-		<address-range from="address" to="address"/>
-	</ip-filter>
+    <ip-filter action="allow | forbid">
+        <address>address</address>
+        <address-range from="address" to="address"/>
+    </ip-filter>
 
-Para limitar las solicitudes de entrada y aceptar solo las procedentes de una dirección IP de 1.2.3.4, modifique el XML de la manera siguiente:
+To limit inbound requests and accept only those from an IP address of 1.2.3.4 modify the XML as follows:
 
-	<ip-filter action="allow">
-		<address>1.2.3.4</address>
-	</ip-filter>
+    <ip-filter action="allow">
+        <address>1.2.3.4</address>
+    </ip-filter>
 
 ![Save][policies-save]
 
-Cuando complete la configuración de las instrucciones de la directiva, haga clic en **Guardar**; los cambios se propagarán inmediatamente a la puerta de enlace de Administración de API.
+When complete configuring the statements for the policy, click **Save** and the changes will be propagated to the API Management gateway immediately.
 
-##<a name="sections"> </a>Descripción de la configuración de directivas
+##<a name="<a-name="sections">-</a>understanding-policy-configuration"></a><a name="sections"> </a>Understanding policy configuration
 
-Una directiva es una serie de declaraciones que se ejecutan en orden para una solicitud y una respuesta. La configuración se divide adecuadamente en las secciones `inbound`, `backend`, `outbound` y `on-error`, como se muestra en la siguiente configuración.
+A policy is a series of statements that execute in order for a request and a response. The configuration is divided appropriately into `inbound`, `backend`, `outbound`, and `on-error` sections as shown in the following configuration.
 
-	<policies>
-	  <inbound>
-	    <!-- statements to be applied to the request go here -->
-	  </inbound>
-	  <backend>
-	    <!-- statements to be applied before the request is forwarded to 
-	         the backend service go here -->
-	  </backend>
-	  <outbound>
-	    <!-- statements to be applied to the response go here -->
-	  </outbound>
-	  <on-error>
-	    <!-- statements to be applied if there is an error condition go here -->
-	  </on-error>
-	</policies> 
+    <policies>
+      <inbound>
+        <!-- statements to be applied to the request go here -->
+      </inbound>
+      <backend>
+        <!-- statements to be applied before the request is forwarded to 
+             the backend service go here -->
+      </backend>
+      <outbound>
+        <!-- statements to be applied to the response go here -->
+      </outbound>
+      <on-error>
+        <!-- statements to be applied if there is an error condition go here -->
+      </on-error>
+    </policies> 
 
-Si se produce un error durante el procesamiento de una solicitud, los pasos restantes de las secciones `inbound`, `backend` o `outbound` se omiten y la ejecución salta a las instrucciones de la sección `on-error`. Mediante la colocación de instrucciones de directiva en la sección `on-error` puede revisar el error con la propiedad `context.LastError`, inspeccionar y personalizar la respuesta de error con la directiva `set-body` y configurar lo que ocurre si se produce un error. Existen códigos de error para pasos integrados y errores que pueden producirse durante el procesamiento de las instrucciones de directiva. Para más información, consulte [Control de errores en las directivas de administración de API](https://msdn.microsoft.com/library/azure/mt629506.aspx).
+If there is an error during the processing of a request, any remaining steps in the `inbound`, `backend`, or `outbound` sections are skipped and execution jumps to the statements in the `on-error` section. By placing policy statements in the `on-error` section you can review the error by using the `context.LastError` property, inspect and customize the error response using the `set-body` policy, and configure what happens if an error occurs. There are error codes for built-in steps and for errors that may occur during the processing of policy statements. For more information, see [Error handling in API Management policies](https://msdn.microsoft.com/library/azure/mt629506.aspx).
 
-Como las directivas se pueden especificar en distintos niveles (global, de producto, de API y de operación), la configuración ofrece una manera de que se especifique el orden en el que se ejecutan las instrucciones de la definición de la directiva con respecto a la directiva principal.
+Since policies can be specified at different levels (global, product, api and operation) the configuration provides a way for you to specify the order in which the policy definition's statements execute with respect to the parent policy. 
 
-Los ámbitos de la directiva se evalúan en el orden siguiente.
+Policy scopes are evaluated in the following order.
 
-1. Ámbito global
-2. Ámbito del producto
-3. Ámbito de la API
-4. Ámbito de la operación
+1. Global scope
+2. Product scope
+3. API scope
+4. Operation scope
 
-Las instrucciones dentro de ellos se evalúan según la ubicación del elemento `base`, si existe.
+The statements within them are evaluated according to the placement of the `base` element, if it is present.
 
-Por ejemplo, si tiene una directiva de nivel global y una directiva configurada para una API, cuando se use esa directiva en concreto, se aplicarán ambas directivas. Administración de API tiene en cuenta el orden determinista de declaraciones de directiva combinadas mediante el elemento base.
+For example, if you have a policy at the global level and a policy configured for an API, then whenever that particular API is used both policies will be applied. API Management allows for deterministic ordering of combined policy statements via the base element. 
 
-	<policies>
-    	<inbound>
-        	<cross-domain />
-        	<base />
-        	<find-and-replace from="xyz" to="abc" />
-    	</inbound>
-	</policies>
+    <policies>
+        <inbound>
+            <cross-domain />
+            <base />
+            <find-and-replace from="xyz" to="abc" />
+        </inbound>
+    </policies>
 
-En la definición de directiva del ejemplo anterior, la instrucción `cross-domain` se ejecutaría antes de las directivas superiores que, a su vez, irían seguidas de la directiva `find-and-replace`.
+In the example policy definition above, the `cross-domain` statement would execute before any higher policies which would in turn, be followed by the `find-and-replace` policy.
 
-Si la misma directiva aparece dos veces en la instrucción de directiva, se aplica la directiva más recientemente evaluada. Puede utilizar esto para reemplazar las directivas que se definen en un ámbito superior. Para ver las directivas en el ámbito actual en el editor de directivas, haga clic en **Recalcular la directiva en vigor del ámbito seleccionado**.
+If the same policy appears twice in the policy statement, the most recently evaluated policy is applied. You can use this to override policies that are defined at a higher scope. To see the policies in the current scope in the policy editor, click **Recalculate effective policy for selected scope**.
 
-Tenga en cuenta que una directiva global no tiene una directiva principal y el uso del elemento `<base>` en ella no surte efecto.
+Note that global policy has no parent policy and using the `<base>` element in it has no effect. 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-Visualice el siguiente vídeo acerca de expresiones de directivas.
+Check out following video on policy expressions.
 
 > [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
-[Referencia de directivas]: api-management-policy-reference.md
-[producto]: api-management-howto-add-products.md
-[API]: api-management-howto-add-products.md#add-apis
-[operación]: api-management-howto-add-operations.md
+[Policy Reference]: api-management-policy-reference.md
+[Product]: api-management-howto-add-products.md
+[API]: api-management-howto-add-products.md#add-apis 
+[Operation]: api-management-howto-add-operations.md
 
-[Directivas avanzadas]: https://msdn.microsoft.com/library/azure/dn894085.aspx
-[Flujo de control]: https://msdn.microsoft.com/library/azure/dn894085.aspx#choose
-[Establecer variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
-[Expresiones de directiva]: https://msdn.microsoft.com/library/azure/dn910913.aspx
+[Advanced policies]: https://msdn.microsoft.com/library/azure/dn894085.aspx
+[Control flow]: https://msdn.microsoft.com/library/azure/dn894085.aspx#choose
+[Set variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
+[Policy expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
 
 [policies-menu]: ./media/api-management-howto-policies/api-management-policies-menu.png
 [policies-editor]: ./media/api-management-howto-policies/api-management-policies-editor.png
@@ -150,4 +151,8 @@ Visualice el siguiente vídeo acerca de expresiones de directivas.
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

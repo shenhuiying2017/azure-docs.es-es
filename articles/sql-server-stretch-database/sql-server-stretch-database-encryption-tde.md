@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Habilitación del cifrado de datos transparente (TDE) para SQL Server Stretch Database en Azure | Microsoft Azure"
-   description="Habilitación del cifrado de datos transparente (TDE) para SQL Server Stretch Database en Azure"
+   pageTitle="Enable Transparent Data Encryption (TDE) for SQL Server Stretch Database on Azure | Microsoft Azure"
+   description="Enable Transparent Data Encryption (TDE) for SQL Server Stretch Database on Azure"
    services="sql-server-stretch-database"
    documentationCenter=""
    authors="douglaslMS"
@@ -16,39 +16,41 @@
    ms.date="06/14/2016"
    ms.author="douglaslMS"/>
 
-# Habilitación del cifrado de datos transparente (TDE) para Stretch Database en Azure
+
+# <a name="enable-transparent-data-encryption-(tde)-for-stretch-database-on-azure"></a>Enable Transparent Data Encryption (TDE) for Stretch Database on Azure
 > [AZURE.SELECTOR]
-- [Portal de Azure](sql-server-stretch-database-encryption-tde.md)
+- [Azure portal](sql-server-stretch-database-encryption-tde.md)
 - [TSQL](sql-server-stretch-database-tde-tsql.md)
 
-El cifrado de datos transparente (TDE) facilita la protección contra la amenaza de actividades malintencionadas, ya que la base de datos se cifra y descifra en tiempo real, se realizan copias de seguridad asociadas y archivos de registro de transacciones en reposo sin requerir cambios en la aplicación.
+Transparent Data Encryption (TDE) helps protect against the threat of malicious activity by performing real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application.
 
-TDE cifra el almacenamiento de una base de datos completa mediante el uso de una clave simétrica denominada clave de cifrado de base de datos. La clave de cifrado de base de datos está protegida por un certificado de servidor integrado. El certificado de servidor integrado es único para cada servidor de Azure. Microsoft alterna automáticamente estos certificados al menos cada 90 días. Para obtener una descripción general de TDE, vea [Cifrado de datos transparente (TDE)].
+TDE encrypts the storage of an entire database by using a symmetric key called the database encryption key. The database encryption key is protected by a built-in server certificate. The built-in server certificate is unique for each Azure server. Microsoft automatically rotates these certificates at least every 90 days. For a general description of TDE, see [Transparent Data Encryption (TDE)].
 
-##Habilitar el cifrado
+##<a name="enabling-encryption"></a>Enabling Encryption
 
-Para habilitar TDE para una base de datos de Azure que almacena los datos migrados desde una base de datos SQL Server habilitada para Stretch, haga lo siguiente:
+To enable TDE for an Azure database that's storing the data migrated from a Stretch-enabled SQL Server database, do the following things:
 
-1. Abra la base de datos en el [Portal de Azure](https://portal.azure.com).
-2. En la hoja de la base de datos, haga clic en el botón **Configuración**
-3. Seleccione la opción **Cifrado de datos transparente** ![][1]
-4. Seleccione la configuración **Activado** y, luego, **Guardar** ![][2]
+1. Open the database in the [Azure portal](https://portal.azure.com)
+2. In the database blade, click the **Settings** button
+3. Select the **Transparent data encryption** option ![][1]
+4. Select the **On** setting, and then select **Save**
+![][2]
 
 
-##Deshabilitar el cifrado
+##<a name="disabling-encryption"></a>Disabling Encryption
 
-Para deshabilitar TDE para una base de datos de Azure que almacena los datos migrados desde una base de datos SQL Server habilitada para Stretch, haga lo siguiente:
+To disable TDE for an Azure database that's storing the data migrated from a Stretch-enabled SQL Server database, do the following things:
 
-1. Abra la base de datos en el [Portal de Azure](https://portal.azure.com).
-2. En la hoja de la base de datos, haga clic en el botón **Configuración**
-3. Seleccione la opción **Cifrado de datos transparente**.
-4. Seleccione la configuración **Desactivado** y, luego, **Guardar**.
+1. Open the database in the [Azure portal](https://portal.azure.com)
+2. In the database blade, click the **Settings** button
+3. Select the **Transparent data encryption** option
+4. Select the **Off** setting, and then select **Save**
 
 
 
 
 <!--Anchors-->
-[Cifrado de datos transparente (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->
@@ -58,4 +60,8 @@ Para deshabilitar TDE para una base de datos de Azure que almacena los datos mig
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

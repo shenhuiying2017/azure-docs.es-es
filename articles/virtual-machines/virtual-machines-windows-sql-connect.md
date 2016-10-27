@@ -1,105 +1,110 @@
 <properties
-	pageTitle="Conexión a una máquina virtual de SQL Server en Azure | Microsoft Azure"
-	description="Obtenga más información acerca de cómo conectarse a SQL Server en ejecución en una máquina virtual en Azure. En este tema se usa el modelo de implementación clásica. Los escenarios varían según la configuración de red y la ubicación del cliente."
-	services="virtual-machines-windows"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jhubbard"    
-	tags="azure-resource-manager"/>
+    pageTitle="Connect to a SQL Server Virtual Machine (Resource Manager) | Microsoft Azure"
+    description="Learn how to connect to SQL Server running on a Virtual Machine in Azure. This topic uses the classic deployment model. The scenarios differ depending on the networking configuration and the location of the client."
+    services="virtual-machines-windows"
+    documentationCenter="na"
+    authors="rothja"
+    manager="jhubbard"    
+    tags="azure-resource-manager"/>
 <tags
-	ms.service="virtual-machines-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="09/21/2016"
-	ms.author="jroth" />
+    ms.service="virtual-machines-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="09/21/2016"
+    ms.author="jroth" />
 
-# Conexión a una máquina virtual de SQL Server en Azure (Administrador de recursos)
+
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure-(resource-manager)"></a>Connect to a SQL Server Virtual Machine on Azure (Resource Manager)
 
 > [AZURE.SELECTOR]
 - [Resource Manager](virtual-machines-windows-sql-connect.md)
-- [Clásico](virtual-machines-windows-classic-sql-connect.md)
+- [Classic](virtual-machines-windows-classic-sql-connect.md)
 
-## Información general
+## <a name="overview"></a>Overview
 
-En este tema se muestra cómo conectarse a su instancia de SQL Server que se ejecuta en una máquina virtual de Azure. En él se describen algunos [escenarios de conectividad generales](#connection-scenarios) y se proporcionan los [pasos detallados para configurar la conectividad de SQL Server en una máquina virtual de Azure](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
+This topic describes how to connect to your SQL Server instance running on an Azure virtual machine. It covers some [general connectivity scenarios](#connection-scenarios) and then provides [detailed steps for configuring SQL Server connectivity in an Azure VM](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica. Para ver la versión clásica de este artículo, consulte [Connect to a SQL Server Virtual Machine on Azure Classic](virtual-machines-windows-classic-sql-connect.md) (Conexión a una máquina virtual de SQL Server en Azure clásico).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. To view the classic version of this article, see [Connect to a SQL Server Virtual Machine on Azure Classic](virtual-machines-windows-classic-sql-connect.md).
 
-Para prefiere consultar un tutorial completo sobre aprovisionamiento y conectividad, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](virtual-machines-windows-portal-sql-server-provision.md).
+If you would rather have a full walk-through of both provisioning and connectivity, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-## Escenarios de conexión
+## <a name="connection-scenarios"></a>Connection scenarios
 
-La forma en que un cliente se conecta a SQL Server que se ejecuta en una máquina virtual varía según la ubicación del cliente y la configuración del equipo y la red. Entre los escenarios se incluyen los siguientes:
+The way a client connects to SQL Server running on a Virtual Machine differs depending on the location of the client and the machine/networking configuration. These scenarios include:
 
-- [Conexión a SQL Server a través de Internet](#connect-to-sql-server-over-the-internet)
-- [Conexión a SQL Server en la misma red virtual](#connect-to-sql-server-in-the-same-virtual-network)
+- [Connect to SQL Server over the internet](#connect-to-sql-server-over-the-internet)
+- [Connect to SQL Server in the same virtual network](#connect-to-sql-server-in-the-same-virtual-network)
 
-### Conexión a SQL Server a través de Internet
+### <a name="connect-to-sql-server-over-the-internet"></a>Connect to SQL Server over the Internet
 
-Si desea conectarse a su motor de base de datos de SQL Server desde Internet, debe completar varios pasos, como configurar el firewall, habilitar la Autenticación de SQL y configurar el grupo de seguridad de red; además, debe tener una regla de grupo de seguridad de red para permitir el tráfico TCP en el puerto 1433.
+If you want to connect to your SQL Server database engine from the Internet, there are several steps required, such as configuring the firewall, enabling SQL Authentication, and configuring your network security group you must have a Network Security Group rule to allow TCP traffic on port 1433.
 
-Si utiliza el portal para aprovisionar una imagen de máquina virtual de SQL Server con Resource Manager, estos pasos se realizan de forma automática cuando selecciona **Pública** como la opción de conectividad de SQL:
+If you use the portal to provision a SQL Server virtual machine image with the resource manager, these steps are done for you when you select **Public** for the SQL connectivity option:
 
-![Opción de conectividad SQL pública durante el aprovisionamiento](./media/virtual-machines-windows-sql-connect/sql-vm-portal-connectivity.png)
+![Public SQL connectivity option during provisioning](./media/virtual-machines-windows-sql-connect/sql-vm-portal-connectivity.png)
 
-Si esto no ocurrió durante el aprovisionamiento, puede configurar manualmente SQL Server y las máquinas virtuales; para ello, siga los [pasos que aparecen en este artículo para configurar la conectividad de forma manual](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
+If this was not one during provisioning, then you can manually configure SQL Server and your virtual machines by following the [steps in this article to manually configure connectivity](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
 
->[AZURE.NOTE] La imagen de máquina virtual para SQL Server Express Edition no habilita automáticamente el protocolo TCP/IP. Para Express Edition, debe usar el Administrador de configuración de SQL Server para [habilitar manualmente el protocolo TCP/IP](#configure-sql-server-to-listen-on-the-tcp-protocol) después de crear la máquina virtual.
+>[AZURE.NOTE] The virtual machine image for SQL Server Express edition does not automatically enable the TCP/IP protocol. For Express edition, you must use SQL Server Configuration Manager to [manually enable the TCP/IP protocol](#configure-sql-server-to-listen-on-the-tcp-protocol) after creating the VM.
 
-Una vez hecho esto, cualquier cliente con acceso a Internet podrá conectarse a la instancia de SQL Server si especifica la dirección IP pública de la máquina virtual o la etiqueta DNS asignada a esa dirección IP. Si el puerto de SQL Server es 1433, no es necesario que lo especifique en la cadena de conexión.
+Once this is done, any client with internet access can connect to the SQL Server instance by specifying either the public IP address of the virtual machine or the DNS label assigned to that IP address. If the SQL Server port is 1433, you do not need to specify it in the connection string.
 
-	"Server=sqlvmlabel.eastus.cloudapp.azure.com;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+    "Server=sqlvmlabel.eastus.cloudapp.azure.com;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-Aunque esto permite a los clientes conectarse a través de Internet, esto no implica que cualquier usuario pueda conectarse a SQL Server. Los clientes externos necesitan el nombre de usuario y la contraseña correctos. Para obtener más seguridad, puede evitar utilizar el conocido puerto 1433. Por ejemplo, si configuró SQL Server para escuchar en el puerto 1500 y estableció reglas adecuadas de firewall y de grupo de seguridad de red, podría conectarse si anexa el número de puerto al nombre del servidor, tal como se indica en el ejemplo siguiente:
+Although this enables connectivity for clients over the internet, this does not imply that anyone can connect to your SQL Server. Outside clients have to the correct username and password. For additional security, you can avoid the well-known port 1433. For example, if you configured SQL Server to listen on port 1500 and established proper firewall and network security group rules, you could connect by appending the port number to the Server name as in the following example:
 
-	"Server=sqlvmlabel.eastus.cloudapp.azure.com,1500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+    "Server=sqlvmlabel.eastus.cloudapp.azure.com,1500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
->[AZURE.NOTE] Es importante tener en cuenta que cuando se recurre a esta técnica para comunicarse con SQL Server, todos los datos salientes desde el centro de datos de Azure están sujetos a [precios de transferencia de datos salientes](https://azure.microsoft.com/pricing/details/data-transfers/) normales.
+>[AZURE.NOTE] It is important to note that when you use this technique to communicate with SQL Server, all outgoing data from the Azure datacenter is subject to normal [pricing on outbound data transfers](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-### Conexión a SQL Server en la misma red virtual
+### <a name="connect-to-sql-server-in-the-same-virtual-network"></a>Connect to SQL Server in the same virtual network
 
-[La red virtual](../virtual-network/virtual-networks-overview.md) permite otros escenarios. Puede conectar las máquinas virtuales en la misma red virtual, incluso si esas máquinas virtuales existen en distintos grupos de recursos. Asimismo, con una [VPN de sitio a sitio](../vpn-gateway/vpn-gateway-site-to-site-create.md), puede crear una arquitectura híbrida que conecta las máquinas virtuales con redes y máquinas locales.
+[Virtual Network](../virtual-network/virtual-networks-overview.md) enables additional scenarios. You can connect VMs in the same virtual network, even if those VMs exist in different resource groups. And with a [site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md), you can create a hybrid architecture that connects VMs with on-premises networks and machines.
 
-Las redes virtuales también permiten unir las máquinas virtuales de Azure a un dominio. Esta es la única forma de usar la autenticación de Windows para SQL Server. Los demás escenarios de conexión requieren la autenticación de SQL con nombres de usuario y contraseñas.
+Virtual networks also enables you to join your Azure VMs to a domain. This is the only way to use Windows Authentication to SQL Server. The other connection scenarios require SQL Authentication with user names and passwords.
 
-Si utiliza el portal para aprovisionar una imagen de máquina virtual con Resource Manager, las reglas adecuadas de firewall para la comunicación en la red virtual se configuran cuando selecciona **Privada** como la opción de conectividad de SQL. Si esto no ocurrió durante el aprovisionamiento, puede configurar manualmente SQL Server y las máquinas virtuales; para ello, siga los [pasos que aparecen en este artículo para configurar la conectividad de forma manual](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm). Sin embargo, si planea configurar un entorno de dominio y la autenticación de Windows, no es necesario seguir los pasos de este artículo para configurar los inicios de sesión y la autenticación de SQL. Además, tampoco es necesario configurar reglas de grupo de seguridad de red para el acceso a través de Internet.
+If you use the portal to provision a SQL Server virtual machine image with the resource manager, the proper firewall rules for communication on the virtual network are setup when you select **Private** for the SQL connectivity option. If this was not one during provisioning, then you can manually configure SQL Server and your virtual machines by following the [steps in this article to manually configure connectivity](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm). But if you are planning to configure a domain environment and Windows Authentication, you do not need to use the steps in this article to configure SQL Authentication and logins. You also do not need to configure Network Security Group rules for access over the internet.
 
->[AZURE.NOTE] La imagen de máquina virtual para SQL Server Express Edition no habilita automáticamente el protocolo TCP/IP. Para Express Edition, debe usar el Administrador de configuración de SQL Server para [habilitar manualmente el protocolo TCP/IP](#configure-sql-server-to-listen-on-the-tcp-protocol) después de crear la máquina virtual.
+>[AZURE.NOTE] The virtual machine image for SQL Server Express edition does not automatically enable the TCP/IP protocol. For Express edition, you must use SQL Server Configuration Manager to [manually enable the TCP/IP protocol](#configure-sql-server-to-listen-on-the-tcp-protocol) after creating the VM.
 
-Si configuró DNS en la red virtual, puede conectarse a la instancia de SQL Server si especifica el nombre de equipo de la máquina virtual de SQL Server en la cadena de conexión. En el siguiente ejemplo, se presume que también se configuró la autenticación de Windows y que se concedió al usuario acceso a la instancia de SQL Server.
+Assuming that you have configured DNS in your virtual network, you can connect to your SQL Server instance by specifying the SQL Server VM computer name in the connection string. The following example also assumes that Windows Authentication has also been configured and that the user has been granted access to the SQL Server instance.
 
-	"Server=mysqlvm;Integrated Security=true"
+    "Server=mysqlvm;Integrated Security=true"
 
-Tenga en cuenta que, en este escenario, también puede especificar la dirección IP de la máquina virtual.
+Note that in this scenario, you could also specify the IP address of the VM.
 
-## Pasos para configurar manualmente la conectividad de SQL Server en una máquina virtual de Azure
+## <a name="steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm"></a>Steps for manually configuring SQL Server connectivity in an Azure VM
 
-Los pasos siguientes muestran cómo configurar manualmente la conectividad con la instancia de SQL Server y, luego, conectarse de forma opcional a través de Internet mediante SQL Server Management Studio (SSMS). Observe que muchos de estos pasos se realizan de forma automática cuando selecciona las opciones de conectividad de SQL Server adecuadas en el portal.
+The following steps demonstrate how to manually setup connectivity to the SQL Server instance and then optionally connect over the internet using SQL Server Management Studio (SSMS). Note that many of these steps are done for you when you select the appropriate SQL Server connectivity options in the portal.
 
-Antes de que pueda conectarse a la instancia de SQL Server desde otra máquina virtual o Internet, debe completar las siguientes tareas descritas en las secciones que aparecen a continuación:
+Before you can connect to the instance of SQL Server from another VM or the internet, you must complete the following tasks as described in the sections that follow:
 
-- [Apertura de puertos TCP en el firewall de Windows](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
-- [Configuración de SQL Server para escuchar en el protocolo TCP](#configure-sql-server-to-listen-on-the-tcp-protocol)
-- [Configuración de SQL Server para autenticación de modo mixto](#configure-sql-server-for-mixed-mode-authentication)
-- [Creación de inicios de sesión para la autenticación de SQL Server](#create-sql-server-authentication-logins)
-- [Configuración de una regla de entrada de grupo de seguridad de red](#configure-a-network-security-group-inbound-rule-for-the-vm)
-- [Configuración de una etiqueta DNS para la dirección IP pública](#configure-a-dns-label-for-the-public-ip-address)
-- [Conexión al motor de base de datos desde otro equipo](#connect-to-the-database-engine-from-another-computer)
+- [Open TCP ports in the Windows firewall](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
+- [Configure SQL Server to listen on the TCP protocol](#configure-sql-server-to-listen-on-the-tcp-protocol)
+- [Configure SQL Server for mixed mode authentication](#configure-sql-server-for-mixed-mode-authentication)
+- [Create SQL Server authentication logins](#create-sql-server-authentication-logins)
+- [Configure a Network Security Group inbound rule](#configure-a-network-security-group-inbound-rule-for-the-vm)
+- [Configure a DNS Label for the public IP address](#configure-a-dns-label-for-the-public-ip-address)
+- [Connect to the Database Engine from another computer](#connect-to-the-database-engine-from-another-computer)
 
-[AZURE.INCLUDE [Conexión a SQL Server en una máquina virtual](../../includes/virtual-machines-sql-server-connection-steps.md)]
+[AZURE.INCLUDE [Connect to SQL Server in a VM](../../includes/virtual-machines-sql-server-connection-steps.md)]
 
-[AZURE.INCLUDE [Conexión a SQL Server en el Administrador de recursos de una máquina virtual](../../includes/virtual-machines-sql-server-connection-steps-resource-manager-nsg-rule.md)]
+[AZURE.INCLUDE [Connect to SQL Server in a VM Resource Manager](../../includes/virtual-machines-sql-server-connection-steps-resource-manager-nsg-rule.md)]
 
-[AZURE.INCLUDE [Conexión a SQL Server en el Administrador de recursos de una máquina virtual](../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
+[AZURE.INCLUDE [Connect to SQL Server in a VM Resource Manager](../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next Steps
 
-Para ver las instrucciones de aprovisionamiento además de estos pasos de conectividad, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](virtual-machines-windows-portal-sql-server-provision.md).
+To see provisioning instructions along with these connectivity steps, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-[Explore la ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) para SQL Server en máquinas virtuales de Azure.
+[Explore the Learning Path](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) for SQL Server on Azure virtual machines.
 
-Para ver otros temas sobre la ejecución de SQL Server en las máquinas virtuales de Azure, consulte [SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

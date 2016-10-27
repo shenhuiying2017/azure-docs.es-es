@@ -3,8 +3,8 @@
    description="Power BI Embedded, interacción con informes mediante la API de JavaScript"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="mgblythe"
-   manager="NA"
+   authors="guyinacube"
+   manager="erikre"
    editor=""
    tags=""/>
 <tags
@@ -13,14 +13,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="08/26/2016"
-   ms.author="mblythe"/>
+   ms.date="10/04/2016"
+   ms.author="asaxton"/>
 
-# Interacción con informes de Power BI mediante la API de JavaScript
+
+# <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>Interacción con informes de Power BI mediante la API de JavaScript
 
 La API de JavaScript de Power BI permite insertar fácilmente informes de Power BI en las aplicaciones. Con ella, las aplicaciones pueden interactuar mediante programación con distintos elementos de los informes, como las páginas y filtros. Esta interactividad hace que los informes Power BI se integren mejor en las aplicaciones.
 
-Dichos informes se insertan en las aplicaciones mediante un iframe que se aloja como parte de la aplicación. El iframe hace de límite entre la aplicación y el informe, como se puede ver en la siguiente imagen.
+Dichos informes se insertan en las aplicaciones mediante un iframe que se hospeda como parte de la aplicación. El iframe hace de límite entre la aplicación y el informe, como se puede ver en la siguiente imagen. 
 
 ![iframe de Power BI Embedded sin la API de Javascript](media\powerbi-embedded-interact-with-reports\powerbi-embedded-interact-report-1.png)
 
@@ -30,35 +31,35 @@ El iframe facilita mucho el proceso de integración, pero sin la API de JavaScri
 
 La API de JavaScript de Power BI permite escribir código que puede pasar de forma segura a través del límite del iframe. Esto permite que la aplicación realice una acción en un informe mediante programación y que escuche eventos de acciones que realizan los usuarios dentro del informe.
 
-## ¿Qué se puede hacer con la API de JavaScript de Power BI?
+## <a name="what-can-you-do-with-the-power-bi-javascript-api?"></a>¿Qué se puede hacer con la API de JavaScript de Power BI?
 Con la API de JavaScript se pueden administrar informes, navegar a las distintas páginas de un informe, filtrar un informe y controlar eventos de inserción. En el siguiente diagrama se muestra la estructura de la API.
 
 ![Diagrama de la API de JavaScript de Power BI](media\powerbi-embedded-interact-with-reports\powerbi-embedded-interact-report-3.png)
 
 
-### Administración de informes
+### <a name="manage-reports"></a>Administración de informes
 La API de Javascript permite administrar el comportamiento en el nivel de página y de informe:
 
-- Insertar un informe específico de Power BI de forma segura en la aplicación (pruebe la [aplicación de demostración integrada](http://azure-samples.github.io/powerbi-angular-client/#/scenario1))
+- Insertar un informe específico de Power BI de forma segura en la aplicación (pruebe la [aplicación de demostración integrada](http://azure-samples.github.io/powerbi-angular-client/#/scenario1)
   - Establecer un token de acceso
 - Configurar el informe
-  - Habilitar y deshabilitar el panel de filtro y el panel de navegación de página (pruebe la [aplicación de demostración de actualización de configuración](http://azure-samples.github.io/powerbi-angular-client/#/scenario6))
+  - Habilitar y deshabilitar el panel de filtro y el panel de navegación de página (pruebe la [aplicación de demostración de actualización de configuración](http://azure-samples.github.io/powerbi-angular-client/#/scenario6)
   - Establecer los valores predeterminados de las páginas y los filtros: pruebe la [demostración de establecimiento de valores predeterminados](http://azure-samples.github.io/powerbi-angular-client/#/scenario5)
 - Entrar y salir de modo de pantalla completa
 
 [Más información acerca de cómo insertar informes](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics)
 
 
-### Navegación a las páginas de un informe
+### <a name="navigate-to-pages-in-a-report"></a>Navegación a las páginas de un informe
 La API de JavaScript permite para detectar todas las páginas de un informe y establecer la página actual. Pruebe la [aplicación de demostración de navegación](http://azure-samples.github.io/powerbi-angular-client/#/scenario3).
 
 [Más información acerca de la navegación por la página](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Page-Navigation)
 
-### Filtro de un informe
-La API de JavaScript proporciona funcionalidades de filtro básicas y avanzadas para informes páginas de informes integrados. Pruebe la [aplicación de demostración de filtro](http://azure-samples.github.io/powerbi-angular-client/#/scenario4) y revise aquí el código de introducción.
+### <a name="filter-a-report"></a>Filtro de un informe
+La API de JavaScript proporciona funcionalidades de filtro básicas y avanzadas para informes páginas de informes integrados. Pruebe la [aplicación de demostración de filtro](http://azure-samples.github.io/powerbi-angular-client/#/scenario4)y revise aquí el código de introducción.  
 
 
-#### Filtros básicos
+#### <a name="basic-filters"></a>Filtros básicos
 Los filtros básicos se colocan en un nivel de jerarquía o de columna, y contienen la lista de valores que se incluyen o excluyen.
 
 ```
@@ -74,8 +75,8 @@ const basicFilter: pbi.models.IBasicFilter = {
 ```
 
 
-#### Filtros avanzados
-Los filtros avanzados de utilizan los operadores lógicos AND y OR, y aceptan una o dos condiciones, cada una de ellas con su propio operador y valor. Estas son las condiciones que se admiten:
+#### <a name="advanced-filters"></a>Filtros avanzados
+Los filtros avanzados utilizan los operadores lógicos AND y OR, y aceptan una o dos condiciones, cada una de ellas con su propio operador y valor. Estas son las condiciones que se admiten:
 
 - None
 - LessThan
@@ -114,7 +115,7 @@ const advancedFilter: pbi.models.IAdvancedFilter = {
 [Más información acerca de los filtros](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Filters)
 
 
-### Control de eventos
+### <a name="handling-events"></a>Control de eventos
 Además de enviar información al iframe, la aplicación también puede recibir información sobre los siguientes eventos que proceda de iframe:
 
 - Insertar
@@ -127,7 +128,7 @@ Además de enviar información al iframe, la aplicación también puede recibir 
 [Más información sobre el control de eventos](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Handling-Events)
 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de la API de JavaScript de Power BI, consulte los siguientes vínculos:
 
 - [Wiki de API de JavaScript](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
@@ -137,4 +138,8 @@ Para más información acerca de la API de JavaScript de Power BI, consulte los 
   - [Ember](https://github.com/Microsoft/powerbi-ember)
 - [Demostración en directo](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

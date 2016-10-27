@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Descripción de los informes de pagos de Azure Marketplace | Microsoft Azure"
-   description="Obtenga información sobre cómo revisar e introducir el informe de pago de Azure Marketplace."
+   pageTitle="Understand the Azure Marketplace payout reporting | Microsoft Azure"
+   description="Learn how to review and ingest the Azure Marketplace payout report."
    services="marketplace-publishing"
    documentationCenter="na"
    authors="v-jeana"
@@ -16,95 +16,97 @@
    ms.date="09/19/2016"
    ms.author="v-jeana; hascipio; v-dabosl"/>
 
-# Descripción de los informes de pago de Azure Marketplace
 
-## Acceso a los informes de pago y su visualización
+# <a name="understand-your-azure-marketplace-payout-reports"></a>Understand your Azure Marketplace payout reports
 
-Mientras realizamos la transición al Centro de desarrollo, puede que algunos de sus informes de pago estén disponibles en el Centro de desarrollo en https://dev.windows.com/es-ES, mientras que otros siguen estando en el Portal de publicación en https://publish.windowsazure.com.
+## <a name="access-and-view-your-payout-reports"></a>Access and view your payout reports
 
-Para las ofertas de Marketplace asociadas con pagos modernos, los informes de pago estarán ahora disponibles en el **Centro de desarrollo**; actualmente aquí se incluyen:
-- Máquinas virtuales
-- Ofertas B+C
-- Datos y servicios de desarrollo que se ofrecen bajo EA
+While we transition to Dev Center some of your payout reports may be available in the Dev Center at https://dev.windows.com/en-us while others may still be found in Publishing Portal at https://publish.windowsazure.com.
 
-Los informes de pagos seguirán estando en el **Portal de publicación** para:
-- Datos y servicios de desarrollo ofrecidos bajo Web Direct (que aún emplea el sistema de pago anterior).
+Payout reporting will now be available in **Dev Center** for any Marketplace offerings that are associated with modern payouts; this currently includes:
+- VMs
+- B+C offers
+- Data and Dev Services offered under EA
 
-Los informes están disponibles 45 días después del cierre del trimestre y se calculan después los reembolsos.
+Payout reporting will still be in **Publishing Portal** for:
+- Data and Dev Services offered under Web Direct (which still uses the legacy payout system).
 
-### Acceso a los informes de pago en el Centro de desarrollo
+Reports are available 45 days after the close of the quarter and are calculated after any refunds.
 
-1. Vaya al Centro de desarrollo en https://dev.windows.com/es-ES.
-2. Haga clic en **Panel**.
+### <a name="access-payout-reports-in-dev-center"></a>Access payout reports in Dev Center
+
+1. Navigate to Dev Center at https://dev.windows.com/en-us.
+2. Click **Dashboard**.
 
     ![LandingPageDashboardHighlight][1]
 
-3. Haga clic en **Resumen de pagos**.
+3. Click **Payout Summary**.
 
     ![DashboardPayoutSummary][2]
 
 
-## Visualización de los informes de pago en el Centro de desarrollo
+## <a name="view-your-payout-reports-in-dev-center"></a>View your payout reports in Dev Center
 
-El informe de pago para cada trimestre registra todas las transacciones que se producen dentro de ese trimestre.
+The payout report for each quarter records all transactions that occurred within that quarter.
 
-- El importe reservado indica los pagos que se acumularán fuera del ciclo de pago próximo (por ejemplo, este importe se moverá al próximo pago el mes siguiente). Este importe suele ser normalmente 0 $ (a menos que un cliente pague con mucha antelación).
-- Haga clic en los vínculos **Ver detalles** de Próximo pago o Pago más reciente para ver una nota sobre esos pagos.
-- Haga clic en **Extractos de pagos** para ver los detalles en Ganancias por aplicación o producto.
-- Haga clic en el vínculo **Ver** para ver extractos individuales.
+- The Reserved amount indicates any payments that are accruing outside of the upcoming payment cycle (e.g. this amount will move to upcoming payment the following month).  This amount will typically be $0 (unless a customer pays well in advance).
+- Click on the Upcoming payment or Most recent payment **View details** links to see a note about those payouts.
+- Click on **Payment Statements** to view the details under proceeds by app/product.
+- Click on the **View** link to see individual statements.
 
     ![PayoutSummaryUpcomingMostRecentLinksStatement][3]
 
-- Utilice el filtro **Desglose de ganancias** en la parte inferior del extracto individual para ver varias aplicaciones o productos, si existen.
+- Use the **Proceeds Breakdown** filter at the bottom of the individual statement to view multiple apps/products if they exist.
 
     ![PayoutSummaryPaymentStatementsFilterControl][4]
 
 
 
-## Visualización de los informes de pagos en el Portal de publicación
-El informe de pago para cada trimestre registra todas las transacciones que se producen dentro de ese trimestre.
+## <a name="view-your-payout-reports-in-publishing-portal"></a>View your payout reports in Publishing Portal
+The payout report for each quarter records all transactions that occurred within that quarter.
 
-1. Navegue al portal de publicación en https://publish.windowsazure.com.
-2. En la sección **Editores**, haga clic en **Informes de pago**.
-3. Haga clic en el desplegable para que aparezcan todos los informes de pago trimestrales disponibles.
+1. Navigate to the publishing portal at https://publish.windowsazure.com.
+2. From the **Publishers** section, click **Payout Reports**.
+3. Click the drop-down to display all available quarterly payout reports.
 
     ![accessingpayoutreport][5]
 
 
-### Lectura de los informes de pago
+### <a name="read-your-payout-reports"></a>Read your payout reports
 
-El informe de pago para cada trimestre registra todas las transacciones que se producen dentro de ese trimestre.
+The payout report for each quarter records all transactions that occurred within that quarter.
 
-- Si busca movimientos relacionados con un trimestre concreto, seleccione el informe de pago para ese trimestre en la lista desplegable. Por ejemplo, si está interesado en los movimientos de abril a junio de 2015, seleccione dicho intervalo de fechas en la lista desplegable.
-- Si busca detalles de pagos relacionados con un trimestre concreto, seleccione el informe de pago para el siguiente trimestre. Por ejemplo, si está interesado en los pagos de abril a junio de 2015, estos importes aparecerán en el siguiente informe de pagos de julio a septiembre de 2015. ![readingpayoutreport][6]
+- If you are looking for ledger entries that relate to a particular quarter, select the payout report for that quarter from the drop-down. For example, if you are interested in ledger entries for April to June 2015, select that date range from the drop-down.
+- If you are looking for details of payouts that relate to a particular quarter, select the payout report for the subsequent quarter. For example, if you are interested in the payouts for April to June 2015, these amounts will appear in the subsequent payout report for July to September 2015.
+![readingpayoutreport][6]
 
-- En el panel de resumen financiero se muestran saldos, debe y haber por categoría.
-- Los movimientos muestran las transacciones individuales.
+- The financial summary panel shows balances, credits, and debits by category.
+- Ledger entries show individual transactions.
 
-## Definiciones
+## <a name="definitions"></a>Definitions
 
-**Panel de resumen financiero:**
+**Financial summary panel:**
 
 ![financialdefinitions][7]
 
-**Movimientos:**
+**Ledger entries:**
 
 ![ledgerdefinitions][8]
 
-## Preguntas sobre pagos
+## <a name="payout-questions"></a>Payout questions
 
-Si tiene alguna pregunta relacionada con sus pagos, póngase en contacto con nuestro equipo de soporte técnico.
+If you have a question related to your payouts, contact our support team.
 
 ![payoutquestions][9]
 
-1. Navegue a las páginas de soporte técnico.
-2. Seleccione **Pagos**.
-3. Seleccione **Consultas relacionadas con pagos**.
-4. Haga clic en **Solicitud de inicio**.
+1. Navigate to the support pages.
+2. Select **Payouts**.
+3. Select **Payout related inquiries**.
+4. Click **Start request**.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-Para otras consultas de soporte técnico, registre un problema en <https://portal.azure.com>.
+For other support queries, please log an issue at <https://portal.azure.com>.
 
 [1]: ./media/marketplace-publishing-report-payout/LandingPage-DashboardHighlight.png
 [2]: ./media/marketplace-publishing-report-payout/Dashboard-PayoutSummary.png
@@ -116,4 +118,8 @@ Para otras consultas de soporte técnico, registre un problema en <https://porta
 [8]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
 [9]: ./media/marketplace-publishing-report-payout/payoutquestions.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

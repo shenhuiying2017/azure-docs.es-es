@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Guía del desarrollador de Azure Active Directory | Microsoft Azure"
-   description="Una lista de términos con las características y conceptos normalmente utilizados por los desarrolladores de Azure Active Directory."
+   pageTitle="Azure Active Directory Developer Glossary | Microsoft Azure"
+   description="A list of terms for commonly used Azure Active Directory developer concepts and features."
    services="active-directory"
    documentationCenter=""
    authors="bryanla"
@@ -16,162 +16,163 @@
    ms.date="08/31/2016"
    ms.author="bryanla"/>
 
-# Guía del desarrollador de Azure Active Directory
-En este artículo se incluyen definiciones de algunos de los conceptos básicos para el desarrollador de Azure Active Directory (AD), que son útiles para obtener información sobre el desarrollo de aplicaciones para Azure AD.
 
-## de la aplicación Twitter 
-Un tipo de [token de seguridad](#security-token) emitido por un [servidor de autorización](#authorization-server) y usado por una [aplicación cliente](#client-application) para acceder a un [servidor de recursos protegidos](#resource-server). Normalmente en forma de [JSON Web Token (JWT)][JWT], el token personifica la autorización concedida al cliente por el [propietario del recurso](#resource-owner) para un nivel de acceso solicitado. El token contiene todas las [notificaciones](#claim) aplicables sobre el sujeto, lo que permite a la aplicación cliente utilizarlo como forma de credencial al acceder a un recurso determinado. Esto también elimina la necesidad de que el propietario del recurso exponga sus credenciales al cliente.
+# <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory developer glossary
+This article contains definitions for some of the core Azure Active Directory (AD) developer concepts, which are helpful when learning about application development for Azure AD.
 
-A veces se conoce a los tokens de acceso como "Aplicación y usuario" o "Solo aplicación", según las credenciales que se va a representar. Por ejemplo, cuando una aplicación cliente usa:
+## <a name="access-token"></a>access token 
+A type of [security token](#security-token) issued by an [authorization server](#authorization-server), and used by a [client application](#client-application) in order to access a [protected resource server](#resource-server). Typically in the form of a [JSON Web Token (JWT)][JWT], the token embodies the authorization granted to the client by the [resource owner](#resource-owner), for a requested level of access. The token contains all applicable [claims](#claim) about the subject, enabling the client application to use it as a form of credential when accessing a given resource. This also eliminates the need for the resource owner to expose credentials to the client. 
 
-- La [concesión de autorización del "código de autorización"](#authorization-grant), el usuario final se autentica primero como propietario del recurso, delegando la autorización al cliente para acceder al recurso. Después, el cliente se autentica al obtener el token de acceso. El token a veces se conoce más específicamente como token "Aplicación y usuario", ya que representa tanto al usuario que ha autorizado la aplicación cliente como a la aplicación.
-- [La concesión de autorización de "Credenciales de cliente"](#authorization-grant), el cliente proporciona la autenticación única, que funciona sin la autorización o autenticación del propietario del recurso, por lo que a veces el token puede conocerse como un token "Solo aplicación".
+Access tokens are sometimes referred to as "User+App" or "App-Only", depending on the credentials being represented. For example, when a client application uses the:
 
-Consulte [Referencia de tokens de Azure AD][AAD-Tokens-Claims] para más información.
+- ["Authorization code" authorization grant](#authorization-grant), the end user authenticates first as the resource owner, delegating authorization to the client to access the resource. The client authenticates afterward when obtaining the access token. The token can sometimes be referred to more specifically as a "User+App" token, as it represents both the user that authorized the client application, and the application. 
+- ["Client credentials" authorization grant](#authorization-grant), the client provides the sole authentication, functioning without the resource-owner's authentication/authorization, so the token can sometimes be referred to as an "App-Only" token.
 
-## manifiesto de aplicación  
-Una característica proporcionada por el [Portal de Azure clásico][AZURE-classic-portal], lo que genera una representación JSON de la configuración de identidad de la aplicación, utilizada como un mecanismo para actualizar sus entidades [Application][AAD-Graph-App-Entity] y [ServicePrincipal][AAD-Graph-Sp-Entity] asociadas. Para más información, consulte [Descripción del manifiesto de aplicación de Azure Active Directory][AAD-App-Manifest].
+See [Azure AD Token Reference][AAD-Tokens-Claims] for more details.
 
-## objeto de aplicación  
-Cuando se registra o se actualiza una aplicación en el [Portal de Azure clásico][AZURE-classic-portal], el portal crea o actualiza un objeto de aplicación y un [objeto de entidad de servicio](#service-principal-object) correspondiente para dicho inquilino. El objeto de aplicación *define* globalmente la configuración de identidad de la aplicación (en todos los inquilinos a los que accede), lo que proporciona una plantilla de la que *proceden* los objetos de entidad de servicio correspondientes para su uso local en tiempo de ejecución (en un inquilino específico).
+## <a name="application-manifest"></a>application manifest  
+A feature provided by the [Azure classic portal][AZURE-classic-portal], which produces a JSON representation of the application's identity configuration, used as a mechanism for updating its associated [Application][AAD-Graph-App-Entity] and [ServicePrincipal][AAD-Graph-Sp-Entity] entities. See [Understanding the Azure Active Directory application manifest][AAD-App-Manifest] for more details.
 
-Para más información, consulte [Objetos Application y objetos ServicePrincipal][AAD-App-SP-Objects].
+## <a name="application-object"></a>application object  
+When you register/update an application in the [Azure classic portal][AZURE-classic-portal], the portal creates/updates both an application object and a corresponding [service principal object](#service-principal-object) for that tenant. The application object *defines* the application's identity configuration globally (across all tenants where it has access), providing a template from which its corresponding service principal object(s) are *derived* for use locally at run-time (in a specific tenant).
 
-## registro de la aplicación  
-Para permitir que una aplicación integre y delegue las funciones de administración de identidades y acceso a Azure AD, debe registrarse con el [inquilino](#tenant) de Azure AD. Al registrar la aplicación con Azure AD, se proporciona una configuración de identidad para la aplicación, lo que le permite integrarla con Azure AD y usar características tales como:
+See [Application and Service Principal Objects][AAD-App-SP-Objects] for more information.
 
-- Administración sólida de inicio de sesión único mediante la administración de identidades de Azure AD y la implementación del protocolo [OpenID Connect][OpenIDConnect]
-- Acceso sin intermediación a los [recursos protegidos](#resource-server) por [aplicaciones cliente](#client-application), a través de la implementación del [servidor de autorización](#authorization-server) OAuth 2.0 de Azure AD.
-- [Marco de consentimiento](#consent) para administrar el acceso del cliente a los recursos protegidos, en función de la autorización del propietario del recurso.
+## <a name="application-registration"></a>application registration  
+In order to allow an application to integrate with and delegate Identity and Access Management functions to Azure AD, it must be registered with an Azure AD [tenant](#tenant). When you register your application with Azure AD, you are providing an identity configuration for your application, allowing it to integrate with Azure AD and use features such as:
 
-Para más información, consulte [Integración de aplicaciones con Azure Active Directory][AAD-Integrating-Apps].
+- Robust management of Single Sign-On using Azure AD Identity Management and [OpenID Connect][OpenIDConnect] protocol implementation
+- Brokered access to [protected resources](#resource-server) by [client applications](#client-application), via Azure AD's OAuth 2.0 [authorization server](#authorization-server) implementation
+- [Consent framework](#consent) for managing client access to protected resources, based on resource owner authorization.
 
-## authentication
-El acto de solicitar a un usuario credenciales legítimas, que proporciona la base para la creación de una entidad de seguridad que se utilizará para el control de identidades y de acceso. Por ejemplo, durante una [concesión de autorización de OAuth2](#authorization-grant), el usuario que se autentica está cumpliendo el rol de [propietario del recurso](#resource-owner) o de [aplicación cliente](#client-application), en función de la concesión usada.
+See [Integrating applications with Azure Active Directory][AAD-Integrating-Apps] for more details.
 
-## authorization
-El acto de conceder un permiso a la entidad de seguridad autenticada para hacer algo. Hay dos casos de uso principales en el modelo de programación de Azure AD:
+## <a name="authentication"></a>authentication
+The act of challenging a party for legitimate credentials, providing the basis for creation of a security principal to be used for identity and access control. During an [OAuth2 authorization grant](#authorization-grant) for example, the party authenticating is filling the role of either [resource owner](#resource-owner) or [client application](#client-application), depending on the grant used.
 
-- Durante un flujo de [concesión de autorización de OAuth2](#authorization-grant): cuando el [propietario del recurso](#resource-owner) autoriza a la [aplicación cliente](#client-application), lo que permite al cliente acceder a los recursos del propietario del recurso.
-- Durante el acceso a los recursos por el cliente: cuando lo implementa el [servidor de recursos](#resource-server), el uso de los valores de [notificación](#claim) presentes en el [token de acceso](#access-token) para tomar decisiones de control de acceso basadas en ellos.
+## <a name="authorization"></a>authorization
+The act of granting an authenticated security principal permission to do something. There are two primary use cases in the Azure AD programming model:
 
-## código de autorización
-Un "token" de corta duración proporcionado a una [aplicación cliente](#client-application) por el [punto de conexión de autorización](#authorization-endpoint), como parte del flujo de "código de autorización", una de las cuatro [concesiones de autorización](#authorization-grant) de OAuth2. El código se devuelve a la aplicación cliente como respuesta a la autenticación de un [propietario del recurso](#resource-owner), lo que indica que este propietario ha delegado la autorización para acceder a los recursos solicitados. Como parte del flujo, el código se canjea después por un [token de acceso](#access-token).
+- During an [OAuth2 authorization grant](#authorization-grant) flow: when the [resource owner](#resource-owner) grants authorization to the [client application](#client-application), allowing the client to access the resource owner's resources.
+- During resource access by the client: as implemented by the [resource server](#resource-server), using the [claim](#claim) values present in the [access token](#access-token) to make access control decisions based upon them.
 
-## punto de conexión de autorización
-Uno de los puntos de conexión implementados por el [servidor de autorización](#authorization-server), que se usa para interactuar con el [propietario del recurso](#resource-owner) con el fin de proporcionar una [concesión de autorización](#authorization-grant) durante un flujo de concesión de autorización de OAuth2. Según el flujo de concesión de autorización que se utilice, puede variar la concesión real proporcionada, incluido un [código de autorización](#authorization-code) o un [token de seguridad](#security-token).
+## <a name="authorization-code"></a>authorization code
+A short lived "token" provided to a [client application](#client-application) by the [authorization endpoint](#authorization-endpoint), as part of the "authorization code" flow, one of the four OAuth2 [authorization grants](#authorization-grant). The code is returned to the client application in response to authentication of a [resource owner](#resource-owner), indicating the resource owner has delegated authorization to access the requested resources. As part of the flow, the code is later redeemed for an [access token](#access-token).
 
-Consulte las secciones sobre los [tipos de concesión de autorización][OAuth2-AuthZ-Grant-Types] de la especificación OAuth2 y el [punto de conexión de autorización][OAuth2-AuthZ-Endpoint] y la [especificación de OpenIDConnect][OpenIDConnect-AuthZ-Endpoint] para más información.
+## <a name="authorization-endpoint"></a>authorization endpoint
+One of the endpoints implemented by the [authorization server](#authorization-server), used to interact with the [resource owner](#resource-owner) in order to provide an [authorization grant](#authorization-grant) during an OAuth2 authorization grant flow. Depending on the authorization grant flow used, the actual grant provided can vary, including an [authorization code](#authorization-code) or [security token](#security-token).
 
-## concesión de autorización
-Una credencial que representa la [autorización](#authorization) del [propietario del recurso](#resource-owner) para acceder a sus recursos protegidos, concedidos a una [aplicación cliente](#client-application). Una aplicación cliente puede utilizar uno de los [cuatro tipos de concesión definidos por la plataforma de autorización de OAuth2][OAuth2-AuthZ-Grant-Types] para obtener una concesión, según los requisitos o tipo de cliente: "concesión de código de autorización", "concesión de credenciales de cliente", "concesión implícita" y "concesión de credenciales de contraseña del propietario de recursos". La credencial que se devuelve al cliente es un [token de acceso](#access-token) o un [código de autorización](#authorization-code) (que se intercambia después por un token de acceso), según el tipo de concesión de autorización usado.
+See the OAuth2 specification's [authorization grant types][OAuth2-AuthZ-Grant-Types] and [authorization endpoint][OAuth2-AuthZ-Endpoint] sections, and the [OpenIDConnect specification][OpenIDConnect-AuthZ-Endpoint] for more details.
 
-## servidor de autorización
-Tal como se define en la [plataforma de autorización de OAuth2][OAuth2-Role-Def], el servidor responsable de emitir los tokens de acceso al [cliente](#client-application) después de autenticar correctamente al [propietario del recurso](#resource-owner) y obtener su autorización. Un [aplicación cliente](#client-application) interactúa con el servidor de autorización en tiempo de ejecución a través de sus puntos de conexión de [autorización](#authorization-endpoint) y [token](#token-endpoint), con arreglo a las [concesiones de autorización](#authorization-grant) definidas en OAuth2.
+## <a name="authorization-grant"></a>authorization grant
+A credential representing the [resource owner's](#resource-owner) [authorization](#authorization) to access its protected resources, granted to a [client application](#client-application). A client application can use one of the [four grant types defined by the OAuth2 Authorization Framework][OAuth2-AuthZ-Grant-Types] to obtain a grant, depending on client type/requirements: "authorization code grant", "client credentials grant", "implicit grant", and "resource owner password credentials grant". The credential returned to the client is either an [access token](#access-token), or an [authorization code](#authorization-code) (exchanged later for an access token), depending on the type of authorization grant used. 
 
-En el caso de la integración de aplicaciones de Azure AD, Azure AD implementa el rol de servidor de autorización para aplicaciones de Azure AD y las API de servicio de Microsoft, por ejemplo [API de Microsoft Graph][Microsoft-Graph].
+## <a name="authorization-server"></a>authorization server
+As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], the server responsible for issuing access tokens to the [client](#client-application) after successfully authenticating the [resource owner](#resource-owner) and obtaining its authorization. A [client application](#client-application) interacts with the authorization server at runtime via its [authorization](#authorization-endpoint) and [token](#token-endpoint) endpoints, in accordance with the OAuth2 defined [authorization grants](#authorization-grant).
 
-## notificación
-Un [token de seguridad](#security-token) contiene notificaciones, que proporcionan aserciones acerca de una entidad (como una [aplicación cliente](#client-application) o un [propietario del recurso](#resource-owner)) a otra entidad (como el [servidor de recursos](#resource-server)). Las notificaciones son pares de nombre/valor que retransmiten datos sobre el asunto del token (por ejemplo, la entidad de seguridad que autenticó el [servidor de autorización](#authorization-server)). Las notificaciones presentes en cualquier token dependen de varias variables, como el tipo de token, el tipo de credencial que se usa para autenticar al usuario y la configuración de la aplicación, entre otras.
+In the case of Azure AD application integration, Azure AD implements the authorization server role for Azure AD applications and Microsoft service APIs, for example [Microsoft Graph APIs][Microsoft-Graph].
 
-Consulte [Referencia de tokens de Azure AD][AAD-Tokens-Claims] para más información.
+## <a name="claim"></a>claim
+A [security token](#security-token) contains claims, which provide assertions about one entity (such as a [client application](#client-application) or [resource owner](#resource-owner)) to another entity (such as the [resource server](#resource-server)). Claims are name/value pairs that relay facts about the token subject (for example, the security principal that was authenticated by the [authorization server](#authorization-server)). The claims present in a given token are dependent upon several variables, including the type of token, the type of credential used to authenticate the subject, the application configuration, etc.
 
-## aplicación cliente  
-Tal como se define en la [plataforma de autorización de OAuth2][OAuth2-Role-Def], una aplicación que realiza solicitudes de recursos protegidos en nombre del [propietario del recurso](#resource-owner). El término "cliente" no implica ninguna característica de implementación de hardware determinada (por ejemplo, si la aplicación se ejecuta en un servidor, un equipo de escritorio o en otros dispositivos).
+See [Azure AD token reference][AAD-Tokens-Claims] for more details.
 
-Una aplicación cliente solicita [autorización](#authorization) de un propietario del recurso para participar en un flujo de [concesión de autorización de OAuth2](#authorization-grant) y puede acceder a los datos y API en nombre del propietario del recurso. La plataforma de autorización de OAuth2 [define dos tipos de clientes][OAuth2-Client-Types], "confidencial" y "público", en función de la capacidad del cliente para mantener la confidencialidad de sus credenciales. Las aplicaciones pueden implementar un [cliente web (confidencial)](#web-client) que se ejecuta en un servidor web, un [cliente nativo (público)](#native-client) instalado en un dispositivo y un [cliente basado en agente usuario (público)](#user-agent-based-client) que se ejecuta en el explorador del dispositivo.
+## <a name="client-application"></a>client application  
+As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an application that makes protected resource requests on behalf of the [resource owner](#resource-owner). The term "client" does not imply any particular hardware implementation characteristics (for instance, whether the application executes on a server, a desktop, or other devices).  
 
-## consentimiento
-El proceso de un [propietario de recursos](#resource-owner) que concede autorización a una [aplicación cliente](#client-application), [permisos](#permissions) específicos para acceder a recursos protegidos, en nombre del propietario del recurso. Según los permisos solicitados por el cliente, se le solicitará al administrador o usuario su consentimiento para permitir el acceso a los datos de la organización o individuales, respectivamente. Tenga en cuenta que en un escenario [multiinquilino](#multi-tenant-application), la [entidad de servicio](#service-principal-object) de la aplicación también se registra en el inquilino del usuario que concede el consentimiento.
+A client application requests [authorization](#authorization) from a resource owner to participate in an [OAuth2 authorization grant](#authorization-grant) flow, and may access APIs/data on the resource owner's behalf. The OAuth2 Authorization Framework [defines two types of clients][OAuth2-Client-Types], "confidential" and "public", based on the client's ability to maintain the confidentiality of its credentials. Applications can implement a [web client (confidential)](#web-client) which runs on a web server, a [native client (public)](#native-client) installed on a device, or a [user-agent-based client (public)](#user-agent-based-client) which runs in a device's browser.
 
-## token de identificador
-Un [token de seguridad][OpenIDConnect-ID-Token] de [OpenID Connect](#security-token) proporcionado por un [punto de conexión de autorización](#authorization-server) del [servidor de autorización](#authorization-endpoint), que contiene las [notificaciones](#claim) que pertenecen a la autenticación de un [propietario de recursos](#resource-owner) de usuario final. Al igual que un token de acceso, los tokens de identificador también se representan como [JSON Web Token (JWT)][JWT] firmados digitalmente. Sin embargo, a diferencia de un token de acceso, las notificaciones de token de identificador no se usan para fines relacionados con el acceso a los recursos y específicamente con el control de acceso.
+## <a name="consent"></a>consent
+The process of a [resource owner](#resource-owner) granting authorization to a [client application](#client-application), specific [permissions](#permissions) to access protected resources, on behalf of the resource owner. Depending on the permissions requested by the client, an administrator or user will be asked to consent to allow access to their organization/individual data respectively. Note, in a [multi-tenant](#multi-tenant-application) scenario, the application's [service principal](#service-principal-object) is also recorded in the tenant of the consenting user.
 
-Consulte [Referencia de tokens de Azure AD][AAD-Tokens-Claims] para más información.
+## <a name="id-token"></a>ID token
+An [OpenID Connect][OpenIDConnect-ID-Token] [security token](#security-token) provided by an [authorization server's](#authorization-server) [authorization endpoint](#authorization-endpoint), which contains [claims](#claim) pertaining to the authentication of an end user [resource owner](#resource-owner). Like an access token, ID tokens are also represented as a digitally signed [JSON Web Token (JWT)][JWT]. Unlike an access token though, an ID token's claims are not used for purposes related to resource access and specifically access control.
 
-## aplicación multiinquilino
-Una clase de [aplicación cliente](#client-application) que permite iniciar sesión y [consentir](#consent) a usuarios aprovisionados en un [inquilino](#tenant) de Azure AD, incluidos inquilinos que no son con el que el cliente está registrado. Por el contrario, una aplicación registrada como único inquilino solo permite inicios de sesión desde cuentas de usuario aprovisionadas en el mismo inquilino que donde se registra la aplicación. De forma predeterminada, las aplicaciones [cliente nativas](#native-client) son aplicaciones multiinquilino, mientras que las aplicaciones [cliente web](#web-client) tienen la capacidad de seleccionar entre uno y varios inquilinos.
+See [Azure AD token reference][AAD-Tokens-Claims] for more details.
 
-Consulte [Inicio de sesión de cualquier usuario de Azure Active Directory (AD) mediante el patrón de aplicación multiinquilino][AAD-Multi-Tenant-Overview] para más información.
+## <a name="multi-tenant-application"></a>multi-tenant application
+A class of [client application](#client-application) that enables sign in and [consent](#consent) by users provisioned in any Azure AD [tenant](#tenant), including tenants other than the one where the client is registered. By contrast, an application registered as single-tenant, would only allow sign-ins from user accounts provisioned in the same tenant as the one where the application is registered. [Native client](#native-client) applications are multi-tenant by default, whereas [web client](#web-client) applications have the ability to select between single and multi-tenant.
 
-## cliente nativo
-Un tipo de [aplicación cliente](#client-application) que se instala de forma nativa en un dispositivo. Como todo el código se ejecuta en un dispositivo, se considera un cliente "público" debido a su incapacidad para almacenar credenciales de manera privada o confidencial. Consulte los [tipos de cliente y perfiles de OAuth2][OAuth2-Client-Types] para más información.
+See [How to sign in any Azure AD user using the multi-tenant application pattern][AAD-Multi-Tenant-Overview] for more details.
 
-## permisos
-Una [aplicación cliente](#client-application) obtiene acceso a un [servidor de recursos](#resource-server) mediante la declaración de las solicitudes de permiso. Existen dos tipos:
+## <a name="native-client"></a>native client
+A type of [client application](#client-application) that is installed natively on a device. Since all code is executed on a device, it is considered a "public" client due to its inability to store credentials privately/confidentially. See [OAuth2 client types and profiles][OAuth2-Client-Types] for more details.
 
-- Permisos "delegados", que solicitan acceso [basado en el ámbito](#scopes) con autorización delegada del [propietario del recurso](#resource-owner) que ha iniciado sesión, y se presentan al recurso en tiempo de ejecución como [notificaciones "scp"](#claim) en el [token de acceso](#access-token) del cliente.
-- Permisos de "aplicación", que solicitarán acceso [basado en roles](#roles) bajo las credenciales o identidad de la aplicación cliente, y se presentan al recurso en tiempo de ejecución como [notificaciones de "roles"](#claim) en el token de acceso del cliente.
+## <a name="permissions"></a>permissions
+A [client application](#client-application) gains access to a [resource server](#resource-server) by declaring permission requests. Two types are available: 
 
-También se revelan durante el proceso de [consentimiento](#consent), ya que proporciona al administrador o al propietario del recurso la oportunidad de conceder o denegar el acceso de cliente a los recursos en su inquilino.
+- "Delegated" permissions, which request [scope-based](#scopes) access under delegated authorization from the signed-in [resource owner](#resource-owner), are presented to the resource at run-time as ["scp" claims](#claim) in the client's [access token](#access-token).
+- "Application" permissions, which request [role-based](#roles) access under the client application's credentials/identity, are presented to the resource at run-time as ["roles" claims](#claim) in the client's access token. 
 
-Las solicitudes de permisos se configuran en la pestaña "Aplicaciones"/"Configurar" del [Portal de Azure clásico][AZURE-classic-portal], bajo "Permisos para otras aplicaciones", al seleccionar los "Permisos delegados" y "Permisos de la aplicación" deseados (el último requiere la pertenencia al rol de administrador global). Dado que un [cliente público](#client-application) no puede mantener las credenciales, solo puede solicitar permisos delegados, mientras que un [cliente confidencial](#client-application) tiene la capacidad de solicitar tanto permisos delegados como de aplicación. El [objeto de aplicación](#application-object) de cliente almacena los permisos declarados en su [propiedad requiredResourceAccess][AAD-Graph-App-Entity].
+They also surface during the [consent](#consent) process, giving the administrator or resource owner the opportunity to grant/deny the client access to resources in their tenant.
 
-## propietario del recurso
-De acuerdo con la [plataforma de autorización de OAuth2][OAuth2-Role-Def], una entidad capaz de conceder acceso a un recurso protegido. Cuando el propietario del recurso es una persona, se conoce como usuario final. Por ejemplo, cuando una [aplicación cliente](#client-application) desea acceder al buzón del usuario a través de la [API de Microsoft Graph][Microsoft-Graph], requiere el permiso del propietario de los recursos del buzón de correo.
+Permission requests are configured on the "Applications" / "Configure" tab in the [Azure classic portal][AZURE-classic-portal], under "Permissions to other applications", by selecting the desired "Delegated Permissions" and "Application Permissions" (the latter requires membership in the Global Admin role). Because a [public client](#client-application) can't maintain credentials, it can only request delegated permissions, while a [confidential client](#client-application) has the ability to request both delegated and application permissions. The client's [application object](#application-object) stores the declared permissions in its [requiredResourceAccess property][AAD-Graph-App-Entity].
 
-## servidor de recursos
-Tal como se ha definido por la [plataforma de autorización de OAuth2][OAuth2-Role-Def], un servidor que hospeda recursos protegidos, capaz de aceptar y responder a las solicitudes de recursos protegidos de las [aplicaciones cliente](#client-application) que presentan un [token de acceso](#access-token). También se conoce como servidor de recursos protegidos, o aplicación de recursos.
+## <a name="resource-owner"></a>resource owner
+As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an entity capable of granting access to a protected resource. When the resource owner is a person, it is referred to as an end user. For example, when a [client application](#client-application) wants to access a user's mailbox through the [Microsoft Graph API][Microsoft-Graph], it requires permission from the resource owner of the mailbox.
 
-Un servidor de recursos expone las API e impone el acceso a sus recursos protegidos mediante [ámbitos](#scopes) y [roles](#roles), con la plataforma de autorización de OAuth 2.0. Por ejemplo, la API Azure AD Graph que proporciona acceso a los datos del inquilino de Azure AD y las API de Office 365 que proporcionan acceso a datos, como el correo electrónico y el calendario. Ambos también son accesibles a través de la [API Microsoft Graph][Microsoft-Graph].
+## <a name="resource-server"></a>resource server
+As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], a server that hosts protected resources, capable of accepting and responding to protected resource requests by [client applications](#client-application) that present an [access token](#access-token). Also known as a protected resource server, or resource application.
 
-Al igual que una aplicación cliente, se establece la configuración de la identidad de la aplicación de recursos a través de [Registro](#application-registration) en un inquilino de Azure AD, que proporciona tanto el objeto de aplicación y como el de entidad de servicio. Algunas API proporcionadas por Microsoft, como la API de Azure AD Graph, han registrado previamente entidades de servicio, que están disponibles en todos los inquilinos durante el aprovisionamiento.
+A resource server exposes APIs and enforces access to its protected resources through [scopes](#scopes) and [roles](#roles), using the OAuth 2.0 Authorization Framework. Examples include the Azure AD Graph API which provides access to Azure AD tenant data, and the Office 365 APIs that provide access to data such as mail and calendar. Both of these are also accessible via the [Microsoft Graph API][Microsoft-Graph].  
 
-## roles
-Como los [ámbitos](#scopes), los roles proporcionan una forma para que un [servidor de recursos](#resource-server) controle el acceso a los recursos protegidos. Hay dos tipos: un rol de "usuario" implementa el control de acceso basado en roles para usuarios o grupos que requieren acceso al recurso, mientras que un rol de "aplicación" implementa lo mismo para las [aplicaciones cliente](#client-application) que requieren acceso.
+Just like a client application, resource application's identity configuration is established via [registration](#application-registration) in an Azure AD tenant, providing both the application and service principal object. Some Microsoft-provided APIs, such as the Azure AD Graph API, have pre-registered service principals made available in all tenants during provisioning.
 
-Los roles son cadenas definidas por recursos (por ejemplo "Aprobador de gastos", "Solo lectura", "Directory.ReadWrite.All"), administradas en el [Portal de Azure clásico][AZURE-classic-portal] mediante el [manifiesto de aplicación](#application-manifest) del recurso, y almacenadas en la [propiedad appRoles][AAD-Graph-Sp-Entity] del recurso. El Portal de Azure clásico también se usa para asignar usuarios a roles de "usuario" y configurar los [permisos de la aplicación](#permissions) del cliente para acceder a un rol de "aplicación".
+## <a name="roles"></a>roles
+Like [scopes](#scopes), roles provide a way for a [resource server](#resource-server) to govern access to its protected resources. There are two types: a "user" role implements role-based access control for users/groups that require access to the resource, while an "application" role implements the same for [client applications](#client-application) that require access. 
 
-Para ver una explicación detallada de los roles de aplicación expuestos por la API Azure AD Graph, consulte los [ámbitos de permisos de API Graph][AAD-Graph-Perm-Scopes]. Para ver un ejemplo de implementación paso a paso, consulte [Role based access control in cloud applications using Azure AD][Duyshant-Role-Blog] \(Control de acceso basado en roles en aplicaciones en la nube con Azure AD).
+Roles are resource-defined strings (for example "Expense approver", "Read-only", "Directory.ReadWrite.All"), managed in the [Azure classic portal][AZURE-classic-portal] via the resource's [application manifest](#application-manifest), and stored in the resource's [appRoles property][AAD-Graph-Sp-Entity]. The Azure classic portal is also used to assign users to "user" roles, and configure client [application permissions](#permissions) to access an "application" role.
 
-## ámbitos
-Como los [roles](#roles), los ámbitos proporcionan una forma para que un [servidor de recursos](#resource-server) controle el acceso a los recursos protegidos. Los ámbitos se utilizan para implementar el control de acceso [basado en ámbitos][OAuth2-Access-Token-Scopes] para una [aplicación cliente](#client-application) a la que el propietario haya otorgado acceso delegado al recurso.
+For a detailed discussion of the application roles exposed by Azure AD's Graph API, see [Graph API Permission Scopes][AAD-Graph-Perm-Scopes]. For a step-by-step implementation example, see [Role based access control in cloud applications using Azure AD][Duyshant-Role-Blog]. 
 
-Los ámbitos son cadenas definidas por recursos (por ejemplo "Mail.Read" o "Directory.ReadWrite.All"), administradas en el [Portal de Azure clásico][AZURE-classic-portal] mediante el [manifiesto de aplicación](#application-manifest) del recurso, y almacenadas en la [propiedad oauth2Permissions][AAD-Graph-Sp-Entity] del recurso. El Portal de Azure clásico también se utiliza para configurar los [permisos delegados](#permissions) de la aplicación cliente para acceder a un ámbito.
+## <a name="scopes"></a>scopes
+Like [roles](#roles), scopes provide a way for a [resource server](#resource-server) to govern access to its protected resources. Scopes are used to implement [scope-based][OAuth2-Access-Token-Scopes] access control, for a [client application](#client-application) that has been given delegated access to the resource by its owner. 
 
-Como procedimiento recomendado para la convención de nomenclatura, utilice un formato "resource.operation.constraint". Para ver una explicación detallada de los ámbitos expuestos por la API Azure AD Graph, consulte los [ámbitos de permisos de API Graph][AAD-Graph-Perm-Scopes]. Para los ámbitos expuestos por los servicios de Office 365, consulte la [Office 365 API permissions reference][O365-Perm-Ref] \(Referencia a los permisos de la API de Office 365).
+Scopes are resource-defined strings (for example "Mail.Read", "Directory.ReadWrite.All"), managed in the [Azure classic portal][AZURE-classic-portal] via the resource's [application manifest](#application-manifest), and stored in the resource's [oauth2Permissions property][AAD-Graph-Sp-Entity]. The Azure classic portal is also used to configure client application [delegated permissions](#permissions) to access a scope.
 
-## token de seguridad
-Un documento firmado con notificaciones, como un token OAuth2 o una aserción SAML 2.0. En el caso de una [concesión de autorización](#authorization-grant) de OAuth2, un [token de acceso](#access-token) (OAuth2) y un [token de identificador] \(OpenID Connect) son tipos de token de seguridad, que se implementan como un [JSON Web Token (JWT)][JWT].
+A best practice naming convention, is to use a "resource.operation.constraint" format. For a detailed discussion of the scopes exposed by Azure AD's Graph API, see [Graph API Permission Scopes][AAD-Graph-Perm-Scopes]. For scopes exposed by Office 365 services, see [Office 365 API permissions reference][O365-Perm-Ref]. 
 
-## objeto de entidad de servicio
-Cuando se registra o se actualiza una aplicación en el [Portal de Azure clásico][AZURE-classic-portal], el portal crea o actualiza un [objeto de aplicación](#application-object) y un objeto de entidad de servicio correspondiente para dicho inquilino. El objeto de aplicación *define* globalmente la configuración de identidad de la aplicación (en todos los inquilinos a los que se le ha concedido acceso a la aplicación asociada), y es la plantilla de la que *proceden* los objetos de entidad de servicio correspondientes para su uso local en tiempo de ejecución (en un inquilino específico).
+## <a name="security-token"></a>security token
+A signed document containing claims, such as an OAuth2 token or SAML 2.0 assertion. For an OAuth2 [authorization grant](#authorization-grant), an [access token](#access-token) (OAuth2) and an [ID Token](OpenID Connect) are types of security tokens, both of which are implemented as a [JSON Web Token (JWT)][JWT].
 
-Para más información, consulte el artículo sobre [objetos de aplicación y de entidad de servicio][AAD-App-SP-Objects].
+## <a name="service-principal-object"></a>service principal object
+When you register/update an application in the [Azure classic portal][AZURE-classic-portal], the portal creates/updates both an [application object](#application-object) and a corresponding service principal object for that tenant. The application object *defines* the application's identity configuration globally (across all tenants where the associated application has been granted access), and is the template from which its corresponding service principal object(s) are *derived* for use locally at run-time (in a specific tenant).
 
-## inicio de sesión
-El proceso de una [aplicación cliente](#client-application) que inicia la autenticación del usuario final y captura el estado relacionado, con el fin de adquirir un [token de seguridad](#security-token) y establecer el ámbito de la sesión de la aplicación en ese estado. El estado puede incluir artefactos, como información de perfil de usuario, e información derivada de las notificaciones de tokens.
+See [Application and Service Principal Objects][AAD-App-SP-Objects] for more information.
 
-Normalmente, la función de inicio de sesión de una aplicación se utiliza para implementar el inicio de sesión único (SSO). También puede ir precedido por una función de "suscripción", como punto de entrada para que un usuario final obtenga acceso a una aplicación (al primer inicio de sesión). La función de suscripción se usa para recopilar y conservar el estado adicional específico del usuario y puede requerir el [consentimiento del usuario](#consent).
+## <a name="sign-in"></a>sign-in
+The process of a [client application](#client-application) initiating end user authentication and capturing related state, for the purpose of acquiring a [security token](#security-token) and scoping the application session to that state. State can include artifacts such as user profile information, and information derived from token claims. 
 
-## cierre de sesión
-El proceso de anulación de la autenticación de un usuario final, de separar el estado de usuario asociado a la sesión de [aplicación cliente](#client-application) durante el [inicio de sesión](#sign-in)
+The sign-in function of an application is typically used to implement single-sign-on (SSO). It may also be preceded by a "sign-up" function, as the entry point for an end user to gain access to an application (upon first sign-in). The sign-up function is used to gather and persist additional state specific to the user, and may require [user consent](#consent).
 
-## tenant
-Una instancia de un directorio de Azure AD se conoce como inquilino de Azure AD. Proporciona una variedad de características, incluidos:
+## <a name="sign-out"></a>sign-out
+The process of un-authenticating an end user, detaching the user state associated with the [client application](#client-application) session during [sign-in](#sign-in)
 
-- Un servicio de registro de aplicaciones integradas
-- Autenticación de cuentas de usuario y aplicaciones registradas
-- Puntos de conexión REST necesarios para admitir varios protocolos, como OAuth2 y SAML, incluidos el [punto de conexión de autorización](#authorization-endpoint), el [punto de conexión de token](#token-endpoint) y el punto de conexión "común" utilizado por [aplicaciones multiempresa](#multi-tenant-application).
+## <a name="tenant"></a>tenant
+An instance of an Azure AD directory is referred to as an Azure AD tenant. It provides a variety of features, including:
 
-Un inquilino también está asociado a una suscripción de Azure u Office 365 durante el aprovisionamiento de la suscripción, lo que proporciona características de identidad y administración de acceso para la suscripción. Consulte [Obtención de un inquilino de Azure Active Directory][AAD-How-To-Tenant] para más información sobre las diversas maneras de acceder a un inquilino. Consulte [Asociación de las suscripciones de Azure con Azure Active Directory][AAD-How-Subscriptions-Assoc] para más información sobre la relación entre las suscripciones y un inquilino de Azure AD.
+- a registry service for integrated applications
+- authentication of user accounts and registered applications
+- REST endpoints required to support various protocols including OAuth2 and SAML, including the [authorization endpoint](#authorization-endpoint), [token endpoint](#token-endpoint) and the "common" endpoint used by [multi-tenant applications](#multi-tenant-application).
 
-## punto de conexión de token
-Uno de los puntos de conexión implementados por el [servidor de autorización](#authorization-server) para admitir las [concesiones de autorización](#authorization-grant) de OAuth2. En función de la concesión, se puede utilizar para adquirir un [token de acceso](#access-token) (y el token de "actualización" relacionado) a un [cliente](#client-application), o un [token de identificador](#ID-token) cuando se usa con el protocolo [OpenID Connect][OpenIDConnect].
+A tenant is also associated with an Azure AD or Office 365 subscription during provisioning of the subscription, providing Identity & Access Management features for the subscription. See [How to get an Azure Active Directory tenant][AAD-How-To-Tenant] for details on the various ways you can get access to a tenant. See [How Azure subscriptions are associated with Azure Active Directory][AAD-How-Subscriptions-Assoc] for details on the relationship between subscriptions and an Azure AD tenant.
 
-## cliente basada en agente usuario
-Un tipo de [aplicación cliente](#client-application) que descarga código desde un servidor web y se ejecuta dentro de un agente usuario (por ejemplo, un explorador web), como una aplicación de página única (SPA). Como todo el código se ejecuta en un dispositivo, se considera un cliente "público" debido a su incapacidad para almacenar credenciales de manera privada o confidencial. Consulte los [tipos de cliente y perfiles de OAuth2][OAuth2-Client-Types] para más información.
+## <a name="token-endpoint"></a>token endpoint
+One of the endpoints implemented by the [authorization server](#authorization-server) to support OAuth2 [authorization grants](#authorization-grant). Depending on the grant, it can be used to acquire an [access token](#access-token) (and related "refresh" token) to a [client](#client-application), or [ID token](#ID-token) when used with the [OpenID Connect][OpenIDConnect] protocol.
 
-## entidad de seguridad de usuario
-Similar a cómo se usa un objeto de entidad de servicio para representar una instancia de aplicación, un objeto de entidad de seguridad de usuario es otro tipo de entidad de seguridad, que representa a un usuario. La [entidad usuario][AAD-Graph-User-Entity] de Azure AD Graph define el esquema de un objeto de usuario, incluidas las propiedades relacionadas con el usuario, como el nombre y apellidos, el nombre principal del usuario, la pertenencia al rol de directorio, etc. Esto proporciona la configuración de la identidad de usuario para que Azure AD establezca una entidad de seguridad del usuario en tiempo de ejecución. La entidad de seguridad del usuario se utiliza para representar a un usuario autenticado para el inicio de sesión único, al registrar la delegación del [consentimiento](#consent) o tomar decisiones de control de acceso, etc.
+## <a name="user-agent-based-client"></a>User-agent-based client
+A type of [client application](#client-application) that downloads code from a web server and executes within a user-agent (for instance, a web browser), such as a Single Page Application (SPA). Since all code is executed on a device, it is considered a "public" client due to its inability to store credentials privately/confidentially. See [OAuth2 client types and profiles][OAuth2-Client-Types] for more details.
 
-## cliente web
-Un tipo de [aplicación cliente](#client-application) que ejecuta todo el código en un servidor web y puede funcionar como un cliente de "confidencial" al almacenar de forma segura sus credenciales en el servidor. Consulte los [tipos de cliente y perfiles de OAuth2][OAuth2-Client-Types] para más información.
+## <a name="user-principal"></a>user principal
+Similar to the way a service principal object is used to represent an application instance, a user principal object is another type of security principal, which represents a user. The Azure AD Graph [User entity][AAD-Graph-User-Entity] defines the schema for a user object, including user-related properties such as first and last name, user principal name, directory role membership, etc. This provides the user identity configuration for Azure AD to establish a user principal at run-time. The user principal is used to represent an authenticated user for Single Sign-On, recording [consent](#consent) delegation, making access control decisions, etc.
 
-## Pasos siguientes
-La [Guía del desarrollador de Azure Active Directory][AAD-Dev-Guide] es el portal para consultar todos los temas relacionados con el desarrollo de Azure AD, incluida una descripción general de la [integración de aplicaciones][AAD-How-To-Integrate] y los aspectos básicos de la [autenticación de Azure AD y de los escenarios de autenticación admitidos][AAD-Auth-Scenarios].
+## <a name="web-client"></a>web client
+A type of [client application](#client-application) that executes all code on a web server, and able to function as a "confidential" client by securely storing its credentials on the server. See [OAuth2 client types and profiles][OAuth2-Client-Types] for more details.
 
-Use la siguiente sección de comentarios DISQUS para proporcionar sus opiniones y ayudarnos a afinar y remodelar nuestro contenido.
+## <a name="next-steps"></a>Next steps
+The [Azure AD Developer's Guide][AAD-Dev-Guide] is the portal to use for all Azure AD development related topics, including an overview of [application integration][AAD-How-To-Integrate] and the basics of [Azure AD authentication and supported authentication scenarios][AAD-Auth-Scenarios]. 
+
+Please use the following Disqus comments section to provide feedback and help us refine and shape our content.
 
 <!--Image references-->
 
@@ -195,14 +196,32 @@ Use la siguiente sección de comentarios DISQUS para proporcionar sus opiniones 
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
-[O365-Perm-Ref]: https://msdn.microsoft.com/es-ES/office/office365/howto/application-manifest
+[O365-Perm-Ref]: https://msdn.microsoft.com/en-us/office/office365/howto/application-manifest
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
 [OAuth2-AuthZ-Endpoint]: https://tools.ietf.org/html/rfc6749#section-3.1
-[OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3
+[OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3 
 [OAuth2-Client-Types]: https://tools.ietf.org/html/rfc6749#section-2.1
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
 [OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
 [OpenIDConnect-AuthZ-Endpoint]: http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
 [OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

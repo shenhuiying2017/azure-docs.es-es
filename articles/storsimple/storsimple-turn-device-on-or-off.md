@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Encendido o apagado del dispositivo de StorSimple | Microsoft Azure"
-   description="Explica cómo encender un dispositivo de StorSimple nuevo, encender un dispositivo apagado o que perdió energía y apagar un dispositivo activo."
+   pageTitle="Turn your StorSimple device on or off | Microsoft Azure"
+   description="Explains how to turn on a new StorSimple device, turn on a device that was shut down or lost power, and turn off a running device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,204 +15,210 @@
    ms.date="08/23/2016"
    ms.author="alkohli" />
 
-# Encendido o apagado del dispositivo de StorSimple 
 
-## Información general
+# <a name="turn-your-storsimple-device-on-or-off"></a>Turn your StorSimple device on or off 
 
-No se requiere apagar el dispositivo de Microsoft Azure StorSimple como parte del funcionamiento normal del sistema. Sin embargo, es posible que sea necesario encender un dispositivo nuevo o puede que se haya debido apagar un dispositivo. Por lo general, se requiere apagar un dispositivo en casos en que se debe reemplazar algún hardware con error, mover físicamente una unidad o quitar un dispositivo del servicio. En este tutorial, se describe el procedimiento necesario para encender y apagar el dispositivo de StorSimple en distintos escenarios.
+## <a name="overview"></a>Overview
 
-En la tabla siguiente, se muestran varios escenarios en los cuales se debe activar y apagar el dispositivo de StorSimple y aparecen vínculos a los procedimientos adecuados.
+Shutting down a Microsoft Azure StorSimple device is not required as a part of normal system operation. However, you may need to turn on a new device or a device that had to be shut down. Generally, a shutdown is required in cases in which you must replace failed hardware, physically move a unit, or take a device out of service. This tutorial describes the required procedure for turning on and shutting down your StorSimple device in different scenarios.
 
-|Escenario|Temas de referencia|
+The following table lists various scenarios for turning on and shutting down your StorSimple device and provides links to the appropriate procedures.
+
+|Scenario|Reference topics|
 |:-------|:---------------|
-|Activar un dispositivo nuevo|[Activar un dispositivo nuevo](#turn-on-a-new-device)<ul><li>[Dispositivo nuevo solo con gabinete principal](#new-device-with-primary-enclosure-only)</li><li>[Dispositivo nuevo con gabinete EBOD](#new-device-with-ebod-enclosure)</li></ul>|
-|Activar un dispositivo después del apagado|[Activar un dispositivo después del apagado](#turn-on-a-device-after-shutdown)<ul><li>[Dispositivo solo con gabinete principal](#device-with-primary-enclosure-only)</li><li>[Dispositivo con gabinete EBOD](#device-with-ebod-enclosure)</li></ul>|
-|Activar un dispositivo después de una pérdida de energía|[Activar un dispositivo después de una pérdida de energía](#turn-on-a-device-after-a-power-loss)<ul><li>[Dispositivo solo con gabinete principal](#8100)</li><li>[Dispositivo con gabinete EBOD](#8600)</li></ul>|
-|Activar un dispositivo tras la pérdida de la conexión entre el gabinete principal y EBOD|[Activar un dispositivo tras la pérdida de la conexión entre el gabinete principal y EBOD](#turn-on-a-device-after-the-primary-and-ebod-enclosure-connection-is-lost)|
-|Apagar un dispositivo activo|[Apagar un dispositivo activo](#turn-off-a-running-device)<ul><li>[Dispositivo solo con gabinete principal](#8100a)</li><li>[Dispositivo con gabinete EBOD](#8600a)</li></ul>|
+|Turn on a new device|[Turn on a new device](#turn-on-a-new-device)<ul><li>[New device with primary enclosure only](#new-device-with-primary-enclosure-only)</li><li>[New device with EBOD enclosure](#new-device-with-ebod-enclosure)</li></ul>|
+|Turn on a device after shutdown|[Turn on a device after shutdown](#turn-on-a-device-after-shutdown)<ul><li>[Device with primary enclosure only](#device-with-primary-enclosure-only)</li><li>[Device with EBOD enclosure](#device-with-ebod-enclosure)</li></ul>|
+|Turn on a device after a power loss|[Turn on a device after a power loss](#turn-on-a-device-after-a-power-loss)<ul><li>[Device with primary enclosure only](#8100)</li><li>[Device with EBOD enclosure](#8600)</li></ul>|
+|Turn on a device after the primary enclosure and EBOD connection is lost|[Turn on a device after the primary and EBOD enclosure connection is lost](#turn-on-a-device-after-the-primary-and-ebod-enclosure-connection-is-lost)|
+|Shut down a running device|[Turn off a running device](#turn-off-a-running-device)<ul><li>[Device with primary enclosure only](#8100a)</li><li>[Device with EBOD enclosure](#8600a)</li></ul>|
 
-## Activar un dispositivo nuevo
+## <a name="turn-on-a-new-device"></a>Turn on a new device
 
-Los pasos para activar por primera vez un dispositivo StorSimple difieren si el modelo del dispositivo es 8100 u 8600. El modelo 8100 tiene un único gabinete principal, mientras que el modelo 8600 es un dispositivo de dos gabinetes con un gabinete principal y un gabinete EBOD. Las secciones siguientes abarcan los pasos detallados para ambos modelos.
+The steps for turning on a StorSimple device for the first time differ depending on whether the device is an 8100 or an 8600 model. The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure. The detailed steps for both models are covered in the following sections.
 
-- [Dispositivo nuevo solo con gabinete principal](#new-device-with-primary-enclosure-only)
+- [New device with primary enclosure only](#new-device-with-primary-enclosure-only)
 
-- [Dispositivo nuevo con gabinete EBOD](#new-device-with-ebod-enclosure)
+- [New device with EBOD enclosure](#new-device-with-ebod-enclosure)
 
-### Dispositivo nuevo solo con gabinete principal
+### <a name="new-device-with-primary-enclosure-only"></a>New device with primary enclosure only
 
-El modelo StorSimple 8100 es un dispositivo con un único gabinete. El dispositivo incluye módulos de alimentación y de refrigeración (PCM) redundantes. Ambos PCM deben estar instalados y conectados a diferentes fuentes de alimentación para garantizar una alta disponibilidad.
+The StorSimple 8100 model is a single enclosure device. Your device includes redundant Power and Cooling Modules (PCMs). Both PCMs must be installed and connected to different power sources to ensure high availability.
 
-Realice los pasos siguientes para pasar los cables de alimentación del dispositivo.
+Perform the following steps to cable your device for power.
 
 [AZURE.INCLUDE [storsimple-cable-8100-for-power](../../includes/storsimple-cable-8100-for-power.md)]
 
->[AZURE.NOTE]Si desea consultar las instrucciones de cableado y configuración del dispositivo, vaya a [Instalar el dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md). Asegúrese de seguir las instrucciones de manera exacta.
+>[AZURE.NOTE]For complete device setup and cabling instructions, go to [Install your StorSimple 8100 device](storsimple-8100-hardware-installation.md). Make sure that you follow the instructions exactly.
 
-### Dispositivo nuevo con gabinete EBOD
+### <a name="new-device-with-ebod-enclosure"></a>New device with EBOD enclosure
 
-El modelo StorSimple 8600 tiene un gabinete principal y un gabinete EBOD. Esto requiere que se realice el cableado de alimentación y conectividad de SCSI conectadas en serie (SAS) de las unidades en conjunto.
+The StorSimple 8600 model has both a primary enclosure and an EBOD enclosure. This requires the units to be cabled together for Serial Attached SCSI (SAS) connectivity and power.
 
-Cuando configure este dispositivo por primera vez, realice primero los pasos para el cableado de SAS y luego complete los pasos para el cableado de alimentación.
+When setting up this device for the first time, perform the steps for SAS cabling first and then complete the steps for power cabling.
 
 [AZURE.INCLUDE [storsimple-sas-cable-8600](../../includes/storsimple-sas-cable-8600.md)]
 
 [AZURE.INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-cable-8600-for-power.md)]
 
->[AZURE.NOTE]Si desea consultar las instrucciones de cableado y configuración del dispositivo, vaya a [Instalar el dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md). Asegúrese de seguir las instrucciones de manera exacta.
+>[AZURE.NOTE]For complete device setup and cabling instructions, go to [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md). Make sure that you follow the instructions exactly.
 
-## Activar un dispositivo después del apagado
+## <a name="turn-on-a-device-after-shutdown"></a>Turn on a device after shutdown
 
-Los pasos para activar un dispositivo StorSimple después del apagado son distintos si el modelo del dispositivo es 8100 u 8600. El modelo 8100 tiene un único gabinete principal, mientras que el modelo 8600 es un dispositivo de dos gabinetes con un gabinete principal y un gabinete EBOD.
+The steps for turning on a StorSimple device after it has been shut down are different depending on whether the device is an 8100 or an 8600 model. The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure.
 
-- [Dispositivo solo con gabinete principal](#device-with-primary-enclosure-only)
+- [Device with primary enclosure only](#device-with-primary-enclosure-only)
 
-- [Dispositivo con gabinete EBOD](#device-with-ebod-enclosure)
+- [Device with EBOD enclosure](#device-with-ebod-enclosure)
 
-### Dispositivo solo con gabinete principal
+### <a name="device-with-primary-enclosure-only"></a>Device with primary enclosure only
 
-Después del apagado, utilice el procedimiento siguiente para encender un dispositivo StorSimple con un gabinete principal y sin gabinete EBOD.
+After a shutdown, use the following procedure to turn on a StorSimple device with a primary enclosure and no EBOD enclosure.
 
-#### Para activar un dispositivo solo con gabinete principal
+#### <a name="to-turn-on-a-device-with-a-primary-enclosure-only"></a>To turn on a device with a primary enclosure only
 
-1. Asegúrese de que el interruptor de alimentación de cada uno de los módulos de alimentación y refrigeración (PCM) se encuentran en la posición de apagado. Si los interruptores no se encuentran en la posición de apagado, póngalos en esa posición y espere que se apaguen las luces.
+1. Make sure that the power switches on both Power and Cooling Modules (PCMs) are in the OFF position. If the switches are not in the OFF position, then flip them to the OFF position and wait for the lights to go off.
 
-2. Gire el interruptor de alimentación de ambos PCM a la posición de encendido para encender el dispositivo. El sistema se debería encender.
+2. Turn on the device by flipping the power switches on both PCMs to the ON position. The device should turn on.
 
-3. Revise lo siguiente para comprobar que el dispositivo esté completamente encendido:
+3. Check the following to verify that the device is fully on:
 
-    1. Las luces LED de actividad correcta de ambos módulos PCM aparecen en verde.
+    1. The OK LEDs on both PCM modules are green.
 
-    2. Las luces LED de ambos controladores son fijas y aparecen en verde.
+    2. The status LEDs on both controllers are solid green.
 
-    3. La luz LED azul de uno de los controladores aparece intermitente, lo que indica que el controlador está activo.
+    3. The blue LED on one of the controllers is blinking, which indicates that the controller is active.
 
-    Si alguna de estas condiciones no se cumple, el dispositivo no funciona correctamente. [Póngase en contacto con el soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
+    If any of these conditions are not met, then your device is not healthy. Please [contact Microsoft Support](storsimple-contact-microsoft-support.md).
 
-### Dispositivo con gabinete EBOD
+### <a name="device-with-ebod-enclosure"></a>Device with EBOD enclosure
 
-Después del apagado, utilice el procedimiento siguiente para encender un dispositivo StorSimple con un gabinete principal y un gabinete EBOD. Realice cada paso de la secuencia tal como se describe. De lo contrario, podría haber una pérdida de datos.
+After a shutdown, use the following procedure to turn on a StorSimple device with a primary enclosure and an EBOD enclosure. Perform each step in sequence exactly as described. Failure to do so could result in data loss.
 
-#### Para encender un dispositivo con un gabinete principal y un gabinete EBOD
+#### <a name="to-turn-on-a-device-with-a-primary-and-an-ebod-enclosure"></a>To turn on a device with a primary and an EBOD enclosure
 
-1. Asegúrese de que el gabinete EBOD está conectado al gabinete principal. Para obtener más información, consulte [Instalar el dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
+1. Make sure that the EBOD enclosure is connected to the primary enclosure. For more information, see [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md).
 
-2. Asegúrese de que los módulos de alimentación y refrigeración (PCM) del gabinete EBOD y del gabinete principal se encuentran en la posición de apagado. Si los interruptores no se encuentran en la posición de apagado, póngalos en esa posición y espere que se apaguen las luces.
+2. Make sure that the Power and Cooling Modules (PCMs) on both the EBOD and primary enclosures are in the OFF position. If the switches are not in the OFF position, then flip them to the OFF position and wait for the lights to go off.
 
-3. Gire el interruptor de alimentación de ambos PCM a la posición de encendido para encender primero el gabinete EBOD. Las luces LED de los PCM deben aparecer en verde. Una luz LED verde en el controlador EBOD de esta unidad indica que el gabinete EBOD está encendido.
+3. Turn on the EBOD enclosure first by flipping the power switches on both PCMs to the ON position. The PCM LEDs should be green. A green EBOD controller LED on this unit indicates that the EBOD enclosure is on.
 
-4. Gire el interruptor de alimentación de ambos PCM a la posición de encendido para encender el gabinete principal. Ahora todo el sistema debería estar encendido.
+4. Turn on the primary enclosure by flipping the power switches on both PCMs to the ON position. The entire system should now be on.
 
-5. Compruebe que las luces LED de SAS son verdes, lo que garantiza que la conexión entre el gabinete EBOD y el gabinete principal funciona correctamente.
+5. Verify that the SAS LEDs are green, which ensures that the connection between the EBOD enclosure and the primary enclosure is good.
 
-## Activar un dispositivo después de una pérdida de energía
+## <a name="turn-on-a-device-after-a-power-loss"></a>Turn on a device after a power loss
 
-Una interrupción o una pérdida de energía puede apagar un dispositivo StorSimple. El corte de energía puede producirse en uno o en ambos sistemas de alimentación. Los pasos de recuperación son distintos si el modelo del dispositivo es 8100 u 8600. El modelo 8100 tiene un único gabinete principal, mientras que el modelo 8600 es un dispositivo de dos gabinetes con un gabinete principal y un gabinete EBOD. En esta sección se describe el procedimiento de recuperación para cada uno de los escenarios.
+A power outage or interruption can shut down a StorSimple device. The power outage can happen on one of the power supplies or both power supplies. The recovery steps are different depending on whether the device is an 8100 or an 8600 model. The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure. This section describes the recovery procedure for each scenario.
 
-- [Dispositivo solo con gabinete principal](#8100)
+- [Device with primary enclosure only](#8100)
 
-- [Dispositivo con gabinete EBOD](#8600)
+- [Device with EBOD enclosure](#8600)
 
-### Dispositivo solo con gabinete principal <a name="8100">
+### <a name="device-with-primary-enclosure-only-<a-name="8100">"></a>Device with primary enclosure only <a name="8100">
 
-El sistema puede funcionar de manera normal si se produce una pérdida de energía en uno de sus sistemas de alimentación. Sin embargo, para garantizar la alta disponibilidad del dispositivo, restaure la energía del sistema de alimentación tan pronto como sea posible.
+The system can continue its normal operation if there is power loss to one of its power supplies. However, to ensure high availability of the device, restore power to the power supply as soon as possible.
 
-Si hay un corte o una interrupción en la energía en ambos sistemas de alimentación, el sistema se apagará de manera ordenada y controlada. Cuando se restaura la energía, el sistema se enciende automáticamente.
+If there is a power outage or power interruption on both power supplies, the system will shut down in an orderly and controlled manner. When the power is restored, the system will automatically turn on.
 
-### Dispositivo con gabinete EBOD <a name="8600">
+### <a name="device-with-ebod-enclosure-<a-name="8600">"></a>Device with EBOD enclosure <a name="8600">
 
-#### Pérdida de energía en un sistema de alimentación
+#### <a name="power-loss-on-one-power-supply"></a>Power loss on one power supply
 
-El sistema puede funcionar de manera normal si se produce una pérdida de energía en el gabinete principal o en el gabinete EBOD. Sin embargo, para garantizar la alta disponibilidad del dispositivo, restaure la energía del sistema de alimentación tan pronto como sea posible.
+The system can continue its normal operation if there is power loss to one of its power supplies on the primary enclosure or the EBOD enclosure. However, to ensure high availability of the device, please restore power to the power supply as soon as possible.
 
-#### Pérdida de energía en ambos sistemas de alimentación en el gabinete principal y el gabinete EBOD
+#### <a name="power-loss-on-both-power-supplies-on-primary-and-ebod-enclosures"></a>Power loss on both power supplies on primary and EBOD enclosures
 
-Si hay un corte o una interrupción en la energía en ambos sistemas de alimentación, el gabinete EBOD se apagará inmediatamente y el gabinete principal se apagará de manera ordenada y controlada. Cuando se restaure la energía, el dispositivo se iniciará automáticamente.
+If there is a power outage or power interruption on both power supplies, the EBOD enclosure will shut down immediately and the primary enclosure will shut down in an orderly and controlled manner. When power is restored, the appliance will start automatically.
 
-Si la energía se apaga manualmente, haga lo siguiente para restaurar la energía del sistema.
+If the power is switched off manually, then take the following steps to restore power to the system.
 
-1. Encienda el gabinete EBOD.
+1. Turn on the EBOD enclosure.
 
-2. Una vez que encienda el gabinete EBOD, encienda el gabinete principal.
+2. After the EBOD enclosure is on, turn on the primary enclosure.
 
-### Pérdida de energía en ambos sistemas de alimentación en el gabinete EBOD
+### <a name="power-loss-on-both-power-supplies-on-ebod-enclosure"></a>Power loss on both power supplies on EBOD enclosure
 
-Cuando instala los cables, debe asegurarse de que el gabinete EBOD nunca esté conectado solo a un PDU independiente. Si el gabinete EBOD y el gabinete principal presentan errores al mismo tiempo, el sistema se recuperará.
+When you set up your cables, you must ensure that the EBOD is never connected alone to a separate PDU. If the EBOD and primary enclosure fail at the same time, the system will recover.
 
-Si solo el gabinete EBOD presenta errores en ambos sistemas de alimentación, el sistema no se recuperará de manera automática. Haga lo siguiente para encender el sistema y restaurarlo a un estado correcto:
+If only the EBOD enclosure fails on both power supplies, the system will not automatically recover. Take the following steps to turn on the system and restore it to a healthy state:
 
-1. Si el gabinete principal está encendido, apague ambos módulos de alimentación y enfriamiento (PCM).
+1. If the primary enclosure is turned on, switch off both Power and Cooling Modules (PCMs).
 
-2. Espere unos minutos hasta que se apague el sistema.
+2. Wait for a few minutes for the system to shut down.
 
-3. Encienda el gabinete EBOD.
+3. Turn on the EBOD enclosure.
 
-4. Una vez que encienda el gabinete EBOD, encienda el gabinete principal.
+4. After the EBOD enclosure is on, turn on the primary enclosure.
 
-## Activar un dispositivo tras la pérdida de la conexión entre el gabinete principal y EBOD
+## <a name="turn-on-a-device-after-the-primary-and-ebod-enclosure-connection-is-lost"></a>Turn on a device after the primary and EBOD enclosure connection is lost
 
-Si se pierde la conexión entre el controlador en espera y el controlador EBOD correspondiente, el dispositivo sigue funcionando. Si se pierde la conexión entre el controlador activo del sistema y el controlador EBOD correspondiente, se producirá la conmutación por error y el dispositivo debería seguir funcionando de manera normal.
+If the connection is lost between the standby controller and the corresponding EBOD controller, the device continues to work. If the connection between the system active controller and the corresponding EBOD controller is lost, failover should occur and the device should continue to work as normal.
 
-Cuando se quitan ambos cables SAS o se interrumpe la conexión entre el gabinete EBOD y el gabinete principal, el dispositivo dejará de funcionar. En este punto, haga lo siguiente.
+When both Serial Attached SCSI (SAS) cables are removed or the connection between the EBOD enclosure and the primary enclosure is severed, the device will stop working. At this point, perform the following steps.
 
-### Para encender el dispositivo tras la pérdida de la conexión
+### <a name="to-turn-on-the-device-after-connection-is-lost"></a>To turn on the device after connection is lost
 
-1. Obtenga acceso a la parte posterior del dispositivo.
+1. Access the back of the device.
 
-2. Si se interrumpe la conexión del cable SAS entre el gabinete EBOD y el gabinete principal, se apagarán todas las luces LED del canal de SAS del gabinete EBOD.
+2. If the SAS cable connection between the EBOD enclosure and the primary enclosure is broken, all SAS lane LEDs on the EBOD enclosure will be off.
 
-3. Apagué los módulos de alimentación y enfriamiento (PCM) del gabinete EBOD y del gabinete principal.
+3. Shut down both Power and Cooling Modules (PCMs) on the EBOD enclosure and the primary enclosure.
 
-4. Espere hasta que se apaguen todas las luces que se encuentran en la parte posterior de ambos gabinetes.
+4. Wait until all the lights on the back of both the enclosures turn off.
 
-5. Vuelva a insertar los cables SAS y asegúrese de que la conexión entre el gabinete EBOD y el gabinete principal sea correcta.
+5. Reinsert the SAS cables, and ensure that there is a good connection between the EBOD enclosure and the primary enclosure.
 
-6. Encienda primero el gabinete EBOD; para ello, gire ambos interruptores del PCM a la posición de encendido.
+6. Turn on the EBOD enclosure first by flipping both PCM switches to the ON position.
 
-7. Revise que la luz LED verde esté encendida para asegurarse de que el gabinete EBOD también lo está.
+7. Ensure that the EBOD enclosure is on by checking that the green LED is ON.
 
-8. Encienda el gabinete principal.
+8. Turn on the primary enclosure.
 
-9. Revise que la luz LED verde del controlador esté encendida para asegurarse de que el gabinete principal también lo está.
+9. Ensure that the primary enclosure is on by checking that the controller green LED is ON.
 
-10. Revise que las luces LED del canal SAS (cuatro por cada controlador EBOD) estén todas encendidas para comprobar que la conexión del gabinete EBOD con el gabinete principal es correcta.
+10. Verify that the EBOD enclosure connection with the primary enclosure is good by checking that the SAS lane LEDs (four per EBOD controller) are all ON.
 
->[AZURE.IMPORTANT] Si los cables SAS son defectuosos o la conexión entre el gabinete EBOD y el gabinete principal no es buena, cuando encienda el sistema, entrará en el modo de recuperación. Si esto sucede, [póngase en contacto con el soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
+>[AZURE.IMPORTANT] If the SAS cables are defective or the connection between the EBOD enclosure and the primary enclosure is not good, when you turn on the system, it will go into recovery mode. Please [contact Microsoft Support](storsimple-contact-microsoft-support.md) if this happens.
 
-## Apagar un dispositivo activo
+## <a name="turn-off-a-running-device"></a>Turn off a running device
 
-Puede ser necesario apagar un dispositivo StorSimple activo si debe trasladarlo, quitarlo del servicio o si tiene un componente que no funciona correctamente y que se debe reemplazar. Los pasos son distintos si el modelo del dispositivo StorSimple es 8100 u 8600. El modelo 8100 tiene un único gabinete principal, mientras que el modelo 8600 es un dispositivo de dos gabinetes con un gabinete principal y un gabinete EBOD. En esta sección, se detallan los pasos pagara apagar un dispositivo activo.
+A running StorSimple device may need to be shut down if it is being moved, taken out of service, or has a malfunctioning component that needs to be replaced. The steps are different depending on whether the StorSimple device is an 8100 or an 8600 model. The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure. This section details the steps to shut down a running device.
 
-- [Dispositivo con gabinete principal](#8100a)
+- [Device with primary enclosure](#8100a)
 
-- [Dispositivo con gabinete EBOD](#8600a)
+- [Device with EBOD enclosure](#8600a)
 
-### Dispositivo con gabinete principal <a name="8100a"> 
+### <a name="device-with-primary-enclosure-<a-name="8100a">"></a>Device with primary enclosure <a name="8100a"> 
 
-Para apagar el dispositivo de manera ordenada y controlada, use el Portal de Azure clásico o Windows PowerShell para StorSimple.
+To shut down the device in an orderly and controlled manner, you can do it through the Azure classic portal or via the Windows PowerShell for StorSimple. 
 
->[AZURE.IMPORTANT] No apague un dispositivo activo con el botón de inicio/apagado que se encuentra en la parte posterior del dispositivo.
+>[AZURE.IMPORTANT] Do not shut down a running device by using the power button on the back of the device.
 >
->Antes de apagar el dispositivo, asegúrese de que todos los componentes del mismo funcionen bien. En el Portal de Azure clásico, vaya a **Dispositivos** > **Mantenimiento** > **Estado del hardware** y compruebe que el color del estado de todos los componentes sea verde. Esto solo sucede si el sistema funciona correctamente. Si el dispositivo se apaga para reemplazar un componente que no funciona correctamente, verá una luz LED de estado de error (rojo) o degradado (amarillo) para el componente respectivo en el **Estado del hardware**.
+>Before shutting down the device, make sure that all the device components are healthy. In the Azure classic portal, navigate to **Devices** > **Maintenance** > **Hardware Status**, and verify that status of all the components is green. This is true only for a healthy system. If the system is being shut down to replace a malfunctioning component, you will see a failed (red) or degraded (yellow) status for the respective component in the **Hardware Status**.
 
-Después de obtener acceso a Windows PowerShell para StorSimple o al Portal de Azure clásico, siga los pasos para [apagar un dispositivo de StorSimple](storsimple-manage-device-controller.md#shut-down-a-storsimple-device).
+After you access the Windows PowerShell for StorSimple or the Azure classic portal, follow the steps in [shut down a StorSimple device](storsimple-manage-device-controller.md#shut-down-a-storsimple-device). 
 
-### Dispositivo con gabinete EBOD <a name="8600a">
+### <a name="device-with-ebod-enclosure-<a-name="8600a">"></a>Device with EBOD enclosure <a name="8600a">
 
->[AZURE.IMPORTANT] Antes de apagar el gabinete principal y el gabinete EBOD, asegúrese de que todos los componentes del dispositivo funcionen bien. En el Portal de Azure clásico, vaya a **Dispositivos** > **Mantenimiento** > **Estado del hardware** y compruebe que todos los componentes estén en buen estado.
+>[AZURE.IMPORTANT] Before shutting down the primary enclosure and the EBOD enclosure, ensure that all the device components are healthy. In the Azure classic portal, navigate to **Devices** > **Maintenance** > **Hardware Status**, and verify that all the components are healthy.
 
-#### Para apagar un dispositivo activo con gabinete EBOD
+#### <a name="to-shut-down-a-running-device-with-ebod-enclosure"></a>To shut down a running device with EBOD enclosure
 
-1. Siga todos los pasos para [apagar un dispositivo de StorSimple](storsimple-manage-device-controller.md#shut-down-a-storsimple-device) en el gabinete principal.
+1. Follow all the steps listed in [shut down a StorSimple device](storsimple-manage-device-controller.md#shut-down-a-storsimple-device) for the primary enclosure.
 
-2. Una vez que se apaga el gabinete principal, apague el gabinete EBOD; para ello, gire ambos interruptores del módulo de alimentación y enfriamiento (PCM) a la posición de apagado.
+2. After the primary enclosure is shut down, shut down the EBOD by flipping off both Power and Cooling Module (PCM) switches.
 
-3. Para comprobar que el EBOD se apagó, revise que todas las luces de la parte posterior del gabinete EBOD están apagadas.
+3. To verify that the EBOD has shut down, check that all lights on the back of the EBOD enclosure are off.
 
->[AZURE.NOTE] Los cables SAS que se utilizan para conectar el gabinete EBOD con el gabinete principal no deben quitarse hasta después que se apague el sistema.
+>[AZURE.NOTE] The SAS cables that are used to connect the EBOD enclosure to the primary enclosure should not be removed until after the system is shut down.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-Si encuentra problemas al encender o apagar un dispositivo de StorSimple, [póngase en contacto con el soporte técnico de Microsoft Support](storsimple-contact-microsoft-support.md).
+[Contact Microsoft Support](storsimple-contact-microsoft-support.md) if you encounter problems when turning on or shutting down a StorSimple device.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

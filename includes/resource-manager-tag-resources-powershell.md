@@ -1,28 +1,28 @@
-### Cambios en el cmdlet de las etiquetas en la versión más reciente de PowerShell
+### <a name="tag-cmdlet-changes-in-latest-powershell-version"></a>Tag cmdlet changes in latest PowerShell version
 
-La versión de agosto de 2016 de [Azure PowerShell 2.0][powershell] incluye cambios importantes en relación con la manera de trabajar con las etiquetas. Antes de continuar, compruebe la versión del módulo AzureRm.Resources.
+The August 2016 release of [Azure PowerShell 2.0][powershell] includes significant changes in how you work with tags. Before proceeding, check the version of your AzureRm.Resources module.
 
     Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 
-Si actualizó por última vez Azure PowerShell antes de agosto de 2016, los resultados deben mostrar una versión inferior a 3.0.
+If you last updated your Azure PowerShell before August 2016, your results should show a version less than 3.0.
 
     Version
     -------
     2.0.2
 
-Si ha actualizado Azure PowerShell después de agosto de 2016, los resultados deben mostrar una versión 3.0.
+If you have updated Azure PowerShell since August 2016, your results should show a version of 3.0.
 
     Version
     -------
     3.0.1
     
-Si la versión del módulo es 3.0.1 o superior, ya cuenta con los cmdlets más recientes para trabajar con etiquetas. Esta versión del módulo de recursos de Azure se instala automáticamente al instalar o actualizar Azure PowerShell mediante la Galería de PowerShell, PowerShellGet o el Instalador de plataforma Web. Si su versión es anterior a la 3.0.1, puede seguir utilizando esa versión, pero debe considerar la actualización a la versión más reciente. La versión más reciente incluye cambios que facilitan el trabajo con las etiquetas. En este tema se muestran ambos enfoques.
+If your version of the module is 3.0.1 or later, you have the most recent cmdlets for working with tags. This version of the Azure Resources module installs automatically when you install or upgrade Azure PowerShell by using PowerShell Gallery, PowerShellGet, or Web Platform Installer.  If your version is earlier than 3.0.1, you can continue using that version, but you might consider updating to the latest version. The latest version includes changes that make it easier to work with tags. Both approaches are shown in this topic.
 
-### Actualización del script para los cambios de la versión más reciente 
+### <a name="updating-your-script-for-changes-in-latest-version"></a>Updating your script for changes in latest version 
 
-En la versión más reciente, el nombre de parámetro **Tags** cambió a **Tag**, y el tipo cambió de **Hashtable** a **Hashtable**. Ya no necesita proporcionar información en los campos **Name** y **Value** de cada entrada. En su lugar, proporcione pares clave-valor en el formato **Key = "Value"**; es decir, primero la clave y luego el valor entrecomillado.
+In the latest release, the **Tags** parameter name changed to **Tag**, and the type changed from  **Hashtable[]**  to **Hashtable**. You no longer need to provide **Name** and **Value** for each entry. Instead you provide key-value pairings in the format **Key = "Value"**.
 
-Para actualizar el script existente, cambie el parámetro **Tags** a **Tag** y cambie el formato de etiqueta como se muestra en el ejemplo siguiente.
+To update existing script, change the **Tags** parameter to **Tag**, and change the tag format as shown in the following example.
 
     # Old
     New-AzureRmResourceGroup -Tags @{ Name = "testtag"; Value = "testval" } -Name $resourceGroupName -Location $location
@@ -30,17 +30,17 @@ Para actualizar el script existente, cambie el parámetro **Tags** a **Tag** y c
     # New
     New-AzureRmResourceGroup -Tag @{ testtag = "testval" } -Name $resourceGroupName -Location $location 
 
-No obstante, tenga en cuenta que los grupos de recursos y los recursos siguen devolviendo una propiedad **Tags** en sus metadatos. Esta propiedad no se ha modificado.
+However, you should note that resource groups and resources still return a **Tags** property in their metadata. This property is not changed.
 
-### Versión 3.0.1 o posterior
+### <a name="version-3.0.1-or-later"></a>Version 3.0.1 or later
 
-Las etiquetas existen directamente en los recursos y grupos de recursos. Para ver las etiquetas existentes, visualice un recurso con **Get-AzureRmResource** o un grupo de recursos con **Get-AzureRmResourceGroup**.
+Tags exist directly on resources and resource groups. To see the existing tags, view a resource with **Get-AzureRmResource** or a resource group with **Get-AzureRmResourceGroup**. 
 
-Comencemos con un grupo de recursos.
+Let's start with a resource group.
 
     Get-AzureRmResourceGroup -Name testrg1
 
-Este cmdlet devuelve varios bits de metadatos en el grupo de recursos, incluso qué etiquetas se han aplicado, si las hay.
+This cmdlet returns several bits of metadata on the resource group including what tags have been applied, if any.
 
     ResourceGroupName : testrg1
     Location          : westus
@@ -51,11 +51,11 @@ Este cmdlet devuelve varios bits de metadatos en el grupo de recursos, incluso q
                     Dept         Finance
                     Environment  Production
 
-Para recuperar los metadatos de recursos, incluidas las etiquetas, utilice el siguiente ejemplo.
+To retrieve the resource metadata including tags, use the following example.
 
     Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName testrg1
 
-Verá los nombres de etiqueta en los resultados.
+You see the tag names in the results.
 
     Name              : tfsqlserver
     ResourceId        : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
@@ -67,32 +67,32 @@ Verá los nombres de etiqueta en los resultados.
     SubscriptionId    : {guid}
     Tags              : {Dept, Environment}
 
-Utilice la propiedad **Tags** para obtener los nombres y los valores de las etiquetas.
+Use the **Tags** property to get tag names and values.
 
     (Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName testrg1).Tags
 
-Lo cual devuelve los siguientes resultados:
+Which returns the following results:
 
     Name                   Value
     ----                   -----
     Dept                   Finance
     Environment            Production
 
-En lugar de ver las etiquetas de un recurso o un grupo de recursos concreto, a menudo se desea recuperar todos los recursos o grupos de recursos con una etiqueta y un valor concretos. Para obtener grupos de recursos con una etiqueta específica, use el cmdlet **Find-AzureRmResourceGroup** con el parámetro **-Tag**.
+Instead of viewing the tags for a particular resource group or resource, you often want to retrieve all the resources or resource groups with a particular tag and value. To get resource groups with a specific tag, use **Find-AzureRmResourceGroup** cmdlet with the **-Tag** parameter.
 
-Para recuperar grupos de recursos con un valor de etiqueta, utilice el formato siguiente.
+To retrieve resource groups with a tag value, use the following format.
 
     (Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
 
-Para obtener todos los recursos con una etiqueta y un valor concretos, use el cmdlet **Find-AzureRmResource**.
+To get all the resources with a particular tag and value, use the **Find-AzureRmResource** cmdlet.
 
     (Find-AzureRmResource -TagName Dept -TagValue Finance).Name
     
-Para agregar una etiqueta a un grupo de recursos que no tiene etiquetas existentes, use el comando **Set-AzureRmResourceGroup** y especifique un objeto de etiqueta.
+To add a tag to a resource group that has no existing tags, use the **Set-AzureRmResourceGroup** command and specify a tag object.
 
     Set-AzureRmResourceGroup -Name test-group -Tag @{ Dept="IT"; Environment="Test" }
 
-Que devuelve el grupo de recursos con sus nuevos valores de etiqueta.
+Which returns the resource group with its new tag values.
 
     ResourceGroupName : test-group
     Location          : southcentralus
@@ -103,44 +103,44 @@ Que devuelve el grupo de recursos con sus nuevos valores de etiqueta.
                     Dept          IT
                     Environment   Test
                     
-Para agregar etiquetas a un recurso que no tenga etiquetas existentes, use el comando **Set-AzureRmResource**.
+You can add tags to a resource that has no existing tags by using the **Set-AzureRmResource** command 
 
     Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
 
-Las etiquetas se actualizan en conjunto. Si desea agregar una etiqueta a un recurso que tiene otras etiquetas, use una matriz con todas las etiquetas que desea conservar. En primer lugar, seleccione las etiquetas existentes, agregue una a ese conjunto y vuelva a aplicar todas las etiquetas.
+Tags are updated as a whole. To add one tag to a resource that has other tags, use an array with all the tags you want to keep. First, select the existing tags, add one to that set, and reapply all the tags.
 
     $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
     $tags += @{Status="approved"}
     Set-AzureRmResourceGroup -Name test-group -Tag $tags
 
-Para quitar una o varias etiquetas, simplemente guarde la matriz sin la que desea quitar.
+To remove one or more tags, simply save the array without the ones you want to remove.
 
-El proceso es el mismo para los recursos, excepto en el hecho de que usa los cmdlets **Get-AzureRmResource** y **Set-AzureRmResource**.
+The process is the same for resources except you use the **Get-AzureRmResource** and **Set-AzureRmResource** cmdlets. 
 
-Para obtener una lista de todas las etiquetas dentro de una suscripción usando PowerShell, use el cmdlet **Get-AzureRmTag**.
+To get a list of all tags within a subscription using PowerShell, use the **Get-AzureRmTag** cmdlet.
 
     Get-AzureRmTag
     
-Lo cual devuelve los nombres de las etiquetas y la cantidad de recursos y grupos de recursos con la etiqueta.
+Which returns tag names and a count of the number of resources and resource groups with the tag
 
     Name                      Count
     ----                      ------
     Dept                       8
     Environment                8
 
-Puede ver las etiquetas que comienzan con hidden-" y "link:". Se trata de etiquetas internas, las que debe omitir y evitar cambiar.
+You may see tags that start with "hidden-" and "link:". These tags are internal tags, which you should ignore and avoid changing.
 
-Use el cmdlet **New-AzureRmTag**para agregar nuevas etiquetas a la taxonomía. Estas etiquetas se incluyen en la característica Autocompletar, aunque todavía no se hayan aplicado a los recursos o grupos de recursos. Para quitar un nombre o valor de etiqueta, quite primero la etiqueta de los recursos con los que se pueda usar y, a continuación, use el cmdlet **Remove-AzureRmTag** para quitarla de la taxonomía.
+Use the **New-AzureRmTag** cmdlet to add new tags to the taxonomy. These tags are included in the autocomplete even though they haven't been applied to any resources or resource groups, yet. To remove a tag name/value, first remove the tag from any resources it may be used with and then use the **Remove-AzureRmTag** cmdlet to remove it from the taxonomy.
 
-### Versiones anteriores a 3.0.1
+### <a name="versions-earlier-than-3.0.1"></a>Versions earlier than 3.0.1
 
-Las etiquetas existen directamente en los recursos y grupos de recursos. Para ver las etiquetas existentes, visualice un recurso con **Get-AzureRmResource** o un grupo de recursos con **Get-AzureRmResourceGroup**.
+Tags exist directly on resources and resource groups. To see the existing tags, view a resource with **Get-AzureRmResource** or a resource group with **Get-AzureRmResourceGroup**. 
 
-Comencemos con un grupo de recursos.
+Let's start with a resource group.
 
     Get-AzureRmResourceGroup -Name testrg1
 
-Este cmdlet devuelve varios bits de metadatos en el grupo de recursos, incluso qué etiquetas se han aplicado, si las hay.
+This cmdlet returns several bits of metadata on the resource group including what tags have been applied, if any.
 
     ResourceGroupName : testrg1
     Location          : westus
@@ -151,11 +151,11 @@ Este cmdlet devuelve varios bits de metadatos en el grupo de recursos, incluso q
                     Dept         Finance
                     Environment  Production
                     
-Para recuperar los metadatos de recursos, utilice el siguiente ejemplo. Los metadatos de recursos no muestran etiquetas directamente.
+To retrieve the resource metadata, use the following example. The resource metadata does not directly display tags. 
 
     Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName testrg1
 
-En los resultados puede ver que las etiquetas solo se muestran como objeto de tabla hash.
+You see in the results that the tags are only displayed as Hashtable object.
 
     Name              : tfsqlserver
     ResourceId        : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
@@ -167,30 +167,30 @@ En los resultados puede ver que las etiquetas solo se muestran como objeto de ta
     SubscriptionId    : {guid}
     Tags              : {System.Collections.Hashtable}
 
-Las etiquetas reales se pueden ver mediante la recuperación de la propiedad **Tags**.
+You can view the actual tags by retrieving the **Tags** property.
 
     (Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group).Tags | %{ $_.Name + ": " + $_.Value }
    
-Que devuelve resultados con formato:
+Which returns formatted results:
     
     Dept: Finance
     Environment: Production
     
-En lugar de ver las etiquetas de un recurso o un grupo de recursos concreto, a menudo se desea recuperar todos los recursos o grupos de recursos con una etiqueta y un valor concretos. Para obtener grupos de recursos con una etiqueta específica, use el cmdlet **Find-AzureRmResourceGroup** con el parámetro **-Tag**.
+Instead of viewing the tags for a particular resource group or resource, you often want to retrieve all the resources or resource groups with a particular tag and value. To get resource groups with a specific tag, use **Find-AzureRmResourceGroup** cmdlet with the **-Tag** parameter.
 
-Para recuperar grupos de recursos con un valor de etiqueta, utilice el formato siguiente.
+To retrieve resource groups with a tag value, use the following format.
 
     Find-AzureRmResourceGroup -Tag @{ Name="Dept"; Value="Finance" } | %{ $_.Name }
     
-Para obtener todos los recursos con una etiqueta y un valor concretos, use el cmdlet Find-AzureRmResource.
+To get all the resources with a particular tag and value, use the Find-AzureRmResource cmdlet.
 
     Find-AzureRmResource -TagName Dept -TagValue Finance | %{ $_.ResourceName }
 
-Para agregar una etiqueta a un grupo de recursos que no tiene etiquetas existentes, basta con usar el comando Set-AzureRmResourceGroup y especificar un objeto de etiqueta.
+To add a tag to a resource group that has no existing tags, simply use the Set-AzureRmResourceGroup command and specify a tag object.
 
     Set-AzureRmResourceGroup -Name test-group -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} )
     
-Que devuelve el grupo de recursos con sus nuevos valores de etiqueta.
+Which returns the resource group with its new tag values.
 
     ResourceGroupName : test-group
     Location          : southcentralus
@@ -201,36 +201,39 @@ Que devuelve el grupo de recursos con sus nuevos valores de etiqueta.
                 Dept          IT
                 Environment   Test
 
-Para agregar etiquetas a un recurso que no tenga etiquetas existentes, use el comando Set-AzureRmResource.
+You can add tags to a resource that has no existing tags by using the Set-AzureRmResource command.
 
     Set-AzureRmResource -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} ) -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
 
-Las etiquetas se actualizan en conjunto. Si desea agregar una etiqueta a un recurso que tiene otras etiquetas, use una matriz con todas las etiquetas que desea conservar. En primer lugar, seleccione las etiquetas existentes, agregue una a ese conjunto y vuelva a aplicar todas las etiquetas.
+Tags are updated as a whole. To add one tag to a resource that has other tags, use an array with all the tags you want to keep. First, select the existing tags, add one to that set, and reapply all the tags.
 
     $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
     $tags += @{Name="status";Value="approved"}
     Set-AzureRmResourceGroup -Name test-group -Tag $tags
 
-Para quitar una o varias etiquetas, simplemente guarde la matriz sin la que desea quitar.
+To remove one or more tags, simply save the array without the ones you want to remove.
 
-El proceso es el mismo para los recursos, excepto en el hecho de que usa los cmdlets Get-AzureRmResource y Set-AzureRmResource.
+The process is the same for resources except you use the Get-AzureRmResource and Set-AzureRmResource cmdlets. 
 
-Para obtener una lista de todas las etiquetas dentro de una suscripción usando PowerShell, use el cmdlet **Get-AzureRmTag**.
+To get a list of all tags within a subscription using PowerShell, use the **Get-AzureRmTag** cmdlet.
 
     Get-AzureRmTag
     
-Lo cual devuelve los nombres de las etiquetas y la cantidad de recursos y grupos de recursos con la etiqueta.
+Which returns tag names and a count of the number of resources and resource groups with the tag
 
     Name                      Count
     ----                      ------
     Dept                       8
     Environment                8
 
-Puede ver las etiquetas que comienzan con hidden-" y "link:". Se trata de etiquetas internas, las que debe omitir y evitar cambiar.
+You may see tags that start with "hidden-" and "link:". These tags are internal tags, which you should ignore and avoid changing.
 
-Use el cmdlet **New-AzureRmTag**para agregar nuevas etiquetas a la taxonomía. Estas etiquetas se incluyen en la característica Autocompletar, aunque todavía no se hayan aplicado a los recursos o grupos de recursos. Para quitar un nombre o valor de etiqueta, quite primero la etiqueta de los recursos con los que se pueda usar y, a continuación, use el cmdlet **Remove-AzureRmTag** para quitarla de la taxonomía.
+Use the **New-AzureRmTag** cmdlet to add new tags to the taxonomy. These tags are included in the autocomplete even though they haven't been applied to any resources or resource groups, yet. To remove a tag name/value, first remove the tag from any resources it may be used with and then use the **Remove-AzureRmTag** cmdlet to remove it from the taxonomy.
 
 
 [powershell]: https://msdn.microsoft.com/library/mt619274(v=azure.200).aspx
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

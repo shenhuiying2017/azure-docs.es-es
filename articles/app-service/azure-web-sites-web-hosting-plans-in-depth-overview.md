@@ -1,106 +1,115 @@
 <properties
-	pageTitle="Introducción detallada sobre los planes del Servicio de aplicaciones de Azure | Microsoft Azure"
-	description="Obtenga información acerca de cómo funcionan los planes del Servicio de aplicaciones de Azure y cómo benefician a su experiencia de administración."
-	keywords="servicio de aplicaciones, servicio de aplicaciones de azure, escala, escalable, plan del servicio de aplicaciones, costo del servicio de aplicaciones"
-	services="app-service"
-	documentationCenter=""
-	authors="btardif"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Azure App Service plans in-depth overview | Microsoft Azure"
+    description="Learn how App Service plans for Azure App Service work, and how they benefit your management experience."
+    keywords="app service, azure app service, scale, scalable, app service plan, app service cost"
+    services="app-service"
+    documentationCenter=""
+    authors="btardif"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/07/2016"
-	ms.author="byvinyal"/>
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/13/2016"
+    ms.author="byvinyal"/>
 
-# Introducción detallada sobre los planes del Servicio de aplicaciones de Azure#
 
-Un plan del Servicio de aplicaciones representa un conjunto de características y funcionalidades que puede compartir entre múltiples aplicaciones, que incluyen aplicaciones web, aplicaciones móviles, Logic Apps o aplicaciones de API en el [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Estos planes admiten cinco planes de tarifa: *Gratis*, *Compartido*, *Basic*, *Standard* y *Premium*. Cada plan tiene sus propias funcionalidades y capacidades. Las aplicaciones de una misma suscripción y ubicación geográfica pueden compartir un plan. Todas las aplicaciones que comparten un plan pueden utilizar todas las funcionalidades y características que están definidas en el plan de tarifa. Todas las aplicaciones que están asociadas a un plan se ejecutan en los recursos que define el plan.
+# <a name="azure-app-service-plans-in-depth-overview#"></a>Azure App Service plans in-depth overview#
 
-Por ejemplo, si el plan está configurado para usar dos instancias "pequeñas" en el nivel de servicio estándar, todas las aplicaciones asociadas a este plan se ejecutarán en ambas instancias con la funcionalidad de dicho nivel de servicio. Las instancias del plan en las que se ejecutan las aplicaciones están totalmente administradas y tienen una alta disponibilidad.
+An App Service plan represents a set of features and capacity that you can share across multiple apps. Web Apps, Mobile Apps, Function Apps, or API Apps, in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) all run in an App Service plan. These plans support five pricing tiers: *Free*, *Shared*, *Basic*, *Standard*, and *Premium*. Each tier has its own capabilities and capacity. Apps in the same subscription and geographic location can share a plan. All the apps that share a plan can use all the capabilities and features that are defined by the plan's tier. All apps that are associated with a plan run on the resources that the plan defines.
 
-En este artículo exploraremos las características clave, como el nivel y la escala de un plan del Servicio de aplicaciones y el papel que juegan mientras administra sus aplicaciones.
+For example, if your plan is configured to use two "small" instances in the standard service tier, all apps that are associated with that plan run on both instances and have access to the standard service tier functionality. Plan instances on which apps are running are fully managed and highly available.
 
-## Aplicaciones y planes del Servicio de aplicaciones
+This article explores the key characteristics, such as tier and scale, of an App Service plan and how they come into play while managing your apps.
 
-Una aplicación del Servicio de aplicaciones se puede asociar a un solo plan de dicho servicio en un momento determinado.
+## <a name="apps-and-app-service-plans"></a>Apps and App Service plans
 
-Tanto las aplicaciones como los planes se incluyen en un grupo de recursos. Un grupo de recursos sirve como límite del ciclo de vida de cada uno de los recursos que contiene. Los grupos de recursos le permiten administrar todos los componentes de una aplicación conjuntamente.
+An app in App Service can be associated with only one App Service plan at any given time.
 
-Como un único grupo de recursos puede tener varios planes del Servicio de aplicaciones, se pueden asignar diferentes aplicaciones a diferentes recursos físicos. Por ejemplo, puede separar los recursos entre entornos de desarrollo, pruebas y producción. Un posible escenario se daría si desea asignar un plan con su propio conjunto de recursos dedicado para las aplicaciones de producción y un segundo plan para los entornos de desarrollo y prueba. De esta forma, las pruebas de carga de una nueva versión de las aplicaciones no competirán por los mismos recursos que las aplicaciones de producción, que prestan servicio a clientes reales.
+Both apps and plans are contained in a resource group. A resource group serves as the lifecycle boundary for every resource that's within it. You can use resource groups to manage all the pieces of an application together.
 
-Al tener varios planes en un único grupo de recursos, también puede definir una aplicación que se extienda entre regiones geográficas. Por ejemplo, una aplicación de alta disponibilidad que se ejecute en dos regiones incluirá dos planes, uno por cada región, y una aplicación asociada a cada plan. En tal situación, todas las copias de la aplicación se asociarán a un solo grupo de recursos. Al tener una única vista de un grupo de recursos con varios planes y aplicaciones, la administración, el control y la visión del estado de la aplicación resultan más sencillos.
+Because a single resource group can have multiple App Service plans, you can allocate different apps to different physical resources. For example, you can separate resources among dev, test, and production environments. Having separate environments for production and dev/test lets you isolate resources. In this way, load testing against a new version of your apps does not compete for the same resources as your production apps, which are serving real customers.
 
-## Creación de un nuevo plan del Servicio de aplicaciones frente al uso de un plan existente
+When you have multiple plans in a single resource group, you can also define an application that spans geographical regions. For example, a highly available app running in two regions includes at least two plans, one for each region, and one app associated with each plan. In such a situation, all the copies of the app are then contained in a single resource group. Having a resource group with multiple plans and multiple apps makes it easy to manage, control, and view the health of the application.
 
-Al crear una nueva aplicación, considere la posibilidad de generar un nuevo grupo de recursos. Por otro lado, si la aplicación que está a punto de crear es un componente de otra aplicación más grande, esta aplicación debería crearse dentro del grupo de recursos asignado a dicha aplicación de mayor tamaño.
+## <a name="create-an-app-service-plan-or-use-existing-one"></a>Create an App Service plan or use existing one
 
-Con independencia de que la nueva aplicación sea totalmente nueva o parte de otra más grande, puede aprovechar un plan existente del Servicio de aplicaciones para hospedarla o crear uno nuevo. Es más bien una cuestión de capacidad y de la carga esperada.
+When you create an  app, you should consider creating a resource group. On the other hand, if the app that you are about to create is a component for a larger application, this app should be created within the resource group that's allocated for that larger application.
 
-Si esta nueva aplicación va a utilizar muchos recursos y tiene factores de escala diferentes a los de las otras aplicaciones hospedadas en un plan existente, se recomienda aislarla en su propio plan.
+Whether the new app is an altogether new application or part of a larger one, you can choose to use an existing App Service plan to host it or create a new one. This decision is more a question of capacity and expected load.
 
-Cuando crea un nuevo plan, puede asignar un nuevo conjunto de recursos para la aplicación y conseguir un mayor control sobre la asignación de recursos, dado que cada plan recibe su propio conjunto de instancias.
+If this new app is going to use many resources and have different scaling factors from the other apps hosted in an existing plan, we recommend that you isolate it in its own plan.
 
-Como las aplicaciones se pueden mover entre los planes, es posible cambiar la forma en que se asignan los recursos en la aplicación más grande.
+When you create a plan, you can allocate a new set of resources for your app and gain greater control over resource allocation because each plan gets its own set of instances.
 
-Por último, si desea crear una nueva aplicación en otra región distinta y dicha región no tiene un plan existente, tendrá que crear un nuevo plan en esta región para poder hospedar la aplicación en ella.
+Because you can move apps across plans, you can change the way that resources are allocated across the bigger application.
 
-## Creación de un plan del Servicio de aplicaciones
+Finally, if you want to create an app in a different region, and that region doesn't have an existing plan, create a plan in that region to be able to host your app there.
 
-Puede crear un plan del Servicio de aplicaciones vacío desde la experiencia de exploración del plan del Servicio de aplicaciones o como parte de la creación de la aplicación.
+## <a name="create-an-app-service-plan"></a>Create an App Service plan
 
-En el [Portal de Azure](https://portal.azure.com), haga clic en **Nuevo**, **Web y móvil**, y luego en **Aplicación web**, **Aplicación móvil**, **Aplicación de API** o **Aplicación lógica**. ![Creación de una aplicación de API en el Portal de Azure.][createWebApp]
+>[AZURE.TIP] If you have an App Service Environment you can review the documentation specific to App Service Environments here: [Create an App Service Plan in an App Service Environment](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan)
 
-A continuación, puede seleccionar o crear el plan del Servicio de aplicaciones para la nueva aplicación.
+You can create an empty App Service plan from the App Service plan browse experience or as part of app creation.
 
- ![Creación de un plan del Servicio de aplicaciones.][createASP]
+In the [Azure portal](https://portal.azure.com), click **New** > **Web + mobile**, and then select **Web App** or other App Service app kind.
+![Create an app in the Azure portal.][createWebApp]
 
-Para crear un nuevo plan del Servicio de aplicaciones, haga clic en **[+] Crear nuevo**, escriba el nombre del **plan del Servicio de aplicaciones** y luego seleccione una **ubicación** adecuada. Haga clic en **Plan de tarifa** y seleccione un plan de tarifa adecuado para el servicio. Seleccione **Ver todos** para ver más opciones de precios, como **Gratis** y **Compartido**. Una vez haya seleccionado el plan de tarifa, haga clic en el botón **Seleccionar**.
+You can then select or create the App Service plan for the new app.
 
-## Cambio de una aplicación a un plan del Servicio de aplicaciones diferente
+ ![Create an App Service plan.][createASP]
 
-Puede mover una aplicación a un plan distinto del Servicio de aplicaciones en el [Portal de Azure](https://portal.azure.com). Las aplicaciones pueden moverse entre los planes, siempre y cuando estos se encuentren en el mismo grupo de recursos y región geográfica.
+To create a new App Service plan, click **[+] Create New**, type the **App Service plan** name, and then select an appropriate **Location**. Click **Pricing tier**, and then select an appropriate pricing tier for the service. Select **View all** to view more pricing options, such as **Free** and **Shared**. After you have selected the pricing tier, click the **Select** button.
 
-Para mover una aplicación a otro plan, vaya a la aplicación que desea mover. En el menú **Configuración**, busque **Cambiar plan de servicio de aplicaciones**.
+## <a name="move-an-app-to-a-different-app-service-plan"></a>Move an app to a different App Service plan
 
-De esta forma se abrirá el selector del **plan del Servicio de aplicaciones**. Llegados a este punto, puede elegir un plan existente o crear uno nuevo. Se muestran únicamente los planes válidos (es decir, los que están en el mismo grupo de recursos y ubicación geográfica).
+You can move an app to a different app service plan in the [Azure portal](https://portal.azure.com). You can move apps between plans as long as the plans are in the same resource group and geographical region.
 
-![Selector de plan del Servicio de aplicaciones.][change]
+To move an app to another plan, go to the app that you want to move. On the **Settings** menu, look for **Change App Service Plan**.
 
-Tenga en cuenta que cada plan tiene su propio nivel de precios. Por ejemplo, cuando mueve un sitio de un nivel Gratis a un nivel Estándar, la aplicación podrá aprovechar todas las características y recursos del nivel Estándar.
+**Change App Service Plan** opens the **App Service plan** selector. At this point, you can either pick an existing plan or create a new one. Only valid plans (in the same resource group and geographical location) are shown.
 
-## Clonación de una aplicación en un plan del Servicio de aplicaciones diferente
-Si desea mover la aplicación a una región diferente, una alternativa es clonar la aplicación. La clonación hará una copia de su aplicación en un plan del Servicio de aplicaciones nuevo o existente o en un entorno del Servicio de aplicaciones de cualquier región.
+![App Service plan selector.][change]
 
- ![Clonación de una aplicación.][appclone]
+Each plan has its own pricing tier. For example, when you move a site from a Free tier to a Standard tier, your app now can use all the features and resources of the Standard tier.
 
-Encontrará la opción **Clonar aplicación** en el menú **Herramientas**.
+## <a name="clone-an-app-to-a-different-app-service-plan"></a>Clone an app to a different App Service plan
+If you want to move the app to a different region, one alternative is app cloning. Cloning makes a copy of your app in a new or existing App Service plan or App Service environment in any region.
 
-La clonación presenta algunas limitaciones sobre las que puede leer en [Clonación de aplicaciones del Servicio de aplicaciones de Azure mediante el Portal de Azure](../app-service-web/app-service-web-app-cloning-portal.md).
+ ![Clone an app.][appclone]
 
-## Escalación de un plan del Servicio de aplicaciones
+You can find **Clone App** on the **Tools** menu.
 
-Existen tres formas de escalar un plan:
+Cloning has some limitations that you can read about at [Azure App Service App cloning using Azure portal](../app-service-web/app-service-web-app-cloning-portal.md).
 
-- **Cambiar el nivel del plan de tarifa**. Por ejemplo, un plan del nivel Básico puede convertirse al nivel Estándar o Premium y todas las aplicaciones asociadas a dicho plan podrán aprovechar las características que se ofrecen en el nuevo nivel de servicio.
-- **Cambiar el tamaño de instancia del plan**. Por ejemplo, un plan en el nivel Básico que usa instancias pequeñas puede cambiarse que use instancias grandes. Todas las aplicaciones asociadas a dicho plan podrán usar la memoria y los recursos de CPU adicionales que ofrece el tamaño de instancia más grande.
-- **Cambiar el recuento de instancias del plan**. Por ejemplo, un plan Estándar que se ha escalado horizontalmente a tres instancias se puede escalar hasta 10 instancias. Un plan Premium puede escalarse horizontalmente hasta a 20 instancias (según disponibilidad). Todas las aplicaciones asociadas a dicho plan podrán usar la memoria y los recursos de CPU adicionales que ofrece el recuento de instancia más grande.
+## <a name="scale-an-app-service-plan"></a>Scale an App Service plan
 
-Puede cambiar el plan de tarifa y el tamaño de la instancia haciendo clic en el elemento **Escalar verticalmente** en la configuración de la aplicación o del plan del Servicio de aplicaciones. Los cambios se aplicarán al plan del Servicio de aplicaciones y afectarán a todas las aplicaciones que hospede.
+There are three ways to scale a plan:
 
- ![Establecimiento de valores para escalar verticalmente una aplicación.][pricingtier]
+- **Change the plan’s pricing tier**. For example, a plan in the Basic tier can be converted to a Standard or Premium tier, and all apps that are associated with that plan now can use the features that the new service tier offers.
+- **Change the plan’s instance size**. As an example, a plan in the Basic tier that uses small instances can be changed to use large instances. All apps that are associated with that plan now can use the additional memory and CPU resources that the larger instance size offers.
+- **Change the plan’s instance count**. For example, a Standard plan that's scaled out to three instances can be scaled to 10 instances. A Premium plan can be scaled out to 20 instances (subject to availability). All apps that are associated with that plan now can use the additional memory and CPU resources that the larger instance count offers.
 
-## Resumen
+You can change the pricing tier and instance size by clicking the **Scale Up** item under settings for either the app or the App Service plan. Changes apply to the App Service plan and affect all apps that it hosts.
 
-Los planes del Servicio de aplicaciones representan un conjunto de características y capacidades que puede compartir entre las aplicaciones. Los planes del Servicio de aplicaciones ofrecen la flexibilidad necesaria para asignar aplicaciones específicas a un conjunto de recursos y optimizar aún más el uso de los recursos de Azure. De esta forma, si desea ahorrar gastos en el entorno de pruebas, puede compartir un plan entre varias aplicaciones. Asimismo, puede escalarlo entre varias regiones y planes para maximizar el rendimiento del entorno de producción.
+ ![Set values to scale up an app.][pricingtier]
 
-## Lo que ha cambiado
+## <a name="app-service-plan-cleanup"></a>App Service Plan cleanup
+**App Service plans** that have no apps associated to them still incur charges since they continue to reserve the compute capacity configured in the App Service plan scale properties.
+To avoid unexpected charges, when the last app hosted in an App Service plan is deleted, the resulting empty App Service plan is also deleted.
 
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
+
+## <a name="summary"></a>Summary
+
+App Service plans represent a set of features and capacity that you can share across your apps. App Service plans give you the flexibility to allocate specific apps to a set of resources and further optimize your Azure resource utilization. This way, if you want to save money on your testing environment, you can share a plan across multiple apps. You can also maximize throughput for your production environment by scaling it across multiple regions and plans.
+
+## <a name="what's-changed"></a>What's changed
+
+* For a guide to the change from Websites to App Service, see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
 [assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
@@ -109,4 +118,8 @@ Los planes del Servicio de aplicaciones representan un conjunto de característi
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 [appclone]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/app-clone.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

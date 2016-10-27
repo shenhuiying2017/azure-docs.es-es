@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creación de un Almacenamiento de datos SQL con TSQL | Microsoft Azure"
-   description="Aprenda a crear una base de datos de Almacenamiento de datos SQL de Azure con TSQL"
+   pageTitle="Create a SQL Data Warehouse with TSQL | Microsoft Azure"
+   description="Learn how to create an Azure SQL Data Warehouse with TSQL"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -11,65 +11,66 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="hero-article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="08/24/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
-# Creación de una base de datos de Almacenamiento de datos SQL mediante Transact-SQL (TSQL)
+
+# <a name="create-a-sql-data-warehouse-database-by-using-transact-sql-(tsql)"></a>Create a SQL Data Warehouse database by using Transact-SQL (TSQL)
 
 > [AZURE.SELECTOR]
-- [Portal de Azure](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-En este artículo se explica cómo crear un Almacenamiento de datos SQL mediante T-SQL.
+This article shows you how to create a SQL Data Warehouse using T-SQL.
 
-## Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Para empezar, necesitará lo siguiente:
+To get started, you need: 
 
-- **Cuenta de Azure**: visite [Evaluación gratuita de Azure][] o [Crédito mensual de Azure para suscriptores de Visual Studio][] para crear una cuenta.
-- **SQL Server de Azure**: consulte [Creación de un servidor lógico de Base de datos SQL de Azure con el Portal de Azure][] o [Creación de un servidor lógico de Base de datos SQL de Azure con PowerShell][] para más información.
-- **Nombre del grupo de recursos**: use el mismo grupo de recursos que el servidor SQL Server de Azure o consulte [Creación de un grupo de recursos][].
-- **Entorno para ejecutar T-SQL**: puede usar [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][] o [SSMS][] para ejecutar T-SQL.
+- **Azure account**: Visit [Azure Free Trial][] or [MSDN Azure Credits][] to create an account.
+- **Azure SQL server**:  See [Create an Azure SQL Database logical server with the Azure Portal][] or [Create an Azure SQL Database logical server with PowerShell][] for more details.
+- **Resource group**: Either use the same resource group as your Azure SQL server or see [how to create a resource group][].
+- **Environment to execute T-SQL**: You can use [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][], or [SSMS][] to execute T-SQL.
 
-> [AZURE.NOTE] La creación de una instancia de Almacenamiento de datos SQL puede dar lugar a un nuevo servicio facturable. Consulte [Precios de Almacenamiento de datos SQL][] para más información sobre los precios.
+> [AZURE.NOTE] Creating a SQL Data Warehouse may result in a new billable service.  See [SQL Data Warehouse pricing][] for more details on pricing.
 
-## Creación de una base de datos con Visual Studio
+## <a name="create-a-database-with-visual-studio"></a>Create a database with Visual Studio
 
-Si no está familiarizado con Visual Studio, consulte el artículo [Consultas en Almacenamiento de datos SQL de Azure (Visual Studio)][]. Para comenzar, abra el Explorador de objetos de SQL Server en Visual Studio y conéctese al servidor que hospedará la base de datos de Almacenamiento de datos SQL. Una vez conectado, puede crear una instancia de Almacenamiento de datos SQL mediante la ejecución del siguiente comando SQL en la base de datos **maestra**. Este comando crea la base de datos MySqlDwDb con un objetivo de servicio de DW400 y permite que crezca hasta un tamaño máximo de 10 TB.
+If you are new to Visual Studio, see the article [Query Azure SQL Data Warehouse (Visual Studio)][].  To start, open SQL Server Object Explorer in Visual Studio and connect to the server that will host your SQL Data Warehouse database.  Once connected, you can create a SQL Data Warehouse by running the following SQL command against the **master** database.  This command creates the database MySqlDwDb with a Service Objective of DW400 and allow the database to grow to a maximum size of 10 TB.
 
 ```sql
 CREATE DATABASE MySqlDwDb COLLATE SQL_Latin1_General_CP1_CI_AS (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB);
 ```
 
-## Creación de una base de datos con sqlcmd
+## <a name="create-a-database-with-sqlcmd"></a>Create a database with sqlcmd
 
-Como alternativa, puede ejecutar el mismo comando con sqlcmd mediante la ejecución del siguiente código en el símbolo del sistema.
+Alternatively, you can run the same command with sqlcmd by running the following at a command prompt.
 
 ```sql
 sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE MySqlDwDb COLLATE SQL_Latin1_General_CP1_CI_AS (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB)"
 ```
 
-La intercalación predeterminada cuando no se especifica otra es COLLATE SQL\_Latin1\_General\_CP1\_CI\_AS. El valor de `MAXSIZE` puede estar entre 250 GB y 240 TB. El valor de `SERVICE_OBJECTIVE` puede estar entre [DWU][] DW100 y DW2000. Para obtener una lista de todos los valores válidos, consulte la documentación de MSDN para [CREATE DATABASE][]. Se pueden cambiar los valores de MAXSIZE y SERVICE\_OBJECTIVE con un comando [ALTER DATABASE][] de T-SQL. No se puede cambiar la intercalación de una base de datos después de su creación. Debe tener precaución al cambiar el valor de SERVICE\_OBJECTIVE ya que cambiar la DWU provocará un reinicio de los servicios que cancelará todas las consultas en marcha. Con el cambio de MAXSIZE no se reinician servicios, ya que es solo una operación de metadatos sencilla.
+The default collation when not specified is COLLATE SQL_Latin1_General_CP1_CI_AS.  The `MAXSIZE` can be between 250 GB and 240 TB.  The `SERVICE_OBJECTIVE` can be between DW100 and DW2000 [DWU][].  For a list of all valid values, see the MSDN documentation for [CREATE DATABASE][].  Both the MAXSIZE and SERVICE_OBJECTIVE can be changed with an [ALTER DATABASE][] T-SQL command.  The collation of a database cannot be changed after creation.   Caution should be used when changing the SERVICE_OBJECTIVE as changing DWU causes a restart of services, which cancels all queries in flight.  Changing MAXSIZE does not restart services as it is just a simple metadata operation.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-Después de que su Almacenamiento de datos SQL termine el aprovisionamiento, puede [cargar datos de ejemplo][] o averiguar cómo [desarrollar][], [cargar][] o [migrar][].
+After your SQL Data Warehouse has finished provisioning you can [load sample data][] or check out how to [develop][], [load][], or [migrate][].
 
 <!--Article references-->
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [how to create a SQL Data Warehouse from the Azure portal]: sql-data-warehouse-get-started-provision.md
-[Consultas en Almacenamiento de datos SQL de Azure (Visual Studio)]: sql-data-warehouse-query-visual-studio.md
-[migrar]: sql-data-warehouse-overview-migrate.md
-[desarrollar]: sql-data-warehouse-overview-develop.md
-[cargar]: sql-data-warehouse-overview-load.md
-[cargar datos de ejemplo]: sql-data-warehouse-load-sample-databases.md
-[Creación de un servidor lógico de Base de datos SQL de Azure con el Portal de Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
-[Creación de un servidor lógico de Base de datos SQL de Azure con PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[Creación de un grupo de recursos]: ../resource-group-template-deploy-portal.md#create-resource-group
+[Query Azure SQL Data Warehouse (Visual Studio)]: sql-data-warehouse-query-visual-studio.md
+[migrate]: sql-data-warehouse-overview-migrate.md
+[develop]: sql-data-warehouse-overview-develop.md
+[load]: sql-data-warehouse-overview-load.md
+[load sample data]: sql-data-warehouse-load-sample-databases.md
+[Create an Azure SQL Database logical server with the Azure Portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
+[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[how to create a resource group]: ../resource-group-template-deploy-portal.md#create-resource-group
 [Installing Visual Studio and SSDT]: sql-data-warehouse-install-visual-studio.md
 [sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
@@ -79,8 +80,12 @@ Después de que su Almacenamiento de datos SQL termine el aprovisionamiento, pue
 [SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
 
 <!--Other Web references-->
-[Precios de Almacenamiento de datos SQL]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
-[Evaluación gratuita de Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
-[Crédito mensual de Azure para suscriptores de Visual Studio]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+[SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
+[MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

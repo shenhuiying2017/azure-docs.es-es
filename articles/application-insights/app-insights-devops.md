@@ -1,191 +1,199 @@
 <properties
-	pageTitle="Diagnósticos detallados para servicios y aplicaciones web con Application Insights | Microsoft Azure"
-	description="Cómo encaja Application Insights en el ciclo de devOps"
-	services="application-insights"
+    pageTitle="Deep diagnostics for web apps and services with Application Insights | Microsoft Azure"
+    description="How Application Insights fits into the devOps cycle"
+    services="application-insights"
     documentationCenter=""
-	authors="alancameronwills"
-	manager="douge"/>
+    authors="alancameronwills"
+    manager="douge"/>
 
 <tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="multiple"
-	ms.topic="article" 
-	ms.date="08/26/2016"
-	ms.author="awills"/>
+    ms.service="application-insights"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="multiple"
+    ms.topic="article" 
+    ms.date="08/26/2016"
+    ms.author="awills"/>
 
-# Diagnósticos detallados para servicios y aplicaciones web con Application Insights
 
-## ¿Por qué necesito Application Insights?
+# <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Deep diagnostics for web apps and services with Application Insights
 
-Application Insights supervisa la ejecución de la aplicación web. Indica los errores y problemas de rendimiento y le ayuda a analizar el modo en que los clientes usan las aplicaciones. Sirve para aplicaciones que se ejecutan en muchas plataformas (ASP.NET, J2EE, Node.js, ...) y se hospeda en la nube o de forma local.
+## <a name="why-do-i-need-application-insights?"></a>Why do I need Application Insights?
 
-![Aspectos de la complejidad del suministro de aplicaciones web](./media/app-insights-devops/010.png)
+Application Insights monitors your running web app. It tells you about failures and performance issues, and helps you analyze how customers use your app. It works for apps running on many platforms (ASP.NET, J2EE, Node.js, ...) and is hosted either in the Cloud or on-premises. 
 
-Resulta fundamental para supervisar una aplicación moderna mientras se ejecuta. Y lo más importante, puede detectar los errores antes que la mayoría de sus clientes. También puede detectar y resolver problemas de rendimiento que, si bien no son catastróficos, quizás ralenticen la velocidad del sistema u ocasionen algún inconveniente a los usuarios. Y si el sistema rinde como espera, querrá saber lo que hacen con él los usuarios: ¿usan las características más recientes? ¿Les funcionan bien?
+![Aspects of the complexity of delivering web apps](./media/app-insights-devops/010.png)
 
-Las aplicaciones web modernas se desarrollan en un ciclo de entrega continua: lanzan una nueva característica o mejora, observan cómo funciona para los usuarios y, en función de esa información, planean el siguiente incremento de desarrollo. Una parte fundamental de este ciclo es la fase de observación. Application Insights proporciona las herramientas para supervisar el rendimiento y uso de una aplicación web.
+It's essential to monitor a modern application while it is running. Most importantly, you want to detect failures before most of your customers do. You also want to discover and fix performance issues that, while not catastrophic, perhaps slow things down or cause some inconvenience to your users. And when the system is performing to your satisfaction, you want to know what the users are doing with it: Are they using the latest feature? Are they succeeding with it?
 
-El aspecto más importante de este proceso es el diagnóstico. Si una aplicación no funciona correctamente, el negocio se pierde. Por lo tanto, el papel fundamental de un marco de supervisión es detectar los errores de manera confiable, notificarlos inmediatamente y presentar la información necesaria para diagnosticar el problema. Esto es exactamente lo que hace Application Insights.
+Modern web applications are developed in a cycle of continuous delivery: release a new feature or improvement; observe how well it works for the users; plan the next increment of development based on that knowledge. A key part of this cycle is the observation phase. Application Insights provides the tools to monitor a web application for performance and usage.
 
-### ¿De dónde proceden los errores?
+The most important aspect of this process is diagnostics and diagnosis. If the application fails, then business is being lost. The prime role of a monitoring framework is therefore to detect failures reliably, notify you immediately, and to present you with the information needed to diagnose the problem. This is exactly what Application Insights does.
 
-Los errores de los sistemas web proceden normalmente de problemas de configuración o de interacciones incorrectas entre sus muchos componentes. La primera tarea al abordar un incidente en un sitio activo es, por lo tanto, identificar la raíz del problema: ¿qué componente o relación es la causa?
+### <a name="where-do-bugs-come-from?"></a>Where do bugs come from?
 
-Algunos de nosotros, los más veteranos, podemos recordar una época más sencilla en la que un programa informático se ejecutaba en un equipo. Los desarrolladores lo probaban a fondo antes de enviarlo; y, una vez enviado, era muy raro volver verlo o acordarse de él. Los usuarios tenían que soportar los errores residuales durante muchos años.
+Failures in web systems typically arise from configuration issues or bad interactions between their many components. The first task when tackling a live site incident is therefore to identify the locus of the problem: which component or relationship is the cause?
 
-Ahora, las cosas son muy diferentes. La aplicación se ejecuta en una enorme cantidad de dispositivos diferentes y puede ser difícil garantizar el mismo comportamiento exacto en cada uno. El hospedaje de aplicaciones en el nube significa que los errores se puede resolver más rápido, pero también una continua rivalidad y la expectativa de nuevas características a intervalos frecuentes.
+Some of us, those with gray hair, can remember a simpler era in which a computer program ran in one computer. The developers would test it thoroughly before shipping it; and having shipped it, would rarely see or think about it again. The users would have to put up with the residual bugs for many years. 
 
-En estas condiciones, la única manera de mantener un control estricto sobre el número de errores es la prueba unitaria automatizada. Sería imposible volver a probarlo todo manualmente en cada entrega. La prueba unitaria es ahora una parte común del proceso de compilación. Herramientas como la ayuda de Xamarin Test Cloud ayudan al proporcionar pruebas automatizadas de la interfaz de usuario en varias versiones de explorador. Estos regímenes de pruebas nos permiten tener la esperanza de que la tasa de errores encontrados en una aplicación se pueda mantener al mínimo.
+Things are so very different now. Your app has a plethora of different devices to run on, and it can be difficult to guarantee the exact same behavior on each one. Hosting apps in the cloud means bugs can be fixed fast, but it also means continuous competition and the expectation of new features at frequent intervals. 
 
-Las aplicaciones web típicas tienen muchos componentes activos. Además del cliente (en una aplicación de explorador o dispositivo) y el servidor web, es probable que haya bastante procesamiento back-end. Quizás el back-end es una canalización de componentes o una colección de piezas de colaboración más flexible. Y muchos de ellos no estarán bajo su control, y son servicios externos de los que depende.
+In these conditions, the only way to keep a firm control on the bug count is automated unit testing. It would be impossible to manually re-test everything on every delivery. Unit test is now a commonplace part of the build process. Tools such as the Xamarin Test Cloud help by providing automated UI testing on multiple browser versions. These testing regimes allow us to hope that the rate of bugs found inside an app can be kept to a minimum.
 
-En este tipo de configuraciones, puede ser difícil y costoso probar, o predecir, cada posible modo de error, que no sea el propio sistema activo.
+Typical web applications have many live components. In addition to the client (in a browser or device app) and the web server, there's likely to be substantial backend processing. Perhaps the backend is a pipeline of components, or a looser collection of collaborating pieces. And many of them won't be in your control - they're external services on which you depend.
 
-### Preguntas...
+In configurations like these, it can be difficult and uneconomical to test for, or foresee, every possible failure mode, other than in the live system itself. 
 
-Algunas preguntas que hacemos cuando desarrollamos un sistema web:
+### <a name="questions-..."></a>Questions ...
 
-* ¿Se bloqueará mi aplicación?
-* ¿Qué ha sucedido exactamente? Si una solicitud ha dado error, quiero saber cómo hemos llegado hasta aquí. Necesitamos un seguimiento de eventos...
-* ¿Es mi aplicación lo suficientemente rápida? ¿Cuánto tarda en responder a solicitudes normales?
-* ¿Puede administrar el servidor la carga? Cuando aumenta la tasa de solicitudes, ¿se mantiene estable el tiempo de respuesta?
-* ¿Cuál es la capacidad de respuesta de mis dependencias? (las API de REST, las bases de datos y otros componentes a los que llama mi aplicación). En concreto, si el sistema es lento, ¿se debe a alguno de mis componentes o a otra cosa?
-* ¿Está mi aplicación activa o inactiva? ¿se puede ver desde cualquier parte del mundo? Quiero saber si se detiene....
-* ¿Cuál es la causa? ¿Se debe el error a un componente o una dependencia? ¿Es un problema de comunicación?
-* ¿Cuántos usuarios están afectados? Si tiene varios problemas a los que hacer frente, ¿cuál es el más importante?
+Some questions we ask when we're developing a web system:
 
+* Is my app crashing? 
+* What exactly happened? - If it failed a request, I want to know how it got there. We need a trace of events...
+* Is my app fast enough? How long does it take to respond to typical requests?
+* Can the server handle the load? When the rate of requests rises, does the response time hold steady?
+* How responsive are my dependencies - the REST APIs, databases and other components that my app calls. In particular, if the system is slow, is it my component, or am I getting slow responses from someone else?
+* Is my app Up or Down? Can it be seen from around the world? Let me know if it stops....
+* What is the root cause? Was the failure in my component or a dependency? Is it a communication issue?
+* How many users are impacted? If I have more than one issue to tackle, which is the most important?
 
 
-## ¿Qué es Application Insights?
 
+## <a name="what-is-application-insights?"></a>What is Application Insights?
 
-![Flujo de trabajo básico de Application Insights](./media/app-insights-devops/020.png)
 
+![Basic workflow of Application Insights](./media/app-insights-devops/020.png)
 
-1. Application Insights instrumenta la aplicación y envía datos de telemetría sobre ella mientras esta se ejecuta. Puede general el SDK de Application Insights en la aplicación o aplicar la instrumentación en tiempo de ejecución. El primer método es más flexible, ya que puede agregar sus propios datos de telemetría a los módulos normales.
-2. Estos datos se envían al portal de Application Insights, donde se almacenan y procesan. (Aunque Application Insights se hospeda en Microsoft Azure, puede supervisar cualquier aplicación web, no solo las de Azure).
-3. La información de telemetría se presenta en forma de gráficos y tablas de eventos.
 
-Hay dos tipos principales de telemetría: instancias agregadas y sin formato.
+1. Application Insights instruments your app and sends telemetry about it while the app is running. Either you can build the Application Insights SDK into the app, or you can apply instrumentation at runtime. The former method is more flexible, as you can add your own telemetry to the regular modules.
+2. The telemetry is sent to the Application Insights portal, where it is stored and processed. (Although Application Insights is hosted in Microsoft Azure, it can monitor any web apps - not just Azure apps.)
+3. The telemetry is presented to you in the form of charts and tables of events.
 
-* Por ejemplo, los datos de instancia incluyen un informe de una solicitud que ha recibido la aplicación web. Se pueden buscar e inspeccionar los detalles de una solicitud mediante la herramienta de búsqueda del portal de Application Insights. La instancia incluiría datos, como el tiempo que la aplicación ha tardado en responder a la solicitud, la dirección URL solicitada, la ubicación aproximada del cliente y otros datos.
-* Los datos agregados incluyen recuentos de eventos por unidad de tiempo, de modo que puede comparar la tasa de solicitudes con los tiempos de respuesta. También incluyen los promedios de las métricas, como los tiempos de respuesta de solicitud.
+There are two main types of telemetry: aggregated and raw instances. 
 
-Las principales categorías de datos son:
+* Instance data includes, for example, a report of a request that has been received by your web app. You can find for and inspect the details of a request using the Search tool in the Application Insights portal. The instance would include data such as how long your app took to respond to the request, as well as the requested URL, approximate location of the client, and other data.
+* Aggregated data includes counts of events per unit time, so that you can compare the rate of requests with the response times. It also includes averages of metrics such as request response times.
 
-* Solicitudes a la aplicación (normalmente solicitudes HTTP), con datos sobre dirección URL, tiempo de respuesta y éxito o error.
-* Dependencias: llamadas de REST y SQL realizadas por la aplicación, también con identificador URI, tiempos de respuesta y éxito.
-* Excepciones, que incluyen seguimientos de pila.
-* Datos de vista de página, que proceden de los exploradores de los usuarios.
-* Métricas, como contadores de rendimiento, y métricas escritas por usted mismo.
-* Eventos personalizados que puede utilizar para realizar el seguimiento de eventos empresariales.
-* Seguimientos de registros usados para la depuración.
+The main categories of data are:
 
+* Requests to your app (usually HTTP requests), with data on URL, response time, and success or failure.
+* Dependencies - REST and SQL calls made by your app, also with URI, response times and success
+* Exceptions, including stack traces.
+* Page view data, which come from the users' browsers.
+* Metrics such as performance counters, as well as metrics you write yourself. 
+* Custom events that you can use to track business events
+* Log traces used for debugging.
 
-## Caso práctico: Real Madrid C.F.
 
-El servicio web del [Club de fútbol del Real Madrid](http://www.realmadrid.com/) presta servicio a aproximadamente 450 millones de aficionados de todo el mundo. Los aficionados acceden a él tanto mediante exploradores web como las aplicaciones móviles del Club. No solo reservan entradas, sino que también acceden a información y a clips de vídeo sobre resultados, jugadores y próximos partidos. Pueden realizar búsquedas con filtros, como el número de goles marcados. También hay vínculos a redes sociales. La experiencia del usuario está enormemente personalizada y está diseñada como una comunicación bidireccional para favorecer la participación de los aficionados.
+## <a name="case-study:-real-madrid-f.c."></a>Case Study: Real Madrid F.C.
 
-La solución [es un sistema de servicios y aplicaciones en Microsoft Azure](https://www.microsoft.com/es-ES/enterprise/microsoftcloud/realmadrid.aspx). La escalabilidad es un requisito clave: el tráfico es variable y puede alcanzar volúmenes elevados antes y durante los partidos.
+The web service of [Real Madrid Football Club](http://www.realmadrid.com/) serves about 450 million fans around the world. Fans access it both through web browsers and the Club's mobile apps. Fans can not only book tickets, but also access information and video clips on results, players and upcoming games. They can search with filters such as numbers of goals scored. There are also links to social media. The user experience is highly personalized, and is designed as a two-way communication to engage fans.
 
-Para el Real Madrid, es fundamental supervisar el rendimiento del sistema. Visual Studio Application Insights ofrece una vista completa del sistema, lo que garantiza un nivel de servicio alto y confiable.
+The solution [is a system of services and applications on Microsoft Azure](https://www.microsoft.com/en-us/enterprise/microsoftcloud/realmadrid.aspx). Scalability is a key requirement: traffic is variable and can reach very high volumes during and around matches.
 
-El Club también obtiene un profundo conocimiento de sus aficionados: dónde están (solo el 3 % está en España), qué interés tienen en los jugadores, los resultados históricos y los próximos partidos y cómo responden a los resultados de los partidos.
+For Real Madrid, it's vital to monitor the system's performance. Visual Studio Application Insights provides a comprehensive view across the system, ensuring a reliable and high level of service. 
 
-La mayoría de estos datos de telemetría se recopilan automáticamente sin ningún código adicional, lo que simplifica la solución y reduce la complejidad operacional. Para el Real Madrid, Application Insights trata con 3800 millones de puntos de datos de telemetría al mes.
+The Club also gets in-depth understanding of its fans: where they are (only 3% are in Spain), what interest they have in players, historical results, and upcoming games, and how they respond to match outcomes.
 
-El Real Madrid utiliza el módulo Power BI para ver estos datos.
+Most of this telemetry data is automatically collected with no added code, which  simplified the solution and reduced operational complexity.  For Real Madrid, Application Insights deals with 3.8 billion telemetry points each month.
 
+Real Madrid uses the Power BI module to view their telemetry.
 
-![Vistas de telemetría de Application Insights en Power BI](./media/app-insights-devops/080.png)
 
-## Detección inteligente
+![Power BI view of Application Insights telemetry](./media/app-insights-devops/080.png)
 
-El [diagnóstico proactivo](app-insights-nrt-proactive-diagnostics.md) es una característica reciente. Sin ninguna configuración especial por parte del usuario, Application Insights detecta y le avisa automáticamente de cualquier aumento en la tasa de errores en la aplicación. Es lo suficientemente inteligente como para omitir un trasfondo de errores ocasionales y también de aumentos que son simplemente proporcionales a un aumento en las solicitudes. Por ejemplo, si se produce un error en uno de los servicios de los que depende, o si la nueva compilación que acaba de implementar no funciona tan bien, lo sabrá en cuanto mire su correo electrónico. (Y hay webhooks para que pueda desencadenar otras aplicaciones).
+## <a name="smart-detection"></a>Smart detection
 
-Otro aspecto de esta característica es que realiza un análisis exhaustivo a diario de los datos de telemetría, buscando patrones de rendimiento poco habituales difíciles de detectar. Por ejemplo, puede encontrar un rendimiento lento asociado a una zona geográfica determinada, o a una versión de explorador determinada.
+[Proactive diagnostics](app-insights-nrt-proactive-diagnostics.md) is a recent feature. Without any special configuration by you, Application Insights automatically detects and alerts you about unusual rises in failure rates in your app. It's smart enough to ignore a background of occasional failures, and also rises that are simply proportionate to a rise in requests. So for example, if there's a failure in one of the services you depend on, or if the new build you just deployed isn't working so well, then you'll know about it as soon as you look at your email. (And there are webhooks so that you can trigger other apps.)
 
-En ambos casos, la alerta no solo indica los síntomas detectados, sino que también ofrece datos que necesita para diagnosticar el problema, como los informes de excepciones pertinentes.
+Another aspect of this feature performs a daily in-depth analysis of your telemetry, looking for unusual patterns of performance that are hard to discover. For example, it can find slow performance associated with a particular geographical area, or with a particular browser version.
 
-![Correo electrónico procedente de diagnóstico proactivo](./media/app-insights-devops/030.png)
+In both cases, the alert not only tells you the symptoms it's discovered, but also gives you data you need to help diagnose the problem, such as relevant exception reports.
 
-El cliente Samtec afirmaba: "Durante una migración reciente de características, nos encontramos con una base de datos no escalada lo suficiente que estaba llegando al límite de sus recursos y ocasionando tiempos de espera. Las alertas de detección proactiva nos salvaron literalmente mientras clasificábamos el problema, casi en tiempo real como anunciábamos. Estas alertas junto con las alertas de la plataforma Azure nos ayudaron a solucionar el problema de forma casi instantánea. Tiempo de inactividad total < 10 minutos".
+![Email from proactive diagnostics](./media/app-insights-devops/030.png)
 
-## Secuencia de métricas en directo
+Customer Samtec said: "During a recent feature cutover, we found an under-scaled database that was hitting its resource limits and causing timeouts. Proactive detection alerts came through literally as we were triaging the issue, very near real time as advertised. This alert coupled with the Azure platform alerts helped us almost instantly fix the issue. Total downtime < 10 minutes."
 
-La implementación de la compilación más reciente puede ser una experiencia Implementar la compilación más reciente puede ser una experiencia inquietante. Si hay problemas, querrá saberlo enseguida para poder dar marcha atrás en caso necesario. La secuencia de métricas activas le proporciona métricas claves con una latencia de aproximadamente un segundo.
+## <a name="live-metrics-stream"></a>Live Metrics Stream
 
-![Métricas activas](./media/app-insights-devops/040.png)
+Deploying the latest build can be an anxious experience. If there are any problems, you want to know about them right away, so that you can back out if necessary. Live Metrics Stream gives you key metrics with a latency of about one second.
 
-## Mapa de aplicación
+![Live metrics](./media/app-insights-devops/040.png)
 
-El mapa de aplicación detecta automáticamente la topología de la aplicación y sitúa la información del rendimiento en primer lugar, para que pueda identificar fácilmente los cuellos de botella y los flujos problemáticos en su entorno distribuido. Además, permite detectar dependencias de aplicaciones en servicios de Azure. Al comprender si el problema está relacionado con el código o con las dependencias puede clasificarlo y, en un solo lugar, profundizar en la experiencia relacionada con el diagnóstico. Por ejemplo, puede que los errores de la aplicación se deban a la degradación del rendimiento en el nivel de SQL. Con el mapa de aplicación, puede verlo inmediatamente y profundizar en la experiencia del Asesor de índices de SQL o de Detalles de la consulta.
+## <a name="application-map"></a>Application Map
 
-![Mapa de aplicación](./media/app-insights-devops/050.png)
+Application Map automatically discovers your application topology, laying the performance information on top of it, to let you easily identify performance bottlenecks and problematic flows across your distributed environment. It allows you to discover application dependencies on Azure Services. You can triage the problem by understanding if it is code-related or dependency related and from a single place drill into related diagnostics experience. For example, your application may be failing due to performance degradation in SQL tier. With application map, you can see it immediately and drill into the SQL Index Advisor or Query Insights experience.
 
-## Application Insights Analytics
+![Application Map](./media/app-insights-devops/050.png)
 
-Con [Analytics](app-insights-analytics.md), puede escribir consultas arbitrarias en un lenguaje avanzado, tipo SQL. El diagnóstico en la pila entera de aplicaciones se convierte en una tarea sencilla gracias a la conexión de diversas perspectivas, y puede formular las preguntas adecuadas para correlacionar el rendimiento del servicio con las métricas empresariales y la experiencia del cliente.
+## <a name="application-insights-analytics"></a>Application Insights Analytics
 
-Puede consultar todas instancias de telemetría y los datos sin procesar de métricas en el portal. El lenguaje incluye el filtro, unión, agregación y otras operaciones. Puede calcular campos y realizar análisis estadísticos. Dispone de visualizaciones tanto gráficas como tabulares.
+With [Analytics](app-insights-analytics.md), you can write arbitrary queries in a powerful SQL-like language.  Diagnosing across the entire app stack becomes easy as various perspectives get connected and you can ask the right questions to correlate Service Performance with Business Metrics and Customer Experience. 
 
-![Gráfico de consultas y resultados de Analytics](./media/app-insights-devops/025.png)
+You can query all your telemetry instance and metric raw data stored in the portal. The language includes filter, join, aggregation, and other operations. You can calculate fields and perform statistical analysis. There are both tabular and graphical visualizations.
 
-Por ejemplo, es fácil:
+![Analytics query and results chart](./media/app-insights-devops/025.png)
 
-* Segmentar los datos de rendimiento de solicitud de la aplicación por niveles de clientes para comprender su experiencia.
-* Buscar códigos de error específicos o nombres de eventos personalizado durante las investigaciones del sitio activo.
-* Profundizar en el uso de aplicaciones de clientes específicos para entender cómo se adquieren y adoptar las características.
-* Realizar un seguimiento de las sesiones y los tiempos de respuesta para usuarios específicos para que los equipos de operaciones y soporte técnico puedan proporcionar soporte al cliente al instante.
-* Determinar las características de aplicaciones utilizadas con frecuencia para responder a preguntas de priorización de características.
+For example, it's easy to:
 
-El cliente DNN afirma: "Application Insights nos ha proporcionado la parte que faltaba de la ecuación para poder combinar, ordenar, consultar y filtrar los datos de acuerdo con nuestras necesidades. Al permitir que nuestro equipo use su propio ingenio y experiencia para buscar datos con un lenguaje de consulta avanzado, hemos podido descubrir cosas y resolver problemas que ni siquiera sabíamos que teníamos. Un gran número de respuestas interesantes proceden de las preguntas que comienzan con *'Me pregunto si...'*".
+* Segment your application’s request performance data by customer tiers to understand their experience.
+* Search for specific error codes or custom event names during live site investigations.
+* Drill down into the app usage of specific customers to understand how features are acquired and adopted.
+* Track sessions and response times for specific users to enable support and operations teams to provide instant customer support.
+* Determine frequently used app features to answer feature prioritization questions.
 
-## Integración de herramientas de desarrollo 
+Customer DNN said: "Application Insights has provided us with the missing part of the equation for being able to combine, sort, query, and filter data as needed. Allowing our team to use their own ingenuity and experience to find data with a powerful query language has allowed us to find insights and solve problems we didn't even know we had. A lot of interesting answers come from the questions starting with *'I wonder if...'.*"
 
-### Configuración de Application Insights
+## <a name="development-tools-integration"></a>Development tools integration 
 
-Visual Studio y Eclipse tienen herramientas para configurar los paquetes SDK correctos para el proyecto que está desarrollando. Hay un comando de menú para agregar Application Insights.
+### <a name="configuring-application-insights"></a>Configuring Application Insights
 
-Si usa una plataforma de registro de seguimiento, como Log4N, NLog o System.Diagnostics.Trace, tiene la opción de enviar los registros a Application Insights junto con los demás datos de telemetría, de modo que pueda correlacionar fácilmente los seguimientos con solicitudes, llamadas de dependencia y excepciones.
+Visual Studio and Eclipse have tools to configure the correct SDK packages for the project you are developing. There's a menu command to add Application Insights.
 
-### Telemetría de búsqueda en Visual Studio
+If you happen to be using a trace logging framework such as Log4N, NLog, or System.Diagnostics.Trace, then you get the option to send the logs to Application Insights along with the other telemetry, so that you can easily correlate the traces with requests, dependency calls, and exceptions.
 
-Al desarrollar y depurar una característica, puede ver y buscar la telemetría directamente en Visual Studio, con las mismas utilidades de búsqueda que en el portal web.
+### <a name="search-telemetry-in-visual-studio"></a>Search telemetry in Visual Studio
 
-Y cuando Application Insights registra una excepción, puede ver el punto de datos en Visual Studio y saltar directamente al código pertinente.
+While developing and debugging a feature, you can view and search the telemetry directly in Visual Studio, using the same search facilities as in the web portal.
 
-![Búsqueda de Visual Studio](./media/app-insights-devops/060.png)
+And when Application Insights logs an exception, you can view the data point in Visual Studio and jump straight to the relevant code.
 
-Durante la depuración, tiene la opción de conservar los datos de telemetría en el equipo de desarrollo y verlos en Visual Studio sin enviarlos al portal. Esta opción local evita mezclar la depuración con la telemetría de producción.
+![Visual Studio search](./media/app-insights-devops/060.png)
 
-### Anotaciones de compilación
+During debugging, you have the option to keep the telemetry in your development machine, viewing it in Visual Studio but without sending it to the portal. This local option avoids mixing debugging with production telemetry.
 
-Si usa Visual Studio Team Services para compilar e implementar la aplicación, las anotaciones de implementación aparecen en gráficos en el portal. Si la versión más reciente afectaba de algún modo a las métricas, este hecho se hace evidente.
+### <a name="build-annotations"></a>Build annotations
 
-![Anotaciones de compilación](./media/app-insights-devops/070.png)
+If you use Visual Studio Team Services to build and deploy your app, deployment annotations show up on charts in the portal. If your latest release had any effect on the metrics, it becomes obvious.
 
-### Elementos de trabajo 
+![Build annotations](./media/app-insights-devops/070.png)
 
-Cuando se genera una alerta, Application Insights puede crear automáticamente un elemento de trabajo en su sistema de seguimiento de trabajos (Visual Studio Team Services en la actualidad).
+### <a name="work-items"></a>Work items 
 
+When an alert is raised, Application Insights can automatically create a work item in your work tracking system (Visual Studio Team Services only at present).
 
-## Pero, ¿y qué sucede con...?
 
-* [Privacidad y almacenamiento](app-insights-data-retention-privacy.md): la telemetría se mantiene en servidores seguros de Azure.
-* Rendimiento: el impacto es muy bajo. la telemetría se procesa por lotes.
-* [Soporte técnico](app-insights-get-dev-support.md): puede aprovechar el programa de soporte técnico de Azure. Existen foros activos donde puede obtener respuestas de nuestros desarrolladores. Y por último, podemos proporcionarle ayuda individual.
-* [Precios](app-insights-pricing.md): puede comenzar de forma gratuita y continuar así mientras el volumen sea bajo.
+## <a name="but-what-about...?"></a>But what about...?
 
+* [Privacy and storage](app-insights-data-retention-privacy.md) - Your telemetry is kept on Azure secure servers.
+* Performance - the impact is very low. Telemetry is batched.
+* [Support](app-insights-get-dev-support.md) - You can take advantage of the Azure support program. There are lively forums where you can get answers from our developers. And in the last resort, we can give you individual help.
+* [Pricing](app-insights-pricing.md) - You can get started for free, and that continues while you're in low volume.
 
-## Pasos siguientes
 
-Empezar a usar Application Insights es fácil. Tiene opciones principalmente para:
+## <a name="next-steps"></a>Next steps
 
-* Instrumentar una aplicación web ya en ejecución. Le proporciona toda la información de telemetría del rendimiento integrada. Está disponible para [Java](app-insights-java-live.md) y [servidores IIS](app-insights-monitor-performance-live-website-now.md), así como para [aplicaciones web de Azure](app-insights-azure.md).
-* Instrumentar el proyecto durante el desarrollo. Puede hacerlo para aplicaciones de [ASP.NET](app-insights-asp-net.md) o [Java](app-insights-java-get-started.md), así como para [Node.js](app-insights-nodejs.md) y [otros tipos](app-insights-platforms.md).
-* Instrumentar [cualquier página web](app-insights-javascript.md) agregando un fragmento de código corto.
+Getting started with Application Insights is easy. The main options are:
 
-<!---HONumber=AcomDC_0831_2016-->
+* Instrument an already-running web app. This gives you all the built-in performance telemetry. It's available for [Java](app-insights-java-live.md) and [IIS servers](app-insights-monitor-performance-live-website-now.md), and also for [Azure web apps](app-insights-azure.md).
+* Instrument your project during development. You can do this for [ASP.NET](app-insights-asp-net.md) or [Java](app-insights-java-get-started.md) apps, as well as [Node.js](app-insights-nodejs.md) and a host of [other types](app-insights-platforms.md). 
+* Instrument [any web page](app-insights-javascript.md) by adding a short code snippet.
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

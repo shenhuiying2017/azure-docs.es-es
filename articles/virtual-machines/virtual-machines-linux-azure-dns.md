@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Opciones de resolución de nombres DNS para máquinas virtuales Linux en Azure"
-   description="Escenarios de resolución de nombres DNS para máquinas virtuales Linux en IaaS de Azure, incluidos los servicios DNS proporcionados, y los servidores DNS externos híbridos y Bring Your Own DNS."
+   pageTitle="DNS Name resolution options for Linux VMs in Azure"
+   description="Name Resolution scenarios for Linux VMs in Azure IaaS, including provided DNS services, Hybrid external DNS and Bring Your Own DNS server."
    services="virtual-machines"
    documentationCenter="na"
    authors="RicksterCDN"
@@ -15,127 +15,133 @@
    ms.date="09/06/2016"
    ms.author="rclaus" />
 
-# Opciones de resolución de nombres DNS para máquinas virtuales Linux en Azure
 
-Azure proporciona una funcionalidad de resolución de nombres DNS de forma predeterminada para todas las máquinas virtuales de una única red virtual. Puede implementar su propia solución de resolución de nombre DNS configurando sus propios servicios DNS en las máquinas virtuales hospedadas de Azure. Los siguientes escenarios le ayudarán a elegir cuál encaja mejor en su situación concreta.
+# <a name="dns-name-resolution-options-for-linux-vms-in-azure"></a>DNS Name Resolution Options for Linux VMs in Azure
 
-- [Resolución de nombres de Azure](#azure-provided-name-resolution)
+Azure provides DNS name resolution by default for all VMs contained within a single Virtual Network. You are able to implement your own DNS name resolution solution by configuring your own DNS services on your Azure hosted VMs. The following scenarios should help you choose which one works better for your particular situation.
 
-- [Resolución de nombres mediante su propio servidor DNS](#name-resolution-using-your-own-dns-server)
+- [Azure-provided name resolution](#azure-provided-name-resolution)
 
-El tipo de resolución de nombres que tenga que usar dependerá de cómo se comuniquen las máquinas virtuales y las instancias de rol entre sí.
+- [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server) 
 
-**La siguiente tabla muestra los escenarios y las soluciones de resolución de nombre correspondientes:**
+The type of name resolution you use depends on how your VMs and role instances need to communicate with each other.
 
-| **Escenario** | **Solución** | **Sufijo** |
+**The following table illustrates scenarios and corresponding name resolution solutions:**
+
+| **Scenario** | **Solution** | **Suffix** |
 |--------------|--------------|----------|
-| Resolución de nombres entre instancias de rol o máquinas virtuales ubicadas en la misma red virtual | [Resolución de nombres de Azure](#azure-provided-name-resolution)| Nombre de host o FQDN |
-| Resolución de nombres entre instancias de rol o máquinas virtuales ubicadas en diferentes redes virtuales | Servidores DNS administrados por el cliente que reenvían consultas entre redes virtuales para la resolución mediante Azure (proxy DNS). Consulte [Resolución de nombres mediante su propio servidor DNS](#name-resolution-using-your-own-dns-server).| Solo FQDN |
-| Resolución de nombres de servicios y de equipos locales desde instancias de rol o máquinas virtuales en Azure | Servidores DNS administrados por el cliente (por ejemplo, controlador de dominio local, controlador de dominio de solo lectura local o un DNS secundario sincronizado usando transferencias de zona). Consulte [Resolución de nombres mediante su propio servidor DNS](#name-resolution-using-your-own-dns-server).|Solo FQDN |
-| Resolución de nombres de host de Azure desde equipos locales | Reenvío de consultas a un servidor proxy DNS administrado por el cliente en la red virtual correspondiente: el servidor proxy reenvía consultas a Azure para su resolución. Consulte [Resolución de nombres mediante su propio servidor DNS](#name-resolution-using-your-own-dns-server).| Solo FQDN |
-| DNS inverso para direcciones IP internas | [Resolución de nombres mediante su propio servidor DNS](#name-resolution-using-your-own-dns-server) | N/D |
+| Name resolution between role instances or VMs located in the same virtual network | [Azure-provided name resolution](#azure-provided-name-resolution)| hostname or FQDN |
+| Name resolution between role instances or VMs located in different virtual networks | Customer-managed DNS servers forwarding queries between vnets for resolution by Azure (DNS proxy).  see [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server)| FQDN only |
+| Resolution of on-premises computer and service names from role instances or VMs in Azure | Customer-managed DNS servers (for example, on-premise domain controller, local read-only domain controller, or a DNS secondary synced using zone transfers).  See [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server)|FQDN only |
+| Resolution of Azure hostnames from on-premise computers | Forward queries to a customer-managed DNS proxy server in the corresponding vnet, the proxy server forwards queries to Azure for resolution. See [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server)| FQDN only |
+| Reverse DNS for internal IPs | [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server) | n/a |
 
-## Resolución de nombres de Azure
+## <a name="azure-provided-name-resolution"></a>Azure-provided name resolution
 
-Junto con la resolución de nombres DNS públicos, Azure proporciona una resolución de nombres interna para máquinas virtuales e instancias de rol que residen dentro de la misma red virtual. En las redes virtuales basadas en ARM, el sufijo DNS es coherente en toda la red virtual (por lo que no es necesario el FQDN), y los nombres DNS pueden asignarse a la NIC y a la máquina virtual. Aunque la resolución de nombres que proporciona Azure no necesita ningún tipo de configuración, no es la opción más adecuada para todos los escenarios de implementación, tal y como se mostró en la tabla anterior.
+Along with resolution of public DNS names, Azure provides internal name resolution for VMs and role instances that reside within the same virtual network.  In ARM-based virtual networks, the DNS suffix is consistent across the virtual network (so the FQDN is not needed) and DNS names can be assigned to both NICs and VMs. Although Azure-provided name resolution does not require any configuration, it is not the appropriate choice for all deployment scenarios, as seen on the table above.
 
-### Características y consideraciones
+### <a name="features-and-considerations"></a>Features and Considerations
 
-**Características**
+**Features:**
 
-- Facilidad de uso: no es necesario realizar configuración alguna para usar la resolución de nombres proporcionada por Azure.
+- Ease of use: No configuration is required to use Azure-provided name resolution.
 
-- El servicio de resolución de nombres de Azure es altamente disponible y evita la creación y administración de clústeres de sus propios servidores DNS.
+- The Azure-provided name resolution service is highly available, saving you the need to create and manage clusters of your own DNS servers.
 
-- Se puede utilizar junto con sus propios servidores DNS para resolver nombres de host de Azure y locales.
+- Can be used along with your own DNS servers to resolve both on-premise and Azure hostnames.
 
-- Se proporciona resolución de nombres entre las máquinas virtuales en redes virtuales sin necesidad de usar FQDN.
+- Name resolution is provided between VMs in virtual networks without need for the FQDN. 
 
-- Puede usar los nombres de host que describan mejor las implementaciones, en lugar de trabajar con nombres generados automáticamente.
+- You can use hostnames that best describe your deployments, rather than working with auto-generated names.
 
-**Consideraciones:**
+**Considerations:**
 
-- No se puede modificar el sufijo DNS creado por Azure.
+- The Azure-created DNS suffix cannot be modified.
 
-- No se pueden registrar manualmente los registros propios.
+- You cannot manually register your own records.
 
-- No se admiten ni WINS ni NetBIOS.
+- WINS and NetBIOS are not supported.
 
-- Los nombres de host deben ser compatibles con el DNS (solamente pueden usar los caracteres 0-9, a-z y “-” y no pueden comenzar ni terminar con un “-”. Consulte la sección 2 de RFC 3696).
+- Hostnames must be DNS-compatible (They must use only 0-9, a-z and '-', and cannot start or end with a '-'. See RFC 3696 section 2.)
 
-- El tráfico de consultas de DNS está limitado por cada máquina virtual. Esto no debería afectar a la mayoría de las aplicaciones. Si se observa una limitación de solicitudes, asegúrese de que está habilitado el almacenamiento en caché del lado cliente. Para obtener más información, consulte [Obtención del máximo partido de la resolución de nombres de Azure](#Getting-the-most-from-Azure-provided-name-resolution).
-
-
-### Obtención del máximo partido de la resolución de nombres de Azure
-**Almacenamiento en caché del lado cliente:**
-
-No todas las consultas DNS deben enviarse a través de la red. El almacenamiento en caché del lado cliente ayuda a reducir la latencia y mejorar la resistencia a la señalización visual de la red mediante la resolución de las consultas DNS periódicas desde una caché local. Los registros DNS contienen un período de vida (TTL) que permite a la memoria caché almacenar el registro tanto como sea posible sin afectar a la actualización de registros, por lo que el almacenamiento en caché de cliente es adecuado para la mayoría de las situaciones.
-
-Algunas distribuciones de Linux no incluyen el almacenamiento en caché de forma predeterminada. Se recomienda que se agregue una a cada VM Linux (después de comprobar que aún no hay una memoria caché local).
-
-Hay una serie de distintos paquetes de almacenamiento en caché DNS disponibles, p. ej., dnsmasq; estos son los pasos para instalar dnsmasq en las distribuciones más comunes:
-
-- **Ubuntu (usa resolvconf)**:
-	- instalar únicamente el paquete dnsmasq ("sudo apt-get install dnsmasq").
-- **SUSE (usa netconf)**:
-	- instalar el paquete dnsmasq ("sudo apt-get install dnsmasq")
-	- habilitar el servicio de dnsmasq ("systemctl enable dnsmasq.service")
-	- iniciar el servicio de dnsmasq ("systemctl start dnsmasq.service")
-	- editar “/etc/sysconfig/network/config” y cambie NETCONFIG\_DNS\_FORWARDER="" por ”dnsmasq”
-	- actualizar resolv.conf ("netconfig update") para establecer la memoria caché como el solucionador DNS local
-- **OpenLogic (usa NetworkManager)**:
-	- instalar el paquete dnsmasq ("sudo yum install dnsmasq")
-	- habilitar el servicio de dnsmasq ("systemctl enable dnsmasq.service")
-	- iniciar el servicio de dnsmasq ("systemctl start dnsmasq.service")
-	- agregar “prepend domain-name-servers 127.0.0.1;” en “/etc/dhclient-eth0.conf”
-	- reiniciar el servicio de red ("service network restart") para establecer la memoria caché como el solucionador DNS local
-
-> [AZURE.NOTE]\: El paquete 'dnsmasq' es solo una de las muchas cachés DNS disponibles para Linux. Antes de usarlo, compruebe su idoneidad para sus necesidades concretas y que no se instale ninguna otra memoria caché.
-
-**Reintentos de cliente:**
-
-DNS es principalmente un protocolo UDP. Como el protocolo UDP no garantiza la entrega de mensajes, la lógica de reintento se controla en el mismo protocolo DNS. Cada cliente DNS (sistema operativo) puede presentar una lógica de reintento diferente, dependiendo de la preferencia de los creadores:
-
- - Los sistemas operativos Windows realizan un intento tras un segundo y después tras otros dos, cuatro y otros cuatro segundos.
- - El programa de instalación predeterminado de Linux lo intenta después de cinco segundos. Se recomienda cambiar esta opción para reintentarlo cinco veces a intervalos de un segundo.
-
-Para comprobar la configuración actual en una VM Linux, 'cat /etc/resolv.conf' y busque la línea 'options', p. ej.:
-
-	options timeout:1 attempts:5
-
-El archivo resolv.conf es autogenerado y no se debe editar. Los pasos específicos para agregar la línea 'options' varían según la distribución:
-
-- **Ubuntu** (usa resolvconf):
-	- agregar la línea de opciones a '/ etc/resolveconf/resolv.conf.d/head'
-	- ejecutar 'resolvconf -u' para actualizar
-- **SUSE** (usa netconf):
-	- agregar 'timeout:1 attempts:5' al parámetro NETCONFIG\_DNS\_RESOLVER\_OPTIONS="" en '/etc/sysconfig/network/config'
-	- ejecutar 'netconfig update' para actualizar
-- **OpenLogic** (usa NetworkManager):
-	- agregar 'echo "options timeout:1 attempts:5"' a '/etc/NetworkManager/dispatcher.d/11-dhclient'
-	- ejecutar 'service network restart' para actualizar
-
-## Resolución de nombres mediante su propio servidor DNS
-Hay una serie de situaciones donde sus necesidades de resolución de nombres pueden ir más allá de las funciones proporcionadas por Azure, por ejemplo, cuando se requiere la resolución de DNS entre redes virtuales. Para abarcar este escenario, Azure le ofrece la posibilidad de que use sus propios servidores DNS.
-
-Los servidores DNS de una red virtual pueden reenviar consultas DNS a resoluciones recursivas de Azure para resolver los nombres de host en la red virtual. Por ejemplo, un servidor DNS que se ejecute en Azure puede responder a sus propios archivos de zonas DNS referidas y reenviar todas las demás consultas a Azure. Esto permite que las VM vean sus propios archivos de zonas y los nombres de host proporcionados por Azure (mediante el reenviador). El acceso a las resoluciones recursivas de Azure se proporciona a través de la IP virtual 168.63.129.16.
-
-El reenvío de DNS también habilita la resolución de DNS entre redes virtuales y permite a los equipos locales resolver nombres de host proporcionados por Azure. Para resolver el nombre de host de una VM, la VM del servidor DNS debe residir en la misma red virtual y debe configurarse para reenviar consultas de nombre de host a Azure. Como el sufijo DNS es diferente en cada red virtual, puede usar las reglas de reenvío condicional para enviar consultas DNS a la red virtual correcta para su resolución. La imagen siguiente muestra dos redes virtuales y una red local realizando la resolución DNS entre redes virtuales con este método:
-
-![DNS entre redes virtuales](./media/virtual-machines-linux-azure-dns/inter-vnet-dns.png)
-
-Cuando se utiliza la resolución de nombres proporcionada por Azure, el sufijo DNS interno se proporciona a cada máquina virtual mediante DHCP. Cuando se utiliza su propia solución de resolución de nombres, no se proporciona este sufijo a las máquinas virtuales puesto que interfiere con otras arquitecturas DNS. Para hacer referencia a equipos mediante el FQDN (o para configurar el sufijo en las máquinas virtuales), el sufijo puede determinarse mediante PowerShell o la API:
-
--  Para las redes virtuales administradas de la administración de recursos de Azure, el sufijo está disponible a través del recurso de [tarjeta de interfaz de red](https://msdn.microsoft.com/library/azure/mt163668.aspx); también puede ejecutar el comando `azure network public-ip show <resource group> <pip name>` para mostrar los detalles de la dirección IP pública, incluido el FQDN de la NIC.
+- DNS query traffic is throttled for each VM. This shouldn't impact most applications.  If request throttling is observed, ensure that client-side caching is enabled.  For more details, see [Getting the most from Azure-provided name resolution](#Getting-the-most-from-Azure-provided-name-resolution).
 
 
-Si el reenvío de consultas a Azure no satisface sus necesidades, debe proporcionar su propia solución de DNS. La solución DNS debe:
+### <a name="getting-the-most-from-azure-provided-name-resolution"></a>Getting the most from Azure-provided name resolution
+**Client-side Caching:**
 
--  Proporcionar la resolución adecuada de nombres de host, por ejemplo, mediante[DDNS](../virtual-network/virtual-networks-name-resolution-ddns.md). Tenga en cuenta que si usa DDNS debe deshabilitar la limpieza de registros DNS, ya que las concesiones DHCP de Azure son muy largas y, al efectuar la limpieza, se pueden eliminar los registros DNS prematuramente.
--  Proporcionar la resolución recursiva adecuada para permitir la resolución de nombres de dominio externos.
--  Estar accesible (TCP y UDP en el puerto 53) desde los clientes a los que sirve y poder acceder a Internet.
--  Tener protección contra el acceso desde Internet para mitigar las amenazas que suponen los agentes externos.
+Not every DNS query needs to be sent across the network.  Client-side caching helps reduce latency and improve resilience to network blips by resolving recurring DNS queries from a local cache.  DNS records contain a Time-To-Live (TTL) which allows the cache to store the record for as long as possible without impacting record freshness, so client-side caching is suitable for most situations.
 
-> [AZURE.NOTE] Para obtener un mejor rendimiento, cuando se usan máquinas virtuales de Azure como servidores DNS, se debe deshabilitar IPv6 y debe asignarse una [IP pública de nivel de instancia](../virtual-network/virtual-networks-instance-level-public-ip.md) a cada máquina virtual del servidor DNS.
+Some Linux distros do not include caching by default.  It is recommended that one be added to each Linux VM (after checking that there isn't a local cache already).
 
-<!---HONumber=AcomDC_0914_2016-->
+There are several different DNS caching packages available, for example dnsmasq, here are the steps to install dnsmasq on the most common distros:
+
+- **Ubuntu (uses resolvconf)**:
+    - install the dnsmasq package (“sudo apt-get install dnsmasq”).
+- **SUSE (uses netconf)**:
+    - install the dnsmasq package (“sudo zypper install dnsmasq”) 
+    - enable the dnsmasq service (“systemctl enable dnsmasq.service”) 
+    - start the dnsmasq service (“systemctl start dnsmasq.service”) 
+    - edit “/etc/sysconfig/network/config” and change NETCONFIG_DNS_FORWARDER="" to ”dnsmasq”
+    - update resolv.conf ("netconfig update") to set the cache as the local DNS resolver
+- **OpenLogic (uses NetworkManager)**:
+    - install the dnsmasq package (“sudo yum install dnsmasq”)
+    - enable the dnsmasq service (“systemctl enable dnsmasq.service”)
+    - start the dnsmasq service (“systemctl start dnsmasq.service”)
+    - add “prepend domain-name-servers 127.0.0.1;” to “/etc/dhclient-eth0.conf”
+    - restart the network service (“service network restart”) to set the cache as the local DNS resolver
+
+> [AZURE.NOTE]: The 'dnsmasq' package is only one of the many DNS caches available for Linux.  Before using it, check its suitability for your particular needs and that no other cache is installed.
+
+**Client-side Retries:**
+
+DNS is primarily a UDP protocol.  As the UDP protocol doesn't guarantee message delivery, retry logic is handled in the DNS protocol itself.  Each DNS client (operating system) can exhibit different retry logic depending on the creators preference:
+
+ - Windows operating systems retry after one second and then again after another two, four and another four seconds. 
+ - The default Linux setup retries after five seconds.  It is recommended to change this to retry five times at one second intervals.  
+
+To check the current settings on a Linux VM, 'cat /etc/resolv.conf' and look at the 'options' line, for example:
+
+    options timeout:1 attempts:5
+
+The resolv.conf file is auto-generated and should not be edited.  The specific steps for adding the 'options' line vary by distro:
+
+- **Ubuntu** (uses resolvconf):
+    - add the options line to '/etc/resolveconf/resolv.conf.d/head' 
+    - run 'resolvconf -u' to update
+- **SUSE** (uses netconf):
+    - add 'timeout:1 attempts:5' to the NETCONFIG_DNS_RESOLVER_OPTIONS="" parameter in '/etc/sysconfig/network/config' 
+    - run 'netconfig update' to update
+- **OpenLogic** (uses NetworkManager):
+    - add 'echo "options timeout:1 attempts:5"' to '/etc/NetworkManager/dispatcher.d/11-dhclient' 
+    - run 'service network restart' to update
+
+## <a name="name-resolution-using-your-own-dns-server"></a>Name resolution using your own DNS server
+There are several situations where your name resolution needs may go beyond the features provided by Azure, for example when you require DNS resolution between virtual networks (vnets).  To cover this scenario, Azure provides the ability for you to use your own DNS servers.  
+
+DNS servers within a virtual network can forward DNS queries to Azure's recursive resolvers to resolve hostnames within that virtual network.  For example, a DNS server running in Azure can respond to DNS queries for its own DNS zone files and forward all other queries to Azure.  This allows VMs to see both your entries in your zone files and Azure-provided hostnames (via the forwarder).  Access to Azure's recursive resolvers is provided via the virtual IP 168.63.129.16.
+
+DNS forwarding also enables inter-vnet DNS resolution and allows your on-premise machines to resolve Azure-provided hostnames.  To resolve a VM's hostname, the DNS server VM must reside in the same virtual network and be configured to forward hostname queries to Azure.  As the DNS suffix is different in each vnet, you can use conditional forwarding rules to send DNS queries to the correct vnet for resolution.  The following image shows two vnets and an on-premise network doing inter-vnet DNS resolution using this method:
+
+![Inter-vnet DNS](./media/virtual-machines-linux-azure-dns/inter-vnet-dns.png)
+
+When using Azure-provided name resolution, the Internal DNS suffix is provided to each VM using DHCP.  When using your own name resolution solution, this suffix is not supplied to VMs because it interferes with other DNS architectures.  To refer to machines by FQDN, or to configure the suffix on your VMs, the suffix can be determined using PowerShell or the API:
+
+-  For Azure Resource Management managed vnets, the suffix is available via the [network interface card](https://msdn.microsoft.com/library/azure/mt163668.aspx) resource or you can run the command `azure network public-ip show <resource group> <pip name>` to display the details of your public IP, including the FQDN of the nic.    
+
+
+If forwarding queries to Azure doesn't suit your needs, you need to provide your own DNS solution.  Your DNS solution needs to:
+
+-  Provide appropriate hostname resolution, for example via [DDNS](../virtual-network/virtual-networks-name-resolution-ddns.md).  Note, if using DDNS you may need to disable DNS record scavenging as Azure's DHCP leases are very long and scavenging may remove DNS records prematurely. 
+-  Provide appropriate recursive resolution to allow resolution of external domain names.
+-  Be accessible (TCP and UDP on port 53) from the clients it serves and be able to access the internet.
+-  Be secured against access from the internet, to mitigate threats posed by external agents.
+
+> [AZURE.NOTE] For best performance, when using Azure VMs as DNS servers, IPv6 should be disabled and an [Instance-Level Public IP](../virtual-network/virtual-networks-instance-level-public-ip.md) should be assigned to each DNS server VM.  
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

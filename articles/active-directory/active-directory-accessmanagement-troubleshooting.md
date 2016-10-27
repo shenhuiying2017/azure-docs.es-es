@@ -1,37 +1,42 @@
 
 <properties
-	pageTitle="Solución de problemas de pertenencia dinámica para grupos| Microsoft Azure"
-	description="Solución de problemas para la pertenencia dinámica para grupos en Azure AD."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""
-	/>
+    pageTitle="Troubleshooting dynamic membership for groups | Microsoft Azure"
+    description="Troubleshooting tips for dynamic membership for groups in Azure AD."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""
+    />
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/10/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/10/2016"
+    ms.author="curtand"/>
 
 
-# Solución de problemas relacionados con las pertenencias dinámicas para grupos
 
-**He configurado una regla en un grupo, pero las pertenencias no se actualizan en el grupo**<br/>Compruebe que el valor de **Habilitar la administración de grupos delegados** está establecido en **Sí** en la pestaña **Configurar**. Esta opción solo se verá si ha iniciado sesión como un usuario a quien se ha asignado una licencia de Active Directory Premium de Azure. Compruebe los valores de atributos de usuario en la regla: ¿hay usuarios que cumplen la regla?
+# <a name="troubleshooting-dynamic-memberships-for-groups"></a>Troubleshooting dynamic memberships for groups
 
-**He configurado una regla, pero ahora los miembros existentes de la regla se han eliminado**<br/> Este es el comportamiento esperado. Los miembros existentes del grupo se quitan cuando una regla se habilita o se cambia. Los usuarios devueltos tras la evaluación de la regla se agregan como miembros al grupo.
+**I configured a rule on a group but no memberships get updated in the group**<br/>Verify that the **Enable delegated group management** setting is set to **Yes** in the **Configure** tab. You will see this setting only if you are signed in as a user to whom an Azure Active Directory Premium license is assigned. Verify the values for user attributes on the rule: are there users that satisfy the rule?
 
-**No veo cambios en la pertenencia al instante cuando agrego o cambio una regla, ¿por qué no?**<br/>La evaluación de pertenencia dedicada se realiza periódicamente en un proceso asincrónico en segundo plano. La duración del proceso viene determinada por el número de usuarios del directorio y el tamaño del grupo creado como resultado de la regla. Normalmente, los directorios con un número pequeño de usuarios verán los cambios en la pertenencia al grupo en unos pocos minutos. Los directorios con un gran número de usuarios pueden tardar 30 minutos o más en completarse.
+**I configured a rule, but now the existing members of the rule are removed**<br/>This is expected behavior. Existing members of the group are removed when a rule is enabled or changed. The users returned from evaluation of the rule are added as members to the group.     
 
-Estos artículos proporcionan información adicional sobre Azure Active Directory.
+**I don’t see membership changes instantly when I add or change a rule, why not?**<br/>Dedicated membership evaluation is done periodically in an asynchronous background process. How long the process takes is determined by the number of users in your directory and the size of the group created as a result of the rule. Typically, directories with small numbers of users will see the group membership changes in less than a few minutes. Directories with a large number of users can take 30 minutes or longer to populate.
 
-* [Administración del acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md)
-* [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
-* [¿Qué es Azure Active Directory?](active-directory-whatis.md)
-* [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
+These articles provide additional information on Azure Active Directory.
 
-<!---HONumber=AcomDC_0817_2016-->
+* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+* [What is Azure Active Directory?](active-directory-whatis.md)
+* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

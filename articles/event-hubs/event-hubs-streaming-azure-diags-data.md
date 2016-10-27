@@ -1,53 +1,54 @@
 <properties
-	pageTitle="Transmisión de datos de Diagnósticos de Azure en la ruta de acceso activa mediante Centros de eventos | Microsoft Azure"
-	description="Se muestra cómo configurar Diagnósticos de Azure con Centros de eventos de extremo a extremo, además de instrucciones para escenarios comunes."
-	services="event-hubs"
-	documentationCenter="na"
-	authors="sethmanheim"
-	manager="timlt"
-	editor="" />
+    pageTitle="Streaming Azure Diagnostics data in the hot path using Event Hubs | Microsoft Azure"
+    description="Illustrates how to configure Azure Diagnostics with Event Hubs from end to end, including guidance for common scenarios."
+    services="event-hubs"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags
-	ms.service="event-hubs"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="07/14/2016"
-	ms.author="sethm" />
+    ms.service="event-hubs"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="07/14/2016"
+    ms.author="sethm" />
 
-# Transmisión de datos de Diagnósticos de Azure en la ruta de acceso activa mediante Centros de eventos
 
-Diagnósticos de Azure proporciona maneras flexibles de recopilar métricas y registros de máquinas virtuales de servicios en la nube (VM) y transferir los resultados a Almacenamiento de Azure. A partir de marzo de 2016 (SDK 2.9), se puede insertar diagnósticos en orígenes de datos completamente personalizados y transferir datos de rutas activas en cuestión de segundos mediante [Centros de eventos de Azure](https://azure.microsoft.com/services/event-hubs/).
+# <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Streaming Azure Diagnostics data in the hot path by using Event Hubs
 
-Entre los tipos de datos admitidos se incluyen:
+Azure Diagnostics provides flexible ways to collect metrics and logs from cloud services virtual machines (VMs) and transfer results to Azure Storage. Starting in the March 2016 (SDK 2.9) time frame, you can sink Diagnostics to completely custom data sources and transfer hot path data in seconds by using [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
 
-- Eventos de Seguimiento de eventos para Windows (ETW)
-- Contadores de rendimiento
-- Registros de eventos de Windows
-- Registros de aplicación
-- Registros de infraestructura de diagnóstico de Azure
+Supported data types include:
 
-En este artículo se muestra cómo configurar Diagnósticos de Azure con Centros de eventos de manera integral. También se proporcionan instrucciones para los siguientes escenarios comunes:
+- Event Tracing for Windows (ETW) events
+- Performance counters
+- Windows event logs
+- Application logs
+- Azure Diagnostics infrastructure logs
 
-- Cómo personalizar los registros y las métricas que se reciben en los Centros de eventos
-- Cómo cambiar la configuración de cada entorno
-- Cómo ver los datos de secuencia de los Centros de eventos
-- Cómo solucionar los problemas de conexión
+This article shows you how to configure Azure Diagnostics with Event Hubs from end to end. Guidance is also provided for the following common scenarios:
 
-## Requisitos previos
+- How to customize the logs and metrics that get sinked to Event Hubs
+- How to change configurations in each environment
+- How to view Event Hubs stream data
+- How to troubleshoot the connection  
 
-La recepción de Centros de eventos en Diagnósticos de Azure se admite en Servicios en la nube, máquinas virtuales, conjuntos de escala de máquinas virtuales y Service Fabric comenzando en el SDK 2.9 de Azure y las correspondientes herramientas de Azure Tools para Visual Studio.
+## <a name="prerequisites"></a>Prerequisites
 
-- La extensión de Diagnósticos de Azure 1.6 ([Azure SDK para .NET 2.9 o posterior](https://azure.microsoft.com/downloads/) sirve a este fin de forma predeterminada).
-- [Visual Studio 2013 o posterior.](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
-- Configuraciones existentes de Diagnósticos de Azure en una aplicación mediante un archivo *.wadcfgx* y uno de los siguientes métodos:
-	- Visual Studio: [Configuración de Diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-	- Windows PowerShell: [Habilitar el diagnóstico en Servicios en la nube de Azure mediante PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
-- Espacio de nombres de Centros de eventos aprovisionado según el artículo [Introducción a los Centros de eventos](./event-hubs-csharp-ephcs-getstarted.md)
+Event Hubs sinking in Azure Diagnostics is supported in Cloud Services, VMs, Virtual Machine Scale Sets, and Service Fabric starting in the Azure SDK 2.9 and the corresponding Azure Tools for Visual Studio.
 
-## Conectar Diagnósticos de Azure al receptor de Centros de eventos
+- Azure Diagnostics extension 1.6 ([Azure SDK for .NET 2.9 or later](https://azure.microsoft.com/downloads/) targets this by default)
+- [Visual Studio 2013 or later](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+- Existing configurations of Azure Diagnostics in an application by using a *.wadcfgx* file and one of the following methods:
+    - Visual Studio: [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
+    - Windows PowerShell: [Enable diagnostics in Azure Cloud Services using PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
+- Event Hubs namespace provisioned per the article, [Get started with Event Hubs](./event-hubs-csharp-ephcs-getstarted.md)
 
-Diagnósticos de Azure siempre inserta registros y métricas, de forma predeterminada, en una cuenta de Almacenamiento de Azure. Adicionalmente, una aplicación se puede insertar en Centros de eventos agregando una nueva sección **Sinks** al elemento **WadCfg** de la sección **PublicConfig** del archivo *wadcfgx*. En Visual Studio, el archivo *.wadcfgx* está almacenado en la siguiente ruta de acceso: **Proyecto de servicio de nube** > **Roles** > **(nombreDelRol)** > archivo **diagnostics.wadcfgx**.
+## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Connect Azure Diagnostics to Event Hubs sink
+
+Azure Diagnostics always sinks logs and metrics, by default, to an Azure Storage account. An application may additionally sink to Event Hubs by adding a new **Sinks** section to the **WadCfg** element in the **PublicConfig** section of the *.wadcfgx* file. In Visual Studio, the *.wadcfgx* file is stored in the following path: **Cloud Service Project** > **Roles** >  **(RoleName)** > **diagnostics.wadcfgx** file.
 
 ```
 <SinksConfig>
@@ -57,15 +58,15 @@ Diagnósticos de Azure siempre inserta registros y métricas, de forma predeterm
 </SinksConfig>
 ```
 
-En este ejemplo, la URL del Centro de eventos se establece en el espacio de nombres completo del Centro de eventos: espacio de nombres de Centro de eventos + "/" + nombre del Centro de eventos.
+In this example, the Event Hub URL is set to the fully qualified namespace of the Event Hub: Event Hubs namespace  + "/" + Event Hub name.  
 
-La URL del Centro de eventos se muestra en el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkID=213885) del panel de Centros de eventos.
+The Event Hub URL is displayed in the [Azure portal](http://go.microsoft.com/fwlink/?LinkID=213885) on the Event Hubs dashboard.  
 
-El nombre **Sink** se puede establecer en cualquier cadena válida siempre y cuando se use el mismo valor sistemáticamente en el archivo de configuración.
+The **Sink** name can be set to any valid string as long as the same value is used consistently throughout the config file.
 
-> [AZURE.NOTE]  Puede que haya más receptores configurados en esta sección, como *applicationInsights*. Diagnósticos de Azure permite definir uno o varios receptores, si cada uno de ellos también se declara en la sección **PrivateConfig**.
+> [AZURE.NOTE]  There may be additional sinks, such as *applicationInsights* configured in this section. Azure Diagnostics allows one or more sinks to be defined if each sink is also declared in the **PrivateConfig** section.  
 
-El receptor de Centros de eventos también se debe declarar y definir en la sección **PrivateConfig** del archivo de configuración *.wadcfgx*.
+The Event Hubs sink must also be declared and defined in the **PrivateConfig** section of the *.wadcfgx* config file.
 
 ```
 <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -74,17 +75,17 @@ El receptor de Centros de eventos también se debe declarar y definir en la secc
 </PrivateConfig>
 ```
 
-El valor de `SharedAccessKeyName` debe coincidir con una directiva y una clave de firma de acceso compartido (SAS) que se hayan definido en el espacio de nombres de **Centros de eventos**. Vaya al panel de Centros de eventos en el [Portal de Azure](https://manage.windowsazure.com), seleccione la pestaña **Configurar** y configure una directiva con nombre (por ejemplo, SendRule) que tenga permisos de *envío*. El elemento **StorageAccount** también se declara en **PrivateConfig**. No hace falta cambiar estos valores si funcionan. En este ejemplo, dejamos los valores vacíos, que indica que un activo de bajada establecerá los valores. Por ejemplo, el archivo de configuración del entorno *ServiceConfiguration.Cloud.cscfg* establecerá las claves y los nombres apropiados.
+The `SharedAccessKeyName` value must match a Shared Access Signature (SAS) key and policy that has been defined in the **Event Hubs** namespace. Browse to the Event Hubs dashboard in the [Azure portal](https://manage.windowsazure.com), click the **Configure** tab, and set up a named policy (for example, "SendRule") that has *Send* permissions. The **StorageAccount** is also declared in **PrivateConfig**. There is no need to change values here if they are working. In this example, we leave the values empty, which is a sign that a downstream asset will set the values. For example, the *ServiceConfiguration.Cloud.cscfg* environment configuration file sets the environment-appropriate names and keys.  
 
-> [AZURE.WARNING] Tenga en cuenta que la clave SAS de Centros de eventos se almacena en texto sin formato en el archivo *wadcfgx*. A menudo, esta clave se registra en el control de código fuente o está disponible como un recurso en el servidor de compilación, por lo que debe protegerla de la manera adecuada. Se recomienda usar aquí una clave SAS con permisos de *solo envío* para que cualquier usuario malintencionado pueda escribir en el Centro de eventos, pero nunca realizar operaciones de administración ni de escucha.
+> [AZURE.WARNING] The Event Hubs SAS key is stored in plain text in the *.wadcfgx* file. Often, this key is checked in to source code control or is available as an asset in your build server, so you should protect it as appropriate. We recommend that you use a SAS key here with *Send only* permissions so that a malicious user can write to the Event Hub, but not listen to it or manage it.
 
-## Configuración de registros y métricas de Diagnósticos de Azure para insertarlos con Centros de eventos
+## <a name="configure-azure-diagnostics-logs-and-metrics-to-sink-with-event-hubs"></a>Configure Azure Diagnostics logs and metrics to sink with Event Hubs
 
-Como se ha indicado anteriormente, todos los datos de diagnóstico predeterminados y personalizados (es decir, métricas y registros) se insertan automáticamente en Almacenamiento de Azure en los intervalos configurados. Con Centros de eventos (y cualquier receptor adicional), puede especificar que cualquier nodo raíz u hoja de la jerarquía se inserte en el Centro de eventos. Esto incluye eventos ETW, contadores de rendimiento, registros de eventos de Windows y registros de aplicaciones.
+As discussed earlier, all default and custom diagnostics data, that is, metrics and logs, is automatically sinked to Azure Storage in the configured intervals. With Event Hubs and any additional sink, you can specify any root or leaf node in the hierarchy to be sinked with the Event Hub. This includes ETW events, performance counters, Windows event logs, and application logs.   
 
-Es importante tener en cuenta cuántos puntos de datos se deben transferir realmente a Centros de eventos. Normalmente, los desarrolladores transfieren datos de ruta de acceso activa y de baja latencia que deben consumirse e interpretarse rápidamente. Los sistemas que supervisan las alertas o las reglas de escalado automático son algunos ejemplos. Un desarrollador también puede configurar un almacén de búsqueda o un almacén de análisis alternativo (por ejemplo, Análisis de transmisiones de Azure, Elasticsearch, un sistema de supervisión personalizado o un sistema de supervisión favorito de terceros).
+It is important to consider how many data points should actually be transferred to Event Hubs. Typically, developers transfer low-latency hot-path data that must be consumed and interpreted quickly. Systems that monitor alerts or autoscale rules are examples. A developer might also configure an alternate analysis store or search store -- for example, Azure Stream Analytics, Elasticsearch, a custom monitoring system, or a favorite monitoring system from others.
 
-Las siguientes son algunas configuraciones de ejemplo.
+The following are some example configurations.
 
 ```
 <PerformanceCounters scheduledTransferPeriod="PT1M" sinks="HotPath">
@@ -99,7 +100,7 @@ Las siguientes son algunas configuraciones de ejemplo.
 </PerformanceCounters>
 ```
 
-En el ejemplo siguiente, el receptor se aplica al nodo principal **PerformanceCounters** de la jerarquía, lo que significa que todos los nodos secundarios **PerformanceCounters** se enviarán a Centros de eventos.
+In the following example, the sink is applied to the parent **PerformanceCounters** node in the hierarchy, which means all child **PerformanceCounters** will be sent to Event Hubs.  
 
 ```
 <PerformanceCounters scheduledTransferPeriod="PT1M">
@@ -114,39 +115,39 @@ En el ejemplo siguiente, el receptor se aplica al nodo principal **PerformanceCo
 </PerformanceCounters>
 ```
 
-En el ejemplo anterior, el receptor se aplica solo a tres contadores: **Solicitudes en cola**, **Solicitudes rechazadas** y **% de tiempo de procesador**.
+In the previous example, the sink is applied to only three counters: **Requests Queued**, **Requests Rejected**, and **% Processor time**.  
 
-En el ejemplo siguiente se muestra cómo un desarrollador puede limitar la cantidad de datos que se envían como métricas críticas usadas para el estado del servicio.
+The following example shows how a developer can limit the amount of sent data to be the critical metrics that are used for this service’s health.  
 
 ```
 <Logs scheduledTransferPeriod="PT1M" sinks="HotPath" scheduledTransferLogLevelFilter="Error" />
 ```
 
-En este ejemplo, el receptor se aplica a los registros y se filtra solo para el seguimiento de nivel Error.
+In this example, the sink is applied to logs and is filtered only to error level trace.
 
-## Implementación y actualización de una aplicación de servicios en la nube y configuración de diagnósticos
+## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Deploy and update a Cloud Services application and diagnostics config
 
-Visual Studio proporciona la manera más sencilla de implementar la aplicación y la configuración del receptor de Centros de eventos. Para ver y editar el archivo, abra el archivo *.wadcfgx* en Visual Studio, edítelo y guárdelo. La ruta de acceso es **Proyecto de servicio de nube ** > **Roles** > **(nombreDelRol)** > **diagnostics.wadcfgx**.
+Visual Studio provides the easiest path to deploy the application and Event Hubs sink configuration. To view and edit the file, open the *.wadcfgx* file in Visual Studio, edit it, and save it. The path is **Cloud Service Project** > **Roles** > **(RoleName)** > **diagnostics.wadcfgx**.  
 
-En este punto, toda la implementación y las acciones de actualización de la implementación en Visual Studio, Visual Studio Team System, además de todos los comandos o scripts que se basan en MSBuild y usan el destino **/t:publish** incluirán el archivo *.wadcfgx* en el proceso de empaquetado. Además, las implementaciones y actualizaciones implementan el archivo en Azure mediante la extensión del agente de Diagnósticos de Azure en las máquinas virtuales.
+At this point, all deployment and deployment update actions in Visual Studio, Visual Studio Team System, and all commands or scripts that are based on MSBuild and use the **/t:publish** target include the *.wadcfgx* in the packaging process. In addition, deployments and updates deploy the file to Azure by using the appropriate Azure Diagnostics agent extension on your VMs.
 
-Después de implementar la aplicación y la configuración de Diagnósticos de Azure, verá inmediatamente la actividad en el panel del Centros de eventos. Esto indica que está listo para continuar y ver los datos de la ruta de acceso activa en el cliente de escucha o la herramienta de análisis que prefiera.
+After you deploy the application and Azure Diagnostics configuration, you will immediately see activity in the dashboard of the Event Hub. This indicates that you're ready to move on to viewing the hot-path data in the listener client or analysis tool of your choice.  
 
-En la siguiente figura, el panel de Centros de eventos muestra el envío correcto de los datos de diagnóstico al Centro de eventos a partir de las 23:00. Ese es el momento en que la aplicación se ha implementado con un archivo *.wadcfgx* actualizado y el receptor se ha configurado correctamente.
+In the following figure, the Event Hubs dashboard shows healthy sending of diagnostics data to the Event Hub starting sometime after 11 PM. That's when the application was deployed with an updated *.wadcfgx* file, and the sink was configured properly.
 
-![][0]
+![][0]  
 
-> [AZURE.NOTE] Al realizar actualizaciones en el archivo de configuración de Diagnósticos de Azure (.wadcfgx), se recomienda insertar las actualizaciones en toda la aplicación, además de la configuración, mediante el script de publicación de Visual Studio o el de Windows PowerShell.
+> [AZURE.NOTE] When you make updates to the Azure Diagnostics config file (.wadcfgx), it's recommended that you push the updates to the entire application as well as the configuration by using either Visual Studio publishing, or a Windows PowerShell script.  
 
-## Ver los datos de la ruta de acceso activa
+## <a name="view-hot-path-data"></a>View hot-path data
 
-Como se explicó anteriormente, la escucha y el procesamiento de datos de Centros de eventos tienen varias finalidades.
+As discussed previously, there are many use cases for listening to and processing Event Hubs data.
 
-Un enfoque sencillo es crear una pequeña aplicación de consola de prueba para escuchar en el Centro de eventos e imprimir el flujo de salida. Puede colocar el código siguiente (que se explica con más detalle en [Introducción a los Centros de eventos](./event-hubs-csharp-ephcs-getstarted.md)) en una aplicación de consola.
+One simple approach is to create a small test console application to listen to the Event Hub and print the output stream. You can place the following code, which is explained in more detail in [Get started with Event Hubs](./event-hubs-csharp-ephcs-getstarted.md)), in a console application.  
 
-Tenga en cuenta que la aplicación de consola debe incluir el [paquete NuGet del host del procesador de eventos](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).
+Note that the console application must include the [Event Processor Host Nuget package](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).  
 
-No olvide sustituir los valores que aparecen entre corchetes angulares en la función **Main** por los valores de sus recursos.
+Remember to replace the values in angle brackets in the **Main** function with values for your resources.   
 
 ```
 //Console application code for EventHub test client
@@ -186,8 +187,8 @@ namespace EventHubListener
             foreach (EventData eventData in messages)
             {
                 string data = Encoding.UTF8.GetString(eventData.GetBytes());
-	                Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
-	                    context.Lease.PartitionId, data));
+                    Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
+                        context.Lease.PartitionId, data));
 
                 foreach (var x in eventData.Properties)
                 {
@@ -229,25 +230,25 @@ namespace EventHubListener
 }
 ```
 
-## Solucionar los problemas del receptor de Centros de eventos
+## <a name="troubleshoot-event-hubs-sink"></a>Troubleshoot Event Hubs sink
 
-- El Centro de eventos no muestra la actividad de eventos entrante o saliente esperada.
+- The Event Hub does not show incoming or outgoing event activity as expected.
 
-	Compruebe que el Centro de eventos esté correctamente aprovisionado. Toda la información de conexión de la sección **PrivateConfig** de *wadcfgx* debe coincidir con los valores de su recurso, tal y como se muestra en el portal. Asegúrese de tener una directiva SAS definida (SendRule en el ejemplo) en el portal y que se haya concedido el permiso de *envío*.
+    Check that your Event Hub is successfully provisioned. All connection info in the **PrivateConfig** section of *.wadcfgx* must match the values of your resource as seen in the portal. Make sure that you have a SAS policy defined ("SendRule" in the example) in the portal and that *Send* permission is granted.  
 
-- Después de una actualización, el Centro de eventos ya no muestra actividad de eventos entrante o saliente.
+- After an update, the Event Hub no longer shows incoming or outgoing event activity.
 
-	Primero, asegúrese de que el Centro de eventos y la información de configuración es correcta tal y como se ha explicado anteriormente. A veces, **PrivateConfig** se restablece en una actualización de implementación. La solución recomendada consiste en realizar todos los cambios en *.wadcfgx* en el proyecto y, luego, insertar una actualización completa de la aplicación. Si no es posible, asegúrese de que la actualización de diagnósticos inserta completamente **PrivateConfig**, lo que incluye la clave SAS.
+    First, make sure that the Event Hub and configuration info is correct as explained previously. Sometimes the **PrivateConfig** is reset in a deployment update. The recommended fix is to make all changes to *.wadcfgx* in the project and then push a complete application update. If this is not possible, make sure that the diagnostics update pushes a complete **PrivateConfig** that includes the SAS key.  
 
-- He probado las sugerencias y el Centro de eventos sigue sin funcionar.
+- I tried the suggestions, and the Event Hub is still not working.
 
-	Pruebe a mirar en la tabla de Almacenamiento de Azure que contiene registros y errores del servicio Diagnósticos de Azure: **WADDiagnosticInfrastructureLogsTable**. Una opción es usar una herramienta como el [Explorador de almacenamiento de Azure](http://www.storageexplorer.com) para conectarse a esta cuenta de almacenamiento, ver esta tabla y agregar una consulta para TimeStamp en las últimas 24 horas. Puede usar la herramienta para exportar un archivo .csv y abrirlo en una aplicación como Microsoft Excel. Excel facilita la búsqueda de cadenas de tarjeta de llamadas, como **EventHubs**, para ver qué error se notifica.
+    Try looking in the Azure Storage table that contains logs and errors for Azure Diagnostics itself: **WADDiagnosticInfrastructureLogsTable**. One option is to use a tool such as [Azure Storage Explorer](http://www.storageexplorer.com) to connect to this storage account, view this table, and add a query for TimeStamp in the last 24 hours. You can use the tool to export a .csv file and open it in an application such as Microsoft Excel. Excel makes it easy to search for calling-card strings, such as **EventHubs**, to see what error is reported.  
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-• [Más información sobre Centros de eventos](https://azure.microsoft.com/services/event-hubs/)
+•   [Learn more about Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 
-## Apéndice: Archivo de configuración completo de Diagnósticos de Azure (.wadcfgx): ejemplo
+## <a name="appendix:-complete-azure-diagnostics-configuration-file-(.wadcfgx)-example"></a>Appendix: Complete Azure Diagnostics configuration file (.wadcfgx) example
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -302,7 +303,7 @@ namespace EventHubListener
 </DiagnosticsConfiguration>
 ```
 
-El archivo *ServiceConfiguration.Cloud.cscfg* complementario para este ejemplo se parece al siguiente.
+The complementary *ServiceConfiguration.Cloud.cscfg* for this example looks like the following.
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -319,4 +320,8 @@ El archivo *ServiceConfiguration.Cloud.cscfg* complementario para este ejemplo s
 <!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

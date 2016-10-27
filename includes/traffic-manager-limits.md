@@ -1,8 +1,10 @@
-Recurso| Límite predeterminado
+Resource| Default limit
 ---|---
-Perfiles por suscripción | 100 <sup>1</sup>
-Extremos por perfil| 200
+Profiles per subscription | 100 <sup>1</sup>
+Endpoints per profile| 200
 
-<sup>1</sup>Si necesita aumentar estos límites, póngase en contacto con soporte técnico.
+<sup>1</sup>Contact support in case you need to increase these limits.
 
-<!---HONumber=Nov15_HO1-->
+<!--HONumber=Oct16_HO2-->
+
+

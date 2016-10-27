@@ -1,23 +1,26 @@
-### Requisitos previos
-- Una cuenta de Twilio
-- Un número de teléfono de Twilio comprobado que pueda recibir SMS
-- Un número de teléfono de Twilio comprobado que pueda enviar SMS
+### <a name="prerequisites"></a>Prerequisites
+- A Twilio account
+- A verified Twilio phone number that can receive SMS
+- A verified Twilio phone number that can send SMS
 
->[AZURE.NOTE] Si usa una cuenta de prueba de Twilio, solamente podrá enviar SMS a números de teléfono **comprobados**.
+>[AZURE.NOTE] If you are using a Twilio trial account, you can only send SMS to **verified** phone numbers.  
 
-Para poder usar su cuenta de Twilio en una aplicación lógica, debe autorizar a la aplicación lógica para que pueda conectarse a dicha cuenta. Por suerte, esto es muy fácil de hacer desde la aplicación lógica en el Portal de Azure.
+Before you can use your Twilio account in a Logic app, you must authorize the Logic app to connect to your Twilio account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
 
-Aquí se explica cómo autorizar a la aplicación lógica para conectarse a su cuenta de Twilio:
+Here are the steps to authorize your Logic app to connect to your Twilio account:
 
-1. Para crear una conexión a Twilio, en el diseñador de aplicaciones lógicas, seleccione **Show Microsoft managed APIs** (Mostrar API administradas por Microsoft) en la lista desplegable y, luego, escriba *Twilio* en el cuadro de búsqueda. Seleccione el desencadenador o la acción que quiera usar:  
+1. To create a connection to Twilio, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Twilio* in the search box. Select the trigger or action you'll like to use:  
   ![](./media/connectors-create-api-twilio/twilio-0.png)
-2. Si no ha creado ninguna conexión a Twilio antes, se le pedirá que indique sus credenciales de Twilio. Estas credenciales se usarán para autorizar a la aplicación lógica para conectarse y tener acceso a los datos de su cuenta de Twilio:  
+2. If you haven't created any connections to Twilio before, you'll get prompted to provide your Twilio credentials. These credentials will be used to authorize your Logic app to connect to, and access your Twilio account's data:  
   ![](./media/connectors-create-api-twilio/twilio-1.png)  
-3. Necesitará el **identificador cuenta de Twilio** y el **token de acceso de Twilio** del panel de Twilio, así que inicie sesión en su cuenta de Twilio para obtener esos dos datos:  
+3. You'll need the **Twilio account id** and **Twilio access token**  from the dashboard in Twilio, so log in to your Twilio account now to grab these two pieces of information:  
   ![](./media/connectors-create-api-twilio/twilio-2.png)  
-4. Twilio y las aplicaciones lógicas usan nombres diferentes para identificar estos dos tipos de datos. Aquí se indica cómo hay que asignarlos al cuadro de diálogo de aplicaciones lógicas:  
-  ![](./media/connectors-create-api-twilio/twilio-3.png)  
-5. Seleccione el botón **Crear conexión**:  
+4. Twilio and Logic apps use different names to identify these two pieces of infomation. Here is how you must map them to the Logic apps dialog: ![](./media/connectors-create-api-twilio/twilio-3.png)  
+5. Select the **Create connection** button:  
   ![](./media/connectors-create-api-twilio/twilio-4.png)
-6. Observe que la conexión se ha creado y que puede continuar sin problemas con el resto de pasos en la aplicación lógica:  
+6. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
   ![](./media/connectors-create-api-twilio/twilio-5.png)
+
+<!--HONumber=Oct16_HO2-->
+
+

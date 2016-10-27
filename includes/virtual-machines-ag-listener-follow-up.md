@@ -1,3 +1,6 @@
-Después de crear el agente de escucha del grupo de disponibilidad, puede ser necesario ajustar los parámetros de clúster **RegisterAllProvidersIP** y **HostRecordTTL** para el recurso de agente de escucha. Estos parámetros pueden reducir el tiempo de reconexión tras una conmutación por error que puede evitar los tiempos de expiración de la conexión. Para obtener más información sobre estos parámetros, así como un código de ejemplo, consulte el tema [Crear o configurar un agente de escucha del grupo de disponibilidad](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover).
+After the availability group listener is created, it may be necessary to adjust the **RegisterAllProvidersIP** and **HostRecordTTL** cluster parameters for the listener resource.  These parameters may reduce reconnection time after a failover which may prevent connection timeouts. For more information on these parameters, as well as sample code, see [Create or Configure an Availability Group Listener](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover).
 
-<!------HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

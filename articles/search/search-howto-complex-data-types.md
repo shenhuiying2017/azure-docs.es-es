@@ -1,11 +1,11 @@
 <properties
-    pageTitle="Modelado de tipos de datos complejos en Azure Search | Microsoft Azure Search"
-    description="Las estructuras de datos jerárquicas o anidadas se pueden modelar en un índice de Azure Search mediante conjuntos de filas aplanados y el tipo de datos Collections."
+    pageTitle="How to model complex data types in Azure Search | Microsoft Azure Search"
+    description="Nested or hierarchical data structures can be modeled in an Azure Search index using flattened rowset and Collections data type."
     services="search"
     documentationCenter=""
-	authors="LiamCa"
-	manager="pablocas"
-	editor=""
+    authors="LiamCa"
+    manager="pablocas"
+    editor=""
     tags="complex data types; compound data types; aggregate data types"
 />
 
@@ -19,15 +19,16 @@
     ms.author="liamca"
 />
 
-# Modelado de tipos de datos complejos en Azure Search
 
-Los conjuntos de datos externos usados para rellenar un índice de Azure Search a veces incluyen subestructuras jerárquicas o anidadas que no se dividen perfectamente en un conjunto de filas tabular. Algunos ejemplos de estas estructuras son varias ubicaciones y números de teléfono de un solo cliente, varios tamaños y colores de un único SKU, varios autores de un único libro, etc. En términos de modelado, puede que vea referirse a estas estructuras como *tipos de datos complejos*, *tipos de datos compuestos* o *tipos de datos agregados*, por nombrar algunos.
+# <a name="how-to-model-complex-data-types-in-azure-search"></a>How to model complex data types in Azure Search
 
-Los tipos de datos complejos no se admiten de forma nativa en Azure Search, pero existe una solución probada que consiste en seguir un proceso en dos pasos para aplanar la estructura y, a continuación, utilizar un tipo de datos **Collection** para reconstituir la estructura interior. La técnica descrita en este artículo permite buscar, buscar con facetas, filtrar y ordenar el contenido.
+External datasets used to populate an Azure Search index sometimes include hierarchical or nested substructures that do not break down neatly into a tabular rowset. Examples of such structures might include multiple locations and phone numbers for a single customer, multiple colors and sizes for a single SKU, multiple authors of a single book, and so on. In modeling terms, you might see these structures referred to as *complex data types*, *compound data types*, *composite data types*, or *aggregate data types*, to name a few.
 
-## Ejemplo de una estructura de datos complejos
+Complex data types are not natively supported in Azure Search, but a proven workaround includes a two-step process of flattening the structure and then using a **Collection** data type to reconstitute the interior structure. Following the technique described in this article allows the content to be searched, faceted, filtered, and sorted.
 
-Normalmente, los datos en cuestión residen como un conjunto de documentos JSON o XML o como elementos en un almacén de NoSQL, por ejemplo, DocumentDB. Estructuralmente, la dificultad radica en tener varios elementos secundarios que se deben buscar y filtrar. Como punto de partida para ilustrar la solución alternativa, tome como ejemplo el siguiente documento JSON que enumera un conjunto de contactos:
+## <a name="example-of-a-complex-data-structure"></a>Example of a complex data structure
+
+Typically, the data in question resides as a set of JSON or XML documents, or as items in a NoSQL store such as DocumentDB. Structurally, the challenge stems from having multiple child items that need to be searched and filtered.  As a starting point for illustrating the workaround, take the following JSON document that lists a set of contacts as an example:
 
 ~~~~~
 [
@@ -63,22 +64,22 @@ Normalmente, los datos en cuestión residen como un conjunto de documentos JSON 
 }]
 ~~~~~
 
-Mientras que los campos 'id', 'name' y 'company' se pueden asignar fácilmente uno a uno como campos en un índice de Azure Search, el campo 'locations' contiene una matriz de ubicaciones, con un conjunto de identificadores de ubicación así como descripciones de ubicación. Como Azure Search no tiene un tipo de datos que admita esto, necesitamos una manera diferente de modelarlo Azure Search.
+While the fields named ‘id’, ‘name’ and ‘company’ can easily be mapped one-to-one as fields within an Azure Search index, the ‘locations’ field contains an array of locations, having both a set of location IDs as well as location descriptions. Given that Azure Search does not have a data type that supports this, we need a different way to model this in Azure Search. 
 
-> [AZURE.NOTE] En su entrada de blog [Indexing DocumentDB with Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/) (Indización de DocumentDB con Azure Search), Kirk Evans muestra una técnica llamada "aplanamiento de los datos", según la cual tendría dos campos llamados `locationsID` y `locationsDescription`, ambos [collections](https://msdn.microsoft.com/library/azure/dn798938.aspx) (o una matriz de cadenas).
+> [AZURE.NOTE] This technique is also described by Kirk Evans in a blog post [Indexing DocumentDB with Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), which shows a technique called "flattening the data", whereby you would have a field called `locationsID` and `locationsDescription` that are both [collections](https://msdn.microsoft.com/library/azure/dn798938.aspx) (or an array of strings).   
 
-## Parte 1: Aplanar la matriz en campos individuales
+## <a name="part-1:-flatten-the-array-into-individual-fields"></a>Part 1: Flatten the array into individual fields
 
-Para crear un índice de Azure Search que dé cabida a este conjunto de datos, cree campos individuales para la subestructura anidada: `locationsID` y `locationsDescription` con un tipo de datos [collections](https://msdn.microsoft.com/library/azure/dn798938.aspx) (o una matriz de cadenas). En estos campos, los valores '1' y '2' se indizan en el campo `locationsID` para John Smith y los valores '3' y '4' en el campo `locationsID` para Jen Campbell.
+To create an Azure Search index that accommodates this dataset, create individual fields for the nested substructure: `locationsID` and `locationsDescription` with a data type of [collections](https://msdn.microsoft.com/library/azure/dn798938.aspx) (or an array of strings). In these fields you would index the values ‘1’ and ‘2’ into the `locationsID` field for John Smith and the values ‘3’ & ‘4’ into the `locationsID` field for Jen Campbell.  
 
-Los datos en Azure Search tendrían el siguiente aspecto:
+Your data within Azure Search would look like this: 
 
-![datos de ejemplo, 2 filas](./media/search-howto-complex-data-types/sample-data.png)
+![sample data, 2 rows](./media/search-howto-complex-data-types/sample-data.png)
 
 
-## Parte 2: Agregar un campo de colección en la definición del índice
+## <a name="part-2:-add-a-collection-field-in-the-index-definition"></a>Part 2: Add a collection field in the index definition
 
-En el esquema de índice, las definiciones de campo podrían ser similares a las de este ejemplo.
+In the index schema, the field definitions might look similar to this example.
 
 ~~~~
 var index = new Index()
@@ -95,19 +96,19 @@ var index = new Index()
 };
 ~~~~
 
-## Validación de los comportamientos de búsqueda y extensión opcional del índice
+## <a name="validate-search-behaviors-and-optionally-extend-the-index"></a>Validate search behaviors and optionally extend the index
 
-Suponiendo que ha creado el índice y cargado los datos, ahora puede probar la solución para comprobar la ejecución de la consulta de búsqueda en el conjunto de datos. Cada campo **collection** debería tener las propiedades **searchable**, **filterable** y **facetable**. Debe poder ejecutar consultas como estas:
+Assuming you created the index and loaded the data, you can now test the solution to verify search query execution against the dataset. Each **collection** field should be **searchable**, **filterable** and **facetable**. You should be able to run queries like:
 
-* Buscar todas las personas que trabajan en ‘Adventureworks Headquarters’.
-* Obtener el número de personas que trabajan en ‘Home Office’.
-* De las personas que trabajan en ‘Home Office’, mostrar con qué otras oficinas trabajan, además del número de personas en cada ubicación.
+* Find all people who work at the ‘Adventureworks Headquarters’.
+* Get a count of the number of people who work in a ‘Home Office’.  
+* Of the people who work at a ‘Home Office’, show what other offices they work along with a count of the people in each location.  
 
-Esta técnica no funciona correctamente cuando se necesita realizar una búsqueda que combina el identificador de ubicación y la descripción de la ubicación. Por ejemplo:
+Where this technique falls apart is when you need to do a search that combines both the location id as well as the location description. For example:
 
-* Buscar todas las personas cuya ubicación es Home Office y su identificador de ubicación es 4.
+* Find all people where they have a Home Office AND has a location ID of 4.  
 
-Si recuerda, el contenido original tenía el siguiente aspecto:
+If you recall the original content looked like this:
 
 ~~~~
    {
@@ -116,33 +117,36 @@ Si recuerda, el contenido original tenía el siguiente aspecto:
    }
 ~~~~
 
-Sin embargo, ahora que hemos separado los datos en campos independientes, no hay ninguna manera de saber si la ubicación Home Office de Jen Campbell está relacionada con `locationsID 3` o `locationsID 4`.
+However, now that we have separated the data into separate fields, we have no way of knowing if the Home Office for Jen Campbell relates to `locationsID 3` or `locationsID 4`.  
 
-En este caso, defina otro campo en el índice que combine todos los datos en una sola colección. En nuestro ejemplo, llamaremos a este campo `locationsCombined` y separaremos el contenido con un `||`, aunque puede elegir cualquier separador que piense que sería un conjunto único de caracteres para su contenido. Por ejemplo:
+To handle this case, define another field in the index that combines all of the data into a single collection.  For our example, we will call this field `locationsCombined` and we will separate the content with a `||` although you can choose any separator that you think would be a unique set of characters for your content. For example: 
 
-![datos de ejemplo, 2 filas con separador](./media/search-howto-complex-data-types/sample-data-2.png)
+![sample data, 2 rows with separator](./media/search-howto-complex-data-types/sample-data-2.png)
 
-Con este campo `locationsCombined`, ahora podemos dar cabida a más consultas, por ejemplo:
+Using this `locationsCombined` field, we can now accommodate even more queries, such as:
 
-* Mostrar el número de personas que trabajan en la ubicación 'Home Office' con un identificador de ubicación '4'.
-* Buscar las personas que trabajan en la ubicación 'Home Office' con un identificador de ubicación '4'.
+* Show a count of people who work at a ‘Home Office’ with location Id of ‘4’.  
+* Search for people who work at a ‘Home Office’ with location Id ‘4’. 
 
-## Limitaciones
+## <a name="limitations"></a>Limitations
 
-Esta técnica es útil para diversos escenarios, pero no es aplicable en todos los casos. Por ejemplo:
+This technique is useful for a number of scenarios, but it is not applicable in every case.  For example:
 
-1. Si no tiene un conjunto de campos estático en el tipo de datos complejos y no hay manera de asignar todos los tipos posibles a un único campo.
-2. Actualizar los objetos anidados requiere trabajo adicional para determinar exactamente lo que hay que actualizar en el índice de Azure Search.
+1. If you do not have a static set of fields in your complex data type and there was no way to map all the possible types to a single field. 
+2. Updating the nested objects requires some extra work to determine exactly what needs to be updated in the Azure Search index
 
-## Código de ejemplo
+## <a name="sample-code"></a>Sample code
 
-En este [repositorio de GitHub](https://github.com/liamca/AzureSearchComplexTypes) puede ver un ejemplo de cómo indizar un conjunto de datos JSON complejo en Azure Search y realizar diversas consultas sobre este conjunto de datos.
+You can see an example on how to index a complex JSON data set into Azure Search and perform a number of queries over this dataset at this [GitHub repo](https://github.com/liamca/AzureSearchComplexTypes).
 
-## Paso siguiente
+## <a name="next-step"></a>Next step
 
-[Vote a favor de la compatibilidad nativa con tipos de datos complejos](https://feedback.azure.com/forums/263029-azure-search) en la página UserVoice de Azure Search y díganos qué le gustaría que tuviéramos en cuenta para la implementación de la característica. Puede ponerse en contacto conmigo directamente en Twitter en @liamca.
+[Vote for native support for complex data types](https://feedback.azure.com/forums/263029-azure-search) on the Azure Search UserVoice page and provide any additional input that you’d like us to consider regarding feature implementation. You can also reach out to me directly on Twitter at @liamca.
 
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

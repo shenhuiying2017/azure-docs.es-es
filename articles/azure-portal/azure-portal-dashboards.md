@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Paneles del Portal de Azure | Microsoft Azure"
-   description="En este artículo se explica cómo crear y editar paneles en el Portal de Azure."
+   pageTitle="Azure portal dashboards | Microsoft Azure"
+   description="This article explains how to create and edit dashboards in the Azure portal."
    services="azure-portal"
    documentationCenter=""
    authors="sewatson"
@@ -16,90 +16,94 @@
    ms.date="09/06/2016"
    ms.author="sewatson"/>
 
-# Creación y uso compartido de paneles en el Portal de Azure
 
-Puede crear varios paneles y compartirlos con otras personas que tengan acceso a sus suscripciones de Azure. En esta entrada explicamos los aspectos básicos en torno a la administración del acceso a los paneles, así como su creación, edición y publicación.
+# <a name="creating-and-sharing-dashboards-in-the-azure-portal"></a>Creating and sharing dashboards in the Azure portal
 
-## Diferencias en la personalización de paneles y hojas
+You can create multiple dashboards and share them with others who have access to your Azure subscriptions.  This post goes through the basics of creating/editing, publishing, and managing access to dashboards.
 
-Desde que lanzamos los paneles hace unos meses, se ha producido un descenso constante de las personalizaciones de hojas y un rápido aumento de las de paneles. Esta fuerte tendencia de uso revela que prefiere personalizar paneles a hojas. Para respaldar esta tendencia, eliminaremos la característica de personalización de hojas y dedicaremos nuestros esfuerzos en mejorar las funcionalidades de los paneles. Si personalizó una hoja, la personalización desaparecerá pronto. Para conservar esa personalización, ancle los iconos personalizados a un panel. Solo tiene que hacer clic en el icono y seleccione **Anclar al panel** tal y como se muestra en la siguiente imagen.
+## <a name="customizing-dashboards-versus-blades"></a>Customizing dashboards versus blades
 
-![guardar icono personalizado](./media/azure-portal-dashboards/save-customization.png)
+Since launching dashboards a few months ago, there has been a steady decline in blade customizations and a rapid increase in dashboard customizations. This strong usage trend shows that you prefer customizing dashboards over blades. To support that trend, we will remove the ability to customize blades and dedicate our efforts to enhancing dashboard functionality. If you customized a blade, your customization will soon be removed. To preserve that customization, pin the customized tiles to a dashboard. Simply right-click the tile and select **Pin to dashboard** as shown in the following image.
 
-## Creación de un panel
+![save customized tile](./media/azure-portal-dashboards/save-customization.png)
 
-Para crear un panel, haga clic en el botón **Panel nuevo** situado junto al nombre del panel actual.
+## <a name="create-a-dashboard"></a>Create a dashboard
 
-![crear panel](./media/azure-portal-dashboards/new-dashboard.png)
+To create a dashboard, select the **New dashboard** button next to the current dashboard's name.  
 
-Esta acción crea un panel nuevo, vacío y privado, y activa el modo de personalización, donde puede asignar un nombre al panel y agregar o reorganizar los iconos. En este modo, la galería de iconos contraíbles se encuentra encima del menú de navegación izquierdo. La galería de iconos permite buscar iconos para los recursos de Azure de varias formas: puede hacerlo por [grupo de recursos](../resource-group-overview.md#resource-groups), tipo de recurso o [etiqueta](../resource-group-using-tags.md) o nombre.
+![create dashboard](./media/azure-portal-dashboards/new-dashboard.png)
 
-![personalizar panel](./media/azure-portal-dashboards/customize-dashboard.png)
+This action creates a new, empty, private dashboard and puts you into customization mode where you can name your dashboard and add or rearrange tiles.  When in this mode, the collapsible tile gallery takes over the left navigation menu.  The tile gallery lets you find tiles for your Azure resources in various ways: you can browse by [resource group](../resource-group-overview.md#resource-groups), by resource type, by [tag](../resource-group-using-tags.md), or by searching for your resource by name.  
 
-Agregue iconos arrastrándolos y colocándolos en la parte que quiera de la superficie del panel.
+![customize dashboard](./media/azure-portal-dashboards/customize-dashboard.png)
 
-Hay una nueva categoría denominada "**General**" en los iconos que no están asociados a un recurso determinado. En este ejemplo, anclamos el icono de Markdown. Este icono se utiliza para agregar contenido personalizado al panel. Además, admite texto sin formato, [sintaxis de Markdown](https://daringfireball.net/projects/markdown/syntax) y un conjunto limitado de HTML (por motivos de seguridad, no se pueden realizar tareas como insertar etiquetas `<script>` o utilizar determinados elementos de estilo de CSS que podrían interferir en el portal).
+Add tiles by dragging and dropping them onto the dashboard surface wherever you want.
 
-![agregar Markdown](./media/azure-portal-dashboards/add-markdown.png)
+There's a new category called **General** for tiles that are not associated with a particular resource.  In this example, we pin the Markdown tile.  You use this tile to add custom content to your dashboard.  The tile supports plain text, [Markdown syntax](https://daringfireball.net/projects/markdown/syntax), and a limited set of HTML.  (For safety, you can't do things like inject `<script>` tags or use certain styling element of CSS that might interfere with the portal.) 
 
-## Edición de paneles
+![add markdown](./media/azure-portal-dashboards/add-markdown.png)
 
-Después de crear el panel, puede anclar iconos desde la galería de iconos o la representación de icono de las hojas. Vamos a anclar la representación de nuestro grupo de recursos. Puede hacerlo buscando el elemento o desde la hoja del grupo de recursos. Con los dos métodos se ancla la representación de icono del grupo de recursos.
+## <a name="edit-a-dashboard"></a>Edit a dashboard
 
-![anclar a panel](./media/azure-portal-dashboards/pin-to-dashboard.png)
+After creating your dashboard, you can pin tiles from the tile gallery or the tile representation of blades. Let's pin the representation of our resource group. You can either pin when browsing the item, or from the resource group blade. Both approaches result in pinning the tile representation of the resource group.
 
-Después de anclar el elemento, se muestra el panel.
+![pin to dashboard](./media/azure-portal-dashboards/pin-to-dashboard.png)
 
-![ver panel](./media/azure-portal-dashboards/view-dashboard.png)
+After pinning the item, it appears on your dashboard.
 
-Ahora que tenemos un icono de Markdown y un grupo de recursos anclado al panel, podemos cambiar el tamaño de los iconos y reorganizarlos en un diseño más adecuado.
+![view dashboard](./media/azure-portal-dashboards/view-dashboard.png)
 
-Al pasar el mouse sobre los puntos suspensivos y seleccionarlos, o bien al hacer clic con el botón derecho en un icono, se podrán ver todos los comandos contextuales de dicho icono. De forma predeterminada, hay dos elementos:
+Now that we have a Markdown tile and a resource group pinned to the dashboard, we can resize and rearrange the tiles into a suitable layout.
 
-1. **Desanclar del panel**: quita el icono de panel.
-2.	**Personalizar**: se activa el modo de personalización.
+By hovering and selecting "…" or right-clicking on a tile you can see all the contextual commands for that tile. By default, there are two items:
 
-![personalizar icono](./media/azure-portal-dashboards/customize-tile.png)
+1. **Unpin from dashboard** – removes the tile from the dashboard
+2.  **Customize** – enters customize mode
 
-Al seleccionar Personalizar, puede cambiar el tamaño de los iconos y reordenarlos. Para cambiar el tamaño de un icono, seleccione el nuevo tamaño en el menú contextual, tal y como se muestra en la siguiente imagen.
+![customize tile](./media/azure-portal-dashboards/customize-tile.png)
 
-![cambiar tamaño del icono](./media/azure-portal-dashboards/resize-tile.png)
+By selecting customize, you can resize and reorder tiles. To resize a tile, select the new size from the contextual menu, as shown in the following image.
 
-También, si el icono admite cualquier tamaño, puede arrastrar la esquina inferior derecha hasta que tenga el tamaño que quiera.
+![resize tile](./media/azure-portal-dashboards/resize-tile.png)
 
-![cambiar tamaño del icono](./media/azure-portal-dashboards/resize-corner.png)
+Or, if the tile supports any size, you can drag the bottom right-hand corner to the desired size.
 
-Después de cambiar el tamaño de los iconos, visualice el panel.
+![resize tile](./media/azure-portal-dashboards/resize-corner.png)
 
-![ver icono](./media/azure-portal-dashboards/view-tile.png)
+After resizing tiles, view the dashboard.
 
-Cuando haya terminado de personalizar un panel, basta con seleccionar **Personalización finalizada** para salir del modo de personalización o hacer clic con el botón derecho y seleccionar **Personalización finalizada** en el menú contextual.
+![view tile](./media/azure-portal-dashboards/view-tile.png)
 
-## Publicación de un panel y administración del control de acceso
+Once you are finished customizing a dashboard, simply select the **Done customizing** to exit customize mode or right-click and select **Done customizing** from the context menu.
 
-Al crear un panel, será privado de forma predeterminada, lo que significa que usted será la única persona que puede verlo. Para que puedan verlo otros usuarios, utilice el botón **Compartir** que aparece junto al resto de los comandos del panel.
+## <a name="publish-a-dashboard-and-manage-access-control"></a>Publish a dashboard and manage access control
 
-![compartir panel](./media/azure-portal-dashboards/share-dashboard.png)
+When you create a dashboard, it is private by default, which means you are the only person who can see it.  To make it visible to others, use the **Share** button that appears alongside the other dashboard commands.
 
-Se le pedirá que elija una suscripción y un grupo de recursos en el que se vaya a publicar el panel. Para integrar sin problemas paneles en el ecosistema, hemos implementado los paneles compartidos como recursos de Azure (por lo que no se pueden compartir escribiendo una dirección de correo electrónico). El acceso a la información que muestra la mayoría de los iconos del portal se rige mediante el [Control de acceso basado en roles](../active-directory/role-based-access-control-configure.md) de Azure. Desde una perspectiva de control de acceso, los paneles compartidos no son distintos de una máquina virtual o de una cuenta de almacenamiento.
+![share dashboard](./media/azure-portal-dashboards/share-dashboard.png)
 
-Supongamos que tiene una suscripción de Azure y que a los miembros del equipo se les han asignado los roles de **propietario**, **colaborador** o **lector** de la suscripción. Los usuarios que son propietarios o colaboradores pueden enumerar, ver, crear, modificar o eliminar paneles dentro de la suscripción. Los usuarios que sean lectores pueden enumerar y ver los paneles, pero no pueden modificarlos ni eliminarlos. Los usuarios con acceso de lectura pueden realizar modificaciones locales en un panel compartido, pero no tienen la opción de volver a publicar esos cambios en el servidor. Sin embargo, pueden realizar una copia privada del panel para utilizarlo con fines privados. Como siempre, los iconos individuales del panel tendrán sus propias reglas de control de acceso en función de los recursos a los que correspondan.
+You are asked to choose a subscription and resource group for your dashboard to be published to. To seamlessly integrate dashboards into the ecosystem, we've implemented shared dashboards as Azure resources (so you can't share by typing an email address).  Access to the information displayed by most of the tiles in the portal are governed by [Azure Role Based Access Control](../active-directory/role-based-access-control-configure.md ). From an access control perspective, shared dashboards are no different from a virtual machine or a storage account.  
 
-Para mayor comodidad, la experiencia de publicación del portal lo guiará por un patrón donde colocará paneles en un grupo de recursos denominado "**paneles**".
+Let's say you have an Azure subscription and members of your team have been assigned the roles of **owner**, **contributor**, or **reader** of the subscription.  Users who are owners or contributors are able to list, view, create, modify, or delete dashboards within that subscription.  Users who are readers are able to list and view dashboards, but cannot modify or delete them.  Users with reader access are able to make local edits to a shared dashboard, but are not able to publish those changes back to the server.  However, they can make a private copy of the dashboard for their own use.  As always, individual tiles on the dashboard enforce their own access control rules based on the resources they correspond to.  
 
-![publicar panel](./media/azure-portal-dashboards/publish-dashboard.png)
+For convenience, the portal's publishing experience guides you towards a pattern where you place dashboards in a resource group called **dashboards**.  
 
-También puede decidir publicar un panel en un grupo de recursos concreto. El control de acceso de ese panel coincide con el del grupo de recursos. Los usuarios que pueden administrar los recursos de ese grupo de recursos también tienen acceso a los paneles.
+![publish dashboard](./media/azure-portal-dashboards/publish-dashboard.png)
 
-![publicar panel en grupo de recursos](./media/azure-portal-dashboards/publish-to-resource-group.png)
+You can also choose to publish a dashboard to a particular resource group.  The access control for that dashboard matches the access control for the resource group.  Users that can manage the resources in that resource group also have access to the dashboards.
 
-Cuando se publique el panel, **Uso compartido y control de acceso** se actualice y muestra la información sobre el panel publicado, incluido un vínculo para administrar el acceso de los usuarios al panel. Este vínculo abre la hoja estándar de control de acceso basado en roles que se utiliza para administrar el acceso a cualquier recurso de Azure. En cualquier momento se puede volver a esta vista haciendo clic en **Compartir**.
+![publish dashboard to resource group](./media/azure-portal-dashboards/publish-to-resource-group.png)
 
-![administrar control de acceso](./media/azure-portal-dashboards/manage-access.png)
+After your dashboard is published, the **Sharing + access** control pane will refresh and show you information about the published dashboard, including a link to manage user access to the dashboard.  This link launches the standard Role Based Access Control blade used to manage access for any Azure resource.  You can always get back to this view by selecting **Share**.
 
-## Pasos siguientes
+![manage access control](./media/azure-portal-dashboards/manage-access.png)
 
-- Para administrar los recursos, consulte [Administración de los recursos de Azure a través del Portal](resource-group-portal.md).
-- Para implementar recursos, consulte [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](../resource-group-template-deploy-portal.md).
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0907_2016-->
+- To manage resources, see [Manage Azure resources through portal](resource-group-portal.md).
+- To deploy resources, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
+
+
+<!--HONumber=Oct16_HO2-->
+
+

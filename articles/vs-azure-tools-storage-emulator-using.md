@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configuración y uso del emulador de almacenamiento con Visual Studio | Microsoft Azure"
-   description="Configuración y uso del emulador de almacenamiento con Visual Studio"
+   pageTitle="Configuring and using the Storage Emulator with Visual Studio | Microsoft Azure"
+   description="Configuring and using the Storage Emulator with Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,35 +15,40 @@
    ms.date="07/18/2016"
    ms.author="tarcher" />
 
-# Configuración y uso del emulador de almacenamiento con Visual Studio
+
+# <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configuring and Using the Storage Emulator with Visual Studio
 
 [AZURE.INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
 
-## Información general
-El entorno de desarrollo SDK de Azure incluye el emulador de almacenamiento, una utilidad que simula los servicios de almacenamiento de blobs, colas y tablas disponibles en Azure, en el equipo de desarrollo local. Si está creando un servicio en la nube que emplea los servicios de almacenamiento de Azure o escribiendo una aplicación externa que llama a los servicios de almacenamiento, puede probar el código localmente con el emulador de almacenamiento. Azure Tools para Microsoft Visual Studio integra la administración del emulador de almacenamiento en Visual Studio. Azure Tools inicializa la base de datos del emulador de almacenamiento cuando se usa por primera vez, inicia el servicio del emulador de almacenamiento cuando ejecuta o depura el código desde Visual Studio y proporciona acceso de solo lectura a los datos del emulador de almacenamiento mediante el Explorador de almacenamiento de Azure.
+## <a name="overview"></a>Overview
+The Azure SDK development environment includes the storage emulator, a utility that simulates the Blob, Queue, and Table storage services available in Azure on your local development machine. If you are building a cloud service that employs the Azure storage services, or writing any external application that calls the storage services, you can test your code locally against the storage emulator. The Azure Tools for Microsoft Visual Studio integrate management of the storage emulator into Visual Studio. The Azure Tools initialize the storage emulator database on first use, starts the storage emulator service when you run or debug your code from Visual Studio, and provides read-only access to the storage emulator data via the Azure Storage Explorer.
 
-Para obtener información detallada sobre el emulador de almacenamiento, incluidos los requisitos del sistema e instrucciones de configuración personalizada, consulte [Uso del emulador de almacenamiento de Azure para desarrollo y pruebas](./storage/storage-use-emulator.md).
+For detailed information on the storage emulator, including system requirements and custom configuration instructions, see [Use the Azure Storage Emulator for Development and Testing](./storage/storage-use-emulator.md).
 
->[AZURE.NOTE] Existen algunas diferencias de funcionalidad entre el emulador de almacenamiento y los servicios de almacenamiento de Azure. Consulte [Diferencias entre el emulador de almacenamiento y los servicios de almacenamiento de Azure](./storage/storage-use-emulator.md) en la documentación del SDK de Azure para obtener información sobre las diferencias concretas.
+>[AZURE.NOTE] There are some differences in functionality between the storage emulator simulation and the Azure storage services. See [Differences Between the Storage Emulator and Azure Storage Services](./storage/storage-use-emulator.md) in the Azure SDK documentation for information on the specific differences.
 
-## Configuración de una cadena de conexión para el emulador de almacenamiento
+## <a name="configuring-a-connection-string-for-the-storage-emulator"></a>Configuring a connection string for the storage emulator
 
-Para acceder al emulador de almacenamiento desde el código dentro de un rol, deberá configurar una cadena de conexión que señale al emulador de almacenamiento y que se pueda cambiar después para que señale a una cuenta de almacenamiento de Azure. Una cadena de conexión es una opción de configuración que el rol puede leer en tiempo de ejecución para conectarse a una cuenta de almacenamiento. Para obtener más información sobre cómo crear cadenas de conexión, consulte el artículo sobre cómo [configurar la aplicación de Azure](https://msdn.microsoft.com/library/azure/2da5d6ce-f74d-45a9-bf6b-b3a60c5ef74e#BK_SettingsPage).
+To access the storage emulator from code within a role, you will want to configure a connection string that points to the storage emulator and that can later be changed to point to an Azure storage account. A connection string is a configuration setting that your role can read at runtime to connect to a storage account. For more information about how to create connection strings, see [Configuring the Azure Application](https://msdn.microsoft.com/library/azure/2da5d6ce-f74d-45a9-bf6b-b3a60c5ef74e#BK_SettingsPage).
 
->[AZURE.NOTE] Puede devolver una referencia a la cuenta del emulador de almacenamiento desde el código mediante la propiedad **DevelopmentStorageAccount**. Este enfoque funciona correctamente si desea acceder al emulador de almacenamiento desde el código, pero, si piensa publicar su aplicación en Azure, necesitará crear una cadena de conexión para acceder a su cuenta de almacenamiento de Azure y modificar el código para que use esa cadena de conexión antes de publicarla. Si cambia entre la cuenta del emulador de almacenamiento y una cuenta de almacenamiento de Azure con frecuencia, una cadena de conexión simplificará el proceso.
+>[AZURE.NOTE] You can return a reference to the storage emulator account from your code by using the **DevelopmentStorageAccount** property. This approach works correctly if you want to access the storage emulator from your code, but if you plan to publish your application to Azure, you will need to create a connection string to access your Azure storage account and modify your code to use that connection string before you publish it. If you are switching between the storage emulator account and an Azure storage account frequently, a connection string will simplify this process.
 
-## Inicialización y ejecución del emulador de almacenamiento
+## <a name="initializing-and-running-the-storage-emulator"></a>Initializing and running the storage emulator
 
-Puede especificar que, cuando ejecute o depure el servicio en Visual Studio, Visual Studio inicie automáticamente el emulador de almacenamiento. En el Explorador de soluciones, abra el menú contextual de su proyecto de **Azure** y elija **Propiedades**. En la pestaña **Desarrollo**, en la lista **Iniciar emulador de almacenamiento de Microsoft Azure**, elija **Verdadero** (si no está ya establecido en ese valor).
+You can specify that when you run or debug your service in Visual Studio, Visual Studio automatically launches the storage emulator. In Solution Explorer, open the shortcut menu for your **Azure** project and choose **Properties**. On the **Development** tab, in the **Start Azure Storage Emulator** list, choose **True** (if it isn't already set to that value).
 
-La primera vez que ejecute o depure el servicio desde Visual Studio, el emulador de almacenamiento inicia un proceso de inicialización. Este proceso reserva los puertos locales para el emulador de almacenamiento y crea la base de datos del emulador de almacenamiento. Una vez finalizado, no es necesario volver a ejecutar este proceso a menos que se elimine la base de datos del emulador de almacenamiento.
+The first time you run or debug your service from Visual Studio, the storage emulator launches an initialization process. This process reserves local ports for the storage emulator and creates the storage emulator database. Once complete, this process does not need to run again unless the storage emulator database is deleted.
 
->[AZURE.NOTE] A partir de la versión de junio de 2012 de Azure Tools, el emulador de almacenamiento se ejecuta, de forma predeterminada, en SQL Express LocalDB. En versiones anteriores de Azure Tools, el emulador de almacenamiento se ejecuta en una instancia predeterminada de SQL Express 2005 o 2008, que debe instalar para poder instalar el SDK de Azure. También puede ejecutar el emulador de almacenamiento en una instancia con nombre de SQL Express o en una instancia con nombre o predeterminada de Microsoft SQL Server. Si necesita configurar el emulador de almacenamiento para que se ejecute en una instancia distinta de la predeterminada, consulte [Uso del emulador de almacenamiento de Azure para desarrollo y pruebas](./storage/storage-use-emulator.md).
+>[AZURE.NOTE] Starting with the June 2012 release of the Azure Tools, the storage emulator runs, by default, in SQL Express LocalDB. In earlier releases of the Azure Tools, the storage emulator runs against a default instance of SQL Express 2005 or 2008, which you must install before you can install the Azure SDK. You can also run the storage emulator against a named instance of SQL Express or a named or default instance of Microsoft SQL Server. If you need to configure the storage emulator to run against an instance other than the default instance, see [Use the Azure Storage Emulator for Development and Testing](./storage/storage-use-emulator.md).
 
-El emulador de almacenamiento proporciona una interfaz de usuario para ver el estado de los servicios de almacenamiento local y para iniciarlos, detenerlos y restablecerlos. Una vez que se ha iniciado el servicio del emulador de almacenamiento, puede mostrar la interfaz de usuario o iniciar o detener el servicio haciendo clic con el botón derecho en el icono del área de notificación para el Emulador de Microsoft Azure en la barra de tareas de Windows.
+The storage emulator provides a user interface to view the status of the local storage services and to start, stop, and reset them. Once the storage emulator service has been started, you can display the user interface or start or stop the service by right-clicking the notification area icon for the Microsoft Azure Emulator in the Windows taskbar.
 
-## Visualización de los datos del emulador de almacenamiento en el Explorador de servidores
+## <a name="viewing-storage-emulator-data-in-server-explorer"></a>Viewing storage emulator data in Server Explorer
 
-El nodo Almacenamiento de Azure en el Explorador de servidores permite ver los datos y cambiar la configuración para los datos de blob y tabla en sus cuentas de almacenamiento, incluido el emulador de almacenamiento. Consulte [Exploración y administración de recursos de almacenamiento con el Explorador de servidores](https://msdn.microsoft.com/library/azure/ff683677.aspx) para obtener más información.
+The Azure Storage node in Server Explorer enables you to view data and change settings for blob and table data in your storage accounts, including the storage emulator. See [Browsing and Managing Storage Resources with Server Explorer](https://msdn.microsoft.com/library/azure/ff683677.aspx) for more information.
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

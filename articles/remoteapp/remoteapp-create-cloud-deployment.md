@@ -1,115 +1,119 @@
 <properties 
-	pageTitle="Creación de una colección en la nube de Azure RemoteApp | Microsoft Azure" 
-	description="Aprenda a crear una implementación de Azure RemoteApp que guarda datos en la nube de Azure." 
-	services="remoteapp" 
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" 
-	editor=""/>
+    pageTitle="How to create a cloud collection of Azure RemoteApp | Microsoft Azure" 
+    description="Learn how to create a deployment of Azure RemoteApp that saves data in the Azure cloud." 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" 
+    editor=""/>
 
 <tags 
-	ms.service="remoteapp" 
-	ms.workload="compute" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/15/2016" 
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/15/2016" 
+    ms.author="elizapo"/>
 
-# Creación de una colección en la nube de Azure RemoteApp
+
+# <a name="how-to-create-a-cloud-collection-of-azure-remoteapp"></a>How to create a cloud collection of Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Hay dos tipos de [colecciones de Azure RemoteApp](remoteapp-collections.md):
+There are two kinds of [Azure RemoteApp collections](remoteapp-collections.md): 
 
-- Nube: reside completamente en Azure. Puede guardar todos los datos en la nube (colección de solo nube) o conectar la colección a una red virtual y guardar datos en ella.
-- Híbrida: incluye una red virtual para el acceso local (esto requiere el uso de Azure AD y de un entorno de Active Directory local).
+- Cloud: resides completely in Azure. You can choose to save all data in the cloud (so a cloud-only collection) or to connect your collection to a VNET and save data there.   
+- Hybrid: includes a virtual network for on-premises access - this requires the use of Azure AD and an on-premises Active Directory environment.
 
-Este tutorial le guía en el proceso de creación de una colección en la nube. Hay cuatro pasos:
+This tutorial walks you through the process of creating a cloud collection. There are four steps: 
 
-1.	Crear una colección de Azure RemoteApp.
-2.	Opcionalmente, puede configurar sincronización de directorios. Si usa Azure AD y Active Directory, tiene que sincronizar usuarios, contactos y contraseñas de su Active Directory local con su inquilino de Azure AD.
-5.	Publicar aplicaciones.
-6.	Configurar el acceso del usuario.
-
-
-**Antes de empezar**
-
-Necesita llevar a cabo los pasos siguientes antes de crear la colección:
-
-- [Suscribirse](https://azure.microsoft.com/services/remoteapp/) a Azure RemoteApp.
-- Recopile información sobre los usuarios a los que quiera conceder acceso. Esta información puede ser información de cuentas de Microsoft o información de cuentas de trabajo de Active Directory de usuarios.
-- En este procedimiento se supone que va a usar una de las imágenes de plantilla que se proporcionan con la suscripción o que ya ha cargado la imagen de plantilla que quiere usar. Si tiene que cargar una imagen de plantilla diferente, puede hacerlo desde la página Imágenes de plantilla. Haga clic en **cargar una imagen de plantilla** y siga los pasos del asistente.
-- ¿Desea usar la imagen de Office 365 ProPlus? Consulte la información [aquí](remoteapp-officesubscription.md).
-- ¿Desea proporcionar aplicaciones personalizadas o programas LOB? Cree una nueva [imagen](remoteapp-imageoptions.md) y úsela en su colección en la nube.
-- Averigüe si tiene que conectarse a una red virtual. Si opta por conectarse a una red virtual, asegúrese de que cumple las [directrices de ajuste de tamaño](remoteapp-vnetsizing.md) y que [puede conectarse a RemoteApp](remoteapp-vnet.md). Consulte el [artículo sobre planeación de la red virtual](remoteapp-planvnet.md) para obtener más información.
-- Si usa una red virtual, decida si quiere unirla al dominio de Active Directory local.
-
-## Paso 1: Creación de una colección en la nube (con o sin red virtual)##
+1.  Create an Azure RemoteApp collection.
+2.  Optionally configure directory synchronization. If you are using Azure AD + Active Directory, you have to synchronize users, contacts, and passwords from your on-premises Active Directory to your Azure AD tenant.
+5.  Publish apps.
+6.  Configure user access.
 
 
-Siga los pasos que se indican a continuación para crear una **colección de solo nube**:
+**Before you begin**
 
-1. En el Portal de administración, vaya a la página RemoteApp.
-2. Haga clic en **Nuevo > Creación rápida**.
-3. Escriba un nombre para la colección y seleccione su región.
-4. Seleccione el plan que quiere usar: Standard o Basic.
-5. Elija la plantilla que se usará para esta colección.
+You need to do the following before creating the collection:
 
-	**Sugerencia:** la suscripción a RemoteApp incluye [imágenes de plantilla](remoteapp-images.md) incluidas en programas de Office 365 o de Office 2013 (con fines de prueba), algunos publicados (como Word) y otros listos para su publicación. También puede crear una [imagen](remoteapp-imageoptions.md) y usarla en su colección en la nube.
+- [Sign up](https://azure.microsoft.com/services/remoteapp/) for Azure RemoteApp. 
+- Gather information about the users that you want to grant access to. This can be either Microsoft account information or Active Directory work account information for users.
+- This procedure assumes you are either going to use one of the template images provided as part of your subscription or that you have already uploaded the template image you want to use. If you need to upload a different template image, you can do that from the Template Images page. Just click **upload a template image** and follow the steps in the wizard. 
+- Want to use the Office 365 ProPlus image? Check out info [here](remoteapp-officesubscription.md).
+- Want to provide custom apps or LOB programs? Create a new [image](remoteapp-imageoptions.md) and use it in your cloud collection.
+- Figure out whether you need to connect to a VNET. If you choose to connect to a VNET, make sure it meets the [sizing guidelines](remoteapp-vnetsizing.md) and that it [can connect to RemoteApp](remoteapp-vnet.md). Check out the [VNET planning article ](remoteapp-planvnet.md)for more information.
+- If you're using a VNET, decide whether you want to join it to your local Active Directory domain.
 
-
-1. Haga clic en **Crear colección de RemoteApp**.
-	
-	**Importante:** puede tardarse hasta 30 minutos en aprovisionar la colección.
-
-Una vez creada la colección de Azure RemoteApp, haga doble clic en el nombre de la colección. Se abrirá la página **Inicio rápido**, donde terminará de configurar la colección.
-
-Siga los pasos que se indican a continuación para crear una **colección en la nube con red virtual**:
-
-1. En el Portal de administración, vaya a la página Azure RemoteApp.
-2. Haga clic en **Nuevo** > **Crear con red virtual**.
-3. Escriba un nombre para la colección.
-4. Seleccione el plan que quiere usar: Standard o Basic.
-5. Elija la red virtual que ya creó. ¿No sabe cómo hacerlo? Por ahora, los pasos se encuentran en el tema [Creación de una colección híbrida de Azure RemoteApp](remoteapp-create-hybrid-deployment.md).
-6. Decida si quiere unir la colección a su dominio. En caso afirmativo, deberá usar AD Connect para integrar Azure AD y su entorno de Active Directory. Esto es lo que se trata más adelante en el **paso 2**.
-6. Haga clic en **Crear colección de RemoteApp**.
+## <a name="step-1:-create-a-cloud-collection---with-or-without-a-vnet##"></a>Step 1: Create a cloud collection - with or without a VNET##
 
 
-## Paso 2: Configuración de la sincronización de directorios de Active Directory (opcional) ##
+Use the following steps to **create a cloud-only collection**:
 
-Si quiere usar Active Directory, Azure RemoteApp requiere sincronización de directorios entre Azure Active Directory y su implementación local de Active Directory para sincronizar usuarios, contactos y contraseñas con su inquilino de Azure Active Directory. Consulte [Configuración de Active Directory para RemoteApp de Azure](remoteapp-ad.md) para obtener información sobre planeación. También puede ir directamente a [AD Connect](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/) para obtener información.
+1. In the management portal, go to the RemoteApp page.
+2. Click **New > Quick Create**.
+3. Enter a name for your collection, and select your region.
+4. Choose the plan that you want to use - standard or basic.
+5. Choose the template to use for this collection. 
 
-## Paso 3: Publicar aplicaciones ##
+    **Tip:** Your subscription for RemoteApp comes with [template images](remoteapp-images.md) that contain Office 365 or Office 2013 (for trial use) programs, some published (such as Word) and others ready to publish. You can also create a new [image](remoteapp-imageoptions.md) and use it in your cloud collection.
 
-Una aplicación de Azure RemoteApp es la aplicación o el programa que proporciona a los usuarios. Se encuentra en la imagen de plantilla que cargó para la colección. Cuando un usuario accede a una aplicación, esta parece ejecutarse en el entorno local, pero realmente se está ejecutando en una máquina virtual de Azure.
 
-Antes de que los usuarios puedan acceder a las aplicaciones, es necesario publicarlas; publicar aplicaciones permite que los usuarios accedan a ellas a través del cliente de Escritorio remoto.
+1. Click **Create RemoteApp collection**.
+    
+    **Important:** It can take up to 30 minutes to provision your collection.
+
+After your Azure RemoteApp collection has been created, double-click the name of the collection. That will bring up the **Quick Start** page - this is where you finish configuring the collection.
+
+Use the following steps to create a **cloud + VNET collection**:
+
+1. In the management portal, go to the Azure RemoteApp page.
+2. Click **New** > **Create with VNET**.
+3. Enter a name for your collection.
+4. Choose the plan that you want to use - standard or basic.
+5. Choose the VNET you already created. Don't know how to do that? For now, the steps are in the [hybrid](remoteapp-create-hybrid-deployment.md) topic.
+6. Decide whether you want to join your collection to your domain. If yes, you'll need to use AD Connect to integrate Azure AD and your Active Directory environment. That's covered in below in **Step 2**.
+6. Click **Create RemoteApp collection**.
+
+
+## <a name="step-2:-configure-active-directory-directory-synchronization-(optional)"></a>Step 2: Configure Active Directory directory synchronization (optional) ##
+
+If you want to use Active Directory, Azure RemoteApp requires directory synchronization between Azure Active Directory and your on-premises Active Directory to synchronize users,  contacts, and passwords to your Azure Active Directory tenant. See [Configuring Active Directory for Azure RemoteApp](remoteapp-ad.md) for planning information. You can also go directly to [AD Connect](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/) for information.
+
+## <a name="step-3:-publish-apps"></a>Step 3: Publish apps ##
+
+An Azure RemoteApp app is the app or program that you provide to your users. It is located in the template image you uploaded for the collection. When a user accesses an app, the app appears to run in their local environment, but it is really running in a virtual machine in Azure. 
+
+Before your users can access apps, you need to publish them – publishing apps lets your users access the apps through the Remote Desktop client.
  
-Puede publicar varias aplicaciones en su colección de Azure RemoteApp. En la página de publicación, haga clic en **Publicar** para agregar un programa. Puede publicar desde el menú **Inicio** de la imagen de plantilla o especificando la ruta de acceso en la imagen de plantilla para la aplicación. Si opta por agregar desde el menú **Inicio**, elija la aplicación que publicar. Si opta por proporcionar la ruta de acceso a la aplicación, proporcione un nombre para la aplicación y la ruta de acceso en la que se instaló en la imagen de la plantilla.
+You can publish multiple apps to your Azure RemoteApp collection. From the publishing page, click **Publish** to add a program. You can either publish from the **Start** menu of the template image or by specifying the path on the template image for the app. If you choose to add from the **Start** menu, choose the app to publish. If you choose to provide the path to the app, provide a name for the app and the path to where it is installed on the template image.
 
-## Paso 4: Configuración del acceso de usuarios ##
+## <a name="step-4:-configure-user-access"></a>Step 4: Configure user access ##
 
-Ahora que creó la colección, necesita agregar a los usuarios que desea que puedan usar los recursos remotos. Si usa Active Directory, los usuarios a los que proporcione acceso deben existir en el inquilino de Active Directory asociado con la suscripción que usó para crear esta colección de.
+Now that you have created your collection, you need to add the users that you want to be able to use your remote resources. If you are using Active Directory, the users that you provide access to need to exist in the Active Directory tenant associated with the subscription you used to create this collection.
 
-1.	En la página Inicio rápido, haga clic en **Configurar acceso de usuario**.
-2.	Escriba la cuenta de trabajo (desde Active Directory) o la cuenta de Microsoft para la que quiere conceder acceso.
+1.  From the Quick Start page, click **Configure user access**. 
+2.  Enter the work account (from Active Directory) or Microsoft account that you want to grant access for.
 
-	**Notas:**
+    **Notes:** 
 
-	Asegúrese de que usa el formato "usuario@dominio.com".
+    Make sure that you use the “user@domain.com” format.
 
-	Si usa Office 365 ProPlus en su colección, debe usar las identidades de Active Directory para los usuarios. Esto ayuda a validar las licencias.
+    If you are using Office 365 ProPlus in your collection, you must use the Active Directory identities for your users. This helps validate licensing. 
 
-3.	Cuando se validen los usuarios, haga clic en **Guardar**.
+3.  After the users are validated, click **Save**.
 
 
-## Pasos siguientes ##
+## <a name="next-steps"></a>Next steps ##
 
-Eso es todo, creó e implementó correctamente su colección en la nube de Azure RemoteApp. El paso siguiente es que los usuarios descarguen e instalen el cliente Escritorio remoto. Puede encontrar la dirección URL del cliente en la página Inicio rápido de Azure RemoteApp. Después, indique a los usuarios que inicien sesión en el cliente y accedan a las aplicaciones publicadas.
+That's it - you have successfully created and deployed your Azure RemoteApp cloud collection. The next step is to have your users download and install the Remote Desktop client. You can find the URL for the client on the Azure RemoteApp Quick Start page. Then, have users log into the client and access the apps you published.
 
-### Permítanos ayudarle 
-¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, luego, una vez que los aprobemos, verá los cambios y mejoras aquí.
+### <a name="help-us-help-you"></a>Help us help you 
+Did you know that in addition to rating this article and making comments down below, you can make changes to the article itself? Something missing? Something wrong? Did I write something that's just confusing? Scroll up and click **Edit on GitHub** to make changes - those will come to us for review, and then, once we sign off on them, you'll see your changes and improvements right here.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

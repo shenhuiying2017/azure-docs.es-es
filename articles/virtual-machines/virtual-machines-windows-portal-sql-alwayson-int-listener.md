@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creación de un agente de escucha para un grupo de disponibilidad AlwaysOn de SQL Server en máquinas virtuales de Azure"
-   description="Instrucciones paso a paso para crear un agente de escucha en un grupo de disponibilidad AlwaysOn de SQL Server con máquinas virtuales de Azure"
+   pageTitle="Create Listener for AlwaysOn availabilty group for SQL Server in Azure Virtual Machines"
+   description="Step-by-step instructions for creating a listener for an AlwaysOn availabilty group for SQL Server in Azure Virtual Machines"
    services="virtual-machines"
    documentationCenter="na"
    authors="MikeRayMSFT"
@@ -16,190 +16,191 @@
    ms.date="07/12/2016"
    ms.author="MikeRayMSFT"/>
 
-# Configuración de un equilibrador de carga interno para un grupo de disponibilidad AlwaysOn de Azure
 
-En este tema, se explica cómo puede crear un equilibrador de carga interno para un grupo de disponibilidad de SQL Server AlwaysOn implementado en máquinas virtuales de Azure que se ejecute en el modelo de Resource Manager. Cuando las instancias de SQL Server están implementadas en máquinas virtuales de Azure, los grupos de disponibilidad AlwaysOn necesitan un equilibrador de carga. El equilibrador de carga almacena la dirección IP del agente de escucha del grupo de disponibilidad. Si un grupo de disponibilidad abarca varias regiones, cada región necesitará su propio equilibrador de carga.
+# <a name="configure-an-internal-load-balancer-for-an-alwayson-availability-group-in-azure"></a>Configure an internal load balancer for an AlwaysOn availability group in Azure
 
-Para completar esta tarea, debe tener un grupo de disponibilidad de SQL Server AlwaysOn implementado en las máquinas virtuales de Azure con el modelo de Resource Manager. Las dos máquinas virtuales de SQL Server deben pertenecer al mismo conjunto de disponibilidad. Puede usar la [plantilla de Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) para crear automáticamente el grupo de disponibilidad AlwaysOn en Azure Resource Manager. Esta plantilla crea automáticamente el equilibrador de carga interno.
+This topic explains how to create an internal load balancer for a SQL Server AlwaysOn availability group in Azure virtual machines running in resource manager model. An AlwaysOn availability group requires a load balancer when the SQL Server instances are on Azure virtual machines. The load balancer stores the IP address for the availability group listener. If an availability group spans mutliple regions, each region needs a load balancer.
 
-Si lo prefiere, puede [configurar manualmente un grupo de disponibilidad AlwaysOn](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+To complete this task, you need to have a SQL Server AlwaysOn availability group deployed on Azure virtual machines in resource manager model. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) to automatically create the AlwaysOn availability group in Azure resource manager. This template automatically creates the internal load balancer for you. 
 
-En este tema, es necesario que los grupos de disponibilidad ya estén configurados.
+If you prefer, you can [manually configure an AlwaysOn availability group](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
-Temas relacionados:
+This topic requires that your availablity groups are already configured.  
 
- - [Configuración de Grupos de disponibilidad AlwaysOn en la máquina virtual de Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+Related topics include:
+
+ - [Configure AlwaysOn Availability Groups in Azure VM (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
  
- - [Configuración de una conexión entre dos redes virtuales mediante Azure Resource Manager y PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+ - [Configure a VNet-to-VNet connection by using Azure Resource Manager and PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
-## Pasos
+## <a name="steps"></a>Steps
 
-A lo largo de este documento, va a crear y configurar un equilibrador de carga en el Portal de Azure. Una vez hecho esto, configurará el clúster para que utilice la dirección IP del equilibrador de carga en el agente de escucha del grupo de disponibilidad AlwaysOn.
+By walking through this document you will create and configure a load balancer in the Azure portal. After that is complete, you will configure the cluster to use the IP address from the load balancer for the AlwaysOn availability group listener.
 
-## Creación y configuración del equilibrador de carga en el Portal de Azure
+## <a name="create-and-configure-the-load-balancer-in-the-azure-portal"></a>Create and configure the load balancer in the Azure portal
 
-En esta parte de la tarea, realizará las siguientes operaciones en el Portal de Azure:
+In this portion of the task you will do the following steps in the Azure portal:
 
-1. Creación del equilibrador de carga y configuración de la dirección IP
+1. Create the load balancer and configure the IP address
 
-1. Configuración del grupo back-end
+1. Configure the backend pool
 
-1. Elaboración del sondeo
+1. Create the probe 
 
-1. Configuración de las reglas de equilibrio de carga
+1. Set the load balancing rules
 
->[AZURE.NOTE] Si los servidores SQL Server se encuentran en regiones y grupos de recursos diferentes, deberá realizar estas operaciones dos veces (una por cada grupo de recursos).
+>[AZURE.NOTE] If the SQL Servers are in different resource groups and regions, you will do all of these steps twice, once in each resource group.
 
-## 1\. Creación del equilibrador de carga y configuración de la dirección IP
+## <a name="1.-create-the-load-balancer-and-configure-the-ip-address"></a>1. Create the load balancer and configure the IP address
 
-El primer paso consiste en crear el equilibrador de carga. En el Portal de Azure, abra el grupo de recursos que contiene las máquinas virtuales de SQL Server. En el grupo de recursos, haga clic en **Agregar**.
+The first step is to create the load balancer. In the Azure portal, open the resource group that contains the SQL Server virtual machines. In the resource group, click **Add**.
 
-- Busque el **equilibrador de carga**. En los resultados, seleccione el **Equilibrador de carga**, publicado por **Microsoft**.
+- Search for **load balancer**. From the search results select **Load Balancer**, which is published by **Microsoft**.
 
-- En la hoja **Equilibrador de carga**, haga clic en **Crear**.
+- On the **Load Balancer** blade, click **Create**.
 
-- En **Create load balancer** (Crear configurador de carga), configure el equilibrador de carga tal y como se explica a continuación:
+- On **Create load balancer**, configure the the load balancer as follows:
 
-| Configuración | Valor |
+| Setting | Value |
 | ----- | ----- |
-| **Name** | Nombre de texto que representa el equilibrador de carga; por ejemplo, **sqlLB**. |
-| **Esquema** | **Interno** |
-| **Red virtual** | Elija la red virtual en la que se encuentran los servidores SQL Server. |
-| **Subred** | Elija la subred en la que se encuentran los servidores SQL Server. |
-| **Suscripción** | Si tiene varias suscripciones, puede aparecer este campo. Seleccione la suscripción que quiere asociar con este recurso. Normalmente, será la misma suscripción que se utiliza con todos los recursos del grupo de disponibilidad. |
-| **Grupos de recursos** | Elija el grupo de recursos en el que se encuentran los servidores SQL Server. | 
-| **Ubicación** | Elija la ubicación de Azure en la que se encuentran los servidores SQL Server. |
+| **Name** | A text name representing the load balancer. For example, **sqlLB**. |
+| **Schema** | **Internal** |
+| **Virtual network** | Choose the virtual network that the SQL Servers are in.   |
+| **Subnet**  | Choose the subnet that the SQL Servers are in. |
+| **Subscription** | If you have multiple subscriptions, this field may appear. Select the subscription that you want associated with this resource. It is normally the same subcription as all of the resources for the availability group.  |
+| **Resource group** | Choose the resource group that the SQL Servers are in. | 
+| **Location** | Choose the Azure location that the SQL Servers are in. |
 
-- Haga clic en **Crear**.
+- Click **Create**. 
 
-Azure crea el equilibrador de carga que configuró en los pasos anteriores. El equilibrador de carga pertenece a una red, una subred, una ubicación y un grupo de recursos específicos. Cuando Azure haya completado el equilibrador de carga, compruebe su configuración.
+Azure creates the load balancer that you configured above. The load balancer belongs to a specific network, subnet, resource group, and location. After Azure completes, verify the load balancer settings in Azure. 
 
-Ahora, configure la dirección IP del equilibrador de carga.
+Now, configure the load balancer IP address.  
 
-- En la hoja **Configuración** del equilibrador de carga, haga clic en **Dirección IP**. En la hoja **Dirección IP**, se indica que se trata de un equilibrador de carga privado ubicado en la misma red virtual que los servidores SQL Server.
+- On the load balancer **Settings** blade, click **IP address**. The **IP address** blade shows that this is a private load balancer on the same virtual network as your SQL Servers. 
 
-- Configure las opciones siguientes:
+- Set the following settings: 
 
-| Configuración | Valor |
+| Setting | Value |
 | ----- | ----- |
-| **Subred** | Elija la subred en la que se encuentran los servidores SQL Server. |
-| **Asignación** | **Estática** |
-| **Dirección IP** | Escriba una dirección IP virtual de la subred que no esté en uso. |
+| **Subnet** | Choose the subnet that the SQL Servers are in. |
+| **Assignment** | **Static** |
+| **IP address** | Type an unused virtual IP address from the subnet.  |
 
-- Guarde la configuración
+- Save the settings.
 
-Ahora, el equilibrador de carga tiene una dirección IP. Guarde esta dirección. Tendrá que utilizarla cuando cree un agente de escucha en el clúster. Más adelante en este mismo artículo, hay un script de PowerShell donde tendrá que utilizar esta dirección para la variable `$ILBIP`.
+Now the load balancer has an IP address. Record this IP address. You will use this IP address when you create a listener on the cluster. In a PowerShell script later in this article, use this address for the `$ILBIP` variable.
 
 
 
-## 2\. Configuración del grupo back-end
+## <a name="2.-configure-the-backend-pool"></a>2. Configure the backend pool
 
-El siguiente paso consiste en crear un grupo de direcciones de back-end. En Azure, el grupo de direcciones de back-end se denomina *grupo de back-end*. En este caso, el grupo de back-end contiene las direcciones de los dos servidores SQL Server del grupo de disponibilidad.
+The next step is to create a backend address pool. Azure calls the backend address pool *backend pool*. In this case, the backend pool is the addresses of the two SQL Servers in your availability group. 
 
-- En el grupo de recursos, haga clic en el equilibrador de carga que ha creado.
+- In your resource group, click on the load balancer you created. 
 
-- En **Configuración**, haga clic en **Grupos de back-end**.
+- On **Settings**, click **Backend pools**.
 
-- En **Grupos de direcciones de back-end**, haga clic en **Agregar** para crear un grupo de direcciones de back-end.
+- On **Backend address pools**, click **Add** to create a backend address pool. 
 
-- En **Agregar grupo back-end**, en la opción **Nombre**, especifique un nombre para el grupo de back-end.
+- On **Add backend pool** under **Name**, type a name for the backend pool.
 
-- En **Máquinas virtuales**, haga clic en **+ Agregar una máquina virtual**.
+- Under **Virtual machines** click **+ Add a virtual machine**. 
 
-- En **Elegir máquinas virtuales**, haga clic en **Elegir un conjunto de disponibilidad** y especifique el conjunto de disponibilidad al que pertenecen las máquinas virtuales de SQL Server.
+- Under **Choose virtual machines** click **Choose an availability set** and specify the availablity set that the SQL Server virtual machines belong to.
 
-- Una vez elegido el conjunto de disponibilidad, haga clic en **Elegir las máquinas virtuales**. Haga clic en las dos máquinas virtuales en las que se hospedan las instancias de SQL Server del grupo de disponibilidad. Haga clic en **Seleccionar**.
+- After you have chosen the availability set, click **Choose the virtual machines**. Click the two virtual machines that host the SQL Server instances in the availability group. Click **Select**. 
 
-- Haga clic en **Aceptar** para cerrar las hojas **Elegir máquinas virtuales** y **Agregar grupo back-end**.
+- Click **OK** to close the blades for **Choose virtual machines**, and **Add backend pool**. 
 
-Azure actualiza la configuración del grupo de direcciones de back-end. Ahora, el conjunto de disponibilidad tiene un grupo de dos servidores SQL Server.
+Azure updates the settings for the backend address pool. Now your availability set has a pool of two SQL Servers.
 
-## 3\. Elaboración de un sondeo
+## <a name="3.-create-a-probe"></a>3. Create a probe
 
-El siguiente paso consiste en crear un sondeo. Este sondeo establece el modo en que Azure va a comprobar cuál de los servidores SQL Server es el propietario actual del agente de escucha del grupo de disponibilidad. Azure analizará el servició con arreglo a la dirección IP de un puerto que estableció al crear el sondeo.
+The next step is to create a probe. The probe defines how Azure will verify which of the SQL Servers currently owns the availability group listener. Azure will probe the service based on IP address on a port that you define when you create the probe.
 
-- En la hoja **Configuración** del equilibrador de carga, haga clic en **Sondeos**.
+- On the load balancer **Settings** blade, click **Probes**. 
 
-- En la hoja **Sondeos**, haga clic en **Agregar**.
+- On the **Probes** blade, click **Add**.
 
-- Configure el sondeo en la hoja **Agregar sondeo**. Utilice los valores siguientes para configurar el sondeo.
+- Configure the probe on the **Add probe** blade. Use the following values to configure the probe:
 
-| Configuración | Valor |
+| Setting | Value |
 | ----- | ----- |
-| **Name** | Nombre de texto que representa el sondeo. Por ejemplo, **SQLAlwaysOnEndPointProbe**. |
-| **Protocolo** | **TCP** |
-| **Puerto** | Puede usar cualquier puerto que esté disponible; por ejemplo, *59999*. |
-| **Intervalo** | *5* | 
-| **Umbral incorrecto** | *2* | 
+| **Name** | A text name representing the probe. For example, **SQLAlwaysOnEndPointProbe**. |
+| **Protocol** | **TCP** |
+| **Port** | You may use any available port. For example, *59999*.    |
+| **Interval**  | *5* | 
+| **Unhealthy threshold**  | *2* | 
 
-- Haga clic en **Aceptar**.
+- Click **OK**. 
 
->[AZURE.NOTE] Asegúrese de que el puerto especificado esté abierto en el firewall de los dos servidores SQL Server. En estos dos servidores, es necesario definir una regla de entrada para el puerto TCP. Consulte [Agregar o editar regla de firewall](http://technet.microsoft.com/library/cc753558.aspx) para más información.
+>[AZURE.NOTE] Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. See [Add or Edit Firewall Rule](http://technet.microsoft.com/library/cc753558.aspx) for more information. 
 
-Azure crea el sondeo. Azure usará el sondeo para comprobar qué servidor SQL Server tiene el agente de escucha del grupo de disponibilidad.
+Azure creates the probe. Azure will use the probe to test which SQL Server has the listener for the availability group.
 
-## 4\. Configuración de las reglas de equilibrio de carga
+## <a name="4.-set-the-load-balancing-rules"></a>4. Set the load balancing rules
 
-Configure las reglas de equilibrio de carga. Las reglas de equilibrio de carga determinan cómo el equilibrador de carga enruta el tráfico a los servidores SQL Server. En este equilibrador de carga, podrá habilitar Direct Server Return, ya que solo uno de los dos servidores SQL Server puede ser el propietario del recurso del agente de escucha del grupo de disponibilidad.
+Set the load balancing rules. The load balancing rules configure how the load balancer routes traffic to the SQL Servers. For this load balancer you will enable direct server return because only one of the two SQL Servers will ever own the availability group listener resource at a time.
 
-- En la hoja **Configuración** del equilibrador de carga, haga clic en **Reglas de equilibrio de carga**.
+- On the load balancer **Settings** blade, click **Load balancing rules**. 
 
-- En la hoja **Reglas de equilibrio de carga**, haga clic en **Agregar**.
+- On the **Load balancing rules** blade, click **Add**.
 
-- Utilice la hoja **Add load balancing rules** (Agregar reglas de equilibrio de carga) para configurar la regla de equilibrio de carga. Use la configuración siguiente:
+- Use the **Add load balancing rules** blade to configure the load balancing rule. Use the following settings: 
 
-| Configuración | Valor |
+| Setting | Value |
 | ----- | ----- |
-| **Name** | Nombre de texto que representa las reglas de equilibrio de carga. Por ejemplo, **SQLAlwaysOnEndPointListener**. |
-| **Protocolo** | **TCP** |
-| **Puerto** | *1433* |
-| **Puerto back-end** | *1433*. Tenga en cuenta que esta opción estará deshabilitada porque la regla usa **IP flotante (Direct Server Return)**. |
-| **Sondeo** | Utilice el nombre del sondeo que creó para este equilibrador de carga. |
-| **Session persistance (Persistencia de sesión)** | **None** | 
-| **Tiempo de espera de inactividad (minutos)** | *4* | 
-| **IP flotante (Direct Server Return)** | **Enabled** | 
+| **Name** | A text name representing the load balancing rules. For example, **SQLAlwaysOnEndPointListener**. |
+| **Protocol** | **TCP** |
+| **Port** | *1433*   |
+| **Backend Port** | *1433*. Note that this will be disabled because this rule uses **Floating IP (direct server return)**.   |
+| **Probe** | Use the name of the probe that you created for this load balancer. |
+| **Session persistance**  | **None** | 
+| **Idle timeout (minutes)**  | *4* | 
+| **Floating IP (direct server return)**  | **Enabled** | 
 
- >[AZURE.NOTE] Tal vez necesite desplazarse hacia abajo en la hoja para ver todas las opciones.
+ >[AZURE.NOTE] You might have to scroll down on the blade to see all of the settings.
 
-- Haga clic en **Aceptar**.
+- Click **OK**. 
 
-- Azure configura la regla de equilibrio de carga. Ahora, el equilibrador de carga está configurado para enrutar el tráfico al servidor SQL Server que hospeda el agente de escucha del grupo de disponibilidad.
+- Azure configures the load balancing rule. Now the load balancer is configured to route traffic to the SQL Server that hosts the listener for the availability group. 
 
-En este punto, el grupo de recursos dispone de un equilibrador de carga que tiene conexión con las dos máquinas de SQL Server. El equilibrador de carga también contiene una dirección IP del agente de escucha del grupo de disponibilidad de SQL Server AlwaysOn, por lo que cualquier máquina puede responder a las solicitudes de los grupos de disponibilidad.
+At this point the resource group has a load balancer, connecting to both SQL Server machines. The load balancer also contains an IP address for the SQL Server AlwaysOn availablity group listener so that either machine can respond to requests for the availability groups.
 
->[AZURE.NOTE] Si los servidores SQL Server se encuentran en dos regiones diferentes, repita los pasos en la otra región. Cada una de las regiones necesita su propio equilibrador de carga.
+>[AZURE.NOTE] If your SQL Servers are in two separate regions, repeat the steps in the other region. Each region requires a load balancer. 
 
-## Configure el clúster para que utilice la dirección IP del equilibrador de carga. 
+## <a name="configure-the-cluster-to-use-the-load-balancer-ip-address"></a>Configure the cluster to use the load balancer IP address 
 
-El siguiente paso consiste en configurar el agente de escucha del clúster y conectarlo. Para ello, siga estos pasos:
+The next step is to configure the listener on the cluster, and bring the listener online. To accomplish this, do the following: 
 
-1. Creación del agente de escucha del grupo de disponibilidad en el clúster de conmutación por error
+1. Create the availablity group listener on the failover cluster 
 
-1. Conexión del agente de escucha
+1. Bring the listener online
 
-## 1\. Creación del agente de escucha del grupo de disponibilidad en el clúster de conmutación por error
+## <a name="1.-create-the-availablity-group-listener-on-the-failover-cluster"></a>1. Create the availablity group listener on the failover cluster
 
-En este paso, creas manualmente el agente de escucha del grupo de disponibilidad en el Administrador de clústeres de conmutación por error y en SQL Server Management Studio (SSMS).
+In this step, you manually create the availability group listener in Failover Cluster Manager and SQL Server Management Studio (SSMS).
 
-- Use RDP para conectarse a la máquina virtual de Azure que hospeda la réplica principal.
+- Use RDP to connect to the Azure virtual machine that hosts the primary replica. 
 
-- Abra el Administrador de clústeres de conmutación por error.
+- Open Failover Cluster Manager.
 
-- Seleccione el nodo **Redes** y anota el nombre de red del clúster. Este nombre se utilizará en la variable `$ClusterNetworkName` del script de PowerShell.
+- Select the **Networks** node, and note the cluster network name. This name will be used in the `$ClusterNetworkName` variable in the PowerShell script.
 
-- Amplía el nombre del clúster y haz clic en **Funciones**.
+- Expand the cluster name, and then click **Roles**.
 
-- En el panel **Roles**, haz clic en el nombre del grupo de disponibilidad y después selecciona **Agregar recurso** > **Punto de acceso cliente**.
+- In the **Roles** pane, right-click the availability group name and then select **Add Resource** > **Client Access Point**.
 
-- En la casilla **Nombre**, crea un nombre para este nuevo agente de escucha, después haz clic en **Siguiente** dos veces y haz clic en **Finalizar**. No pongas el agente de escucha o el recurso en línea en este momento.
+- In the **Name** box, create a name for this new listener, then click **Next** twice, and then click **Finish**. Do not bring the listener or resource online at this point.
 
- >[AZURE.NOTE] Las aplicaciones utilizarán el nombre del nuevo agente de escucha como nombre de red para conectarse a las bases de datos del grupo de disponibilidad de SQL Server.
+ >[AZURE.NOTE] The name for the new listener is the network name that applications will use to connect to databases in the SQL Server availability group.
 
-- Haz clic en la pestaña **Recursos** y después amplía el punto de acceso de cliente que acabas de crear. Haga clic con el botón derecho en el recurso de IP y, después, en Propiedades. Anote el nombre de la dirección IP. Este es el nombre que va a utilizar en la variable `$IPResourceName` del script de PowerShell.
+- Click the **Resources** tab, then expand the Client Access Point you just created. Right-click the IP resource and click properties. Note the name of the IP address. You will use this name in the `$IPResourceName` variable in the PowerShell script.
 
-- En **Dirección IP**, haga clic en **Dirección IP estática** y especifique la misma dirección que utilizó al definir la dirección IP del equilibrador de carga en el Portal de Azure. Habilite NetBIOS para esta dirección y haga clic en **Aceptar**. Repite este paso en cada recurso de IP si tu solución abarca varias redes virtuales de Azure.
+- Under **IP Address** click **Static IP Address** and set the static IP address to the same address that you used when you set the load balancer IP address on the Azure portal. Enable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
 
-- En el nodo de clúster donde actualmente se hospeda la réplica principal, abra una instancia de PowerShell ISE con privilegios elevados y pegue los siguientes comandos en un nuevo script.
+- On the cluster node that currently hosts the primary replica, open an elevated PowerShell ISE and paste the following commands into a new script.
 
         $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
         $IPResourceName = "<IPResourceName>" # the IP Address resource name
@@ -209,60 +210,64 @@ En este paso, creas manualmente el agente de escucha del grupo de disponibilidad
     
         Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
 
-- Actualice las variables y ejecute el script de PowerShell para configurar la dirección IP y el puerto del nuevo agente de escucha.
+- Update the variables and run the PowerShell script to configure the IP address and port for the new listener.
 
- >[AZURE.NOTE] Si los servidores SQL Server se encuentran en distintas regiones, debe ejecutar el script de PowerShell dos veces. La primera vez, utilice el nombre de red del clúster, el nombre del recurso IP del clúster y la dirección IP del equilibrador de carga correspondientes al primer grupo de recursos. La segunda vez, utilice el nombre de red del clúster, el nombre del recurso IP del clúster y la dirección IP del equilibrador de carga correspondientes al segundo grupo de recursos.
+ >[AZURE.NOTE] If your SQL Servers are in separate regions, you need to run the PowerShell script twice. The first time use the cluster network name, cluster IP resource name, and load balancer IP address from the first resource group. The second time use the cluster network name, cluster IP resource name, and load balancer IP address from the second resource group.
 
-Ahora, el clúster dispone de un recurso de agente de escucha del grupo de disponibilidad.
+Now the cluster has an availability group listener resource.
 
-## 2\. Conexión del agente de escucha
+## <a name="2.-bring-the-listener-online"></a>2. Bring the listener online
 
-Una vez que el recurso de agente de escucha del grupo de disponibilidad está configurado, puede ponerlo en línea. De este modo, las aplicaciones podrán conectarse a las bases de datos del grupo de disponibilidad con el agente de escucha.
+With the availability group listener resource configured, you can bring the listener online so that applications can connect to databases in the availability group with the listener.
 
-- Desplázate atrás al Administrador de clústeres de conmutación por error. Amplia las **Funciones** y después resalta tu grupo de disponibilidad. En la pestaña **Recursos**, haga clic con el botón derecho en el nombre del agente de escucha y después haga clic en **Propiedades**.
+- Navigate back to Failover Cluster Manager. Expand **Roles** and then highlight your Availability Group. On the **Resources** tab, right-click the listener name and click **Properties**.
 
-- Haz clic en la pestaña **Dependencias**. Si aparecen varios recursos, comprueba que las direcciones IP tienen dependencias OR, y no AND. Haga clic en **Aceptar**.
+- Click the **Dependencies** tab. If there are multiple resources listed, verify that the IP addresses have OR, not AND, dependencies. Click **OK**.
 
-- Haz clic en el nombre del agente de escucha y luego haz clic en **Poner en línea**.
-
-
-- Una vez que el agente de escucha está en línea, en la pestaña de **Recursos**, haz clic con el botón derecho en el grupo de disponibilidad y haz clic en **Propiedades**.
-
-- Crea una dependencia en el recurso del nombre del agente de escucha (no en el nombre de los recursos de dirección IP). Haga clic en **Aceptar**.
+- Right-click the listener name and click **Bring Online**.
 
 
-- Abra SQL Server Management Studio y conéctese a la réplica principal.
+- Once the listener is online, from the **Resources** tab, right-click the availability group and click **Properties**.
+
+- Create a dependency on the listener name resource (not the IP address resources name). Click **OK**.
 
 
-- Vaya a **Alta disponibilidad de AlwaysOn** | **Grupos de disponibilidad** | **Agentes de escucha del grupo de disponibilidad**.
+- Launch SQL Server Management Studio and connect to the primary replica.
 
 
-- Ahora tienes que ver el nombre del agente de escucha que creaste en el Administrador de clústeres de conmutación por error. Haga clic con el botón derecho en el nombre del agente de escucha y luego en **Propiedades**.
+- Navigate to **AlwaysOn High Availability** | **Availability Groups** | **Availability Group Listeners**. 
 
 
-- En el cuadro **Puerto**, especifique el número de puerto del agente de escucha del grupo de disponibilidad utilizando el valor de $EndpointPort que estableció anteriormente (1433 era el valor predeterminado) y después haga clic en **Aceptar**.
+- You should now see the listener name that you created in Failover Cluster Manager. Right-click the listener name and click **Properties**.
 
-Ahora tiene un grupo de disponibilidad de SQL Server AlwaysOn en las máquinas virtuales de Azure que se ejecuta en el modo de Resource Manager.
 
-## Comprobación de la conexión con el agente de escucha
+- In the **Port** box, specify the port number for the availability group listener by using the $EndpointPort you used earlier (1433 was the default), then click **OK**.
 
-Para probar la conexión:
+You now have a SQL Server AlwaysOn availability group in Azure virtual machines running in resource manager mode. 
 
-1. Conéctese con RDP a un servidor SQL Server que esté en la misma red virtual, pero que no sea el propietario de la réplica; por ejemplo, a otro servidor SQL Server del clúster.
+## <a name="test-the-connection-to-the-listener"></a>Test the connection to the listener
 
-1. Compruebe la conexión con la utilidad **sqlcmd**. Por ejemplo, el siguiente script establece una conexión **sqlcmd** con la réplica principal a través del agente de escucha utilizando la autenticación de Windows:
+To test the connection:
+
+1. RDP to a SQL Server that is in the same virtual network, but does not own the replica. This can be the other SQL Server in the cluster.
+
+1. Use **sqlcmd** utility to test the connection. For example, the following script establishes a **sqlcmd** connection to the primary replica through the listener with Windows authentication:
 
         sqlcmd -S <listenerName> -E
 
-La conexión SQLCMD se establece automáticamente con cualquiera de las instancias de SQL Server en las que se hospeda la réplica principal.
+The SQLCMD connection automatically connect to whichever instance of SQL Server hosts the primary replica. 
 
-## Pautas y limitaciones
+## <a name="guidelines-and-limitations"></a>Guidelines and limitations
 
-Cuando utilice un equilibrador de carga interno, tenga en cuenta las siguientes instrucciones que se aplican al agente de escucha del grupo de disponibilidad de Azure:
+Note the following guidelines on availablity group listener in Azure using internal load balancer:
 
-- Solo se admite un agente de escucha de grupo de disponibilidad interno por cada servicio en la nube, ya que el agente de escucha se configura con arreglo al equilibrador y solo hay un equilibrador de carga interno. Sin embargo, es posible crear varios agentes de escucha externos.
+- Only one internal availablity group listener is supported per cloud service because the listener is configured to the load balancer, and there is only one internal load balancer. However it is possible to create multipe external listeners. 
 
-- Como solo hay un equilibrador de carga interno, el acceso al agente de escucha se realizará desde la misma red virtual.
+- With an internal load balancer you only access the listener from within the same virtual network.
  
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

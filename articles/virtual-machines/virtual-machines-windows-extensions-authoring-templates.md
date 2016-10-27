@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creación de plantillas con extensiones de máquina virtual de Azure | Microsoft Azure"
-   description="Obtenga información sobre cómo crear plantillas del Administrador de recursos de Azure con extensiones para máquinas virtuales de Windows."
+   pageTitle="Authoring Templates with Windows VM extensions | Microsoft Azure"
+   description="Learn about authoring Azure Resource Manager templates with extensions for Windows VMs"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="kundanap"
@@ -17,37 +17,42 @@
    ms.date="03/29/2016"
    ms.author="kundanap"/>
 
-# Creación de plantillas del Administrador de recursos de Azure con extensiones de máquina virtual
+
+# <a name="authoring-azure-resource-manager-templates-with-windows-vm-extensions"></a>Authoring Azure Resource Manager templates with Windows VM extensions
 
 [AZURE.INCLUDE [virtual-machines-common-extensions-authoring-templates](../../includes/virtual-machines-common-extensions-authoring-templates.md)]
 
-En Azure PowerShell, ejecute el siguiente cmdlet de Azure PowerShell:
+From Azure PowerShell, run the following Azure PowerShell cmdlet:
 
       Get-AzureVMAvailableExtension
 
 
-Este cmdlet devuelve el nombre de publicador, el nombre de extensión y la versión de la manera siguiente:
+This cmdlet returns the publisher name, extension name, and version as follows:
 
       Publisher                   : Microsoft.Azure.Extensions  
       ExtensionName               : DockerExtension
       Version                     : 1.0
 
-Estas tres propiedades se asignan a "publisher", "type" y "typeHandlerVersion", respectivamente, en el fragmento de plantilla anterior.
+These three properties map to "publisher", "type", and "typeHandlerVersion" respectively in the above template snippet.
 
->[AZURE.NOTE]Siempre se recomienda usar la versión más reciente de la extensión para obtener la funcionalidad más actualizada.
+>[AZURE.NOTE]It's always recommended to use the latest extension version to get the most updated functionality.
 
-## Identificación del esquema de los parámetros de configuración de la extensión
+## <a name="identifying-the-schema-for-the-extension-configuration-parameters"></a>Identifying the schema for the extension configuration parameters
 
-El siguiente paso en la creación de una plantilla de extensión consiste en identificar el formato para proporcionar parámetros de configuración. Cada extensión es compatible con su propio conjunto de parámetros.
+The next step with authoring an extension template is to identify the format for providing configuration parameters. Each extension supports its own set of parameters.
 
-Para ver configuraciones de ejemplo de las extensiones de Windows, consulte [Ejemplos de extensiones de Windows](virtual-machines-windows-extensions-configuration-samples.md).
-
-
-Consulte el siguiente artículo para obtener una plantilla totalmente completa con extensiones de máquina virtual.
-
-[Extensión de script personalizada en una máquina virtual de Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
+To look at sample configurations for Windows extensions, see [Windows extensions samples](virtual-machines-windows-extensions-configuration-samples.md).
 
 
-Una vez creada la plantilla, puede implementarla con Azure PowerShell.
+Please refer to the following to get a fully complete template with VM extensions.
 
-<!---HONumber=AcomDC_0601_2016-->
+[Custom Script Extension on a Windows VM](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
+
+
+After authoring the template, you can deploy it using Azure PowerShell.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

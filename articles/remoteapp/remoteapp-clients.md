@@ -1,9 +1,9 @@
 
 <properties
-    pageTitle="Acceso a sus aplicaciones desde cualquier dispositivo | Microsoft Azure"
-    description="Obtenga información sobre qué clientes son compatibles con Azure RemoteApp y cómo tener acceso a sus aplicaciones."
+    pageTitle="Accessing your apps from any device | Microsoft Azure"
+    description="Learn what clients are supported for Azure RemoteApp and how to access your apps."
     services="remoteapp"
-	documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -18,30 +18,31 @@
 
 
 
-# Acceso a las aplicaciones de Azure RemoteApp
+
+# <a name="accessing-your-apps-in-azure-remoteapp"></a>Accessing your apps in Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Una de las ventajas de Azure RemoteApp es que puede tener acceso a las aplicaciones desde cualquiera de los dispositivos. Aún mejor, puede comenzar a trabajar en un dispositivo y, a continuación, realizar una transición a un segundo dispositivo y continuar el trabajo desde donde lo dejó. Para empezar, deberá descargar el cliente apropiado para el dispositivo e iniciar sesión en el servicio.
+One of the beauties of Azure RemoteApp is that you can access apps from any of your devices. Even better, you can start working on one device and then seamlessly transition to a second device and pick up right where you left off. To get started you need to download the appropriate client for your device and sign in to the service.
 
-En este tema, revisaremos los clientes admitidos actualmente y cómo descargarlos antes de mostrar cómo iniciar sesión en RemoteApp desde cada uno de los clientes.
+In this topic, we'll review the clients currently supported and how to download them before I show you how to sign in to RemoteApp from each of the clients.
 
-## Clientes compatibles
+## <a name="supported-clients"></a>Supported clients
 
-Puede acceder a RemoteApp mediante los siguientes pasos si el dispositivo está ejecutando uno de estos sistemas operativos:
+You can access RemoteApp using the steps below if your device is running one of these operating systems:
 
- - Windows 10
+ - Windows 10 
  - Windows 8.1
  - Windows 8
  - Windows 7 Service Pack 1
- - Windows Phone 8,1
+ - Windows Phone 8.1
  - iOS
  - Mac OS X
  - Android
 
 
- Información acerca de los clientes ligeros. Se admiten los siguientes clientes ligeros de Windows Embedded:
+ What about thin clients? The following Windows Embedded thin clients are supported:
 
 - Windows Embedded Standard 7
 - Windows Embedded 8 Standard
@@ -49,165 +50,168 @@ Puede acceder a RemoteApp mediante los siguientes pasos si el dispositivo está 
 - Windows 10 IoT Enterprise
 
 
-## Descarga del cliente
+## <a name="downloading-the-client"></a>Downloading the client
 
-Independientemente de la plataforma que esté utilizando, el cliente que necesita que acceda a RemoteApp puede encontrarse en la página [Descarga del cliente de Escritorio remoto](https://www.remoteapp.windowsazure.com/ClientDownload/AllClients.aspx).
+No matter what platform you are using, the client you need to access RemoteApp can be found on the [Remote Desktop client download](https://www.remoteapp.windowsazure.com/ClientDownload/AllClients.aspx) page.
 
-Al hacer clic en los diferentes vínculos se comenzará a descargar el cliente directamente o será dirigido a la página de descarga del cliente descarga de la tienda de aplicaciones de esa plataforma. Siga las instrucciones en pantalla para instalar el cliente.
+Clicking the different links will either directly start downloading the client or will send you to the client download page in the app store for that platform. Install the client by following the instructions on the screen.
 
-Una vez haya instalado el cliente en el dispositivo y lo haya iniciado, salte a la sección correspondiente a continuación para obtener información sobre cómo iniciar sesión en RemoteApp desde ese cliente.
+Once you have installed the client on your device and launched it, jump to the corresponding section below to learn how to sign in to RemoteApp from that client.
 
-## Android
+## <a name="android"></a>Android
 
-Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la tienda Google Play, podrá encontrarla en la lista de aplicaciones en **Escritorio remoto**.
+Once you have installed the Microsoft Remote Desktop app from the Google Play store, you can find it in your app list under **Remote Desktop**.
 
-1. Al iniciar la aplicación se accede a un Centro de conexiones vacío, a menos que ya ha utilizado la aplicación. Para empezar a trabajar con Azure RemoteApp, toque el botón Agregar **"" +""** y **Azure RemoteApp**.
+1. Launching the app brings you to an empty Connection Center, unless you've already been using the app. To get started with Azure RemoteApp, tap the add button **""+""** and tap **Azure RemoteApp**. 
 
-	 ![Centro de conexiones vacío](./media/remoteapp-clients/Android1.png)
+     ![Empty Connection Center](./media/remoteapp-clients/Android1.png)
 
-2. Debe iniciar sesión con su dirección de correo electrónico para tener acceso al servicio. Pulse **Primeros pasos**.
+2. You need to sign in with your email address to access the service. Tap **Get started**.
 
-	![Solicitud de inicio de sesión](./media/remoteapp-clients/Android2.png)
+    ![Sign in prompt](./media/remoteapp-clients/Android2.png)
 
-3. En la siguiente página, escriba en su **dirección de correo electrónico** y toque **Continuar**. Esto comenzará el proceso de inicio de sesión mediante Azure Active Directory.
+3. On the next page, type in your **email address** and tap **Continue**. This begins the sign-in process using Azure Active Directory.
 
-	![Primera página de Azure Active Directory](./media/remoteapp-clients/Android3.png)
+    ![First Azure Active Directory page](./media/remoteapp-clients/Android3.png)
 
-4. Siga las instrucciones en pantalla para iniciar sesión con su cuenta de Microsoft (denominada anteriormente "LiveID") o su id. de organización. En cuanto haya iniciado sesión, es posible que se le presente una página con todas las invitaciones que ha recibido. Si es así, seleccione las invitaciones de confianza y toque en **Hecho**.
+4. Follow the instructions on the screen to sign in with your Microsoft account (previously called "LiveID") or organization ID. Once signed in, you may be presented with a page listing all the invitations you have received. If you are, select the invitations you trust and tap **Done**. 
 
-	![Página de invitaciones](./media/remoteapp-clients/Android4.png)
+    ![Invitations page](./media/remoteapp-clients/Android4.png)
 
-5. Después de aceptar las invitaciones, se descargará en el dispositivo la lista de aplicaciones a las que tiene acceso y estarán disponibles en el Centro de la conexión. Toque una de las aplicaciones para empezar a usarla.
+5. After accepting your invitations, the list of apps you have access to will be downloaded to your device and made available in the Connection Center. Tap one of the apps to start using it.
 
-	![Centro de conexiones con una fuente](./media/remoteapp-clients/Android5.png)
+    ![Connection Center with a feed](./media/remoteapp-clients/Android5.png)
 
-6. Si todavía no tiene una invitación, todavía puede probar el servicio. Para ello, toque **Ir a la versión de prueba gratuita** cuando se le solicite.
+6. If you do not have an invitation yet, you can still try out the service. To do so, tap **Go to free trial** when prompted.
 
-	![Solicitud de fuente de demostración](./media/remoteapp-clients/Android6.png)
+    ![Demo feed prompt](./media/remoteapp-clients/Android6.png)
 
-7. Esto le dará acceso a un conjunto básico de aplicaciones para comenzar a usar RemoteApp.
+7. This will give you access to a basic set of apps to get you started with RemoteApp.
 
-	![Fuente de demostración de RemoteApp de Azure](./media/remoteapp-clients/Android7.png)
+    ![Demo feed for Azure RemoteApp](./media/remoteapp-clients/Android7.png)
 
-## iOS
+## <a name="ios"></a>iOS
 
-Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde App Store, podrá encontrarla en la lista de aplicaciones en **Cliente de RD**.
+Once you have installed the Microsoft Remote Desktop app from the App store, you can find it in your app list under **RD Client**.
 
-1. Al iniciar la aplicación se accede a un Centro de conexiones vacío, a menos que ya ha utilizado la aplicación. Para empezar a trabajar con Azure RemoteApp, toque el botón de agregar **""+""** y **Agregar Azure RemoteApp**.
+1. Launching the app brings you to an empty Connection Center, unless you've already been using the app. To get started with Azure RemoteApp, tap the add button **""+""** and tap **Add Azure RemoteApp**.
 
-	![Centro de conexiones vacío](./media/remoteapp-clients/IOS1.png)
+    ![Empty Connection Center](./media/remoteapp-clients/IOS1.png)
 
-2. Debe iniciar sesión con su dirección de correo electrónico para tener acceso al servicio. Para iniciar ese proceso, escriba su **dirección de correo electrónico** y toque **Continuar**.
+2. You need to sign in with your email address to access the service, to start that process, type in your **email address** and tap **Continue**.
 
-	![Solicitud de inicio de sesión](./media/remoteapp-clients/picture1.png)
+    ![Sign in prompt](./media/remoteapp-clients/picture1.png)
 
-3. Siga las instrucciones en pantalla para iniciar sesión con su cuenta de Microsoft (LiveID) o su id. de organización. En cuanto haya iniciado sesión, es posible que se le presente una página con todas las invitaciones que ha recibido. Si es así, seleccione las invitaciones de confianza y toque en **Hecho**.
+3. Follow the instructions on the screen to sign in with your Microsoft account (LiveID) or Organization ID. Once signed in, you may be presented with a page listing all the invitations you have received. If you are, select the invitations you trust and tap **Done**.
 
-	![Página de invitaciones](./media/remoteapp-clients/IOS3.png)
+    ![Invitations page](./media/remoteapp-clients/IOS3.png)
 
-4. Después de aceptar las invitaciones, se descargará en el dispositivo la lista de aplicaciones a las que tiene acceso y estarán disponibles en el Centro de la conexión. Toque una de las aplicaciones para iniciarla y empezar a usarla.
+4. After accepting your invitations, the list of apps you have access to will be downloaded to your device and made available in the Connection Center. Tap one of the apps to launch it and start using it.
 
-	![Centro de conexiones con una fuente](./media/remoteapp-clients/IOS4.png)
+    ![Connection Center with a feed](./media/remoteapp-clients/IOS4.png)
 
-5. Si todavía no tiene una invitación, todavía puede probar el servicio. Para ello, toque **Ir a la versión de prueba gratuita** cuando se le solicite.
+5. If you do not have an invitation yet, you can still try out the service. To do so, tap **Go to free trial** when prompted.
 
-	![Solicitud de fuente de demostración](./media/remoteapp-clients/IOS5.png)
+    ![Demo feed prompt](./media/remoteapp-clients/IOS5.png)
 
-6. Esto le dará acceso a un conjunto básico de aplicaciones para comenzar a usar RemoteApp.
+6. This will give you access to a basic set of apps to get you started with RemoteApp.
 
-	![Fuente de demostración de RemoteApp de Azure](./media/remoteapp-clients/IOS6.png)
+    ![Demo feed for Azure RemoteApp](./media/remoteapp-clients/IOS6.png)
 
-## Mac OS X
+## <a name="mac-os-x"></a>Mac OS X
 
-Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la App Store, podrá encontrarla en la lista de aplicaciones en **Escritorio remoto de Microsoft**.
+Once you have installed the Microsoft Remote Desktop app from the App store, you can find it in your app list under **Microsoft Remote Desktop**.
 
-1. Al iniciar la aplicación se accede a un Centro de conexiones vacío, a menos que ya ha utilizado la aplicación. Para empezar a trabajar con Azure RemoteApp, haga clic en el botón **Azure RemoteApp**.
+1. Launching the app brings you to an empty Connection Center, unless you've already been using the app. To get started with Azure RemoteApp, click the **Azure RemoteApp** button.
 
-	![Centro de conexiones vacío](./media/remoteapp-clients/Mac1.png)
+    ![Empty Connection Center](./media/remoteapp-clients/Mac1.png)
 
-2. Debe iniciar sesión con su dirección de correo electrónico para tener acceso al servicio. Para iniciar ese proceso, toque **Introducción**.
+2. You need to sign in with your email address to access the service, to start that process, tap **Get Started**.
 
-	![Solicitud de inicio de sesión](./media/remoteapp-clients/Mac2.png)
+    ![Sign in prompt](./media/remoteapp-clients/Mac2.png)
 
-3. En la siguiente página, escriba en su **dirección de correo electrónico** y toque **Continuar**. Esto comenzará el proceso de inicio de sesión mediante Azure Active Directory.
+3. On the next page, type in your **email address** and tap **Continue**. This begins the sign in process using Azure Active Directory.
 
-	![Primera página de Azure Active Directory](./media/remoteapp-clients/picture2.png)
+    ![First Azure Active Directory page](./media/remoteapp-clients/picture2.png)
 
-4. Siga las instrucciones en pantalla para iniciar sesión con su cuenta de Microsoft (LiveID) o su id. de organización. En cuanto haya iniciado sesión, es posible que se le presente una página con todas las invitaciones que ha recibido. Si es así, seleccione las invitaciones de confianza y cierre el cuadro de diálogo.
+4. Follow the instructions on the screen to sign in with your Microsoft account (LiveID) or Organization ID. Once signed in, you may be presented with a page listing all the invitations you have received. If you are, select the invitations you trust and close the dialog.
 
-	![Página de invitaciones](./media/remoteapp-clients/Mac4.png)
+    ![Invitations page](./media/remoteapp-clients/Mac4.png)
 
-5. Después de aceptar las invitaciones, se descargará en el dispositivo la lista de aplicaciones a las que tiene acceso y estarán disponibles en el Centro de la conexión. Haga doble clic en una de las aplicaciones para iniciarla y empezar a usarla.
+5. After accepting your invitations, the list of apps you have access to will be downloaded to your device and made available in the Connection Center. Double-click one of the apps to launch it and start using it.
 
-	![Centro de conexiones con una fuente](./media/remoteapp-clients/Mac5.png)
+    ![Connection Center with a feed](./media/remoteapp-clients/Mac5.png)
 
-6. Si todavía no tiene una invitación, todavía puede probar el servicio. Para ello, haga clic en **Ir a la versión de prueba gratuita** cuando se le solicite.
+6. If you do not have an invitation yet, you can still try out the service. To do so, click **Go to free trial** when prompted.
 
-	![Solicitud de fuente de demostración](./media/remoteapp-clients/Mac6.png)
+    ![Demo feed prompt](./media/remoteapp-clients/Mac6.png)
 
-7. Esto le dará acceso a un conjunto básico de aplicaciones para comenzar a usar RemoteApp.
+7. This will give you access to a basic set of apps to get you started with RemoteApp.
 
-	![Fuente de demostración de RemoteApp de Azure](./media/remoteapp-clients/Mac7.png)
+    ![Demo feed for Azure RemoteApp](./media/remoteapp-clients/Mac7.png)
 
-## Windows (todas las versiones compatibles excepto Windows Phone)
+## <a name="windows-(all-supported-versions-except-windows-phone)"></a>Windows (All supported versions except Windows Phone)
 
-El cliente se inicia automáticamente una vez finalizada la instalación, sin embargo, cuando necesite tener acceso a este más adelante, lo encontrará en la lista de aplicaciones con el nombre **Azure RemoteApp**.
+The client launches automatically after it finishes installing, however when you need to access it again later it can be found in your app list under the name **Azure RemoteApp**.
 
-1. Después de iniciar el cliente, la primera página que verá le dará la bienvenida a Azure RemoteApp. Para continuar, haga clic en **Introducción**.
+1. Ater launching the client, the first page you see welcomes you to Azure RemoteApp. To proceed, click on **Get Started**.
 
-	![Página de bienvenida del cliente RemoteApp de Azure](./media/remoteapp-clients/Windows1.png)
+    ![Welcome page of the Azure RemoteApp client](./media/remoteapp-clients/Windows1.png)
 
-2. La página siguiente inicia el proceso de inicio de sesión de Azure RemoteApp mediante Azure Active Directory. Este proceso debe resultarle familiar si ha usado servicios Microsoft en el pasado. Comience escribiendo su **dirección de correo electrónico** y haga clic en **Continuar**.
+2. The next page starts the sign in process for Azure RemoteApp using Azure Active Directory. This process should look familiar if you have used Microsoft services in the past. Start by typing your **email address** and click **Continue**.
 
-	![Primer aviso del sistema de Azure Active Directory](./media/remoteapp-clients/Windows2.png)
+    ![First Azure Active Directory prompt](./media/remoteapp-clients/Windows2.png)
 
-3. Siga las instrucciones en pantalla para iniciar sesión con su cuenta de Microsoft (LiveID) o su id. de organización. En cuanto haya iniciado sesión, es posible que se le presente una página con todas las invitaciones que ha recibido. Si es así, seleccione las invitaciones de confianza y haga clic en **Hecho**.
+3. Follow the instructions on the screen to sign in with your Microsoft account (LiveID) or Organization ID. Once signed in, you may be presented with a page listing all the invitations you have received. If you are, select the invitations you trust and click **Done**.
 
-	![Página de invitaciones del cliente RemoteApp de Azure](./media/remoteapp-clients/Windows3.png)
+    ![Invitations page of the Azure RemoteApp client](./media/remoteapp-clients/Windows3.png)
 
-4. Después de aceptar las invitaciones, se descargará en el dispositivo la lista de aplicaciones a las que tiene acceso y estarán disponibles en el Centro de la conexión. Haga doble clic en una de las aplicaciones para iniciarla y empezar a usarla.
+4. After accepting your invitations, the list of apps you have access to will be downloaded to your device and made available in the Connection Center. Double-click one of the apps to launch it and start using it.
 
-	![Centro de conexiones del cliente RemoteApp de Azure](./media/remoteapp-clients/Windows4.png)
+    ![Connection Center of the Azure RemoteApp client](./media/remoteapp-clients/Windows4.png)
 
-5. No se preocupe si nadie le ha enviado una invitación aún, nosotros nos ocupamos. Continuará teniendo acceso a una colección de demostración para que pueda probar el servicio.
+5. If no one has sent you an invitation yet, don't worry we've got you covered! You'll still have access to a demo collection so you can test out the service.
 
-	![Fuente de demostración de RemoteApp de Azure](./media/remoteapp-clients/Windows5.png)
+    ![Demo feed for Azure RemoteApp](./media/remoteapp-clients/Windows5.png)
 
-## Windows Phone 8,1
+## <a name="windows-phone-8.1"></a>Windows Phone 8.1
 
-Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la tienda Windows Phone 8.1, podrá encontrarla en la lista de aplicaciones en **Escritorio remoto**.
+Once you have installed the Microsoft Remote Desktop app from the Windows Phone 8.1 store, you can find it in your app list under **Remote Desktop**.
 
-1. Al iniciar la aplicación se accede directamente a un Centro de conexiones vacío, a menos que ya ha utilizado la aplicación. Para empezar a trabajar con Azure RemoteApp, toque el botón de agregar **""+""** en la parte inferior de la pantalla.
+1. Launching the app brings you directly to an empty Connection Center, unless you've already been using the app. To get started with Azure RemoteApp, tap the add button **""+""** at the bottom of the screen.
 
-	![Centro de conexiones vacío](./media/remoteapp-clients/WinPhone1.png)
+    ![Empty Connection Center](./media/remoteapp-clients/WinPhone1.png)
 
-2. A continuación, toque **Azure RemoteApp**.
+2. Next, tap on **Azure RemoteApp**.
 
-	![Agregar página de elemento](./media/remoteapp-clients/WinPhone2.png)
+    ![Add item page](./media/remoteapp-clients/WinPhone2.png)
 
-3. Debe iniciar sesión con su dirección de correo electrónico para tener acceso al servicio. Para iniciar este proceso, toque **Conectar**.
+3. You need to sign in with your email address to access the service, to start that process, tap **connect**.
 
-	![Solicitud de inicio de sesión](./media/remoteapp-clients/WinPhone3.png)
+    ![Sign in prompt](./media/remoteapp-clients/WinPhone3.png)
 
-4. En la siguiente página, escriba en su **dirección de correo electrónico** y toque **Continuar**. Esto comenzará el proceso de inicio de sesión mediante Azure Active Directory.
+4. On the next page, type in your **email address** and tap **Continue**. This begins the sign in process using Azure Active Directory.
 
-	![Primera página de Azure Active Directory](./media/remoteapp-clients/WinPhone4.png)
+    ![First Azure Active Directory page](./media/remoteapp-clients/WinPhone4.png)
 
-5. Siga las instrucciones en pantalla para iniciar sesión con su cuenta de Microsoft (LiveID) o su id. de organización. En cuanto haya iniciado sesión, es posible que se le presente una página con todas las invitaciones que ha recibido. Si es así, seleccione las invitaciones de confianza y toque **Guardar**.
+5. Follow the instructions on the screen to sign in with your Microsoft account (LiveID) or Organization ID. Once signed in, you may be presented with a page listing all the invitations you have received. If you are, select the invitations you trust and tap **save**.
 
-	![Página de invitaciones](./media/remoteapp-clients/WinPhone5.png)
+    ![Invitations page](./media/remoteapp-clients/WinPhone5.png)
 
-6. Después de aceptar las invitaciones, se descargará en el dispositivo la lista de aplicaciones a las que tiene acceso y estarán disponibles en el Centro de la conexión. Toque una de las aplicaciones para iniciarla y empezar a usarla.
+6. After accepting your invitations, the list of apps you have access to will be downloaded to your device and made available in the Connection Center. Tap one of the apps to launch it and start using it.
 
-	![Centro de conexiones con una fuente](./media/remoteapp-clients/WinPhone6.png)
+    ![Connection Center with a feed](./media/remoteapp-clients/WinPhone6.png)
 
-7. Si todavía no tiene una invitación, todavía puede probar el servicio. Para ello, toque **Sí** cuando se le solicite.
+7. If you do not have an invitation yet, you can still try out the service. To do so, tap **yes** when prompted.
 
-	![Solicitud de fuente de demostración](./media/remoteapp-clients/WinPhone7.png)
+    ![Demo feed prompt](./media/remoteapp-clients/WinPhone7.png)
 
-8. Esto le dará acceso a un conjunto básico de aplicaciones para comenzar a usar RemoteApp.
+8. This will give you access to a basic set of apps to get you started with RemoteApp.
 
-	![Fuente de demostración de RemoteApp de Azure](./media/remoteapp-clients/WinPhone8.png)
+    ![Demo feed for Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

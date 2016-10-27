@@ -1,16 +1,18 @@
-Vamos a agregar un desencadenador.
+Let's add a trigger.
 
-1. Escriba *sftp* en el cuadro de búsqueda del diseñador de Logic Apps y seleccione el desencadenador **SFTP - When a file is added or modified** (SFTP: cuando se agrega o modifica un archivo).  
-![Imagen 1 de desencadenador de SFTP](./media/connectors-create-api-sftp/trigger-1.png)  
-- Se abre el control **When a file is added or modified** (Cuando se agrega o modifica un archivo).  
-![Imagen 2 de desencadenador de SFTP](./media/connectors-create-api-sftp/trigger-2.png)  
-- Seleccione los puntos suspensivos **...** situados a la derecha del control. Se abrirá el control de selector de carpeta.  
-![Imagen 3 de desencadenador de SFTP](./media/connectors-create-api-sftp/action-1.png)  
-- Seleccione **SFTP** para seleccionar la carpeta raíz como la carpeta para supervisar los archivos nuevos o modificados. Observe que la carpeta raíz se muestra ahora en el control **Folder** (Carpeta).  
-![Imagen 4 de desencadenador de SFTP](./media/connectors-create-api-sftp/action-2.png)  
+1. Enter *sftp* in the search box on the logic apps designer then select the **SFTP - When a file is added or modified**  trigger   
+![SFTP trigger image 1](./media/connectors-create-api-sftp/trigger-1.png)  
+- The **When a file is added or modified** control opens up  
+![SFTP trigger image 2](./media/connectors-create-api-sftp/trigger-2.png)  
+- Select the **...** located on the right side of the control. This opens the folder picker control  
+![SFTP trigger image 3](./media/connectors-create-api-sftp/action-1.png)  
+- Select the **SFTP** to select the root folder as the folder to monitor for new or modified files. Notice the root folder is now displayed in the **Folder** control.  
+![SFTP trigger image 4](./media/connectors-create-api-sftp/action-2.png)   
 
-En este punto, la aplicación lógica se ha configurado con un desencadenador que activará otros desencadenadores y acciones del flujo de trabajo cuando se cree o modifique un archivo en la carpeta SFTP especificada.
+At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a file is either modified or created in the specific SFTP folder. 
 
->[AZURE.NOTE]Para que una aplicación lógica sea funcional, debe contener al menos un desencadenador y una acción. Siga los pasos que se describen en la sección siguiente para agregar una acción.
+>[AZURE.NOTE]For a logic app to be functional, it must contain at least one trigger and one action. Follow the steps in the next section to add an action.  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

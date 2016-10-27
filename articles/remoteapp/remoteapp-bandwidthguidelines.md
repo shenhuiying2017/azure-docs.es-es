@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Ancho de banda de red de Azure RemoteApp: directrices generales | Microsoft Azure"
-	description="Entender algunas directrices básicas del ancho de banda de red para sus colecciones y aplicaciones de Azure RemoteApp."
-	services="remoteapp"
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" />
+    pageTitle="Azure RemoteApp network bandwidth - general guidelines | Microsoft Azure"
+    description="Understand some basic network bandwidth guidelines for your Azure RemoteApp collections and apps."
+    services="remoteapp"
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
@@ -15,35 +15,39 @@
     ms.date="08/15/2016" 
     ms.author="elizapo" />
     
-# Ancho de banda de red de Azure RemoteApp: directrices generales (si no puede probarlo usted mismo)
+
+# <a name="azure-remoteapp-network-bandwidth---general-guidelines-(if-you-can't-test-your-own)"></a>Azure RemoteApp network bandwidth - general guidelines (if you can't test your own)
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Si no tiene el tiempo ni la posibilidad de ejecutar las [pruebas del ancho de banda de red](remoteapp-bandwidthtests.md) para Azure RemoteApp, le presentamos algunas directrices bastante genéricas que pueden ayudarle a calcular el ancho de banda de red por usuario.
+If you do not have the time or capability to run the [network bandwidth tests](remoteapp-bandwidthtests.md) for Azure RemoteApp, here are some fairly generic guidelines that can help you estimate network bandwidth per user.
 
-Si tiene una combinación de estos escenarios, no le recomendamos nada que sea inferior a (o igual a) 10 MB/s como ancho de banda de red mínimo para las aplicaciones modernas conectadas a Internet en un entorno remoto. (Aunque, como se explicó anteriormente, esto no garantizará una experiencia de usuario superior a la media).
+If you have a mix of these scenarios, we don't recommend anything less than (or equal to) 10 MB/s as the MINIMUM network bandwidth for modern Internet-connected apps in a remote environment. (Although, as discussed, this will not guarantee a better than average user experience.)
 
-## PowerPoint de tipo complejo y de tipo simple
+## <a name="complex-powerpoint,-simple-powerpoint"></a>Complex PowerPoint, simple PowerPoint
 
-Azure RemoteApp funciona mejor con una red LAN de 100 MB. En el perfil de red de 10 MB/s, cuando la vibración superior a 120 ms representa más de un 5 %, el usuario tendrá una experiencia media. A 1 MB/s, la diferencia es evidente. Por ejemplo, en una presentación con diapositivas, el usuario podría no ver las transiciones animadas completamente ya que se omiten los fotogramas.
+Azure RemoteApp does best on 100 MB LAN. At the 10 MB/s network profile, when jitter above 120 ms is more than 5%, the user will see an average experience. At 1 MB/s the different is glaring - for example, in a slide show, the user might not see animated transitions at all because frames are skipped.
 
-## Internet Explorer, PDF mixto, PDF, texto
+## <a name="internet-explorer,-mixed-pdf,-pdf,-text"></a>Internet Explorer, mixed PDF, PDF, Text
 
-Un perfil de red de 10 MB/s se acerca a la red LAN en la mayoría de los aspectos. 1 MB/s proporcionará una experiencia adecuada, aunque puede haber una cierta vibración cuando un usuario se desplaza mientras hay imágenes en la pantalla.
+10 MB/s network profile is close to LAN in most aspects. 1 MB/s will provide an OK experience, although there may be some jitter when a user scrolls while there are images on the screen.
 
-## Vídeo Flash (YouTube)
+## <a name="flash-video-(youtube)"></a>Flash video (YouTube)
 
-Una red LAN de 100 MB/s proporciona la mejor experiencia, aunque 10 MB/s es aceptable (es decir, mantenemos la velocidad de fotogramas, pero aumenta la vibración). A 1 MB/s, la vibración es muy alta y apreciable.
+100 MB/s LAN provides the best experience, while 10 MB/s is acceptable (meaning we keep up with the frame rate but jitter increases). At 1 MB/s, jitter is very high and noticeable.
 
-## Escritura en Word (entrada remota de Word)
-Se trata de un escenario de uso de ancho de banda bajo. A 256 KB/s, proporcionamos una experiencia tan buena como la de la red LAN.
+## <a name="word-typing-(word-remote-input)"></a>Word typing (Word remote input)
+This is a low-bandwidth usage scenario. At 256 KB/s we provide as good of an experience as LAN.
 
-## Más información
-- [Cálculo aproximado del uso del ancho de banda de red de Azure RemoteApp](remoteapp-bandwidth.md)
+## <a name="learn-more"></a>Learn more
+- [Estimate Azure RemoteApp network bandwidth usage](remoteapp-bandwidth.md)
 
-- [Azure RemoteApp: ¿cómo funcionan el ancho de banda de red y la calidad de la experiencia conjuntamente?](remoteapp-bandwidthexperience.md)
+- [Azure RemoteApp - how do network bandwidth and quality of experience work together?](remoteapp-bandwidthexperience.md)
 
-- [Azure RemoteApp - tseting your network bandwidth usage with some common scenarios (Azure RemoteApp: probar su uso de ancho de banda de red con algunos escenarios comunes)](remoteapp-bandwidthtests.md)
+- [Azure RemoteApp - tseting your network bandwidth usage with some common scenarios](remoteapp-bandwidthtests.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,46 +1,47 @@
 <properties
-	pageTitle="Cambio del identificador de inquilino de Key Vault después de mover la suscripción | Microsoft Azure"
-	description="Aprenda a cambiar el identificador de inquilino de un Key Vault después de que se haya movido una suscripción a otro inquilino"
-	services="key-vault"
-	documentationCenter=""
-	authors="amitbapat"
-	manager="mbaldwin"
-	tags="azure-resource-manager"/>
+    pageTitle="Change key vault tenant ID after subscription move | Microsoft Azure"
+    description="Learn how to switch tenant ID for a key vault after a subscription is moved to a different tenant"
+    services="key-vault"
+    documentationCenter=""
+    authors="amitbapat"
+    manager="mbaldwin"
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="key-vault"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="09/13/2016"
-	ms.author="ambapat"/>
+    ms.service="key-vault"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="09/13/2016"
+    ms.author="ambapat"/>
 
-# Cambio del identificador de inquilino de Key Vault después de mover la suscripción
-### P: Mi suscripción se ha movido del inquilino A al inquilino B. ¿Cómo cambio el identificador de inquilino de Key Vault existente y establezco las ACL correctas para las entidades de seguridad del inquilino B?
 
-Cuando se crea un Key Vault nuevo en una suscripción, se asocia automáticamente a un identificador de inquilino de Azure Active Directory predeterminado de dicha suscripción. Las entradas de la directiva de acceso también se asocian con este identificador de inquilino. Al mover su suscripción de Azure del inquilino A al inquilino B, las entidades de seguridad (usuarios y aplicaciones) de este último inquilino no pueden acceder a los Key Vaults existentes. Para corregir este problema, es preciso
+# <a name="change-key-vault-tenant-id-after-subscription-move"></a>Change key vault tenant ID after subscription move
+### <a name="q:-my-subscription-was-moved-from-tenant-a-to-tenant-b.-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b?"></a>Q: My subscription was moved from tenant A to tenant B. How do I change the tenant ID for my existing key vault and set correct ACLs for principals in tenant B?
 
-- cambiar el identificador de inquilino asociado a todos las Key Vaults existentes en esta suscripción al inquilino B
-- quitar todas las entradas de la directiva de acceso existente
-- agregar nuevas entradas de la directiva de acceso que están asociadas al inquilino B.
+When you create a new key vault in a subscription, it is automatically tied to the default Azure Active Directory tenant ID for that subscription. All access policy entries are also tied to this tenant ID. When you move your Azure subscription from tenant A to tenant B, your existing key vaults are inaccessible by the principals (users and applications) in tenant B. To fix this issue, you need to
 
-Por ejemplo, si tiene el Key Vault 'myvault' en una suscripción que se ha movido del inquilino A al inquilino B, con el siguiente código podrá cambiar el identificador de inquilino de este Key Vault y quitar directivas de acceso antiguas.
+- change the tenant ID associated with all existing key vaults in this subscription to tenant B
+- remove all existing access policy entries
+- add new access policy entries that are associated with tenant B.
+
+For example, if you have key vault 'myvault' in a subscription that has been moved from tenant A to tenant B, here's how to change the tenant ID for this key vault and remove old access policies.
 
 <pre>
-$vaultResourceId = (Get-AzureRmKeyVault -VaultName myvault).ResourceId
-$vault = Get-AzureRmResource –ResourceId $vaultResourceId -ExpandProperties
-$vault.Properties.TenantId = (Get-AzureRmContext).Tenant.TenantId
-$vault.Properties.AccessPolicies = @()
-Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
+$vaultResourceId = (Get-AzureRmKeyVault -VaultName myvault).ResourceId $vault = Get-AzureRmResource –ResourceId $vaultResourceId -ExpandProperties $vault.Properties.TenantId = (Get-AzureRmContext).Tenant.TenantId $vault.Properties.AccessPolicies = @() Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
 </pre>
 
-Dado que este almacén estaba en el inquilino A antes de mover el valor original de **$vault. Properties.TenantId** es el inquilino A, mientras que **(Get-AzureRmContext). Tenant.TenantId** es el inquilino B.
+Since this vault was in tenant A before move original value of **$vault.Properties.TenantId** is tenant A, while **(Get-AzureRmContext).Tenant.TenantId** is tenant B.
 
-Ahora que el almacén está asociado al identificador de inquilino correcto y que se han quitado las entradas antiguas de la directiva de acceso, establezca nuevas entradas de la directiva de acceso con [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/mt603625.aspx).
+Now that your vault is associated with the correct tenant Id and old access policy entries are removed, set new access policy entries with [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/mt603625.aspx).
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next Steps
 
-- Si le queda alguna duda al respecto de Key Vault, visite los [foros de Azure Key Vault](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
+- If you have questions about Key Vault, visit the [Azure Key Vault Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

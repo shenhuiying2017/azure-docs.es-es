@@ -1,32 +1,34 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-### Para realizar una copia de seguridad
+### <a name="to-take-a-backup"></a>To take a backup
 
-1. En la página **Inicio rápido** del dispositivo, haga clic en **Agregar una directiva de copia de seguridad**. Esto iniciará el Asistente para agregar directivas de copia de seguridad. 
+1. On the device **Quick Start** page, click **Add a backup policy**. This will start the Add Backup Policy wizard. 
 
-2. En la página **Definir la directiva de copia de seguridad**:
-  1. Proporcione un nombre que tenga entre 3 y 150 caracteres para la directiva de copia de seguridad.
-  2. Seleccione los volúmenes de los que se va a hacer la copia de seguridad. Si selecciona más de un volumen, estos volúmenes se agruparán para crear una copia de seguridad preparada para bloqueos.
-  3. Haga clic en el icono de flecha ![icono de flecha](./media/storsimple-take-backup/HCS_ArrowIcon-include.png). 
+2. On the **Define your backup policy** page:
+  1. Supply a name that contains between 3 and 150 characters for your backup policy.
+  2. Select the volumes to be backed up. If you select more than one volume, these volumes will be grouped together to create a crash-consistent backup.
+  3. Click the arrow icon ![arrow-icon](./media/storsimple-take-backup/HCS_ArrowIcon-include.png). 
   
-    ![Agregar directiva de copia de seguridad](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard1M-include.png)
+    ![Add-backup-policy](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard1M-include.png)
 
-3. En la página **Definir una programación**:
-  1. Seleccione el tipo de copia de seguridad en la lista desplegable. Para restauraciones más rápidas, seleccione **Instantánea local**. Para lograr resistencia de datos, seleccione **Instantánea en la nube**.
-  2. Especifique la frecuencia de copia de seguridad en minutos, horas, días o semanas.
-  3. Seleccione un tiempo de retención. Las opciones de retención dependen de la frecuencia de copia de seguridad. Por ejemplo, para una directiva diaria, la retención puede especificarse en semanas, mientras que la retención de una directiva mensual es en meses.
-  4. Seleccione la fecha y hora de inicio para la directiva de copia de seguridad.
-  5. Seleccione la casilla **Habilitar** para habilitar la directiva de copia de seguridad. 
-  6. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-take-backup/HCS_CheckIcon-include.png) para guardar la directiva.
+3. On the **Define a schedule** page:
+  1. Select the type of backup from the drop-down list. For faster restores, select **Local Snapshot**. For data resiliency, select **Cloud Snapshot**.
+  2. Specify the backup frequency in minutes, hours, days, or weeks.
+  3. Select a retention time. The retention choices depend on the backup frequency. For example, for a daily policy, the retention can be specified in weeks, whereas retention for a monthly policy is in months.
+  4. Select the starting time and date for the backup policy.
+  5. Select the **Enable** check box to enable the backup policy. 
+  6. Click the check icon ![check-icon](./media/storsimple-take-backup/HCS_CheckIcon-include.png) to save the policy.
 
-    ![Agregar directiva de copia de seguridad](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard2M-include.png)
+    ![Add-backup-policy](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard2M-include.png)
  
-     Ahora dispone de una directiva de copia de seguridad que creará copias de seguridad programadas de los datos del volumen.
+     You now have a backup policy that will create scheduled backups of your volume data.
 
-Ahora ya acabó de configurar el dispositivo.
+You have completed the device configuration. 
 
-![Vídeo disponible](./media/storsimple-take-backup/Video_icon.png) **Vídeo disponible**
+![Video available](./media/storsimple-take-backup/Video_icon.png) **Video available**
 
-Para ver un vídeo que muestra cómo tomar una copia de seguridad de StorSimple, haga clic [aquí](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
+To watch a video that demonstrates how to take a StorSimple backup, click [here](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,66 +1,71 @@
 <properties
-	pageTitle="Restricciones y directivas de contraseñas en Azure Active Directory | Microsoft Azure"
-	description="Describe las directivas que se aplican a las contraseñas en Azure Active Directory, incluidos los caracteres permitidos, la longitud y la expiración"
+    pageTitle="Password policies and restrictions in Azure Active Directory | Microsoft Azure"
+    description="Describes the policies that apply to passwords in Azure Active Directory, including allowed characters, length, and expiration"
   services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/12/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/04/2016"
+    ms.author="curtand"/>
 
 
-# Restricciones y directivas de contraseñas en Azure Active Directory
 
-Este artículo describe las directivas de contraseña y los requisitos de complejidad asociados a las cuentas de usuario almacenadas en el directorio de Azure AD.
+# <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Password policies and restrictions in Azure Active Directory
 
-> [AZURE.IMPORTANT] **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
+This article describes the password policies and complexity requirements associated with user accounts stored in your Azure AD directory.
 
-## Directivas de UserPrincipalName que se aplican a todas las cuentas de usuario
+> [AZURE.IMPORTANT] **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 
-Cada cuenta de usuario que se necesita iniciar sesión en el sistema de autenticación de Azure AD debe tener un valor de atributo de nombre principal de usuario (UPN) único asociado a esa cuenta. En la siguiente tabla se describen las directivas que se aplican tanto a cuentas de usuario de Active Directory locales (sincronizadas con la nube) como a cuentas de usuario solo en la nube.
+## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>UserPrincipalName policies that apply to all user accounts
 
-| Propiedad | Requisitos de UserPrincipalName |
+Every user account that needs to sign in to the Azure AD authentication system must have a unique user principal name (UPN) attribute value associated with that account. The following table outlines the polices  that apply to both on-premises Active Directory-sourced user accounts   (synced to the cloud) and to cloud-only user accounts.
+
+|   Property           |     UserPrincipalName requirements  |
 |   ----------------------- |   ----------------------- |
-| Caracteres permitidos | <ul> <li>A – Z</li> <li>a -z </li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
-| Caracteres no permitidos | <ul> <li>Cualquier carácter "@" que no separa el nombre de usuario del dominio.</li> <li>No puede contener un carácter de punto "." inmediatamente antes que el símbolo "@"</li></ul> |
-| Restricciones de longitud | <ul> <li>La longitud total no debe superar los 113 caracteres</li><li>64 caracteres antes que el símbolo ‘@’</li><li>48 caracteres después del símbolo ‘@’</li></ul>
+|  Characters allowed    |  <ul> <li>A – Z</li> <li>a -z </li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
+|  Characters not allowed  | <ul> <li>Any '@' character that is not separating the user name from the domain.</li> <li>Cannot contain a period character '.' immediately preceding the '@' symbol</li></ul> |
+| Length constraints  |       <ul> <li>Total length must not exceed 113 characters</li><li>64 characters before the ‘@’ symbol</li><li>48 characters after the ‘@’ symbol</li></ul>
 
-## Directivas de contraseña que se aplican solo a cuentas de usuario en la nube
+## <a name="password-policies-that-apply-only-to-cloud-user-accounts"></a>Password policies that apply only to cloud user accounts
 
-En la tabla siguiente se describe la configuración de políticas de contraseña disponible que se puede aplicar a cuentas de usuario creadas y administradas en Azure AD.
+The following table describes the available password policy settings that can be applied to user accounts that are created and managed in   Azure AD.
 
-| Propiedad | Requisitos |
+|  Property       |    Requirements          |
 |   ----------------------- |   ----------------------- |
-| Caracteres permitidos | <ul><li>A – Z</li><li>a -z </li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
-| Caracteres no permitidos | <ul><li>Caracteres Unicode</li><li>Espacios</li><li> **Solo contraseñas seguras**: no pueden contener un carácter de punto "." inmediatamente antes que el símbolo "@"</li></ul> |
-| Restricciones de contraseña | <ul><li>8 caracteres como mínimo y 16 caracteres como máximo</li><li>**Solo contraseñas seguras**: requiere 3 de 4 de los siguiente:<ul><li>Caracteres en minúsculas</li><li>Caracteres en mayúsculas</li><li>Números (0-9)</li><li>Símbolos (vea las restricciones de contraseña anteriores)</li></ul></li></ul> |
-| Duración de las contraseñas | <ul><li>Valor predeterminado: **90** días </li><li>El valor se puede configurar mediante el cmdlet Set-MsolPasswordPolicy del Módulo Azure Active Directory para Windows PowerShell.</li></ul> |
-| Notificación de la expiración de contraseñas | <ul><li>Valor predeterminado: **14** días (antes de que la contraseña expire)</li><li>El valor se puede configurar mediante el cmdlet Set-MsolPasswordPolicy.</li></ul> |
-| Expiración de las contraseñas | <ul><li>Valor predeterminado: **false** (indica la expiración de la contraseña está habilitado) </li><li>El valor se puede configurar para cuentas de usuario individuales mediante el cmdlet Set-MsolUser. </li></ul> |
-| Historial de contraseñas | No se puede utilizar nuevamente la última contraseña. |
-| Duración del historial de contraseñas | Siempre |
-| Bloqueo de cuenta | Después de 10 intentos de inicio de sesión incorrectos (contraseña incorrecta), el usuario se bloqueará durante un minuto. Más intentos de inicio de sesión incorrectos bloquearán el usuario para mayores duraciones. |
+|  Characters allowed   |   <ul><li>A – Z</li><li>a -z </li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
+|  Characters not allowed   |       <ul><li>Unicode characters</li><li>Spaces</li><li> **Strong passwords only**: Cannot contain a dot character '.' immediately preceding the '@' symbol</li></ul> |
+|   Password restrictions | <ul><li>8 characters minimum and 16 characters maximum</li><li>**Strong passwords only**: Requires 3 out of 4 of the following:<ul><li>Lowercase characters</li><li>Uppercase characters</li><li>Numbers (0-9)</li><li>Symbols (see password restrictions above)</li></ul></li></ul> |
+| Password expiry duration      | <ul><li>Default value: **90** days </li><li>Value is configurable using the Set-MsolPasswordPolicy cmdlet from the Azure Active Directory Module for Windows PowerShell.</li></ul> |
+| Password expiry notification |  <ul><li>Default value: **14** days (before password expires)</li><li>Value is configurable using the Set-MsolPasswordPolicy cmdlet.</li></ul> |
+| Password Expiry |  <ul><li>Default value: **false** days (indicates that password expiry is enabled) </li><li>Value can be configured for individual user accounts using the Set-MsolUser cmdlet. </li></ul> |
+|  Password history  | Last password cannot be used again. |
+|  Password history duration | Forever |
+|  Account Lockout | After 10 unsuccessful sign-in attempts (wrong password), the user will be locked out for one minute. Further incorrect sign-in attempts will lock out the user for increasing durations. |
 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next Steps
 
-* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
-* [Administración de contraseñas desde cualquier lugar](active-directory-passwords.md)
-* [Funcionamiento de la administración de contraseñas](active-directory-passwords-how-it-works.md)
-* [Introducción a la administración de contraseñas](active-directory-passwords-getting-started.md)
-* [Personalización de la administración de contraseñas](active-directory-passwords-customize.md)
-* [Prácticas recomendadas de administración de contraseñas](active-directory-passwords-best-practices.md)
-* [Visión operativa con los informes de administración de contraseñas](active-directory-passwords-get-insights.md)
-* [Preguntas más frecuentes sobre la administración de contraseñas](active-directory-passwords-faq.md)
-* [Solución de problemas de administración de contraseñas](active-directory-passwords-troubleshoot.md)
-* [Más información](active-directory-passwords-learn-more.md)
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+* [Manage your passwords from anywhere](active-directory-passwords.md)
+* [How Password Management works](active-directory-passwords-how-it-works.md)
+* [Getting started with Password Mangement](active-directory-passwords-getting-started.md)
+* [Customize Password Management](active-directory-passwords-customize.md)
+* [Password Management Best Practices](active-directory-passwords-best-practices.md)
+* [How to get Operational Insights with Password Management Reports](active-directory-passwords-get-insights.md)
+* [Password Management FAQ](active-directory-passwords-faq.md)
+* [Troubleshoot Password Management](active-directory-passwords-troubleshoot.md)
+* [Learn More](active-directory-passwords-learn-more.md)
 
-<!----HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

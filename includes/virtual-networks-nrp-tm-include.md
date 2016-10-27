@@ -1,28 +1,28 @@
-## Perfil del Administrador de tráfico
+## <a name="traffic-manager-profile"></a>Traffic Manager Profile
 
-El Administrador de tráfico y su recurso de punto de conexión secundario permiten el enrutamiento DNS a los puntos de conexión dentro y fuera de Azure. Esta distribución de tráfico se rige por los métodos de directivas de enrutamiento. El Administrador de tráfico también permite supervisar el estado del extremo y desviar el tráfico adecuadamente según el estado de un extremo.
+Traffic manager and its child endpoint resource enable DNS routing to endpoints in Azure and outside of Azure. Such traffic distribution is governed by routing  policy methods. Traffic manager also allows endpoint health to be monitored, and traffic diverted appropriately based on the health of an endpoint. 
 
-| Propiedad | Descripción |
+| Property | Description |
 |---|---|
-|**trafficRoutingMethod**| Los valores posibles son *Performance*, *Weighted* y *Priority*. | 
-| **dnsConfig** | FQDN para el perfil | 
-| **Protocolo** | protocolo de supervisión, los valores posibles son *HTTP* y *HTTPS*|
-| **Puerto** | puerto de supervisión |  
-| **Ruta de acceso** | ruta de acceso de supervisión |
-| **Extremos** | contenedor de recursos de punto de conexión | 
+|**trafficRoutingMethod**| possible values are *Performance*, *Weighted*, and *Priority* | 
+| **dnsConfig** | FQDN for the profile | 
+| **Protocol** | monitoring protocol, possible values are *HTTP* and *HTTPS*|
+| **Port** | monitoring port |  
+| **Path** | monitoring path |
+| **Endpoints** |  container for endpoint resources | 
 
-### Extremo 
+### <a name="endpoint"></a>Endpoint 
 
-Un extremo es un recurso secundario de un perfil de Administrador de tráfico. Representa un servicio o extremo web al que se distribuye el tráfico del usuario según la directiva configurada en el recurso de perfil del Administrador de tráfico.
+An endpoint is a child resource of a Traffic Manager Profile. It represents a service or web endpoint to which user traffic is distributed based on the configured policy in the Traffic Manager Profile resource. 
 
-| Propiedad | Descripción | 
+| Property | Description | 
 |---|---| 
-| **Tipo** | el tipo de punto de conexión, los posibles valores son *punto de conexión de Azure*, *punto de conexión externo* y *punto de conexión anidado* | 
-| **targetResourceId** | dirección IP pública de servicio o punto de conexión web. Puede tratarse de un extremo de Azure o uno externo. | 
-| **Peso** | ponderación del punto de conexión usada en la administración del tráfico. | 
-| **Prioridad** | prioridad del punto de conexión, usado para definir una acción de conmutación por error |
+| **Type** |  the type of the endpoint, possible values are *Azure End point*, *External Endpoint*, and  *Nested Endpoint* | 
+| **targetResourceId** |  public IP address of a service or web endpoint. This can be an Azure or external endpoint. | 
+| **Weight** | endpoint weight used in traffic management. | 
+| **Priority** | priority of the endpoint, used to define a failover action |
 
-Ejemplo de Administrador de tráfico en formato Json:
+Sample of Traffic Manager in Json format: 
 
 
         {
@@ -80,8 +80,11 @@ Ejemplo de Administrador de tráfico en formato Json:
         }
 
  
-## Recursos adicionales
+## <a name="additional-resources"></a>Additional resources
 
-Para más información, lea la [documentación de API de REST para el Administrador de tráfico](https://msdn.microsoft.com/library/azure/mt163664.aspx).
+Read [REST API documentation for Traffic Manager](https://msdn.microsoft.com/library/azure/mt163664.aspx) for more information.
 
-<!---HONumber=AcomDC_1223_2015-->
+
+<!--HONumber=Oct16_HO2-->
+
+

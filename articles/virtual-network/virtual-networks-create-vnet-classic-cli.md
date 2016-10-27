@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creación de una red virtual mediante la CLI de Azure | Microsoft Azure"
-   description="Obtenga información sobre cómo crear una red virtual con la CLI de Azure en ARM | Administrador de recursos."
+   pageTitle="Create a virtual network using Azure CLI | Microsoft Azure"
+   description="Learn how to create a virtual network using Azure CLI in ARM | Resource Manager."
    services="virtual-network"
    documentationCenter=""
    authors="jimdial"
@@ -17,16 +17,20 @@
    ms.date="03/15/2016"
    ms.author="jdial"/>
 
-# Creación de una red virtual (clásica) usando la CLI de Azure
+
+# <a name="create-a-virtual-network-(classic)-by-using-the-azure-cli"></a>Create a virtual network (classic) by using the Azure CLI
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este documento describe la creación de una red virtual mediante el modelo de implementación clásica. También puede [crear una red virtual con el modelo de implementación del Administrador de recursos mediante la CLI de Azure](virtual-networks-create-vnet-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This document covers creating a VNet by using the classic deployment model. You can also [create a virtual network in the Resource Manager deployment model by using the Azure CLI](virtual-networks-create-vnet-arm-cli.md).
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-classic-cli-include](../../includes/virtual-networks-create-vnet-classic-cli-include.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

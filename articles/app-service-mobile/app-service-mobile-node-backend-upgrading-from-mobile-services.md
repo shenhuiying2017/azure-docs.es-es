@@ -1,185 +1,186 @@
 <properties
-	pageTitle="Actualización de Servicios móviles a Servicio de aplicaciones de Azure - Node.js"
-	description="Aprenda a actualizar fácilmente la aplicación de Servicios móviles a una aplicación móvil del Servicio de aplicaciones."
-	services="app-service\mobile"
-	documentationCenter=""
-	authors="adrianhall"
-	manager="ggailey"
-	editor=""/>
+    pageTitle="Upgrade from Mobile Services to Azure App Service - Node.js"
+    description="Learn how to easily upgrade your Mobile Services application to an App Service Mobile App"
+    services="app-service\mobile"
+    documentationCenter=""
+    authors="adrianhall"
+    manager="yochayk"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile"
-	ms.devlang="node"
-	ms.topic="article"
-	ms.date="08/11/2016"
-	ms.author="adrianha"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile"
+    ms.devlang="node"
+    ms.topic="article"
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
 
-# Actualización del Servicio móvil de Azure de Node.js existente a Servicio de aplicaciones
 
-Aplicaciones móviles del Servicio de aplicaciones es una nueva forma de crear aplicaciones móviles con Microsoft Azure. Para más información, vea [¿Qué es Aplicaciones móviles?].
+# <a name="upgrade-your-existing-node.js-azure-mobile-service-to-app-service"></a>Upgrade your existing Node.js Azure Mobile Service to App Service
 
-En este tema se describe cómo actualizar una aplicación back-end de Node.js existente en Servicios móviles de Azure a una nueva instancia de Aplicaciones móviles del Servicio de aplicaciones. Cuando realice esta migración, la aplicación de Servicios móviles existente puede continuar funcionando. Si necesita actualizar una aplicación back-end de .NET, consulte [Actualización de los servicios móviles de .NET](./app-service-mobile-net-upgrading-from-mobile-services.md).
+App Service Mobile is a new way to build mobile applications using Microsoft Azure. To learn more, see [What are Mobile Apps?].
 
-Cuando un back-end móvil se actualiza a Servicio de aplicaciones de Azure, accede a todas las características de Servicio de aplicaciones y se factura conforme a los [precios del Servicio de aplicaciones], no según los precios de Servicios móviles.
+This topic describes how to upgrade an existing Node.js backend application from Azure Mobile Services to a new App Service Mobile Apps. While you perform this upgrade, your existing Mobile Services application can continue to operate.  If you need to upgrade a Node.js backend application, refer to [Upgrading your .NET Mobile Services](./app-service-mobile-net-upgrading-from-mobile-services.md).
 
-## Migración frente a actualización
+When a mobile backend is upgraded to Azure App Service, it has access to all App Service features and are billed according to [App Service pricing], not Mobile Services pricing.
+
+## <a name="migrate-vs.-upgrade"></a>Migrate vs. upgrade
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[AZURE.TIP] Se recomienda [realizar una migración](app-service-mobile-migrating-from-mobile-services.md) antes de pasar por una actualización. De este modo, puede colocar las dos versiones de la aplicación en el mismo Plan del Servicio de aplicaciones y no incurrir en ningún coste adicional.
+>[AZURE.TIP] It is recommended that you [perform a migration](app-service-mobile-migrating-from-mobile-services.md) before going through an upgrade. This way, you can put both versions of your application on the same App Service Plan and incur no additional cost.
 
-### Mejoras en el SDK de servidor para Node.js de Aplicaciones móviles
+### <a name="improvements-in-mobile-apps-node.js-server-sdk"></a>Improvements in Mobile Apps Node.js server SDK
 
-La actualización al nuevo [SDK de Aplicaciones móviles](https://www.npmjs.com/package/azure-mobile-apps) ofrece muchas mejoras, entre las que se incluyen:
+Upgrading to the new [Mobile Apps SDK](https://www.npmjs.com/package/azure-mobile-apps) provides a lot of improvements, including:
 
-- Basado en la [plataforma Express](http://expressjs.com/en/index.html), el nuevo SDK para Node es ligero y está diseñado para mantenerse al día con nuevas versiones de Node a medida que salen. Puede personalizar el comportamiento de la aplicación con middleware de Express.
+- Based on the [Express framework](http://expressjs.com/en/index.html), the new Node SDK is light-weight and designed to keep up with new Node versions as they come out. You can customize the application behavior with Express middleware.
 
-- Ofrece mejoras de rendimiento significativas en comparación con el SDK de Servicios móviles.
+- Significant performance improvements compared to the Mobile Services SDK.
 
-- Ahora puede hospedar un sitio web junto con el back-end móvil; asimismo, es fácil agregar el Azure Mobile SDK a cualquier aplicación v4 existente.
+- You can now host a website together with your mobile backend; similarly, it's easy to add the Azure Mobile SDK to any existing express.v4 application.
 
-- Creado para desarrollo multiplataforma y local, el SDK de Aplicaciones móviles se puede desarrollar y ejecutar localmente en plataformas Windows, Linux y OSX. Ahora es fácil usar técnicas de desarrollo comunes de Node como, por ejemplo, ejecutar pruebas [Mocha](https://mochajs.org/) antes de la implementación.
+- Built for cross-platform and local development, the Mobile Apps SDK can be developed and run locally on Windows, Linux, and OSX platforms. It's now easy to use common Node development techniques like running [Mocha](https://mochajs.org/) tests prior to deployment.
 
-## <a name="overview"></a>Información general básica de actualización
+## <a name="<a-name="overview"></a>basic-upgrade-overview"></a><a name="overview"></a>Basic upgrade overview
 
-Para facilitar la actualización de un back-end de Node.js, el Servicio de aplicaciones de Azure ha proporcionado un paquete de compatibilidad. Tras la actualización, tendrá un nuevo sitio que se puede implementar en un nuevo sitio del Servicio de aplicaciones.
+To aid in upgrading a Node.js backend, Azure App Service has provided a compatibility package.  After upgrade, you will have a niew site that can be deployed to a new App Service site.
 
-Los SDK de cliente de Servicios móviles **no** son compatibles con el nuevo SDK de servidor de Aplicaciones móviles. A fin de ofrecer continuidad del servicio para la aplicación, no debe publicar cambios en un sitio que actualmente presta servicio a clientes publicados. En su lugar, debe crear una aplicación móvil que actúe como duplicado. Puede colocar esta aplicación en el mismo Plan del Servicio de aplicaciones para evitar incurrir en costos financieros adicionales.
+The Mobile Services client SDKs are **not** compatible with the new Mobile Apps server SDK. In order to provide continuity of service for your app, you should not publish changes to a site currently serving published clients. Instead, you should create a new mobile app that serves as a duplicate. You can put this application on the same App Service plan to avoid incurring additional financial cost.
 
-Entonces tendrá dos versiones de la aplicación: una que permanece igual y presta servicio a las aplicaciones publicadas en su estado natural, y otra que después se puede actualizar y destinar a una nueva versión del cliente. Puede mover y probar el código a su ritmo, pero debe asegurarse de que las correcciones de errores se apliquen a ambas. Cuando crea que la cantidad que elija de aplicaciones cliente en estado natural se han actualizado a la versión más reciente, puede eliminar si quiere la aplicación migrada original. No incurre en costos monetarios adicionales, si se hospeda en el mismo Plan del Servicio de aplicaciones que la aplicación móvil.
+You will then have two versions of the application: one that stays the same and serves published apps in the wild, and the other which you can then upgrade and target with a new client release. You can move and test your code at your pace, but you should make sure that any bug fixes you make get applied to both. Once you feel that a desired number of client apps in the wild have updated to the latest version, you can delete the original migrated app if you desire. It doesn't incur any additional monetary costs, if hosted in the same App Service plan as your Mobile App.
 
-El esquema completo del proceso de actualización es el siguiente:
+The full outline for the upgrade process is as follows:
 
-1. Descargue el servicio móvil de Azure existente (migrado).
-2. Convierta el proyecto en una aplicación móvil de Azure mediante el paquete de compatibilidad.
-3. Corrija cualquier diferencia (como la configuración de autenticación).
-4. Implemente el proyecto de aplicación móvil de Azure convertido en un nuevo Servicio de aplicaciones.
-4. Publique una nueva versión de la aplicación cliente que utilice la nueva aplicación móvil.
-5. (Opcional) Eliminar la aplicación de servicio móvil migrada original
+1. Download your existing (migrated) Azure Mobile Service.
+2. Convert the project to an Azure Mobile App using the compatibility package.
+3. Correct any differences (such as authentication settings).
+4. Deploy your converted Azure Mobile App project to a new App Service.
+4. Release a new version of your client application that use the new Mobile App.
+5. (Optional) Delete your original migrated mobile service app.
 
-La eliminación puede tener lugar cuando no vea tráfico alguno en el servicio móvil migrado original.
+Deletion can occur when you don't see any traffic on your original migrated mobile service.
 
-## <a name="install-npm-package"></a> Instalación de los requisitos previos
+## <a name="<a-name="install-npm-package"></a>-install-the-pre-requisites"></a><a name="install-npm-package"></a> Install the Pre-requisites
 
-Debe instalar [Node] en el equipo local. También debe instalar el paquete de compatibilidad. Después de instalar Node, puede ejecutar el comando siguiente desde un nuevo cmd o símbolo del sistema de PowerShell:
+You should install [Node] on your local machine.  You should also install the compatibility package.  After Node is installed, you can run the following command from a new cmd or PowerShell prompt:
 
 ```npm i -g azure-mobile-apps-compatibility```
 
-## <a name="obtain-ams-scripts"></a> Obtención de los scripts de Servicios móviles de Azure
+## <a name="<a-name="obtain-ams-scripts"></a>-obtain-your-azure-mobile-services-scripts"></a><a name="obtain-ams-scripts"></a> Obtain your Azure Mobile Services Scripts
 
-- Inicie sesión en el [Portal de Azure].
-- Mediante **Todos los recursos** o **Servicios de aplicaciones**, busque el sitio de Servicios móviles.
-- En el sitio, haga clic en **Herramientas** -> **Kudu** -> **Ir** para abrir el sitio de Kudu.
-- Haga clic en **Debug Console** (Consola de depuración) -> **PowerShell** para abrir la consola de depuración.
-- Vaya a `site/wwwroot/App_Data/config` haciendo clic por turnos en cada directorio.
-- Haga clic en el icono de descarga junto al directorio `scripts`.
+- Log in to the [Azure Portal].
+- Using **All Resources** or **App Services**, find your Mobile Services site.
+- Within the site, click on **Tools** -> **Kudu** -> **Go** to open the Kudu site.
+- Click on **Debug Console** -> **PowerShell** to open the Debug console.
+- Navigate to `site/wwwroot/App_Data/config` by clicking on each directory in turn
+- Click on the download icon next to the `scripts` directory.
 
-Se descargarán los scripts en formato ZIP. Cree un nuevo directorio en la máquina local y desempaquete el archivo `scripts.ZIP` dentro del directorio. Se crea un directorio `scripts`.
+This will download the scripts in ZIP format.  Create a new directory on your local machine and unpack the `scripts.ZIP` file within the directory.  This will create a `scripts` directory.
 
-## <a name="scaffold-app"></a> Realización de scaffold del nuevo back-end de Aplicaciones móviles de Azure
+## <a name="<a-name="scaffold-app"></a>-scaffold-the-new-azure-mobile-apps-backend"></a><a name="scaffold-app"></a> Scaffold the new Azure Mobile Apps backend
 
-Ejecute el siguiente comando desde el directorio que contiene el directorio de scripts:
+Run the following command from the directory containing the scripts directory:
 
 ```scaffold-mobile-app scripts out```
 
-Se crea un back-end de Aplicaciones móviles de Azure con scaffold en el directorio `out`. Aunque no es necesario, conviene comprobar el directorio `out` en un repositorio de código fuente de su elección.
+This will create a scaffolded Azure Mobile Apps backend in the `out` directory.  Although not required, it's a good idea to check the `out` directory into a source code repository of your choice.
 
-## <a name="deploy-ama-app"></a> Implementación del back-end de Aplicaciones móviles de Azure
+## <a name="<a-name="deploy-ama-app"></a>-deploy-your-azure-mobile-apps-backend"></a><a name="deploy-ama-app"></a> Deploy your Azure Mobile Apps backend
 
-Durante la implementación, deberá realizar estos pasos:
+During deployment, you will need to do the following:
 
-1. Cree una nueva aplicación móvil en el [Portal de Azure].
-2. Ejecute el script `createViews.sql` en la base de datos conectada.
-3. Vincule la base de datos que está vinculada a su servicio móvil a su nuevo Servicio de aplicaciones.
-4. Vincule otros recursos (como los Centros de notificaciones) al nuevo Servicio de aplicaciones.
-5. Implemente el código generado en el nuevo sitio.
+1. Create a new Mobile App in the [Azure Portal].
+2. Run the `createViews.sql` script on your connected database.
+3. Link the database that is linked to your Mobile Service to your new App Service.
+4. Link any other resources (such as Notification Hubs) to the new App Service.
+5. Deploy the generated code to your new site.
 
-### Creación de una aplicación móvil
+### <a name="create-a-new-mobile-app"></a>Create a new Mobile App
 
-1. Inicie sesión en el [Portal de Azure].
+1. Log in at the [Azure Portal].
 
-2. Haga clic en **+NUEVO** > **Web y móvil** > **Aplicación móvil** y, a continuación, proporcione un nombre para el back-end de la aplicación móvil.
+2. Click **+NEW** > **Web + Mobile** > **Mobile App**, then provide a name for your Mobile App backend.
 
-3. Para el **grupo de recursos**, seleccione un grupo de recursos existente o cree uno nuevo (con el mismo nombre que su aplicación).
+3. For the **Resource Group**, select an existing resource group, or create a new one (using the same name as your app.) 
  
-	Puede seleccionar un plan de Servicio de aplicaciones ya existente o crear uno nuevo. Para más información acerca de los planes de Servicio de aplicaciones y cómo crear un nuevo plan en un plan de tarifa diferente en la ubicación deseada, consulte [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+    You can either select another App Service plan or create a new one. For more about App Services plans and how to create a new plan in a different pricing tier and in your desired location, see [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-4. Para **Plan del Servicio de aplicaciones**, se selecciona el plan predeterminado (en el [nivel estándar](https://azure.microsoft.com/pricing/details/app-service/)). También puede seleccionar otro plan o [crear uno](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). La configuración del plan del Servicio de aplicaciones determina la [ubicación, las características, el costo y los recursos de proceso](https://azure.microsoft.com/pricing/details/app-service/) asociados a la aplicación.
+4. For the **App Service plan**, the default plan (in the [Standard tier](https://azure.microsoft.com/pricing/details/app-service/)) is selected. You can also  select a different plan, or [create a new one](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). The App Service plan's settings determine the [location, features, cost and compute resources](https://azure.microsoft.com/pricing/details/app-service/) associated with your app. 
 
-	Después de decidir el plan, haga clic en **Crear**. Esto crea el back-end de aplicación móvil
-
-
-### Ejecución de CreateViews.SQL
-
-La aplicación con scaffold contiene un archivo llamado `createViews.sql`. Este script debe ejecutarse con la base de datos de destino. La cadena de conexión de la base de datos de destino puede obtenerse del servicio móvil migrado, en la hoja **Configuración** en **Cadenas de conexión**. Se llama `MS_TableConnectionString`.
-
-Puede ejecutar este script desde SQL Server Management Studio o Visual Studio.
-
-### Vinculación de la base de datos al Servicio de aplicaciones
-
-Vincule la base de datos existente a su Servicio de aplicaciones:
-
-- En el [Portal de Azure], abra el Servicio de aplicaciones.
-- Seleccione **Toda la configuración de** -> **Conexiones de datos**.
-- Haga clic en **+ Agregar**.
-- En la lista desplegable, seleccione **Base de datos SQL**
-- En **Base de datos SQL**, seleccione la base de datos existente y luego haga clic en **Seleccionar**.
-- En **Cadena de conexión**, escriba el nombre de usuario y la contraseña de la base de datos y luego haga clic en **Aceptar**.
-- En la hoja **Add data connections** (Agregar conexiones de datos), haga clic en **Aceptar**.
-
-El nombre de usuario y la contraseña se pueden ver en la cadena de conexión de la base de datos de destino del servicio móvil migrado.
+    After you decide on the plan, click **Create**. This creates the Mobile App backend. 
 
 
-### Configuración de la autenticación
+### <a name="run-createviews.sql"></a>Run CreateViews.SQL
 
-El servicio Aplicaciones móviles de Azure le permite configurar la autenticación de Azure Active Directory, Facebook, Google, Microsoft y Twitter en el servicio. La autenticación personalizada deberá desarrollarse por separado. Para más información, consulte la documentación sobre los [conceptos de autenticación] y el [inicio rápido de autenticación].
+The scaffolded app contains a file called `createViews.sql`.  This script must be executed against the target database.  The connection string for the target database can be obtained from your migrated mobile service from the **Settings** blade under **Connection Strings**.  It is named `MS_TableConnectionString`.
 
-## <a name="updating-clients"></a>Actualización de los clientes móviles
+You can run this script from within SQL Server Management Studio or Visual Studio.
 
-Cuando tenga un back-end de aplicación móvil operativo, podrá trabajar en una nueva versión de la aplicación cliente que lo usa. Aplicaciones móviles incluye también una nueva versión de los SDK de cliente y, de forma similar a la actualización del servidor anterior, tendrá que quitar todas las referencias a los SDK de Servicios móviles antes de instalar las versiones de Aplicaciones móviles.
+### <a name="link-the-database-to-your-app-service"></a>Link the Database to your App Service
 
-Uno de los principales cambios entre las versiones es que los constructores ya no requieren una clave de aplicación. Ahora basta con pasar la dirección URL de la aplicación móvil. Por ejemplo, en los clientes .NET, el constructor `MobileServiceClient` es ahora:
+Link the existing database to your App Service:
+
+- In the [Azure Portal], open your App Service.
+- Select **All Settings** -> **Data Connections**.
+- Click on **+ Add**.
+- In the drop-down, select **SQL Database**
+- Under **SQL Database**, select your existing database, then click on **Select**.
+- Under **Connection string**, enter the username and password for the database, then click on **OK**.
+- In the **Add data connections** blade, click on **OK**.
+
+The username and password can be found by viewing the Connection String for the target database in your migrated Mobile Service.
+
+
+### <a name="set-up-authentication"></a>Set up authentication
+
+Azure Mobile Apps allows you to configure Azure Active Directory, Facebook, Google, Microsoft and Twitter authentication within the service.  Custom authentication will need to be developed separately.  Refer to the [Authentication Concepts] documentation and [Authentication Quickstart] documentation for more information.  
+
+## <a name="<a-name="updating-clients"></a>update-mobile-clients"></a><a name="updating-clients"></a>Update Mobile clients
+
+Once you have an operational Mobile App backend, you can work on a new version of your client application which consumes it. Mobile Apps also includes a new version of the client SDKs, and similar to the server upgrade above, you will need to remove all references to the Mobile Services SDKs before installing the Mobile Apps versions.
+
+One of the main changes between the versions is that the constructors no longer require an application key. You now simply pass in the URL of your Mobile App. For example, on the .NET clients, the `MobileServiceClient` constructor is now:
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
             "https://contoso.azurewebsites.net", // URL of the Mobile App
         );
 
-Encontrará información sobre cómo instalar los nuevos SDK y cómo usar la nueva estructura a través de los vínculos siguientes:
+You can read about installing the new SDKs and using the new structure via the links below:
 
-- [Versión de Android 2.2 o posterior](app-service-mobile-android-how-to-use-client-library.md)
-- [iOS versión 3.0.0 o posterior](app-service-mobile-ios-how-to-use-client-library.md)
-- [.NET (Windows/Xamarin) versión 2.0.0 o posterior](app-service-mobile-dotnet-how-to-use-client-library.md)
-- [Apache Cordova versión 2.0 o posterior](app-service-mobile-cordova-how-to-use-client-library.md)
+- [Android version 2.2 or later](app-service-mobile-android-how-to-use-client-library.md)
+- [iOS version 3.0.0 or later](app-service-mobile-ios-how-to-use-client-library.md)
+- [.NET (Windows/Xamarin) version 2.0.0 or later](app-service-mobile-dotnet-how-to-use-client-library.md)
+- [Apache Cordova version 2.0 or later](app-service-mobile-cordova-how-to-use-client-library.md)
 
-Si la aplicación hace uso de notificaciones de inserción, tome nota de las instrucciones de registro específicas para cada plataforma, ya que también ha habido algunos cambios al respecto.
+If your application makes use of push notifications, make note of the specific registration instructions for each platform, as there have been some changes there as well.
 
-Cuando tenga la nueva versión de cliente lista, pruébela en el proyecto de servidor actualizado. Después de comprobar que funciona, puede publicar una nueva versión de la aplicación para clientes. Al final, cuando los clientes hayan tenido ocasión de recibir estas actualizaciones, puede eliminar la versión de Servicios móviles de su aplicación. Llegados a este punto, ha actualizado completamente a una aplicación móvil del Servicio de aplicaciones mediante el SDK de servidor de Aplicaciones móviles más reciente.
+When you have the new client version ready, try it out against your upgraded server project. After validating that it works, you can release a new version of your application to customers. Eventually, once your customers have had a chance to receive these updates, you can delete the Mobile Services version of your app. At this point, you have completely upgraded to an App Service Mobile App using the latest Mobile Apps server SDK.
 
 <!-- URLs. -->
 
 [Azure portal]: https://portal.azure.com/
 [Azure classic portal]: https://manage.windowsazure.com/
-[¿Qué es Aplicaciones móviles?]: app-service-mobile-value-prop.md
-[I already use web sites and mobile services – how does App Service help me?]: /es-ES/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
+[What are Mobile Apps?]: app-service-mobile-value-prop.md
+[I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
 [Mobile App Server SDK]: https://www.npmjs.com/package/azure-mobile-apps
 [Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
 [Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
-[Azure Scheduler]: /es-ES/documentation/services/scheduler/
+[Azure Scheduler]: /en-us/documentation/services/scheduler/
 [Web Job]: ../app-service-web/websites-webjobs-resources.md
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[precios del Servicio de aplicaciones]: https://azure.microsoft.com/es-ES/pricing/details/app-service/
+[App Service pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[conceptos de autenticación]: ../app-service/app-service-authentication-overview.md
-[inicio rápido de autenticación]: app-service-mobile-auth.md
+[Authentication Concepts]: ../app-service/app-service-authentication-overview.md
+[Authentication Quickstart]: app-service-mobile-auth.md
 
-[Portal de Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [OData]: http://www.odata.org
-[Promise]: https://developer.mozilla.org/es-ES/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
 [todo sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
 [samples directory on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
@@ -187,8 +188,12 @@ Cuando tenga la nueva versión de cliente lista, pruébela en el proyecto de ser
 [QueryJS]: https://github.com/Azure/queryjs
 [Node.js Tools 1.1 for Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [mssql Node.js package]: https://www.npmjs.com/package/mssql
-[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/es-ES/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

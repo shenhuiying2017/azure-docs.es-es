@@ -1,6 +1,6 @@
 <properties
- pageTitle="¿Qué es el Programador de Azure? | Microsoft Azure"
- description="Programador de Azure le permite describir mediante declaración las acciones para ejecutar en la nube. A continuación, programa y ejecuta esas acciones de forma automática."
+ pageTitle="What is Azure Scheduler? | Microsoft Azure"
+ description="Azure Scheduler allows you to declaratively describe actions to run in the cloud. It then schedules and runs those actions automatically."
  services="scheduler"
  documentationCenter=".NET"
  authors="derek1ee"
@@ -15,39 +15,44 @@
  ms.date="08/18/2016"
  ms.author="deli"/>
 
-# ¿Qué es el Programador de Azure?
 
-Programador de Azure le permite describir mediante declaración las acciones para ejecutar en la nube. A continuación, programa y ejecuta esas acciones de forma automática. Para hacerlo, Programador usa el código del [Portal de Azure](scheduler-get-started-portal.md), la [API de REST](https://msdn.microsoft.com/library/mt629143.aspx) o Azure PowerShell.
+# <a name="what-is-azure-scheduler?"></a>What is Azure Scheduler?
 
-El Programador crea, mantiene e invoca el trabajo programado. El Programador no hospeda ninguna carga de trabajo ni ejecuta código. Solo _invoca_ código hospedado en cualquier otro lugar (en Azure, localmente o con otro proveedor). Realiza la invocación mediante HTTP, HTTPS, una cola de almacenamiento, una cola de bus de servicio o un tema de bus de servicio.
+Azure Scheduler allows you to declaratively describe actions to run in the cloud. It then schedules and runs those actions automatically.  Scheduler does this by using [the Azure portal](scheduler-get-started-portal.md), code, [REST API](https://msdn.microsoft.com/library/mt629143.aspx), or Azure PowerShell.
 
-El Programador programa [trabajos](scheduler-concepts-terms.md), mantiene un historial de los resultados de la ejecución de trabajos que se puede consultar y programa, de manera determinante y confiable, las cargas de trabajo que se ejecutarán. Azure WebJobs (parte de la característica de Aplicaciones web del Servicio de aplicaciones de Azure) y otras funcionalidades de programación de Azure usan el Programador en segundo plano. La [API de REST de Programador](https://msdn.microsoft.com/library/mt629143.aspx) ayuda a administrar la comunicación para estas acciones. De ese modo, el Programador admite [programaciones complejas y periodicidad avanzada](scheduler-advanced-complexity.md) con facilidad.
+Scheduler creates, maintains, and invokes scheduled work.  Scheduler does not host any workloads or run any code. It only _invokes_ code hosted elsewhere—in Azure, on-premises, or with another provider. It invokes via HTTP, HTTPS, a storage queue, a service bus queue, or a service bus topic.
 
-Existen varios escenarios que se prestan para el uso del Programador. Por ejemplo:
+Scheduler schedules [jobs](scheduler-concepts-terms.md), keeps a history of job execution results that one can review, and deterministically and reliably schedules workloads to be run. Azure WebJobs (part of the Web Apps feature in Azure App Service) and other Azure scheduling capabilities use Scheduler in the background. The [Scheduler REST API](https://msdn.microsoft.com/library/mt629143.aspx) helps manage the communication for these actions. As such, Scheduler supports [complex schedules and advanced recurrence](scheduler-advanced-complexity.md) easily.
 
-+ _Acciones de aplicaciones recurrentes_: recopilación periódica de datos desde Twitter en una fuente.
-+ _Mantenimiento diario_: eliminación diaria de registros, realización de copias de seguridad y otras tareas de mantenimiento. Por ejemplo, un administrador puede optar por hacer una copia de seguridad de su base de datos a la 1:00 a.m. todos los días durante los próximos 9 meses.
+There are several scenarios that lend themselves to the usage of Scheduler. For example:
 
-Programador permite crear, actualizar, eliminar, ver y administrar [colecciones de trabajos y trabajos](scheduler-concepts-terms.md) de manera programática, mediante scripts y en el portal.
++ _Recurring application actions:_ Periodically gathering data from Twitter into a feed.
++ _Daily maintenance:_ Daily pruning of logs, performing backups, and other maintenance tasks. For example, an administrator may choose to back up the database at 1:00 A.M. every day for the next nine months.
 
-## Otras referencias
+Scheduler allows you to create, update, delete, view, and manage jobs and [job collections](scheduler-concepts-terms.md) programmatically, by using scripts, and in the portal.
 
- [Conceptos, terminología y jerarquía de entidades de Programador de Azure](scheduler-concepts-terms.md)
+## <a name="see-also"></a>See also
 
- [Introducción al Programador de Azure en el Portal de Azure](scheduler-get-started-portal.md)
+ [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
- [Planes y facturación en Programador de Azure](scheduler-plans-billing.md)
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
 
- [Creación de programaciones complejas y periodicidad avanzada con Programador de Azure](scheduler-advanced-complexity.md)
+ [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 
- [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/mt629143)
+ [How to build complex schedules and advanced recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
 
- [Referencia de cmdlets de PowerShell de Programador de Azure](scheduler-powershell-reference.md)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
 
- [Alta disponibilidad y confiabilidad de Programador de Azure](scheduler-high-availability-reliability.md)
+ [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 
- [Límites, valores predeterminados y códigos de error de Programador de Azure](scheduler-limits-defaults-errors.md)
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
 
- [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
+ [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 
-<!---HONumber=AcomDC_1005_2016-->
+ [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

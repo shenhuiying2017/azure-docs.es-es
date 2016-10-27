@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Crear un paquete de soporte de StorSimple | Microsoft Azure"
-   description="Aprenda a crear, descifrar y editar un paquete de soporte para el dispositivo StorSimple."
+   pageTitle="Create a StorSimple support package | Microsoft Azure"
+   description="Learn how to create, decrypt, and edit a support package for your StorSimple device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -16,178 +16,183 @@
    ms.author="alkohli" />
 
 
-# Crear y administrar paquetes de soporte técnico de StorSimple
 
-## Información general
+# <a name="create-and-manage-a-storsimple-support-package"></a>Create and manage a StorSimple support package
 
-Un paquete de soporte de StorSimple es un mecanismo fácil de usar que recopila todos los registros relevantes para ayudar al servicio de soporte técnico de Microsoft a solucionar los problemas del dispositivo StorSimple. Los registros recopilados están cifrados y comprimidos.
+## <a name="overview"></a>Overview
 
-Este tutorial incluye instrucciones paso a paso para crear y administrar el paquete de soporte:
+A StorSimple support package is an easy-to-use mechanism that collects all relevant logs to assist Microsoft Support with troubleshooting any StorSimple device issues. The collected logs are encrypted and compressed.
 
-## Creación y carga de un paquete de soporte en el Portal de Azure clásico
+This tutorial includes step-by-step instructions to create and manage the support package.
 
-Puede crear y cargar solucionar un paquete de soporte en el sitio de soporte técnico de Microsoft mediante la página **Mantenimiento** del servicio en el Portal de Azure clásico.
+## <a name="create-and-upload-a-support-package-in-the-azure-classic-portal"></a>Create and upload a support package in the Azure classic portal
 
-> [AZURE.NOTE] La carga requiere una clave de paso de soporte. Su ingeniero de soporte técnico debe proporcionársela por correo electrónico.
+You can create and upload a support package to the Microsoft Support site through the **Maintenance** page of the service in the Azure classic portal.
 
-Se crea y carga un paquete de soporte cifrado y comprimido (archivo .cab) en el sitio de soporte técnico. A continuación, el ingeniero de soporte técnico puede recuperar este paquete desde el sitio de soporte técnico para solucionar el problema.
+> [AZURE.NOTE] The upload requires a support passkey. Your support engineer should provide this to you in an email.
 
-Lleve a cabo los siguientes pasos en el portal clásico para crear un paquete de soporte:
+An encrypted and compressed support package (.cab file) is created and uploaded to the Support site. The support engineer can then retrieve this package from the Support site for troubleshooting the issue.
 
-#### Para crear un paquete de soporte en el Portal de Azure clásico
+Perform the following steps in the classic portal to create a support package.
 
-1. Seleccione **Dispositivos** > **Mantenimiento**.
+#### <a name="to-create-a-support-package-in-the-azure-classic-portal"></a>To create a support package in the Azure classic portal
 
-2. En la sección **Paquete de soporte**, haga clic en **Crear y cargar paquete de soporte**.
+1. Select **Devices** > **Maintenance**.
 
-3. En el cuadro de diálogo **Crear y cargar paquete de soporte**, haga lo siguiente:
+2. In the **Support package** section, select **Create and upload support package**.
 
-	![Creación de un paquete de soporte](./media/storsimple-create-manage-support-package/IC740923.png)
+3. In the **Create and upload support package** dialog box, do the following:
 
-	- En el cuadro de texto **Clave de paso de soporte**, escriba la clave de paso. Su ingeniero de soporte técnico de Microsoft debe enviársela por correo electrónico.
+    ![Create support package](./media/storsimple-create-manage-support-package/IC740923.png)
 
-	- Seleccione la casilla para dar su consentimiento para cargar automáticamente el paquete de soporte en el sitio de soporte técnico de Microsoft.
+    - In the **Support Passkey** text box, enter the passkey. Your Microsoft support engineer should send this passkey to you in email.
 
-	- Haga clic en el icono de marca de verificación ![Icono de marca de verificación](./media/storsimple-create-manage-support-package/IC740895.png).
+    - Select the check box to provide consent to automatically upload the support package to the Microsoft Support site.
 
-
-## Creación manual de un paquete de soporte
-
-En algunos casos, debe crear manualmente el paquete de soporte mediante Windows PowerShell para StorSimple. Por ejemplo:
-
-- Si necesita quitar información confidencial de los archivos de registro antes de compartirlos con el servicio de soporte técnico de Microsoft.
-
-- Si tiene dificultades para cargar el paquete debido a problemas de conectividad.
-
-Puede compartir su paquete de soporte generado manualmente con el servicio de soporte técnico de Microsoft mediante el correo electrónico. Lleve a cabo los siguientes pasos para crear un paquete de soporte en Windows PowerShell para StorSimple.
-
-#### Para crear un paquete de soporte en Windows PowerShell para StorSimple
-
-1. Para iniciar una sesión de Windows PowerShell como administrador en el equipo remoto que se use para conectarse a su dispositivo StorSimple, escriba el siguiente comando:
-
-	`Start PowerShell`
-
-2. En la sesión de Windows PowerShell, conéctese a la consola de SSAdmin del dispositivo:
-
-	- En el símbolo del sistema, escriba:
-
-		`$MS = New-PSSession -ComputerName <IP address for DATA 0> -Credential SSAdmin -ConfigurationName "SSAdminConsole"`
-
-	1. En el cuadro de diálogo que se abre, escriba la contraseña de administrador del dispositivo. La contraseña predeterminada es:
-
-		`Password1`
-
-		![Cuadro de diálogo de credenciales de PowerShell](./media/storsimple-create-manage-support-package/IC740962.png)
-
-	2. Seleccione **Aceptar**.
-	1. En el símbolo del sistema, escriba:
-
-		`Enter-PSSession $MS`
-
-3. En la sesión que se abre, escriba el comando correspondiente.
-
-	- Para los recursos compartidos de red que están protegidos por contraseña, escriba:
-
-		`Export-HcsSupportPackage –PackageTag "MySupportPackage" –Credential "Username" -Force`
-
-		Se le solicitará una contraseña, una ruta de acceso a la carpeta compartida de red y una frase de contraseña de cifrado (ya que el paquete de soporte está cifrado). A continuación, se crea un paquete de soporte en la carpeta especificada.
-
-	- Para o recursos compartidos que no están protegidos por contraseña, no es necesario el parámetro `-Credential`. Escriba lo siguiente:
-
-		`Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
-
-		El paquete de soporte se crea para ambos controladores en la carpeta compartida de red especificada. Se trata de un archivo comprimido y cifrado que puede enviarse al soporte técnico de Microsoft para solucionar problemas. Para obtener más información, consulte [Ponerse en contacto con el soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
+    - Click the check icon ![Check icon](./media/storsimple-create-manage-support-package/IC740895.png).
 
 
-### Parámetros del cmdlet Export-HcsSupportPackage
-Puede usar los siguientes parámetros con el cmdlet Export-HcsSupportPackage.
+## <a name="manually-create-a-support-package"></a>Manually create a support package
 
-| Parámetro | Obligatorio/opcional | Description |
+In some cases, you'll need to manually create the support package through Windows PowerShell for StorSimple. For example:
+
+- If you need to remove sensitive information from your log files prior to sharing with Microsoft Support.
+
+- If you are having difficulty uploading the package due to connectivity issues.
+
+You can share your manually generated support package with Microsoft Support over email. Perform the following steps to create a support package in Windows PowerShell for StorSimple.
+
+#### <a name="to-create-a-support-package-in-windows-powershell-for-storsimple"></a>To create a support package in Windows PowerShell for StorSimple
+
+1. To start a Windows PowerShell session as an administrator on the remote computer that's used to connect to your StorSimple device, enter the following command:
+
+    `Start PowerShell`
+
+2. In the Windows PowerShell session, connect to the SSAdmin Console of your device:
+
+    - At the command prompt, enter:
+
+        `$MS = New-PSSession -ComputerName <IP address for DATA 0> -Credential SSAdmin -ConfigurationName "SSAdminConsole"`
+
+    1. In the dialog box that opens, enter your device administrator password. The default password is:
+
+        `Password1`
+
+        ![PowerShell credential dialog box](./media/storsimple-create-manage-support-package/IC740962.png)
+
+    2. Select **OK**.
+    1. At the command prompt, enter:
+
+        `Enter-PSSession $MS`
+
+3. In the session that opens, enter the appropriate command.
+
+    - For network shares that are password protected, enter:
+
+        `Export-HcsSupportPackage –PackageTag "MySupportPackage" –Credential "Username" -Force`
+
+        You'll be prompted for a password, a path to the network shared folder, and an encryption passphrase (because the support package is encrypted). A support package is then created in the specified folder.
+
+    - For shares that are not password protected, you do not need the `-Credential` parameter. Enter the following:
+
+        `Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
+
+        The support package is created for both controllers in the specified network shared folder. It's an encrypted, compressed file that can be sent to Microsoft Support for troubleshooting. For more information, see [Contact Microsoft Support](storsimple-contact-microsoft-support.md).
+
+
+### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>The Export-HcsSupportPackage cmdlet parameters
+You can use the following parameters with the Export-HcsSupportPackage cmdlet.
+
+| Parameter            | Required/Optional | Description                                                                                                                                                             |
 |----------------------|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `-Path` | Obligatorio | Se usa para proporcionar la ubicación de la carpeta compartida de red en la que se coloca el paquete de soporte. |
-| `-EncryptionPassphrase` | Obligatorio | Se utiliza para proporcionar una frase de contraseña que ayuda a cifrar el paquete de soporte. |
-| `-Credential` | Opcional | Se usa para suministrar credenciales de acceso a la carpeta compartida de red. |
-| `-Force` | Opcional | Se utiliza para omitir el paso de confirmación de la frase de contraseña de cifrado. |
-| `-PackageTag` | Opcional | Se usa para especificar un directorio en *Path* en que se coloca el paquete de soporte. El valor predeterminado es [nombre de dispositivo]-[fecha y hora actuales:aaaa-MM-dd-HH-mm-ss]. |
-| `-Scope` | Opcional | Especifique como **Clúster** (predeterminado) para crear un paquete de soporte para ambos controladores. Si desea crear un paquete únicamente para el controlador actual, especifique **Controlador**. |
+| `-Path`                 | Required          | Use to provide the location of the network shared folder in which the support package is placed.                                                                 |
+| `-EncryptionPassphrase` | Required          | Use to provide a passphrase to help encrypt the support package.                                                                                                        |
+| `-Credential`           | Optional          | Use to supply access credentials for the network shared folder.                                                                                        |
+| `-Force`                | Optional          | Use to skip the encryption passphrase confirmation step.                                                                                                                |
+| `-PackageTag`           | Optional          | Use to specify a directory under *Path* in which the support package is placed. The default is [device name]-[current date and time:yyyy-MM-dd-HH-mm-ss].       |
+| `-Scope`                | Optional          | Specify as **Cluster** (default) to create a support package for both controllers. If you want to create a package only for the current controller, specify **Controller**. |
 
 
-## Editar un paquete de soporte
+## <a name="edit-a-support-package"></a>Edit a support package
 
-Después de haber generado un paquete de soporte, debe modificar el paquete para quitar la información confidencial. Esto puede incluir los nombres de los volúmenes, las direcciones IP de los dispositivos y los nombres de las copias de seguridad de los archivos de registro.
+After you have generated a support package, you might need to edit the package to remove sensitive information. This can include volume names, device IP addresses, and backup names from the log files.
 
-> [AZURE.IMPORTANT] Solo pueden editarse los paquetes de soporte generados a través de Windows PowerShell para StorSimple. No es posible editar los paquetes creados en el Portal de Azure clásico con el servicio Administrador de StorSimple.
+> [AZURE.IMPORTANT] You can only edit a support package that was generated through Windows PowerShell for StorSimple. You can't edit a package created in the Azure classic portal with StorSimple Manager service.
 
-Para editar un paquete de soporte antes de cargarlo en el sitio de soporte técnico de Microsoft, primero descifre el paquete de soporte, edite los archivos y vuelva a cifrarlo. Lleve a cabo los siguiente pasos.
+To edit a support package before uploading it on the Microsoft Support site, first decrypt the support package, edit the files, and then re-encrypt it. Perform the following steps.
 
-#### Para editar un paquete de soporte en Windows PowerShell para StorSimple
+#### <a name="to-edit-a-support-package-in-windows-powershell-for-storsimple"></a>To edit a support package in Windows PowerShell for StorSimple
 
-1. Genere un paquete de soporte como se describe en [Para crear un paquete de soporte en Windows PowerShell para StorSimple](#to-create-a-support-package-in-windows-powershell-for-storsimple).
+1. Generate a support package as described earlier, in [To create a support package in Windows PowerShell for StorSimple](#to-create-a-support-package-in-windows-powershell-for-storsimple).
 
-2. [Descargue el script](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) localmente en su cliente.
+2. [Download the script](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) locally on your client.
 
-3. Importe el módulo de Windows PowerShell. Deberá especificar la ruta de acceso a la carpeta local en la que descargó el script. Para importar el módulo, escriba:
+3. Import the Windows PowerShell module. Specify the path to the local folder in which you downloaded the script. To import the module, enter:
 
-	`Import-module <Path to the folder that contains the Windows PowerShell script>`
+    `Import-module <Path to the folder that contains the Windows PowerShell script>`
 
-4. Todos los archivos tienen la extensión *.aes*, es decir, archivos comprimidos y cifrados. Para descomprimir y descifrar archivos, escriba:
+4. All the files are *.aes* files that are compressed and encrypted. To decompress and decrypt files, enter:
 
-	`Open-HcsSupportPackage <Path to the folder that contains support package files>`
+    `Open-HcsSupportPackage <Path to the folder that contains support package files>`
 
-	Observe que las extensiones de archivo reales se muestran ahora para todos los archivos.
+    Note that the actual file extensions are now displayed for all the files.
 
-	![Edición del paquete de soporte](./media/storsimple-create-manage-support-package/IC750706.png)
+    ![Edit support package](./media/storsimple-create-manage-support-package/IC750706.png)
 
-5. Cuando se le solicite la frase de contraseña de cifrado, escriba la frase de contraseña utilizada al crear el paquete de soporte.
+5. When you're prompted for the encryption passphrase, enter the passphrase that you used when the support package was created.
 
-    	cmdlet Open-HcsSupportPackage at command pipeline position 1
+        cmdlet Open-HcsSupportPackage at command pipeline position 1
 
-    	Supply values for the following parameters:EncryptionPassphrase: ****
+        Supply values for the following parameters:EncryptionPassphrase: ****
 
-6. Vaya a la carpeta que contiene los archivos de registro. Puesto que los archivos de registro ahora están descomprimidos y descifrados, tendrán sus extensiones de archivo originales. Modifique estos archivos para quitar cualquier información específica del cliente, como los nombres de los volúmenes y las direcciones IP de los dispositivos, y guarde los archivos.
+6. Browse to the folder that contains the log files. Because the log files are now decompressed and decrypted, these will have original file extensions. Modify these files to remove any customer-specific information, such as volume names and device IP addresses, and save the files.
 
-7. Al cerrar los archivos para comprimirlos con Gzip y cifrarlos con AES-256. Esto es por seguridad y para acelerar la transferencia del paquete de soporte por la red. Para comprimir y cifrar los archivos, escriba lo siguiente:
+7. Close the files to compress them with gzip and encrypt them with AES-256. This is for speed and security in transferring the support package over a network. To compress and encrypt files, enter the following:
 
-	`Close-HcsSupportPackage <Path to the folder that contains support package files>`
+    `Close-HcsSupportPackage <Path to the folder that contains support package files>`
 
-	![Edición del paquete de soporte](./media/storsimple-create-manage-support-package/IC750707.png)
+    ![Edit support package](./media/storsimple-create-manage-support-package/IC750707.png)
 
-8. Cuando se le solicite, proporcione una frase de contraseña de cifrado para el paquete de soporte modificado.
+8. When prompted, provide an encryption passphrase for the modified support package.
 
-	    cmdlet Close-HcsSupportPackage at command pipeline position 1
-    	Supply values for the following parameters:EncryptionPassphrase: ****
+        cmdlet Close-HcsSupportPackage at command pipeline position 1
+        Supply values for the following parameters:EncryptionPassphrase: ****
 
-9. Anote la nueva frase de contraseña para poder compartirla con el servicio de soporte técnico de Microsoft cuando se le solicite.
+9. Write down the new passphrase, so that you can share it with Microsoft Support when requested.
 
 
-### Ejemplo: Edición de archivos de un paquete de soporte en un recurso compartido protegido por contraseña
+### <a name="example:-editing-files-in-a-support-package-on-a-password-protected-share"></a>Example: Editing files in a support package on a password-protected share
 
-A continuación se muestra un ejemplo que muestra cómo descifrar, editar y volver a cifrar un paquete de soporte.
+The following example shows how to decrypt, edit, and re-encrypt a support package.
 
-    	PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
+        PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
 
-    	PS C:\WINDOWS\system32> Open-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
+        PS C:\WINDOWS\system32> Open-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
 
-    	cmdlet Open-HcsSupportPackage at command pipeline position 1
+        cmdlet Open-HcsSupportPackage at command pipeline position 1
 
-    	Supply values for the following parameters:
+        Supply values for the following parameters:
 
-    	EncryptionPassphrase: ****
+        EncryptionPassphrase: ****
 
-    	PS C:\WINDOWS\system32> Close-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
+        PS C:\WINDOWS\system32> Close-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
 
-    	cmdlet Close-HcsSupportPackage at command pipeline position 1
+        cmdlet Close-HcsSupportPackage at command pipeline position 1
 
-    	Supply values for the following parameters:
+        Supply values for the following parameters:
 
-    	EncryptionPassphrase: ****
+        EncryptionPassphrase: ****
 
-    	PS C:\WINDOWS\system32>
+        PS C:\WINDOWS\system32>
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-- Aprenda cómo [usar paquetes de soporte y registros de dispositivos para solucionar los problemas de implementación de su dispositivo](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
+- Learn how to [use support packages and device logs to troubleshoot your device deployment](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 
-- Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

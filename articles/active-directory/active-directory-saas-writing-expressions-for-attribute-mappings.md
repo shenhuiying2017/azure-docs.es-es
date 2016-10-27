@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Escritura de expresiones para la asignación de atributos en Azure Active Directory | Microsoft Azure"
-	description="Obtenga información sobre cómo usar asignaciones de expresiones para transformar valores de atributos en un formato aceptable durante el aprovisionamiento automático de objetos de aplicaciones SaaS en Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila"
-	editor=""/>
+    pageTitle="Escritura de expresiones para la asignación de atributos en Azure Active Directory | Microsoft Azure"
+    description="Obtenga información sobre cómo usar asignaciones de expresiones para transformar valores de atributos en un formato aceptable durante el aprovisionamiento automático de objetos de aplicaciones SaaS en Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/19/2016"
-	ms.author="markusvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/10/2016"
+    ms.author="markusvi"/>
 
 
-# Escritura de expresiones para la asignación de atributos en Azure Active Directory
+
+# <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escritura de expresiones para la asignación de atributos en Azure Active Directory
 
 Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos de asignaciones de atributos que puede especificar es una asignación de expresiones. En estos casos, debe escribir una expresión similar a un script que permite transformar los datos de los usuarios en formatos más aceptables para la aplicación SaaS.
 
@@ -25,14 +26,15 @@ Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos d
 
 
 
-## Información general sobre la sintaxis
+## <a name="syntax-overview"></a>Información general sobre la sintaxis
 
 La sintaxis de expresiones para asignaciones de atributos recuerda a las funciones de Visual Basic para Aplicaciones (VBA).
 
-- Toda la expresión se tiene que definir en términos de funciones, que constan de un nombre seguido de argumentos entre paréntesis: <br> *NombreFunción(<<argumento 1>>,<<argumento N>>)*
+- Toda la expresión se tiene que definir en términos de funciones, que constan de un nombre seguido de argumentos entre paréntesis:  <br>
+*NombreDeFunción (<< argumento 1 >>, <<argument N>>)*
 
 
-- Es posible anidar funciones dentro de otras. Por ejemplo: <br> *FunciónUno (FunciónDos (<< argumento1 >>))*
+- Es posible anidar funciones dentro de otras. Por ejemplo: <br> *FunciónUno(FunciónDos(<<argument1>>))*
 
 
 - Puede transformar tres tipos diferentes de argumentos en funciones:
@@ -41,29 +43,29 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
    2. Constantes de cadena, que deben ir entre comillas. Por ejemplo: "Estados Unidos"
 
-   3. Otras funciones. Por ejemplo: FunciónUno(<<argumento1>>, FunciónDos(<<argumento2>>))
+   3. Otras funciones. Por ejemplo: FunciónUna(<<argument1>>, FunciónDos(<<argument2>>))
 
 
-- Para las constantes de cadena, si necesita una barra diagonal inversa (\\) o comillas dobles (") en la cadena, se deben convertirse con el símbolo de barra diagonal inversa (\\). Por ejemplo: "Nombre de empresa: "Contoso""
+- Para las constantes de cadena, si necesita una barra diagonal inversa (\) o comillas dobles (") en la cadena, se deben convertirse con el símbolo de barra diagonal inversa (\). Por ejemplo: "Company name: \"Contoso\""
 
 
 
-## Lista de funciones
+## <a name="list-of-functions"></a>Lista de funciones
 
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Sustituya](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
 
 
 
 
 ----------
-### Append
+### <a name="append"></a>Append
 
-**Función:**<br> Append(source, suffix)
+**Función:**<br>  Append(source, suffix)
 
-**Descripción:**<br> adopta un valor de la cadena de origen y anexa el sufijo al final de la misma.
+**Descripción:**<br>  adopta un valor de la cadena de origen y anexa el sufijo al final de la misma.
  
-**Parámetros:**<br>
+**Parámetros:**<br> 
 
 |Nombre| Obligatorio/Repetición | Tipo | Notas |
 |--- | ---                 | ---  | ---   |
@@ -72,13 +74,13 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 
 ----------
-### FormatDateTime
+### <a name="formatdatetime"></a>FormatDateTime
 
-**Función:**<br> FormatDateTime(source, inputFormat, outputFormat)
+**Función:**<br>  FormatDateTime(source, inputFormat, outputFormat)
 
-**Descripción:**<br> adopta una cadena de fecha en un formato y la convierte a un formato distinto.
+**Descripción:**<br>  adopta una cadena de fecha en un formato y la convierte a un formato distinto.
  
-**Parámetros:**<br>
+**Parámetros:**<br> 
 
 |Nombre| Obligatorio/Repetición | Tipo | Notas |
 |--- | ---                 | ---  | ---   |
@@ -89,158 +91,162 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 
 ----------
-### Join
+### <a name="join"></a>Join
 
-**Función:**<br> Join(separator, source1, source2, …)
+**Función:**<br>  Join(separator, source1, source2, …)
 
 **Descripción:**<br> Join() es similar a Append(), excepto en que puede combinar varios valores de cadena de **source** en una sola cadena, y cada valor estará separado por una cadena de **separator**.
 
 Si uno de los valores de origen es un atributo multivalor, cada valor de ese atributo se une, separado del valor del separador.
 
  
-**Parámetros:**<br>
+**Parámetros:**<br> 
 
 |Nombre| Obligatorio/Repetición | Tipo | Notas |
 |--- | ---                 | ---  | ---   |
 | **separator** | Obligatorio | Cadena | Cadena utilizada para separar los valores de origen cuando se concatenan en una sola cadena. Puede ser "" si no es necesario ningún separador. |
-| **source1 … sourceN ** | Obligatorio, número variable de veces | String | Valores de cadena que se van a agrupar. |
+| **source1 … sourceN ** | Obligatorio, número variable de veces | Cadena | Valores de cadena que se van a agrupar. |
 
 
 
 ----------
-### Mid
+### <a name="mid"></a>Mid
 
-**Función:**<br> Mid(source, start, length)
+**Función:**<br>  Mid(source, start, length)
 
-**Descripción:**<br> devuelve una subcadena del valor de origen. Una subcadena es una cadena que contiene sólo algunos de los caracteres de la cadena de origen.
+**Descripción:**<br>  devuelve una subcadena del valor de origen. Una subcadena es una cadena que contiene sólo algunos de los caracteres de la cadena de origen.
 
 
-**Parámetros:**<br>
+**Parámetros:**<br> 
 
 |Nombre| Obligatorio/Repetición | Tipo | Notas |
 |--- | ---                 | ---  | ---   |
-| **de origen** | Obligatorio | String | Normalmente el nombre del atributo. |
-| **start** | Obligatorio | integer | Índice de la cadena de **origen** donde debe empezar la subcadena. El primer carácter de la cadena tendrá el índice de 1, el segundo carácter tendrá el índice de 2, y así sucesivamente. |
-| **length** | Obligatorio | integer | Longitud de la subcadena. Si la longitud acaba fuera de la cadena de **origen**, la función devolverá la subcadena desde el índice de **inicio** hasta el final de la cadena de **origen**. |
+| **source** | Obligatorio | Cadena | Normalmente el nombre del atributo. |
+| **start** | Obligatorio | integer | Índice de la cadena de **source** donde debe empezar la subcadena. El primer carácter de la cadena tendrá el índice de 1, el segundo carácter tendrá el índice de 2, y así sucesivamente. |
+| **length** | Obligatorio | integer | Longitud de la subcadena. Si length acaba fuera de la cadena de **source**, la función devolverá una subcadena desde el índice de **start** hasta el final de la cadena de **source**. |
 
 
 
 
 ----------
-### Not
+### <a name="not"></a>Not
 
-**Función:**<br> Not(source)
+**Función:**<br>  Not(source)
 
-**Descripción:**<br> invierte el valor booleano de **source**. Si el valor de **source** es "*True*", devuelve "*False*". De lo contrario, devuelve "*True*".
+**Descripción:**<br> Invierte el valor booleano de **source**. Si el valor de **source** es "*True*", devuelve "*False*". De lo contrario, devuelve "*True*".
 
 
-**Parámetros:**<br>
+**Parámetros:**<br> 
 
 |Nombre| Obligatorio/Repetición | Tipo | Notas |
 |--- | ---                 | ---  | ---   |
-| **de origen** | Obligatorio | Cadena booleana | Los valores de **source** esperados son "True" o "False". |
+| **source** | Obligatorio | Cadena booleana | Los valores de **source** esperados son "True" o "False". |
 
 
 
 ----------
-### Sustituya
+### <a name="replace"></a>Replace
 
-**Función:**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
+**Función:**<br>  ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
-**Descripción:**<br> reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo de los parámetros proporcionados:
+**Descripción:**<br>
+Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo de los parámetros proporcionados:
 
 - Cuando se proporcionan **oldValue** y **replacementValue**:
 
-   - Reemplaza todas las ocurrencias de oldValue en el origen con replacementValue
+   - Reemplaza todas las ocurrencias de oldValue en el origen por replacementValue
 
 - Cuando se proporcionan **oldValue** y **template**:
 
    - Reemplaza todas las ocurrencias de **oldValue** en **template** por el valor de **source**
 
-- Cuando se proporcionan **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementValue**:
+- Cuando se proporcionan **oldValueRegexPattern**, **oldValueRegexGroupName** y **replacementValue**:
 
    - Reemplaza todos los valores que coinciden en oldValueRegexPattern en la cadena de origen con replacementValue
 
-- Cuando se proporcionan **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementPropertyName**:
+- Cuando se proporcionan **oldValueRegexPattern**, **oldValueRegexGroupName** y **replacementPropertyName**:
 
    - Si **source** tiene algún valor, se devuelve **source**
 
    - Si **source** no tiene ningún valor, usa **oldValueRegexPattern** y **oldValueRegexGroupName** para extraer el valor de reemplazo de la propiedad con **replacementPropertyName**. El valor de reemplazo se devuelve como resultado
 
 
-**Parámetros:**<br>
+**Parámetros:**<br> 
 
 |Nombre| Obligatorio/Repetición | Tipo | Notas |
 |--- | ---                 | ---  | ---   |
-| **de origen** | Obligatorio | Cadena | Normalmente el nombre del atributo del objeto de origen. |
-| **oldValue** | Opcional | String | Valor que se debe reemplazar en **source** o **template**. |
+| **source** | Obligatorio | Cadena | Normalmente el nombre del atributo del objeto de origen. |
+| **oldValue** | Opcional | Cadena | Valor que se va a reemplazar en **source** o **template**. |
 | **regexPattern** | Opcional | Cadena | Patrón Regex del valor que se va a reemplazar en **source**. O bien, cuando se utiliza replacementPropertyName, patrón para extraer el valor de la propiedad de reemplazo. |
-| **regexGroupName** | Opcional | Cadena | Nombre del grupo dentro de **regexPattern**. Sólo cuando se utiliza replacementPropertyName, se extrae el valor de este grupo como replacementValue de la propiedad de reemplazo. |
-| **replacementValue** | Opcional | Cadena | Nuevo valor para reemplazar uno anterior. |
-| **replacementAttributeName** | Opcional | String | Nombre del atributo que se utilizará para el valor de reemplazo, cuando el origen no tiene ningún valor. |
+| **regexGroupName** | Opcional | Cadena | Nombre del grupo dentro de **regexPattern**. Sólo cuando se utilice replacementPropertyName, extraeremos el valor de este grupo como replacementValue de la propiedad de reemplazo. |
+| **replacementValue** | Opcional | Cadena | Nuevo valor para  reemplazar uno anterior. |
+| **replacementAttributeName** | Opcional | Cadena | Nombre del atributo que se utilizará para el valor de reemplazo, cuando el origen no tiene ningún valor. |
 | **template** | Opcional | Cadena | Cuando se proporcione el valor de **template**, buscaremos **oldValue** dentro de la plantilla y lo reemplazaremos por el valor de origen. |
 
 
 
 ----------
-### StripSpaces
+### <a name="stripspaces"></a>StripSpaces
 
-**Función:**<br> StripSpaces(source)
+**Función:**<br>  StripSpaces(source)
 
-**Descripción:**<br> quita todos los caracteres de espacio (" ") de la cadena de origen.
+**Descripción:**<br>  quita todos los caracteres de espacio (" ") de la cadena de origen.
 
-**Parámetros:**<br>
+**Parámetros:**<br> 
 
 |Nombre| Obligatorio/Repetición | Tipo | Notas |
 |--- | ---                 | ---  | ---   |
-| **de origen** | Obligatorio | String | Valor de **source** que se actualiza. |
+| **de origen** | Obligatorio | Cadena | **de origen** que se actualiza. |
 
 
 
 ----------
-### Switch
+### <a name="switch"></a>Switch
 
-**Función:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
+**Función:**<br>  Switch(source, defaultValue, key1, value1, key2, value2, …)
 
-**Descripción:**<br> si el valor de **source** coincide con alguna **clave**, devuelve el **valor** de dicha **clave**. Si el valor de **source** no coincide con ninguna clave, devuelve **defaultValue**. Los parámetros **key** y **value** siempre deben estar emparejados. La función espera siempre un número par de parámetros.
+**Descripción:**<br> Cuando el valor de **source** coincide con una **key**, devuelve el **value** de dicha **key**. Si el valor de **source** no coincide con ninguna clave, devuelve **defaultValue**.  Los parámetros **key** y **value** siempre deben estar emparejados. La función espera siempre un número par de parámetros.
 
-**Parámetros:**<br>
+**Parámetros:**<br> 
 
 |Nombre| Obligatorio/Repetición | Tipo | Notas |
 |--- | ---                 | ---  | ---   |
-| **de origen** | Obligatorio | String | Valor de **source** que se actualiza. |
-| **defaultValue** | Opcional | String | Valor predeterminado que se usará si el origen no coincide con ninguna clave. Puede tratarse de una cadena vacía (""). |
-| **key** | Obligatorio | String | **Clave** con la que se compara el valor de **source**. |
+| **source** | Obligatorio | Cadena | **Source** que se actualiza. |
+| **defaultValue** | Opcional | Cadena | Valor predeterminado que se usará si el origen no coincide con ninguna clave. Puede tratarse de una cadena vacía (""). |
+| **key** | Obligatorio | Cadena | **Key** con que se compara el valor de **source**. |
 | **value** | Obligatorio | Cadena | Valor de reemplazo para el **source** que coincide con la clave. |
 
 
 
-## Ejemplos
+## <a name="examples"></a>Ejemplos
 
-### Seccionar un nombre de dominio conocido
+### <a name="strip-known-domain-name"></a>Seccionar un nombre de dominio conocido
 
-Debe seccionar un nombre de dominio conocido de correo electrónico de un usuario para obtener un nombre de usuario. <br> Por ejemplo, si el dominio es "contoso.com", puede usar la expresión siguiente:
+Debe seccionar un nombre de dominio conocido de correo electrónico de un usuario para obtener un nombre de usuario. <br>
+ Por ejemplo, si el dominio es "contoso.com", puede usar la expresión siguiente:
 
 
-**Expresión:** <br> `Replace([mail], "@contoso.com", , ,"", ,)`
+**Expresión:** <br>
+`Replace([mail], "@contoso.com", , ,"", ,)`
 
-**Entrada/salida de muestra:** <br>
+**Ejemplo de entrada y salida:** <br>
 
 - **ENTRADA** (mail): "john.doe@contoso.com"
 
 - **SALIDA**: "john.doe"
 
 
-### Anexar sufijos constantes a nombres de usuario
+### <a name="append-constant-suffix-to-user-name"></a>Anexar sufijos constantes a nombres de usuario
 
 Si está utilizando un espacio aislado de Salesforce, deberá anexar un sufijo adicional a los nombres de usuario antes de sincronizarlas.
 
 
 
 
-**Expresión:** <br> `Append([userPrincipalName], ".test"))`
+**Expresión:** <br>
+`Append([userPrincipalName], ".test"))`
 
-**Entrada/salida de muestra:** <br>
+**Entrada/salida de ejemplo:** <br>
 
 - **ENTRADA**: (userPrincipalName): "John.Doe@contoso.com"
 
@@ -251,14 +257,15 @@ Si está utilizando un espacio aislado de Salesforce, deberá anexar un sufijo a
 
 
 
-### Generar el alias de usuario concatenando partes de nombre y apellidos
+### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Generar el alias de usuario concatenando partes de nombre y apellidos
 
 Debe generar un alias de usuario con las tres primeras letras del nombre del usuario y las cinco primeras letras del apellido del usuario.
 
 
-**Expresión:** <br> `Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`
+**Expresión:** <br>
+`Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`
 
-**Entrada/salida de muestra:** <br>
+**Entrada/salida de ejemplo:** <br>
 
 - **ENTRADA** (givenName): "John"
 
@@ -269,9 +276,10 @@ Debe generar un alias de usuario con las tres primeras letras del nombre del usu
 
 
 
-### Fecha de resultado como una cadena en un formato determinado
+### <a name="output-date-as-a-string-in-a-certain-format"></a>Fecha de resultado como una cadena en un formato determinado
 
-Desea enviar las fechas a una aplicación SaaS con un formato determinado. <br> Por ejemplo, desea dar formato a las fechas de ServiceNow.
+Desea enviar las fechas a una aplicación SaaS con un formato determinado. <br>
+ Por ejemplo, desea dar formato a las fechas de ServiceNow.
 
 
 
@@ -289,9 +297,10 @@ Desea enviar las fechas a una aplicación SaaS con un formato determinado. <br> 
 
 
 
-### Reemplazar un valor basado en un conjunto predefinido de opciones
+### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Reemplazar un valor basado en un conjunto predefinido de opciones
 
-Debe definir la zona horaria del usuario según el código de estado almacenado en Azure AD. <br> Si el código de estado no coincide con ninguna de las opciones predefinidas, use el valor predeterminado de "Australia/Sídney".
+Debe definir la zona horaria del usuario según el código de estado almacenado en Azure AD. <br>
+ Si el código de estado no coincide con ninguna de las opciones predefinidas, use el valor predeterminado de "Australia/Sídney".
 
 
 **Expresión:** <br>
@@ -305,7 +314,7 @@ Debe definir la zona horaria del usuario según el código de estado almacenado 
 - **SALIDA**: "Australia/Brisbane"
 
 
-##Artículos relacionados
+##<a name="related-articles"></a>Artículos relacionados
 
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 - [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md)
@@ -315,4 +324,8 @@ Debe definir la zona horaria del usuario según el código de estado almacenado 
 - [Notificaciones de aprovisionamiento de cuentas](active-directory-saas-account-provisioning-notifications.md)
 - [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

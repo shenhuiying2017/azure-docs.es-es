@@ -1,44 +1,50 @@
 <properties
-	pageTitle="Hoja de referencia rápida de una canalización de datos automatizada para las predicciones de aprendizaje automático de Azure | Microsoft Azure"
-	description="Una hoja de referencia rápida imprimible en la que se muestra cómo configurar una canalización de datos automatizada para el servicio web de aprendizaje automático de Azure, si los datos se encuentran en local, transmisión, en Azure, o en un servicio en la nube de terceros."
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Cheat sheet for an automated data pipeline for Azure Machine Learning predictions | Microsoft Azure"
+    description="A printable cheat sheet that shows you how to set up an automated data pipeline to your Azure Machine Learning web service whether your data is on-premise, streaming, in Azure, or in a third-party cloud service."
+    services="machine-learning"
+    documentationCenter=""
+    authors="garyericson"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/19/2016"
-	ms.author="mithal;garye" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/19/2016"
+    ms.author="mithal;garye" />
 
-# Hoja de referencia rápida de una canalización de datos automatizada para las predicciones de aprendizaje automático de Azure
 
-La **hoja de referencia rápida de canalización de datos automatizada de aprendizaje automático de Microsoft Azure** le ayuda a navegar por la tecnología que puede usar para obtener sus datos para su servicio web de aprendizaje automático donde se puede puntuar por su modelo de análisis predictivo.
+# <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Cheat sheet for an automated data pipeline for Azure Machine Learning predictions
 
-En función de si los datos se encuentran en local, en la nube o en streaming en tiempo real, existen distintos mecanismos disponibles para mover los datos a su punto de conexión de servicio web para la puntuación. Esta hoja de referencia rápida le guía por las decisiones que deberá tomar y ofrece vínculos a los artículos que le ayudarán a desarrollar su solución.
+The **Microsoft Azure Machine Learning automated data pipeline cheat sheet** helps you navigate through the technology you can use to get your data to your Machine Learning web service where it can be scored by your predictive analytics model.
 
-## Descargar la hoja de referencia rápida de canalización de datos automatizada de aprendizaje automático
+Depending on whether your data is on-premises, in the cloud, or streaming real-time, there are different mechanisms available to move the data to your web service endpoint for scoring.
+This cheat sheet walks you through the decisions you'll need to make and offers links to articles that will help you develop your solution.
 
-Cuando descargue la hoja de referencia rápida, puede imprimirla en tamaño tabloide (11 x 17 pulg.).
+## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>Download the Machine Learning automated data pipeline cheat sheet
 
-Descargar aquí la hoja de referencia rápida: **[Hoja de referencia rápida de canalización de datos automatizada de aprendizaje automático de Microsoft Azure](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
+Once you download the cheat sheet, you can print it in tabloid size (11 x 17 in.).
 
-![Información general de las funcionalidades de Estudio de aprendizaje automático de Microsoft Azure][op-cheat-sheet]
+Download the cheat sheet here: **[Microsoft Azure Machine Learning automated data pipeline cheat sheet](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
+
+![Microsoft Azure Machine Learning Studio Capabilities Overview][op-cheat-sheet]
 
 [op-cheat-sheet]: ./media/machine-learning-automated-data-pipeline-cheat-sheet/machine-learning-automated-data-pipeline-cheat-sheet_v1.1.png
 
 
-## Más ayuda con Estudio de aprendizaje automático
+## <a name="more-help-with-machine-learning-studio"></a>More help with Machine Learning Studio
 
-* Para información general sobre Aprendizaje automático de Microsoft Azure, vea [Introducción a Aprendizaje automático en Microsoft Azure](machine-learning-what-is-machine-learning.md).
-* Para una explicación de cómo implementar un servicio web de puntuación, vea [Implementación de un servicio web de Aprendizaje automático de Azure](machine-learning-publish-a-machine-learning-web-service.md).
-* Para una discusión de cómo consumir un servicio web de puntuación, vea [Cómo consumir un servicio web de Aprendizaje automático de Azure implementado en un experimento de Aprendizaje automático](machine-learning-consume-web-services.md).
+* For an overview of Microsoft Azure Machine Learning, see [Introduction to machine learning on Microsoft Azure](machine-learning-what-is-machine-learning.md).
+* For an explanation of how to deploy a scoring web service, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
+* For a discussion of how to consume a scoring web service, see [How to consume an Azure Machine Learning web service that has been deployed from a Machine Learning experiment](machine-learning-consume-web-services.md).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

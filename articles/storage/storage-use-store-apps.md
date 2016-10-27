@@ -1,36 +1,37 @@
 <properties
-	pageTitle="Uso de Almacenamiento de Azure en las aplicaciones de la Tienda Windows | Microsoft Azure"
-	description="Obtenga información acerca de cómo crear una aplicación de la Tienda Windows que usa Almacenamiento de blobs, Almacenamiento de colas, Almacenamiento de tablas o Almacenamiento de archivos de Azure."
-	services="storage"
-	documentationCenter=""
-	authors="tamram"
-	manager="carmonm"
-	editor="tysonn"/>
+    pageTitle="Uso de Almacenamiento de Azure en las aplicaciones de la Tienda Windows | Microsoft Azure"
+    description="Obtenga información acerca de cómo crear una aplicación de la Tienda Windows que usa Almacenamiento de blobs, Almacenamiento de colas, Almacenamiento de tablas o Almacenamiento de archivos de Azure."
+    services="storage"
+    documentationCenter=""
+    authors="tamram"
+    manager="carmonm"
+    editor="tysonn"/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="mobile-windows-store"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="micurd;tamram"/>
-	
-# Uso de Almacenamiento de Azure en las aplicaciones de la Tienda Windows
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="mobile-windows-store"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="10/18/2016"
+    ms.author="tamram"/>
+    
 
-## Información general
+# <a name="how-to-use-azure-storage-in-windows-store-apps"></a>Uso de Almacenamiento de Azure en las aplicaciones de la Tienda Windows
+
+## <a name="overview"></a>Información general
 
 Esta guía le muestra cómo comenzar con el desarrollo de una aplicación de la Tienda Windows que haga uso del almacenamiento de Azure.
 
-## Descarga de las herramientas necesarias
+## <a name="download-required-tools"></a>Descarga de las herramientas necesarias
 
-- [Visual Studio](https://www.visualstudio.com/es-ES/visual-studio-homepage-vs.aspx) hace que sea fácil compilar, depurar, localizar, empaquetar e implementar aplicaciones de la Tienda Windows. Se requiere Visual Studio 2012 o posterior.
+- [Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) hace que sea fácil compilar, depurar, localizar, empaquetar e implementar aplicaciones de la Tienda Windows. Se requiere Visual Studio 2012 o posterior.
 - La [Biblioteca de cliente de Almacenamiento de Azure](https://www.nuget.org/packages/WindowsAzure.Storage) proporciona una biblioteca de clases en tiempo de ejecución de Windows para trabajar con Almacenamiento de Azure.
-- El componente [Herramientas de servicios de datos WCF para aplicaciones de la Tienda Windows](http://www.microsoft.com/download/details.aspx?id=30714) amplía la experiencia de incorporación de referencias de servicios gracias a la compatibilidad de OData del lado cliente en aplicaciones de la Tienda Windows en Visual Studio.
+- [Herramientas de servicios de datos WCF para aplicaciones de la Tienda Windows](http://www.microsoft.com/download/details.aspx?id=30714) amplía la experiencia de incorporación de referencias de servicios gracias a la compatibilidad de OData del lado cliente en aplicaciones de la Tienda Windows en Visual Studio.
 
-## Desarrollo de aplicaciones
+## <a name="develop-apps"></a>Desarrollo de aplicaciones
 
-### Preparación
+### <a name="getting-ready"></a>Preparación
 
 Cree un nuevo proyecto de aplicaciones de la Tienda Windows en Visual Studio 2012 o posterior:
 
@@ -40,7 +41,7 @@ A continuación, agregue una referencia a la biblioteca de cliente de Almacenami
 
 ![store-apps-storage-choose-library][store-apps-storage-choose-library]
 
-### Uso de la biblioteca con los servicios BLOB y Cola
+### <a name="using-the-library-with-the-blob-and-queue-services"></a>Uso de la biblioteca con los servicios BLOB y Cola
 
 En este momento, la aplicación está preparada para llamar a los servicios Blob de Azure y Cola. Agregue las siguientes instrucciones **using** de manera que pueda hacerse referencia directamente a los tipos de Almacenamiento de Azure:
 
@@ -59,7 +60,7 @@ Este código supone que hay dos variables de cadena, *accountName* y *accountKey
 
 Compile y ejecute la aplicación. Si hace clic en el botón, se comprobará si existe un contenedor con el nombre *container1* en la cuenta y se creará si no existiera.
 
-### Uso de la biblioteca con el servicio Tabla
+### <a name="using-the-library-with-the-table-service"></a>Uso de la biblioteca con el servicio Tabla
 
 Los tipos usados para comunicarse con el servicio Tabla de Azure dependen de la biblioteca de servicios de datos WCF para la aplicación de la Tienda Windows. A continuación, agregue una referencia a las bibliotecas WCF necesarias mediante la consola del administrador de paquetes:
 
@@ -89,4 +90,8 @@ También puede agregar una referencia a Microsoft.WindowsAzure.Storage.Table.dll
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,72 +1,77 @@
 <properties
-	pageTitle="Establecimiento de directivas de caducidad de contraseña en Azure Active Directory | Microsoft Azure"
-	description="Obtenga información sobre cómo comprobar las directivas de caducidad y cambiar la caducidad de contraseñas de usuario individualmente o de forma masiva para contraseñas de Azure Active Directory"
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Set password expiration policies in Azure Active Directory | Microsoft Azure"
+    description="Learn how to check expiration policies and change user password expiration either singly or in bulk for Azure Active directory passwords"
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/12/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/04/2016"
+    ms.author="curtand"/>
 
 
-# Establecimiento de directivas de caducidad de contraseña en Azure Active Directory
 
-> [AZURE.IMPORTANT] **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
+# <a name="set-password-expiration-policies-in-azure-active-directory"></a>Set password expiration policies in Azure Active Directory
 
-Como administrador global de un servicio en la nube de Microsoft, puede usar el módulo de Microsoft Azure Active Directory para Windows PowerShell para configurar las contraseñas de usuario de modo que no caduquen. También puede usar cmdlets de Windows PowerShell para quitar la configuración de nunca caduca o para ver qué contraseñas de usuario están configuradas para que no caduquen. En este tema se proporciona contenido de ayuda para servicios en la nube, como Microsoft Intune y Office 365, que dependen de Microsoft Azure Active Directory para los servicios de identidad y directorio.
+> [AZURE.IMPORTANT] **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 
-  > [AZURE.NOTE] Solo las contraseñas de cuentas de usuario que no están sincronizadas a través de la sincronización de directorios pueden configurarse para que no caduquen. Para más información sobre la sincronización de directorios, consulte la lista de temas de [Integración de las identidades locales con Azure Active Directory](https://msdn.microsoft.com/library/azure/hh967642.aspx).
+As a global administrator for a Microsoft cloud service, you can use the Microsoft Azure Active Directory Module for Windows PowerShell to set up user passwords not to expire. You can also use Windows PowerShell cmdlets to remove the never-expires configuration, or to see which user passwords are set up not to expire. This article provides help for cloud services, such as Microsoft Intune and Office 365, which rely on Microsoft Azure Active Directory for identity and directory services.
 
-Para usar los cmdlets de Windows PowerShell, primero debe instalarlos.
+  > [AZURE.NOTE] Only passwords for user accounts that are not synchronized through directory synchronization can be configured not to expire. For more information about directory synchronization, see the list of topics in [Directory synchronization roadmap](https://msdn.microsoft.com/library/azure/hh967642.aspx).
 
-## ¿Qué desea hacer?
+To use Windows PowerShell cmdlets, you first must install them.
 
-- [Comprobación de la directiva de caducidad de una contraseña](#how-to-check-expiration-policy-for-a-password)
+## <a name="what-do-you-want-to-do?"></a>What do you want to do?
 
-- [Configuración de una contraseña para que caduque](#set-a-password-to-expire)
+- [How to check expiration policy for a password](#how-to-check-expiration-policy-for-a-password)
 
-- [Configuración de una contraseña para que no caduque](#set-a-password-to-never-expire)
+- [Set a password to expire](#set-a-password-to-expire)
 
-## Comprobación de la directiva de caducidad de una contraseña
+- [Set a password so that it will not expire](#set-a-password-to-never-expire)
 
-1.  Conéctese a Windows PowerShell con sus credenciales de administrador de empresa.
+## <a name="how-to-check-expiration-policy-for-a-password"></a>How to check expiration policy for a password
 
-2.  Realice una de las operaciones siguientes:
+1.  Connect to Windows PowerShell using your company administrator credentials.
 
-	- Para ver si se ha configurado una sola contraseña de usuario para que nunca caduque, ejecute el cmdlet siguiente con el nombre principal de usuario (UPN) (por ejemplo, aprilr@contoso.onmicrosoft.com) o el identificador de usuario del usuario que desea comprobar: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
+2.  Do one of the following:
 
-	- Para ver la configuración "La contraseña nunca caduca" de todos los usuarios, ejecute el siguiente cmdlet: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
+    - To see whether a single user’s password is set to never expire, run the following cmdlet by using the user principal name (UPN) (for example, aprilr@contoso.onmicrosoft.com) or the user ID of the user you want to check: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
 
-## Configuración de una contraseña para que caduque
+    - To see the "Password never expires" setting for all users, run the following cmdlet: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
 
-1.  Conéctese a Windows PowerShell con sus credenciales de administrador de empresa.
+## <a name="set-a-password-to-expire"></a>Set a password to expire
 
-2.  Realice una de las operaciones siguientes:
+1.  Connect to Windows PowerShell using your company administrator credentials.
 
-	- Para configurar la contraseña de un usuario para que caduque, ejecute el cmdlet siguiente con el nombre principal de usuario (UPN) o el identificador de usuario del usuario: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
+2.  Do one of the following:
 
-	- Para configurar las contraseñas de todos los usuarios de la organización de modo que caduquen, use el siguiente cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
+    - To set the password of one user so that the password will expire, run the following cmdlet by using the user principal name (UPN) or the user ID of the user: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
 
-## Configure una contraseña para que no caduque nunca
+    - To set the passwords of all users in the organization so that they will expire, use the following cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
 
-1. Conéctese a Windows PowerShell con sus credenciales de administrador de empresa.
+## <a name="set-a-password-to-never-expire"></a>Set a password to never expire
 
-2.  Realice una de las operaciones siguientes:
+1. Connect to Windows PowerShell using your company administrator credentials.
 
-	- Para configurar la contraseña de un usuario para que nunca caduque, ejecute el cmdlet siguiente con el nombre principal de usuario (UPN) o el identificador de usuario del usuario: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
+2.  Do one of the following:
 
-	- Para configurar las contraseñas de todos los usuarios de una organización para que nunca caduquen, ejecute el siguiente cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+    - To set the password of one user to never expire, run the following cmdlet by using the user principal name (UPN) or the user ID of the user: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
 
-## Pasos siguientes
+    - To set the passwords of all the users in an organization to never expire, run the following cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
-* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0921_2016-->
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

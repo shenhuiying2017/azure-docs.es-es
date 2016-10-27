@@ -1,251 +1,256 @@
 <properties
-	pageTitle="Tutorial: integración de Azure Active Directory con Insperity ExpensAble | Microsoft Azure"
-	description="Aprenda a configurar el inicio de sesión único entre Azure Active Directory e Insperity ExpensAble."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with Insperity ExpensAble | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and Insperity ExpensAble."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2016"
-	ms.author="jeedes"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/01/2016"
+    ms.author="jeedes"/>
 
-# Tutorial: integración de Azure Active Directory con Insperity ExpensAble
 
-El objetivo de este tutorial es mostrar cómo integrar Insperity ExpensAble con Azure Active Directory (Azure AD). Integrar Insperity ExpensAble con Azure AD le proporciona las siguientes ventajas:
+# <a name="tutorial:-azure-active-directory-integration-with-insperity-expensable"></a>Tutorial: Azure Active Directory integration with Insperity ExpensAble
 
-- Puede controlar en Azure AD quién tiene acceso a Insperity ExpensAble.
-- Puede permitir que los usuarios inicien sesión automáticamente en Insperity ExpensAble (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
+The objective of this tutorial is to show you how to integrate Insperity ExpensAble with Azure Active Directory (Azure AD).  
+Integrating Insperity ExpensAble with Azure AD provides you with the following benefits:
 
+- You can control in Azure AD who has access to Insperity ExpensAble
+- You can enable your users to automatically get signed-on to Insperity ExpensAble (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## Requisitos previos
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Para configurar la integración de Azure AD con Insperity ExpensAble, se necesitan los siguientes elementos:
+## <a name="prerequisites"></a>Prerequisites
 
-- Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único en Insperity ExpensAble
+To configure Azure AD integration with Insperity ExpensAble, you need the following items:
 
+- An Azure AD subscription
+- A Insperity ExpensAble single-sign on enabled subscription
 
-> [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
-- No debe usar el entorno de producción, a menos que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+To test the steps in this tutorial, you should follow these recommendations:
 
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
-## Descripción del escenario
-El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
 
-1. Incorporación de Insperity ExpensAble desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+## <a name="scenario-description"></a>Scenario Description
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
+The scenario outlined in this tutorial consists of two main building blocks:
 
+1. Adding Insperity ExpensAble from the gallery
+2. Configuring and testing Azure AD single sign-on
 
-## Incorporación de Insperity ExpensAble desde la galería
-Para configurar la integración de Insperity ExpensAble en Azure AD, deberá agregar Insperity ExpensAble desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Insperity ExpensAble desde la galería, realice los pasos siguientes:**
+## <a name="adding-insperity-expensable-from-the-gallery"></a>Adding Insperity ExpensAble from the gallery
+To configure the integration of Insperity ExpensAble into Azure AD, you need to add Insperity ExpensAble from the gallery to your list of managed SaaS apps.
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
+**To add Insperity ExpensAble from the gallery, perform the following steps:**
 
-	![Active Directory][1]
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
+    ![Active Directory][1]
 
-3. Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-	![Aplicaciones][2]
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
 
-4. Haga clic en **Agregar** en la parte inferior de la página.
+    ![Applications][2]
 
-	![Aplicaciones][3]
+4. Click **Add** at the bottom of the page.
 
-5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
+    ![Applications][3]
 
-	![Aplicaciones][4]
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-6. En el cuadro de búsqueda, escriba **Insperity ExpensAble**.
+    ![Applications][4]
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-insperityexpensable-tutorial/tutorial_insperityexpensable_01.png)
+6. In the search box, type **Insperity ExpensAble**.
 
-7. En el panel de resultados, seleccione **Insperity ExpensAble** y luego haga clic en **Completar** para agregar la aplicación.
+    ![Creating an Azure AD test user](./media/active-directory-saas-insperityexpensable-tutorial/tutorial_insperityexpensable_01.png)
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-insperityexpensable-tutorial/tutorial_insperityexpensable_02.png)
+7. In the results pane, select **Insperity ExpensAble**, and then click **Complete** to add the application.
 
-##  Configuración y comprobación del inicio de sesión único de Azure AD
-El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con Insperity ExpensAble con una usuaria de prueba llamada "Britta Simon".
+    ![Creating an Azure AD test user](./media/active-directory-saas-insperityexpensable-tutorial/tutorial_insperityexpensable_02.png)
 
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Insperity ExpensAble para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Insperity ExpensAble. Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario** en Azure AD como valor del **nombre de usuario** en Insperity ExpensAble.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+The objective of this section is to show you how to configure and test Azure AD single sign-on with Insperity ExpensAble based on a test user called "Britta Simon".
 
-Para configurar y probar el inicio de sesión único de Azure AD con Insperity ExpensAble, es preciso completar los siguientes bloques de creación:
+For single sign-on to work, Azure AD needs to know what the counterpart user in Insperity ExpensAble to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Insperity ExpensAble needs to be established.  
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Insperity ExpensAble.
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Creación de un usuario de prueba de Insperity ExpensAble](#creating-a-insperityexpensable-test-user)**: para tener un homólogo de Britta Simon en Insperity ExpensAble que esté vinculado a la representación de ella en Azure AD.
-5. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
+To configure and test Azure AD single sign-on with Insperity ExpensAble, you need to complete the following building blocks:
 
-### Configuración del inicio de sesión único de Azure AD
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Creating a Insperity ExpensAble test user](#creating-a-insperityexpensable-test-user)** - to have a counterpart of Britta Simon in Insperity ExpensAble that is linked to the Azure AD representation of her.
+5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación Insperity ExpensAble.
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
 
+The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Insperity ExpensAble application.
 
 
-**Para configurar el inicio de sesión único de Azure AD con Insperity ExpensAble, realice los pasos siguientes:**
 
-1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Insperity ExpensAble**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+**To configure Azure AD single sign-on with Insperity ExpensAble, perform the following steps:**
 
-	![Configurar inicio de sesión único][6]
+1. In the Azure classic portal, on the **Insperity ExpensAble** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en Insperity ExpensAble?**, seleccione **Inicio de sesión único de Azure AD** y después haga clic en **Siguiente**.
+    ![Configure Single Sign-On][6] 
 
-	![Configurar inicio de sesión único](./media/active-directory-saas-insperityexpensable-tutorial/tutorial_insperityexpensable_03.png)
+2. On the **How would you like users to sign on to Insperity ExpensAble** page, select **Azure AD Single Sign-On**, and then click **Next**.
 
-3. En la página del cuadro de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes:
+    ![Configure Single Sign-On](./media/active-directory-saas-insperityexpensable-tutorial/tutorial_insperityexpensable_03.png) 
 
-	![Configurar inicio de sesión único](./media/active-directory-saas-insperityexpensable-tutorial/tutorial_insperityexpensable_04.png)
+3. On the **Configure App Settings** dialog page, perform the following steps:.
 
+    ![Configure Single Sign-On](./media/active-directory-saas-insperityexpensable-tutorial/tutorial_insperityexpensable_04.png) 
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de Insperity ExpensAble con el siguiente patrón: `https://server.expensable.com/esapp/Authenticate?companyId=<company ID>`
 
-	b. Haga clic en **Next**.
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Insperity ExpensAble application using the following pattern: `https://server.expensable.com/esapp/Authenticate?companyId=<company ID>`
 
-4. En la página **Configurar inicio de sesión único en Insperity ExpensAble**, siga estos pasos:
+    b. Click **Next**.
 
-	![Configurar inicio de sesión único](./media/active-directory-saas-insperityexpensable-tutorial/tutorial_insperityexpensable_05.png)
+4. On the **Configure single sign-on at Insperity ExpensAble** page, perform the following steps:
 
-    a. Haga clic en **Descargar certificado** y después guarde el archivo en el equipo.
+    ![Configure Single Sign-On](./media/active-directory-saas-insperityexpensable-tutorial/tutorial_insperityexpensable_05.png) 
 
-    b. Haga clic en **Next**.
+    a. Click **Download certificate**, and then save the file on your computer.
 
+    b. Click **Next**.
 
-5. Para configurar el inicio de sesión único para la aplicación, póngase en contacto con el equipo de soporte técnico de Insperity ExpensAble. Una vez que se asigna el caso, envíe por correo electrónico el archivo de certificado descargado. Además, proporcione la dirección URL del emisor y la dirección URL del servicio de inicio de sesión único para que se puedan configurar para la integración de SSO.
 
+5. To get SSO configured for your application, contact your Insperity ExpensAble technical support team. Once the case is assigned then email the downloaded certificate file. Also please do provide the Issuer URL and Single Sign On Service URL so that they can be configured for SSO integration. 
 
-6. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
 
-	![Inicio de sesión único de Azure AD][10]
+6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
-7. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.
+    ![Azure AD Single Sign-On][10]
 
-	![Inicio de sesión único de Azure AD][11]
+7. On the **Single sign-on confirmation** page, click **Complete**.  
 
+    ![Azure AD Single Sign-On][11]
 
 
-### Creación de un usuario de prueba de Azure AD
-El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure clásico llamado Britta Simon.
 
-![Creación de un usuario de Azure AD][20]
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.  
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+![Create Azure AD User][20]
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
+**To create a test user in Azure AD, perform the following steps:**
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_09.png)
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
+    ![Creating an Azure AD test user](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_09.png) 
 
-3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_03.png)
+3. To display the list of users, in the menu on the top, click **Users**.
 
-4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+    ![Creating an Azure AD test user](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_03.png) 
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_04.png)
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
 
-5. En la página de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
+    ![Creating an Azure AD test user](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_04.png) 
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_05.png)
+5. On the **Tell us about this user** dialog page, perform the following steps:
 
-    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
+    ![Creating an Azure AD test user](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_05.png) 
 
-    b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
+    a. As Type Of User, select New user in your organization.
 
-    c. Haga clic en **Next**.
+    b. In the User Name **textbox**, type **BrittaSimon**.
 
-6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
+    c. Click **Next**.
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_06.png)
+6.  On the **User Profile** dialog page, perform the following steps:
 
-    a. En el cuadro de texto **Nombre**, escriba **Britta**.
+    ![Creating an Azure AD test user](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_06.png) 
 
-    b. En el cuadro de texto **Apellidos**, escriba **Simon**.
+    a. In the **First Name** textbox, type **Britta**.  
 
-    c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
 
-    d. En la lista **Rol**, seleccione **Usuario**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
-    e. Haga clic en **Siguiente**.
+    d. In the **Role** list, select **User**.
 
-7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
+    e. Click **Next**.
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_07.png)
+7. On the **Get temporary password** dialog page, click **create**.
 
-8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
+    ![Creating an Azure AD test user](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_07.png) 
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_08.png)
+8. On the **Get temporary password** dialog page, perform the following steps:
 
-    a. Anote el valor del campo **Nueva contraseña**.
+    ![Creating an Azure AD test user](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_08.png) 
 
-    b. Haga clic en **Complete**.
+    a. Write down the value of the **New Password**.
 
+    b. Click **Complete**.   
 
 
-### Creación de un usuario de prueba de Insperity ExpensAble
 
-El objetivo de esta sección es crear una usuaria llamada llamado Britta Simon en Insperity ExpensAble. Trabaje con el equipo de soporte técnico correspondiente para agregar usuarios en la cuenta de Insperity ExpensAble.
+### <a name="creating-a-insperity-expensable-test-user"></a>Creating a Insperity ExpensAble test user
 
+The objective of this section is to create a user called Britta Simon in Insperity ExpensAble. Please work with Insperity ExpensAble support team to add the users in the Insperity ExpensAble account. 
 
-> [AZURE.NOTE] Si necesita crear manualmente un usuario, es preciso que se ponga en contacto con el equipo de soporte técnico de Insperity ExpensAble.
 
+> [AZURE.NOTE] If you need to create an user manually, you need to contact the Insperity ExpensAble support team.
 
-### Asignación del usuario de prueba de Azure AD
 
-El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure, para lo que se le concederá acceso a Insperity ExpensAble.
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
 
-![Asignar usuario][200]
+The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Insperity ExpensAble.
 
-**Para asignar a Britta Simon a Insperity ExpensAble, realice los pasos siguientes:**
+![Assign User][200] 
 
-1. En el Portal de Azure clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
+**To assign Britta Simon to Insperity ExpensAble, perform the following steps:**
 
-	![Asignar usuario][201]
+1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
 
-2. En la lista de aplicaciones, seleccione **Insperity ExpensAble**.
+    ![Assign User][201] 
 
-	![Configurar inicio de sesión único](./media/active-directory-saas-insperityexpensable-tutorial/tutorial_insperityexpensable_50.png)
+2. In the applications list, select **Insperity ExpensAble**.
 
-1. En el menú de la parte superior, haga clic en **Usuarios**.
+    ![Configure Single Sign-On](./media/active-directory-saas-insperityexpensable-tutorial/tutorial_insperityexpensable_50.png) 
 
-	![Asignar usuario][203]
+1. In the menu on the top, click **Users**.
 
-1. En la lista Usuarios, seleccione **Britta Simon**.
+    ![Assign User][203] 
 
-2. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
+1. In the Users list, select **Britta Simon**.
 
-	![Asignar usuario][205]
+2. In the toolbar on the bottom, click **Assign**.
 
+    ![Assign User][205]
 
 
-### Prueba del inicio de sesión único
 
-El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso. Al hacer clic en el icono de Insperity ExpensAble en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Insperity ExpensAble.
+### <a name="testing-single-sign-on"></a>Testing Single Sign-On
 
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
+When you click the Insperity ExpensAble tile in the Access Panel, you should get automatically signed-on to your Insperity ExpensAble application.
 
-## Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+## <a name="additional-resources"></a>Additional Resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -266,4 +271,8 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-insperityexpensable-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-insperityexpensable-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

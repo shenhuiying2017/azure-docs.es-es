@@ -1,30 +1,33 @@
 <!--author=alkohli last changed: 12/15/15-->
 
-| Identificador de límites | Límite | Comentarios |
+| Limit identifier | Limit | Comments |
 |----------------- | ------|--------- |
-| Número máximo de credenciales de la cuenta de almacenamiento | 64 | |
-| Número máximo de contenedores de volúmenes | 64 | |
-| Número máximo de volúmenes | 255 | |
-| Número máximo de programaciones por plantilla de ancho de banda | 168 | Una programación para cada hora y cada día de la semana (24*7). |
-| Tamaño máximo de un volumen en capas en dispositivos físicos | 64 TB para 8100 y 8600 | 8100 y 8600 son dispositivos físicos. |
-| Tamaño máximo de un volumen en capas en dispositivos virtuales de Azure | 30 TB para 8010 <br></br> 64 TB para 8020 | 8010 y 8020 son dispositivos virtuales de Azure que utilizan el almacenamiento estándar y premium respectivamente. |
-| Tamaño máximo de un volumen anclado localmente en dispositivos físicos | 9 TB para 8100 <br></br> 24 TB para 8600 | 8100 y 8600 son dispositivos físicos. |
-| Número máximo de conexiones iSCSI | 512 | |
-| Número máximo de conexiones de iSCSI de iniciadores | 512 | |
-| Número máximo de registros de control de acceso por dispositivo | 64 | |
-| Número máximo de volúmenes por directiva de copia de seguridad | 24 | |
-| Número máximo de copias de seguridad por directiva de copia de seguridad | 64 | |
-| Número máximo de programaciones por directiva de copia de seguridad | 10 | |
-| Número máximo de instantáneas de cualquier tipo que se pueden retener por volumen | 256 | Esto incluye las instantáneas locales y en la nube. |
-| Número máximo de instantáneas que pueden estar presentes en cualquier dispositivo | 10\.000 | |
-| Número máximo de volúmenes que se pueden procesar en paralelo para copia de seguridad, restauración o clonación | 16 |<ul><li>Si hay más de 16 volúmenes, se procesarán secuencialmente a medida que van quedando disponibles ranuras de procesamiento.</li><li>No se pueden realizar copias de seguridad nuevas de un volumen clonado o de un volumen en capas restaurado hasta que no haya finalizado la operación. Sin embargo, para un volumen local, se permiten las copias de seguridad después de que el volumen está en línea.</li></ul>|
-| Tiempo de recuperación de la restauración y la clonación | < 2 minutos | <ul><li>El volumen queda disponible antes de que transcurran 2 minutos desde la operación de restauración o clonación, independientemente del tamaño del volumen.</li><li>Es posible que el rendimiento del volumen resulte más lento de lo normal inicialmente, ya que la mayoría de los datos y metadatos todavía residen en la nube. Es posible que el rendimiento aumente a medida que los datos fluyan de la nube al dispositivo StorSimple.</li><li>El tiempo total para descargar los metadatos depende del tamaño del volumen asignado. Los metadatos se traen automáticamente al dispositivo en segundo plano a una velocidad de 5 minutos por cada TB de datos de volumen asignado. Es posible que esta velocidad se vea afectada por un ancho de banda de Internet a la nube.</li><li>La operación de restauración o clonación estará completa cuando todos los metadatos se encuentren en el dispositivo.</li><li>No se pueden realizar operaciones de copia de seguridad hasta que se haya completado totalmente la operación de restauración o clonación.|
-| Restauración del tiempo de recuperación de volúmenes anclados localmente | < 2 minutos | <ul><li>El volumen queda disponible antes de que transcurran 2 minutos desde la operación de restauración, independientemente del tamaño del volumen.</li><li>Es posible que el rendimiento del volumen resulte más lento de lo normal inicialmente, ya que la mayoría de los datos y metadatos todavía residen en la nube. Es posible que el rendimiento aumente a medida que los datos fluyan de la nube al dispositivo StorSimple.</li><li>El tiempo total para descargar los metadatos depende del tamaño del volumen asignado. Los metadatos se traen automáticamente al dispositivo en segundo plano a una velocidad de 5 minutos por cada TB de datos de volumen asignado. Esta velocidad puede verse afectada por el ancho de banda de Internet a la nube.</li><li>A diferencia de los volúmenes en capas, en el caso de los volúmenes anclados localmente, también se descargan los datos del volumen localmente en el dispositivo. La operación de restauración se completa cuando todos los datos del volumen se encuentran en el dispositivo.</li><li>Las operaciones de restauración pueden ser largas y el tiempo total para completar la restauración dependerá del tamaño del volumen local aprovisionado, el ancho de banda de Internet y los datos existentes en el dispositivo. Se permiten las operaciones de copia de seguridad en el volumen anclado localmente mientras la operación de restauración está en curso.|
-| Disponibilidad de restauración fina | Última conmutación por error | |
-| Rendimiento máximo de lectura y escritura del cliente (cuando se obtiene desde la capa SSD)* | 920/720 MB/s con una sola interfaz de red de 10GbE | Hasta 2x con MPIO y dos interfaces de red. |
-| Rendimiento máximo de lectura y escritura del cliente (cuando se obtiene desde la capa HDD)* | 120/250 MB/s |
-| Rendimiento máximo de lectura y escritura de cliente (cuando se obtiene desde la capa de la nube)* | 11/41 MB/s | El rendimiento de lectura depende de que los clientes generen y mantengan una profundidad de cola de E/S suficiente. |
+| Maximum number of storage account credentials | 64 | |
+| Maximum number of volume containers | 64 | |
+| Maximum number of volumes | 255 | |
+| Maximum number of schedules per bandwidth template | 168 | A schedule for every hour, every day of the week (24*7). |
+| Maximum size of a tiered volume on physical devices | 64 TB for 8100 and 8600 | 8100 and 8600 are physical devices. |
+| Maximum size of a tiered volume on virtual devices in Azure | 30 TB for 8010 <br></br> 64 TB for 8020 | 8010 and 8020 are virtual devices in Azure that use Standard Storage and Premium Storage respectively. |
+| Maximum size of a locally pinned volume on physical devices | 9 TB for 8100 <br></br> 24 TB for 8600 | 8100 and 8600 are physical devices. |
+| Maximum number of iSCSI connections | 512 | |
+| Maximum number of iSCSI connections from initiators | 512 | |
+| Maximum number of access control records per device | 64 | |
+| Maximum number of volumes per backup policy | 24 | |
+| Maximum number of backups retained per backup policy | 64 | |
+| Maximum number of schedules per backup policy | 10 | |
+| Maximum number of snapshots of any type that can be retained per volume | 256 | This includes local snapshots and cloud snapshots. |
+| Maximum number of snapshots that can be present in any device | 10,000 | |
+| Maximum number of volumes that can be processed in parallel for backup, restore, or clone | 16 |<ul><li>If there are more than 16 volumes, they will be processed sequentially as processing slots become available.</li><li>New backups of a cloned or a restored tiered volume cannot occur until the operation is finished. However, for a local volume, backups are allowed after the volume is online.</li></ul>|
+| Restore and clone recover time for tiered volumes | < 2 minutes | <ul><li>The volume is made available within 2 minutes of restore or clone operation, regardless of the volume size.</li><li>The volume performance may initially be slower than normal as most of the data and metadata still resides in the cloud. Performance may increase as data flows from the cloud to the StorSimple device.</li><li>The total time to download metadata depends on the allocated volume size. Metadata is automatically brought into the device in the background at the rate of 5 minutes per TB of allocated volume data. This rate may be affected by Internet bandwidth to the cloud.</li><li>The restore or clone operation is complete when all the metadata is on the device.</li><li>Backup operations cannot be performed until the restore or clone operation is fully complete.|
+| Restore recover time for locally pinned volumes | < 2 minutes | <ul><li>The volume is made available within 2 minutes of the restore operation, regardless of the volume size.</li><li>The volume performance may initially be slower than normal as most of the data and metadata still resides in the cloud. Performance may increase as data flows from the cloud to the StorSimple device.</li><li>The total time to download metadata depends on the allocated volume size. Metadata is automatically brought into the device in the background at the rate of 5 minutes per TB of allocated volume data. This rate may be affected by Internet bandwidth to the cloud.</li><li>Unlike tiered volumes, in the case of locally pinned volumes, the volume data is also downloaded locally on the device. The restore operation is complete when all the volume data has been brought to the device.</li><li>The restore operations may be long and the total time to complete the restore will depend on the size of the provisioned local volume, your Internet bandwidth and the existing data on the device. Backup operations on the locally pinned volume are allowed while the restore operation is in progress.|
+| Thin-restore availability | Last failover | |
+| Maximum client read/write throughput (when served from the SSD tier)* | 920/720 MB/s with a single 10GbE network interface | Up to 2x with MPIO and two network interfaces. |
+| Maximum client read/write throughput (when served from the HDD tier)* | 120/250 MB/s |
+| Maximum client read/write throughput (when served from the cloud tier)* | 11/41 MB/s | Read throughput depends on clients generating and maintaining sufficient I/O queue depth. |
 
-&#42; Se midió el rendimiento máximo por tipo de E/S con escenarios de escritura y de lectura del 100%. Es posible que el rendimiento real sea inferior y dependa de las condiciones de la red y de la mezcla de E/S.
+&#42; Maximum throughput per I/O type was measured with 100 percent read and 100 percent write scenarios. Actual throughput may be lower and depends on I/O mix and network conditions.
 
-<!---HONumber=AcomDC_0114_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

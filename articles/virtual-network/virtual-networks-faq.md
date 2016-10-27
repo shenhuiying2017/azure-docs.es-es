@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="P+F de Red virtual"
-   description="Preguntas frecuentes sobre redes virtuales de Azure"
+   pageTitle="Virtual Network FAQ"
+   description="Azure virtual network (VNet) FAQ"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -15,12 +15,17 @@
    ms.date="03/15/2016"
    ms.author="jdial" />
 
-# P+F de Red virtual
+
+# <a name="virtual-network-faq"></a>Virtual Network FAQ
 
 [AZURE.INCLUDE [virtual-networks-vnet-faq-include](../../includes/virtual-networks-vnet-faq-include.md)]
 
-## Conectividad entre entornos de red virtual (VPN)
+## <a name="virtual-network-cross-premises-connectivity-(vpns)"></a>Virtual Network Cross-premises Connectivity (VPNs)
 
-Para obtener las preguntas frecuentes más recientes sobre las VPN de redes virtuales, consulte las [Preguntas más frecuentes sobre la puerta de enlace de VPN](../vpn-gateway/vpn-gateway-vpn-faq.md).
+For the latest FAQ on virtual network VPNs, see the [VPN Gateway FAQ](../vpn-gateway/vpn-gateway-vpn-faq.md).
 
-<!----HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,5 +1,8 @@
-### Versiones del servicio de almacenamiento
+### <a name="storage-service-versions"></a>Storage Service Versions
 
-Los servicios de Almacenamiento de Azure se actualizan periódicamente y son compatibles con las nuevas características. La referencia de la API de REST de los servicios de Almacenamiento de Azure, especifica cada versión admitida y sus características. Le recomendamos que use la versión más reciente siempre que le sea posible. Para obtener más información acerca de la versión más reciente de los servicios de Almacenamiento de Azure, así como de las versiones anteriores, consulte [Versiones de los servicios del Almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dd894041.aspx).
+The Azure Storage services are regularly updated with support for new features. The Azure Storage services REST API reference describes each supported version and its features. We recommend that you use the latest version whenever possible. For information on the latest version of the Azure Storage services, as well as information on previous versions, see [Versioning for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd894041.aspx).  
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

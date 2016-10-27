@@ -1,132 +1,133 @@
 <properties
-	pageTitle="Integración de una cuenta de almacenamiento con CDN | Microsoft Azure"
-	description="Aprenda a usar la red de entrega de contenido (CDN) de Azure para ofrecer contenido con un ancho de banda alto mediante el almacenamiento en caché de blobs de Almacenamiento de Azure."
-	services="cdn"
-	documentationCenter=""
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Integrate a Storage Account with CDN | Microsoft Azure"
+    description="Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs from Azure Storage."
+    services="cdn"
+    documentationCenter=""
+    authors="camsoper"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2016"
-	ms.author="casoper"/>
+    ms.service="cdn"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/28/2016"
+    ms.author="casoper"/>
 
 
-# Integración de una cuenta de almacenamiento con CDN
 
-CDN puede habilitarse para almacenar el contenido de la caché en Almacenamiento de Azure. Ofrece a los desarrolladores una solución global de entrega de contenido con alto ancho de banda; para ello, almacena en memoria caché los blobs y los contenidos estáticos de las instancias de proceso en nodos físicos ubicados en Estados Unidos, Europa, Asia, Australia y Sudamérica.
+# <a name="integrate-a-storage-account-with-cdn"></a>Integrate a Storage Account with CDN
+
+CDN can be enabled to cache content from your Azure storage. It offers developers a global solution for delivering high-bandwidth content by caching blobs and static content of compute instances at physical nodes in the United States, Europe, Asia, Australia and South America.
 
 
-## Paso 1: Creación de una cuenta de almacenamiento
+## <a name="step-1:-create-a-storage-account"></a>Step 1: Create a storage account
 
-Use el siguiente procedimiento para crear una nueva cuenta de almacenamiento para una suscripción de Azure. Una cuenta de almacenamiento proporciona acceso a los servicios de almacenamiento de Azure. La cuenta de almacenamiento representa el máximo nivel de espacio de nombres para tener acceso a todos los componentes del servicio de almacenamiento de Azure: servicios BLOB, servicios Cola y servicios Tabla. Para más información, consulte [Introducción al Almacenamiento de Microsoft Azure](../storage/storage-introduction.md).
+Use the following procedure to create a new storage account for a Azure subscription. A storage account gives access to Azure storage services. The storage account represents the highest level of the namespace for accessing each of the Azure storage service components: Blob services, Queue services, and Table services. For more information, refer to the [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md).
 
-Para crear una cuenta de almacenamiento, debe ser administrador del servicio o coadministrador de la suscripción correspondiente.
+To create a storage account, you must be either the service administrator or a co-administrator for the associated subscription.
 
-> [AZURE.NOTE] Hay varios métodos que puede usar para crear una cuenta de almacenamiento, incluido el Portal de Azure y Powershell. Para este tutorial, usaremos el Portal de Azure.
+> [AZURE.NOTE] There are several methods you can use to create a storage account, including the Azure Portal and Powershell.  For this tutorial, we'll be using the Azure Portal.  
 
-**Para crear una cuenta de almacenamiento para una suscripción de Azure**
+**To create a storage account for an Azure subscription**
 
-1.  Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2.  En la esquina superior izquierda, seleccione **Nuevo**. En el cuadro de diálogo **Nuevo**, seleccione **Datos + Almacenamiento** y luego haga clic en **Cuenta de almacenamiento**.
+1.  Sign in to the [Azure Portal](https://portal.azure.com).
+2.  In the upper left corner, select **New**. In the **New** Dialog, select **Data  + Storage**, then click **Storage account**.
 
-    Aparece la hoja **Crear cuenta de almacenamiento**.
+    The **Create storage account** blade appears.
 
-    ![Crear una cuenta de almacenamiento][create-new-storage-account]
+    ![Create Storage Account][create-new-storage-account]
 
-4. En el campo **Nombre**, escriba un nombre de subdominio. Esta entrada puede contener de 3 a 24 letras minúsculas y números.
+4. In the **Name** field, type a subdomain name. This entry can contain 3-24 lowercase letters and numbers.
 
-    Este valor se convierte en el nombre del host dentro del URI que se ha usado para direccionar los recursos Blob, Cola o Tabla de la suscripción. Para dirigir un recurso contenedor en el servicio BLOB, debería usar un URI en el siguiente formato, en el que *&lt;StorageAccountLabel&gt;* hace referencia al valor que ha escrito en **Escriba una dirección URL**:
+    This value becomes the host name within the URI that is used to address Blob, Queue, or Table resources for the subscription. To address a container resource in the Blob service, you would use a URI in the following format, where *&lt;StorageAccountLabel&gt;* refers to the value you typed in **Enter a URL**:
 
     http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*
 
-    **Importante**: La etiqueta de URL forma el subdominio del URI de la cuenta de almacenamiento y debe ser único entre todos los servicios hospedados en Azure.
+    **Important:** The URL label forms the subdomain of the storage  account URI and must be unique among all hosted services in  Azure.
 
-	Este valor también se utiliza como nombre de esta cuenta de almacenamiento en el portal o en el acceso a esta cuenta mediante programación.
+    This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
 
-5. Deje los valores predeterminados para **Modelo de implementación**, **Tipo de cuenta**, **Rendimiento** y **Replicación**.
+5. Leave the defaults for **Deployment model**, **Account kind**, **Performance**, and **Replication**. 
 
-6. Seleccione la **Suscripción** con la que se usará la cuenta de almacenamiento.
+6. Select the **Subscription** that the storage account will be used with.
 
-7. Seleccione o cree un grupo de recursos. Para más información sobre los grupos de recursos, consulte [Información general del Administrador de recursos de Azure](resource-group-overview.md#resource-groups).
+7. Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview.md#resource-groups).
 
-8. Seleccione la ubicación para la cuenta de almacenamiento.
+8. Select a location for your storage account.
 
-8. Haga clic en **Crear**. El proceso de creación de la cuenta de almacenamiento podría tardar varios minutos en completarse.
-
-
-## Paso 2: Crear un nuevo perfil de CDN
-
-Un perfil de red de entrega de contenido es una colección de puntos de conexión de red de entrega de contenido. Cada perfil contiene uno o más de estos puntos de conexión de CDN. Puede que quiera usar varios perfiles para organizar sus puntos de conexión de la red CDN por dominio de Internet, aplicación web o cualquier otro criterio.
-
-> [AZURE.TIP] Si ya tiene un perfil de red CDN que quiere utilizar para este tutorial, continúe con el [Paso 3](#step-3-create-a-new-cdn-endpoint).
-
-[AZURE.INCLUDE [crear-perfil-cdn](../../includes/cdn-create-profile.md)]
-
-## Paso 3: Crear un nuevo punto de conexión de CDN
-
-**Para crear un nuevo punto de conexión de una red CDN para una cuenta de almacenamiento**
-
-1. En el [Portal de administración de Azure](https://portal.azure.com), vaya a su perfil de CDN. Puede haberlo anclado al panel en el paso anterior. Si no lo hace, para encontrarlo, haga clic en **Examinar**, en **Perfiles de CDN** y luego haga clic en el perfil al que planea agregar el punto de conexión.
-
-    Aparece la hoja del perfil de CDN.
-
-    ![Perfil de CDN][cdn-profile-settings]
-
-2. Haga clic en el botón **Agregar extremo**.
-
-    ![Botón Agregar punto de conexión][cdn-new-endpoint-button]
-
-    Aparecerá la hoja **Agregar un extremo**.
-
-    ![Hoja Agregar punto de conexión][cdn-add-endpoint]
-
-3. Escriba un **Nombre** para este punto de conexión de red de entrega de contenido. Este nombre se usará para obtener acceso a sus recursos almacenados en caché en el dominio `<endpointname>.azureedge.net`.
-
-4. En la lista desplegable **Tipo de origen**, seleccione *Almacenamiento*.
-
-5. En la lista desplegable **Nombre de host de origen**, seleccione su cuenta de almacenamiento.
-
-6. Deje los valores predeterminados para la **Ruta de acceso de origen**, el **Encabezado de host de origen** y el **Puerto de origen/protocolo**. Debe especificar al menos un protocolo (HTTP o HTTPS).
-
-    > [AZURE.NOTE] Esta configuración habilita todos los contenedores visibles públicamente de la cuenta de almacenamiento para el almacenamiento en caché en la red CDN. Si quiere limitar el ámbito a un contenedor único, use **Ruta de acceso de origen**. Tenga en cuenta que el contenedor debe tener su visibilidad establecida en pública.
-
-7. Haga clic en el botón **Agregar** para crear el nuevo punto de conexión.
-
-8. Una vez creado el punto de conexión, aparecerá en la lista de puntos de conexión del perfil. La visualización de la lista muestra la URL que se debe utilizar para tener acceso al contenido en caché, así como al dominio de origen.
-
-    ![Punto de conexión de CDN][cdn-endpoint-success]
-
-    > [AZURE.NOTE] El punto de conexión no estará disponible inmediatamente para su uso. Se pueden tardar hasta 90 minutos en que el registro se propague a través de la red CDN. Es posible que los usuarios que intenten usar el nombre de dominio de la red CDN de forma inmediata reciban el código de estado 404 hasta que el contenido esté disponible a través de la red CDN.
+8. Click **Create**. The process of creating the storage account might take several minutes to complete.
 
 
-## Paso 4: Acceso a su contenido de la red CDN
+## <a name="step-2:-create-a-new-cdn-profile"></a>Step 2: Create a new CDN profile
 
-Para obtener acceso al contenido almacenado en la memoria caché de la red CDN, use la URL de la red CDN que se le ha proporcionado en el portal. La dirección del blob en caché será similar a la siguiente:
+A CDN profile is a collection of CDN endpoints.  Each profile contains one or more CDN endpoints.  You may wish to use multiple profiles to organize your CDN endpoints by internet domain, web application, or some other criteria.
 
-http://<*NombrePuntoConexión*>.azureedge.net/<*miContenedorPúblico*>/<*NombreDeBlob*>
+> [AZURE.TIP] If you already have a CDN profile that you want to use for this tutorial, proceed to [Step 3](#step-3-create-a-new-cdn-endpoint).
 
-> [AZURE.NOTE] Una vez que haya habilitado el acceso de la red CDN a una cuenta de almacenamiento o servicio hospedado, todos los objetos disponibles de forma pública se pueden almacenar en la memoria caché perimetral de la red CDN. Si modifica un objeto que está almacenado en la memoria caché de la red CDN actualmente, el nuevo contenido no estará disponible a través de la red CDN hasta que la red CDN actualice su contenido al cumplir el período de vida del contenido almacenado en caché.
+[AZURE.INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
-## Paso 5: Eliminación de su contenido de la red CDN
+## <a name="step-3:-create-a-new-cdn-endpoint"></a>Step 3: Create a new CDN endpoint
 
-Si no desea seguir almacenando un objeto en la memoria caché de la Red de entrega de contenido de Azure (CDN), puede realizar uno de los siguientes pasos:
+**To create a new CDN endpoint for your storage account**
 
--   Puede crear un contenedor privado en vez de público. Vea [Administración del acceso de lectura anónimo a contenedores y blobs](../storage/storage-manage-access-to-resources.md) para más información.
--   Puede deshabilitar o eliminar el punto de conexión de la red CDN con el Portal de administración.
--   Puede modificar su servicio hospedado para no seguir respondiendo las solicitudes del objeto.
+1. In the [Azure Management Portal](https://portal.azure.com), navigate to your CDN profile.  You may have pinned it to the dashboard in the previous step.  If you not, you can find it by clicking **Browse**, then **CDN profiles**, and clicking on the profile you plan to add your endpoint to.
 
-Un objeto que ya está almacenado en la memoria caché de la red CDN permanecerá almacenado en caché hasta que cumpla el período de vida del objeto o hasta que se purgue el punto de conexión. Al cumplir el período de vida, la red CDN comprobará si el punto de conexión de la red CDN sigue siendo válido y si el objeto sigue siendo accesible de forma anónima. Si no lo es, el objeto dejará de estar almacenado en caché.
+    The CDN profile blade appears.
+
+    ![CDN profile][cdn-profile-settings]
+
+2. Click the **Add Endpoint** button.
+
+    ![Add endpoint button][cdn-new-endpoint-button]
+
+    The **Add an endpoint** blade appears.
+
+    ![Add endpoint blade][cdn-add-endpoint]
+
+3. Enter a **Name** for this CDN endpoint.  This name will be used to access your cached resources at the domain `<endpointname>.azureedge.net`.
+
+4. In the **Origin type** dropdown, select *Storage*.  
+
+5. In the **Origin hostname** dropdown, select your storage account.
+
+6. Leave the defaults for **Origin path**, **Origin host header**, and **Protocol/Origin port**.  You must specify at least one protocol (HTTP or HTTPS).
+
+    > [AZURE.NOTE] This configuration enables all of your publicly visible containers in your storage account for caching in the CDN.  If you want to limit the scope to a single container, use **Origin path**.  Note the container must have its visibility set to public.
+
+7. Click the **Add** button to create the new endpoint.
+
+8. Once the endpoint is created, it appears in a list of endpoints for the profile. The list view shows the URL to use to access cached content, as well as the origin domain.
+
+    ![CDN endpoint][cdn-endpoint-success]
+
+    > [AZURE.NOTE] The endpoint will not immediately be available for use.  It can take up to 90 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 404 until the content is available via the CDN.
 
 
-## Recursos adicionales
+## <a name="step-4:-access-cdn-content"></a>Step 4: Access CDN content
 
--   [Asignación del contenido de la red CDN a un dominio personalizado](cdn-map-content-to-custom-domain.md)
+To access cached content on the CDN, use the CDN URL provided in the portal. The address for a cached blob will be similar to the following:
+
+http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
+
+> [AZURE.NOTE] Once you enable CDN access to a storage account or hosted service, all publicly available objects are eligible for CDN edge caching. If you modify an object that is currently cached in the CDN, the new content will not be available via the CDN until the CDN refreshes its content when the cached content time-to-live period expires.
+
+## <a name="step-5:-remove-content-from-the-cdn"></a>Step 5: Remove content from the CDN
+
+If you no longer wish to cache an object in the Azure Content Delivery Network (CDN), you can take one of the following steps:
+
+-   You can make the container private instead of public. See [Manage anonymous read access to containers and blobs](../storage/storage-manage-access-to-resources.md) for more information.
+-   You can disable or delete the CDN endpoint using the Management Portal.
+-   You can modify your hosted service to no longer respond to requests for the object.
+
+An object already cached in the CDN will remain cached until the time-to-live period for the object expires or until the endpoint is purged. When the time-to-live period expires, the CDN will check to see whether the CDN endpoint is still valid and the object still anonymously accessible. If it is not, then the object will no longer be cached.
+
+
+## <a name="additional-resources"></a>Additional resources
+
+-   [How to Map CDN Content to a Custom Domain](cdn-map-content-to-custom-domain.md)
 
 [create-new-storage-account]: ./media/cdn-create-a-storage-account-with-cdn/CDN_CreateNewStorageAcct.png
 
@@ -135,4 +136,8 @@ Un objeto que ya está almacenado en la memoria caché de la red CDN permanecer�
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Configuración de la replicación geográfica para Base de datos SQL de Azure con Transact-SQL | Microsoft Azure"
-    description="Configuración de la replicación geográfica para Base de datos SQL de Azure con Transact-SQL"
+    pageTitle="Configure Geo-Replication for Azure SQL Database with Transact-SQL | Microsoft Azure"
+    description="Configure Geo-Replication for Azure SQL Database using Transact-SQL"
     services="sql-database"
     documentationCenter=""
     authors="CarlRabeler"
@@ -13,168 +13,170 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="NA"
-    ms.date="07/18/2016"
+    ms.date="10/13/2016"
     ms.author="carlrab"/>
 
-# Configuración de la replicación geográfica para Base de datos SQL de Azure con Transact-SQL
+
+# <a name="configure-geo-replication-for-azure-sql-database-with-transact-sql"></a>Configure Geo-Replication for Azure SQL Database with Transact-SQL
 
 > [AZURE.SELECTOR]
-- [Información general](sql-database-geo-replication-overview.md)
-- [Portal de Azure](sql-database-geo-replication-portal.md)
+- [Overview](sql-database-geo-replication-overview.md)
+- [Azure Portal](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
 - [T-SQL](sql-database-geo-replication-transact-sql.md)
 
-En este artículo se muestra cómo configurar la replicación geográfica activa para una instancia de Base de datos SQL de Azure mediante Transact-SQL.
+This article shows you how to configure Active Geo-Replication for an Azure SQL Database with Transact-SQL.
 
-Para iniciar la conmutación por error mediante Transact-SQL, consulte [Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure con Transact-SQL](sql-database-geo-replication-failover-transact-sql.md).
+To initiate failover using Transact-SQL, see [Initiate a planned or unplanned failover for Azure SQL Database with Transact-SQL](sql-database-geo-replication-failover-transact-sql.md).
 
->[AZURE.NOTE] La replicación geográfica activa (bases de datos secundarias legibles) está ahora disponible para todas las bases de datos en todos los niveles de servicio. En abril de 2017 se retirará el tipo secundario no legible y las bases de datos no legibles existentes se actualizarán automáticamente a secundarias legibles.
+>[AZURE.NOTE] Active Geo-Replication (readable secondaries) is now available for all databases in all service tiers. In April 2017 the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries.
 
-Para configurar la replicación geográfica activa mediante Transact-SQL, necesitará lo siguiente:
+To configure Active Geo-Replication using Transact-SQL, you need the following:
 
-- Una suscripción de Azure.
-- Un servidor lógico de Base de datos SQL de Azure <MyLocalServer> y una instancia de Base de datos SQL <MyDB>: la base de datos principal que quiere replicar.
-- Uno o varios servidores lógicos de Base de datos SQL de Azure <MySecondaryServer(n)>: servidores lógicos que serán los servidores asociados en los que se crearán bases de datos secundarias.
-- Un inicio de sesión que es DBManager en la base de datos principal (tiene db\_ownership de la base de datos local que va a replicar geográficamente) y que es DBManager en los servidores asociados en los que se configurará la replicación geográfica.
+- An Azure subscription.
+- A logical Azure SQL Database server <MyLocalServer> and a SQL database <MyDB> - The primary database that you want to replicate.
+- One or more logical Azure SQL Database servers <MySecondaryServer(n)> - The logical servers that will be the partner servers in which you will create secondary databases.
+- A login that is DBManager on the primary, have db_ownership of the local database that you will geo-replicate, and be DBManager on the partner server(s) to which you will configure Geo-Replication.
 - SQL Server Management Studio (SSMS)
 
-> [AZURE.IMPORTANT] Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 
-## Agregar una base de datos secundaria
+## <a name="add-secondary-database"></a>Add secondary database
 
-Puede usar la instrucción **ALTER DATABASE** para crear una base de datos secundaria con replicación geográfica en un servidor asociado. Ejecute esta instrucción en la base de datos maestra del servidor que contiene la base de datos que se va a replicar. La base de datos con replicación geográfica (la "base de datos principal") tendrá el mismo nombre que la base de datos que se replica y, de forma predeterminada, tendrá el mismo nivel de servicio que la base de datos principal. La base de datos secundaria puede ser legible o no legible, y puede ser una base de datos única o elástica. Para obtener más información, consulte [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) y [Niveles de servicio](sql-database-service-tiers.md). Después de crear e inicializar la base de datos secundaria, los datos comenzarán a replicarse de manera asincrónica desde la base de datos principal. Los pasos siguientes describen cómo configurar la replicación geográfica con Management Studio. Se proporcionan pasos para crear bases de datos secundarias legibles y no legibles con una base de datos única o elástica.
+You can use the **ALTER DATABASE** statement to create a geo-replicated secondary database on a partner server. You execute this statement on the master database of the server containing the database to be replicated. The geo-replicated database (the "primary database") will have the same name as the database being replicated and will, by default, have the same service level as the primary database. The secondary database can be readable or non-readable, and can be a single database or an elastic databbase. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](sql-database-service-tiers.md).
+After the secondary database is created and seeded, data will begin replicating asynchronously from the primary database. The steps below describe how to configure Geo-Replication using Management Studio. Steps to create non-readable and readable secondaries, either with a single database or an elastic database, are provided.
 
-> [AZURE.NOTE] Si existe una base de datos en el servidor asociado especificado con el mismo nombre que la base de datos principal, se producirá un error en el comando.
-
-
-### Incorporación de una base de datos secundaria no legible (base de datos única)
-
-Use los pasos siguientes para crear una base de datos secundaria no legible como base de datos única.
-
-1. Use la versión 13.0.600.65 o posterior de SQL Server Management Studio.
-
- 	 > [AZURE.IMPORTANT] Descargue la versión [más reciente](https://msdn.microsoft.com/library/mt238290.aspx) de SQL Server Management Studio. Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las últimas actualizaciones del Portal de Azure.
+> [AZURE.NOTE] If a database exists on the specified partner server with the same name as the primary database the command will fail.
 
 
-2. Abra la carpeta Bases de datos, expanda la carpeta **Bases de datos del sistema**, haga clic con el botón derecho en **maestra** y, a continuación, haga clic en **Nueva consulta**.
+### <a name="add-non-readable-secondary-(single-database)"></a>Add non-readable secondary (single database)
 
-3. Use la siguiente instrucción **ALTER DATABASE** para convertir una base de datos local en una base de datos principal con replicación geográfica que tenga una base de datos secundaria no legible en un servidor MySecondaryServer1 donde MySecondaryServer1 sea el nombre descriptivo del servidor.
+Use the following steps to create a non-readable secondary as a single database.
+
+1. Using version 13.0.600.65 or later of SQL Server Management Studio.
+
+     > [AZURE.IMPORTANT] Download the [latest](https://msdn.microsoft.com/library/mt238290.aspx) version of SQL Server Management Studio. It is recommended that you always use the latest version of Management Studio to remain in sync with updates to the Azure portal.
+
+
+2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
+
+3. Use the following **ALTER DATABASE** statement to make a local database into a Geo-Replication primary with a non-readable secondary database on MySecondaryServer1 where MySecondaryServer1 is your friendly server name.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
 
-4. Haga clic en **Ejecutar** para ejecutar la consulta.
+4. Click **Execute** to run the query.
 
 
-### Incorporación de una base de datos secundaria legible (base de datos única)
-Use los siguientes pasos para crear una base de datos secundaria legible como base de datos única.
+### <a name="add-readable-secondary-(single-database)"></a>Add readable secondary (single database)
+Use the following steps to create a readable secondary as a single database.
 
-1. En Management Studio, conéctese al servidor lógico de Base de datos SQL de Azure.
+1. In Management Studio, connect to your Azure SQL Database logical server.
 
-2. Abra la carpeta Bases de datos, expanda la carpeta **Bases de datos del sistema**, haga clic con el botón derecho en **maestra** y, a continuación, haga clic en **Nueva consulta**.
+2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
 
-3. Use la instrucción **ALTER DATABASE** para convertir una base de datos local en una base de datos principal con replicación geográfica, que posea una base de datos secundaria legible en un servidor secundario.
+3. Use the following **ALTER DATABASE** statement to make a local database into a Geo-Replication primary with a readable secondary database on a secondary server.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer2> WITH (ALLOW_CONNECTIONS = ALL);
 
-4. Haga clic en **Ejecutar** para ejecutar la consulta.
+4. Click **Execute** to run the query.
 
 
 
-### Agregue una base de datos secundaria no legible (base de datos elástica)
+### <a name="add-non-readable-secondary-(elastic-database)"></a>Add non-readable secondary (elastic database)
 
-Use los pasos siguientes para crear una base de datos secundaria no legible como base de datos elástica.
+Use the following steps to create a non-readable secondary as an elastic database.
 
-1. En Management Studio, conéctese al servidor lógico de Base de datos SQL de Azure.
+1. In Management Studio, connect to your Azure SQL Database logical server.
 
-2. Abra la carpeta Bases de datos, expanda la carpeta **Bases de datos del sistema**, haga clic con el botón derecho en **maestra** y, a continuación, haga clic en **Nueva consulta**.
+2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
 
-3. Use la instrucción **ALTER DATABASE** para convertir una base de datos local en una base de datos principal con replicación geográfica, que posea una base de datos secundaria no legible en un servidor secundario de un grupo elástico.
+3. Use the following **ALTER DATABASE** statement to make a local database into a Geo-Replication primary with a non-readable secondary database on a secondary server in an elastic pool.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO
            , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool1));
 
-4. Haga clic en **Ejecutar** para ejecutar la consulta.
+4. Click **Execute** to run the query.
 
 
 
-### Agregue de una base de datos secundaria legible (base de datos elástica)
-Use los siguientes pasos para crear una base de datos secundaria legible como base de datos elástica.
+### <a name="add-readable-secondary-(elastic-database)"></a>Add readable secondary (elastic database)
+Use the following steps to create a readable secondary as an elastic database.
 
-1. En Management Studio, conéctese al servidor lógico de Base de datos SQL de Azure.
+1. In Management Studio, connect to your Azure SQL Database logical server.
 
-2. Abra la carpeta Bases de datos, expanda la carpeta **Bases de datos del sistema**, haga clic con el botón derecho en **maestra** y, a continuación, haga clic en **Nueva consulta**.
+2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
 
-3. Use la instrucción **ALTER DATABASE** para convertir una base de datos local en una base de datos principal con replicación geográfica, que posea una base de datos secundaria legible en un servidor secundario de un grupo elástico.
+3. Use the following **ALTER DATABASE** statement to make a local database into a Geo-Replication primary with a readable secondary database on a secondary server in an elastic pool.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = ALL
            , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool2));
 
-4. Haga clic en **Ejecutar** para ejecutar la consulta.
+4. Click **Execute** to run the query.
 
 
 
-## Elimine una base de datos secundaria
+## <a name="remove-secondary-database"></a>Remove secondary database
 
-Puede usar la instrucción **ALTER DATABASE** para terminar definitivamente la asociación de replicación entre una base de datos secundaria y su base de datos principal. Esta instrucción se ejecuta en la base de datos maestra en la que reside la base de datos principal. Después de terminarse la relación, la base de datos secundaria se convierte en una base de datos normal de lectura y escritura. Si se interrumpe la conectividad con la base de datos secundaria, el comando se ejecuta correctamente pero la base de datos secundaria será de lectura y escritura después de restaurarse la conectividad. Para obtener más información, consulte [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) y [Niveles de servicio](sql-database-service-tiers.md).
+You can use the **ALTER DATABASE** statement to permanently terminate the replication partnership between a secondary database and its primary. This statement is executed on the master database on which the primary database resides. After the relationship termination, the secondary database becomes a regular read-write database. If the connectivity to secondary database is broken the command succeeds but the secondary will become read-write after connectivity is restored. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](sql-database-service-tiers.md).
 
-Use los pasos siguientes para quitar la base de datos secundaria con replicación geográfica de una asociación de replicación geográfica.
+Use the following steps to remove geo-replicated secondary from a Geo-Replication partnership.
 
-1. En Management Studio, conéctese al servidor lógico de Base de datos SQL de Azure.
+1. In Management Studio, connect to your Azure SQL Database logical server.
 
-2. Abra la carpeta Bases de datos, expanda la carpeta **Bases de datos del sistema**, haga clic con el botón derecho en **maestra** y, a continuación, haga clic en **Nueva consulta**.
+2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
 
-3. Use la instrucción **ALTER DATABASE** para quitar una base de datos secundaria con replicación geográfica.
+3. Use the following **ALTER DATABASE** statement to remove a geo-replicated secondary.
 
         ALTER DATABASE <MyDB>
            REMOVE SECONDARY ON SERVER <MySecondaryServer1>;
 
-4. Haga clic en **Ejecutar** para ejecutar la consulta.
+4. Click **Execute** to run the query.
 
-## Supervisión y mantenimiento de la configuración de la replicación geográfica
+## <a name="monitor-geo-replication-configuration-and-health"></a>Monitor Geo-Replication configuration and health
 
-Las tareas de supervisión incluyen la supervisión de la configuración de replicación geográfica y la supervisión del mantenimiento de la replicación de los datos. Puede usar la vista de administración dinámica **sys.dm\_geo\_replication\_links** de la base de datos maestra, para devolver información sobre todos los vínculos de replicación existentes de cada base de datos que se encuentre en el servidor lógico de la Base de datos SQL de Azure. Esta vista contiene una fila para cada vínculo de replicación entre bases de datos principales y secundarias. Puede usar la vista de administración dinámica **sys.dm\_replication\_status**, para devolver una fila de cada Base de datos SQL de Azure que participe en un vínculo de replicación. Aquí se incluyen tanto las bases de datos principales como secundarias. Si existe más de un vínculo de replicación continua para una base de datos principal dada, esta tabla contiene una fila para cada una de las relaciones. La vista se crea en todas las bases de datos, incluida la maestra lógica. Sin embargo, al consultar esta vista en la maestra lógica se devuelve un conjunto vacío. Puede usar la vista de administración dinámica **sys.dm\_operation\_status**, para mostrar el estado de todas las operaciones de bases de datos, incluido el estado de los vínculos de replicación. Para obtener más información, consulte [sys.geo\_replication\_links (Base de datos SQL de Azure)](https://msdn.microsoft.com/library/mt575501.aspx), [sys.dm\_geo\_replication\_link\_status (Base de datos SQL de Azure)](https://msdn.microsoft.com/library/mt575504.aspx) y [sys.dm\_operation\_status (Base de datos SQL de Azure)](https://msdn.microsoft.com/library/dn270022.aspx).
+Monitoring tasks include monitoring of the Geo-Replication configuration and monitoring data replication health.  You can use the **sys.dm_geo_replication_links** dynamic management view in the master database to return information about all exiting replication links for each database on the Azure SQL Database logical server. This view contains a row for each of the replication link between primary and secondary databases. You can use the **sys.dm_replication_link_status** dynamic management view to return a row for each Azure SQL Database that is currently engaged in a replication replication link. This includes both primary and secondary databases. If more than one continuous replication link exists for a given primary database, this table contains a row for each of the relationships. The view is created in all databases, including the logical master. However, querying this view in the logical master returns an empty set. You can use the **sys.dm_operation_status** dynamic management view to show the status for all database operations including the status of the replication links. For more information, see [sys.geo_replication_links (Azure SQL Database)](https://msdn.microsoft.com/library/mt575501.aspx), [sys.dm_geo_replication_link_status (Azure SQL Database)](https://msdn.microsoft.com/library/mt575504.aspx), and [sys.dm_operation_status (Azure SQL Database)](https://msdn.microsoft.com/library/dn270022.aspx).
 
-Use los pasos siguientes para supervisar una asociación de replicación geográfica.
+Use the following steps to monitor a Geo-Replication partnership.
 
-1. En Management Studio, conéctese al servidor lógico de Base de datos SQL de Azure.
+1. In Management Studio, connect to your Azure SQL Database logical server.
 
-2. Abra la carpeta Bases de datos, expanda la carpeta **Bases de datos del sistema**, haga clic con el botón derecho en **maestra** y, a continuación, haga clic en **Nueva consulta**.
+2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
 
-3. Use la siguiente instrucción para mostrar todas las bases de datos con vínculos de replicación geográfica.
+3. Use the following statement to show all databases with Geo-Replication links.
 
         SELECT database_id, start_date, modify_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM [sys].geo_replication_links;
 
-4. Haga clic en **Ejecutar** para ejecutar la consulta.
-5. Abra la carpeta Bases de datos, expanda la carpeta **Bases de datos del sistema**, haga clic con el botón derecho en **MyDB** y, a continuación, haga clic en **Nueva consulta**.
-6. Use la siguiente instrucción para mostrar los retrasos de replicación y la hora de la última replicación de mis bases de datos secundarias de MyDB.
+4. Click **Execute** to run the query.
+5. Open the Databases folder, expand the **System Databases** folder, right-click on **MyDB**, and then click **New Query**.
+6. Use the following statement to show the replication lags and last replication time of my secondary databases of MyDB.
 
         SELECT link_guid, partner_server, last_replication, replication_lag_sec FROM sys.dm_geo_replication_link_status
 
-7. Haga clic en **Ejecutar** para ejecutar la consulta.
-8. Use la siguiente instrucción para mostrar las operaciones de replicación geográfica más recientes asociadas a la base de datos MyDB.
+7. Click **Execute** to run the query.
+8. Use the following statement to show the most recent geo-replication operations associated with database MyDB.
 
         SELECT * FROM sys.dm_operation_status where major_resource_id = 'MyDB'
         ORDER BY start_time DESC
 
-9. Haga clic en **Ejecutar** para ejecutar la consulta.
+9. Click **Execute** to run the query.
 
-## Actualización de una base de datos secundaria no legible a legible
+## <a name="upgrade-a-non-readable-secondary-to-readable"></a>Upgrade a non-readable secondary to readable
 
-En abril de 2017 se retirará el tipo secundario no legible y las bases de datos no legibles existentes se actualizarán automáticamente a secundarias legibles. Si usa bases de datos secundarias no legibles en la actualidad y desea actualizarlas para que sean legibles, puede utilizar los siguientes pasos sencillos para cada base de datos secundaria.
+In April 2017 the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries. If you are using non-readable secondaries today and want to upgrade them to be readable, you can use the following simple steps for each secondary.
 
-> [AZURE.IMPORTANT] No hay ningún método de autoservicio de actualización local de una base de datos secundaria no legible a legible. Si quita su única base de datos secundaria, la base de datos principal permanecerá desprotegida a menos que la nueva base de datos secundaria se sincronice por completo. Si el Acuerdo de Nivel de Servicio de la aplicación requiere que la base de datos principal esté siempre protegida, debe considerar la posibilidad de crear una base de datos secundaria en paralelo en otro servidor antes de aplicar los pasos de actualización anteriores. Tenga en cuenta que cada base de datos principal puede tener hasta cuatro bases de datos secundarias.
+> [AZURE.IMPORTANT] There is no self-service method of in-place upgrading of a non-readable secondary to readable. If you drop your only secondary, then the primary database will remain unprotected until the new secondary is fully synchronized. If your application’s SLA requires that the primary is always protected, you should consider creating a parallel secondary in a different server before applying the upgrade steps above. Note each primary can have up to 4 secondary databases.
 
 
-1. Primero, conéctese al servidor *secundario* y quite la base de datos secundaria no legible:
+1. First, connect to the *secondary* server and drop the non-readable secondary database:  
         
         DROP DATABASE <MyNonReadableSecondaryDB>;
 
-2. A continuación, conéctese al servidor *principal* y agregue una nueva base de datos secundaria legible
+2. Now connect to the *primary* server and add a new readable secondary
 
         ALTER DATABASE <MyDB>
             ADD SECONDARY ON SERVER <MySecondaryServer> WITH (ALLOW_CONNECTIONS = ALL);
@@ -182,9 +184,13 @@ En abril de 2017 se retirará el tipo secundario no legible y las bases de datos
 
 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-- Para más información sobre la replicación geográfica activa, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
-- Para obtener una descripción general y los escenarios de la continuidad empresarial, consulte [Información general sobre la continuidad empresarial](sql-database-business-continuity.md).
+- To learn more about Active Geo-Replication, see - [Active Geo-Replication](sql-database-geo-replication-overview.md)
+- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

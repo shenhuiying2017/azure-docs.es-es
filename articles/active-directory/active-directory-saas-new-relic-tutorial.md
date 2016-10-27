@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Integración de Azure Active Directory con New Relic | Microsoft Azure" 
-    description="Aprenda cómo usar New Relic con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    pageTitle="Tutorial: Azure Active Directory integration with New Relic | Microsoft Azure" 
+    description="Learn how to use New Relic with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,145 +11,155 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/08/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Tutorial: Integración de Azure Active Directory con New Relic
+
+#<a name="tutorial:-azure-active-directory-integration-with-new-relic"></a>Tutorial: Azure Active Directory integration with New Relic
   
-El objetivo de este tutorial es mostrar cómo configurar el inicio de sesión único entre Azure Active Directory y New Relic.
+The objective of this tutorial is to show how to set up single sign-on between Azure Active Directory and New Relic.
   
-En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Una suscripción de Azure válida
--   Una suscripción habilitada para el inicio de sesión único en New Relic
+-   A valid Azure subscription
+-   A New Relic single sign-on enabled subscription
   
-Después de completar este tutorial, los usuarios de Active Directory de Azure que ha asignado a New Relic podrán realizar el inicio de sesión único mediante el Panel de acceso de AAD.
+After completing this tutorial, the Azure Active Directory users you have assigned to New Relic will be able to single sign-on using the AAD Access Panel.
 
-1.  Habilitación de la integración de aplicaciones para New Relic
-2.  Configuración del inicio de sesión único
-3.  Configuración del aprovisionamiento de usuario
-4.  Asignación de usuarios
+1.  Enabling the application integration for New Relic
+2.  Configuring Single Sign-On
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Escenario](./media/active-directory-saas-new-relic-tutorial/IC797030.png "Escenario")
-##Habilitación de la integración de aplicaciones para New Relic
+![Scenario](./media/active-directory-saas-new-relic-tutorial/IC797030.png "Scenario")
+##<a name="enabling-the-application-integration-for-new-relic"></a>Enabling the application integration for New Relic
   
-El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para New Relic.
+The objective of this section is to outline how to enable the application integration for New Relic.
 
-###Siga estos pasos para habilitar la integración de aplicaciones en New Relic:
+###<a name="to-enable-the-application-integration-for-new-relic,-perform-the-following-steps:"></a>To enable the application integration for New Relic, perform the following steps:
 
-1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-new-relic-tutorial/IC700993.png "Active Directory")
 
-2.  En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Aplicaciones](./media/active-directory-saas-new-relic-tutorial/IC700994.png "Aplicaciones")
+    ![Applications](./media/active-directory-saas-new-relic-tutorial/IC700994.png "Applications")
 
-4.  Haga clic en **Agregar** en la parte inferior de la página.
+4.  Click **Add** at the bottom of the page.
 
-    ![Agregar aplicación](./media/active-directory-saas-new-relic-tutorial/IC749321.png "Agregar aplicación")
+    ![Add application](./media/active-directory-saas-new-relic-tutorial/IC749321.png "Add application")
 
-5.  En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Agregar una aplicación de la galería](./media/active-directory-saas-new-relic-tutorial/IC749322.png "Agregar una aplicación de la galería")
+    ![Add an application from gallerry](./media/active-directory-saas-new-relic-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  En el **cuadro de búsqueda**, escriba **New Relic**.
+6.  In the **search box**, type **New Relic**.
 
-    ![Galería de aplicaciones](./media/active-directory-saas-new-relic-tutorial/IC797031.png "Galería de aplicaciones")
+    ![Application Gallery](./media/active-directory-saas-new-relic-tutorial/IC797031.png "Application Gallery")
 
-7.  En el panel de resultados, seleccione **New Relic** y luego haga clic en **Completar** para agregar la aplicación.
+7.  In the results pane, select **New Relic**, and then click **Complete** to add the application.
 
     ![New Relic](./media/active-directory-saas-new-relic-tutorial/IC797032.png "New Relic")
-##Configuración del inicio de sesión único
+##<a name="configuring-single-sign-on"></a>Configuring Single Sign-On
   
-El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en New Relic con su cuenta de Azure AD a través de la federación basada en el protocolo SAML.
+This section outlines how to enable users to authenticate to New Relic with their account in Azure Active Directory, using federation based on the SAML protocol.
 
-###Siga estos pasos para configurar el inicio de sesión único:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **New Relic**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  In the Azure classic portal, on the **New Relic** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-new-relic-tutorial/IC769534.png "Configurar inicio de sesión único")
+    ![Configure single sign-on](./media/active-directory-saas-new-relic-tutorial/IC769534.png "Configure single sign-on")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en New Relic?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
+2.  On the **How would you like users to sign on to New Relic** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-new-relic-tutorial/IC797033.png "Configurar inicio de sesión único")
+    ![Configure Single Sign-On](./media/active-directory-saas-new-relic-tutorial/IC797033.png "Configure Single Sign-On")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de New Relic**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en su aplicación New Relic y luego haga clic en **Siguiente**.
+3.  On the **Configure App URL** page, in the **New Relic Sign On URL** textbox, type the URL used by your users to sign on to your New Relic application, and then click **Next**. 
 
-    La dirección URL de la aplicación es su URL de inquilino de New Relic (por ejemplo, *https://rpm.newrelic.com*):
+    The app URL is your New Relic tenant URL (e.g.: *https://rpm.newrelic.com*):
 
-    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-new-relic-tutorial/IC797034.png "Configurar dirección URL de la aplicación")
+    ![Configure App URL](./media/active-directory-saas-new-relic-tutorial/IC797034.png "Configure App URL")
 
-4.  En la página **Configurar inicio de sesión único en New Relic**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado localmente en el equipo.
+4.  On the **Configure single sign-on at New Relic** page, to download your certificate, click **Download certificate**, and then save the certificate file locally to your computer.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-new-relic-tutorial/IC797035.png "Configurar inicio de sesión único")
+    ![Configure Single Sign-On](./media/active-directory-saas-new-relic-tutorial/IC797035.png "Configure Single Sign-On")
 
-5.  En otra ventana del explorador web, inicie sesión en su sitio de la compañía de **New Relic** como administrador.
+5.  In a different web browser window, sign on to your **New Relic** company site as administrator.
 
-6.  En el menú de la parte superior, haga clic en **Configuración de cuenta**.
+6.  In the menu on the top, click **Account Settings**.
 
-    ![Configuración de cuenta](./media/active-directory-saas-new-relic-tutorial/IC797036.png "Configuración de cuenta")
+    ![Account Settings](./media/active-directory-saas-new-relic-tutorial/IC797036.png "Account Settings")
 
-7.  Haga clic en la pestaña **Seguridad y autenticación**y luego haga clic en la pestaña **Inicio de sesión único**.
+7.  Click the **Security and authentication** tab, and then click the **Single sign on** tab.
 
-    ![Inicio de sesión único](./media/active-directory-saas-new-relic-tutorial/IC797037.png "Inicio de sesión único")
+    ![Single Sign-On](./media/active-directory-saas-new-relic-tutorial/IC797037.png "Single Sign-On")
 
-8.  En la página de diálogo SAML, realice los pasos siguientes:
+8.  On the SAML dialog page, perform the following steps:
 
     ![SAML](./media/active-directory-saas-new-relic-tutorial/IC797038.png "SAML")
 
-    1.  Haga clic en **Elegir archivo** para cargar el certificado de Azure Active Directory descargado.
-    2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en New Relic**, copie el valor de **Dirección URL del inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión remoto**.
-    3.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en New Relic**, copie el valor de **Dirección URL del inicio de sesión remoto** y péguelo en el cuadro de texto **Logout landing URL** (Dirección URL de aterrizaje de cierre de sesión).
-    4.  Haga clic en **Guardar los cambios**.
+    1.  Click **Choose File** to upload your downloaded Azure Active Directory certificate.
+    2.  In the Azure classic portal, on the **Configure single sign-on at New Relic** page, copy the **Remote Login URL** value, and then paste it into the **Remote login URL** textbox.
+    3.  In the Azure classic portal, on the **Configure single sign-on at New Relic** page, copy the **Remote Logout URL** value, and then paste it into the **Logout landing URL** textbox.
+    4.  Click **Save my changes**.
 
-9.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-new-relic-tutorial/IC797039.png "Configurar inicio de sesión único")
-##Configuración del aprovisionamiento de usuario
+    ![Configure Single Sign-On](./media/active-directory-saas-new-relic-tutorial/IC797039.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Para permitir que los usuarios de Azure Active Directory inicien sesión en New Relic, deben aprovisionarse en New Relic. En el caso de New Relic, el aprovisionamiento es una tarea manual.
+In order to enable Azure Active Directory users to log into New Relic, they must be provisioned into New Relic.  
+In the case of New Relic, provisioning is a manual task.
 
-###Para aprovisionar cuentas de usuario a New Relic, realice los siguientes pasos:
+###<a name="to-provision-a-user-account-to-new-relic,-perform-the-following-steps:"></a>To provision a user account to New Relic, perform the following steps:
 
-1.  Inicie sesión como administrador en el sitio de la compañía **New Relic**.
+1.  Log in to your **New Relic** company site as administrator.
 
-2.  En el menú de la parte superior, haga clic en **Configuración de cuenta**.
+2.  In the menu on the top, click **Account Settings**.
 
-    ![Configuración de cuenta](./media/active-directory-saas-new-relic-tutorial/IC797040.png "Configuración de cuenta")
+    ![Account Settings](./media/active-directory-saas-new-relic-tutorial/IC797040.png "Account Settings")
 
-3.  En el panel **Cuenta** del lado izquierdo, haga clic en **Resumen** y luego haga clic en **Agregar usuario**.
+3.  In the **Account** pane on the left side, click **Summary**, and then click **Add user**.
 
-    ![Configuración de cuenta](./media/active-directory-saas-new-relic-tutorial/IC797041.png "Configuración de cuenta")
+    ![Account Settings](./media/active-directory-saas-new-relic-tutorial/IC797041.png "Account Settings")
 
-4.  En el cuadro de diálogo**Usuarios activos**, realice los pasos siguientes:
+4.  On the **Active users** dialog, perform the following steps:
 
-    ![Usuarios activos](./media/active-directory-saas-new-relic-tutorial/IC797042.png "Usuarios activos")
+    ![Active Users](./media/active-directory-saas-new-relic-tutorial/IC797042.png "Active Users")
 
-    1.  En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de un usuario válido de Azure Active Directory que quiera aprovisionar.
-    2.  Como **Rol**, seleccione **Usuario**.
-    3.  Haga clic en **Agregar este usuario**.
+    1.  In the **Email** textbox, type the email address of a valid Azure Active Directory user you want to provision.
+    2.  As **Role** select **User**.
+    3.  Click **Add this user**.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de New Relic ofrecida por New Relic para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE]You can use any other New Relic user account creation tools or APIs provided by New Relic to provision AAD user accounts.
 
-##Asignación de usuarios
+##<a name="assigning-users"></a>Assigning users
   
-Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Para asignar usuarios a New Relic, lleve a cabo los siguientes pasos:
+###<a name="to-assign-users-to-new-relic,-perform-the-following-steps:"></a>To assign users to New Relic, perform the following steps:
 
-1.  En el Portal de Azure clásico, cree una cuenta de prueba.
+1.  In the Azure classic portal, create a test account.
 
-2.  En la página de integración de la aplicación **New Relic**, haga clic en **Asignar usuarios**.
+2.  On the **New Relic** application integration page, click **Assign users**.
 
-    ![Asignar usuarios](./media/active-directory-saas-new-relic-tutorial/IC797043.png "Asignar usuarios")
+    ![Assign Users](./media/active-directory-saas-new-relic-tutorial/IC797043.png "Assign Users")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sí](./media/active-directory-saas-new-relic-tutorial/IC767830.png "Sí")
+    ![Yes](./media/active-directory-saas-new-relic-tutorial/IC767830.png "Yes")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

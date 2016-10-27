@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introducción a las plantillas privadas | Microsoft Azure"
-   description="Agregue, administre y comparta plantillas privadas con el Portal de Azure, con la CLI de Azure o con PowerShell."
+   pageTitle="Get started with private Templates | Microsoft Azure"
+   description="Add, manage and share your private templates using the Azure portal, the Azure CLI, or PowerShell."
    services="marketplace-customer"
    documentationCenter=""
    authors="VybavaRamadoss"
@@ -18,117 +18,125 @@
    ms.date="05/18/2016"
    ms.author="vybavar"/>
 
-# Introducción a las plantillas privadas del Portal de Azure
 
-Las plantillas de [Azure Resource Manager](../resource-group-authoring-templates.md) son plantillas declarativas que se utilizan para definir la implementación. Puede definir los recursos que se van a implementar en una solución y especificar parámetros y variables que le permitan especificar valores de entrada para diferentes entornos. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación.
+# <a name="get-started-with-private-templates-on-the-azure-portal"></a>Get started with private Templates on the Azure Portal
 
-Puede usar la nueva funcionalidad **Plantillas** del [Portal de Azure](https://portal.azure.com) junto con el proveedor de recursos **Microsoft.Gallery** como una extensión de [Azure Marketplace](https://azure.microsoft.com/marketplace/) para que los usuarios puedan crear, administrar e implementar plantillas privadas procedentes de una biblioteca personal.
+An [Azure Resource Manager](../resource-group-authoring-templates.md) template is a declarative template used to define your deployment. You can define the resources to deploy for a solution, and specify parameters and variables that enable you to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment.
 
-En este documento, se explica paso a paso cómo agregar, administrar y compartir una **plantilla** privada mediante el Portal de Azure.
+You can use the new **Templates** capability in the [Azure Portal](https://portal.azure.com) along with the **Microsoft.Gallery** resource provider as an extension of the [Azure Marketplace](https://azure.microsoft.com/marketplace/) to enable users to create, manage and deploy private templates from a personal library.
 
-## Guía
+This document walks you through adding, managing and sharing a private **Template** using the Azure Portal.
 
-Las sugerencias siguientes le ayudarán a sacar el máximo provecho de las **plantillas** cuando trabaje en sus soluciones:
+## <a name="guidance"></a>Guidance
 
-- Una **plantilla** en un recurso de encapsulamiento que contiene una plantilla de Resource Manager y otros metadatos. Su comportamiento es muy similar al de los elementos de Marketplace. La principal diferencia es que se trata de un elemento privado, mientras que los elementos de Marketplace son públicos.
-- La biblioteca **Plantillas** resulta muy útil para los usuarios que necesitan personalizar sus implementaciones.
-- Las **plantillas** son apropiadas para los usuarios que necesitan disponer de un repositorio sencillo dentro de Azure.
-- Para empezar, utilice una plantilla de Resource Manager existente. Para buscar plantillas, utilice [github](https://github.com/Azure/azure-quickstart-templates) o [Exportar plantilla](../resource-manager-export-template.md) desde un grupo de recursos existente.
-- Las **plantillas** están vinculadas al usuario que las publica. Cualquier persona que tenga acceso podrá ver el nombre del publicador.
-- Las **plantillas** son recursos de Resource Manager y, una vez publicadas, su nombre no se puede modificar.
+The following suggestions will help you take full advantage of **Templates** when working with your solutions:
 
-## Adición de un recurso de plantilla
+- A **Template** is an encapsulating resource that contains an Resource Manager template and additional metadata. It behaves very similarly to an item in the Marketplace. The key difference is that it is a private item as opposed to the public Marketplace items.
+- The **Templates** library works well for users who need to customize their deployments.
+- **Templates** work well for users who need a simple repository within Azure.
+- Start with an existing Resource Manager template. Find templates in [github](https://github.com/Azure/azure-quickstart-templates) or [Export template](../resource-manager-export-template.md) from an existing resource group.
+- **Templates** are tied to the user who publishes them. The publisher name is visible to everyone who has read access to it.
+- **Templates** are Resource Manager resources and cannot be renamed once published.
 
-Existen dos formas de crear un recurso de **plantilla** en el Portal de Azure.
+## <a name="add-a-template-resource"></a>Add a Template resource
 
-### Método 1: Creación de un nuevo recurso de plantilla a partir de un grupo de recursos en funcionamiento
+There are two ways to create a **Template** resource in the Azure portal.
 
-1. Acceda a un grupo de recursos existente del Portal de Azure. En **Configuración**, seleccione **Exportar plantilla**.
-2. Cuando la plantilla de Resource Manager se haya exportado, utilice el botón **Guardar plantilla** para guardarla en el repositorio **Plantillas**. Para más detalles sobre la exportación de plantillas, haga clic [aquí](../resource-manager-export-template.md). <br /><br /> ![Exportación de grupos de recursos](media/rg-export-portal1.PNG) <br />
+### <a name="method-1-:-create-a-new-template-resource-from-a-running-resource-group"></a>Method 1 : Create a new Template resource from a running resource group
 
-3. Seleccione el botón de comando **Guardar plantilla**. <br /><br />
+1. Navigate to an existing resource group on the Azure Portal. Select **Export template** in **Settings**.
+2. Once the Resource Manager template is exported, use the **Save Template** button to save it to the **Templates** repository. Find complete details for Export template [here](../resource-manager-export-template.md).
+<br /><br />
+![Resource group export](media/rg-export-portal1.PNG)  <br />
 
-4. Escriba la siguiente información:
+3. Select the **Save to Template** command button.
+<br /><br />
 
-    - Nombre: nombre del objeto de plantilla (NOTA: El nombre debe ajustarse a las especificaciones de Azure Resource Manager, por lo que se aplicarán todas las restricciones de nomenclatura, y no se puede cambiar una vez creado).
-    - Descripción: resumen rápido de la plantilla.
+4. Enter the following information:
 
-    ![Guardar plantilla](media/save-template-portal1.PNG) <br />
+    - Name – Name of the template object (NOTE: This is an Azure Resource Manager based name. All naming restrictions apply and it cannot be changed once created).
+    - Description – Quick summary about the template.
 
-5. Haga clic en **Guardar**.
+    ![Save Template](media/save-template-portal1.PNG)  <br />
 
-    > [AZURE.NOTE] Si la plantilla de Resource Manager exportada contiene errores, aparecerán notificaciones en la hoja Exportar plantilla; sin embargo, a pesar de los errores, podrá guardarla en Plantillas. No olvide comprobar y corregir los problemas antes de volver a implementar la plantilla de Resource Manager exportada.
+5. Click **Save**.
 
-### B. Método 2 : Agregar un nuevo recurso de plantilla desde Examinar
+    > [AZURE.NOTE] The Export template blade shows notifications when the exported Resource Manager template has errors, but you will still be able to save this Resource Manager template to the Templates. Ensure that you check and fix any Resource Manager template issues before redeploying the exported Resource Manager template.
 
-También puede agregar una nueva **plantilla** desde el principio utilizando el botón de comando +Agregar de **Examinar > Plantillas**. Tendrá que especificar un nombre, una descripción y el JSON de la plantilla de Resource Manager.
+### <a name="b.-method-2-:-add-a-new-template-resource-from-browse"></a>B. Method 2 : Add a new Template resource from browse
 
-![Agregar plantilla](media/add-template-portal1.PNG) <br />
+You can also add a new **Template** from scratch using the +Add command button in **Browse > Templates**. You will need to provide a Name, Description and the Resource Manager template JSON.
 
-> [AZURE.NOTE] Microsoft.Gallery es un proveedor de recursos de Azure basado en un inquilino. El recurso de plantilla está vinculado al usuario que lo creó. No está asociado a ninguna suscripción específica. Al implementar una plantilla, es necesario elegir una suscripción.
+![Add Template](media/add-template-portal1.PNG)  <br />
 
-## Consulta de los recursos de plantilla
+> [AZURE.NOTE] Microsoft.Gallery is a Tenant based Azure resource provider. The Template resource is tied to the user who created it. It is not tied to any specific subscription. A subscription needs to be chosen only when deploying a Template.
 
-Puede ver todas las **plantillas** disponibles en **Examinar > Plantillas**. Aquí encontrará las **plantillas** que ha creado, así como las plantillas que han compartido con usted y que tienen distintos niveles de permisos. Para más detalles, consulte más adelante la sección [Control de acceso](#access-control-for-a-tenant-resource-provider).
+## <a name="view-template-resources"></a>View Template resources
 
-![Ver plantilla](media/view-template-portal1.PNG) <br />
+All **Templates** available to you can be seen at **Browse > Templates**. This includes **Templates** you have created as well as ones that have been shared with you with varying levels of permissions. More details in the [access control](#access-control-for-a-tenant-resource-provider) section below.
 
-Para ver los detalles de una **plantilla**, haga clic en un elemento de la lista.
+![View Template](media/view-template-portal1.PNG)  <br />
 
-![Ver plantilla](media/view-template-portal2c.png) <br />
+You can view the details of a **Template** by clicking into an item in the list.
 
-## Edición de un recurso de plantilla
+![View Template](media/view-template-portal2c.png)  <br />
 
-Para iniciar el flujo de edición de una **plantilla**, haga clic con el botón derecho en el elemento de la lista o seleccione el botón de comando Editar.
+## <a name="edit-a-template-resource"></a>Edit a Template resource
 
-![Editar plantilla](media/edit-template-portal1a.PNG) <br />
+You can initiate the edit flow for a **Template** by right clicking the item on the Browse list or by choosing the Edit command button.
 
-Puede editar la descripción o el texto de la plantilla de Resource Manager. No obstante, el nombre no se puede modificar, ya que se trata de un nombre de recurso de Resource Manager. Cuando edite el JSON de la plantilla de Resource Manager, realizaremos las comprobaciones pertinentes para garantizar que se trata de un JSON válido. Elija **Aceptar** y **Guardar** para guardar la plantilla actualizada.
+![Edit Template](media/edit-template-portal1a.PNG)  <br />
 
-![Editar plantilla](media/edit-template-portal2a.PNG) <br />
+You can edit the description or Resource Manager template text. You cannot edit the name since it is an Resource Manager resource name. When you edit the Resource Manager template JSON we will validate to ensure that it is valid JSON. Choose **OK** and then **Save** to save your updated template.
 
-Cuando haya guardado la **plantilla**, aparecerá una notificación de confirmación.
+![Edit Template](media/edit-template-portal2a.PNG)  <br />
 
-![Editar plantilla](media/edit-template-portal3b.png) <br />
+Once the **Template** is saved you will see a confirmation notification.
 
-## Implementación de un recurso de plantilla
+![Edit Template](media/edit-template-portal3b.png)  <br />
 
-Puede implementar cualquier **plantilla** en la que tenga permisos de **lectura**. El flujo de implementación abre la hoja de implementación de plantillas estándar de Azure. Rellene los valores de los parámetros de la plantilla de Resource Manager para continuar con la implementación.
+## <a name="deploy-a-template-resource"></a>Deploy a Template resource
 
-![Implementar plantilla](media/deploy-template-portal1b.png) <br />
+You can deploy any **Template** that you have **Read** permissions on. The deployment flow launches the standard Azure Template deployment blade. Fill out the values for the Resource Manager template parameters to proceed with the deployment.
 
-## Uso compartido de un recurso de plantilla
+![Deploy Template](media/deploy-template-portal1b.png)  <br />
 
-Puede compartir con sus compañeros los recursos de **plantilla**. El proceso de uso compartido es similar a la [asignación de roles en recursos de Azure](../active-directory/role-based-access-control-configure.md). El propietario de la **plantilla** proporciona permisos a otros usuarios para que puedan interactuar con el recurso de plantilla. La persona o el grupo de personas con los que se comparte la **plantilla** pueden ver la plantilla de Resource Manager y las propiedades de la galería.
+## <a name="share-a-template-resource"></a>Share a Template resource
 
-### Control de acceso en los recursos de Microsoft.Gallery
+A **Template** resource can be shared with your peers. Sharing behaves similarly to [role assignment for any resource on Azure](../active-directory/role-based-access-control-configure.md). The **Template** owner provides permissions to other users who can interact with a Template resource. The person or group of people you share the **Template** with will be able to see the Resource Manager template and its gallery properties.
 
-Rol | Permisos
+### <a name="access-control-for-the-microsoft.gallery-resources"></a>Access control for the Microsoft.Gallery resources
+
+Role | Permissions
 ---|----
-Propietario | Tiene todo el control sobre el recurso de plantilla, por lo que puede compartirlo.
-Lector | Tiene permiso de lectura y ejecución (implementación) en el recurso de plantilla.
-Colaborador | Tiene permiso de edición y eliminación en el recurso de plantilla. El usuario no puede compartir la plantilla con otras personas.
+Owner | Allows full control on the Template resource including Share
+Reader | Allows Read and Execute(Deploy) on the Template resource
+Contributor | Allows Edit and Delete permission on the Template resource. User cannot Share the Template with others
 
-Seleccione **Compartir** haciendo clic con el botón derecho en el elemento de la lista o en la hoja de vista de un elemento específico. De este modo, se iniciará un proceso que le permitirá compartir el recurso de plantilla.
+Select **Share** on the browse item by right clicking or on the view blade of a specific item. This launches a Share experience.
 
-![Compartir plantilla](media/share-template-portal1a.png) <br />
+![Share Template](media/share-template-portal1a.png)  <br />
 
- Ahora, puede elegir un rol y un usuario o grupo para concederles acceso a una determinada **plantilla**. Los roles disponibles son Propietario, Lector y Colaborador. Para más detalles, consulte la sección [Control de acceso](#access-control-for-a-tenant-resource-provider) que apareció anteriormente.
+ You can now choose a role and a user or group to provide access to a particular **Template**. The available roles are Owner, Reader and Contributor. More details in the [access control](#access-control-for-a-tenant-resource-provider) section above.
 
-![Compartir plantilla](media/share-template-portal2b.png) <br />
+![Share Template](media/share-template-portal2b.png)  <br />
 
-![Compartir plantilla](media/share-template-portal3b.png) <br />
+![Share Template](media/share-template-portal3b.png)  <br />
 
-Haga clic en **Seleccionar** y en **Aceptar**. Ahora, puede ver los usuarios o grupos que ha agregado al recurso.
+Click **Select** and **Ok**. You can now see the users or groups you added to the resource.
 
-![Compartir plantilla](media/share-template-portal4b.png) <br />
+![Share Template](media/share-template-portal4b.png)  <br />
 
-> [AZURE.NOTE] Las plantillas solo se pueden compartir con usuarios y grupos del mismo inquilino de Azure Active Directory. Si comparte una plantilla con una dirección de correo electrónico que no se encuentra en el inquilino, se enviará una invitación al usuario para que se una a este inquilino como invitado.
+> [AZURE.NOTE] A Template can only be shared with users and groups in the same Azure Active Directory tenant. If you share a Template with an email address that is not in your tenant, an invitation will be sent asking the user to join the tenant as a guest.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-- Para más información sobre la creación de plantillas de Resource Manager, consulte [Creación de plantillas de Azure Resource Manager](../resource-group-authoring-templates.md)
-- Para conocer las funciones que puede usar en la plantilla de Resource Manager, consulte [Funciones de plantilla de Azure Resource Manager](../resource-group-template-functions.md).
-- Para obtener instrucciones sobre cómo diseñar las plantillas, consulte [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](../best-practices-resource-manager-design-templates.md).
+- To learn about creating Resource Manager templates, see [Authoring templates](../resource-group-authoring-templates.md)
+- To understand the functions you can use in an Resource Manager template, see [Template functions](../resource-group-template-functions.md)
+- For guidance on designing your templates, see [Best practices for designing Azure Resource Manager templates](../best-practices-resource-manager-design-templates.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

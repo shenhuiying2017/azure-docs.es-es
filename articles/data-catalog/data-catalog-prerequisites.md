@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Requisitos previos del Catálogo de datos de Azure | Microsoft Azure"
-   description="Requisitos previos del Catálogo de datos de Azure: qué se necesita para empezar a usar el Catálogo de datos de Azure."
+   pageTitle="Azure Data Catalog prerequisites | Microsoft Azure"
+   description="Azure Data Catalog prerequisites - what you need to get started with Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -16,34 +16,39 @@
    ms.date="09/21/2016"
    ms.author="maroche"/>
 
-# Requisitos previos de Catálogo de datos de Azure
 
-## ¿Qué es necesario para comenzar a usar el Catálogo de datos de Azure?
+# <a name="azure-data-catalog-prerequisites"></a>Azure Data Catalog prerequisites
 
-Hay algunas cosas de las que debe encargarse para poder configurar **Catálogo de datos de Azure**. No se preocupe: no tardará mucho.
+## <a name="what-do-i-need-to-get-started-with-azure-data-catalog?"></a>What do I need to get started with Azure Data Catalog?
 
-## Suscripción de Azure
-Para configurar el Catálogo de datos de Azure, debe ser propietario o copropietario de una suscripción de Azure.
+There are a few things you’ll need to take care of before you can set up **Azure Data Catalog**. Don’t worry – they won’t take long!
 
-Las suscripciones de Azure le ayudan a organizar el acceso a los recursos de servicio en la nube como Catálogo de datos de Azure. También le ayudan a controlar cómo se informa, factura y paga el uso de recursos. Cada suscripción puede tener una configuración de facturación y pago diferente, por lo que puede tener varias suscripciones y planes diferentes por departamento, proyecto, oficina regional, etc. Cada servicio en la nube pertenece a una suscripción, y debe tener una suscripción para poder configurar el Catálogo de datos de Azure. Para más información, consulte [Administración de cuentas, suscripciones y roles administrativos](../active-directory/active-directory-assign-admin-roles.md).
+## <a name="azure-subscription"></a>Azure Subscription
+To set up Azure Data Catalog, you must be the owner or co-owner of an Azure subscription.
 
-## Azure Active Directory
-Para configurar el Catálogo de datos de Azure, debe haber iniciado sesión con una cuenta de usuario de Azure Active Directory.
+Azure subscriptions help you organize access to cloud service resources like Azure Data Catalog. They also help you control how resource usage is reported, billed, and paid for. Each subscription can have a different billing and payment setup, so you can have different subscriptions and different plans by department, project, regional office, and so on. Every cloud service belongs to a subscription, and you need to have a subscription before setting up Azure Data Catalog. To learn more, see [Manage Accounts, Subscriptions, and Administrative Roles](../active-directory/active-directory-assign-admin-roles.md).
 
-Azure Active Directory (Azure AD) proporciona una manera fácil para la empresa de administrar la identidad y acceso, tanto en la nube y como local. Los usuarios pueden usar una única cuenta profesional o educativa para efectuar el inicio de sesión único en cualquier aplicación web en la nube y local. Catálogo de datos de Azure usa Azure AD para autenticar el inicio de sesión. Para obtener más información, consulte [¿Qué es Azure Active Directory?](../active-directory/active-directory-whatis.md)
+## <a name="azure-active-directory"></a>Azure Active Directory
+To set up Azure Data Catalog, you must be logged in using an Azure Active Directory user account.
 
-> [AZURE.NOTE] [Azure Portal](http://portal.azure.com/) permite a los usuarios iniciar sesión con una cuenta personal de Microsoft o una cuenta profesional o educativa de Azure Active Directory. Para configurar Azure Data Catalog mediante Azure Portal o mediante el [portal de Data Catalog](http://www.azuredatacatalog.com) debe haber iniciado sesión con una cuenta de Azure Active Directory, no con una cuenta personal.
+Azure Active Directory (Azure AD) provides an easy way for your business to manage identity and access, both in the cloud and on-premises. Users can use a single work or school account for single sign-on to any cloud and on-premises web application. Azure Data Catalog uses Azure AD to authenticate sign-on. To learn more, see [What is Azure Active Directory](../active-directory/active-directory-whatis.md).
 
-## Configuración de directivas de Active Directory
+> [AZURE.NOTE] The [Azure portal](http://portal.azure.com/) allows users to sign in using either a personal Microsoft Account or an Azure Active Directory work or school account. To set up Azure Data Catalog using the Azure portal or using the [Data Catalog portal](http://www.azuredatacatalog.com) you must be logged in using an Azure Active Directory account, not a personal account.
 
-En ocasiones, es posible que los usuarios se encuentren en una situación en la que puedan iniciar sesión en el portal del Catálogo de datos de Azure, pero cuando intenten iniciar sesión en la herramienta de registro de orígenes de datos reciban un mensaje de error que les impida iniciar sesión. El problema de este comportamiento puede ocurrir solamente cuando el usuario esté en la red de la empresa, o bien solo cuando el usuario se conecte desde fuera de la red de empresa.
+## <a name="active-directory-policy-configuration"></a>Active Directory policy configuration
 
-La herramienta de registro de orígenes de datos usa la autenticación de formularios para validar los inicios de sesión de usuario en Active Directory. Para iniciar sesión correctamente, la autenticación de formularios debe ser habilitada en la directiva de autenticación global por un administrador de Active Directory.
+In some situations, users may encounter a situation where they can log on to the Azure Data Catalog portal, but when they attempt to log on to the data source registration tool they encounter an error message that prevents them from logging on. This problem behavior may occur only when the user is on the company network, or may occur only when the user is connecting from outside the company network.
 
-La directiva de autenticación global permite habilitar los métodos de autenticación de forma independiente para las conexiones de extranet y de intranet, como se indica más adelante. Es posible que se produzcan errores de inicio de sesión si no está habilitada la autenticación de formularios para la red desde la que se conecta el usuario.
+The data source registration tool uses Forms Authentication to validate user logons against Active Directory. For successful logon, Forms Authentication must be enabled in the Global Authentication Policy by an Active Directory administrator.
 
- ![Directiva de autenticación global de Active Directory](./media/data-catalog-prerequisites/global-auth-policy.png)
+The Global Authentication Policy allows authentication methods to be enabled separately for intranet and extranet connections, as illustrated below. Logon errors may occur if Forms Authentication is not enabled for the network from which the user is connecting.
 
-Para obtener más información, vea [Configuración de directivas de autenticación](https://technet.microsoft.com/library/dn486781.aspx).
+ ![Active Directory Global Authentication Policy](./media/data-catalog-prerequisites/global-auth-policy.png)
 
-<!---HONumber=AcomDC_0921_2016-->
+For more information, see [Configuring Authentication Policies](https://technet.microsoft.com/library/dn486781.aspx).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

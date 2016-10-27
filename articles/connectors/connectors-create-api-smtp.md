@@ -1,10 +1,10 @@
 <properties
 pageTitle="SMTP | Microsoft Azure"
-description="Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. Conexión a SMTP para envío de correo electrónico."
-services="logic-apps"	
-documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+description="Create logic apps with Azure App service. Connect to SMTP to send email."
+services="logic-apps"   
+documentationCenter=".net,nodejs,java"  
+authors="msftman"   
+manager="erikre"    
 editor=""
 tags="connectors" />
 
@@ -17,121 +17,125 @@ ms.workload="integration"
 ms.date="07/15/2016"
 ms.author="deonhe"/>
 
-# Introducción al conector de SMTP
 
-Conexión a SMTP para envío de correo electrónico.
+# <a name="get-started-with-the-smtp-connector"></a>Get started with the SMTP connector
 
-Para poder usar [un conector](./apis-list.md), primero debe crear una aplicación lógica. Por tanto, puede comenzar [creando una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Connect to SMTP to send email.
 
-## Conexión a SMTP
+To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Para que la aplicación lógica pueda acceder a un servicio, primero debe crear una *conexión* con dicho servicio. Una [conexión](./connectors-overview.md) proporciona conectividad entre una aplicación lógica y otro servicio. Por ejemplo, para poder conectarse a SMTP, primero debe crear una *conexión* a SMTP. Para ello, tendrá que especificar las credenciales que usa habitualmente para acceder al servicio al que desea conectarse. Por lo tanto, en el ejemplo de SMTP, necesitaría las credenciales de su nombre de conexión, la dirección del servidor SMTP y la información de inicio de sesión de usuario para poder crear una conexión a SMTP. [Más información acerca de las conexiones]()
+## <a name="connect-to-smtp"></a>Connect to SMTP
 
-### Creación de una conexión a SMTP
+Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service. For example, in order to connect to SMTP, you first need an SMTP *connection*. To create a connection, you would need to provide the credentials you normally use to access the service you wish to connect to. So, in the SMTP example, you would need the credentials to your connection name, SMTP server address, and user login information in order to create the connection to SMTP. [Learn more about connections]()  
 
->[AZURE.INCLUDE [Pasos para crear una conexión a SMTP](../../includes/connectors-create-api-smtp.md)]
+### <a name="create-a-connection-to-smtp"></a>Create a connection to SMTP
 
-## Uso de un desencadenador de SMTP
+>[AZURE.INCLUDE [Steps to create a connection to SMTP](../../includes/connectors-create-api-smtp.md)]
 
-Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+## <a name="use-an-smtp-trigger"></a>Use an SMTP trigger
 
-En este ejemplo, como SMTP no tiene un desencadenador propio, usaremos el desencadenador **Salesforce - When an object is created** (Salesforce - Cuando se crea un objeto). Este desencadenador se activará al crear un objeto de Salesforce. En nuestro ejemplo, vamos a configurarlo para que cada vez que se crea un cliente potencial en Salesforce, se produzca una acción *Enviar correo electrónico* a través del conector de SMTP con una notificación sobre el cliente potencial que se está creando.
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-1. Escriba *salesforce* en el cuadro de búsqueda del Diseñador de aplicaciones lógicas y seleccione el desencadenador **Salesforce - When an object is created** (Salesforce - Cuando se crea un objeto).  
+In this example, because SMTP does not have a trigger of its own, we'll use the **Salesforce - When an object is created** trigger. This trigger will activate when a new object is created in Salesforce. For our example, we'll set it up such that every time a new lead is created in Salesforce, a *send email* action occurs via the SMTP connector with a notification of the new lead being created.
+
+1. Enter *salesforce* in the search box on the logic apps designer then select the **Salesforce - When an object is created** trigger.  
  ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
 
-2. Se muestra el control **When an object is created** (Cuando se crea un objeto).  
+2. The **When an object is created** control is displayed.
  ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
 
-3. Seleccione el **tipo de objeto** y luego *Lead* (Cliente potencial) en la lista de objetos. En este paso está indicando que va a crear un desencadenador que enviará una notificación a su aplicación lógica cada vez que se cree un cliente potencial en Salesforce.  
+3. Select the **Object Type** then select *Lead* from the list of objects. In this step you are indicating that you are creating a trigger that will notify your logic app whenever a new lead is created in Salesforce.  
  ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)  
 
-4. Se ha creado el desencadenador.  
+4. The trigger has been created.  
  ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
 
-## Uso de una acción de SMTP
+## <a name="use-an-smtp-action"></a>Use an SMTP action
 
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información sobre las acciones](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-Ahora que se ha agregado el desencadenador, siga estos pasos para agregar una acción de SMTP que se produzca cuando se crea un cliente potencial en Salesforce.
+Now that the trigger has been added, follow these steps to add an SMTP action that will occur when a new lead is created in Salesforce.
 
-1. Seleccione **+ Nuevo paso** para agregar la acción que desea que se ejecute cuando se cree un cliente potencial.  
+1. Select **+ New Step** to add the action you would like to take when a new lead is created.  
  ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  
 
-2. Seleccione **Add an action** (Agregar una acción). Se abrirá el cuadro de búsqueda en el que podrá buscar cualquier acción que quiera realizar.  
+2. Select **Add an action**. This opens the search box where you can search for any action you would like to take.  
  ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-2.png)  
 
-3. Escriba *smtp* para buscar todas las acciones relacionadas con SMTP.
+3. Enter *smtp* to search for actions related to SMTP.  
 
-4. Seleccione **SMTP - Send Email** (SMTP - Enviar correo electrónico) como la acción que se realizará cuando se crea el cliente potencial. Se abre el bloque de control de acción. Tendrá que establecer la conexión de SMTP en el bloque de diseñador si no lo ha hecho previamente.  
- ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)  
+4. Select **SMTP - Send Email** as the action to take when the new lead is created. The action control block opens. You will have to establish your smtp connection in the designer block if you have not done so previously.  
+ ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)    
 
-5. Indique la información de correo electrónico que desee en el bloque **SMTP - Send Email** (SMTP - Enviar correo electrónico).  
+5. Input your desired email information in the **SMTP - Send Email** block.  
  ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)  
 
-6. Guarde el trabajo para activar el flujo de trabajo.
+6. Save your work in order to activate your workflow.  
 
-## Detalles técnicos
+## <a name="technical-details"></a>Technical details
 
-Estos son los detalles sobre los desencadenadores, las acciones y las respuestas compatibles con esta conexión:
+Here are the details about the triggers, actions and responses that this connection supports:
 
-## Desencadenadores de SMTP
+## <a name="smtp-triggers"></a>SMTP triggers
 
-SMTP no tiene ningún desencadenador.
+SMTP has no triggers. 
 
-## Acciones de SMTP
+## <a name="smtp-actions"></a>SMTP actions
 
-SMTP tiene la acción siguiente:
+SMTP has the following action:
 
 
-|Acción|Descripción|
+|Action|Description|
 |--- | ---|
-|[Enviar correo electrónico](connectors-create-api-smtp.md#send-email)|Esta operación envía un correo electrónico a uno o más destinatarios.|
+|[Send Email](connectors-create-api-smtp.md#send-email)|This operation sends an email to one or more recipients.|
 
-### Detalles de la acción
+### <a name="action-details"></a>Action details
 
-Estos son los detalles de la acción de este conector, junto con sus respuestas:
-
-
-### Enviar correo electrónico
-Esta operación envía un correo electrónico a uno o más destinatarios.
+Here are the details for the action of this connector, along with its responses:
 
 
-|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+### <a name="send-email"></a>Send Email
+This operation sends an email to one or more recipients. 
+
+
+|Property Name| Display Name|Description|
 | ---|---|---|
-|Para|Para|Indicar las direcciones de correo electrónico separadas por punto y coma, como recipient1@domain.com;destinatario2@dominio.com|
-|CC|cc|Indicar las direcciones de correo electrónico separadas por punto y coma, como recipient1@domain.com;destinatario2@dominio.com|
-|Asunto|Asunto|Asunto del correo electrónico|
-|Cuerpo|Cuerpo|Cuerpo del correo electrónico|
-|De|De|Dirección de correo electrónico del remitente como sender@domain.com|
-|IsHtml|Es HTML|Enviar el correo electrónico como HTML (true/false)|
-|CCO|bcc|Indicar las direcciones de correo electrónico separadas por punto y coma, como recipient1@domain.com;destinatario2@dominio.com|
-|Importancia|Importancia|Importancia del correo electrónico (alta, normal o baja)|
-|ContentData|Datos de contenido de los datos adjuntos|Datos de contenido (codificación en base64 para transmisiones y tal cual para cadena)|
-|ContentType|Tipo de contenido de los datos adjuntos|Tipo de contenido|
-|ContentTransferEncoding|Codificación de transferencia de contenido de los datos adjuntos|Codificación de transferencia de contenido (base64 o ninguna)|
-|FileName|Nombre de archivo de los datos adjuntos|Nombre de archivo|
-|ContentId|Identificador de contenido de los datos adjuntos|Id. de contenido|
+|To|To|Specify email addresses separated by semicolons like recipient1@domain.com;recipient2@domain.com|
+|CC|cc|Specify email addresses separated by semicolons like recipient1@domain.com;recipient2@domain.com|
+|Subject|Subject|Email subject|
+|Body|Body|Email body|
+|From|From|Email address of sender like sender@domain.com|
+|IsHtml|Is Html|Send the email as HTML (true/false)|
+|Bcc|bcc|Specify email addresses separated by semicolons like recipient1@domain.com;recipient2@domain.com|
+|Importance|Importance|Importance of the email (High, Normal, or Low)|
+|ContentData|Attachments Content Data|Content data (base64 encoded for streams and as-is for string)|
+|ContentType|Attachments Content Type|Content type|
+|ContentTransferEncoding|Attachments Content Transfer Encoding|Content Transfer Encoding (base64 or none)|
+|FileName|Attachments File Name|File name|
+|ContentId|Attachments Content ID|Content id|
 
-El símbolo * indica que la propiedad es obligatoria.
+An * indicates that a property is required
 
 
-## Respuestas HTTP
+## <a name="http-responses"></a>HTTP responses
 
-Las acciones y los desencadenadores anteriores pueden devolver uno o varios de los siguientes códigos de estado HTTP:
+The actions and triggers above can return one or more of the following HTTP status codes: 
 
-|Name|Descripción|
+|Name|Description|
 |---|---|
 |200|OK|
 |202|Accepted|
 |400|Bad Request|
-|401|No autorizado|
-|403|Prohibido|
-|404|No encontrado|
-|500|Error interno del servidor. Error desconocido.|
-|default|Error en la operación.|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occurred.|
+|default|Operation Failed.|
 
-## Pasos siguientes
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## <a name="next-steps"></a>Next steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!----HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

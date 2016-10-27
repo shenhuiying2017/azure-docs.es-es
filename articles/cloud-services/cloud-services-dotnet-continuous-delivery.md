@@ -1,199 +1,204 @@
 <properties
-	pageTitle="Entrega continua para Servicios en la nube con TFS en Azure | Microsoft Azure"
-	description="Aprenda a configurar la entrega continua para las aplicaciones en la nube de Azure. Ejemplos de código para las instrucciones de línea de comandos de MSBuild y scripts PowerShell."
-	services="cloud-services"
-	documentationCenter=""
-	authors="TomArcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="Continuous delivery for cloud services with TFS in Azure | Microsoft Azure"
+    description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts."
+    services="cloud-services"
+    documentationCenter=""
+    authors="TomArcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/30/2016"
-	ms.author="tarcher"/>
+    ms.service="cloud-services"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="07/30/2016"
+    ms.author="tarcher"/>
 
-# Entrega continua para Servicios en la nube de Azure
 
-El proceso que se describe en este artículo muestra cómo se configura la entrega continua para las aplicaciones en la nube de Azure. Este proceso le permite crear automáticamente paquetes e implementar el paquete en Azure cada vez que se proteja el código. El proceso de compilación del paquete que se describe en este artículo es equivalente al comando **Package** en Visual Studio y los pasos de publicación son equivalentes al comando **Publish** en Visual Studio. El artículo abarca los métodos que usaría para crear un servidor de compilación con instrucciones de línea de comandos de MSBuild y scripts de Windows PowerShell; además, demuestra también cómo configurar de manera opcional las definiciones de Visual Studio Team Foundation Server - Team Build para usar los comandos de MSBuild y los scripts de PowerShell. El proceso se puede personalizar para su entorno de compilación y los entornos de destino de Azure.
+# <a name="continuous-delivery-for-cloud-services-in-azure"></a>Continuous Delivery for Cloud Services in Azure
 
-Para hacerlo de manera más fácil, puede también usar Visual Studio Team Services, una versión de TFS que se hospeda en Azure. Para obtener más información, consulte [Entrega continua a Azure con Visual Studio Team Services][].
+The process described in this article shows you how to set up continuous delivery for Azure cloud apps. This process enables you to automatically create packages and deploy the package to Azure after every code check-in. The package build process described in this article is equivalent to the **Package** command in Visual Studio, and the publishing steps are equivalent to the **Publish** command in Visual Studio.
+The article covers the methods you would use to create a build server with MSBuild command-line statements and Windows PowerShell scripts, and it also demonstrates how to optionally configure Visual Studio Team Foundation Server - Team Build definitions to use the MSBuild commands and PowerShell scripts. The process is customizable for your build environment and Azure target environments.
 
-Antes de comenzar, debe publicar su aplicación desde Visual Studio. Esto asegurará que todos los recursos estén disponibles e inicializados cuando intente automatizar el proceso de publicación.
+You can also use Visual Studio Team Services, a version of TFS that is hosted in Azure, to do this more easily. For more information, see [Continuous Delivery to Azure by Using Visual Studio Team Services][].
 
-## 1: Configuración del servidor de compilación
+Before you start, you should publish your application from Visual Studio.
+This will ensure that all the resources are available and initialized when you attempt to automate the publication process.
 
-Antes de crear un paquete de Azure con MSBuild, debe instalar el software y las herramientas necesarias en el servidor de compilación.
+## <a name="1:-configure-the-build-server"></a>1: Configure the Build Server
 
-No es necesario instalar Visual Studio en el servidor de compilación. Si desea usar el servicio de Team Foundation Build para administrar el servidor de compilación, siga las instrucciones que aparecen en el documento [Configurar el Servicio de Team Foundation Build.][]
+Before you can create an Azure package by using MSBuild, you must install the required software and tools on the build server.
 
-1.  En el servidor de compilación, instale [.NET Framework 4.5.2][], que incluye MSBuild.
-2.  Instale las [Herramientas de creación de Azure para .NET](https://azure.microsoft.com/develop/net/).
-3.	Instale las [Bibliotecas de Azure para .NET](http://go.microsoft.com/fwlink/?LinkId=623519).
-4.  Copie el archivo Microsoft.WebApplication.targets desde una instalación de Visual Studio en el servidor de compilación.
+Visual Studio is not required to be installed on the build server. If you want to use Team Foundation Build Service to manage your build server, follow the instructions in the [Team Foundation Build Service][] documentation.
 
-	En un equipo con Visual Studio instalado, este archivo se encuentra en el directorio C:\\Archivos de programa(x86)\\MSBuild\\Microsoft\\VisualStudio\\v14.0\\WebApplications. Debe copiarlo en el mismo directorio en el servidor de compilación.
-5.  Instale las [Herramientas de Azure para Visual Studio](https://www.visualstudio.com/features/azure-tools-vs.aspx).
+1.  On the build server, install the [.NET Framework 4.5.2][], which includes MSBuild.
+2.  Install the latest [Azure Authoring Tools for .NET](https://azure.microsoft.com/develop/net/).
+3.  Install the [Azure Libraries for .NET](http://go.microsoft.com/fwlink/?LinkId=623519).
+4.  Copy the Microsoft.WebApplication.targets file from a Visual Studio installation to the build server.
 
-## 2 Compilación de un paquete con comandos de MSBuild
+    On a computer with Visual Studio installed, this file is located in the directory C:\\Program Files(x86)\\MSBuild\\Microsoft\\VisualStudio\\v14.0\\WebApplications. You should copy it to the same directory on the build server.
+5.  Install the [Azure Tools for Visual Studio](https://www.visualstudio.com/features/azure-tools-vs.aspx).
 
-En esta sección se describe cómo construir un comando de MSBuild que compila un paquete de Azure. Ejecute este paso en el servidor de compilación para comprobar que todo está configurado correctamente y que el comando MSBuild hace lo que usted quiere. Puede agregar esta línea de comandos a scripts de compilación existentes en el servidor de compilación, o puede usar la línea de comandos en una definición de compilación de TFS, tal como se describe en la sección siguiente. Para obtener más información acerca de los parámetros de línea de comandos y MSBuild, consulte [Referencia de la línea de comandos de MSBuild](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx).
+## <a name="2:-build-a-package-using-msbuild-commands"></a>2: Build a Package using MSBuild Commands
 
-1.  Si Visual Studio está instalado en el servidor de compilación, ubique y elija **Símbolo del sistema de Visual Studio** en la carpeta **Visual Studio Tools** en Windows.
+This section describes how to construct an MSBuild command that builds an Azure package. Run this step on the build server to verify that everything is configured correctly and that the MSBuild command does what you want it to do. You can either add this command line to existing build scripts on the build server, or you can use the command line in a TFS Build Definition, as described in the next section. For more information about command-line parameters and MSBuild, see [MSBuild Command Line Reference](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx).
 
-    Si Visual Studio no está instalado en el servidor de compilación, abra un símbolo del sistema y asegúrese de que se pueda tener acceso a MSBuild.exe en la ruta. MSBuild se instala con .NET Framework en la ruta de acceso %WINDIR%\\Microsoft.NET\\Framework\\*versión*. Por ejemplo, para agregar MSBuild.exe a la variable de entorno PATH cuando tiene instalado .NET Framework 4, escriba el siguiente comando en el símbolo del sistema:
+1.  If Visual Studio is installed on the build server, locate and choose **Visual Studio Commmand Prompt** in the **Visual Studio Tools** folder in Windows.
+
+    If Visual Studio is not installed on the build server, open a command prompt and make sure that MSBuild.exe is accessible on the path. MSBuild is installed with the .NET Framework in the path %WINDIR%\\Microsoft.NET\\Framework\\*Version*. For example, to add MSBuild.exe to the PATH environment variable when you have .NET Framework 4 installed, type the following command at the command prompt:
 
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
-2.  En el símbolo del sistema, navegue hasta la carpeta que contiene el archivo de proyecto de Azure que desea compilar.
+2.  At the command prompt, navigate to the folder containing the Azure project file that you want to build.
 
-3.  Ejecute MSBuild con la opción /target:Publish como se muestra en el ejemplo siguiente:
+3.  Run MSBuild with the /target:Publish option as in the following example:
 
         MSBuild /target:Publish
 
-    Esta opción se puede abreviar como /t:Publish. La opción /t:Publish en MSBuild no debe confundirse con los comandos de publicación disponibles en Visual Studio cuando tiene instalado el SDK de Azure. La opción /t:Publish solo compila los paquetes de Azure. No implementa los paquetes como lo hacen los comandos de publicación en Visual Studio.
+    This option can be abbreviated as /t:Publish. The /t:Publish option in MSBuild should not be confused with the Publish commands available in Visual Studio when you have the Azure SDK installed. The /t:Publish option only builds the Azure packages. It does not deploy the packages as the Publish commands in Visual Studio do.
 
-    De manera opcional, puede especificar el nombre del proyecto como un parámetro de MSBuild. Si no se especifica, se utiliza el directorio actual. Para obtener más información acerca de las opciones de línea de comandos de MSBuild, consulte [Referencia de la línea de comandos de MSBuild1](1).
+    Optionally, you can specify the project name as an MSBuild parameter. If not specified, the current directory is used. For more information about MSBuild command line options, see [MSBuild Command Line Reference](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx).
 
-4.  Busque el resultado. De manera predeterminada, este comando crea un directorio en relación con la carpeta raíz del proyecto, como *ProjectDir*\\bin\\*Configuration*\\app.publish\\. Al compilar un proyecto de Azure, se generan dos archivos: el archivo del paquete mismo y el archivo de configuración que lo acompaña:
+4.  Locate the output. By default, this command creates a directory in relation to the root folder for the project, such as *ProjectDir*\\bin\\*Configuration*\\app.publish\\. When you build an Azure project, you generate two files, the package file itself and the accompanying configuration file:
 
     -   Project.cspkg
     -   ServiceConfiguration.*TargetProfile*.cscfg
 
-    De manera predeterminada, cada proyecto de Azure incluye un archivo de configuración del servicio (archivo .cscfg) para las compilaciones locales (depuración) y otro para las compilaciones en la nube (ensayo o producción), pero puede agregar o quitar archivos de configuración del servicio según sea necesario. Cuando compila un paquete dentro de Visual Studio, se le preguntará cuál archivo de configuración del servicio se debe incluir junto con el paquete.
+    By default, each Azure project includes one service configuration file (.cscfg file) for local (debugging) builds and another for cloud (staging or production) builds, but you can add or remove service configuration files as needed. When you build a package within Visual Studio, you will be asked which service configuration file to include alongside the package.
 
-5.  Especifique el archivo de configuración del servicio. Cuando compila un paquete con MSBuild, el archivo de configuración del servicio local se incluye de manera predeterminada. Para incluir un archivo de configuración del servicio diferente, establezca la propiedad TargetProfile del comando de MSBuild, como se muestra en el siguiente ejemplo:
+5.  Specify the service configuration file. When you build a package by using MSBuild, the local service configuration file is included by default. To include a different service configuration file, set the TargetProfile property of the MSBuild command, as in the following example:
 
         MSBuild /t:Publish /p:TargetProfile=Cloud
 
-6.  Especifique la ubicación para el resultado. Establezca la ruta mediante la opción /p:PublishDir=*Directory*\\, incluido el separador de barra diagonal inversa final, como en el siguiente ejemplo:
+6.  Specify the location for the output. Set the path by using the /p:PublishDir=*Directory*\\ option, including the trailing backslash separator, as in the following example:
 
         MSBuild /target:Publish /p:PublishDir=\\myserver\drops\
 
-    Después de que haya construido y probado una línea de comandos de MSBuild adecuada para compilar sus proyectos y combinarlos en un paquete de Azure, puede agregar esta línea de comandos a sus scripts de compilación. Si su servidor de compilación usa scripts personalizados, este proceso dependerá de los detalles de su proceso personalizado de compilación. Si va a usar TFS como un entorno de compilación, entonces puede seguir las instrucciones del paso siguiente para agregar la compilación del paquete de Azure a su proceso de compilación.
+    Once you've constructed and tested an appropriate MSBuild command line to build your projects and combine them into an Azure package, you can add this command line to your build scripts. If your build server uses custom scripts, this process will depend on the specifics of your custom build process. If you are using TFS as a build environment, then you can follow the instructions in the next step to add the Azure package build to your build process.
 
-## 3: Compilación de un paquete con TFS Team Build
+## <a name="3:-build-a-package-using-tfs-team-build"></a>3: Build a Package using TFS Team Build
 
-Si tiene Team Foundation Server (TFS) configurado como un controlador de compilación y el servidor de compilación configurado como una máquina de compilación de TFS, entonces puede, opcionalmente, configurar una compilación automatizada para su paquete de Azure. Para obtener información sobre cómo configurar y usar el servidor de Team Foundation como un sistema de compilación, consulte [Escalar horizontalmente el sistema de compilación][]. En particular, el procedimiento siguiente asume que ha configurado el servidor de compilación, tal como se ha descrito en [Implementar y configurar un servidor de compilación][] y que ha creado un proyecto de equipo y un proyecto de servicio en la nube en el proyecto en equipo.
+If you have Team Foundation Server (TFS) set up as a build controller and the build server set up as a TFS build machine, then you can optionally set up an automated build for your Azure package. For information on how to set up and use Team Foundation server as a build system, see [Scale out your build system][]. In particular, the following procedure assumes that you have configured your build server as described in [Deploy and configure a build server][], and that you have created a team project, created a cloud service project in the team project.
 
-Para configurar TFS a fin de compilar paquetes de Azure, realice los siguientes pasos:
+To configure TFS to build Azure packages, perform the following steps:
 
-1.  En Visual Studio, en el equipo de desarrollo, en el menú Ver, elija **Team Explorer** o seleccione Ctrl+\\, Ctrl+M. En la ventana Team Explorer, expanda el nodo **Compilaciones** o elija la página **Compilaciones** y, a continuación, seleccione **Definición de nueva compilación**.
+1.  In Visual Studio on your development computer, on the View menu, choose **Team Explorer**, or choose Ctrl+\\, Ctrl+M. In the Team Explorer window, expand the **Builds** node or choose the **Builds** page, and choose **New Build Definition**.
 
-    ![Opción Nueva definición de compilación][0]
+    ![New Build Definition option][0]
 
-2.  Haga clic en la pestaña **Desencadenador** y especifique las condiciones deseadas para cuando desea que se compile el paquete. Por ejemplo, especifique **Integración continua** para compilar el paquete cada vez que se produce una protección del control de código fuente.
+2.  Choose the **Trigger** tab, and specify the desired conditions for when you want the package to be built. For example, specify **Continuous Integration** to build the package whenever a source control check-in occurs.
 
-3.	Elija la pestaña **Configuración de origen** y asegúrese de que la carpeta del proyecto se muestra en la columna **Carpeta de control de código fuente** y de que el estado es **Activo**.
+3.  Choose the **Source Settings** tab, and make sure your project folder is listed in the **Source Control Folder** column, and the status is **Active**.
 
-4.  Seleccione la pestaña **Valores predeterminados de compilación** y, en el controlador de compilación, compruebe el nombre del servidor de compilación. Además, seleccione la opción **Copiar el resultado de la compilación en la siguiente carpeta** de entrega y especifique la ubicación de destino deseada.
+4.  Choose the **Build Defaults** tab, and under Build controller, verify the name of the build server.  Also, choose the option **Copy build output to the following drop folder** and specify the desired drop location.
 
-5.  Elija la pestaña **Process**. En la pestaña Proceso, elija la plantilla predeterminada, en **Compilación**, seleccione el proyecto si no está ya seleccionado y expanda la sección **Avanzado** en la sección **Compilación** de la cuadrícula.
+5.  Choose the **Process** tab. On the Process tab, choose the default template, under **Build**, choose the project if it is not already selected, and expand the **Advanced** section in the **Build** section of the grid.
 
-6.  Seleccione **Argumentos de MSBuild** y establezca los argumentos adecuados de la línea de comandos de MSBuild como se describe en el paso 2 anterior. Por ejemplo, escriba **/t:Publish /p:PublishDir=\\\myserver\\drops\** para compilar un paquete y copiar los archivos del paquete en la ubicación \\\myserver\\drops\\:
+6.  Choose **MSBuild Arguments**, and set the appropriate MSBuild command line arguments as described in Step 2 above. For example, enter **/t:Publish /p:PublishDir=\\\\myserver\\drops\\** to build a package and copy the package files to the location \\\\myserver\\drops\\:
 
-    ![Argumentos de MSBuild][2]
+    ![MSBuild arguments][2]
 
-    **Nota:** la copia de los archivos en un recurso compartido público facilita la implementación manual de los paquetes desde su equipo de desarrollo.
+    **Note:** Copying the files to a public share makes it easier to manually deploy the packages from your development computer.
 
-5.  Pruebe el éxito del paso de compilación protegiendo un cambio en su proyecto o ponga en cola una compilación nueva. Para poner en cola una compilación nueva, en Team Explorer, haga clic con el botón derecho en **Todas las definiciones** de compilación y, a continuación, seleccione **Poner nueva compilación en cola**.
+5.  Test the success of your build step by checking in a change to your project, or queue up a new build. To queue up a new build, in the Team Explorer, right-click **All Build Definitions,** and then choose **Queue New Build**.
 
-## 4: Publicación de un paquete con un script de PowerShell
+## <a name="4:-publish-a-package-using-a-powershell-script"></a>4: Publish a Package using a PowerShell Script
 
-En esta sección se describen los pasos para construir un script de Windows PowerShell que publicará el resultado del paquete de aplicaciones en la nube en Azure con la ayuda de parámetros opcionales. Este script puede llamarse después del paso de compilación en su automatización de compilación personalizada. También puede llamarse desde las actividades de flujo de trabajo de la Plantilla de procesos en Visual Studio TFS Team Build.
+This section describes how to construct a Windows PowerShell script that will publish the Cloud app package output to Azure using optional parameters. This script can be called after the build step in your custom build automation. It can also be called from Process Template workflow activities in Visual Studio TFS Team Build.
 
-1.  Instale los [cmdlets de Azure PowerShell][] \(v0.6.1 o superior). Durante la fase de instalación del cmdlet, seleccione instalar como complemento. Tenga en cuenta que esta versión oficialmente compatible reemplaza la versión anterior que se ofrece mediante CodePlex, aunque las versiones anteriores tenían la numeración 2.x.x.
+1.  Install the [Azure PowerShell cmdlets][] (v0.6.1 or higher).
+    During the cmdlet setup phase choose to install as a snap-in. Note that this officially supported version replaces the older version offered through CodePlex, although the previous versions were numbered 2.x.x.
 
-2.  Inicie Azure PowerShell mediante el menú Inicio o la página de inicio. Si inicia de esta manera, se cargarán los cmdlets de Azure PowerShell.
+2.  Start Azure PowerShell using the Start menu or Start page. If you start in this way, the Azure PowerShell cmdlets will be loaded.
 
-3.  A la solicitud de PowerShell, compruebe que se cargan los cmdlets de PowerShell al escribir el comando parcial `Get-Azure` y, a continuación, presionar la tecla TAB para completar la instrucción.
+3.  At the PowerShell prompt, verify that the PowerShell cmdlets are loaded by entering the partial command `Get-Azure` and then pressing the Tab key for statement completion.
 
-    Si presiona varias veces la tecla TAB, debiera ver diversos comandos de Azure PowerShell.
+    If you press the Tab key repeatedly, you should see various Azure PowerShell commands.
 
-4.  Verifique que se puede conectar a su suscripción de Azure al importar su información de suscripción desde el archivo .publishsettings.
+4.  Verify that you can connect to your Azure subscription by importing your subscription information from the .publishsettings file.
 
     `Import-AzurePublishSettingsFile c:\scripts\WindowsAzure\default.publishsettings`
 
-    Luego, escriba el comando.
+    Then enter the command
 
     `Get-AzureSubscription`
 
-    Se muestra información sobre su suscripción. Verifique que todo esté correcto.
+    This shows information about your subscription. Verify that everything is correct.
 
-4.  Guarde la plantilla de script que aparece al final de este artículo en la carpeta de scripts como c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**.
+4.  Save the script template provided at the end of this article to your scripts folder as c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**.
 
-5.  Revise la sección de parámetros del script. Agregue o modifique cualquiera de los valores predeterminados. Estos valores siempre pueden omitirse al pasar parámetros explícitos.
+5.  Review the parameters section of the script. Add or modify any default values. These values can always be overridden by passing in explicit parameters.
 
-6.  Asegúrese de que haya cuentas de almacenamiento y de servicio en la nube válidas creadas en su suscripción que se puedan abordar mediante el script de publicación. Se usará la cuenta de almacenamiento (almacenamiento de blobs) para cargar y almacenar temporalmente el paquete de implementación y el archivo de configuración mientras se crea la implementación.
+6.  Ensure there are valid cloud service and storage accounts created in your subscription that can be targeted by the publish script. The storage account (blob storage) will be used to upload and temporarily store the deployment package and config file while the deployment is being created.
 
-    -   Para crear un servicio en la nube, puede llamar a este script o usar el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885). El nombre del servicio en la nube se usará como prefijo en un nombre de dominio completo y, por este motivo, debe ser único.
+    -   To create a new cloud service, you can call this script or use the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). The cloud service name will be used as a prefix in a fully qualified domain name and hence it must be unique.
 
             New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
-    -   Para crear una nueva cuenta de almacenamiento, puede llamar a este script o usar el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885). El nombre de la cuenta de almacenamiento se usará como prefijo en un nombre de dominio completo y, por este motivo, debe ser único. Puede intentar usar el mismo nombre que el servicio en la nube.
+    -   To create a new storage account, you can call this script or use the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). The storage account name will be used as a prefix in a fully qualified domain name and hence it must be unique. You can try using the same name as the cloud service.
 
             New-AzureStorageAccount -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
-7.  Llame al script directamente desde Azure PowerShell, o conecte este script a su automatización de compilación de host que se produce después de la compilación del paquete.
+7.  Call the script directly from Azure PowerShell, or wire up this script to your host build automation to occur after the package build.
 
-    >[AZURE.IMPORTANT] El script siempre eliminará o reemplazará sus implementaciones actuales de manera predeterminada si se detectan. Esto es necesario para habilitar la entrega continua desde la automatización donde no es posible una solicitud del usuario.
+    >[AZURE.IMPORTANT] The script will always delete or replace your existing deployments by default if they are detected. This is necessary to enable continuous delivery from automation where no user prompting is possible.
 
-    **Escenario de ejemplo 1:** implementación continua en el entorno de ensayo de un servicio:
+    **Example scenario 1:** continuous deployment to the staging environment of a service:
 
         PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Staging -serviceName mycloudservice -storageAccountName mystoragesaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
-    A esto le sigue generalmente una verificación de ejecución de prueba y un intercambio de VIP. El intercambio de VIP se puede realizar mediante el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885) o con el cmdlet Move-Deployment.
+    This is typically followed up by test run verification and a VIP swap. The VIP swap can be done via the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885) or by using the Move-Deployment cmdlet.
 
-    **Escenario de ejemplo 2:** implementación continua en el entorno de producción de un servicio de prueba dedicado
+    **Example scenario 2:** continuous deployment to the production environment of a dedicated test service
 
         PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Production -enableDeploymentUpgrade 1 -serviceName mycloudservice -storageAccountName mystorageaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
-    **Escritorio remoto:**
+    **Remote Desktop:**
 
-    Si se habilita Escritorio remoto en su proyecto de Azure, necesitará realizar algunos pasos únicos adicionales para asegurarse de que se cargue el certificado de servicio en la nube correcto en todos los servicios en la nube abordados por este script.
+    If Remote Desktop is enabled in your Azure project you will need to perform additional one-time steps to ensure the correct Cloud Service Certificate is uploaded to all cloud services targeted by this script.
 
-    Busque los valores de huella digital del certificado que esperan sus roles. Los valores de huella digital son visibles en la sección Certificados del archivo de configuración de la nube (es decir, ServiceConfiguration.Cloud.cscfg). También son visibles en el cuadro de diálogo Configuración de Escritorio remoto en Visual Studio cuando muestra las opciones y ve el certificado seleccionado.
+    Locate the certificate thumbprint values expected by your roles. The thumbprint values are visible in the Certificates section of the cloud config file (i.e. ServiceConfiguration.Cloud.cscfg). It is also visible in the Remote Desktop Configuration dialog in Visual Studio when you Show Options and view the selected certificate.
 
         <Certificates>
               <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="C33B6C432C25581601B84C80F86EC2809DC224E8" thumbprintAlgorithm="sha1" />
         </Certificates>
 
-    Cargue los certificados de Escritorio remoto como un paso de configuración único usando el siguiente script de cmdlet:
+    Upload Remote Desktop certificates as a one-time setup step using the following cmdlet script:
 
-        Add-AzureCertificate -serviceName <CLOUDSERVICENAME> -certToDeploy (get-item cert:\CurrentUser\MY<THUMBPRINT>)
+        Add-AzureCertificate -serviceName <CLOUDSERVICENAME> -certToDeploy (get-item cert:\CurrentUser\MY\<THUMBPRINT>)
 
-    Por ejemplo:
+    For example:
 
         Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
-    Si lo prefiere, puede exportar el archivo de certificado PFX con una clave privada y cargar los certificados en cada servicio en la nube de destino mediante el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885). Lea el siguiente artículo para obtener más información: [http://msdn.microsoft.com/es-es/library/windowsazure/gg443832.aspx][].
+    Alternatively you can export the certificate file PFX with private key and upload certificates to each target cloud service using the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). 
+    Read the following article to learn more: [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx][].
 
-    **Actualizar implementación frente a Eliminar implementación -> Nueva implementación**
+    **Upgrade Deployment vs. Delete Deployment -\> New Deployment**
 
-    El script realizará de manera predeterminada una actualización de la implementación ($enableDeploymentUpgrade = 1) cuando no se pasa ningún parámetro o el valor 1 se pasa de manera explícita. Para las instancias simples, esto tiene la ventaja de tardar menos tiempo que una implementación completa. Para las instancias que requieren una alta disponibilidad, esto también tiene la ventaja de dejar algunas instancias en ejecución mientras otras se actualizan (recorriendo su dominio de actualización), además de que no se eliminará su VIP.
+    The script will by default perform an Upgrade Deployment ($enableDeploymentUpgrade = 1) when no parameter is passed in or the value 1 is passed explicitly. For single instances this has the advantage of taking less time than a full deployment. For instances that require high availability this also has the advantage of leaving some instances running while others are upgraded (walking your update domain), plus your VIP will not be deleted.
 
-    La actualización de la implementación se puede deshabilitar en el script ($enableDeploymentUpgrade = 0) o al pasar *-enableDeploymentUpgrade 0* como un parámetro, el cual alterará el comportamiento del script para primero eliminar cualquier implementación existente y luego crear una implementación nueva.
+    Upgrade Deployment can be disabled in the script ($enableDeploymentUpgrade = 0) or by passing *-enableDeploymentUpgrade 0* as a parameter, which alters the script behavior to first delete any existing deployment and then create a new deployment.
 
-    >[AZURE.IMPORTANT] El script siempre eliminará o reemplazará sus implementaciones actuales de manera predeterminada si se detectan. Esto es necesario para habilitar la entrega continua desde la automatización donde no es posible una solicitud del usuario/operador.
+    >[AZURE.IMPORTANT] The script will always delete or replace your existing deployments by default if they are detected. This is necessary to enable continuous delivery from automation where no user/operator prompting is possible.
 
-## 5: Publicación de un paquete con TFS Team Build
+## <a name="5:-publish-a-package-using-tfs-team-build"></a>5: Publish a Package using TFS Team Build
 
-Este paso opcional conecta TFS Team Build al script que se creó en el paso 4, el cual controla la publicación de la compilación del paquete en Azure. Esto conlleva modificar la Plantilla de proceso que usó su definición de compilación, de modo que ejecuta una actividad de publicación al final del flujo de trabajo. La actividad de publicación ejecutará su comando de PowerShell al pasar parámetros desde la compilación. El resultado de los objetivos de MSBuild y el script de publicación se canalizarán al resultado de la compilación estándar.
+This optional step connects TFS Team Build to the script created in step 4, which handles publishing of the package build to Azure. This entails modifying the Process Template used by your build definition so that it runs a Publish activity at the end of the workflow. The Publish activity will execute your PowerShell command passing in parameters from the build. Output of the MSBuild targets and publish script will be piped into the standard build output.
 
-1.  Edite la definición de compilación a cargo de la implementación continua.
+1.  Edit the Build Definition responsible for continuous deploy.
 
-2.  Seleccione la pestaña **Proceso**.
+2.  Select the **Process** tab.
 
-3.	Siga [estas instrucciones](http://msdn.microsoft.com/library/dd647551.aspx) para agregar un proyecto de actividad a la plantilla del proceso de compilación, descargue la plantilla predeterminada, agréguela al proyecto y protéjala. Asigne un nuevo nombre a la plantilla del proceso de compilación, como AzureBuildProcessTemplate.
+3.  Follow [these instructions](http://msdn.microsoft.com/library/dd647551.aspx) to add an Activity project for the build process template, download the default template, add it to the project and check it in. Give the build process template a new name, such as AzureBuildProcessTemplate.
 
-3.  Vuelva a la pestaña **Proceso** y use **Mostrar detalles** para mostrar una lista de las plantillas de proceso de compilación disponibles. Elija el botón **Nuevo...**, vaya al proyecto que acaba de agregar y protéjalo. Localice la plantilla que acaba de crear y haga clic en **Aceptar**.
+3.  Return to the **Process** tab, and use **Show Details** to show a list of available build process templates. Choose the **New...** button, and navigate to the project you just added and checked in. Locate the template you just created and choose **OK**.
 
-4.  Abra la Plantilla de proceso seleccionada para editar. Puede abrirla directamente en el diseñador de flujo de trabajo o en el editor XML para trabajar con el archivo XAML.
+4.  Open the selected Process Template for editing. You can open directly in the Workflow designer or in the XML editor to work with the XAML.
 
-5.  Agregue la siguiente lista de argumentos nuevos como elementos de línea separados en la pestaña de argumentos del diseñador de flujo de trabajo. Todos los argumentos deben tener la dirección=In y el tipo=String. Estos se usarán para que los parámetros fluyan desde la definición de compilación hasta el flujo de trabajo, los cuales, posteriormente, se acostumbran a llamar al script de publicación.
+5.  Add the following list of new arguments as separate line items in the arguments tab of the workflow designer. All arguments should have direction=In and type=String. These will be used to flow parameters from the build definition into the workflow, which then get used to call the publish script.
 
         SubscriptionName
         StorageAccountName
@@ -204,9 +209,9 @@ Este paso opcional conecta TFS Team Build al script que se creó en el paso 4, e
         PublishScriptLocation
         ServiceName
 
-    ![Lista de argumentos][3]
+    ![List of arguments][3]
 
-    El archivo XAML correspondiente se parece a este:
+    The corresponding XAML looks like this:
 
         <Activity  _ />
           <x:Members>
@@ -242,114 +247,115 @@ Este paso opcional conecta TFS Team Build al script que se creó en el paso 4, e
 
           <this:Process.MSBuildArguments>
 
-6.  Agregue una secuencia nueva al final de Ejecutar en el agente:
+6.  Add a new sequence at the end of Run On Agent:
 
-    1.  Comience agregando una actividad de instrucción If para verificar un archivo de script válido. Establezca la condición según este valor:
+    1.  Start by adding an If Statement activity to check for a valid script file. Set the condition to this value:
 
             Not String.IsNullOrEmpty(PublishScriptLocation)
 
-    2.  En el caso Then de la instrucción If, agregue una actividad de secuencia nueva. Establezca el nombre para mostrar en 'Iniciar publicación'
+    2.  In the Then case of the If Statement, add a new Sequence activity. Set the display name to 'Start publish'
 
-    3.  Con la secuencia Iniciar publicación todavía seleccionada, agregue la siguiente lista de variables nuevas como elementos de línea separados en la pestaña de variables del diseñador de flujo de trabajo. Todas las variables deben tener el tipo de variable =Cadena y el ámbito =Iniciar publicación. Estos se usarán para que los parámetros fluyan desde la definición de compilación hasta el flujo de trabajo, los cuales, posteriormente, se acostumbran a llamar al script de publicación.
+    3.  With the Start publish sequence still selected, add the following list of new variables as separate line items in the variables tab of the workflow designer. All variables should have Variable type =String and Scope=Start publish. These will be used to flow parameters from the build definition into the workflow, which then get used to call the publish script.
 
-        -   SubscriptionDataFilePath, de tipo Cadena
+        -   SubscriptionDataFilePath, of type String
 
-        -   PublishScriptFilePath, de tipo Cadena
+        -   PublishScriptFilePath, of type String
 
-            ![Nuevas variables][4]
+            ![New variables][4]
 
-    4.  Si está utilizando TFS 2012 o anterior, agregue una actividad ConvertWorkspaceItem al comienzo de la nueva secuencia. Si está utilizando TFS 2013 o posterior, agregue una actividad GetLocalPath al comienzo de la nueva secuencia. En ConvertWorkspaceItem, establezca las propiedades de la manera siguiente: Direction=ServerToLocal, DisplayName='Convert publish script filename', Input=' PublishScriptLocation', Result='PublishScriptFilePath', Workspace='Workspace'. Para una actividad GetLocalPath, establezca la propiedad IncomingPath en 'PublishScriptLocation' y el resultado en 'PublishScriptFilePath'. Esta actividad convierte la ruta al script de publicación desde las ubicaciones del servidor TFS (si corresponde) hasta una ruta de disco local estándar.
+    4.  If you are using TFS 2012 or earlier, add a ConvertWorkspaceItem activity at the beginning of the new Sequence. If you are using TFS 2013 or later, add a GetLocalPath activity at the beginning of the new sequence. For a ConvertWorkspaceItem, set the properties as follows: Direction=ServerToLocal, DisplayName='Convert publish script filename', Input=' PublishScriptLocation', Result='PublishScriptFilePath', Workspace='Workspace'. For a GetLocalPath activity, set the property IncomingPath to 'PublishScriptLocation', and the Result to 'PublishScriptFilePath'. This activity converts the path to the publish script from TFS server locations (if applicable) to a standard local disk path.
 
-    5.  Si está utilizando TFS 2012 o anterior, agregue otra actividad ConvertWorkspaceItem al final de la nueva secuencia. Direction=ServerToLocal, DisplayName='Convert subscription filename', Input=' SubscriptionDataFileLocation', Result= 'SubscriptionDataFilePath', Workspace='Workspace'. Si está utilizando TFS 2013 o posterior, agregue otro GetLocalPath. IncomingPath='SubscriptionDataFileLocation' y Result='SubscriptionDataFilePath.'
+    5.  If you are using TFS 2012 or earlier, add another ConvertWorkspaceItem activity at the end of the new Sequence. Direction=ServerToLocal, DisplayName='Convert subscription filename', Input=' SubscriptionDataFileLocation', Result= 'SubscriptionDataFilePath', Workspace='Workspace'. If you are using TFS 2013 or later, add another GetLocalPath. IncomingPath='SubscriptionDataFileLocation', and Result='SubscriptionDataFilePath.'
 
-    6.  Agregue una actividad InvokeProcess al final de la secuencia nueva. Esta actividad llama a PowerShell.exe con los argumentos pasados por la definición de compilación.
+    6.  Add an InvokeProcess activity at the end of the new Sequence.
+        This activity calls PowerShell.exe with the arguments passed in by the Build Definition.
 
         1.  Arguments = String.Format(" -File ""{0}"" -serviceName {1} -storageAccountName {2} -packageLocation ""{3}"" -cloudConfigLocation ""{4}"" -subscriptionDataFile ""{5}"" -selectedSubscription {6} -environment ""{7}""", PublishScriptFilePath, ServiceName, StorageAccountName, PackageLocation, CloudConfigLocation, SubscriptionDataFilePath, SubscriptionName, Environment)
 
-        2.  DisplayName =Ejecutar script de publicación
+        2.  DisplayName = Execute publish script
 
-        3.  FileName = "PowerShell" (incluir las comillas)
+        3.  FileName = "PowerShell" (include the quotes)
 
         4.  OutputEncoding= System.Text.Encoding.GetEncoding(System.Globalization.CultureInfo.InstalledUICulture.TextInfo.OEMCodePage)
 
-    7.  En el cuadro de texto de la sección **Controlar salida estándar** de InvokeProcess, establezca el valor del cuadro de texto en 'data'. Esta es una variable para almacenar los datos de salida estándar.
+    7.  In the **Handle Standard Output** section textbox of the InvokeProcess, set the textbox value to 'data'. This is a variable to store the standard output data.
 
-    8.  Agregue una actividad WriteBuildMessage justo debajo de la sección **Controlar salida estándar**. Establezca la importancia = 'Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High' y el mensaje ='data'. Esto asegura que la salida estándar del script se escriba en la salida de la compilación.
+    8.  Add a WriteBuildMessage activity just below the **Handle Standard Output** section. Set the Importance = 'Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High' and the Message='data'. This ensures the standard output of the script will get written to the build output.
 
-    9.  En el cuadro de texto de la sección **Controlar salida de errores** de InvokeProcess, establezca el valor del cuadro de texto en 'data'. Esta es una variable para almacenar los datos de error estándar.
+    9.  In the **Handle Error Output** section textbox of the InvokeProcess, set the textbox value to 'data'. This is a variable to store the standard error data.
 
-    10. Agregue una actividad WriteBuildError justo debajo de la sección **Controlar salida de errores**. Establezca el mensaje='data'. Esto asegura que los errores estándar del script se escriban en la salida de error de compilación.
+    10. Add a WriteBuildError activity just below the **Handle Error Output** section. Set the Message='data'. This ensures the standard errors of the script will get written to the build error output.
 
-	11. Corrija los errores, que se indican por signos de exclamación azules. Mueva el puntero sobre los signos de exclamación para obtener una sugerencia del error. Guarde el flujo de trabajo para borrar errores.
+    11. Correct any errors, indicated by blue exclamation marks. Hover over the exclamation marks to get a hint about the error. Save the workflow to clear errors.
 
-    El resultado final de las actividades de flujo de trabajo de publicación se verán en el diseñador de la manera siguiente:
+    The final result of the publish workflow activities will look like this in the designer:
 
-    ![Actividades de flujo de trabajo][5]
+    ![Workflow activities][5]
 
-    El resultado final de las actividades de flujo de trabajo de publicación se verán en el archivo XAML de la manera siguiente:
+    The final result of the publish workflow activities will look like this in XAML:
 
-		<If Condition="[Not String.IsNullOrEmpty(PublishScriptLocation)]" sap2010:WorkflowViewState.IdRef="If_1">
-	        <If.Then>
-	          <Sequence DisplayName="Start Publish" sap2010:WorkflowViewState.IdRef="Sequence_4">
-	            <Sequence.Variables>
-	              <Variable x:TypeArguments="x:String" Name="SubscriptionDataFilePath" />
-	              <Variable x:TypeArguments="x:String" Name="PublishScriptFilePath" />
-	            </Sequence.Variables>
-	            <mtbwa:ConvertWorkspaceItem DisplayName="Convert publish script filename" sap2010:WorkflowViewState.IdRef="ConvertWorkspaceItem_1" Input="[PublishScriptLocation]" Result="[PublishScriptFilePath]" Workspace="[Workspace]" />
-	            <mtbwa:ConvertWorkspaceItem DisplayName="Convert subscription filename" sap2010:WorkflowViewState.IdRef="ConvertWorkspaceItem_2" Input="[SubscriptionDataFileLocation]" Result="[SubscriptionDataFilePath]" Workspace="[Workspace]" />
-	            <mtbwa:InvokeProcess Arguments="[String.Format("; -File ";";{0}";"; -serviceName {1}&#xD;&#xA;            -storageAccountName {2} -packageLocation ";";{3}";";&#xD;&#xA;            -cloudConfigLocation ";";{4}";"; -subscriptionDataFile ";";{5}";";&#xD;&#xA;            -selectedSubscription {6} -environment ";";{7}";";";,&#xD;&#xA;            PublishScriptFilePath, ServiceName, StorageAccountName,&#xD;&#xA;            PackageLocation, CloudConfigLocation,&#xD;&#xA;            SubscriptionDataFilePath, SubscriptionName, Environment)]" DisplayName="'Execute Publish Script'" FileName="[PowerShell]" sap2010:WorkflowViewState.IdRef="InvokeProcess_1">
-	              <mtbwa:InvokeProcess.ErrorDataReceived>
-	                <ActivityAction x:TypeArguments="x:String">
-	                  <ActivityAction.Argument>
-	                    <DelegateInArgument x:TypeArguments="x:String" Name="data" />
-	                  </ActivityAction.Argument>
-	                  <mtbwa:WriteBuildError Message="{x:Null}" sap2010:WorkflowViewState.IdRef="WriteBuildError_1" />
-	                </ActivityAction>
-	              </mtbwa:InvokeProcess.ErrorDataReceived>
-	              <mtbwa:InvokeProcess.OutputDataReceived>
-	                <ActivityAction x:TypeArguments="x:String">
-	                  <ActivityAction.Argument>
-	                    <DelegateInArgument x:TypeArguments="x:String" Name="data" />
-	                  </ActivityAction.Argument>
-	                  <mtbwa:WriteBuildMessage sap2010:WorkflowViewState.IdRef="WriteBuildMessage_2" Importance="[Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High]" Message="[data]" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces" />
-	                </ActivityAction>
-	              </mtbwa:InvokeProcess.OutputDataReceived>
-	            </mtbwa:InvokeProcess>
-	          </Sequence>
-	        </If.Then>
-	      </If>
-	    </Sequence>
+        <If Condition="[Not String.IsNullOrEmpty(PublishScriptLocation)]" sap2010:WorkflowViewState.IdRef="If_1">
+            <If.Then>
+              <Sequence DisplayName="Start Publish" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:String" Name="SubscriptionDataFilePath" />
+                  <Variable x:TypeArguments="x:String" Name="PublishScriptFilePath" />
+                </Sequence.Variables>
+                <mtbwa:ConvertWorkspaceItem DisplayName="Convert publish script filename" sap2010:WorkflowViewState.IdRef="ConvertWorkspaceItem_1" Input="[PublishScriptLocation]" Result="[PublishScriptFilePath]" Workspace="[Workspace]" />
+                <mtbwa:ConvertWorkspaceItem DisplayName="Convert subscription filename" sap2010:WorkflowViewState.IdRef="ConvertWorkspaceItem_2" Input="[SubscriptionDataFileLocation]" Result="[SubscriptionDataFilePath]" Workspace="[Workspace]" />
+                <mtbwa:InvokeProcess Arguments="[String.Format(&quot; -File &quot;&quot;{0}&quot;&quot; -serviceName {1}&#xD;&#xA;            -storageAccountName {2} -packageLocation &quot;&quot;{3}&quot;&quot;&#xD;&#xA;            -cloudConfigLocation &quot;&quot;{4}&quot;&quot; -subscriptionDataFile &quot;&quot;{5}&quot;&quot;&#xD;&#xA;            -selectedSubscription {6} -environment &quot;&quot;{7}&quot;&quot;&quot;,&#xD;&#xA;            PublishScriptFilePath, ServiceName, StorageAccountName,&#xD;&#xA;            PackageLocation, CloudConfigLocation,&#xD;&#xA;            SubscriptionDataFilePath, SubscriptionName, Environment)]" DisplayName="'Execute Publish Script'" FileName="[PowerShell]" sap2010:WorkflowViewState.IdRef="InvokeProcess_1">
+                  <mtbwa:InvokeProcess.ErrorDataReceived>
+                    <ActivityAction x:TypeArguments="x:String">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:String" Name="data" />
+                      </ActivityAction.Argument>
+                      <mtbwa:WriteBuildError Message="{x:Null}" sap2010:WorkflowViewState.IdRef="WriteBuildError_1" />
+                    </ActivityAction>
+                  </mtbwa:InvokeProcess.ErrorDataReceived>
+                  <mtbwa:InvokeProcess.OutputDataReceived>
+                    <ActivityAction x:TypeArguments="x:String">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:String" Name="data" />
+                      </ActivityAction.Argument>
+                      <mtbwa:WriteBuildMessage sap2010:WorkflowViewState.IdRef="WriteBuildMessage_2" Importance="[Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High]" Message="[data]" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces" />
+                    </ActivityAction>
+                  </mtbwa:InvokeProcess.OutputDataReceived>
+                </mtbwa:InvokeProcess>
+              </Sequence>
+            </If.Then>
+          </If>
+        </Sequence>
 
 
-7.  Guarde el flujo de trabajo de la plantilla del proceso de compilación y proteja este archivo.
+7.  Save the build process template workflow and Check In this file.
 
-8.  Edite la definición de compilación (ciérrela si estuviera abierta) y seleccione el botón **Nuevo** si todavía no ve la nueva plantilla en la lista de plantillas del proceso.
+8.  Edit the build definition (close it if it is already open), and select the **New** button if you do not yet see the new template in the list of Process Templates.
 
-9.  Establezca los valores de propiedad del parámetro en la sección Misc como a continuación:
+9.  Set the parameter property values in the Misc section as follows:
 
-    1.  CloudConfigLocation ='c:\\drops\\app.publish\\ServiceConfiguration.Cloud.cscfg' *Este valor se obtiene de: ($PublishDir)ServiceConfiguration.Cloud.cscfg*
+    1.  CloudConfigLocation ='c:\\drops\\app.publish\\ServiceConfiguration.Cloud.cscfg' *This value is derived from: ($PublishDir)ServiceConfiguration.Cloud.cscfg*
 
-    2.  PackageLocation = 'c:\\drops\\app.publish\\ContactManager.Azure.cspkg' *Este valor se obtiene de:($PublishDir)($ProjectName).cspkg*
+    2.  PackageLocation = 'c:\\drops\\app.publish\\ContactManager.Azure.cspkg' *This value is derived from: ($PublishDir)($ProjectName).cspkg*
 
     3.  PublishScriptLocation = 'c:\\scripts\\WindowsAzure\\PublishCloudService.ps1'
 
-    4.  ServiceName = 'mycloudservicename' *Use el nombre de servicio en la nube adecuado aquí*
+    4.  ServiceName = 'mycloudservicename' *Use the appropriate cloud service name here*
 
-    5.  Entorno = 'Staging'
+    5.  Environment = 'Staging'
 
-    6.  StorageAccountName = 'mystorageaccountname' *Use el nombre de cuenta de almacenamiento adecuado aquí*
+    6.  StorageAccountName = 'mystorageaccountname' *Use the appropriate storage account name here*
 
     7.  SubscriptionDataFileLocation = 'c:\\scripts\\WindowsAzure\\Subscription.xml'
 
     8.  SubscriptionName = 'default'
 
-    ![Valores de propiedad de parámetro][6]
+    ![Parameter property values][6]
 
-10. Guarde los cambios en la Definición de compilación.
+10. Save the changes to the Build Definition.
 
-11. Ponga una compilación en cola para ejecutar la compilación del paquete y la publicación. Si tiene un desencadenador establecido en Integración continua, ejecutará este comportamiento en cada protección.
+11. Queue a Build to execute both the package build and publish. If you have a trigger set to Continuous Integration, you will execute this behavior on every check-in.
 
-### Plantilla de script PublishCloudService.ps1
+### <a name="publishcloudservice.ps1-script-template"></a>PublishCloudService.ps1 script template
 
 ```
 Param(  $serviceName = "",
@@ -368,161 +374,161 @@ Param(  $serviceName = "",
 
 function Publish()
 {
-	$deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot -ErrorVariable a -ErrorAction silentlycontinue
+    $deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot -ErrorVariable a -ErrorAction silentlycontinue
     if ($a[0] -ne $null)
     {
         Write-Output "$(Get-Date -f $timeStampFormat) - No deployment is detected. Creating a new deployment. "
     }
     #check for existing deployment and then either upgrade, delete + deploy, or cancel according to $alwaysDeleteExistingDeployments and $enableDeploymentUpgrade boolean variables
-	if ($deployment.Name -ne $null)
-	{
-		switch ($alwaysDeleteExistingDeployments)
-	    {
-	        1
-			{
+    if ($deployment.Name -ne $null)
+    {
+        switch ($alwaysDeleteExistingDeployments)
+        {
+            1
+            {
                 switch ($enableDeploymentUpgrade)
                 {
                     1  #Update deployment inplace (usually faster, cheaper, won't destroy VIP)
                     {
                         Write-Output "$(Get-Date -f $timeStampFormat) - Deployment exists in $servicename.  Upgrading deployment."
-				        UpgradeDeployment
+                        UpgradeDeployment
                     }
                     0  #Delete then create new deployment
                     {
                         Write-Output "$(Get-Date -f $timeStampFormat) - Deployment exists in $servicename.  Deleting deployment."
-				        DeleteDeployment
+                        DeleteDeployment
                         CreateNewDeployment
 
                     }
                 } # switch ($enableDeploymentUpgrade)
-			}
-	        0
-			{
-				Write-Output "$(Get-Date -f $timeStampFormat) - ERROR: Deployment exists in $servicename.  Script execution cancelled."
-				exit
-			}
-	    } #switch ($alwaysDeleteExistingDeployments)
-	} else {
+            }
+            0
+            {
+                Write-Output "$(Get-Date -f $timeStampFormat) - ERROR: Deployment exists in $servicename.  Script execution cancelled."
+                exit
+            }
+        } #switch ($alwaysDeleteExistingDeployments)
+    } else {
             CreateNewDeployment
     }
 }
 
 function CreateNewDeployment()
 {
-	write-progress -id 3 -activity "Creating New Deployment" -Status "In progress"
-	Write-Output "$(Get-Date -f $timeStampFormat) - Creating New Deployment: In progress"
+    write-progress -id 3 -activity "Creating New Deployment" -Status "In progress"
+    Write-Output "$(Get-Date -f $timeStampFormat) - Creating New Deployment: In progress"
 
-	$opstat = New-AzureDeployment -Slot $slot -Package $packageLocation -Configuration $cloudConfigLocation -label $deploymentLabel -ServiceName $serviceName
+    $opstat = New-AzureDeployment -Slot $slot -Package $packageLocation -Configuration $cloudConfigLocation -label $deploymentLabel -ServiceName $serviceName
 
     $completeDeployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
     $completeDeploymentID = $completeDeployment.deploymentid
 
     write-progress -id 3 -activity "Creating New Deployment" -completed -Status "Complete"
-	Write-Output "$(Get-Date -f $timeStampFormat) - Creating New Deployment: Complete, Deployment ID: $completeDeploymentID"
+    Write-Output "$(Get-Date -f $timeStampFormat) - Creating New Deployment: Complete, Deployment ID: $completeDeploymentID"
 
-	StartInstances
+    StartInstances
 }
 
 function UpgradeDeployment()
 {
-	write-progress -id 3 -activity "Upgrading Deployment" -Status "In progress"
-	Write-Output "$(Get-Date -f $timeStampFormat) - Upgrading Deployment: In progress"
+    write-progress -id 3 -activity "Upgrading Deployment" -Status "In progress"
+    Write-Output "$(Get-Date -f $timeStampFormat) - Upgrading Deployment: In progress"
 
     # perform Update-Deployment
-	$setdeployment = Set-AzureDeployment -Upgrade -Slot $slot -Package $packageLocation -Configuration $cloudConfigLocation -label $deploymentLabel -ServiceName $serviceName -Force
+    $setdeployment = Set-AzureDeployment -Upgrade -Slot $slot -Package $packageLocation -Configuration $cloudConfigLocation -label $deploymentLabel -ServiceName $serviceName -Force
 
     $completeDeployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
     $completeDeploymentID = $completeDeployment.deploymentid
 
     write-progress -id 3 -activity "Upgrading Deployment" -completed -Status "Complete"
-	Write-Output "$(Get-Date -f $timeStampFormat) - Upgrading Deployment: Complete, Deployment ID: $completeDeploymentID"
+    Write-Output "$(Get-Date -f $timeStampFormat) - Upgrading Deployment: Complete, Deployment ID: $completeDeploymentID"
 }
 
 function DeleteDeployment()
 {
 
-	write-progress -id 2 -activity "Deleting Deployment" -Status "In progress"
-	Write-Output "$(Get-Date -f $timeStampFormat) - Deleting Deployment: In progress"
+    write-progress -id 2 -activity "Deleting Deployment" -Status "In progress"
+    Write-Output "$(Get-Date -f $timeStampFormat) - Deleting Deployment: In progress"
 
     #WARNING - always deletes with force
-	$removeDeployment = Remove-AzureDeployment -Slot $slot -ServiceName $serviceName -Force
+    $removeDeployment = Remove-AzureDeployment -Slot $slot -ServiceName $serviceName -Force
 
-	write-progress -id 2 -activity "Deleting Deployment: Complete" -completed -Status $removeDeployment
-	Write-Output "$(Get-Date -f $timeStampFormat) - Deleting Deployment: Complete"
+    write-progress -id 2 -activity "Deleting Deployment: Complete" -completed -Status $removeDeployment
+    Write-Output "$(Get-Date -f $timeStampFormat) - Deleting Deployment: Complete"
 
 }
 
 function StartInstances()
 {
-	write-progress -id 4 -activity "Starting Instances" -status "In progress"
-	Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instances: In progress"
+    write-progress -id 4 -activity "Starting Instances" -status "In progress"
+    Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instances: In progress"
 
     $deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
     $runstatus = $deployment.Status
 
     if ($runstatus -ne 'Running')
     {
-	    $run = Set-AzureDeployment -Slot $slot -ServiceName $serviceName -Status Running
+        $run = Set-AzureDeployment -Slot $slot -ServiceName $serviceName -Status Running
     }
-	$deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
-	$oldStatusStr = @("") * $deployment.RoleInstanceList.Count
+    $deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
+    $oldStatusStr = @("") * $deployment.RoleInstanceList.Count
 
-	while (-not(AllInstancesRunning($deployment.RoleInstanceList)))
-	{
-		$i = 1
-		foreach ($roleInstance in $deployment.RoleInstanceList)
-		{
-			$instanceName = $roleInstance.InstanceName
-			$instanceStatus = $roleInstance.InstanceStatus
+    while (-not(AllInstancesRunning($deployment.RoleInstanceList)))
+    {
+        $i = 1
+        foreach ($roleInstance in $deployment.RoleInstanceList)
+        {
+            $instanceName = $roleInstance.InstanceName
+            $instanceStatus = $roleInstance.InstanceStatus
 
-			if ($oldStatusStr[$i - 1] -ne $roleInstance.InstanceStatus)
-			{
-				$oldStatusStr[$i - 1] = $roleInstance.InstanceStatus
-				Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instance '$instanceName': $instanceStatus"
-			}
+            if ($oldStatusStr[$i - 1] -ne $roleInstance.InstanceStatus)
+            {
+                $oldStatusStr[$i - 1] = $roleInstance.InstanceStatus
+                Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instance '$instanceName': $instanceStatus"
+            }
 
-			write-progress -id (4 + $i) -activity "Starting Instance '$instanceName'" -status "$instanceStatus"
-			$i = $i + 1
-		}
+            write-progress -id (4 + $i) -activity "Starting Instance '$instanceName'" -status "$instanceStatus"
+            $i = $i + 1
+        }
 
-		sleep -Seconds 1
+        sleep -Seconds 1
 
-		$deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
-	}
+        $deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
+    }
 
-	$i = 1
-	foreach ($roleInstance in $deployment.RoleInstanceList)
-	{
-		$instanceName = $roleInstance.InstanceName
-		$instanceStatus = $roleInstance.InstanceStatus
+    $i = 1
+    foreach ($roleInstance in $deployment.RoleInstanceList)
+    {
+        $instanceName = $roleInstance.InstanceName
+        $instanceStatus = $roleInstance.InstanceStatus
 
-		if ($oldStatusStr[$i - 1] -ne $roleInstance.InstanceStatus)
-		{
-			$oldStatusStr[$i - 1] = $roleInstance.InstanceStatus
-			Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instance '$instanceName': $instanceStatus"
-		}
+        if ($oldStatusStr[$i - 1] -ne $roleInstance.InstanceStatus)
+        {
+            $oldStatusStr[$i - 1] = $roleInstance.InstanceStatus
+            Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instance '$instanceName': $instanceStatus"
+        }
 
-		$i = $i + 1
-	}
+        $i = $i + 1
+    }
 
     $deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
-	$opstat = $deployment.Status
+    $opstat = $deployment.Status
 
-	write-progress -id 4 -activity "Starting Instances" -completed -status $opstat
-	Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instances: $opstat"
+    write-progress -id 4 -activity "Starting Instances" -completed -status $opstat
+    Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instances: $opstat"
 }
 
 function AllInstancesRunning($roleInstanceList)
 {
-	foreach ($roleInstance in $roleInstanceList)
-	{
-		if ($roleInstance.InstanceStatus -ne "ReadyRole")
-		{
-			return $false
-		}
-	}
+    foreach ($roleInstance in $roleInstanceList)
+    {
+        if ($roleInstance.InstanceStatus -ne "ReadyRole")
+        {
+            return $false
+        }
+    }
 
-	return $true
+    return $true
 }
 
 #configure powershell with Azure 1.7 modules
@@ -553,18 +559,18 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Created Cloud Service with URL $
 Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy script finished."
 ```
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-Para habilitar la depuración remota cuando se usa la entrega continua, consulte [Habilitación de la depuración remota al usar la entrega continua para publicar en Azure](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md).
+To enable remote debugging when using continuous delivery, see [Enable remote debugging when using continuous delivery to publish to Azure](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md).
 
-  [Entrega continua a Azure con Visual Studio Team Services]: cloud-services-continuous-delivery-use-vso.md
-  [Configurar el Servicio de Team Foundation Build.]: https://msdn.microsoft.com/library/ee259687.aspx
+  [Continuous Delivery to Azure by Using Visual Studio Team Services]: cloud-services-continuous-delivery-use-vso.md  
+  [Team Foundation Build Service]: https://msdn.microsoft.com/library/ee259687.aspx
   [.NET Framework 4]: https://www.microsoft.com/download/details.aspx?id=17851
   [.NET Framework 4.5]: https://www.microsoft.com/download/details.aspx?id=30653
   [.NET Framework 4.5.2]: https://www.microsoft.com/download/details.aspx?id=42643
-  [Escalar horizontalmente el sistema de compilación]: https://msdn.microsoft.com/library/dd793166.aspx
-  [Implementar y configurar un servidor de compilación]: https://msdn.microsoft.com/library/ms181712.aspx
-  [cmdlets de Azure PowerShell]: powershell-install-configure.md
+  [Scale out your build system]: https://msdn.microsoft.com/library/dd793166.aspx
+  [Deploy and configure a build server]: https://msdn.microsoft.com/library/ms181712.aspx
+  [Azure PowerShell cmdlets]: powershell-install-configure.md
   [the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
   [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01bc.png
   [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
@@ -573,4 +579,8 @@ Para habilitar la depuración remota cuando se usa la entrega continua, consulte
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Crear un FQDN para una máquina virtual en el Portal de Azure | Microsoft Azure"
-   description="Aprenda a crear un nombre de dominio completo o FQDN para una máquina virtual basada en el administrador de recursos en el Portal de Azure."
+   pageTitle="Create FQDN for a VM in Azure portal | Microsoft Azure"
+   description="Learn how to create a Fully Qualified Domain Name or FQDN for a Resource Manager based virtual machine in the Azure portal."
    services="virtual-machines-linux"
    documentationCenter=""
    authors="iainfoulds"
@@ -17,16 +17,20 @@
    ms.date="08/23/2016"
    ms.author="iainfou"/>
 
-# Crear un nombre de dominio completo en el Portal de Azure
-Cuando crea una máquina virtual en el [Portal de Azure](https://portal.azure.com) mediante el modelo de implementación de Resource Manager, se crea automáticamente un recurso de IP pública para la máquina virtual. Use esta dirección IP para acceder de forma remota a la máquina virtual. Aunque el portal no crea [un nombre de dominio completo](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), o FQDN, de forma predeterminada, puede agregar uno cuando se crea la máquina virtual. Este artículo muestra los pasos para crear un nombre DNS o FQDN.
+
+# <a name="create-a-fully-qualified-domain-name-in-the-azure-portal"></a>Create a Fully Qualified Domain Name in the Azure portal
+When you create a virtual machine (VM) in the [Azure portal](https://portal.azure.com) using the Resource Manager deployment model, a public IP resource for the virtual machine is automatically created. You use this IP address to remotely access the VM. Although the portal does not create a [fully qualified domain name](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), or FQDN, by default, you can add one once the VM is created. This article demonstrates the steps to create a DNS name or FQDN.
 
 [AZURE.INCLUDE [virtual-machines-common-portal-create-fqdn](../../includes/virtual-machines-common-portal-create-fqdn.md)]
 
-Ahora puede conectarse de manera remota a la máquina virtual con este nombre DNS, por ejemplo, con `ssh adminuser@testdnslabel.centralus.cloudapp.azure.com`.
+You can now connect remotely to the VM using this DNS name such as with `ssh adminuser@testdnslabel.centralus.cloudapp.azure.com`.
 
-## Pasos siguientes
-Ahora que la máquina virtual tiene un nombre DNS y una IP pública, puede implementar marcos y servicios de aplicaciones comunes, como nginx, MongoDB, Docker, etc.
+## <a name="next-steps"></a>Next steps
+Now that your VM has a public IP and DNS name, you can deploy common application frameworks or services such as nginx, MongoDB, Docker, etc.
 
-También puede leer más sobre el [uso de Resource Manager](../resource-group-overview.md) para obtener sugerencias sobre la creación de las implementaciones de Azure.
+You can also read more about [using Resource Manager](../resource-group-overview.md) for tips on building your Azure deployments.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

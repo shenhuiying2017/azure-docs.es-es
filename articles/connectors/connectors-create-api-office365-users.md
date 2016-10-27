@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Incorporación del conector de usuarios de Office 365 a sus aplicaciones lógicas | Microsoft Azure"
-    description="Información general del conector de Usuarios de Office 365 con parámetros de la API de REST"
+    pageTitle="Add the Office 365 Users connector in Logic Apps | Microsoft Azure"
+    description="Overview of Office 365 Users connector with REST API parameters"
     services=""    
     documentationCenter=""     
     authors="msftman"    
@@ -17,150 +17,156 @@ ms.workload="integration"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
-# Introducción al conector de Usuarios de Office 365
 
-Conéctese a Usuarios de Office 365 para obtener perfiles, buscar usuarios, etc.
+# <a name="get-started-with-the-office-365-users-connector"></a>Get started with the Office 365 Users connector
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
+Connect to Office 365 Users to get profiles, search users, and more. 
 
-Con Usuarios de Office 365, puede:
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
-- Compilar el flujo de su negocio en función de los datos que obtiene de Usuarios de Office 365.
-- Usar acciones que obtienen informes directos, obtienen el perfil de usuario de un administrador, etc. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, obtenga informes directos de la persona y, luego, tome esta información y actualice una base de datos de SQL Azure.
+With Office 365 Users, you can:
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+- Build your business flow based on the data you get from Office 365 Users. 
+- Use actions that get direct reports, get a manager's user profile, and more. These actions get a response, and then make the output available for other actions. For example, get a person's direct reports, and then take this information and update a SQL Azure database. 
 
-## Desencadenadores y acciones
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-El conector de Usuarios de Office 365 tiene las siguientes acciones disponibles: No hay desencadenadores.
+## <a name="triggers-and-actions"></a>Triggers and actions
 
-| Desencadenadores | Acciones|
+The Office 365 Users connector has the following actions available. There are no triggers.
+
+| Triggers | Actions|
 | --- | --- |
-|None | <ul><li>Obtener administrador</li><li>Obtener mi perfil</li><li>Obtener subordinados directos</li><li>Obtener perfil de usuario</li><li>Buscar usuarios</li></ul>|
+|None | <ul><li>Get manager</li><li>Get my profile</li><li>Get direct reports</li><li>Get user profile</li><li>Search for users</li></ul>|
 
-Todos los conectores admiten datos en formato JSON y XML.
-
-
-## Creación de una conexión a Usuarios de Office 365
-
-Al agregar este conector a las aplicaciones lógicas, debe iniciar sesión en su cuenta de Usuarios de Office 365 y permitir que estas se conecten a su cuenta.
-
->[AZURE.INCLUDE [Pasos para crear una conexión a Usuarios de Office 365](../../includes/connectors-create-api-office365users.md)]
-
-Después de crear la conexión, especifique las propiedades de Usuarios de Office 365, como el identificador de usuario. La **referencia de la API de REST** de este tema describe estas propiedades.
-
->[AZURE.TIP] Esta misma conexión de Usuarios de Office 365 se puede usar en otras aplicaciones lógicas.
+All connectors support data in JSON and XML formats. 
 
 
-## Referencia de API de REST de Usuarios de Office 365
-Se aplica a la versión: 1.0.
+## <a name="create-a-connection-to-office-365-users"></a>Create a connection to Office 365 Users
 
-### Obtener mi perfil 
-Recupera el perfil del usuario actual. ```GET: /users/me```
+When you add this connector to your logic apps, you must sign-in to your Office 365 Users account and allow logic apps to connect to your account.
 
-No hay parámetros para esta llamada.
+>[AZURE.INCLUDE [Steps to create a connection to Office 365 Users](../../includes/connectors-create-api-office365users.md)]
 
-#### Response
+After you create the connection, you enter the Office 365 Users properties, like the user ID. The **REST API reference** in this topic describes these properties.
 
-|Nombre|Descripción|
+>[AZURE.TIP] You can use this same Office 365 Users connection in other logic apps.
+
+
+## <a name="office-365-users-rest-api-reference"></a>Office 365 Users REST API reference
+Applies to version: 1.0.
+
+### <a name="get-my-profile"></a>Get my profile 
+Retrieves the profile for the current user.  
+```GET: /users/me``` 
+
+There are no parameters for this call.
+
+#### <a name="response"></a>Response
+
+|Name|Description|
 |---|---|
-|200|Operación realizada correctamente|
-|202|Operación realizada correctamente|
+|200|Operation was successful|
+|202|Operation was successful|
 |400|BadRequest|
-|401|No autorizado|
-|403|Prohibido|
+|401|Unauthorized|
+|403|Forbidden|
 |500|Internal Server Error|
-|default|Error en la operación.|
+|default|Operation Failed.|
 
 
-### Obtener perfil de usuario 
-Recupera un perfil de usuario específico. ```GET: /users/{userId}```
+### <a name="get-user-profile"></a>Get user profile 
+Retrieves a specific user profile.  
+```GET: /users/{userId}``` 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|userId|string|yes|path|Ninguna|Nombre principal o identificador de correo electrónico del usuario|
+|userId|string|yes|path|none|User principal name or email id|
 
-#### Response
+#### <a name="response"></a>Response
 
-|Nombre|Descripción|
+|Name|Description|
 |---|---|
-|200|Operación realizada correctamente|
-|202|Operación realizada correctamente|
+|200|Operation was successful|
+|202|Operation was successful|
 |400|BadRequest|
-|401|No autorizado|
-|403|Prohibido|
+|401|Unauthorized|
+|403|Forbidden|
 |500|Internal Server Error|
-|default|Error en la operación.|
+|default|Operation Failed.|
 
 
-### Obtener administrador 
-Recupera el perfil de usuario del administrador del usuario especificado. ```GET: /users/{userId}/manager```
+### <a name="get-manager"></a>Get manager 
+Retrieves user profile for the manager of the specified user.  
+```GET: /users/{userId}/manager``` 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|userId|string|yes|path|Ninguna|Nombre principal o identificador de correo electrónico del usuario|
+|userId|string|yes|path|none|User principal name or email id|
 
-#### Response
+#### <a name="response"></a>Response
 
-|Nombre|Descripción|
+|Name|Description|
 |---|---|
-|200|Operación realizada correctamente|
-|202|Operación realizada correctamente|
+|200|Operation was successful|
+|202|Operation was successful|
 |400|BadRequest|
-|401|No autorizado|
-|403|Prohibido|
+|401|Unauthorized|
+|403|Forbidden|
 |500|Internal Server Error|
-|default|Error en la operación.|
+|default|Operation Failed.|
 
 
 
-### Obtener informes directos 
-Obtiene informes directos. ```GET: /users/{userId}/directReports```
+### <a name="get-direct-reports"></a>Get direct reports 
+Get direct reports.  
+```GET: /users/{userId}/directReports``` 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|userId|string|yes|path|Ninguna|Nombre principal o identificador de correo electrónico del usuario|
+|userId|string|yes|path|none|User principal name or email id|
 
-#### Response
+#### <a name="response"></a>Response
 
-|Nombre|Descripción|
+|Name|Description|
 |---|---|
-|200|Operación realizada correctamente|
-|202|Operación realizada correctamente|
+|200|Operation was successful|
+|202|Operation was successful|
 |400|BadRequest|
-|401|No autorizado|
-|403|Prohibido|
+|401|Unauthorized|
+|403|Forbidden|
 |500|Internal Server Error|
-|default|Error en la operación.|
+|default|Operation Failed.|
 
 
 
-### Buscar usuarios 
-Recupera los resultados de búsqueda de perfiles de usuario. ```GET: /users```
+### <a name="search-for-users"></a>Search for users 
+Retrieves search results of user profiles.  
+```GET: /users``` 
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|searchTerm|string|no|query|Ninguna|Cadena de búsqueda (se aplica a: nombre para mostrar, nombre dado, apellidos, correo, sobrenombre de correo y nombre principal del usuario)|
+|searchTerm|string|no|query|none|Search string (applies to: display name, given name, surname, mail, mail nickname and user principal name)|
 
-#### Response
+#### <a name="response"></a>Response
 
-|Nombre|Descripción|
+|Name|Description|
 |---|---|
-|200|Operación realizada correctamente|
-|202|Operación realizada correctamente|
+|200|Operation was successful|
+|202|Operation was successful|
 |400|BadRequest|
-|401|No autorizado|
-|403|Prohibido|
+|401|Unauthorized|
+|403|Forbidden|
 |500|Internal Server Error|
-|default|Error en la operación.|
+|default|Operation Failed.|
 
 
 
-## Definiciones de objeto
+## <a name="object-definitions"></a>Object definitions
 
-#### Usuario: clase de modelo de usuario.
+#### <a name="user:-user-model-class"></a>User: User model class
 
-|Nombre de propiedad | Tipo de datos |Obligatorio
+|Property Name | Data Type |Required
 |---|---|---|
 |DisplayName|string|no|
 |GivenName|string|no|
@@ -171,16 +177,16 @@ Recupera los resultados de búsqueda de perfiles de usuario. ```GET: /users```
 |AccountEnabled|boolean|no|
 |Id|string|yes
 |UserPrincipalName|string|no|
-|Departamento|string|no|
+|Department|string|no|
 |JobTitle|string|no|
 |mobilePhone|string|no|
 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next Steps
 
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Volver a la [lista de API](apis-list.md).
+Go back to the [APIs list](apis-list.md).
 
 <!--References-->
 [5]: https://portal.azure.com
@@ -190,4 +196,8 @@ Volver a la [lista de API](apis-list.md).
 [10]: ./media/connectors-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/connectors-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

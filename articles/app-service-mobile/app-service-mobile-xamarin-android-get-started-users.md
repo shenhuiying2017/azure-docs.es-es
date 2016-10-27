@@ -1,68 +1,69 @@
 <properties
-	pageTitle="Introducción a la autenticación de Aplicaciones móviles en Xamarin Android"
-	description="Obtenga información acerca de cómo utilizar Aplicaciones móviles para autenticar usuarios de su aplicación Xamarin Android a través de una variedad de proveedores de identidad, incluidos AAD, Google, Facebook, Twitter y Microsoft."
-	services="app-service\mobile"
-	documentationCenter="xamarin"
-	authors="mattchenderson"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get Started with authentication for Mobile Apps in Xamarin Android"
+    description="Learn how to use Mobile Apps to authenticate users of your Xamarin Android app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft."
+    services="app-service\mobile"
+    documentationCenter="xamarin"
+    authors="adrianhall"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-android"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="06/28/2016"
-	ms.author="mahender"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-xamarin-android"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
 
-# Adición de la autenticación a la aplicación Xamarin.Android
+
+# <a name="add-authentication-to-your-xamarin.android-app"></a>Add authentication to your Xamarin.Android app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-En este tema se muestra cómo autenticar usuarios de una aplicación móvil desde la aplicación cliente. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Aplicaciones móviles de Azure. Una vez que la aplicación móvil finalice la autenticación y autorización correctamente, se mostrará el valor del identificador de usuario.
+This topic shows you how to authenticate users of a Mobile App from your client application. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Azure Mobile Apps. After being successfully authenticated and authorized in the Mobile App, the user ID value is displayed.
 
-Este tutorial se basa en el inicio rápido de aplicaciones móviles. Primero debe completar el tutorial [Creación de una aplicación Xamarin.Android]. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar el paquete de extensión de autenticación al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+This tutorial is based on the Mobile App quickstart. You must also first complete the tutorial [Create a Xamarin.Android app]. If you do not use the downloaded quick start server project, you must add the authentication extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-##<a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios de aplicaciones
+##<a name="<a-name="register"></a>register-your-app-for-authentication-and-configure-app-services"></a><a name="register"></a>Register your app for authentication and configure App Services
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-##<a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
+##<a name="<a-name="permissions"></a>restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restrict permissions to authenticated users
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-En Visual Studio o Xamarin Studio, ejecute el proyecto de cliente en un dispositivo o emulador. Compruebe que se produce una excepción no controlada con el código de estado 401 (No autorizado) después de iniciarse la aplicación. Esto sucede porque la aplicación intenta obtener acceso al back-end de la aplicación móvil como usuario sin autenticar. La tabla *TodoItem* ahora requiere autenticación.
+In Visual Studio or Xamarin Studio, run the client project on a device or emulator. Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. This happens because the app attempts to access your Mobile App backend as an unauthenticated user. The *TodoItem* table now requires authentication.
 
-Luego, actualizará la aplicación cliente para solicitar recursos del back-end de la aplicación móvil con un usuario autenticado.
+Next, you will update the client app to request resources from the Mobile App backend with an authenticated user.
 
-##<a name="add-authentication"></a>Incorporación de autenticación a la aplicación
+##<a name="<a-name="add-authentication"></a>add-authentication-to-the-app"></a><a name="add-authentication"></a>Add authentication to the app
 
-La aplicación se actualiza para requerir a los usuarios que pulsen el botón **Iniciar sesión** y que se autentiquen para que se muestren los datos.
+The app is updated to require users to tap the **Sign in** button and authenticate before data is displayed.
 
-1. Agregue el siguiente código a la clase **TodoActivity**:
+1. Add the following code to the **TodoActivity** class:
 
-	    // Define a authenticated user.
-	    private MobileServiceUser user;
-	    private async Task<bool> Authenticate()
-	    {
-	            var success = false;
-	            try
-	            {
-	                // Sign in with Facebook login using a server-managed flow.
-	                user = await client.LoginAsync(this,
-	                    MobileServiceAuthenticationProvider.Facebook);
-	                CreateAndShowDialog(string.Format("you are now logged in - {0}",
-	                    user.UserId), "Logged in!");
+        // Define a authenticated user.
+        private MobileServiceUser user;
+        private async Task<bool> Authenticate()
+        {
+                var success = false;
+                try
+                {
+                    // Sign in with Facebook login using a server-managed flow.
+                    user = await client.LoginAsync(this,
+                        MobileServiceAuthenticationProvider.Facebook);
+                    CreateAndShowDialog(string.Format("you are now logged in - {0}",
+                        user.UserId), "Logged in!");
 
-	                success = true;
-	            }
-	            catch (Exception ex)
-	            {
-	                CreateAndShowDialog(ex, "Authentication failed");
-	            }
-	            return success;
-	    }
+                    success = true;
+                }
+                catch (Exception ex)
+                {
+                    CreateAndShowDialog(ex, "Authentication failed");
+                }
+                return success;
+        }
 
         [Java.Interop.Export()]
         public async void LoginUser(View view)
@@ -78,33 +79,37 @@ La aplicación se actualiza para requerir a los usuarios que pulsen el botón **
             }
         }
 
-    Esto crea un método nuevo para autenticar un usuario y un controlador de método para un nuevo botón **Iniciar sesión**. El usuario del código de ejemplo anterior se autentica mediante el inicio de sesión en Facebook. Se usa un cuadro de diálogo para mostrar el identificador de usuario una vez autenticado.
+    This creates a new method to authenticate a user and a method handler for a new **Sign in** button. The user in the example code above is authenticated by using a Facebook login. A dialog is used to display the user ID once authenticated.
 
-    > [AZURE.NOTE] Si usa un proveedor de identidades que no sea una cuenta de Facebook, cambie el valor que pasó anteriormente a **LoginAsync** a uno de los siguientes: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
+    > [AZURE.NOTE] If you are using an identity provider other than Facebook, change the value passed to **LoginAsync** above to one of the following: _MicrosoftAccount_, _Twitter_, _Google_, or _WindowsAzureActiveDirectory_.
 
-3. En el método **OnCreate**, elimine o convierta en comentario la siguiente línea de código:
+3. In the **OnCreate** method, delete or comment-out the following line of code:
 
-		OnRefreshItemsSelected ();
+        OnRefreshItemsSelected ();
 
-4. En el archivo Activity\_To\_Do.axml, agregue la siguiente definición de botón *LoginUser* antes del botón *AddItem* existente:
+4. In the Activity_To_Do.axml file, add the following *LoginUser* button definition before the existing *AddItem* button:
 
-      	<Button
+        <Button
             android:id="@+id/buttonLoginUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="LoginUser"
             android:text="@string/login_button_text" />
 
-5. Agregue el siguiente elemento al archivo de recursos Strings.xml:
+5. Add the following element to the Strings.xml resources file:
 
-		<string name="login_button_text">Sign in</string>
+        <string name="login_button_text">Sign in</string>
 
-6. En Visual Studio o Xamarin Studio, ejecute el proyecto de cliente en un dispositivo o emulador, e inicie sesión con el proveedor de identidades elegido.
+6. In Visual Studio or Xamarin Studio, run the client project on a device or emulator and sign in with your chosen identity provider.
 
-   	Una vez iniciada la sesión correctamente, la aplicación mostrará el id. de inicio de sesión y la lista de tareas pendientes, y podrá realizar actualizaciones en los datos.
+    When you are successfully logged-in, the app will display your login ID and the list of todo items, and you can make updates to the data.
 
 
 <!-- URLs. -->
-[Creación de una aplicación Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
+[Create a Xamarin.Android app]: app-service-mobile-xamarin-android-get-started.md
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Uso del almacenamiento de tablas (C++) | Microsoft Azure"
-	description="Almacene datos estructurados en la nube con el Almacenamiento de tablas de Azure, un almacén de datos NoSQL."
+    pageTitle="How to use Table storage (C++) | Microsoft Azure"
+    description="Store structured data in the cloud using Azure Table storage, a NoSQL data store."
     services="storage"
     documentationCenter=".net"
     authors="dineshmurthy"
@@ -13,407 +13,412 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="09/20/2016"
-    ms.author="dineshm;tamram"/>
+    ms.date="10/18/2016"
+    ms.author="dineshm"/>
 
-# Uso de almacenamiento de tablas desde C++
+
+# <a name="how-to-use-table-storage-from-c++"></a>How to use Table storage from C++
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 <br/>
 [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
-## Información general  
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento de tablas de Azure. Los ejemplos están escritos en C++ y usan la [biblioteca de cliente de almacenamiento de Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Entre los escenarios descritos se incluyen **crear y eliminar una tabla**, así como **trabajar con entidades de tabla**.
+## <a name="overview"></a>Overview  
+This guide will show you how to perform common scenarios by using the Azure Table storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). The scenarios covered include **creating and deleting a table** and **working with table entities**.
 
->[AZURE.NOTE] Esta guía se destina a la biblioteca de cliente de almacenamiento de Azure para C++, versión 1.0.0 y posteriores. La versión recomendada es la biblioteca de cliente de almacenamiento 2.2.0, que se encuentra disponible a través de [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/Azure/azure-storage-cpp/).
+>[AZURE.NOTE] This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. The recommended version is Storage Client Library 2.2.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp/).
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 
-## Creación de una aplicación de C++  
-En esta guía, usará las características de almacenamiento que se pueden ejecutar en una aplicación C++. Para ello, deberá instalar la biblioteca de cliente de almacenamiento de Azure para C++ y crear una cuenta de almacenamiento de Azure en su suscripción de Azure.
+## <a name="create-a-c++-application"></a>Create a C++ application  
+In this guide, you will use storage features that can be run within a C++ application. To do so, you will need to install the Azure Storage Client Library for C++ and create an Azure storage account in your Azure subscription.  
 
-Para instalar la biblioteca de cliente de almacenamiento de Azure para C++, puede usar los métodos siguientes:
+To install the Azure Storage Client Library for C++, you can use the following methods:
 
--	**Linux:** siga las instrucciones indicadas en la página [Léame de la biblioteca de cliente de almacenamiento de Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).
--	**Windows:** en Visual Studio, haga clic en **Herramientas > Administrador de paquetes de NuGet > Consola del Administrador de paquetes**. Escriba el siguiente comando en la [Consola del Administrador de paquetes de NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) y presione Entrar.
+-   **Linux:** Follow the instructions given on the [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.  
+-   **Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**. Type the following command into the [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press Enter.  
 
-		Install-Package wastorage
+        Install-Package wastorage
 
-## Configuración de la aplicación para acceder al almacenamiento de tablas  
-Agregue las siguientes instrucciones include en la parte superior del archivo C++ en el que desea usar las API de almacenamiento de Azure para obtener acceso a las tablas:
+## <a name="configure-your-application-to-access-table-storage"></a>Configure your application to access Table storage  
+Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access tables:  
 
-	#include "was/storage_account.h"
-	#include "was/table.h"
+    #include "was/storage_account.h"
+    #include "was/table.h"
 
-## Configuración de una cadena de conexión de Almacenamiento de Azure  
-Un cliente de almacenamiento de Azure utiliza una cadena de conexión de almacenamiento para almacenar extremos y credenciales con el fin de obtener acceso a los servicios de administración de datos. Cuando se ejecuta una aplicación cliente, debe proporcionar la cadena de conexión de almacenamiento en el formato siguiente. Use el nombre de la cuenta de almacenamiento y la clave de acceso de almacenamiento para la cuenta de almacenamiento que aparece en el [Portal de Azure](https://portal.azure.com) para los valores *AccountName* y *AccountKey*. Para obtener información sobre las cuentas de almacenamiento y las claves de acceso, consulte [Acerca de las cuentas de almacenamiento de Azure](storage-create-storage-account.md). En este ejemplo se muestra cómo puede declarar un campo estático para mantener la cadena de conexión:
+## <a name="set-up-an-azure-storage-connection-string"></a>Set up an Azure storage connection string  
+An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running a client application, you must provide the storage connection string in the following format. Use the name of your storage account and the storage access key for the storage account listed in the [Azure Portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. For information on storage accounts and access keys, see [About Azure storage accounts](storage-create-storage-account.md). This example shows how you can declare a static field to hold the connection string:  
 
-	// Define the connection string with your values.
-	const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
+    // Define the connection string with your values.
+    const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 
-Para probar la aplicación en el equipo local de Windows, puede usar el [emulador de almacenamiento](storage-use-emulator.md) de Azure que se instala con el [SDK de Azure](https://azure.microsoft.com/downloads/). El emulador de almacenamiento es una utilidad que simula los servicios Blob, Cola y Tabla de Azure en el equipo de desarrollo local. En el ejemplo siguiente se muestra cómo puede declarar un campo estático para mantener la cadena de conexión en el emulador de almacenamiento local:
+To test your application in your local Windows-based computer, you can use the Azure [storage emulator](storage-use-emulator.md) that is installed with the [Azure SDK](https://azure.microsoft.com/downloads/). The storage emulator is a utility that simulates the Azure Blob, Queue, and Table services available on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:  
 
-	// Define the connection string with Azure storage emulator.
-	const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
+    // Define the connection string with Azure storage emulator.
+    const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 
-Para iniciar el emulador de almacenamiento de Azure, haga clic en el botón **Inicio** o pulse la tecla Windows. Comience a escribir **Emulador de almacenamiento de Azure** y seleccione **Emulador de almacenamiento de Microsoft Azure** en la lista de aplicaciones.
+To start the Azure storage emulator, click the **Start** button or press the Windows key. Begin typing **Azure Storage Emulator**, and then select **Microsoft Azure Storage Emulator** from the list of applications.  
 
-En los ejemplos siguientes se supone que usó uno de estos dos métodos para obtener la cadena de conexión de almacenamiento.
+The following samples assume that you have used one of these two methods to get the storage connection string.  
 
-## Recuperación de la cadena de conexión  
-Puede usar la clase **cloud\_storage\_account** para representar la información de la cuenta de almacenamiento. Para recuperar la información de la cuenta de almacenamiento a partir de la cadena de conexión de almacenamiento, puede usar el método parse.
+## <a name="retrieve-your-connection-string"></a>Retrieve your connection string  
+You can use the **cloud_storage_account** class to represent your storage account information. To retrieve your storage account information from the storage connection string, you can use the parse method.
 
-	// Retrieve the storage account from the connection string.
-	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
+    // Retrieve the storage account from the connection string.
+    azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-A continuación, obtenga una referencia a una clase **cloud\_table\_client**, ya que permite obtener objetos de referencia para las tablas y las entidades almacenadas en el servicio de almacenamiento de tabla. El código siguiente crea un objeto **cloud\_table\_client** usando el objeto de cuenta de almacenamiento recuperado anteriormente:
+Next, get a reference to a **cloud_table_client** class, as it lets you get reference objects for tables and entities stored within the Table storage service. The following code creates a **cloud_table_client** object by using the storage account object we retrieved above:  
 
-	// Create the table client.
-	azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
+    // Create the table client.
+    azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-## Creación de una tabla
-Los objetos **cloud\_table\_client** le permiten obtener objetos de referencia para tablas y entidades. El código siguiente crea un objeto **cloud\_table\_client** y lo usa para crear una nueva tabla.
+## <a name="create-a-table"></a>Create a table
+A **cloud_table_client** object lets you get reference objects for tables and entities. The following code creates a **cloud_table_client** object and uses it to create a new table.
 
-	// Retrieve the storage account from the connection string.
-	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);  
+    // Retrieve the storage account from the connection string.
+    azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);  
 
-	// Create the table client.
-	azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
+    // Create the table client.
+    azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-	// Retrieve a reference to a table.
-	azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
+    // Retrieve a reference to a table.
+    azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-	// Create the table if it doesn't exist.
-	table.create_if_not_exists();  
+    // Create the table if it doesn't exist.
+    table.create_if_not_exists();  
 
-## Adición de una entidad a una tabla
-Para agregar una entidad a una tabla, cree un nuevo objeto **table\_entity** y páselo a **table\_operation::insert\_entity**. El código siguiente usa el nombre de pila del cliente como clave de fila y el apellido como clave de partición. En conjunto, la clave de partición y la clave de fila de una entidad la identifican inequívocamente en la tabla. Las entidades con la misma clave de partición pueden consultarse más rápidamente que aquellas con diferentes claves de partición, pero el uso de claves de partición diversas permite una mayor escalabilidad de las operaciones paralelas. Para obtener más información, consulte [Lista de comprobación de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure](storage-performance-checklist.md).
+## <a name="add-an-entity-to-a-table"></a>Add an entity to a table
+To add an entity to a table, create a new **table_entity** object and pass it to **table_operation::insert_entity**. The following code uses the customer's first name as the row key and last name as the partition key. Together, an entity's partition and row key uniquely identify the entity in the table. Entities with the same partition key can be queried faster than those with different partition keys, but using diverse partition keys allows for greater parallel operation scalability. For more information, see [Microsoft Azure storage performance and scalability checklist](storage-performance-checklist.md).
 
-El código siguiente crea una instancia nueva de **table\_entity** con algunos datos de clientes que se van a almacenar. El código siguiente llama a **table\_operation::insert\_entity** para crear un objeto **table\_operation** a fin de insertar una entidad en una tabla y le asocia la nueva entidad de tabla. Por último, el código llama al método execute en el objeto **cloud\_table**. La nueva **table\_operation** envía una solicitud al servicio Tabla para insertar la nueva entidad de cliente en la tabla "people".
+The following code creates a new instance of **table_entity** with some customer data to be stored. The code next calls **table_operation::insert_entity** to create a **table_operation** object to insert an entity into a table, and associates the new table entity with it. Finally, the code calls the execute method on the **cloud_table** object. And the new **table_operation** sends a request to the Table service to insert the new customer entity into the "people" table.  
 
-	// Retrieve the storage account from the connection string.
-	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
+    // Retrieve the storage account from the connection string.
+    azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-	// Create the table client.
-	azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
+    // Create the table client.
+    azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-	// Retrieve a reference to a table.
-	azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
+    // Retrieve a reference to a table.
+    azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-	// Create the table if it doesn't exist.
-	table.create_if_not_exists();
+    // Create the table if it doesn't exist.
+    table.create_if_not_exists();
 
-	// Create a new customer entity.
-	azure::storage::table_entity customer1(U("Harp"), U("Walter"));
+    // Create a new customer entity.
+    azure::storage::table_entity customer1(U("Harp"), U("Walter"));
 
-	azure::storage::table_entity::properties_type& properties = customer1.properties();
-	properties.reserve(2);
-	properties[U("Email")] = azure::storage::entity_property(U("Walter@contoso.com"));
+    azure::storage::table_entity::properties_type& properties = customer1.properties();
+    properties.reserve(2);
+    properties[U("Email")] = azure::storage::entity_property(U("Walter@contoso.com"));
 
-	properties[U("Phone")] = azure::storage::entity_property(U("425-555-0101"));
+    properties[U("Phone")] = azure::storage::entity_property(U("425-555-0101"));
 
-	// Create the table operation that inserts the customer entity.
-	azure::storage::table_operation insert_operation = azure::storage::table_operation::insert_entity(customer1);
+    // Create the table operation that inserts the customer entity.
+    azure::storage::table_operation insert_operation = azure::storage::table_operation::insert_entity(customer1);
 
-	// Execute the insert operation.
-	azure::storage::table_result insert_result = table.execute(insert_operation);
+    // Execute the insert operation.
+    azure::storage::table_result insert_result = table.execute(insert_operation);
 
-## Inserción de un lote de entidades
-Puede insertar un lote de entidades en el servicio Tabla mediante una operación de escritura. El código siguiente crea un objeto **table\_batch\_operation** y, luego, le agrega tres operaciones de inserción. Cada operación de inserción se agrega al crear un nuevo objeto de entidad, configurar sus valores y, a continuación, llamar al método insert en el objeto **table\_batch\_operation** para asociar la entidad a una nueva operación de inserción. A continuación, se llama a **cloud\_table.execute** para ejecutar la operación.
+## <a name="insert-a-batch-of-entities"></a>Insert a batch of entities
+You can insert a batch of entities to the Table service in one write operation. The following code creates a **table_batch_operation** object, and then adds three insert operations to it. Each insert operation is added by creating a new entity object, setting its values, and then calling the insert method on the **table_batch_operation** object to associate the entity with a new insert operation. Then, **cloud_table.execute** is called to execute the operation.  
 
-	// Retrieve the storage account from the connection string.
-	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
+    // Retrieve the storage account from the connection string.
+    azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-	// Create the table client.
-	azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
+    // Create the table client.
+    azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-	// Create a cloud table object for the table.
-	azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
+    // Create a cloud table object for the table.
+    azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-	// Define a batch operation.
-	azure::storage::table_batch_operation batch_operation;
+    // Define a batch operation.
+    azure::storage::table_batch_operation batch_operation;
 
-	// Create a customer entity and add it to the table.
-	azure::storage::table_entity customer1(U("Smith"), U("Jeff"));
+    // Create a customer entity and add it to the table.
+    azure::storage::table_entity customer1(U("Smith"), U("Jeff"));
 
-	azure::storage::table_entity::properties_type& properties1 = customer1.properties();
-	properties1.reserve(2);
-	properties1[U("Email")] = azure::storage::entity_property(U("Jeff@contoso.com"));
-	properties1[U("Phone")] = azure::storage::entity_property(U("425-555-0104"));
+    azure::storage::table_entity::properties_type& properties1 = customer1.properties();
+    properties1.reserve(2);
+    properties1[U("Email")] = azure::storage::entity_property(U("Jeff@contoso.com"));
+    properties1[U("Phone")] = azure::storage::entity_property(U("425-555-0104"));
 
-	// Create another customer entity and add it to the table.
-	azure::storage::table_entity customer2(U("Smith"), U("Ben"));
+    // Create another customer entity and add it to the table.
+    azure::storage::table_entity customer2(U("Smith"), U("Ben"));
 
-	azure::storage::table_entity::properties_type& properties2 = customer2.properties();
-	properties2.reserve(2);
-	properties2[U("Email")] = azure::storage::entity_property(U("Ben@contoso.com"));
-	properties2[U("Phone")] = azure::storage::entity_property(U("425-555-0102"));
+    azure::storage::table_entity::properties_type& properties2 = customer2.properties();
+    properties2.reserve(2);
+    properties2[U("Email")] = azure::storage::entity_property(U("Ben@contoso.com"));
+    properties2[U("Phone")] = azure::storage::entity_property(U("425-555-0102"));
 
-	// Create a third customer entity to add to the table.
-	azure::storage::table_entity customer3(U("Smith"), U("Denise"));
+    // Create a third customer entity to add to the table.
+    azure::storage::table_entity customer3(U("Smith"), U("Denise"));
 
-	azure::storage::table_entity::properties_type& properties3 = customer3.properties();
-	properties3.reserve(2);
-	properties3[U("Email")] = azure::storage::entity_property(U("Denise@contoso.com"));
-	properties3[U("Phone")] = azure::storage::entity_property(U("425-555-0103"));
+    azure::storage::table_entity::properties_type& properties3 = customer3.properties();
+    properties3.reserve(2);
+    properties3[U("Email")] = azure::storage::entity_property(U("Denise@contoso.com"));
+    properties3[U("Phone")] = azure::storage::entity_property(U("425-555-0103"));
 
-	// Add customer entities to the batch insert operation.
-	batch_operation.insert_or_replace_entity(customer1);
-	batch_operation.insert_or_replace_entity(customer2);
-	batch_operation.insert_or_replace_entity(customer3);
+    // Add customer entities to the batch insert operation.
+    batch_operation.insert_or_replace_entity(customer1);
+    batch_operation.insert_or_replace_entity(customer2);
+    batch_operation.insert_or_replace_entity(customer3);
 
-	// Execute the batch operation.
-	std::vector<azure::storage::table_result> results = table.execute_batch(batch_operation);
+    // Execute the batch operation.
+    std::vector<azure::storage::table_result> results = table.execute_batch(batch_operation);
 
-Algunos aspectos que cabe tener en cuenta acerca de las operaciones por lotes:
+Some things to note on batch operations:  
 
--	Puede ejecutar cualquier combinación de 100 operaciones de inserción, eliminación, combinación, reemplazo, inserción o combinación e inserción o reemplazo en un único lote.
--	Una operación por lotes puede tener una operación de recuperación, si es que es la única operación del lote.
--	Todas las entidades de la misma operación por lotes deben compartir la misma clave de partición.
--	Una operación por lotes se limita a una carga de datos de 4 MB.
+-   You can perform up to 100 insert, delete, merge, replace, insert-or-merge, and insert-or-replace operations in any combination in a single batch.  
+-   A batch operation can have a retrieve operation, if it is the only operation in the batch.  
+-   All entities in a single batch operation must have the same partition key.  
+-   A batch operation is limited to a 4-MB data payload.  
 
-## todas las entidades de una partición
-Para consultar una tabla a fin de obtener todas las entidades de una partición, use un objeto **table\_query**. El ejemplo de código siguiente especifica un filtro para las entidades en las que “Smith” es la clave de partición. En este ejemplo, los campos de cada entidad se imprimen en la consola, como parte de los resultados de la consulta.
+## <a name="retrieve-all-entities-in-a-partition"></a>Retrieve all entities in a partition
+To query a table for all entities in a partition, use a **table_query** object. The following code example specifies a filter for entities where 'Smith' is the partition key. This example prints the fields of each entity in the query results to the console.  
 
-	// Retrieve the storage account from the connection string.
-	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
+    // Retrieve the storage account from the connection string.
+    azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-	// Create the table client.
-	azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
+    // Create the table client.
+    azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-	// Create a cloud table object for the table.
-	azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
+    // Create a cloud table object for the table.
+    azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-	// Construct the query operation for all customer entities where PartitionKey="Smith".
-	azure::storage::table_query query;
+    // Construct the query operation for all customer entities where PartitionKey="Smith".
+    azure::storage::table_query query;
 
-	query.set_filter_string(azure::storage::table_query::generate_filter_condition(U("PartitionKey"), azure::storage::query_comparison_operator::equal, U("Smith")));
+    query.set_filter_string(azure::storage::table_query::generate_filter_condition(U("PartitionKey"), azure::storage::query_comparison_operator::equal, U("Smith")));
 
-	// Execute the query.
-	azure::storage::table_query_iterator it = table.execute_query(query);
+    // Execute the query.
+    azure::storage::table_query_iterator it = table.execute_query(query);
 
-	// Print the fields for each customer.
-	azure::storage::table_query_iterator end_of_results;
-	for (; it != end_of_results; ++it)
-	{
-		const azure::storage::table_entity::properties_type& properties = it->properties();
+    // Print the fields for each customer.
+    azure::storage::table_query_iterator end_of_results;
+    for (; it != end_of_results; ++it)
+    {
+        const azure::storage::table_entity::properties_type& properties = it->properties();
 
-		std::wcout << U("PartitionKey: ") << it->partition_key() << U(", RowKey: ") << it->row_key()
-			<< U(", Property1: ") << properties.at(U("Email")).string_value()
-			<< U(", Property2: ") << properties.at(U("Phone")).string_value() << std::endl;
-	}  
+        std::wcout << U("PartitionKey: ") << it->partition_key() << U(", RowKey: ") << it->row_key()
+            << U(", Property1: ") << properties.at(U("Email")).string_value()
+            << U(", Property2: ") << properties.at(U("Phone")).string_value() << std::endl;
+    }  
 
-La consulta de este ejemplo recupera todas las entidades que coinciden con los criterios de filtro. Si tiene tablas grandes y necesita descargar las entidades de tabla con frecuencia, se recomienda almacenar los datos en blobs de Almacenamiento de Azure en su lugar.
+The query in this example brings all the entities that match the filter criteria. If you have large tables and need to download the table entities often, we recommend that you store your data in Azure storage blobs instead.
 
-## Recuperación de un rango de entidades de una partición
-Si no desea consultar todas las entidades de una partición, puede especificar un rango combinando el filtro de clave de partición con un filtro de clave de fila. El ejemplo de código siguiente utiliza dos filtros para obtener todas las entidades de la partición “Smith” en las que la clave de fila (nombre de pila) empieza por una letra anterior a “E” en el alfabeto y, a continuación, imprime los resultados de la consulta.
+## <a name="retrieve-a-range-of-entities-in-a-partition"></a>Retrieve a range of entities in a partition
+If you don't want to query all the entities in a partition, you can specify a range by combining the partition key filter with a row key filter. The following code example uses two filters to get all entities in partition 'Smith' where the row key (first name) starts with a letter earlier than 'E' in the alphabet and then prints the query results.  
 
-	// Retrieve the storage account from the connection string.
-	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
+    // Retrieve the storage account from the connection string.
+    azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-	// Create the table client.
-	azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
+    // Create the table client.
+    azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-	// Create a cloud table object for the table.
-	azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
+    // Create a cloud table object for the table.
+    azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-	// Create the table query.
-	azure::storage::table_query query;
+    // Create the table query.
+    azure::storage::table_query query;
 
-	query.set_filter_string(azure::storage::table_query::combine_filter_conditions(
-		azure::storage::table_query::generate_filter_condition(U("PartitionKey"),
-		azure::storage::query_comparison_operator::equal, U("Smith")),
-		azure::storage::query_logical_operator::op_and,
-		azure::storage::table_query::generate_filter_condition(U("RowKey"), azure::storage::query_comparison_operator::less_than, U("E"))));
+    query.set_filter_string(azure::storage::table_query::combine_filter_conditions(
+        azure::storage::table_query::generate_filter_condition(U("PartitionKey"),
+        azure::storage::query_comparison_operator::equal, U("Smith")),
+        azure::storage::query_logical_operator::op_and,
+        azure::storage::table_query::generate_filter_condition(U("RowKey"), azure::storage::query_comparison_operator::less_than, U("E"))));
 
-	// Execute the query.
-	azure::storage::table_query_iterator it = table.execute_query(query);
+    // Execute the query.
+    azure::storage::table_query_iterator it = table.execute_query(query);
 
-	// Loop through the results, displaying information about the entity.
-	azure::storage::table_query_iterator end_of_results;
-	for (; it != end_of_results; ++it)
-	{
-		const azure::storage::table_entity::properties_type& properties = it->properties();
+    // Loop through the results, displaying information about the entity.
+    azure::storage::table_query_iterator end_of_results;
+    for (; it != end_of_results; ++it)
+    {
+        const azure::storage::table_entity::properties_type& properties = it->properties();
 
-		std::wcout << U("PartitionKey: ") << it->partition_key() << U(", RowKey: ") << it->row_key()
-			<< U(", Property1: ") << properties.at(U("Email")).string_value()
-			<< U(", Property2: ") << properties.at(U("Phone")).string_value() << std::endl;
-	}  
+        std::wcout << U("PartitionKey: ") << it->partition_key() << U(", RowKey: ") << it->row_key()
+            << U(", Property1: ") << properties.at(U("Email")).string_value()
+            << U(", Property2: ") << properties.at(U("Phone")).string_value() << std::endl;
+    }  
 
-## una sola entidad
-Puede enviar una consulta para recuperar una sola entidad concreta. El código siguiente usa un objeto **table\_operation::retrive\_entity** para especificar el cliente "Jeff Smith". Este método devuelve una sola entidad, en lugar de una colección, y el valor devuelto está en **table\_result**. La forma más rápida de recuperar una sola entidad del servicio Tabla es especificar claves tanto de partición como de fila en las consultas.
+## <a name="retrieve-a-single-entity"></a>Retrieve a single entity
+You can write a query to retrieve a single, specific entity. The following code uses **table_operation::retrieve_entity** to specify the customer 'Jeff Smith'. This method returns just one entity, rather than a collection, and the returned value is in **table_result**. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the Table service.  
 
-	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
+    azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-	// Create the table client.
-	azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
+    // Create the table client.
+    azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-	// Create a cloud table object for the table.
-	azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
+    // Create a cloud table object for the table.
+    azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-	// Retrieve the entity with partition key of "Smith" and row key of "Jeff".
-	azure::storage::table_operation retrieve_operation = azure::storage::table_operation::retrieve_entity(U("Smith"), U("Jeff"));
-	azure::storage::table_result retrieve_result = table.execute(retrieve_operation);
+    // Retrieve the entity with partition key of "Smith" and row key of "Jeff".
+    azure::storage::table_operation retrieve_operation = azure::storage::table_operation::retrieve_entity(U("Smith"), U("Jeff"));
+    azure::storage::table_result retrieve_result = table.execute(retrieve_operation);
 
-	// Output the entity.
-	azure::storage::table_entity entity = retrieve_result.entity();
-	const azure::storage::table_entity::properties_type& properties = entity.properties();
+    // Output the entity.
+    azure::storage::table_entity entity = retrieve_result.entity();
+    const azure::storage::table_entity::properties_type& properties = entity.properties();
 
-	std::wcout << U("PartitionKey: ") << entity.partition_key() << U(", RowKey: ") << entity.row_key()
-		<< U(", Property1: ") << properties.at(U("Email")).string_value()
-		<< U(", Property2: ") << properties.at(U("Phone")).string_value() << std::endl;
+    std::wcout << U("PartitionKey: ") << entity.partition_key() << U(", RowKey: ") << entity.row_key()
+        << U(", Property1: ") << properties.at(U("Email")).string_value()
+        << U(", Property2: ") << properties.at(U("Phone")).string_value() << std::endl;
 
-## una entidad
-Para reemplazar una entidad, recupérela del servicio Tabla, modifique su objeto y, luego, guarde los cambios de nuevo en el servicio Tabla. El código siguiente cambia el número de teléfono y la dirección de correo electrónico de un cliente. En lugar de llamar a **table\_operation::insert\_entity**, este código usa **table\_operation::replace\_entity**. Esto hace que la entidad se reemplace por completo en el servidor, a menos que la entidad del servidor cambiara desde que se recuperó, en cuyo caso la operación dará error. Este error evita que la aplicación sobrescriba accidentalmente un cambio realizado entre la recuperación y la actualización por otro componente de la misma. La manera correcta de actuar ante este error es recuperar de nuevo la entidad, hacer los cambios oportunos (si siguen siendo válidos) y, a continuación, realizar otra operación **table\_operation::replace\_entity**. En la siguiente sección se muestra cómo invalidar este comportamiento.
+## <a name="replace-an-entity"></a>Replace an entity
+To replace an entity, retrieve it from the Table service, modify the entity object, and then save the changes back to the Table service. The following code changes an existing customer's phone number and email address. Instead of calling **table_operation::insert_entity**, this code uses **table_operation::replace_entity**. This causes the entity to be fully replaced on the server, unless the entity on the server has changed since it was retrieved, in which case the operation will fail. This failure is to prevent your application from inadvertently overwriting a change made between the retrieval and update by another component of your application. The proper handling of this failure is to retrieve the entity again, make your changes (if still valid), and then perform another **table_operation::replace_entity** operation. The next section will show you how to override this behavior.  
 
-	// Retrieve the storage account from the connection string.
-	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
+    // Retrieve the storage account from the connection string.
+    azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-	// Create the table client.
-	azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
+    // Create the table client.
+    azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-	// Create a cloud table object for the table.
-	azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
+    // Create a cloud table object for the table.
+    azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-	// Replace an entity.
-	azure::storage::table_entity entity_to_replace(U("Smith"), U("Jeff"));
-	azure::storage::table_entity::properties_type& properties_to_replace = entity_to_replace.properties();
-	properties_to_replace.reserve(2);
+    // Replace an entity.
+    azure::storage::table_entity entity_to_replace(U("Smith"), U("Jeff"));
+    azure::storage::table_entity::properties_type& properties_to_replace = entity_to_replace.properties();
+    properties_to_replace.reserve(2);
 
-	// Specify a new phone number.
-	properties_to_replace[U("Phone")] = azure::storage::entity_property(U("425-555-0106"));
+    // Specify a new phone number.
+    properties_to_replace[U("Phone")] = azure::storage::entity_property(U("425-555-0106"));
 
-	// Specify a new email address.
-	properties_to_replace[U("Email")] = azure::storage::entity_property(U("JeffS@contoso.com"));
+    // Specify a new email address.
+    properties_to_replace[U("Email")] = azure::storage::entity_property(U("JeffS@contoso.com"));
 
-	// Create an operation to replace the entity.
-	azure::storage::table_operation replace_operation = azure::storage::table_operation::replace_entity(entity_to_replace);
+    // Create an operation to replace the entity.
+    azure::storage::table_operation replace_operation = azure::storage::table_operation::replace_entity(entity_to_replace);
 
-	// Submit the operation to the Table service.
-	azure::storage::table_result replace_result = table.execute(replace_operation);
+    // Submit the operation to the Table service.
+    azure::storage::table_result replace_result = table.execute(replace_operation);
 
-## Inserción o reemplazo de una entidad
-Las operaciones **table\_operation::replace\_entity** darán error si la entidad se cambió desde su recuperación del servidor. Asimismo, primero debe recuperar la entidad del servidor para que la operación **table\_operation::replace\_entity** se realice correctamente. Sin embargo, en ocasiones no sabe si la entidad existe en el servidor y los valores actuales almacenados en él son irrelevantes, ya que la actualización debe sobrescribirlos todos. Para realizarlo, debe usar una operación **table\_operation::insert\_or\_replace\_entity**. Esta operación inserta la entidad si no existe o la reemplaza si ya existe, con independencia del momento en que se realizó la última actualización. En el ejemplo de código siguiente, también se recupera la entidad de cliente Jeff Smith pero, luego, se guarda de nuevo en el servidor mediante **table\_operation::insert\_or\_replace\_entity**. Las actualizaciones realizadas en la entidad entre la operación de recuperación y actualización se sobrescribirán.
+## <a name="insert-or-replace-an-entity"></a>Insert-or-replace an entity
+**table_operation::replace_entity** operations will fail if the entity has been changed since it was retrieved from the server. Furthermore, you must retrieve the entity from the server first in order for **table_operation::replace_entity** to be successful. Sometimes, however, you don't know if the entity exists on the server and the current values stored in it are irrelevant—your update should overwrite them all. To accomplish this, you would use a **table_operation::insert_or_replace_entity** operation. This operation inserts the entity if it doesn't exist, or replaces it if it does, regardless of when the last update was made. In the following code example, the customer entity for Jeff Smith is still retrieved, but it is then saved back to the server via **table_operation::insert_or_replace_entity**. Any updates made to the entity between the retrieval and update operation will be overwritten.  
 
-	// Retrieve the storage account from the connection string.
-	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
+    // Retrieve the storage account from the connection string.
+    azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-	// Create the table client.
-	azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
+    // Create the table client.
+    azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-	// Create a cloud table object for the table.
-	azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
+    // Create a cloud table object for the table.
+    azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-	// Insert-or-replace an entity.
-	azure::storage::table_entity entity_to_insert_or_replace(U("Smith"), U("Jeff"));
-	azure::storage::table_entity::properties_type& properties_to_insert_or_replace = entity_to_insert_or_replace.properties();
+    // Insert-or-replace an entity.
+    azure::storage::table_entity entity_to_insert_or_replace(U("Smith"), U("Jeff"));
+    azure::storage::table_entity::properties_type& properties_to_insert_or_replace = entity_to_insert_or_replace.properties();
 
-	properties_to_insert_or_replace.reserve(2);
+    properties_to_insert_or_replace.reserve(2);
 
-	// Specify a phone number.
-	properties_to_insert_or_replace[U("Phone")] = azure::storage::entity_property(U("425-555-0107"));
+    // Specify a phone number.
+    properties_to_insert_or_replace[U("Phone")] = azure::storage::entity_property(U("425-555-0107"));
 
-	// Specify an email address.
-	properties_to_insert_or_replace[U("Email")] = azure::storage::entity_property(U("Jeffsm@contoso.com"));
+    // Specify an email address.
+    properties_to_insert_or_replace[U("Email")] = azure::storage::entity_property(U("Jeffsm@contoso.com"));
 
-	// Create an operation to insert-or-replace the entity.
-	azure::storage::table_operation insert_or_replace_operation = azure::storage::table_operation::insert_or_replace_entity(entity_to_insert_or_replace);
+    // Create an operation to insert-or-replace the entity.
+    azure::storage::table_operation insert_or_replace_operation = azure::storage::table_operation::insert_or_replace_entity(entity_to_insert_or_replace);
 
-	// Submit the operation to the Table service.
-	azure::storage::table_result insert_or_replace_result = table.execute(insert_or_replace_operation);
+    // Submit the operation to the Table service.
+    azure::storage::table_result insert_or_replace_result = table.execute(insert_or_replace_operation);
 
-## Consulta de un subconjunto de propiedades de las entidades  
-Una consulta de tabla puede recuperar solo algunas propiedades de una entidad. La consulta del código siguiente usa el método **table\_query::set\_select\_columns** para devolver solo las direcciones de correo electrónico de las entidades de la tabla.
+## <a name="query-a-subset-of-entity-properties"></a>Query a subset of entity properties  
+A query to a table can retrieve just a few properties from an entity. The query in the following code uses the **table_query::set_select_columns** method to return only the email addresses of entities in the table.  
 
-	// Retrieve the storage account from the connection string.
-	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
+    // Retrieve the storage account from the connection string.
+    azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-	// Create the table client.
-	azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
+    // Create the table client.
+    azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-	// Create a cloud table object for the table.
-	azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
+    // Create a cloud table object for the table.
+    azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-	// Define the query, and select only the Email property.
-	azure::storage::table_query query;
-	std::vector<utility::string_t> columns;
+    // Define the query, and select only the Email property.
+    azure::storage::table_query query;
+    std::vector<utility::string_t> columns;
 
-	columns.push_back(U("Email"));
-	query.set_select_columns(columns);
+    columns.push_back(U("Email"));
+    query.set_select_columns(columns);
 
-	// Execute the query.
-	azure::storage::table_query_iterator it = table.execute_query(query);
+    // Execute the query.
+    azure::storage::table_query_iterator it = table.execute_query(query);
 
-	// Display the results.
-	azure::storage::table_query_iterator end_of_results;
-	for (; it != end_of_results; ++it)
-	{
-		std::wcout << U("PartitionKey: ") << it->partition_key() << U(", RowKey: ") << it->row_key();
+    // Display the results.
+    azure::storage::table_query_iterator end_of_results;
+    for (; it != end_of_results; ++it)
+    {
+        std::wcout << U("PartitionKey: ") << it->partition_key() << U(", RowKey: ") << it->row_key();
 
-		const azure::storage::table_entity::properties_type& properties = it->properties();
-		for (auto prop_it = properties.begin(); prop_it != properties.end(); ++prop_it)
-		{
-			std::wcout << ", " << prop_it->first << ": " << prop_it->second.str();
-		}
+        const azure::storage::table_entity::properties_type& properties = it->properties();
+        for (auto prop_it = properties.begin(); prop_it != properties.end(); ++prop_it)
+        {
+            std::wcout << ", " << prop_it->first << ": " << prop_it->second.str();
+        }
 
-		std::wcout << std::endl;
-	}
+        std::wcout << std::endl;
+    }
 
->[AZURE.NOTE] Consultar una serie de propiedades de una entidad es una operación más eficaz que recuperar todas las propiedades.
+>[AZURE.NOTE] Querying a few properties from an entity is a more efficient operation than retrieving all properties.
 
-## Eliminación de una entidad
-Puede eliminar fácilmente una entidad después de que la haya recuperado. Cuando se recupere la entidad, llame a **table\_operation::delete\_entity** con la entidad que se eliminará. A continuación, llame al método **cloud\_table.execute**. El código siguiente recupera y elimina una entidad con la clave de partición "Smith" y la clave de fila "Jeff".
+## <a name="delete-an-entity"></a>Delete an entity
+You can easily delete an entity after you have retrieved it. Once the entity is retrieved, call **table_operation::delete_entity** with the entity to delete. Then call the **cloud_table.execute** method. The following code retrieves and deletes an entity with a partition key of "Smith" and a row key of "Jeff".  
 
-	// Retrieve the storage account from the connection string.
-	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
+    // Retrieve the storage account from the connection string.
+    azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-	// Create the table client.
-	azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
+    // Create the table client.
+    azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-	// Create a cloud table object for the table.
-	azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
+    // Create a cloud table object for the table.
+    azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-	// Create an operation to retrieve the entity with partition key of "Smith" and row key of "Jeff".
-	azure::storage::table_operation retrieve_operation = azure::storage::table_operation::retrieve_entity(U("Smith"), U("Jeff"));
-	azure::storage::table_result retrieve_result = table.execute(retrieve_operation);
+    // Create an operation to retrieve the entity with partition key of "Smith" and row key of "Jeff".
+    azure::storage::table_operation retrieve_operation = azure::storage::table_operation::retrieve_entity(U("Smith"), U("Jeff"));
+    azure::storage::table_result retrieve_result = table.execute(retrieve_operation);
 
-	// Create an operation to delete the entity.
-	azure::storage::table_operation delete_operation = azure::storage::table_operation::delete_entity(retrieve_result.entity());
+    // Create an operation to delete the entity.
+    azure::storage::table_operation delete_operation = azure::storage::table_operation::delete_entity(retrieve_result.entity());
 
-	// Submit the delete operation to the Table service.
-	azure::storage::table_result delete_result = table.execute(delete_operation);  
+    // Submit the delete operation to the Table service.
+    azure::storage::table_result delete_result = table.execute(delete_operation);  
 
-## Eliminación de una tabla
-Finalmente, el ejemplo de código siguiente elimina una tabla de una cuenta de almacenamiento. Una tabla que se ha eliminada no podrá volver a crearse durante un tiempo tras la eliminación.
+## <a name="delete-a-table"></a>Delete a table
+Finally, the following code example deletes a table from a storage account. A table that has been deleted will be unavailable to be re-created for a period of time following the deletion.  
 
-	// Retrieve the storage account from the connection string.
-	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
+    // Retrieve the storage account from the connection string.
+    azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-	// Create the table client.
-	azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
+    // Create the table client.
+    azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-	// Create a cloud table object for the table.
-	azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
+    // Create a cloud table object for the table.
+    azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-	// Create an operation to retrieve the entity with partition key of "Smith" and row key of "Jeff".
-	azure::storage::table_operation retrieve_operation = azure::storage::table_operation::retrieve_entity(U("Smith"), U("Jeff"));
-	azure::storage::table_result retrieve_result = table.execute(retrieve_operation);
+    // Create an operation to retrieve the entity with partition key of "Smith" and row key of "Jeff".
+    azure::storage::table_operation retrieve_operation = azure::storage::table_operation::retrieve_entity(U("Smith"), U("Jeff"));
+    azure::storage::table_result retrieve_result = table.execute(retrieve_operation);
 
-	// Create an operation to delete the entity.
-	azure::storage::table_operation delete_operation = azure::storage::table_operation::delete_entity(retrieve_result.entity());
+    // Create an operation to delete the entity.
+    azure::storage::table_operation delete_operation = azure::storage::table_operation::delete_entity(retrieve_result.entity());
 
-	// Submit the delete operation to the Table service.
-	azure::storage::table_result delete_result = table.execute(delete_operation);
+    // Submit the delete operation to the Table service.
+    azure::storage::table_result delete_result = table.execute(delete_operation);
 
-## Pasos siguientes
-Ahora que está familiarizado con los aspectos básicos del almacenamiento de tablas, siga estos vínculos para obtener más información sobre Almacenamiento de Azure:
+## <a name="next-steps"></a>Next steps
+Now that you've learned the basics of table storage, follow these links to learn more about Azure Storage:  
 
--	[Uso del almacenamiento de blobs en C++](storage-c-plus-plus-how-to-use-blobs.md)
--	[Uso del almacenamiento de colas en C++](storage-c-plus-plus-how-to-use-queues.md)
--	[Enumeración de los recursos de Almacenamiento de Azure en C++](storage-c-plus-plus-enumeration.md)
--	[Referencia de la biblioteca de clientes de almacenamiento para C++](http://azure.github.io/azure-storage-cpp)
--	[Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
+-   [How to use Blob storage from C++](storage-c-plus-plus-how-to-use-blobs.md)
+-   [How to use Queue storage from C++](storage-c-plus-plus-how-to-use-queues.md)
+-   [List Azure Storage resources in C++](storage-c-plus-plus-enumeration.md)
+-   [Storage Client Library for C++ reference](http://azure.github.io/azure-storage-cpp)
+-   [Azure Storage documentation](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

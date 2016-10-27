@@ -14,20 +14,22 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="08/30/2016"
-   ms.author="andkjell"/>
+   ms.author="billmath"/>
 
-# Referencia técnica del conector de LDAP genérico
+
+# <a name="generic-ldap-connector-technical-reference"></a>Referencia técnica del conector de LDAP genérico
 En este artículo se describe el conector de LDAP genérico. El artículo se aplica a los siguientes productos:
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   Debe usar la revisión 4.1.3671.0 o posterior ([KB3092178](https://support.microsoft.com/kb/3092178)).
+    -   Debe usar la revisión 4.1.3671.0 o posterior ( [KB3092178](https://support.microsoft.com/kb/3092178)).
 
 Para MIM2016 y FIM2010R2, el conector está disponible como descarga desde el [Centro de descarga de Microsoft](http://go.microsoft.com/fwlink/?LinkId=717495).
 
-Al hacer referencia a la RFC del IETF, este documento está utilizando el formato (RFC [número de RFC]/[sección en el documento RFC]), por ejemplo, (RFC 4512/4.3). Puede encontrar más información en http://tools.ietf.org/html/rfc4500 (tiene que reemplazar 4500 con el número correcto de RFC).
+Al hacer referencia a la RFC del IETF, este documento está utilizando el formato (RFC [número de RFC]/[sección en el documento RFC]), por ejemplo, (RFC 4512/4.3).
+Puede encontrar más información en http://tools.ietf.org/html/rfc4500 (tiene que reemplazar 4500 con el número correcto de RFC).
 
-## Información general sobre el conector de LDAP genérico
+## <a name="overview-of-the-generic-ldap-connector"></a>Información general sobre el conector de LDAP genérico
 El conector de LDAP genérico le permite integrar el servicio de sincronización con un servidor LDAP v3.
 
 Ciertas operaciones y elementos de esquema, como los necesarios para realizar la importación diferencial, no se especifican en las RFC de IETF. Para estas operaciones se admiten solo directorios LDAP especificados explícitamente.
@@ -36,12 +38,12 @@ Desde una perspectiva de alto nivel, las siguientes características son compati
 
 Característica | Soporte técnico
 --- | --- |
-Origen de datos conectado | El conector es compatible con todos los servidores LDAP v3 (compatibles con RFC 4510). Se ha probado con los siguientes: <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Catálogo global de Microsoft Active Directory (AD GC) </li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (anteriormente Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**Directorios destacados no compatibles:** <li>Servicios de dominio de Microsoft Active Directory (AD DS) [Utilice el conector Active Directory integrado en su lugar]</li><li>Oracle Internet Directory (OID)</li>
-Escenarios | <li>Administración del ciclo de vida de objetos</li><li>Administración de grupos</li><li>Administración de contraseñas</li>
-Operaciones |Se admiten las siguientes operaciones en todos los directorios LDAP: <li>Importación completa</li><li>Exportación</li>Las siguientes operaciones solo se admiten en directorios especificados:<li>Importación diferencial</li><li>Establecer contraseña, Cambiar contraseña</li>
-Esquema | <li>Se ha detectado un esquema en el esquema LDAP (RFC3673 y RFC4512/4.2)</li><li>Es compatible con clases estructurales, clases auxiliares y la clase de objetos extensibleObject (RFC4512/4.3)</li>
+Origen de datos conectado | El conector es compatible con todos los servidores LDAP v3 (compatibles con RFC 4510). Se ha probado con los siguientes:  <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Catálogo global de Microsoft Active Directory (AD GC)</li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (anteriormente Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**Directorios importantes no admitidos:** <li>Microsoft Active Directory Domain Services (AD DS) [Usar en su lugar el Conector Active Directory integrado]</li><li>Oracle Internet Directory (OID)</li>
+Escenarios   | <li>Administración del ciclo de vida de objetos</li><li>Administración de grupos</li><li>Administración de contraseñas</li>
+Operaciones |Se admiten las siguientes operaciones en todos los directorios LDAP:  <li>Importación completa</li><li>Exportación</li>Solo se admiten las siguientes operaciones en los directorios especificados:<li>Importación diferencial</li><li>Establecer contraseña, cambiar contraseña</li>
+Esquema | <li>Se ha detectado el esquema desde el esquema LDAP (RFC3673 y RFC4512/4.2).</li><li>Admite clases estructurales, clases auxiliares y la clase de objeto extensibleObject (RFC4512/4.3)</li>
 
-### Compatibilidad con importación diferencial y administración de contraseñas
+### <a name="delta-import-and-password-management-support"></a>Compatibilidad con importación diferencial y administración de contraseñas
 Directorios compatibles con la importación diferencial y la administración de contraseñas:
 
 - Microsoft Active Directory Lightweight Directory Services (AD LDS)
@@ -87,34 +89,39 @@ Directorios compatibles con la importación diferencial y la administración de 
     - Es compatible con todas las operaciones de la importación diferencial
     - Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
 
-### Requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 Antes de usar el conector, asegúrese de que tiene lo siguiente en el servidor de sincronización:
 
 - Microsoft .NET 4.5.2 Framework o posterior
 
-### Detección del servidor LDAP
+### <a name="detecting-the-ldap-server"></a>Detección del servidor LDAP
 El conector se basa en diversas técnicas para detectar e identificar el servidor LDAP. El conector utiliza el DSE de raíz, el nombre y la versión del proveedor, e inspecciona el esquema para buscar objetos únicos y atributos que se sabe que existen en determinados servidores LDAP. Estos datos, si existen, se utilizan para rellenar previamente las opciones de configuración del conector.
 
-### Permisos del origen de datos conectado
+### <a name="connected-data-source-permissions"></a>Permisos del origen de datos conectado
 Para realizar operaciones de importación y exportación en los objetos del directorio conectado, la cuenta del conector debe tener permisos suficientes. El conector necesita escribir permisos para poder exportar y permisos de lectura para poder importar. La configuración de permiso se realiza dentro de las experiencias de administración del propio directorio de destino.
 
-### Puertos y protocolos
+### <a name="ports-and-protocols"></a>Puertos y protocolos
 El conector utiliza el número de puerto especificado en la configuración; este número de forma predeterminada es 389 para LDAP y 636 para LDAPS.
 
 Para LDAPS, debe utilizar SSL 3.0 o TLS. SSL 2.0 no es compatible y no se puede activar.
 
-### Características y controles necesarios
-Los siguientes controles y características LDAP deben estar disponibles en el servidor LDAP para que el conector funcione correctamente: `1.3.6.1.4.1.4203.1.5.3` Filtros True/False
+### <a name="required-controls-and-features"></a>Características y controles necesarios
+Los siguientes controles y características LDAP deben estar disponibles en el servidor LDAP para que el conector funcione correctamente:   
+`1.3.6.1.4.1.4203.1.5.3` Filtros True/False
 
 Habitualmente no se notifica que el filtro True/False es compatible con directorios LDAP y puede que aparezca en la **página Global** en **Características obligatorias no encontradas**. Se utiliza para crear filtros **OR** en las consultas LDAP, por ejemplo, al importar varios tipos de objeto. Si puede importar más de un tipo de objeto, eso significa que el servidor LDAP es compatible con esta característica.
 
-Si utiliza un directorio donde un identificador único es el delimitador, también debe estar disponible lo siguiente (consulte sección [Configuración de delimitadores](#configure-anchors) más adelante en este artículo para más información): `1.3.6.1.4.1.4203.1.5.1` Todos los atributos operativos
+Si utiliza un directorio donde un identificador único es el delimitador, también debe estar disponible lo siguiente (consulte sección [Configuración de delimitadores](#configure-anchors) más adelante en este artículo para más información):  
+`1.3.6.1.4.1.4203.1.5.1` Todos los atributos operativos
 
 Si el directorio tiene más objetos de los que caben en una llamada al directorio, se recomienda utilizar la paginación. Para que funcione la paginación, necesita una de las siguientes opciones:
 
-**Opción 1:** `1.2.840.113556.1.4.319` pagedResultsControl
+**Opción 1:**  
+`1.2.840.113556.1.4.319` pagedResultsControl
 
-**Opción 2:** `2.16.840.1.113730.3.4.9` VLVControl `1.2.840.113556.1.4.473` SortControl
+**Opción 2:**  
+`2.16.840.1.113730.3.4.9` VLVControl  
+`1.2.840.113556.1.4.473` SortControl
 
 Si ambas opciones están habilitadas en la configuración del conector, se utiliza pagedResultsControl.
 
@@ -124,25 +131,25 @@ ShowDeletedControl sólo se utiliza con el método de importación diferencial U
 
 El conector intenta detectar si las opciones están presentes en el servidor. Si no se pueden detectar las opciones, aparece una advertencia en la página Global en las propiedades del conector. No todos los servidores LDAP presentan todos los controles y características que admiten e incluso aunque apareciera esta advertencia el conector podría funcionar sin problemas.
 
-### Importación diferencial
+### <a name="delta-import"></a>Importación diferencial
 La importación diferencial sólo está disponible cuando se ha detectado un directorio de soporte. Actualmente se utilizan los siguientes métodos:
 
-- Registro de accesos LDAP. Consulte [http://www.openldap.org/doc/admin24/overlays.html#Access Logging](Registro de http://www.openldap.org/doc/admin24/overlays.html#Access)
+- Registro de accesos LDAP. Consulte [http://www.openldap.org/doc/admin24/overlays.html#Access Registro de ](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
 - Registro de cambios LDAP. Consulte [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
 - Marca de tiempo. Para Novell/NetIQ eDirectory el conector utiliza la última fecha y hora para obtener objetos creados y actualizados. Novell/NetIQ eDirectory no proporcionan un medio equivalente para recuperar objetos eliminados. Esta opción también se puede utilizar si ningún otro método de importación diferencial está activo en el servidor LDAP. Esta opción no puede importar los objetos eliminados.
 - USNChanged. Consulte: [https://msdn.microsoft.com/library/ms677627.aspx](https://msdn.microsoft.com/library/ms677627.aspx)
 
-### No compatible
+### <a name="not-supported"></a>No compatible
 No se admiten las siguientes características LDAP:
 
 - Referencias LDAP entre servidores (RFC 4511/4.1.10)
 
-## Creación de un nuevo conector
-Para crear un conector de LDAP genérico, en **Servicio de sincronización**, seleccione **Agente de administración** y **Crear**. Seleccione el conector **LDAP genérico (Microsoft)**.
+## <a name="create-a-new-connector"></a>Creación de un nuevo conector
+Para crear un conector de LDAP genérico, en **Servicio de sincronización**, seleccione **Agente de administración** y **Crear**. Seleccione el conector **LDAP genérico (Microsoft)** .
 
 ![CreateConnector](./media/active-directory-aadconnectsync-connector-genericldap/createconnector.png)
 
-### Conectividad
+### <a name="connectivity"></a>Conectividad
 En la página Conectividad, debe especificar la información de host, puerto y enlace. Según cuál sea el enlace seleccionado, puede que se suministre información adicional en las secciones siguientes.
 
 ![Conectividad](./media/active-directory-aadconnectsync-connector-genericldap/connectivity.png)
@@ -164,7 +171,7 @@ Seleccione la casilla **Incluir atributos operativos en el esquema** para inclui
 
 Seleccione **Include extensible attributes in schema** (Incluir atributos extensibles en el esquema) si se utilizan objetos extensibles (RFC4512/4.3) y al habilitar esta opción permitirá que todos los atributos se utilicen en todos los objetos. Seleccionar esta opción hace que el esquema sea muy grande por lo que, a menos que el directorio conectado utilice esta característica, le recomendamos que mantenga la opción desactivada.
 
-### Parámetros globales
+### <a name="global-parameters"></a>Parámetros globales
 En la página Parámetros globales, puede configurar el nombre completo del registro de cambios diferencial y características adicionales de LDAP. La página se rellena automáticamente con la información proporcionada por el servidor LDAP.
 
 ![Conectividad](./media/active-directory-aadconnectsync-connector-genericldap/globalparameters.png)
@@ -191,24 +198,25 @@ Directory 389 | Registro de cambios. Valor predeterminado que se utiliza: **cn=c
 IBM Tivoli DS | Registro de cambios. Valor predeterminado que se utiliza: **cn=changelog**
 Isode Directory | Registro de cambios. Valor predeterminado que se utiliza: **cn=changelog**
 Novell / NetIQ eDirectory | No disponible. Marca de tiempo. El conector utiliza la última fecha y hora de actualización para obtener los registros agregados y actualizados.
-Open DJ/DS | Registro de cambios. Valor predeterminado que se utiliza: **cn=changelog**
+Open DJ/DS | Registro de cambios.  Valor predeterminado que se utiliza: **cn=changelog**
 Open LDAP | Registro de accesos. Valor predeterminado que se utiliza: **cn=accesslog**
 Oracle DSEE | Registro de cambios. Valor predeterminado que se utiliza: **cn=changelog**
 RadiantOne VDS | Directorio virtual. Depende del directorio conectado a VDS.
 Sun One Directory Server | Registro de cambios. Valor predeterminado que se utiliza: **cn=changelog**
 
-El atributo de contraseña es el nombre de atributo que debe usar el conector para establecer la contraseña en las operaciones de cambio de contraseña y establecimiento de contraseña. De forma predeterminada este valor se establece en **userPassword**, pero puede cambiarse si es necesario para un sistema LDAP en particular.
+El atributo de contraseña es el nombre de atributo que debe usar el conector para establecer la contraseña en las operaciones de cambio de contraseña y establecimiento de contraseña.
+De forma predeterminada este valor se establece en **userPassword** , pero puede cambiarse si es necesario para un sistema LDAP en particular.
 
 En la lista de particiones adicionales es posible agregar espacios de nombres adicionales que no se detectan automáticamente. Por ejemplo, esta configuración puede utilizarse si varios servidores forman un clúster lógico y deben importarse al mismo tiempo. Igual que Active Directory puede tener varios dominios en un bosque, pero todos los dominios comparten un esquema, se puede simular lo mismo escribiendo los espacios de nombres adicionales en este cuadro. Cada espacio de nombres puede importarse desde distintos servidores y se pueden configurar aún más en la página Configurar particiones y jerarquías. Utilice Ctrl + Intro para obtener una nueva línea.
 
-### Configurar la jerarquía de aprovisionamiento
+### <a name="configure-provisioning-hierarchy"></a>Configurar la jerarquía de aprovisionamiento
 Esta página se utiliza para asignar el DN de componente, por ejemplo OU, al tipo de objeto que debe aprovisionarse, por ejemplo, organizationalUnit.
 
 ![Jerarquía de aprovisionamiento](./media/active-directory-aadconnectsync-connector-genericldap/provisioninghierarchy.png)
 
 Puede configurar el conector para crear automáticamente una estructura cuando sea necesario mediante la configuración de la jerarquía de aprovisionamiento. Por ejemplo si hay un espacio de nombres dc = contoso, dc = com y se aprovisiona un nuevo objeto cn = Joe, ou = Seattle, c = US, dc = contoso, dc = com, en ese caso, el conector puede crear un objeto de país tipo para Estados Unidos y una organizationalUnit para Seattle si estos no están ya presentes en el directorio.
 
-### Configurar particiones y jerarquías
+### <a name="configure-partitions-and-hierarchies"></a>Configurar particiones y jerarquías
 En la página de particiones y jerarquías, seleccione todos los espacios de nombres con objetos que vaya a importar y exportar.
 
 ![Particiones](./media/active-directory-aadconnectsync-connector-genericldap/partitions.png)
@@ -217,7 +225,7 @@ Para cada espacio de nombres también es posible establecer la configuración de
 
 También es posible seleccionar los contenedores y las unidades organizativas desde los que el conector debe importar y hacia los que debe exportar.
 
-### Configuración de delimitadores
+### <a name="configure-anchors"></a>Configuración de delimitadores
 Esta página siempre tiene un valor preconfigurado y no se puede cambiar. Si se ha identificado el proveedor del servidor, el delimitador podría rellenarse con un atributo inmutable, por ejemplo, el GUID de un objeto. Si no se ha detectado o se sabe que no tiene un atributo inmutable, el conector utiliza dn (nombre distintivo) como delimitador.
 
 ![delimitadores](./media/active-directory-aadconnectsync-connector-genericldap/anchors.png)
@@ -238,18 +246,22 @@ Oracle ODSEE | dn
 RadiantOne VDS | dn
 Sun One Directory Server | dn
 
-## Otras notas
+## <a name="other-notes"></a>Otras notas
 Esta sección proporciona información de los aspectos que son específicos para este conector o aspectos que, por otras razones, es importante conocer.
 
-### Importación diferencial
+### <a name="delta-import"></a>Importación diferencial
 La marca de agua diferencial en Open LDAP es la fecha y hora UTC. Por este motivo, se deben sincronizar los relojes entre el servicio de sincronización de FIM y Open LDAP. Si no es así, se pueden omitir algunas entradas en el registro de cambios diferencial.
 
 Para Novell eDirectory la importación diferencial no detecta las eliminaciones de objetos. Por ello, es necesario ejecutar una importación completa periódicamente para buscar todos los objetos eliminados.
 
 Para directorios con un registro de cambios diferenciales que se basa en la fecha y hora, se recomienda encarecidamente ejecutar una importación completa de manera periódica. Este proceso permite que el motor de sincronización encuentre cualquier diferencia entre el servidor LDAP y lo que está en el espacio del conector.
 
-## Solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
--	Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
+-   Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

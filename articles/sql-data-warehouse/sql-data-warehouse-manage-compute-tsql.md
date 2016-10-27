@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (REST) | Microsoft Azure"
-   description="Tareas de Transact-SQL (T-SQL) para el escalado horizontal del rendimiento ajustando DWU. Ahorre costes reduciendo el escalado fuera de horas punta."
+   pageTitle="Manage compute power in Azure SQL Data Warehouse (REST) | Microsoft Azure"
+   description="Transact-SQL (T-SQL) tasks to scale-out performance by adjusting DWUs. Save costs by scaling back during non-peak times."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -16,36 +16,37 @@
    ms.date="08/08/2016"
    ms.author="barbkess;sonyama"/>
 
-# Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (T-SQL)
+
+# <a name="manage-compute-power-in-azure-sql-data-warehouse-(t-sql)"></a>Manage compute power in Azure SQL Data Warehouse (T-SQL)
 
 > [AZURE.SELECTOR]
-- [Información general](sql-data-warehouse-manage-compute-overview.md)
+- [Overview](sql-data-warehouse-manage-compute-overview.md)
 - [Portal](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
 - [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 
 
-Escale el rendimiento mediante el escalado horizontal de los recursos de proceso y la memoria para satisfacer las necesidades cambiantes de la carga de trabajo. Ahorre costes reduciendo el escalado de los recursos fuera de horas punta o pausando el proceso por completo.
+Scale performance by scaling out compute resources and memory to meet the changing demands of your workload. Save costs by scaling back resources during non-peak times or pausing compute altogether. 
 
-Esta colección de tareas usa T-SQL para:
+This collection of tasks uses T-SQL to:
 
-- Ver la configuración de DWU actual
-- Cambiar recursos de proceso ajustando DWU
+- View current DWU settings
+- Change compute resources by adjusting DWUs
 
-Para pausar o reanudar una base de datos, elija una de las otras opciones de plataforma en la parte superior de este artículo.
+To pause or resume a database, choose one of the other platform options at the top of this article.
 
-Para más información, consulte [Manage compute power overview][] \(Administración de la eficacia de los procesos (información general)).
+To learn about this, see [Manage compute power overview][].
 
 <a name="current-dwu-bk"></a>
 
-## Ver la configuración de DWU actual
+## <a name="view-current-dwu-settings"></a>View current DWU settings
 
-Para ver la configuración actual de DWU para las bases de datos:
+To view the current DWU settings for your databases:
 
-1. Abra el Explorador de objetos de SQL Server en Visual Studio 2015.
-2. Conéctese a la base de datos maestra asociada al servidor lógico de Base de datos SQL.
-2. Seleccione en la vista de administración dinámica sys.database\_service\_objectives. Este es un ejemplo:
+1. Open SQL Server Object Explorer in Visual Studio 2015.
+2. Connect to the master database associated with the logical SQL Database server.
+2. Select from the sys.database_service_objectives dynamic management view. Here is an example: 
 
 ```
 SELECT
@@ -57,17 +58,18 @@ FROM
  JOIN sys.databases db ON ds.database_id = db.database_id
 ```
 
-<a name="scale-dwu-bk"></a> <a name="scale-compute-bk"></a>
+<a name="scale-dwu-bk"></a>
+<a name="scale-compute-bk"></a>
 
-## Escalado de proceso
+## <a name="scale-compute"></a>Scale compute
 
-[AZURE.INCLUDE [SQL Data Warehouse scale DWUs description (Descripción de escalado de DWU de Almacenamiento de datos SQL)](../../includes/sql-data-warehouse-scale-dwus-description.md)]
+[AZURE.INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
-Para cambiar las DWU:
+To change the DWUs:
 
 
-1. Conéctese a la base de datos maestra asociada al servidor lógico de Base de datos SQL.
-2. Use la instrucción T-SQL [ALTER DATABASE][]. En el ejemplo siguiente se establece el objetivo de nivel de servicio en DW1000 para la base de datos MySQLDW.
+1. Connect to the master database associated with your logical SQL Database server.
+2. Use the [ALTER DATABASE][] TSQL statement. The following example sets the service level objective to DW1000 for the database MySQLDW. 
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -77,15 +79,15 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 <a name="next-steps-bk"></a>
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-Para otras tareas de administración, consulte [Información general de administración][].
+For other management tasks, see [Management overview][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
-[Información general de administración]: ./sql-data-warehouse-overview-manage.md
+[Management overview]: ./sql-data-warehouse-overview-manage.md
 [Manage compute power overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
@@ -97,4 +99,8 @@ Para otras tareas de administración, consulte [Información general de administ
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

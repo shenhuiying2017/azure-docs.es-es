@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creación de clústeres de Hadoop basados en Windows en HDInsight con la CLI de Azure"
-   	description="Aprenda a crear clústeres para HDInsight de Azure con la CLI de Azure."
+   pageTitle="Create Windows-based Hadoop clusters in HDInsight using Azure CLI"
+    description="Learn how to create clusters for Azure HDInsight by using Azure CLI."
    services="hdinsight"
    documentationCenter=""
    tags="azure-portal"
@@ -17,126 +17,136 @@
    ms.date="09/02/2016"
    ms.author="jgao"/>
 
-# Creación de clústeres de Hadoop basados en Windows en HDInsight con la CLI de Azure
+
+# <a name="create-windows-based-hadoop-clusters-in-hdinsight-using-azure-cli"></a>Create Windows-based Hadoop clusters in HDInsight using Azure CLI
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Aprenda a crear clústeres de HDInsight con la CLI de Azure. Para consultar otras herramientas y características de creación de clústeres, haga clic en la selección de pestaña de la parte superior de esta página o consulte los [métodos de creación de clústeres](hdinsight-provision-clusters.md#cluster-creation-methods).
+Learn how to create HDInsight clusters using Azure CLI. For other cluster creation tools and features click the tab select on the top of this page or see [Cluster creation methods](hdinsight-provision-clusters.md#cluster-creation-methods).
 
-##Requisitos previos:
+##<a name="prerequisites:"></a>Prerequisites:
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
-Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
+Before you begin the instructions in this article, you must have the following:
 
-- **Suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Azure CLI**.
 
-	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
-##Conexión a Azure
+### <a name="access-control-requirements"></a>Access control requirements
 
-Use el comando siguiente para conectarse a Azure:
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-	azure login
+##<a name="connect-to-azure"></a>Connect to Azure
 
-Para más información acerca de cómo autenticarse con una cuenta profesional o educativa, consulte [Conexión a una suscripción de Azure desde la CLI de Azure](../xplat-cli-connect.md).
+Use the following command to connect to Azure:
 
-Ejecute el siguiente comando para cambiar al modo ARM:
+    azure login
 
-	azure config mode arm
+For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md).
 
-Para obtener ayuda, use el modificador **-h**. Por ejemplo:
+Use the following command to switch to the ARM mode:
 
-	azure hdinsight cluster create -h
+    azure config mode arm
 
-##Creación de clústeres
+To get help, use the **-h** switch.  For example:
 
-Para poder crear un clúster de HDInsight, debe tener una Administración de recursos de Azure (ARM) y una cuenta de almacenamiento de blobs de Azure. Para crear un clúster de HDInsight, debe especificar lo siguiente:
+    azure hdinsight cluster create -h
 
-- **Grupo de recursos de Azure**: se debe crear una cuenta de Análisis de Data Lake dentro de un grupo de recursos de Azure. Administrador de recursos de Azure permite trabajar con los recursos de la aplicación como un grupo. Puede implementar, actualizar o eliminar todos los recursos de la aplicación en una operación única y coordinada.
+##<a name="create-clusters"></a>Create clusters
 
-	Para mostrar los grupos de recursos de su suscripción:
+You must have a Azure Resource Management (ARM), and a Azure Blob storage account before you can create an HDInsight cluster. To create an HDInsight cluster, you must specify the following:
 
-		azure group list
+- **Azure Resource Group**: A Data Lake Analytics account must be created within a Azure Resource group. Azure Resource Manager enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation.
 
-	Para crear un nuevo grupo de recursos:
+    To list the resource groups in your subscription:
 
-		azure group create -n "<Resource Group Name>" -l "<Azure Location>"
+        azure group list
 
-- **Nombre del clúster de HDInsight**
+    To create a new resource group:
 
-- **Ubicación**: uno de los centros de datos de Azure que admite clústeres de HDInsight. Para obtener una lista de ubicaciones admitidas, consulte los [precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+        azure group create -n "<Resource Group Name>" -l "<Azure Location>"
 
-- **Cuenta de almacenamiento predeterminada**: HDInsight usa un contenedor de almacenamiento de blobs de Azure como sistema de archivos predeterminado. Es necesario tener una cuenta de Almacenamiento de Azure antes de crear un clúster de HDInsight.
+- **HDInsight cluster name**
 
-	Para crear una cuenta de almacenamiento de Azure:
+- **Location**: One of the Azure data centers that supports HDInsight clusters. For a list of supported locations, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-		azure storage account create "<Azure Storage Account Name>" -g "<Resource Group Name>" -l "<Azure Location>" --type LRS
+- **Default storage account**: HDInsight uses an Azure Blob storage container as the default file system. An Azure Storage account is required before you can create an HDInsight cluster.
 
-	> [AZURE.NOTE] La cuenta de Almacenamiento debe colocarse con HDInsight en el mismo centro de datos. El tipo de cuenta de almacenamiento no puede ser ZRS, porque ZRS no admite tablas.
+    To create a new Azure storage account:
 
-	Para obtener información sobre la creación de una cuenta de Almacenamiento de Azure a través del Portal de Azure, consulte [Creación, administración o eliminación de una cuenta de Almacenamiento][azure-create-storageaccount].
+        azure storage account create "<Azure Storage Account Name>" -g "<Resource Group Name>" -l "<Azure Location>" --type LRS
 
-	Si ya tiene una cuenta de almacenamiento pero no sabe su nombre ni su clave, puede usar los comandos siguientes para recuperar dicha información:
+    > [AZURE.NOTE] The Storage account must be collocated with HDInsight in the data center.
+    > The storage account type can't be ZRS, because ZRS doesn't support table.
 
-		-- Lists Storage accounts
-		azure storage account list
-		-- Shows a Storage account
-		azure storage account show "<Storage Account Name>"
-		-- Lists the keys for a Storage account
-		azure storage account keys list "<Storage Account Name>" -g "<Resource Group Name>"
+    For information on creating an Azure Storage account by using the Azure Portal, see [Create, manage, or delete a Storage account][azure-create-storageaccount].
 
-	Para saber cómo obtener la información mediante el Portal de Azure, consulte la sección "Administración de la cuenta de almacenamiento" del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account#manage-your-storage-account).
+    If you already have a Storage account but do not know the account name and account key, you can use the following commands to retrieve the information:
 
-- **(Opcional) Contenedor de blobs predeterminado**: el comando **azure hdinsight cluster create** crea el contenedor si aún no existe. Si opta por crear el contenedor antes, puede usar el comando siguiente:
+        -- Lists Storage accounts
+        azure storage account list
+        -- Shows a Storage account
+        azure storage account show "<Storage Account Name>"
+        -- Lists the keys for a Storage account
+        azure storage account keys list "<Storage Account Name>" -g "<Resource Group Name>"
 
-	azure storage container create --account-name "<nombre de la cuenta de almacenamiento>" --account-key <clave de la cuenta de almacenamiento> [ContainerName]
+    For details on getting the information by using the Azure Portal, see the "Manage your storage account" section of [About Azure storage accounts](../storage/storage-create-storage-account#manage-your-storage-account).
 
-Cuando tenga preparada la cuenta de almacenamiento, podrá crear un clúster.
+- **(Optional) Default Blob container**: The **azure hdinsight cluster create** command creates the container if it doesn't exist. If you choose to create the container beforehand, you can use the following command:
+
+    azure storage container create --account-name "<Storage Account Name>" --account-key <Storage Account Key> [ContainerName]
+
+Once you have the Storage account prepared, you are ready to create a cluster:
 
 
     azure hdinsight cluster create -g <Resource Group Name> -c <HDInsight Cluster Name> -l <Location> --osType <Windows | Linux> --version <Cluster Version> --clusterType <Hadoop | HBase | Spark | Storm> --workerNodeCount 2 --headNodeSize Large --workerNodeSize Large --defaultStorageAccountName <Azure Storage Account Name>.blob.core.windows.net --defaultStorageAccountKey "<Default Storage Account Key>" --defaultStorageContainer <Default Blob Storage Container> --userName admin --password "<HTTP User Password>" --rdpUserName <RDP Username> --rdpPassword "<RDP User Password" --rdpAccessExpiry "03/01/2016"
 
 
-##Creación de clústeres mediante archivos de configuración
-Normalmente, se crea un clúster de HDInsight, se ejecutan trabajos en él y luego se elimina el clúster para reducir los costos. La interfaz de línea de comandos le da la opción de guardar las configuraciones en un archivo para que pueda volver a usarlas cada vez que cree un clúster.
+##<a name="create-clusters-using-configuration-files"></a>Create clusters using configuration files
+Typically, you create an HDInsight cluster, run jobs on it, and then delete the cluster to cut down the cost. The command-line interface gives you the option to save the configurations into a file, so that you can reuse it every time you create a cluster.  
 
-	azure hdinsight config create [options ] <Config File Path> <overwirte>
-	azure hdinsight config add-config-values [options] <Config File Path>
-	azure hdinsight config add-script-action [options] <Config File Path>
+    azure hdinsight config create [options ] <Config File Path> <overwirte>
+    azure hdinsight config add-config-values [options] <Config File Path>
+    azure hdinsight config add-script-action [options] <Config File Path>
 
-Ejemplo: Crear un archivo de configuración que contenga una acción de sript para ejecutarlo al crear un clúster.
+Example: Create a configuration file that contains a script action to run when creating a cluster.
 
-	azure hdinsight config create "C:\myFiles\configFile.config"
-	azure hdinsight config add-script-action --configFilePath "C:\myFiles\configFile.config" --nodeType HeadNode --uri <Script Action URI> --name myScriptAction --parameters "-param value"
-	azure hdinsight cluster create --configurationPath "C:\myFiles\configFile.config"
+    azure hdinsight config create "C:\myFiles\configFile.config"
+    azure hdinsight config add-script-action --configFilePath "C:\myFiles\configFile.config" --nodeType HeadNode --uri <Script Action URI> --name myScriptAction --parameters "-param value"
+    azure hdinsight cluster create --configurationPath "C:\myFiles\configFile.config"
 
-##Creación de clústeres con acción de scripts
+##<a name="create-clusters-with-script-action"></a>Create clusters with script action
 
-Cree un archivo de configuración que contenga una acción de scripts para ejecutarlo al crear un clúster.
+Create a configuration file that contains a script action to run when creating a cluster.
 
     azure hdinsight config create "C:\myFiles\configFile.config"
     azure hdinsight config add-script-action --configFilePath "C:\myFiles\configFile.config" --nodeType HeadNode --uri <scriptActionURI> --name myScriptAction --parameters "-param value"
 
-Creación de un clúster con una acción de scripts
+Create a cluster with a script action
 
-	azure hdinsight cluster create -g myarmgroup01 -l westus -y Windows --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
-
-
-Para información sobre la acción de script, vea [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster.md).
+    azure hdinsight cluster create -g myarmgroup01 -l westus -y Windows --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
 
 
-## Creación de clústeres mediante plantillas de ARM
+For general script action information, see [Customize HDInsight clusters using Script Action (Linux)](hdinsight-hadoop-customize-cluster.md).
 
-Puede utilizar la CLI para crear clústeres llamando a plantillas de ARM. Consulte [Implementación con la CLI de Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli).
 
-## Otras referencias
+## <a name="create-clusters-using-arm-templates"></a>Create clusters using ARM templates
 
-- [Introducción a HDInsight de Azure](hdinsight-hadoop-linux-tutorial-get-started.md): aprenda a empezar a trabajar con su clúster de HDInsight
-- [Envío de trabajos de Hadoop mediante programación](hdinsight-submit-hadoop-jobs-programmatically.md): aprenda a enviar trabajos a HDInsight mediante programación
-- [Administración de clústeres de Hadoop en HDInsight mediante la CLI de Azure](hdinsight-administer-use-command-line.md)
-- [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de servicios de Azure](../virtual-machines-command-line-tools.md)
+You can use CLI to create clusters by calling ARM templates. See [Deploy with Azure CLI](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli).
 
-<!---HONumber=AcomDC_0914_2016-->
+## <a name="see-also"></a>See also
+
+- [Get started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) - Learn how to start working with your HDInsight cluster
+- [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md) - Learn how to programmatically submit jobs to HDInsight
+- [Manage Hadoop clusters in HDInsight using the Azure CLI](hdinsight-administer-use-command-line.md)
+- [Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management](../virtual-machines-command-line-tools.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

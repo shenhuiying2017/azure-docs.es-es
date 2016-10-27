@@ -1,12 +1,16 @@
-Una zona DNS se usa para hospedar los registros DNS de un dominio concreto. Para iniciar el hospedaje de un dominio, debe crear una zona DNS. Todos los registros DNS creados para un dominio concreto se ubicarán dentro de una zona DNS del dominio.
+A DNS zone is used to host the DNS records for a particular domain. In order to start hosting your domain, you need to create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain. 
 
-Por ejemplo, el dominio "contoso.com" puede contener una serie de registros DNS como "mail.contoso.com" (para un servidor de correo) y "www.contoso.com" (para un sitio web).
+For example, the domain "contoso.com" may contain a number of DNS records, such as "mail.contoso.com" (for a mail server) and "www.contoso.com" (for a web site). 
 
 
-## <a name="names"></a>Acerca de los nombres de la zona DNS
+## <a name="<a-name="names"></a>about-dns-zone-names"></a><a name="names"></a>About DNS zone names
  
-- El nombre de la zona debe ser único en el grupo de recursos y la zona no debe existir aún. De lo contrario, la operación presentará un error.
+- The name of the zone must be unique within the resource group, and the zone must not exist already. Otherwise, the operation will fail.
 
-- El mismo nombre de zona podrá reutilizarse en un grupo de recursos distinto o en una suscripción a Azure diferente.
+- The same zone name can be re-used in a different resource group or a different Azure subscription. 
 
-- Cuando varias zonas comparten el mismo nombre, a cada instancia se le asignarán distintas direcciones de servidores de nombres, y solo se podrá delegar una instancia desde el dominio primario. Para más información, consulte [Delegación de dominios en DNS de Azure](../articles/dns/dns-domain-delegation.md).
+- Where multiple zones share the same name, each instance will be assigned different name server addresses, and only one instance can be delegated from the parent domain. For more information, see [Delegate a domain to Azure DNS](../articles/dns/dns-domain-delegation.md).
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -14,14 +14,15 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="08/04/2016"
-   ms.author="andkjell"/>
+   ms.author="billmath"/>
 
-# Sincronización de Azure AD Connect: Programador
+
+# <a name="azure-ad-connect-sync:-scheduler"></a>Sincronización de Azure AD Connect: Programador
 En este tema se describe el programador incorporado en la sincronización de Azure AD Connect (también denominado motor de sincronización).
 
 Esta característica se introdujo con la compilación 1.1.105.0 (publicada en febrero de 2016).
 
-## Información general
+## <a name="overview"></a>Información general
 La sincronización de Azure AD Connect sincronizará los cambios que ocurren en su directorio local mediante un programador. Hay dos procesos de programador, uno para la sincronización de contraseñas y otro para la sincronización de objeto o atributo y tareas de mantenimiento. Este tema se tratará el último.
 
 En versiones anteriores el programador para objetos y atributos era externo al motor de sincronización y se utilizaba el programador de tareas de Windows o un servicio independiente de Windows para desencadenar el proceso de sincronización. En las versiones 1.1 el programador viene integrado con el motor de sincronización y permite alguna personalización. La nueva frecuencia de sincronización predeterminada es de 30 minutos.
@@ -33,7 +34,7 @@ El programador es responsable de dos tareas:
 
 El programador en sí, siempre está en ejecución, pero se puede configurar para que ejecute solo una o ninguna de estas tareas. Por ejemplo si necesita tener su propio proceso de ciclo de sincronización, puede deshabilitar esta tarea en el programador pero continuar ejecutando la tarea de mantenimiento.
 
-## Configuración del programador
+## <a name="scheduler-configuration"></a>Configuración del programador
 Para ver la configuración actual, vaya a PowerShell y ejecute `Get-ADSyncScheduler`. Se mostrará algo como esto:
 
 ![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
@@ -60,25 +61,30 @@ Puede cambiar algunos de estos valores con `Set-ADSyncScheduler`. Se pueden modi
 
 La configuración del programador se almacena en Azure AD. Si tiene un servidor de almacenamiento provisional, cualquier cambio realizado en el servidor principal también afectará este servidor (a excepción de IsStagingModeEnabled).
 
-### CustomizedSyncCycleInterval
-Sintaxis: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss` d: días; HH: horas; mm: minutos; ss: segundos
+### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
+Sintaxis: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
+ d: días; HH: horas; mm: minutos; ss: segundos
 
-Ejemplo: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00` cambiará el programador para ejecutarse cada 3 horas.
+Ejemplo: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
+ cambiará el programador para ejecutarse cada 3 horas.
 
-Ejemplo: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0` cambiará el programador para ejecutarse a diario.
+Ejemplo: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`  
+ cambiará el programador para ejecutarse a diario.
 
-## Inicio del programador
+## <a name="start-the-scheduler"></a>Inicio del programador
 De forma predeterminada, el programador se ejecutará cada 30 minutos. En algunos casos puede querer ejecutar un ciclo de sincronización entre los ciclos programados o debe ejecutar un tipo diferente.
 
-**Ciclo de sincronización diferencial** Un ciclo de sincronización diferencial incluye los siguientes pasos:
+**Ciclo de sincronización diferencial**  
+ Un ciclo de sincronización diferencial incluye los siguientes pasos:
 
 - Importación diferencial en todos los conectores
 - Sincronización diferencial en todos los conectores
 - Exportación en todos los conectores
 
-Es posible que haya un cambio urgente que debe sincronizar inmediatamente para lo cual necesita ejecutar manualmente un ciclo. Si necesita ejecutar manualmente un ciclo, ejecute `Start-ADSyncSyncCycle -PolicyType Delta` desde PowerShell.
+Es posible que haya un cambio urgente que debe sincronizar inmediatamente para lo cual necesita ejecutar manualmente un ciclo. Si necesita ejecutar manualmente un ciclo, ejecute `Start-ADSyncSyncCycle -PolicyType Delta`desde PowerShell.
 
-**Ciclo de sincronización completo** Si ha realizado uno de los siguientes cambios de configuración, debe ejecutar un ciclo de sincronización completo (también conocido como sincronización inicial):
+**Ciclo de sincronización completo**  
+Si ha realizado uno de los siguientes cambios de configuración, debe ejecutar un ciclo de sincronización completo (también conocido como sincronización inicial):
 
 - Agregó más objetos o atributos para su importación desde un directorio de origen
 - Realizó cambios en las reglas de sincronización
@@ -92,25 +98,25 @@ Si ha realizado uno de estos cambios, debe ejecutar un ciclo de sincronización 
 
 Para iniciar un ciclo de sincronización completo, ejecute `Start-ADSyncSyncCycle -PolicyType Initial` desde un símbolo del sistema de PowerShell. Esto iniciará un ciclo de sincronización completo.
 
-## Detención del programador
+## <a name="stop-the-scheduler"></a>Detención del programador
 Si el programador está ejecutando actualmente un ciclo de sincronización puede que necesite detenerlo. Por ejemplo, si inicia el Asistente para instalación y recibe este error:
 
 ![SyncCycleRunningError](./media/active-directory-aadconnectsync-feature-scheduler/synccyclerunningerror.png)
 
 Cuando se está ejecutando un ciclo de sincronización, no puede realizar cambios de configuración. Debe esperar hasta que el programador haya terminado el proceso, pero también es posible detenerlo para poder realizar los cambios inmediatamente. Detener el ciclo actual no es perjudicial y los cambios que aún no se hayan procesado se procesarán en la próxima ejecución.
 
-1. Para empezar, indique al programador que detenga el ciclo actual con el cmdlet `Stop-ADSyncSyncCycle` de PowerShell.
+1. Para empezar, indique al programador que detenga el ciclo actual con el cmdlet `Stop-ADSyncSyncCycle`de PowerShell.
 2. La detención del programador no hará que el conector en cuestión detenga su tarea actual. Para forzar el conector a que se detenga, tome las medidas siguientes: ![StopAConnector](./media/active-directory-aadconnectsync-feature-scheduler/stopaconnector.png)
     - Inicie el **Servicio de sincronización** desde el menú Inicio. Vaya a **Conectores**, seleccione el conector con el estado **En ejecución** y seleccione **Detener** en la lista de acciones.
 
 El programador permanecerá todavía activo y se iniciará de nuevo a la siguiente oportunidad.
 
-## Programador personalizado
-Los cmdlets que se documentan en esta sección solo están disponibles en la compilación [1\.1.130.0](active-directory-aadconnect-version-history.md#111300) y versiones posteriores.
+## <a name="custom-scheduler"></a>Programador personalizado
+Los cmdlets que se documentan en esta sección solo están disponibles en la compilación [1.1.130.0](active-directory-aadconnect-version-history.md#111300) y versiones posteriores.
 
 Si el programador integrado no cumple con sus requisitos, puede programar los conectores con PowerShell.
 
-### Invoke-ADSyncRunProfile
+### <a name="invoke-adsyncrunprofile"></a>Invoke-ADSyncRunProfile
 Puede iniciar un perfil para un conector de esta manera:
 
 ```
@@ -119,7 +125,7 @@ Invoke-ADSyncRunProfile -ConnectorName "name of connector" -RunProfileName "name
 
 Los nombres para utilizar como [nombres de conectores](active-directory-aadconnectsync-service-manager-ui-connectors.md) y [nombres de perfil de ejecución](active-directory-aadconnectsync-service-manager-ui-connectors.md#configure-run-profiles) pueden encontrarse en la [interfaz de usuario de Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md).
 
-![Invocar el perfil de ejecución](./media/active-directory-aadconnectsync-feature-scheduler/invokerunprofile.png)
+![Invocar el perfil de ejecución](./media/active-directory-aadconnectsync-feature-scheduler/invokerunprofile.png)  
 
 El cmdlet `Invoke-ADSyncRunProfile` es sincrónico; es decir, no devolverá el control hasta que el conector haya completado la operación, ya sea correcta o incorrectamente.
 
@@ -134,21 +140,26 @@ Al programar los conectores, se recomienda hacerlo en el siguiente orden:
 
 Si observa el programador integrado, este es el orden en que se ejecutarán los conectores.
 
-### Get-ADSyncConnectorRunStatus
+### <a name="get-adsyncconnectorrunstatus"></a>Get-ADSyncConnectorRunStatus
 También puede supervisar el motor de sincronización para ver si está ocupado o inactivo. Este cmdlet devolverá un resultado vacío si el motor de sincronización está inactivo y no está ejecutando un conector. Si está ejecutando un conector, devolverá el nombre del conector.
 
 ```
 Get-ADSyncConnectorRunStatus
 ```
 
-![Estado de la ejecución de conector](./media/active-directory-aadconnectsync-feature-scheduler/getconnectorrunstatus.png) En la ilustración anterior, la primera línea refleja un estado donde el motor de sincronización está inactivo. La segunda línea es de cuando se ejecuta el conector de Azure AD.
+![Estado de la ejecución de conector](./media/active-directory-aadconnectsync-feature-scheduler/getconnectorrunstatus.png)  
+ En la ilustración anterior, la primera línea refleja un estado donde el motor de sincronización está inactivo. La segunda línea es de cuando se ejecuta el conector de Azure AD.
 
-## Programador y Asistente para instalación
+## <a name="scheduler-and-installation-wizard"></a>Programador y Asistente para instalación
 Si inicia el Asistente para instalación el programador se suspenderá temporalmente. Esto es debido a que se supone que realizará los cambios de configuración y estos no se pueden aplicar si el motor de sincronización se está ejecutando activamente. Por este motivo, no deje el Asistente para instalación abierto ya que impedirá al motor de sincronización realizar ninguna acción.
 
-## Pasos siguientes
-Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+## <a name="next-steps"></a>Pasos siguientes
+Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

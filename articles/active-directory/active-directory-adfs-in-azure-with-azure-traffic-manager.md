@@ -1,134 +1,141 @@
 <properties
-	pageTitle="Implementación entre regiones geográficas de AD FS de alta disponibilidad en Azure con Azure Traffic Manager | Microsoft Azure"
-	description="En este documento aprenderá cómo implementar AD FS en Azure para alta disponibilidad."
-    keywords="Ad fs con Azure Traffic Manager, adfs con Azure Traffic Manager, geográfico, centro de datos múltiples, centros de datos geográficos, centros de datos geográficos múltiples, implementar AD FS en azure, implementar azure adfs, azure adfs, azure ad fs, implementar adfs, implementar ad fs, adfs en azure, implementar adfs en azure, implementar AD FS en azure, adfs de azure, introducción a AD FS, Azure, ADFS en Azure, iaas, ADFS, mover ADFS a azure"
-	services="active-directory"
-	documentationCenter=""
-	authors="anandyadavmsft"
-	manager="femila"
-	editor=""/>
+    pageTitle="High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager | Microsoft Azure"
+    description="In this document you will learn how to deploy AD FS in Azure for high availablity."
+    keywords="Ad fs with Azure traffic manager, adfs with Azure Traffic Manager,geographic, multi datacenter, geographic datacenters, multi geographic datacenters, deploy AD FS in azure, deploy azure adfs, azure adfs, azure ad fs,deploy adfs, deploy ad fs, adfs in azure, deploy adfs in azure, deploy AD FS in azure, adfs azure, introduction to AD FS, Azure, AD FS in Azure, iaas, ADFS, move adfs to azure"
+    services="active-directory"
+    documentationCenter=""
+    authors="anandyadavmsft"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/01/2016"
-	ms.author="anandy;billmath"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/01/2016"
+    ms.author="anandy;billmath"/>
     
-#Implementación entre regiones geográficas de AD FS de alta disponibilidad en Azure con Azure Traffic Manager
 
-[Implementación de AD FS en Azure](active-directory-aadconnect-azure-adfs.md) proporciona instrucciones paso a paso sobre cómo implementar una infraestructura de AD FS sencilla para su organización en Azure. En este artículo se proporcionan los pasos para crear una implementación entre regiones geográficas de AD FS en Azure mediante [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager ayuda a crear una infraestructura de AD FS de alta disponibilidad y rendimiento, extendida geográficamente, para su organización mediante una serie de métodos de enrutamiento disponibles que satisfacen las distintas necesidades de la infraestructura.
+#<a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager
 
-Una infraestructura entre regiones geográficas de AD FS de alta disponibilidad permite:
+[AD FS deployment in Azure](active-directory-aadconnect-azure-adfs.md) provides step-by-step guideline as to how you can deploy a simple AD FS infrastructure for your organization in Azure. This article provides the next steps to create a cross-geographic deployment of AD FS in Azure using [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager helps create a geographically spread high availability and high-performance AD FS infrastructure for your organization by making use of range of routing methods available to suit different needs from the infrastructure.
 
-* **Eliminación de puntos únicos de error:** con funcionalidades de conmutación por error de Azure Traffic Manager, puede lograr una infraestructura de AD FS de alta disponibilidad incluso cuando uno de los centros de datos deja de funcionar en algún lugar del mundo.
-* **Rendimiento mejorado:** puede usar la implementación recomendada en este artículo para proporcionar una infraestructura de AD FS de alto rendimiento que pueda ayudar a los usuarios a autenticarse con mayor rapidez.
+A highly available cross-geographic AD FS infrastructure enables:
 
-##Principios de diseño
+* **Elimination of single point of failure:** With failover capabilities of Azure Traffic Manager, you can achieve a highly available AD FS infrastructure even when one of the data centers in a part of the globe goes down
+* **Improved performance:** You can use the suggested deployment in this article to provide a high-performance AD FS infrastructure that can help users authenticate faster. 
 
-![Diseño general](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/blockdiagram.png)
+##<a name="design-principles"></a>Design principles
 
-Los principios de diseño básicos serán los mismos que se muestran en los principios de diseño del artículo sobre la implementación de AD FS en Azure. El diagrama anterior muestra una extensión sencilla de la implementación básica en otra región geográfica. A continuación se muestran algunos puntos que hay que tener en cuenta al ampliar la implementación a una nueva región geográfica.
+![Overall design](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/blockdiagram.png)
 
-* **Red Virtual:** debe crear una nueva red virtual en la región geográfica en la que desea implementar una infraestructura de AD FS adicional. En el diagrama anterior, ve la red virtual Geo1 y la red virtual Geo2 como las dos redes virtuales en cada región geográfica.
+The basic design principles will be same as listed in Design principles in the article AD FS deployment in Azure. The diagram above shows a simple extension of the basic deployment to another geographical region. Below are some points to consider when extending your deployment to new geographical region
 
-* **Controladores de dominio y servidores de AD FS en una nueva red virtual geográfica:** se recomienda implementar controladores de dominio en una nueva región geográfica para que los servidores de AD FS de la nueva región no tengan que ponerse en contacto con un controlador de dominio de otra red lejana para realizar una autenticación y mejorar así el rendimiento.
+* **Virtual network:** You should create a new virtual network in the geographical region you want to deploy additional AD FS infrastructure. In the diagram above you see Geo1 VNET and Geo2 VNET as the two virtual networks in each geographical region.
 
-* **Cuentas de almacenamiento:** las cuentas de almacenamiento están asociadas a una región. Como va a implementar máquinas en una nueva región geográfica, tendrá que crear nuevas cuentas de almacenamiento para usarlas en la región.
+* **Domain controllers and AD FS servers in new geographical VNET:** It is recommended to deploy domain controllers in the new geographical region so that the AD FS servers in the new region do not have to contact a domain controller in another far away network to complete an authentication and thereby improving the performance.
 
-* **Grupos de seguridad de red:** al igual que las cuentas de almacenamiento, los grupos de seguridad de red creados en una región no se pueden usar en otra región geográfica. Por lo tanto, necesitará crear nuevos grupos de seguridad de red similares a los de la primera región geográfica para subredes INT y DMZ en la nueva región geográfica.
+* **Storage accounts:** Storage accounts are associated with a region. Since you will be deploying machines in a new geographic region, you will have to create new storage accounts to be used in the region.  
 
-* **Etiquetas DNS para direcciones IP públicas:** Azure Traffic Manager puede hacer referencia a los puntos de conexión SOLO a través de etiquetas DNS. Por lo tanto, es necesario crear etiquetas DNS para las direcciones IP públicas de los equilibradores de carga externos.
+* **Network Security Groups:** As storage accounts, Network Security Groups created in a region cannot be used in another geographical region. Therefore, you will need to create new network security groups similar to those in the first geographical region for INT and DMZ subnet in the new geographical region.
 
-* **Azure Traffic Manager**: Microsoft Azure Traffic Manager permite controlar la distribución del tráfico de los usuarios a los puntos de conexión de servicio que se ejecutan en distintos centros de datos de todo el mundo. Azure Traffic Manager funciona en el nivel de DNS. Usa las respuestas DNS para dirigir el tráfico de usuario final a los puntos de conexión distribuidos globalmente. A continuación, los clientes se conectan a esos puntos de conexión directamente. Con las distintas opciones de enrutamiento de Rendimiento, Ponderado y Prioridad, puede elegir la opción de enrutamiento que mejor se adapte a las necesidades de su organización.
+* **DNS Labels for public IP addresses:** Azure Traffic Manager can refer to endpoints ONLY via DNS labels. Therefore, you are required to create DNS labels for the External Load Balancers’ public IP addresses.
 
-* **Conectividad de red virtual a red virtual entre dos regiones:** no es necesario tener conectividad entre las redes virtuales en sí. Como cada red virtual tiene acceso a los controladores de dominio y tiene un servidor WAP y de AD FS propio, puede funcionar sin ninguna conectividad entre las redes virtuales de regiones distintas.
+* **Azure Traffic Manager:** Microsoft Azure Traffic Manager allows you to control the distribution of user traffic to your service endpoints running in different datacenters around the world. Azure Traffic Manager works at the DNS level. It uses DNS responses to direct end-user traffic to globally-distributed endpoints. Clients then connect to those endpoints directly. With different routing options of Performance, Weighted and Priority, you can easily choose the routing option best suited for your organization’s needs. 
 
-##Pasos para integrar Azure Traffic Manager
+* **V-net to V-net connectivity between two regions:** You do not need to have connectivity between the virtual networks itself. Since each virtual network has access to domain controllers and has AD FS and WAP server in itself, they can work without any connectivity between the virtual networks in different regions. 
 
-###Implementación de AD FS en la nueva región geográfica
-Siga los pasos y las directrices de [Implementación de AD FS en Azure](active-directory-aadconnect-azure-adfs.md) para implementar la misma topología en la nueva región geográfica.
+##<a name="steps-to-integrate-azure-traffic-manager"></a>Steps to integrate Azure Traffic Manager
 
-###Etiquetas DNS para direcciones IP públicas de los equilibradores de carga (públicos) accesibles desde Internet
-Como se mencionó anteriormente, Azure Traffic Manager solo puede hacer referencia a etiquetas DNS como puntos de conexión y, por lo tanto, es importante crear etiquetas DNS para direcciones IP públicas de los equilibradores de carga externos. La captura de pantalla muestra cómo puede configurar la etiqueta DNS para la dirección IP pública.
+###<a name="deploy-ad-fs-in-the-new-geographical-region"></a>Deploy AD FS in the new geographical region
+Follow the steps and guidelines in [AD FS deployment in Azure](active-directory-aadconnect-azure-adfs.md) to deploy the same topology in the new geographical region.
 
-![Etiqueta DNS](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/eastfabstsdnslabel.png)
+###<a name="dns-labels-for-public-ip-addresses-of-the-internet-facing-(public)-load-balancers"></a>DNS labels for public IP addresses of the Internet Facing (public) Load Balancers
+As mentioned above, the Azure Traffic Manager can only refer to DNS labels as endpoints and therefore it is important to create DNS labels for the External Load Balancers’ public IP addresses. Below screenshot shows how you can configure your DNS label for the public IP address. 
 
-###Implementación de Azure Traffic Manager
+![DNS Label](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/eastfabstsdnslabel.png)
 
-Siga estos pasos para crear un perfil del administrador de tráfico. Para más información, también puede hacer referencia a [Administración de un perfil de Azure Traffic Manager](../traffic-manager/traffic-manager-manage-profiles.md).
+###<a name="deploying-azure-traffic-manager"></a>Deploying Azure Traffic Manager
 
-1. **Creación de un perfil de Traffic Manager:** asigne un nombre único a su perfil del administrador de tráfico. Este nombre del perfil forma parte del nombre DNS y actúa como prefijo para la etiqueta de nombre de dominio de Traffic Manager. El nombre/prefijo se agrega a trafficmanager.net para crear una etiqueta DNS para el administrador de tráfico. La captura de pantalla siguiente muestra el prefijo DNS del administrador de tráfico que se establece como mysts y la etiqueta DNS resultante será mysts.trafficmanager.net.
+Follow the steps below to create a traffic manager profile. For more information, you can also refer to [Manage an Azure Traffic Manager profile](../traffic-manager/traffic-manager-manage-profiles.md).
 
-    ![Creación del perfil de Traffic Manager](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/trafficmanager01.png)
+1. **Create a Traffic Manager profile:** Give your traffic manager profile a unique name. This name of the profile is part of the DNS name and acts as a prefix for the Traffic Manager domain name label. The name / prefix is added to .trafficmanager.net to create a DNS label for your traffic manager. The screenshot below shows the traffic manager DNS prefix being set as mysts and resulting DNS label will be mysts.trafficmanager.net. 
+
+    ![Traffic Manager profile creation](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/trafficmanager01.png)
  
-2. **Método de enrutamiento de tráfico:** existen tres opciones de enrutamiento disponibles en el administrador de tráfico:
+2. **Traffic routing method:** There are three routing options available in traffic manager:
 
-    * Prioridad
-    * Rendimiento
-    * Ponderado
+    * Priority 
+    * Performance
+    * Weighted
     
-    **Rendimiento** es la opción recomendada para lograr una infraestructura de AD FS con una alta capacidad de respuesta. Sin embargo, puede elegir el método de enrutamiento que mejor se adapte a sus necesidades de implementación. La funcionalidad de AD FS no se ve afectada por la opción de enrutamiento seleccionada. Consulte [Métodos de enrutamiento de tráfico de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md) para más información. En la captura de pantalla de ejemplo anterior, puede ver el método **Rendimiento** seleccionado.
+    **Performance** is the recommended option to achieve highly responsive AD FS infrastructure. However, you can choose any routing method best suited for your deployment needs. The AD FS functionality is not impacted by the routing option selected. See [Traffic Manager traffic routing methods](../traffic-manager/traffic-manager-routing-methods.md) for more information. In the sample screenshot above you can see the **Performance** method selected.
    
-3.	**Configuración de puntos de conexión:** en la página del administrador de tráfico, haga clic en los puntos de conexión y seleccione Agregar. Se abrirá una página Agregar ounto de conexión similar a la siguiente captura de pantalla
+3.  **Configure endpoints:** In the traffic manager page, click on endpoints and select Add. This will open an Add endpoint page similar to the screenshot below
  
-    ![Configuración de extremos](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/eastfsendpoint.png)
+    ![Configure endpoints](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/eastfsendpoint.png)
  
-    Para las distintas entradas, siga este criterio:
+    For the different inputs, follow the guideline below:
 
-    **Tipo:** seleccione el punto de conexión de Azure ya que se va a apuntar a una dirección IP pública de Azure.
+    **Type:** Select Azure endpoint as we will be pointing to an Azure public IP address.
 
-    **Nombre:** cree un nombre que desea asociar con el punto de conexión. Este no es el nombre DNS y no influye en los registros DNS.
+    **Name:** Create a name that you want to associate with the endpoint. This is not the DNS name and has no bearing on DNS records.
 
-    **Tipo de recurso de destino:** seleccione la dirección IP pública como valor de esta propiedad.
+    **Target resource type:** Select Public IP address as the value to this property. 
 
-    **Recurso de destino:** le proporcionará una opción para elegir entre las diferentes etiquetas DNS que tiene disponibles con su suscripción. Elija la etiqueta DNS.
+    **Target resource:** This will give you an option to choose from the different DNS labels you have available under your subscription. Choose the DNS label for to.
 
-    Agregue un punto de conexión en cada región geográfica en la que desee que Azure Traffic Manager enrute tráfico hacia ella. Para más información y ver pasos detallados acerca de cómo agregar y configurar puntos de conexión en el administrador de tráfico, consulte [Adición, deshabilitación, habilitación o eliminación de puntos de conexión](../traffic-manager/traffic-manager-endpoints.md)
+    Add endpoint for each geographical region you want the Azure Traffic Manager to route traffic to.
+    For more information and detailed steps on how to add / configure endpoints in traffic manager, refer to [Add, disable, enable or delete endpoints](../traffic-manager/traffic-manager-endpoints.md)
     
-4. **Configurar sondeo:** en la página del administrador de tráfico, haga clic en Configuración. En la página de configuración, debe cambiar la configuración del monitor para realizar el sondeo en el puerto HTTP 80 y la ruta de acceso relativa /adfs/probe
+4. **Configure probe:** In the traffic manager page, click on Configuration. In the configuration page, you need to change the monitor settings to probe at HTTP port 80 and relative path /adfs/probe
 
-    ![Configuración del sondeo](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/mystsconfig.png)
+    ![Configure probe](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/mystsconfig.png) 
 
-    >[AZURE.NOTE] **Asegúrese de que el estado de los puntos de conexión sea EN LÍNEA una vez completada la configuración**. Si todos los puntos de conexión están en estado "Degradado"', Azure Traffic Manager intentará enrutar el tráfico lo mejor que pueda suponiendo que el diagnóstico sea correcto y que todos los puntos de conexión estén accesibles.
+    >[AZURE.NOTE] **Ensure that the status of the endpoints is ONLINE once the configuration is complete**. If all endpoints are in ‘degraded’ state, Azure Traffic Manager will do a best attempt to route the traffic assuming that the diagnostics is incorrect and all endpoints are reachable.
 
-5. **Modificación de registros DNS para Azure Traffic Manager:** el servicio de federación debe ser un registro CNAME para el nombre DNS de Azure Traffic Manager. Cree un registro CNAME en los registros DNS públicos para que quien intente ponerse en contacto con el servicio de federación llegue realmente a Azure Traffic Manager.
+5. **Modifying DNS records for Azure Traffic Manager:** Your federation service should be a CNAME to the Azure Traffic Manager DNS name. Create a CNAME in the public DNS records so that whoever is trying to reach the federation service actually reaches the Azure Traffic Manager.
 
-    Por ejemplo, para que el servicio de federación fs.fabidentity.com apunte a Traffic Manager, necesitará actualizar el registro de recursos DNS para que sea el siguiente:
+    For example, to point the federation service fs.fabidentity.com to the Traffic Manager, you would need to update your DNS resource record to be the following:
 
     <code>fs.fabidentity.com IN CNAME mysts.trafficmanager.net</code>
 
-##Prueba de enrutamiento y de inicio de sesión de AD FS   
+##<a name="test-the-routing-and-ad-fs-sign-in"></a>Test the routing and AD FS sign-in   
 
-###Prueba de enrutamiento
+###<a name="routing-test"></a>Routing test
 
-Una prueba muy básica para el enrutamiento sería intentar hacer ping en el nombre DNS del servicio de federación desde una máquina de cada región geográfica. Según el método de enrutamiento seleccionado, el punto de conexión al que se hace ping se reflejará en realidad en la pantalla de ping. Por ejemplo, si ha seleccionado el enrutamiento de rendimiento, se alcanzará el punto de conexión más cercano a la región del cliente. A continuación se muestra la instantánea de dos pings desde dos máquinas de cliente de regiones distintas, una en la región de Asia oriental y la otra en el oeste de EE. UU.
+A very basic test for the routing would be to try ping the federation service DNS name from a machine in each geographic region. Depending on the routing method chosen, the endpoint it actually pings will be reflected in the ping display. For example, if you selected the performance routing, then the endpoint nearest to the region of the client will be reached. Below is the snapshot of two pings from two different region client machines, one in EastAsia region and one in West US. 
 
-![Prueba de enrutamiento](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
+![Routing test](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
 
-###Prueba de inicio de sesión de AD FS
+###<a name="ad-fs-sign-in-test"></a>AD FS sign-in test
 
-La forma más sencilla de probar AD FS es mediante la página IdpInitiatedSignon.aspx. Para poder hacerlo, es necesario habilitar IdpInitiatedSignOn en las propiedades de AD FS. Siga estos pasos para comprobar la configuración de AD FS.
+The easiest way to test AD FS is by using the IdpInitiatedSignon.aspx page. In order to be able to do that, it is required to enable the IdpInitiatedSignOn on the AD FS properties. Follow the steps below to verify your AD FS setup
  
-1. Ejecute el siguiente cmdlet en el servidor AD FS, con PowerShell, para habilitarlo. Set-AdfsProperties -EnableIdPInitiatedSignonPage $true
-2. Desde cualquier acceso de equipo externo https://<dnsdesuserviciodefederación>/adfs/ls/IdpInitiatedSignon.aspx
-3. Debería ver la página de AD FS como aparece a continuación:
+1. Run the below cmdlet on the AD FS server, using PowerShell, to set it to enabled. Set-AdfsProperties -EnableIdPInitiatedSignonPage $true
+2. From any external machine access https://<yourfederationservicedns>/adfs/ls/IdpInitiatedSignon.aspx
+3. You should see the AD FS page like below:
 
-    ![Prueba de ADFS - desafío de autenticación](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest1.png)
+    ![ADFS test - authentication challenge](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest1.png)
 
-    y cuando se inicia sesión correctamente, aparecerá un mensaje de confirmación similar al siguiente:
+    and on successful sign-in, it will provide you with a success message as shown below:
 
-    ![Prueba de ADFS - autenticación correcta](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest2.png)
+    ![ADFS test - authentication success](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest2.png)
  
-##Vínculos relacionados
-* [Implementación básica de AD FS en Azure](active-directory-aadconnect-azure-adfs.md)
+##<a name="related-links"></a>Related links
+* [Basic AD FS deployment in Azure](active-directory-aadconnect-azure-adfs.md)
 * [Microsoft Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
-* [Métodos de enrutamiento del tráfico del Administrador de tráfico](../traffic-manager/traffic-manager-routing-methods.md)
+* [Traffic Manager traffic routing methods](../traffic-manager/traffic-manager-routing-methods.md)
 
-##Pasos siguientes
-* [Administrar un perfil del Administrador de tráfico de Azure](../traffic-manager/traffic-manager-manage-profiles.md)
-* [Adición, deshabilitación, habilitación o eliminación de extremos](../traffic-manager/traffic-manager-endpoints.md)
+##<a name="next-steps"></a>Next steps
+* [Manage an Azure Traffic Manager profile](../traffic-manager/traffic-manager-manage-profiles.md)
+* [Add, disable, enable or delete endpoints](../traffic-manager/traffic-manager-endpoints.md) 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

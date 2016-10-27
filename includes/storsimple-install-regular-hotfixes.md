@@ -1,22 +1,25 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Para instalar revisiones regulares a través de Windows PowerShell para StorSimple
+#### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>To install regular hotfixes via Windows PowerShell for StorSimple
 
-1. Conéctese a la consola serie del dispositivo. Para obtener más información, consulte [Paso 1: Conexión a la consola serie](storsimple-update-device.md#step1).
+1. Connect to the device serial console. For more information, see [Step 1: Connect to the serial console](storsimple-update-device.md#step1).
 
-2. En el menú de la consola serie, seleccione la opción 1, **iniciar sesión con acceso completo**. Escriba la contraseña. La contraseña predeterminada es **Password1**.
+2. In the serial console menu, select option 1, **Log in with full access**. Type the password. The default password is **Password1**.
 
-3. En el símbolo del sistema, escriba:
+3. At the command prompt, type:
 
     `Start-HcsHotfix`
 
        >[AZURE.IMPORTANT]
        >
-       >- Este comando solo se aplica a las revisiones regulares. Este comando se ejecuta en un solo controlador, pero se actualizarán ambos controladores.
-       >- Es posible que observe una conmutación por error del controlador durante el proceso de actualización. Sin embargo, la conmutación por error no afectará a la disponibilidad o el funcionamiento del sistema.
+       >- This command applies only to regular hotfixes. You run this command on only one controller, but both controllers will be updated.
+       >- You may notice a controller failover during the update process; however, the failover will not affect system availability or operation.
 
-4. Cuando se le solicite, proporcione la ruta de acceso a la carpeta compartida de red que contiene los archivos de la revisión.
+4. When prompted, supply the path to the network shared folder that contains the hotfix files.
 
-5. Se le pedirá confirmación. Escriba **Y** para continuar con la instalación de la revisión.
+5. You will be prompted for confirmation. Type **Y** to proceed with the hotfix installation.
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

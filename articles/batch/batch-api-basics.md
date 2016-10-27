@@ -1,459 +1,461 @@
 <properties
-	pageTitle="Información general de las características de Lote de Azure para desarrolladores | Microsoft Azure"
-	description="Conozca las características del servicio Lote y sus API desde el punto de vista del desarrollo."
-	services="batch"
-	documentationCenter=".net"
-	authors="mmacy"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Azure Batch feature overview for developers | Microsoft Azure"
+    description="Learn the features of the Batch service and its APIs from a development standpoint."
+    services="batch"
+    documentationCenter=".net"
+    authors="mmacy"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="batch"
-	ms.devlang="multiple"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-compute"
-	ms.date="09/29/2016"
-	ms.author="marsma"/>
+    ms.service="batch"
+    ms.devlang="multiple"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="big-compute"
+    ms.date="09/29/2016"
+    ms.author="marsma"/>
 
-# Información general de las características de Lote para desarrolladores
 
-En este artículo se proporciona información general acerca los componentes principales del servicio Lote de Azure y se describen los principales recursos y características del servicio que pueden usar los desarrolladores de Lote para crear soluciones de proceso en paralelo a gran escala.
+# <a name="batch-feature-overview-for-developers"></a>Batch feature overview for developers
 
-Tanto si está desarrollando una aplicación informática distribuida o un servicio que emite llamadas directas a la [API de REST][batch_rest_api] como si usa uno de los [SDK de Batch](batch-technical-overview.md#batch-development-apis), utilizará muchos de los recursos y las características que se describen en este artículo.
+In this overview of the core components of the Azure Batch service, we discuss the primary service features and resources that Batch developers can use to build large-scale parallel compute solutions.
 
-> [AZURE.TIP] Para ver una introducción de nivel superior sobre el servicio Lote, consulte [Datos básicos de Lote de Azure](batch-technical-overview.md).
+Whether you're developing a distributed computational application or service that issues direct [REST API][batch_rest_api] calls or you're using one of the [Batch SDKs](batch-technical-overview.md#batch-development-apis), you'll use many of the resources and features discussed in this article.
 
-## Flujo de trabajo del servicio Lote
+> [AZURE.TIP] For a higher-level introduction to the Batch service, see [Basics of Azure Batch](batch-technical-overview.md).
 
-El siguiente flujo de trabajo de alto nivel es típico de casi todas las aplicaciones y los servicios que usan el servicio Lote para procesar cargas de trabajo paralelas:
+## <a name="batch-service-workflow"></a>Batch service workflow
 
-1. Cargue los **archivos de datos** que desee procesar a una cuenta de [Almacenamiento de Azure][azure_storage]. Lote incluye compatibilidad integrada con el acceso al almacenamiento de blobs de Azure y, cuando se ejecutan, las tareas pueden descargar estos archivos a [nodos de proceso](#compute-node).
+The following high-level workflow is typical of nearly all applications and services that use the Batch service for processing parallel workloads:
 
-2. Cargue los **archivos de la aplicación** que las tareas ejecutarán. Estos archivos pueden ser binarios o scripts y sus dependencias, y los ejecutan las tareas de los trabajos. Las tareas pueden descargar estos archivos desde la cuenta de Almacenamiento, o bien puede usar la característica de [paquetes de aplicación](#application-packages) en Lote para la implementación y la administración de aplicaciones.
+1. Upload the **data files** that you want to process to an [Azure Storage][azure_storage] account. Batch includes built-in support for accessing Azure Blob storage, and your tasks can download these files to [compute nodes](#compute-node) when the tasks are run.
 
-3. Cree un [grupo](#pool) de nodos de proceso. Cuando cree un grupo, especifique el número de nodos de proceso para el grupo, su tamaño y el sistema operativo. Cuando se ejecutan las tareas de su trabajo, estas se asignan para que se ejecuten en uno de los nodos del grupo.
+2. Upload the **application files** that your tasks will run. These files can be binaries or scripts and their dependencies, and are executed by the tasks in your jobs. Your tasks can download these files from your Storage account, or you can use the [application packages](#application-packages) feature of Batch for application management and deployment.
 
-4. Creación de un [trabajo](#job). Un trabajo administra una colección de tareas. Se asocia cada trabajo a un grupo específico donde se ejecutarán las tareas de dicho trabajo.
+3. Create a [pool](#pool) of compute nodes. When you create a pool, you specify the number of compute nodes for the pool, their size, and the operating system. When each task in your job runs, it's assigned to execute on one of the nodes in your pool.
 
-5. Agregue [tareas](#task) al trabajo. Cada tarea ejecuta la aplicación o el script que haya cargado para procesar los archivos de datos que descarga de la cuenta de Almacenamiento. A medida que se complete cada tarea, puede cargar su resultado a Almacenamiento de Azure.
+4. Create a [job](#job). A job manages a collection of tasks. You associate each job to a specific pool where that job's tasks will run.
 
-6. Supervise el progreso del trabajo y recupere el resultado de la tarea de Almacenamiento de Azure.
+5. Add [tasks](#task) to the job. Each task runs the application or script that you uploaded to process the data files it downloads from your Storage account. As each task completes, it can upload its output to Azure Storage.
 
-Las secciones siguientes tratan estos, y otros, recursos de Batch que permitirán que haya un escenario de cálculo distribuido.
+6. Monitor job progress and retrieve the task output from Azure Storage.
 
-> [AZURE.NOTE] Necesitará una [cuenta de Batch](batch-account-create-portal.md) para utilizar este servicio. Además, casi todas las soluciones usarán una cuenta de [Azure Storage][azure_storage] para el almacenamiento y la recuperación de archivos. Actualmente, Lote solo admite el tipo de cuenta de almacenamiento de **uso general**, como se describe en el paso 5 de la sección [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md).
+The following sections discuss these and the other resources of Batch that enable your distributed computational scenario.
 
-## Recursos del servicio de Lote
+> [AZURE.NOTE] You need a [Batch account](batch-account-create-portal.md) to use the Batch service. Also, nearly all solutions use an [Azure Storage][azure_storage] account for file storage and retrieval. Batch currently supports only the **General purpose** storage account type, as described in step 5 of [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
-Algunos de los siguientes recursos son necesarios para todas las soluciones que usan el servicio Lote: cuentas, nodos de proceso, grupos, trabajos, tareas. Otros, como las programaciones de los trabajos y los paquetes de aplicación, son características útiles, pero opcionales.
+## <a name="batch-service-resources"></a>Batch service resources
 
-- [Cuenta](#account)
-- [Nodo de ejecución](#compute-node)
-- [Grupo](#pool)
-- [Trabajo](#job)
+Some of the following resources--accounts, compute nodes, pools, jobs, and tasks--are required by all solutions that use the Batch service. Others, like job schedules and application packages, are helpful, but optional, features.
 
-  - [Programaciones del trabajo](#scheduled-jobs)
+- [Account](#account)
+- [Compute node](#compute-node)
+- [Pool](#pool)
+- [Job](#job)
+
+  - [Job schedules](#scheduled-jobs)
 
 - [Task](#task)
 
-  - [Tarea de inicio](#start-task)
-  - [Tareas del Administrador de trabajos](#job-manager-task)
-  - [Tareas de preparación y liberación de trabajos](#job-preparation-and-release-tasks)
-  - [Tarea de instancias múltiples (MPI)](#multi-instance-tasks)
-  - [Dependencias de las tareas](#task-dependencies)
+  - [Start task](#start-task)
+  - [Job manager task](#job-manager-task)
+  - [Job preparation and release tasks](#job-preparation-and-release-tasks)
+  - [Multi-instance task (MPI)](#multi-instance-tasks)
+  - [Task dependencies](#task-dependencies)
 
-- [Paquetes de aplicación](#application-packages)
+- [Application packages](#application-packages)
 
-## Cuenta
+## <a name="account"></a>Account
 
-Una cuenta de Lote es una entidad identificada de forma exclusiva en el servicio Lote. Todo el procesamiento se asocia con una cuenta de Lote. Al realizar operaciones con el servicio Lote, necesita el nombre de la cuenta y una de sus claves. Puede [crear una cuenta de Lote de Azure con el Portal de Azure](batch-account-create-portal.md).
+A Batch account is a uniquely identified entity within the Batch service. All processing is associated with a Batch account. When you perform operations with the Batch service, you need both the account name and one of its account keys. You can [create an Azure Batch account using the Azure portal](batch-account-create-portal.md).
 
-## Nodo de ejecución
+## <a name="compute-node"></a>Compute node
 
-Un nodo de proceso es una máquina virtual de Azure dedicada a procesar una parte de la carga de trabajo de la aplicación. El tamaño de un nodo determina el número de núcleos de CPU, la capacidad de memoria y el tamaño del sistema de archivos local que se asignan al nodo. Puede crear grupos de nodos de Windows o Linux mediante Servicios en la nube o imágenes de Máquinas virtuales de Marketplace. Consulte la sección [Grupo](#pool) a continuación para más información sobre estas opciones.
+A compute node is an Azure virtual machine (VM) that is dedicated to processing a portion of your application's workload. The size of a node determines the number of CPU cores, memory capacity, and local file system size that is allocated to the node. You can create pools of Windows or Linux nodes by using either Azure Cloud Services or Virtual Machines Marketplace images. See the following [Pool](#pool) section for more information on these options.
 
-Los nodos pueden ejecutar cualquier archivo ejecutable o script compatible con el entorno de sistema operativo del nodo. Esto incluye *.exe, *.cmd, *.bat y scripts de PowerShell para Windows, además de archivos binarios y scripts de shell, y de Python para Linux.
+Nodes can run any executable or script that is supported by the operating system environment of the node. This includes \*.exe, \*.cmd, \*.bat and PowerShell scripts for Windows--and binaries, shell, and Python scripts for Linux.
 
-Todos los nodos de proceso en Lote también incluyen:
+All compute nodes in Batch also include:
 
-- Una [estructura de carpetas](#files-and-directories) estándar y [variables de entorno](#environment-settings-for-tasks) asociadas, disponibles para que las tareas hagan referencia a ellas.
-- Configuración del **firewall** para controlar el acceso.
-- [Acceso remoto](#connecting-to-compute-nodes) a nodos de Windows (Protocolo de escritorio remoto (RDP)) y nodos de Linux (Secure Shell (SSH)).
+- A standard [folder structure](#files-and-directories) and associated [environment variables](#environment-settings-for-tasks) that are available for reference by tasks.
+- **Firewall** settings that are configured to control access.
+- [Remote access](#connecting-to-compute-nodes) to both Windows (Remote Desktop Protocol (RDP)) and Linux (Secure Shell (SSH)) nodes.
 
-## Grupo
+## <a name="pool"></a>Pool
 
-Un grupo es una colección de nodos en la que se ejecuta la aplicación. El usuario lo puede crear manualmente, o bien el servicio Lote lo crea automáticamente cuando se especifica el trabajo que se debe realizar. Puede crear y administrar un grupo que satisfaga los requisitos de recursos de su aplicación. Un grupo solo se puede usar con la cuenta de Lote en la que se creó. Una cuenta de Lote puede tener más de un grupo.
+A pool is a collection of nodes that your application runs on. The pool can be created manually by you, or automatically by the Batch service when you specify the work to be done. You can create and manage a pool that meets the resource requirements of your application. A pool can be used only by the Batch account in which it was created. A Batch account can have more than one pool.
 
-Los grupos de Lote de Azure se basan en la plataforma de proceso principal de Azure. y proporcionan asignación a gran escala, instalación de aplicaciones, distribución de datos, supervisión de estado y ajuste flexible del número de nodos de proceso en un grupo ([escalado](#scaling-compute-resources)).
+Azure Batch pools build on top of the core Azure compute platform. They provide large-scale allocation, application installation, data distribution, health monitoring, and flexible adjustment of the number of compute nodes within a pool ([scaling](#scaling-compute-resources)).
 
-A cada nodo que se agrega a un grupo se le asigna un nombre y una dirección IP únicos. Cuando se quita un nodo de un grupo, los cambios realizados en el sistema operativo o los archivos se pierden, y su nombre y dirección IP se liberan para usarlos en un futuro. Cuando un nodo abandona un grupo, su vigencia finaliza.
+Every node that is added to a pool is assigned a unique name and IP address. When a node is removed from a pool, any changes that are made to the operating system or files are lost, and its name and IP address are released for future use. When a node leaves a pool, its lifetime is over.
 
-Cuando se crea un grupo, puede especificar los siguientes atributos:
+When you create a pool, you can specify the following attributes:
 
-- **Sistema operativo** y **versión** de nodo de proceso
+- Compute node **operating system** and **version**
 
-	Dispone de dos opciones al seleccionar un sistema operativo para los nodos en el grupo: **configuración de máquina virtual** y **configuración de Servicios en la nube**.
+    You have two options when you select an operating system for the nodes in your pool: **Virtual Machine Configuration** and **Cloud Services Configuration**.
 
-	La **configuración de máquina virtual** proporciona imágenes de Linux y Windows para los nodos de proceso desde el [Marketplace de Máquinas virtuales de Azure][vm_marketplace]. Cuando se crea un grupo que contiene los nodos de configuración de máquina virtual, debe especificar no solo el tamaño de estos, sino también la **referencia de la imagen de máquina virtual** y el **SKU del agente de nodo** del servicio Lote que desea instalar en los nodos. Para más información sobre cómo especificar estas propiedades del grupo, consulte [Aprovisionamiento de nodos de proceso de Linux en grupos del servicio Lote de Azure](batch-linux-nodes.md).
+    **Virtual Machine Configuration** provides both Linux and Windows images for compute nodes from the [Azure Virtual Machines Marketplace][vm_marketplace].
+    When you create a pool that contains Virtual Machine Configuration nodes, you must specify not only the size of the nodes, but also the **virtual machine image reference** and the Batch **node agent SKU** to be installed on the nodes. For more information about specifying these pool properties, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md).
 
-	La **configuración de Servicios en la nube** *solo* proporciona nodos de proceso de Windows. La lista de los sistemas operativos disponibles para los grupos de configuración de Servicios en la nube aparece en [Matriz de compatibilidad del SDK y versiones del SO invitado de Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Cuando se crea un grupo que contiene nodos de Servicios en la nube, debe especificar únicamente el tamaño del nodo y su *familia de sistema operativo*. Cuando se crean grupos de nodos de proceso de Windows, la mayoría de las veces se utilizan los Servicios en la nube.
+    **Cloud Services Configuration** provides Windows compute nodes *only*. Available operating systems for Cloud Services Configuration pools are listed in the [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md). When you create a pool that contains Cloud Services nodes, you need to specify only the node size and its *OS Family*. When you create pools of Windows compute nodes, you most commonly use Cloud Services.
 
-    - La *familia de sistema operativo* también determina qué versiones de .NET se instalan con el sistema operativo.
-	- Al igual que con los roles de trabajo dentro de Servicios en la nube, es posible especificar la *versión del sistema operativo* (para más información sobre los roles de trabajo, consulte la sección [Información sobre los servicios en la nube](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) en [¿Debo elegir los servicios en la nube o alguna otra opción?](../cloud-services/cloud-services-choose-me.md)).
-    - Como con los roles de trabajo, se recomienda que se especifique `*` para la *versión del sistema operativo* de forma que los nodos se actualicen automáticamente; así no es necesario realizar ningún trabajo para las versiones recién publicadas. El principal caso de uso para seleccionar una versión específica del sistema operativo es asegurarse de la compatibilidad de las aplicaciones; debe ser posible realizar pruebas de compatibilidad con versiones anteriores antes de permitir la actualización de la versión. Después de la validación, se puede actualizar la *versión del sistema operativo* para el grupo e instalar la nueva imagen del sistema operativo. Cualquier tarea en ejecución se interrumpirá y se volverá a poner en cola.
+    - The *OS Family* also determines which versions of .NET are installed with the OS.
+    - As with worker roles within Cloud Services, you can specify an *OS Version* (for more information on worker roles, see the [Tell me about cloud services](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) section in the [Cloud Services overview](../cloud-services/cloud-services-choose-me.md)).
+    - As with worker roles, we recommend that you specify `*` for the *OS Version* so that the nodes are automatically upgraded, and there is no work required to cater to newly released versions. The primary use case for selecting a specific OS version is to ensure application compatibility, which allows backward compatibility testing to be performed before allowing the version to be updated. After validation, the *OS Version* for the pool can be updated and the new OS image can be installed--any running tasks are interrupted and requeued.
 
-- **Tamaño de los nodos**
+- **Size of the nodes**
 
-	Los tamaños de los nodos de proceso de la **configuración de Servicios en la nube** aparecen en [Tamaños de los servicios en la nube](../cloud-services/cloud-services-sizes-specs.md). Lote admite todos los tamaños de Servicios en la nube excepto `ExtraSmall`.
+    **Cloud Services Configuration** compute node sizes are listed in [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Batch supports all Cloud Services sizes except `ExtraSmall`.
 
-	Los tamaños de los nodos de proceso de la **configuración de máquina virtual** se muestran en [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/virtual-machines-linux-sizes.md) y [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/virtual-machines-windows-sizes.md). Lote admite todos los tamaños de máquina virtual de Azure excepto `STANDARD_A0` y aquellos con almacenamiento premium (series `STANDARD_GS`, `STANDARD_DS` y `STANDARD_DSV2`).
+    **Virtual Machine Configuration** compute node sizes are listed in [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) and [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). Batch supports all Azure VM sizes except `STANDARD_A0` and those with premium storage (`STANDARD_GS`, `STANDARD_DS`, and `STANDARD_DSV2` series).
 
-	Al seleccionar un tamaño de nodo de proceso, tenga en cuenta las características y los requisitos de las aplicaciones que se van a ejecutar en los nodos. Aspectos tales como si la aplicación es multiproceso y cuánta memoria consume pueden ayudar a determinar el tamaño de nodo más adecuado y rentable. Normalmente, se selecciona un tamaño de nodo bajo el supuesto de que se ejecutará una sola tarea en un nodo cada vez. No obstante, es posible [ejecutar en paralelo](batch-parallel-node-tasks.md) varias tareas y, por tanto, varias instancias de la aplicación, en varios nodos de proceso durante la ejecución del trabajo. En este caso, es habitual elegir un tamaño de nodo más grande para acomodar el aumento de la demanda por la ejecución de tareas en paralelo. Para más información, consulte [Directiva de programación de tareas](#task-scheduling-policy).
+    When selecting a compute node size, consider the characteristics and requirements of the applications you'll run on the nodes. Aspects like whether the application is multithreaded and how much memory it consumes can help determine the most suitable and cost-effective node size. It's typical to select a node size assuming one task will run on a node at a time. However, it is possible to have multiple tasks (and therefore multiple application instances) [run in parallel](batch-parallel-node-tasks.md) on compute nodes during job execution. In this case, it is common to choose a larger node size to accommodate the increased demand of parallel task execution. See [Task scheduling policy](#task-scheduling-policy) for more information.
 
-	Todos los nodos de un grupo son del mismo tamaño. Si va a ejecutar aplicaciones con requisitos del sistema o niveles de carga diferentes, es recomendable usar grupos separados.
+    All of the nodes in a pool are the same size. If intend to run applications with differing system requirements and/or load levels, we recommend that you use separate pools.
 
-- **Número objetivo de nodos**
+- **Target number of nodes**
 
-	Es el número de nodos de proceso que desea implementar en el grupo. Se conoce como *objetivo* porque, en algunas situaciones, es posible que el grupo no alcance el número deseado de nodos. Puede que un grupo no alcance el número deseado de nodos si este ha alcanzado la [cuota de núcleos](batch-quota-limit.md#batch-account-quotas) de su cuenta de Lote o si hay alguna fórmula de escalado automático que haya aplicado al grupo que limite el número máximo de nodos (consulte la sección "Directiva de escalado" a continuación).
+    This is the number of compute nodes that you want to deploy in the pool. This is referred to as a *target* because, in some situations, your pool might not reach the desired number of nodes. A pool might not reach the desired number of nodes if it reaches the [core quota](batch-quota-limit.md#batch-account-quotas) for your Batch account--or if there is an auto-scaling formula that you have applied to the pool that limits the maximum number of nodes (see the following "Scaling policy" section).
 
-- **Directiva de escalado**
+- **Scaling policy**
 
-	Además de especificar un número estático de nodos, en su lugar puede escribir y aplicar una [fórmula de escalado automático](#scaling-compute-resources) a un grupo. El servicio Lote evalúa periódicamente la fórmula y ajusta el número de nodos dentro del grupo en función de los diversos parámetros de grupo, trabajo y tarea que especifique.
+    In addition to specifying a static number of nodes, you can instead write and apply an [auto-scaling formula](#scaling-compute-resources) to a pool. The Batch service periodically evaluates your formula and adjusts the number of nodes within the pool based on various pool, job, and task parameters that you can specify.
 
-- **Directiva de programación de tareas**
+- **Task scheduling policy**
 
-	La opción de configuración [Máximo de tareas por nodo](batch-parallel-node-tasks.md) determina la cantidad máxima de tareas que se pueden ejecutar en paralelo en cada nodo de proceso del grupo.
+    The [max tasks per node](batch-parallel-node-tasks.md) configuration option determines the maximum number of tasks that can be run in parallel on each compute node within the pool.
 
-	La configuración predeterminada supone que se ejecuta una sola tarea al mismo tiempo en un nodo. Sin embargo, hay situaciones en las que resulta ventajoso que se ejecute más de una tarea en un nodo simultáneamente. Consulte el [escenario de ejemplo](batch-parallel-node-tasks.md#example-scenario) en el artículo sobre [tareas simultáneas de nodo](batch-parallel-node-tasks.md) para ver cómo puede beneficiarse de la ejecución de varias tareas por nodo.
+    The default configuration is that one task at a time runs on a node, but there are scenarios where it is beneficial to have more than one task executed on a node simultaneously. See the [example scenario](batch-parallel-node-tasks.md#example-scenario) in the [concurrent node tasks](batch-parallel-node-tasks.md) article to see how you can benefit from multiple tasks per node.
 
-	También puede especificar un *tipo de relleno* que determina si el servicio Lote distribuye las tareas uniformemente entre todos los nodos de un grupo o llena cada uno con el número máximo de tareas antes de asignar tareas a otro.
+    You can also specify a *fill type* which determines whether Batch spreads the tasks evenly across all nodes in a pool, or packs each node with the maximum number of tasks before assigning tasks to another node.
 
-- **Estado de comunicación** de los nodos de proceso
+- **Communication status** of compute nodes
 
-	En la mayoría de los escenarios, las tareas funcionan de forma independiente y no necesitan comunicarse entre sí. Sin embargo, hay algunas aplicaciones en las que las tareas deben comunicarse, como en los [escenarios MPI](batch-mpi.md).
+    In most scenarios, tasks operate independently and do not need to communicate with one another. However, there are some applications in which tasks must communicate, like [MPI scenarios](batch-mpi.md).
 
-	Puede configurar un grupo que permita la comunicación entre los nodos que contiene: **comunicación entre nodos**. Cuando se habilita la comunicación entre nodos, los nodos en grupos de configuración de Servicios en la nube pueden comunicarse entre sí en los puertos superiores a 1100, mientras que los grupos de configuración de máquina virtual no restringen el tráfico en ningún puerto.
+    You can configure a pool to allow communication between the nodes within it--**internode communication**. When internode communication is enabled, nodes in Cloud Services Configuration pools can communicate with each other on ports greater than 1100, and Virtual Machine Configuration pools do not restrict traffic on any port.
 
-	Tenga en cuenta que habilitar la comunicación entre nodos también afecta a la colocación de los nodos dentro de los clústeres y puede limitar el número máximo de nodos en un grupo a causa de las restricciones de implementación. Si la aplicación no requiere comunicación entre los nodos, el servicio Lote puede asignar un número potencialmente alto de nodos al grupo desde muchos clústeres y centros de datos diferentes para permitir el aumento de la potencia del procesamiento paralelo.
+    Note that enabling internode communication also impacts the placement of the nodes within clusters and might limit the maximum number of nodes in a pool because of deployment restrictions. If your application does not require communication between nodes, the Batch service can allocate a potentially large number of nodes to the pool from many different clusters and datacenters to enable increased parallel processing power.
 
-- **Tarea de inicio** para nodos de proceso
+- **Start task** for compute nodes
 
-	La *tarea de inicio* opcional se ejecuta en cada nodo cuando dicho nodo se une al grupo y cada vez que se reinicia un nodo o se restablece su imagen inicial. La tarea de inicio resulta especialmente útil para preparar los nodos de proceso para la ejecución de tareas, como la instalación de las aplicaciones que las tareas ejecutan en los nodos de proceso.
+    The optional *start task* executes on each node as that node joins the pool, and each time a node is restarted or reimaged. The start task is especially useful for preparing compute nodes for the execution of tasks, like installing the applications that your tasks run on the compute nodes.
 
-- **Paquetes de aplicación**
+- **Application packages**
 
-	Puede especificar los [paquetes de aplicación](#application-packages) que se implementarán en los nodos de proceso del grupo. Los paquetes de aplicación proporcionan una implementación simplificada y el control de las versiones de las aplicaciones que ejecutan las tareas. Los paquetes de aplicación que se especifiquen para un grupo se instalarán en todos los nodos que se unan al grupo cada vez que un nodo se reinicie o se restablezca la imagen inicial. Los paquetes de aplicación no se admiten actualmente en los nodos de proceso de Linux.
+    You can specify [application packages](#application-packages) to deploy to the compute nodes in the pool. Application packages provide simplified deployment and versioning of the applications that your tasks run. Application packages that you specify for a pool are installed on every node that joins that pool, and every time a node is rebooted or reimaged. Application packages are currently unsupported on Linux compute nodes.
 
-- **Configuración de la red**
+- **Network configuration**
 
-	Puede especificar el identificador de la [red virtual (VNet)](../virtual-network/virtual-networks-overview.md) de Azure en que se deben crear los nodos de proceso del grupo. Los requisitos para especificar una red virtual para un grupo se pueden encontrar en [Agregar un grupo a una cuenta][vnet], en la referencia de la API de REST de Lote.
+    You can specify the ID of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) in which the pool's compute nodes should be created. Requirements for specifying a VNet for your pool can be found in [Add a pool to an account][vnet] in the Batch REST API reference.
 
-> [AZURE.IMPORTANT] Todas las cuentas de Lote tienen una **cuota** predeterminada que limita el número de **núcleos** (y por tanto, de nodos de proceso) en una cuenta de Lote. Tanto las cuotas predeterminadas como las instrucciones para [aumentar una cuota](batch-quota-limit.md#increase-a-quota) (por ejemplo, el número máximo de núcleos de su cuenta de Lote) se pueden encontrar en [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md). Si se pregunta "¿Por qué mi grupo no llega a más de X nodos?", esta cuota de núcleos puede ser la causa.
+> [AZURE.IMPORTANT] All Batch accounts have a default **quota** that limits the number of **cores** (and thus, compute nodes) in a Batch account. You can find the default quotas and instructions on how to [increase a quota](batch-quota-limit.md#increase-a-quota) (such as the maximum number of cores in your Batch account) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md). If you find yourself asking "Why won't my pool reach more than X nodes?" this core quota might be the cause.
 
-## Trabajo
+## <a name="job"></a>Job
 
-Un trabajo es una colección de tareas. El trabajo administra cómo sus tareas realizan el cálculo en los nodos de proceso de un grupo.
+A job is a collection of tasks. It manages how computation is performed by its tasks on the compute nodes in a pool.
 
-- El trabajo especifica el **grupo** en el que se va a ejecutar el trabajo. Puede crear un grupo para cada trabajo o usar uno solo para muchos de ellos. Puede crear un grupo para cada trabajo asociado con una programación de trabajo o para todos los trabajos asociados con ella.
+- The job specifies the **pool** in which the work is to be run. You can create a new pool for each job, or use one pool for many jobs. You can create a pool for each job that is associated with a job schedule, or for all jobs that are associated with a job schedule.
 
-- Puede especificar una **prioridad del trabajo** opcional. Cuando se envía un trabajo con una prioridad más alta que la de otros trabajos actualmente en curso, las tareas del trabajo de prioridad más alta se insertan en la cola por delante de las tareas del trabajo de prioridad más baja. No adelantarán a las tareas de trabajos de prioridad más baja que ya estén en ejecución.
+- You can specify an optional **job priority**. When a job is submitted with a higher priority than jobs that are currently in progress, the tasks for the higher-priority job are inserted into the queue ahead of tasks for the lower-priority jobs. Tasks in lower-priority jobs that are already running are not preempted.
 
-- Puede utilizar **restricciones** de trabajo para fijar determinados límites para sus trabajos:
+- You can use job **constraints** to specify certain limits for your jobs:
 
-	Puede establecer un **tiempo de reloj máximo**, de modo que si un trabajo lleva más tiempo que el especificado, el trabajo y todas sus tareas se finalizarán.
+    You can set a **maximum wallclock time**, so that if a job runs for longer than the maximum wallclock time that is specified, the job and all of its tasks are terminated.
 
-	Lote puede detectar tareas con errores y después volver a intentarlas. Puede especificar el **número máximo de reintentos de tarea** como una restricción. Puede incluso especificar si una tarea se debe reintentar *siempre* o no se debe reintentar *nunca*. Volver a intentar una tarea significa que la tarea se vuelve a poner en cola para ejecutarse de nuevo.
+    Batch can detect and then retry failed tasks. You can specify the **maximum number of task retries** as a constraint, including whether a task is *always* or *never* retried. Retrying a task means that the task is requeued to be run again.
 
-- La aplicación cliente puede agregar tareas a un trabajo o puede especificar una [tarea del administrador de trabajos](#job-manager-task). Una tarea del administrador de trabajos contiene la información necesaria para crear las tareas que se requieren para un trabajo. Estas tareas se ejecutan en uno de los nodos de proceso del grupo. El servicio Lote controla específicamente las tareas del administrador de trabajos: las pone en cola en cuanto se crea el trabajo y las reinicia si se produce un error. Se *requiere* una tarea del administrador de trabajos para los trabajos creados mediante una [programación de trabajo](#scheduled-jobs), ya que es la única manera de definir las tareas antes de que se cree una instancia del trabajo.
+- Your client application can add tasks to a job, or you can specify a [job manager task](#job-manager-task). A job manager task contains the information that is necessary to create the required tasks for a job, with the job manager task being run on one of the compute nodes in the pool. The job manager task is handled specifically by Batch--it is queued as soon as the job is created, and is restarted if it fails. A job manager task is *required* for jobs that are created by a [job schedule](#scheduled-jobs) because it is the only way to define the tasks before the job is instantiated.
 
-- De manera predeterminada, los trabajos permanecen en estado activo cuando se completan todas las tareas que contienen. Este comportamiento se puede cambiar, con el fin de que el trabajo finalice automáticamente cuando se completen todas sus tareas. Establezca la propiedad **onAllTasksComplete** ([OnAllTasksComplete][net_onalltaskscomplete] en .NET de Lote) en *terminatejob* para que el trabajo finalice automáticamente cuando todas sus tareas estén en estado completado.
+- By default, jobs remain in the active state when all tasks within the job are complete. You can change this behavior so that the job is automatically terminated when all tasks in the job are complete. Set the job's **onAllTasksComplete** property ([OnAllTasksComplete][net_onalltaskscomplete] in Batch .NET) to *terminatejob* to automatically terminate the job when all of its tasks are in the completed state.
 
-	Tenga en cuenta que el servicio de Lote considera que un trabajo *sin* tareas tiene todas sus tareas completadas. Por lo tanto, esta opción se utiliza normalmente con una [tarea del administrador de trabajos](#job-manager-task). Si desea usar la finalización automática de trabajos sin un administrador de trabajos, debe establecer inicialmente la propiedad **onAllTasksComplete**de cada trabajo nuevo en *noaction* y, después, establecerla en *terminatejob*, pero solo después de que haya terminado de agregar tareas al trabajo.
+    Note that the Batch service considers a job with *no* tasks to have all of its tasks completed. Therefore, this option is most commonly used with a [job manager task](#job-manager-task). If you want to use automatic job termination without a job manager, you should initially set a new job's **onAllTasksComplete** property to *noaction*, then set it to *terminatejob* only after you've finished adding tasks to the job.
 
-### Prioridad del trabajo
+### <a name="job-priority"></a>Job priority
 
-Puede asignar una prioridad a los trabajos que cree en Lote. El servicio Lote usa el valor de prioridad del trabajo para determinar el orden de programación de trabajos dentro de una cuenta (esto no se debe confundir con un [trabajo programado](#scheduled-jobs)). Los valores de prioridad pueden oscilar entre -1000 y 1000, siendo -1000 la prioridad más baja y 1000 la más alta. Puede actualizar la prioridad de un trabajo mediante la operación [Actualizar las propiedades de un trabajo][rest_update_job] \(REST de Lote) o modificando la propiedad [CloudJob.Priority][net_cloudjob_priority] \(.NET de Lote).
+You can assign a priority to jobs that you create in Batch. The Batch service uses the priority value of the job to determine the order of job scheduling within an account (this is not to be confused with a [scheduled job](#scheduled-jobs)). The priority values range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest. You can update the priority of a job by using the [Update the properties of a job][rest_update_job] operation (Batch REST) or by modifying the [CloudJob.Priority][net_cloudjob_priority] property (Batch .NET).
 
-Dentro de la misma cuenta, los trabajos de mayor prioridad tienen precedencia de programación sobre los trabajos con menor prioridad. Un trabajo con un valor de prioridad mayor en una cuenta no tiene precedencia de programación sobre otro trabajo con un valor de prioridad inferior de una cuenta diferente.
+Within the same account, higher-priority jobs have scheduling precedence over lower-priority jobs. A job with a higher-priority value in one account does not have scheduling precedence over another job with a lower-priority value in a different account.
 
-La programación de trabajos entre los grupos es independiente. Entre grupos diferentes, no se garantiza que un trabajo con una prioridad más alta se programe antes si el grupo asociado tiene pocos nodos inactivos. En el mismo grupo, los trabajos con el mismo nivel de prioridad tienen la misma probabilidad de ser programados.
+Job scheduling across pools is independent. Between different pools, it is not guaranteed that a higher-priority job is scheduled first if its associated pool is short of idle nodes. In the same pool, jobs with the same priority level have an equal chance of being scheduled.
 
-### Scheduled jobs
+### <a name="scheduled-jobs"></a>Scheduled jobs
 
-Las [programaciones de trabajos][rest_job_schedules] permiten crear trabajos recurrentes dentro del servicio Lote. Una programación de trabajo especifica cuándo se deben ejecutar los trabajos e incluye las especificaciones de los trabajos que se van a ejecutar. Puede especificar la duración de la programación: por cuánto tiempo y cuándo es efectiva la programación, y con qué frecuencia se deben crear trabajos durante ese período.
+[Job schedules][rest_job_schedules] enable you to create recurring jobs within the Batch service. A job schedule specifies when to run jobs and includes the specifications for the jobs to be run. You can specify the duration of the schedule--how long and when the schedule is in effect--and how often during that time period that jobs should be created.
 
-## Tarea
+## <a name="task"></a>Task
 
-Una tarea es una unidad de cálculo que está asociada con un trabajo. Se ejecuta en un nodo. Las tareas se asignan a un nodo para su ejecución o se ponen en cola hasta que quede libre un nodo. Es decir, una tarea ejecuta uno o más programas o scripts en un nodo de proceso para llevar a cabo el trabajo necesario.
+A task is a unit of computation that is associated with a job. It runs on a node. Tasks are assigned to a node for execution, or are queued until a node becomes free. Put simply, a task runs one or more programs or scripts on a compute node to perform the work you need done.
 
-Cuando crea una tarea, puede especificar:
+When you create a task, you can specify:
 
-- La **línea de comandos** de la tarea. Se trata de la línea de comandos que ejecuta la aplicación o el script en el nodo de proceso.
+- The **command line** of the task. This is the command line that runs your application or script on the compute node.
 
-	Es importante comprobar que la línea de comandos no se ejecute realmente en un shell. Por tanto, no se podrá beneficiar de forma nativa de las características de shell como la expansión de [variable de entorno](#environment-settings-for-tasks) (esto incluye el `PATH`). Para beneficiarse de estas características, debe invocar el shell en la línea de comandos, por ejemplo, iniciando `cmd.exe` en nodos de Windows o `/bin/sh` en Linux:
+    It is important to note that the command line does not actually run under a shell. Therefore, it cannot natively take advantage of shell features like [environment variable](#environment-settings-for-tasks) expansion (this includes the `PATH`). To take advantage of such features, you must invoke the shell in the command line--for example, by launching `cmd.exe` on Windows nodes or `/bin/sh` on Linux:
 
-	`cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
+    `cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
 
-	`/bin/sh -c MyTaskApplication $MY_ENV_VAR`
+    `/bin/sh -c MyTaskApplication $MY_ENV_VAR`
 
-	Si las tareas deben ejecutar una aplicación o un script que no se encuentra en `PATH` en el nodo o en las variables de entorno de referencia, invoque el shell explícitamente en la línea de comandos de la tarea.
+    If your tasks need to run an application or script that is not in the node's `PATH` or reference environment variables, invoke the shell explicitly in the task command line.
 
-- Los **archivos de recursos** que contienen los datos que se procesan. Estos archivos se copian automáticamente en el nodo desde el almacenamiento de blobs de una cuenta de Almacenamiento de Azure **de uso general** antes de que se ejecute la línea de comandos de la tarea. Para más información, consulte las secciones [Tarea de inicio](#start-task) y [Archivos y directorios](#files-and-directories).
+- **Resource files** that contain the data to be processed. These files are automatically copied to the node from Blob storage in a **General purpose** Azure Storage account before the task's command line is executed. For more information, see the sections [Start task](#start-task) and [Files and directories](#files-and-directories).
 
-- Las **variables de entorno** que requiere la aplicación. Para más información, consulte la sección [Configuración del entorno para las tareas](#environment-settings-for-tasks).
+- The **environment variables** that are required by your application. For more information, see the [Environment settings for tasks](#environment-settings-for-tasks) section.
 
-- Las **restricciones** con que se debe ejecutar la tarea. Por ejemplo, el tiempo máximo que se permite que la tarea se ejecute, el número máximo de veces que se debe volver a intentar una tarea si se produce un error y el tiempo máximo que se conservan los archivos en el directorio de trabajo de la tarea.
+- The **constraints** under which the task should execute. For example, the maximum time that the task is allowed to run, the maximum number of times a failed task should be retried, and the maximum time that files in the task's working directory are retained.
 
-- Los **paquetes de aplicación** que se implementan en el nodo de proceso en el que está programado que se ejecute la tarea. Los [paquetes de aplicación](#application-packages) proporcionan una implementación simplificada y el control de las versiones de las aplicaciones que ejecutan las tareas. Los paquetes de aplicaciones de nivel de tarea son especialmente útiles en entornos de grupo compartido, donde los distintos trabajos se ejecutan en un grupo que no se elimina cuando se completa un trabajo. Si el trabajo tiene menos tareas que nodos en el grupo, los paquetes de aplicación de las tareas pueden minimizar la transferencia de datos, ya que la aplicación se implementa solo en los nodos que ejecutan tareas.
+- **Application packages** to deploy to the compute node on which the task is scheduled to run. [Application packages](#application-packages) provide simplified deployment and versioning of the applications that your tasks run. Task-level application packages are especially useful in shared-pool environments, where different jobs are run on one pool, and the pool is not deleted when a job is completed. If your job has fewer tasks than nodes in the pool, task application packages can minimize data transfer since your application is deployed only to the nodes that run tasks.
 
-Además de las tareas que se definen para realizar cálculos en un nodo, el servicio de Lote también proporciona las siguientes tareas especiales:
+In addition to tasks you define to perform computation on a node, the following special tasks are also provided by the Batch service:
 
-- [Tarea de inicio](#start-task)
-- [Tareas del Administrador de trabajos](#job-manager-task)
-- [Tareas de preparación y liberación de trabajos](#job-preparation-and-release-tasks)
-- [Tareas de instancias múltiples (MPI)](#multi-instance-tasks)
-- [Dependencias de las tareas](#task-dependencies)
+- [Start task](#start-task)
+- [Job manager task](#job-manager-task)
+- [Job preparation and release tasks](#job-preparation-and-release-tasks)
+- [Multi-instance tasks (MPI)](#multi-instance-tasks)
+- [Task dependencies](#task-dependencies)
 
-### Tarea de inicio
+### <a name="start-task"></a>Start task
 
-Asociando una **tarea de inicio** con un grupo, puede preparar el entorno operativo de sus nodos. Por ejemplo, puede realizar acciones como instalar las aplicaciones que las tareas ejecutarán e iniciar procesos en segundo plano. La tarea de inicio se ejecuta cada vez que se inicia un nodo, siempre y cuando dicho nodo permanezca en el grupo. Aquí se incluye también la primera vez que el nodo se agrega al grupo o cuando se reinicia o se restablece su imagen inicial.
+By associating a **start task** with a pool, you can prepare the operating environment of its nodes. For example, you can perform actions like installing the applications that your tasks run, and starting background processes. The start task runs every time a node starts, for as long as it remains in the pool--including when the node is first added to the pool and when it is restarted or reimaged.
 
-Una de las principales ventajas de la tarea de inicio es que contiene toda la información necesaria para configurar un nodo de proceso e instalar las aplicaciones necesarias para ejecutar tareas. Por lo tanto, aumentar el número de nodos en un grupo es tan sencillo como especificar el nuevo número objetivo de nodos; Lote ya dispone de toda la información necesaria para configurar los nuevos nodos y tenerlos preparados para aceptar tareas.
+A primary benefit of the start task is that it can contain all of the information that is necessary to configure a compute node and install the applications that are required for task execution. Therefore, increasing the number of nodes in a pool is as simple as specifying the new target node count--Batch already has the information that is needed to configure the new nodes and get them ready for accepting tasks.
 
-Como con cualquier tarea de Lote de Azure, se puede especificar una lista de **archivos de recursos** en [Almacenamiento de Azure][azure_storage], además de una **línea de comandos** para ejecutar. Lote copia primero los archivos de recursos desde el Almacenamiento de Azure al nodo y después ejecuta la línea de comandos. Para una tarea de inicio de grupo, la lista de archivos contiene normalmente la aplicación de la tarea y sus dependencias.
+As with any Azure Batch task, you can specify a list of **resource files** in [Azure Storage][azure_storage], in addition to a **command line** to be executed. Batch first copies the resource files to the node from Azure Storage, and then runs the command line. For a pool start task, the file list typically contains the task application and its dependencies.
 
-Sin embargo, también puede incluir datos de referencia que se utilizarán en todas las tareas que se ejecuten en el nodo de proceso. Por ejemplo, una línea de comandos de una tarea de inicio podría realizar una operación `robocopy` para copiar los archivos de la aplicación (que se especificaron como archivos de recursos y se descargaron en el nodo) del [directorio de trabajo](#files-and-directories) de la tarea de inicio a la [carpeta compartida](#files-and-directories) y después ejecutar un archivo MSI o `setup.exe`.
+However, it could also include reference data to be used by all tasks that are running on the compute node. For example, a start task's command line could perform a `robocopy` operation to copy application files (which were specified as resource files and downloaded to the node) from the start task's [working directory](#files-and-directories) to the [shared folder](#files-and-directories), and then run an MSI or `setup.exe`.
 
-> [AZURE.IMPORTANT] Actualmente, Lote *solo* admite el tipo de cuenta de almacenamiento de **uso general**, como se describe en el paso 5 de la sección [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md). Las tareas de Lote (incluidas las tareas estándar, las de inicio, las de preparación de trabajos y las de liberación de trabajos) deben especificar archivos de recursos que residan *solamente* en cuentas de almacenamiento **de uso general**.
+> [AZURE.IMPORTANT] Batch currently supports *only* the **General purpose** storage account type, as described in step 5 of [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md). Your Batch tasks (including standard tasks, start tasks, job preparation tasks, and job release tasks) must specify resource files that reside *only* in **General purpose** storage accounts.
 
-Habitualmente, es conveniente que el servicio Lote espere a que la tarea de inicio finalice antes de considerar que el nodo está listo para asignarle tareas, pero este procedimiento se puede configurar.
+It is typically desirable for the Batch service to wait for the start task to complete before considering the node ready to be assigned tasks, but you can configure this.
 
-Si una tarea de inicio da error en un nodo de proceso, el estado del nodo se actualiza para reflejar el error y no se le asigna al nodo ninguna tarea. Una tarea de inicio puede generar un error si existe un problema al copiar sus archivos de recursos desde el almacenamiento o si el proceso ejecutado mediante su línea de comandos devuelve un código de salida distinto de cero.
+If a start task fails on a compute node, then the state of the node is updated to reflect the failure, and the node is not assigned any tasks. A start task can fail if there is an issue copying its resource files from storage, or if the process executed by its command line returns a nonzero exit code.
 
-Si agrega o actualiza la tarea de inicio de un grupo *existente*, debe reiniciar sus nodos de proceso para la tarea de inicio que se va a aplicar a dichos nodos.
+If you add or update the start task for an *existing* pool, you must reboot its compute nodes for the start task to be applied to the nodes.
 
-### Tarea del administrador de trabajos
+### <a name="job-manager-task"></a>Job manager task
 
-Normalmente, se utiliza una **tarea del administrador de trabajos** para controlar y supervisar la ejecución del trabajo: por ejemplo, para crear y enviar las tareas de un trabajo, determinar las tareas adicionales que se deben ejecutar y determinar si el trabajo ha finalizado. Sin embargo, una tarea del administrador de trabajos no se limita a estas actividades. Es una tarea completa que puede realizar todas las acciones que se requieren para el trabajo. Por ejemplo, una tarea del administrador de trabajos podría descargar un archivo especificado como un parámetro, analizar el contenido de ese archivo y enviar tareas adicionales en función de ese contenido.
+You typically use a **job manager task** to control and/or monitor job execution--for example, to create and submit the tasks for a job, determine additional tasks to run, and determine when work is complete. However, a job manager task is not restricted to these activities. It is a fully fledged task that can perform any actions that are required for the job. For example, a job manager task might download a file that is specified as a parameter, analyze the contents of that file, and submit additional tasks based on those contents.
 
-Una tarea del administrador de trabajos se inicia antes que cualquier otra. Ofrece las siguientes características:
+A job manager task is started before all other tasks. It provides the following features:
 
-- Se envía automáticamente como una tarea mediante el servicio Lote cuando se crea el trabajo.
+- It is automatically submitted as a task by the Batch service when the job is created.
 
-- Está programada para ejecutarse antes que las otras tareas de un trabajo.
+- It is scheduled to execute before the other tasks in a job.
 
-- Su nodo asociado es el último en eliminarse de un grupo cuando se reduce el tamaño del grupo.
+- Its associated node is the last to be removed from a pool when the pool is being downsized.
 
-- Su finalización se puede vincular a la finalización de todas las tareas en el trabajo.
+- Its termination can be tied to the termination of all tasks in the job.
 
-- A una tarea del administrador de trabajos se le otorga la más alta prioridad cuando es necesario reiniciarla. Si un nodo inactivo no está disponible, el servicio Lote puede finalizar una de las otras tareas en ejecución del grupo para dejar espacio para la ejecución de la tarea del administrador de trabajos.
+- A job manager task is given the highest priority when it needs to be restarted. If an idle node is not available, the Batch service might terminate one of the other running tasks in the pool to make room for the job manager task to run.
 
-- Una tarea del Administrador de trabajos de un trabajo no tiene prioridad sobre las tareas de otros trabajos. Entre trabajos, solo se tienen en cuenta las prioridades de nivel de trabajo.
+- A job manager task in one job does not have priority over the tasks of other jobs. Across jobs, only job-level priorities are observed.
 
-### Tareas de preparación y liberación de trabajos
+### <a name="job-preparation-and-release-tasks"></a>Job preparation and release tasks
 
-El servicio Lote proporciona la tarea de preparación del trabajo para la configuración de ejecución previa al trabajo. Tareas de liberación del trabajo para el mantenimiento o la limpieza posteriores al trabajo.
+Batch provides job preparation tasks for pre-job execution setup. Job release tasks are for post-job maintenance or cleanup.
 
-- **Tarea de preparación del trabajo**: una tarea de preparación del trabajo se ejecuta en todos los nodos de proceso programados para ejecutar tareas, antes de que se ejecute ninguna otra tarea del trabajo. Por ejemplo, puede usar una tarea de preparación del trabajo para copiar los datos compartidos por todas las tareas, pero que sean únicos para el trabajo.
-- **Tarea de liberación del trabajo**: cuando un trabajo se ha completado, la tarea de liberación del trabajo se ejecuta en cada nodo del grupo que ejecutó al menos una tarea. Por ejemplo, puede usar la tarea de liberación del trabajo para eliminar los datos copiados por la tarea de preparación del trabajo, o comprimir y cargar los datos del registro de diagnóstico.
+- **Job preparation task**: A job preparation task runs on all compute nodes that are scheduled to run tasks, before any of the other job tasks are executed. You can use a job preparation task to copy data that is shared by all tasks, but is unique to the job, for example.
+- **Job release task**: When a job has completed, a job release task runs on each node in the pool that executed at least one task. You can use a job release task to delete data that is copied by the job preparation task, or to compress and upload diagnostic log data, for example.
 
-Tanto para la tarea de preparación del trabajo como para las de liberación, puede especificar una línea de comandos que se ejecute cuando se invoque la tarea. Las tareas ofrecen características tales como descarga de archivos, ejecución con elevación de privilegios, variables de entorno personalizadas, duración máxima de ejecución, número de reintentos y tiempo de retención de archivo.
+Both job preparation and release tasks allow you to specify a command line to run when the task is invoked. They offer features like file download, elevated execution, custom environment variables, maximum execution duration, retry count, and file retention time.
 
-Para obtener más información sobre las tareas de preparación y liberación del trabajo, consulte [Ejecución de las tareas de preparación y realización de trabajos en los nodos de ejecución de Lote de Azure](batch-job-prep-release.md).
+For more information on job preparation and release tasks, see [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md).
 
-### Tarea de instancias múltiples
+### <a name="multi-instance-task"></a>Multi-instance task
 
-Una [tarea de instancias múltiples](batch-mpi.md) es aquella que está configurada para ejecutarse simultáneamente en varios nodos de proceso. Con tareas de instancias múltiples, puede habilitar escenarios de informática de alto rendimiento que requieren tener un grupo de nodos de proceso asignados juntos para procesar una carga de trabajo única como, por ejemplo, la interfaz de paso de mensajes (MPI).
+A [multi-instance task](batch-mpi.md) is a task that is configured to run on more than one compute node simultaneously. With multi-instance tasks, you can enable high-performance computing scenarios that require a group of compute nodes that are allocated together to process a single workload (like Message Passing Interface (MPI)).
 
-Para ver una explicación detallada sobre la ejecución de trabajos de MPI en el servicio Lote mediante la biblioteca .NET de Lote, consulte [Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Lote de Azure](batch-mpi.md).
+For a detailed discussion on running MPI jobs in Batch by using the Batch .NET library, check out [Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch](batch-mpi.md).
 
-### Dependencias de las tareas
+### <a name="task-dependencies"></a>Task dependencies
 
-Las [dependencias de tareas](batch-task-dependencies.md), como el propio nombre implica, permiten especificar que una tarea depende de que se completen otras tareas antes de su ejecución. Esta característica proporciona compatibilidad con aquellas situaciones en las que una tarea "de bajada" consume el resultado de una tarea "del canal de subida", o cuando una tarea del canal de subida realiza alguna inicialización requerida por una tarea de bajada. Para utilizar esta característica, primero debe habilitar las dependencias de tareas en su trabajo de Lote. Luego, en cada tarea que dependa de otra (o de muchas otras), especifique las tareas de las que depende dicha tarea.
+[Task dependencies](batch-task-dependencies.md), as the name implies, allow you to specify that a task depends on the completion of other tasks before its execution. This feature provides support for situations in which a "downstream" task consumes the output of an "upstream" task--or when an upstream task performs some initialization that is required by a downstream task. To use this feature, you must first enable task dependencies on your Batch job. Then, for each task that depends on another (or many others), you specify the tasks which that task depends on.
 
-Con las dependencias de tareas, se pueden configurar escenarios como los siguientes:
+With task dependencies, you can configure scenarios like the following:
 
-* *taskB* depende de *taskA* (la ejecución de *taskB* no se iniciará hasta que *taskA* se haya completado).
-* *taskC* depende de ambas, *taskA* y *taskB*.
-* *taskD* depende de un intervalo de tareas, como las tareas de *1* a *10*, antes de ejecutarse.
+* *taskB* depends on *taskA* (*taskB* will not begin execution until *taskA* has completed).
+* *taskC* depends on both *taskA* and *taskB*.
+* *taskD* depends on a range of tasks, such as tasks *1* through *10*, before it executes.
 
-Consulte [Task dependencies in Azure Batch](batch-task-dependencies.md) (Dependencias de tareas en Lote de Azure) y el código de ejemplo de [TaskDependencies][github_sample_taskdeps] en el repositorio de ejemplos de GitHub [azure-batch-samples][github_samples] para información más detallada acerca de esta característica.
+Check out [Task dependencies in Azure Batch](batch-task-dependencies.md) and the [TaskDependencies][github_sample_taskdeps] code sample in the [azure-batch-samples][github_samples] GitHub repository for more in-depth details on this feature.
 
-## Configuración del entorno para las tareas
+## <a name="environment-settings-for-tasks"></a>Environment settings for tasks
 
-Cada tarea que ejecuta el servicio Batch tiene acceso a las variables de entorno que establece en los nodos de proceso. Esto incluye las variables de entorno definidas por el servicio Batch ([definidas por el servicio][msdn_env_vars]) y las variables de entorno personalizadas que se pueden definir para las tareas. Las aplicaciones y los scripts que ejecutan las tareas tienen acceso a estas variables de entorno durante la ejecución.
+Each task executed by the Batch service has access to environment variables that it sets on compute nodes. This includes environment variables defined by the Batch service ([service-defined][msdn_env_vars]) and custom environment variables that you can define for your tasks. The applications and scripts your tasks execute have access to these environment variables during execution.
 
-Puede establecer variables de entorno personalizadas en el nivel de tarea o de trabajo rellenando la propiedad *environment settings* de estas entidades. Por ejemplo, consulte la operación [Agregar una tarea a un trabajo][rest_add_task] \(API de REST de Lote) o las propiedades [CloudTask.EnvironmentSettings][net_cloudtask_env] y [CloudJob.CommonEnvironmentSettings][net_job_env] en .NET de Lote.
+You can set custom environment variables at the task or job level by populating the *environment settings* property for these entities. For example, see the [Add a task to a job][rest_add_task] operation (Batch REST API), or the [CloudTask.EnvironmentSettings][net_cloudtask_env] and [CloudJob.CommonEnvironmentSettings][net_job_env] properties in Batch .NET.
 
-La aplicación cliente o el servicio pueden obtener las variables de entorno de una tarea, tanto las definidas por el servicio como las personalizadas, mediante la operación [Obtener información acerca de una tarea][rest_get_task_info] \(REST de Lote) o accediendo a la propiedad [CloudTask.EnvironmentSettings][net_cloudtask_env] \(.NET de Lote). Los procesos que se ejecutan en un nodo de proceso pueden acceder a estas y a otras variables de entorno en el nodo, por ejemplo mediante la conocida sintaxis de `%VARIABLE_NAME%` (Windows) o `$VARIABLE_NAME` (Linux).
+Your client application or service can obtain a task's environment variables, both service-defined and custom, by using the [Get information about a task][rest_get_task_info] operation (Batch REST) or by accessing the [CloudTask.EnvironmentSettings][net_cloudtask_env] property (Batch .NET). Processes executing on a compute node can access these and other environment variables on the node, for example, by using the familiar `%VARIABLE_NAME%` (Windows) or `$VARIABLE_NAME` (Linux) syntax.
 
-Puede encontrar una lista completa de todas las variables de entorno definidas por el servicio en [Compute node environment variables][msdn_env_vars] \(Variables de entorno en los nodos de proceso).
+You can find a full list of all service-defined environment variables in [Compute node environment variables][msdn_env_vars].
 
-## Archivos y directorios
+## <a name="files-and-directories"></a>Files and directories
 
-Cada tarea tiene un *directorio de trabajo* en el que se crean ninguno o más archivos y directorios. Este directorio de trabajo se puede usar para almacenar el programa que va a ejecuta la tarea, los datos que procesa y el resultado del procesamiento que realiza. Todos los archivos y directorios de una tarea son propiedad del usuario de la tarea.
+Each task has a *working directory* under which it creates zero or more files and directories. This working directory can be used for storing the program that is run by the task, the data that it processes, and the output of the processing it performs. All files and directories of a task are owned by the task user.
 
-El servicio Lote expone parte del sistema de archivos en un nodo como *directorio raíz*. Las tareas pueden acceder al directorio raíz haciendo referencia a la variable de entorno `AZ_BATCH_NODE_ROOT_DIR`. Para obtener más información sobre el uso de variables de entorno, consulte [Configuración del entorno para las tareas](#environment-settings-for-tasks).
+The Batch service exposes a portion of the file system on a node as the *root directory*. Tasks can access the root directory by referencing the `AZ_BATCH_NODE_ROOT_DIR` environment variable. For more information about using environment variables, see [Environment settings for tasks](#environment-settings-for-tasks).
 
-El directorio raíz contiene la siguiente estructura de directorio:
+The root directory contains the following directory structure:
 
-![Estructura de directorio de nodo de ejecución][1]
+![Compute node directory structure][1]
 
-- **shared**: este directorio proporciona acceso de lectura y escritura a *todas* las tareas que se ejecutan en un nodo. Toda tarea que se ejecute en el nodo puede crear, leer, actualizar y eliminar archivos en este directorio. Las tareas pueden acceder a este directorio haciendo referencia a la variable de entorno `AZ_BATCH_NODE_SHARED_DIR`.
+- **shared**: This directory provides read/write access to *all* tasks that run on a node. Any task that runs on the node can create, read, update, and delete files in this directory. Tasks can access this directory by referencing the `AZ_BATCH_NODE_SHARED_DIR` environment variable.
 
-- **startup**: una tarea de inicio usa este directorio como directorio de trabajo. Aquí se almacenan todos los archivos que la tarea de inicio descarga en el nodo. La tarea de inicio puede crear, leer, actualizar y eliminar archivos en este directorio. Las tareas pueden acceder a este directorio haciendo referencia a la variable de entorno `AZ_BATCH_NODE_STARTUP_DIR`.
+- **startup**: This directory is used by a start task as its working directory. All of the files that are downloaded to the node by the start task are stored here. The start task can create, read, update, and delete files under this directory. Tasks can access this directory by referencing the `AZ_BATCH_NODE_STARTUP_DIR` environment variable.
 
-- **Tasks**: se crea un directorio para cada tarea que se ejecuta en el nodo. Se puede acceder a este directorio haciendo referencia a la variable de entorno `AZ_BATCH_TASK_DIR`.
+- **Tasks**: A directory is created for each task that runs on the node. It is accessed by referencing the `AZ_BATCH_TASK_DIR` environment variable.
 
-	Dentro de cada directorio de la tarea, el servicio Lote crea un directorio de trabajo (`wd`) cuya ruta de acceso único se especifica con la variable de entorno `AZ_BATCH_TASK_WORKING_DIR`. Este directorio proporciona acceso de lectura y escritura a la tarea. La tarea puede crear, leer, actualizar y eliminar archivos en este directorio. Este directorio se conserva en función de la restricción *RetentionTime* especificada para la tarea.
+    Within each task directory, the Batch service creates a working directory (`wd`) whose unique path is specified by the `AZ_BATCH_TASK_WORKING_DIR` environment variable. This directory provides read/write access to the task. The task can create, read, update, and delete files under this directory. This directory is retained based on the *RetentionTime* constraint that is specified for the task.
 
-	`stdout.txt` y `stderr.txt`: estos archivos se escriben en la carpeta de la tarea durante la ejecución de esta.
+    `stdout.txt` and `stderr.txt`: These files are written to the task folder during the execution of the task.
 
->[AZURE.IMPORTANT] Cuando se quita un nodo del grupo, se quitan *todos* los archivos que están almacenados en el nodo.
+>[AZURE.IMPORTANT] When a node is removed from the pool, *all* of the files that are stored on the node are removed.
 
-## Paquetes de aplicación
+## <a name="application-packages"></a>Application packages
 
-La característica de [paquetes de aplicación](batch-application-packages.md) permite administrar e implementar fácilmente aplicaciones en los nodos de proceso de los grupos. Puede cargar y administrar fácilmente varias versiones de las aplicaciones que ejecutan las tareas, incluidos sus archivos binarios y auxiliares. A continuación, se pueden implementar automáticamente una o varias de estas aplicaciones en los nodos de proceso del grupo.
+The [application packages](batch-application-packages.md) feature provides easy management and deployment of applications to the compute nodes in your pools. You can upload and manage multiple versions of the applications run by your tasks, including their binaries and support files. Then you can automatically deploy one or more of these applications to the compute nodes in your pool.
 
-Los paquetes de aplicaciones se pueden especificar a nivel de grupo y de tarea. Si se especifican paquetes de aplicación de grupo, la aplicación se implementa en todos los nodos del grupo. Si se especifican paquetes de aplicación de tarea, la aplicación se implementa solo en los nodos que tienen programado ejecutar al menos una de las tareas del trabajo, inmediatamente antes que se ejecute la línea de comandos de la tarea.
+You can specify application packages at the pool and task level. When you specify pool application packages, the application is deployed to every node in the pool. When you specify task application packages, the application is deployed only to nodes that are scheduled to run at least one of the job's tasks, just before the task's command line is run.
 
-Lote controla los detalles del trabajo con Almacenamiento de Azure para almacenar los paquetes de aplicación e implementarlos en los nodos de proceso, por lo que tanto el código como la sobrecarga de administración se pueden simplificar.
+Batch handles the details of working with Azure Storage to store your application packages and deploy them to compute nodes, so both your code and management overhead can be simplified.
 
-Para más información acerca de la característica de paquetes de aplicación, consulte [Implementación de aplicaciones con paquetes de aplicación de Lote de Azure](batch-application-packages.md).
+To find out more about the application package feature, check out [Application deployment with Azure Batch application packages](batch-application-packages.md).
 
->[AZURE.NOTE] Si se agregan paquetes de aplicación de grupo a un grupo *existente*, es preciso reiniciar los nodos de proceso de los paquetes de aplicación que se van a implementar en los nodos.
+>[AZURE.NOTE] If you add pool application packages to an *existing* pool, you must reboot its compute nodes for the application packages to be deployed to the nodes.
 
-## Vigencia de grupo y nodo de proceso
+## <a name="pool-and-compute-node-lifetime"></a>Pool and compute node lifetime
 
-Al diseñar la solución de Lote de Azure, se debe tomar una decisión de diseño con respecto a cómo y cuándo se crean los grupos y cuánto tiempo se mantendrán disponibles los nodos de proceso dentro de esos grupos.
+When you design your Azure Batch solution, you have to make a design decision about how and when pools are created, and how long compute nodes within those pools are kept available.
 
-Por una parte, puede crear un grupo para cada trabajo que envíe el trabajo y eliminarlo a medida que se terminen de ejecutar las tareas. De esta manera, se maximiza su uso dado que los nodos solo se asignan cuando es necesario y se apagan en cuanto se vuelven inactivos. Aunque esto significa que el trabajo debe esperar a que se asignen los nodos, es importante tener en cuenta que las tareas se programarán para su ejecución tan pronto como los nodos estén disponibles de forma individual, se asignen y se haya completado la tarea de inicio. Batch *no* espera a que todos los nodos dentro de un grupo estén disponibles antes de asignar las tareas a estos. Esto garantiza la utilización máxima de todos los nodos disponibles.
+On one end of the spectrum, you can create a pool for each job that you submit, and delete the pool as soon as its tasks finish execution. This maximizes utilization because the nodes are only allocated when needed, and shut down as soon as they're idle. While this means that the job must wait for the nodes to be allocated, it's important to note that tasks are scheduled for execution as soon as nodes are individually available, allocated, and the start task has completed. Batch does *not* wait until all nodes within a pool are available before assigning tasks to the nodes. This ensures maximum utilization of all available nodes.
 
-Por otro lado, si lo más importante es que los trabajos se inicien inmediatamente, se puede crear un grupo antes de tiempo y hacer que sus nodos estén disponibles antes de que se envíen los trabajos. En este escenario, las tareas se pueden iniciar inmediatamente, pero los nodos permanecerán inactivos mientras esperan a que se les asignen las tareas.
+At the other end of the spectrum, if having jobs start immediately is the highest priority, you can create a pool ahead of time and make its nodes available before jobs are submitted. In this scenario, tasks can start immediately, but nodes might sit idle while waiting for them to be assigned.
 
-Normalmente, se utiliza un enfoque combinado para controlar una carga variable, pero en curso. Puede tener un grupo al que se envíen varios trabajos y puede aumentar o reducir el número de nodos según la carga de trabajo (consulte [Escalado de recursos de procesos](#scaling-compute-resources) en la sección siguiente). Puede realizar esto de manera reactiva, según la carga actual o de forma anticipada si se puede predecir la carga.
+A combined approach is typically used for handling a variable, but ongoing, load. You can have a pool that multiple jobs are submitted to, but can scale the number of nodes up or down according to the job load (see [Scaling compute resources](#scaling-compute-resources) in the following section). You can do this reactively, based on current load, or proactively, if load can be predicted.
 
-## Escalado de recursos de procesos
+## <a name="scaling-compute-resources"></a>Scaling compute resources
 
-Con el [escalado automático](batch-automatic-scaling.md), el servicio Lote puede ajustar dinámicamente el número de nodos de proceso de un grupo según la carga de trabajo actual y el uso de los recursos en el escenario de proceso. Esto le permite reducir el costo general de la ejecución de la aplicación usando solo los recursos que necesita, y liberando los que no.
+With [automatic scaling](batch-automatic-scaling.md), you can have the Batch service dynamically adjust the number of compute nodes in a pool according to the current workload and resource usage of your compute scenario. This allows you to lower the overall cost of running your application by using only the resources you need, and releasing those you don't need.
 
-Para habilitar el escalado automático, escriba una [fórmula de escalado automático](batch-automatic-scaling.md#automatic-scaling-formulas) y asóciela con un grupo. El servicio Lote usa la fórmula para determinar el número objetivo de nodos del grupo para el siguiente intervalo de escalado (un intervalo que puede configurar). Puede especificar la configuración de escalado automático para un grupo cuando lo cree o habilitar el escalado en un grupo más adelante. También puede actualizar la configuración de escalado en un grupo habilitado para el escalado.
+You enable automatic scaling by writing an [automatic scaling formula](batch-automatic-scaling.md#automatic-scaling-formulas) and associating that formula with a pool. The Batch service uses the formula to determine the target number of nodes in the pool for the next scaling interval (an interval that you can configure). You can specify the automatic scaling settings for a pool when you create it, or enable scaling on a pool later. You can also update the scaling settings on a scaling-enabled pool.
 
-Como ejemplo, quizás un trabajo requiera que envíe un gran número de tareas para que se ejecuten. Puede asignar al grupo una fórmula de escalado que ajuste el número de nodos del grupo en función del número actual de tareas en cola y la tasa de finalización de las tareas del trabajo. Periódicamente, el servicio Lote evalúa la fórmula y cambia el tamaño del grupo en función de la carga de trabajo (con muchas tareas en cola, agrega nodos; sin tareas en cola o en ejecución, quita nodos) y las demás configuraciones de la fórmula.
+As an example, perhaps a job requires that you submit a very large number of tasks to be executed. You can assign a scaling formula to the pool that adjusts the number of nodes in the pool based on the current number of queued tasks and the completion rate of the tasks in the job. The Batch service periodically evaluates the formula and resizes the pool, based on workload (add nodes for many queued tasks, and remove nodes for no queued or running tasks) and your other formula settings.
 
-Una fórmula de escalado puede basarse en las siguientes métricas:
+A scaling formula can be based on the following metrics:
 
-- **Métricas de tiempo**: se basan en las estadísticas recopiladas cada cinco minutos en el número especificado de horas.
+- **Time metrics** are based on statistics collected every five minutes in the specified number of hours.
 
-- **Métricas de recursos**: se basan en el uso de CPU, ancho de banda y memoria y en el número de nodos.
+- **Resource metrics** are based on CPU usage, bandwidth usage, memory usage, and number of nodes.
 
-- **Métricas de tareas**: se basan en el estado de la tarea, como *Activa* (en cola), *En ejecución* o *Completada*.
+- **Task metrics** are based on task state, such as *Active* (queued), *Running*, or *Completed*.
 
-Cuando el escalado automático reduce el número de nodos de proceso en un grupo, debe considerar cómo administrará las tareas que se están ejecutando en el momento en que se realiza la operación de reducción. Para ello, Lote proporciona una *opción de desasignación de nodos* que se puede incluir en las fórmulas. Por ejemplo, puede especificar que las tareas en ejecución se detengan de inmediato, se detengan de inmediato y después se vuelvan a poner en cola para ejecutarlas en otro nodo o se dejen finalizar antes de que se quite el nodo del grupo.
+When automatic scaling decreases the number of compute nodes in a pool, you must consider how to handle tasks that are running at the time of the decrease operation. To accommodate this, Batch provides a *node deallocation option* that you can include in your formulas. For example, you can specify that running tasks are stopped immediately, stopped immediately and then requeued for execution on another node, or allowed to finish before the node is removed from the pool.
 
-Para obtener más información sobre cómo escalar automáticamente una aplicación, consulte [Escalado automático de nodos de ejecución en un grupo de Lote de Azure](batch-automatic-scaling.md).
+For more information about automatically scaling an application, see [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-scaling.md).
 
-> [AZURE.TIP] Para maximizar el uso de los recursos de proceso, establezca en cero el número objetivo de nodos al final de un trabajo, pero permita que las tareas en ejecución finalicen.
+> [AZURE.TIP] To maximize compute resource utilization, set the target number of nodes to zero at the end of a job, but allow running tasks to finish.
 
-## Seguridad con certificados
+## <a name="security-with-certificates"></a>Security with certificates
 
-Normalmente necesitará usar certificados al cifrar o descifrar información confidencial para las tareas, como la clave de una [cuenta de Azure Storage][azure_storage]. Para ello, puede instalar certificados en los nodos. Los secretos cifrados se pasan a las tareas mediante parámetros de línea de comandos o se insertan en uno de los recursos de tarea, y los certificados instalados se pueden usar para descifrarlos.
+You typically need to use certificates when you encrypt or decrypt sensitive information for tasks, like the key for an [Azure Storage account][azure_storage]. To support this, you can install certificates on nodes. Encrypted secrets are passed to tasks via command-line parameters or embedded in one of the task resources, and the installed certificates can be used to decrypt them.
 
-Use la operación [Agregar un certificado a la cuenta][rest_add_cert] \(REST de Lote) o el método [CertificateOperations.CreateCertificate][net_create_cert] \(.NET de Lote) para agregar un certificado a una cuenta de Lote. Se puede asociar el certificado a un grupo nuevo o existente. Cuando se asocia un certificado a un grupo, el servicio Lote instala el certificado en cada nodo del grupo. El servicio Lote instala los certificados adecuados cuando se inicia el nodo, antes de iniciar ninguna tarea (incluidas la de inicio y la del Administrador de trabajos).
+You use the [Add certificate][rest_add_cert] operation (Batch REST) or [CertificateOperations.CreateCertificate][net_create_cert] method (Batch .NET) to add a certificate to a Batch account. You can then associate the certificate to a new or existing pool. When a certificate is associated with a pool, the Batch service installs the certificate on each node in the pool. The Batch service installs the appropriate certificates when the node starts up, before launching any tasks (including the start task and job manager task).
 
-Si se agregan certificados a un grupo *existente*, es preciso reiniciar los nodos de proceso de los certificados que se van a aplicar a los nodos.
+If you add certificates to an *existing* pool, you must reboot its compute nodes for the certificates to be applied to the nodes.
 
-## Control de errores
+## <a name="error-handling"></a>Error handling
 
-Esta operación puede ser necesaria para controlar los errores de las tareas y las aplicaciones en la solución de Lote.
+You might find it necessary to handle both task and application failures within your Batch solution.
 
-### Control de errores de tareas
-Los errores de las tareas se incluyen en estas categorías:
+### <a name="task-failure-handling"></a>Task failure handling
+Task failures fall into these categories:
 
-- **Errores de programación**
+- **Scheduling failures**
 
-	Si por cualquier motivo se produce un error en la transferencia de archivos especificada para una tarea, se establece un "error de programación" para la tarea.
+    If the transfer of files that are specified for a task fails for any reason, a "scheduling error" is set for the task.
 
-	Los errores de programación pueden producirse si los archivos de recursos de la tarea se han movido, la cuenta de almacenamiento ya no está disponible u otro problema impidió la copia correcta de los archivos en el nodo.
+    Scheduling errors can occur if the task's resource files have moved, the Storage account is no longer available, or another issue was encountered that prevented the successful copying of files to the node.
 
-- **Errores de aplicación**
+- **Application failures**
 
-	El proceso especificado por la línea de comandos de la tarea también puede presentar errores. Se considera que el proceso ha generado un error cuando el proceso ejecutado por la tarea devuelve un código de salida distinto de cero (consulte *Códigos de salida de la tarea* en la siguiente sección).
+    The process that is specified by the task's command line can also fail. The process is deemed to have failed when a nonzero exit code is returned by the process that is executed by the task (see *Task exit codes* in the next section).
 
-	Para los errores de aplicaciones, puede configurar el servicio Lote para volver a intentar automáticamente la tarea hasta un número especificado de veces.
+    For application failures, you can configure Batch to automatically retry the task up to a specified number of times.
 
-- **Errores de restricción**
+- **Constraint failures**
 
-	Puede establecer una restricción que especifique la duración máxima de ejecución de un trabajo o una tarea con *maxWallClockTime*. Esto puede ser útil para terminar las tareas "bloqueadas".
+    You can set a constraint that specifies the maximum execution duration for a job or task, the *maxWallClockTime*. This can be useful for terminating "hung" tasks.
 
-	Cuando se supere la cantidad máxima de tiempo, la tarea se marcará como *completada* pero el código de salida se establecerá en `0xC000013A` y el campo *schedulingError* se marcará como `{ category:"ServerError", code="TaskEnded"}`.
+    When the maximum amount of time has been exceeded, the task is marked as *completed*, but the exit code is set to `0xC000013A` and the *schedulingError* field is marked as `{ category:"ServerError", code="TaskEnded"}`.
 
-### Depuración de errores de aplicación
+### <a name="debugging-application-failures"></a>Debugging application failures
 
-- `stderr` y `stdout`
+- `stderr` and `stdout`
 
-	Durante la ejecución, una aplicación produce resultados de diagnóstico que se pueden usar para la solución de problemas. Como se mencionó en la sección anterior llamada [Archivos y directorios](#files-and-directories), el servicio Lote escribe resultados de salida estándar y error estándar a los archivos `stdout.txt` y `stderr.txt` ubicados en el directorio de la tarea en el nodo de proceso. Para descargar estos archivos, puede usar el Portal de Azure, o bien uno de los SDK de Lote. Por ejemplo, puede recuperar estos y otros archivos para solucionar problemas con [ComputeNode.GetNodeFile][net_getfile_node] y [CloudTask.GetNodeFile][net_getfile_task] en la biblioteca .NET de Lote.
+    During execution, an application might produce diagnostic output that you can use to troubleshoot issues. As mentioned in the earlier section [Files and directories](#files-and-directories), the Batch service writes standard output and standard error output to `stdout.txt` and `stderr.txt` files in the task directory on the compute node. You can use the Azure portal or one of the Batch SDKs to download these files. For example, you can retrieve these and other files for troubleshooting purposes by using [ComputeNode.GetNodeFile][net_getfile_node] and [CloudTask.GetNodeFile][net_getfile_task] in the Batch .NET library.
 
-- **Códigos de salida de la tarea**
+- **Task exit codes**
 
-	Como ya se mencionó anteriormente, el servicio Lote marcará una tarea como con errores si el proceso ejecutado por la tarea devuelve un código de salida distinto de cero. Cuando una tarea ejecuta un proceso, Lote rellena la propiedad de código de salida de la tarea con el *código de retorno del proceso*. Es importante tener en cuenta que el código de salida de una tarea **no** está determinado por el servicio Lote, sino por el proceso en sí o por el sistema operativo en que se ejecuta el proceso.
+    As mentioned earlier, a task is marked as failed by the Batch service if the process that is executed by the task returns a nonzero exit code. When a task executes a process, Batch populates the task's exit code property with the *return code of the process*. It is important to note that a task's exit code is **not** determined by the Batch service--it is determined by the process itself or the operating system on which the process executed.
 
-### Consideraciones sobre errores o interrupciones
+### <a name="accounting-for-task-failures-or-interruptions"></a>Accounting for task failures or interruptions
 
-En ocasiones, las tareas pueden presentar errores o interrumpirse. Se podría producir un error en la propia aplicación de la tarea, se podría reiniciar el nodo donde se ejecuta la tarea o se podría quitar el nodo del grupo durante una operación de cambio de tamaño si la directiva de desasignación del grupo está configurada para quitar los nodos de inmediato, sin esperar a que finalicen las tareas. En todos los casos, el servicio Lote puede volver a poner la tarea automáticamente en la cola para ejecutarla en otro nodo.
+Tasks might occasionally fail or be interrupted. The task application itself might fail, the node on which the task is running might be rebooted, or the node might be removed from the pool during a resize operation if the pool's deallocation policy is set to remove nodes immediately without waiting for tasks to finish. In all cases, the task can be automatically requeued by Batch for execution on another node.
 
-También es posible que un problema intermitente haga que una tarea deje de responder o tarde demasiado tiempo en ejecutarse. Puede establecer el tiempo de ejecución máximo para una tarea. Si se supera, el servicio Batch interrumpirá la aplicación de la tarea.
+It is also possible for an intermittent issue to cause a task to hang or take too long to execute. You can set the maximum execution time for a task. If it's exceeded, Batch interrupts the task application.
 
-### Conexión a los nodos de proceso
+### <a name="connecting-to-compute-nodes"></a>Connecting to compute nodes
 
-Puede realizar tareas adicionales de depuración y solución de problemas si se inicia una sesión remota en un nodo de proceso. Puede usar el Portal de Azure para descargar un protocolo de escritorio remoto (RDP) para los nodos de Windows y obtener información de conexión de Secure Shell (SSH) para los nodos de Linux. También puede hacer esto con las API de Lote, como [.NET de Lote][net_rdpfile] o [Python de Lote](batch-linux-nodes.md#connect-to-linux-nodes).
+You can perform additional debugging and troubleshooting by signing in to a compute node remotely. You can use the Azure portal to download a Remote Desktop Protocol (RDP) file for Windows nodes and obtain Secure Shell (SSH) connection information for Linux nodes. You can also do this by using the Batch APIs--for example, with [Batch .NET][net_rdpfile] or [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes).
 
->[AZURE.IMPORTANT] Para conectarse a un nodo a través de RDP o SSH, primero debe crear un usuario en el nodo. Para ello, puede usar el Portal de Azure, [agregar una cuenta de usuario a un nodo][rest_create_user] con la API de REST de Lote y llamar al método [ComputeNode.CreateComputeNodeUser][net_create_user] en .NET de Lote o al método [add\_user][py_add_user] en el módulo Python de Lote.
+>[AZURE.IMPORTANT] To connect to a node via RDP or SSH, you must first create a user on the node. To do this, you can use the Azure portal, [add a user account to a node][rest_create_user] by using the Batch REST API, call the [ComputeNode.CreateComputeNodeUser][net_create_user] method in Batch .NET, or call the [add_user][py_add_user] method in the Batch Python module.
 
-### Solución de problemas de nodos de proceso “incorrectos”
+### <a name="troubleshooting-"bad"-compute-nodes"></a>Troubleshooting "bad" compute nodes
 
-Si algunas de las tareas producen errores, el servicio o la aplicación de cliente de Lote pueden examinar los metadatos de las tareas con errores para identificar un nodo con un comportamiento incorrecto. Cada nodo de un grupo recibe un identificador único y el nodo en el que se ejecuta una tarea se incluye en los metadatos de la tarea. Una vez que haya identificado un "nodo problemático", puede llevar a cabo varias acciones con él:
+In situations where some of your tasks are failing, your Batch client application or service can examine the metadata of the failed tasks to identify a misbehaving node. Each node in a pool is given a unique ID, and the node on which a task runs is included in the task metadata. After you've identified a problem node, you can take several actions with it:
 
-- **Reiniciar el nodo** ([REST][rest_reboot] | [.NET][net_reboot])
+- **Reboot the node** ([REST][rest_reboot] | [.NET][net_reboot])
 
-	Algunas veces, reiniciar el nodo puede solucionar problemas latentes tales como los procesos bloqueados. Tenga en cuenta que si su grupo usa una tarea de inicio o el trabajo usa una tarea de preparación de trabajo, se ejecutarán cuando el nodo se reinicie.
+    Restarting the node can sometimes clear up latent issues like stuck or crashed processes. Note that if your pool uses a start task or your job uses a job preparation task, they are executed when the node restarts.
 
-- **Restablecer la imagen inicial del nodo** ([REST][rest_reimage] | [.NET][net_reimage])
+- **Reimage the node** ([REST][rest_reimage] | [.NET][net_reimage])
 
-	Esto reinstala el sistema operativo en el nodo. Al igual que al reiniciar un nodo, las tareas de inicio y las tareas de preparación del trabajo se vuelven a ejecutar después de restablecer la imagen inicial del nodo.
+    This reinstalls the operating system on the node. As with rebooting a node, start tasks and job preparation tasks are rerun after the node has been reimaged.
 
-- **Quitar el nodo del grupo** ([REST][rest_remove] | [.NET][net_remove])
+- **Remove the node from the pool** ([REST][rest_remove] | [.NET][net_remove])
 
-	A veces es necesario quitar completamente el nodo del grupo.
+    Sometimes it is necessary to completely remove the node from the pool.
 
-- **Deshabilitar la programación de tareas en el nodo** ([REST][rest_offline] | [.NET][net_offline])
+- **Disable task scheduling on the node** ([REST][rest_offline] | [.NET][net_offline])
 
-	Esto desconecta el nodo para que no se le asigne ninguna tarea adicional, pero permite que el nodo permanezca en ejecución y en el grupo. Esto permite seguir investigando la causa de los errores sin perder los datos de la tarea con errores, y sin que el nodo produzca más errores en la tarea. Por ejemplo, puede deshabilitar la programación de tareas en el nodo y después [iniciar una sesión remota](#connecting-to-compute-nodes) para examinar los registros de eventos del nodo o solucionar otros problemas. Una vez que haya terminado la investigación, puede volver a conectar el nodo, para lo que debe habilitar la programación de tareas ([REST][rest_online] | [.NET][net_online]), o bien puede realizar una de las otras acciones mencionadas antes.
+    This effectively takes the node "offline" so that no further tasks are assigned to it, but allows the node to remain running and in the pool. This enables you to perform further investigation into the cause of the failures without losing the failed task's data--and without the node causing additional task failures. For example, you can disable task scheduling on the node, then [sign in remotely](#connecting-to-compute-nodes) to examine the node's event logs or perform other troubleshooting. After you've finished your investigation, you can then bring the node back online by enabling task scheduling ([REST][rest_online] | [.NET][net_online]), or perform one of the other actions discussed earlier.
 
-> [AZURE.IMPORTANT] Con cada una de las acciones descritas en esta sección (reiniciar, restablecer la imagen inicial, quitar, deshabilitar la programación de tareas), puede especificar cómo se controlan las tareas que se están ejecutando en el nodo al realizar la acción. Por ejemplo, cuando deshabilita la programación de tareas en un nodo con la biblioteca de cliente .NET de Lote, puede indicar un valor de enumeración [DisableComputeNodeSchedulingOption][net_offline_option] para especificar si se finalizarán las tareas en ejecución (**Terminate**), si se volverán a poner en la cola para que se programen en otros nodos (**Requeue**) o si se permitirá que se completen antes de realizar la acción (**TaskCompletion**).
+> [AZURE.IMPORTANT] With each action that is described in this section--reboot, reimage, remove, and disable task scheduling--you are able to specify how tasks currently running on the node are handled when you perform the action. For example, when you disable task scheduling on a node by using the Batch .NET client library, you can specify a [DisableComputeNodeSchedulingOption][net_offline_option] enum value to specify whether to **Terminate** running tasks, **Requeue** them for scheduling on other nodes, or allow running tasks to complete before performing the action (**TaskCompletion**).
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-- Recorra paso a paso una aplicación de Lote de ejemplo en [Introducción a la biblioteca de Lote de Azure para .NET](batch-dotnet-get-started.md). También existe una [versión para Python](batch-python-tutorial.md) del tutorial, en la que se ejecuta una carga de trabajo en nodos de proceso de Linux.
+- Walk through a sample Batch application step-by-step in [Get started with the Azure Batch Library for .NET](batch-dotnet-get-started.md). There is also a [Python version](batch-python-tutorial.md) of the tutorial that runs a workload on Linux compute nodes.
 
-- Descargue y compile el proyecto de ejemplo [Batch Explorer][github_batchexplorer] para usarlo mientras desarrolla sus soluciones de Lote. Mediante Batch Explorer puede realizar lo siguiente y mucho más:
-  - Supervisar y manipular grupos, trabajos y tareas dentro de su cuenta de Lote
-  - Descargar `stdout.txt`, `stderr.txt`, y otros archivos de los nodos
-  - Crear usuarios en los nodos y descargar archivos RDP para el inicio de sesión remoto.
+- Download and build the [Batch Explorer][github_batchexplorer] sample project for use while you develop your Batch solutions. Using the Batch Explorer, you can perform the following and more:
+  - Monitor and manipulate pools, jobs, and tasks within your Batch account
+  - Download `stdout.txt`, `stderr.txt`, and other files from nodes
+  - Create users on nodes and download RDP files for remote login
 
-- Aprenda a [crear grupos de nodos de proceso de Linux](batch-linux-nodes.md).
+- Learn how to [create pools of Linux compute nodes](batch-linux-nodes.md).
 
-- Visite el [foro de Lote de Azure][batch_forum] en MSDN. El foro es un buen lugar donde plantear preguntas tanto si está aprendiendo como si tiene experiencia en el uso de Lote.
+- Visit the [Azure Batch forum][batch_forum] on MSDN. The forum is a good place to ask questions, whether you are just learning or are an expert in using Batch.
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
-[batch_forum]: https://social.msdn.microsoft.com/Forums/es-ES/home?forum=azurebatch
+[batch_forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebatch
 [cloud_service_sizes]: ../cloud-services/cloud-services-sizes-specs.md
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
-[github_sample_taskdeps]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
+[github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
 [github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
@@ -500,4 +502,8 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

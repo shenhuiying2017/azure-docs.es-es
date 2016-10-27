@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Notas de la versión de StorSimple 8000 | Microsoft Azure"
-   description="Describe las nuevas características, problemas y soluciones alternativas de la versión de Microsoft Azure StorSimple de julio de 2014."
+   pageTitle="StorSimple 8000 Release version release notes | Microsoft Azure"
+   description="Describes the new features, open issues, and available workarounds for the July 2014 Microsoft Azure StorSimple release."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,31 +15,36 @@
    ms.date="04/18/2016"
    ms.author="v-sharos" />
 
-# Notas de la versión de StorSimple 8000 Series - julio de 2014 
 
-## Información general
+# <a name="storsimple-8000-series-release-version-release-notes---july-2014"></a>StorSimple 8000 Series Release Version release notes - July 2014 
 
-Las notas siguientes identifican los problemas críticos por resolver de la versión de disponibilidad general (GA) de julio de 2014 de StorSimple 8000 Series de Microsoft Azure StorSimple. Esta versión se corresponde con la versión de software 6.3.9600.17215.
+## <a name="overview"></a>Overview
 
-A menos que se especifique lo contrario, estas notas de la versión se aplican a todos los dispositivos de StorSimple. Las notas se actualizan continuamente y, a medida que se descubren, se van agregando problemas críticos que requieren una solución alternativa. Antes de implementar la solución de Microsoft Azure StorSimple, tenga en cuenta la siguiente información.
+The follow release notes identify the critical open issues for the StorSimple 8000 Series July 2014 general availability (GA) release of Microsoft Azure StorSimple. This release corresponds to software version 6.3.9600.17215.  
 
-## Problemas conocidos en esta versión
-En la tabla siguiente se proporciona un resumen de los problemas conocidos de esta versión.
+Unless otherwise specified, these release notes apply to all models of the StorSimple device. The release notes are continuously updated; as critical issues requiring a workaround are discovered, they are added. Before you deploy your Microsoft Azure StorSimple solution, consider the following information.  
+
+## <a name="known-issues-in-this-release"></a>Known issues in this release
+The following table provides a summary of known issues in this release.  
  
-| N.º | Característica | Problema | Comentarios/solución alternativa | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
+| No. | Feature | Issue | Comments/workaround | Applies to physical device | Applies to virtual device |
 |-----|---------|-------|----------------------------|----------------------------|---------------------------|
-| 1 | Restablecimiento de fábrica | En algunos casos, al realizar un restablecimiento de fábrica, el dispositivo StorSimple puede bloquearse y mostrar este mensaje: **Restablecimiento de fábrica en curso (fase 8)**. Esto sucede si presiona CTRL+C mientras el cmdlet está en curso. | No presione CTRL+C después de iniciar un restablecimiento de fábrica. Si ya está en este estado, póngase en contacto con el soporte técnico de Microsoft para conocer los pasos siguientes. | Sí | No |
-| 2 | Cuórum de disco | En raras ocasiones, si se desconecta la mayoría de los discos en el revestimiento de EBOD de un dispositivo 8600 y no se produce un cuórum de disco, el bloque de almacenamiento se desconectará. Seguirá desconectado incluso si se vuelven a conectar los discos. | Necesitará reiniciar el dispositivo. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft para conocer los pasos siguientes. | Sí | No |
-| 3 | Errores de instantánea en la nube | En raras ocasiones, una instantánea en la nube puede producir el error **Se ha alcanzado el límite máximo de copia de seguridad**. Esto ocurre si se superan los 255 clones en línea en el mismo dispositivo, procedentes del mismo volumen original eliminado. | | Sí | Sí |
-| 4 | Identificador de controlador incorrecto | Cuando se realiza un reemplazo de controlador, el controlador 0 puede aparecer como controlador 1. Durante el reemplazo de controlador, cuando se carga la imagen desde el nodo del mismo nivel, el identificador de controlador puede mostrarse inicialmente como el identificador del controlador del mismo nivel. En raras ocasiones, este comportamiento también puede aparecer después del reinicio del sistema. | No se requiere ninguna acción del usuario. La situación se solucionará una vez completado el reemplazo del controlador. | Sí | No |
-| 5 | Gráficos de supervisión de dispositivos | En el servicio de Administrador de StorSimple, los gráficos de supervisión de dispositivos no funcionan cuando está habilitada la autenticación básica o NTLM en la configuración del servidor proxy para el dispositivo. | Modifique la configuración de proxy web para el dispositivo registrado con el servicio de Administrador de StorSimple para que la autenticación se establezca en NONE. Para ello, ejecute el cmdlet Set-HcsWebProxy de Windows PowerShell para StorSimple. | Sí | Sí |
-| 6 | Cuentas de almacenamiento | El uso del servicio de almacenamiento para eliminar la cuenta de almacenamiento es un escenario no admitido. Esto provocará una situación en la que no se pueden recuperar los datos de usuario. | | Sí | Sí |
-| 7 | Conmutación por recuperación | No se admite una conmutación por recuperación durante las 24 horas siguientes a la recuperación ante desastres (DR). | | Sí | No |
-| 8 | Conmutación por error del dispositivo | No se admiten varias conmutaciones por error de un contenedor de volúmenes del mismo dispositivo de origen a diferentes dispositivos de destino. La conmutación por error de un único dispositivo inactivo a varios dispositivos hará que los contenedores de volúmenes del primer dispositivo conmutado por error pierdan la propiedad de los datos. Después de este tipo de conmutación por error, estos contenedores de volúmenes aparecerán o se comportarán de forma diferente cuando se visualicen en el Portal de Azure clásico. | | Sí | No |
-| 9 | Instalación | Durante la instalación del adaptador de StorSimple para SharePoint, deberá proporcionar una dirección IP de dispositivo para que la instalación finalice correctamente. | | Sí | No |
-| 10 | Interfaces de red | Las interfaces de red DATA 2 y DATA 3 se intercambiaron en el software. | Póngase en contacto con el soporte técnico de Microsoft si necesita configurar estas interfaces. | Sí | No |
+| 1 | Factory reset | In some instances, when you perform a factory reset, the StorSimple device may be stuck and display this message: **Reset to factory is in progress (phase 8)**. This happens if you press CTRL+C while the cmdlet is in progress. | Do not press CTRL+C after initiating a factory reset. If you are already in this state, please contact Microsoft Support for next steps. | Yes | No |
+| 2 | Disk quorum | In rare instances, if the majority of disks in the EBOD enclosure of an 8600 device are disconnected resulting in no disk quorum, then the storage pool will be offline. It will stay offline even if the disks are reconnected. | You will need to reboot the device. If the issue persists, please contact Microsoft Support for next steps. | Yes | No |
+| 3 | Cloud snapshot failures | In rare instances, a cloud snapshot may fail with the error **Maximum backup limit reached**. This occurs if you exceed 255 online clones on the same device, from the same original volume which has been deleted. | | Yes | Yes |
+| 4 | Incorrect controller ID | When a controller replacement is performed, controller 0 may show up as controller 1. During controller replacement, when the image is loaded from the peer node, the controller ID can show up initially as the peer controller’s ID. In rare instances, this behavior may also be seen after a system reboot. | No user action is required. This situation will resolve itself after the controller replacement is complete. | Yes | No |
+| 5 | Device monitoring charts | In the StorSimple Manager service, the device monitoring charts do not work when Basic or NTLM authentication is enabled in the proxy server configuration for the device. | Modify the web proxy configuration for the device registered with your StorSimple Manager service so that authentication is set to NONE. To do this, run the the Windows PowerShell for StorSimple Set-HcsWebProxy cmdlet. | Yes | Yes |
+| 6 | Storage accounts | Using the Storage service to delete the storage account is an unsupported scenario. This will lead to a situation in which user data cannot be retrieved. | | Yes | Yes |
+| 7 | Failback | A failback within 24 hours of disaster recovery (DR) is not supported. | | Yes | No |
+| 8 | Device failover | Multiple failovers of a volume container from the same source device to different target devices is not supported. Failover from a single dead device to multiple devices will make the volume containers on the first failed over device lose data ownership. After such a failover, these volume containers will appear or behave differently when you view them in the Azure classic portal. | | Yes | No |
+| 9 | Installation | During StorSimple Adapter for SharePoint installation, you need to provide a device IP for the install to finish successfully. | | Yes | No |
+| 10 | Network interfaces | Network interfaces DATA 2 and DATA 3 were swapped in the software. | Please contact Microsoft Support if you need to configure these interfaces. | Yes | No |
 
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

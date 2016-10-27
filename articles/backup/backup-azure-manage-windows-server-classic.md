@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Administración de almacenes y servidores de Copia de seguridad de Azure mediante el modelo de implementación clásico | Microsoft Azure"
-	description="Use este tutorial para aprender a administrar almacenes y servidores de Copia de seguridad de Azure."
-	services="backup"
-	documentationCenter=""
-	authors="markgalioto"
-	manager="jwhit"
-	editor="tysonn"/>
+    pageTitle="Administración de almacenes y servidores de Copia de seguridad de Azure mediante el modelo de implementación clásico | Microsoft Azure"
+    description="Use este tutorial para aprender a administrar almacenes y servidores de Copia de seguridad de Azure."
+    services="backup"
+    documentationCenter=""
+    authors="markgalioto"
+    manager="jwhit"
+    editor="tysonn"/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="jimpark;markgal"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/27/2016"
+    ms.author="jimpark;markgal"/>
 
 
-# Administración de almacenes y servidores de Copia de seguridad de Azure mediante el modelo de implementación clásica
+
+# <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>Administración de almacenes y servidores de Copia de seguridad de Azure mediante el modelo de implementación clásica
 
 > [AZURE.SELECTOR]
 - [Resource Manager](backup-azure-manage-windows-server.md)
@@ -27,10 +28,10 @@ En este artículo encontrará información general sobre las tareas de administr
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modelo de implementación del Administrador de recursos.
 
-## Tareas del Portal de administración
+## <a name="management-portal-tasks"></a>Tareas del Portal de administración
 1. Inicie sesión en el [Portal de administración](https://manage.windowsazure.com).
 
-2. Haga clic en **Servicios de recuperación** y luego en el nombre del almacén de copia de seguridad para ver la página de inicio rápido.
+2. Haga clic en **Servicios de recuperación**y luego en el nombre del almacén de copia de seguridad para ver la página de inicio rápido.
 
     ![Servicios de recuperación](./media/backup-azure-manage-windows-server-classic/rs-left-nav.png)
 
@@ -38,7 +39,7 @@ Si selecciona las opciones que se encuentran en la parte superior de la página 
 
 ![Administración de pestañas](./media/backup-azure-manage-windows-server-classic/qs-page.png)
 
-### Panel
+### <a name="dashboard"></a>Panel
 Seleccione **Panel** para ver información general sobre el uso del servidor. En la **información general del uso** se incluyen los siguientes datos:
 
 - El número de servidores de Windows registrados en la nube
@@ -48,12 +49,12 @@ Seleccione **Panel** para ver información general sobre el uso del servidor. En
 
 En la parte inferior del panel puede llevar a cabo las tareas siguientes:
 
-- **Administrar certificado**: si se ha usado un certificado para registrar el servidor, utilícelo para actualizar el certificado. Si usa credenciales de almacén, no utilice **Administrar certificado**.
-- **Eliminar**: elimina el almacén de copia de seguridad actual. En caso de que ya no se use un almacén de credenciales de copia de seguridad, puede eliminarlo para liberar espacio de almacenamiento. **Eliminar** solo está habilitado después de que todos los servidores registrados se hayan eliminado del almacén.
+- **Administrar certificado** : si se ha usado un certificado para registrar el servidor, utilícelo para actualizar el certificado. Si usa credenciales de almacén, no utilice **Administrar certificado**.
+- **Eliminar** : elimina el almacén de copia de seguridad actual. En caso de que ya no se use un almacén de credenciales de copia de seguridad, puede eliminarlo para liberar espacio de almacenamiento. **Eliminar** solo está habilitado después de que todos los servidores registrados se hayan eliminado del almacén.
 
 ![Copia de seguridad de las tareas del panel](./media/backup-azure-manage-windows-server-classic/dashboard-tasks.png)
 
-## Elementos registrados
+## <a name="registered-items"></a>Elementos registrados
 Seleccione la opción **Elementos registrados** para ver los nombres de los servidores que se registraron en este almacén de claves.
 
 ![Elementos registrados](./media/backup-azure-manage-windows-server-classic/registered-items.png)
@@ -62,19 +63,19 @@ El filtro **Tipo** tiene como valor predeterminado la opción Máquina virtual d
 
 Aquí puede realizar las siguientes tareas:
 
-- **Permitir nuevo registro**: cuando se selecciona esta opción para un servidor, puede usar el **Asistente para registro** del agente local de Copia de seguridad de Microsoft Azure para registrar el servidor en el almacén de copia de seguridad por segunda vez. Es posible que necesite volver a registrarse debido a un error en el certificado o si un servidor tuvo que reconstruirse.
-- **Eliminar**: elimina un servidor del almacén de copias seguridad. Todos los datos almacenados asociados con el servidor se eliminan inmediatamente.
+- **Permitir nuevo registro**: cuando se selecciona esta opción para un servidor, puede usar el **Asistente para registro** del agente local de Microsoft Azure Backup para registrar el servidor en el almacén de copia de seguridad por segunda vez. Es posible que necesite volver a registrarse debido a un error en el certificado o si un servidor tuvo que reconstruirse.
+- **Eliminar** : elimina un servidor del almacén de copias seguridad. Todos los datos almacenados asociados con el servidor se eliminan inmediatamente.
 
     ![Tareas de elementos registrados](./media/backup-azure-manage-windows-server-classic/registered-items-tasks.png)
 
-## Elementos protegidos
+## <a name="protected-items"></a>Elementos protegidos
 Haga clic en **Elementos protegidos** para ver los elementos de los que se han hecho copias de seguridad desde los servidores.
 
 ![Elementos protegidos](./media/backup-azure-manage-windows-server-classic/protected-items.png)
 
-## Configuración
+## <a name="configure"></a>Configuración
 
-Desde la pestaña **Configurar**, puede seleccionar la opción de redundancia de almacenamiento idónea. El mejor momento para seleccionar la opción de redundancia de almacenamiento es justo después de la creación del almacén y antes de que las máquinas se registren en este.
+Desde la pestaña **Configurar** , puede seleccionar la opción de redundancia de almacenamiento idónea. El mejor momento para seleccionar la opción de redundancia de almacenamiento es justo después de la creación del almacén y antes de que las máquinas se registren en este.
 
 >[AZURE.WARNING] Una vez que un elemento se ha registrado en el almacén, la opción de redundancia de almacenamiento está bloqueada y no se puede modificar.
 
@@ -82,9 +83,9 @@ Desde la pestaña **Configurar**, puede seleccionar la opción de redundancia de
 
 Consulte este artículo para más información sobre la [redundancia de almacenamiento](../storage/storage-redundancy.md).
 
-## Tareas del agente de Copia de seguridad de Microsoft Azure
+## <a name="microsoft-azure-backup-agent-tasks"></a>Tareas del agente de Copia de seguridad de Microsoft Azure
 
-### Consola
+### <a name="console"></a>Consola
 
 Abra el **agente de Copia de seguridad de Microsoft Azure** (puede encontrarlo si busca en su equipo *Copia de seguridad de Microsoft Azure*).
 
@@ -101,23 +102,23 @@ Con las **acciones** disponibles en la parte derecha de la consola del agente de
 
 >[AZURE.NOTE] Para **recuperar datos**, consulte [Restauración de archivos en una máquina de Windows Server o del cliente de Windows](backup-azure-restore-windows-server.md).
 
-### Modificación de una copia de seguridad existente
+### <a name="modify-an-existing-backup"></a>Modificación de una copia de seguridad existente
 
 1. En el agente de Copia de seguridad de Microsoft Azure, haga clic en **Programar copia de seguridad**.
 
     ![Programar una copia de seguridad de Windows Server](./media/backup-azure-manage-windows-server-classic/schedule-backup.png)
 
-2. En el **Asistente para programar copias de seguridad** deje activada la opción **Cambiar la hora o las horas de las copias de seguridad** y haga clic en **Siguiente**.
+2. En el **Asistente para programar copias de seguridad**, deje activada la opción **Cambiar la hora o las horas de las copias de seguridad** y haga clic en **Siguiente**.
 
     ![Modificación de una copia de seguridad programada](./media/backup-azure-manage-windows-server-classic/modify-or-stop-a-scheduled-backup.png)
 
 3. Si quiere agregar o cambiar elementos, en la pantalla **Seleccionar elementos de los que realizar copia de seguridad**, haga clic en **Agregar elementos**.
 
-    También puede establecer preferencias en **Configuración de exclusión**, en esta página del asistente. Si quiere excluir archivos o tipos de archivos, lea el procedimiento para agregar [configuración de exclusión](#exclusion-settings).
+    También puede establecer preferencias en **Configuración de exclusión** , en esta página del asistente. Si quiere excluir archivos o tipos de archivos, lea el procedimiento para agregar [configuración de exclusión](#exclusion-settings).
 
 4. Seleccione los archivos y las carpetas de los que quiere realizar la copia de seguridad y haga clic en **Aceptar**.
 
-    ![Adición de elementos](./media/backup-azure-manage-windows-server-classic/add-items-modify.png)
+    ![Agregar elementos](./media/backup-azure-manage-windows-server-classic/add-items-modify.png)
 
 5. Especifique la **programación de copia de seguridad** y haga clic en **Siguiente**.
 
@@ -125,9 +126,9 @@ Con las **acciones** disponibles en la parte derecha de la consola del agente de
 
     ![Especificación de la programación de copias de seguridad](./media/backup-azure-manage-windows-server-classic/specify-backup-schedule-modify-close.png)
 
-    >[AZURE.NOTE] En este [artículo](backup-azure-backup-cloud-as-tape.md) se explica detalladamente cómo especificar la programación de copias de seguridad.
+    >[AZURE.NOTE] En este [artículo](backup-azure-backup-cloud-as-tape.md)se explica detalladamente cómo especificar la programación de copias de seguridad.
 
-6. Seleccione la **directiva de retención** de la copia de seguridad y haga clic en **Siguiente**.
+6. Seleccione la **directiva de retención de la copia de seguridad** y haga clic en **Siguiente**.
 
     ![Selección de la directiva de retención](./media/backup-azure-manage-windows-server-classic/select-retention-policy-modify.png)
 
@@ -137,14 +138,14 @@ Con las **acciones** disponibles en la parte derecha de la consola del agente de
 
     Tras modificar la protección, puede confirmar que las copias de seguridad se estén activando correctamente; para ello, vaya a la pestaña **Trabajos** y confirme que se hayan reflejado los cambios en los trabajos de copia de seguridad.
 
-### Habilitación de la limitación de la red  
-En el agente de Copia de seguridad de Azure se incluye la pestaña Limitación, donde podrá controlar cómo se utiliza el ancho de banda de red durante la transferencia de datos. Este control puede resultar de ayuda si necesita realizar una copia de seguridad de los datos durante las horas de trabajo, pero no quiere que el proceso interfiera con otro tráfico de Internet. La limitación de la transferencia de datos se aplica a las actividades de copia de seguridad y restauración.
+### <a name="enable-network-throttling"></a>Habilitación de la limitación de la red  
+En el agente de Copia de seguridad de Azure se incluye la pestaña Limitación, donde podrá controlar cómo se utiliza el ancho de banda de red durante la transferencia de datos. Este control puede resultar de ayuda si necesita realizar una copia de seguridad de los datos durante las horas de trabajo, pero no quiere que el proceso interfiera con otro tráfico de Internet. La limitación de la transferencia de datos se aplica a las actividades de copia de seguridad y restauración.  
 
 Para habilitar la limitación, siga estos pasos:
 
-1. En el **agente de Copia de seguridad**, haga clic en **Cambiar propiedades**.
+1. En el **agente de Backup**, haga clic en **Cambiar propiedades**.
 
-2. Active la casilla **Habilitar límite de uso del ancho de banda de Internet para las operaciones de copia de seguridad**.
+2. Active la casilla **Habilitar límite de uso del ancho de banda de Internet para las operaciones de copia de seguridad** .
 
     ![Limitación de la red](./media/backup-azure-manage-windows-server-classic/throttling-dialog.png)
 
@@ -154,7 +155,7 @@ Para habilitar la limitación, siga estos pasos:
 
 4. Haga clic en **Aceptar**.
 
-## Configuración de exclusión
+## <a name="exclusion-settings"></a>Configuración de exclusión
 
 1. Abra el **agente de Copia de seguridad de Microsoft Azure** (puede encontrarlo si busca en su equipo *Copia de seguridad de Microsoft Azure*).
 
@@ -180,7 +181,7 @@ Para habilitar la limitación, siga estos pasos:
 
     ![Selección de una ubicación para la exclusión](./media/backup-azure-manage-windows-server-classic/exclusion-location.png)
 
-7. Agregue la extensión de archivo en el campo **Tipo de archivo**.
+7. Agregue la extensión de archivo en el campo **Tipo de archivo** .
 
     ![Exclusión por tipo de archivo](./media/backup-azure-manage-windows-server-classic/exclude-file-type.png)
 
@@ -194,13 +195,17 @@ Para habilitar la limitación, siga estos pasos:
 
 8. Cuando haya agregado todas las extensiones, haga clic en **Aceptar**.
 
-9. Avance por las distintas pantallas del Asistente para programar copias de seguridad haciendo clic en **Siguiente** hasta llegar a la **página Confirmación** y, después, haga clic en **Finalizar**.
+9. Avance por las distintas pantallas del Asistente para programar copias de seguridad haciendo clic en **Siguiente** hasta llegar a la página **Confirmación** y, después, en **Finalizar**.
 
     ![Confirmación de exclusión](./media/backup-azure-manage-windows-server-classic/finish-exclusions.png)
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Restauración de Windows Server o el cliente de Windows desde Azure](backup-azure-restore-windows-server.md)
-- Para obtener más información sobre Copia de seguridad de Azure, consulte [Información general de Copia de seguridad de Azure](backup-introduction-to-azure-backup.md).
-- Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- Para obtener más información sobre Copia de seguridad de Azure, consulte [Información general de Copia de seguridad de Azure](backup-introduction-to-azure-backup.md)
+- Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

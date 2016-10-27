@@ -1,6 +1,8 @@
-## Requisito previo: instalar el módulo de Azure PowerShell.
-Para seguir los pasos de este artículo, tendrá que [instalar y configurar Azure PowerShell](../articles/powershell-install-configure.md) y seguir las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
+## <a name="prerequisite:-install-the-azure-powershell-module"></a>Prerequisite: Install the Azure PowerShell Module
+To perform the steps in this article, you'll need to [to install and configure Azure PowerShell](../articles/powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 
-> [AZURE.NOTE] Si no tiene una cuenta de Azure, necesitará una. Regístrese para [obtener una prueba gratuita aquí](../articles/active-directory/sign-up-organization.md).
+> [AZURE.NOTE] If you don't have an Azure account, you'll need one. Go sign up for a [free trial here](../articles/active-directory/sign-up-organization.md). 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

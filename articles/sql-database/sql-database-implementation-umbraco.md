@@ -16,11 +16,12 @@
    ms.date="09/22/2016"
    ms.author="carlrab"/>
 
-# Umbraco utiliza Azure SQL Database para aprovisionar y escalar rápidamente servicios para miles de inquilinos en la nube
+
+# <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco utiliza Azure SQL Database para aprovisionar y escalar rápidamente servicios para miles de inquilinos en la nube
 
 ![Logotipo de Umbraco](./media/sql-database-implementation-umbraco/umbracologo.png)
 
-Umbraco es un famoso sistema de administración de contenido de código abierto (CMS) que puede ejecutar todo tipo de recursos —desde sitios para folletos o campañas de poca envergadura hasta aplicaciones complejas— para sitios web multimedia internacionales y empresas de la lista Fortune 500.
+Umbraco es un famoso sistema de administración de contenido de código abierto (CMS) que puede ejecutar todo tipo de recursos —desde sitios para folletos o campañas de poca envergadura hasta aplicaciones complejas— para sitios web multimedia internacionales y empresas de la lista Fortune 500. 
 
 > "Tenemos una comunidad de desarrolladores bastante grande que usan el sistema: más de 100 000 programadores en nuestros foros y más de 350 000 sitios activos que ejecutan Umbraco".
 
@@ -37,11 +38,11 @@ UaaS permite a los clientes de SaaS utilizar las funcionalidades CMS de Umbraco 
 
 Figura 1. Aprovisionamiento del ciclo de vida de Umbraco as a Service (UaaS)
  
-##La automatización y los grupos elásticos de Azure simplifican las implementaciones
+##<a name="azure-elastic-pools-and-automation-simplify-deployments"></a>La automatización y los grupos elásticos de Azure simplifican las implementaciones
 
 Con Azure SQL Database y otros servicios de Azure, los clientes de Umbraco pueden aprovisionar automáticamente sus entornos. Además, Umbraco puede supervisar y administrar con facilidad las bases de datos como parte de un flujo de trabajo intuitivo:
 
-1.	Aprovisionamiento
+1.  Aprovisionamiento
 
     Umbraco mantiene una capacidad de 200 bases de datos aprovisionadas previamente de grupos elásticos. Cuando un nuevo cliente se suscribe a UaaS, Umbraco le proporciona un nuevo entorno CMS en tiempo casi real asignándole una base de datos del grupo de disponibilidad.
 
@@ -49,7 +50,7 @@ Con Azure SQL Database y otros servicios de Azure, los clientes de Umbraco puede
 
     La implementación se automatiza por completo mediante el uso de bibliotecas de administración en C# y colas de Azure Service Bus.
 
-2.	Uso
+2.  Uso
 
     Los clientes usan entre uno y tres entornos (producción, ensayo o desarrollo), cada uno de ellos con su propia base de datos. Las bases de datos de clientes se encuentran en grupos de bases de datos elásticas, lo que permite a Umbraco proporcionar una escalabilidad eficaz sin necesidad de aprovisionar en exceso.
 
@@ -61,11 +62,11 @@ Con Azure SQL Database y otros servicios de Azure, los clientes de Umbraco puede
 
     Azure SQL Database utiliza unidades de transacción de bases de datos (DTU) para representar la potencia relativa necesaria para las transacciones de la base de datos real. En cuanto a los clientes de UaaS, las bases de datos suelen utilizar aproximadamente 10 DTU, pero cada una de ellas tiene la elasticidad necesaria para poder escalarse cuando se precise. Es decir, UaaS puede garantizar que los clientes siempre tengan los recursos necesarios, incluso durante las horas pico. Por ejemplo, hace poco, durante un acontecimiento deportivo un domingo por la noche, un cliente de UaaS experimentó picos en las bases de datos de hasta 100 DTU durante el transcurso del partido. Gracias a los grupos elásticos de Azure, Umbraco pudo responder a esa alta demanda sin que el rendimiento se viese menoscabado.
 
-3.	Supervisión
+3.  Supervisión
 
     Umbraco supervisa la actividad de las bases de datos en Azure Portal, además de las alertas de correo electrónico personalizadas, mediante el uso de paneles.
 
-4.	Recuperación ante desastres
+4.  Recuperación ante desastres
 
     Azure ofrece dos opciones de recuperación ante desastres (DR): la replicación geográfica activa y la restauración geográfica. La opción de recuperación ante desastres que debe elegir una empresa depende de sus [objetivos de continuidad empresarial](sql-database-business-continuity.md).
 
@@ -73,11 +74,11 @@ Con Azure SQL Database y otros servicios de Azure, los clientes de Umbraco puede
 
     Umbraco no necesita la replicación geográfica, pero sí que utiliza la restauración geográfica de Azure para ayudar a garantizar que los tiempos de inactividad sean mínimos en caso de una interrupción. La restauración geográfica se basa en copias de seguridad de bases de datos en el almacenamiento de Azure con redundancia geográfica, que permite a los usuarios restaurar datos a partir de una copia de seguridad cuando hay una interrupción en la región primaria.
 
-5.	Desaprovisionamiento
+5.  Desaprovisionamiento
 
     Cuando se elimina un entorno de proyecto, se quitan las bases de datos asociadas (desarrollo, ensayo o producción) durante la limpieza de colas de Azure Service Bus. Este proceso automatizado restaura las bases de datos sin utilizar al grupo de disponibilidad de bases de datos elásticas de Umbraco, con lo que quedan disponibles para realizar futuros aprovisionamientos al mismo tiempo que se mantiene un nivel de uso máximo.
 
-##Los grupos elásticos permiten a UaaS realizar escalados con facilidad
+##<a name="elastic-pools-allow-uaas-to-scale-with-ease"></a>Los grupos elásticos permiten a UaaS realizar escalados con facilidad
 
 Al aprovechar las ventajas que ofrecen los grupos de bases de datos elásticas de Azure, Umbraco puede optimizar el rendimiento para sus clientes sin necesidad de provocar el exceso o la falta de aprovisionamiento. Actualmente, Umbraco tiene casi 3000 bases de datos en 19 grupos de bases de datos elásticas, y puede escalarlas fácilmente según sea necesario para satisfacer las necesidades de sus 325 000 clientes existentes o nuevos que están listos para implementar un CMS en la nube.
 
@@ -89,7 +90,7 @@ Si un cliente no vuelve a necesitar un segundo o tercero entorno, puede eliminar
 
 Figura 3. Arquitectura de implementación de UaaS en Microsoft Azure
 
-##La migración del centro de datos a la nube
+##<a name="the-path-from-datacenter-to-cloud"></a>La migración del centro de datos a la nube
 
 Al principio, cuando los desarrolladores de Umbraco decidieron realizar la migración a un modelo SaaS, sabían que necesitarían una forma rentable y escalable de crear el servicio.
 
@@ -105,11 +106,11 @@ Además, el equipo de desarrollo de Umbraco buscaba una solución que les permit
 
 Para cumplir todos los criterios, Umbraco buscó un asociado de soluciones en la nube que cumplirse los siguientes recursos:
 
--	Capacidad y confiabilidad suficientes
--	Compatibilidad con las herramientas de desarrollo de Microsoft, para que los ingenieros de Umbraco no se vieran forzados a reinventar por completo su entorno de desarrollo
--	Presencia en todos los mercados geográficos en los que UaaS compite (las empresas necesitan asegurarse de que pueden acceder a sus datos rápidamente y se almacenen en una ubicación que cumpla sus requisitos normativos regionales)
+-   Capacidad y confiabilidad suficientes
+-   Compatibilidad con las herramientas de desarrollo de Microsoft, para que los ingenieros de Umbraco no se vieran forzados a reinventar por completo su entorno de desarrollo
+-   Presencia en todos los mercados geográficos en los que UaaS compite (las empresas necesitan asegurarse de que pueden acceder a sus datos rápidamente y se almacenen en una ubicación que cumpla sus requisitos normativos regionales)
 
-##Por qué Umbraco eligió Azure para UaaS
+##<a name="why-umbraco-chose-azure-for-uaas"></a>Por qué Umbraco eligió Azure para UaaS
 
 Según Morten Christensen: "Después de considerar todas nuestras opciones, hemos seleccionado Azure porque cumplió todos nuestros criterios, desde la capacidad de administración y escalabilidad hasta la familiaridad y rentabilidad. Configuramos los entornos de máquinas virtuales de Azure y cada uno de ellos tiene su propia instancia de Azure SQL Database; todas las instancias se encuentran en grupos de bases de datos elásticas. Al separar las bases de datos entre los entornos de desarrollo, ensayo y producción, podemos ofrecer a nuestros clientes un aislamiento de rendimiento sólido que puede escalarse, lo que supone para nosotros una grandísima ventaja".
 
@@ -119,24 +120,29 @@ Morten también está satisfecho con las funcionalidades de escalado que proporc
 
 Tal y como resume Mikkel Madsen: "Hemos adoptado el eficaz algoritmo de Azure que conecta un escenario SaaS común (incorporando a escala nuevos clientes en tiempo real) a nuestro patrón de aplicaciones (aprovisionando previamente bases de datos de los entornos de desarrollo y producción) en la tecnología subyacente (mediante las colas de Azure Service Bus y Azure SQL Database)".
 
-##Con Azure, UaaS supera las expectativas de los clientes
+##<a name="with-azure,-uaas-is-exceeding-customer-expectations"></a>Con Azure, UaaS supera las expectativas de los clientes
 
 Desde que Umbraco eligió Azure como asociado de soluciones en la nube, ha podido brindar a los clientes de UaaS un rendimiento optimizado de administración de contenido, sin invertir en los recursos de TI que se necesitaría con una solución autohospedada. Como Morten explica: "Nos encanta la mayor escalabilidad y comodidad de desarrollo que nos ofrece Azure, y nuestros clientes están entusiasmados con las características y la confiabilidad que brinda. En líneas generales, nos ha aportado un sinfín de ventajas".
  
-## Más información
+## <a name="more-information"></a>Más información
 
 - Si quiere obtener más información sobre los grupos de bases de datos elásticas de Azure, consulte [este artículo](sql-database-elastic-pool.md).
 
 - Si necesita más información sobre Azure Service Bus, lea [este artículo](https://azure.microsoft.com/services/service-bus/).
 
-- Para obtener más detalles sobre los roles web y de trabajo, consulte [este artículo](../fundamentals-introduction-to-azure.md#compute).
+- Para obtener más detalles sobre los roles web y de trabajo, consulte [este artículo](../fundamentals-introduction-to-azure.md#compute). 
 
-- Para aprender más sobre las redes virtuales en Azure, revise [este artículo](https://azure.microsoft.com/documentation/services/virtual-network/).
+- Para aprender más sobre las redes virtuales en Azure, revise [este artículo](https://azure.microsoft.com/documentation/services/virtual-network/).    
 
-- Para conocer más detalles sobre la copia de seguridad y recuperación, vea [este artículo](sql-database-business-continuity.md).
+- Para conocer más detalles sobre la copia de seguridad y recuperación, vea [este artículo](sql-database-business-continuity.md).  
 
-- Si quiere obtener más información sobre los grupos de supervisión, consulte [este artículo](sql-database-elastic-pool-manage-portal.md).
+- Si quiere obtener más información sobre los grupos de supervisión, consulte [este artículo](sql-database-elastic-pool-manage-portal.md). 
 
 - Si necesita más detalles sobre Umbraco as a Service, lea [este artículo](https://umbraco.com/cloud).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

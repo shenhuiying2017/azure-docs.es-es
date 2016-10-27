@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introducción a Reliable Services | Microsoft Azure"
-   description="Introducción a la creación de una aplicación de Service Fabric de Microsoft Azure mediante servicios con y sin estado."
+   pageTitle="Get started with Reliable Services | Microsoft Azure"
+   description="Introduction to creating a Microsoft Azure Service Fabric application with stateless and stateful services."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,36 +13,52 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/06/2016"
+   ms.date="09/25/2016"
    ms.author="vturecek"/>
 
-# Introducción a Reliable Services de Service Fabric
 
-Una aplicación de Service Fabric de Azure contiene uno o varios servicios que ejecutan su código. En esta guía se muestra cómo crear aplicaciones de Service Fabric con estado y sin él mediante [Reliable Services](service-fabric-reliable-services-introduction.md).
+# <a name="get-started-with-reliable-services"></a>Get started with Reliable Services
 
-## Creación de un servicio sin estado
+> [AZURE.SELECTOR]
+- [C# on Windows](service-fabric-reliable-services-quick-start.md)
+- [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
 
-Un servicio sin estado es un tipo de servicio que es el que se encuentra actualmente en las aplicaciones en la nube. Se considera sin estado porque el propio servicio no contiene datos que tengan que almacenarse de manera fiable o requieran tener una alta disponibilidad. Si se cierra una instancia de un servicio sin estado, todo su estado interno se pierde. En este tipo de servicio, el estado debe almacenarse en un almacén externo, como Tablas de Azure o una base de datos SQL, para que resulte fiable y tenga una alta disponibilidad.
+An Azure Service Fabric application contains one or more services that run your code. This guide shows you how to create both stateless and stateful Service Fabric applications with [Reliable Services](service-fabric-reliable-services-introduction.md).
 
-Inicie Visual Studio 2015 como administrador y cree un nuevo proyecto de aplicación de Service Fabric denominado *HelloWorld*:
+## <a name="basic-concepts"></a>Basic concepts
+To get started with Reliable Services, you only need to understand a few basic concepts:
 
-![Uso del cuadro de diálogo Nuevo proyecto para crear una nueva aplicación de Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
+ - **Service type**: This is your service implementation. It is defined by the class you write that extends `StatelessService` and any other code or dependencies used therein, along with a name and a version number.
 
-Después, cree un proyecto de servicio sin estado denominado *HelloWorldStateless*:
+ - **Named service instance**: To run your service, you create named instances of your service type, much like you create object instances of a class type. Service instances are in fact object instantiations of your service class that you write. 
 
-![En el segundo cuadro de diálogo, cree un proyecto de servicio sin estado.](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
+ - **Service host**: The named service instances you create need to run inside a host. The service host is just a process where instances of your service can run.
 
-La solución contiene ahora dos proyectos:
+ - **Service registration**: Registration brings everything together. The service type must be registered with the Service Fabric runtime in a service host to allow Service Fabric to create instances of it to run.  
 
- - *HelloWorld*. Se trata del proyecto de *aplicación* que contiene sus *servicios*. También contiene el manifiesto de aplicación que describe la aplicación y un número de scripts de PowerShell que le ayudarán a implementar la aplicación.
- - *HelloWorldStateless*. Este es el proyecto de servicio. Contiene la implementación del servicio sin estado.
+## <a name="create-a-stateless-service"></a>Create a stateless service
+
+A stateless service is a type of service that is currently the norm in cloud applications. It is considered stateless because the service itself does not contain data that needs to be stored reliably or made highly available. If an instance of a stateless service shuts down, all of its internal state is lost. In this type of service, state must be persisted to an external store, such as Azure Tables or a SQL database, for it to be made highly available and reliable.
+
+Launch Visual Studio 2015 as an administrator, and create a new Service Fabric application project named *HelloWorld*:
+
+![Use the New Project dialog box to create a new Service Fabric application](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
+
+Then create a stateless service project named *HelloWorldStateless*:
+
+![In the second dialog box, create a stateless service project](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
+
+Your solution now contains two projects:
+
+ - *HelloWorld*. This is the *application* project that contains your *services*. It also contains the application manifest that describes the application, as well as a number of PowerShell scripts that help you to deploy your application.
+ - *HelloWorldStateless*. This is the service project. It contains the stateless service implementation.
 
 
-## Implementación del servicio
+## <a name="implement-the-service"></a>Implement the service
 
-Abra el archivo **HelloWorldStateless.cs** en el proyecto de servicio. En Service Fabric, un servicio puede ejecutar cualquier lógica de negocios. La API de servicios proporciona dos puntos de entrada para el código:
+Open the **HelloWorldStateless.cs** file in the service project. In Service Fabric, a service can run any business logic. The service API provides two entry points for your code:
 
- - Llama a un método de punto de entrada abierto denominado "*RunAsync*" donde puede comenzar la ejecución de cualquier carga de trabajo que desee, como cargas de trabajo de proceso de larga duración.
+ - An open-ended entry point method, called *RunAsync*, where you can begin executing any workloads, including long-running compute workloads.
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -51,7 +67,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 }
 ```
 
- - Un punto de entrada de comunicación en el que puede conectar su pila de comunicación preferida, como la API web de ASP.NET. Aquí es donde puede empezar a recibir las solicitudes de usuarios y otros servicios.
+ - A communication entry point where you can plug in your communication stack of choice, such as ASP.NET Web API. This is where you can start receiving requests from users and other services.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -60,12 +76,13 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-En este tutorial, nos centraremos en el método de punto de entrada `RunAsync()`. Aquí es donde puede comenzar a ejecutar el código de inmediato. La plantilla de proyecto incluye una implementación de ejemplo de `RunAsync()` que incrementa un recuento gradual.
+In this tutorial, we will focus on the `RunAsync()` entry point method. This is where you can immediately start running your code.
+The project template includes a sample implementation of `RunAsync()` that increments a rolling count.
 
-> [AZURE.NOTE] Para obtener más información acerca de cómo trabajar con una pila de comunicación, consulte [Introducción a los servicios de la API web de Microsoft Azure Service Fabric con autohospedaje OWIN](service-fabric-reliable-services-communication-webapi.md).
+> [AZURE.NOTE] For details about how to work with a communication stack, see [Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md)
 
 
-### RunAsync
+### <a name="runasync"></a>RunAsync
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -86,38 +103,38 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 }
 ```
 
-La plataforma llama a este método cuando hay una instancia del servicio colocada y preparada para ejecutarse. En el caso de un servicio sin estado, esto simplemente significa que la instancia de servicio está abierta. Se proporciona un token de cancelación para coordinar cuando la instancia de servicio debe cerrarse. En Service Fabric, este ciclo de apertura y cierre de una instancia de servicio puede producirse muchas veces durante la vigencia del servicio en su conjunto. Esto puede ocurrir por diversos motivos, incluidos los siguientes:
+The platform calls this method when an instance of a service is placed and ready to execute. For a stateless service, that simply means when the service instance is opened. A cancellation token is provided to coordinate when your service instance needs to be closed. In Service Fabric, this open/close cycle of a service instance can occur many times over the lifetime of the service as a whole. This can happen for various reasons, including:
 
-- El sistema mueve las instancias de servicio para equilibrar los recursos.
-- Se producen errores en el código.
-- Se actualiza la aplicación o el sistema.
-- El hardware subyacente experimenta una interrupción.
+- The system moves your service instances for resource balancing.
+- Faults occur in your code.
+- The application or system is upgraded.
+- The underlying hardware experiences an outage.
 
-El sistema es quien se encarga de la coordinación para mantener el servicio con una alta disponibilidad y correctamente equilibrado.
+This orchestration is managed by the system to keep your service highly available and properly balanced.
 
-`RunAsync()` se ejecuta en su propia tarea. Tenga en cuenta que en el fragmento de código anterior, avanzamos hasta un bucle de tipo *while* No es necesario programar una tarea independiente para la carga de trabajo. La cancelación de la carga de trabajo es un esfuerzo cooperativo organizado por el token de cancelación proporcionado. El sistema esperará a que la tarea finalice (ya sea mediante una realización correcta, una cancelación o con errores) antes de moverla. Es importante respetar el token de cancelación, finalizar cualquier trabajo y cerrar `RunAsync()` lo antes posible cuando el sistema solicita la cancelación.
+`RunAsync()` is executed in its own task. Note that in the code snippet above, we jumped right into a *while* loop. There is no need to schedule a separate task for your workload. Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token. The system will wait for your task to end (by successful completion, cancellation, or fault) before it moves on. It is important to honor the cancellation token, finish any work, and exit `RunAsync()` as quickly as possible when the system requests cancellation.
 
-En este ejemplo de servicio sin estado, el número se almacena en una variable local. Pero dado que se trata de un servicio sin estado, el valor almacenado solo existe para el ciclo de vida actual de la instancia de su servicio. Cuando se mueve o se reinicia el servicio, el valor se pierde.
+In this stateless service example, the count is stored in a local variable. But because this is a stateless service, the value that's stored exists only for the current lifecycle of its service instance. When the service moves or restarts, the value is lost.
 
-## Creación de un servicio con estado
+## <a name="create-a-stateful-service"></a>Create a stateful service
 
-Service Fabric presenta un nuevo tipo de servicio que es con estado. Un servicio con estado puede mantener el estado confiablemente dentro del propio servicio, ubicado junto al código que lo está usando. Service Fabric ofrece una alta disponibilidad del estado sin necesidad de conservarlo en un almacén externo.
+Service Fabric introduces a new kind of service that is stateful. A stateful service can maintain state reliably within the service itself, co-located with the code that's using it. State is made highly available by Service Fabric without the need to persist state to an external store.
 
-Para cambiar el valor sin estado del contador a una alta disponibilidad y persistencia, incluso cuando se mueve o reinicia el servicio, se necesita un servicio con estado.
+To convert a counter value from stateless to highly available and persistent, even when the service moves or restarts, you need a stateful service.
 
-En la misma aplicación *HelloWorld*, puede agregar un nuevo servicio haciendo clic con el botón derecho en el proyecto de aplicación y seleccionando **Agregar -> Nuevo servicio de Service Fabric**.
+In the same *HelloWorld* application, you can add a new service by right-clicking on the Services references in the application project and selecting **Add ->  New Service Fabric Service**.
 
-![Agregue un servicio a su aplicación Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
+![Add a service to your Service Fabric application](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-Seleccione **Servicio con estado** y asígnele el nombre *HelloWorldStateful*. Haga clic en **Aceptar**.
+Select **Stateful Service** and name it *HelloWorldStateful*. Click **OK**.
 
-![Uso del cuadro de diálogo Nuevo proyecto para crear un nuevo servicio con estado de Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
+![Use the New Project dialog box to create a new Service Fabric stateful service](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
-La aplicación ahora debe tener dos servicios: el servicio sin estado *HelloWorldStateless* y el servicio con estado *HelloWorldStateful*.
+Your application should now have two services: the stateless service *HelloWorldStateless* and the stateful service *HelloWorldStateful*.
 
-Un servicio con estado tiene los mismos puntos de entrada que un servicio sin estado. La principal diferencia es la disponibilidad de un *proveedor de estado* que puede almacenar estados de forma confiable. Service Fabric incluye una implementación de proveedor de estado denominada "[Reliable Collections](service-fabric-reliable-services-reliable-collections.md)", que permite crear estructuras de datos con replicación mediante Reliable State Manager. Un servicio de confianza con estado usa este proveedor de estado de forma predeterminada.
+A stateful service has the same entry points as a stateless service. The main difference is the availability of a *state provider* that can store state reliably. Service Fabric comes with a state provider implementation called [Reliable Collections](service-fabric-reliable-services-reliable-collections.md), which lets you create replicated data structures through the Reliable State Manager. A stateful Reliable Service uses this state provider by default.
 
-Abra **HelloWorldStateful.cs** en *HelloWorldStateful*, que contiene el método RunAsync siguiente:
+Open **HelloWorldStateful.cs** in *HelloWorldStateful*, which contains the following RunAsync method:
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -149,29 +166,29 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
     }
 ```
 
-### RunAsync
+### <a name="runasync"></a>RunAsync
 
-`RunAsync()` funciona de forma similar en los servicios con y sin estado. Sin embargo, en los servicios con estado, la plataforma realiza una tarea adicional de forma automática antes de ejecutar `RunAsync()`. Al realizarla, se puede garantizar que Reliable State Manager y Reliable Collections estén listos para usarse.
+`RunAsync()` operates similarly in stateful and stateless services. However, in a stateful service, the platform performs additional work on your behalf before it executes `RunAsync()`. This work can include ensuring that the Reliable State Manager and Reliable Collections are ready to use.
 
-### Reliable Collections y Reliable State Manager
+### <a name="reliable-collections-and-the-reliable-state-manager"></a>Reliable Collections and the Reliable State Manager
 
 ```csharp
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-[IReliableDictionary](https://msdn.microsoft.com/library/dn971511.aspx) es una implementación de diccionario que se puede usar para almacenar estados de manera confiable en el servicio. Con Service Fabric y Reliable Collections, ahora puede almacenar datos directamente en el servicio sin necesidad de un almacén persistente externo. Gracias a Reliable Collections, los datos tendrán una alta disponibilidad. Service Fabric realiza esta tarea creando y administrando automáticamente varias *réplicas* de su servicio. También proporciona una API que elimina las complejidades derivadas de la administración de las réplicas y sus transiciones de estado.
+[IReliableDictionary](https://msdn.microsoft.com/library/dn971511.aspx) is a dictionary implementation that you can use to reliably store state in the service. With Service Fabric and Reliable Collections, you can store data directly in your service without the need for an external persistent store. Reliable Collections make your data highly available. Service Fabric accomplishes this by creating and managing multiple *replicas* of your service for you. It also provides an API that abstracts away the complexities of managing those replicas and their state transitions.
 
-Reliable Collections puede almacenar cualquier tipo de .NET, incluidos los tipos personalizados, con un par de advertencias:
+Reliable Collections can store any .NET type, including your custom types, with a couple of caveats:
 
- - Service Fabric logra que su estado presente una alta disponibilidad *replicándolo* entre nodos y almacenándolo en el disco local. Es decir, todo lo que se almacena en Reliable Collections debe ser *serializable*. De forma predeterminada, Reliable Collections utiliza [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) para la serialización, por lo que resulta importante asegurarse de que los tipos sean [compatibles con el serializador de contratos de datos](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) cuando se usa el serializador predeterminado.
+ - Service Fabric makes your state highly available by *replicating* state across nodes, and Reliable Collections store your data to local disk on each replica. This means that everything that is stored in Reliable Collections must be *serializable*. By default, Reliable Collections use [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) for serialization, so it's important to make sure that your types are [supported by the Data Contract Serializer](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) when you use the default serializer.
 
- - Los objetos se replican para obtener una alta disponibilidad cuando se confirman transacciones en Reliable Collections. Los objetos almacenados en Reliable Collections se mantienen en la memoria local en el servicio. Esto significa que tiene una referencia local al objeto.
+ - Objects are replicated for high availability when you commit transactions on Reliable Collections. Objects stored in Reliable Collections are kept in local memory in your service. This means that you have a local reference to the object.
 
-    Es importante no modificar las instancias locales de los objetos sin tener que realizar una operación de actualización en la colección fiable de una transacción. Esto se debe a que los cambios en las instancias de objetos locales no se replicarán automáticamente. Debe volver a insertar el objeto en el diccionario o utilizar uno de los métodos de *actualización* del diccionario.
+    It is important that you do not mutate local instances of those objects without performing an update operation on the reliable collection in a transaction. This is because changes to local instances of objects will not be replicated automatically. You must re-insert the object back into the dictionary or use one of the *update* methods on the dictionary.
 
-Reliable State Manager administra Reliable Collections de forma automática. Basta con solicitar a Reliable State Manager una colección confiable por nombre en cualquier momento y lugar del servicio. Reliable State Manager garantiza la obtención de una referencia. No recomendamos guardar referencias a instancias de colecciones fiables en variables o propiedades de miembros de clase. Debe tener especial cuidado para asegurarse de que se establece la referencia a una instancia en todo momento del ciclo de vida de servicio. Reliable State Manager controla esta tarea automáticamente y está optimizado para la repetición de visitas.
+The Reliable State Manager manages Reliable Collections for you. You can simply ask the Reliable State Manager for a reliable collection by name at any time and at any place in your service. The Reliable State Manager ensures that you get a reference back. We don't recommended that you save references to reliable collection instances in class member variables or properties. Special care must be taken to ensure that the reference is set to an instance at all times in the service lifecycle. The Reliable State Manager handles this work for you, and it's optimized for repeat visits.
 
-### Operaciones transaccionales y asincrónicas
+### <a name="transactional-and-asynchronous-operations"></a>Transactional and asynchronous operations
 
 ```C#
 using (ITransaction tx = this.StateManager.CreateTransaction())
@@ -184,33 +201,37 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 }
 ```
 
-Las colecciones Reliable Collections tienen muchas de las mismas operaciones que sus homólogos `System.Collections.Generic` y `System.Collections.Concurrent`, excepto LINQ. Sin embargo, las operaciones relacionadas con Reliable Collections son asincrónicas. El motivo es que las operaciones de escritura con Reliable Collections realizarán operaciones de E/S para replicar y conservar los datos en el disco.
+Reliable Collections have many of the same operations that their `System.Collections.Generic` and `System.Collections.Concurrent` counterparts do, except LINQ. Operations on Reliable Collections are asynchronous. This is because write operations with Reliable Collections perform I/O operations to replicate and persist data to disk.
 
-Las operaciones de Reliable Collections son *transaccionales*, de modo que el estado puede mantenerse de forma coherente entre varias operaciones y colecciones Reliable Collections. Por ejemplo, puede quitar de la cola un elemento de trabajo de una cola fiable, realizar una operación en ella y guardar el resultado en un diccionario fiable, todo en una única transacción. Se trata como una operación atómica y así se garantiza que toda la operación se complete correctamente o se revierta por completo. Si se produce un error después de quitar el elemento de la cola pero antes de guardar el resultado, toda la transacción se revierte y el elemento permanece en la cola para su procesamiento.
+Reliable Collection operations are *transactional*, so that you can keep state consistent across multiple Reliable Collections and operations. For example, you may dequeue a work item from a Reliable Queue, perform an operation on it, and save the result in a Reliable Dictionary, all within a single transaction. This is treated as an atomic operation, and it guarantees that either the entire operation will succeed or the entire operation will roll back. If an error occurs after you dequeue the item but before you save the result, the entire transaction is rolled back and the item remains in the queue for processing.
 
-## Ejecución de la aplicación
+## <a name="run-the-application"></a>Run the application
 
-Volvamos ahora a la aplicación *HelloWorld*. Ahora puede compilar e implementar sus servicios. Si presiona **F5**, la aplicación se creará e implementará en el clúster local.
+We now return to the *HelloWorld* application. You can now build and deploy your services. When you press **F5**, your application will be built and deployed to your local cluster.
 
-Una vez que los servicios empiecen a ejecutarse, podrá ver los eventos del Seguimiento de eventos para Windows (ETW) generados en una ventana de **Eventos de diagnóstico**. Tenga en cuenta que hay eventos que se muestran desde el servicio sin estado y el servicio con estado en la aplicación. Puede pausar el streaming haciendo clic en el botón **Pausar**. Luego puede también examinar los detalles de un mensaje expandiéndolo.
+After the services start running, you can view the generated Event Tracing for Windows (ETW) events in a **Diagnostic Events** window. Note that the events displayed are from both the stateless service and the stateful service in the application. You can pause the stream by clicking the **Pause** button. You can then examine the details of a message by expanding that message.
 
->[AZURE.NOTE] Antes de ejecutar la aplicación, asegúrese de tener un clúster de desarrollo local ejecutándose. Consulte la [guía de introducción](service-fabric-get-started.md) para más información sobre cómo configurar un entorno local.
+>[AZURE.NOTE] Before you run the application, make sure that you have a local development cluster running. Check out the [getting started guide](service-fabric-get-started.md) for information on setting up your local environment.
 
-![Ver eventos de diagnóstico en Visual Studio](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
+![View Diagnostic Events in Visual Studio](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-[Depuración de la aplicación del Service Fabric en Visual Studio](service-fabric-debugging-your-application.md)
+[Debug your Service Fabric application in Visual Studio](service-fabric-debugging-your-application.md)
 
-[Introducción a los servicios de la API web de Microsoft Azure Service Fabric con autohospedaje OWIN](service-fabric-reliable-services-communication-webapi.md)
+[Get started: Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md)
 
-[Obtenga más información acerca de las colecciones fiables](service-fabric-reliable-services-reliable-collections.md)
+[Learn more about Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 
-[Implementar una aplicación](service-fabric-deploy-remove-applications.md)
+[Deploy an application](service-fabric-deploy-remove-applications.md)
 
-[Actualización de aplicaciones](service-fabric-application-upgrade.md)
+[Application upgrade](service-fabric-application-upgrade.md)
 
-[Referencia para desarrolladores de servicios confiables](https://msdn.microsoft.com/library/azure/dn706529.aspx)
+[Developer reference for Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

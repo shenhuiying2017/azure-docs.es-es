@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Incorporación de máquinas físicas y virtuales para administrarlas con DSC de Automatización de Azure | Microsoft Azure" 
-   description="Cómo configurar las máquinas para administrarlas con DSC de Automatización de Azure" 
+   pageTitle="Onboarding physical and virtual machines for management by Azure Automation DSC | Microsoft Azure" 
+   description="How to setup machines for management with Azure Automation DSC" 
    services="automation" 
    documentationCenter="dev-center-name" 
    authors="coreyp-at-msft" 
@@ -16,40 +16,41 @@
    ms.date="04/22/2016"
    ms.author="coreyp"/>
 
-# Incorporación de máquinas para administrarlas con DSC de Automatización de Azure
 
-## ¿Por qué administrar máquinas con DSC de Automatización de Azure?
+# <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Onboarding machines for management by Azure Automation DSC
 
-Al igual que [Configuración de estado deseado de PowerShell](https://technet.microsoft.com/library/dn249912.aspx), Configuración de estado deseado de Automatización de Azure es un servicio de administración de configuración, sencillo pero eficaz, para los nodos de DSC (máquinas físicas y virtuales) en cualquier centro de datos local o en la nube. Permite la escalabilidad en miles de máquinas de forma rápida y sencilla desde una ubicación central y segura. Puede incorporar fácilmente máquinas, asignarles configuraciones declarativas y ver informes que muestran el cumplimiento por parte de cada máquina del estado deseado especificado. El nivel de administración de DSC de Automatización de Azure es a DSC lo que el nivel de administración de Automatización de Azure es al scripting de PowerShell. En otras palabras, Automatización de Azure le ayuda a administrar las configuraciones de DSC, de la misma manera que lo hace con los scripts de PowerShell. Para más información acerca de las ventajas de usar DSC de Automatización de Azure, consulte [Información general de DSC de Automatización de Azure](automation-dsc-overview.md).
+## <a name="why-manage-machines-with-azure-automation-dsc?"></a>Why manage machines with Azure Automation DSC?
 
-DSC de Automatización de Azure puede usarse para administrar diversas máquinas:
+Like [PowerShell Desired State Configuration](https://technet.microsoft.com/library/dn249912.aspx), Azure Automation Desired State Configuration is a simple, yet powerful, configuration management service for DSC nodes (physical and virtual machines) in any cloud or on-premises datacenter. It enables scalability across thousands of machines quickly and easily from a central, secure location. You can easily onboard machines, assign them declarative configurations, and view reports showing each machine’s compliance to the desired state you specified. The Azure Automation DSC management layer is to DSC what the Azure Automation management layer is to PowerShell scripting. In other words, in the same way that Azure Automation helps you manage PowerShell scripts, it also helps you manage DSC configurations. To learn more about the benefits of using Azure Automation DSC, see [Azure Automation DSC overview](automation-dsc-overview.md). 
 
-*    Máquinas virtuales de Azure (clásico)
-*    Máquinas virtuales de Azure
-*    Máquinas virtuales de Amazon Web Services (AWS)
-*    Máquinas físicas y virtuales con Windows locales o en una nube que no sea Azure/AWS
-*    Máquinas físicas y virtuales con Linux locales, en Azure o en una nube que no sea Azure
+Azure Automation DSC can be used to manage a variety of machines:
 
-Además, si no está preparado para administrar la configuración de máquina desde la nube, DSC de Automatización de Azure también puede utilizarse como punto de conexión meramente informativo. Esto le permite establecer (insertar) la configuración deseada a través del DSC local y ver numerosos detalles de informe sobre el cumplimiento del nodo con el estado deseado en Automatización de Azure.
+*    Azure virtual machines (classic)
+*    Azure virtual machines
+*    Amazon Web Services (AWS) virtual machines
+*    Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS
+*    Physical/virtual Linux machines on-premises, in Azure, or in a cloud other than Azure
 
-En las secciones siguientes, se describe cómo incorporar cada tipo de máquina a DSC de Automatización de Azure.
+In addition, if you are not ready to manage machine configuration from the cloud, Azure Automation DSC can also be used as a report-only endpoint. This allows you to set (push) desired configuration through DSC on-premises and view rich reporting details on node compliance with the desired state in Azure Automation.
 
-## Máquinas virtuales de Azure (clásico)
+The following sections outline how you can onboard each type of machine to Azure Automation DSC.
 
-Con DSC de Automatización de Azure, puede incorporar fácilmente máquinas virtuales de Azure (clásico) para la administración de configuraciones mediante el Portal de Azure o PowerShell. Internamente y sin que un administrador tenga que acceder de forma remota a la máquina virtual, la extensión Configuración de estado deseado de la máquina virtual de Azure registra la máquina virtual con DSC de Automatización de Azure. Puesto que la extensión Configuración de estado deseado de la máquina virtual de Azure se ejecuta de forma asincrónica, se proporcionan los pasos para realizar un seguimiento de su progreso o solucionar problemas en la sección [**Solución de problemas de incorporación de máquinas virtuales de Azure más adelante**](#troubleshooting-azure-virtual-machine-onboarding).
+## <a name="azure-virtual-machines-(classic)"></a>Azure virtual machines (classic)
+
+With Azure Automation DSC, you can easily onboard Azure virtual machines (classic) for configuration management using either the Azure portal, or PowerShell. Under the hood, and without an administrator having to remote into the VM, the Azure VM Desired State Configuration extension registers the VM with Azure Automation DSC. Since the Azure VM Desired State Configuration extension runs asynchronously, steps to track its progress or troubleshoot it are provided in the [**Troubleshooting Azure virtual machine onboarding**](#troubleshooting-azure-virtual-machine-onboarding) section below.
 
 
-### Portal de Azure
+### <a name="azure-portal"></a>Azure portal
 
-En el [Portal de Azure](http://portal.azure.com/), haga clic en **Examinar** -> **Máquinas virtuales (clásico)**. Seleccione la máquina virtual de Windows que desea incorporar. En la hoja de panel de la máquina virtual, haga clic en **Toda la configuración** -> **Extensiones** -> **Agregar** -> **DSC de Automatización de Azure** -> **Crear**. Escriba los [valores del Administrador de configuración local de DSC de PowerShell](https://msdn.microsoft.com/powershell/dsc/metaconfig4) necesarios para su caso de uso, la clave de registro de su cuenta de Automatización y la dirección URL de registro, así como, opcionalmente, una configuración de nodo para asignarla a la máquina virtual.
+In the [Azure portal](http://portal.azure.com/), click **Browse** -> **Virtual machines (classic)**. Select the Windows VM you want to onboard. On the virtual machine’s dashboard blade, click **All settings** -> **Extensions** -> **Add** -> **Azure Automation DSC** -> **Create**. Enter the [PowerShell DSC Local Configuration Manager values](https://msdn.microsoft.com/powershell/dsc/metaconfig4) required for your use case, your Automation account’s registration key and registration URL, and optionally a node configuration to assign to the VM.
 
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
 
 
-Para buscar la dirección URL de registro y la clave de la cuenta de Automatización a la que incorporar la máquina, consulte la sección [**Registro seguro**](#secure-registration) más adelante.
+To find the registration URL and key for the Automation account to onboard the machine to, see the [**Secure registration**](#secure-registration) section below.
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
 
     # log in to both Azure Service Management and Azure Resource Manager
     Add-AzureAccount
@@ -111,96 +112,96 @@ Para buscar la dirección URL de registro y la clave de la cuenta de Automatizac
 
     $VM | Update-AzureVM
 
-## Máquinas virtuales de Azure
+## <a name="azure-virtual-machines"></a>Azure virtual machines
 
-Con DSC de Automatización de Azure, puede incorporar fácilmente máquinas virtuales de Azure para la administración de configuraciones, mediante el Portal de Azure, las plantillas del Administrador de recursos de Azure o PowerShell. Internamente y sin que un administrador tenga que acceder de forma remota a la máquina virtual, la extensión Configuración de estado deseado de la máquina virtual de Azure registra la máquina virtual con DSC de Automatización de Azure. Puesto que la extensión Configuración de estado deseado de la máquina virtual de Azure se ejecuta de forma asincrónica, se proporcionan los pasos para realizar un seguimiento de su progreso o solucionar problemas en la sección [**Solución de problemas de incorporación de máquinas virtuales de Azure más adelante**](#troubleshooting-azure-virtual-machine-onboarding).
+Azure Automation DSC lets you easily onboard Azure virtual machines for configuration management, using either the Azure portal, Azure Resource Manager templates, or PowerShell. Under the hood, and without an administrator having to remote into the VM, the Azure VM Desired State Configuration extension registers the VM with Azure Automation DSC. Since the Azure VM Desired State Configuration extension runs asynchronously, steps to track its progress or troubleshoot it are provided in the [**Troubleshooting Azure virtual machine onboarding**](#troubleshooting-azure-virtual-machine-onboarding) section below.
 
 
-### Portal de Azure
+### <a name="azure-portal"></a>Azure portal
 
-En el [Portal de Azure](https://portal.azure.com/), vaya a la cuenta de Automatización de Azure en la que quiere incorporar máquinas virtuales. En el panel de la cuenta de Automatización, haga clic en **Nodos de DSC** -> **Agregar máquina virtual de Azure**.
+In the [Azure portal](https://portal.azure.com/), navigate to the Azure Automation account where you want to onboard virtual machines. On the Automation account dashboard, click **DSC Nodes** -> **Add Azure VM**.
 
-En **Seleccionar máquinas virtuales que incorporar**, seleccione una o más máquinas virtuales de Azure para incorporarlas.
+Under **Select virtual machines to onboard**, select one or more Azure virtual machines to onboard.
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_2.png)
 
 
-En **Configurar datos de registro**, escriba los [valores del Administrador de configuración local de DSC de PowerShell](https://msdn.microsoft.com/powershell/dsc/metaconfig4) necesarios para su caso de uso, así como, opcionalmente, una configuración de nodo para asignarla a la máquina virtual.
+Under **Configure registration data**, enter the [PowerShell DSC Local Configuration Manager values](https://msdn.microsoft.com/powershell/dsc/metaconfig4) required for your use case, and optionally a node configuration to assign to the VM.
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_3.png)
 
  
-### Plantillas del Administrador de recursos de Azure
+### <a name="azure-resource-manager-templates"></a>Azure Resource Manager templates
 
-Se pueden implementar máquinas virtuales de Azure e incorporarlas a DSC de Automatización de Azure mediante las plantillas del Administrador de recursos de Azure. Consulte la página sobre cómo [configurar una máquina virtual mediante la extensión DSC y DSC de Automatización de Azure](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) para ver una plantilla de ejemplo que incorpora una máquina virtual existente a DSC de Automatización de Azure. Para buscar la clave de registro y la dirección URL de registro tomadas como entrada en esta plantilla, consulte la sección [**Registro seguro**](#secure-registration) más adelante.
+Azure virtual machines can be deployed and onboarded to Azure Automation DSC via Azure Resource Manager templates. See [Configure a VM via DSC extension and Azure Automation DSC](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) for an example template that onboards an existing VM to Azure Automation DSC. To find the registration key and registration URL taken as input in this template, see the [**Secure registration**](#secure-registration) section below.
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
 
-El cmdlet [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) sirve para incorporar máquinas virtuales en el Portal de Azure por medio de PowerShell.
+The [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) cmdlet can be used to onboard virtual machines in the Azure portal via PowerShell.
 
-## Máquinas virtuales de Amazon Web Services (AWS)
+## <a name="amazon-web-services-(aws)-virtual-machines"></a>Amazon Web Services (AWS) virtual machines
 
-Puede incorporar fácilmente máquinas virtuales de Amazon Web Services para administración de la configuración mediante el Kit de herramientas de DSC AWS de DSC de Automatización de Azure. Puede obtener más información acerca de estas herramientas [aquí](https://blogs.msdn.microsoft.com/powershell/2016/04/20/aws-dsc-toolkit/).
+You can easily onboard Amazon Web Services virtual machines for configuration management by Azure Automation DSC using the AWS DSC Toolkit. You can learn more about the toolkit [here](https://blogs.msdn.microsoft.com/powershell/2016/04/20/aws-dsc-toolkit/).
 
-## Máquinas físicas y virtuales con Windows locales o en una nube que no sea Azure/AWS
+## <a name="physical/virtual-windows-machines-on-premises,-or-in-a-cloud-other-than-azure/aws"></a>Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS
 
-Las máquinas con Windows locales y las ubicadas en nubes que no sean de Azure (por ejemplo, Amazon Web Services) también se pueden incorporar a DSC de Automatización de Azure, siempre y cuando tengan acceso saliente a Internet, en unos pocos pasos sencillos:
+On-premises Windows machines and Windows machines in non-Azure clouds (such as Amazon Web Services) can also be onboarded to Azure Automation DSC, as long as they have outbound access to the internet, via a few simple steps:
 
-1. Asegúrese de que la versión más reciente de [WMF 5](http://aka.ms/wmf5latest) esté instalada en las máquinas que desee incorporar a DSC de Automatización de Azure.
-2. Siga las indicaciones de la sección [**Generación de metaconfiguraciones de DSC**](#generating-dsc-metaconfigurations) que aparece a continuación para generar una carpeta que contenga las metaconfiguraciones de DSC necesarias.
-3. Aplique de forma remota la metaconfiguración de DSC de PowerShell a las máquinas que quiere incorporar. **La máquina desde la que se ejecuta este comando debe tener instalada la versión más reciente de [WMF 5](http://aka.ms/wmf5latest)**:
+1. Make sure the latest version of [WMF 5](http://aka.ms/wmf5latest) is installed on the machines you want to onboard to Azure Automation DSC.
+2. Follow the directions in section [**Generating DSC metaconfigurations**](#generating-dsc-metaconfigurations) below to generate a folder containing the needed DSC metaconfigurations.
+3. Remotely apply the PowerShell DSC metaconfiguration to the machines you want to onboard. **The machine this command is run from must have the latest version of [WMF 5](http://aka.ms/wmf5latest) installed**:
 
-	`Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2`
+    `Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2`
 
-4. Si no puede aplicar las metaconfiguraciones de DSC de PowerShell de forma remota, copie la carpeta de metaconfiguraciones del paso 2 en cada máquina que vaya a incorporar. Después, llame a **Set-DscLocalConfigurationManager** localmente en cada máquina que vaya a incorporar.
-5. Mediante el Portal de Azure o los cmdlets, compruebe que las máquinas que vaya a incorporar aparezcan ahora como nodos de DSC registrados en su cuenta de Automatización de Azure.
+4. If you cannot apply the PowerShell DSC metaconfigurations remotely, copy the metaconfigurations folder from step 2 onto each machine to onboard. Then call **Set-DscLocalConfigurationManager** locally on each machine to onboard.
+5. Using the Azure portal or cmdlets, check that the machines to onboard now show up as DSC nodes registered in your Azure Automation account.
 
-## Máquinas físicas y virtuales con Linux locales, en Azure o en una nube que no sea Azure
+## <a name="physical/virtual-linux-machines-on-premises,-in-azure,-or-in-a-cloud-other-than-azure"></a>Physical/virtual Linux machines on-premises, in Azure, or in a cloud other than Azure
 
-Las máquinas de Linux locales, de Azure y ubicadas en nubes que no sean de Azure también se pueden incorporar a DSC de Automatización de Azure, siempre y cuando tengan acceso saliente a Internet, en unos pocos pasos sencillos:
+On-premises Linux machines, Linux machines in Azure, and Linux machines in non-Azure clouds can also be onboarded to Azure Automation DSC, as long as they have outbound access to the internet, via a few simple steps:
 
-1. Asegúrese de que la versión más reciente del [agente de Linux de DSC](http://www.microsoft.com/download/details.aspx?id=49150) esté instalada en las máquinas que desee incorporar a DSC de Automatización de Azure.
+1. Make sure the latest version of the [DSC Linux agent](http://www.microsoft.com/download/details.aspx?id=49150) is installed on the machines you want to onboard to Azure Automation DSC.
 
-2. Si los [valores predeterminados del Administrador de configuración local de DSC de PowerShell](https://msdn.microsoft.com/powershell/dsc/metaconfig4) coinciden con su caso de uso, y quiere incorporar máquinas de modo que **tanto** extraigan información del DSC de Automatización de Azure como que envíen informes allí:
+2. If the [PowerShell DSC Local Configuration Manager defaults](https://msdn.microsoft.com/powershell/dsc/metaconfig4) match your use case, and you want to onboard machines such that they **both** pull from and report to Azure Automation DSC:
 
-	*    En cada máquina con Linux que vaya a incorporar a DSC de Automatización de Azure, use Register.py para incorporarla con los valores predeterminados del Administrador de configuración local de DSC de PowerShell:
+    *    On each Linux machine to onboard to Azure Automation DSC, use Register.py to onboard using the PowerShell DSC Local Configuration Manager defaults:
 
-		`/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
+        `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 
-	*    Para buscar la clave de registro y la dirección URL de registro para su cuenta de Automatización, consulte la sección [**Registro seguro**](#secure-registration) más adelante.
+    *    To find the registration key and registration URL for your Automation account, see the [**Secure registration**](#secure-registration) section below.
 
-	Si los valores predeterminados del Administrador de configuración local de DSC de PowerShell **no** coinciden con su caso de uso, o quiere incorporar máquinas que solo informen a DSC de Automatización de Azure, pero que no extraigan configuración o módulos de PowerShell de allí, siga los pasos del 3 al 6. De lo contrario, vaya directamente al paso 6.
+    If the PowerShell DSC Local Configuration Manager defaults **do** **not** match your use case, or you want to onboard machines such that they only report to Azure Automation DSC, but do not pull configuration or PowerShell modules from it,  follow steps 3 - 6. Otherwise, proceed directly to step 6.
 
-3.	Siga las indicaciones de la sección [**Generación de metaconfiguraciones de DSC **](#generating-dsc-metaconfigurations)que aparece a continuación para generar una carpeta que contenga las metaconfiguraciones de DSC necesarias.
-4.  Aplique de forma remota la metaconfiguración de DSC de PowerShell a las máquinas que desea incorporar:
-    	
-    	$SecurePass = ConvertTo-SecureString -String "<root password>" -AsPlainText -Force
+3.  Follow the directions in the [**Generating DSC metaconfigurations**](#generating-dsc-metaconfigurations) section below to generate a folder containing the needed DSC metaconfigurations.
+4.  Remotely apply the PowerShell DSC metaconfiguration to the machines you want to onboard:
+        
+        $SecurePass = ConvertTo-SecureString -String "<root password>" -AsPlainText -Force
         $Cred = New-Object System.Management.Automation.PSCredential "root", $SecurePass
         $Opt = New-CimSessionOption -UseSsl -SkipCACheck -SkipCNCheck -SkipRevocationCheck
 
         # need a CimSession for each Linux machine to onboard
         
         $Session = New-CimSession -Credential $Cred -ComputerName <your Linux machine> -Port 5986 -Authentication basic -SessionOption $Opt
-    	
-    	Set-DscLocalConfigurationManager -CimSession $Session –Path C:\Users\joe\Desktop\DscMetaConfigs
-	
-La máquina desde la que se ejecuta este comando debe tener instalada la versión más reciente de [WMF 5](http://aka.ms/wmf5latest).
+        
+        Set-DscLocalConfigurationManager -CimSession $Session –Path C:\Users\joe\Desktop\DscMetaConfigs
+    
+The machine this command is run from must have the latest version of [WMF 5](http://aka.ms/wmf5latest) installed.
 
-5.  Si no se pueden aplicar las metaconfiguraciones de DSC de PowerShell de forma remota, para cada máquina con Linux que vaya a incorporar, copie la metaconfiguración correspondiente a esa máquina desde la carpeta del paso 5 en la máquina con Linux. Después, llame a `SetDscLocalConfigurationManager.py` localmente en cada máquina Linux que desee incorporar a DSC de Automatización de Azure:
+5.  If you cannot apply the PowerShell DSC metaconfigurations remotely, for each Linux machine to onboard, copy the metaconfiguration corresponding to that machine from the folder in step 5 onto the Linux machine. Then call `SetDscLocalConfigurationManager.py` locally on each Linux machine you want to onboard to Azure Automation DSC:
 
-	`/opt/microsoft/dsc/Scripts/SetDscLocalConfigurationManager.py –configurationmof <path to metaconfiguration file>`
+    `/opt/microsoft/dsc/Scripts/SetDscLocalConfigurationManager.py –configurationmof <path to metaconfiguration file>`
 
-6.  Mediante el Portal de Azure o los cmdlets, compruebe que las máquinas que vaya a incorporar aparezcan ahora como nodos de DSC registrados en su cuenta de Automatización de Azure.
+6.  Using the Azure portal or cmdlets, check that the machines to onboard now show up as DSC nodes registered in your Azure Automation account.
 
-##Generación de metaconfiguraciones de DSC
-Para incorporar genéricamente cualquier máquina a DSC de Automatización de Azure, se puede una metaconfiguración de DSC que, cuando se aplique, indique al agente de DSC de la máquina que extraiga de DSC de Automatización de Azure o informe allí. Las metaconfiguraciones de DSC para DSC de Automatización de Azure se pueden generar con una configuración de DSC de PowerShell o con los cmdlets de PowerShell de Automatización de Azure.
+##<a name="generating-dsc-metaconfigurations"></a>Generating DSC metaconfigurations
+To generically onboard any machine to Azure Automation DSC, a DSC metaconfiguration can be generated that, when applied, tells the DSC agent on the machine to pull from and/or report to Azure Automation DSC. DSC metaconfigurations for Azure Automation DSC can be generated using either a PowerShell DSC configuration, or the Azure Automation PowerShell cmdlets.
 
-**Nota:** Las metaconfiguraciones de DSC contienen los secretos necesarios para incorporar una máquina a una cuenta de Automatización para administración. Asegúrese de proteger adecuadamente cualquier metaconfiguración de DSC que cree o elimínelos tras su uso.
+**Note:** DSC metaconfigurations contain the secrets needed to onboard a machine to an Automation account for management. Make sure to properly protect any DSC metaconfigurations you create, or delete them after use.
 
-###Uso de una configuración de DSC
-1.	Abra PowerShell ISE como administrador en una máquina de su entorno local. La máquina debe tener instalada la versión más reciente de [WMF 5](http://aka.ms/wmf5latest).
+###<a name="using-a-dsc-configuration"></a>Using a DSC Configuration
+1.  Open the PowerShell ISE as an administrator in a machine in your local environment. The machine must have the latest version of [WMF 5](http://aka.ms/wmf5latest) installed.
 
-2.	Copie el siguiente script localmente. Este script contiene una configuración de DSC de PowerShell para crear metaconfiguraciones y un comando para iniciar la creación de la metaconfiguración.
+2.  Copy the following script locally. This script contains a PowerShell DSC configuration for creating metaconfigurations, and a command to kick off the metaconfiguration creation.
     
         # The DSC configuration that will generate metaconfigurations
         [DscLocalConfigurationManager()]
@@ -311,72 +312,79 @@ Para incorporar genéricamente cualquier máquina a DSC de Automatización de Az
         # For more info about splatting, run: Get-Help -Name about_Splatting
         DscMetaConfigs @Params
 
-3.	Rellene la clave del Registro y la dirección URL para su cuenta de Automatización, así como los nombres de las máquinas que quiere incorporar. Todos los demás parámetros son opcionales. Para buscar la clave de registro y la dirección URL de registro para su cuenta de Automatización, consulte la sección [**Registro seguro**](#secure-registration) más adelante.
+3.  Fill in the registration key and URL for your Automation account, as well as the names of the machines to onboard. All other parameters are optional. To find the registration key and registration URL for your Automation account, see the [**Secure registration**](#secure-registration) section below.
 
-4.	Si quiere que las máquinas notifiquen la información de estado de DSC a DSC de Automatización de Azure, pero que no extraigan configuración o módulos de PowerShell, establezca el parámetro **ReportOnly** en verdadero.
+4.  If you want the machines to report DSC status information to Azure Automation DSC, but not pull configuration or PowerShell modules, set the **ReportOnly** parameter to true.
 
-5.	Ejecute el script. Ahora debería tener una carpeta llamada **DscMetaConfigs** en el directorio de trabajo que contenga las metaconfiguraciones de DSC de PowerShell para las máquinas que quiere incorporar.
+5.  Run the script. You should now have a folder called **DscMetaConfigs** in your working directory, containing the PowerShell DSC metaconfigurations for the machines to onboard.
 
-###Uso de los cmdlets de Automatización de Azure
-Si los valores predeterminados del Administrador de configuración local de DSC de PowerShell coinciden con su caso de uso, y quiere incorporar máquinas de modo que ambas extraigan de DSC de automatización de Azure y notifiquen allí, los cmdlets de Automatización de Azure ofrecen un método simplificado de generar las configuraciones de DSC necesarias:
+###<a name="using-the-azure-automation-cmdlets"></a>Using the Azure Automation cmdlets
+If the PowerShell DSC Local Configuration Manager defaults match your use case, and you want to onboard machines such that they both pull from and report to Azure Automation DSC, the Azure Automation cmdlets provide a simplified method of generating the DSC metaconfigurations needed:
 
-1.	Abra la consola de PowerShell o PowerShell ISE como administrador en una máquina de su entorno local.
+1.  Open the PowerShell console or PowerShell ISE as an administrator in a machine in your local environment.
 
-2.	Conéctese a Azure Resource Manager con **Add-AzureRmAccount**.
+2.  Connect to Azure Resource Manager using **Add-AzureRmAccount**
 
-3.	Descargue las metaconfiguraciones de DSC de PowerShell para las máquinas que quiere incorporar desde la cuenta de Automatización a la que quiere incorporar nodos:
+3.  Download the PowerShell DSC metaconfigurations for the machines you want to onboard from the Automation account to which you want to onboard nodes:
 
         # Define the parameters for Get-AzureRmAutomationDscOnboardingMetaconfig using PowerShell Splatting
         $Params = @{
             ResourceGroupName = 'ContosoResources'; # The name of the ARM Resource Group that contains your Azure Automation Account
             AutomationAccountName = 'ContosoAutomation'; # The name of the Azure Automation Account where you want a node on-boarded to
             ComputerName = @('web01', 'web02', 'sql01'); # The names of the computers that the meta configuration will be generated for
-            OutputFolder = "$env:UserProfile\Desktop";
+            OutputFolder = "$env:UserProfile\Desktop\";
         }
         
         # Use PowerShell splatting to pass parameters to the Azure Automation cmdlet being invoked
         # For more info about splatting, run: Get-Help -Name about_Splatting
         Get-AzureRmAutomationDscOnboardingMetaconfig @Params
 
-Ahora debería tener una carpeta llamada ***DscMetaConfigs***, que contenga las metaconfiguraciones de DSC de PowerShell para las máquinas que quiere incorporar.
+You should now have a folder called ***DscMetaConfigs***, containing the PowerShell DSC metaconfigurations for the machines to onboard.
 
-##Registro seguro
+##<a name="secure-registration"></a>Secure registration
 
-Las máquinas se pueden incorporar de forma segura a una cuenta de Automatización de Azure mediante el protocolo de registro WMF 5 de DSC, que permite que un nodo de DSC se autentique en un servidor de informes o de extracción de DSC de PowerShell V2 (lo que incluye DSC de Automatización de Azure). El nodo se registra en el servidor en una **dirección URL de registro** y se autentica mediante una **clave de registro**. Durante el registro, el nodo de DSC y el servidor de informes o de extracción de DSC negocian un certificado único que este nodo usará para autenticarse en el servidor después del registro. Este proceso impide que los nodos incorporados se suplanten entre sí, como por ejemplo si un nodo está afectado y se comporta de forma malintencionada. Después del registro, la clave de registro no se vuelve a usar para la autenticación y se elimina del nodo.
+Machines can securely onboard to an Azure Automation account through the WMF 5 DSC registration protocol, which allows a DSC node to authenticate to a PowerShell DSC V2 Pull or Reporting server (including Azure Automation DSC). The node registers to the server at a **Registration URL**, authenticating using a **Registration key**. During registration, the DSC node and DSC Pull/Reporting server negotiate a unique certificate for this node to use for authentication to the server post-registration. This process prevents onboarded nodes from impersonating one another, such as if a node is compromised and behaving maliciously. After registration, the Registration key is not used for authentication again, and is deleted from the node.
 
-Puede obtener la información necesaria para este protocolo de registro de DSC en la hoja **Administrar claves** del Portal de vista previa de Azure. Para abrir esta hoja, haga clic en el icono de llave en el panel **Essentials** de la cuenta de Automatización.
+You can get the information required for the DSC registration protocol from the **Manage Keys** blade in the Azure preview portal. Open this blade by clicking the key icon on the **Essentials** panel for the Automation account.
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_4.png)
 
-*    La dirección URL de registro es el campo de dirección URL en la hoja Administrar claves.
-*    La clave de registro es la clave de acceso principal o la clave de acceso secundaria en la hoja Administrar claves. Se puede usar cualquiera de las dos.
+*    Registration URL is the URL field in the Manage Keys blade.
+*    Registration key is the Primary Access Key or Secondary Access Key in the Manage Keys blade. Either key can be used.
 
-Para mayor seguridad, se pueden volver a generar las claves de acceso primaria y secundaria de una cuenta de Automatización en cualquier momento (en la hoja **Administrar claves**) para evitar que los registros de nodo futuros usen claves anteriores.
+For added security, the primary and secondary access keys of an Automation account can be regenerated at any time (on the **Manage Keys** blade) to prevent future node registrations using previous keys.
 
-##Solución de problemas de incorporación de máquinas virtuales de Azure
+##<a name="troubleshooting-azure-virtual-machine-onboarding"></a>Troubleshooting Azure virtual machine onboarding
 
-DSC de Automatización de Azure permite incorporar fácilmente máquinas virtuales de Azure con Windows para la administración de configuraciones. Internamente, la extensión Configuración de estado deseado de la máquina virtual de Azure se usa para registrar la máquina virtual con DSC de Automatización de Azure. Puesto que la extensión Configuración de estado deseado de la máquina virtual de Azure se ejecuta de forma asincrónica, puede ser importante realizar el seguimiento de su progreso y solucionar los problemas de ejecución.
+Azure Automation DSC lets you easily onboard Azure Windows VMs for configuration management. Under the hood, the Azure VM Desired State Configuration extension is used to register the VM with Azure Automation DSC. Since the Azure VM Desired State Configuration extension runs asynchronously, tracking its progress and troubleshooting its execution may be important. 
 
->[AZURE.NOTE] Cualquier método para incorporar una máquina virtual de Azure con Windows a DSC de Automatización de Azure que use la extensión Configuración de estado deseado de la máquina virtual de Azure podría tardar hasta una hora en mostrar el nodo como registrado en Automatización de Azure. Esto se debe a la instalación de Windows Management Framework 5.0 en la máquina virtual por la extensión de DSC de la máquina virtual de Azure, que es necesario para incorporar la máquina a DSC de Automatización de Azure.
+>[AZURE.NOTE] Any method of onboarding an Azure Windows VM to Azure Automation DSC that uses the Azure VM Desired State Configuration extension could take up to an hour for the node to show up as registered in Azure Automation. This is due to the installation of Windows Management Framework 5.0 on the VM by the Azure VM DSC extension, which is required to onboard the VM to Azure Automation DSC.
 
-Para solucionar problemas o ver el estado de la extensión de Configuración de estado deseado de la máquina virtual de Azure, entre en el Portal de Azure, vaya a la máquina virtual que se va a incorporar y después haga clic en **Toda la configuración** -> **Extensiones** -> **DSC**. Para obtener más detalles, puede hacer clic en **Ver estado detallado**.
+To troubleshoot or view the status of the Azure VM Desired State Configuration extension, in the Azure portal navigate to the VM being onboarded, then click -> **All settings** -> **Extensions** -> **DSC**. For more details, you can click **View detailed status**.
 
 [![](./media/automation-dsc-onboarding/DSC_Onboarding_5.png)](https://technet.microsoft.com/library/dn249912.aspx)
 
-## Expiración y repetición del registro del certificado
+## <a name="certificate-expiration-and-reregistration"></a>Certificate expiration and reregistration
 
-Después de registrar un equipo como un nodo de DSC en DSC de automatización de Azure, hay una serie de motivos por los que puede que necesite volver a registrar ese nodo en el futuro:
+After registering a machine as a DSC node in Azure Automation DSC, there are a number of reasons why you may need to reregister that node in the future:
 
-* Tras el registro, cada nodo negocia automáticamente un certificado único para la autenticación que expira después de un año. En la actualidad, el protocolo de registro de DSC de PowerShell no puede renovar automáticamente los certificados que vayan a expirar, por lo que tendrá que volver a registrar los nodos transcurrido un año. Antes de volver a registrar, asegúrese de que cada nodo ejecute Windows Management Framework 5.0 RTM. Si el certificado de autenticación de un nodo expira y el nodo no se registra de nuevo, este no podrá comunicarse con la Automatización de Azure y se marcará como "No responde". Si dicha actualización se realiza en un plazo de 90 días o menos desde la fecha de expiración del certificado o en cualquier momento después de dicha fecha, se generará y usará un certificado nuevo.
+* After registering, each node automatically negotiates a unique certificate for authentication that expires after one year. Currently, the PowerShell DSC registration protocol cannot automatically renew certificates when they are nearing expiration, so you need to reregister the nodes after a year’s time. Before reregistering, ensure that each node is running Windows Management Framework 5.0 RTM. If a node’s authentication certificate expires, and the node is not reregistered, the node will be unable to communicate with Azure Automation and will be marked ‘Unresponsive.’ Reregistration performed 90 days or less from the certificate expiration time, or at any point after the certificate expiration time, will result in a new certificate being generated and used.
 
-* Para cambiar cualquier [valor del Administrador de configuración local de DSC de PowerShell](https://msdn.microsoft.com/powershell/dsc/metaconfig4) que se estableció durante el registro inicial del nodo, como ConfigurationMode. Actualmente, estos valores de agente DSC solo pueden cambiarse mediante un nuevo registro. La única excepción es la configuración de nodo asignada al nodo, que se puede cambiar directamente en DSC de Automatización de Azure.
+* To change any [PowerShell DSC Local Configuration Manager values](https://msdn.microsoft.com/powershell/dsc/metaconfig4) that were set during initial registration of the node, such as ConfigurationMode. Currently, these DSC agent values can only be changed through reregistration. The one exception is the Node Configuration assigned to the node -- this can be changed in Azure Automation DSC directly.
 
-El nuevo registro se puede realizar tal y como registró el nodo inicialmente, con cualquiera de los métodos incorporados descritos en este documento. No es necesario anular el registro de un nodo desde DSC de Automatización de Azure antes de volver a registrarlo.
+Reregistration can be performed in the same way you registered the node initially, using any of the onboarding methods described in this document. You do not need to unregister a node from Azure Automation DSC before reregistering it.
 
 
-## Artículos relacionados
-* [Información general de DSC de Automatización de Azure](automation-dsc-overview.md)
-* [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
-* [Precios de DSC de Automatización de Azure](https://azure.microsoft.com/pricing/details/automation/)
+## <a name="related-articles"></a>Related Articles
+* [Azure Automation DSC overview](automation-dsc-overview.md)
+* [Azure Automation DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
+* [Azure Automation DSC pricing](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

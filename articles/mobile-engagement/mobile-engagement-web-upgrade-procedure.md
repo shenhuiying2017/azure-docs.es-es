@@ -1,125 +1,130 @@
 <properties
-	pageTitle="Procedimientos de actualización del SDK web de Azure Mobile Engagement | Microsoft Azure"
-	description="Actualizaciones y procedimientos más recientes para el SDK web para Azure Mobile Engagement"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="erikre"
-	editor="" />
+    pageTitle="Azure Mobile Engagement Web SDK upgrade procedures | Microsoft Azure"
+    description="The latest updates and procedures for the Web SDK for Azure Mobile Engagement"
+    services="mobile-engagement"
+    documentationCenter="mobile"
+    authors="piyushjo"
+    manager="erikre"
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="web"
-	ms.devlang="js"
-	ms.topic="article"
-	ms.date="06/07/2016"
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="web"
+    ms.devlang="js"
+    ms.topic="article"
+    ms.date="06/07/2016"
+    ms.author="piyushjo" />
 
 
-# Procedimientos de actualización del SDK web de Azure Mobile Engagement
 
-Si ya ha integrado una versión anterior del SDK web de Azure Mobile Engagement en su aplicación web, debe considerar los siguientes puntos al actualizar el SDK.
+# <a name="azure-mobile-engagement-web-sdk-upgrade-procedures"></a>Azure Mobile Engagement Web SDK upgrade procedures
 
-Si omite varias versiones del SDK web de Mobile Engagement, quizá deba completar varios procedimientos durante el proceso de actualización. Por ejemplo, si migra de la versión 1.4.0 a la versión 1.6.0, primero siga los procedimientos para actualizar de la versión 1.4.0 a la versión 1.5.0. A continuación, siga los procedimientos para actualizar de la versión 1.5.0 a la versión 1.6.0.
+If you have already integrated an earlier version of the Azure Mobile Engagement Web SDK into your web application, you need to consider the following points when you upgrade the SDK.
 
-Independientemente de la versión desde la que actualice, sustituya cualquier versión anterior del archivo azure-engagement.js por la versión más reciente del archivo.
+If you skipped multiple versions of the Mobile Engagement Web SDK, you might need to complete several procedures during the upgrade process. For example, if you migrate from 1.4.0 to 1.6.0, first follow the procedures to upgrade from 1.4.0 to 1.5.0. Then, follow the procedures to upgrade from 1.5.0 to 1.6.0.
 
-## Actualizar desde 1.2.1 a 2.0.0
+Whichever version you upgrade from, replace any earlier version of the file azure-engagement.js with the latest version of the file.
 
-En esta sección se describe cómo migrar una integración de SDK web de Mobile Engagement desde el servicio de Capptain, ofrecido por Capptain SAS, a una aplicación de Azure Mobile Engagement. Si va a migrar desde una versión anterior, consulte el sitio web de Capptain para migrar a 1.2.1 en primer lugar y luego aplique el siguiente procedimiento.
+## <a name="upgrade-from-1.2.1-to-2.0.0"></a>Upgrade from 1.2.1 to 2.0.0
 
-Esta versión del SDK web de Mobile Engagement no es compatible con Samsung Smart TV, Opera TV, webOS o la característica Reach.
+This section describes how to migrate a Mobile Engagement Web SDK integration from the Capptain service, offered by Capptain SAS, to an Azure Mobile Engagement app. If you are migrating from an earlier version, please consult the Capptain website to first migrate to 1.2.1, and then apply the following procedures.
 
->[AZURE.IMPORTANT] Capptain y Azure Mobile Engagement no son el mismo servicio. El procedimiento siguiente destaca únicamente cómo migrar la aplicación cliente. La migración del SDK web de Mobile Engagement en la aplicación no migrará los datos desde un servidor Capptain a un servidor Mobile Engagement.
+This version of the Mobile Engagement Web SDK doesn't support Samsung Smart TV, Opera TV, webOS, or the Reach feature.
 
-### Archivos de JavaScript
+>[AZURE.IMPORTANT] Capptain and Azure Mobile Engagement are not the same service. The following procedure highlights only how to migrate the client app. Migrating the Mobile Engagement Web SDK in the app will not migrate your data from a Capptain server to a Mobile Engagement server.
 
-Reemplace el archivo capptain-sdk.js por el archivo azure-engagement.js y luego actualice las importaciones del script en consecuencia.
+### <a name="javascript-files"></a>JavaScript files
 
-### Eliminación de la cobertura de Capptain
+Replace the file capptain-sdk.js with the file azure-engagement.js, and then update your script imports accordingly.
 
-Esta versión del SDK web de Mobile Engagement no admite la característica Reach. Si integró Capptain Reach en su aplicación, debe quitarlo.
+### <a name="remove-capptain-reach"></a>Remove Capptain Reach
 
-Quite la importación de CSS de Reach de su página y elimine el archivo .css relacionado (de forma predeterminada, capptain-reach.css).
+This version of the Mobile Engagement Web SDK doesn't support the Reach feature. If you integrated Capptain Reach into your application, you need to remove it.
 
-Elimine los siguientes recursos de Reach: la imagen de cierre (de forma predeterminada, capptain-close.png) y el icono de marca (de forma predeterminada, capptain-notification-icon).
+Remove the Reach CSS import from your page and delete the related .css file (capptain-reach.css, by default).
 
-Quite la interfaz de usuario de Reach para las notificaciones de la aplicación. El diseño predeterminado tiene el siguiente aspecto:
+Delete the following Reach resources: the close image (capptain-close.png, by default) and the brand icon (capptain-notification-icon, by default).
 
-	<!-- capptain notification -->
-	<div id="capptain_notification_area" class="capptain_category_default">
-	  <div class="icon">
-	    <img src="capptain-notification-icon.png" alt="icon" />
-	  </div>
-	  <div class="content">
-	    <div class="title" id="capptain_notification_title"></div>
-	    <div class="message" id="capptain_notification_message"></div>
-	  </div>
-	  <div id="capptain_notification_image"></div>
-	  <div>
-	    <button id="capptain_notification_close">Close</button>
-	  </div>
-	</div>
+Remove the Reach UI for in-app notifications. The default layout looks like this:
 
-Quite el texto, los anuncios web y los sondeos de la interfaz de usuario de Reach. El diseño predeterminado tiene el siguiente aspecto:
+    <!-- capptain notification -->
+    <div id="capptain_notification_area" class="capptain_category_default">
+      <div class="icon">
+        <img src="capptain-notification-icon.png" alt="icon" />
+      </div>
+      <div class="content">
+        <div class="title" id="capptain_notification_title"></div>
+        <div class="message" id="capptain_notification_message"></div>
+      </div>
+      <div id="capptain_notification_image"></div>
+      <div>
+        <button id="capptain_notification_close">Close</button>
+      </div>
+    </div>
 
-	<div id="capptain_overlay" class="capptain_category_default">
-	  <button id="capptain_overlay_close">x</button>
-	  <div id="capptain_overlay_title"></div>
-	  <div id="capptain_overlay_body"></div>
-	  <div id="capptain_overlay_poll"></div>
-	  <div id="capptain_overlay_buttons">
-	    <button id="capptain_overlay_exit"></button>
-	    <button id="capptain_overlay_action"></button>
-	  </div>
-	</div>
+Remove the Reach UI for text and web announcements and polls. The default layout looks like this:
 
-Quite el objeto `reach` de la configuración, si existe. Su aspecto es similar a este:
+    <div id="capptain_overlay" class="capptain_category_default">
+      <button id="capptain_overlay_close">x</button>
+      <div id="capptain_overlay_title"></div>
+      <div id="capptain_overlay_body"></div>
+      <div id="capptain_overlay_poll"></div>
+      <div id="capptain_overlay_buttons">
+        <button id="capptain_overlay_exit"></button>
+        <button id="capptain_overlay_action"></button>
+      </div>
+    </div>
 
-	window.capptain = {
-	  [...]
-	  reach: {
-	    [...]
-	  }
-	}
+Remove the `reach` object from your configuration, if it exists. It looks like this:
 
-Quite cualquier otra personalización de Reach, como las categorías.
+    window.capptain = {
+      [...]
+      reach: {
+        [...]
+      }
+    }
 
-### Eliminación de las API en desuso
+Remove any other Reach customization, such as categories.
 
-Algunas API de Capptain están en desuso en el SDK web de Mobile Engagement.
+### <a name="remove-deprecated-apis"></a>Remove deprecated APIs
 
-Quite cualquier llamada a las API siguientes: `agent.connect`, `agent.disconnect`, `agent.pause` y `agent.sendMessageToDevice`.
+Some APIs from Capptain are deprecated in the Mobile Engagement Web SDK.
 
-Quite las instancias de las siguientes devoluciones de llamada de la configuración de Capptain: `onConnected`, `onDisconnected`, `onDeviceMessageReceived` y `onPushMessageReceived`.
+Remove any calls to the following APIs: `agent.connect`, `agent.disconnect`, `agent.pause`, and `agent.sendMessageToDevice`.
 
-### Configuración
+Remove any instances of the following callbacks from your Capptain configuration: `onConnected`, `onDisconnected`, `onDeviceMessageReceived`, and `onPushMessageReceived`.
 
-Mobile Engagement usa una cadena de conexión para configurar los identificadores del SDK, como el identificador de aplicación.
+### <a name="configuration"></a>Configuration
 
-Reemplace el identificador de la aplicación por la cadena de conexión. Tenga en cuenta que el objeto global para la configuración del SDK cambia de `capptain` a `azureEngagement`.
+Mobile Engagement uses a connection string to configure SDK identifiers, for example, the application identifier.
 
-Antes de la migración:
+Replace the application ID with your connection string. Note that the global object for the SDK configuration changes from `capptain` to `azureEngagement`.
 
-	window.capptain = {
-	  appId: ...,
-	  [...]
-	};
+Before migration:
 
-Después de la migración:
+    window.capptain = {
+      appId: ...,
+      [...]
+    };
 
-	window.azureEngagement = {
-	  connectionString: 'Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}',
-	  [...]
-	};
+After migration:
 
-La cadena de conexión de la aplicación se muestra en el Portal de Azure.
+    window.azureEngagement = {
+      connectionString: 'Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}',
+      [...]
+    };
 
-### API de JavaScript
+The connection string for your application is displayed in the Azure Portal.
 
-El objeto global de JavaScript `window.capptain` ha cambiado de nombre a `window.azureEngagement`, pero puede usar el alias `window.engagement` para las llamadas de API. No se puede utilizar el alias para definir la configuración del SDK.
+### <a name="javascript-apis"></a>JavaScript APIs
 
-Por ejemplo: `capptain.deviceId` se convierte en `engagement.deviceId`, `capptain.agent.startActivity` se convierte en `engagement.agent.startActivity`, etc.
+The global JavaScript object `window.capptain` has been renamed `window.azureEngagement` but you can use the `window.engagement` alias for API calls. You can't use the alias to define the SDK configuration.
 
-<!---HONumber=AcomDC_0629_2016-->
+For instance, `capptain.deviceId` becomes `engagement.deviceId`, `capptain.agent.startActivity` becomes `engagement.agent.startActivity`, and so on.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

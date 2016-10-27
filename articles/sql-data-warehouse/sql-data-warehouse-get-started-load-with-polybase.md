@@ -13,15 +13,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="10/10/2016"
    ms.author="cakarst;barbkess;sonyama"/>
 
 
-# Carga de datos con PolyBase en Almacenamiento de datos SQL
+
+# <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Carga de datos con PolyBase en Almacenamiento de datos SQL
 
 > [AZURE.SELECTOR]
-- [Factoría de datos](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+- [Redgate](sql-data-warehouse-load-with-redgate.md)  
+- [Factoría de datos](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
+- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
 Este tutorial muestra cómo cargar datos en Almacenamiento de datos SQL mediante AzCopy y PolyBase. Cuando termine, sabrá cómo:
@@ -32,26 +34,26 @@ Este tutorial muestra cómo cargar datos en Almacenamiento de datos SQL mediante
 
 >[AZURE.VIDEO loading-data-with-polybase-in-azure-sql-data-warehouse]
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para seguir paso a paso este tutorial, necesita
 
 - Una base de datos de Almacenamiento de datos SQL.
-- Una cuenta de almacenamiento de Azure del tipo Almacenamiento con redundancia local estándar (LRS estándar), Almacenamiento con redundancia geográfica estándar (GRS estándar) o Almacenamiento con redundancia geográfica de acceso de lectura estándar (RAGRS estándar).
-- La utilidad de línea de comandos AzCopy. Descargue e instale la [versión más reciente de AzCopy][], que se instala con las herramientas de Almacenamiento de Microsoft Azure.
+- Una cuenta de almacenamiento de Azure del tipo Almacenamiento con redundancia local estándar (LRS estándar), Almacenamiento con redundancia geográfica estándar (GRS estándar) o Almacenamiento con redundancia geográfica de acceso de lectura estándar  (RAGRS estándar).
+- La utilidad de línea de comandos AzCopy. Descargue e instale la [versión más reciente de AzCopy][] , que se instala con las herramientas de Almacenamiento de Microsoft Azure.
 
     ![Herramientas de almacenamiento de Azure](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 
-## Paso 1: Adición de datos de ejemplo a Almacenamiento de blobs de Azure
+## <a name="step-1:-add-sample-data-to-azure-blob-storage"></a>Paso 1: Adición de datos de ejemplo a Almacenamiento de blobs de Azure
 
 Para cargar los datos, es preciso poner incluir algunos datos de ejemplo en un almacenamiento de blobs de Azure. En este paso, se rellena un almacenamiento de blobs de Azure con datos de ejemplo. Más adelante, se usará PolyBase para cargar estos datos de ejemplo en la base de datos de Almacenamiento de datos SQL.
 
-### A. Preparación de un archivo de texto de ejemplo
+### <a name="a.-prepare-a-sample-text-file"></a>A. Preparación de un archivo de texto de ejemplo
 
 Para preparar un archivo de texto de ejemplo:
 
-1. Abra el Bloc de notas y copie las siguientes líneas de datos en un nuevo archivo. Guárdelo en un directorio temporal local como %temp%\\DimDate2.txt.
+1. Abra el Bloc de notas y copie las siguientes líneas de datos en un nuevo archivo. Guárdelo en un directorio temporal local como %temp%\DimDate2.txt.
 
 ```
 20150301,1,3
@@ -68,11 +70,11 @@ Para preparar un archivo de texto de ejemplo:
 20150101,1,3
 ```
 
-### B. Búsqueda del punto de conexión del servicio BLOB
+### <a name="b.-find-your-blob-service-endpoint"></a>B. Búsqueda del punto de conexión del servicio BLOB
 
 Para buscar el punto de conexión del servicio BLOB:
 
-1. En el Portal de Azure, seleccione **Examinar** > **Cuentas de almacenamiento**.
+1. En Azure Portal, seleccione **Examinar** > **Cuentas de almacenamiento**.
 2. Haga clic en la cuenta de almacenamiento que desea usar.
 3. En la hoja de la cuenta de almacenamiento, haga clic en Blobs.
 
@@ -82,18 +84,18 @@ Para buscar el punto de conexión del servicio BLOB:
 
     ![Punto de conexión del servicio BLOB](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
-### C. Búsqueda de la clave de almacenamiento de Azure
+### <a name="c.-find-your-azure-storage-key"></a>C. Búsqueda de la clave de almacenamiento de Azure
 
 Para buscar la clave de almacenamiento de Azure:
 
-1. En el Portal de Azure, seleccione **Examinar** > **Cuentas de almacenamiento**.
+1. En Azure Portal, seleccione **Examinar** > **Cuentas de almacenamiento**.
 2. Haga clic en la cuenta de almacenamiento que desea usar.
 3. Seleccione **Toda la configuración** > **Claves de acceso**.
 4. Haga clic en el cuadro de copia para copiar una de las claves de acceso en el Portapapeles.
 
     ![Copie la clave de almacenamiento de Azure](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
-### D. Copia del archivo de ejemplo en Almacenamiento de blobs de Azure
+### <a name="d.-copy-the-sample-file-to-azure-blob-storage"></a>D. Copia del archivo de ejemplo en Almacenamiento de blobs de Azure
 
 Para copiar los datos al almacenamiento de blobs de Azure:
 
@@ -103,7 +105,7 @@ Para copiar los datos al almacenamiento de blobs de Azure:
     cd /d "%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy"
     ```
 
-1. Ejecute el siguiente comando para cargar el archivo. Especifique la dirección URL del punto de conexión del servicio BLOB de <blob service endpoint URL> y la clave de la cuenta de almacenamiento de Azure de <azure\_storage\_account\_key>.
+1. Ejecute el siguiente comando para cargar el archivo. Especifique la dirección URL del punto de conexión del servicio BLOB de <blob service endpoint URL> y la clave de la cuenta de almacenamiento de Azure de <azure_storage_account_key>.
 
     ```
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
@@ -111,7 +113,7 @@ Para copiar los datos al almacenamiento de blobs de Azure:
 
 Consulte [Introducción a la utilidad de línea de comandos de AzCopy][]
 
-### E. Exploración del contenedor de almacenamiento de blobs
+### <a name="e.-explore-your-blob-storage-container"></a>E. Exploración del contenedor de almacenamiento de blobs
 
 Para ver el archivo cargado en el almacenamiento de blobs:
 
@@ -124,7 +126,7 @@ Para ver el archivo cargado en el almacenamiento de blobs:
     ![Vea el blob de almacenamiento de Azure](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
 
-## Paso 2: Creación de una tabla externa para los datos de ejemplo
+## <a name="step-2:-create-an-external-table-for-the-sample-data"></a>Paso 2: Creación de una tabla externa para los datos de ejemplo
 
 En esta sección se creará una tabla externa que defina los datos de ejemplo.
 
@@ -214,12 +216,12 @@ En el Explorador de objetos de SQL Server de Visual Studio, se puede ver el form
 
 ![Vea la tabla externa](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## Paso 3: Carga de datos en Almacenamiento de datos SQL
+## <a name="step-3:-load-data-into-sql-data-warehouse"></a>Paso 3: Carga de datos en Almacenamiento de datos SQL
 
 Una vez creada la tabla externa, puede cargar los datos en una tabla nueva o insertarlos en una tabla existente.
 
-- Para cargar los datos en una tabla nueva, ejecute la instrucción [CREATE TABLE AS SELECT (Transact-SQL)][]. La nueva tabla hereda las columnas designadas en la consulta. Los tipos de datos de las columnas coincidirán con los tipos de datos de la definición de la tabla externa.
-- Para cargar los datos en una tabla existente, use la instrucción [INSERT...SELECT (Transact-SQL)][].
+- Para cargar los datos en una tabla nueva, ejecute la instrucción [CREATE TABLE AS SELECT (Transact-SQL)][] . La nueva tabla hereda las columnas designadas en la consulta. Los tipos de datos de las columnas coincidirán con los tipos de datos de la definición de la tabla externa.
+- Para cargar los datos en una tabla existente, use la instrucción [INSERT...SELECT (Transact-SQL)][] .
 
 ```sql
 -- Load the data from Azure blob storage to SQL Data Warehouse
@@ -234,7 +236,7 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## Paso 4: Crear estadísticas de los datos recién cargados
+## <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>Paso 4: Crear estadísticas de los datos recién cargados
 
 Almacenamiento de datos SQL no crea ni actualiza automáticamente las estadísticas. Por lo tanto, para lograr un rendimiento elevado de las consultas, es importante crear estadísticas de todas las columna de cada tabla después de la primera carga. También es importante actualizar las estadísticas si se realizan cambios significativos en los datos.
 
@@ -246,43 +248,47 @@ CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
-Para más información, consulte [Estadísticas][].
+Para más información, consulte [Estadísticas][].  
 
 
-## Pasos siguientes
-Para más información que debe conocer cuando desarrolle una solución que use PolyBase, consulte la [guía de PolyBase][].
+## <a name="next-steps"></a>Pasos siguientes
+Para más información que debe conocer cuando desarrolle una solución que use PolyBase, consulte la [guía de PolyBase][] .
 
 <!--Image references-->
 
 
 <!--Article references-->
-[PolyBase in SQL Data Warehouse Tutorial]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Tutorial de PolyBase en SQL Data Warehouse]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Carga de datos con bcp]: ./sql-data-warehouse-load-with-bcp.md
 [Estadísticas]: ./sql-data-warehouse-tables-statistics.md
 [guía de PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
 [Introducción a la utilidad de línea de comandos de AzCopy]: ../storage/storage-use-azcopy.md
 [versión más reciente de AzCopy]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
-[supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
-[copy activity]: https://msdn.microsoft.com/library/dn835035.aspx
-[SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141095.aspx
+[origen/receptor admitido]: https://msdn.microsoft.com/library/dn894007.aspx
+[actividad de copia]: https://msdn.microsoft.com/library/dn835035.aspx
+[Adaptador de destino de SQL Server]: https://msdn.microsoft.com/library/ms141095.aspx
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 
-[Create External Data Source (Transact-SQL)]: https://msdn.microsoft.com/library/dn935022.aspx
-[Create External File Format (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026.aspx
-[Create External Table (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021.aspx
+[CREATE EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935022.aspx
+[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/dn935026.aspx
+[CREATE EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935021.aspx
 
-[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/mt146367.aspx
-[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/mt146379.aspx
-[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/mt130698.aspx
+[DROP EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/mt146367.aspx
+[DROP EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/mt146379.aspx
+[DROP EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/mt130698.aspx
 
-[CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[INSERT...SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/ms174335.aspx
-[Create Master Key (Transact-SQL)]: https://msdn.microsoft.com/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189522.aspx
-[Create Database Scoped Credential (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
-[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
+[CREATE TABLE AS SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/mt204041.aspx
+[INSERT...SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/ms174335.aspx
+[CREATE MASTER KEY (Transact-SQL)]:https://msdn.microsoft.com/library/ms174382.aspx
+[CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189522.aspx
+[CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/mt270260.aspx
+[DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx
 
-<!----HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

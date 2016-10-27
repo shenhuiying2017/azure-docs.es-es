@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Información general de los puntos de conexión clásicos en Resource Manager | Microsoft Azure"
-   description="Conozca cómo los puntos de conexión del modelo de implementación clásica se implementan ahora en Resource Manager mediante los grupos de seguridad de red y las reglas de ACL"
+   pageTitle="Classic Endpoints in Resource Manager Overview | Microsoft Azure"
+   description="Understand how endpoints from the Classic deployment model are now implemented in Resource Manager using Network Security Groups and ACL rules"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
@@ -16,16 +16,20 @@
    ms.date="08/09/2016"
    ms.author="iainfou"/>
 
-# Puntos de conexión clásicos en Resource Manager
+
+# <a name="classic-endpoints-in-resource-manager"></a>Classic Endpoints in Resource Manager
 [AZURE.INCLUDE [virtual-machines-common-endpoints-in-resource-manager](../../includes/virtual-machines-common-endpoints-in-resource-manager.md)]
 
-## Pasos siguientes
-Puede leer información más detallada sobre las tecnologías aquí descritas, junto con guías de inicio rápido para el uso de grupos de seguridad de red, en los siguientes artículos:
+## <a name="next-steps"></a>Next steps
+You can read more detailed information on the technologies discussed here, along with quick-start guides for using Network Security Groups, in the following articles:
 
-- [Allow external access to your VM](virtual-machines-windows-nsg-quickstart-portal.md) (Permitir el acceso externo a la máquina virtual)
-- [Allow external access to your VM using PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md) (Permitir el acceso externo a la máquina virtual mediante Azure PowerShell)
-- [Información general del Administrador de recursos de Azure](../resource-group-overview.md)
-- [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md)
-- [Información general de Azure Resource Manager para equilibradores de carga](../load-balancer/load-balancer-arm.md)
+- [Quick-start - Create a Network Security Group and ACL rules using the Azure portal](virtual-machines-windows-nsg-quickstart-portal.md)  
+- [Quick-start - Create a Network Security Group and ACL rules using the Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md)  
+- [Azure Resource Manager overview](../resource-group-overview.md)  
+- [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)  
+- [Azure Resource Manager Overview for Load Balancers](../load-balancer/load-balancer-arm.md) 
 
-<!---HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Guía para crear un Servicio de datos en Marketplace | Microsoft Azure"
-   description="Instrucciones detalladas para crear, certificar e implementar un servicio de datos para la venta en Azure Marketplace."
+   pageTitle="Guide to creating a Data Service for the  Marketplace | Microsoft Azure"
+   description="Detailed instructions of how to create, certify and deploy a Data Service for purchase on the Azure Marketplace."
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -16,12 +16,13 @@
       ms.date="08/26/2016"
       ms.author="hascipio; avikova" />
 
-# Ejemplos de asignación de un servicio web existente a OData a través de CSDL
 
->[AZURE.IMPORTANT] **En este momento, ya no se pueden incorporar nuevos editores del Servicio de datos. No se aprobarán nuevos servicios de datos para mostrarse en lista.** Si tiene una aplicación de negocio de SaaS que desea publicar en AppSource, puede encontrar más información [aquí](https://appsource.microsoft.com/partners). Si tiene aplicaciones IaaS o un servicio de desarrollo que quiera publicar en Azure Marketplace, puede encontrar más información [aquí](https://azure.microsoft.com/marketplace/programs/certified/).
+# <a name="examples-of-mapping-an-existing-web-service-to-odata-through-csdls"></a>Examples of mapping an existing web service to OData through CSDLs
 
-## Ejemplo: FunctionImport para los datos de "Raw" devueltos mediante "POST"
-Use datos POST sin procesar para crear un nuevo subordinado y devolver su URL definida por servidor (ubicación) o actualizar parte del subordinado en la dirección URL definida por el servidor. En los casos en los que el subordinado es una secuencia, es decir, no estructurado, por ejemplo, un archivo de texto. Tenga en cuenta que POST no es idempotentes sin una ubicación.
+>[AZURE.IMPORTANT] **At this time we are no longer onboarding any new Data Service publishers. New dataservices will not get approved for listing.** If you have a SaaS business application you would like to publish on AppSource you can find more information [here](https://appsource.microsoft.com/partners). If you have an IaaS applications or developer service you would like to publish on Azure Marketplace you can find more information [here](https://azure.microsoft.com/marketplace/programs/certified/).
+
+## <a name="example:-functionimport-for-"raw"-data-returned-using-"post""></a>Example: FunctionImport for "Raw" data returned using "POST"
+Use POST Raw data to create a new subordinate and return its server defined URL(location) or to update part of the subordinate at the server defined URL.  Where the subordinate is a stream, i.e. unstructured, ex. a text file.  Beware POST in not idempotent without a location.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="AddUsageEvent" ReturnType="Raw(text/plain)" d:EncodeParameterValues="true" d:AllowedHttpMethods="POST" d:BaseUri="http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -38,8 +39,8 @@ Use datos POST sin procesar para crear un nuevo subordinado y devolver su URL de
         </d:Namespaces>
         </FunctionImport>
 
-## Ejemplo: FunctionImport mediante "DELETE"
-Use DELETE para eliminar un identificador URI especificado.
+## <a name="example:-functionimport-using-"delete""></a>Example: FunctionImport using "DELETE"
+Use DELETE to remove a specified URI.
 
         <EntitySet Name="DeleteUsageFileEntitySet" EntityType="MyOffer.DeleteUsageFileEntity" />
         <FunctionImport Name="DeleteUsageFile" EntitySet="DeleteUsageFileEntitySet" ReturnType="Collection(MyOffer.DeleteUsageFileEntity)"  d:AllowedHttpMethods="DELETE" d:EncodeParameterValues="true” d:BaseUri=”http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643" >
@@ -59,8 +60,8 @@ Use DELETE para eliminar un identificador URI especificado.
         <Property Name="boolean" Type="String" Nullable="true" d:Map="./boolean" />
         </EntityType>
 
-## Ejemplo: FunctionImport mediante "POST"
-Use datos POST sin procesar para crear un nuevo subordinado y devolver su URL definida por servidor (ubicación) o actualizar parte del subordinado en la dirección URL definida por el servidor. Donde el subordinado es una estructura. Tenga en cuenta que POST no es idempotentes sin una ubicación.
+## <a name="example:-functionimport-using-"post""></a>Example: FunctionImport using "POST"
+Use POST Raw data to create a new subordinate and return its server defined URL(location) or to update part of the subordinate at the server defined URL.  Where the subordinate is a structure. Beware POST is not idempotent without a location.
 
         <EntitySet Name="CreateANewModelEntitySet2" EntityType=" MyOffer.CreateANewModelEntity2" />
         <FunctionImport Name="CreateModel" EntitySet="CreateANewModelEntitySet2" ReturnType="Collection(MyOffer.CreateANewModelEntity2)" d:EncodeParameterValues="true" d:AllowedHttpMethods="POST" d:BaseUri=”http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -77,8 +78,8 @@ Use datos POST sin procesar para crear un nuevo subordinado y devolver su URL de
         </d:Namespaces>
         </FunctionImport>
 
-## Ejemplo: FunctionImport mediante "PUT"
-Use PUT para crear a un nuevo subordinado o para actualizar al subordinado completo en una dirección URL definida por un servidor. En los casos en los que el subordinado es una estructura, PUT es idempotente, así que dará como resultado varias repeticiones en el mismo estado, por ejemplo, x=5. Put debe usarse con el contenido completo del recurso especificado.
+## <a name="example:-functionimport-using-"put""></a>Example: FunctionImport using "PUT"
+Use PUT to create a new subordinate or to update the entire subordinate at a server defined URL.  Where the subordinate is a structure, PUT is idempotent so multiple occurrences will result in the same state, i.e x=5.  Put should be used with the full content of the specified resource.
 
         <EntitySet Name="UpdateAnExistingModelEntitySet" EntityType="MyOffer.UpdateAnExistingModelEntity" />
         <FunctionImport Name="UpdateModel" EntitySet="UpdateAnExistingModelEntitySet" ReturnType="Collection(MyOffer.UpdateAnExistingModelEntity)" d:EncodeParameterValues="true" d:AllowedHttpMethods="PUT" d:BaseUri=”http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -95,12 +96,12 @@ Use PUT para crear a un nuevo subordinado o para actualizar al subordinado compl
         </d:Namespaces>
         </FunctionImport>
         <EntityType Name="UpdateAnExistingModelEntity" d:Map="//string">
-        <Property Name="string" 	Type="String" Nullable="true" d:Map="./string" />
+        <Property Name="string"     Type="String" Nullable="true" d:Map="./string" />
         </EntityType>
 
 
-## Ejemplo: FunctionImport para los datos de "Raw" devueltos mediante "PUT"
-Use datos sin procesar PUT para crear a un nuevo subordinado o para actualizar al subordinado completo en una dirección URL definida por un servidor. En los casos en los que el subordinado es una secuencia, es decir, no estructurado, por ejemplo, un archivo de texto. PUT es idempotente, así que dará como resultado varias repeticiones en el mismo estado, por ejemplo, x=5. Put debe usarse con el contenido completo del recurso especificado.
+## <a name="example:-functionimport-for-"raw"-data-returned-using-"put""></a>Example: FunctionImport for "Raw" data returned using "PUT"
+Use PUT Raw data to create a new subordinate or to update the entire subordinate at a server defined URL.  Where the subordinate is a stream, i.e. unstructured, ex. a text file.  PUT is idempotent so multiple occurrences will result in the same state, i.e x=5.  Put should be used with the full content of the specified resource.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="CancelBuild” ReturnType="Raw(text/plain)" d:AllowedHttpMethods="PUT" d:EncodeParameterValues="true" d:BaseUri=” http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -118,8 +119,8 @@ Use datos sin procesar PUT para crear a un nuevo subordinado o para actualizar a
         </FunctionImport>
 
 
-## Ejemplo: FunctionImport para los datos de "Raw" devueltos mediante "GET"
-Use datos sin procesar GET para devolver un subordinado que no está estructurado, por ejemplo, texto.
+## <a name="example:-functionimport-for-"raw"-data-returned-using-"get""></a>Example: FunctionImport for "Raw" data returned using "GET"
+Use GET Raw data to return a subordinate that is unstructured, i.e. text.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="GetModelUsageFile" ReturnType="Raw(text/plain)" d:EncodeParameterValues="true" d:AllowedHttpMethods="GET" d:BaseUri="https://cmla.cloudapp.net/api2/model/builder/build?buildId={buildId}&amp;apiVersion={apiVersion}">
@@ -137,13 +138,13 @@ Use datos sin procesar GET para devolver un subordinado que no está estructurad
         </d:Namespaces>
         </FunctionImport>
 
-## Ejemplo: FunctionImport para "Paging" a través de los datos devueltos
-Use la paginación RESTful de implementación a través de sus datos con GET. La paginación predeterminada se establece en 100 filas por página de datos.
+## <a name="example:-functionimport-for-"paging"-through-returned-data"></a>Example: FunctionImport for "Paging" through returned data
+Use implement RESTful paging through your data with GET.  Default paging is set to 100 row per page of data.
 
         <EntitySet Name=”CropEntitySet" EntityType="MyOffer.CropEntity" />
-        <FunctionImport	Name="GetCropReport" EntitySet="CropEntitySet” ReturnType="Collection(MyOffer.CropEntity)" d:EmitSelfLink="false" d:EncodeParameterValues="true" d:Paging="SkipTake" d:MaxPageSize="100" d:BaseUri="http://api.mydata.org/Crop? report={report}&amp;series={series}&amp;start={$skip}&amp;size=100">
+        <FunctionImport Name="GetCropReport" EntitySet="CropEntitySet” ReturnType="Collection(MyOffer.CropEntity)" d:EmitSelfLink="false" d:EncodeParameterValues="true" d:Paging="SkipTake" d:MaxPageSize="100" d:BaseUri="http://api.mydata.org/Crop? report={report}&amp;series={series}&amp;start={$skip}&amp;size=100">
         <Parameter Name="report" Type="Int32" Mode="In" Nullable="false" d:SampleValues="4"  d:enum="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19"  />
-        <Parameter Name="series"	Type="String"	Mode="In" Nullable="false" d:SampleValues="FARM" />
+        <Parameter Name="series"    Type="String"   Mode="In" Nullable="false" d:SampleValues="FARM" />
         <d:Headers>
         <d:Header d:Name="Content-Type" d:Value="text/xml;charset=UTF-8" />
         </d:Headers>
@@ -152,9 +153,13 @@ Use la paginación RESTful de implementación a través de sus datos con GET. La
         </d:Namespaces>
         </FunctionImport>
 
-## Otras referencias
-- Si le interesa entender el proceso de asignación de OData y el propósito general, lea este artículo sobre [Asignación de OData del Servicio de datos](marketplace-publishing-data-service-creation-odata-mapping.md) para revisar las definiciones, las estructuras y las instrucciones.
-- Si está interesado en aprender y comprender los nodos específicos y sus parámetros, lea este artículo sobre [Nodos de asignación de OData de Servicio de datos](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) para ver definiciones y explicaciones, ejemplos y contexto de caso de uso.
-- Para volver a la ruta de acceso recomendada para publicar un servicio de datos en Azure Marketplace, lea el artículo [Guía de publicación de servicios de datos](marketplace-publishing-data-service-creation.md).
+## <a name="see-also"></a>See Also
+- If you are interested in understanding the overall OData mapping process and purpose, read this article [Data Service OData Mapping](marketplace-publishing-data-service-creation-odata-mapping.md) to review definitions, structures, and instructions.
+- If you are interested in learning and understanding the specific nodes and their parameters, read this article [Data Service OData Mapping Nodes](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) for definitions and explanations, examples, and use case context.
+- To return to the prescribed path for publishing a Data Service to the Azure Marketplace, read this article [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

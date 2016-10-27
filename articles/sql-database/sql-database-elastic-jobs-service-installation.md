@@ -1,185 +1,187 @@
 <properties 
-	pageTitle="Instalación de trabajos de base de datos elástica | Microsoft Azure" 
-	description="Pasos de instalación de la característica de trabajo elástico." 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jhubbard" 
-	authors="ddove" 
-	editor=""/>
+    pageTitle="Installing elastic database jobs | Microsoft Azure" 
+    description="Walk through installation of the elastic job feature." 
+    services="sql-database" 
+    documentationCenter="" 
+    manager="jhubbard" 
+    authors="ddove" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/27/2016" 
-	ms.author="ddove"/>
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="05/27/2016" 
+    ms.author="ddove"/>
 
-# Información general sobre la instalación de Trabajos de base de datos elástica
 
-Los [**trabajos de base de datos elástica**](sql-database-elastic-jobs-overview.md) se pueden instalar a través de PowerShell o del Portal de Azure clásico. Obtendrá acceso para crear y administrar trabajos con la API de PowerShell si se instala el paquete de PowerShell. Además, en este momento, las API de PowerShell proporcionan mucha más funcionalidad que el portal en este momento.
+# <a name="installing-elastic-database-jobs-overview"></a>Installing Elastic Database jobs overview
 
-Si ya instaló los **trabajos de base de datos elástica** a través del Portal en un **grupo de bases de datos elásticas** existente, la última vista previa de Powershell incluye scripts para actualizar la instalación existente. Es muy recomendable actualizar la instalación a los componentes más recientes de los **trabajos de base de datos elástica** para aprovechar la nueva funcionalidad expuesta a través de las API de PowerShell.
+[**Elastic Database jobs**](sql-database-elastic-jobs-overview.md) can be installed via PowerShell or through the Azure Classic Portal.You can gain access to create and manage jobs using the PowerShell API only if you install the PowerShell package. Additionally, the PowerShell APIs provide significantly more functionality than the portal at this point in time.
 
-## Requisitos previos
-* Una suscripción de Azure. Para obtener una versión de evaluación gratuita, consulte [Versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell. Instale la versión más reciente mediante el [Instalador de plataforma web](http://go.microsoft.com/fwlink/p/?linkid=320376). Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
-* La [utilidad de línea de comandos NuGet](https://nuget.org/nuget.exe) sirve para instalar el paquete de trabajos de base de datos elástica. Para obtener más información, consulte http://docs.nuget.org/docs/start-here/installing-nuget.
+If you have already installed **Elastic Database jobs** through the Portal from an existing **Elastic Database pool**, the latest Powershell preview includes scripts to upgrade your existing installation. It is highly recommended to upgrade your installation to the latest **Elastic Database jobs** components in order to take advantage of new functionality exposed via the PowerShell APIs.
 
-## Descarga e importación del paquete de PowerShell de Trabajos de base de datos elástica
-1. Inicie la ventana de comandos de Microsoft Azure PowerShell y navegue al directorio donde descargó la utilidad de línea de comandos NuGet (nuget.exe).
+## <a name="prerequisites"></a>Prerequisites
+* An Azure subscription. For a free trial, see [Free trial](https://azure.microsoft.com/pricing/free-trial/).
+* Azure PowerShell. Install the latest version using the [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376). For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+* [NuGet Command-line Utility](https://nuget.org/nuget.exe) is used to install the Elastic Database jobs package. For more information, see http://docs.nuget.org/docs/start-here/installing-nuget.
 
-2. Descargue e importe el paquete de **trabajos de base de datos elástica** en el directorio actual con el siguiente comando:
+## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>Download and import the Elastic Database jobs PowerShell package
+1. Launch Microsoft Azure PowerShell command window and navigate to the directory where you downloaded NuGet Command-line Utility (nuget.exe).
 
-		PS C:\>.\nuget install Microsoft.Azure.SqlDatabase.Jobs -prerelease
+2. Download and import **Elastic Database jobs** package into the current directory with the following command:
 
-    Los archivos de **Trabajos de base de datos elástica** se ubican en el directorio local, en una carpeta con el nombre **Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x**, donde *x.x.xxxx.x* indica el número de versión. Los cmdlets de PowerShell (incluidos los archivos .DLL de cliente necesarios) se ubican en el subdirectorio **tools\\ElasticDatabaseJobs** y los scripts de PowerShell para instalar, actualizar y desinstalar también residen en el subdirectorio **tools**.
+        PS C:\>.\nuget install Microsoft.Azure.SqlDatabase.Jobs -prerelease
 
-3. Navegue al subdirectorio tools de la carpeta Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x. Para ello, escriba cd tools, como en este ejemplo:
+    The **Elastic Database jobs** files are placed in the local directory in a folder named **Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x** where *x.x.xxxx.x* reflects the version number. The PowerShell cmdlets (including required client .dlls) are located in the **tools\ElasticDatabaseJobs** sub-directory and the PowerShell scripts to install, upgrade and uninstall also reside in the **tools** sub-directory.
 
-		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
+3. Navigate to the tools sub-directory under the Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x folder by typing cd tools, for example:
 
-4.	Ejecute el script .\\InstallElasticDatabaseJobsCmdlets.ps1 para copiar el directorio ElasticDatabaseJobs en $home\\Documents\\WindowsPowerShell\\Modules. Así también importará automáticamente el módulo para su uso, por ejemplo:
+        PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 
-		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1
-		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobsCmdlets.ps1
+4.  Execute the .\InstallElasticDatabaseJobsCmdlets.ps1 script to copy the ElasticDatabaseJobs directory into $home\Documents\WindowsPowerShell\Modules. This will also automatically import the module for use, for example:
 
-## Instalación de componentes de Trabajos de base de datos elástica mediante PowerShell
-1.	Inicie una ventana de comandos de Microsoft Azure PowerShell y navegue hasta el subdirectorio \\tools en la carpeta Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x: escriba cd \\tools
+        PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1
+        PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobsCmdlets.ps1
 
-		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
+## <a name="install-the-elastic-database-jobs-components-using-powershell"></a>Install the Elastic Database jobs components using PowerShell
+1.  Launch a Microsoft Azure PowerShell command window and navigate to the \tools sub-directory under the Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x folder: Type cd \tools
 
-2.	Ejecute el script .\\InstallElasticDatabaseJobs.ps1 de PowerShell y proporcione valores para las variables que solicite. Este script creará los componentes descritos en [Componentes y precios de trabajos de base de datos elástica](sql-database-elastic-jobs-overview.md#components-and-pricing) con la configuración del Servicio en la nube de Azure para usar adecuadamente los componentes dependientes.
+        PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 
-		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1
-		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobs.ps1
+2.  Execute the .\InstallElasticDatabaseJobs.ps1 PowerShell script and supply values for its requested variables. This script will create the components described in [Elastic Database jobs components and pricing](sql-database-elastic-jobs-overview.md#components-and-pricing) along with configuring the Azure Cloud Service to appropriately use the dependent components.
 
-Al ejecutar este comando, se abrirá una ventana para especificar el **Nombre de usuario** y la **Contraseña**. No especifique aquí sus credenciales de Azure, sino el nombre de usuario y contraseña serán las credenciales de administrador que desea crear para el nuevo servidor.
+        PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1
+        PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobs.ps1
 
-Los parámetros proporcionados en esta invocación de ejemplo pueden modificarse para tener la configuración que quiera. La siguiente tabla ofrece más información sobre el comportamiento de cada parámetro:
+When you run this command a window opens asking for a **user name** and **password**. This is not your Azure credentials, enter the user name and password that will be the administrator credentials you want to create for the new server.
+
+The parameters provided on this sample invocation can be modified for your desired settings. The following provides more information on the behavior of each parameter:
 
 <table style="width:100%">
   <tr>
-    <th>Parámetro</th>
-    <th>Descripción</th>
+    <th>Parameter</th>
+    <th>Description</th>
   </tr>
 
 <tr>
-	<td>ResourceGroupName</td>
-	<td>Proporciona el nombre del grupo de recursos de Azure creado para contener los componentes de Azure recién creados. El valor predeterminado de este parámetro es "__ElasticDatabaseJob". No se recomienda cambiar este valor.</td>
-	</tr>
+    <td>ResourceGroupName</td>
+    <td>Provides the Azure resource group name created to contain the newly created Azure components. This parameter defaults to “__ElasticDatabaseJob”. It is not recommended to change this value.</td>
+    </tr>
 
 </tr>
 
-	<tr>
-	<td>ResourceGroupLocation</td>
-	<td>Proporciona la ubicación de Azure que se usará para los componentes de Azure recién creados. El valor predeterminado de este parámetro es la ubicación Central EE.&#160;UU.</td>
+    <tr>
+    <td>ResourceGroupLocation</td>
+    <td>Provides the Azure location to be used for the newly created Azure components. This parameter defaults to the Central US location.</td>
 </tr>
 
 <tr>
-	<td>ServiceWorkerCount</td>
-	<td>Proporciona el número de trabajos del servicio que se va a instalar. El valor predeterminado de este parámetro es 1. Puede usarse un número mayor de trabajos para escalar horizontalmente el servicio y ofrecer alta disponibilidad. Se recomienda usar "2" en las implementaciones que requieren alta disponibilidad del servicio.</td>
-	</tr>
+    <td>ServiceWorkerCount</td>
+    <td>Provides the number of service workers to install. This parameter defaults to 1. A higher number of workers can be used to scale out the service and to provide high availability. It is recommended to use “2” for deployments that require high availability of the service.</td>
+    </tr>
 
 </tr>
-	<tr>
-	<td>ServiceVmSize</td>
-	<td>Proporciona el tamaño de máquina virtual para su uso dentro del servicio en la nube. El valor predeterminado de este parámetro es A0. Se aceptan los valores de parámetros de A0/A1/A2/A3, que hacen que el rol de trabajo use un tamaño ExtraSmall/Small/Medium/Large, respectivamente. Para obtener más información sobre tamaños de rol de trabajo, vea [Componentes y precios de Trabajos de base de datos elástica](sql-database-elastic-jobs-overview/#components-and-pricing).</td>
-</tr>
-
-</tr>
-	<tr>
-	<td>SqlServerDatabaseSlo</td>
-	<td>Proporciona el objetivo de nivel de servicio para un servidor Standard Edition. El valor predeterminado de este parámetro es S0. Se aceptan valores de parámetro de S0/S1/S2/S3 lo que hace que Base de datos SQL de Azure use el SLO respectivo. Para obtener más información sobre los SLO de Base de datos SQL, vea [Componentes y precios de Trabajos de base de datos elástica](sql-database-elastic-jobs-overview/#components-and-pricing).</td>
+    <tr>
+    <td>ServiceVmSize</td>
+    <td>Provides the VM size for usage within the Cloud Service. This parameter defaults to A0. Parameters values of A0/A1/A2/A3 are accepted which cause the worker role to use an ExtraSmall/Small/Medium/Large size, respectively. Fo more information on worker role sizes, see [Elastic Database jobs components and pricing](sql-database-elastic-jobs-overview/#components-and-pricing).</td>
 </tr>
 
 </tr>
-	<tr>
-	<td>SqlServerAdministratorUserName</td>
-	<td>Proporciona el nombre de usuario del administrador del servidor de Base de datos SQL de Azure recién creado. Cuando no se especifica, se abrirá una ventana de credenciales de PowerShell para solicitar las credenciales.</td>
+    <tr>
+    <td>SqlServerDatabaseSlo</td>
+    <td>Provides the service level objective for a Standard edition. This parameter defaults to S0. Parameter values of S0/S1/S2/S3 are accepted which cause the Azure SQL Database to use the respective SLO. For more information on SQL Database SLOs, see [Elastic Database jobs components and pricing](sql-database-elastic-jobs-overview/#components-and-pricing).</td>
 </tr>
 
 </tr>
-	<tr>
-	<td>SqlServerAdministratorPassword</td>
-	<td>Proporciona la contraseña del administrador del servidor de Base de datos SQL de Azure recién creado. Cuando no se proporciona, se abrirá una ventana de credenciales de PowerShell para solicitar las credenciales.</td>
+    <tr>
+    <td>SqlServerAdministratorUserName</td>
+    <td>Provides the admin user name for the newly created Azure SQL Database server. When not specified, a PowerShell credentials window will open to prompt for the credentials.</td>
+</tr>
+
+</tr>
+    <tr>
+    <td>SqlServerAdministratorPassword</td>
+    <td>Provides the admin password for the newly created Azure SQL Database server. When not provided, a PowerShell credentials window will open to prompt for the credentials.</td>
 </tr>
 </table>
 
-En sistemas destinados a tener grandes cantidades de trabajos ejecutándose en paralelo en gran cantidad de bases de datos, se recomienda especificar parámetros como, por ejemplo: -ServiceWorkerCount 2 -ServiceVmSize A2 -SqlServerDatabaseSlo S2.
+For systems that target having large numbers of jobs running in parallel against a large number of databases, it is recommended to specify parameters such as: -ServiceWorkerCount 2 -ServiceVmSize A2 -SqlServerDatabaseSlo S2.
 
-    PS C:*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1
-    PS C:*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\tools>.\InstallElasticDatabaseJobs.ps1 -ServiceWorkerCount 2 -ServiceVmSize A2 -SqlServerDatabaseSlo S2
+    PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1
+    PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\tools>.\InstallElasticDatabaseJobs.ps1 -ServiceWorkerCount 2 -ServiceVmSize A2 -SqlServerDatabaseSlo S2
 
-## Actualización de una instalación existente de componentes de Trabajos de base de datos elástica mediante PowerShell
+## <a name="update-an-existing-elastic-database-jobs-components-installation-using-powershell"></a>Update an existing Elastic Database jobs components installation using PowerShell
 
-Los **trabajos de base de datos elástica** se pueden actualizar en una instalación existente para escalado y alta disponibilidad. Este proceso permite actualizaciones futuras del código de servicio sin tener que quitar y volver a crear la base de datos de control. Este proceso también puede usarse dentro de la misma versión para modificar el tamaño de máquina virtual del servicio o el número de trabajos de servidor.
+**Elastic Database jobs** can be updated within an existing installation for scale and high-availability. This process allows for future upgrades of service code without having to drop and recreate the control database. This process can also be used within the same version to modify the service VM size or the server worker count.
 
-Para actualizar el tamaño de máquina virtual de una instalación, ejecute el siguiente script con parámetros actualizados con los valores que elija.
+To update the VM size of an installation, run the following script with parameters updated to the values of your choice.
 
-    PS C:*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\tools>Unblock-File .\UpdateElasticDatabaseJobs.ps1
-    PS C:*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\tools>.\UpdateElasticDatabaseJobs.ps1 -ServiceVmSize A1 -ServiceWorkerCount 2
+    PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\tools>Unblock-File .\UpdateElasticDatabaseJobs.ps1
+    PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\tools>.\UpdateElasticDatabaseJobs.ps1 -ServiceVmSize A1 -ServiceWorkerCount 2
 
 <table style="width:100%">
   <tr>
-  <th>Parámetro</th>
-  <th>Descripción</th>
+  <th>Parameter</th>
+  <th>Description</th>
 </tr>
 
   <tr>
-	<td>ResourceGroupName</td>
-	<td>Identifica el nombre del grupo de recursos de Azure usado al instalar inicialmente componentes de Trabajos de base de datos elástica. El valor predeterminado de este parámetro es "__ElasticDatabaseJob". Puesto que no se recomienda cambiar este valor, no debería tener que especificar este parámetro.</td>
-	</tr>
+    <td>ResourceGroupName</td>
+    <td>Identifies the Azure resource group name used when the Elastic Database job components were initially installed. This parameter defaults to “__ElasticDatabaseJob”. Since it is not recommended to change this value, you shouldn't have to specify this parameter.</td>
+    </tr>
 </tr>
 
 </tr>
 
   <tr>
-	<td>ServiceWorkerCount</td>
-	<td>Proporciona el número de trabajos del servicio que se va a instalar. El valor predeterminado de este parámetro es 1. Puede usarse un número mayor de trabajos para escalar horizontalmente el servicio y ofrecer alta disponibilidad. Se recomienda usar "2" en las implementaciones que requieren alta disponibilidad del servicio.</td>
+    <td>ServiceWorkerCount</td>
+    <td>Provides the number of service workers to install.  This parameter defaults to 1.  A higher number of workers can be used to scale out the service and to provide high availability.  It is recommended to use “2” for deployments that require high availability of the service.</td>
 </tr>
 
 </tr>
 
-	<tr>
-	<td>ServiceVmSize</td>
-	<td>Proporciona el tamaño de máquina virtual para su uso dentro del servicio en la nube. El valor predeterminado de este parámetro es A0. Se aceptan los valores de parámetros de A0/A1/A2/A3, que hacen que el rol de trabajo use un tamaño ExtraSmall/Small/Medium/Large, respectivamente. Para obtener más información sobre tamaños de rol de trabajo, vea [Componentes y precios de Trabajos de base de datos elástica](sql-database-elastic-jobs-overview/#components-and-pricing).</td>
+    <tr>
+    <td>ServiceVmSize</td>
+    <td>Provides the VM size for usage within the Cloud Service. This parameter defaults to A0. Parameters values of A0/A1/A2/A3 are accepted which cause the worker role to use an ExtraSmall/Small/Medium/Large size, respectively. Fo more information on worker role sizes, see [Elastic Database jobs components and pricing](sql-database-elastic-jobs-overview/#components-and-pricing).</td>
 </tr>
 
 </table>
 
-## Instalación de componentes de Trabajos de base de datos elástica mediante el Portal
+## <a name="install-the-elastic-database-jobs-components-using-the-portal"></a>Install the Elastic Database jobs components using the Portal
 
-Una vez creado el [grupo de bases de datos elásticas](sql-database-elastic-pool-create-portal.md), puede instalar componentes de los **trabajos de base de datos elástica** para habilitar la ejecución de tareas administrativas en cada base de datos del grupo. A diferencia de lo que sucede cuando se usan las API de PowerShell de **Trabajos de base de datos elástica**, la interfaz del portal está actualmente restringida exclusivamente a la ejecución en un grupo existente.
+Once you have [created an Elastic Database pool](sql-database-elastic-pool-create-portal.md), you can install **Elastic Database jobs** components to enable execution of administrative tasks against each database in the Elastic Database pool. Unlike when using the **Elastic Database jobs** PowerShell APIs, the portal interface is currently restricted to only executing against an existing pool.
 
 
-**Tiempo estimado para completar el tutorial:** 10 minutos.
+**Estimated time to complete:** 10 minutes.
 
-1. En la vista del panel del grupo de bases de datos elásticas a través del [Portal de Azure](https://portal.azure.com/#), haga clic en **Crear trabajo**.
-2. Si va a crear un trabajo por primera vez, deberá instalar los **trabajos de base de datos elástica** haciendo clic en **TÉRMINOS DE VISTA PREVIA**.
-3. Acepte los términos haciendo clic en la casilla de verificación.
-4. En la vista "Instalar servicios", haga clic en **CREDENCIALES DEL TRABAJO**.
+1. From the dashboard view of the elastic database pool via the [Azure Portal](https://portal.azure.com/#) , click **Create job**.
+2. If you are creating a job for the first time, you must install **Elastic Database jobs** by clicking **PREVIEW TERMS**.
+3. Accept the terms by clicking the checkbox.
+4. In the "Install services" view, click **JOB CREDENTIALS**.
 
-	![Instalación de los servicios][1]
+    ![Installing the services][1]
 
-5. Escriba un nombre de usuario y una contraseña de administración de la base de datos. Como parte de la instalación, se creará un nuevo servidor de base de datos SQL de Azure. En este nuevo servidor, se creará una nueva base de datos, conocida como base de datos de control, que sirve para contener los metadatos de Trabajos de base de datos elástica. El nombre de usuario y la contraseña que se crean aquí se usan con el fin de iniciar sesión en la base de datos de control. Se usa una credencial diferente para la ejecución de scripts en las bases de datos del grupo.
+5. Type a user name and password for a database admin. As part of the installation, a new Azure SQL Database server is created. Within this new server, a new database, known as the control database, is created and used to contain the meta data for Elastic Database jobs. The user name and password created here are used for the purpose of logging in to the control database. A separate credential is used for script execution against the databases within the pool.
 
-	![Creación del nombre de usuario y la contraseña][2]
+    ![Create username and password][2]
 
-6. Haga clic en el botón Aceptar. Los componentes se crean en pocos minutos en un nuevo [Grupo de recursos](../resource-group-overview.md). El nuevo grupo de recursos se ancla al panel de inicio, tal como se muestra a continuación. Una vez creados, los trabajos de bases de datos elásticas (servicio de nube, base de datos SQL, bus de servicio y almacenamiento) se crearán en el grupo.
+6. Click the OK button. The components are created for you in a few minutes in a new [Resource group](../resource-group-overview.md). The new resource group is pinned to the start board, as shown below. Once created, elastic database jobs (Cloud Service, SQL Database, Service Bus, and Storage) are all created in the group.
 
-	![Grupo de recursos en el panel de inicio][3]
+    ![resource group in start board][3]
 
-7. Si intenta crear o administrar un trabajo mientras se está instalando trabajos de bases de datos elásticas, se mostrará el mensaje siguiente al proporcionar las **Credenciales**.
+7. If you attempt to create or manage a job while elastic database jobs is installing, when providing **Credentials** you will see the following message.
 
-	![Implementación en curso][4]
+    ![Deployment still in progress][4]
 
-Si se requiere la desinstalación, elimine el grupo de recursos. Consulte [Desinstalación de componentes de trabajos de base de datos elástica](sql-database-elastic-jobs-uninstall.md).
+If uninstallation is required, delete the resource group. See [How to uninstall the Elastic Database job components](sql-database-elastic-jobs-uninstall.md).
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-La garantía de una credencial con los derechos adecuados para la ejecución del script se crea en cada base de datos del grupo. Para obtener más información, consulte [Protección de bases de datos SQL](sql-database-security.md). Consulte [Creación y administración de trabajos de base de datos elástica](sql-database-elastic-jobs-create-and-manage.md).
+Ensure a credential with the appropriate rights for script execution is created on each database in the group, for more information see [Securing your SQL Database](sql-database-security.md).
+See [Creating and managing an Elastic Database jobs](sql-database-elastic-jobs-create-and-manage.md) to get started.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-jobs-service-installation/screen-1.png
@@ -187,4 +189,8 @@ La garantía de una credencial con los derechos adecuados para la ejecución del
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

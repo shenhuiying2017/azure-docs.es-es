@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Maniobras de recuperación ante desastres de Base de datos SQL | Microsoft Azure" 
-   description="Obtenga instrucciones e información sobre prácticas recomendadas acerca del uso de la base de datos SQL de Azure para la realización de tareas de obtención de detalles de la recuperación ante desastres. Dichas tareas le ayudarán a mantener la capacidad de recuperación ante errores y fallos de las aplicaciones de negocio críticas." 
+   pageTitle="SQL Database Disaster Recovery Drills | Microsoft Azure" 
+   description="Learn guidance and best practices for using Azure SQL Database to perform disaster recovery drills that will help keep your mission critical business applications resilient to failures and outages." 
    services="sql-database" 
    documentationCenter="" 
    authors="mihaelablendea" 
@@ -16,59 +16,63 @@
    ms.date="07/31/2016"
    ms.author="mihaelab"/>
 
-#Obtención de detalles de la recuperación ante desastres
 
-Se recomienda validar periódicamente el flujo de trabajo de preparación de la aplicación para la recuperación. Comprobar el comportamiento de la aplicación y las implicaciones de las pérdidas de datos o de las interrupciones que conlleva la conmutación por error es una buena práctica de ingeniería. También es un requisito de la mayoría de estándares del sector como parte de la certificación de continuidad del negocio.
+#<a name="performing-disaster-recovery-drill"></a>Performing Disaster Recovery Drill
 
-Obtener los detalles de una recuperación ante desastres implica lo siguiente:
+It is recommended that validation of application readiness for recovery workflow is performed periodically. Verifying the application behavior and implications of data loss and/or the disruption that failover involves is a good engineering practice. It is also a requirement by most industry standards as part of business continuity certification.
 
-- Simular la interrupción del nivel de datos.
-- Realizar la recuperación.
-- Validar la integridad de la aplicación tras la recuperación.
+Performing a disaster recovery drill consists of:
 
-Dependiendo de cómo [diseñó su aplicación para la continuidad del negocio](sql-database-business-continuity.md), el flujo de trabajo para la ejecución del proceso de obtención de detalles puede variar. A continuación se describen prácticas recomendadas de obtención de detalles de la recuperación ante desastres en el contexto de base de datos SQL de Azure.
+- Simulating data tier outage
+- Recovering 
+- Validate application integrity post recovery
 
-##Restauración geográfica
+Depending on how you [designed your application for business continuity](sql-database-business-continuity.md), the workflow to execute the drill can vary. Below we describe the best practices conducting a disaster recovery drill in the context of Azure SQL Database. 
 
-Para evitar la posible pérdida de datos durante la obtención de detalles de la recuperación ante desastres, se recomienda obtener los detalles mediante la creación de una copia del entorno de producción y utilizando dicho entorno para comprobar el flujo de trabajo de conmutación por error de la aplicación.
+##<a name="geo-restore"></a>Geo-Restore
+
+To prevent the potential data loss when conducting a disaster recovery drill, we recommend performing the drill using a test environment by creating a copy of the production environment and using it to verify the application’s failover workflow.
  
-####Simulación de interrupción
+####<a name="outage-simulation"></a>Outage simulation
 
-Puede simular la interrupción mediante la eliminación o el cambio de nombre de la base de datos de origen. Tenga en cuenta que esto puede producir un error de conectividad de la aplicación.
+To simulate the outage you can delete or rename the source database. This will cause application connectivity failure. 
 
-####Recuperación
+####<a name="recovery"></a>Recovery
 
-- Realice la restauración geográfica de la base de datos en un servidor diferente, tal como se describe [aquí](sql-database-disaster-recovery.md).
-- Cambie la configuración de la aplicación para conectarse a las bases de datos recuperadas y siga las directrices de la guía [Configuración de una base de datos recuperada](sql-database-disaster-recovery.md) para completar la recuperación.
+- Perform the Geo-Restore of the database into a different server as described [here](sql-database-disaster-recovery.md). 
+- Change the application configuration to connect to the recovered database(s) and follow the [Configure a database after recovery](sql-database-disaster-recovery.md) guide to complete the recovery.
 
-####Validación
+####<a name="validation"></a>Validation
 
-- Complete la obtención de detalles mediante la comprobación de la integridad de la aplicación posterior a la recuperación (es decir, las cadenas de conexión, los inicios de sesión, la comprobación de funciones básicas u otras validaciones que formen parte de los procedimientos estándar de validación de aplicaciones).
+- Complete the drill by verifying the application integrity post recovery (i.e. connection strings, logins, basic functionality testing or other validations part of standard application signoffs procedures).
 
-##Replicación geográfica
+##<a name="geo-replication"></a>Geo-Replication
 
-En una base de datos protegida mediante replicación geográfica, el ejercicio de obtención de detalles incluirá la conmutación por error planeada de la base de datos secundaria. La conmutación por error planeada, garantiza que las bases de datos principal y secundaria permanezcan sincronizadas cuando se cambian los roles. A diferencia de la conmutación por error no planeada, esta operación no provocará la pérdida de datos, por lo que la obtención de detalles se puede realizar en el entorno de producción.
+For a database that is protected using Geo-Replication the drill exercise will involve planned failover to the secondary database. The planned failover ensures that the primary and the secondary databases remains in sync when the roles are switched. Unlike the unplanned failover, this operation will not result in data loss, so the drill can be performed in the production environment. 
 
-####Simulación de interrupción
+####<a name="outage-simulation"></a>Outage simulation
 
-Para simular una interrupción puede deshabilitar la aplicación web o la máquina virtual conectada a la base de datos. Esto provocará errores de conectividad de los clientes web.
+To simulate the outage you can disable the web application or virtual machine connected to the database. This will result in the connectivity failures for the web clients.
 
-####Recuperación
+####<a name="recovery"></a>Recovery
 
-- Asegúrese de que la configuración de la aplicación en la región de recuperación ante desastres, está conformada según la base de datos secundaria anterior; recuerde que esta se convertirá en una base de datos principal nueva y totalmente accesible.
-- Realice la [conmutación por error planeada](sql-database-geo-replication-powershell.md#initiate-a-planned-failover) para hacer que la base de datos secundaria se convierta en una primaria
-- Siga las instrucciones de la guía [Configurar una base de datos recuperada](sql-database-disaster-recovery.md) para completar la recuperación.
+- Make sure the the application configuration in the DR region points to the former secondary which will become fully accessible new primary. 
+- Perform [planned failover](sql-database-geo-replication-powershell.md#initiate-a-planned-failover) to make the secondary database a new primary
+- Follow the [Configure a database after recovery](sql-database-disaster-recovery.md) guide to complete the recovery.
 
-####Validación
+####<a name="validation"></a>Validation
 
-- Complete la obtención de detalles mediante la comprobación de la integridad de la aplicación posterior a la recuperación (es decir, las cadenas de conexión, los inicios de sesión, la comprobación de funciones básicas u otras validaciones que formen parte de los procedimientos estándar de validación de aplicaciones).
+- Complete the drill by verifying the application integrity post recovery (i.e. connection strings, logins, basic functionality testing or other validations part of standard application signoffs procedures).
 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-- Para obtener información sobre los escenarios de continuidad empresarial, consulte el artículo sobre [escenarios de continuidad](sql-database-business-continuity.md)
-- Para obtener información sobre las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md).
-- Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md) (Restauración bases de datos a partir de las copias de seguridad iniciadas por el servicio).
-- Para conocer las opciones de recuperación más rápidas, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
+- To learn about business continuity scenarios, see [Continuity scenarios](sql-database-business-continuity.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
+- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
 
-<!---HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

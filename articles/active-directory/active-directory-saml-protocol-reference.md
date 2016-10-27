@@ -1,38 +1,43 @@
 <properties
-	pageTitle="Referencia del protocolo SAML de Azure AD | Microsoft Azure"
-	description="En este artículo se proporciona información general de los perfiles SAML de inicio y cierre de sesión único de Azure Active Directory."
-	services="active-directory"
-	documentationCenter=".net"
-	authors="priyamohanram"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="Azure AD SAML Protocol Reference | Microsoft Azure"
+    description="This article provides an overview of the Single Sign-On and Single Sign-Out SAML profiles in Azure Active Directory."
+    services="active-directory"
+    documentationCenter=".net"
+    authors="priyamohanram"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="priyamo"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="06/23/2016"
+    ms.author="priyamo"/>
 
 
-# Cómo Azure Active Directory usa el protocolo SAML
 
-Azure Active Directory (Azure AD) utiliza el protocolo SAML 2.0 para permitir que las aplicaciones ofrezcan una experiencia de inicio de sesión único a sus usuarios. Los perfiles SAML de [inicio](active-directory-single-sign-on-protocol-reference.md) y [cierre de sesión único](active-directory-single-sign-out-protocol-reference.md) de Azure AD explican cómo se usan las aserciones, los protocolos y los enlaces SAML en el servicio de proveedor de identidades.
+# <a name="how-azure-active-directory-uses-the-saml-protocol"></a>How Azure Active Directory uses the SAML protocol
 
-El protocolo SAML requiere que el proveedor de identidades (Azure AD) y el proveedor de servicios (la aplicación) intercambien información sobre sí mismos.
+Azure Active Directory (Azure AD) uses the SAML 2.0 protocol to enable applications to provide a single sign-on experience to their users. The [Single Sign-On](active-directory-single-sign-on-protocol-reference.md) and [Single Sign-Out](active-directory-single-sign-out-protocol-reference.md) SAML profiles of Azure AD explain how SAML assertions, protocols and bindings are used in the identity provider service.
 
-Cuando una aplicación se registra en Azure AD, el desarrollador de esta registra información relacionada con la federación en Azure AD. Esto incluye el **URI de redireccionamiento** y de **metadatos** de la aplicación.
+SAML Protocol requires the identity provider (Azure AD) and the service provider (the application) to exchange information about themselves.
 
-Azure AD usa el **URI de metadatos** del servicio en la nube para recuperar la clave de firma y el URI de cierre de sesión del servicio en la nube. Si la aplicación no admite un URI de metadatos, el desarrollador debe ponerse en contacto con el servicio de soporte técnico de Microsoft para proporcionar el URI de cierre de sesión y la clave de firma.
+When an application is registered with Azure AD, the app developer registers federation-related information with Azure AD. This includes the **Redirect URI** and **Metadata URI** of the application.
 
-Azure Active Directory expone puntos de conexión de inicio y cierre de sesión único comunes y específicos del inquilino (independientes del inquilino). Estas direcciones URL representan ubicaciones direccionables; no se trata únicamente identificadores, así que puede acceder al punto de conexión para leer los metadatos.
+Azure AD uses the **Metadata URI** of the cloud service to retrieve the signing key and the logout URI of the cloud service. If the application does not support a metadata URI, the developer must contact Microsoft support to provide the logout URI and signing key.
 
- - El punto de conexión específico del inquilino se encuentra en `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`. El marcador de posición <TenantDomainName> representa un nombre de dominio registrado o GUID TenantID de un inquilino de Azure AD. Por ejemplo, los metadatos de federación del inquilino contoso.com se encuentran en https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml.
+Azure Active Directory exposes tenant-specific and common (tenant-independent) single sign-on and single sign-out endpoints. These URLs represent addressable locations -- they are not just an identifiers -- so you can go to the endpoint to read the metadata.
 
-- El punto de conexión independiente del inquilino está en `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. En esta dirección de punto de conexión, se muestra **common**, en lugar de un id. o nombre de dominio del inquilino.
+ - The Tenant-specific endpoint is located at `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`.  The <TenantDomainName> placeholder represents a registered domain name or TenantID GUID of an Azure AD tenant. For example, the federation metadata of the contoso.com tenant is at: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
 
-Para obtener información sobre los documentos de metadatos de federación que publica Azure AD, consulte [Metadatos de federación](active-directory-federation-metadata.md).
+- The Tenant-independent endpoint is located at `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`.In this endpoint address, **common** appears, instead of a tenant domain name or ID.
 
-<!---HONumber=AcomDC_0629_2016-->
+For information about the Federation Metadata documents that Azure AD publishes, see [Federation Metadata](active-directory-federation-metadata.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,113 +1,114 @@
 <properties
-	pageTitle="Implementación y administración de copias de seguridad para Windows Server o cliente de Windows mediante PowerShell | Microsoft Azure"
-	description="Obtenga información sobre cómo implementar y administrar Copia de seguridad de Azure mediante PowerShell"
-	services="backup"
-	documentationCenter=""
-	authors="saurabhsensharma"
-	manager="shivamg"
-	editor=""/>
+    pageTitle="Deploy and manage backup for Windows Server/Client using PowerShell | Microsoft Azure"
+    description="Learn how to deploy and manage Azure Backup using PowerShell"
+    services="backup"
+    documentationCenter=""
+    authors="saurabhsensharma"
+    manager="shivamg"
+    editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2016"
-	ms.author="saurabhsensharma;markgal;jimpark;nkolli;trinadhk"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/01/2016"
+    ms.author="saurabhsensharma;markgal;jimpark;nkolli;trinadhk"/>
 
 
-# Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell
+
+# <a name="deploy-and-manage-backup-to-azure-for-windows-server/windows-client-using-powershell"></a>Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell
 
 > [AZURE.SELECTOR]
 - [ARM](backup-client-automation.md)
-- [Clásico](backup-client-automation-classic.md)
+- [Classic](backup-client-automation-classic.md)
 
-En este artículo se muestra cómo usar PowerShell para configurar la Copia de seguridad de Azure en un servidor o un cliente de Windows y para administrar copias de seguridad y recuperaciones.
+This article shows you how to use PowerShell for setting up Azure Backup on Windows Server or a Windows client, and managing backup and recovery.
 
-## Azure PowerShell
+## <a name="install-azure-powershell"></a>Install Azure PowerShell
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
-En octubre de 2015, se lanzó Azure PowerShell 1.0. Esta versión sucedió a la versión 0.9.8 e introdujo algunos cambios importantes, sobre todo en el patrón de nombres de los cmdlets. Los cmdlets de 1.0 siguen el patrón de nomenclatura {verbo}-AzureRm{nombre}; en el que, los nombres de 0.9.8 no incluyen **Rm** (por ejemplo, New-AzureRmResourceGroup en lugar de New-AzureResourceGroup). Al usar Azure PowerShell 0.9.8, primero debe habilitar el modo de Administrador de recursos mediante la ejecución del comando **Switch-AzureMode AzureResourceManager**. Este comando no es necesario en la versión 1.0 o posteriores.
+In October 2015, Azure PowerShell 1.0 was released. This release succeeded the 0.9.8 release and brought about some significant changes, especially in the naming pattern of the cmdlets. 1.0 cmdlets follow the naming pattern {verb}-AzureRm{noun}; whereas, the 0.9.8 names do not include **Rm** (for example, New-AzureRmResourceGroup instead of New-AzureResourceGroup). When using Azure PowerShell 0.9.8, you must first enable the Resource Manager mode by running the **Switch-AzureMode AzureResourceManager** command. This command is not necessary in 1.0 or later.
 
-Si desea utilizar scripts escritos para los entornos de 0.9.8, de 1.0 o posterior, debe probar detenidamente los scripts en un entorno de preproducción antes de usarlos en producción para evitar un impacto inesperado.
+If you want to use your scripts written for the 0.9.8 environment, in the 1.0 or later environment, you should carefully test the scripts in a pre-production environment before using them in production to avoid unexpected impact.
 
-[Descargue la versión de PowerShell más reciente](https://github.com/Azure/azure-powershell/releases) (la versión mínima necesaria es 1.0.0).
+[Download the latest PowerShell release](https://github.com/Azure/azure-powershell/releases) (minimum version required is : 1.0.0)
 
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 
-## Creación de un almacén de copia de seguridad
+## <a name="create-a-backup-vault"></a>Create a backup vault
 
-> [AZURE.WARNING] La primera vez que los clientes usen Azure Backup deben registrar el proveedor de Azure Backup que se va a usar con su suscripción. Para ello, ejecute el siguiente comando: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> [AZURE.WARNING] For customers using Azure Backup for the first time, you need to register the Azure Backup provider to be used with your subscription. This can be done by running the following command: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
 
-Puede crear un nuevo almacén de copia de seguridad mediante el cmdlet **New-AzureRMBackupVault**. El almacén de copia de seguridad es un recurso ARM, por lo que necesita colocarlo dentro de un grupo de recursos. En una consola de Azure PowerShell, ejecute los comandos siguientes:
+You can create a new backup vault using the **New-AzureRMBackupVault** cmdlet. The backup vault is an ARM resource, so you need to place it within a Resource Group. In an elevated Azure PowerShell console, run the following commands:
 
 ```
 PS C:\> New-AzureResourceGroup –Name “test-rg” -Region “West US”
 PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
-Use el cmdlet **Get-AzureRMBackupVault** para enumerar los almacenes de copia de seguridad en una suscripción.
+Use the **Get-AzureRMBackupVault** cmdlet to list the backup vaults in a subscription.
 
 
-## Instalación del agente de Copia de seguridad de Azure
-Antes de instalar el agente de copia de seguridad de Azure, necesitará tener el instalador descargado y disponible en el servidor de Windows. Puede obtener la versión más reciente del instalador en el [Centro de descarga de Microsoft ](http://aka.ms/azurebackup_agent) o en la página Panel del almacén de copia de seguridad. Guarde el instalador en una ubicación que tenga fácil acceso, como *C:\\Downloads*.
+## <a name="installing-the-azure-backup-agent"></a>Installing the Azure Backup agent
+Before you install the Azure Backup agent, you need to have the installer downloaded and present on the Windows Server. You can get the latest version of the installer from the [Microsoft Download Center](http://aka.ms/azurebackup_agent) or from the backup vault's Dashboard page. Save the installer to an easily accessible location like *C:\Downloads\*.
 
-Para instalar el agente, ejecute el comando siguiente en una consola de PowerShell con privilegios elevados:
+To install the agent, run the following command in an elevated PowerShell console:
 
 ```
 PS C:\> MARSAgentInstaller.exe /q
 ```
 
-Esto instala el agente con todas las opciones predeterminadas. La instalación está unos minutos en segundo plano. Si no se especifica la opción */nu*, se abrirá la ventana de **Windows Update** al final de la instalación para comprobar si hay actualizaciones. Una vez instalado, el agente se mostrará en la lista de programas instalados.
+This installs the agent with all the default options. The installation takes a few minutes in the background. If you do not specify the */nu* option then the **Windows Update** window will open at the end of the installation to check for any updates. Once installed, the agent will show in the list of installed programs.
 
-Para ver la lista de programas instalados, vaya a **Panel de Control** > **programas** > **programas y características**.
+To see the list of installed programs, go to **Control Panel** > **Programs** > **Programs and Features**.
 
-![Agente instalado](./media/backup-client-automation/installed-agent-listing.png)
+![Agent installed](./media/backup-client-automation/installed-agent-listing.png)
 
-### Opciones de instalación
+### <a name="installation-options"></a>Installation options
 
-Para ver todas las opciones disponibles a través de la línea de comandos, use el siguiente comando:
+To see all the options available via the command-line, use the following command:
 
 ```
 PS C:\> MARSAgentInstaller.exe /?
 ```
 
-Las opciones disponibles incluyen:
+The available options include:
 
-| Opción | Detalles | Valor predeterminado |
+| Option | Details | Default |
 | ---- | ----- | ----- |
-| /q | Instalación desatendida | - | 
-| /p:"ubicación" | Ruta de acceso a la carpeta de instalación del agente de Copia de seguridad de Azure. | C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent | 
-| /s:"ubicación" | Ruta de acceso a la carpeta de caché del agente de Copia de seguridad de Azure. | C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent\\Scratch | 
-| /m | Participar en Microsoft Update | - | 
-| /nu | No comprobar si hay actualizaciones cuando finalice la instalación | - | 
-| /d | Desinstala el agente de Servicios de recuperación de Microsoft Azure | - | 
-| /ph | Dirección de host del proxy | - | 
-| /po | Número de puerto de host del proxy | - | 
-| /pu | Nombre de usuario de host del proxy | - | 
-| /pw | Contraseña del proxy | - |
+| /q | Quiet installation | - |
+| /p:"location" | Path to the installation folder for the Azure Backup agent. | C:\Program Files\Microsoft Azure Recovery Services Agent |
+| /s:"location" | Path to the cache folder for the Azure Backup agent. | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /m | Opt-in to Microsoft Update | - |
+| /nu | Do not Check for updates after installation is complete | - |
+| /d | Uninstalls Microsoft Azure Recovery Services Agent | - |
+| /ph | Proxy Host Address | - |
+| /po | Proxy Host Port Number | - |
+| /pu | Proxy Host UserName | - |
+| /pw | Proxy Password | - |
 
 
-## Registro con el servicio de Copia de seguridad de Azure
-Para poder registrarse con el servicio de copia de seguridad de Azure, debe asegurarse de que se cumplen los [requisitos previos](backup-configure-vault.md). Debe:
+## <a name="registering-with-the-azure-backup-service"></a>Registering with the Azure Backup service
+Before you can register with the Azure Backup service, you need to ensure that the [prerequisites](backup-configure-vault.md) are met. You must:
 
-- Disponer de una suscripción válida a Azure
-- Disponer de un almacén de copia de seguridad
+- Have a valid Azure subscription
+- Have a backup vault
 
-Para descargar las credenciales de almacén, ejecute el cmdlet **Get-AzureRMBackupVaultCredentials** en una consola de Azure PowerShell y almacénelo en una ubicación adecuada como *C:\\Descargas*.
+To download the vault credentials, run the **Get-AzureRMBackupVaultCredentials** cmdlet in an Azure PowerShell console and store it in a convenient location like *C:\Downloads\*.
 
 ```
-PS C:\> $credspath = "C:"
+PS C:\> $credspath = "C:\"
 PS C:\> $credsfilename = Get-AzureRMBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
 PS C:\> $credsfilename
 f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.VaultCredentials
 ```
 
-El registro de la máquina con el almacén de claves se realiza mediante el cmdlet [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx):
+Registering the machine with the vault is done using the [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) cmdlet:
 
 ```
 PS C:\> $cred = $credspath + $credsfilename
@@ -121,14 +122,14 @@ Region              : West US
 Machine registration succeeded.
 ```
 
-> [AZURE.IMPORTANT] No use rutas de acceso relativas para especificar el archivo de credenciales del almacén de claves. Debe proporcionar una ruta de acceso absoluta como entrada para el cmdlet.
+> [AZURE.IMPORTANT] Do not use relative paths to specify the vault credentials file. You must provide an absolute path as an input to the cmdlet.
 
-## Configuración de redes
-Cuando la conectividad de la máquina de Windows a Internet se realiza a través de un servidor proxy, también se puede proporcionar la configuración del proxy al agente. En este ejemplo, no hay ningún servidor proxy y por tanto se borra explícitamente cualquier información relacionada con el proxy.
+## <a name="networking-settings"></a>Networking settings
+When the connectivity of the Windows machine to the internet is through a proxy server, the proxy settings can also be provided to the agent. In this example, there is no proxy server, so we are explicitly clearing any proxy-related information.
 
-También puede controlar el uso de ancho de banda con las opciones de ```work hour bandwidth``` y ```non-work hour bandwidth``` para un conjunto determinado de días de la semana.
+Bandwidth usage can also be controlled with the options of ```work hour bandwidth``` and ```non-work hour bandwidth``` for a given set of days of the week.
 
-El establecimiento de los detalles de ancho de banda y del proxy se realiza mediante el cmdlet [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409%28v=wps.630%29.aspx):
+Setting the proxy and bandwidth details is done using the [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409%28v=wps.630%29.aspx) cmdlet:
 
 ```
 PS C:\> Set-OBMachineSetting -NoProxy
@@ -138,57 +139,57 @@ PS C:\> Set-OBMachineSetting -NoThrottle
 Server properties updated successfully.
 ```
 
-## Configuración de cifrado
-Los datos de copia de seguridad enviados a Copia de seguridad de Azure están cifrados para proteger la confidencialidad de los datos. La frase de contraseña de cifrado es la "contraseña" que permite descifrar los datos en el momento de la restauración.
+## <a name="encryption-settings"></a>Encryption settings
+The backup data sent to Azure Backup is encrypted to protect the confidentiality of the data. The encryption passphrase is the "password" to decrypt the data at the time of restore.
 
 ```
 PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force | Set-OBMachineSetting
 Server properties updated successfully
 ```
 
-> [AZURE.IMPORTANT] Mantenga la información de la frase de contraseña segura una vez establecida. No podrá restaurar los datos de Azure sin esta frase de contraseña.
+> [AZURE.IMPORTANT] Keep the passphrase information safe and secure once it is set. You will not be able to restore data from Azure without this passphrase.
 
-## Realizar copias de seguridad de archivos y carpetas
-Todas las copias de seguridad de servidores y clientes de Windows en Copia de seguridad de Azure se rigen por una directiva. La directiva consta de tres partes:
+## <a name="back-up-files-and-folders"></a>Back up files and folders
+All your backups from Windows Servers and clients to Azure Backup are governed by a policy. The policy comprises three parts:
 
-1. Un **programa de copia de seguridad** que especifica cuándo deben efectuarse y sincronizarse las copias de seguridad con el servicio.
-2. Una **programación de retención** que especifica cuánto tiempo se conservarán los puntos de recuperación en Azure.
-3. Una **especificación de inclusión o exclusión de archivo** que determina los elementos de los que se debe efectuar una copia de seguridad.
+1. A **backup schedule** that specifies when backups need to be taken and synchronized with the service.
+2. A **retention schedule** that specifies how long to retain the recovery points in Azure.
+3. A **file inclusion/exclusion specification** that dictates what should be backed up.
 
-En este documento, dado que se está automatizando la copia de seguridad, supondremos que no se ha configurado nada. Comenzamos creando una nueva directiva de copia de seguridad mediante el cmdlet [New-OBPolicy](https://technet.microsoft.com/library/hh770416.aspx) y usándolo.
+In this document, since we're automating backup, we'll assume nothing has been configured. We begin by creating a new backup policy using the [New-OBPolicy](https://technet.microsoft.com/library/hh770416.aspx) cmdlet and using it.
 
 ```
 PS C:\> $newpolicy = New-OBPolicy
 ```
 
-En este momento la directiva está vacía y se necesitan otros cmdlet para definir qué elementos se incluirán o excluirán, cuándo se ejecutarán las copias de seguridad y dónde se almacenarán las copias de seguridad.
+At this time the policy is empty and other cmdlets are needed to define what items will be included or excluded, when backups will run, and where the backups will be stored.
 
-### Configuración de la programación de la copia de seguridad
-La primera de las tres partes de una directiva es la programación de copia de seguridad, que se crea usando el cmdlet [New-OBSchedule](https://technet.microsoft.com/library/hh770401). La programación de copia de seguridad define cuándo deben realizarse copias de seguridad. Al crear una programación se deben especificar dos parámetros de entrada:
+### <a name="configuring-the-backup-schedule"></a>Configuring the backup schedule
+The first of the 3 parts of a policy is the backup schedule, which is created using the [New-OBSchedule](https://technet.microsoft.com/library/hh770401) cmdlet. The backup schedule defines when backups need to be taken. When creating a schedule you need to specify 2 input parameters:
 
-- **Días de la semana** en los que se debe ejecutar la copia de seguridad. Puede ejecutar el trabajo de copia de seguridad en solo un día o cada día de la semana, o cualquier combinación intermedia.
-- **Horas del día** a las que se debe ejecutar la copia de seguridad. Puede definir hasta tres horas distintas del día en las que se activará la copia de seguridad.
+- **Days of the week** that the backup should run. You can run the backup job on just one day, or every day of the week, or any combination in between.
+- **Times of the day** when the backup should run. You can define up to 3 different times of the day when the backup will be triggered.
 
-Por ejemplo, podría configurar una directiva de copia de seguridad que se ejecute a las 4 p.m. cada sábado y domingo.
+For instance, you could configure a backup policy that runs at 4PM every Saturday and Sunday.
 
 ```
 PS C:\> $sched = New-OBSchedule -DaysofWeek Saturday, Sunday -TimesofDay 16:00
 ```
 
-La programación de copia de seguridad debe estar asociada con una directiva y esto puede lograrse mediante el uso del cmdlet [Set-OBSchedule](https://technet.microsoft.com/library/hh770407).
+The backup schedule needs to be associated with a policy, and this can be achieved by using the [Set-OBSchedule](https://technet.microsoft.com/library/hh770407) cmdlet.
 
 ```
-PS C:\> Set-OBSchedule -Policy $newpolicy -Schedule $sched
+PS C:> Set-OBSchedule -Policy $newpolicy -Schedule $sched
 BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName : RetentionPolicy : State : New PolicyState : Valid
 ```
-### Configuración de una directiva de retención
-La directiva de retención define cuánto tiempo se conservan los puntos de recuperación de los trabajos de copia de seguridad. Al crear una nueva directiva de retención mediante el cmdlet [New-OBRetentionPolicy](https://technet.microsoft.com/library/hh770425), puede especificar el número de días que los puntos de recuperación de copia de seguridad deben conservarse con Copia de seguridad de Azure. En el ejemplo siguiente se establece una directiva de retención de 7 días.
+### <a name="configuring-a-retention-policy"></a>Configuring a retention policy
+The retention policy defines how long recovery points created from backup jobs are retained. When creating a new retention policy using the [New-OBRetentionPolicy](https://technet.microsoft.com/library/hh770425) cmdlet, you can specify the number of days that the backup recovery points need to be retained with Azure Backup. The example below sets a retention policy of 7 days.
 
 ```
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
 
-La directiva de retención debe estar asociada con la directiva principal mediante el cmdlet [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405):
+The retention policy must be associated with the main policy using the cmdlet [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405):
 
 ```
 PS C:\> Set-OBRetentionPolicy -Policy $newpolicy -RetentionPolicy $retentionpolicy
@@ -212,19 +213,19 @@ RetentionPolicy : Retention Days : 7
 State           : New
 PolicyState     : Valid
 ```
-### Incluir y excluir archivos de copia de seguridad
-Un objeto ```OBFileSpec``` define los archivos incluidos y excluidos de una copia de seguridad. Se trata de un conjunto de reglas de ámbito de los archivos y carpetas protegidos de un equipo. Puede tener tantas reglas de inclusión o exclusión de archivos como se necesiten y asociarlas con una directiva. Al crear un nuevo objeto OBFileSpec, puede:
+### <a name="including-and-excluding-files-to-be-backed-up"></a>Including and excluding files to be backed up
+An ```OBFileSpec``` object defines the files to be included and excluded in a backup. This is a set of rules that scope out the protected files and folders on a machine. You can have as many file inclusion or exclusion rules as required, and associate them with a policy. When creating a new OBFileSpec object, you can:
 
-- Especificar los archivos y carpetas que se van a incluir
-- Especificar los archivos y carpetas que se van a excluir
-- Especificar la copia de seguridad recursiva de los datos en una carpeta (o) si se deben copiar solo los archivos de nivel superior en la carpeta especificada.
+- Specify the files and folders to be included
+- Specify the files and folders to be excluded
+- Specify recursive backup of data in a folder (or) whether only the top-level files in the specified folder should be backed up.
 
-Esto último se consigue mediante la marca -NonRecursive del comando New-OBFileSpec.
+The latter is achieved by using the -NonRecursive flag in the New-OBFileSpec command.
 
-En el ejemplo siguiente, crearemos copias de seguridad del volumen C: y D: y excluiremos los archivos binarios de sistema operativo de la carpeta de Windows y las carpetas temporales. Para ello, crearemos dos especificaciones de archivos mediante el cmdlet [New-OBFileSpec](https://technet.microsoft.com/library/hh770408): uno para la inclusión y otro para la exclusión. Una vez que se hayan creado las especificaciones de archivo, se asocian con la directiva mediante el cmdlet [Add-OBFileSpec](https://technet.microsoft.com/library/hh770424).
+In the example below, we'll back up volume C: and D: and exclude the OS binaries in the Windows folder and any temporary folders. To do so we'll create two file specifications using the [New-OBFileSpec](https://technet.microsoft.com/library/hh770408) cmdlet - one for inclusion and one for exclusion. Once the file specifications have been created, they're associated with the policy using the [Add-OBFileSpec](https://technet.microsoft.com/library/hh770424) cmdlet.
 
 ```
-PS C:\> $inclusions = New-OBFileSpec -FileSpec @("C:", "D:")
+PS C:\> $inclusions = New-OBFileSpec -FileSpec @("C:\", "D:\")
 
 PS C:\> $exclusions = New-OBFileSpec -FileSpec @("C:\windows", "C:\temp") -Exclude
 
@@ -312,18 +313,18 @@ State           : New
 PolicyState     : Valid
 ```
 
-### Aplicación de la directiva
-Ahora el objeto de la directiva está finalizado y tiene una programación de copia de seguridad asociada, una directiva de retención y una lista de inclusión o exclusión de archivos. Ahora se puede confirmar esta directiva para ser usada por Copia de seguridad de Azure. Antes de aplicar la directiva recién creada, asegúrese de que no haya ninguna directiva de copia de seguridad existente asociada con el servidor mediante el uso del cmdlet [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415). Para eliminar la directiva, se le pedirá confirmación. Para omitir el uso de la confirmación, use la marca ```-Confirm:$false``` con el cmdlet.
+### <a name="applying-the-policy"></a>Applying the policy
+Now the policy object is complete and has an associated backup schedule, retention policy, and an inclusion/exclusion list of files. This policy can now be committed for Azure Backup to use. Before you apply the newly created policy ensure that there are no existing backup policies associated with the server by using the [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415) cmdlet. Removing the policy will prompt for confirmation. To skip the confirmation use the ```-Confirm:$false``` flag with the cmdlet.
 
 ```
-PS C:\> Get-OBPolicy | Remove-OBPolicy
+PS C:> Get-OBPolicy | Remove-OBPolicy
 Microsoft Azure Backup Are you sure you want to remove this backup policy? This will delete all the backed up data. [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
 ```
 
-La confirmación del objeto de la directiva se lleva a cabo usando el cmdlet [Set-OBPolicy](https://technet.microsoft.com/library/hh770421). Esto también requerirá confirmación. Para omitir el uso de la confirmación, use la marca ```-Confirm:$false``` con el cmdlet.
+Committing the policy object is done using the [Set-OBPolicy](https://technet.microsoft.com/library/hh770421) cmdlet. This will also ask for confirmation. To skip the confirmation use the ```-Confirm:$false``` flag with the cmdlet.
 
 ```
-PS C:\> Set-OBPolicy -Policy $newpolicy
+PS C:> Set-OBPolicy -Policy $newpolicy
 Microsoft Azure Backup Do you want to save this backup policy ? [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
 BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s)
 DsList : {DataSource
@@ -351,7 +352,7 @@ DsList : {DataSource
          FileSpec:D:\
          IsExclude:False
          IsRecursive:True
-	}
+    }
 PolicyName : c2eb6568-8a06-49f4-a20e-3019ae411bac
 RetentionPolicy : Retention Days : 7
               WeeklyLTRSchedule :
@@ -365,21 +366,21 @@ RetentionPolicy : Retention Days : 7
 State : Existing PolicyState : Valid
 ```
 
-Puede ver los detalles de la directiva de copia de seguridad existente con el cmdlet [Get-OBPolicy](https://technet.microsoft.com/library/hh770406). Puede profundizar todavía más mediante el cmdlet [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) para la programación de copia de seguridad y el cmdlet [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) para las directivas de retención
+You can view the details of the existing backup policy using the [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) cmdlet. You can drill-down further using the [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) cmdlet for the backup schedule and the [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) cmdlet for the retention policies
 
 ```
-PS C:\> Get-OBPolicy | Get-OBSchedule
+PS C:> Get-OBPolicy | Get-OBSchedule
 SchedulePolicyName : 71944081-9950-4f7e-841d-32f0a0a1359a
 ScheduleRunDays : {Saturday, Sunday}
 ScheduleRunTimes : {16:00:00}
 State : Existing
 
-PS C:\> Get-OBPolicy | Get-OBRetentionPolicy
+PS C:> Get-OBPolicy | Get-OBRetentionPolicy
 RetentionDays : 7
 RetentionPolicyName : ca3574ec-8331-46fd-a605-c01743a5265e
 State : Existing
 
-PS C:\> Get-OBPolicy | Get-OBFileSpec
+PS C:> Get-OBPolicy | Get-OBFileSpec
 FileName : *
 FilePath : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\
 FileSpec : D:\
@@ -405,11 +406,11 @@ IsExclude : True
 IsRecursive : True
 ```
 
-### Realización de una copia de seguridad ad-hoc
-Una vez establecida una directiva de copia de seguridad, las copias de seguridad se producirán en función de la programación. Desencadenar una copia de seguridad ad-hoc también es posible usando el cmdlet [Start-OBBackup](https://technet.microsoft.com/library/hh770426):
+### <a name="performing-an-ad-hoc-backup"></a>Performing an ad-hoc backup
+Once a backup policy has been set the backups will occur per the schedule. Triggering an ad-hoc backup is also possible using the [Start-OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet:
 
 ```
-PS C:\> Get-OBPolicy | Start-OBBackup
+PS C:> Get-OBPolicy | Start-OBBackup
 Taking snapshot of volumes...
 Preparing storage...
 Estimating size of backup items...
@@ -420,20 +421,20 @@ Job completed.
 The backup operation completed successfully.
 ```
 
-## Restaurar datos de la Copia de seguridad de Azure
-Esta sección le guiará por los pasos necesarios para automatizar la recuperación de datos de Copia de seguridad de Azure. Esto implica los pasos siguientes:
+## <a name="restore-data-from-azure-backup"></a>Restore data from Azure Backup
+This section will guide you through the steps for automating recovery of data from Azure Backup. Doing so involves the following steps:
 
-1. Seleccionar el volumen de origen
-2. Elegir un punto de copia de seguridad desde el que efectuar la restauración
-3. Selección de un elemento para restaurar
-4. Desencadenar el proceso de restauración
+1. Pick the source volume
+2. Choose a backup point to restore
+3. Choose an item to restore
+4. Trigger the restore process
 
-### Selección del volumen de origen
-Para restaurar un elemento de la Copia de seguridad de Azure, primero deberá identificar el origen del elemento. Dado que los comandos se están ejecutando en el contexto de un servidor o un cliente de Windows, el equipo ya se ha identificado. El siguiente paso para identificar el origen es identificar el volumen que lo contiene. Se puede recuperar una lista de los volúmenes u orígenes de los que se está efectuando una copia de seguridad desde esta máquina mediante la ejecución del cmdlet [Get-OBRecoverableSource](https://technet.microsoft.com/library/hh770410). Este comando devuelve una matriz de todos los orígenes de los que se ha efectuado una copia de seguridad desde este servidor/cliente.
+### <a name="picking-the-source-volume"></a>Picking the source volume
+In order to restore an item from Azure Backup, you first need to identify the source of the item. Since we're executing the commands in the context of a Windows Server or a Windows client, the machine is already identified. The next step in identifying the source is to identify the volume containing it. A list of volumes or sources being backed up from this machine can be retrieved by executing the [Get-OBRecoverableSource](https://technet.microsoft.com/library/hh770410) cmdlet. This command returns an array of all the sources backed up from this server/client.
 
 ```
-PS C:\> $source = Get-OBRecoverableSource
-PS C:\> $source
+PS C:> $source = Get-OBRecoverableSource
+PS C:> $source
 FriendlyName : C:\
 RecoverySourceName : C:\
 ServerName : myserver.microsoft.com
@@ -443,11 +444,11 @@ RecoverySourceName : D:\
 ServerName : myserver.microsoft.com
 ```
 
-### Elegir un punto de copia de seguridad para restaurar
-La lista de puntos de copia de seguridad se puede recuperar ejecutando el cmdlet [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) con los parámetros adecuados. En nuestro ejemplo, elegiremos el punto de copia de seguridad más reciente para el volumen de origen *D:* y lo usaremos para recuperar un archivo específico.
+### <a name="choosing-a-backup-point-to-restore"></a>Choosing a backup point to restore
+The list of backup points can be retrieved by executing the [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet with appropriate parameters. In our example, we’ll choose the latest backup point for the source volume *D:* and use it to recover a specific file.
 
 ```
-PS C:\> $rps = Get-OBRecoverableItem -Source $source[1]
+PS C:> $rps = Get-OBRecoverableItem -Source $source[1]
 IsDir : False
 ItemNameFriendly : D:\
 ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\
@@ -470,16 +471,16 @@ ServerName : myserver.microsoft.com
 ItemSize :
 ItemLastModifiedTime :
 ```
-El objeto ```$rps``` es una matriz de puntos de copia de seguridad. El primer elemento es el punto más reciente y el enésimo elemento es el punto más antiguo. Para elegir el punto más reciente, usaremos ```$rps[0]```.
+The object ```$rps``` is an array of backup points. The first element is the latest point and the Nth element is the oldest point. To choose the latest point, we will use ```$rps[0]```.
 
-### Selección de un elemento para restaurar
-Para identificar el archivo o carpeta exacto que desea restaurar, use de forma recursiva el cmdlet [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx). De esta forma se puede examinar la jerarquía de carpetas exclusivamente mediante el ```Get-OBRecoverableItem```.
+### <a name="choosing-an-item-to-restore"></a>Choosing an item to restore
+To identify the exact file or folder to restore, recursively use the [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet. That way the folder hierarchy can be browsed solely using the ```Get-OBRecoverableItem```.
 
-En este ejemplo, si desea restaurar el archivo *finances.xls* se puede hacer referencia a este usando el objeto ```$filesFolders[1]```.
+In this example, if we want to restore the file *finances.xls* we can reference that using the object ```$filesFolders[1]```.
 
 ```
-PS C:\> $filesFolders = Get-OBRecoverableItem $rps[0]
-PS C:\> $filesFolders
+PS C:> $filesFolders = Get-OBRecoverableItem $rps[0]
+PS C:> $filesFolders
 IsDir : True
 ItemNameFriendly : D:\MyData\
 ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\
@@ -491,8 +492,8 @@ ServerName : myserver.microsoft.com
 ItemSize :
 ItemLastModifiedTime : 15-Jun-15 8:49:29 AM
 
-PS C:\> $filesFolders = Get-OBRecoverableItem $filesFolders[0]
-PS C:\> $filesFolders
+PS C:> $filesFolders = Get-OBRecoverableItem $filesFolders[0]
+PS C:> $filesFolders
 IsDir : False
 ItemNameFriendly : D:\MyData\screenshot.oxps
 ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\screenshot.oxps
@@ -516,20 +517,20 @@ ItemSize : 96256
 ItemLastModifiedTime : 21-Jun-14 6:43:02 AM
 ```
 
-También puede buscar elementos para restaurar usando el cmdlet ```Get-OBRecoverableItem```. En nuestro ejemplo, para buscar *finances.xls* podríamos obtener un identificador en el archivo mediante la ejecución de este comando:
+You can also search for items to restore using the ```Get-OBRecoverableItem``` cmdlet. In our example, to search for *finances.xls* we could get a handle on the file by running this command:
 
 ```
 PS C:\> $item = Get-OBRecoverableItem -RecoveryPoint $rps[0] -Location "D:\MyData" -SearchString "finance*"
 ```
 
-### Desencadenar el proceso de restauración
-Para desencadenar el proceso de restauración, primero es necesario especificar las opciones de recuperación. Esto puede hacerse mediante el uso del cmdlet [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx). En este ejemplo, supongamos que desea restaurar los archivos en *C:\\temp*. Supongamos también que deseamos omitir archivos que ya existen en la carpeta de destino *C:\\temp*. Para crear dicha opción de recuperación, use el siguiente comando:
+### <a name="triggering-the-restore-process"></a>Triggering the restore process
+To trigger the restore process, we first need to specify the recovery options. This can be done by using the [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) cmdlet. For this example, let's assume that we want to restore the files to *C:\temp*. Let's also assume that we want to skip files that already exist on the destination folder *C:\temp*. To create such a recovery option, use the following command:
 
 ```
 PS C:\> $recovery_option = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
 ```
 
-Ahora, desencadene la restauración usando el comando [Start-OBRecovery](https://technet.microsoft.com/library/hh770402.aspx) en el ```$item``` seleccionado desde la salida del cmdlet ```Get-OBRecoverableItem```:
+Now trigger restore by using the [Start-OBRecovery](https://technet.microsoft.com/library/hh770402.aspx) command on the selected ```$item``` from the output of the ```Get-OBRecoverableItem``` cmdlet:
 
 ```
 PS C:\> Start-OBRecovery -RecoverableItem $item -RecoveryOption $recover_option
@@ -542,25 +543,25 @@ The recovery operation completed successfully.
 ```
 
 
-## Desinstalación del agente de Copia de seguridad de Azure
-La desinstalación del agente de Copia de seguridad de Azure se puede realizar con el comando siguiente:
+## <a name="uninstalling-the-azure-backup-agent"></a>Uninstalling the Azure Backup agent
+Uninstalling the Azure Backup agent can be done by using the following command:
 
 ```
 PS C:\> .\MARSAgentInstaller.exe /d /q
 ```
 
-Desinstalación de los archivos binarios del agente de la máquina tiene algunas consecuencias a tener en cuenta:
+Uninstalling the agent binaries from the machine has some consequences to consider:
 
-- Elimina el filtro de archivos de la máquina y se detiene el seguimiento de los cambios.
-- Se elimina toda la información de directivas de la máquina, pero continúa almacenada en el servicio.
-- Se eliminan todas las programaciones de copia de seguridad y no se realizan más copias de seguridad.
+- It removes the file-filter from the machine, and tracking of changes is stopped.
+- All policy information is removed from the machine, but the policy information continues to be stored in the service.
+- All backup schedules are removed, and no further backups are taken.
 
-Sin embargo, los datos almacenados en Azure permanecen y se mantienen de acuerdo con la configuración de la directiva de retención establecida por usted. Los puntos más antiguos vencen automáticamente.
+However, the data stored in Azure remains and is retained as per the retention policy setup by you. Older points are automatically aged out.
 
-## Administración remota
-Toda la administración relacionada con el agente, las políticas y los orígenes de datos de Copia de seguridad de Azure puede realizarse de forma remota mediante PowerShell. La máquina que se administrará de forma remota debe estar preparada correctamente.
+## <a name="remote-management"></a>Remote management
+All the management around the Azure Backup agent, policies, and data sources can be done remotely through PowerShell. The machine that will be managed remotely needs to be prepared correctly.
 
-De forma predeterminada, el servicio WinRM está configurado para iniciarse manualmente. El tipo de inicio debe establecerse en *Automatic* y se debe iniciar el servicio. Para comprobar que el servicio WinRM se está ejecutando, el valor de la propiedad Status debe ser *Running*.
+By default, the WinRM service is configured for manual startup. The startup type must be set to *Automatic* and the service should be started. To verify that the WinRM service is running, the value of the Status property should be *Running*.
 
 ```
 PS C:\> Get-Service WinRM
@@ -570,7 +571,7 @@ Status   Name               DisplayName
 Running  winrm              Windows Remote Management (WS-Manag...
 ```
 
-PowerShell debe configurarse para la comunicación remota.
+PowerShell should be configured for remoting.
 
 ```
 PS C:\> Enable-PSRemoting -force
@@ -581,7 +582,7 @@ WinRM firewall exception enabled.
 PS C:\> Set-ExecutionPolicy unrestricted -force
 ```
 
-La máquina puede ahora administrarse de forma remota: empezando por la instalación del agente. Por ejemplo, el script siguiente copia al agente en la máquina remota y lo instala.
+The machine can now be managed remotely - starting from the installation of the agent. For example, the following script copies the agent to the remote machine and installs it.
 
 ```
 PS C:\> $dloc = "\\REMOTESERVER01\c$\Windows\Temp"
@@ -593,10 +594,14 @@ PS C:\> $s = New-PSSession -ComputerName REMOTESERVER01
 PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePath $d $a -Wait } -ArgumentList $agent $args
 ```
 
-## Pasos siguientes
-Para obtener más información sobre Copia de seguridad de Azure para Windows Server o cliente de Windows, consulte
+## <a name="next-steps"></a>Next steps
+For more information about Azure Backup for Windows Server/Client see
 
-- [Introducción a la Copia de seguridad de Azure](backup-introduction-to-azure-backup.md)
-- [Copia de seguridad de servidores Windows](backup-configure-vault.md)
+- [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
+- [Back up Windows Servers](backup-configure-vault.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

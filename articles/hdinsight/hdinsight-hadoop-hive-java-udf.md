@@ -16,11 +16,12 @@ ms.workload="big-data"
 ms.date="09/27/2016"
 ms.author="larryfr"/>
 
-#Utilización de una función definida por el usuario de Java con Hive en HDInsight
+
+#<a name="use-a-java-udf-with-hive-in-hdinsight"></a>Utilización de una función definida por el usuario de Java con Hive en HDInsight
 
 Hive resulta excelente para trabajar con datos en HDInsight pero, en ocasiones, se necesita un lenguaje con una finalidad más general. Hive le permite crear funciones definidas por el usuario (UDF) mediante diversos lenguajes de programación. En este documento, aprenderá a usar una función definida por el usuario de Java en Hive.
 
-## Requisitos
+## <a name="requirements"></a>Requisitos
 
 * Una suscripción de Azure
 
@@ -36,7 +37,7 @@ Hive resulta excelente para trabajar con datos en HDInsight pero, en ocasiones, 
 
     > [AZURE.IMPORTANT] Si está utilizando un servidor HDInsight basado en Linux, pero creará los archivos de Python en un cliente Windows, debe utilizar un editor que utilice LF como final de línea. Si no está seguro de si el editor utiliza LF o CRLF, consulte la sección [Solución de problemas](#troubleshooting) para conocer los pasos que debe realizar para quitar el carácter CR con las utilidades del clúster de HDInsight.
 
-## Creación de una función definida por el usuario de ejemplo
+## <a name="create-an-example-udf"></a>Creación de una función definida por el usuario de ejemplo
 
 1. Desde una línea de comandos, utilice lo siguiente para crear un nuevo proyecto de Maven:
 
@@ -65,7 +66,7 @@ Hive resulta excelente para trabajar con datos en HDInsight pero, en ocasiones, 
             </dependency>
         </dependencies>
 
-    Estas entradas especifican la versión de Hadoop y Hive incluida con los clústeres de HDInsight 3.3 y 3.4. Puede encontrar información sobre las versiones de Hadoop y Hive proporcionadas con HDInsight en el artículo [¿Cuáles son los diferentes componentes de Hadoop disponibles con HDInsight?](hdinsight-component-versioning.md).
+    Estas entradas especifican la versión de Hadoop y Hive incluida con los clústeres de HDInsight 3.3 y 3.4. Puede encontrar información sobre las versiones de Hadoop y Hive proporcionadas con HDInsight en el artículo [¿Cuáles son los diferentes componentes de Hadoop disponibles con HDInsight?](hdinsight-component-versioning.md) .
 
     Agregue una sección `<build>` antes de la línea `</project>` al final del archivo. Esta sección debe contener lo siguiente:
 
@@ -152,7 +153,7 @@ Hive resulta excelente para trabajar con datos en HDInsight pero, en ocasiones, 
 
     Esto implementa una función definida por el usuario que acepta un valor de cadena y devuelve una versión en minúsculas de esta.
 
-## Compilación e instalación de la función definida por el usuario
+## <a name="build-and-install-the-udf"></a>Compilación e instalación de la función definida por el usuario
 
 1. Utilice el siguiente comando para compilar y empaquetar la función definida por el usuario:
 
@@ -166,7 +167,7 @@ Hive resulta excelente para trabajar con datos en HDInsight pero, en ocasiones, 
 
     Reemplace __myuser__ por la cuenta de usuario SSH del clúster. Reemplace __mycluster__ por el nombre del clúster. Si usó una contraseña para proteger la cuenta SSH, se le pedirá que escriba la contraseña. Si utilizó un certificado, tal vez tenga que usar el parámetro `-i` para especificar el archivo de claves privadas.
 
-3. Conéctese al clúster con SSH.
+3. Conéctese al clúster con SSH. 
 
         ssh myuser@mycluster-ssh.azurehdinsight.net
 
@@ -180,7 +181,7 @@ Hive resulta excelente para trabajar con datos en HDInsight pero, en ocasiones, 
 
         hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars
 
-## Uso de la función definida por el usuario desde Hive
+## <a name="use-the-udf-from-hive"></a>Uso de la función definida por el usuario desde Hive
 
 1. Use lo siguiente para iniciar el cliente Beeline desde la sesión SSH.
 
@@ -188,7 +189,7 @@ Hive resulta excelente para trabajar con datos en HDInsight pero, en ocasiones, 
 
     Este comando supone que usó el valor predeterminado de __admin__ para la cuenta de inicio de sesión del clúster.
 
-2. Una vez alcanzado el aviso `jdbc:hive2://localhost:10001/>`, escriba lo siguiente para agregar la función definida por el usuario a Hive y exponerla como una función.
+2. Una vez alcanzado el aviso `jdbc:hive2://localhost:10001/>` , escriba lo siguiente para agregar la función definida por el usuario a Hive y exponerla como una función.
 
         ADD JAR wasbs:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
         CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
@@ -214,10 +215,14 @@ Hive resulta excelente para trabajar con datos en HDInsight pero, en ocasiones, 
         | android  |
         +----------+--+
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para conocer otras formas de trabajar con Hive, consulte [Usar Hive y HiveQL con Hadoop en HDInsight para analizar un archivo log4j de Apache de muestra](hdinsight-use-hive.md).
 
 Para más información sobre las funciones definidas por el usuario de Hive, consulte la sección [Hive Operators and User-Defined Functions](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) (Operadores de Hive y funciones definidas por el usuario) de la wiki de Hive en apache.org.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

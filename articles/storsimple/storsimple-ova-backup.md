@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Tutorial de copia de seguridad de la matriz virtual de StorSimple | Microsoft Azure"
-   description="Describe cómo realizar copias de seguridad de recursos compartidos y volúmenes de la matriz virtual de StorSimple."
+   pageTitle="StorSimple Virtual Array backup tutorial | Microsoft Azure"
+   description="Describes how to back up StorSimple Virtual Array shares and volumes."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,93 +15,98 @@
    ms.date="06/07/2016"
    ms.author="alkohli" />
 
-# Crear una copia de seguridad de la matriz virtual de StorSimple
 
-## Información general 
+# <a name="back-up-your-storsimple-virtual-array"></a>Back up your StorSimple Virtual Array
 
-Este tutorial se aplica a la matriz virtual de Microsoft Azure StorSimple (también conocida como dispositivo virtual local de StorSimple o dispositivo virtual de StorSimple) que se ejecuta en la versión de disponibilidad general de marzo de 2016 o versiones posteriores.
+## <a name="overview"></a>Overview 
 
-La matriz virtual de StorSimple es un dispositivo virtual local de almacenamiento en nube híbrida que se puede configurar como servidor de archivos o servidor iSCSI. Puede crear copias de seguridad, restaurar copias de seguridad y realizar la conmutación por error de dispositivos si se necesita recuperación ante desastres. Cuando se configura como servidor de archivos, también permite la recuperación a nivel de elemento. En este tutorial se describe cómo usar el portal clásico de Azure o la interfaz de usuario web de StorSimple para crear copias de seguridad programadas y manuales de la matriz virtual de StorSimple.
+This tutorial applies to the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running March 2016 general availability (GA) release or later versions.
+
+The StorSimple Virtual Array is a hybrid cloud storage on-premises virtual device that can be configured as a file server or an iSCSI server. It can create backups, restore from backups, and perform device failover if disaster recovery is needed. When configured as a file server, it also allows item-level recovery. This tutorial describes how to use the Azure classic portal or the StorSimple web UI to create scheduled and manual backups of your StorSimple Virtual Array.
 
 
-## Hacer copias de seguridad de recursos compartidos y volúmenes
+## <a name="back-up-shares-and-volumes"></a>Back up shares and volumes
 
-Las copias de seguridad proporcionan seguridad a partir de un momento específico y mejoran la capacidad de recuperación, al mismo tiempo que reducen los tiempos de restauración de recursos compartidos y volúmenes. Puede hacer una copia de seguridad de un recurso compartido o de un volumen de su dispositivo StorSimple de dos maneras: **Programada** o **Manual**. En las siguientes secciones se detallan cada uno de los métodos.
+Backups provide point-in-time protection, improve recoverability, and minimize restore times for shares and volumes. You can back up a share or volume on your StorSimple device in two ways: **Scheduled** or **Manual**. Each of the methods is discussed in the following sections.
 
-> [AZURE.NOTE] En esta versión, se crean copias de seguridad programadas mediante una directiva predeterminada que se ejecuta diariamente a la hora especificada y hace una copia de seguridad de todos los recursos compartidos o volúmenes en el dispositivo. No es posible crear directivas personalizadas para copias de seguridad programadas en este momento.
+> [AZURE.NOTE] In this release, scheduled backups are created by a default policy that runs daily at a specified time and backs up all the shares or volumes on the device. It is not possible to create custom policies for scheduled backups at this time.
 
-## Establecer la programación de copias de seguridad
+## <a name="change-the-backup-schedule"></a>Change the backup schedule
 
-El dispositivo virtual StorSimple tiene una directiva de copia de seguridad predeterminada que se inicia a una hora determinada del día (22:30) y hace una copia de seguridad de todos los recursos compartidos o volúmenes en el dispositivo una vez al día. Puede cambiar la hora a la que se inicia la copia de seguridad, pero no puede cambiar la frecuencia y la retención (que especifica el número de copias de seguridad para conservar). Durante estas copias de seguridad, se copia todo el dispositivo virtual; por lo tanto, recomendamos que programe estas copias de seguridad durante horas de poca actividad.
+Your StorSimple virtual device has a default backup policy that starts at a specified time of day (22:30) and backs up all the shares or volumes on the device once a day. You can change the time at which the backup starts, but the frequency and the retention (which specifies the number of backups to retain) cannot be changed. During these backups, the entire virtual device is backed up; therefore, we recommend that you schedule these backups for off-peak hours.
 
-Siga estos pasos en el [Portal de Azure clásico](https://manage.windowsazure.com/) para cambiar la hora de inicio predeterminada de las copias de seguridad.
+Perform the following steps in the [Azure classic portal](https://manage.windowsazure.com/) to change the default backup start time.
 
-#### Para cambiar la hora de inicio para la directiva de copia de seguridad predeterminada
+#### <a name="to-change-the-start-time-for-the-default-backup-policy"></a>To change the start time for the default backup policy
 
-1. Vaya a la pestaña **Configuración** del dispositivo.
+1. Navigate to the device **Configuration** tab.
 
-2. En la sección **Copia de seguridad**, especifique la hora de inicio de la copia de seguridad diaria.
+2. Under the **Backup** section, specify the start time for the daily backup.
 
-3. Haga clic en **Guardar**.
+3. Click **Save**.
 
-### Creación de una copia de seguridad manual
+### <a name="take-a-manual-backup"></a>Take a manual backup
 
-Además de las copias de seguridad programadas, puede crear una copia de seguridad manual (a petición) en cualquier momento.
+In addition to scheduled backups, you can take a manual (on-demand) backup at any time.
 
-#### Para crear una copia de seguridad manual (a petición)
+#### <a name="to-create-a-manual-(on-demand)-backup"></a>To create a manual (on-demand) backup
 
-1. Vaya a la pestaña **Recursos compartidos** o la pestaña **Volúmenes**.
+1. Navigate to the **Shares** tab or the **Volumes** tab.
 
-2. En la parte inferior de la página, haga clic en **Realizar copia de seguridad general**. Se le pedirá que verifique que desea realizar la copia de seguridad ahora. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-ova-backup/image3.png) para continuar con la copia de seguridad.
+2. At the bottom of the page, click **Backup all**. You will be prompted to verify that you would like to take the backup now. Click the check icon ![check icon](./media/storsimple-ova-backup/image3.png) to proceed with the backup.
 
-    ![confirmación de copia de seguridad](./media/storsimple-ova-backup/image4.png)
+    ![backup confirmation](./media/storsimple-ova-backup/image4.png)
 
-    Se le notificará que se está iniciando un trabajo de copia de seguridad.
+    You will be notified that a backup job is starting.
 
-    ![inicio de la copia de seguridad](./media/storsimple-ova-backup/image5.png)
+    ![backup starting](./media/storsimple-ova-backup/image5.png)
 
-    Recibirá una notificación cuando el trabajo se cree correctamente.
+    You will be notified that the job was created successfully.
 
-    ![trabajo de copia de seguridad creado](./media/storsimple-ova-backup/image7.png)
+    ![backup job created](./media/storsimple-ova-backup/image7.png)
 
-3. Para realizar un seguimiento del progreso del trabajo, haga clic en **Ver trabajo**.
+3. To track the progress of the job, click **View Job**.
 
-4. Una vez finalizado el trabajo de copia de seguridad, vaya a la pestaña **Catálogo de copia de seguridad**. Debería ver la copia de seguridad completada.
+4. After the backup job is finished, go to the **Backup catalog** tab. You should see your completed backup.
 
-    ![Copia de seguridad completada](./media/storsimple-ova-backup/image8.png)
+    ![Completed backup](./media/storsimple-ova-backup/image8.png)
 
-5. Establezca las selecciones de filtro en el dispositivo, la directiva de copia de seguridad y el intervalo de tiempo adecuados y, a continuación, haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-ova-backup/image3.png).
+5. Set the filter selections to the appropriate device, backup policy, and time range, and then click the check icon ![check icon](./media/storsimple-ova-backup/image3.png).
 
-    La copia de seguridad debe aparecer en la lista de conjuntos de copia de seguridad que se muestra en el catálogo.
+    The backup should appear in the list of backup sets that is displayed in the catalog.
 
-## Ver copias de seguridad existentes
+## <a name="view-existing-backups"></a>View existing backups
 
-Siga estos pasos en el Portal de Azure clásico para ver las copias de seguridad existentes.
+Perform the following steps in the Azure classic portal to view the existing backups.
 
-#### Para ver copias de seguridad existentes
+#### <a name="to-view-existing-backups"></a>To view existing backups
 
-1. En la página del servicio de Administrador de StorSimple, haga clic en la pestaña **Catálogo de copias de seguridad**.
+1. On the StorSimple Manager service page, click the **Backup catalog** tab.
 
-2. Seleccione una copia de seguridad de la siguiente manera:
+2. Select a backup set as follows:
 
-    1. Seleccione el dispositivo.
+    1. Select the device.
 
-    2. En la lista desplegable, seleccione el recurso compartido o el volumen para la copia de seguridad que desea seleccionar.
+    2. In the drop-down list, choose the share or volume for the backup that you wish to select.
 
-    3. Especifique el intervalo de tiempo.
+    3. Specify the time range.
 
-    4. Haga clic en el icono de marca de verificación ![](./media/storsimple-ova-backup/image3.png) para ejecutar esta consulta.
+    4. Click the check icon ![](./media/storsimple-ova-backup/image3.png) to execute this query.
 
-    Las copias de seguridad asociadas al recurso compartido o al volumen seleccionado deben aparecer en la lista de conjuntos de copias de seguridad.
+    The backups associated with the selected share or volume should appear in the list of backup sets.
 
-![video\_icon](./media/storsimple-ova-backup/video_icon.png) **Vídeo disponible**
+![video_icon](./media/storsimple-ova-backup/video_icon.png) **Video available**
 
-Consulte este vídeo para ver cómo puede crear recursos compartidos, realizar copias de seguridad de los recursos compartidos y restaurar datos en una matriz virtual de StorSimple.
+Watch the video to see how you can create shares, back up shares, and restore data on a StorSimple Virtual Array.
 
 > [AZURE.VIDEO use-the-storsimple-virtual-array]
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-Más información sobre la [administración de la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
+Learn more about [administering your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

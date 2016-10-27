@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Contadores de rendimiento para Shard Map Manager"
-    description="Clase ShardMapManager y contadores de rendimiento de enrutamiento dependiente de los datos"
+    pageTitle="Performance counters for shard map manager"
+    description="ShardMapManager class and data dependent routing performance counters"
     services="sql-database"
     documentationCenter=""
     manager="jhubbard"
@@ -16,61 +16,67 @@
     ms.date="05/23/2016"
     ms.author="SilviaDoomra"/>
 
-# Contadores de rendimiento para Shard Map Manager
 
-Puede capturar el rendimiento de una instancia de [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md), en especial cuando se utiliza [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md). Los contadores se crean con métodos de la clase Microsoft.Azure.SqlDatabase.ElasticScale.Client.
+# <a name="performance-counters-for-shard-map-manager"></a>Performance counters for shard map manager
 
-Los contadores se utilizan para supervisar el rendimiento de operaciones de [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md). Dichos contadores son accesibles en el Monitor de rendimiento, en la categoría "Base de datos elástica: Administración de particiones".
+You can capture the performance of a [shard map manager](sql-database-elastic-scale-shard-map-management.md), especially when using [data dependent routing](sql-database-elastic-scale-data-dependent-routing.md). Counters are created with methods of the Microsoft.Azure.SqlDatabase.ElasticScale.Client class.  
 
-**Para obtener la versión más reciente:** vaya a [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Consulte también [Actualización de una aplicación para usar la biblioteca de cliente de base de datos elástica más reciente](sql-database-elastic-scale-upgrade-client-library.md).
+Counters are used to track the performance of [data dependent routing](sql-database-elastic-scale-data-dependent-routing.md) operations. These counters are accessible in the Performance Monitor, under the "Elastic Database: Shard Management" category.
 
-## Requisitos previos
+**For the latest version:** Go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). See also [Upgrade an app to use the latest elastic database client library](sql-database-elastic-scale-upgrade-client-library.md).
 
-* Para crear la categoría y los contadores de rendimiento, el usuario debe formar parte del grupo **Administradores** local en el equipo que hospeda la aplicación.  
+## <a name="prerequisites"></a>Prerequisites
 
-* Para crear una instancia de contador de rendimiento y actualizar los contadores, el usuario debe ser miembro del grupo **Administradores** o del grupo **Usuarios del monitor de sistema**.
+* To create the performance category and counters, the user must be a part of the local **Administrators** group on the machine hosting the application.  
 
-## Creación de la categoría y los contadores de rendimiento 
+* To create a performance counter instance and update the counters, the user must be a member of either the **Administrators** or **Performance Monitor Users** group. 
 
-Para crear los contadores, llame al método CreatePeformanceCategoryAndCounters de la [ clase ShardMapManagmentFactory](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Solo un administrador puede ejecutar el método:
+## <a name="create-performance-category-and-counters"></a>Create performance category and counters 
 
-	ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
+To create the counters, call the CreatePeformanceCategoryAndCounters method of the [ShardMapManagmentFactory class](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Only an administrator can execute the method: 
 
-También puede usar [este](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) script de PowerShell para ejecutar el método. El método crea los siguientes contadores de rendimiento:
+    ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 
-* **Cached mappings** (Asignaciones en caché): número de asignaciones almacenadas en caché para el mapa de particiones.
-*  **DDR operations/sec** (Operaciones de DDR/s): tasa de operaciones de enrutamiento dependientes de los datos para el mapa de particiones. Este contador se actualiza cuando una llamada a [OpenConnectionForKey()](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) da lugar a una conexión correcta a la partición de destino. 
-*  **Mapping lookup cache hits/sec** (Aciertos/s de caché de búsqueda de asignaciones): tasa de operaciones correctas de búsqueda en la caché de asignaciones en el mapa de particiones. 
-*  **Mapping lookup cache misses/sec** (Errores/s de caché de búsqueda de asignaciones): tasa de operaciones erróneas de búsqueda en la caché de asignaciones en el mapa de particiones.
-*  **Mappings added or updated in cache/sec** (Asignaciones agregadas o actualizadas en la caché/s): velocidad a la que se agregan o actualizan las asignaciones en la caché en el mapa de particiones. 
-*  **Mappings removed from cache/sec** (Asignaciones eliminadas de la caché/s): velocidad a la que se eliminan las asignaciones de la caché en el mapa de particiones. 
+You can also use [this](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) PowerShell script to execute the method. The method creates the following performance counters:  
 
-Los contadores de rendimiento se crean para cada mapa de particiones en caché por proceso.
+* **Cached mappings**: Number of mappings cached for the shard map.
+*  **DDR operations/sec**: Rate of data dependent routing operations for the shard map. This counter is  updated when a call to [OpenConnectionForKey()](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) results in a successful connection to the destination shard. 
+*  **Mapping lookup cache hits/sec**: Rate of successful cache lookup operations for mappings in the shard map. 
+*  **Mapping lookup cache misses/sec**: Rate of failed cache lookup operations for mappings in the shard map.
+*  **Mappings added or updated in cache/sec**: Rate at which mappings are being added or updated in cache for the shard map. 
+*  **Mappings removed from cache/sec**: Rate at which mappings are being removed from cache for the shard map. 
+
+Performance counters are created for each cached shard map per process.  
 
 
-## Notas
-Los siguientes eventos desencadenan la creación de los contadores de rendimiento:
+## <a name="notes"></a>Notes
+The following events trigger the creation of the performance counters:  
 
-* Inicialización de [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) con [eager loading](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy.aspx), si ShardMapManager no contiene ningún mapa de particiones. Aquí se incluyen los métodos [GetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx?f=255&MSPPError=-2147217396#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerFactory.GetSqlShardMapManager%28System.String,Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerLoadPolicy%29) y [TryGetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx).
-* Búsqueda correcta de un mapa de particiones (mediante [GetShardMap()](https://msdn.microsoft.com/library/azure/dn824215.aspx), [GetListShardMap()](https://msdn.microsoft.com/library/azure/dn824212.aspx) o [GetRangeShardMap()](https://msdn.microsoft.com/library/azure/dn824173.aspx)). 
+* Initialization of the [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) with [eager loading](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy.aspx), if the ShardMapManager contains any shard maps. These include the [GetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx?f=255&MSPPError=-2147217396#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerFactory.GetSqlShardMapManager%28System.String,Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerLoadPolicy%29) and the [TryGetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx) methods.
+* Successful lookup of a shard map (using [GetShardMap()](https://msdn.microsoft.com/library/azure/dn824215.aspx), [GetListShardMap()](https://msdn.microsoft.com/library/azure/dn824212.aspx) or [GetRangeShardMap()](https://msdn.microsoft.com/library/azure/dn824173.aspx)). 
 
-* Creación correcta de un mapa de particiones con CreateShardMap().
+* Successful creation of shard map using CreateShardMap().
 
-Los contadores de rendimiento se actualizarán con todas las operaciones de caché realizadas en el mapa de particiones y las asignaciones. La eliminación correcta del mapa de particiones mediante DeleteShardMap() da lugar a la eliminación de la instancia de contadores de rendimiento.
+The performance counters will be updated by all cache operations performed on the shard map and mappings. Successful removal of the shard map using DeleteShardMap()reults in deletion of the performance counters instance.  
 
-## Prácticas recomendadas
+## <a name="best-practices"></a>Best practices
 
-* La creación de la categoría y los contadores de rendimiento debe realizarse una sola vez antes de la creación del objeto ShardMapManager. Cada ejecución del comando CreatePerformanceCategoryAndCounters() borra los contadores anteriores (se pierden los datos notificados por todas las instancias) y crea otros nuevos.  
+* Creation of the performance category and counters should be performed only once before the creation of ShardMapManager object. Every execution of the command CreatePerformanceCategoryAndCounters() clears the previous counters (losing data reported by all instances) and creates new ones.  
 
-* Las instancias de contadores de rendimiento se crean por proceso. Cualquier bloqueo de la aplicación o eliminación de un mapa de particiones de la caché da lugar a la eliminación de las instancias de contadores de rendimiento.
+* Performance counter instances are created per process. Any application crash or removal of a shard map from the cache will result in deletion of the performance counters instances.  
 
-### Consulte también
+### <a name="see-also"></a>See also
 
-[Información general de las características de bases de datos elásticas](sql-database-elastic-scale-introduction.md)
+[Elastic Database features overview](sql-database-elastic-scale-introduction.md)  
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Anchors-->
 <!--Image references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

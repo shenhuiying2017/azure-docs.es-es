@@ -1,14 +1,17 @@
-En la tabla siguiente se enumeran las cuotas y los límites específicos de los Centros de eventos de Azure. Para más información sobre los Centros de eventos, consulte [Información general de los centros de eventos](https://azure.microsoft.com/pricing/details/event-hubs/). Para obtener información sobre los precios y otras cuotas de Bus de servicio, consulte la información general sobre los [precios de Bus de servicio](https://azure.microsoft.com/pricing/details/service-bus/).
+The following table lists quotas and limits specific to Azure Event Hubs. For more information about Event Hubs, see [Event Hubs Pricing](https://azure.microsoft.com/pricing/details/event-hubs/). For information about pricing and other quotas for Service Bus, see the [Service Bus Pricing](https://azure.microsoft.com/pricing/details/service-bus/) overview.
 
-| Límite | Scope | Tipo | Comportamiento cuando se supera | Valor |
+| Limit                                            | Scope       | Type   | Behavior when exceeded                                                                                                 | Value    |
 |--------------------------------------------------|-------------|--------|------------------------------------------------------------------------------------------------------------------------|----------|
-| Número de Centros de eventos por espacio de nombres | Espacio de nombres | Estática | Se rechazarán las solicitudes posteriores para la creación de un nuevo espacio de nombres. | 10 |
-| Número de particiones por Centro de eventos | Entidad | Estático | - | 32 |
-| Número de grupos de consumidores por Centro de eventos | Entidad | Estático | - | 20 |
-| Número de conexiones AMQP por espacio de nombres | Espacio de nombres | Estático | Se rechazarán las solicitudes posteriores de conexiones adicionales y el código de llamada recibirá una excepción. | 5000 |
-| Tamaño máximo del evento | Todo el sistema | Estático | - | 256KB |
-| Número de destinatarios no de época por grupo de consumidores | Entidad | Estático | - | 5 |
-| Período máximo de retención de datos de evento | Entidad | Estático | - | 1-7 días |
-| Unidades de rendimiento máximas | Espacio de nombres | Estático | La superación del límite de unidades de rendimiento hará que los datos se limiten y generen **ServerBusyException**. Puede solicitar un número mayor de unidades de rendimiento para el nivel Estándar; para ello, rellene una incidencia de soporte técnico. Las unidades de rendimiento adicionales se encuentran disponibles en bloques de 20 y están sujetas a un compromiso de compra. | 20 |
+| Number of Event Hubs per namespace               | Namespace   | Static | Subsequent requests for creation of a new namespace will be rejected.                                                  | 10       |
+| Number of partitions per Event Hub               | Entity      | Static |  -                                                                                                                      | 32       |
+| Number of consumer groups per Event Hub          | Entity      | Static |  -                                                                                                                      | 20       |
+| Number of AMQP connections per namespace         | Namespace   | Static | Subsequent requests for additional connections will be rejected and an exception will be received by the calling code. | 5,000    |
+| Maximum event size                               | System-wide | Static |  -                                                                                                                      | 256KB    |
+| Number of non-epoch receivers per consumer group | Entity      | Static |  -                                                                                                                      | 5        |
+| Maximum retention period of event data           | Entity      | Static |  -                                                                                                                      | 1-7 days |
+| Maximum throughput units           | Namespace      | Static | Exceeding the throughput unit limit will cause your data to be throttled and generate a **ServerBusyException**. You can request a larger number of throughput units for a Standard tier by filing a support ticket. Additional throughput units are available in blocks of twenty on a committed purchase basis.                                                                                                                       | 20 |
 
-<!---HONumber=AcomDC_0615_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
- pageTitle="Escalado del Centro de IoT de Azure | Microsoft Azure"
- description="Describe cómo escalar el Centro de IoT de Azure."
+ pageTitle="Azure IoT Hub scaling | Microsoft Azure"
+ description="Describes how to scale Azure IoT Hub."
  services="iot-hub"
  documentationCenter=""
  authors="fsautomata"
@@ -16,61 +16,56 @@
  ms.date="09/19/2016"
  ms.author="elioda"/>
 
-# Escalado del Centro de IoT
 
-El Centro de IoT de Azure puede admitir hasta un millón de dispositivos conectados simultáneamente. Para más información, vea [Precios del Centro de IoT][lnk-pricing]. Cada unidad de IoT Hub permite un número determinado de mensajes diarios.
+# <a name="scaling-iot-hub"></a>Scaling IoT Hub
 
-Para escalar correctamente su solución, debe tener en cuenta el uso particular que haga de IoT Hub. En concreto, tenga en cuenta la capacidad de procesamiento máxima requerida para las siguientes categorías de operaciones:
+Azure IoT Hub can support up to a million simultaneously connected devices. For more information, see [IoT Hub pricing][lnk-pricing]. Each IoT Hub unit allows a certain number of daily messages.
 
-* Mensajes de dispositivo a nube
-* Mensajes de nube a dispositivo
-* Operaciones de registro de identidad
+To properly scale your solution, consider your particular use of IoT Hub. In particular, consider the required peak throughput for the following categories of operations:
 
-Además de esta información sobre la capacidad de procesamiento, vea [Cuotas y limitaciones del Centro de IoT][] y diseñe su solución en consecuencia.
+* Device-to-cloud messages
+* Cloud-to-device messages
+* Identity registry operations
 
-## Capacidad de procesamiento para los mensajes de dispositivo a nube y de nube a dispositivo
+In addition to this throughput information, see [IoT Hub quotas and throttles][] and design your solution accordingly.
 
-La mejor forma de dimensionar una solución de Centro de IoT es evaluar el tráfico en cada dispositivo.
+## <a name="device-to-cloud-and-cloud-to-device-message-throughput"></a>Device-to-cloud and cloud-to-device message throughput
 
-Los mensajes de dispositivo a nube siguen estas directrices de capacidad de procesamiento sostenida.
+The best way to size an IoT Hub solution is to evaluate the traffic on a per-unit basis.
 
-| Nivel: | Capacidad de procesamiento sostenida | Velocidad de envío sostenida |
+Device-to-cloud messages follow these sustained throughput guidelines.
+
+| Tier | Sustained throughput | Sustained send rate |
 | ---- | -------------------- | ------------------- |
-| S1 | Hasta 1111 KB/minuto por unidad<br/>(1,5 GB/día/unidad) | Promedio de 278 mensajes/minuto por unidad<br/>(400 000 mensajes/día por unidad) |
-| S2 | Hasta 16 MB/minuto por unidad<br/>(22,8 GB/día/unidad) | Promedio de 4167 mensajes/minuto por unidad<br/>(6 millones de mensajes/día por unidad) |
-| S3 | Hasta 814 MB/minuto por unidad<br/>(1144,4 GB/día/unidad) | Promedio de 208.333 mensajes/minuto por unidad<br/>(300 millones de mensajes/día por unidad) |
+| S1 | Up to 1111 KB/minute per unit<br/>(1.5 GB/day/unit) | Average of 278 messages/minute per unit<br/>(400,000 messages/day per unit) |
+| S2 | Up to 16 MB/minute per unit<br/>(22.8 GB/day/unit) | Average of 4167 messages/minute per unit<br/>(6 million messages/day per unit) |
+| S3 | Up to 814 MB/minute per unit<br/>(1144.4 GB/day/unit) | Average of 208,333 messages/minute per unit<br/>(300 million messages/day per unit) |
 
-## Capacidad de procesamiento para las operaciones de registro de identidad
+## <a name="identity-registry-operation-throughput"></a>Identity registry operation throughput
 
-Las operaciones de registro de identidad del Centro de IoT no deberían ser operaciones en tiempo de ejecución porque tienen que ver principalmente con el aprovisionamiento de dispositivos.
+IoT Hub identity registry operations are not supposed to be runtime operations, as they are mostly related to device provisioning.
 
-Vea las cifras de rendimiento de ráfaga específicas en [Cuotas y limitaciones del Centro de IoT][].
+For specific burst performance numbers, see [IoT Hub quotas and throttles][].
 
-## Clave de particionamiento
+## <a name="sharding"></a>Sharding
 
-Aunque un único Centro de IoT puede escalarse a millones de dispositivos, a veces la solución requiere características de rendimiento específicas que un único Centro de IoT no puede garantizar. En ese caso, se recomienda realizar particiones de los dispositivos en varios centros de IoT. Varios centros de IoT suavizan las ráfagas de tráfico y obtienen el rendimiento necesario o las velocidades de funcionamiento necesarias.
+While a single IoT hub can scale to millions of devices, sometimes your solution requires specific performance characteristics that a single IoT hub cannot guarantee. In that case, it is recommended that you partition your devices into multiple IoT hubs. Multiple IoT hubs smooth traffic bursts and obtain the required throughput or operation rates that are required.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+To further explore the capabilities of IoT Hub, see:
 
-- [Guía del desarrollador][lnk-devguide]
-- [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
-- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
-- [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
+- [Developer guide][lnk-devguide]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[Cuotas y limitaciones del Centro de IoT]: iot-hub-devguide.md#throttling
+[IoT Hub quotas and throttles]: iot-hub-devguide-quotas-throttling.md
 
-[lnk-design]: iot-hub-guidance.md
-[lnk-mqtt]: iot-hub-mqtt-support.md
-[lnk-devices]: iot-hub-tested-configurations.md
-[lnk-protocols]: iot-hub-protocol-gateway.md
-[lnk-compare]: iot-hub-compare-event-hubs.md
-[lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,13 +1,19 @@
-### Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
-- Una cuenta de [RSS](https://wikipedia.org/wiki/RSS).  
+- An [RSS](https://wikipedia.org/wiki/RSS) account  
 
 
-Antes de poder usar la cuenta de RSS en una aplicación lógica, debe autorizar a la aplicación lógica a conectarse a dicha cuenta. Por suerte, esto se puede hacer fácilmente dentro de la aplicación lógica en el Portal de Azure.
+Before you can use your RSS account in a Logic app, you must authorize the Logic app to connect to your RSS account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.  
 
-Aquí se explica cómo autorizar a la aplicación lógica para conectarse a su cuenta de RSS:
-1. Para crear una conexión a RSS, en el diseñador de aplicaciones lógicas, seleccione **Show Microsoft managed APIs** (Mostrar API administradas por Microsoft) en la lista desplegable y, luego, escriba *RSS* en el cuadro de búsqueda. Seleccione el desencadenador o la acción que quiera usar: ![paso de creación de conexión de RSS](./media/connectors-create-api-rss/rss-1.png)  
-2. Seleccione **Crear conexión**: ![paso de creación de conexión de RSS](./media/connectors-create-api-rss/rss-2.png)  
-3. Observe que la conexión se ha creado y que puede continuar sin problemas con el resto de pasos en la aplicación lógica: ![paso de creación de conexión de RSS](./media/connectors-create-api-rss/rss-3.png)  
+Here are the steps to authorize your Logic app to connect to your RSS account:  
+1. To create a connection to RSS, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *RSS* in the search box. Select the trigger or action you'll like to use:  
+![RSS connection creation step](./media/connectors-create-api-rss/rss-1.png)  
+2. Select **Create connection** :  
+![RSS connection creation step](./media/connectors-create-api-rss/rss-2.png)  
+3. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
+ ![RSS connection creation step](./media/connectors-create-api-rss/rss-3.png)  
 
-<!---HONumber=AcomDC_0525_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

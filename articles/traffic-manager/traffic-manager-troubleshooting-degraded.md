@@ -1,83 +1,103 @@
 <properties
-   pageTitle="Solución de problemas de estado degradado en Administrador de tráfico de Azure"
-   description="Cómo solucionar problemas de perfiles de Administrador de tráfico cuando se muestra como muestra un estado degradado."
-   services="traffic-manager"
-   documentationCenter=""
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="joaoma" />
-
-<tags 
-   ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
-   ms.author="sewhee" />
-
-# Solución de problemas de estado degradado en el Administrador de tráfico de Azure
-
-En esta página se describirá cómo solucionar problemas del perfil del Administrador de tráfico de Azure, que muestra un estado degradado y proporcionar algunos puntos clave para entender los sondeos del administrador de tráfico.
-
-Ha configurado un perfil de Administrador de tráfico orientado a algunos de sus servicios hospedados cloudapp.net y, tras unos segundos, verá el estado como Degradado.
-
-![degradedstate](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degraded.png)
-
-Si accede a la ficha Extremos de ese perfil, verá uno o varios de los extremos en estado Sin conexión:
-
-![sin conexión](./media/traffic-manager-troubleshooting-degraded/traffic-manager-offline.png)
-
-## Notas importantes sobre los sondeos del Administrador de tráfico
-
-- Administrador de tráfico solo considera que un extremo está EN LÍNEA si el sondeo recibe un 200 desde la ruta de acceso del sondeo.
-- Un redireccionamiento 30x (o cualquier otra respuesta distinta de 200) producirá un error, incluso si la dirección URL a la que se ha efectuado el redireccionamiento devuelve un 200.
-
-- En los sondeos HTTPs, se omiten los errores de certificado.
- 
-- No importa el contenido real de la ruta de acceso del sondeo, siempre y cuando se devuelva 200. Una técnica común si el contenido del sitio web real no devuelve 200 (por ejemplo, si las páginas ASP efectúan un redireccionamiento a una página de inicio de sesión de ACS o alguna otra dirección URL de CNAME) consiste en establecer la ruta de acceso en algo similar a "/favicon.ico".
- 
-- El procedimiento recomendado es establecer la ruta de acceso del sondeo en algo que tenga una lógica suficiente para determinar si el sitio está activo o inactivo. En el ejemplo anterior, si la ruta de acceso se establece en "/favicon.ico", solamente estará probando si w3wp.exe responde, pero no si el sitio web está en buen estado. Una mejor opción sería establecer una ruta de acceso a algo como "/Probe.aspx" y dentro de Probe.aspx incluir lógica suficiente para determinar si su sitio es correcto (por ejemplo, comprobar los contadores de rendimiento para asegurarse de que no está utilizando el total de la capacidad de la CPU o recibiendo un gran número de solicitudes con error, intente obtener acceso a recursos, como el estado de la sesión o la base de datos para asegurarse de que la lógica de la aplicación funciona, etc.).
- 
-- Si se degradan todos los extremos de un perfil, Administrador de tráfico tratará todos los extremos como correctos y enrutará el tráfico a todos los extremos. Esto permite asegurarse de que cualquier posible problema con el mecanismo de sondeo que provoca la consideración de sondeos como incorrectos de manera errónea no ocasionará una interrupción completa del servicio.
-
-  
-
-## Solución de problemas
-
-Una herramienta para solucionar problemas de errores de sondeo de Administrador de tráfico es wget. Puede obtener los archivos binarios y el paquete de dependencias de [wget](http://gnuwin32.sourceforge.net/packages/wget.htm). Tenga en cuenta que puede utilizar otros programas como Fiddler o curl en lugar de wget (básicamente solo necesita algo que le mostrará la respuesta HTTP sin formato).
-
-Una vez que instale wget, vaya a un símbolo del sistema y ejecute wget en la dirección URL + el puerto y la ruta de acceso del sondeo que está configurado en el Administrador de tráfico. En este ejemplo sería http://watestsdp2008r2.cloudapp.net:80/Probe.
-
-![solución de problemas](./media/traffic-manager-troubleshooting-degraded/traffic-manager-troubleshooting.png)
-
-Uso de Wget:
-
-![wget](./media/traffic-manager-troubleshooting-degraded/traffic-manager-wget.png)
-
- 
-
-Tenga en cuenta que wget indica que la dirección URL devuelve un redireccionamiento 301 a http://watestsdp2008r2.cloudapp.net/Default.aspx. Como se obtiene de la sección "Notas importantes sobre los sondeos de Administrador de tráfico" anterior, un redireccionamiento 30x se considera un error por parte del sondeo del Administrador de tráfico y esto hará que el sondeo de informe de un estado sin conexión. En este punto es sencillo comprobar la configuración del sitio web y asegurarse de que la ruta de acceso /Probe devuelve 200 (o volver a configurar el sondeo de Administrador de tráfico para que señale a una ruta de acceso que devuelva 200).
-
- 
-
-Si el sondeo está usando el protocolo HTTPs, podrá agregar el parámetro "--no-check-certificate" a wget para que pase por alto la falta de coincidencia de certificados en la dirección URL de cloudapp.net.
+    pageTitle="Troubleshooting degraded status on Azure Traffic Manager"
+    description="How to troubleshoot Traffic Manager profiles when it shows as degraded status."
+    services="traffic-manager"
+    documentationCenter=""
+    authors="sdwheeler"
+    manager="carmonm"
+    editor=""
+/>
+<tags
+    ms.service="traffic-manager"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="10/11/2016"
+    ms.author="sewhee"
+/>
 
 
-## Pasos siguientes
+# <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Troubleshooting degraded state on Azure Traffic Manager
+
+This article describes how to troubleshoot an Azure Traffic Manager profile that is showing a degraded status. For this scenario, consider that you have configured a Traffic Manager profile pointing to some of your cloudapp.net hosted services. When you check the health of your traffic manager, you see that the Status is Degraded.
+
+![degraded state](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degraded.png)
+
+If you go into the Endpoints tab of that profile, you see one or more of the endpoints with an Offline status:
+
+![offline](./media/traffic-manager-troubleshooting-degraded/traffic-manager-offline.png)
+
+## <a name="understanding-traffic-manager-probes"></a>Understanding Traffic Manager probes
+
+- Traffic Manager considers an endpoint to be ONLINE only when the probe receives an HTTP 200 response back from the probe path. Any other non-200 response is a failure.
+- A 30x redirect fails, even if the redirected URL returns a 200.
+- For HTTPs probes, certificate errors are ignored.
+- The actual content of the probe path doesn't matter, as long as a 200 is returned. Probing a URL to some static content like "/favicon.ico" is a common technique. Dynamic content, like the ASP pages, may not always return 200, even when the application is healthy.
+- A best practice is to set the Probe path to something that has enough logic to determine that the site is up or down. In the previous example, by setting the path to "/favicon.ico", you are only testing that w3wp.exe is responding. This probe may not indicate that your web application is healthy. A better option would be to set a path to a something such as "/Probe.aspx" that has logic to determine the health of the site. For example, you could use performance counters to CPU utilization or measure the number of failed requests. Or you could attempt to access database resources or session state to make sure that the web application is working.
+- If all endpoints in a profile are degraded, then Traffic Manager treats all endpoints as healthy and routes traffic to all endpoints. This behavior ensures that problems with the probing mechanism do not result in a complete outage of your service.
+
+## <a name="troubleshooting"></a>Troubleshooting
+
+To troubleshoot a probe failure, you need a tool that shows the HTTP status code return from the probe URL. There are many tools available that show you the raw HTTP response.
+
+* [Fiddler](http://www.telerik.com/fiddler)
+* [curl](https://curl.haxx.se/)
+* [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
+
+Also, you can use the Network tab of the F12 Debugging Tools in Internet Explorer to view the HTTP responses.
+
+For this example we want to see the response from our probe URL: http://watestsdp2008r2.cloudapp.net:80/Probe. The following PowerShell example illustrates the problem.
+
+```powershell
+    Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription
+```
+
+Example output:
+
+```text
+    StatusCode StatusDescription
+    ---------- -----------------
+            301 Moved Permanently
+```
+
+Notice that we received a redirect response. As stated previously, any StatusCode other than 200 is considered a failure. Traffic Manager changes the endpoint status to Offline. To resolve the problem, check the website configuration to ensure that the proper StatusCode can be returned from the probe path. Reconfigure the Traffic Manager probe to point to a path that returns a 200.
+
+If your probe is using the HTTPS protocol, you may need to disable certificate checking to avoid SSL/TLS errors during your test. The following PowerShell statements disable certificate validation for the current PowerShell session:
+
+```powershell
+    add-type @"
+    using System.Net;
+    using System.Security.Cryptography.X509Certificates;
+    public class TrustAllCertsPolicy : ICertificatePolicy {
+        public bool CheckValidationResult(
+        ServicePoint srvPoint, X509Certificate certificate,
+        WebRequest request, int certificateProblem) {
+        return true;
+        }
+    }
+    "@
+    [System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+```
+
+## <a name="next-steps"></a>Next Steps
+
+[About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md)
+
+[What is Traffic Manager](traffic-manager-overview.md)
+
+[Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
+
+[Azure Web Apps](https://azure.microsoft.com/documentation/services/app-service/web/)
+
+[Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/?LinkId=313584)
+
+[Azure Traffic Manager Cmdlets][1]
+
+[1]: https://msdn.microsoft.com/library/mt125941(v=azure.200).aspx
 
 
-[Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](traffic-manager-routing-methods.md)
 
-[¿Qué es el Administrador de tráfico?](traffic-manager-overview.md)
+<!--HONumber=Oct16_HO2-->
 
-[Servicios en la nube](http://go.microsoft.com/fwlink/?LinkId=314074)
 
-[Sitios web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-[Operaciones del Administrador de tráfico (referencia de la API de REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
-
-[Cmdlets del Administrador de tráfico de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
- 
-
-<!---HONumber=AcomDC_0824_2016-->

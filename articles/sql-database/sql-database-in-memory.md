@@ -1,84 +1,85 @@
 <properties
-	pageTitle="Introducción a SQL In-Memory | Microsoft Azure"
-	description="Las tecnologías In-Memory de SQL mejoran notablemente el rendimiento de las cargas de trabajo de transacciones y de análisis. Aprenda a sacar partido de estas tecnologías."
-	services="sql-database"
-	documentationCenter=""
-	authors="jodebrui"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="SQL In-Memory, Get started | Microsoft Azure"
+    description="SQL In-Memory technologies greatly improve the performance of transactional and analytics workloads. Learn how to take advantage of these technologies."
+    services="sql-database"
+    documentationCenter=""
+    authors="jodebrui"
+    manager="jhubbard"
+    editor=""/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/29/2016"
-	ms.author="jodebrui"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/29/2016"
+    ms.author="jodebrui"/>
 
 
-# Introducción a In-Memory (vista previa) en Base de datos SQL
 
-Las características In-Memory mejoran notablemente el rendimiento de las cargas de trabajo de transacciones y de análisis en las situaciones adecuadas.
+# <a name="get-started-with-in-memory-(preview)-in-sql-database"></a>Get started with In-Memory (Preview) in SQL Database
 
-En este tema se resaltan dos demostraciones, una para In-Memory OLTP y otra para In-Memory Analytics. Cada demostración incluye los pasos y el código que se deben ejecutar. Puede:
+In-Memory features greatly improve the performance of transactional and analytics workloads in the right situations.
 
-- Usar el código para probar las variaciones con objeto de ver las diferencias en los resultados de rendimiento; o
-- Leer el código para entender el escenario y para ver cómo crear y usar los objetos de In-Memory.
+This topic emphasizes two demonstrations, one for In-Memory OLTP, and one for In-Memory Analytics. Each demo comes complete with the steps and code you would need to run the demo. You can either:
+
+- Use the code to test variations to see differences in performance results; or
+- Read the code to understand the scenario, and to see how to create and utilize the In-Memory objects.
 
 > [AZURE.VIDEO azure-sql-database-in-memory-technologies]
 
-- [Quick Start 1: In-Memory OLTP Technologies for Faster T-SQL Performance](http://msdn.microsoft.com/library/mt694156.aspx) (Inicio rápido 1: tecnologías OLTP en memoria para que T-SQL funcione de forma más rápida) es otro artículo que le ayudará a empezar a trabajar.
+- [Quick Start 1: In-Memory OLTP Technologies for Faster T-SQL Performance](http://msdn.microsoft.com/library/mt694156.aspx) - is another article to help you get started.
 
-#### In-Memory OLTP
+#### <a name="in-memory-oltp"></a>In-Memory OLTP
 
-Las características de In-Memory [OLTP](#install_oltp_manuallink) (procesamiento de transacciones en línea ) son:
+The features of In-Memory [OLTP](#install_oltp_manuallink) (online transaction processing) are:
 
-- Tablas con optimización para memoria
-- Procedimientos almacenados compilados de forma nativa.
-
-
-Una tabla con optimización para memoria tiene una representación de sí misma en la memoria activa, además de la representación estándar en un disco duro. Las transacciones de negocio en la tabla se ejecutan más rápido porque interactúan directamente solo con la representación que se encuentra en la memoria activa.
-
-Con In-Memory OLTP se pueden conseguir ganancias hasta 30 veces superiores en el rendimiento de las transacciones, según las particularidades de la carga de trabajo.
+- Memory-optimized tables.
+- Natively compiled stored procedures.
 
 
-Los procedimientos almacenados compilados de forma nativa requieren menos instrucciones de la máquina durante el tiempo de ejecución que los procedimientos almacenados interpretados tradicionales. Hemos visto resultados de la compilación nativa en duraciones que representan 1/100 de la duración interpretada.
+A memory-optimized table has one representation of itself in active memory, in addition to the standard representation on a hard drive. Business transactions against the table run faster because they directly interact with only the representation that is in active memory.
+
+With In-Memory OLTP, you can achieve up to 30 times gain in transaction throughput, depending on the specifics of the workload.
 
 
-#### In-Memory Analytics 
-
-La característica de In-Memory [Analytics](#install_analytics_manuallink) es:
-
-Los índices ColumnStore mejoran el rendimiento de las consultas de informes y análisis.
+Natively compiled stored procedures require fewer machine instructions during run time than traditional interpreted stored procedures. We have seen native compilation result in durations that are 1/100th of the interpreted duration.
 
 
-#### Real-Time Analytics
+#### <a name="in-memory-analytics"></a>In-Memory Analytics 
 
-Para [Real-Time Analytics](http://msdn.microsoft.com/library/dn817827.aspx), combine In-Memory OLTP y Analytics, y obtendrá:
+The feature of In-Memory [Analytics](#install_analytics_manuallink) is:
 
-- Conocimiento detallado empresarial en tiempo real en función de los datos operativos.
-
-
-#### Disponibilidad
+Columnstore indexes improve the performance of analytics and reporting queries. 
 
 
-GA, Disponibilidad general:
+#### <a name="real-time-analytics"></a>Real-Time Analytics
 
-- [Índices de almacén de columnas](http://msdn.microsoft.com/library/dn817827.aspx) que están *en disco*.
+For [Real-Time Analytics](http://msdn.microsoft.com/library/dn817827.aspx) you combine In-Memory OLTP and Analytics to get:
+
+- Real-time business insight based on operational data.
 
 
-Vista previa:
+#### <a name="availability"></a>Availability
+
+
+GA, General Availability:
+
+- [Columnstore indexes](http://msdn.microsoft.com/library/dn817827.aspx) that are *on-disk*.
+
+
+Preview:
 
 - In-Memory OLTP
 - Real-Time Operational Analytics
 
 
-[Más adelante en este tema](#preview_considerations_for_in_memory) se describen las consideraciones necesarias mientras las características de In-Memory se encuentren en versión preliminar.
+Considerations while the In-Memory features are in Preview are described [later in this topic](#preview_considerations_for_in_memory).
 
 
-> [AZURE.NOTE] Estas características que se encuentran en la versión preliminar solo están disponibles para Bases de datos SQL de Azure [*Premium*](sql-database-service-tiers.md), no para las bases de datos en el nivel de servicio Estándar o Básico.
+> [AZURE.NOTE] These in-Preview features are available only for [*Premium*](sql-database-service-tiers.md) Azure SQL databases, not for databases on the Standard or Basic service tier.
 
 
 
@@ -86,40 +87,40 @@ Vista previa:
 
 &nbsp;
 
-## R: Instalación del ejemplo de In-Memory OLTP.
+## <a name="a.-install-the-in-memory-oltp-sample"></a>A. Install the In-Memory OLTP sample
 
-La base de datos de ejemplo AdventureWorksLT [V12] se puede crear haciendo clic varias veces en el [Portal de Azure](https://portal.azure.com/). Después, los pasos de esta sección explican cómo puede mejorar la base de datos AdventureWorksLT con:
+You can create the AdventureWorksLT [V12] sample database by a few clicks in the [Azure portal](https://portal.azure.com/). Then the steps in this section explain how you can enrich your AdventureWorksLT database with:
 
-- Tablas de In-Memory.
-- Un procedimiento almacenado compilado de forma nativa.
+- In-Memory tables.
+- A natively compiled stored procedure.
 
 
-#### Pasos de instalación
+#### <a name="installation-steps"></a>Installation steps
 
-1. En el [Portal de Azure](https://portal.azure.com/), cree una base de datos Premium en un servidor V12. Establezca el **origen** en la base de datos de ejemplo de AdventureWorksLT [V12].
- - Para obtener instrucciones detalladas, consulte [Creación de la primera Base de datos SQL de Azure](sql-database-get-started.md).
+1. In the [Azure portal](https://portal.azure.com/), create a Premium database on a V12 server. Set the **Source** to the AdventureWorksLT [V12] sample database.
+ - For detailed instructions, you can see [Create your first Azure SQL database](sql-database-get-started.md).
 
-2. Conéctese a la base de datos con SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
+2. Connect to the database with SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
-3. Copie el [script Transact-SQL de In-Memory OLTP](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) en el Portapapeles.
- - El script T-SQL crea los objetos In-Memory necesarios en la base de datos de ejemplo AdventureWorksLT que se creó en el paso 1.
+3. Copy the [In-Memory OLTP Transact-SQL script](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) to your clipboard.
+ - The T-SQL script creates the necessary In-Memory objects in the AdventureWorksLT sample database you created in step 1.
 
-4. Pegue el script T-SQL en SSMS.exe y, luego, ejecútelo.
- - Es crucial la instrucción CREATE TABLE de la cláusula `MEMORY_OPTIMIZED = ON`, como en:
+4. Paste the T-SQL script into SSMS, and then execute the script.
+ - Crucial is the `MEMORY_OPTIMIZED = ON` clause CREATE TABLE statements, as in:
 
 
 ```
 CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
-	[SalesOrderID] int IDENTITY NOT NULL PRIMARY KEY NONCLUSTERED ...,
-	...
+    [SalesOrderID] int IDENTITY NOT NULL PRIMARY KEY NONCLUSTERED ...,
+    ...
 ) WITH (MEMORY_OPTIMIZED = ON);
 ```
 
 
-#### Error 40536
+#### <a name="error-40536"></a>Error 40536
 
 
-Si recibe el error 40536 cuando ejecuta el script T-SQL, ejecute el siguiente script de T-SQL para comprobar que la base de datos admite In-Memory:
+If you get error 40536 when you run the T-SQL script, run the following T-SQL script to verify whether the database supports In-Memory:
 
 
 ```
@@ -127,120 +128,120 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 ```
 
 
-Un resultado de **0** significa que In-Memory no se admite, mientras que un resultado de 1 significa que se admite. Para diagnosticar el problema:
+A result of **0** means In-Memory is not supported, and 1 means it is supported. To diagnose the problem:
 
-- Asegúrese de que la base de datos se haya creado después de que las características de In-Memory OLTP estén activas en la versión preliminar.
-- Asegúrese de que la base de datos se encuentra en el nivel de servicio Premium.
+- Ensure the database was created after the In-Memory OLTP features became active for Preview.
+- Ensure the database is at the Premium service tier.
 
 
-#### Acerca de los elementos creados con optimización para memoria
+#### <a name="about-the-created-memory-optimized-items"></a>About the created memory-optimized items
 
-**Tablas**: el ejemplo contiene las siguientes tablas con optimización para memoria:
+**Tables**: The sample contains the following memory-optimized tables:
 
-- SalesLT.Product\_inmem
-- SalesLT.SalesOrderHeader\_inmem
-- SalesLT.SalesOrderDetail\_inmem
+- SalesLT.Product_inmem
+- SalesLT.SalesOrderHeader_inmem
+- SalesLT.SalesOrderDetail_inmem
 - Demo.DemoSalesOrderHeaderSeed
 - Demo.DemoSalesOrderDetailSeed
 
 
-Puede inspeccionar las tablas con optimización para memoria a través del **Explorador de objetos** en SSMS por:
+You can inspect memory-optimized tables through the **Object Explorer** in SSMS by:
 
-- Haga clic con el botón derecho en **Tablas** > **Filtro** > **Configuración de filtro** > **Con optimización para memoria** es igual a 1.
+- Right-click **Tables** > **Filter** > **Filter Settings** > **Is Memory Optimized** equals 1.
 
 
-O bien, puede consultar las vistas de catálogo como:
+Or you can query the catalog views such as:
 
 
 ```
 SELECT is_memory_optimized, name, type_desc, durability_desc
-	FROM sys.tables
-	WHERE is_memory_optimized = 1;
+    FROM sys.tables
+    WHERE is_memory_optimized = 1;
 ```
 
 
-**Procedimiento almacenados compilados de forma nativa**: SalesLT.usp\_InsertSalesOrder\_inmem se puede inspeccionar mediante una consulta de la vista de catálogo:
+**Natively compiled stored procedure**: SalesLT.usp_InsertSalesOrder_inmem can be inspected through a catalog view query:
 
 
 ```
 SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
-	FROM sys.sql_modules
-	WHERE uses_native_compilation = 1;
+    FROM sys.sql_modules
+    WHERE uses_native_compilation = 1;
 ```
 
 
 &nbsp;
 
-## Ejecución de la carga de trabajo de OLTP de ejemplo
+## <a name="run-the-sample-oltp-workload"></a>Run the sample OLTP workload
 
-La única diferencia entre los dos *procedimientos almacenados* siguientes es que el primer procedimiento usa las versiones de las tablas con optimización para memoria, mientras que el segundo procedimiento usa las tablas en disco habituales:
+The only difference between the following two *stored procedures* is that the first procedure uses memory-optimized versions of the tables, while the second procedure uses the regular on-disk tables:
 
-- SalesLT**.**usp\_InsertSalesOrder**\_inmem**
-- SalesLT**.**usp\_InsertSalesOrder**\_ondisk**
-
-
-En esta sección verá cómo usar la práctica utilidad **ostress.exe** para ejecutar los dos procedimientos almacenados a niveles de esfuerzo. Puede comparar el tiempo que tardan en completarse las dos ejecuciones de esfuerzo.
+- SalesLT**.**usp_InsertSalesOrder**_inmem**
+- SalesLT**.**usp_InsertSalesOrder**_ondisk**
 
 
-Cuando se ejecuta ostress.exe, le recomendamos pasar los valores de parámetros diseñados para ambos:
-
-- Ejecute un gran número de conexiones simultáneas, mediante el uso de -n100.
-- Haga que cada conexión se repita en bucle cientos de veces, mediante el uso de -r500.
+In this section, you see how to use the handy **ostress.exe** utility to execute the two stored procedures at stressful levels. You can compare how long it takes the two stress runs to complete.
 
 
-Sin embargo, es posible que quiera comenzar con valores mucho más pequeños, como -n10 y -r50, para garantizar que todo está funcionando.
+When you run ostress.exe, we recommend that you pass parameter values designed to both:
+
+- Run a large number of concurrent connections, by using -n100.
+- Have each connection loop hundreds of times, by using -r500.
 
 
-### Script para ostress.exe
+However, you might want to start with much smaller values like -n10 and -r50 to ensure the everything is working.
 
 
-En esta sección se muestra el script de T-SQL que se inserta en la línea de comandos de ostress.exe. El script usa elementos creados por el script de T-SQL que ha instalado antes.
+### <a name="script-for-ostress.exe"></a>Script for ostress.exe
 
 
-El siguiente script inserta un pedido de ventas de ejemplo con cinco elementos de línea en las siguientes *tablas* con optimización para memoria:
+This section displays the T-SQL script that is embedded in our ostress.exe command line. The script uses items that were created by the T-SQL script you installed earlier.
 
-- SalesLT.SalesOrderHeader\_inmem
-- SalesLT.SalesOrderDetail\_inmem
+
+The following script inserts a sample sales order with five line items into the following memory-optimized *tables*:
+
+- SalesLT.SalesOrderHeader_inmem
+- SalesLT.SalesOrderDetail_inmem
 
 
 ```
 DECLARE
-	@i int = 0,
-	@od SalesLT.SalesOrderDetailType_inmem,
-	@SalesOrderID int,
-	@DueDate datetime2 = sysdatetime(),
-	@CustomerID int = rand() * 8000,
-	@BillToAddressID int = rand() * 10000,
-	@ShipToAddressID int = rand() * 10000;
-	
+    @i int = 0,
+    @od SalesLT.SalesOrderDetailType_inmem,
+    @SalesOrderID int,
+    @DueDate datetime2 = sysdatetime(),
+    @CustomerID int = rand() * 8000,
+    @BillToAddressID int = rand() * 10000,
+    @ShipToAddressID int = rand() * 10000;
+    
 INSERT INTO @od
-	SELECT OrderQty, ProductID
-	FROM Demo.DemoSalesOrderDetailSeed
-	WHERE OrderID= cast((rand()*60) as int);
-	
+    SELECT OrderQty, ProductID
+    FROM Demo.DemoSalesOrderDetailSeed
+    WHERE OrderID= cast((rand()*60) as int);
+    
 WHILE (@i < 20)
 begin;
-	EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT,
-		@DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od;
-	SET @i = @i + 1;
+    EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT,
+        @DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od;
+    SET @i = @i + 1;
 end
 ```
 
 
-Para hacer que la versión \_ondisk del T-SQL anterior sirva para ostress.exe, solo hay que reemplazar ambas apariciones de la subcadena *\_inmem* por *\_ondisk*. Estos reemplazos afectan a los nombres de tablas y procedimientos almacenados.
+To make the _ondisk version of the preceding T-SQL for ostress.exe, you would simply replace both occurrences of the *_inmem* substring with *_ondisk*. These replaces affect the names of tables and stored procedures.
 
 
-### Instalación de ostress y utilidades de RML
+### <a name="install-rml-utilities-and-ostress"></a>Install RML utilities and ostress
 
 
-Lo ideal sería planear la ejecución de ostress.exe en una Máquina virtual de Azure. Se crearía una [máquina virtual de Azure](https://azure.microsoft.com/documentation/services/virtual-machines/) en la misma región geográfica de Azure en que reside la base de datos AdventureWorksLT. Pero puede ejecutar si lo desea ostress.exe en el equipo portátil.
+Ideally you would plan to run ostress.exe on an Azure VM. You would create an [Azure Virtual Machine](https://azure.microsoft.com/documentation/services/virtual-machines/) in the same Azure geographic region where your AdventureWorksLT database resides. But you can run ostress.exe on your laptop instead.
 
 
-En la VM, o en cualquier host que elija, instale las utilidades de Replay Markup Language (RML), entre las que se incluye ostress.exe.
+On the VM, or on whatever host you choose, install the Replay Markup Language (RML) utilities, which include ostress.exe.
 
-- Consulte la explicación de ostress.exe en [Sample Database for In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
- - O bien consulte [Base de datos de ejemplo para In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
- - También, puede consultar el [blog para instalar ostress.exe](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)
+- See the ostress.exe discussion in [Sample Database for In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
+ - Or see [Sample Database for In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
+ - Or see [Blog for installing ostress.exe](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)
 
 
 
@@ -256,13 +257,13 @@ whereas for SQL 2016+
 
 
 
-### Ejecución de la carga de trabajo de esfuerzo \_inmem en primer lugar
+### <a name="run-the-_inmem-stress-workload-first"></a>Run the _inmem stress workload first
 
 
-Puede usar una ventana *del símbolo del sistema de RML* para ejecutar la línea de comandos de ostress.exe. Los parámetros de la línea de comandos dirigen ostress para:
+You can use an *RML Cmd Prompt* window to run our ostress.exe command line. The command line parameters direct ostress to:
 
-- Ejecutar 100 conexiones simultáneamente (-n100).
-- Hacer que cada conexión ejecute el script de T-SQL 50 veces (-r50).
+- Run 100 connections concurrently (-n100).
+- Have each connection run the T-SQL script 50 times (-r50).
 
 
 ```
@@ -270,50 +271,50 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 ```
 
 
-Para ejecutar la línea de comandos ostress.exe anterior:
+To run the preceding ostress.exe command line:
 
 
-1. Restablezca el contenido de los datos de la base de datos mediante la ejecución del siguiente comando en SSMS para eliminar todos los datos que se insertaron en las ejecuciones anteriores:
+1. Reset the database data content by running the following command in SSMS, to delete all the data that was inserted by any previous runs:
 ```
 EXECUTE Demo.usp_DemoReset;
 ```
 
-2. Copie el texto de la línea de comandos ostress.exe anterior en el Portapapeles.
+2. Copy the text of the preceding ostress.exe command line to your clipboard.
 
-3. Reemplace el `<placeholders>` de los parámetros -S -U -P -d por los valores reales correctos.
+3. Replace the `<placeholders>` for the parameters -S -U -P -d with the correct real values.
 
-4. Ejecute la línea de comandos modificada en una ventana del símbolo del sistema de RML.
-
-
-#### El resultado es una duración
+4. Run your edited command line in an RML Cmd window.
 
 
-Cuando finaliza ostress.exe, escribe la duración de la ejecución como la última línea de la salida en la ventana de símbolo del sistema de RML. Por ejemplo, una ejecución de prueba más corta duró aproximadamente 1,5 minutos:
+#### <a name="result-is-a-duration"></a>Result is a duration
+
+
+When ostress.exe completes, it writes the run duration as its final line of output in the RML Cmd window. For example, a shorter test run lasted about 1.5 minutes:
 
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
 
-#### Restablecer, editar \_ondisk y volver a ejecutarlo
+#### <a name="reset,-edit-for-_ondisk,-then-rerun"></a>Reset, edit for _ondisk, then rerun
 
 
-Una vez que tenga el resultado de la ejecución de \_inmem, realice los pasos siguientes para la ejecución de \_ondisk:
+After you have the result from the _inmem run, perform the following steps for the _ondisk run:
 
 
-1. Restablezca la base de datos mediante la ejecución del siguiente comando en SSMS para eliminar todos los datos que insertó la ejecución anterior:
+1. Reset the database by running the following command in SSMS, to delete all the data that was inserted by the previous run:
 ```
 EXECUTE Demo.usp_DemoReset;
 ```
 
-2. Edite la línea de comandos de ostress.exe para reemplazar todos los *\_inmem* with *\_ondisk*.
+2. Edit the ostress.exe command line to replace all *_inmem* with *_ondisk*.
 
-3. Ejecute ostress.exe por segunda vez y capture el resultado de la duración.
+3. Rerun ostress.exe for the second time, and capture the duration result.
 
-4. Vuelva a restablecer la base de datos para la eliminación responsable de lo que puede constituir una gran cantidad de datos de prueba.
+4. Again reset the database, for responsible deletion of what can be a large amount of test data.
 
 
-#### Resultados de la comparación esperados
+#### <a name="expected-comparison-results"></a>Expected comparison results
 
-Las pruebas de la salida de In-Memory demostraron tener un rendimiento **9 veces** mejor en esta carga de trabajo simplista, con ostress ejecutándose en una VM de Azure ubicada en la misma región de Azure que la base de datos.
+Our In-Memory tests have shown a **9 times** performance improvement for this simplistic workload, with ostress running on an Azure VM in the same Azure region as the database.
 
 
 
@@ -322,56 +323,56 @@ Las pruebas de la salida de In-Memory demostraron tener un rendimiento **9 veces
 &nbsp;
 
 
-## B. Instalación del ejemplo de In-Memory Analytics.
+## <a name="b.-install-the-in-memory-analytics-sample"></a>B. Install the In-Memory Analytics sample
 
 
-En esta sección, compara los resultados de optimización de infraestructura y de estadísticas cuando se usa un índice del almacén de columnas en lugar de un índice de árbol b tradicional.
+In this section, you compare the IO and Statistics results when using a columnstore index versus a traditional b-tree index.
 
 
-Para realizar análisis en tiempo real en una carga de trabajo de OLTP, suele ser mejor usar un índice del almacén de columnas no agrupado. Para más información, consulte [Descripción de los índices de almacén de columnas](http://msdn.microsoft.com/library/gg492088.aspx).
+For real-time analytics on an OLTP workload, it is often best to use a NONclustered columnstore index. For details see [Columnstore Indexes Described](http://msdn.microsoft.com/library/gg492088.aspx).
 
 
 
-### Preparación de la prueba de análisis del almacén de columnas
+### <a name="prepare-the-columnstore-analytics-test"></a>Prepare the columnstore analytics test
 
 
-1. Use el Portal de Azure para crear una nueva base de datos AdventureWorksLT a partir del ejemplo.
- - Use ese nombre exacto.
- - Elija un nivel de servicio Premium.
+1. Use the Azure portal to create a fresh AdventureWorksLT database from the sample.
+ - Use that exact name.
+ - Choose any Premium service tier.
 
-2. Copie [sql\_in-memory\_analytics\_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) en el Portapapeles.
- - El script T-SQL crea los objetos In-Memory necesarios en la base de datos de ejemplo AdventureWorksLT que se creó en el paso 1.
- - El script crea la tabla de dimensiones y dos tablas de hechos. Las tablas de hechos se rellenan con 3,5 millones de filas cada una.
- - El script podría tardar 15 minutos en completarse.
+2. Copy the [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) to your clipboard.
+ - The T-SQL script creates the necessary In-Memory objects in the AdventureWorksLT sample database you created in step 1.
+ - The script creates the Dimension table, and two fact tables. The fact tables are populated with 3.5 million rows each.
+ - The script might take 15 minutes to complete.
 
-3. Pegue el script T-SQL en SSMS.exe y, luego, ejecútelo.
- - La palabra clave **COLUMNSTORE** es crucial en una instrucción **CREATE INDEX**, como en:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
+3. Paste the T-SQL script into SSMS, and then execute the script.
+ - Crucial is the **COLUMNSTORE** keyword on a **CREATE INDEX** statement, as in:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 
-4. Establezca AdventureWorksLT en un nivel de compatibilidad 130:<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
- - El nivel 130 no está directamente relacionado con las características de In-Memory. Pero el nivel 130 suele ofrecer un rendimiento de consultas más rápido que el nivel 120.
-
-
-#### Tablas cruciales e índices de almacén de columnas
+4. Set AdventureWorksLT to compatibility level 130:<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
+ - Level 130 is not directly related to In-Memory features. But level 130 generally provides faster query performance than does 120.
 
 
-- dbo.FactResellerSalesXL\_CCI es una tabla con un índice de **almacén de columnas** agrupado que tiene una compresión avanzada a nivel de *datos*.
-
-- dbo.FactResellerSalesXL\_PageCompressed es una tabla con un índice agrupado equivalente normal, que se comprime solo a nivel de *página*.
+#### <a name="crucial-tables-and-columnstore-indexes"></a>Crucial tables and columnstore indexes
 
 
-#### Consultas cruciales para comparar el índice de almacén de columnas
+- dbo.FactResellerSalesXL_CCI is a table that has a clustered **columnstore** index, which has advanced compression at the *data* level.
+
+- dbo.FactResellerSalesXL_PageCompressed is a table that has an equivalent regular clustered index, which is compressed only at the *page* level.
 
 
-[Aquí](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) hay varios tipos de consultas de T-SQL que se pueden ejecutar para ver las mejoras de rendimiento. En el paso 2 del script de T-SQL, hay un par de consultas que son de gran interés. Las dos consultas difieren solo en una línea:
+#### <a name="crucial-queries-to-compare-the-columnstore-index"></a>Crucial queries to compare the columnstore index
+
+
+[Here](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) are several T-SQL query types you can run to see performance improvements. From Step 2 in the T-SQL script, there is a pair of queries that are of direct interest. The two queries differ only on one line:
 
 
 - `FROM FactResellerSalesXL_PageCompressed a`
 - `FROM FactResellerSalesXL_CCI a`
 
 
-Un índice de almacén de columnas agrupado se encuentra en la tabla FactResellerSalesXL**\_CCI**.
+A clustered columnstore index is on the FactResellerSalesXL**_CCI** table.
 
-El siguiente fragmento de script de T-SQL imprime las estadísticas de IO y TIME para la consulta de cada tabla.
+The following T-SQL script excerpt prints statistics for IO and TIME for the query of each table.
 
 
 ```
@@ -391,20 +392,20 @@ SET STATISTICS TIME ON
 GO
 
 SELECT c.Year
-	,e.ProductCategoryKey
-	,FirstName + ' ' + LastName AS FullName
-	,count(SalesOrderNumber) AS NumSales
-	,sum(SalesAmount) AS TotalSalesAmt
-	,Avg(SalesAmount) AS AvgSalesAmt
-	,count(DISTINCT SalesOrderNumber) AS NumOrders
-	,count(DISTINCT a.CustomerKey) AS CountCustomers
+    ,e.ProductCategoryKey
+    ,FirstName + ' ' + LastName AS FullName
+    ,count(SalesOrderNumber) AS NumSales
+    ,sum(SalesAmount) AS TotalSalesAmt
+    ,Avg(SalesAmount) AS AvgSalesAmt
+    ,count(DISTINCT SalesOrderNumber) AS NumOrders
+    ,count(DISTINCT a.CustomerKey) AS CountCustomers
 FROM FactResellerSalesXL_PageCompressed a
 INNER JOIN DimProduct b ON b.ProductKey = a.ProductKey
 INNER JOIN DimCustomer d ON d.CustomerKey = a.CustomerKey
 Inner JOIN DimProductSubCategory e on e.ProductSubcategoryKey = b.ProductSubcategoryKey
 INNER JOIN DimDate c ON c.DateKey = a.OrderDateKey
 WHERE e.ProductCategoryKey =2
-	AND c.FullDateAlternateKey BETWEEN '1/1/2014' AND '1/1/2015'
+    AND c.FullDateAlternateKey BETWEEN '1/1/2014' AND '1/1/2015'
 GROUP BY e.ProductCategoryKey,c.Year,d.CustomerKey,d.FirstName,d.LastName
 GO
 SET STATISTICS IO OFF
@@ -418,20 +419,20 @@ SET STATISTICS IO ON
 SET STATISTICS TIME ON
 GO
 SELECT c.Year
-	,e.ProductCategoryKey
-	,FirstName + ' ' + LastName AS FullName
-	,count(SalesOrderNumber) AS NumSales
-	,sum(SalesAmount) AS TotalSalesAmt
-	,Avg(SalesAmount) AS AvgSalesAmt
-	,count(DISTINCT SalesOrderNumber) AS NumOrders
-	,count(DISTINCT a.CustomerKey) AS CountCustomers
+    ,e.ProductCategoryKey
+    ,FirstName + ' ' + LastName AS FullName
+    ,count(SalesOrderNumber) AS NumSales
+    ,sum(SalesAmount) AS TotalSalesAmt
+    ,Avg(SalesAmount) AS AvgSalesAmt
+    ,count(DISTINCT SalesOrderNumber) AS NumOrders
+    ,count(DISTINCT a.CustomerKey) AS CountCustomers
 FROM FactResellerSalesXL_CCI a
 INNER JOIN DimProduct b ON b.ProductKey = a.ProductKey
 INNER JOIN DimCustomer d ON d.CustomerKey = a.CustomerKey
 Inner JOIN DimProductSubCategory e on e.ProductSubcategoryKey = b.ProductSubcategoryKey
 INNER JOIN DimDate c ON c.DateKey = a.OrderDateKey
 WHERE e.ProductCategoryKey =2
-	AND c.FullDateAlternateKey BETWEEN '1/1/2014' AND '1/1/2015'
+    AND c.FullDateAlternateKey BETWEEN '1/1/2014' AND '1/1/2015'
 GROUP BY e.ProductCategoryKey,c.Year,d.CustomerKey,d.FirstName,d.LastName
 GO
 
@@ -445,87 +446,92 @@ GO
 <a id="preview_considerations_for_in_memory" name="preview_considerations_for_in_memory"></a>
 
 
-## Consideraciones de la versión preliminar de In-Memory OLTP
+## <a name="preview-considerations-for-in-memory-oltp"></a>Preview considerations for In-Memory OLTP
 
 
-Las características de In-Memory OLTP de la Base de datos SQL de Azure se [activaron en la vista previa del 28 de octubre de 2015](https://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
+The In-Memory OLTP features in Azure SQL Database became [active for preview on October 28, 2015](https://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
 
 
-En la versión preliminar actual, OLTP en memoria solo se admite para:
+In the current preview, In-Memory OLTP is supported only for:
 
-- Bases de datos que se encuentran en un nivel de servicio *Premium*.
+- Databases that are at a *Premium* service tier.
 
-- Bases de datos que se crearon después de que las características de In-Memory OLTP se activaran.
- - Una nueva base de datos no puede admitir In-Memory OLTP si se restaura desde una base de datos que se creó antes de que se activaran las características de In-Memory OLTP.
+- Databases that were created after the In-Memory OLTP features became active.
+ - A new database cannot support In-Memory OLTP if it is restored from a database that was created before the In-Memory OLTP features became active.
 
 
-En caso de duda, siempre puede ejecutar la instrucción SELECT de T-SQL siguiente para determinar si la base de datos admite In-Memory OLTP. Un resultado de **1** significa que la base de datos admite In-Memory OLTP:
+When in doubt, you can always run the following T-SQL SELECT to ascertain whether your database supports In-Memory OLTP. A result of **1** means the database does support In-Memory OLTP:
 
 ```
 SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 ```
 
 
-Si la consulta devuelve **1**, In-Memory OLTP se admite en esta base de datos, así como en cualquier copia de la base de datos y restauración de la misma que se hayan creado basadas en esta base de datos.
+If the query returns **1**, In-Memory OLTP is supported in this database, and any database copy and database restore created based on this database.
 
 
-#### Objetos que solo se permiten en Premium
+#### <a name="objects-allowed-only-at-premium"></a>Objects allowed only at Premium
 
 
-Si una base de datos contiene cualquiera de los siguientes tipos de objetos o tipos de In-Memory OLTP, no se admite la degradación del servicio de la base de datos de Premium a Básico o Estándar. Para degradar la base de datos, quite primero estos objetos:
+If a database contains any of the following kinds of In-Memory OLTP objects or types, downgrading the service tier of the database from Premium to either Basic or Standard is not supported. To downgrade the database, first drop these objects:
 
-- Tablas con optimización para memoria
-- Tipos de tablas con optimización para memoria
-- Módulos compilados de forma nativa
-
-
-#### Otras relaciones
+- Memory-optimized tables
+- Memory-optimized table types
+- Natively compiled modules
 
 
-- No se admite el uso de OLTP en memoria con bases de datos de grupos elásticos durante la versión preliminar.
- - Para mover una base de datos que tenga o haya tenido objetos de OLTP en memoria para un grupo elástico, siga estos pasos:
-  - 1. Quitar las tablas optimizadas para la memoria, tipos de tabla y módulos de T-SQL compilados de forma nativa en la base de datos
-  - 2. Cambiar el nivel de servicio de la base de datos a estándar
-  - 3. Mover la base de datos a un grupo elástico
-
-- No se admite el uso de In-Memory OLTP con Almacenamiento de datos SQL.
- - Se admite la característica de índice de almacén de columnas en In-Memory Analytics en Almacenamiento de datos SQL.
-
-- El almacén de consulta no captura las consultas dentro de los módulos compilados de forma nativa.
-
-- No se admiten algunas características de Transact-SQL con In-Memory OLTP. Esto se aplica a Microsoft SQL Server y a Base de datos SQL de Azure. Para obtener información, consulte:
- - [Compatibilidad de Transact-SQL con OLTP en memoria](http://msdn.microsoft.com/library/dn133180.aspx)
- - [Construcciones de Transact-SQL no admitidas en In-Memory OLTP.](http://msdn.microsoft.com/library/dn246937.aspx)
+#### <a name="other-relationships"></a>Other relationships
 
 
-## Pasos siguientes
+- Using In-Memory OLTP features with databases in elastic pools is not supported during Preview.
+ - To move a database that has or has had In-Memory OLTP objects to an elastic pool, follow these steps:
+  - 1. Drop any memory-optimized tables, table types, and natively compiled T-SQL modules in the database
+  - 2. Change the service tier of the database to standard
+  - 3. Move the database into the elastic pool
+
+- Using In-Memory OLTP with SQL Data Warehouse is not supported.
+ - The columnstore index feature of In-Memory Analytics is supported in SQL Data Warehouse.
+
+- The Query Store does not capture queries inside natively compiled modules.
+
+- Some Transact-SQL features are not supported with In-Memory OLTP. This applies to both Microsoft SQL Server and Azure SQL Database. For details, see:
+ - [Transact-SQL Support for In-Memory OLTP](http://msdn.microsoft.com/library/dn133180.aspx)
+ - [Transact-SQL Constructs Not Supported by In-Memory OLTP](http://msdn.microsoft.com/library/dn246937.aspx)
 
 
-- Consulte [Uso de In-Memory (vista previa) para mejorar el rendimiento de la aplicación de Base de datos SQL de Azure.](sql-database-in-memory-oltp-migration.md)
+## <a name="next-steps"></a>Next steps
 
 
-## Recursos adicionales
+- Try [Use In-Memory OLTP in an existing Azure SQL Application.](sql-database-in-memory-oltp-migration.md)
 
-#### Información más detallada
 
-- [Obtenga información sobre In-Memory OLTP, que se aplica a Microsoft SQL Server y a Base de datos SQL de Azure.](http://msdn.microsoft.com/library/dn133186.aspx)
+## <a name="additional-resources"></a>Additional resources
 
-- [Obtenga información sobre análisis operativos en tiempo real en MSDN](http://msdn.microsoft.com/library/dn817827.aspx)
+#### <a name="deeper-information"></a>Deeper information
 
-- Notas del producto sobre [patrones de cargas de trabajo comunes y consideraciones de migración](http://msdn.microsoft.com/library/dn673538.aspx), que describe los patrones de carga de trabajo donde In-Memory OLTP normalmente proporciona importantes mejoras de rendimiento.
+- [Learn about In-Memory OLTP, which applies to both Microsoft SQL Server and Azure SQL Database](http://msdn.microsoft.com/library/dn133186.aspx)
 
-#### Diseño de aplicación
+- [Learn about Real-Time Operational Analytics on MSDN](http://msdn.microsoft.com/library/dn817827.aspx)
 
-- [In-Memory OLTP (optimización In-Memory)](http://msdn.microsoft.com/library/dn133186.aspx)
+- White paper on [Common Workload Patterns and Migration Considerations](http://msdn.microsoft.com/library/dn673538.aspx), which describes workload patterns where In-Memory OLTP commonly provides significant performance gains.
 
-- [Uso de In-Memory OLTP en una aplicación existente de SQL Azure.](sql-database-in-memory-oltp-migration.md)
+#### <a name="application-design"></a>Application design
 
-#### Herramientas
+- [In-Memory OLTP (In-Memory Optimization)](http://msdn.microsoft.com/library/dn133186.aspx)
 
-- [Vista previa de SQL Server Data Tools (SSDT)](http://msdn.microsoft.com/library/mt204009.aspx), para obtener la última versión mensual.
+- [Use In-Memory OLTP in an existing Azure SQL Application.](sql-database-in-memory-oltp-migration.md)
 
-- [Descripción de las utilidades de Replay Markup Language (RML) para SQL Server](http://support.microsoft.com/es-ES/kb/944837)
+#### <a name="tools"></a>Tools
 
-- [Supervisión del almacenamiento en memoria](sql-database-in-memory-oltp-monitoring.md) para In-Memory OLTP.
+- [SQL Server Data Tools Preview (SSDT)](http://msdn.microsoft.com/library/mt204009.aspx), for the latest monthly version.
 
-<!---HONumber=AcomDC_0831_2016-->
+- [Description of the Replay Markup Language (RML) Utilities for SQL Server](http://support.microsoft.com/en-us/kb/944837)
+
+- [Monitor In-Memory Storage](sql-database-in-memory-oltp-monitoring.md) for In-Memory OLTP.
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

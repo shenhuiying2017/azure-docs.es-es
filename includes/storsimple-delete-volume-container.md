@@ -1,13 +1,16 @@
 <!--author=SharS last changed: 9/16/15-->
 
-#### Para eliminar un contenedor de volúmenes
+#### <a name="to-delete-a-volume-container"></a>To delete a volume container
 
-1. En la página **Dispositivos**, seleccione el dispositivo, haga doble clic en él y, a continuación, haga clic en la pestaña **Contenedores de volúmenes**.
+1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
 
-2. Seleccione el contenedor de volúmenes que desea eliminar.
+2. Select the volume container you want to delete.
 
-3. Si un contenedor de volúmenes no tiene volúmenes asociados, se puede eliminar. Haga clic en **Eliminar** en la parte inferior de la página para eliminar este contenedor. Cuando se le pida confirmación, haga clic en **Sí**. Esta acción eliminará el contenedor de volúmenes.
+3. If a volume container has no associated volumes, then it can be deleted. Click **Delete** at the bottom of the page to delete this container. When prompted for confirmation, click **Yes**. This will delete the volume container.
 
-Si el contenedor de volúmenes tiene volúmenes asociados, primero deberá desconectar estos volúmenes siguiendo los pasos descritos en [Desconectar un volumen](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). Una vez que los volúmenes estén desconectados, puede eliminarlos. Cuando el contenedor de volúmenes no tenga volúmenes asociados, elimine el contenedor de volúmenes tal como se describió anteriormente.
+If the volume container has associated volumes, you will first need to take those volumes offline by following the steps in [Take a volume offline](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). After the volumes are offline, you can delete them. When the volume container has no associated volumes, delete the volume container as described above.
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

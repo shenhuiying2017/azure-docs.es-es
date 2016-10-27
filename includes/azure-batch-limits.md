@@ -1,11 +1,14 @@
-**Recurso**|**Límite predeterminado**|**Límite máximo**
+**Resource**|**Default Limit**|**Maximum Limit**
 ---|---|---
-Núcleos por cuenta de lotes|20|N/A<sup>1</sup>
-Trabajos y programaciones de trabajos <sup>2</sup> por cuenta de Lote|20|10\.000
-Grupos por cuenta de Lote|20|5\.000
+Cores per Batch account|20|N/A<sup>1</sup>
+Jobs and job schedules<sup>2</sup> per Batch account|20|10,000
+Pools per Batch account|20|5000
 
-<sup>1</sup> Se puede aumentar el número de núcleos por cada cuenta de lotes, pero no se ha especificado el número máximo. Póngase en contacto con atención al cliente para obtener información sobre las opciones de aumento.  
+<sup>1</sup> The number of cores per Batch account can be increased, but the maximum number is unspecified. Contact customer support to discuss increase options.
 
-<sup>2</sup> Incluye trabajos activos y programaciones de trabajos activos de una sola ejecución. No se limitan los trabajos completados y las programaciones de trabajos.
+<sup>2</sup> Includes run-once active jobs and active job schedules. Completed jobs and job schedules are not limited.
 
-<!---HONumber=AcomDC_0615_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

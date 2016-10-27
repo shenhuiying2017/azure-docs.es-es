@@ -1,56 +1,58 @@
 <properties
-	pageTitle="Directiva del Administrador de recursos de Azure | Microsoft Azure"
-	description="Describe cómo usar la directiva del Administrador de recursos de Azure para evitar infracciones en distintos ámbitos como, por ejemplo, la suscripción, los grupos de recursos o los recursos individuales."
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="ravbhatnagar"
-	manager="ryjones"
-	editor="tysonn"/>
+    pageTitle="Azure Resource Manager Policy | Microsoft Azure"
+    description="Describes how to use Azure Resource Manager Policy to prevent violations at different scopes like subscription, resource groups or individual resources."
+    services="azure-resource-manager"
+    documentationCenter="na"
+    authors="ravbhatnagar"
+    manager="ryjones"
+    editor="tysonn"/>
 
 <tags
-	ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="07/12/2016"
-	ms.author="gauravbh;tomfitz"/>
+    ms.service="azure-resource-manager"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="07/12/2016"
+    ms.author="gauravbh;tomfitz"/>
 
-# Uso de directivas para administrar los recursos y controlar el acceso
 
-El Administrador de recursos de Azure permite controlar el acceso mediante directivas personalizadas. Con las directivas, puede impedir que los usuarios de su organización dividan las convenciones que se necesitan para administrar los recursos de esta.
+# <a name="use-policy-to-manage-resources-and-control-access"></a>Use Policy to manage resources and control access
 
-Se crean definiciones de directivas que describen las acciones o los recursos que se han denegado específicamente. Esas definiciones de directivas se asignan en el ámbito deseado, como la suscripción, el grupo de recursos o un recurso individual.
+Azure Resource Manager now allows you to control access through custom policies. With policies, you can prevent users in your organization from breaking conventions that are needed to manage your organization's resources. 
 
-En este artículo se explica la estructura básica del lenguaje de definición de directivas que se puede usar para crear directivas. A continuación, describiremos cómo es posible aplicar estas directivas en distintos ámbitos y, finalmente, mostraremos algunos ejemplos de aplicación mediante la API de REST.
+You create policy definitions that describe the actions or resources that are specifically denied. You assign those policy definitions at the desired scope, such as the subscription, resource group, or an individual resource. 
 
-## ¿En qué se diferencia de RBAC?
+In this article, we will explain the basic structure of the policy definition language that you can use to create policies. Then we will describe how you can apply these policies at different scopes and finally we will show some examples of how you can achieve this through REST API.
 
-Existen algunas diferencias importantes entre el control de acceso basado en roles y las directivas, pero lo primero que hay que entender es que las directivas y RBAC funcionan conjuntamente. Para poder usar la directiva, el usuario debe autenticarse a través de RBAC. A diferencia de RBAC, la directiva es un sistema que permite de manera predeterminada y niega explícitamente.
+## <a name="how-is-it-different-from-rbac?"></a>How is it different from RBAC?
 
-RBAC se centra en las acciones que un **usuario** puede realizar en distintos ámbitos. Por ejemplo, un usuario determinado se agrega al rol de colaborador para un grupo de recursos en el ámbito deseado, por lo que el usuario puede realizar cambios en ese grupo de recursos.
+There are a few key differences between policy and role-based access control, but the first thing to understand is that policies and RBAC work together. To be able to use policy, the user must be authenticated through RBAC. Unlike RBAC, policy is a default allow and explicit deny system. 
 
-La directiva se centra en acciones de **recursos** en varios ámbitos. Por ejemplo, mediante directivas, puede controlar los tipos de recursos que se pueden aprovisionar o restringir las ubicaciones en las que se pueden aprovisionar los recursos.
+RBAC focuses on the actions a **user** can perform at different scopes. For example, a particular user is added to the contributor role for a resource group at the desired scope, so the user can make changes to that resource group. 
 
-## Escenarios comunes
+Policy focuses on **resource** actions at various scopes. For example, through policies, you can control the types of resources that can be provisioned or restrict the locations in which the resources can be provisioned.
 
-Un escenario común es exigir etiquetas departamentales para contracargos. Es posible que una organización solo quiera permitir operaciones cuando se asocie el centro de coste correcto.; en caso contrario, denegará la solicitud. Esto ayudaría a aplicar el cargo al centro de costes correcto para las operaciones realizadas.
+## <a name="common-scenarios"></a>Common Scenarios
 
-Otro escenario común es que la organización que desee controlar las ubicaciones en las que se crean los recursos. O bien, puede que desee controlar el acceso a los recursos al permitir el aprovisionamiento solo de determinados tipos de recursos.
+One common scenario is to require departmental tags for chargeback purpose. An organization might want to allow operations only when the appropriate cost center is associated; otherwise, they will deny the request.
+This would help them charge the appropriate cost center for the operations performed.
 
-Del mismo modo, una organización puede controlar el catálogo de servicios o aplicar las convenciones de nombre deseadas para los recursos.
+Another common scenario is that the organization might want to control the locations where resources are created. Or they might want to control access to the resources by allowing only certain types of resources to be provisioned.
 
-Con las directivas, estos escenarios pueden conseguirse fácilmente tal como se describe a continuación.
+Similarly, an organization can control the service catalog or enforce the desired naming conventions for the resources.
 
-## Estructura de definición de directiva
+Using policies, these scenarios can easily be achieved as described below.
 
-La definición de la directiva se crea mediante JSON. Consta de uno o más operadores lógicos/condicionales que definen las acciones y un efecto que indica lo que ocurre cuando se cumplen las condiciones. El esquema está publicado en [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json).
+## <a name="policy-definition-structure"></a>Policy Definition structure
 
-Básicamente, una directiva contiene lo siguiente:
+Policy definition is created using JSON. It consists of one or more conditions/logical operators which define the actions and an effect which tells what happens when the conditions are fulfilled. The schema is published at [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
 
-**Operadores lógicos/condicionales:** contiene un conjunto de condiciones que se pueden manipular mediante un conjunto de operadores lógicos.
+Basically, a policy contains the following:
 
-**Efecto:** describe cuál será el efecto cuando se cumpla la condición: denegar o auditoría. Un efecto de auditoría emitirá un registro de servicio de eventos de advertencia. Por ejemplo, un administrador puede crear una directiva que provoque una auditoría si alguien crea una máquina virtual grande, y revisar los registros más adelante.
+**Condition/Logical operators:** It contains a set of conditions which can be manipulated through a set of logical operators.
+
+**Effect:** This describes what the effect will be when the condition is satisfied – either deny or audit. An audit effect will emit a warning event service log. For example, an administrator can create a policy which causes an audit if anyone creates a large VM, then review the logs later.
 
     {
       "if" : {
@@ -61,104 +63,104 @@ Básicamente, una directiva contiene lo siguiente:
       }
     }
     
-## Evaluación de directiva
+## <a name="policy-evaluation"></a>Policy Evaluation
 
-La directiva se evaluará cuando se realice la creación del recurso o la implementación de la plantilla mediante HTTP PUT. En el caso de la implementación de la plantilla, la directiva se evaluará durante la creación de cada uno de los recursos en la plantilla.
+Policy will be evaluated when resource creation or template deployment happens using HTTP PUT. In case of template deployment, policy will be evaluated during the creation of each resource in the template. 
 
-> [AZURE.NOTE] Actualmente, la directiva no evalúa los tipos de recursos que no se admiten etiquetas, variante y ubicación, como el tipo de recurso Microsoft.Resources/deployments. Esta compatibilidad se agregará en el futuro. Para evitar problemas de compatibilidad con versiones anteriores, debe especificar explícitamente el tipo al crear directivas. Por ejemplo, una directiva de etiqueta que no especifique tipos se aplicará a todos los tipos. En ese caso, una implementación de plantilla puede dar error en el futuro si hay un recurso anidado que no admite etiquetas y el tipo de recurso de implementación se ha agregado a la evaluación de directivas.
+> [AZURE.NOTE] Currently, policy does not evaluate resource types that do not support tags, kind, and location, such as the Microsoft.Resources/deployments resource type. This support will be added at a future time. To avoid backward compatibility issues, you should explicitly specify type when authoring policies. For example, a tag policy that does not specify types will be applied for all types. In that case, a template deployment may fail in the future if there is a nested resource that don't support tag, and the deployment resource type has been added to policy evaluation. 
 
-## Operadores lógicos
+## <a name="logical-operators"></a>Logical Operators
 
-A continuación se muestran los operadores lógicos admitidos junto con la sintaxis:
+The supported logical operators along with the syntax are listed below:
 
-| Nombre del operador | Sintaxis |
+| Operator Name     | Syntax         |
 | :------------- | :------------- |
-| Not | "not" : {&lt;condition or operator &gt;} |
-| Y | "allOf" : [ {&lt;condition or operator &gt;},{&lt;condition or operator &gt;}] |
-| O | "anyOf" : [ {&lt;condition or operator &gt;},{&lt;condition or operator &gt;}] |
+| Not            | "not" : {&lt;condition  or operator &gt;}             |
+| And           | "allOf" : [ {&lt;condition  or operator &gt;},{&lt;condition  or operator &gt;}] |
+| Or                         | "anyOf" : [ {&lt;condition  or operator &gt;},{&lt;condition  or operator &gt;}] |
 
-El Administrador de recursos permite especificar una lógica compleja en su directiva a través de operadores anidados. Por ejemplo, puede denegar la creación de recursos en una ubicación determinada para un tipo de recurso especificado. A continuación se muestra un ejemplo de operadores anidados.
+Resource Manager enables you to specify complex logic in your policy through nested operators. For example, you can deny resource creation in a particular location for a specified resource type. An example of nested operators is shown below.
 
-## Condiciones
+## <a name="conditions"></a>Conditions
 
-Una condición evalúa si un **campo** o un **origen** cumple determinados criterios. La sintaxis y los nombres de condición admitidos son los siguientes:
+A condition evaluates whether a **field** or **source** meets certain criteria. The supported condition names and syntax are listed below:
 
-| Nombre de la condición | Sintaxis |
+| Condition Name | Syntax                |
 | :------------- | :------------- |
-| Equals | "equals" : "&lt;valor&gt;" |
-| Like | "like" : "&lt;valor&gt;" |
-| Contains | "contains" : "&lt;valor&gt;"|
-| En el | "in" : [ "&lt;valor1&gt;","&lt;valor2&gt;" ]|
-| ContainsKey | "containsKey" : "&lt;nombre de clave&gt;" |
-| Exists | "exists" : "&lt;bool&gt;" |
+| Equals             | "equals" : "&lt;value&gt;"               |
+| Like                  | "like" : "&lt;value&gt;"                   |
+| Contains          | "contains" : "&lt;value&gt;"|
+| In                        | "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
+| ContainsKey    | "containsKey" : "&lt;keyName&gt;" |
+| Exists     | "exists" : "&lt;bool&gt;" |
 
-### Fields
+### <a name="fields"></a>Fields
 
-Las condiciones se crean mediante el uso de campos y orígenes. Un campo representa las propiedades de la carga de solicitud de recursos que se usa para describir el estado del recurso. Un origen representa las características de la propia solicitud.
+Conditions are formed through the use of fields and sources. A field represents properties in the resource request payload that is used to describe the state of the resource. A source represents characteristics of the request itself. 
 
-Estos son los campos y orígenes admitidos:
+The following fields and sources are supported:
 
-Campos: **name**, **kind**, **type**, **location**, **tags**, **tags.*** y **property alias**.
+Fields: **name**, **kind**, **type**, **location**, **tags**, **tags.***, and **property alias**. 
 
-### Alias de la propiedad 
-El alias de propiedad es un nombre que se puede usar en una definición de directiva para acceder a las propiedades específicas del tipo de recursos, como la configuración y las SKU. Funciona en todas las versiones de API donde existe la propiedad. Los alias se pueden recuperar mediante la API de REST que se indica a continuación (en el futuro se agregará compatibilidad con Powershell):
+### <a name="property-aliases"></a>Property aliases 
+Property alias is a name that can be used in a policy definition to access the resource type specific properties, such as settings, and skus. It works across all API versions where the property exists. Aliases can be retrieved by using the REST API shown below (Powershell support will be added in the future):
 
     GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
-	
-A continuación se muestra la definición de un alias. Como puede ver, un alias define rutas de acceso en distintas versiones de API, aunque se cambie el nombre de la propiedad.
+    
+The definition of an alias is shown below. As you can see, an alias defines paths in different API versions, even when there is a property name change. 
 
-	"aliases": [
-	    {
-	      "name": "Microsoft.Storage/storageAccounts/sku.name",
-	      "paths": [
-	        {
-	          "path": "properties.accountType",
-	          "apiVersions": [
-	            "2015-06-15",
-	            "2015-05-01-preview"
-	          ]
-	        },
-	        {
-	          "path": "sku.name",
-	          "apiVersions": [
-	            "2016-01-01"
-	          ]
-	        }
-	      ]
-	    }
-	]
+    "aliases": [
+        {
+          "name": "Microsoft.Storage/storageAccounts/sku.name",
+          "paths": [
+            {
+              "path": "properties.accountType",
+              "apiVersions": [
+                "2015-06-15",
+                "2015-05-01-preview"
+              ]
+            },
+            {
+              "path": "sku.name",
+              "apiVersions": [
+                "2016-01-01"
+              ]
+            }
+          ]
+        }
+    ]
 
-Actualmente, los alias admitidos son:
+Currently, the supported aliases are:
 
-| Nombre de alias | Description |
+| Alias name | Description |
 | ---------- | ----------- |
-| {resourceType}/sku.name | Los tipos de recursos que se admiten son: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis y <br />Microsoft..CDN/profiles |
-| {resourceType}/sku.family | El tipo de recurso admitido es Microsoft.Cache/Redis |
-| {resourceType}/sku.capacity | El tipo de recurso admitido es Microsoft.Cache/Redis |
-| Microsoft.Compute/virtualMachines/imagePublisher | |
-| Microsoft.Compute/virtualMachines/imageOffer | |
-| Microsoft.Compute/virtualMachines/imageSku | |
-| Microsoft.Compute/virtualMachines/imageVersion | |
-| Microsoft.Cache/Redis/enableNonSslPort | |
-| Microsoft.Cache/Redis/shardCount | |
-| Microsoft.SQL/servers/version | |
-| Microsoft.SQL/servers/databases/requestedServiceObjectiveId | |
-| Microsoft.SQL/servers/databases/requestedServiceObjectiveName | |
-| Microsoft.SQL/servers/databases/edition | |
-| Microsoft.SQL/servers/databases/elasticPoolName | |
-| Microsoft.SQL/servers/elasticPools/dtu | |
-| Microsoft.SQL/servers/elasticPools/edition | |
+| {resourceType}/sku.name | Supported resource types are: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft.CDN/profiles |
+| {resourceType}/sku.family | Supported resource type is Microsoft.Cache/Redis |
+| {resourceType}/sku.capacity | Supported resource type is Microsoft.Cache/Redis |
+| Microsoft.Compute/virtualMachines/imagePublisher |  |
+| Microsoft.Compute/virtualMachines/imageOffer  |  |
+| Microsoft.Compute/virtualMachines/imageSku  |  |
+| Microsoft.Compute/virtualMachines/imageVersion  |  |
+| Microsoft.Cache/Redis/enableNonSslPort |  |
+| Microsoft.Cache/Redis/shardCount |  |
+| Microsoft.SQL/servers/version |  |
+| Microsoft.SQL/servers/databases/requestedServiceObjectiveId |  |
+| Microsoft.SQL/servers/databases/requestedServiceObjectiveName |  |
+| Microsoft.SQL/servers/databases/edition |  |
+| Microsoft.SQL/servers/databases/elasticPoolName |  |
+| Microsoft.SQL/servers/elasticPools/dtu |  |
+| Microsoft.SQL/servers/elasticPools/edition |  |
 
-Actualmente, la directiva solo funciona en las solicitudes PUT.
+Currently, policy only works on PUT requests. 
 
-## Efecto
-La directiva admite tres tipos de efecto: **deny**, **audit** y **append**.
+## <a name="effect"></a>Effect
+Policy supports three types of effect - **deny**, **audit**, and **append**. 
 
-- Deny genera un evento en el registro de auditoría y se produce un error en la solicitud
-- Audit genera un evento en el registro de auditoría pero no producirá un error en la solicitud
-- Append agrega el conjunto de campos definido a la solicitud
+- Deny generates an event in the audit log and fails the request
+- Audit generates an event in audit log but does not fail the request
+- Append adds the defined set of fields to the request 
 
-En el caso de **append**, debe dar los detalles como se muestra a continuación:
+For **append**, you must provide the details as shown below:
 
     ....
     "effect": "append",
@@ -169,15 +171,15 @@ En el caso de **append**, debe dar los detalles como se muestra a continuación:
       }
     ]
 
-El valor puede ser una cadena o un objeto con formato JSON.
+The value can be either a string or a JSON format object. 
 
-## Ejemplos de definición de directivas
+## <a name="policy-definition-examples"></a>Policy Definition Examples
 
-A continuación veremos cómo se va a definir la directiva para obtener los escenarios mencionados anteriormente.
+Now let's take a look at how we will define the policy to achieve the scenarios listed above.
 
-### Contracargo: requiere etiquetas departamentales
+### <a name="chargeback:-require-departmental-tags"></a>Chargeback: Require departmental tags
 
-La directiva siguiente rechaza todas las solicitudes que no tengan una etiqueta que contiene la clave "costCenter".
+The below policy denies all requests which don’t have a tag containing "costCenter" key.
 
     {
       "if": {
@@ -191,55 +193,55 @@ La directiva siguiente rechaza todas las solicitudes que no tengan una etiqueta 
       }
     }
 
-La siguiente directiva anexa la etiqueta costCenter con un valor predefinido si no hay ninguna etiqueta.
+The below policy appends costCenter tag with a predefined value if no tags are present. 
 
-	{
-	  "if": {
-	    "field": "tags",
-	    "exists": "false"
-	  },
-	  "then": {
-	    "effect": "append",
-	    "details": [
-	      {
-	        "field": "tags",
-	        "value": {"costCenter":"myDepartment" }
-	      }
-	    ]
-	  }
-	}
-	
-La siguiente directiva anexa la etiqueta costCenter con un valor predefinido si hay otras etiquetas.
+    {
+      "if": {
+        "field": "tags",
+        "exists": "false"
+      },
+      "then": {
+        "effect": "append",
+        "details": [
+          {
+            "field": "tags",
+            "value": {"costCenter":"myDepartment" }
+          }
+        ]
+      }
+    }
+    
+The below policy appends costCenter tag with a predefined value if other tags are present. 
 
-	{
-	  "if": {
-	    "allOf": [
-	      {
-	        "field": "tags",
-	        "exists": "true"
-	      },
-	      {
-	        "field": "tags.costCenter",
-	        "exists": "false"
-	      }
-	    ]
-	
-	  },
-	  "then": {
-	    "effect": "append",
-	    "details": [
-	      {
-	        "field": "tags.costCenter",
-	        "value": "myDepartment"
-	      }
-	    ]
-	  }
-	}
+    {
+      "if": {
+        "allOf": [
+          {
+            "field": "tags",
+            "exists": "true"
+          },
+          {
+            "field": "tags.costCenter",
+            "exists": "false"
+          }
+        ]
+    
+      },
+      "then": {
+        "effect": "append",
+        "details": [
+          {
+            "field": "tags.costCenter",
+            "value": "myDepartment"
+          }
+        ]
+      }
+    }
 
 
-### Cumplimiento geográfico: garantiza las ubicaciones de los recursos
+### <a name="geo-compliance:-ensure-resource-locations"></a>Geo Compliance: Ensure resource locations
 
-El ejemplo siguiente muestra una directiva que denegará todas las solicitudes cuya ubicación no sea Europa del Norte o Europa Occidental.
+The below example shows a policy which will deny all requests where location is not North Europe or West Europe.
 
     {
       "if" : {
@@ -253,9 +255,9 @@ El ejemplo siguiente muestra una directiva que denegará todas las solicitudes c
       }
     }
 
-### Selección de servicio: selecciona el catálogo de servicios
+### <a name="service-curation:-select-the-service-catalog"></a>Service Curation: Select the service catalog
 
-El ejemplo siguiente muestra el uso del origen. Muestra que solo se permiten acciones en los servicios de tipo Microsoft.Resources/\*, Microsoft.Compute/\*, Microsoft.Storage/\* y Microsoft.Network/\*. Se denegará todo lo demás.
+The below example shows the use of source. It shows that actions only on the services of type Microsoft.Resources/\*, Microsoft.Compute/\*, Microsoft.Storage/\*, Microsoft.Network/\* are allowed. Anything else will be denied.
 
     {
       "if" : {
@@ -285,9 +287,9 @@ El ejemplo siguiente muestra el uso del origen. Muestra que solo se permiten acc
       }
     }
 
-### Uso de SKU aprobadas
+### <a name="use-approved-skus"></a>Use Approved SKUs
 
-En el ejemplo siguiente se muestra el uso del alias de propiedad para restringir las SKU. En el ejemplo siguiente, solo se aprueba el uso de Standard\_LRS y Standard\_GRS para cuentas de almacenamiento.
+The below example shows the use of property alias to restrict SKUs. In the example below, only Standard_LRS and Standard_GRS is approved to use for storage accounts.
 
     {
       "if": {
@@ -314,9 +316,9 @@ En el ejemplo siguiente se muestra el uso del alias de propiedad para restringir
     }
     
 
-### Convención de nomenclatura
+### <a name="naming-convention"></a>Naming Convention
 
-El ejemplo siguiente muestra el uso de caracteres comodín compatibles con la condición "like". La condición indica que se denegará la solicitud si el nombre coincide con el patrón mencionado (namePrefix*nameSuffix).
+The below example shows the use of wildcard which is supported by the condition "like". The condition states that if the name does match the mentioned pattern (namePrefix\*nameSuffix) then deny the request.
 
     {
       "if" : {
@@ -330,9 +332,9 @@ El ejemplo siguiente muestra el uso de caracteres comodín compatibles con la co
       }
     }
     
-### Requisito de etiqueta solo para los recursos de almacenamiento
+### <a name="tag-requirement-just-for-storage-resources"></a>Tag requirement just for Storage resources
 
-En el ejemplo siguiente se muestra cómo anidar operadores lógicos para que requieran una etiqueta de aplicación solo para los recursos de almacenamiento.
+The below example shows how to nest logical operators to require an application tag for only Storage resources.
 
     {
         "if": {
@@ -354,23 +356,23 @@ En el ejemplo siguiente se muestra cómo anidar operadores lógicos para que req
         }
     }
 
-## Asignación de directiva
+## <a name="policy-assignment"></a>Policy Assignment
 
-Las directivas se pueden aplicar en distintos ámbitos como, por ejemplo, la suscripción, los grupos de recursos y los recursos individuales. Todos los recursos secundarios heredan las directivas. De este modo, si una directiva se aplica a un grupo de recursos, será aplicable a todos los recursos de dicho grupo de recursos.
+Policies can be applied at different scopes like subscription, resource groups and individual resources. Policies are inherited by all child resources. So if a policy is applied to a resource group, it will be applicable to all the resources in that resource group.
 
-## Creación de una directiva
+## <a name="creating-a-policy"></a>Creating a Policy
 
-En esta sección se ofrecen detalles sobre cómo se puede crear una directiva usando la API de REST.
+This section provides detail on how a policy can be created using REST API.
 
-### Crear una definición de directiva con la API de REST
+### <a name="create-policy-definition-with-rest-api"></a>Create Policy Definition with REST API
 
-Puede crear una directiva con la [API de REST para definiciones de directiva](https://msdn.microsoft.com/library/azure/mt588471.aspx). La API de REST permite crear y eliminar definiciones de directiva, así como recuperar información sobre las definiciones existentes.
+You can create a policy with the [REST API for Policy Definitions](https://msdn.microsoft.com/library/azure/mt588471.aspx). The REST API enables you to create and delete policy definitions, and get information about existing definitions.
 
-Para crear una nueva directiva, ejecute lo siguiente:
+To create a new policy, run:
 
     PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 
-Con un cuerpo de solicitud similar al siguiente:
+With a request body similar to the following:
 
     {
       "properties":{
@@ -392,38 +394,39 @@ Con un cuerpo de solicitud similar al siguiente:
     }
 
 
-La definición de la directiva puede definirse como uno de los ejemplos anteriores. Como versión de la API, use *2016-04-01*. Para obtener más ejemplos y más detalles, vea la [API de REST para definiciones de directiva](https://msdn.microsoft.com/library/azure/mt588471.aspx).
+The policy-definition can be defined as one of the examples shown above.
+For api-version use *2016-04-01*. For examples and more details, see [REST API for Policy Definitions](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
-### Crear una definición de directiva con PowerShell
+### <a name="create-policy-definition-using-powershell"></a>Create Policy Definition using PowerShell
 
-Puede crear una nueva definición de directiva mediante el cmdlet New-AzureRmPolicyDefinition tal como se muestra a continuación. En los ejemplos siguientes se crea una directiva para permitir los recursos solo en Europa del Norte y Europa occidental.
+You can create a new policy definition using the New-AzureRmPolicyDefinition cmdlet as shown below. The below examples creates a policy for allowing resources only in North Europe and West Europe.
 
-    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{	
+    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{  
       "if" : {
         "not" : {
           "field" : "location",
           "in" : ["northeurope" , "westeurope"]
-    	}
+        }
       },
       "then" : {
         "effect" : "deny"
       }
-    }'    		
+    }'          
 
-La salida de la ejecución se almacena en el objeto $policy y se puede usar posteriormente durante la asignación de la directiva. Para el parámetro de directiva, también se puede proporcionar la ruta de acceso a un archivo .json que contenga la directiva en lugar de especificar la directiva en línea tal como se muestra a continuación.
+The output of execution is stored in $policy object, and can used later during policy assignment. For the policy parameter, the path to a .json file containing the policy can also be provided instead of specifying the policy inline as shown below.
 
-    New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
+    New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain    regions" -Policy "path-to-policy-json-on-disk"
 
-### Creación de una definición de directiva con la CLI de Azure
+### <a name="create-policy-definition-using-azure-cli"></a>Create Policy Definition using Azure CLI
 
-Puede crear una nueva definición de directiva mediante la CLI de Azure con el comando de definición de directiva, tal y como se muestra a continuación. En los ejemplos siguientes se crea una directiva para permitir los recursos solo en Europa del Norte y Europa occidental.
+You can create a new policy definition using the azure CLI with the policy definition command as shown below. The below examples creates a policy for allowing resources only in North Europe and West Europe.
 
-    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{	
+    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{   
       "if" : {
         "not" : {
           "field" : "location",
           "in" : ["northeurope" , "westeurope"]
-    	}
+        }
       },
       "then" : {
         "effect" : "deny"
@@ -431,24 +434,25 @@ Puede crear una nueva definición de directiva mediante la CLI de Azure con el c
     }'    
     
 
-S puede proporcionar la ruta de acceso a un archivo .json que contenga la directiva, en lugar de especificarla en línea como se muestra a continuación.
+It is possible to specify the path to a .json file containing the policy instead of specifying the policy inline as shown below.
 
     azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy "path-to-policy-json-on-disk"
 
 
-## Aplicación de una directiva
+## <a name="applying-a-policy"></a>Applying a Policy
 
-### Asignación de directivas con la API de REST
+### <a name="policy-assignment-with-rest-api"></a>Policy Assignment with REST API
 
-Puede aplicar la definición de la directiva en el ámbito deseado a través de la [API de REST para asignaciones de directivas](https://msdn.microsoft.com/library/azure/mt588466.aspx). La API de REST permite crear y eliminar asignaciones de directiva, así como recuperar información sobre las asignaciones existentes.
+You can apply the policy definition at the desired scope through the [REST API for policy assignments](https://msdn.microsoft.com/library/azure/mt588466.aspx).
+The REST API enables you to create and delete policy assignments, and get information about existing assignments.
 
-Para crear una nueva asignación de directiva, ejecute:
+To create a new policy assignment, run:
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policy-assignment} es el nombre de la asignación de directiva. Como versión de la API, use *2016-04-01*.
+The {policy-assignment} is the name of the policy assignment. For api-version use *2016-04-01*. 
 
-Con un cuerpo de solicitud similar al siguiente:
+With a request body similar to the following:
 
     {
       "properties":{
@@ -459,64 +463,68 @@ Con un cuerpo de solicitud similar al siguiente:
       "name":"VMPolicyAssignment"
     }
 
-Para ejemplos y más detalles, vea la [API de REST para asignaciones de directivas](https://msdn.microsoft.com/library/azure/mt588466.aspx).
+For examples and more details, see [REST API for Policy Assignments](https://msdn.microsoft.com/library/azure/mt588466.aspx).
 
-### Asignación de directivas con PowerShell
+### <a name="policy-assignment-using-powershell"></a>Policy Assignment using PowerShell
 
-Puede aplicar la directiva creada anteriormente a través de PowerShell en el ámbito deseado mediante el cmdlet New-AzureRmPolicyAssignment tal como se muestra a continuación:
+You can apply the policy created above through PowerShell to the desired scope by using the New-AzureRmPolicyAssignment cmdlet as shown below:
 
     New-AzureRmPolicyAssignment -Name regionPolicyAssignment -PolicyDefinition $policy -Scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
         
-Aquí $policy es el objeto de la directiva que se devolvió como resultado de ejecutar el cmdlet New-AzureRmPolicyDefinition tal como se muestra más arriba. En este caso, el ámbito es el nombre del grupo de recursos que especifique.
+Here $policy is the policy object that was returned as a result of executing the New-AzureRmPolicyDefinition cmdlet as shown above. The scope here is the name of the resource group you specify.
 
-Si desea quitar la asignación de la directiva anterior, puede hacerlo de la siguiente manera:
+If you want to remove the above policy assignment, you can do it as follows:
 
     Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
 
-Puede obtener, cambiar o quitar definiciones de la directiva mediante los cmdlets Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition y Remove-AzureRmPolicyDefinition respectivamente.
+You can get, change or remove policy definitions through Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition and Remove-AzureRmPolicyDefinition cmdlets respectively.
 
-De forma similar, puede obtener, cambiar o quitar las asignaciones de directivas mediante los cmdlets Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment y Remove-AzureRmPolicyAssignment respectivamente.
+Similarly, you can get, change or remove policy assignments through the Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment and Remove-AzureRmPolicyAssignment cmdlets respectively.
 
-### Asignación de directivas con la CLI de Azure
+### <a name="policy-assignment-using-azure-cli"></a>Policy Assignment using Azure CLI
 
-Puede aplicar la directiva creada anteriormente a través de la CLI de Azure en el ámbito que quiera mediante el comando de asignación de directivas, tal y como se muestra a continuación:
+You can apply the policy created above through Azure CLI to the desired scope by using the policy assignment command as shown below:
 
     azure policy assignment create --name regionPolicyAssignment --policy-definition-id /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/<policy-name> --scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
         
-En este caso, el ámbito es el nombre del grupo de recursos que especifique. Si no se conoce el valor del parámetro policy-definition-id, se puede obtener con la CLI de Azure tal y como se muestra a continuación:
+The scope here is the name of the resource group you specify. If the value of the parameter policy-definition-id is unknown, it is possible to obtain it through the Azure CLI as shown below: 
 
     azure policy definition show <policy-name>
 
-Si desea quitar la asignación de la directiva anterior, puede hacerlo de la siguiente manera:
+If you want to remove the above policy assignment, you can do it as follows:
 
-    azure policy assignment remove --name regionPolicyAssignment --ccope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+    azure policy assignment delete --name regionPolicyAssignment --scope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
 
-Puede obtener, cambiar o quitar las definiciones de directiva utilizando los comandos de visualización, establecimiento y eliminación de definiciones de directiva, respectivamente.
+You can get, change or remove policy definitions through policy definition show, set and delete commands respectively.
 
-De forma similar, puede obtener, cambiar o quitar asignaciones de directivas utilizando los comandos de visualización y eliminación de asignaciones de directivas.
+Similarly, you can get, change or remove policy assignments through the policy assignment show and delete commands respectively.
 
-##Eventos de auditoría de directivas
+##<a name="policy-audit-events"></a>Policy Audit Events
 
-Después de aplicar la directiva, puede empezar a ver los eventos relacionados con ella. Puede ir al portal, o bien usar PowerShell o la CLI de Azure para obtener estos datos.
+After you have applied your policy, you will begin to see policy-related events. You can either go to portal, use PowerShell or the Azure CLI to get this data. 
 
-### Eventos de auditoría de directivas con PowerShell
+### <a name="policy-audit-events-using-powershell"></a>Policy Audit Events using PowerShell
 
-Para ver todos los eventos relacionados con el efecto de denegación, puede usar el siguiente comando de PowerShell.
+To view all events that related to deny effect, you can use the following PowerShell command. 
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/deny/action"} 
 
-Para ver todos los eventos relacionados con el efecto de auditoría, puede usar el siguiente comando.
+To view all events related to audit effect, you can use the following command. 
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
 
-### Eventos de auditoría de directivas con la CLI de Azure
+### <a name="policy-audit-events-using-azure-cli"></a>Policy Audit Events using Azure CLI
 
-Para ver todos los eventos de un grupo de recursos relacionados con el efecto de denegación, puede usar el siguiente comando de la CLI de Azure.
+To view all events from a resource group that related to deny effect, you can use the following CLI command. 
 
-    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == "Microsoft.Authorization/policies/deny/action")"
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == \"Microsoft.Authorization/policies/deny/action\")"
 
-Para ver todos los eventos relacionados con el efecto de auditoría, puede usar el siguiente comando de la CLI de Azure.
+To view all events related to audit effect, you can use the following CLI command. 
 
-    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == "Microsoft.Authorization/policies/audit/action")"
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == \"Microsoft.Authorization/policies/audit/action\")"
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

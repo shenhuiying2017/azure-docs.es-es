@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Administración de volúmenes de StorSimple | Microsoft Azure"
-   description="Explica cómo agregar, modificar, supervisar y eliminar volúmenes de StorSimple y cómo desconectarlos en caso necesario."
+   pageTitle="Manage your StorSimple volumes | Microsoft Azure"
+   description="Explains how to add, modify, monitor, and delete StorSimple volumes, and how to take them offline if necessary."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,187 +15,192 @@
    ms.date="05/11/2016"
    ms.author="v-sharos" />
 
-# Usar el servicio de Administrador de StorSimple para administrar volúmenes
+
+# <a name="use-the-storsimple-manager-service-to-manage-volumes"></a>Use the StorSimple Manager service to manage volumes
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
-## Información general
+## <a name="overview"></a>Overview
 
-Este tutorial explica cómo usar el servicio de Administrador de StorSimple para crear y administrar volúmenes en el dispositivo StorSimple y en el dispositivo virtual de StorSimple.
+This tutorial explains how to use the StorSimple Manager service to create and manage volumes on the StorSimple device and StorSimple virtual device.
 
-El servicio de Administrador de StorSimple es una extensión del Portal de Azure clásico que le permite administrar la solución de StorSimple desde una interfaz web única. Además de administrar volúmenes, puede usar el servicio de Administrador de StorSimple para crear y administrar servicios de StorSimple, ver y administrar dispositivos, ver alertas, y ver y administrar las directivas de copia de seguridad y el catálogo de copias de seguridad.
+The StorSimple Manager service is an extension of the Azure classic portal that lets you manage your StorSimple solution from a single web interface. In addition to managing volumes, you can use the StorSimple Manager service to create and manage StorSimple services, view and manage devices, view alerts, and view and manage backup policies and the backup catalog.
 
-> [AZURE.NOTE] Azure StorSimple solo puede crear volúmenes con aprovisionamiento fino. No es posible crear volúmenes total o parcialmente aprovisionados en un sistema de Azure StorSimple.
+> [AZURE.NOTE] Azure StorSimple can create thinly provisioned volumes only. You cannot create fully provisioned or partially provisioned volumes on an Azure StorSimple system.
 >
-> El aprovisionamiento fino es una tecnología de virtualización en que el almacenamiento disponible parece superar los recursos físicos. En lugar de reservar almacenamiento suficiente por adelantado, Azure StorSimple usa el aprovisionamiento fino para asignar solo el espacio suficiente para cumplir con los requisitos actuales. La naturaleza elástica del almacenamiento en la nube facilita este enfoque porque Azure StorSimple puede aumentar o disminuir el almacenamiento en la nube para cumplir con las exigencias cambiantes.
+> Thin provisioning is a virtualization technology in which available storage appears to exceed physical resources. Instead of reserving sufficient storage in advance, Azure StorSimple uses thin provisioning to allocate just enough space to meet current requirements. The elastic nature of cloud storage facilitates this approach because Azure StorSimple can increase or decrease cloud storage to meet changing demands.
 
-## La página Volúmenes
+## <a name="the-volumes-page"></a>The Volumes page
 
-La página **Volúmenes** permite administrar los volúmenes de almacenamiento que se aprovisionaron en el dispositivo de Microsoft Azure StorSimple para los iniciadores (servidores). Muestra la lista de volúmenes del dispositivo StorSimple.
+The **Volumes** page allows you to manage the storage volumes that are provisioned on the Microsoft Azure StorSimple device for your initiators (servers). It displays the list of volumes on your StorSimple device.
 
- ![Página de volúmenes](./media/storsimple-manage-volumes/HCS_VolumesPage.png)
+ ![Volumes page](./media/storsimple-manage-volumes/HCS_VolumesPage.png)
 
-Un volumen se compone de una serie de atributos:
+A volume consists of a series of attributes:
 
-- **Nombre**: nombre descriptivo que debe ser único y que ayuda a identificar el volumen. Este nombre también se usa en los informes de supervisión cuando se filtra por un volumen específico.
+- **Name** – A descriptive name that must be unique and helps identify the volume. This name is also used in monitoring reports when you filter on a specific volume.
 
-- **Estado**: puede estar conectado o desconectado. Si un volumen está desconectado, no es visible para los iniciadores (servidores) que tienen acceso para usar el volumen.
+- **Status** – Can be online or offline. If a volume if offline, it is not visible to initiators (servers) that are allowed access to use the volume.
 
-- **Capacidad**: especifica el tamaño del volumen, tal como lo percibe el iniciador (servidor). La capacidad especifica la cantidad total de datos que puede almacenar el iniciador (servidor). Los volúmenes tienen aprovisionamiento fino y los datos están desduplicados. Esto implica que el dispositivo ya no asigna previamente la capacidad de almacenamiento físico de forma interna o en la nube en función de la capacidad configurada del volumen. La capacidad del volumen se asigna y se consume a petición.
+- **Capacity** – Specifies how large the volume is, as perceived by the initiator (server). Capacity specifies the total amount of data that can be stored by the initiator (server). Volumes are thinly provisioned, and data is deduplicated. This implies that your device doesn’t pre-allocate physical storage capacity internally or on the cloud according to configured volume capacity. The volume capacity is allocated and consumed on demand.
 
-- **Tipo** : el tipo de volumen pueden establecerse en niveles o archivarse (un subtipo establecido en niveles)
+- **Type** – The volume type can be tiered or archival (a sub-type of tiered)
 
-- **Acceso**: especifica los iniciadores (servidores) que pueden tener acceso a este volumen. Los iniciadores que no son miembros del registro de control de acceso (ACR) asociado al volumen no podrán ver el volumen.
+- **Access** – Specifies the initiators (servers) that are allowed access to this volume. Initiators that are not members of access control record (ACR) that is associated with the volume will not see the volume.
 
-- **Supervisión**: especifica si se está supervisando un volumen. Un volumen tendrá la supervisión habilitada de forma predeterminada cuando se crea. Sin embargo, la supervisión estará deshabilitada para un clon del volumen. Para habilitar la supervisión de un volumen, siga las instrucciones indicadas en Supervisar un volumen.
+- **Monitoring** – Specifies whether or not a volume is being monitored. A volume will have monitoring enabled by default when it is created. Monitoring will, however, be disabled for a volume clone. To enable monitoring for a volume, follow the instructions in Monitor a volume.
 
-Las tareas más comunes asociadas a un volumen son:
+The most common tasks associated with a volume are:
 
-- Agregar un volumen
-- Modificar un volumen
-- Eliminar un volumen
-- Desconectar un volumen
-- Supervisar un volumen
+- Add a volume
+- Modify a volume
+- Delete a volume
+- Take a volume offline
+- Monitor a volume
 
-## Agregar un volumen
+## <a name="add-a-volume"></a>Add a volume
 
-Ya [creó un volumen](storsimple-deployment-walkthrough-u1.md#step-6-create-a-volume) durante la implementación de la solución de StorSimple. El procedimiento para agregar un volumen es similar.
+You [created a volume](storsimple-deployment-walkthrough-u1.md#step-6-create-a-volume) during deployment of your StorSimple solution. Adding a volume is a similar procedure.
 
-### Para agregar un volumen
+### <a name="to-add-a-volume"></a>To add a volume
 
-1. En la página **Dispositivos**, seleccione el dispositivo, haga doble clic en él y, a continuación, haga clic en la pestaña **Contenedores de volúmenes**.
+1. On the **Devices** page, select the device, double-click it, and then click the **Volume Containers** tab.
 
-2. Seleccione un contenedor de volúmenes y haga clic en la flecha situada en la fila correspondiente para acceder a los volúmenes asociados al contenedor.
+2. Select a volume container and click the arrow in the corresponding row to access the volumes associated with the container.
 
-3. Haga clic en **Agregar** en la parte inferior de la página. Se iniciará el Asistente para agregar volúmenes.
+3. Click **Add** at the bottom of the page. The Add a volume wizard starts.
 
-     ![Agregar configuración básica del asistente de volumen](./media/storsimple-manage-volumes/AddVolume1.png)
+     ![Add volume wizard Basic Settings](./media/storsimple-manage-volumes/AddVolume1.png)
 
-4. En el Asistente para agregar volúmenes, en **Configuración básica**, haga lo siguiente:
+4. In the Add a volume wizard, under **Basic Settings**, do the following:
 
-  1. Proporcione un **Nombre** para el volumen.
-  2. Especifique la **Capacidad aprovisionada** para el volumen en GB o TB. La capacidad debe estar entre 1 y 64 TB para un dispositivo físico. La capacidad máxima que se puede aprovisionar para un volumen en un dispositivo virtual de StorSimple es de 30 TB.
-  3. Seleccione el **Tipo de uso** para el volumen. Si usa el volumen en capas para los datos de archivo, seleccione la casilla de verificación **Usar este volumen para los datos de archivo a los que accede con menos frecuencia** cambia el tamaño del fragmento de desduplicación del volumen a 512 KB. Si no selecciona esta opción, el volumen correspondiente en capas usará un tamaño del fragmento de 64 KB. Un mayor tamaño de fragmento de desduplicación permite que el dispositivo acelere la transferencia de datos de archivado de gran tamaño a la nube. (Los volúmenes en niveles se denominaban anteriormente volúmenes primarios).
-  5. Haga clic en el icono de flecha ![Icono de flecha](./media/storsimple-manage-volumes/HCS_ArrowIcon.png) para ir a la página **Configuración adicional**.
+  1. Supply a **Name** for your volume.
+  2. Specify the **Provisioned Capacity** for your volume in GB or TB. The capacity must be between 1 GB and 64 TB for a physical device. The maximum capacity that can be provisioned for a volume on a StorSimple virtual device is 30 TB.
+  3. Select the **Usage Type** for your volume. If you are using the tiered volume for archival data, selecting the **Use this volume for less frequently accessed archival data** check box changes the deduplication chunk size for your volume to 512 KB. If you do not select this option, the corresponding tiered volume will use a chunk size of 64 KB. A larger deduplication chunk size allows the device to expedite the transfer of large archival data to the cloud.(Tiered volumes were formerly called primary volumes.)
+  5. Click the arrow icon ![Arrow icon](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)to go to the **Additional Settings** page.
 
         ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes/AddVolume2.png)
 
-5. En **Configuración adicional**, agregue un nuevo registro de control de acceso (ACR):
+5. Under **Additional Settings**, add a new access control record (ACR):
 
-  1. Seleccione un registro de control de acceso (ACR) de la lista desplegable. También puede agregar un nuevo ACR. Los ACR determinan qué hosts pueden acceder a los volúmenes haciendo coincidir el IQN del host con el que aparece en el registro.
-  2. Le recomendamos que, para habilitar una copia de seguridad predeterminada, active la casilla **Habilitar una copia de seguridad predeterminada para este volumen**.
-   3. Haga clic en el icono de marca de verificación ![Icono de marca de verificación](./media/storsimple-manage-volumes/HCS_CheckIcon.png) para crear el volumen con la configuración especificada.
+  1. Select an access control record (ACR) from the drop-down list. Alternatively, you can add a new ACR. ACRs determine which hosts can access your volumes by matching the host IQN with that listed in the record.
+  2. We recommend that you enable a default backup by selecting the **Enable a default backup for this volume** check box.
+   3. Click the check icon ![Check icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png) to create the volume with the specified settings.
 
-El nuevo volumen ya está listo para usarse.
+Your new volume is now ready to use.
 
-## Modificar un volumen
+## <a name="modify-a-volume"></a>Modify a volume
 
-Modifique un volumen cuando necesite expandirlo o cambiar los hosts que tienen acceso al volumen.
+Modify a volume when you need to expand it or change the hosts that access the volume.
 
 > [AZURE.IMPORTANT]
 >
-> - Si modifica el tamaño del volumen en el dispositivo, también deberá cambiar el tamaño del volumen en el host.
-> - Los pasos del lado host que se describen aquí son para Windows Server 2012 (2012R2). Los procedimientos para Linux u otros sistemas operativos de host serán diferentes. Consulte las instrucciones del sistema operativo del host cuando modifique el volumen del host que esté ejecutando otro sistema operativo.
+> - If you modify the volume size on the device, the volume size needs to be changed on the host as well.
+> - The host-side steps described here are for Windows Server 2012 (2012R2). Procedures for Linux or other host operating systems will be different. Refer to your host operating system instructions when modifying the volume on a host running another operating system.
 
-### Para modificar un volumen
+### <a name="to-modify-a-volume"></a>To modify a volume
 
-1. En la página **Dispositivos**, seleccione el dispositivo, haga doble clic en él y, a continuación, haga clic en la pestaña **Contenedor de volúmenes**. Esta página muestra en un formato tabular todos los contenedores de volúmenes que están asociados al dispositivo.
+1. On the **Devices** page, select the device, double-click it, and then click the **Volume Container** tab. This page lists in a tabular format all the volume containers that are associated with the device.
 
-2. Seleccione un contenedor de volúmenes y haga clic en él para mostrar la lista de todos los volúmenes dentro del contenedor.
+2. Select a volume container and click it to display the list of all the volumes within the container.
 
-3. En la página **Volúmenes**, seleccione un volumen y haga clic en **Modificar**.
+3. On the **Volumes** page, select a volume and click **Modify**.
 
-4. En el Asistente para modificar volúmenes, en **Configuración básica**, puede hacer lo siguiente:
+4. In the Modify volume wizard, under **Basic Settings**, you can do the following:
 
-  - Edite el **nombre** y el **tipo** si desea modificar un volumen establecido en niveles en un volumen de archivo seleccionando la casilla **Usar este volumen para los datos de archivo a los que accede con menos frecuencia** para cambiar el tamaño del fragmento de desduplicación para el volumen en 512 KB.
-  - Aumentar la **Capacidad aprovisionada**. La **Capacidad aprovisionada** solo puede aumentarse. No se puede reducir un volumen después de crearlo.
+  - Edit the **Name** and **Type** if you wish to modify a tiered volume to an archival volume by selecting the **Use this volume for less frequently accessed archival data** check box to change the deduplication chunk size for your volume to 512 KB.
+  - Increase the **Provisioned Capacity**. The **Provisioned Capacity** can only be increased. You cannot shrink a volume after it is created.
 
-    > [AZURE.NOTE] No se puede cambiar el contenedor de volúmenes después de asignarlo a un volumen.
+    > [AZURE.NOTE] You cannot change the volume container after it is assigned to a volume.
 
-5. En **Configuración adicional**, puede hacer lo siguiente:
+5. Under **Additional Settings**, you can do the following:
 
-  - Modificar los ACR, siempre que el volumen esté desconectado. Si el volumen está conectado, primero deberá desconectarlo. Consulte los pasos indicados en [Desconectar un volumen](#take-a-volume-offline) antes de modificar el ACR.
-  - Modificar la lista de ACR después de desconectar el volumen.
+  - Modify the ACRs, provided that the volume is offline. If the volume is online, you will need to take it offline first. Refer to the steps in [Take a volume offline](#take-a-volume-offline) prior to modifying the ACR.
+  - Modify the list of ACRs after the volume is offline.
 
-    > [AZURE.NOTE] En cuanto al volumen, no puede cambiar la opción **Habilitar una copia de seguridad predeterminada para este volumen**.
+    > [AZURE.NOTE] You cannot change the **Enable a default backup for this volume** option for the volume.
 
-6. Guarde los cambios haciendo clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-manage-volumes/HCS_CheckIcon.png). El Portal de Azure clásico mostrará un mensaje de actualización del volumen. Presentará en la pantalla un mensaje de confirmación cuando el volumen se haya actualizado correctamente.
+6. Save your changes by clicking the check icon ![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png). The Azure classic portal will display an updating volume message. It will display a success message when the volume has been successfully updated.
 
-7. Si se va a expandir un volumen, realice los pasos siguientes en el equipo host Windows:
+7. If you are expanding a volume, complete the following steps on your Windows host computer:
 
-   1. Vaya a **Administración de equipos** -> **Administración de discos**.
-   2. Haga clic con el botón derecho en **Administración de discos** y seleccione **Volver a examinar los discos**.
-   3. En la lista de discos, seleccione el volumen que actualizó, haga clic en él con el botón derecho y seleccione **Extender volumen**. Se iniciará el Asistente para extender volúmenes. Haga clic en **Siguiente**.
-   4. Complete el asistente aceptando los valores predeterminados que se proporcionan. Cuando el asistente haya finalizado, el volumen debería mostrar el aumento de tamaño.
+   1. Go to **Computer Management** ->**Disk Management**.
+   2. Right-click **Disk Management** and select **Rescan Disks**.
+   3. In the list of disks, select the volume that you updated, right-click, and then select **Extend Volume**. The Extend Volume wizard starts. Click **Next**.
+   4. Complete the wizard, accepting the default values. After the wizard is finished, the volume should show the increased size.
 
-![Vídeo disponible](./media/storsimple-manage-volumes/Video_icon.png) **Vídeo disponible**
+![Video available](./media/storsimple-manage-volumes/Video_icon.png) **Video available**
 
-Para ver un vídeo que muestra cómo expandir un volumen, haga clic [aquí](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
+To watch a video that demonstrates how to expand a volume, click [here](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
 
-## Desconectar un volumen
+## <a name="take-a-volume-offline"></a>Take a volume offline
 
-Puede que necesite desconectar un volumen si tiene previsto modificarlo o eliminarlo. Cuando un volumen está desconectado, no está disponible para el acceso de lectura y escritura. Deberá desconectar el volumen en el host, así como en el dispositivo. Realice los pasos siguientes para desconectar un volumen.
+You may need to take a volume offline when you are planning to modify it or delete it. When a volume is offline, it is not available for read-write access. You will need to take the volume offline on the host as well as on the device. Perform the following steps to take a volume offline.
 
-### Para desconectar un volumen
+### <a name="to-take-a-volume-offline"></a>To take a volume offline
 
-1. Asegúrese de que el volumen en cuestión no está en uso antes de desconectarlo.
+1. Make sure that the volume in question is not in use before taking it offline.
 
-2. Desconecte el volumen primero en el host. Esto elimina cualquier riesgo potencial de dañar los datos del volumen. Para conocer los pasos específicos, consulte las instrucciones del sistema operativo del host.
+2. Take the volume offline on the host first. This eliminates any potential risk of data corruption on the volume. For specific steps, refer to the instructions for your host operating system.
 
-3. Una vez desconectado el host, desconecte el volumen en el dispositivo siguiendo estos pasos:
+3. After the host is offline, take the volume on the device offline by performing the following steps:
 
-  1. En la página **Dispositivos**, seleccione el dispositivo, haga doble clic en él y, a continuación, haga clic en la pestaña **Contenedores de volúmenes**. La pestaña **Contenedores de volúmenes** muestra en formato tabular todos los contenedores de volúmenes que están asociados al dispositivo.
-  2. Seleccione un contenedor de volúmenes y haga clic en él para mostrar la lista de todos los volúmenes dentro del contenedor.
-  3. Seleccione un volumen y haga clic en **Desconectar**.
-  4. Cuando se le pida confirmación, haga clic en **Sí**. El volumen debería desconectarse.
+  1. On the **Devices** page, select the device, double-click it, and then click the **Volume Containers** tab. The **Volume Containers** tab lists in a tabular format all the volume containers that are associated with the device.
+  2. Select a volume container and click it to display the list of all the volumes within the container.
+  3. Select a volume and click **Take offline**.
+  4. When prompted for confirmation, click **Yes**. The volume should now be offline.
 
-    Una vez desconectado un volumen, pasa a estar disponible la opción **Conectar**.
+    After a volume is offline, the **Bring Online** option becomes available.
 
-> [AZURE.NOTE] El comando **Desconectar** envía una solicitud al dispositivo para desconectar el volumen. Si los hosts todavía están usando el volumen las conexiones se interrumpirán, pero la desconexión del volumen no producirá un error.
+> [AZURE.NOTE] The **Take Offline** command sends a request to the device to take the volume offline. If hosts are still using the volume, this results in broken connections, but taking the volume offline will not fail.
 
-## Eliminar un volumen
+## <a name="delete-a-volume"></a>Delete a volume
 
-> [AZURE.IMPORTANT] Puede eliminar un volumen solo si está desconectado.
+> [AZURE.IMPORTANT] You can delete a volume only if it is offline.
 
-Siga estos pasos para eliminar un volumen.
+Complete the following steps to delete a volume.
 
-### Para eliminar un volumen
+### <a name="to-delete-a-volume"></a>To delete a volume
 
-1. En la página **Dispositivos**, seleccione el dispositivo, haga doble clic en él y, a continuación, haga clic en la pestaña **Contenedores de volúmenes**.
+1. On the **Devices** page, select the device, double-click it, and then click the **Volume Containers** tab.
 
-2. Seleccione el contenedor de volúmenes que tiene el volumen que desea eliminar. Haga clic en el contenedor de volúmenes para acceder a la página **Volúmenes**.
+2. Select the volume container that has the volume you want to delete. Click the volume container to access the **Volumes** page.
 
-3. Todos los volúmenes asociados a este contenedor se muestran en formato tabular. Compruebe el estado del volumen que desea eliminar. Si el volumen que desea eliminar no está desconectado, desconéctelo primero siguiendo los pasos indicados en [Desconectar un volumen](#take-a-volume-offline).
+3. All the volumes associated with this container are displayed in a tabular format. Check the status of the volume you want to delete. If the volume you want to delete is not offline, take it offline first, following the steps in [Take a volume offline](#take-a-volume-offline).
 
-4. Una vez desconectado el volumen, haga clic en **Eliminar** en la parte inferior de la página.
+4. After the volume is offline, click **Delete** at the bottom of the page.
 
-5. Cuando se le pida confirmación, haga clic en **Sí**. El volumen se eliminará y la página **Volúmenes** mostrará la lista actualizada de volúmenes dentro del contenedor.
+5. When prompted for confirmation, click **Yes**. The volume will now be deleted and the **Volumes** page will show the updated list of volumes within the container.
 
-## Supervisar un volumen
+## <a name="monitor-a-volume"></a>Monitor a volume
 
-La supervisión de volúmenes permite recopilar estadísticas relacionados con la E/S de un volumen. La supervisión está habilitada de forma predeterminada para los 32 primeros volúmenes que cree. La supervisión de volúmenes adicionales está deshabilitada de forma predeterminada. La supervisión de volúmenes clonados también está deshabilitada de forma predeterminada.
+Volume monitoring allows you to collect I/O-related statistics for a volume. Monitoring is enabled by default for the first 32 volumes that you create. Monitoring of additional volumes is disabled by default. Monitoring of cloned volumes is also disabled by default.
 
-Siga estos pasos para habilitar o deshabilitar la supervisión de un volumen.
+Perform the following steps to enable or disable monitoring for a volume.
 
-### Para habilitar o deshabilitar la supervisión de volúmenes
+### <a name="to-enable-or-disable-volume-monitoring"></a>To enable or disable volume monitoring
 
-1. En la página **Dispositivos**, seleccione el dispositivo, haga doble clic en él y, a continuación, haga clic en la pestaña **Contenedores de volúmenes**.
+1. On the **Devices** page, select the device, double-click it, and then click the **Volume Containers** tab.
 
-2. Seleccione el contenedor de volúmenes en el que reside el volumen y, a continuación, haga clic en el contenedor de volúmenes para acceder a la página **Volúmenes**.
+2. Select the volume container in which the volume resides, and then click the volume container to access the **Volumes** page.
 
-3. Todos los volúmenes asociados a este contenedor se muestran en presentación tabular. Haga clic para seleccionar el volumen o el clon del volumen.
+3. All the volumes associated with this container are listed in the tabular display. Click and select the volume or volume clone.
 
-4. En la parte inferior de la página, haga clic en **Modificar**.
+4. At the bottom of the page, click **Modify**.
 
-5. En el Asistente para modificar volúmenes, en **Configuración básica**, seleccione **Habilitar** o **Deshabilitar** en la lista desplegable de **Supervisión**.
+5. In the Modify Volume wizard, under **Basic Settings**, select **Enable** or **Disable** from the **Monitoring** drop-down list.
 
-    ![Modificar la configuración básica de un volumen](./media/storsimple-manage-volumes/HCS_MonitorVolumeM.png)
+    ![Modify a volume Basic Settings](./media/storsimple-manage-volumes/HCS_MonitorVolumeM.png)
 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-- Aprenda cómo [clonar un volumen de StorSimple](storsimple-clone-volume.md).
+- Learn how to [clone a StorSimple volume](storsimple-clone-volume.md).
 
-- Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

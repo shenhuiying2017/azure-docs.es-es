@@ -1,44 +1,49 @@
 <properties
-	pageTitle="Azure Active Directory B2C: Autoservicio de restablecimiento de contraseña | Microsoft Azure"
-	description="Tema en el que se demuestra cómo configurar el autoservicio de restablecimiento de contraseña para los consumidores en Azure Active Directory B2C"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="curtand"/>
+    pageTitle="Azure Active Directory B2C: Self-service password reset | Microsoft Azure"
+    description="A topic demonstrating how to set up self-service password reset for your consumers in Azure Active Directory B2C"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="mbaldwin"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2016"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/24/2016"
+    ms.author="swkrish"/>
 
 
-# Azure Active Directory B2C: configurar el autoservicio de restablecimiento de contraseña para los consumidores
 
-Con la característica de autoservicio de restablecimiento de contraseña, los consumidores que se registraron para obtener cuentas locales pueden restablecer sus contraseñas ellos mismos. De esta manera se reduce significativamente la carga del personal de soporte técnico, especialmente si la aplicación tiene millones de consumidores que la usan de forma periódica. Actualmente, solo se admite como método de recuperación el uso de una dirección de correo electrónico comprobada. Agregaremos métodos de recuperación adicionales (número de teléfono comprobado, preguntas de seguridad, etc.) en el futuro.
+# <a name="azure-active-directory-b2c:-set-up-self-service-password-reset-for-your-consumers"></a>Azure Active Directory B2C: Set up self-service password reset for your consumers
 
-> [AZURE.NOTE]
-Este artículo se aplica a la operación de autoservicio de restablecimiento de contraseña empleada en el contexto de una directiva de inicio de sesión. Si necesita invocar directivas de restablecimiento de contraseña totalmente personalizables desde su aplicación, consulte [este artículo](./active-directory-b2c-reference-policies.md#create-a-password-reset-policy).
-
-De forma predeterminada, el directorio no tendrá activado el autoservicio de restablecimiento de contraseña. Para activarlo, siga estos pasos:
-
-1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/) como administrador de la suscripción. Esta cuenta es la misma cuenta profesional o educativa o la misma cuenta Microsoft que usó para crear el directorio.
-2. Vaya a la extensión de Active Directory en la barra de navegación del lado izquierdo.
-3. Busque su directorio en la pestaña **Directorio** y haga clic en él.
-4. Haga clic en la pestaña **Configurar**.
-5. Desplácese hacia abajo hasta la sección **Políticas para restablecer la contraseña del usuario** y cambie el valor de la opción **Usuarios habilitados para restablecer la contraseña** a **SÍ**. Observe que la opción **Dirección de correo electrónico alternativa** está activada; déjela así.
-
-    ![Restablecimiento de la contraseña de autoservicio](./media/active-directory-b2c-reference-sspr/sspr.png)
-
-6. Haga clic en **Guardar** en la parte inferior de la página. ¡Y ya está!
-
-Para probar, use la característica "Ejecutar ahora" en cualquier directiva de inicio de sesión que tenga cuentas locales como proveedor de identidades. En la página de inicio de sesión de la cuenta local (donde escribe la dirección de correo electrónico y la contraseña, o bien el nombre de usuario y la contraseña), haga clic en **¿No se puede tener acceso a la cuenta?** para comprobar la experiencia del consumidor.
+With the self-service password reset feature, your consumers (who have signed up for local accounts) can reset their passwords on their own. This significantly reduces the burden on your support staff, especially if your application has millions of consumers using it on a regular basis. Currently, we only support using a verified email address as a recovery method. We will add additional recovery methods (verified phone number, security questions, etc.) in the future.
 
 > [AZURE.NOTE]
-Las páginas del autoservicio de restablecimiento de contraseña se pueden personalizar con la [característica de personalización de marca de empresa](../active-directory/active-directory-add-company-branding.md).
+This article applies to self-service password reset used in the context of a sign-in policy. If you need fully customizable password reset policies invoked from your app, see [this article](./active-directory-b2c-reference-policies.md#create-a-password-reset-policy).
 
-<!---HONumber=AcomDC_0727_2016-->
+By default, your directory will not have self-service password reset turned on. Use the following steps to turn it on:
+
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator. This is the same work or school account or the same Microsoft account that you used to create your directory.
+2. Navigate to the Active Directory extension on the navigation bar on the left side.
+3. Find your directory under the **Directory** tab and click it.
+4. Click the **Configure** tab.
+5. Scroll down to the **User password reset policy** section and toggle the **Users enabled for password reset** option to **YES**. Notice that the **Alternate Email Address** option is checked; leave it as it is.
+
+    ![Self-service password reset](./media/active-directory-b2c-reference-sspr/sspr.png)
+
+6. Click **Save** at the bottom of the page. You're done!
+
+To test, use the "Run now" feature on any sign-in policy that has local accounts as an identity provider. On the local account sign-in page (where you enter an email address and password, or a username and password), click **Can't access your account?** to verify the consumer experience.
+
+> [AZURE.NOTE]
+The self-service password reset pages can be customized by using the [company branding feature](../active-directory/active-directory-add-company-branding.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

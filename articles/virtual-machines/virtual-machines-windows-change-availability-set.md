@@ -1,165 +1,171 @@
 <properties
-	pageTitle="Cambio de conjuntos de disponibilidad de máquina virtual | Microsoft Azure"
-	description="Aprenda a cambiar un conjunto de disponibilidad para sus máquinas virtuales mediante Azure Portal o Azure PowerShell con el modelo de implementación de Resource Manager."
-	keywords=""
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="Drewm3"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Change a VMs availability set | Microsoft Azure"
+    description="Learn how to change the availability set for your virtual machines using Azure PowerShell and the Resource Manager deployment model."
+    keywords=""
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="Drewm3"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/15/2016"
-	ms.author="drewm"/>
+    ms.service="virtual-machines-windows"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/15/2016"
+    ms.author="drewm"/>
 
 
 
-# Cambio del conjunto de disponibilidad de una máquina virtual Windows
 
-En los pasos siguientes se describe cómo cambiar el conjunto de disponibilidad de una máquina virtual con Azure PowerShell. Una máquina virtual solo puede agregarse a un conjunto de disponibilidad cuando se crea. Para poder cambiar el conjunto de disponibilidad, debe eliminar la máquina virtual y volver a crearla.
+# <a name="change-the-availability-set-for-a-windows-vm"></a>Change the availability set for a Windows VM
 
-## Cambio del conjunto de disponibilidad con PowerShell
+The following steps describe how to change the availability set of a VM using Azure PowerShell. A VM can only be added to an availability set when it is created. In order to change the availability set, you need to delete and recreate the virtual machine. 
 
-1. Obtenga la siguiente información importante de la máquina virtual que se va a modificar.
+## <a name="change-the-availability-set-using-powershell"></a>Change the availability set using PowerShell
 
-	Nombre de la máquina virtual
-	
-	```powershell
-	$vm = Get-AzureRmVM -ResourceGroupName <Name-of-resource-group> -Name <name-of-VM>
-	$vm.Name
-	```
+1. Capture the following key details from the VM to be modified.
+
+    Name of the VM
+    
+    ```powershell
+    $vm = Get-AzureRmVM -ResourceGroupName <Name-of-resource-group> -Name <name-of-VM>
+    $vm.Name
+    ```
  
-	Tamaño de VM
-	
-	```powershell
-	$vm.HardwareProfile.VmSize
-	```
+    VM Size
+    
+    ```powershell
+    $vm.HardwareProfile.VmSize
+    ```
 
-	Interfaz de red principal de la red y las interfaces de red opcional si existen en la máquina virtual
-	
-	```powershell
-	$vm.NetworkProfile.NetworkInterfaces[0].Id
-	```
+    Network primary network interface and optional network interfaces if they exist on the VM
+    
+    ```powershell
+    $vm.NetworkProfile.NetworkInterfaces[0].Id
+    ```
 
-	Perfil de disco del sistema operativo
+    OS Disk Profile
 
-	```powershell
-	$vm.StorageProfile.OsDisk.OsType
-	$vm.StorageProfile.OsDisk.Name
-	$vm.StorageProfile.OsDisk.Vhd.Uri
-	```
+    ```powershell
+    $vm.StorageProfile.OsDisk.OsType
+    $vm.StorageProfile.OsDisk.Name
+    $vm.StorageProfile.OsDisk.Vhd.Uri
+    ```
 
-	Perfiles de disco de cada disco de datos
-	
-	```powershell
-	$vm.StorageProfile.DataDisks[<index>].Lun
-	$vm.StorageProfile.DataDisks[<index>].Vhd.Uri
-	```
+    Disk profiles for each data disk 
+    
+    ```powershell
+    $vm.StorageProfile.DataDisks[<index>].Lun
+    $vm.StorageProfile.DataDisks[<index>].Vhd.Uri
+    ```
 
-	Extensiones de máquina virtual instaladas
-	
-	```powershell
-	$vm.Extensions
-	```
+    VM extensions installed 
+    
+    ```powershell
+    $vm.Extensions
+    ```
 
-2. Elimine la máquina virtual sin eliminar los discos o las interfaces de red.
+2. Delete the VM without deleting any of the disks or the network interfaces.
 
-	```powershell
-	Remove-AzureRmVM -ResourceGroupName <resourceGroupName> -Name <vmName> 
-	```
+    ```powershell
+    Remove-AzureRmVM -ResourceGroupName <resourceGroupName> -Name <vmName> 
+    ```
 
-3. Si todavía no existe, cree el conjunto de disponibilidad.
+3. Create the availability set if it does not already exist
 
-	```powershell
-	New-AzureRmAvailabilitySet -ResourceGroupName <resourceGroupName> -Name <availabilitySetName> -Location "<location>" 
-	```
+    ```powershell
+    New-AzureRmAvailabilitySet -ResourceGroupName <resourceGroupName> -Name <availabilitySetName> -Location "<location>" 
+    ```
 
-4. Vuelva a crear la máquina virtual con el nuevo conjunto de disponibilidad.
+4. Recreate the VM using the new availability set
 
-	```powershell
-	$vm2 = New-AzureRmVMConfig -VMName <VM-name> -VMSize <vm-size> -AvailabilitySetId <availability-set-id>
+    ```powershell
+    $vm2 = New-AzureRmVMConfig -VMName <VM-name> -VMSize <vm-size> -AvailabilitySetId <availability-set-id>
 
-	Set-AzureRmVMOSDisk -CreateOption "Attach" -VM <vmConfig> -VhdUri <osDiskURI> -Name <osDiskName> [-Windows | -Linux]
+    Set-AzureRmVMOSDisk -CreateOption "Attach" -VM <vmConfig> -VhdUri <osDiskURI> -Name <osDiskName> [-Windows | -Linux]
 
-	Add-AzureRmVMNetworkInterface -VM <vmConfig> -Id  <nicId> 
+    Add-AzureRmVMNetworkInterface -VM <vmConfig> -Id  <nicId> 
 
-	New-AzureRmVM -ResourceGroupName <resourceGroupName> -Location <location> -VM <vmConfig>
-	``` 
+    New-AzureRmVM -ResourceGroupName <resourceGroupName> -Location <location> -VM <vmConfig>
+    ``` 
 
-5. Agregue discos de datos y extensiones. Para obtener más información, consulte el artículo sobre cómo [conectar discos de datos a máquinas virtuales](virtual-machines-windows-attach-disk-portal.md) y [Ejemplos de configuración de extensiones](virtual-machines-windows-extensions-configuration-samples.md). Los discos de datos y las extensiones pueden agregarse a la máquina virtual mediante PowerShell o la CLI de Azure.
+5. Add data disks and extensions. For more information, see [Attach Data Disk to VM](virtual-machines-windows-attach-disk-portal.md) and [Extension Configuration Samples](virtual-machines-windows-extensions-configuration-samples.md). Data disks and extensions can be added to the VM using PowerShell or Azure CLI.
 
-## Script de ejemplo
+## <a name="example-script"></a>Example Script
 
-El script siguiente proporciona un ejemplo de recopilación de la información necesaria: se elimina la máquina virtual original y, luego, se vuelve a crear en un nuevo conjunto de disponibilidad.
+The following script provides an example of gathering the required information, deleting the original VM and then recreating it in a new availability set.
 
 ```powershell
-	#set variables
-	$rg = "demo-resource-group"
-	$vmName = "demo-vm"
-	$newAvailSetName = "demo-as"
-	$outFile = "C:\temp\outfile.txt"
+    #set variables
+    $rg = "demo-resource-group"
+    $vmName = "demo-vm"
+    $newAvailSetName = "demo-as"
+    $outFile = "C:\temp\outfile.txt"
 
-	#Get VM Details
-	$OriginalVM = get-azurermvm -ResourceGroupName $rg -Name $vmName
+    #Get VM Details
+    $OriginalVM = get-azurermvm -ResourceGroupName $rg -Name $vmName
 
-	#Output VM details to file
-	"VM Name: " | Out-File -FilePath $outFile 
-	$OriginalVM.Name | Out-File -FilePath $outFile -Append
+    #Output VM details to file
+    "VM Name: " | Out-File -FilePath $outFile 
+    $OriginalVM.Name | Out-File -FilePath $outFile -Append
 
-	"Extensions: " | Out-File -FilePath $outFile -Append
-	$OriginalVM.Extensions | Out-File -FilePath $outFile -Append
+    "Extensions: " | Out-File -FilePath $outFile -Append
+    $OriginalVM.Extensions | Out-File -FilePath $outFile -Append
 
-	"VMSize: " | Out-File -FilePath $outFile -Append
-	$OriginalVM.HardwareProfile.VmSize | Out-File -FilePath $outFile -Append
+    "VMSize: " | Out-File -FilePath $outFile -Append
+    $OriginalVM.HardwareProfile.VmSize | Out-File -FilePath $outFile -Append
 
-	"NIC: " | Out-File -FilePath $outFile -Append
-	$OriginalVM.NetworkProfile.NetworkInterfaces[0].Id | Out-File -FilePath $outFile -Append
+    "NIC: " | Out-File -FilePath $outFile -Append
+    $OriginalVM.NetworkProfile.NetworkInterfaces[0].Id | Out-File -FilePath $outFile -Append
 
-	"OSType: " | Out-File -FilePath $outFile -Append
-	$OriginalVM.StorageProfile.OsDisk.OsType | Out-File -FilePath $outFile -Append
+    "OSType: " | Out-File -FilePath $outFile -Append
+    $OriginalVM.StorageProfile.OsDisk.OsType | Out-File -FilePath $outFile -Append
 
-	"OS Disk: " | Out-File -FilePath $outFile -Append
-	$OriginalVM.StorageProfile.OsDisk.Vhd.Uri | Out-File -FilePath $outFile -Append
+    "OS Disk: " | Out-File -FilePath $outFile -Append
+    $OriginalVM.StorageProfile.OsDisk.Vhd.Uri | Out-File -FilePath $outFile -Append
 
-	if ($OriginalVM.StorageProfile.DataDisks) {
+    if ($OriginalVM.StorageProfile.DataDisks) {
     "Data Disk(s): " | Out-File -FilePath $outFile -Append
     $OriginalVM.StorageProfile.DataDisks | Out-File -FilePath $outFile -Append
-	}
+    }
 
-	#Remove the original VM
-	Remove-AzureRmVM -ResourceGroupName $rg -Name $vmName
+    #Remove the original VM
+    Remove-AzureRmVM -ResourceGroupName $rg -Name $vmName
 
-	#Create new availability set if it does not exist
-	$availSet = Get-AzureRmAvailabilitySet -ResourceGroupName $rg -Name $newAvailSetName -ErrorAction Ignore
-	if (-Not $availSet) {
+    #Create new availability set if it does not exist
+    $availSet = Get-AzureRmAvailabilitySet -ResourceGroupName $rg -Name $newAvailSetName -ErrorAction Ignore
+    if (-Not $availSet) {
     $availset = New-AzureRmAvailabilitySet -ResourceGroupName $rg -Name $newAvailSetName -Location $OriginalVM.Location
-	}
+    }
 
-	#Create the basic configuration for the replacement VM
-	$newVM = New-AzureRmVMConfig -VMName $OriginalVM.Name -VMSize $OriginalVM.HardwareProfile.VmSize -AvailabilitySetId $availSet.Id
-	Set-AzureRmVMOSDisk -VM $NewVM -VhdUri $OriginalVM.StorageProfile.OsDisk.Vhd.Uri  -Name $OriginalVM.Name -CreateOption Attach -Windows
+    #Create the basic configuration for the replacement VM
+    $newVM = New-AzureRmVMConfig -VMName $OriginalVM.Name -VMSize $OriginalVM.HardwareProfile.VmSize -AvailabilitySetId $availSet.Id
+    Set-AzureRmVMOSDisk -VM $NewVM -VhdUri $OriginalVM.StorageProfile.OsDisk.Vhd.Uri  -Name $OriginalVM.Name -CreateOption Attach -Windows
 
-	#Add Data Disks
-	foreach ($disk in $OriginalVM.StorageProfile.DataDisks ) { 
+    #Add Data Disks
+    foreach ($disk in $OriginalVM.StorageProfile.DataDisks ) { 
     Add-AzureRmVMDataDisk -VM $newVM -Name $disk.Name -VhdUri $disk.Vhd.Uri -Caching $disk.Caching -Lun $disk.Lun -CreateOption Attach -DiskSizeInGB $disk.DiskSizeGB
-	}
+    }
 
-	#Add NIC(s)
-	foreach ($nic in $OriginalVM.NetworkInterfaceIDs) {
-		Add-AzureRmVMNetworkInterface -VM $NewVM -Id $nic
-	}
+    #Add NIC(s)
+    foreach ($nic in $OriginalVM.NetworkInterfaceIDs) {
+        Add-AzureRmVMNetworkInterface -VM $NewVM -Id $nic
+    }
 
-	#Create the VM
-	New-AzureRmVM -ResourceGroupName $rg -Location $OriginalVM.Location -VM $NewVM -DisableBginfoExtension
+    #Create the VM
+    New-AzureRmVM -ResourceGroupName $rg -Location $OriginalVM.Location -VM $NewVM -DisableBginfoExtension
 ```
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-Agregue almacenamiento adicional a la máquina virtual mediante incorporando otro [disco de datos](virtual-machines-windows-attach-disk-portal.md).
+Add additional storage to your VM by adding an additional [data disk](virtual-machines-windows-attach-disk-portal.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

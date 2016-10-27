@@ -1,225 +1,231 @@
 <properties
-	pageTitle="Primer análisis: copia de seguridad de máquinas virtuales de Azure con ARM en un almacén de Servicios de recuperación | Microsoft Azure"
-	description="Copia de seguridad de máquinas virtuales de Azure con ARM en un almacén de Servicios de recuperación. Use copias de seguridad de máquinas virtuales implementadas con Resource Manager, máquinas virtuales implementadas con el modelo clásico y máquinas virtuales con Almacenamiento premium para proteger los datos. Cree y registre un almacén de Servicios de recuperación. Registre máquinas virtuales, cree directivas y proteja máquinas virtuales en Azure."
-	services="backup"
-	documentationCenter=""
-	authors="markgalioto"
-	manager="cfreeman"
-	editor=""
-	keyword="backups; vm backup"/>
+    pageTitle="First look: Protect Azure VMs with a recovery services vault | Microsoft Azure"
+    description="Protect Azure VMs with a recovery services vault. Use backups of Resource Manager-deployed VMs, Classic-deployed VMs and Premium Storage VMs to protect your data. Create and register a recovery services vault. Register VMs, create policy, and protect VMs in Azure."
+    services="backup"
+    documentationCenter=""
+    authors="markgalioto"
+    manager="cfreeman"
+    editor=""
+    keyword="backups; vm backup"/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="09/15/2016"
-	ms.author="markgal; jimpark"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="09/15/2016"
+    ms.author="markgal; jimpark"/>
 
 
-# Primer análisis: protección de máquinas virtuales con un almacén de Recovery Services
+
+# <a name="first-look:-protect-azure-vms-with-a-recovery-services-vault"></a>First look: Protect Azure VMs with a recovery services vault
 
 > [AZURE.SELECTOR]
-- [Protección de máquinas virtuales con un almacén de Recovery Services](backup-azure-vms-first-look-arm.md)
-- [Protección de máquinas virtuales con un almacén de copia de seguridad](backup-azure-vms-first-look.md)
+- [Protect VMs with a recovery services vault](backup-azure-vms-first-look-arm.md)
+- [Protect VMs with a backup vault](backup-azure-vms-first-look.md)
 
-Este tutorial le guiará por los pasos necesarios para crear un almacén de Servicios de recuperación y realizar copias de seguridad de una máquina virtual (VM) de Azure. Los almacenes de Servicios de recuperación protegen:
+This tutorial takes you through the steps for creating a recovery services vault and backing up an Azure virtual machine (VM). Recovery services vaults protect:
 
-- Máquinas virtuales implementadas en Azure Resource Manager
-- Máquinas virtuales clásicas
-- Máquinas virtuales de almacenamiento estándar
-- Máquinas virtuales de almacenamiento premium
-- Máquinas virtuales cifradas mediante Cifrado de discos de Azure, con BEK y KEK (compatible con PowerShell)
+- Azure Resource Manager-deployed VMs
+- Classic VMs
+- Standard storage VMs
+- Premium storage VMs
+- VMs encrypted using Azure Disk Encryption, with BEK and KEK (supported using Powershell)
 
-Para más información acerca de las máquinas virtuales de Premium Storage, consulte [Copia de seguridad y restauración de máquinas virtuales de Premium Storage](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms)
+For more information on protecting Premium storage VMs, see [Back up and Restore Premium Storage VMs](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms)
 
->[AZURE.NOTE] En este tutorial se asume que tiene una máquina virtual en su suscripción de Azure y que ha tomado las medidas necesarias para que el servicio de copia de seguridad pueda acceder a dicha máquina virtual.
+>[AZURE.NOTE] This tutorial assumes you already have a VM in your Azure subscription and that you have taken measures to allow the backup service to access the VM.
 
 [AZURE.INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
 
-A un nivel alto, estos son los pasos que debe completar.
+At a high level, here are the steps that you'll complete.  
 
-1. Creación de un almacén de Servicios de recuperación para una máquina virtual.
-2. Usar el Portal de Azure para seleccionar un escenario, establecer directivas e identificar los elementos para proteger.
-3. Realizar la copia de seguridad inicial.
+1. Create a recovery services vault for a VM.
+2. Use the Azure portal to select a Scenario, set Policy, and identify items to protect.
+3. Run the initial backup.
 
 
 
-## Creación de un almacén de Servicios de recuperación para una máquina virtual
+## <a name="create-a-recovery-services-vault-for-a-vm"></a>Create a recovery services vault for a VM
 
-Un almacén de Servicios de recuperación es una entidad que almacena todas las copias de seguridad y los puntos de recuperación creados con el tiempo. El almacén de Servicios de recuperación también contiene la directiva de copia de seguridad que se aplica a las máquinas virtuales protegidas.
+A recovery services vault is an entity that stores all the backups and recovery points that have been created over time. The recovery services vault also contains the backup policy applied to the protected VMs.
 
->[AZURE.NOTE] La copia de seguridad de máquinas virtuales es un proceso local. No se pueden hacer copias de seguridad de máquinas virtuales de una ubicación en un almacén de Servicios de recuperación que esté en otra ubicación. Por lo tanto, en cada ubicación de Azure que tenga máquinas virtuales de las que se va a realizar copias de seguridad debe existir al menos un almacén de Servicios de recuperación.
+>[AZURE.NOTE] Backing up VMs is a local process. You cannot back up VMs from one location to a recovery services vault in another location. So, for every Azure location that has VMs to be backed up, at least one recovery services vault must exist in that location.
 
 
-Para crear un almacén de Servicios de recuperación:
+To create a recovery services vault:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. En el menú del centro, haga clic en **Examinar** y, en la lista de recursos, escriba **Servicios de recuperación**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacén de Servicios de recuperación**.
+2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list filters based on your input. Click **Recovery Services vault**.
 
-    ![Creación del almacén de Servicios de recuperación, paso 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
+    ![Create Recovery Services Vault step 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
-    Se muestra la lista de almacenes de Servicios de recuperación.
+    The list of recovery services vaults are displayed.
 
-3. En el menú **Almacenes de Servicios de recuperación**, haga clic en **Agregar**.
+3. On the **Recovery Services vaults** menu, click **Add**.
 
-    ![Creación del almacén de Servicios de recuperación, paso 2](./media/backup-azure-vms-first-look-arm/rs-vault-menu.png)
+    ![Create Recovery Services Vault step 2](./media/backup-azure-vms-first-look-arm/rs-vault-menu.png)
 
-    Se abre la hoja del almacén de Servicios de recuperación, donde se le pide que proporcione los valores de **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**.
+    The Recovery Services vault blade opens, prompting you to provide a **Name**, **Subscription**, **Resource group**, and **Location**.
 
-    ![Creación del almacén de Servicios de recuperación, paso 5](./media/backup-azure-vms-first-look-arm/rs-vault-attributes.png)
+    ![Create Recovery Services vault step 5](./media/backup-azure-vms-first-look-arm/rs-vault-attributes.png)
 
-4. En **Nombre**, escriba un nombre descriptivo que identifique el almacén. El nombre debe ser único para la suscripción de Azure. Escriba un nombre que tenga entre 2 y 50 caracteres. Debe comenzar por una letra y solo puede contener letras, números y guiones.
+4. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
 
-5. Haga clic en **Suscripción** para ver la lista de suscripciones disponibles. Si no está seguro de la suscripción que desea utilizar, use la suscripción predeterminada (o sugerida). Solo hay varias opciones si la cuenta de su organización está asociada a más de una suscripción de Azure.
+5. Click **Subscription** to see the available list of subscriptions. If you are not sure which subscription to use, use the default (or suggested) subscription. There are multiple choices only if your organizational account is associated with multiple Azure subscriptions.
 
-6. Haga clic en **Grupo de recursos** para ver la lista de grupos de recursos disponibles, o bien haga clic en **Nuevo** para crear uno. Para una información completa sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../resource-group-overview.md).
+6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a Resource group. For complete information on Resource groups, see [Azure Resource Manager overview](../resource-group-overview.md)
 
-7. Haga clic en **Ubicación** para seleccionar la región geográfica del almacén. El almacén **debe** estar en la misma región que las máquinas virtuales que desea proteger.
+7. Click **Location** to select the geographic region for the vault. The vault **must** be in the same region as the virtual machines that you want to protect.
 
-    >[AZURE.IMPORTANT] Si no está seguro de en qué ubicación existe la máquina virtual, cierre el cuadro de diálogo de creación del almacén y vaya a la lista de máquinas virtuales del portal. Si tiene máquinas virtuales en varias regiones, cree un almacén de Recovery Services en cada una de ellas. Cree el almacén en la primera ubicación antes de pasar a la siguiente ubicación. No es necesario especificar cuentas de almacenamiento para almacenar los datos de copia de seguridad (el almacén de Servicios de recuperación y el servicio Copia de seguridad de Azure lo controlarán automáticamente).
+    >[AZURE.IMPORTANT] If you are unsure of the location in which your VM exists, close out of the vault creation dialog, and go to the list of Virtual Machines in the portal. If you have virtual machines in multiple regions, create a recovery services vault in each region. Create the vault in the first location before going to the next location. There is no need to specify storage accounts to store the backup data--the recovery services vault and the Azure Backup service handle this automatically.
 
-8. Haga clic en **Crear**. La creación del almacén de Servicios de recuperación puede tardar unos minutos. Supervise las notificaciones de estado en la parte superior derecha del portal. Una vez creado el almacén, aparece en la lista de almacenes de Servicios de recuperación.
+8. Click **Create**. It can take a while for the recovery services vault to be created. Monitor the status notifications in the upper right-hand area in the portal. Once your vault is created, it appears in the list of recovery services vaults.
 
-    ![Lista de copias de seguridad](./media/backup-azure-vms-first-look-arm/rs-list-of-vaults.png)
+    ![List of backup vaults](./media/backup-azure-vms-first-look-arm/rs-list-of-vaults.png)
 
-Ahora que ha creado el almacén, aprenda a configurar la replicación de almacenamiento.
+Now that you've created your vault, learn how to set the storage replication.
 
-### Configuración de la replicación de almacenamiento
+### <a name="set-storage-replication"></a>Set Storage Replication
 
-La opción de replicación de almacenamiento permite elegir entre almacenamiento con redundancia geográfica y almacenamiento con redundancia local. De forma predeterminada, el almacén tiene almacenamiento con redundancia geográfica. Si esta es su copia de seguridad principal, elija el almacenamiento con redundancia geográfica. Elija un almacenamiento con redundancia local si desea una opción más económica que no sea tan duradera. Para más información sobre las opciones de almacenamiento con [redundancia geográfica](../storage/storage-redundancy.md#geo-redundant-storage) y [local](../storage/storage-redundancy.md#locally-redundant-storage) consulte la [información general de replicación de Almacenamiento de Azure](../storage/storage-redundancy.md).
+The storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, your vault has geo-redundant storage. Leave the option set to geo-redundant storage if this is your primary backup. Choose locally redundant storage if you want a cheaper option that isn't as durable. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in the [Azure Storage replication overview](../storage/storage-redundancy.md).
 
-Para editar la configuración de replicación de almacenamiento:
+To edit the storage replication setting:
 
-1. Seleccione el almacén para abrir su panel y la hoja de configuración. Si la hoja **Configuración** no se abre, haga clic en **Toda la configuración** en el panel del almacén.
+1. Select your vault to open the vault dashboard and the Settings blade. If the **Settings** blade doesn't open, click **All settings** in the vault dashboard.
 
-2. En la hoja **Configuración**, haga clic en **Infraestructura de copia de seguridad** > **Configuración de copia de seguridad** para abrir la hoja **Configuración de copia de seguridad**. En la hoja **Configuración de copia de seguridad**, elija la opción de replicación de almacenamiento para su almacén.
+2. On the **Settings** blade, click **Backup Infrastructure** > **Backup Configuration** to open the **Backup Configuration** blade. On the **Backup Configuration** blade, choose the storage replication option for your vault.
 
-    ![Lista de copias de seguridad](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
+    ![List of backup vaults](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
-    Tras elegir la opción de almacenamiento del almacén, está listo para asociar la máquina virtual con el almacén. Para comenzar la asociación, es preciso detectar y registrar las máquinas virtuales de Azure.
+    After choosing the storage option for your vault, you are ready to associate the VM with the vault. To begin the association, you should discover and register the Azure virtual machines.
 
-## Selección de un objetivo de copia de seguridad, establecimiento de la directiva y definición de los elementos para proteger
+## <a name="select-a-backup-goal,-set-policy-and-define-items-to-protect"></a>Select a backup goal, set policy and define items to protect
 
-Antes de registrar una máquina virtual en un almacén, ejecute el proceso de detección para asegurarse de que se identifican todas las nuevas máquinas virtuales que se hayan agregado a la suscripción. El proceso consulta a Azure para recibir la lista de máquinas virtuales incluidas en la suscripción, junto con información adicional, como el nombre del servicio en la nube y la región. En el Portal de Azure, el escenario se refiere a lo que va a colocar en el almacén de servicios de recuperación. Directiva es la programación de la frecuencia y de cuándo se eligen los puntos de recuperación. La directiva también incluye el intervalo de retención de los puntos de recuperación.
+Before registering a VM with a vault, run the discovery process to ensure that any new virtual machines that have been added to the subscription are identified. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the cloud service name and the region. In the Azure portal, scenario refers to what you are going to put into the recovery services vault. Policy is the schedule for how often and when recovery points are taken. Policy also includes the retention range for the recovery points.
 
-1. Si ya tiene abierto un almacén de Servicios de recuperación, vaya al paso 2. Si no tiene abierto un almacén de Servicios de recuperación, pero está en el Portal de Azure, en el menú central, haga clic en **Examinar**.
+1. If you already have a recovery services vault open, proceed to step 2. If you do not have a recovery services vault open, but are in the Azure portal, on the Hub menu, click **Browse**.
 
-  - En la lista de recursos, escriba **Servicios de recuperación**.
-  - Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacenes de servicios de recuperación** cuando lo vea.
+  - In the list of resources, type **Recovery Services**.
+  - As you begin typing, the list filters based on your input. When you see **Recovery Services vaults**, click it.
 
-    ![Creación del almacén de Servicios de recuperación, paso 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
+    ![Create Recovery Services Vault step 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
-    Aparece la lista de almacenes de Servicios de recuperación.
-  - En la lista de almacenes de Servicios de recuperación, seleccione uno de ellos.
+    The list of recovery services vaults appears.
+  - From the list of recovery services vaults, select a vault.
 
-    Se abre el panel del almacén seleccionado.
+    The selected vault dashboard opens.
 
-    ![Hoja del almacén abierta](./media/backup-azure-vms-first-look-arm/vault-settings.png)
+    ![Open vault blade](./media/backup-azure-vms-first-look-arm/vault-settings.png)
 
-2. En el menú del panel del almacén, haga clic en **Copia de seguridad** para abrir la hoja Copia de seguridad.
+2. From the vault dashboard menu, click **Backup** to open the Backup blade.
 
-    ![Hoja Copia de seguridad abierta](./media/backup-azure-vms-first-look-arm/backup-button.png)
+    ![Open Backup blade](./media/backup-azure-vms-first-look-arm/backup-button.png)
 
-    Cuando se abre la hoja, el servicio Copia de seguridad busca las máquinas virtuales nuevas en la suscripción.
+    When the blade opens, the Backup service searches for any new VMs in the subscription.
 
-    ![Detectar máquinas virtuales](./media/backup-azure-vms-first-look-arm/discovering-new-vms.png)
+    ![Discover VMs](./media/backup-azure-vms-first-look-arm/discovering-new-vms.png)
 
-3. En la hoja Copia de seguridad, haga clic en **Objetivo de copia de seguridad** para abrir la hoja del mismo nombre.
+3. On the Backup blade, click **Backup goal** to open the Backup Goal blade.
 
-    ![Hoja Escenario abierta](./media/backup-azure-vms-first-look-arm/select-backup-goal-one.png)
+    ![Open Scenario blade](./media/backup-azure-vms-first-look-arm/select-backup-goal-one.png)
 
-4. En la hoja Objetivo de copia de seguridad, establezca **¿Dónde se ejecuta su carga de trabajo?** en Azure y **¿De qué quiere realizar una copia de seguridad?** en Máquina virtual, y haga clic en **Aceptar**.
+4. On the Backup Goal blade, set **Where is your workload running** to Azure and  **What do you want to backup** to Virtual machine, then click **OK**.
 
-    La hoja Backup Goal (Objetivo de la copia de seguridad) se cierra y se abre la hoja Directiva de copia de seguridad.
+    The Backup Goal blade closes and the Backup policy blade opens.
 
-    ![Hoja Escenario abierta](./media/backup-azure-vms-first-look-arm/select-backup-goal-two.png)
+    ![Open Scenario blade](./media/backup-azure-vms-first-look-arm/select-backup-goal-two.png)
 
-5. En la hoja Directiva de copia de seguridad, seleccione la que quiera aplicar al almacén y haga clic en **Aceptar**.
+5. On the Backup policy blade, select the backup policy you want to apply to the vault and click **OK**.
 
-    ![Seleccionar directiva de copia de seguridad](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
+    ![Select backup policy](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
 
-    En los detalles se muestran los datos de la directiva predeterminada. Si desea crear una directiva, seleccione **Crear nuevo** en el menú desplegable. El menú desplegable también proporciona una opción para cambiar la hora a la que se tomó la instantánea, a las 19:00. Si quiere instrucciones para definir una directiva de copia de seguridad, consulte [Definición de una directiva de copia de seguridad](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Al hacer clic en **Aceptar**, la directiva de copia de seguridad se asocia con el almacén.
+    The details of the default policy are listed in the details. If you want to create a policy, select **Create New** from the drop-down menu. The drop-down menu also provides an option to switch the time when the snapshot is taken, to 7PM. For instructions on defining a backup policy, see [Defining a backup policy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Once you click **OK**, the backup policy is associated with the vault.
 
-    A continuación, elija las máquinas virtuales que se asociarán con el almacén.
+    Next choose the VMs to associate with the vault.
 
-6. Elija las máquinas virtuales que se asociarán con la directiva especificada y haga clic en **Seleccionar**.
+6. Choose the virtual machines to associate with the specified policy and click **Select**.
 
-    ![Seleccionar carga de trabajo](./media/backup-azure-vms-first-look-arm/select-vms-to-backup-new.png)
+    ![Select workload](./media/backup-azure-vms-first-look-arm/select-vms-to-backup-new.png)
 
-    Si aún no ve la máquina virtual, compruebe que existe en la misma ubicación de Azure que el almacén de Servicios de recuperación.
+    If you do not see the desired VM, check that it exists in the same Azure location as the Recovery Services vault.
 
-7. Ahora que ha definido toda la configuración del almacén, en la hoja Copia de seguridad, haga clic en **Habilitar copia de seguridad** en la parte inferior de la página. La directiva se implementa en el almacén y en las máquinas virtuales.
+7. Now that you have defined all settings for the vault, in the Backup blade click **Enable Backup** at the bottom of the page. This deploys the policy to the vault and the VMs.
 
-    ![Habilitar copia de seguridad](./media/backup-azure-vms-first-look-arm/enable-backup-settings-new.png)
+    ![Enable Backup](./media/backup-azure-vms-first-look-arm/enable-backup-settings-new.png)
 
 
-## Copia de seguridad inicial
+## <a name="initial-backup"></a>Initial backup
 
-Una vez que se ha implementado una directiva de copia de seguridad en la máquina virtual, no significa que se copiarán los datos. De forma predeterminada, la primera copia de seguridad programada (tal y como se define en la directiva de copia de seguridad) es la copia de seguridad inicial. Hasta que se realice la copia de seguridad inicial, el estado de la última copia de seguridad en la hoja **Trabajos de copia de seguridad** se muestra como **Advertencia (copia de seguridad inicial pendiente)**.
+Once a backup policy has been deployed on the virtual machine, that does not mean the data has been backed up. By default, the first scheduled backup (as defined in the backup policy) is the initial backup. Until the initial backup occurs, the Last Backup Status on the **Backup Jobs** blade shows as **Warning(initial backup pending)**.
 
-![Copia de seguridad pendiente](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
+![Backup pending](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
 
-A menos que la copia de seguridad inicial vaya a comenzar pronto, se recomienda ejecutar **Hacer ahora una copia de seguridad **.
+Unless your initial backup is due to begin soon, it is recommended that you run **Back up Now**.
 
-Para ejecutar **Realizar copia de seguridad ahora**:
+To run **Back up Now**:
 
-1. En el panel del almacén, en el icono **Copia de seguridad**, haga clic en **Máquinas virtuales de Azure**. <br/> ![Icono Configuración](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
+1. On the vault dashboard, on the **Backup** tile, click **Azure Virtual Machines** <br/>
+    ![Settings icon](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
 
-    Se abrirá la hoja **Elementos de copia de seguridad**.
+    The **Backup Items** blade opens.
 
-2. En la hoja **Elementos de copia de seguridad**, haga clic con el botón derecho en el almacén del que quiera realizar la copia de seguridad y haga clic en **Realizar copia de seguridad ahora**.
+2. On the **Backup Items** blade, right-click the vault you want to back up, and click **Backup now**.
 
-    ![Icono Configuración](./media/backup-azure-vms-first-look-arm/back-up-now.png)
+    ![Settings icon](./media/backup-azure-vms-first-look-arm/back-up-now.png)
 
-    Se desencadena el trabajo de copia de seguridad. <br/>
+    The Backup job is triggered. <br/>
 
-    ![Trabajo de copia de seguridad desencadenado](./media/backup-azure-vms-first-look-arm/backup-triggered.png)
+    ![Backup job triggered](./media/backup-azure-vms-first-look-arm/backup-triggered.png)
 
-3. Para ver si la copia de seguridad inicial se ha completado, en el panel del almacén, en el icono **Trabajos de copia de seguridad**, haga clic en **Máquinas virtuales de Azure**.
+3. To view that your initial backup has completed, on the vault dashboard, on the **Backup Jobs** tile, click **Azure virtual machines**.
 
-    ![Icono de Trabajos de copia de seguridad](./media/backup-azure-vms-first-look-arm/open-backup-jobs.png)
+    ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/open-backup-jobs.png)
 
-    Se abrirá la hoja Trabajos de copia de seguridad.
+    The Backup Jobs blade opens.
 
-4. En la hoja Trabajos de copia de seguridad, puede ver el estado de todos los trabajos.
+4. In the Backup jobs blade, you can see the status of all jobs.
 
-    ![Icono de Trabajos de copia de seguridad](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view.png)
+    ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view.png)
 
-    >[AZURE.NOTE] Como parte de la operación de copia de seguridad, el servicio Azure Backup emite un comando a la extensión de copia de seguridad en cada máquina virtual para vaciar toda la escritura y tomar una instantánea coherente.
+    >[AZURE.NOTE] As a part of the backup operation, the Azure Backup service issues a command to the backup extension in each VM to flush all writes and take a consistent snapshot.
 
-    Cuando finalice el trabajo de copia de seguridad, el estado será *Completado*.
+    When the backup job is finished, the status is *Completed*.
 
 [AZURE.INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
-## Instale el agente de máquina virtual en la máquina virtual.
+## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Install the VM Agent on the virtual machine
 
-Esta información se proporciona en caso de que sea necesaria. El agente de máquina virtual de Azure se debe instalar en la máquina virtual de Azure para que funcione la extensión de copia de seguridad. Sin embargo, si la máquina virtual se creó desde la galería de Azure, el agente de máquina virtual ya está presente en la máquina virtual. Las máquinas virtuales que se migran desde centros de datos locales no tienen instalado el agente de máquina virtual. En ese caso, el agente de máquina virtual debe instalarse explícitamente. Si tiene problemas para realizar una copia de seguridad de la máquina virtual de Azure, asegúrese de que el agente de máquina virtual de Azure está instalado correctamente en la máquina virtual (consulte la tabla siguiente). Si crea una máquina virtual personalizada, [asegúrese de que la casilla **Instalar el agente de máquina virtual** esté activada](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md) antes de aprovisionar la máquina virtual.
+This information is provided in case it is needed. The Azure VM Agent must be installed on the Azure virtual machine for the Backup extension to work. However, if your VM was created from the Azure gallery, then the VM Agent is already present on the virtual machine. VMs that are migrated from on-premises datacenters would not have the VM Agent installed. In such a case, the VM Agent needs to be installed. If you have problems backing up the Azure VM, check that the Azure VM Agent is correctly installed on the virtual machine (see the table below). If you create a custom VM, [ensure the **Install the VM Agent** check box is selected](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md) before the virtual machine is provisioned.
 
-Obtenga información acerca del [Agente de máquina virtual](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) y de [cómo instalarlo](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
+Learn about the [VM Agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) and [how to install it](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
 
-La tabla siguiente proporciona información adicional acerca del agente de máquina virtual para las máquinas virtuales de Windows y Linux.
+The following table provides additional information about the VM Agent for Windows and Linux VMs.
 
-| **Operación** | **Windows** | **Linux** |
+| **Operation** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Instalación del agente de la máquina virtual | <li>Descargue e instale el [MSI del agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Para completar la instalación, necesita privilegios de administrador. <li>[Actualice la propiedad de la máquina virtual](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que el agente está instalado. | <li> Instale el [agente de Linux](https://github.com/Azure/WALinuxAgent) más reciente desde GitHub. Para completar la instalación, necesita privilegios de administrador. <li> [Actualice la propiedad de la máquina virtual](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que el agente está instalado. |
-| Actualización del agente de la máquina virtual | Actualizar el agente de la máquina virtual es tan sencillo como volver a instalar los [archivos binarios del agente de la máquina virtual](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. | Siga las instrucciones para [actualizar el agente de máquina virtual Linux](../virtual-machines-linux-update-agent.md). <br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |
-| Validación de la instalación del agente de máquina virtual | <li>Vaya a la carpeta *C:\\WindowsAzure\\Packages* de la máquina virtual de Azure. <li>El archivo WaAppAgent.exe debe estar ahí.<li> Haga clic con el botón derecho en el archivo, vaya a **Propiedades** y, luego, seleccione la pestaña **Detalles**. En el campo de versión del producto, debe aparecer el valor 2.6.1198.718 o uno superior. | N/D |
+| Installing the VM Agent | <li>Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You need Administrator privileges to complete the installation. <li>[Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. | <li> Install the latest [Linux agent](https://github.com/Azure/WALinuxAgent) from GitHub. You need Administrator privileges to complete the installation. <li> [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. |
+| Updating the VM Agent | Updating the VM Agent is as simple as reinstalling the [VM Agent binaries](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Ensure that no backup operation is running while the VM agent is being updated. | Follow the instructions on [updating the Linux VM Agent ](../virtual-machines-linux-update-agent.md). <br>Ensure that no backup operation is running while the VM Agent is being updated. |
+| Validating the VM Agent installation | <li>Navigate to the *C:\WindowsAzure\Packages* folder in the Azure VM. <li>You should find the WaAppAgent.exe file present.<li> Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher. | N/A |
 
 
-### Extensión de copia de seguridad
+### <a name="backup-extension"></a>Backup extension
 
-Una vez que el agente de máquina virtual está instalado en la máquina virtual, el servicio Copia de seguridad de Azure instala la extensión de copia de seguridad en el agente de máquina virtual. El servicio Copia de seguridad de Azure actualiza y aplica revisiones perfectamente a la extensión de copia de seguridad sin la intervención del usuario.
+Once the VM Agent is installed on the virtual machine, the Azure Backup service installs the backup extension to the VM Agent. The Azure Backup service seamlessly upgrades and patches the backup extension without additional user intervention.
 
-El servicio Backup instala la extensión de copia de seguridad si la máquina virtual está en ejecución. Una máquina virtual en ejecución ofrece más probabilidad de obtener un punto de recuperación coherente con la aplicación. Sin embargo, el servicio Copia de seguridad de Azure sigue realizando la copia de seguridad de la máquina virtual aunque esté apagada y no haya sido posible instalar la extensión. Esto se conoce como máquina virtual sin conexión. En este caso, el punto de recuperación será *coherente frente a bloqueos*.
+The backup extension is installed by the Backup service whether the VM is running. A running VM provides the greatest chance of getting an application-consistent recovery point. However, the Azure Backup service continues to back up the VM even if it is turned off, and the extension could not be installed. This is known as Offline VM. In this case, the recovery point will be *crash consistent*.
 
-## Información para solución de problemas
-Si tiene problemas para realizar cualquiera de las tareas de este artículo, consulte la [guía de solución de problemas](backup-azure-vms-troubleshoot.md).
+## <a name="troubleshooting-information"></a>Troubleshooting information
+If you have issues accomplishing some of the tasks in this article, consult the [Troubleshooting guidance](backup-azure-vms-troubleshoot.md).
 
 
-## ¿Tiene preguntas?
-Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
+## <a name="questions?"></a>Questions?
+If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

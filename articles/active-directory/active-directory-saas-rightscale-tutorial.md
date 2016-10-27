@@ -1,293 +1,297 @@
 <properties
-	pageTitle="Tutorial: integración de Azure Active Directory con RightScale | Microsoft Azure"
-	description="Aprenda a configurar el inicio de sesión único entre Azure Active Directory y RightScale."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with RightScale | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and RightScale."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/19/2016"
-	ms.author="jeedes"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/19/2016"
+    ms.author="jeedes"/>
 
 
-# Tutorial: Integración de Azure Active Directory con RightScale
 
-El objetivo de este tutorial es mostrar cómo integrar RightScale con Azure Active Directory (Azure AD). Integrar RightScale con Azure AD le proporciona las siguientes ventajas:
+# <a name="tutorial:-azure-active-directory-integration-with-rightscale"></a>Tutorial: Azure Active Directory integration with RightScale
 
-- Puede controlar en Azure AD quién tiene acceso a RightScale
-- Puede permitir que los usuarios inicien sesión automáticamente en RightScale (inicio de sesión único) con sus cuentas de Azure AD
-- Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
+The objective of this tutorial is to show you how to integrate RightScale with Azure Active Directory (Azure AD).  
+Integrating RightScale with Azure AD provides you with the following benefits:
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
+- You can control in Azure AD who has access to RightScale
+- You can enable your users to automatically get signed-on to RightScale (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-## Requisitos previos
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Para configurar la integración de Azure AD con RightScale, necesita los siguientes elementos:
+## <a name="prerequisites"></a>Prerequisites
 
-- Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único en RightScale
+To configure Azure AD integration with RightScale, you need the following items:
 
-
-> [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No debe usar el entorno de producción, a menos que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+- An Azure AD subscription
+- A RightScale single-sign on enabled subscription
 
 
-## Descripción del escenario
-El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
-
-1. Adición de RightScale desde la Galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
 
-## Adición de RightScale desde la Galería
-Para configurar la integración de RightScale en Azure AD, deberá agregar RightScale desde la galería a la lista de aplicaciones SaaS administradas.
+To test the steps in this tutorial, you should follow these recommendations:
 
-**Para agregar RightScale desde la galería, realice los pasos siguientes:**
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
-1. En el panel de navegación izquierdo del **Portal de Azure clásico**, haga clic en **Active Directory**.
 
-	![Active Directory][1]
+## <a name="scenario-description"></a>Scenario description
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
+The scenario outlined in this tutorial consists of two main building blocks:
 
-2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
+1. Adding RightScale from the gallery
+2. Configuring and testing Azure AD single sign-on
 
-3. Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
 
-	![Aplicaciones][2]
+## <a name="adding-rightscale-from-the-gallery"></a>Adding RightScale from the gallery
+To configure the integration of RightScale into Azure AD, you need to add RightScale from the gallery to your list of managed SaaS apps.
 
-4. Haga clic en **Agregar** en la parte inferior de la página.
+**To add RightScale from the gallery, perform the following steps:**
 
-	![Aplicaciones][3]
+1. In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**. 
 
-5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
+    ![Active Directory][1]
+
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Applications][2]
+
+4. Click **Add** at the bottom of the page.
+
+    ![Applications][3]
+
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
  
-	![Aplicaciones][4]
+    ![Applications][4]
 
-6. En el cuadro de búsqueda, escriba **RightScale**.
+6. In the search box, type **RightScale**.
  
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_01.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_01.png)
 
-7. En el panel de resultados, seleccione **RightScale** y luego haga clic en **Completar** para agregar la aplicación.
+7. In the results pane, select **RightScale**, and then click **Complete** to add the application.
 
-	![Selección de la aplicación en la galería](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_02.png)
+    ![Selecting the app in the gallery](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_02.png)
 
-##  Configuración y comprobación del inicio de sesión único de Azure AD
-El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con RightScale con un usuario de prueba llamado "Britta Simon".
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+The objective of this section is to show you how to configure and test Azure AD single sign-on with RightScale based on a test user called "Britta Simon".
 
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de RightScale para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de RightScale.
-
-
-Para configurar y probar el inicio de sesión único de Azure AD con RightScale, es preciso completar los siguientes bloques de creación:
-
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Creación de un usuario de prueba de RightScale](#creating-a-rightscale-test-user)**: para tener un homólogo de Britta Simon en RightScale que esté vinculado a la representación de ella en Azure AD.
-5. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
-
-### Configuración del inicio de sesión único de Azure AD
-
-El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal clásico y configurar el inicio de sesión único en la aplicación RightScale.
+For single sign-on to work, Azure AD needs to know what the counterpart user in RightScale to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in RightScale needs to be established.  
 
 
+To configure and test Azure AD single sign-on with RightScale, you need to complete the following building blocks:
 
-**Para configurar el inicio de sesión único de Azure AD con RightScale, realice los pasos siguientes:**
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Creating a RightScale test user](#creating-a-rightscale-test-user)** - to have a counterpart of Britta Simon in RightScale that is linked to the Azure AD representation of her.
+5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-1. En el Portal clásico, en la página de integración de aplicaciones de **RightScale**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
 
-	![Configurar inicio de sesión único][6]
-
-2. En la página **¿Cómo desea que los usuarios inicien sesión en RightScale?**, seleccione **Inicio de sesión único de Azure AD** y después haga clic en **Siguiente**.
-
-	![Configurar inicio de sesión único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_03.png)
-
-3. En la página de diálogo **Configurar las opciones de la aplicación**, si desea configurar la aplicación en el **modo iniciado por el proveedor de identidades**, siga estos pasos y haga clic en **Siguiente**:
-
-	![Configurar inicio de sesión único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_04.png)
+The objective of this section is to enable Azure AD single sign-on in the classic portal and to configure single sign-on in your RightScale application.
 
 
-    a. En el cuadro de texto URL de respuesta, escriba la dirección URL con el siguiente patrón: `https://login.rightscale.com/login/saml2/consume`
 
-	b. Haga clic en **Siguiente**.
+**To configure Azure AD single sign-on with RightScale, perform the following steps:**
 
-4. Si quiere configurar la aplicación en el **modo iniciado por el proveedor de servicios**, en la página de diálogo **Configurar las opciones de la aplicación**, haga clic en **"Mostrar la configuración avanzada (opcional)"** y después escriba la **URL de inicio de sesión** y haga clic en **Siguiente**.
+1. In the classic portal, on the **RightScale** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+
+    ![Configure Single Sign-On][6] 
+
+2. On the **How would you like users to sign on to RightScale** page, select **Azure AD Single Sign-On**, and then click **Next**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_03.png) 
+
+3. On the **Configure App Settings** dialog page, If you wish to configure the application in **IDP initiated mode**, perform the following steps and click **Next**:
+
+    ![Configure Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_04.png) 
+
+
+    a. In the Reply URL textbox, type the URL in the following pattern: `https://login.rightscale.com/login/saml2/consume`
+
+    b. Click **Next**
+
+4. If you wish to configure the application in **SP initiated mode** on the **Configure App Settings** dialog page, then click on the **“Show advanced settings (optional)”** and then enter the **Sign On URL** and click **Next**.
  
-	![Configurar inicio de sesión único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_06.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_06.png) 
 
-	a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de RightScale con el siguiente patrón: `https://login.rightscale.com/`
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your RightScale application using the following pattern: `https://login.rightscale.com/`
 
-	b. Haga clic en **Siguiente**.
+    b. Click **Next**
 
-5. En la página **Configurar inicio de sesión único en RightScale**, lleve a cabo estos pasos y haga clic en **Siguiente**:
+5. On the **Configure single sign-on at RightScale** page, perform the following steps and click **Next**:
 
-	![Configurar inicio de sesión único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_05.png) 
 
-    a. Haga clic en **Descargar certificado** y luego guarde el archivo de certificado codificado en base 64 en el equipo.
+    a. Click **Download certificate**, and then save the base-64 encoded certificate file on your computer.
 
-    b. Haga clic en **Siguiente**.
-
-
-5. Para configurar SSO para la aplicación, debe iniciar sesión en su inquilino de RightScale como administrador.
-
-	a. En el menú de la parte superior, haga clic en la pestaña **Configuración** y seleccione **Inicio de sesión único**.
-
-	![Configurar inicio de sesión único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_001.png)
-
-	b. Haga clic en el botón "**nuevo**" para agregar **sus proveedores de identidades SAML**.
-
-	![Configurar inicio de sesión único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_002.png)
-
-	c. En el cuadro de texto **Nombre para mostrar**, escriba el nombre de la compañía.
-	
-	![Configurar inicio de sesión único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_003.png)
-
-	d. Seleccione **Permitir SSO iniciado por RightScale con una sugerencia de detección** y escriba el **nombre de dominio** en el cuadro de texto siguiente.
-
-	![Configurar inicio de sesión único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_004.png)
-
-	e. Copie la dirección URL de SSO de SAML de Azure AD para el **punto de conexión de SSO de SAML** en RightScale.
-
-	![Configurar inicio de sesión único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_005.png)
-	
-	![Configurar inicio de sesión único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_006.png)
-
-	f. Copie el identificador de entidad de Azure AD a **SAML EntityID** en RightScale.
-	
-	![Configurar inicio de sesión único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_007.png)
-	
-	![Configurar inicio de sesión único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_008.png)
-
-	g. Haga clic en el botón **Explorador** para cargar el certificado que descargó en el paso 4.
-	
-	![Configurar inicio de sesión único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_009.png)
-
-	h. Haga clic en **Save**.
-	
+    b. Click **Next**.
 
 
-6. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
+5. To get SSO configured for your application, you need to sign-on to your RightScale tenant as an administrator.
 
-	![Inicio de sesión único de Azure AD][10]
+    a. In the menu on the top, click the **Settings** tab and select **Single Sign-On**.
 
-7. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.
+    ![Configure Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_001.png) 
+
+    b. Click the "**new**" button to add **Your SAML Identity Providers**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_002.png) 
+
+    c. In the textbox of **Display Name**, input your company name.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_003.png) 
+
+    d. Select **Allow RightScale-initiated SSO using a discovery hint** and input your **domain name** in the below textbox.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_004.png)
+
+    e. Copy SAML SSO URL from Azure AD to **SAML SSO Endpoint** in RightScale.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_005.png)
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_006.png)
+
+    f. Copy Entity ID from Azure AD to **SAML EntityID** in RightScale.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_007.png)
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_008.png)
+
+    g. Click **Browser** button to upload the certificate which you downloaded in step4.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_009.png)
+
+    h. Click **Save**.
+    
+
+
+6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+
+    ![Azure AD Single Sign-On][10]
+
+7. On the **Single sign-on confirmation** page, click **Complete**.  
   
-	![Inicio de sesión único de Azure AD][11]
+    ![Azure AD Single Sign-On][11]
 
 
 
 
-### Creación de un usuario de prueba de Azure AD
-El objetivo de esta sección es crear un usuario de prueba en el Portal clásico llamado Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+The objective of this section is to create a test user in the classic portal called Britta Simon.
 
-![Creación de un usuario de Azure AD][20]
+![Create Azure AD User][20]
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+**To create a test user in Azure AD, perform the following steps:**
 
-1. En el panel de navegación izquierdo del **Portal de Azure clásico**, haga clic en **Active Directory**.
+1. In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**.
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_09.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-rightscale-tutorial/create_aaduser_09.png) 
 
-2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.
+3. To display the list of users, in the menu on the top, click **Users**.
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_03.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-rightscale-tutorial/create_aaduser_03.png) 
 
-4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_04.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-rightscale-tutorial/create_aaduser_04.png) 
 
-5. En la página de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
+5. On the **Tell us about this user** dialog page, perform the following steps:
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_05.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-rightscale-tutorial/create_aaduser_05.png) 
 
-    a. En **Tipo de usuario**, seleccione **Nuevo usuario de la organización**.
+    a. As **Type Of User**, select **New user in your organization**.
 
-    b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
+    b. In the User **Name** textbox, type **BrittaSimon**.
 
-    c. Haga clic en **Next**.
+    c. Click **Next**.
 
-6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
+6.  On the **User Profile** dialog page, perform the following steps:
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_06.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-rightscale-tutorial/create_aaduser_06.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **Britta**.
+    a. In the **First Name** textbox, type **Britta**.  
 
-    b. En el cuadro de texto **Apellidos**, escriba **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
 
-    c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
-    d. En la lista **Rol**, seleccione **Usuario**.
+    d. In the **Role** list, select **User**.
 
-    e. Haga clic en **Siguiente**.
+    e. Click **Next**.
 
-7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
+7. On the **Get temporary password** dialog page, click **create**.
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_07.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-rightscale-tutorial/create_aaduser_07.png) 
 
-8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
+8. On the **Get temporary password** dialog page, perform the following steps:
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_08.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-rightscale-tutorial/create_aaduser_08.png) 
 
-    a. Anote el valor del campo **Nueva contraseña**.
+    a. Write down the value of the **New Password**.
 
-    b. Haga clic en **Completo**.
-
-
-
-### Creación de un usuario de prueba de RightScale
-
-En esta sección, creará un usuario denominado Britta Simon en RightScale. Trabaje con el equipo de soporte técnico de RightScale a través de support@rightscale.com para agregar los usuarios en la plataforma de RightScale.
-
-
-### Asignación del usuario de prueba de Azure AD
-
-El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a RightScale.
-
-![Asignar usuario][200]
-
-**Para asignar a Britta Simon a RightScale, realice los pasos siguientes:**
-
-1. En el Portal clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
-
-	![Asignar usuario][201]
-
-2. En la lista de aplicaciones, seleccione **RightScale**.
-
-	![Configurar inicio de sesión único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_50.png)
-
-1. En el menú de la parte superior, haga clic en **Usuarios**.
-
-	![Asignar usuario][203]
-
-1. En la lista Usuarios, seleccione **Britta Simon**.
-
-2. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
-
-	![Asignar usuario][205]
+    b. Click **Complete**.   
 
 
 
-### Prueba del inicio de sesión único
+### <a name="creating-a-rightscale-test-user"></a>Creating a RightScale test user
 
-El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso. Al hacer clic en el icono de RightScale en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación RightScale.
-	
+In this section, you create a user called Britta Simon in RightScale. Please work with RightScale support team via support@rightscale.com to add the users in the RightScale platform.
 
-## Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
+
+The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to RightScale.
+
+![Assign User][200] 
+
+**To assign Britta Simon to RightScale, perform the following steps:**
+
+1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Assign User][201] 
+
+2. In the applications list, select **RightScale**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_50.png) 
+
+1. In the menu on the top, click **Users**.
+
+    ![Assign User][203] 
+
+1. In the Users list, select **Britta Simon**.
+
+2. In the toolbar on the bottom, click **Assign**.
+
+    ![Assign User][205]
+
+
+
+### <a name="testing-single-sign-on"></a>Testing Single Sign-On
+
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
+When you click the RightScale tile in the Access Panel, you should get automatically signed-on to your RightScale application.
+    
+
+## <a name="additional-resources"></a>Additional Resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 
@@ -309,4 +313,8 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

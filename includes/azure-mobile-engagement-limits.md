@@ -1,12 +1,15 @@
-Recurso|Límite máximo
+Resource|Maximum Limit
 ---|---
-Usuarios de colección de aplicaciones|5 por colección de aplicaciones
-Puntos de datos por término medio|200 por usuario activo por día
-Conjunto de información de la aplicación por término medio|50 por usuario activo por día
-Mensajes insertados por término medio|20 por usuario activo por día
-Segmentos|100 por aplicación
-Criterios por segmento|10
-Campañas de inserción activas|50 por aplicación
-Número total de campañas de inserción (activas y completadas)|1000 por aplicación
+App Collection Users|5 per App Collection
+Average Data points|200 per Active User/Day
+Average App-Info set|50 per Active User/Day
+Average Messages pushed|20 per Active User/Day
+Segments|100 per app
+Criteria per segment|10
+Active Push Campaigns|50 per app
+Total Push Campaigns (includes Active & Completed)|1000 per app
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

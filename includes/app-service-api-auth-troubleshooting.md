@@ -1,23 +1,26 @@
-La mayoría de las veces, los errores de autenticación proceden de opciones de configuración incorrectas o incoherentes. A continuación le indicamos algunas sugerencias específicas sobre los aspectos que deben comprobarse.
+Most of the time authentication errors result from incorrect or inconsistent configuration settings. Here are some specific suggestions for things to check.
 
-* Asegúrese de que no se haya olvidado el botón **Guardar** en alguna parte. Esto sucede a menudo y el resultado es que estará viendo los valores correctos en una página del portal, pero estos no se habrán guardado realmente en el entorno de Azure ni en la aplicación de Azure AD.
-* Para las opciones configuradas en la hoja **Configuración de la aplicación** del Portal de Azure, asegúrese de seleccionar la aplicación de API o la aplicación web correcta cuando establezca la configuración. Además, asegúrese de que la configuración se haya definido en la sección **Configuración de la aplicación** y no en **Cadenas de conexión**, ya que el formato de las dos secciones es similar.
-* Para la autenticación de un front-end de JavaScript, descargue el manifiesto de nuevo para comprobar que el valor `oauth2AllowImplicitFlow` se haya cambiado correctamente a `true`.
-* Compruebe que haya usado HTTPS donde haya configurado direcciones URL:
+* Make sure that you didn't miss the **Save** button anywhere. This is often easy to do, and the result is that you'll be looking at the correct values on a portal page but they haven't actually been saved in the Azure environment or Azure AD application.
+* For settings configured in the **Application Settings** blade of the Azure portal, make sure that the correct API app or web app was selected when the settings were entered.  Also make sure that the settings were entered as **App settings** and not **Connection strings**, as the format of the two sections is similar.
+* For authentication to a JavaScript front end, download the manifest again to verify that `oauth2AllowImplicitFlow` was successfully changed to `true`.
+* Verify that you used HTTPS wherever you configured URLs:
 
-	* En el código del proyecto
-	* En CORS
-	* En la configuración de la aplicación del entorno de Azure para cada aplicación de API y aplicación web
-	* En la configuración de la aplicación de Azure AD
-	
-	Tenga en cuenta que, si copia una dirección URL de una aplicación de API desde el portal, a menudo contendrá el prefijo `http://`, que deberá cambiar manualmente por `https://`.
+    * In project code
+    * In CORS
+    * In Azure environment App settings for each API app and web app
+    * In Azure AD application settings.
+    
+    Note that if you copy an API app's URL from the portal, it often has `http://` and you have to manually change it to `https://`.
 
-* Asegúrese de que todos los cambios de código se hayan implementado correctamente. Por ejemplo, en una solución de varios proyectos, es posible cambiar el código de un proyecto y elegir por error uno de los otros códigos al intentar implementar el cambio.
-* Asegúrese de que va a direcciones URL HTTPS en el explorador, no a direcciones URL HTTP. De forma predeterminada, Visual Studio crea perfiles de publicación con direcciones URL HTTP, y eso es lo que se abre en el explorador después de implementar un proyecto.
-* Para la autenticación de un front-end de JavaScript, asegúrese de que CORS esté configurado correctamente en la aplicación de API a la que llama el código JavaScript. Si tiene dudas acerca de si el problema está relacionado con CORS, pruebe a usar "*" como dirección URL de origen permitida.
-* Para un front-end de JavaScript, abra la pestaña Consola de Developer Tools del explorador para obtener más información sobre los errores y examinar las solicitudes HTTP en la red. Sin embargo, los mensajes de error de la consola pueden ser confusos. Si recibe un mensaje que indica que se ha producido un error de CORS, el problema real puede ser la autenticación. Puede comprobar si es así ejecutando la aplicación y deshabilitando la autenticación temporalmente.
-* Para una aplicación de API de .NET, asegúrese de que obtiene tanta información como sea posible en los mensajes de error estableciendo el [modo customErrors como Off (desactivado)](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remoteview).
-* Para una aplicación de API de . NET, inicie una [sesión de depuración remota](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug) y examine los valores de las variables que se pasan al código que usa ADAL para adquirir un token de portador o al código que comprueba las reclamaciones dirigidas al identificador de entidad de servicio esperado. Tenga en cuenta que el código puede tomar valores de configuración de muchos orígenes diferentes, por lo que es posible encontrarse sorpresas como esta. Por ejemplo, si escribe `ida:ClientId` de forma incorrecta como `ida:ClientID` al configurar el entorno del Servicio de aplicaciones de Azure, el código podría obtener el valor `ida:ClientId` que está buscando en el archivo Web.config y omitir la configuración del Servicio de aplicaciones de Azure. 
-* Si los procesos no funcionan en una ventana normal de Internet Explorer, podría estar interfiriendo un inicio de sesión existente. Inténtelo con una sesión de exploración de InPrivate o pruébelo en Chrome o Firefox.
+* Make sure that any code changes were successfully deployed. For example, in a multiple-project solution it's possible to change a project's code and accidentally choose one of the others when you intend to deploy the change.
+* Make sure that you are going to HTTPS URLs in your browser, not HTTP URLs. By default, Visual Studio creates publish profiles with HTTP URLs, and that's what opens in the browser after you deploy a project.
+* For authentication to a JavaScript front end, make sure that CORS is correctly configured on the API app that the JavaScript code calls. If in doubt about whether the problem is CORS-related, try "*" as the allowed origin URL. 
+* For a JavaScript front end, open your browser's Developer Tools Console tab to get more error information, and examine HTTP requests on the Network. However, Console error messages may be misleading. If you get a message indicating a CORS error, the real issue may be authentication. You can check if this is the case by running the app with authentication temporarily temporarily disabled.
+* For a .NET API app, make sure you are getting as much information in error messages as possible by setting [customErrors mode to Off](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remoteview).
+* For a .NET API app, start a [remote debugging session](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug), and examine the values of the variables that are passed to code that uses ADAL to acquire a bearer token, or code that checks claims against the expected service principal ID. Note that your code can pick up configuration values from many different sources, so it's possible to find surprises this way. For example, if you mistype `ida:ClientId` as `ida:ClientID` when configuring Azure App Service environment settings, the code might get the `ida:ClientId` value that it's looking for from the Web.config file, ignoring the Azure App Service setting. 
+* If things don't work in a normal Internet Explorer window, an existing log-in may be interfering; try InPrivate and try Chrome or Firefox.
 
-<!---HONumber=AcomDC_0309_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

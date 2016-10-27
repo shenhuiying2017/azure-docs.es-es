@@ -1,96 +1,102 @@
 <properties
-	pageTitle="Implementación continua en el Servicio de aplicaciones de Azure | Microsoft Azure"
-	description="Aprenda a habilitar la implementación continua en el Servicio de aplicaciones de Azure."
-	services="app-service"
-	documentationCenter=""
-	authors="dariagrigoriu"
-	manager="wpickett"
-	editor="mollybos"/>
+    pageTitle="Continuous Deployment to Azure App Service | Microsoft Azure"
+    description="Learn how to enable continuous deployment to Azure App Service."
+    services="app-service"
+    documentationCenter=""
+    authors="dariagrigoriu"
+    manager="wpickett"
+    editor="mollybos"/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/23/2016"
-	ms.author="dariagrigoriu"/>
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/23/2016"
+    ms.author="dariagrigoriu"/>
     
-# Implementación continua en el Servicio de aplicaciones de Azure
 
-En este tutorial se muestra cómo configurar un flujo de trabajo de implementación continua para su aplicación del [Servicio de aplicaciones de Azure]. La integración del Servicio de aplicaciones con BitBucket, GitHub y Visual Studio Team Services (VSTS) hace posible un flujo de trabajo de implementación continua en el que Azure extrae las actualizaciones más recientes de su proyecto publicado en uno de estos servicios. La implementación continua representa una buena opción para los proyectos donde se integran contribuciones diversas y frecuentes.
+# <a name="continuous-deployment-to-azure-app-service"></a>Continuous Deployment to Azure App Service
 
-## <a name="overview"></a>Habilitación de la implementación continua
+This tutorial shows you how to configure a continuous deployment workflow for your [Azure App Service] app. App Service integration with BitBucket, GitHub, and Visual Studio Team Services (VSTS) enables a continuous deployment workflow where Azure pulls in the most recent updates from your project published to one of these services. Continuous deployment is a great option for projects where multiple and frequent contributions are being integrated.
 
-Para habilitar la implementación continua
+## <a name="<a-name="overview"></a>enable-continuous-deployment"></a><a name="overview"></a>Enable continuous deployment
 
-1. Publique el contenido de la aplicación en el repositorio que se utilizará para la implementación continua. Para más información sobre cómo publicar el proyecto en estos servicios, consulte [Create a repo] \(Crear un repositorio) (GitHub), [Create a repo] \(Crear un repositorio) (BitBucket) y la [Introducción a VSTS].
+To enable continuous deployment, 
 
-2. En la hoja de su aplicación del [Portal de Azure], haga clic en **Configuración > Origen de implementación**. Haga clic en **Elegir origen** y haga clic, por ejemplo, en **GitHub**.
+1. Publish your app content to the repository that will be used for continuous deployment.  
+    For more information on publishing your project to these services, see [Create a repo (GitHub)], [Create a repo (BitBucket)], and [Get started with VSTS].
 
-	![](./media/app-service-continuous-deployment/cd_options.png)
-	
-    > [AZURE.NOTE] Para configurar una cuenta de VSTS para la implementación del Servicio de aplicaciones, consulte este [tutorial](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+2. In your app's blade in the [Azure Portal], click **Settings > Deployment Source**. Click **Choose Source**, then click **GitHub**, for example.  
+
+    ![](./media/app-service-continuous-deployment/cd_options.png)
     
-3. Complete el flujo de trabajo de autorización.
+    > [AZURE.NOTE] To configure a VSTS account for App Service deployment please see this [tutorial](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+    
+3. Complete the authorization workflow. 
 
-4. En la hoja **Origen de implementación**, elija el proyecto y la rama desde donde se implementará. Cuando haya terminado, haga clic en **Aceptar**.
+4. In the **Deployment Source** blade, choose the project and branch to deploy from. When you're done, click **OK**.
   
-	![](./media/app-service-continuous-deployment/github_option.png)
+    ![](./media/app-service-continuous-deployment/github_option.png)
 
-	> [AZURE.NOTE] Al habilitar la implementación continua con GitHub o BitBucket, se mostrarán tanto los proyectos públicos como privados.
+    > [AZURE.NOTE] When enabling continuous deployment with GitHub or BitBucket, both public and private projects will be displayed.
 
-    Servicio de aplicaciones crea una asociación con el repositorio seleccionado, extrae los archivos de la rama seleccionada y mantiene un clon del repositorio para la aplicación del Servicio de aplicaciones. Al configurar la implementación continua de VSTS desde el Portal de Azure, la integración usa el [motor de implementación de Kudu](https://github.com/projectkudu/kudu/wiki) del Servicio de aplicaciones, que ya automatiza las tareas de compilación e implementación con cada `git push`. No es necesario configurar por separado la implementación continua en VSTS. Una vez que el proceso finaliza, la sección **Implementación** de la hoja de la aplicación mostrará el mensaje **Implementación activa**, que indica que la implementación se ha realizado correctamente.
+    App Service creates an association with the selected repository, pulls in the files from the specified branch, and maintains a clone of your repository for your App Service app. When you configure VSTS continuous deployment from the Azure Portal, the integration uses the App Service [Kudu deployment engine](https://github.com/projectkudu/kudu/wiki), which already automates build and deployment tasks with every `git push`. You do not need to separately set up continuous deployment in VSTS. After this process completes, the **Deployment** section of your app's blade will show an **Active Deployment** message that indicates deployment has succeeded.
 
-5. Para comprobar que la aplicación se implementó correctamente, haga clic en la opción **URL** de la parte superior de la hoja de la aplicación en el Portal de Azure.
+5. To verify the app is successfully deployed, click the **URL** at the top of the app's blade in the Azure Portal. 
 
-6. Para comprobar que se está produciendo la implementación continua desde el repositorio elegido, inserte un cambio en el repositorio. La aplicación debería actualizarse para reflejar los cambios poco después de que finalice la inserción en el repositorio. Puede comprobar que la actualización se ha extraído en la hoja **Implementaciones** de la aplicación.
+6. To verify that continuous deployment is occurring from the repository of your choice, push a change to the repository. Your app should update to reflect the changes shortly after the push to the repository completes. You can verify that it has pulled in the update in the **Deployments** blade of your app.
 
-## <a name="VSsolution"></a>Implementación continua de una solución de Visual Studio 
+## <a name="<a-name="vssolution"></a>continuous-deployment-of-a-visual-studio-solution"></a><a name="VSsolution"></a>Continuous deployment of a Visual Studio solution 
 
-La inserción de una solución de Visual Studio en el Servicio de aplicaciones de Azure es tan fácil como insertar un archivo index.html. El proceso de implementación del Servicio de aplicaciones simplifica todos los detalles, incluida la restauración de las dependencias de NuGet y la compilación de los archivos binarios de la aplicación. Puede seguir los procedimientos recomendados de control de código fuente sobre el mantenimiento del código solo en el repositorio de Git y dejar que la implementación del Servicio de aplicaciones se encargue del resto.
+Pushing a Visual Studio solution to Azure App Service is just as easy as pushing a simple index.html file. The App Service deployment process streamlines all the details, including restoring NuGet dependencies and building the application binaries. You can follow the source control best practices of maintaining code only in your Git repository, and let App Service deployment take care of the rest.
 
-Los pasos para insertar su solución de Visual Studio en el Servicio de aplicaciones son los mismos de la [sección anterior](#overview), siempre y cuando haya configurado la solución y el repositorio como sigue:
+The steps for pushing your Visual Studio solution to App Service are the same as in the [previous section](#overview), provided that you configure your solution and repository as follows:
 
--	Utilice la opción de control de código fuente de Visual Studio para generar un archivo `.gitignore` (como en la siguiente imagen) o agregue manualmente un archivo `.gitignore` en la raíz del repositorio con contenido similar a este [ejemplo .gitignore](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
+-   Use the Visual Studio source control option to generate a `.gitignore` file such as the image below or manually add a `.gitignore` file in your repository root with content similar to this [.gitignore sample](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore). 
 
     ![](./media/app-service-continuous-deployment/VS_source_control.png)
  
--	Agregue el árbol de directorios de la solución entero a su repositorio, con el archivo .sln en la raíz del repositorio.
+-   Add the entire solution's directory tree to your repository, with the .sln file in the repository root.
 
-Una vez que haya establecido el repositorio como se ha descrito y haya configurado la aplicación en Azure para la publicación continua desde uno de los repositorios de Git en línea, podrá desarrollar la aplicación ASP.NET localmente en Visual Studio e implementar continuamente el código simplemente insertando los cambios en el repositorio de Git en línea.
+Once you have set up your repository as described, and configured your app in Azure for continuous publishing from one of the online Git repositories, you can develop your ASP.NET application locally in Visual Studio and continuously deploy your code simply by pushing your changes to your online Git repository.
 
-## <a name="disableCD"></a>Deshabilitación de la implementación continua
+## <a name="<a-name="disablecd"></a>disable-continuous-deployment"></a><a name="disableCD"></a>Disable continuous deployment
 
-Para deshabilitar la implementación continua
+To disable continuous deployment, 
 
-1. En la hoja de su aplicación del [Portal de Azure], haga clic en **Configuración > Origen de implementación**. A continuación, haga clic en **Desconectar** en la hoja **Implementaciones**.
+1. In your app's blade in the [Azure Portal], click **Settings > Deployment Source**. Then click **Disconnect** in the **Deployments** blade.
 
-    ![](./media/app-service-continuous-deployment/cd_disconnect.png)
+    ![](./media/app-service-continuous-deployment/cd_disconnect.png)    
 
-2. Después de responder **Sí** al mensaje de confirmación, puede volver a la hoja de la aplicación y hacer clic en **Configuración > Origen de implementación** si quiere configurar la publicación desde otro origen.
+2. After answering **Yes** to the confirmation message, you can return to your app's blade and click **Settings > Deployment Source** if you would like to set up publishing from another source.
 
-## Recursos adicionales
+## <a name="additional-resources"></a>Additional Resources
 
-* [How to investigate common issues with continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment) (Investigación de los problemas comunes con la implementación continua)
-* [Uso de PowerShell para Azure]
-* [Uso de las herramientas de línea de comandos de Azure para Mac y Linux]
-* [Documentación de Git]
+* [How to investigate common issues with continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
+* [How to use PowerShell for Azure]
+* [How to use the Azure Command-Line Tools for Mac and Linux]
+* [Git documentation]
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
->[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-[Servicio de aplicaciones de Azure]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
-[Portal de Azure]: https://portal.azure.com
-[VSTS Portal]: https://www.visualstudio.com/es-ES/products/visual-studio-team-services-vs.aspx
+[Azure App Service]: https://azure.microsoft.com/en-us/documentation/articles/app-service-changes-existing-services/ 
+[Azure Portal]: https://portal.azure.com
+[VSTS Portal]: https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Uso de PowerShell para Azure]: ../articles/powershell-install-configure.md
-[Uso de las herramientas de línea de comandos de Azure para Mac y Linux]: ../articles/xplat-cli-install.md
-[Documentación de Git]: http://git-scm.com/documentation
+[How to use PowerShell for Azure]: ../articles/powershell-install-configure.md
+[How to use the Azure Command-Line Tools for Mac and Linux]: ../articles/xplat-cli-install.md
+[Git Documentation]: http://git-scm.com/documentation
 
-[Create a repo]: https://help.github.com/articles/create-a-repo
-[Create a repo]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
-[Introducción a VSTS]: https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs
+[Create a repo (GitHub)]: https://help.github.com/articles/create-a-repo
+[Create a repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
+[Get started with VSTS]: https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,70 +1,74 @@
 <properties
-	pageTitle="Configuración de una red virtual en Azure DevTest Labs | Microsoft Azure"
-	description="Aprenda a configurar una red virtual existente y la subred y a usarlas en una máquina virtual con Azure DevTest Labs."
-	services="devtest-lab,virtual-machines"
-	documentationCenter="na"
-	authors="tomarcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="Configure a virtual network in Azure DevTest Labs  | Microsoft Azure"
+    description="Learn how to configure an existing virtual network and subnet, and use them in a VM with Azure DevTest Labs"
+    services="devtest-lab,virtual-machines"
+    documentationCenter="na"
+    authors="tomarcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="devtest-lab"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/06/2016"
-	ms.author="tarcher"/>
+    ms.service="devtest-lab"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/06/2016"
+    ms.author="tarcher"/>
 
-# Configuración de una red virtual en Azure DevTest Labs
 
-Como se explica en el artículo [Incorporación de una máquina virtual con artefactos a un laboratorio](devtest-lab-add-vm-with-artifacts.md), al crear una máquina virtual en un laboratorio, puede especificar una red virtual configurada. Una situación en la que se podría aplicar esto es si necesita acceder a los recursos de la red corporativa desde las máquinas virtuales mediante la red virtual que se ha configurado con ExpressRoute o VPN de sitio a sitio. En las siguientes secciones se muestra cómo agregar la red virtual existente a la configuración de red virtual del laboratorio de modo que esté disponible para seleccionarse al crear las máquinas virtuales.
+# <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Configure a virtual network in Azure DevTest Labs
 
-## Configuración de una red virtual para un laboratorio mediante el Portal de Azure
-Los pasos siguientes le guiarán en el proceso de agregar una red virtual existente (y la subred) a un laboratorio para que esta se pueda utilizar al crear una máquina virtual en el mismo laboratorio.
+As explained in the article, [Add a VM with artifacts to a lab](devtest-lab-add-vm-with-artifacts.md), when you create a VM in a lab, you can specify a configured virtual network. One scenario for doing this is if you need to access your corpnet resources from your VMs using the virtual network that was configured with ExpressRoute or site-to-site VPN. The following sections illustrate how to add your existing virtual network into a lab's Virtual Network settings so that it is available to choose when creating VMs.
 
-1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+## <a name="configure-a-virtual-network-for-a-lab-using-the-azure-portal"></a>Configure a virtual network for a lab using the Azure portal
+The following steps walk you through adding an existing virtual network (and subnet) to a lab so that it can be used when creating a VM in the same lab. 
 
-1. Seleccione **Más servicios** y luego seleccione **DevTest Labs** en la lista.
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. En la lista de laboratorios, seleccione el laboratorio que desee.
+1. Select **More Services**, and then select **DevTest Labs** from the list.
 
-1. En la hoja del laboratorio, seleccione **Configuración**.
+1. From the list of labs, select the desired lab. 
 
-1. En la hoja **Configuración** del laboratorio, selecciones **Redes virtuales**.
+1. On the lab's blade, select **Configuration**.
 
-1. En la hoja **Redes virtuales**, verá una lista de redes virtuales que se han configurado para el laboratorio actual, así como la red virtual predeterminada que se crea para el laboratorio.
+1. On the lab's **Configuration** blade, select **Virtual networks**.
 
-1. Seleccione **+Agregar**.
+1. On the **Virtual networks** blade, you see a list of virtual networks configured for the current lab as well as the default virtual network that is created for your lab. 
 
-	![Incorporación de una red virtual existente al laboratorio](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
-	
-1. En la hoja **Red virtual**, elija **[Seleccionar red virtual]**.
+1. Select **+ Add**.
 
-	![Selección de una red virtual existente](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
-	
-1. En la hoja **Elegir red virtual**, seleccione la red virtual deseada. La hoja muestra todas las redes virtuales que están en la misma región de la suscripción que el laboratorio.
+    ![Add an existing virtual network to your lab](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
+    
+1. On the **Virtual network** blade, select **[Select virtual network]**.
 
-1. Después de seleccionar una red virtual, volverá a la hoja **Red virtual** hoja y se habilitarán varios campos.
+    ![Select an existing virtual network](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
+    
+1. On the **Choose virtual network** blade, select the desired virtual network. The blade shows all the virtual networks that are under the same region in the subscription as the lab.  
 
-	![Selección de una red virtual existente](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
+1. After selecting a virtual network, you are returned to the **Virtual network** blade and several fields are enabled.  
 
-1. Especifique una descripción para la combinación de red virtual y laboratorio.
+    ![Select an existing virtual network](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
 
-1. Para permitir que una subred se utilice en la creación de máquinas virtuales de laboratorio, seleccione **USE IN VIRTUAL MACHINE CREATION** (USAR EN LA CREACIÓN DE MÁQUINAS VIRTUALES).
+1. Specify a description for your virtual network / lab combination.
 
-1. Para permitir direcciones IP públicas en una subred, seleccione **ALLOW PUBLIC IP** (PERMITIR IP PÚBLICA).
+1. To allow a subnet to be used in lab VM creation, select **USE IN VIRTUAL MACHINE CREATION**.
 
-1. En el campo **MAXIMUM VIRTUAL MACHINES PER USER** (NÚMERO MÁXIMO DE MÁQUINAS VIRTUALES POR USUARIO), especifique el número máximo de máquinas virtuales por usuario para cada subred. Si quiere un número ilimitado de máquinas virtuales, deje este campo en blanco.
+1. To allow public IP addresses in a subnet, select **ALLOW PUBLIC IP**.
 
-1. Seleccione **Guardar**.
+1. In the **MAXIMUM VIRTUAL MACHINES PER USER** field, specify the maximum VMs per user for each subnet. If you want an unrestricted number of VMs, leave this field blank.
 
-1. Ahora que está configurada la red virtual, se puede seleccionar al crear una nueva máquina virtual. Para ver cómo crear una máquina virtual y especificar una red virtual, consulte el artículo [Incorporación de una máquina virtual con artefactos a un laboratorio](devtest-lab-add-vm-with-artifacts.md).
+1. Select **Save**.
+
+1. Now that the virtual network is configured, it can be selected when creating a VM. To see how to create a VM and specify a virtual network, refer to the article, [Add a VM with artifacts to a lab](devtest-lab-add-vm-with-artifacts.md). 
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-Después de agregar las redes virtuales deseadas al laboratorio, el paso siguiente consiste en [agregar una máquina virtual al laboratorio](devtest-lab-add-vm-with-artifacts.md).
+Once you have added the desired virtual network to your lab, the next step is to [add a VM to your lab](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

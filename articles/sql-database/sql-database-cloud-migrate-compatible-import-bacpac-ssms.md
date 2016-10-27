@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Migración de una base de datos SQL Server a Base de datos SQL de Azure | Microsoft Azure"
-   description="Base de datos SQL de Microsoft Azure, implementación de base de datos, migración de base de datos, importación de base de datos, exportación de base de datos, asistente para migración"
+   pageTitle="Migrating a SQL Server database to Azure SQL Database | Microsoft Azure"
+   description="Microsoft Azure SQL Database, database deploy, database migration, import database, export database, migration wizard"
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -16,51 +16,56 @@
    ms.date="08/24/2016"
    ms.author="carlrab"/>
 
-# Importar desde BACPAC a la Base de datos SQL con SSMS
+
+# <a name="import-from-bacpac-to-sql-database-using-ssms"></a>Import from BACPAC to SQL Database using SSMS
 
 > [AZURE.SELECTOR]
 - [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
 - [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
-- [Portal de Azure](sql-database-import.md)
+- [Azure portal](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
-En este artículo se muestra cómo importar desde un archivo [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) a la Base de datos SQL mediante el Asistente para exportar aplicaciones de capa de datos en SQL Server Management Studio.
+This article shows how to import from a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file to SQL Database using the Export Data Tier Application Wizard in SQL Server Management Studio.
 
-> [AZURE.NOTE] En los pasos siguientes se da por supuesto que la instancia lógica SQL de Azure está ya aprovisionada y que tiene a mano la información de conexión.
+> [AZURE.NOTE] The following steps assume that you have already provisioned your Azure SQL logical instance and have the connection information on hand.
 
-1. Compruebe que dispone de la versión más reciente de SQL Server Management Studio. Las nuevas versiones de Management Studio se actualizan mensualmente a fin de que sigan sincronizadas con las actualizaciones para el Portal de Azure.
+1. Verify that you have the latest version of SQL Server Management Studio. New versions of Management Studio are updated monthly to remain in sync with updates to the Azure portal.
 
-	 > [AZURE.IMPORTANT] Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+     > [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
-2. Conéctese al servidor de Base de datos SQL de Azure, haga clic con el botón secundario en la carpeta **Bases de datos** y haga clic en **Importar la aplicación de capa de datos**.
+2. Connect to your Azure SQL Database server, right-click the **Databases** folder and click **Import Data-tier Application...**
 
-    ![Importar elemento de menú de aplicación de capa de datos](./media/sql-database-cloud-migrate/MigrateUsingBACPAC03.png)
+    ![Import data-tier application menu item](./media/sql-database-cloud-migrate/MigrateUsingBACPAC03.png)
 
-3.	Para crear la base de datos en Base de datos SQL de Azure, importe el archivo BACPAC desde el disco local o seleccione la cuenta de almacenamiento de Azure y el contenedor en el que cargó el archivo BACPAC.
+3.  To create the database in Azure SQL Database, import a BACPAC file from your local disk or select the Azure storage account and container to which you uploaded your BACPAC file.
 
-    ![Importar configuración](./media/sql-database-cloud-migrate/MigrateUsingBACPAC04.png)
+    ![Import settings](./media/sql-database-cloud-migrate/MigrateUsingBACPAC04.png)
 
-	 > [AZURE.IMPORTANT] Al importar un archivo BACPAC a Almacenamiento de blobs de Azure, utilice el almacenamiento estándar. No se admite la importación de un archivo BACPAC de Almacenamiento premium.
+     > [AZURE.IMPORTANT] When importing a BACPAC from Azure blob storage, use standard storage. Importing a BACPAC from premium storage is not supported.
 
-4.	Proporcione el **Nuevo nombre de base de datos** para la base de datos en Base de datos SQL de Azure, establezca **Edición de Base de datos SQL de Microsoft Azure** (nivel de servicio), **Tamaño máximo de la base de datos** y **Objetivo de servicio** (nivel de rendimiento).
+4.  Provide the **New database name** for the database on Azure SQL DB, set the **Edition of Microsoft Azure SQL Database** (service tier), **Maximum database size**, and **Service Objective** (performance level).
 
-    ![Configuración de base de datos](./media/sql-database-cloud-migrate/MigrateUsingBACPAC05.png)
+    ![Database settings](./media/sql-database-cloud-migrate/MigrateUsingBACPAC05.png)
 
-5.	Haga clic en **Siguiente** y, luego, en **Finalizar** para importar el archivo BACPAC a una nueva base de datos en el servidor de Base de datos SQL de Azure.
+5.  Click **Next** and then click **Finish** to import the BACPAC file into a new database in the Azure SQL Database server.
 
-6. Con el Explorador de objetos, conéctese a la base de datos migrada en el servidor de Base de datos SQL de Azure.
+6. Using Object Explorer, connect to your migrated database in your Azure SQL Database server.
 
-6.	Use el Portal de Azure para ver la base de datos y sus propiedades.
+6.  Using the Azure portal, view your database and its properties.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-- [Versión más reciente de SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
-- [Versión más reciente de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 
-## Recursos adicionales
+## <a name="additional-resources"></a>Additional resources
 
-- [Base de datos SQL V12](sql-database-v12-whats-new.md)
-- [Diferencias de Transact-SQL de Base de datos SQL de Azure](sql-database-transact-sql-information.md)
-- [Migración de bases de datos no SQL Server mediante SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
+- [SQL Database V12](sql-database-v12-whats-new.md)
+- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

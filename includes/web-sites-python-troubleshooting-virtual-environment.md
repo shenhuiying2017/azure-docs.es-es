@@ -1,24 +1,27 @@
-El script de implementación omitirá la creación del entorno virtual en Azure si detecta que ya existe un entorno virtual compatible. Esto puede agilizar la implementación considerablemente. Pip omitirá los paquetes que ya están instalados.
+The deployment script will skip creation of the virtual environment on Azure if it detects that a compatible virtual environment already exists.  This can speed up deployment considerably.  Packages that are already installed will be skipped by pip.
 
-En algunas situaciones, puede que desee forzar la eliminación de dicho entorno virtual. Deberá hacer esto si decide incluir un entorno virtual como parte del repositorio. También puede que desee hacerlo si necesita eliminar ciertos paquetes o probar cambios en requirements.txt.
+In certain situations, you may want to force delete that virtual environment.  You'll want to do this if you decide to include a virtual environment as part of your repository.  You may also want to do this if you need to get rid of certain packages, or test changes to requirements.txt.
 
-Hay unas cuantas opciones para administrar el entorno virtual existente en Azure:
+There are a few options to manage the existing virtual environment on Azure:
 
-### Opción 1: utilizar FTP
+### <a name="option-1:-use-ftp"></a>Option 1: Use FTP
 
-Con un cliente FTP, conéctese al servidor y podrá eliminar la carpeta env. Tenga en cuenta que algunos clientes FTP (por ejemplo, los exploradores web) pueden ser de solo lectura y no le permiten eliminar carpetas, por lo que deberá asegurarse de usar un cliente FTP con esa capacidad. El nombre de host FTP y el usuario se muestran en la hoja de la aplicación web en el [Portal de Azure](https://portal.azure.com).
+With an FTP client, connect to the server and you'll be able to delete the env folder.  Note that some FTP clients (such as web browsers) may be read-only and won't allow you to delete folders, so you'll want to make sure to use an FTP client with that capability.  The FTP host name and user are displayed in your web app's blade on the [Azure Portal](https://portal.azure.com).
 
-### Opción2: alternar el tiempo de ejecución
+### <a name="option-2:-toggle-runtime"></a>Option 2: Toggle runtime
 
-A continuación se ofrece una alternativa que aprovecha el hecho de que el script de implementación eliminará la carpeta env cuando no coincida con la versión deseada de Python. Esto eliminará de manera eficaz el entorno existente y creará uno nuevo.
+Here's an alternative that takes advantage of the fact that the deployment script will delete the env folder when it doesn't match the desired version of Python.  This will effectively delete the existing environment, and create a new one.
 
-1. Cambiar a una versión diferente de Python (a través de runtime.txt o la hoja **Configuración de la aplicación** en el Portal de Azure)
-1. Realizar cambios mediante inserciones de Git (ignorar cualquier error de instalación de PIP, si hay)
-1. Volver a la versión inicial de Python
-1. Volver a realizar cambios mediante inserciones de Git
+1. Switch to a different version of Python (via runtime.txt or the **Application Settings** blade in the Azure Portal)
+1. git push some changes (ignore any pip install errors if any)
+1. Switch back to initial version of Python
+1. git push some changes again
 
-### Opción 3: personalizar el script de implementación
+### <a name="option-3:-customize-deployment-script"></a>Option 3: Customize deployment script
 
-Si ha personalizado el script de implementación, puede cambiar el código en deploy.cmd para forzarlo a eliminar la carpeta env.
+If you've customized the deployment script, you can change the code in deploy.cmd to force it to delete the env folder.
 
-<!---HONumber=AcomDC_1125_2015-->
+
+<!--HONumber=Oct16_HO2-->
+
+

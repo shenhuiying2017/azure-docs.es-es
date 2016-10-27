@@ -1,6 +1,6 @@
 <properties
-   pageTitle="El tamaño de la carpeta TEMP predeterminada es demasiado pequeño para un rol | Microsoft Azure"
-   description="Un rol de servicio de nube tiene una cantidad limitada de espacio para la carpeta TEMP. En este artículo se ofrecen algunas sugerencias sobre cómo evitar quedarse sin espacio."
+   pageTitle="Default TEMP folder size is too small for a role | Microsoft Azure"
+   description="A cloud service role has a limited amount of space for the TEMP folder. This article provides some suggestions on how to avoid running out of space."
    services="cloud-services"
    documentationCenter=""
    authors="simonxjx"
@@ -13,28 +13,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="07/19/2016"
+   ms.date="10/12/2016"
    ms.author="v-six" />
 
-# El tamaño predeterminado de la carpeta TEMP es demasiado pequeño en un rol de trabajo o web de servicio en la nube.
 
-El directorio temporal predeterminado de un rol web o de trabajo de servicio de nube tiene un tamaño máximo de 100 MB, que puede llenarse en algún momento. En este artículo se describe cómo evitar quedarse sin espacio para el directorio temporal.
+# <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-web/worker-role"></a>Default TEMP folder size is too small on a cloud service web/worker role
+
+The default temporary directory of a cloud service worker or web role has a maximum size of 100 MB, which may become full at some point. This article describes how to avoid running out of space for the temporary directory.
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## ¿Por qué me quedo sin espacio?
+## <a name="why-do-i-run-out-of-space?"></a>Why do I run out of space?
 
-Las variables del entorno de Windows estándar TEMP y TMP están disponibles en el código que se ejecuta en su aplicación. Tanto TEMP como TMP apuntan a un único directorio que tiene un tamaño máximo de 100 MB. Los datos que están almacenados en este directorio no persisten en el ciclo de vida del servicio en la nube; si las instancias de rol de un servicio en la nube se reciclan, el directorio se limpia.
+The standard Windows environment variables TEMP and TMP are available to code that is running in your application. Both TEMP and TMP point to a single directory that has a maximum size of 100 MB. Any data that is stored in this directory is not persisted across the lifecycle of the cloud service; if the role instances in a cloud service are recycled, the directory is cleaned.
 
-## Sugerencia para corregir el problema
+## <a name="suggestion-to-fix-the-problem"></a>Suggestion to fix the problem
 
-Implemente una de las siguientes alternativas:
+Implement one of the following alternatives:
 
-- Configure un recurso de almacenamiento local y acceda a él directamente, en lugar de usar TEMP o TMP. Para acceder a un recurso de almacenamiento local desde el código que se ejecuta en la aplicación, llame al método [RoleEnvironment.GetLocalResource](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx).
+- Configure a local storage resource, and access it directly instead of using TEMP or TMP. To access a local storage resource from code that is running within your application, call the [RoleEnvironment.GetLocalResource](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) method. 
 
-- Configure un recurso de almacenamiento local y apunte a los directorios TEMP y TMP para que apunten a la ruta de acceso del recurso de almacenamiento local. Esta modificación debe realizarse dentro del método [RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
+- Configure a local storage resource, and point the TEMP and TMP directories to point to the path of the local storage resource. This modification should be performed within the [RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) method.
 
-En el ejemplo de código siguiente se muestra cómo modificar los directorios de destino para TEMP y TMP desde dentro del método OnStart:
+The following code example shows how to modify the target directories for TEMP and TMP from within the OnStart method:
 
 
 ```csharp
@@ -69,12 +70,16 @@ namespace WorkerRole1
 }
 ```
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-Lea el blog que describe [cómo aumentar el tamaño de la carpeta temporal de ASP.NET del rol web de Azure](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx).
+Read a blog that describes [How to increase the size of the Azure Web Role ASP.NET Temporary Folder](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx).
 
-Vea más [artículos de solución de problemas](/?tag=top-support-issue&product=cloud-services) para servicios en la nube.
+View more [troubleshooting articles](/?tag=top-support-issue&product=cloud-services) for cloud services.
 
-Para más información acerca de cómo solucionar los problemas de los roles de los servicios en la nube mediante el uso de datos de diagnóstico de equipos de PaaS de Azure, consulte la [serie de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+To learn how to troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data, view [Kevin Williamson's blog series](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

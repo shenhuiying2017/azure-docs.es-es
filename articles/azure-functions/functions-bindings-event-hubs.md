@@ -1,155 +1,160 @@
 <properties
-	pageTitle="Enlaces de Centro de eventos de Funciones de Azure | Microsoft Azure"
-	description="Descubra cómo utilizar los enlaces del Centro de eventos de Azure en Funciones de Azure."
-	services="functions"
-	documentationCenter="na"
-	authors="wesmc7777"
-	manager="erikre"
-	editor=""
-	tags=""
-	keywords="funciones de azure, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor"/>
+    pageTitle="Azure Functions Event Hub bindings | Microsoft Azure"
+    description="Understand how to use Azure Event Hub bindings in Azure Functions."
+    services="functions"
+    documentationCenter="na"
+    authors="wesmc7777"
+    manager="erikre"
+    editor=""
+    tags=""
+    keywords="azure functions, functions, event processing, dynamic compute, serverless architecture"/>
 
 <tags
-	ms.service="functions"
-	ms.devlang="multiple"
-	ms.topic="reference"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/22/2016"
-	ms.author="wesmc"/>
+    ms.service="functions"
+    ms.devlang="multiple"
+    ms.topic="reference"
+    ms.tgt_pltfrm="multiple"
+    ms.workload="na"
+    ms.date="08/22/2016"
+    ms.author="wesmc"/>
 
-# Enlaces de Centro de eventos de funciones de Azure
+
+# <a name="azure-functions-event-hub-bindings"></a>Azure Functions Event Hub bindings
 
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-En este artículo se explica cómo configurar y codificar enlaces de [Centro de eventos de Azure ](../event-hubs/event-hubs-overview.md) para Funciones de Azure. Funciones de Azure admite enlaces de desencadenador y salida para Centros de eventos de Azure.
+This article explains how to configure and code [Azure Event Hub](../event-hubs/event-hubs-overview.md) bindings for Azure Functions. Azure functions supports trigger and output bindings for Azure Event Hubs.
 
-[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
 
-## Enlace de desencadenador de Centro de eventos de Azure
+## <a name="azure-event-hub-trigger-binding"></a>Azure Event Hub trigger binding
 
-Un desencadenador de Centro de eventos de Azure puede utilizarse para responder a un evento enviado a una secuencia de eventos del centro de eventos. Debe tener acceso de lectura al centro de eventos para configurar un enlace de desencadenador.
+An Azure Event Hub trigger can be used to respond to an event sent to an event hub event stream. You must have read access to the event hub to setup a trigger binding.
 
-#### function.json para el enlace de desencadenador del Centro de eventos
+#### <a name="function.json-for-event-hub-trigger-binding"></a>function.json for Event Hub trigger binding
 
-El archivo *function.json* de un desencadenador del Centro de eventos de Azure especifica las siguientes propiedades:
+The *function.json* file for an Azure Event Hub trigger specifies the following properties:
 
-- `type`: debe establecerse en *eventHubTrigger*.
-- `name`: nombre de variable utilizado en el código de función para el mensaje del centro de eventos.
-- `direction` : debe establecerse en *in*.
-- `path`: nombre del centro de eventos.
-- `connection`: nombre de una configuración de aplicación que contiene la cadena de conexión para el espacio de nombres en el que se encuentra el centro de eventos. Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del espacio de nombres, no del propio centro de eventos. Esta cadena de conexión debe tener al menos permisos de lectura para activar el desencadenador.
+- `type` : Must be set to *eventHubTrigger*.
+- `name` : The variable name used in function code for the event hub message. 
+- `direction` : Must be set to *in*. 
+- `path` : The name of the event hub.
+- `connection` : The name of an app setting that contains the connection string to the namespace that the event hub resides in. Copy this connection string by clicking the **Connection Information** button for the namespace, not the event hub itself.  This connection string must have at least read permissions to activate the trigger.
 
-		{
-		  "bindings": [
-		    {
-		      "type": "eventHubTrigger",
-		      "name": "myEventHubMessage",
-		      "direction": "in",
-		      "path": "MyEventHub",
-		      "connection": "myEventHubReadConnectionString"
-		    }
-		  ],
-		  "disabled": false
-		}
+        {
+          "bindings": [
+            {
+              "type": "eventHubTrigger",
+              "name": "myEventHubMessage",
+              "direction": "in",
+              "path": "MyEventHub",
+              "connection": "myEventHubReadConnectionString"
+            }
+          ],
+          "disabled": false
+        }
 
-#### Ejemplo de desencadenador C# de Centro de eventos de Azure
+#### <a name="azure-event-hub-trigger-c#-example"></a>Azure Event Hub trigger C# example
  
-Con el archivo function.json de ejemplo anterior, el cuerpo del mensaje de evento se registrará con el código de función C# siguiente:
+Using the example function.json above, the body of the event message will be logged using the C# function code below:
  
-	using System;
-	
-	public static void Run(string myEventHubMessage, TraceWriter log)
-	{
-	    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
-	}
+    using System;
+    
+    public static void Run(string myEventHubMessage, TraceWriter log)
+    {
+        log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
+    }
 
-#### Ejemplo de desencadenador de F# de Centro de eventos de Azure
+#### <a name="azure-event-hub-trigger-f#-example"></a>Azure Event Hub trigger F# example
 
-Con el archivo function.json de ejemplo anterior, el cuerpo del mensaje de evento se registrará con el código de función F# siguiente:
+Using the example function.json above, the body of the event message will be logged using the F# function code below:
 
-	let Run(myEventHubMessage: string, log: TraceWriter) =
-	    log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
+    let Run(myEventHubMessage: string, log: TraceWriter) =
+        log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
 
-#### Ejemplo de desencadenador Node.js de Centro de eventos de Azure
+#### <a name="azure-event-hub-trigger-node.js-example"></a>Azure Event Hub trigger Node.js example
  
-Con el archivo function.json de ejemplo anterior, el cuerpo del mensaje de evento se registrará con el código de función Node.js siguiente:
+Using the example function.json above, the body of the event message will be logged using the Node.js function code below:
  
-	module.exports = function (context, myEventHubMessage) {
-	    context.log('Node.js eventhub trigger function processed work item', myEventHubMessage);	
-	    context.done();
-	};
+    module.exports = function (context, myEventHubMessage) {
+        context.log('Node.js eventhub trigger function processed work item', myEventHubMessage);    
+        context.done();
+    };
 
 
-## Enlace de salida del Centro de eventos de Azure
+## <a name="azure-event-hub-output-binding"></a>Azure Event Hub output binding
 
-Un enlace de salida del Centro de eventos de Azure se usa para escribir eventos en una secuencia de eventos del centro de eventos. Debe tener permiso de envío a un centro de eventos para escribir eventos en él.
+An Azure Event Hub output binding is used to write events to an event hub event stream. You must have send permission to an event hub to write events to it. 
 
-#### function.json para el enlace de salida del Centro de eventos
+#### <a name="function.json-for-event-hub-output-binding"></a>function.json for Event Hub output binding
 
-El archivo *function.json* del enlace de la salida del Centro de eventos de Azure especifica las siguientes propiedades:
+The *function.json* file for an Azure Event Hub output binding specifies the following properties:
 
-- `type`: debe establecerse en *eventHub*.
-- `name`: nombre de variable utilizado en el código de función para el mensaje del centro de eventos.
-- `path`: nombre del centro de eventos.
-- `connection`: nombre de una configuración de aplicación que contiene la cadena de conexión para el espacio de nombres en el que se encuentra el centro de eventos. Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del espacio de nombres, no del propio centro de eventos. Esta cadena de conexión debe tener permisos de envío para enviar el mensaje a la secuencia del Centro de eventos.
-- `direction`: debe establecerse en *out*.
+- `type` : Must be set to *eventHub*.
+- `name` : The variable name used in function code for the event hub message. 
+- `path` : The name of the event hub.
+- `connection` : The name of an app setting that contains the connection string to the namespace that the event hub resides in. Copy this connection string by clicking the **Connection Information** button for the namespace, not the event hub itself.  This connection string must have send permissions to send the message to the Event Hub stream.
+- `direction` : Must be set to *out*. 
 
-	    {
-	      "type": "eventHub",
-	      "name": "outputEventHubMessage",
-	      "path": "myeventhub",
-	      "connection": "MyEventHubSend",
-	      "direction": "out"
-	    }
+        {
+          "type": "eventHub",
+          "name": "outputEventHubMessage",
+          "path": "myeventhub",
+          "connection": "MyEventHubSend",
+          "direction": "out"
+        }
 
 
-#### Ejemplo de código de C# del Centro de eventos de Azure para el enlace de salida
+#### <a name="azure-event-hub-c#-code-example-for-output-binding"></a>Azure Event Hub C# code example for output binding
  
-El siguiente código de función de ejemplo de F# muestra cómo escribir un evento en una secuencia de eventos del Centro de eventos. Este ejemplo representa el enlace de salida del Centro de eventos mostrado anteriormente aplicado a un desencadenador de temporizador de C#.
+The following C# example function code demonstrates writing an event to an Event Hub event stream. This example represents the Event Hub output binding shown above applied to a C# timer trigger.  
  
-	using System;
-	
-	public static void Run(TimerInfo myTimer, out string outputEventHubMessage, TraceWriter log)
-	{
-	    String msg = $"TimerTriggerCSharp1 executed at: {DateTime.Now}";
-	
-	    log.Verbose(msg);   
-	    
-	    outputEventHubMessage = msg;
-	}
+    using System;
+    
+    public static void Run(TimerInfo myTimer, out string outputEventHubMessage, TraceWriter log)
+    {
+        String msg = $"TimerTriggerCSharp1 executed at: {DateTime.Now}";
+    
+        log.Verbose(msg);   
+        
+        outputEventHubMessage = msg;
+    }
 
-#### Ejemplo de código de F# del Centro de eventos de Azure para el enlace de salida
+#### <a name="azure-event-hub-f#-code-example-for-output-binding"></a>Azure Event Hub F# code example for output binding
 
-El siguiente código de función de ejemplo de F# muestra cómo escribir un evento en una secuencia de eventos del Centro de eventos. Este ejemplo representa el enlace de salida del Centro de eventos mostrado anteriormente aplicado a un desencadenador de temporizador de C#.
+The following F# example function code demonstrates writing an event to an Event Hub event stream. This example represents the Event Hub output binding shown above applied to a C# timer trigger.
 
-	let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
-	    let msg = sprintf "TimerTriggerFSharp1 executed at: %s" DateTime.Now.ToString()
-	    log.Verbose(msg);
-	    outputEventHubMessage <- msg;
+    let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
+        let msg = sprintf "TimerTriggerFSharp1 executed at: %s" DateTime.Now.ToString()
+        log.Verbose(msg);
+        outputEventHubMessage <- msg;
 
-#### Ejemplo de código de Node.js del Centro de eventos de Azure para el enlace de salida
+#### <a name="azure-event-hub-node.js-code-example-for-output-binding"></a>Azure Event Hub Node.js code example for output binding
  
-El siguiente código de función de ejemplo de Node.js muestra cómo escribir un evento en una secuencia de eventos del Centro de eventos. Este ejemplo representa el enlace de salida del Centro de eventos mostrado anteriormente aplicado a un desencadenador de temporizador de Node.js.
+The following Node.js example function code demonstrates writing a event to an Event Hub event stream. This example represents the Event Hub output binding shown above applied to a Node.js timer trigger.  
  
-	module.exports = function (context, myTimer) {
-	    var timeStamp = new Date().toISOString();
-	    
-	    if(myTimer.isPastDue)
-	    {
-	        context.log('TimerTriggerNodeJS1 is running late!');
-	    }
+    module.exports = function (context, myTimer) {
+        var timeStamp = new Date().toISOString();
+        
+        if(myTimer.isPastDue)
+        {
+            context.log('TimerTriggerNodeJS1 is running late!');
+        }
 
-	    context.log('TimerTriggerNodeJS1 function ran!', timeStamp);   
-	    
-	    context.bindings.outputEventHubMessage = "TimerTriggerNodeJS1 ran at : " + timeStamp;
-	
-	    context.done();
-	};
+        context.log('TimerTriggerNodeJS1 function ran!', timeStamp);   
+        
+        context.bindings.outputEventHubMessage = "TimerTriggerNodeJS1 ran at : " + timeStamp;
+    
+        context.done();
+    };
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-[AZURE.INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
+[AZURE.INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

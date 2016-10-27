@@ -1,7 +1,9 @@
-Elemento | Descripción | Vínculo
+Item | Description | Link
 ---------|-------|-----------
-Tiempo de ejecución | Host de script, desencadenadores y enlaces, compatibilidad con idiomas | [Registre un problema](https://github.com/Azure/azure-webjobs-sdk-script/issues)
-Plantillas | Problemas de código con la plantilla de creación | [Registre un problema](https://github.com/Azure/azure-webjobs-sdk-templates/issues)
-Portal | Interfaz de usuario o problema de la experiencia | [Registre un problema](https://github.com/ProjectKudu/AzureFunctionsPortal/issues)
+Runtime | Script Host, Triggers & Bindings, Language Support  | [File an Issue](https://github.com/Azure/azure-webjobs-sdk-script/issues)
+Templates | Code Issues with Creation Template | [File an Issue](https://github.com/Azure/azure-webjobs-sdk-templates/issues)
+Portal | User Interface or Experience Issue | [File an Issue](https://github.com/ProjectKudu/AzureFunctionsPortal/issues)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

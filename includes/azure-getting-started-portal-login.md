@@ -8,27 +8,30 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Conexión al portal de Azure con una suscripción
+## <a name="connect-to-the-azure-portal-with-a-subscription"></a>Connect to the Azure portal with a subscription
 
-Para conectarse al portal de Azure, debe tener una suscripción.
+To connect to the Azure portal, you must have a subscription.
 
-### Obtención de una cuenta nueva
+### <a name="get-a-new-account"></a>Get a new account
 
-Si no tiene una cuenta de Azure existente, elija una de las siguientes opciones para obtener una:
+If you do not have an existing Azure account, choose one of the following options to obtain an account:
 
-- Obtener una [cuenta gratuita](https://azure.microsoft.com/get-started/).
-- Usar una [suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/).
+- Get a [free account](https://azure.microsoft.com/get-started/).
+- Use an [MSDN subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/).
 
-### Inicio de sesión con una cuenta existente
+### <a name="sign-in-by-using-your-existing-account"></a>Sign in by using your existing account
 
-Con una [suscripción existente](https://account.windowsazure.com/Home/Index), siga estos pasos para conectarse al portal de Azure.
+Using your [existing subscription]( https://account.windowsazure.com/Home/Index), follow these steps to connect to the Azure portal.
 
-1. Abra el explorador que prefiera y conéctese al [Portal de Azure](https://portal.azure.com/).
+1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.com/).
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. En la página **Iniciar sesión**, proporcione las credenciales de la suscripción.
+1. On the **Sign in** page, provide the credentials for your subscription.
 
-   ![Iniciar sesión](./media/azure-getting-started-portal-login/login.png)
+   ![Sign in](./media/azure-getting-started-portal-login/login.png)
 
-<!----HONumber=AcomDC_0912_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

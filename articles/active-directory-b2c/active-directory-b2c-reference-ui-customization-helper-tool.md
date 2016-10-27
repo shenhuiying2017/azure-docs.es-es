@@ -1,102 +1,108 @@
 <properties
-	pageTitle="Azure Active Directory B2C: herramienta auxiliar de personalización de la interfaz de usuario de página | Microsoft Azure"
-	description="Herramienta auxiliar que se usa para mostrar la característica de personalización de la interfaz de usuario (IU) de página en Azure Active Directory B2C"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="bryanla"/>
+    pageTitle="Azure Active Directory B2C: Page UI customization helper tool | Microsoft Azure"
+    description="A helper tool used to demonstrate the page UI customization feature in Azure Active Directory B2C"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="mbaldwin"
+    editor="bryanla"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/22/2016"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/22/2016"
+    ms.author="swkrish"/>
 
-# Azure Active Directory B2C: una herramienta auxiliar que se usa para mostrar la característica de personalización de la interfaz de usuario de la página
 
-Este artículo es un complemento del [artículo principal sobre personalización de la interfaz de usuario](active-directory-b2c-reference-ui-customization.md) de Azure Active Directory (Azure AD) B2C. Los pasos siguientes describen cómo ejecutar la característica de personalización de la interfaz de usuario de la página mediante el contenido HTML y CSS de ejemplo que hemos proporcionado.
+# <a name="azure-active-directory-b2c:-a-helper-tool-used-to-demonstrate-the-page-user-interface-(ui)-customization-feature"></a>Azure Active Directory B2C: A helper tool used to demonstrate the page user interface (UI) customization feature
 
-## Obtención de un inquilino de Azure AD B2C
+This article is a companion to the [main UI customization article](active-directory-b2c-reference-ui-customization.md) in Azure Active Directory (Azure AD) B2C. The following steps describe how to exercise the page UI customization feature by using sample HTML and CSS content that we've provided.
 
-Antes de personalizar nada, deberá [obtener un inquilino de Azure AD B2C](active-directory-b2c-get-started.md) si todavía no tiene uno.
+## <a name="get-an-azure-ad-b2c-tenant"></a>Get an Azure AD B2C tenant
 
-## Creación de una directiva de registro o de inicio de sesión
+Before you can customize anything, you will need to [get an Azure AD B2C tenant](active-directory-b2c-get-started.md) if you don't already have one.
 
-El contenido de ejemplo que hemos proporcionado se puede usar para personalizar dos páginas en una [directiva de registro o de inicio de sesión](active-directory-b2c-reference-policies.md): la [página de inicio de sesión unificado](active-directory-b2c-reference-ui-customization.md) y la [página de atributos autoafirmados](active-directory-b2c-reference-ui-customization.md). Al [crear una directiva de registro o de inicio de sesión](active-directory-b2c-reference-policies.md#create-a-sign-up-or-sign-in-policy), agregue Cuenta local (dirección de correo electrónico), Facebook, Google y Microsoft como **proveedores de identidades**. Estos son los únicos proveedores de identidades que aceptará nuestro contenido HTML de ejemplo. También puede agregar un subconjunto de estos IDP si lo desea.
+## <a name="create-a-sign-up-or-sign-in-policy"></a>Create a sign-up or sign-in policy
 
-## Registro de una aplicación
+The sample content we've provided can be used to customze two pages in a [sign-up or sign-in policy](active-directory-b2c-reference-policies.md): the [unified sign-in page](active-directory-b2c-reference-ui-customization.md) and the [self-asserted attributes page](active-directory-b2c-reference-ui-customization.md). When [creating your sign-up or sign-in policy](active-directory-b2c-reference-policies.md#create-a-sign-up-or-sign-in-policy), add Local Account (email address), Facebook, Google, and Microsoft as **Identity providers**. These are the only IDPs that our sample HTML content will accept.  You can also add a subset of these IDPs if you wish.
 
-Deberá [registrar la aplicación](active-directory-b2c-app-registration.md) en el inquilino B2C que puede usarse para ejecutar la directiva. Después de registrar la aplicación, tiene algunas opciones que puede usar para ejecutar la directiva de registro:
+## <a name="register-an-application"></a>Register an application
 
-- Compilar una de las aplicaciones de inicio rápido de Azure AD B2C que se enumeran en la sección "Introducción" de [Versión preliminar de Azure Active Directory B2C: registro e inicio de sesión de consumidores en las aplicaciones](active-directory-b2c-overview.md#getting-started).
-- Usar la aplicación de [área de juegos de Azure AD B2C](https://aadb2cplayground.azurewebsites.net) previamente compilada. Si elige usar el área de juegos, debe registrar una aplicación en el inquilino de B2C mediante el **URI de redirección** `https://aadb2cplayground.azurewebsites.net/`.
-- Use el botón **Ejecutar ahora** de la directiva en el [Portal de Azure](https://portal.azure.com/).
+You will need to [register an application](active-directory-b2c-app-registration.md) in your B2C tenant that can be used to execute your policy. After registering your application, you have a few options that you can use to actually run your sign-up policy:
 
-## Personalización de la directiva
+- Build one of the Azure AD B2C quick-start applications listed in the "Get started" section of [Sign up and sign in consumers in your applications](active-directory-b2c-overview.md#getting-started).
+- Use the pre-built [Azure AD B2C Playground](https://aadb2cplayground.azurewebsites.net) application. If you choose to use the playground, you must register an application in your B2C tenant using the **redirect URI** `https://aadb2cplayground.azurewebsites.net/`.
+- Use the **Run Now** button on your policy in the [Azure portal](https://portal.azure.com/).
 
-Para personalizar la apariencia de la directiva, debe crear primero los archivos HTML y CSS usando las convenciones específicas de Azure AD B2C. Luego, puede cargar su contenido estático en una ubicación disponible públicamente para que Azure AD B2C pueda tener acceso a él. Esta ubicación podría ser su propio servidor web dedicado, el Almacenamiento de blobs de Azure, la Red de entrega de contenido de Azure o cualquier otro proveedor de hospedaje de recursos estático. Los únicos requisitos son que el contenido esté disponible a través de HTTPS y que se pueda tener acceso a él mediante CORS. Una vez que se ha expuesto el contenido estático en la página web, puede editar la directiva para que señale a esta ubicación y presentar ese contenido a los consumidores. El [artículo principal sobre personalización de la interfaz de usuario](active-directory-b2c-reference-ui-customization.md) describe de forma detallada cómo funciona la característica de personalización de Azure AD B2C.
+## <a name="customize-your-policy"></a>Customize your policy
 
-Para los fines de este tutorial, ya hemos creado algún contenido de ejemplo y lo hemos hospedado en el almacenamiento de blobs de Azure. El contenido de ejemplo es una personalización muy básica del tema de nuestra empresa ficticia: "Wingtip Toys". Para probarlo en su propia directiva, siga estos pasos:
+To customize the look and feel of your policy, you need to first create HTML and CSS files using the specific conventions of Azure AD B2C. You can then upload your static content to a publicly available location so that Azure AD B2C can access it. This could be your own dedicated web server, Azure Blob Storage, Azure Content Delivery Network, or any other static resource-hosting provider. The only requirements are that your content is available over HTTPS and can be accessed by using CORS. Once you've exposed your static content on the web, you can edit your policy to point to this location and present that content to your customers. The [main UI customization article](active-directory-b2c-reference-ui-customization.md) describes in detail how the Azure AD B2C customization feature works.
 
-1. Inicie sesión en el inquilino en el [Portal de Azure](https://portal.azure.com/) y navegue hasta la hoja de características de B2C.
-2. Haga clic en **Sign-up or sign-in policies** (Directivas de registro o de inicio de sesión) y luego en su directiva (por ejemplo, "b2c\_1\_sign\_up").
-3. Haga clic en **Page UI customization** (Personalización de interfaz de usuario de página) y, luego, en **Unified sign-up or sign-in page** (Página de registro o de inicio de sesión unificada).
-4. Coloque el conmutador **Usar página personalizada** en la posición **Sí**. En el campo **URI de página personalizada**, escriba `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/unified.html`. Haga clic en **OK**.
-5. Haga clic en **Página de suscripción de cuenta local**. Alterne el conmutador **Usar plantilla personalizada** a **Sí**. En el campo **URI de página personalizada**, escriba `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/selfasserted.html`.
-5. Repita el mismo paso para la **página de registro de cuenta de redes sociales**. Haga clic en **Aceptar** dos veces para cerrar las hojas de personalización de la interfaz de usuario.
-6. Haga clic en **Guardar**.
+For the purposes of this tutorial, we've already created some sample content and hosted it on Azure Blob Storage. The sample content is a very basic customization in the theme of our fictional company, "Wingtip Toys". To try it out in your own policy, follow these steps:
 
-Ahora puede probar la directiva personalizada. Puede usar su propia aplicación o el área de juegos de Azure AD B2C si lo desea, pero también puede hacer simplemente clic en el comando **Ejecutar** de la hoja de directivas. Seleccione la aplicación en la lista desplegable y elija el URI de redirección correspondiente. Haga clic en el botón **Ejecutar ahora**. Se abrirá una nueva pestaña del explorador y podrá pasar por la experiencia de usuario de registro en su aplicación con el nuevo contenido implementado.
+1. Sign in to your tenant on the [Azure portal](https://portal.azure.com/) and navigate to the B2C features blade.
+2. Click **Sign-up or sign-in policies** and then click your policy (for example, "b2c\_1\_sign\_up\_sign\_in").
+3. Click **Page UI customization** and then **Unified sign-up or sign-in page**.
+4. Toggle the **Use custom page** switch to **Yes**. In the **Custom page URI** field, enter `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/unified.html`. Click **OK**.
+5. Click **Local account sign-up page**. Toggle the **Use custom template** switch to **Yes**. In the **Custom page URI** field, enter `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/selfasserted.html`.
+5. Repeat the same step for the **Social account sign-up page**.
+ Click **OK** twice to close the UI customization blades.
+6. Click **Save**.
 
-## Carga del contenido de ejemplo en el almacenamiento de blobs de Azure
+Now you can try out your customized policy. You can use your own application or the Azure AD B2C playground if you want to, but you can also simply click the **Run Now** command in the policy blade. Select your application in the drop-down box and choose the appropriate redirect URI. Click the **Run now** button. A new browser tab will open and you can run through the user experience of signing up for your application with the new content in place!
 
-Si desea usar el almacenamiento de blobs de Azure para hospedar el contenido de su página, puede crear su propia cuenta de almacenamiento y usar nuestra herramienta auxiliar de B2C para cargar los archivos.
+## <a name="upload-the-sample-content-to-azure-blob-storage"></a>Upload the sample content to Azure Blob Storage
 
-### Crear una cuenta de almacenamiento
+If you would like to use Azure Blob Storage to host your page content, you can create your own storage account and use our B2C helper tool to upload your files.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-2. Haga clic en **+ Nuevo** -> **Datos y almacenamiento** -> **Cuenta de almacenamiento**. Necesitará una suscripción de Azure para crear una cuenta de Almacenamiento de blobs de Azure. Puede registrarse para obtener una evaluación gratuita en el [sitio web de Azure](https://azure.microsoft.com/pricing/free-trial/).
-3. Especifique un **nombre** para la cuenta de almacenamiento (por ejemplo, "contoso") y elija las opciones adecuadas en **Plan de tarifa**, **Grupo de recursos** y **Suscripción**. Asegúrese de tener la opción **Anclar a Panel de inicio** activada. Haga clic en **Crear**.
-4. Regrese al panel de inicio y haga clic en la cuenta de almacenamiento que acaba de crear.
-5. En la sección **Resumen**, haga clic en **Contenedores** y luego en **+ Agregar**.
-6. Asigne un **Nombre** al contenedor (por ejemplo, "b2c") y seleccione **Blob** como el **Tipo de acceso**. Haga clic en **OK**.
-7. El contenedor que creó aparecerá en la lista de la hoja **Blobs**. Anote la dirección URL del contenedor; por ejemplo, debería ser similar a `https://contoso.blob.core.windows.net/b2c`. Cierre la hoja **Blobs**.
-8. En la hoja de la cuenta de almacenamiento, haga clic en **Claves** y anote los valores de los campos **Nombre de la cuenta de almacenamiento** y **Clave de acceso primaria**.
+### <a name="create-a-storage-account"></a>Create a storage account
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-2. Haga clic en **+ Nuevo** -> **Datos y almacenamiento** -> **Cuenta de almacenamiento**. Necesitará una suscripción de Azure para crear una cuenta de Almacenamiento de blobs de Azure. Puede registrarse para obtener una evaluación gratuita en el [sitio web de Azure](https://azure.microsoft.com/pricing/free-trial/).
-3. Seleccione **Almacenamiento de blobs** en **Tipo de cuenta** y deje las restantes opciones con su valor predeterminado. Puede editar los valores de Grupo de recursos y Ubicación si lo desea. Haga clic en **Crear**.
-4. Regrese al panel de inicio y haga clic en la cuenta de almacenamiento que acaba de crear.
-5. En la sección **Resumen**, haga clic en **+Contenedor**.
-6. Asigne un **Nombre** al contenedor (por ejemplo, "b2c") y seleccione **Blob** como el **Tipo de acceso**. Haga clic en **OK**.
-7. Abra las **propiedades** del contenedor y anote la dirección URL del contenedor; por ejemplo, debería ser similar a `https://contoso.blob.core.windows.net/b2c`. Cierre la hoja del contenedor.
-8. En la hoja de la cuenta de almacenamiento, haga clic en **icono de la llave** y anote los valores de los campos **Nombre de la cuenta de almacenamiento** y **Clave de acceso primaria**.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Click **+ New** > **Data + Storage** > **Storage account**. You will need an Azure subscription to create an Azure Blob Storage account. You can sign up a free trial at the [Azure website](https://azure.microsoft.com/pricing/free-trial/).
+3. Provide a **Name** for the storage account (for example, "contoso") and pick the appropriate selections for **Pricing tier**, **Resource group** and **Subscription**. Make sure that you have the **Pin to Startboard** option checked. Click **Create**.
+4. Go back to the Startboard and click the storage account that you just created.
+5. In the **Summary** section, click **Containers**, and then click **+ Add**.
+6. Provide a **Name** for the container (for example, "b2c") and select **Blob** as the **Access type**. Click **OK**.
+7. The container that you created will appear in the list on the **Blobs** blade. Write down the URL of the container; for example, it should look similar to `https://contoso.blob.core.windows.net/b2c`. Close the **Blobs** blade.
+8. On the storage account blade, click **Keys** and write down the values of the **Storage Account Name** and **Primary Access Key** fields.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Click **+ New** > **Data + Storage** > **Storage account**. You will need an Azure subscription to create an Azure Blob Storage account. You can sign up a free trial at the [Azure website](https://azure.microsoft.com/pricing/free-trial/).
+3. Select **Blob Storage** under **Account Kind**, and leave the other values as default.  You can edit the Resource Group & Location if you wish.  Click **Create**.
+4. Go back to the Startboard and click the storage account that you just created.
+5. In the **Summary** section, click **+Container**.
+6. Provide a **Name** for the container (for example, "b2c") and select **Blob** as the **Access type**. Click **OK**.
+7. Open the container **properties**, and  Write down the URL of the container; for example, it should look similar to `https://contoso.blob.core.windows.net/b2c`. Close the container blade.
+8. On the storage account blade, click on the **Key Icon** and write down the values of the **Storage Account Name** and **Primary Access Key** fields.
 
 > [AZURE.NOTE]
-	La **Clave de acceso principal** es una credencial de seguridad importante.
+    **Primary Access Key** is an important security credential.
 
-### Descargue la herramienta auxiliar y los archivos de ejemplo.
+### <a name="download-the-helper-tool-and-sample-files"></a>Download the helper tool and sample files
 
-Puede descargar la [herramienta auxiliar de Almacenamiento de blobs de Azure y archivos de ejemplo en formato .zip](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip) o clonarla de GitHub:
+You can download the [Azure Blob Storage helper tool and sample files as a .zip file](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip) or clone it from GitHub:
 
 ```
 git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 ```
 
-Este repositorio contiene un directorio `sample_templates\wingtip`, que contiene HTML, CSS e imágenes de ejemplo. Para que estas plantillas hagan referencia a su propia cuenta de Almacenamiento de blobs de Azure, debe editar los archivos HTML. Abra `unified.html` y `selfasserted.html` y reemplace todas las instancias de `https://localhost` por la dirección URL de su propio contenedor que anotó en los pasos anteriores. Debe usar la ruta de acceso absoluta de los archivos HTML porque, en este caso, Azure AD servirá el código HTML bajo el dominio `https://login.microsoftonline.com`.
+This repository contains a `sample_templates\wingtip` directory, which contains example HTML, CSS, and images. For these templates to reference your own Azure Blob Storage account, you will need to edit the HTML files. Open `unified.html` and `selfasserted.html` and replace any instances of `https://localhost` with the URL of your own container that you wrote down in the previous steps. You must use the absolute path of the HTML files because in this case, the HTML will be served by Azure AD, under the domain `https://login.microsoftonline.com`.
 
-### Carga de los archivos de ejemplo
+### <a name="upload-the-sample-files"></a>Upload the sample files
 
-En el mismo repositorio, descomprima `B2CAzureStorageClient.zip` y ejecute el archivo `B2CAzureStorageClient.exe` que hay dentro. Este programa simplemente carga todos los archivos del directorio especificado en la cuenta de almacenamiento y permite que CORS acceda a esos archivos. Si siguió los pasos anteriores, los archivos HTML y CSS apuntarán ahora a la cuenta de almacenamiento. Tenga en cuenta que el nombre de la cuenta de almacenamiento es la parte que precede a `blob.core.windows.net`; por ejemplo, `contoso`. Para comprobar que el contenido se ha cargado correctamente, intente acceder a `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` en un explorador. Use también [http://test-cors.org/](http://test-cors.org/) para asegurarse de que el contenido está ahora habilitado para CORS. (busque "estado XHR: 200" en el resultado).
+In the same repository, unzip `B2CAzureStorageClient.zip` and run the `B2CAzureStorageClient.exe` file within. This program will simply upload all the files in the directory that you specify to your storage account, and enable CORS access for those files. If you followed the steps above, the HTML and CSS files will now be pointing to your storage account. Note that the name of your storage account is the part that precedes `blob.core.windows.net`; for example, `contoso`. You can verify that the content has been uploaded correctly by trying to access `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` on a browser. Also use [http://test-cors.org/](http://test-cors.org/) to make sure that the content is now CORS enabled. (Look for "XHR status: 200" in the result.)
 
-### Personalización de la directiva, de nuevo
+### <a name="customize-your-policy,-again"></a>Customize your policy, again
 
-Ahora que ha cargado el contenido de ejemplo en su propia cuenta de almacenamiento, debe modificar la directiva de registro para que haga referencia a él. Repita los pasos de la sección anterior ["Personalización de la directiva"](#customize-your-policy), esta vez usando las direcciones URL de su propia cuenta de almacenamiento. Por ejemplo, la ubicación de su archivo `unified.html` sería `<url-of-your-container>/wingtip/unified.html`.
+Now that you've uploaded the sample content to your own storage account, you must edit your sign-up policy to reference it. Repeat the steps from the ["Customize your policy"](#customize-your-policy) section above, this time using your own storage account's URLs. For instance, the location of your `unified.html` file would be `<url-of-your-container>/wingtip/unified.html`.
 
-Ahora puede usar el botón **Ejecutar ahora** o su propia aplicación para volver a ejecutar la directiva. El resultado debería ser casi exactamente el mismo, ya que usó el mismo HTML y CSS de ejemplo en ambos casos. Sin embargo, las directivas ahora hacen referencia a su propia instancia de Almacenamiento de blobs de Azure, y tiene la posibilidad de editar y volver a cargar los archivos a su gusto. Para más información acerca de la personalización de HTML y CSS, consulte el [artículo principal sobre la personalización de la interfaz de usuario](active-directory-b2c-reference-ui-customization.md).
+Now you can use the **Run Now** button or your own application to execute your policy again. The result should look almost exactly the same--you used the same sample HTML and CSS in both cases. However, your policies are now referencing your own instance of Azure Blob Storage, and you are free to edit and upload the files again as you please. For more information on customizing the HTML and CSS, refer to the [main UI customization article](active-directory-b2c-reference-ui-customization.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,212 +1,250 @@
 <properties 
-	pageTitle="Actividad de procedimiento almacenado de SQL Server" 
-	description="Sepa cómo usar la actividad de procedimiento almacenado de SQL Server para invocar un procedimiento almacenado en una Base de datos SQL de Azure o en un Almacenamiento de datos SQL de Azure desde una canalización de Factoría de datos." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="SQL Server Stored Procedure Activity" 
+    description="Learn how you can use the SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database or Azure SQL Data Warehouse from a Data Factory pipeline." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/18/2016" 
-	ms.author="spelluru"/>
-
-# Actividad de procedimiento almacenado de SQL Server
-
-Puede usar la actividad de procedimiento almacenado de SQL Server en una [canalización](data-factory-create-pipelines.md) de Factoría de datos para invocar un procedimiento almacenado en uno de los siguientes almacenes de datos.
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/30/2016" 
+    ms.author="spelluru"/>
 
 
-- Base de datos SQL de Azure
-- Almacenamiento de datos SQL de Azure
-- Base de datos de SQL Server en la empresa o en una máquina virtual de Azure. Data Management Gateway se debe instalar en la misma máquina que hospeda la base de datos o en una máquina independiente, con el fin de evitar la competencia por los recursos con la base de datos. Data Management Gateway es un software que conecta orígenes de datos locales u orígenes de datos hospedados en máquinas virtuales de Azure con servicios en la nube de forma segura y administrada. Consulte el artículo [Mover datos entre orígenes locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener más información acerca de Data Management Gateway.
+# <a name="sql-server-stored-procedure-activity"></a>SQL Server Stored Procedure Activity
+> [AZURE.SELECTOR]
+[Hive](data-factory-hive-activity.md)  
+[Pig](data-factory-pig-activity.md)  
+[MapReduce](data-factory-map-reduce.md)  
+[Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+[Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
+[Stored Procedure](data-factory-stored-proc-activity.md)
+[Data Lake Analytics U-SQL](data-factory-usql-activity.md)
+[.NET custom](data-factory-use-custom-activities.md)
 
-Este artículo se basa en el artículo sobre [actividades de transformación de datos](data-factory-data-transformation-activities.md), que presenta información general de la transformación de datos y las actividades de transformación admitidas.
+You can use the SQL Server Stored Procedure activity in a Data Factory [pipeline](data-factory-create-pipelines.md) to invoke a stored procedure in one of the following data stores: 
 
-## Sintaxis
-	{
-    	"name": "SQLSPROCActivity",
-    	"description": "description", 
-    	"type": "SqlServerStoredProcedure",
-    	"inputs":  [ { "name": "inputtable"  } ],
-    	"outputs":  [ { "name": "outputtable" } ],
-    	"typeProperties":
-    	{
-        	"storedProcedureName": "<name of the stored procedure>",
-        	"storedProcedureParameters":  
-        	{
-				"param1": "param1Value"
-				…
-        	}
-    	}
-	}
 
-## Detalles de la sintaxis
+- Azure SQL Database 
+- Azure SQL Data Warehouse  
+- SQL Server Database in your enterprise or an Azure VM. You need to install Data Management Gateway on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a software that connects on-premises data sources/data sources hosed in Azure VMs to cloud services in a secure and managed way. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for details about Data Management Gateway. 
 
-Propiedad | Descripción | Obligatorio
--------- | ----------- | --------
-name | Nombre de la actividad | Sí
-description | Texto que describe para qué se usa la actividad. | No
-type | SqlServerStoredProcedure | Sí
-inputs | Opcional. Si especifica un conjunto de datos de entrada, debe estar disponible (en estado "Listo") para que se ejecute la actividad de procedimiento almacenado. El conjunto de datos de entrada no se puede usar en el procedimiento almacenado como parámetro. Solo se utiliza para comprobar la dependencia antes de iniciar la actividad de procedimiento almacenado. | No
-outputs | Debe especificar un conjunto de datos para una actividad de procedimiento almacenado. El conjunto de datos de salida especifica la **programación** para la actividad de procedimiento almacenada (por hora, semanal, mensual, etc.). <br/><br/>El conjunto de datos de salida debe utilizar un **servicio vinculado** que haga referencia a una Base de datos SQL de Azure, un Almacenamiento de datos SQL o una base de datos de SQL Server donde desee que el procedimiento almacenado se ejecute. <br/><br/>El conjunto de datos de salida puede usarse como una forma de pasar el resultado del procedimiento almacenado para su posterior procesamiento por otra actividad ([encadenamiento de actividades](data-factory-scheduling-and-execution.md#chaining-activities)) en la canalización. Sin embargo, Data Factory no escribe automáticamente la salida de un procedimiento almacenado en este conjunto de datos. Es el procedimiento almacenado el que escribe en una tabla SQL a la que apunta el conjunto de datos de salida. <br/><br/>En algunos casos, el conjunto de datos de salida puede ser un **conjunto de datos ficticio**, que solo se utilice para especificar la programación para ejecutar la actividad de procedimiento almacenado. | Sí
-storedProcedureName | Especifique el nombre del procedimiento almacenado en la Base de datos SQL de Azure o en el Almacenamiento de datos SQL de Azure que se representa mediante el servicio vinculado que usa la tabla de salida. | Sí
-storedProcedureParameters | Especifique valores para los parámetros del procedimiento almacenado. Si necesita pasar null para un parámetro, use la sintaxis: "param1": null (todo en minúsculas). Vea el ejemplo siguiente para aprender el uso de esta propiedad.| No
+This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
-## Tutorial de ejemplo
+## <a name="walkthrough"></a>Walkthrough
 
-### Procedimiento almacenado y tabla de ejemplo
-> [AZURE.NOTE] En este ejemplo, se usa Base de datos SQL de Azure, pero funciona de la misma manera con Almacenamiento de datos SQL de Azure y Base de datos de SQL Server.
+### <a name="sample-table-and-stored-procedure"></a>Sample table and stored procedure
+1. Create the following **table** in your Azure SQL Database using SQL Server Management Studio or any other tool you are comfortable with. The datetimestamp column is the date and time when the corresponding ID is generated. 
 
-1. Cree la siguiente **tabla** en la Base de datos SQL de Azure con SQL Server Management Studio o cualquier otra herramienta que le resulte cómoda. La columna datetimestamp indica la fecha y la hora en que se generó el identificador correspondiente.
+        CREATE TABLE dbo.sampletable
+        (
+            Id uniqueidentifier,
+            datetimestamp nvarchar(127)
+        )
+        GO
 
-		CREATE TABLE dbo.sampletable
-		(
-			Id uniqueidentifier,
-			datetimestamp nvarchar(127)
-		)
-		GO
+        CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
+        GO
 
-		CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
-		GO
+    Id is the unique identified and the datetimestamp column is the date and time when the corresponding ID is generated.
+    ![Sample data](./media/data-factory-stored-proc-activity/sample-data.png)
 
-	Id es el identificador único y la columna datetimestamp indica la fecha y la hora en que se generó el identificador correspondiente. ![Datos de ejemplo](./media/data-factory-stored-proc-activity/sample-data.png)
+    > [AZURE.NOTE] This sample uses Azure SQL Database but works in the same manner for Azure SQL Data Warehouse and SQL Server Database. 
+2. Create the following **stored procedure** that inserts data in to the **sampletable**.
 
-2. Cree el siguiente **procedimiento almacenado**, que inserta datos en **sampletable**.
+        CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
+        AS
+        
+        BEGIN
+            INSERT INTO [sampletable]
+            VALUES (newid(), @DateTime)
+        END
 
-		CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
-		AS
-		
-		BEGIN
-		    INSERT INTO [sampletable]
-		    VALUES (newid(), @DateTime)
-		END
+    > [AZURE.IMPORTANT] **Name** and **casing** of the parameter (DateTime in this example) must match that of parameter specified in the pipeline/activity JSON. In the stored procedure definition, ensure that **@** is used as a prefix for the parameter.
+    
+### <a name="create-a-data-factory"></a>Create a data factory  
+4. Log in to [Azure portal](https://portal.azure.com/). 
+5. Click **NEW** on the left menu, click **Intelligence + Analytics**, and click **Data Factory**.
+    
+    ![New data factory](media/data-factory-stored-proc-activity/new-data-factory.png)   
+4.  In the **New data factory** blade, enter **SProcDF** for the Name. Azure Data Factory names are **globally unique**. You need to prefix the name of the data factory with your name, to enable the successful creation of the factory.
 
-	> [AZURE.IMPORTANT] El **nombre** y el **uso de mayúsculas y minúsculas** en el parámetro (DateTime en este ejemplo) deben coincidir con los del parámetro especificado en el código JSON de la canalización o actividad. En la definición del procedimiento almacenado, asegúrese de que se usa **@** como prefijo del parámetro.
-	
-### Crear una factoría de datos  
-4. Tras iniciar sesión en el [Portal de Azure](https://portal.azure.com/), siga estos pasos:
-	1.	Haga clic en **NUEVO** en el menú de la izquierda.
-	2.	Haga clic en **Análisis de datos** en la hoja **Creación**.
-	3.	Haga clic en **Factoría de datos** en la hoja **Análisis de datos**.
-4.	En la hoja **Nueva factoría de datos**, escriba **SProcDF** para el nombre. Los nombres de la Factoría de datos de Azure son únicos globalmente. Es necesario agregar su nombre como prefijo al nombre de la factoría de datos para permitir la creación correcta de la factoría.
-3.	Si no creó ningún grupo de recursos, es necesario crearlo.
-	1.	Haga clic en **NOMBRE DEL GRUPO DE RECURSOS**.
-	2.	Seleccione **Crear un nuevo grupo de recursos** en la hoja **Grupo de recursos**.
-	3.	Escriba **ADFTutorialResourceGroup** para el **Nombre** en la hoja **Crear grupo de recursos**.
-	4.	Haga clic en **Aceptar**.
-4.	Una vez seleccionado el grupo de recursos, compruebe que usa la suscripción correcta en la que quiere crear la factoría de datos.
-5.	Haga clic en **Crear** en la hoja **Nueva fábrica de datos**.
-6.	Verá que la factoría de datos se crea en el **Panel de inicio** del Portal de Azure. Tras crear correctamente la factoría de datos, se ve la página de la factoría de datos, que muestra el contenido de la misma.
+    ![New data factory](media/data-factory-stored-proc-activity/new-data-factory-blade.png)      
+3.  Select your **Azure subscription**. 
+4.  For **Resource Group**, do one of the following steps: 
+    1.  Click **Create new** and enter a name for the resource group.
+    2.  Click **Use existing** and select an existing resource group.  
+5.  Select the **location** for the data factory.
+6.  Select **Pin to dashboard** so that you can see the data factory on the dashboard next time you log in. 
+6.  Click **Create** on the **New data factory** blade.
+6.  You see the data factory being created in the **dashboard** of the Azure portal. After the data factory has been created successfully, you see the data factory page, which shows you the contents of the data factory.
+    ![Data Factory home page](media/data-factory-stored-proc-activity/data-factory-home-page.png)
 
-### Crear un servicio vinculado SQL de Azure.  
-Después de crear la factoría de datos, cree un servicio vinculado SQL de Azure que vincule la Base de datos SQL de Azure a la factoría de datos. Esta base de datos contiene la tabla sampletable y el procedimiento almacenado sp\_sample.
+### <a name="create-an-azure-sql-linked-service"></a>Create an Azure SQL linked service  
+After creating the data factory, you create an Azure SQL linked service that links your Azure SQL Database to the data factory. This database contains the sampletable table and sp_sample stored procedure.
 
-7.	En la hoja **Crear e implementar**, haga clic en la hoja **DATA FACTORY** para que **SProcDF** inicie el Editor de Data Factory.
-2.	Haga clic en **Nuevo almacén de datos** en la barra de comandos y elija **SQL de Azure**. Debería ver el script JSON para crear un servicio vinculado SQL de Azure en el editor.
-4. Reemplace **servername** por el nombre del servidor de la Base de datos SQL de Azure, **databasename** por el nombre de la base de datos donde creó la tabla y el procedimiento almacenado, **username@servername** por la cuenta de usuario con acceso a la base de datos y **password** por la contraseña de la cuenta de usuario.
-5. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.
+7.  Click **Author and deploy** on the **Data Factory** blade for **SProcDF** to launch the Data Factory Editor.
+2.  Click **New data store** on the command bar and choose **Azure SQL Database**. You should see the JSON script for creating an Azure SQL linked service in the editor. 
 
-### Crear un conjunto de datos de salida
-6. Haga clic en **Nuevo conjunto de datos** en la barra de comandos y seleccione **SQL de Azure**.
-7. Copie y pegue el siguiente script JSON en el editor de JSON.
+    ![New data store](media/data-factory-stored-proc-activity/new-data-store.png)
+4. In the JSON script, make the following changes: 
+    1. Replace **&lt;servername&gt;** with the name of your Azure SQL Database server.
+    2. Replace **&lt;databasename&gt;** with the database in which you created the table and the stored procedure.
+    3. Replace **&lt;username@servername&gt;** with the user account that has access to the database.
+    4. Replace **&lt;password&gt;** with the password for the user account. 
 
-		{			    
-			"name": "sprocsampleout",
-			"properties": {
-				"type": "AzureSqlTable",
-				"linkedServiceName": "AzureSqlLinkedService",
-				"typeProperties": {
-					"tableName": "sampletable"
-				},
-				"availability": {
-					"frequency": "Hour",
-					"interval": 1
-				}
-			}
-		}
-7. Haga clic en **Implementar** en la barra de comandos para implementar el conjunto de datos.
+    ![New data store](media/data-factory-stored-proc-activity/azure-sql-linked-service.png)
+5. Click **Deploy** on the command bar to deploy the linked service. Confirm that you see the AzureSqlLinkedService in the tree view on the left. 
 
-### Crear una canalización con una actividad SqlServerStoredProcedure
-Ahora, vamos a crear una canalización con una actividad SqlServerStoredProcedure.
+    ![tree view with linked service](media/data-factory-stored-proc-activity/tree-view.png)
+
+### <a name="create-an-output-dataset"></a>Create an output dataset
+6. Click **... More** on the toolbar, click **New dataset**, and click **Azure SQL**. **New dataset** on the command bar and select **Azure SQL**.
+
+    ![tree view with linked service](media/data-factory-stored-proc-activity/new-dataset.png)
+7. Copy/paste the following JSON script in to the JSON editor.
+
+        {               
+            "name": "sprocsampleout",
+            "properties": {
+                "type": "AzureSqlTable",
+                "linkedServiceName": "AzureSqlLinkedService",
+                "typeProperties": {
+                    "tableName": "sampletable"
+                },
+                "availability": {
+                    "frequency": "Hour",
+                    "interval": 1
+                }
+            }
+        }
+7. Click **Deploy** on the command bar to deploy the dataset. Confirm that you see the dataset in the tree view. 
+
+    ![tree view with linked services](media/data-factory-stored-proc-activity/tree-view-2.png)
+
+### <a name="create-a-pipeline-with-sqlserverstoredprocedure-activity"></a>Create a pipeline with SqlServerStoredProcedure activity
+Now, let's create a pipeline with a SqlServerStoredProcedure activity.
  
-9. Haga clic en **... (puntos suspensivos)** en la barra de comandos y después en **Nueva canalización**.
-9. Copie y pegue el siguiente fragmento de código JSON. El valor de **storedProcedureName** se establece en **sp\_sample**. El nombre y el uso de mayúsculas y minúsculas en el parámetro **DateTime** deben coincidir con los del parámetro de la definición del procedimiento almacenado.
+9. Click **... More** on the command bar and click **New pipeline**. 
+9. Copy/paste the following JSON snippet. The **storedProcedureName** set to **sp_sample**. Name and casing of the parameter **DateTime** must match the name and casing of the parameter in the stored procedure definition.  
 
-		{
-		    "name": "SprocActivitySamplePipeline",
-		    "properties": {
-		        "activities": [
-		            {
-		                "type": "SqlServerStoredProcedure",
-		                "typeProperties": {
-		                    "storedProcedureName": "sp_sample",
-		                    "storedProcedureParameters": {
-		                        "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
-		                    }
-		                },
-		                "outputs": [
-		                    {
-		                        "name": "sprocsampleout"
-		                    }
-		                ],
-		                "scheduler": {
-		                    "frequency": "Hour",
-		                    "interval": 1
-		                },
-		                "name": "SprocActivitySample"
-		            }
-		        ],
-         		"start": "2016-08-02T00:00:00Z",
-         		"end": "2016-08-02T05:00:00Z",
-		        "isPaused": false
-		    }
-		}
+        {
+            "name": "SprocActivitySamplePipeline",
+            "properties": {
+                "activities": [
+                    {
+                        "type": "SqlServerStoredProcedure",
+                        "typeProperties": {
+                            "storedProcedureName": "sp_sample",
+                            "storedProcedureParameters": {
+                                "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
+                            }
+                        },
+                        "outputs": [
+                            {
+                                "name": "sprocsampleout"
+                            }
+                        ],
+                        "scheduler": {
+                            "frequency": "Hour",
+                            "interval": 1
+                        },
+                        "name": "SprocActivitySample"
+                    }
+                ],
+                "start": "2016-08-02T00:00:00Z",
+                "end": "2016-08-02T05:00:00Z",
+                "isPaused": false
+            }
+        }
 
-	Si necesita pasar null para un parámetro, use la sintaxis: "param1": null (todo en minúsculas).
-9. Haga clic en **Implementar** en la barra de herramientas para implementar la canalización.
+    If you need pass null for a parameter, use the syntax: "param1": null (all lowercase). 
+9. Click **Deploy** on the toolbar to deploy the pipeline.  
 
-### Supervisar la canalización
+### <a name="monitor-the-pipeline"></a>Monitor the pipeline
 
-6. Haga clic en **X** para cerrar las hojas del Editor de Data Factory y volver a la hoja Data Factory y haga clic en **Diagram** (Diagrama).
-7. En la Vista de diagrama, se ve información general de las canalizaciones y los conjuntos de datos empleados en este tutorial.
-8. En la Vista de diagrama, haga doble clic en el conjunto de datos **sprocsampleout**. Verá los segmentos con estado Listo. Debería haber cinco segmentos, porque se genera un segmento para cada hora entre la hora de inicio y de finalización del código JSON.
-10. Cuando un segmento tiene el estado **Listo**, ejecute una consulta **select * from sampletable** en la Base de datos SQL de Azure para comprobar que el procedimiento almacenado ha insertado los datos en la tabla.
+6. Click **X** to close Data Factory Editor blades and to navigate back to the Data Factory blade, and click **Diagram**.
 
-	![Datos de salida](./media/data-factory-stored-proc-activity/output.png)
+    ![diagram tile](media/data-factory-stored-proc-activity/data-factory-diagram-tile.png)
+7. In the **Diagram View**, you see an overview of the pipelines, and datasets used in this tutorial. 
 
-	Vea [Supervisar la canalización](data-factory-monitor-manage-pipelines.md) para obtener información detallada sobre cómo supervisar las canalizaciones de Factoría de datos de Azure.
+    ![diagram tile](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
+8. In the Diagram View, double-click the dataset **sprocsampleout**. You see the slices in Ready state. There should be five slices because a slice is produced for each hour between the start time and end time from the JSON.
 
-> [AZURE.NOTE] En el ejemplo anterior, SprocActivitySample no tiene entradas. Si desea encadenar esta actividad a una actividad de nivel superior (es decir, que se procesa antes), las salidas de la actividad de nivel superior pueden usarse como entradas en esta actividad. En este caso, esta actividad no se ejecuta hasta que se completa la actividad de nivel superior y las salidas de dichas actividades están disponibles (en estado Listo). Las entradas no se pueden usar directamente como un parámetro para la actividad de procedimiento almacenado.
+    ![diagram tile](media/data-factory-stored-proc-activity/data-factory-slices.png) 
+10. When a slice is in **Ready** state, run a **select * from sampletable** query against the Azure SQL database to verify that the data was inserted in to the table by the stored procedure.
 
-## Pasar un valor estático 
-Ahora, pensemos en agregar otra columna denominada 'Escenario' en la tabla que contiene un valor estático denominado 'Ejemplo de documento'.
+    ![Output data](./media/data-factory-stored-proc-activity/output.png)
 
-![Datos de ejemplo 2](./media/data-factory-stored-proc-activity/sample-data-2.png)
+    See [Monitor the pipeline](data-factory-monitor-manage-pipelines.md) for detailed information about monitoring Azure Data Factory pipelines.  
 
-	CREATE PROCEDURE sp_sample @DateTime nvarchar(127) , @Scenario nvarchar(127)
-	
-	AS
-	
-	BEGIN
-	    INSERT INTO [sampletable]
-	    VALUES (newid(), @DateTime, @Scenario)
-	END
+> [AZURE.NOTE] In this example, the SprocActivitySample has no inputs. If you want to chain this activity with an activity upstream (that is, prior processing), the outputs of the upstream activity can be used as inputs in this activity. In such a case, this activity does not execute until the upstream activity is completed and the outputs of the upstream activities are available (in Ready status). The inputs cannot be used directly as a parameter to the stored procedure activity
 
-Ahora, pase el parámetro Escenario y el valor de la actividad de procedimiento almacenado. La sección typeProperties del ejemplo anterior es similar al siguiente fragmento:
+## <a name="json-format"></a>JSON format
+    {
+        "name": "SQLSPROCActivity",
+        "description": "description", 
+        "type": "SqlServerStoredProcedure",
+        "inputs":  [ { "name": "inputtable"  } ],
+        "outputs":  [ { "name": "outputtable" } ],
+        "typeProperties":
+        {
+            "storedProcedureName": "<name of the stored procedure>",
+            "storedProcedureParameters":  
+            {
+                "param1": "param1Value"
+                …
+            }
+        }
+    }
 
-	"typeProperties":
-	{
-		"storedProcedureName": "sp_sample",
-	    "storedProcedureParameters": 
-	    {
-	    	"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
-			"Scenario": "Document sample"
-		}
-	}
+## <a name="json-properties"></a>JSON properties
 
-<!---HONumber=AcomDC_0824_2016-->
+Property | Description | Required
+-------- | ----------- | --------
+name | Name of the activity | Yes
+description | Text describing what the activity is used for | No
+type | SqlServerStoredProcedure | Yes
+inputs | Optional. If you do specify an input dataset, it must be available (in ‘Ready’ status) for the stored procedure activity to run. The input dataset cannot be consumed in the stored procedure as a parameter. It is only used to check the dependency before starting the stored procedure activity. | No
+outputs | You must specify an output dataset for a stored procedure activity. Output dataset specifies the **schedule** for the stored procedure activity (hourly, weekly, monthly, etc.). <br/><br/>The output dataset must use a **linked service** that refers to an Azure SQL Database or an Azure SQL Data Warehouse or a SQL Server Database in which you want the stored procedure to run. <br/><br/>The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md#chaining-activities)) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. <br/><br/>In some cases, the output dataset can be a **dummy dataset**, which is used only to specify the schedule for running the stored procedure activity. | Yes
+storedProcedureName | Specify the name of the stored procedure in the Azure SQL database or Azure SQL Data Warehouse that is represented by the linked service that the output table uses. | Yes
+storedProcedureParameters | Specify values for stored procedure parameters. If you need to pass null for a parameter, use the syntax: "param1": null (all lower case). See the following sample to learn about using this property.| No
+
+## <a name="passing-a-static-value"></a>Passing a static value 
+Now, let’s consider adding another column named ‘Scenario’ in the table containing a static value called ‘Document sample’.
+
+![Sample data 2](./media/data-factory-stored-proc-activity/sample-data-2.png)
+
+    CREATE PROCEDURE sp_sample @DateTime nvarchar(127) , @Scenario nvarchar(127)
+    
+    AS
+    
+    BEGIN
+        INSERT INTO [sampletable]
+        VALUES (newid(), @DateTime, @Scenario)
+    END
+
+Now, pass the Scenario parameter and the value from the stored procedure activity. The typeProperties section in the preceding sample looks like the following snippet:
+
+    "typeProperties":
+    {
+        "storedProcedureName": "sp_sample",
+        "storedProcedureParameters": 
+        {
+            "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
+            "Scenario": "Document sample"
+        }
+    }
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

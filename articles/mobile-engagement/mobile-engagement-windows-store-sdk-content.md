@@ -1,50 +1,55 @@
 <properties 
-	pageTitle="Contenido del SDK de Windows Universal Apps" 
-	description="Obtenga información sobre el contenido del SDK de Windows Universal Apps para Azure Mobile Engagement" 					
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+    pageTitle="Windows Universal Apps SDK content" 
+    description="Learn about the contents of the Windows Universal Apps SDK for Azure Mobile Engagement"                    
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="piyushjo" 
+    manager="dwrede" 
+    editor="" />
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/19/2016" 
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-windows-store" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="08/19/2016" 
+    ms.author="piyushjo" />
 
-#Contenido del SDK de Windows Universal Apps
 
-En este documento se enumera y describe el contenido implementado por el SDK de la aplicación.
+#<a name="windows-universal-apps-sdk-content"></a>Windows Universal Apps SDK content
 
-##La carpeta `/Resources`
+This document lists and describes the content deployed by the SDK in your application.
 
-En esta carpeta se incluyen todos los recursos que necesita Mobile Engagement. Además, puede personalizarlas para adaptarlas a su aplicación.
+##<a name="the-`/resources`-folder"></a>The `/Resources` folder
 
-- `EngagementConfiguration.xml`: el archivo de configuración de Mobile Engagement, donde puede personalizar la configuración de Mobile Engagement (cadena de conexión de Mobile Engagement, bloqueo de informes, etc.).
+This folder contains all the resources that Mobile Engagement needs. You can also customize them to fit your app.
 
-### Carpeta /html
+- `EngagementConfiguration.xml` : The Mobile Engagement's configuration file, this is where you can customize Mobile Engagement settings (Mobile Engagement connection string, report crash...).
 
-- `EngagementNotification.html` : El diseño html de vista web `Notification` para banners en aplicación.
+### <a name="/html-folder"></a>/html folder
 
-- `EngagementAnnouncement.html` : El diseño html de vista web `Announcement` para vistas intersticiales en aplicación.
+- `EngagementNotification.html` : The `Notification` web view html design for in-app banners.
 
-### Carpeta /images
+- `EngagementAnnouncement.html` : The `Announcement` web view html design for in-app interstitial views.
 
-- `EngagementIconNotification.png`: el icono de marca que se muestra a la izquierda de una notificación, sustituya este por el icono de la marca.
+### <a name="/images-folder"></a>/images folder
 
-- `EngagementIconOk.png`: el icono `Ok` de las páginas de contenido de Cobertura para el botón de acción o validación.
+- `EngagementIconNotification.png` : The brand icon displayed at the left of a notification, replace this one by your brand icon.
 
-- `EngagementIconNOK.png`: el icono `NOK` que se usa cuando se deshabilita el botón de validación de las páginas de contenido de Cobertura.
+- `EngagementIconOk.png` : The `Ok` icon of the reach content pages for the action or validation button.
+
+- `EngagementIconNOK.png` : The `NOK` icon used when the validation button of the reach content pages is disabled.
  
-- `EngagementIconClose.png`: el icono `Close` de las notificaciones y el contenido de Cobertura para el botón Descartar.
+- `EngagementIconClose.png` : The `Close` icon of the reach notifications and contents for the dismiss button.
 
-### Carpeta /overlay
+### <a name="/overlay-folder"></a>/overlay folder
 
-- `EngagementPageOverlay.cs` : La página de superposición responsable de agregar la IU en aplicación de Engagement Reach a su hijo.
+- `EngagementPageOverlay.cs` : The overlay page responsible for adding the Engagement reach in-app UI to its child.
   
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

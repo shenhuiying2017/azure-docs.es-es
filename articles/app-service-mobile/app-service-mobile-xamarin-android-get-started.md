@@ -1,78 +1,80 @@
 <properties
-	pageTitle="Introducción a Aplicaciones móviles de Azure para aplicaciones Xamarin.Android"
-	description="Siga este tutorial para empezar a usar Aplicaciones móviles de Azure para el desarrollo de Xamarin Android."
-	services="app-service\mobile"
-	documentationCenter="xamarin"
-	authors="adrianhall"
-	manager="erikre"
-	editor="" />
+    pageTitle="Get Started with Azure Mobile Apps for Xamarin.Android apps"
+    description="Follow this tutorial to get started using Azure Mobile Apps for Xamarin Android development"
+    services="app-service\mobile"
+    documentationCenter="xamarin"
+    authors="adrianhall"
+    manager="erikre"
+    editor="" />
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-android"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="10/01/2016"
-	ms.author="adrianha" />
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-xamarin-android"
+    ms.devlang="dotnet"
+    ms.topic="hero-article"
+    ms.date="10/01/2016"
+    ms.author="adrianha" />
 
-#Creación de una aplicación Xamarin.Android
+
+#<a name="create-a-xamarin.android-app"></a>Create a Xamarin.Android App
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-##Información general
+##<a name="overview"></a>Overview
 
-En este tutorial se muestra cómo agregar un servicio de back-end basado en la nube a una aplicación Xamarin.Android. Para obtener más información, consulte [¿Qué son las aplicaciones móviles?](app-service-mobile-value-prop.md)
+This tutorial shows you how to add a cloud-based backend service to a Xamarin.Android app. For more information, see [What are Mobile Apps](app-service-mobile-value-prop.md).
 
-La siguiente captura de pantalla muestra la aplicación final:
+A screenshot from the completed app is below:
 
 ![][0]
 
-Completar este tutorial es un requisito previo para todos los tutoriales de aplicaciones móviles para aplicaciones Xamarin.Android.
+Completing this tutorial is a prerequisite for all other Mobile Apps tutorials for Xamarin.Android apps.
 
-##Requisitos previos
+##<a name="prerequisites"></a>Prerequisites
 
-Para completar este tutorial, necesitará lo siguiente:
+To complete this tutorial, you need the following prerequisites:
 
-* Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* An active Azure account. If you don't have an account, sign up for an Azure trial and get up to 10 free Mobile Apps. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* Visual Studio con Xamarin. Consulte [Configuración e instalación](https://msdn.microsoft.com/library/mt613162.aspx) para obtener instrucciones.
- 
->[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://tryappservice.azure.com/?appServiceName=mobile), donde podrá crear inmediatamente una aplicación móvil de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+* Visual Studio with Xamarin. See [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) for instructions.
 
-## Creación de un nuevo back-end de Aplicaciones móviles de Azure
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile).  You can immediately create a short-lived starter Mobile App in App Service. No credit cards required; no commitments.
 
-Siga estos pasos para crear un nuevo back-end de aplicación móvil.
+## <a name="create-an-azure-mobile-app-backend"></a>Create an Azure Mobile App backend
+
+Follow these steps to create a Mobile App backend.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-Ahora ha aprovisionado un back-end de aplicación móvil de Azure que puede usarse por las aplicaciones del cliente móvil. Después, descargará un proyecto de servidor para un back-end de "lista de tareas" sencillo y lo publicará en Azure.
+You have now provisioned an Azure Mobile App backend that can be used by your mobile client applications. Next, download a server project for a simple "todo list" backend and publish it to Azure.
 
-## Configuración del proyecto de servidor
+## <a name="configure-the-server-project"></a>Configure the server project
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## Descarga y ejecución de la aplicación Xamarin.Android
+## <a name="download-and-run-the-xamarin.android-app"></a>Download and run the Xamarin.Android app
 
-1. En **Descargar y ejecutar el proyecto de Xamarin.Android**, haga clic en el botón **Descargar**.
+1. Under **Download and run your Xamarin.Android project**, click the **Download** button.
 
-  	De este modo, se descarga un proyecto que contiene la aplicación cliente que está conectada a la aplicación móvil. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
+    Save the compressed project file to your local computer, and make a note of where you save it.
 
-2. Presione la tecla **F5** para compilar el proyecto e iniciar la aplicación.
+2. Press the **F5** key to build the project and start the app.
 
-3. En la aplicación, escriba un texto significativo, como _Realice el tutorial_. Luego, haga clic en el botón **Agregar**.
+3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the **Add** button.
 
-	![][10]
+    ![][10]
 
-	Esta acción envía una solicitud POST al nuevo back-end de aplicación móvil hospedado en Azure. Los datos de la solicitud se insertan en la tabla TodoItem. El back-end de la aplicación móvil devuelve los elementos almacenados en la tabla y los datos aparecen en la lista.
+    Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile app backend, and the data appears in the list.
 
-	> [AZURE.NOTE] Puede revisar el código de acceso al back-end de aplicación móvil para consultar e insertar datos; este se encuentra en el archivo de C# ToDoActivity.cs.
+    > [AZURE.NOTE] You can review the code that accesses your mobile app backend to query and insert data, which is found in the ToDoActivity.cs C# file.
 
-##Pasos siguientes
+##<a name="next-steps"></a>Next steps
 
-* [Adición de la autenticación a la aplicación Xamarin.Android](app-service-mobile-xamarin-android-get-started-users.md) Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
-* [Agregar notificaciones push a la aplicación de Xamarin.Android](app-service-mobile-xamarin-android-get-started-push.md) Aprenda a registrarse para agregar notificaciones push a la aplicación.
-* [Uso del cliente administrado para Aplicaciones móviles de Azure](app-service-mobile-dotnet-how-to-use-client-library.md) Aprenda a trabajar con el SDK de cliente administrado en la aplicación Xamarin.
+* [Add Offline Sync to your app](app-service-mobile-xamarin-android-get-started-offline-data.md)
+* [Add authentication to your app ](app-service-mobile-xamarin-android-get-started-users.md)
+* [Add push notifications to your Xamarin.Android app](app-service-mobile-xamarin-android-get-started-push.md)
+* [How to use the managed client for Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 
 <!-- Images. -->
@@ -86,4 +88,8 @@ Ahora ha aprovisionado un back-end de aplicación móvil de Azure que puede usar
 [Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

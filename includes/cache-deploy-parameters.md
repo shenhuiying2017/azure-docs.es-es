@@ -1,7 +1,7 @@
 
-### cacheSKUName
+### <a name="cacheskuname"></a>cacheSKUName
 
-El nivel de precios de la nueva Caché en Redis de Azure.
+The pricing tier of the new Azure Redis Cache.
 
     "cacheSKUName": {
       "type": "string",
@@ -15,11 +15,12 @@ El nivel de precios de la nueva Caché en Redis de Azure.
       }
     },
 
-La plantilla define los valores permitidos para este parámetro ( Básico o Estándar) y asigna un valor predeterminado (Básico) si no se especifica ningún valor. Básico ofrece un único nodo con varios tamaños disponibles hasta 53 GB. Estándar proporciona dos nodos, principal/réplica, con varios tamaños disponibles de hasta 53 GB y un contrato de nivel de servicio del 99,9%.
+The template defines the values that are permitted for this parameter (Basic or Standard), and assigns a default value (Basic) if no value is specified. Basic provides a single node with multiple sizes available up to 53 GB.
+Standard provides two-node Primary/Replica with multiple sizes available up to 53 GB and 99.9% SLA.
 
-### cacheSKUFamily
+### <a name="cacheskufamily"></a>cacheSKUFamily
 
-La familia de la SKU.
+The family for the sku.
 
     "cacheSKUFamily": {
       "type": "string",
@@ -33,9 +34,9 @@ La familia de la SKU.
     },
 
 
-### cacheSKUCapacity
+### <a name="cacheskucapacity"></a>cacheSKUCapacity
 
-El tamaño de la nueva instancia de Caché en Redis de Azure.
+The size of the new Azure Redis Cache instance. 
 
     "cacheSKUCapacity": {
       "type": "int",
@@ -55,5 +56,10 @@ El tamaño de la nueva instancia de Caché en Redis de Azure.
     }
 
 
-La plantilla define los valores permitidos para este parámetro (0, 1, 2, 3, 4, 5 o 6) y asigna un valor predeterminado (1) si no se especifica ningún valor. Los números corresponden a los siguientes tamaños de caché: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
+The template defines the values that are permitted for this parameter (0, 1, 2, 3, 4, 5 or 6), and assigns a default value (1) if no value is specified. Those numbers correspond to following cache sizes: 0 = 250 MB, 1 = 1 GB, 2 = 2.5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
+
+
+
+<!--HONumber=Oct16_HO2-->
+
 

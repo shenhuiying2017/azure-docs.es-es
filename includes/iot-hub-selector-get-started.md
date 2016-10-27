@@ -3,18 +3,20 @@
 - [Java](../articles/iot-hub/iot-hub-java-java-getstarted.md)
 - [Node.js](../articles/iot-hub/iot-hub-node-node-getstarted.md)
 
-## Introducción
+## <a name="introduction"></a>Introduction
 
-El Centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos de Internet de las cosas (IoT) y un back-end de soluciones. Uno de los mayores desafíos que plantean los proyectos de IoT es cómo conectar dispositivos al back-end de la solución de manera segura y confiable. Para abordar este desafío, el Centro de IoT:
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of Internet of Things (IoT) devices and a solution back end. One of the biggest challenges that IoT projects face is how to reliably and securely connect devices to the solution back end. To address this challenge, IoT Hub:
 
-- Ofrece una mensajería confiable de gran escala de dispositivo a nube y de nube a dispositivo.
-- Habilita las comunicaciones seguras con las credenciales de seguridad de cada dispositivo y el control de acceso.
-- Incluye bibliotecas de dispositivos para las plataformas y los lenguajes más populares.
+- Offers reliable device-to-cloud and cloud-to-device hyper-scale messaging.
+- Enables secure communications using per-device security credentials and access control.
+- Includes device libraries for the most popular languages and platforms.
 
-En este tutorial se muestra cómo realizar las siguientes acciones:
+This tutorial shows you how to:
 
-- Usar el Portal de Azure para crear un Centro de IoT.
-- Crear una identidad de dispositivo en el Centro de IoT.
-- Crear un dispositivo simulado que envía la telemetría a su back-end en la nube y recibe los comandos del back-end en la nube.
+- Use the Azure portal to create an IoT hub.
+- Create a device identity in your IoT hub.
+- Create a simulated device that sends telemetry to your cloud back end, and receives commands from your cloud back end.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

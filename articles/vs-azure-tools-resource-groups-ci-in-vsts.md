@@ -1,152 +1,153 @@
 <properties
-	pageTitle="Integración continua en VS Team Services mediante proyectos del Grupo de recursos de Azure | Microsoft Azure"
-	description="Describe cómo configurar la integración continua en Visual Studio Team Services mediante proyectos de implementación del Grupo de recursos de Azure en Visual Studio."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="mlearned"
-	manager="erickson-doug"
-	editor="" />
+    pageTitle="Continuous integration in VS Team Services using Azure Resource Group projects | Microsoft Azure"
+    description="Describes how to set up continuous integration in Visual Studio Team Services by using Azure Resource Group deployment projects in Visual Studio."
+    services="visual-studio-online"
+    documentationCenter="na"
+    authors="mlearned"
+    manager="erickson-doug"
+    editor="" />
 
  <tags
-	ms.service="azure-resource-manager"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/01/2016"
-	ms.author="mlearned" />
+    ms.service="azure-resource-manager"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="08/01/2016"
+    ms.author="mlearned" />
 
-# Integración continua en Visual Studio Team Services mediante proyectos de implementación del Grupo de recursos de Azure
 
-Para implementar una plantilla de Azure, tiene que realizar tareas que pasan por las distintas fases: compilación, prueba, copia en Azure (también denominada "almacenamiento provisional") y plantilla de implementación. Hay dos maneras diferentes de hacerlo en Visual Studio Team Services (VS Team Services). Ambos métodos proporcionan los mismos resultados, así que puede elegir el que mejor se adapte a su flujo de trabajo.
+# <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Continuous integration in Visual Studio Team Services using Azure Resource Group deployment projects
 
--	Agregue un paso único a la definición de compilación que ejecuta el script de PowerShell incluido en el proyecto de implementación del Grupo de recursos de Azure (Deploy-AzureResourceGroup.ps1). El script copia los artefactos y, a continuación, implementa la plantilla.
--	Agregue varios pasos de compilación de VS Team Services, cada uno de los cuales realiza una tarea de fase.
+To deploy an Azure template, you need to perform tasks to go through the various stages: Build, Test, Copy to Azure (also called "Staging"), and Deploy Template.  There are two different ways to do this in Visual Studio Team Services (VS Team Services). Both methods provide the same results, so choose the one that best fits your workflow.
 
-En este artículo se muestra cómo utilizar la primera opción (utilice una definición de compilación para ejecutar el script de PowerShell). Una ventaja de esta opción es que el script que utilizan los desarrolladores de Visual Studio es el mismo que el que utiliza VS Team Services. En este procedimiento se supone que ya tiene un proyecto de implementación de Visual Studio activado en VS Team Services.
+-   Add a single step to your build definition that runs the PowerShell script that’s included in the Azure Resource Group deployment project (Deploy-AzureResourceGroup.ps1). The script copies artifacts and then deploys the template.
+-   Add multiple VS Team Services build steps, each one performing a stage task.
 
-## Copia de artefactos en Azure 
+This article demonstrates how to use the first option (use a build definition to run the PowerShell script). One advantage of this option is that the script used by developers in Visual Studio is the same script that is used by VS Team Services. This procedure assumes you already have a Visual Studio deployment project checked into VS Team Services.
 
-Independientemente del escenario, si dispone de los artefactos necesarios para la implementación de plantillas, deberá dar al Administrador de recursos de Azure acceso a ellos. Estos artefactos pueden incluir archivos como:
+## <a name="copy-artifacts-to-azure"></a>Copy artifacts to Azure 
 
--	Plantillas anidadas
--	Scripts de configuración y de DSC
--	Archivos binarios de aplicación
+Regardless of the scenario, if you have any artifacts that are needed for template deployment, you will need to give Azure Resource Manager access to them. These artifacts can include files such as:
 
-### Plantillas anidadas y scripts de configuración
-Al utilizar las plantillas proporcionadas por Visual Studio (o compilar con fragmentos de código de Visual Studio), el script de PowerShell no solo almacena provisionalmente los artefactos, sino que parametriza también el URI de los recursos de las distintas implementaciones. El script copia los artefactos en un contenedor seguro de Azure, crea un token de SaS para dicho contenedor y, a continuación, pasa esta información a la implementación de plantilla. Consulte [Crear una implementación de plantilla](https://msdn.microsoft.com/library/azure/dn790564.aspx) para obtener más información acerca de las plantillas anidadas.
+-   Nested templates
+-   Configuration scripts and DSC scripts
+-   Application binaries
 
-## Configuración de la implementación continua en VS Team Services
+### <a name="nested-templates-and-configuration-scripts"></a>Nested Templates and Configuration Scripts
+When you use the templates provided by Visual Studio (or built with Visual Studio snippets), the PowerShell script not only stages the artifacts, it also parameterizes the URI for the resources for different deployments. The script then copies the artifacts to a secure container in Azure, creates a SaS token for that container, and then passes that information on to the template deployment. See [Create a template deployment](https://msdn.microsoft.com/library/azure/dn790564.aspx) to learn more about nested templates.
 
-Para llamar al script de PowerShell en VS Team Services, debe actualizar la definición de compilación. En resumen, los pasos son:
+## <a name="set-up-continuous-deployment-in-vs-team-services"></a>Set up continuous deployment in VS Team Services
 
-1.	Edición de la definición de compilación.
-1.	Configuración de la autorización de Azure en VS Team Services.
-1.	Incorporación de un paso de compilación de Azure PowerShell que hace referencia al script de PowerShell en el proyecto de implementación del Grupo de recursos de Azure.
-1.	Establecimiento del valor del parámetro *-ArtifactsStagingDirectory* para trabajar con un proyecto compilado en VS Team Services.
+To call the PowerShell script in VS Team Services, you need to update your build definition. In brief, the steps are: 
 
-### Tutorial detallado
+1.  Edit the build definition.
+1.  Set up Azure authorization in VS Team Services.
+1.  Add an Azure PowerShell build step that references the PowerShell script in the Azure Resource Group deployment project.
+1.  Set the value of the *-ArtifactsStagingDirectory* parameter to work with a project built in VS Team Services.
 
-Los pasos siguientes le guiarán por los pasos necesarios para configurar la implementación continua en VS Team Services
+### <a name="detailed-walkthrough"></a>Detailed walkthrough
 
-1.	Edite la definición de compilación de VS Team Services y agregue un paso de compilación de Azure PowerShell. Elija la definición de compilación en la categoría **Definiciones de compilación** y, a continuación, elija el vínculo **Editar**.
+The following steps will walk you through the steps necessary to configure continuous deployment in VS Team Services 
+
+1.  Edit your VS Team Services build definition and add an Azure PowerShell build step. Choose the build definition under the **Build definitions** category and then choose the **Edit** link.
 
     ![][0]
 
-1.	Agregue un nuevo paso de compilación **Azure PowerShell** a la definición de compilación y elija el botón **Agregar paso de compilación...**
+1.  Add a new **Azure PowerShell** build step to the build definition and then choose the **Add build step…** button.
 
     ![][1]
 
-1.	Elija la categoría de tarea **Implementar**, seleccione la tarea **Azure PowerShell** y, a continuación, elija el botón **Agregar** correspondiente.
+1.  Choose the **Deploy task** category, select the **Azure PowerShell** task, and then choose its **Add** button.
 
     ![][2]
 
-1.	Elija el paso de compilación **Azure PowerShell** y rellene sus valores.
+1.  Choose the **Azure PowerShell** build step and then fill in its values.
 
-    1.	Si ya tiene un punto de conexión de servicio de Azure agregado a VS Team Services, elija la suscripción en el cuadro de lista desplegable **Suscripción de Azure** y vaya a la sección siguiente.
+    1.  If you already have an Azure service endpoint added to VS Team Services, choose the subscription in the **Azure Subscription** drop down list box and then skip to the next section. 
 
-        Si no tiene ningún punto de conexión de servicio de Azure en VS Team Services, debe agregar uno. Este subapartado le guiará por el proceso. Si su cuenta de Azure usa una cuenta de Microsoft (como Hotmail), debe seguir estos pasos para obtener una autenticación de entidad de servicio.
+        If you don’t have an Azure service endpoint in VS Team Services, you’ll need to add one. This subsection takes you through the process. If your Azure account uses a Microsoft account (such as Hotmail), you’ll need to take the following steps to get a Service Principal authentication.
 
-    1.	Elija el vínculo **Administrar** situado junto al cuadro de lista desplegable **Suscripción de Azure**.
+    1.  Choose the **Manage** link next to the **Azure Subscription** drop down list box.
 
         ![][3]
 
-    1. Elija **Azure** en el cuadro de lista desplegable **Nuevo punto de conexión de servicio**.
+    1. Choose **Azure** in the **New Service Endpoint** drop down list box.
 
         ![][4]
 
-    1.	En el cuadro de diálogo **Agregar suscripción de Azure**, seleccione la opción **Entidad de servicio**.
+    1.  In the **Add Azure Subscription** dialog box, select the **Service Principal** option.
 
         ![][5]
 
-    1.	Agregue la información de suscripción de Azure en el cuadro de diálogo **Agregar suscripción de Azure**. Tiene que proporcionar información para los siguientes elementos:
-        -	Id. de suscripción
-        -	Subscription Name
-        -	Id. de entidad del servicio
-        -	Clave de entidad del servicio
-        -	Identificador de inquilino
+    1.  Add your Azure subscription information to the **Add Azure Subscription** dialog box. You’ll need to provide the following items:
+        -   Subscription Id
+        -   Subscription Name
+        -   Service Principal Id
+        -   Service Principal Key
+        -   Tenant Id
 
-    1.	Agregue un nombre de su elección en el cuadro de nombre **Suscripción**. Este valor aparecerá más adelante en la lista desplegable **Suscripción de Azure** en VS Team Services.
+    1.  Add a name of your choice to the **Subscription** name box. This value will appear later in the **Azure Subscription** drop down list in VS Team Services. 
 
-    1.	Si no conoce el identificador de la suscripción de Azure, puede usar uno de los siguientes comandos para obtenerlo.
+    1.  If you don’t know your Azure subscription ID, you can use one of the following commands to get it.
         
-        Para scripts de PowerShell, use:
+        For PowerShell scripts, use:
 
         `Get-AzureRmSubscription`
 
-        Para la CLI de Azure, utilice:
+        For Azure CLI, use:
 
         `azure account show`
     
 
-    1.	Para obtener un id. de entidad de servicio, una clave de entidad de servicio y un id. de inquilino, siga el procedimiento de [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](resource-group-create-service-principal-portal.md) o [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
+    1.  To get a Service Principal ID, Service Principal Key, and Tenant ID, follow the procedure in [Create Active Directory application and service principal using portal](resource-group-create-service-principal-portal.md) or [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md).
 
-    1.	Agregue los valores de id. de entidad de servicio, clave de entidad de servicio e id. de inquilino en el cuadro de diálogo **Agregar suscripción de Azure** y, a continuación, elija el botón **Aceptar**.
+    1.  Add the Service Principal ID, Service Principal Key, and Tenant ID values to the **Add Azure Subscription** dialog box and then choose the **OK** button.
 
-        Ahora dispone de una entidad de servicio válida que puede utilizar para ejecutar el script de Azure PowerShell.
+        You now have a valid Service Principal to use to run the Azure PowerShell script.
 
-1.	Edite la definición de compilación y elija el paso de compilación **Azure PowerShell**. Seleccione la suscripción en el cuadro de lista desplegable **Suscripción de Azure**. (Si la suscripción no aparece, elija el botón **Actualizar** que se muestra junto al vínculo **Administrar**.)
+1.  Edit the build definition and choose the **Azure PowerShell** build step. Select the subscription in the **Azure Subscription** drop down list box. (If the subscription doesn't appear, choose the **Refresh** button next the **Manage** link.) 
 
     ![][8]
 
-1.	Proporcione una ruta de acceso al script de PowerShell Deploy-AzureResourceGroup.ps1. Para ello, elija el botón de puntos suspensivos (...) junto al cuadro **Ruta de acceso del script**, vaya al script de PowerShell Deploy-AzureResourceGroup.ps1 en la carpeta **Scripts** del proyecto, selecciónelo y elija el botón **Aceptar**.
+1.  Provide a path to the Deploy-AzureResourceGroup.ps1 PowerShell script. To do this, choose the ellipsis (…) button next to the **Script Path** box, navigate to the Deploy-AzureResourceGroup.ps1 PowerShell script in the **Scripts** folder of your project, select it, and then choose the **OK** button. 
 
     ![][9]
 
-1. Después de seleccionar el script, actualice la ruta de acceso al script para que se ejecute desde Build.StagingDirectory (el mismo directorio en el que está establecido *ArtifactsLocation*). Puede hacerlo agregando “$(Build.StagingDirectory)/” al principio de la ruta de acceso del script.
+1. After you select the script, update the path to the script so that it’s run from the Build.StagingDirectory (the same directory that *ArtifactsLocation* is set to). You can do this by adding “$(Build.StagingDirectory)/” to the beginning of the script path.
 
     ![][10]
 
-1.	En el cuadro **Argumentos del script** escriba los parámetros siguientes (en una sola línea). Al ejecutar el script en Visual Studio, puede ver cómo usa VS los parámetros en la ventana **Resultados**. Se puede utilizar como punto de partida para configurar los valores de parámetro en el paso de compilación.
+1.  In the **Script Arguments** box, enter the following parameters (in a single line). When you run the script in Visual Studio, you can see how VS uses the parameters in the **Output** window. You can use this as a starting point for setting the parameter values in your build step.
 
-    | Parámetro | Descripción|
-    |---|---|
-    | -ResourceGroupLocation | El valor de la ubicación geográfica donde se encuentra el grupo de recursos, como **eastus** o **'Este de EE. UU.'**. (Agregue comillas simples si hay un espacio en el nombre). Para obtener más información, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).| |
-    | -ResourceGroupName | El nombre del grupo de recursos que se usa para esta implementación.| |
-    | -UploadArtifacts | Este parámetro, cuando está presente, especifica que los artefactos tienen que cargarse en Azure desde el sistema local. Solo debe establecer este modificador si su implementación de plantilla requiere artefactos adicionales que desea almacenar provisionalmente mediante el script de PowerShell (como scripts de configuración o plantillas anidadas). |
-    | -StorageAccountName | El nombre de la cuenta de almacenamiento utilizada para almacenar provisionalmente los artefactos en esta implementación. Este parámetro solo es necesario si está copiando artefactos en Azure. La implementación no creará automáticamente esta cuenta de almacenamiento, que debe existir previamente.| |
-    | -StorageAccountResourceGroupName | El nombre del grupo de recursos asociado a la cuenta de almacenamiento. Este parámetro solo es necesario si está copiando artefactos en Azure.| |
-    | -TemplateFile | La ruta de acceso al archivo de plantilla en el proyecto de implementación del Grupo de recursos de Azure. Para mejorar la flexibilidad, utilice una ruta de acceso para este parámetro que sea relativa a la ubicación del script de PowerShell en lugar de una ruta de acceso absoluta.|
-    | -TemplateParametersFile | La ruta de acceso al archivo de parámetros en el proyecto de implementación del Grupo de recursos de Azure. Para mejorar la flexibilidad, utilice una ruta de acceso para este parámetro que sea relativa a la ubicación del script de PowerShell en lugar de una ruta de acceso absoluta.|
-    | -ArtifactStagingDirectory | Este parámetro permite que el script de PowerShell conozca la carpeta desde la que se deben copiar los archivos binarios del proyecto. Este valor invalida el valor predeterminado usado por el script de PowerShell. Para el uso de VS Team Services, establezca el valor en: ArtifactStagingDirectory $(Build.StagingDirectory) |
+  	| Parameter | Description|
+  	|---|---|
+  	| -ResourceGroupLocation           | The geo-location value where the resource group is located, such as **eastus** or **'East US'**. (Add single quotes if there's a space in the name.) See [Azure Regions](https://azure.microsoft.com/en-us/regions/) for more information.|                                                                                                                                                                                                                              |
+  	| -ResourceGroupName               | The name of the resource group used for this deployment.|                                                                                                                                                                                                                                                                                                                                                                                                                |
+  	| -UploadArtifacts                 | This parameter, when present, specifies that artifacts need to be uploaded to Azure from the local system. You only need to set this switch if your template deployment requires extra artifacts that you want to stage using the PowerShell script (such as configuration scripts or nested templates).                                                                                                                                                                 |
+  	| -StorageAccountName              | The name of the storage account used to stage artifacts for this deployment. This parameter is required only if you’re copying artifacts to Azure. This storage account will not be automatically created by the deployment, it must already exist.|                                                                                                                                                                                                                     |
+  	| -StorageAccountResourceGroupName | The name of the resource group associated with the storage account. This parameter is required only if you’re copying artifacts to Azure.|                                                                                                                                                                                                                                                                                                                               |
+  	| -TemplateFile                    | The path to the template file in the Azure Resource Group deployment project. To enhance flexibility, use a path for this parameter that is relative to the location of the PowerShell script instead of an absolute path.|
+  	| -TemplateParametersFile          | The path to the parameters file in the Azure Resource Group deployment project. To enhance flexibility, use a path for this parameter that is relative to the location of the PowerShell script instead of an absolute path.|
+  	| -ArtifactStagingDirectory        | This parameter lets the PowerShell script know the folder from where the project’s binary files should be copied. This value overrides the default value used by the PowerShell script. For VS Team Services use, set the value to: -ArtifactStagingDirectory $(Build.StagingDirectory)                                                                                                                                                                                              |
 
-    A continuación se muestra un ejemplo de argumentos de script (línea dividida para mejorar la legibilidad):
+    Here’s a script arguments example (line broken for readability):
 
-    ```	
+    ``` 
     -ResourceGroupName 'MyGroup' -ResourceGroupLocation 'eastus' -TemplateFile '..\templates\azuredeploy.json' 
     -TemplateParametersFile '..\templates\azuredeploy.parameters.json' -UploadArtifacts -StorageAccountName 'mystorageacct' 
-    –StorageAccountResourceGroupName 'Default-Storage-EastUS' -ArtifactStagingDirectory '$(Build.StagingDirectory)'	
+    –StorageAccountResourceGroupName 'Default-Storage-EastUS' -ArtifactStagingDirectory '$(Build.StagingDirectory)' 
     ```
 
-    Cuando haya terminado, el cuadro **Argumentos del script** debe ser similar al siguiente.
+    When you’re finished, the **Script Arguments** box should resemble the following.
 
     ![][11]
 
-1.	Después de agregar todos los elementos necesarios para el paso de compilación de Azure PowerShell, elija el botón de compilación **Cola** para generar el proyecto de compilación. La pantalla **Compilación** muestra el resultado del script de PowerShell.
+1.  After you’ve added all the required items to the Azure PowerShell build step, choose the **Queue** build button to build the project. The **Build** screen shows the output from the PowerShell script.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-Lea [Información general del Administrador de recursos de Azure](resource-group-overview.md) para obtener más información sobre el Administrador de recursos de Azure y los Grupos de recursos de Azure.
+Read [Azure Resource Manager overview](resource-group-overview.md) to learn more about Azure Resource Manager and Azure resource groups.
 
 
 [0]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough1.png
@@ -160,4 +161,8 @@ Lea [Información general del Administrador de recursos de Azure](resource-group
 [10]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough11b.png
 [11]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough12.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

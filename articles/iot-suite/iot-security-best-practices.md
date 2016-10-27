@@ -1,6 +1,6 @@
 <properties
- pageTitle="Prácticas recomendadas de seguridad de IoT | Microsoft Azure"
- description="Prácticas recomendadas de seguridad para proteger su infraestructura IoT"
+ pageTitle="IoT security best practices | Microsoft Azure"
+ description="Security best practices for securing your IoT infrastructure"
  services=""
  suite="iot-suite"
  documentationCenter=""
@@ -17,19 +17,20 @@
  ms.date="08/02/2016"
  ms.author="yurid"/>
 
+
 [AZURE.INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-Para obtener más información sobre cómo proteger la solución de IoT, consulte:
+To learn more about securing your IoT solution, see:
 
-- [Arquitectura de seguridad de Internet de las cosas][lnk-security-architecture]
-- [Proteger su implementación de IoT][lnk-security-deployment]
+- [IoT security architecture][lnk-security-architecture]
+- [Secure your IoT deployment][lnk-security-deployment]
 
-También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del conjunto de aplicaciones de IoT:
+You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
 
-- [Información general de la solución preconfigurada de mantenimiento predictivo][lnk-predictive-overview]
-- [Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT de Azure][lnk-faq]
+- [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]
+- [Frequently asked questions for Azure IoT Suite][lnk-faq]
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
@@ -37,4 +38,8 @@ También puede explorar algunas de las demás características y funcionalidades
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

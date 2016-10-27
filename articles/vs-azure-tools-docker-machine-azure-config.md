@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creación de hosts de Docker en Azure con una máquina de Docker | Microsoft Azure"
-   description="Describe el uso de la máquina de Docker para crear hosts de docker en Azure."
+   pageTitle="Create Docker hosts in Azure with Docker Machine | Microsoft Azure"
+   description="Describes use of Docker Machine to create docker hosts in Azure."
    services="azure-container-service"
    documentationCenter="na"
    authors="mlearned"
@@ -15,64 +15,68 @@
    ms.date="06/08/2016"
    ms.author="mlearned" />
 
-# Creación de hosts de Docker en Azure con docker-machine
 
-La ejecución de contenedores de [Docker](https://www.docker.com/) requiere una máquina virtual host que ejecute el demonio de Docker. En este tema, se describe cómo usar el comando [docker-machine](https://docs.docker.com/machine/) para crear máquinas virtuales Linux, configuradas con el demonio de Docker, que se ejecuten en Azure.
+# <a name="create-docker-hosts-in-azure-with-docker-machine"></a>Create Docker Hosts in Azure with Docker-Machine
 
-**Nota:**
-- *Este artículo depende de la versión 0.7.0 de docker-machine, o de una versión superior*
-- *Muy pronto será posible usar contenedores de Windows a través del comando docker-machine*
+Running [Docker](https://www.docker.com/) containers requires a host VM running the docker daemon.
+This topic describes how to use the [docker-machine](https://docs.docker.com/machine/) command to create new Linux VMs, configured with the Docker daemon, running in Azure. 
 
-## Creación de VM con la máquina de Docker
+**Note:** 
+- *This article depends on docker-machine version 0.7.0 or greater*
+- *Windows Containers will be supported through docker-machine in the near future*
 
-Cree máquinas virtuales host de Docker en Azure con el comando `docker-machine create` mediante el controlador `azure`.
+## <a name="create-vms-with-docker-machine"></a>Create VMs with Docker Machine
 
-El controlador de Azure necesitará su identificador de suscripción. Para recuperar su suscripción de Azure, puede usar la [CLI de Azure](xplat-cli-install.md) o [Azure Portal](https://portal.azure.com).
+Create docker host VMs in Azure with the `docker-machine create` command using the `azure` driver. 
 
-**Uso del portal de Azure**
-- Seleccione Suscripciones de la página de navegación izquierda y copie el identificador de suscripción.
+The Azure driver will need your subscription ID. You can use the [Azure CLI](xplat-cli-install.md) or the [Azure Portal](https://portal.azure.com) to retrieve your Azure Subscription. 
 
-**Uso de la CLI de Azure**
-- Escriba ```azure account list``` y copie el identificador de suscripción.
+**Using the Azure Portal**
+- Select Subscriptions from the left navigation page, and copy to subscription id.
 
-Escriba `docker-machine create --driver azure` para ver las opciones y sus valores predeterminados. Para más información, también puede consultar la [documentación del controlador de Azure de Docker](https://docs.docker.com/machine/drivers/azure/).
+**Using the Azure CLI**
+- Type ```azure account list``` and copy the subscription id.
 
-En el siguiente ejemplo se usan los valores predeterminados, pero brinda la opción de abrir el puerto 80 en la máquina virtual para el acceso a Internet.
+Type `docker-machine create --driver azure` to see the options and their default values.
+You can also see the [Docker Azure Driver documentation](https://docs.docker.com/machine/drivers/azure/) for more info. 
+
+The following example relies upon the default values, but it does optionally open port 80 on the VM for internet access. 
 
 ```
 docker-machine create -d azure --azure-subscription-id <Your AZURE_SUBSCRIPTION_ID> --azure-open-port 80 mydockerhost
 ```
 
-## Elección de un host de Docker con una docker-machine
-Una vez que tenga una entrada en docker-machine para su host, puede establecer el host predeterminado al ejecutar comandos de Docker.
-##Con PowerShell
+## <a name="choose-a-docker-host-with-docker-machine"></a>Choose a docker host with docker-machine
+Once you have an entry in docker-machine for your host, you can set the default host when running docker commands.
+##<a name="using-powershell"></a>Using PowerShell
 
 ```powershell
 docker-machine env MyDockerHost | Invoke-Expression 
 ```
 
-##Con Bash
+##<a name="using-bash"></a>Using Bash
 
 ```bash
 eval $(docker-machine env MyDockerHost)
 ```
 
-Ya se pueden ejecutar comandos de Docker en el host especificado
+You can now run docker commands against the specified host
 
 ```
 docker ps
 docker info
 ```
 
-## Ejecución de un contenedor
+## <a name="run-a-container"></a>Run a container
 
-Con un host configurado, ya se puede ejecutar un servidor web simple para probar si dicho host se ha configurado correctamente. Aquí se usará una imagen de nginx estándar, se especifica que debe escuchar el puerto 80 y que si la máquina virtual host se reinicia, el contenedor también se reiniciará (`--restart=always`).
+With a host configured, you can now run a simple web server to test whether your host was configured correctly.
+Here we use a standard nginx image, specify that it should listen on port 80, and that if the host VM restarts, the container will restart as well (`--restart=always`). 
 
 ```bash
 docker run -d -p 80:80 --restart=always nginx
 ```
 
-La salida debe tener un aspecto similar al siguiente:
+The output should look something like the following:
 
 ```
 Unable to find image 'nginx:latest' locally
@@ -86,27 +90,32 @@ Status: Downloaded newer image for nginx:latest
 25942c35d86fe43c688d0c03ad478f14cc9c16913b0e1c2971cb32eb4d0ab721
 ```
 
-## Prueba del contenedor
+## <a name="test-the-container"></a>Test the container
 
-Examine los contenedores en ejecución mediante `docker ps`:
+Examine running containers using `docker ps`:
 
 ```bash
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                         NAMES
 d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago       Up 5 minutes        0.0.0.0:80->80/tcp, 443/tcp   goofy_mahavira
 ```
 
-Y para comprobar el contenedor en ejecución, escriba `docker-machine ip <VM name>` para buscar la dirección IP que debe especificar en el explorador:
+And check to see the running container, type `docker-machine ip <VM name>` to find the IP address to enter in the browser:
 
 ```
 PS C:\> docker-machine ip MyDockerHost
 191.237.46.90
 ```
 
-![Ejecución del contenedor ngnix](./media/vs-azure-tools-docker-machine-azure-config/nginxsuccess.png)
+![Running ngnix container](./media/vs-azure-tools-docker-machine-azure-config/nginxsuccess.png)
 
-##Resumen
-Con docker-machine se pueden aprovisionar fácilmente hosts de Docker en Azure para las validaciones de host de Docker individuales. Para la creación de hospedaje de contenedores, consulte el [Servicio de contenedores de Azure](http://aka.ms/AzureContainerService)
+##<a name="summary"></a>Summary
+With docker-machine you can easily provision docker hosts in Azure for your individual docker host validations.
+For production hosting of containers, see the [Azure Container Service](http://aka.ms/AzureContainerService)
 
-Para desarrollar aplicaciones de .NET Core con Visual Studio, consulte [Docker Tools para Visual Studio](http://aka.ms/DockerToolsForVS)
+To develop .NET Core Applications with Visual Studio, see [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

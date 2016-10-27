@@ -1,28 +1,33 @@
 
-|Recurso | Límite predeterminado|
+|Resource | Default limit|
 |--------------|--------|
-|Colecciones por usuario| 1|
-|Aplicaciones publicadas por colección|	100|
-|Duración de la colección de prueba| 30 días|
-|Colecciones de prueba| 2 por suscripción|
-|Usuarios por colección de prueba| 10|
-|Imágenes de plantilla de prueba|	25|
-|Colecciones pagadas| 3 |
-|Imágenes de plantillas pagadas| 25|
-|Usuarios - nivel Básico*| 400 (predeterminado)/800 (máximo)|
-|Usuarios - nivel Estándar*| 250 (predeterminado)/500 (máximo)|
-|Nivel de usuarios premium| Valor predeterminado: 100.|
-|Nivel de usuarios premium plus | Valor predeterminado: 50|
-|Conexiones simultáneas en todas las colecciones de una suscripción| 5\.000|
-|Almacenamiento de datos de usuario (UPD) por usuario y colección| 50 GB|
-|Tiempo de espera inactividad| 4 horas|
-|Tiempo de espera de desconexión| 4 horas|
+|Collections per user| 1|
+|Published apps per collection| 100|
+|Trial collection duration| 30 days|
+|Trial collections| 2 per subscription|
+|Users per trial collection| 10|
+|Trial template images| 25|
+|Paid collections| 3 |
+|Paid template images| 25|
+|Users - basic tier*| 400 (default)/ 800 (maximum)|
+|Users - standard tier*| 250 (default)/ 500 (maximum)|
+|Users- premium tier| 100 default.|
+|Users - premium plus tier | 50 default.|
+|Concurrent connections across all collections in a subscription| 5000|
+|User data storage (UPD) per user per collection| 50 GB|
+|Idle timeout| 4 hours|
+|Disconnected timeout| 4 hours|
 
-**Los límites de usuario en los niveles Básico y Estándar no se pueden aumentar por encima del límite máximo indicado anteriormente.
+*User limits in basic and standard tiers cannot be increased beyond the maximum limit listed above. 
 
-El número de usuarios viene determinado por el número de máquinas virtuales que se usen para su colección:
+The number of users is determined by the number of VMs used for your collection:
 
-- Básico = 16 usuarios por máquina virtual
-- Estándar = 10 usuarios por máquina virtual
-- Premium = 4 usuarios por máquina virtual
-- Premium plus = 2 usuarios por máquina virtual
+- Basic = 16 users per VM
+- Standard = 10 users per VM
+- Premium = 4 users per VM
+- Premium plus = 2 users per VM
+
+
+<!--HONumber=Oct16_HO2-->
+
+

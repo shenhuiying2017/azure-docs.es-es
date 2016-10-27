@@ -1,38 +1,40 @@
-## Cómo crear una red virtual clásica en el Portal de Azure
+## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>How to create a classic VNet in the Azure portal
 
-Para crear una red virtual clásica basada en el escenario anterior, siga estos pasos.
+To create a classic VNet based on the scenario above, follow the steps below.
 
-1. Desde un explorador, vaya a http://portal.azure.com y, si es necesario, inicie sesión con su cuenta de Azure.
-2. Haga clic en **NUEVO** > **Redes** > **Red virtual**, observe que en la lista **Seleccionar un modelo de implementación** ya se muestra **Clásica**, y, a continuación, haga clic en **Crear**, tal como se muestra en la figura siguiente.
+1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
+2. Click **NEW** > **Networking** > **Virtual network**, notice that the **Select a deployment model** list already shows **Classic**, and then click **Create**, as seen in the figure below.
 
-	![Creación de una red virtual en el Portal de Azure](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
+    ![Create VNet in Azure portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
 
-3. En la hoja **Red Virtual**, escriba el **Nombre** de la red virtual y, a continuación, haga clic en **Espacio de direcciones**. Configure los valores del espacio de direcciones de la red virtual y su primera subred, a continuación, haga clic en **Aceptar**. En la siguiente figura se muestra la configuración del bloque CIDR de este escenario.
+3. On the **Virtual network** blade, type the **Name** of the VNet, and then click **Address space**. Configure your address space settings for the VNet and its first subnet, then click **OK**. The figure below shows the CIDR block settings for our scenario.
 
-	![Hoja de espacio de direcciones](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure2.png)
+    ![Address space blade](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure2.png)
 
-4. Haga clic en **Grupo de recursos** y seleccione un grupo de recursos al que va a agregar la red virtual, o haga clic en **Crear nuevo grupo de recursos** para agregar la red virtual a un nuevo grupo de recursos. En la siguiente figura se muestra la configuración de grupo de recursos de un nuevo grupo de recursos denominado **TestRG**. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](../articles/virtual-network/resource-group-overview.md#resource-groups).
+4. Click **Resource Group** and select a resource group to add the VNet to, or click **Create new resource group** to add the VNet to a new resource group. The figure below shows the resource group settings for a new resource group called **TestRG**. For more information about resource groups, visit [Azure Resource Manager Overview](../articles/virtual-network/resource-group-overview.md#resource-groups).
 
-	![Crear hoja de grupo de recursos](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure3.png)
+    ![Create resource group blade](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure3.png)
 
-5. Si es necesario, cambie la configuración de la **Suscripción** y la **Ubicación** de la red virtual.
+5. If necessary, change the **Subscription** and **Location** settings for your VNet. 
 
-6. Si no desea ver la red virtual como un icono en el **Panel de inicio**, deshabilite **Anclar a panel de inicio**.
+6. If you do not want to see the VNet as a tile in the **Startboard**, disable **Pin to Startboard**. 
 
-7. Haga clic en **Crear** y observe el icono denominado **Creación de red virtual** tal como se muestra en la figura siguiente.
+7. Click **Create** and notice the tile named **Creating Virtual network** as shown in the figure below.
 
-	![Crear red virtual en el portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure4.png)
+    ![Create VNet in portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure4.png)
 
-8. Espere a que se cree la red virtual y cuando vea el icono que aparece a continuación, haga clic en él para agregar más subredes.
+8. Wait for the VNet to be created, and when you see the tile below, click it to add more subnets.
 
-	![Crear red virtual en el portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure5.png)
+    ![Create VNet in portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure5.png)
 
-9. Debería ver la **Configuración** de la red virtual tal como se muestra a continuación.
+9. You should see the **Configuration** for your VNet as shown below. 
 
-	![Crear red virtual en el portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure6.png)
+    ![Create VNet in portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure6.png)
 
-10. Haga clic en **Subredes** > **Agregar**, a continuación, escriba un **Nombre** y especifique un **Intervalo de direcciones (bloque CIDR)** para la subred y después haga clic en **Aceptar**. En la siguiente figura se muestra la configuración del escenario actual.
+10. Click **Subnets** > **Add**, then type a **Name** and specify an **Address range (CIDR block)** for your subnet, and then click **OK**. The figure below shows the settings for our current scenario.
 
-	![Creación de una red virtual en el Portal de Azure](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
+    ![Create VNet in Azure portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

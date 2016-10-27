@@ -1,7 +1,7 @@
-Si no lo ha hecho aún, puede obtener una [prueba gratuita de la suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/) y conectar la [CLI de Azure](../articles/xplat-cli-install.md) [a su cuenta de Azure](../articles/xplat-cli-connect.md). Una vez hecho, puede ejecutar los siguientes comandos para crear rápidamente un conjunto de escalado:
+If you haven't already, you can get an [Azure subscription free trial](https://azure.microsoft.com/pricing/free-trial/) and the [Azure CLI](../articles/xplat-cli-install.md) [connected to your Azure account](../articles/xplat-cli-connect.md). Once you do, you can run the following commands to quick-create a scale set:
 
 ```bash
-# make sure we are in Resource Manager mode (https://azure.microsoft.com/documentation/articles/resource-manager-deployment-model/)
+# make sure we are in Resource Manager mode (https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/)
 azure config mode arm
 
 # quick-create a scale set
@@ -13,9 +13,9 @@ azure config mode arm
 azure vmss quick-create -n negatvmss -g negatvmssrg -l westus -u negat -p P4ssw0rd -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
 ```
 
-Si desea personalizar la ubicación o image-urn, busque en los comandos `azure location list` y `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
+If you want to customize the location or image-urn, please look into the commands `azure location list` and `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
 
-Cuando se haya devuelto este comando, se habrá creado el conjunto de escalado. Este conjunto de escalado tendrá un equilibrador de carga con reglas NAT que asignan el puerto 50 000+ i del equilibrador de carga al puerto 22 de la máquina virtual i. Por lo tanto, una vez que determinemos el FQDN del equilibrador de carga, podremos conectarnos mediante SSH a nuestras máquinas virtuales:
+Once this command has returned, the scale set will have been created. This scale set will have a load balancer with NAT rules mapping port 50,000+i on the load balancer to port 22 on VM i. Thus, once we figure out the FQDN of the load balancer, we will be able to connect via ssh to our VMs:
 
 ```bash
 # (if you decide to run this as a script, please invoke using bash)
@@ -56,4 +56,6 @@ FQDN=${split_line[3]}
 ssh -p 50000 negat@$FQDN
 ```
 
-<!---HONumber=AcomDC_0413_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

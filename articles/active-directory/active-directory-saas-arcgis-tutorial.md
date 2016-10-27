@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Integración de Azure Active Directory con ArcGIS | Microsoft Azure" 
-    description="Aprenda a usar ArcGIS con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    pageTitle="Tutorial: Azure Active Directory Integration with ArcGIS | Microsoft Azure" 
+    description="Learn how to use ArcGIS with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,151 +11,156 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/11/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Tutorial: Integración de Azure Active Directory con ArcGIS
 
-El objetivo de este tutorial es mostrar la integración de Azure y ArcGIS. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+#<a name="tutorial:-azure-active-directory-integration-with-arcgis"></a>Tutorial: Azure Active Directory Integration with ArcGIS
 
--   Una suscripción de Azure válida
--   Una suscripción habilitada para el inicio de sesión único en ArcGIS
+The objective of this tutorial is to show the integration of Azure and ArcGIS. The scenario outlined in this tutorial assumes that you already have the following items:
 
-Después de completar este tutorial, los usuarios de Azure AD que ha asignado a ArcGIS podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de ArcGIS (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md)
+-   A valid Azure subscription
+-   An ArcGIS single sign-on enabled subscription
 
-La situación descrita en este tutorial consta de los siguientes bloques de creación:
+After completing this tutorial, the Azure AD users you have assigned to ArcGIS will be able to single sign into the application at your ArcGIS company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-1.  Habilitación de la integración de aplicaciones para ArcGIS
-2.  Configuración del inicio de sesión único
-3.  Configuración del aprovisionamiento de usuario
-4.  Asignación de usuarios
+The scenario outlined in this tutorial consists of the following building blocks:
 
-![Escenario](./media/active-directory-saas-arcgis-tutorial/IC784735.png "Escenario")
-##Habilitación de la integración de aplicaciones para ArcGIS
+1.  Enabling the application integration for ArcGIS
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones para ArcGIS.
+![Scenario](./media/active-directory-saas-arcgis-tutorial/IC784735.png "Scenario")
+##<a name="enabling-the-application-integration-for-arcgis"></a>Enabling the application integration for ArcGIS
 
-###Siga estos pasos para habilitar la integración de aplicaciones para ArcGIS:
+The objective of this section is to outline how to enable the application integration for ArcGIS.
 
-1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
+###<a name="to-enable-the-application-integration-for-arcgis,-perform-the-following-steps:"></a>To enable the application integration for ArcGIS, perform the following steps:
+
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-arcgis-tutorial/IC700993.png "Active Directory")
 
-2.  En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Aplicaciones](./media/active-directory-saas-arcgis-tutorial/IC700994.png "Aplicaciones")
+    ![Applications](./media/active-directory-saas-arcgis-tutorial/IC700994.png "Applications")
 
-4.  Haga clic en **Agregar** en la parte inferior de la página.
+4.  Click **Add** at the bottom of the page.
 
-    ![Agregar aplicación](./media/active-directory-saas-arcgis-tutorial/IC749321.png "Agregar aplicación")
+    ![Add application](./media/active-directory-saas-arcgis-tutorial/IC749321.png "Add application")
 
-5.  En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Agregar una aplicación de la galería](./media/active-directory-saas-arcgis-tutorial/IC749322.png "Agregar una aplicación de la galería")
+    ![Add an application from gallerry](./media/active-directory-saas-arcgis-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  En el **cuadro de búsqueda**, escriba **ArcGIS**.
+6.  In the **search box**, type **ArcGIS**.
 
-    ![Galería de aplicaciones](./media/active-directory-saas-arcgis-tutorial/IC784736.png "Galería de aplicaciones")
+    ![Applcation Gallery](./media/active-directory-saas-arcgis-tutorial/IC784736.png "Applcation Gallery")
 
-7.  En el panel de resultados, seleccione **ArcGIS** y luego haga clic en **Completar** para agregar la aplicación.
+7.  In the results pane, select **ArcGIS**, and then click **Complete** to add the application.
 
     ![ArcGIS](./media/active-directory-saas-arcgis-tutorial/IC784737.png "ArcGIS")
-##Configuración del inicio de sesión único
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
 
-El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en ArcGIS con su cuenta de Azure AD mediante federación basada en el protocolo SAML.
+The objective of this section is to outline how to enable users to authenticate to ArcGIS with their account in Azure AD using federation based on the SAML protocol.
 
-###Siga estos pasos para configurar el inicio de sesión único:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **ArcGIS**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  In the Azure classic portal, on the **ArcGIS** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-arcgis-tutorial/IC784738.png "Configurar inicio de sesión único")
+    ![Configure Single Sign-On](./media/active-directory-saas-arcgis-tutorial/IC784738.png "Configure Single Sign-On")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en ArcGIS?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
+2.  On the **How would you like users to sign on to ArcGIS** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-arcgis-tutorial/IC784739.png "Configurar inicio de sesión único")
+    ![Configure Single Sign-On](./media/active-directory-saas-arcgis-tutorial/IC784739.png "Configure Single Sign-On")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de ArcGIS**, escriba la dirección URL que usan los usuarios para iniciar sesión con el patrón "*https://company.maps.arcgis.com*" y luego haga clic en **Siguiente**.
+3.  On the **Configure App URL** page, in the **ArcGIS Sign In URL** textbox, type the URL used by your users to sign in using the following pattern "*https://company.maps.arcgis.com*", and then click **Next**.
 
-    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-arcgis-tutorial/IC784740.png "Configurar dirección URL de la aplicación")
+    ![Configure App URL](./media/active-directory-saas-arcgis-tutorial/IC784740.png "Configure App URL")
 
-4.  En la página **Configuración de inicio de sesión único en ArcGIS**, haga clic en **Descargar metadatos** y, luego, guarde el archivo de metadatos localmente en el equipo.
+4.  On the **Configure single sign-on at ArcGIS** page, click **Download metadata**, and then save the metadata file locally on your computer.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-arcgis-tutorial/IC784741.png "Configurar inicio de sesión único")
+    ![Configure Single Sign-On](./media/active-directory-saas-arcgis-tutorial/IC784741.png "Configure Single Sign-On")
 
-5.  En otra ventana del explorador web, inicie sesión en como administrador en el sitio de la compañía de ArcGIS.
+5.  In a different web browser window, log into your ArcGIS company site as an administrator.
 
-6.  Haga clic en **Edit Settings** (Editar configuración).
+6.  Click **Edit Settings**.
 
-    ![Editar configuración](./media/active-directory-saas-arcgis-tutorial/IC784742.png "Editar configuración")
+    ![Edit Settings](./media/active-directory-saas-arcgis-tutorial/IC784742.png "Edit Settings")
 
-7.  Haga clic en **Seguridad**.
+7.  Click **Security**.
 
-    ![Seguridad](./media/active-directory-saas-arcgis-tutorial/IC784743.png "Seguridad")
+    ![Security](./media/active-directory-saas-arcgis-tutorial/IC784743.png "Security")
 
-8.  En **Inicios de sesión de la empresa**, haga clic en **Establecer proveedor de identidades**.
+8.  Under **Enterprise Logins**, click **Set Identity Provider**.
 
-    ![Enterprise Logins (Inicios de sesión de la empresa)](./media/active-directory-saas-arcgis-tutorial/IC784744.png "Enterprise Logins (Inicios de sesión de la empresa)")
+    ![Enterprise Logins](./media/active-directory-saas-arcgis-tutorial/IC784744.png "Enterprise Logins")
 
-9.  En la sección **Configurar proveedor de identidades**, realice los pasos siguientes:
+9.  On the **Set Identity Provider** configuration page, perform the following steps:
 
-    ![Set Identity Provider (Establecer proveedor de identidades)](./media/active-directory-saas-arcgis-tutorial/IC784745.png "Set Identity Provider (Establecer proveedor de identidades)")
+    ![Set Identity Provider](./media/active-directory-saas-arcgis-tutorial/IC784745.png "Set Identity Provider")
 
-    1.  En el cuadro de texto Name (Nombre), escriba el nombre de su organización.
-    2.  En **Metadata for the Enterprise Identity Provider will be supplied using** (Los metadatos para el proveedor de identidades de la empresa se proporcionarán con), seleccione **A File** (Un archivo).
-    3.  Haga clic en **Choose file** (Elegir archivo) para cargar el archivo de metadatos descargado.
-    4.  Haga clic en **Establecer proveedor de identidades**.
+    1.  In the Name textbox, type your organization’s name.
+    2.  For **Metadata for the Enterprise Identity Provider will be supplied using**, select **A File**.
+    3.  To upload your downloaded metadata file, click **Choose file**.
+    4.  Click **Set Identity Provider**.
 
-10. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-arcgis-tutorial/IC784746.png "Configurar inicio de sesión único")
-##Configuración del aprovisionamiento de usuario
+    ![Configure Single Sign-On](./media/active-directory-saas-arcgis-tutorial/IC784746.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
 
-Para permitir que los usuarios de Azure AD inicien sesión en ArcGIS, tienen que aprovisionarse en ArcGIS.  
-En el caso de ArcGIS, el aprovisionamiento es una tarea manual.
+In order to enable Azure AD users to log into ArcGIS, they must be provisioned into ArcGIS.  
+In the case of ArcGIS, provisioning is a manual task.
 
-###Siga estos pasos para configurar el aprovisionamiento de usuario:
+###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-1.  Inicie sesión en su inquilino de **ArcGIS**.
+1.  Log in to your **ArcGIS** tenant.
 
-2.  Haga clic en **Invitar a miembros**.
+2.  Click **Invite Members**.
 
-    ![Invite Members (Invitar a miembros)](./media/active-directory-saas-arcgis-tutorial/IC784747.png "Invite Members (Invitar a miembros)")
+    ![Invite Members](./media/active-directory-saas-arcgis-tutorial/IC784747.png "Invite Members")
 
-3.  Seleccione **Agregar miembros automáticamente sin enviar un correo electrónico** y luego haga clic en **Siguiente**.
+3.  Select **Add members automatically without sending an email**, and then click **Next**.
 
-    ![Agregar miembros automáticamente](./media/active-directory-saas-arcgis-tutorial/IC784748.png "Agregar miembros automáticamente")
+    ![Add Members Automatically](./media/active-directory-saas-arcgis-tutorial/IC784748.png "Add Members Automatically")
 
-4.  En la página de diálogo **Miembros**, realice los pasos siguientes:
+4.  On the **Members** dialog page, perform the following steps:
 
-    ![Agregar y revisar](./media/active-directory-saas-arcgis-tutorial/IC784749.png "Agregar y revisar")
+    ![Add and review](./media/active-directory-saas-arcgis-tutorial/IC784749.png "Add and review")
 
-    1.  Escriba**Nombre**, **Apellido** y **Correo electrónico** de una cuenta válida de AAD que quiera aprovisionar.
-    2.  Haga clic en **Agregar y revisar**.
+    1.  Enter the **First Name**, **Last Name** and **Email** of a valid AAD account you want to provision.
+    2.  Click **Add And Review**.
 
-5.  Revise los datos que ha escrito y luego haga clic en**Agregar miembros**.
+5.  Review the data you have entered, and then click **Add Members**.
 
-    ![Agregar miembro](./media/active-directory-saas-arcgis-tutorial/IC784750.png "Agregar miembro")
+    ![Add member](./media/active-directory-saas-arcgis-tutorial/IC784750.png "Add member")
 
->[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de ArcGIS ofrecida por ArcGIS para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] You can use any other ArcGIS user account creation tools or APIs provided by ArcGIS to provision AAD user accounts.
 
-##Asignación de usuarios
+##<a name="assigning-users"></a>Assigning users
 
-Para probar la configuración, tiene que conceder acceso, mediante su asignación, a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Para asignar usuarios a ArcGIS, lleve a cabo los siguientes pasos:
+###<a name="to-assign-users-to-arcgis,-perform-the-following-steps:"></a>To assign users to ArcGIS, perform the following steps:
 
-1.  En el Portal de Azure clásico, cree una cuenta de prueba.
+1.  In the Azure classic portal, create a test account.
 
-2.  En la página de integración de aplicaciones de **ArcGIS**, haga clic en **Asignar usuarios**.
+2.  On the **ArcGIS **application integration page, click **Assign users**.
 
-    ![Asignar usuarios](./media/active-directory-saas-arcgis-tutorial/IC784751.png "Asignar usuarios")
+    ![Assign Users](./media/active-directory-saas-arcgis-tutorial/IC784751.png "Assign Users")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sí](./media/active-directory-saas-arcgis-tutorial/IC767830.png "Sí")
+    ![Yes](./media/active-directory-saas-arcgis-tutorial/IC767830.png "Yes")
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

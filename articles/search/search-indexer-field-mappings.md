@@ -1,6 +1,6 @@
 <properties
-pageTitle="Las asignaciones de campos de indexador de Búsqueda de Azure salvan las diferencias entre los orígenes de datos y los índices de búsqueda"
-description="Configurar asignaciones de campos de indexador de Búsqueda de Azure para tener en cuenta las diferencias en los nombres de campo y las representaciones de datos"
+pageTitle="Azure Search indexer field mappings bridge the differences between data sources and search indexes"
+description="Configure Azure Search indexer field mappings to account for differences in field names and data representations"
 services="search"
 documentationCenter=""
 authors="chaosrealm"
@@ -16,34 +16,35 @@ ms.tgt_pltfrm="na"
 ms.date="04/30/2016"
 ms.author="eugenesh" />
 
-# Las asignaciones de campos de indexador de Búsqueda de Azure salvan las diferencias entre los orígenes de datos y los índices de búsqueda
 
-Al usar los indexadores de Búsqueda de Azure, habrá ocasiones en que pueda encontrarse en situaciones donde sus datos de entrada no coincidan demasiado con el esquema de su índice de destino. En esos casos, puede usar **asignaciones de campos** para transformar sus datos en la forma deseada.
+# <a name="azure-search-indexer-field-mappings-bridge-the-differences-between-data-sources-and-search-indexes"></a>Azure Search indexer field mappings bridge the differences between data sources and search indexes
 
-Algunas situaciones donde las asignaciones de campos son útiles:
+When using Azure Search indexers, you can occasionally find yourself in situations where your input data doesn't quite match the schema of your target index. In those cases, you can use **field mappings** to transform your data into the desired shape. 
+
+Some situations where field mappings are useful:
  
-- Su origen de datos tiene un campo `_id`, pero Búsqueda de Azure no permite los nombres de campo que empiezan por un carácter de subrayado. Una asignación de campos permite "cambiar el nombre" a un campo. 
-- Desea rellenar varios campos en el índice con los mismos datos de origen de datos, por ejemplo, porque desea aplicar diferentes analizadores a esos campos. Las asignaciones de campos permiten "bifurcar" un campo de origen de datos.
-- Necesita codificar o descodificar sus datos con Base64. Las asignaciones de campos admiten varias **funciones de asignación**, incluidas las funciones de codificación y descodificación Base64.   
+- Your data source has a field `_id`, but Azure Search doesn't allow field names starting with an underscore. A field mapping allows you to "rename" a field. 
+- You want to populate several fields in the index with the same data source data, for example because you want to apply different analyzers to those fields. Field mappings let you "fork" a data source field.
+- You need to Base64 encode or decode your data. Field mappings support several **mapping functions**, including functions for Base64 encoding and decoding.   
 
 
-> [AZURE.IMPORTANT] Actualmente, la funcionalidad de las asignaciones de campos se encuentra en versión preliminar. Está disponible solo en la API de REST con la versión **2015-02-28-Preview**. Por favor, recuerde que las versiones preliminares de las API están pensadas para realizar pruebas y evaluar, y no deben usarse en entornos de producción.
+> [AZURE.IMPORTANT] Currently, field mappings functionality is in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
 
-## Configuración de asignaciones de campos
+## <a name="setting-up-field-mappings"></a>Setting up field mappings
 
-Puede agregar asignaciones de campos al crear un nuevo indexador con la API de [creación de indexador](search-api-indexers-2015-02-28-preview.md#create-indexer). Puede administrar asignaciones de campos en un indexador de indización con la API de [actualización de indexador](search-api-indexers-2015-02-28-preview.md#update-indexer).
+You can add field mappings when creating a new indexer using the [Create Indexer](search-api-indexers-2015-02-28-preview.md#create-indexer) API. You can manage field mappings on an indexing indexer using the [Update Indexer](search-api-indexers-2015-02-28-preview.md#update-indexer) API. 
 
-Una asignación de campos consta de 3 partes:
+A field mapping consists of 3 parts: 
 
-1. `sourceFieldName`, que representa un campo de su origen de datos. Esta propiedad es obligatoria. 
+1. A `sourceFieldName`, which represents a field in your data source. This property is required. 
 
-2. `targetFieldName` opcional, que representa un campo de su índice de búsqueda. Si se omite, se usa el mismo nombre que en el origen de datos.
+2. An optional `targetFieldName`, which represents a field in your search index. If omitted, the same name as in the data source is used. 
 
-3. `mappingFunction` opcional, que puede transformar sus datos con una de las diversas funciones predefinidas. La lista completa de funciones se encuentra [a continuación](#mappingFunctions).
+3. An optional `mappingFunction`, which can transform your data using one of several predefined functions. The full list of functions is [below](#mappingFunctions).
 
-Las asignaciones de campos se agregan a la matriz `fieldMappings` de la definición del indexador.
+Fields mappings are added to the `fieldMappings` array on the indexer definition. 
 
-Por ejemplo, así es como puede adaptarse a las diferencias existentes en los nombres de campo:
+For example, here's how you can accommodate differences in field names: 
 
 ```JSON
 
@@ -57,22 +58,22 @@ api-key: [admin key]
 } 
 ```
 
-Un indexador puede tener varias asignaciones de campos. Por ejemplo, así es como puede "bifurcar" un campo:
+An indexer can have multiple field mappings. For example, here's how you can "fork" a field:
 
 ```JSON
 
 "fieldMappings" : [ 
-	{ "sourceFieldName" : "text", "targetFieldName" : "textStandardEnglishAnalyzer" },
-	{ "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" }, 
+    { "sourceFieldName" : "text", "targetFieldName" : "textStandardEnglishAnalyzer" },
+    { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" }, 
 ] 
 ```
 
-> [AZURE.NOTE] Búsqueda de Azure usa una comparación que no distingue mayúsculas de minúsculas para resolver los nombres de campo y función de las asignaciones de campos. Esto es práctico (no es necesario que el uso de mayúsculas y minúsculas sea correcto en todo momento), pero se traduce en que su índice u origen de datos no puede tener campos que difieran únicamente en mayúsculas y minúsculas.
+> [AZURE.NOTE] Azure Search uses case-insensitive comparison to resolve the field and function names in field mappings. This is convenient (you don't have to get all the casing right), but it means that your data source or index cannot have fields that differ only by case.  
 
 <a name="mappingFunctions"></a>
-## Funciones de asignación de campos
+## <a name="field-mapping-functions"></a>Field mapping functions
 
-Actualmente se admiten estas funciones:
+These functions are currently supported: 
 
 - [base64Encode](#base64EncodeFunction)
 - [base64Decode](#base64DecodeFunction)
@@ -80,15 +81,15 @@ Actualmente se admiten estas funciones:
 - [jsonArrayToStringCollection](#jsonArrayToStringCollectionFunction)
 
 <a name="base64EncodeFunction"></a>
-### base64Encode 
+### <a name="base64encode"></a>base64Encode 
 
-Realiza una codificación Base64 *segura para direcciones URL* de la cadena de entrada. Asume que la entrada presenta una codificación UTF-8.
+Performs *URL-safe* Base64 encoding of the input string. Assumes that the input is UTF-8 encoded. 
 
-#### Caso de uso de ejemplo 
+#### <a name="sample-use-case"></a>Sample use case 
 
-Solo pueden aparecer caracteres seguros para direcciones URL en una clave de documento de Búsqueda de Azure (porque los clientes deben poder enviar el documento con la API de búsqueda, por ejemplo). Si sus datos contienen caracteres no seguros para direcciones URL y desea usarlos para rellenar un campo clave de su índice de búsqueda, utilice esta función.
+Only URL-safe characters can appear in an Azure Search document key (because customers must be able to address the document using the Lookup API, for example). If your data contains URL-unsafe characters and you want to use it to populate a key field in your search index, use this function.   
 
-#### Ejemplo 
+#### <a name="example"></a>Example 
 
 ```JSON
 
@@ -101,15 +102,15 @@ Solo pueden aparecer caracteres seguros para direcciones URL en una clave de doc
 ```
 
 <a name="base64DecodeFunction"></a>
-### base64Decode
+### <a name="base64decode"></a>base64Decode
 
-Realiza una descodificación Base64 de la cadena de entrada. La entrada se asume para una cadena con codificación Base64 *segura para direcciones URL*.
+Performs Base64 decoding of the input string. The input is assumed to a *URL-safe* Base64-encoded string. 
 
-#### Caso de uso de ejemplo 
+#### <a name="sample-use-case"></a>Sample use case 
 
-Los valores de metadatos personalizados del blob deben tener codificación ASCII. Puede usar la codificación Base64 para representar cadenas Unicode arbitrarias en metadatos personalizados del blob. Sin embargo, para que la búsqueda sea significativa, puede usar esta función para volver a convertir los datos codificados en cadenas "normales" al rellenar su índice de búsqueda.
+Blob custom metadata values must be ASCII-encoded. You can use Base64 encoding to represent arbitrary Unicode strings in blob custom metadata. However, to make search meaningful, you can use this function to turn the encoded data back into "regular" strings when populating your search index.  
 
-#### Ejemplo 
+#### <a name="example"></a>Example 
 
 ```JSON
 
@@ -122,22 +123,22 @@ Los valores de metadatos personalizados del blob deben tener codificación ASCII
 ```
 
 <a name="extractTokenAtPositionFunction"></a>
-### extractTokenAtPosition
+### <a name="extracttokenatposition"></a>extractTokenAtPosition
 
-Divide un campo de cadena con el delimitador especificado y elige el token en la posición especificada de la división resultante.
+Splits a string field using the specified delimiter, and picks the token at the specified position in the resulting split.
 
-Por ejemplo, si la entrada es `Jane Doe`, `delimiter` es `" "`(espacio) y `position` es 0, el resultado es `Jane`; si `position` es 1, el resultado es `Doe`. Si la posición hace referencia a un token que no existe, se devolverá un error.
+For example, if the input is `Jane Doe`, the `delimiter` is `" "`(space) and the `position` is 0, the result is `Jane`; if the `position` is 1, the result is `Doe`. If the position refers to a token that doesn't exist, an error will be returned.
 
-#### Caso de uso de ejemplo 
+#### <a name="sample-use-case"></a>Sample use case 
 
-Su origen de datos contiene un campo `PersonName` y desea indizarlo como dos campos `FirstName` y `LastName` independientes. Puede usar esta función para dividir la entrada con el carácter de espacio como delimitador.
+Your data source contains a `PersonName` field, and you want to index it as two separate `FirstName` and `LastName` fields. You can use this function to split the input using the space character as the delimiter.
 
-#### Parámetros
+#### <a name="parameters"></a>Parameters
 
-- `delimiter`: una cadena para su uso como separador al dividir la cadena de entrada.
-- `position`: una posición de base cero entera del token que se va a elegir tras dividirse la cadena de entrada.    
+- `delimiter`: a string to use as the separator when splitting the input string.
+- `position`: an integer zero-based position of the token to pick after the input string is split.    
 
-#### Ejemplo
+#### <a name="example"></a>Example
 
 ```JSON 
 
@@ -155,17 +156,17 @@ Su origen de datos contiene un campo `PersonName` y desea indizarlo como dos cam
 ```
 
 <a name="jsonArrayToStringCollectionFunction"></a>
-### jsonArrayToStringCollection
+### <a name="jsonarraytostringcollection"></a>jsonArrayToStringCollection
 
-Transforma una cadena con formato de una matriz JSON de cadenas en una matriz de cadenas que puede usarse para rellenar un campo `Collection(Edm.String)` del índice.
+Transforms a string formatted as a JSON array of strings into a string array that can be used to populate a `Collection(Edm.String)` field in the index. 
 
-Por ejemplo, si la cadena de entrada es `["red", "white", "blue"]`, el campo de destino de tipo `Collection(Edm.String)` se rellenará con los tres valores `red`, `white` y `blue`. En el caso de los valores de entrada que no pueden analizarse como matrices de cadenas JSON, se devolverá un error.
+For example, if the input string is `["red", "white", "blue"]`, then the target field of type `Collection(Edm.String)` will be populated with the three values `red`, `white` and `blue`. For input values that cannot be parsed as JSON string arrays, an error will be returned. 
 
-#### Caso de uso de ejemplo
+#### <a name="sample-use-case"></a>Sample use case
 
-La base de datos SQL de Azure no tiene un tipo de datos integrado que se asigne de forma natural a los campos `Collection(Edm.String)` de Búsqueda de Azure. Para rellenar campos de colección de cadenas, aplique a sus datos de origen formato de una matriz de cadenas JSON y use esta función.
+Azure SQL database doesn't have a built-in data type that naturally maps to `Collection(Edm.String)` fields in Azure Search. To populate string collection fields, format your source data as a JSON string array and use this function. 
 
-#### Ejemplo 
+#### <a name="example"></a>Example 
 
 ```JSON
 
@@ -174,8 +175,11 @@ La base de datos SQL de Azure no tiene un tipo de datos integrado que se asigne 
 ] 
 ```
 
-## Ayúdenos a mejorar Búsqueda de Azure
+## <a name="help-us-make-azure-search-better"></a>Help us make Azure Search better
 
-Si tiene solicitudes o ideas para mejorar las características, póngase en contacto con nosotros en nuestro [sitio UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
+If you have feature requests or ideas for improvements, please reach out to us on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0504_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

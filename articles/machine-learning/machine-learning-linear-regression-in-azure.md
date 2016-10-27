@@ -1,150 +1,151 @@
 <properties 
-	pageTitle="Uso de la regresión lineal en el aprendizaje automático | Microsoft Azure" 
-	description="Una comparación de los modelos de regresión lineal en Excel y en Estudio de aprendizaje automático de Azure" 
-	metaKeywords="" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="jhubbard" 
-	editor="cgronlun"  />
+    pageTitle="Using Linear Regression in Machine Learning | Microsoft Azure" 
+    description="A comparison of linear regression models in Excel and in Azure Machine Learning Studio" 
+    metaKeywords="" 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="garyericson" 
+    manager="jhubbard" 
+    editor="cgronlun"  />
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/09/2016" 
-	ms.author="kbaroni;garye" />
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/09/2016" 
+    ms.author="kbaroni;garye" />
 
-# Uso de regresión lineal en Aprendizaje automático de Azure
 
-> *Kate Baroni* y *Ben Boatman* son arquitectos de soluciones para empresas del Centro de excelencia de Data Insights de Microsoft. En este artículo, se describe su experiencia al migrar un conjunto existente de análisis de regresión a una solución basada en la nube mediante Aprendizaje automático (ML) de Azure.
+# <a name="using-linear-regression-in-azure-machine-learning"></a>Using linear regression in Azure Machine Learning
+
+> *Kate Baroni* and *Ben Boatman* are enterprise solution architects in Microsoft’s Data Insights Center of Excellence. In this article, they describe their experience migrating an existing regression analysis suite to a cloud-based solution using Azure Machine Learning.  
  
-&nbsp;
+&nbsp; 
   
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]  
  
-## Objetivo
+## <a name="goal"></a>Goal
 
-Nuestro proyecto se inició con dos objetivos en mente:
+Our project started with two goals in mind:  
 
-1. Usar el análisis predictivo para mejorar la exactitud de las proyecciones de ingresos mensuales de la organización.
-2. Usar Aprendizaje automático de Azure para confirmar, optimizar, aumentar la velocidad y escalar los resultados.
+1. Use predictive analytics to improve the accuracy of our organization’s monthly revenue projections  
+2. Use Azure ML to confirm, optimize, increase velocity, and scale of our results.  
 
-Como muchas empresas, nuestra organización pasa por un proceso de previsión de ingresos mensuales. Nuestro pequeño equipo de analistas de negocios se encarga de usar Aprendizaje automático para respaldar el proceso y mejorar la precisión de la previsión. El equipo dedicó varios meses a recopilar los datos de varios orígenes y ejecutar los atributos de datos a través de análisis estadísticos a fin de identificar los atributos claves relevantes para la previsión de ventas de servicios. Los pasos siguientes consistían en comenzar el prototipo de los modelos de regresión estadística de los datos en Excel. En unas semanas, tuvimos un modelo de regresión de Excel que superaba los procesos actuales de previsión de finanzas y de campo. Esto se convirtió en el resultado de la predicción de la línea de base.
-
-
-A continuación, el siguiente paso consistió en pasar nuestro análisis predictivo a Aprendizaje automático de Azure para averiguar cómo se podría mejorar el rendimiento de las predicciones con Aprendizaje automático de Azure.
+Like many businesses, our organization goes through a monthly revenue forecasting process. Our small team of business analysts was tasked with using Machine Learning to support the process and improve forecast accuracy.  The team spent several months collecting data from multiple sources and running the data attributes through statistical analysis identifying key attributes relevant to services sales forecasting.  Next steps was to begin prototyping statistical regression models on the data in Excel.  Within a few weeks we had an Excel regression model that was outperforming the current field and finance forecasting processes. This became the baseline prediction result.  
 
 
-## Consecución de la paridad en el rendimiento predictivo
+We then took the next step to moving our predictive analytics over to Azure ML to find out how Azure ML could improve on predictive performance.
 
-Nuestra prioridad era lograr la paridad entre los modelos de regresión de Excel y de Aprendizaje automático de Azure. Teniendo en cuenta los mismos datos y la misma división de datos de prueba (test) y entrenamiento (train), queríamos conseguir la paridad de rendimiento predictivo entre Excel y Aprendizaje automático de Azure. Al principio no lo conseguimos. El modelo de Excel superaba al de Aprendizaje automático de Azure. El error se debía a una falta de conocimiento de la configuración de la herramienta base en Aprendizaje automático de Azure. Después de una sincronización con el equipo de producto de Aprendizaje automático de Azure, se consiguió una mejor comprensión de la configuración base necesaria para nuestros conjuntos de datos, y se logró la paridad entre los dos modelos.
 
-### Creación de un modelo de regresión en Excel
-La regresión de Excel utilizaba el modelo de regresión lineal estándar de Excel Analysis ToolPak.
+## <a name="achieving-predictive-performance-parity"></a>Achieving predictive performance parity
 
-Calculamos el *porcentaje de error medio absoluto* y se utilizó como medida de rendimiento para el modelo. Tardamos 3 meses en conseguir un modelo operativo con Excel. Aplicamos gran parte de lo aprendido al experimento con Aprendizaje automático de Azure, lo que, en última instancia, era una ventaja a la hora de conocer los requisitos.
+Our first priority was to achieve parity between Azure ML and Excel regression models.  Given the exact same data, and the same split for training and testing data we wanted to achieve predictive performance parity between Excel and Azure ML.   Initially we failed. The Excel model outperformed the Azure ML model.   The failure was due to a lack of understanding of the base tool setting in Azure ML. After a sync with the Azure ML product team, we gained a better understanding of the base setting required for our data sets, and achieved parity between the two models.  
 
-### Creación de un experimento comparable en Aprendizaje automático de Azure  
-Seguimos estos pasos para crear nuestro experimento en Aprendizaje automático de Azure:
+### <a name="create-regression-model-in-excel"></a>Create regression model in Excel
+Our Excel Regression used the standard linear regression model found in the Excel Analysis ToolPak. 
 
-1.	Carga del conjunto de datos como un archivo csv en Aprendizaje automático de Azure (archivo muy pequeño).
-2.	Hemos creado un nuevo experimento y hemos usado el módulo [Seleccionar columnas de conjunto de datos][select-columns] para seleccionar las mismas características de datos que se usaron en Excel.
-3.	Uso del módulo [Dividir datos][split] \(con el modo *Expresión relativa*) para dividir los datos en conjuntos de aprendizaje exactamente iguales, tal y como se habría realizado en Excel.
-4.	Realizamos experimentos con el módulo [Regresión lineal][linear-regression] \(solo opciones predeterminadas), documentamos el proceso y comparamos los resultados con el modelo de regresión de Excel.
+We calculated *Mean Absolute % Error* and used it as the performance measure for the model.  It took 3 months to arrive at a working model using Excel.  We brought much of the learning into the Azure ML experiment which ultimately was beneficial in understanding requirements.
 
-### Revisión de los resultados iniciales
-Al principio, el modelo de Excel superaba claramente al de Aprendizaje automático de Azure:
+### <a name="create-comparable-experiment-in-azure-machine-learning"></a>Create comparable experiment in Azure Machine Learning  
+We followed these steps to create our experiment in Azure ML:  
 
-| |Excel|Aprendizaje automático de Azure|
+1.  Uploaded the dataset as a csv file to Azure ML (very small file)
+2.  Created a new experiment and used the [Select Columns in Dataset][select-columns] module to select the same data features used in Excel   
+3.  Used the [Split Data][split] module (with *Relative Expression* mode) to divide the data into exact same train sets as had been done in Excel  
+4.  Experimented with the [Linear Regression][linear-regression] module (default options only), documented, and compared the results to our Excel regression model
+
+### <a name="review-initial-results"></a>Review initial results
+At first, the Excel model clearly outperformed the Azure ML model:  
+
+|   |Excel|Azure ML|
 |---|:---:|:---:|
-|Rendimiento| | |
-|<ul style="list-style-type: none;"><li>R cuadrado ajustado</li></ul>| 0,96 |N/D|
-|<ul style="list-style-type: none;"><li>Coeficiente de <br />determinación</li></ul>|N/D|	0,78<br />(baja precisión)|
-|Error medio absoluto |	9,5 millones de $|	19,4 millones de $|
-|Error medio absoluto (%)|	6,03 %|	12,2 %
+|Performance|   |  |
+|<ul style="list-style-type: none;"><li>Adjusted R Square</li></ul>| 0.96 |N/A|
+|<ul style="list-style-type: none;"><li>Coefficient of <br />Determination</li></ul>|N/A|   0.78<br />(low accuracy)|
+|Mean Absolute Error |  $9.5M|  $ 19.4M|
+|Mean Absolute Error (%)|   6.03%|  12.2%
 
-Cuando ejecutamos el proceso y los resultados para los desarrolladores y científicos de datos del equipo de Aprendizaje automático de Azure, rápidamente nos proporcionaron algunas sugerencias útiles.
+When we ran our process and results by the developers and data scientists on the Azure ML team, they quickly provided some useful tips.  
 
-* Cuando se usa el módulo [Regresión lineal][linear-regression] en Aprendizaje automático de Azure, se proporcionan dos métodos:
-	*  Descenso de gradiente en línea: pueden resultar más adecuado para los problemas a mayor escala.
-	*  Ordinaria de mínimos cuadrados: este es el método en el que se suele pensar cuando se habla de la regresión lineal. Para los conjuntos de datos más pequeños, la regresión ordinaria de mínimos cuadrados puede ser una opción más adecuada.
-*  Considere la posibilidad de ajustar el parámetro Peso de regularización L2 para mejorar el rendimiento. Está establecido en 0,001 de forma predeterminada y, para nuestro pequeño conjunto de datos, lo establecimos en 0,005 para mejorar el rendimiento.
+* When you use the [Linear Regression][linear-regression] module in Azure ML, two methods are provided:
+    *  Online Gradient Descent: May be more suitable for larger-scale problems
+    *  Ordinary Least Squares: This is the method most people think of when they hear linear regression. For small datasets, Ordinary Least Squares can be a more optimal choice.
+*  Consider tweaking the L2 Regularization Weight parameter to improve performance. It is set to 0.001 by default and for our small data set, we set it to 0.005 to improve performance.    
 
-### ¡Misterio resuelto!
-Al aplicar las recomendaciones, logramos el mismo rendimiento de línea de base en Aprendizaje automático de Azure que con Excel:
+### <a name="mystery-solved!"></a>Mystery solved!
+When we applied the recommendations, we achieved the same baseline performance in Azure ML as with Excel:   
 
-|| Excel|Aprendizaje automático de Azure (inicial)|Aprendizaje automático de Azure con mínimos cuadrados|
+|| Excel|Azure ML (Initial)|Azure ML w/ Least Squares|
 |---|:---:|:---:|:---:|
-|Valor etiquetado |Valores reales (numéricos)|same|same|
-|Objetivo del aprendizaje |Excel -> Análisis de datos -> Regresión|Regresión lineal|Regresión lineal|
-|Opciones del objetivo del aprendizaje|N/D|Valores predeterminados|ordinaria de mínimos cuadrados<br />L2 = 0,005|
-|Conjunto de datos|26 filas, 3 características, 1 etiqueta. Todas numéricas.|same|same|
-|División: aprendizaje|Excel entrenado en las primeras 18 filas; probado en las últimas 8 filas.|same|same|
-|División: prueba|Fórmula de regresión de Excel aplicada a las últimas 8 filas.|same|same|
-|**Rendimiento**||||
-|R cuadrado ajustado|0,96|N/D||
-|Coeficiente de determinación|N/D|0,78|0,952049|
-|Error medio absoluto|9,5 millones de $|19,4 millones de $|9,5 millones de $|
-|Error medio absoluto (%)|<span style="background-color: 00FF00;"> 6,03 %</span>|12,2 %|<span style="background-color: 00FF00;"> 6,03 %</span>|
+|Labeled value  |Actuals (numeric)|same|same|
+|Learner  |Excel -> Data Analysis -> Regression|Linear Regression.|Linear Regression|
+|Learner options|N/A|Defaults|ordinary  least squares<br />L2 = 0.005|
+|Data Set|26 rows, 3 features, 1 label.   All numeric.|same|same|
+|Split: Train|Excel trained on the first 18 rows, tested on the last 8 rows.|same|same|
+|Split: Test|Excel regression formula applied to the last 8 rows|same|same|
+|**Performance**||||
+|Adjusted R Square|0.96|N/A||
+|Coefficient of Determination|N/A|0.78|0.952049|
+|Mean Absolute Error |$9.5M|$ 19.4M|$9.5M|
+|Mean Absolute Error (%)|<span style="background-color: 00FF00;"> 6.03%</span>|12.2%|<span style="background-color: 00FF00;"> 6.03%</span>|
 
-Además, los coeficientes de Excel son muy similares a los pesos de la característica en el modelo de entrenamiento de Azure:
+In addition, the Excel coefficients compared well to the feature weights in the Azure trained model:
 
-||Coeficientes de Excel|Ponderaciones de la característica de Azure|
+||Excel Coefficients|Azure Feature Weights|
 |---|:---:|:---:|
-|Intersección/sesgo|19 470 209,88|19 328 500|
-|Característica A|0,832653063|0,834156|
-|Característica B|11 071 967,08|11 007 300|
-|Característica C|25 383 318,09|25 140 800|
+|Intercept/Bias|19470209.88|19328500|
+|Feature A|0.832653063|0.834156|
+|Feature B|11071967.08|11007300|
+|Feature C|25383318.09|25140800|
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next Steps
 
-Queríamos consumir el servicio web de Aprendizaje automático de Azure en Excel. Nuestros analistas de negocios se basan en Excel y necesitábamos una manera de llamar al servicio web de Aprendizaje automático de Azure con una fila de datos de Excel y obtener el valor esperado para Excel.
+We wanted to consume Azure ML web service within Excel.  Our business analysts rely on Excel and we needed a way to call the Azure ML web service with a row of Excel data and have it return the predicted value to Excel.   
 
-También queríamos optimizar nuestro modelo utilizando las opciones y los algoritmos disponibles en ML de Azure.
+We also wanted to optimize our model, using the options and algorithms available in Azure ML.
 
-### Integración con Excel
-Nuestra solución fue instrumentar nuestro modelo de regresión de Aprendizaje automático de Azure mediante la creación de un servicio web desde el modelo entrenado. En unos minutos, se creó el servicio web y pudimos llamarlo directamente desde Excel para obtener el valor de ingresos previstos.
+### <a name="integration-with-excel"></a>Integration with Excel
+Our solution was to operationalize our Azure ML regression model by creating a web service from the trained model.  Within a few minutes, the web service was created and we could call it directly from Excel to return a predicted revenue value.    
 
-La sección *Panel de servicios web* incluye un libro de Excel descargable. El libro contiene información predefinida sobre el esquema y la API de servicio web incrustada. Al hacer clic en *Descargar el libro de Excel*, se abre y puede guardarlo en el equipo local.
+The *Web Services Dashboard* section includes a downloadable Excel workbook.  The workbook comes pre-formatted with the web service API and schema information embedded.   When you click on *Download Excel Workbook*, it opens and you can save it to your local computer.    
 
 ![][1]
  
-Con el libro abierto, copie los parámetros predefinidos en la sección de parámetros de color azul, como se muestra a continuación. Una vez que se especifican los parámetros, Excel llama al servicio web AzureML y las etiquetas puntuadas previstas se mostrarán en la sección de valores de predicción de color verde. El libro continuará creando predicciones para los parámetros basándose en el modelo entrenado para todos los elementos de fila especificados en los parámetros. Para obtener más información sobre cómo usar esta característica, consulte [Consumo de un servicio web de Aprendizaje automático de Azure de Excel](machine-learning-consuming-from-excel.md).
+With the workbook open, copy your predefined parameters into the blue Parameter section as shown below.  Once the parameters are entered, Excel calls out to the AzureML web service and the predicted scored labels will display in the green Predicted Values section.  The workbook will continue to create predictions for parameters based on your trained model for all row items entered under Parameters.   For more information on how to use this feature, see [Consuming an Azure Machine Learning Web Service from Excel](machine-learning-consuming-from-excel.md). 
 
 ![][2]
  
-### Optimización y otros experimentos
-Ahora que teníamos una línea de base con nuestro modelo de Excel, dimos un paso más para optimizar nuestro modelo de regresión lineal de Aprendizaje automático de Azure. Usamos el módulo [Selección de características basada en filtros][filter-based-feature-selection] para mejorar nuestra selección de datos iniciales de elementos. Ello nos ayudó a lograr una mejora del rendimiento del 4,6 % en el error medio absoluto. Para proyectos futuros, utilizaremos esta característica que nos permitirá ahorrar semanas de iteración en los atributos de los datos para buscar el conjunto correcto de características que se utilizará para el modelado.
+### <a name="optimization-and-further-experiments"></a>Optimization and further experiments
+Now that we had a baseline with our Excel model, we moved ahead to optimize our Azure ML Linear Regression Model.  We used the module [Filter-Based Feature Selection][filter-based-feature-selection] to improve on our selection of initial data elements and it helped us achieve a performance improvement of 4.6% Mean Absolute Error.   For future projects we will use this feature which could save us weeks in iterating through data attributes to find the right set of features to use for modelling.  
 
-A continuación, tenemos previsto incluir algoritmos adicionales como [bayesianos][bayesian-linear-regression] o [árboles de decisiones incrementados][boosted-decision-tree-regression] en nuestro experimento para comparar el rendimiento.
+Next we plan to include additional algorithms like [Bayesian][bayesian-linear-regression] or [Boosted Decision Trees][boosted-decision-tree-regression] in our experiment to compare performance.    
 
-Si desea experimentar con regresión, un buen conjunto de datos para probar es el conjunto de datos de ejemplo de Energy Efficiency Regression, que tiene muchos atributos numéricos. El conjunto de datos se proporciona como parte de los conjuntos de datos de muestra en Estudio de Aprendizaje automático. Puede usar diversos módulos de entrenamiento para predecir la carga de calefacción o refrigeración. En el gráfico siguiente, se muestra una comparación de distintos entrenamientos de regresión efectuados con el conjunto de datos Energy Efficiency para predecir una variable de destino sobre la carga de refrigeración:
+If you want to experiment with regression, a good dataset to try is the Energy Efficiency Regression sample dataset, which has lots of numerical attributes. The dataset is provided as part of the sample datasets in ML Studio.  You can use a variety of learning modules to predict either Heating Load or Cooling Load.  The chart below is a performance comparison of different regression learns against the Energy Efficiency dataset predicting for the target variable Cooling Load: 
 
-|Modelo|Error medio absoluto|Error cuadrático medio|Error absoluto relativo|Error cuadrático relativo|Coeficiente de determinación
+|Model|Mean Absolute Error|Root Mean Squared Error|Relative Absolute Error|Relative Squared Error|Coefficient of Determination
 |---|---|---|---|---|---
-|Árbol de decisiones incrementados|0,930113|1,4239|0,106647|0,021662|0,978338
-|Regresión lineal (descenso de gradiente)|2,035693|2,98006|0,233414|0,094881|0,905119
-|Regresión de red neuronal|1,548195|2,114617|0,177517|0,047774|0,952226
-|Regresión lineal (ordinaria de mínimos cuadrados)|1,428273|1,984461|0,163767|0,042074|0,957926  
+|Boosted Decision Tree|0.930113|1.4239|0.106647|0.021662|0.978338
+|Linear Regression (Gradient Descent)|2.035693|2.98006|0.233414|0.094881|0.905119
+|Neural Network Regression|1.548195|2.114617|0.177517|0.047774|0.952226
+|Linear Regression (Ordinary Least Squares)|1.428273|1.984461|0.163767|0.042074|0.957926  
 
-## Puntos clave 
+## <a name="key-takeaways"></a>Key Takeaways 
 
-Hemos aprendido mucho al ejecutar experimentos de regresión en Excel y en Aprendizaje automático de Azure de forma paralela. El hecho de crear un modelo de línea de base en Excel y compararlo con modelos usando la [regresión lineal][linear-regression] de Aprendizaje automático de Azure nos permitió aprender sobre Aprendizaje automático de Azure. Además, descubrimos oportunidades para mejorar la selección de datos y el modelo de rendimiento.
+We learned a lot by from running Excel regression and Azure Machine Learning experiments in parallel. Creating the baseline model in Excel and comparing it to models using  Azure ML [Linear Regression][linear-regression] helped us learn Azure ML, and we discovered opportunities to improve data selection and model performance.         
 
-También descubrimos que es aconsejable utilizar la [Selección de características basada en filtros][filter-based-feature-selection] para acelerar los proyectos futuros de predicción. Al aplicar la selección de características a los datos, se puede crear un modelo mejorado en Aprendizaje automático de Azure con un mejor rendimiento general.
+We also found that it is advisable to use [Filter-Based Feature Selection][filter-based-feature-selection] to accelerate future prediction projects.  By applying feature selection to your data, you can create an improved model in Azure ML with better overall performance. 
 
-La capacidad de transferir sistemáticamente la predicción analítica previsión desde Aprendizaje automático de Azure hasta Excel permite aumentar significativamente la capacidad de proporcionar resultados correctos a una extensa audiencia de usuarios empresariales.
+The ability to transfer the predictive analytic forecasting from Azure ML to Excel systemically allows a significant increase in the ability to successfully provide results to a broad business user audience.     
 
 
-## Recursos
-A continuación, encontrará algunos recursos que le ayudarán a trabajar con la regresión:
+## <a name="resources"></a>Resources
+Some resources are listed for helping you work with regression:  
 
-* Regresión en Excel. Si nunca ha intentado realizar la regresión en Excel, este tutorial le facilitará el trabajo: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
-* Regresión frente a previsión. Tyler Chessman escribió un artículo de blog que explica cómo realizar una serie de previsiones de tiempo en Excel. Incluye una buena descripción para aquellos que se inician en la regresión lineal: [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts)
-* 	Regresión lineal ordinaria con mínimos cuadrados: errores, problemas y riesgos. Introducción y análisis sobre la regresión: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
+* Regression in Excel.  If you’ve never tried regression in Excel, this tutorial makes it easy: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
+* Regression vs forecasting.  Tyler Chessman wrote a blog article explaining how to do time series forecasting in Excel, which contains a good beginner’s description of linear regression. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts)  
+*   Ordinary Least Squares Linear Regression: Flaws, Problems and Pitfalls.  For an introduction and discussion of Regression:   [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ )
 
 [1]: ./media/machine-learning-linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
 [2]: ./media/machine-learning-linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png
@@ -159,4 +160,8 @@ A continuación, encontrará algunos recursos que le ayudarán a trabajar con la
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

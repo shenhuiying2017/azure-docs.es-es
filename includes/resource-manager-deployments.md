@@ -1,19 +1,22 @@
-## Implementaciones de incrementales y completadas
+## <a name="incremental-and-complete-deployments"></a>Incremental and complete deployments
 
-De forma predeterminada, el Administrador de recursos controla las implementaciones como las actualizaciones incrementales al grupo de recursos. Con la implementación incremental, el Administrador de recursos:
+By default, Resource Manager handles deployments as incremental updates to the resource group. With incremental deployment, Resource Manager:
 
-- **deja sin modificar** recursos que existen en el grupo de recursos, pero que no se especifican en la plantilla
-- **agrega** recursos que se especifican en la plantilla, pero que no existen en el grupo de recursos
-- **no vuelve a aprovisionar** recursos que existen en el grupo de recursos en la misma condición definida en la plantilla
-- **vuelve a aprovisionar** recursos existentes con la configuración actualizada de la plantilla
+- **leaves unchanged** resources that exist in the resource group but are not specified in the template
+- **adds** resources that are specified in the template but do not exist in the resource group 
+- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
+- **re-provisions** existing resources that have updated settings in the template
 
-Con la implementación completa, el Administrador de recursos:
+With complete deployment, Resource Manager:
 
-- **elimina** recursos que existen en el grupo de recursos, pero que no se especifican en la plantilla
-- **agrega** recursos que se especifican en la plantilla, pero que no existen en el grupo de recursos
-- **no vuelve a aprovisionar** recursos que existen en el grupo de recursos en la misma condición definida en la plantilla
-- **vuelve a aprovisionar** recursos existentes con la configuración actualizada de la plantilla
+- **deletes** resources that exist in the resource group but are not specified in the template
+- **adds** resources that are specified in the template but do not exist in the resource group 
+- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
+- **re-provisions** existing resources that have updated settings in the template
  
-El tipo de implementación se especifica a través de la propiedad **Mode**.
+You specify the type of deployment through the **Mode** property.
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

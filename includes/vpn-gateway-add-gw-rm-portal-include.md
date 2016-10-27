@@ -1,34 +1,40 @@
-1. En el portal, vaya a **Nuevo**. Escriba "Puerta de enlace de red virtual" en la búsqueda. Busque **Puerta de enlace de red virtual** en los resultados de la búsqueda y haga clic en la entrada. Se abrirá la hoja **Crear puerta de enlace de red virtual**.
-2. Haga clic en **Crear** en la parte inferior de la hoja **Puerta de enlace de red virtual**. Se abrirá la hoja **Crear puerta de enlace de red virtual**. Rellene los valores de la puerta de enlace de red virtual.
+1. In the portal, go to **New**. Type "Virtual Network Gateway" in search. Locate **Virtual network gateway** in the search return and click the entry. This opens the **Create virtual network gateway** blade.
+2. Click **Create** at the bottom of the **Virtual network gateway** blade. The **Create virtual network gateway** blade will open. Fill in the values for your virtual network gateway.
 
-	![Campos de la hoja Crear puerta de enlace de red virtual](./media/vpn-gateway-add-gw-rm-portal-include/createvnetgw300.png "Campos de la hoja Crear puerta de enlace de red virtual")
+    ![Create virtual network gateway blade fields](./media/vpn-gateway-add-gw-rm-portal-include/createvnetgw300.png "Create virtual network gateway blade fields")
 
-3. **Nombre**: asigne un nombre a la puerta de enlace. Esta acción no es igual a la de asignación de un nombre a una subred de puerta de enlace. Este es el nombre del objeto de puerta de enlace que va a crear.
+3. **Name**: Name your gateway. This is not the same as naming a gateway subnet. It's the name of the gateway object you are creating.
 
-4. **Tipo de puerta de enlace**: seleccione **VPN**. Las puertas de enlace VPN usan el tipo de puerta de enlace de red virtual **VPN**.
+4. **Gateway type**: Select **VPN**. VPN gateways use the virtual network gateway type **VPN**. 
 
-5. **Tipo de VPN**: seleccione el tipo de VPN que se especifica para la configuración. La mayoría de las configuraciones requieren un tipo de VPN basada en enrutamiento.
+5. **VPN type**: Select the VPN type that is specified for your configuration. Most configurations require a Route-based VPN type.
 
-6. **SKU**: seleccione la SKU de puerta de enlace en la lista desplegable. Las SKU que aparecen en la lista desplegable dependen del tipo de VPN que seleccione.
+6. **SKU**: Select the gateway SKU from the dropdown. The SKUs listed in the dropdown depend on the VPN type you select.
 
-7. **Ubicación**: ajuste el campo **Ubicación** para que apunte a la ubicación en la que se encuentra la red virtual.
+7. **Location**: Adjust the **Location** field to point to the location where your virtual network is located.
  
-8. Elija la red virtual a la que quiera agregar esta puerta de enlace. Haga clic en **Red virtual** para abrir la hoja **Elegir una red virtual**. Seleccione la red virtual. Si no se muestra la red virtual, asegúrese de que el campo **Ubicación** apunta a la región en la que se encuentra la red virtual.
+8. Choose the virtual network to which you want to add this gateway. Click **Virtual network** to open the **Choose a virtual network** blade. Select the VNet. If you don't see your VNet, make sure the **Location** field is pointing to the region in which your virtual network is located.
 
-9. Elija una dirección IP pública. Haga clic en **Dirección de IP pública** para abrir la hoja **Elegir dirección IP pública**. Haga clic en **+Crear nueva** para abrir la hoja **Crear dirección IP pública**. Escriba un nombre para la dirección IP pública. Esta hoja crea un objeto de dirección IP pública al que se asignará una dirección IP pública dinámicamente.<br>Haga clic en **Aceptar** para guardar los cambios en esta hoja.
+9. Choose a public IP address. Click **Public IP address** to open the **Choose public IP address** blade. Click **+Create New** to open the **Create public IP address blade**. Input a name for your public IP address. This blade creates a public IP address object to which a public IP address will be dynamically assigned.<br>Click **OK** to save your changes to this blade.
 
-10. **Suscripción**: compruebe que se selecciona la suscripción correcta.
+10. **Subscription**: Verify that the correct subscription is selected.
 
-11. **Grupo de recursos**: este ajuste vendrá determinado por la red virtual que seleccione.
+11. **Resource group**: This setting is determined by the Virtual Network that you select. 
 
-12. No ajuste la **ubicación** después de especificar la configuración anterior.
+12. Don't adjust the **Location** after you've specified the previous settings.
 
-13. Compruebe la configuración. Puede seleccionar **Anclar al panel** en la parte inferior de la hoja si quiere que la puerta de enlace aparezca en el panel.
+13. Verify the settings. You can select **Pin to dashboard** at the bottom of the blade if you want your gateway to appear on the dashboard.
 
-14. Haga clic en **Crear** para comenzar a crear la puerta de enlace. Se validará la configuración y verá el icono "Implementación de la puerta de enlace de red virtual" en el panel. La creación de una puerta de enlace puede tardar hasta 45 minutos. Es posible que tenga que actualizar la página de portal para ver el estado completado.
+14. Click **Create** to begin creating the gateway. The settings will be validated and you'll see the "Deploying Virtual network gateway" tile on the dashboard. Creating a gateway can take up to 45 minutes. You may need to refresh your portal page to see the completed status.
 
-	![Implementación de puerta de enlace de red virtual](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png "Implementación de puerta de enlace de red virtual")
+    ![Deploying Virtual network gateway](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png "Deploying Virtual network gateway")
 
-11. Una vez creada la puerta de enlace, puede ver la dirección IP que se le ha asignado consultando la red virtual en el portal. La puerta de enlace aparecerá como un dispositivo conectado. Puede hacer clic en el dispositivo conectado (la puerta de enlace de red virtual) para más información.
+11. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway will appear as a connected device. You can click the connected device (your virtual network gateway) to view more information.
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

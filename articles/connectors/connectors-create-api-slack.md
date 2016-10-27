@@ -1,6 +1,6 @@
 <properties
-pageTitle="Uso del conector de Slack en las aplicaciones lógicas | Microsoft Azure"
-description="Introducción al uso del conector de Slack en las aplicaciones lógicas del Servicio de aplicaciones de Microsoft Azure"
+pageTitle=" Use the Slack Connector in your Logic apps| Microsoft Azure"
+description="Get started using the Slack Connector in your Microsoft Azure App Service Logic apps"
 services=""    
 documentationCenter=""     
 authors="msftman"    
@@ -17,403 +17,409 @@ ms.workload="na"
 ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Introducción al conector de Slack
 
-Slack es una herramienta de comunicación de equipo, que reúne todas las comunicaciones del equipo en un solo lugar, inmediatamente localizables y disponibles dondequiera que vaya.
+# <a name="get-started-with-the-slack-connector"></a>Get started with the Slack connector
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
+Slack is a team communication tool, that brings together all of your team communications in one place, instantly searchable and available wherever you go.
 
-Con el conector de Slack, puede:
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
-* Usarlo para crear aplicaciones lógicas
+With the Slack connector, you can:
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+* Use it to build logic apps
 
-## Hablemos de acciones y desencadenadores
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-El conector de Slack puede usarse como acción; no hay desencadenadores. Todos los conectores admiten datos en formato JSON y XML.
+## <a name="let's-talk-about-triggers-and-actions"></a>Let's talk about triggers and actions
 
- El conector de Slack tiene las siguientes acciones y desencadenadores disponibles:
+The Slack connector can be used as an action; there are no triggers. All connectors support data in JSON and XML formats. 
 
-### Acciones de Slack
-Puede realizar estas acciones:
+ The Slack connector has the following action(s) and/or trigger(s) available:
 
-|Acción|Descripción|
+### <a name="slack-actions"></a>Slack actions
+You can take these action(s):
+
+|Action|Description|
 |--- | ---|
-|PostMessage|Publicar un mensaje en un canal especificado.|
-## Creación de una conexión a Slack
-Para usar el conector de Slack, cree primero una **conexión** y, después, especifique los detalles de las siguientes propiedades:
+|PostMessage|Post a Message to a specified channel.|
+## <a name="create-a-connection-to-slack"></a>Create a connection to Slack
+To use the Slack connector, you first create a **connection** then provide the details for these properties: 
 
-|Propiedad| Obligatorio|Descripción|
+|Property| Required|Description|
 | ---|---|---|
-|Se necesita el cifrado de tokens|Sí|Proporcionar credenciales de Slack|
+|Token|Yes|Provide Slack Credentials|
 
-Siga estos pasos para iniciar sesión en Slack y completar la configuración de la **conexión** de Slack en la aplicación lógica:
+Follow these steps to sign into Slack and complete the configuration of the Slack **connection** in your logic app:
 
-1. Seleccione **Periodicidad**.
-2. Seleccione un valor para **Frecuencia** y especifique el correspondiente a **Intervalo**.
-3. Seleccione **Agregar una acción**. ![Configurar Slack][1]  
-4. Escriba Slack en el cuadro de búsqueda y espere a que la búsqueda devuelva todas las entradas que incluyan Slack en el nombre.
-5. Seleccione **Slack - Post message** (Slack - exponer mensaje).
-6. Seleccione **Sign in to Slack** (Iniciar sesión en Slack). ![Configurar Slack][2]
-7. Proporcione sus credenciales de Slack para iniciar sesión y autorizar la aplicación. ![Configurar Slack][3]  
-8. Se le redirigirá a la página de inicio de sesión de su organización. **Autorice** la interacción de Slack con la aplicación lógica. ![Configurar Slack][5] 
-9. Una vez completada la autorización, se le redirigirá a la aplicación lógica para que la complete configurando la sección **Slack - Get all messages** (Slack - obtener todos los mensajes). Agregue otros desencadenadores y acciones que necesite. ![Configurar Slack][6]
-10. Para guardar el trabajo, seleccione **Guardar** en la barra de menús anterior.
-
-
->[AZURE.TIP] Puede usar esta conexión en otras aplicaciones lógicas.
-
-## Referencia de la API de REST de Slack
-#### Esta documentación corresponde a la versión: 1.0
-
-
-### Publicar un mensaje en un canal especificado.
-**```POST: /chat.postMessage```**
+1. Select **Recurrence**
+2. Select a **Frequency** and enter an **Interval**
+3. Select **Add an action**  
+![Configure Slack][1]  
+4. Enter Slack in the search box and wait for the search to return all entries with Slack in the name
+5. Select **Slack - Post message**
+6. Select **Sign in to Slack**:  
+![Configure Slack][2]
+7. Provide your Slack credentials to sign in to authorize the  application    
+![Configure Slack][3]  
+8. You'll be redirected to your organization's Log in page. **Authorize** Slack to interact with your logic app:      
+![Configure Slack][5] 
+9. After the authorization completes you'll be redirected to your logic app to complete it by configuring the **Slack - Get all messages** section. Add other triggers and actions that you need.  
+![Configure Slack][6]
+10. Save your work by selecting **Save** on the menu bar above.
 
 
+>[AZURE.TIP] You can use this connection in other logic apps.
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
+## <a name="slack-rest-api-reference"></a>Slack REST API reference
+#### <a name="this-documentation-is-for-version:-1.0"></a>This documentation is for version: 1.0
+
+
+### <a name="post-a-message-to-a-specified-channel."></a>Post a Message to a specified channel.
+**```POST: /chat.postMessage```** 
+
+
+
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|channel|cadena|yes|query|Ninguna|Canal, grupo privado o canal de mensajería instantánea al que se envía el mensaje. Puede ser un nombre (por ejemplo: #general) o un identificador codificado.|
-|text|cadena|yes|query|Ninguna|Texto del mensaje para enviar. Para obtener más información sobre opciones de formato, consulte https://api.slack.com/docs/formatting.|.
-|nombre de usuario|cadena|no|query|Ninguna|Nombre del bot|
-|as\_user|boolean|no|query|Ninguna|Pasar true para publicar el mensaje como usuario autenticado y no como bot|
-|parse|cadena|no|query|Ninguna|Cambie la forma en que se tratan los mensajes. Para obtener más información, consulte https://api.slack.com/docs/formatting.|.
-|link\_names|integer|no|query|Ninguna|Buscar y vincular nombres de usuario y nombres de canal.|
-|unfurl\_links|boolean|no|query|Ninguna|Pasar true para habilitar el despliegue de contenido basado principalmente en texto.|
-|unfurl\_media|boolean|no|query|Ninguna|Pasar false para deshabilitar el despliegue de contenido multimedia.|
-|icon\_url|cadena|no|query|Ninguna|Dirección URL de una imagen que se usa como icono para este mensaje|
-|icon\_emoji|cadena|no|query|Ninguna|Emoji que se usa como icono para este mensaje|
+|channel|string|yes|query|none|Channel, private group, or IM channel to send message to. Can be a name(ex: #general) or an encoded ID.|
+|text|string|yes|query|none|Text of the message to send. For formatting options, see https://api.slack.com/docs/formatting.|
+|username|string|no|query|none|Name of the bot|
+|as_user|boolean|no|query|none|Pass true to post the message as the authenticated user, instead of as a bot|
+|parse|string|no|query|none|Change how messages are treated. For details, see https://api.slack.com/docs/formatting.|
+|link_names|integer|no|query|none|Find and link channel names and usernames.|
+|unfurl_links|boolean|no|query|none|Pass true to enable unfurling of primarily text-based content.|
+|unfurl_media|boolean|no|query|none|Pass false to disable unfurling of media content.|
+|icon_url|string|no|query|none|URL to an image to use as an icon for this message|
+|icon_emoji|string|no|query|none|Emoji to use as an icon for this message|
 
 
-### Estas son las posibles respuestas:
+### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
 
-|Nombre|Descripción|
+|Name|Description|
 |---|---|
 |200|OK|
 |400|Bad Request|
-|408|Tiempo de espera de solicitud|
-|429|Demasiadas solicitudes|
-|500|Error interno del servidor. Error desconocido|
-|503|Servicio de Slack no disponible|
-|504|Tiempo de espera de puerta de enlace|
-|default|Error en la operación.|
+|408|Request Timeout|
+|429|Too Many Requests|
+|500|Internal Server Error. Unknown error occured|
+|503|Slack Service Unavailable|
+|504|Gateway Timeout|
+|default|Operation Failed.|
 ------
 
 
 
-## Definiciones de objeto: 
+## <a name="object-definition(s):"></a>Object definition(s): 
 
- **Message**: mensaje de Yammer
+ **Message**:Yammer Message
 
-Propiedades obligatorias para Message:
-
-
-Ninguna de las propiedades es obligatoria.
+Required properties for Message:
 
 
-**Todas las propiedades**:
+None of the properties are required. 
 
 
-| Nombre | Tipo de datos |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
 |id|integer|
-|content\_excerpt|cadena|
-|sender\_id|integer|
-|replied\_to\_id|integer|
-|created\_at|cadena|
-|network\_id|integer|
-|message\_type|cadena|
-|sender\_type|cadena|
-|url|cadena|
-|web\_url|cadena|
-|group\_id|integer|
+|content_excerpt|string|
+|sender_id|integer|
+|replied_to_id|integer|
+|created_at|string|
+|network_id|integer|
+|message_type|string|
+|sender_type|string|
+|url|string|
+|web_url|string|
+|group_id|integer|
 |body|not defined|
-|thread\_id|integer|
-|direct\_message|boolean|
-|client\_type|cadena|
-|client\_url|cadena|
-|language|cadena|
-|notified\_user\_ids|array|
-|privacy|cadena|
-|liked\_by|not defined|
-|system\_message|boolean|
+|thread_id|integer|
+|direct_message|boolean|
+|client_type|string|
+|client_url|string|
+|language|string|
+|notified_user_ids|array|
+|privacy|string|
+|liked_by|not defined|
+|system_message|boolean|
 
 
 
- **PostOperationRequest**: una solicitud POST del conector de Yammer para publicar en Yammer
+ **PostOperationRequest**:Represents a post request for Yammer Connector to post to yammer
 
-Propiedades necesarias para PostOperationRequest:
+Required properties for PostOperationRequest:
 
 body
 
-**Todas las propiedades**:
+**All properties**: 
 
 
-| Nombre | Tipo de datos |
+| Name | Data Type |
 |---|---|
-|body|cadena|
-|group\_id|integer|
-|replied\_to\_id|integer|
-|direct\_to\_id|integer|
+|body|string|
+|group_id|integer|
+|replied_to_id|integer|
+|direct_to_id|integer|
 |broadcast|boolean|
-|topic1|cadena|
-|topic2|cadena|
-|topic3|cadena|
-|topic4|cadena|
-|topic5|cadena|
-|topic6|cadena|
-|topic7|cadena|
-|topic8|cadena|
-|topic9|cadena|
-|topic10|cadena|
-|topic11|cadena|
-|topic12|cadena|
-|topic13|cadena|
-|topic14|cadena|
-|topic15|cadena|
-|topic16|cadena|
-|topic17|cadena|
-|topic18|cadena|
-|topic19|cadena|
-|topic20|cadena|
+|topic1|string|
+|topic2|string|
+|topic3|string|
+|topic4|string|
+|topic5|string|
+|topic6|string|
+|topic7|string|
+|topic8|string|
+|topic9|string|
+|topic10|string|
+|topic11|string|
+|topic12|string|
+|topic13|string|
+|topic14|string|
+|topic15|string|
+|topic16|string|
+|topic17|string|
+|topic18|string|
+|topic19|string|
+|topic20|string|
 
 
 
- **MessageList**: lista de mensajes
+ **MessageList**:List of messages
 
-Propiedades obligatorias para MessageList:
-
-
-Ninguna de las propiedades es obligatoria.
+Required properties for MessageList:
 
 
-**Todas las propiedades**:
+None of the properties are required. 
 
 
-| Nombre | Tipo de datos |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
 |messages|array|
 
 
 
- **MessageBody**: cuerpo del mensaje
+ **MessageBody**:Message Body
 
-Propiedades obligatorias para MessageBody:
-
-
-Ninguna de las propiedades es obligatoria.
+Required properties for MessageBody:
 
 
-**Todas las propiedades**:
+None of the properties are required. 
 
 
-| Nombre | Tipo de datos |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|parsed|cadena|
-|plain|cadena|
-|rich|cadena|
+|parsed|string|
+|plain|string|
+|rich|string|
 
 
 
- **LikedBy**: a quién le gusta
+ **LikedBy**:Liked By
 
-Propiedades obligatorias para LikedBy:
-
-
-Ninguna de las propiedades es obligatoria.
+Required properties for LikedBy:
 
 
-**Todas las propiedades**:
+None of the properties are required. 
 
 
-| Nombre | Tipo de datos |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
 |count|integer|
 |names|array|
 
 
 
- **YammmerEntity**: a quién le gusta
+ **YammmerEntity**:Liked By
 
-Propiedades obligatorias para YammmerEntity:
-
-
-Ninguna de las propiedades es obligatoria.
+Required properties for YammmerEntity:
 
 
-**Todas las propiedades**:
+None of the properties are required. 
 
 
-| Nombre | Tipo de datos |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|type|cadena|
+|type|string|
 |id|integer|
-|full\_name|cadena|
+|full_name|string|
 
 
-## Pasos siguientes
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
-## Definiciones de objeto: 
+## <a name="next-steps"></a>Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## <a name="object-definition(s):"></a>Object definition(s): 
 
- **WebResultModel**: resultados de búsqueda en Web de Bing
+ **WebResultModel**:Bing web search results
 
-Propiedades obligatorias para WebResultModel:
-
-
-Ninguna de las propiedades es obligatoria.
+Required properties for WebResultModel:
 
 
-**Todas las propiedades**:
+None of the properties are required. 
 
 
-| Nombre | Tipo de datos |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|Título|cadena|
-|Descripción|cadena|
-|DisplayUrl|cadena|
-|Id|cadena|
-|FullUrl|cadena|
+|Title|string|
+|Description|string|
+|DisplayUrl|string|
+|Id|string|
+|FullUrl|string|
 
 
 
- **VideoResultModel**: resultados de búsqueda de vídeo de Bing
+ **VideoResultModel**:Bing video search results
 
-Propiedades necesarias para VideoResultModel:
-
-
-Ninguna de las propiedades es obligatoria.
+Required properties for VideoResultModel:
 
 
-**Todas las propiedades**:
+None of the properties are required. 
 
 
-| Nombre | Tipo de datos |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|Título|cadena|
-|DisplayUrl|cadena|
-|Id|cadena|
-|MediaUrl|cadena|
-|Tiempo de ejecución|integer|
-|Miniatura|not defined|
+|Title|string|
+|DisplayUrl|string|
+|Id|string|
+|MediaUrl|string|
+|Runtime|integer|
+|Thumbnail|not defined|
 
 
 
- **ThumbnailModel**: propiedades de vista en miniatura del elemento multimedia
+ **ThumbnailModel**:Thumbnail properties of the multimedia element
 
-Propiedades necesarias para ThumbnailModel:
-
-
-Ninguna de las propiedades es obligatoria.
+Required properties for ThumbnailModel:
 
 
-**Todas las propiedades**:
+None of the properties are required. 
 
 
-| Nombre | Tipo de datos |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|MediaUrl|cadena|
-|ContentType|cadena|
-|Ancho|integer|
-|Alto|integer|
+|MediaUrl|string|
+|ContentType|string|
+|Width|integer|
+|Height|integer|
 |FileSize|integer|
 
 
 
- **ImageResultModel**: resultados de búsqueda de imagen de Bing
+ **ImageResultModel**:Bing image search results
 
-Propiedades obligatorias para ImageResultModel:
-
-
-Ninguna de las propiedades es obligatoria.
+Required properties for ImageResultModel:
 
 
-**Todas las propiedades**:
+None of the properties are required. 
 
 
-| Nombre | Tipo de datos |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|Título|cadena|
-|DisplayUrl|cadena|
-|Id|cadena|
-|MediaUrl|cadena|
-|SourceUrl|cadena|
-|Miniatura|not defined|
+|Title|string|
+|DisplayUrl|string|
+|Id|string|
+|MediaUrl|string|
+|SourceUrl|string|
+|Thumbnail|not defined|
 
 
 
- **NewsResultModel**: resultados de búsqueda de noticias de Bing
+ **NewsResultModel**:Bing news search results
 
-Propiedades necesarias para NewsResultModel:
-
-
-Ninguna de las propiedades es obligatoria.
+Required properties for NewsResultModel:
 
 
-**Todas las propiedades**:
+None of the properties are required. 
 
 
-| Nombre | Tipo de datos |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|Título|cadena|
-|Descripción|cadena|
-|DisplayUrl|cadena|
-|Id|cadena|
-|Origen|cadena|
-|Date|cadena|
+|Title|string|
+|Description|string|
+|DisplayUrl|string|
+|Id|string|
+|Source|string|
+|Date|string|
 
 
 
- **SpellResultModel**: resultados de sugerencias de ortografía de Bing
+ **SpellResultModel**:Bing spelling suggestions results
 
-Propiedades necesarias para SpellResultModel:
-
-
-Ninguna de las propiedades es obligatoria.
+Required properties for SpellResultModel:
 
 
-**Todas las propiedades**:
+None of the properties are required. 
 
 
-| Nombre | Tipo de datos |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|Id|cadena|
-|Valor|cadena|
+|Id|string|
+|Value|string|
 
 
 
- **RelatedSearchResultModel**: resultados de búsqueda relacionados con Bing
+ **RelatedSearchResultModel**:Bing related search results
 
-Propiedades necesarias para RelatedSearchResultModel:
-
-
-Ninguna de las propiedades es obligatoria.
+Required properties for RelatedSearchResultModel:
 
 
-**Todas las propiedades**:
+None of the properties are required. 
 
 
-| Nombre | Tipo de datos |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|Título|cadena|
-|Id|cadena|
-|BingUrl|cadena|
+|Title|string|
+|Id|string|
+|BingUrl|string|
 
 
 
- **CompositeSearchResultModel**: resultados de búsqueda compuesta de Bing
+ **CompositeSearchResultModel**:Bing composite search results
 
-Propiedades necesarias para CompositeSearchResultModel:
-
-
-Ninguna de las propiedades es obligatoria.
+Required properties for CompositeSearchResultModel:
 
 
-**Todas las propiedades**:
+None of the properties are required. 
 
 
-| Nombre | Tipo de datos |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
 |WebResultsTotal|integer|
 |ImageResultsTotal|integer|
@@ -428,57 +434,61 @@ Ninguna de las propiedades es obligatoria.
 |RelatedSearchResults|array|
 
 
-## Definiciones de objeto: 
+## <a name="object-definition(s):"></a>Object definition(s): 
 
- **PostOperationResponse**: la respuesta de una operación POST del conector de Slack para publicar en Slack
+ **PostOperationResponse**:Represents response of post operation of Slack Connector for posting to Slack
 
-Propiedades obligatorias para PostOperationResponse:
-
-
-Ninguna de las propiedades es obligatoria.
+Required properties for PostOperationResponse:
 
 
-**Todas las propiedades**:
+None of the properties are required. 
 
 
-| Nombre | Tipo de datos |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|aceptar|boolean|
-|channel|cadena|
-|ts|cadena|
+|ok|boolean|
+|channel|string|
+|ts|string|
 |message|not defined|
-|error|cadena|
+|error|string|
 
 
 
- **MessageItem**: un mensaje de canal
+ **MessageItem**:A channel message.
 
-Propiedades obligatorias para MessageItem:
-
-
-Ninguna de las propiedades es obligatoria.
+Required properties for MessageItem:
 
 
-**Todas las propiedades**:
+None of the properties are required. 
 
 
-| Nombre | Tipo de datos |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|text|cadena|
-|id|cadena|
-|user|cadena|
+|text|string|
+|id|string|
+|user|string|
 |created|integer|
-|is\_user-deleted|boolean|
+|is_user-deleted|boolean|
 
 
-## Pasos siguientes
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## <a name="next-steps"></a>Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
 [1]: ./media/connectors-create-api-slack/connectionconfig1.png
-[2]: ./media/connectors-create-api-slack/connectionconfig2.png
+[2]: ./media/connectors-create-api-slack/connectionconfig2.png 
 [3]: ./media/connectors-create-api-slack/connectionconfig3.png
 [4]: ./media/connectors-create-api-slack/connectionconfig4.png
 [5]: ./media/connectors-create-api-slack/connectionconfig5.png
 [6]: ./media/connectors-create-api-slack/connectionconfig6.png
 
-<!---HONumber=AcomDC_0525_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,44 +1,45 @@
 <properties
-	pageTitle="Adición de un disco a una máquina virtual de Linux | Microsoft Azure"
-	description="Vea cómo agregar un disco persistente a la máquina virtual Linux"
-	keywords="máquina virtual de Linux, agregar disco de recursos"
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="rickstercdn"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager" />
+    pageTitle="Add a disk to Linux VM | Microsoft Azure"
+    description="Learn to add a persistent disk to your Linux VM"
+    keywords="linux virtual machine,add resource disk"
+    services="virtual-machines-linux"
+    documentationCenter=""
+    authors="rickstercdn"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-resource-manager" />
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.topic="article"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.date="09/06/2016"
-	ms.author="rclaus"/>
+    ms.service="virtual-machines-linux"
+    ms.topic="article"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.date="09/06/2016"
+    ms.author="rclaus"/>
 
-# Adición de un disco a una máquina virtual de Linux
 
-En este artículo se muestra cómo conectar un disco persistente a la máquina virtual para que se puedan conservar los datos: incluso si la máquina virtual se vuelve a aprovisionar por mantenimiento o cambio de tamaño. Para agregar un disco, tiene que configurar la [CLI de Azure](../xplat-cli-install.md) en modo Resource Manager (`azure config mode arm`).
+# <a name="add-a-disk-to-a-linux-vm"></a>Add a disk to a Linux VM
 
-## Comandos rápidos
+This article shows how to attach a persistent disk to your VM so that you can preserve your data - even if your VM is reprovisioned due to maintenance or resizing. To add a disk, you need [the Azure CLI](../xplat-cli-install.md) configured in Resource Manager mode (`azure config mode arm`).  
 
-En los siguientes ejemplos de comandos, reemplace los valores entre &lt; y &gt; con los valores de su propio entorno.
+## <a name="quick-commands"></a>Quick Commands
+
+In the following command examples, replace the values between &lt; and &gt; with the values from your own environment.
 
 ```bash
 azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>
 ```
 
-## Conexión de un disco
+## <a name="attach-a-disk"></a>Attach a disk
 
-La asociación de un nuevo disco es algo que se hace rápidamente. Escriba `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>` para crear y vincular un nuevo disco GB para la máquina virtual. Si no identifica explícitamente una cuenta de almacenamiento, cualquier disco que cree se coloca en la misma cuenta de almacenamiento donde reside el disco del sistema operativo. Debe tener un aspecto similar al siguiente:
+Attaching a new disk is quick. Type `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>` to create and attach a new GB disk for your VM. If you do not explicitly identify a storage account, any disk you create is placed in the same storage account where your OS disk resides.  It should look something like the following:
 
 ```bash
 azure vm disk attach-new myuniquegroupname myuniquevmname 5
 ```
 
-Salida
+Output
 
 ```bash
 info:    Executing command vm disk attach-new
@@ -48,17 +49,17 @@ info:    New data disk location: https://cliexxx.blob.core.windows.net/vhds/myun
 info:    vm disk attach-new command OK
 ```
 
-## Conexión a la máquina virtual con Linux para montar el nuevo disco
+## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Connect to the Linux VM to mount the new disk
 
-> [AZURE.NOTE] En este tema se conecta a una máquina virtual mediante nombres de usuario y contraseñas. Para usar pares de claves públicas y privadas para comunicarse con la máquina virtual, consulte [Uso de SSH con Linux y Mac en Azure](virtual-machines-linux-mac-create-ssh-keys.md). Puede modificar la conectividad de **SSH** de las máquinas virtuales creadas con el comando `azure vm quick-create` mediante el comando `azure vm reset-access` para restablecer completamente el acceso de **SSH**, agregar o quitar usuarios o agregar archivos de claves públicas para proteger el acceso.
+> [AZURE.NOTE] This topic connects to a VM using usernames and passwords. To use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-mac-create-ssh-keys.md). You can modify the **SSH** connectivity of VMs created with the `azure vm quick-create` command by using the `azure vm reset-access` command to reset **SSH** access completely, add or remove users, or add public key files to secure access.
 
-Necesita SSH en la máquina virtual de Azure para particionar, formatear y montar el disco nuevo para que la máquina virtual con Linux pueda usarlo. Si no está familiarizado con la conexión con **ssh**, el comando toma la forma `ssh <username>@<FQDNofAzureVM> -p <the ssh port>` y tiene el aspecto siguiente:
+You need to SSH into your Azure VM to partition, format, and mount your new disk so your Linux VM can use it. If you're not familiar with connecting with **ssh**, the command takes the form `ssh <username>@<FQDNofAzureVM> -p <the ssh port>`, and looks like the following:
 
 ```bash
 ssh ops@myuni-westu-1432328437727-pip.westus.cloudapp.azure.com -p 22
 ```
 
-Salida
+Output
 
 ```bash
 The authenticity of host 'myuni-westu-1432328437727-pip.westus.cloudapp.azure.com (191.239.51.1)' can't be established.
@@ -94,13 +95,13 @@ applicable law.
 ops@myuniquevmname:~$
 ```
 
-Ahora que está conectado a la máquina virtual, está listo para conectar un disco. Primero, busquemos el disco con `dmesg | grep SCSI` (el método usado para detectar el nuevo disco puede variar). En este caso, es similar a lo siguiente:
+Now that you're connected to your VM, you're ready to attach a disk.  First find the disk, using `dmesg | grep SCSI` (the method you use to discover your new disk may vary). In this case, it looks something like:
 
 ```bash
 dmesg | grep SCSI
 ```
 
-Salida
+Output
 
 ```bash
 [    0.294784] SCSI subsystem initialized
@@ -110,13 +111,13 @@ Salida
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-y en el caso de este tema, el disco `sdc` es el que queremos. Ahora, particionamos el disco con `sudo fdisk /dev/sdc`, suponiendo en su caso que el disco estaba `sdc`, lo convertimos en un disco principal en la partición 1 y aceptamos los demás valores predeterminados.
+and in the case of this topic, the `sdc` disk is the one that we want. Now partition the disk with `sudo fdisk /dev/sdc` -- assuming that in your case the disk was `sdc`, and make it a primary disk on partition 1, and accept the other defaults.
 
 ```bash
 sudo fdisk /dev/sdc
 ```
 
-Salida
+Output
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -138,7 +139,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-Para crear la partición, escribimos `p` en el símbolo del sistema:
+Create the partition by typing `p` at the prompt:
 
 ```bash
 Command (m for help): p
@@ -160,13 +161,13 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 
-Y escribimos un sistema de archivos en la partición mediante el comando **mkfs**, especificando el tipo de sistema de archivos y el nombre del dispositivo. En este tema, estamos usando `ext4` y `/dev/sdc1` mostrados anteriormente:
+And write a file system to the partition by using the **mkfs** command, specifying your filesystem type and the device name. In this topic, we're using `ext4` and `/dev/sdc1` from above:
 
 ```bash
 sudo mkfs -t ext4 /dev/sdc1
 ```
 
-Salida
+Output
 
 ```bash
 mke2fs 1.42.9 (4-Feb-2014)
@@ -184,45 +185,45 @@ Maximum filesystem blocks=1342177280
 32768 blocks per group, 32768 fragments per group
 8192 inodes per group
 Superblock backups stored on blocks:
-	32768, 98304, 163840, 229376, 294912, 819200, 884736
+    32768, 98304, 163840, 229376, 294912, 819200, 884736
 Allocating group tables: done
 Writing inode tables: done
 Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
 
-Cree un directorio para montar el nuevo sistema de archivos mediante `mkdir`:
+Now we create a directory to mount the file system using `mkdir`:
 
 ```bash
 sudo mkdir /datadrive
 ```
 
-Y monte el directorio con `mount`:
+And you mount the directory using `mount`:
 
 ```bash
 sudo mount /dev/sdc1 /datadrive
 ```
 
-El disco de datos está ahora listo para usarse como `/datadrive`.
+The data disk is now ready to use as `/datadrive`.
 
 ```bash
 ls
 ```
 
-Salida
+Output
 
 ```bash
 bin   datadrive  etc   initrd.img  lib64       media  opt   root  sbin  sys  usr  vmlinuz
 boot  dev        home  lib         lost+found  mnt    proc  run   srv   tmp  var
 ```
 
-Para asegurarse de que la unidad se vuelve a montar automáticamente después de reiniciar, debe agregarse al archivo /etc/fstab. Además, se recomienda encarecidamente que se use el UUID (identificador único global) en /etc/fstab para hacer referencia a la unidad en lugar de solo el nombre del dispositivo (por ejemplo, `/dev/sdc1`). Si el SO detecta un error de disco durante el arranque, con el UUID se evita que se monte el disco incorrecto en una ubicación especificada. A los discos de datos restantes se les asignarán después esos mismos identificadores de dispositivo. Para buscar el UUID de la unidad nueva, use la utilidad **blkid**:
+To ensure the drive is remounted automatically after a reboot it must be added to the /etc/fstab file. In addition, it is highly recommended that the UUID (Universally Unique IDentifier) is used in /etc/fstab to refer to the drive rather than just the device name (such as, `/dev/sdc1`). If the OS detects a disk error during boot, using the UUID avoids the incorrect disk being mounted to a given location. Remaining data disks would then be assigned those same device IDs. To find the UUID of the new drive, use the **blkid** utility:
 
 ```bash
 sudo -i blkid
 ```
 
-La salida es similar a la siguiente:
+The output looks similar to the following:
 
 ```bash
 /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
@@ -230,51 +231,55 @@ La salida es similar a la siguiente:
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
->[AZURE.NOTE] La edición incorrecta del archivo **/etc/fstab** puede tener como resultado un sistema que no se pueda arrancar. Si no está seguro, consulte la documentación de distribución para obtener información sobre cómo editar correctamente ese archivo. También se recomienda realizar una copia de seguridad del archivo /etc/fstab antes de editarlo.
+>[AZURE.NOTE] Improperly editing the **/etc/fstab** file could result in an unbootable system. If unsure, refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
 
-Después, abra el archivo **/etc/fstab** en un editor de texto:
+Next, open the **/etc/fstab** file in a text editor:
 
 ```bash
 sudo vi /etc/fstab
 ```
 
-En este ejemplo, usamos el valor de UUID para el nuevo dispositivo **/dev/sdc1** que se ha creado en los pasos anteriores y el punto de montaje **/datadrive**. Agregue la siguiente línea al final del archivo **/etc/fstab**:
+In this example, we use the UUID value for the new **/dev/sdc1** device that was created in the previous steps, and the mountpoint **/datadrive**. Add the following line to the end of the **/etc/fstab** file:
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
 ```
 
->[AZURE.NOTE] Después, la eliminación de un disco de datos sin editar fstab podría provocar un error en el inicio de la máquina virtual. La mayoría de las distribuciones proporcionan las opciones de fstab `nofail` o `nobootwait`. Estas opciones permiten que el sistema arranque incluso si no se monta el disco en el momento del arranque. Consulte la documentación de su distribución para obtener más información sobre estos parámetros.
+>[AZURE.NOTE] Later removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the `nofail` and/or `nobootwait` fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
 
 
-### Compatibilidad de TRIM/UNMAP con Linux en Azure
-Algunos kernels de Linux admiten operaciones TRIM/UNMAP para descartar bloques no usados del disco. Esto es especialmente útil en el almacenamiento estándar para informar a Azure de que las páginas eliminadas ya no son válidas y se pueden descartar. Esto puede suponer un ahorro de dinero si crea archivos grandes y, a continuación, los elimina.
+### <a name="trim/unmap-support-for-linux-in-azure"></a>TRIM/UNMAP support for Linux in Azure
+Some Linux kernels support TRIM/UNMAP operations to discard unused blocks on the disk. This is primarily useful in standard storage to inform Azure that deleted pages are no longer valid and can be discarded. This can save cost if you create large files and then delete them.
 
-Hay dos maneras de habilitar la compatibilidad con TRIM en su máquina virtual Linux. Como es habitual, consulte la documentación de distribución para ver el enfoque recomendado:
+There are two ways to enable TRIM support in your Linux VM. As usual, consult your distribution for the recommended approach:
 
-- Use la opción de montaje `discard` en `/etc/fstab`, por ejemplo:
+- Use the `discard` mount option in `/etc/fstab`, for example:
 
-		UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
+        UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
 
-- Como alternativa, puede ejecutar el comando `fstrim` manualmente desde la línea de comandos o agregarlo a su crontab para ejecutar con regularidad:
+- Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
 
-	**Ubuntu**
+    **Ubuntu**
 
-		# sudo apt-get install util-linux
-		# sudo fstrim /datadrive
+        # sudo apt-get install util-linux
+        # sudo fstrim /datadrive
 
-	**RHEL/CentOS**
+    **RHEL/CentOS**
 
-		# sudo yum install util-linux
-		# sudo fstrim /datadrive
+        # sudo yum install util-linux
+        # sudo fstrim /datadrive
 
-## Solución de problemas
+## <a name="troubleshooting"></a>Troubleshooting
 [AZURE.INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next Steps
 
-- Recuerde que el nuevo disco no está disponible en la máquina virtual si esta se reinicia a menos que escriba dicha información en su archivo [fstab](http://en.wikipedia.org/wiki/Fstab).
-- Revise las recomendaciones para [optimizar el rendimiento de la máquina Linux](virtual-machines-linux-optimization.md) para asegurarse de que la máquina virtual Linux está configurada correctamente.
-- Amplíe la capacidad de almacenamiento mediante la adición de discos adicionales y [configure RAID](virtual-machines-linux-configure-raid.md) para obtener un mayor rendimiento.
+- Remember, that your new disk is not available to the VM if it reboots unless you write that information to your [fstab](http://en.wikipedia.org/wiki/Fstab) file.
+- To ensure your Linux VM is configured correctly, review the [Optimize your Linux machine performance](virtual-machines-linux-optimization.md) recommendations.
+- Expand your storage capacity by adding additional disks and [configure RAID](virtual-machines-linux-configure-raid.md) for additional performance.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

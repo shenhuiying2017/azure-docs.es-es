@@ -1,26 +1,28 @@
 <properties
-	pageTitle="Introducción a Azure Mobile Engagement para la implementación de Unity para iOS"
-	description="Aprenda a usar Azure Mobile Engagement con los análisis y las notificaciones push para aplicaciones de Unity que se implementan en dispositivos de iOS."
-	services="mobile-engagement"
-	documentationCenter="unity"
-	authors="piyushjo"
-	manager=""
-	editor="" />
+    pageTitle="Introducción a Azure Mobile Engagement para la implementación de Unity para iOS"
+    description="Aprenda a usar Azure Mobile Engagement con los análisis y las notificaciones push para aplicaciones de Unity que se implementan en dispositivos de iOS."
+    services="mobile-engagement"
+    documentationCenter="unity"
+    authors="piyushjo"
+    manager=""
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-unity-ios"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="08/19/2016"
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-unity-ios"
+    ms.devlang="dotnet"
+    ms.topic="hero-article"
+    ms.date="08/19/2016"
+    ms.author="piyushjo" />
 
-# Introducción a Azure Mobile Engagement para la implementación de Unity para iOS
 
-[AZURE.INCLUDE [Modificador del tutorial de imagen prominente](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
+# <a name="get-started-with-azure-mobile-engagement-for-unity-ios-deployment"></a>Introducción a Azure Mobile Engagement para la implementación de Unity para iOS
 
-En este tema se muestra cómo usar Azure Mobile Engagement para comprender el uso de su aplicación y cómo enviar notificaciones push a usuarios segmentados de una aplicación de Unity durante la implementación en un dispositivo de iOS. Este tutorial utiliza el tutorial de iniciación clásico de Unity como punto de partida. Debe seguir los pasos de este [tutorial](mobile-engagement-unity-roll-a-ball.md) antes de continuar con la integración de Mobile Engagement que se muestra en el tutorial siguiente.
+[AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
+
+En este tema se muestra cómo usar Azure Mobile Engagement para comprender el uso de su aplicación y cómo enviar notificaciones push a usuarios segmentados de una aplicación de Unity durante la implementación en un dispositivo de iOS.
+Este tutorial utiliza el tutorial de iniciación clásico de Unity como punto de partida. Debe seguir los pasos de este [tutorial](mobile-engagement-unity-roll-a-ball.md) antes de continuar con la integración de Mobile Engagement que se muestra en el tutorial siguiente. 
 
 Este tutorial requiere lo siguiente:
 
@@ -28,92 +30,93 @@ Este tutorial requiere lo siguiente:
 + [SDK de Unity para Mobile Engagement](https://aka.ms/azmeunitysdk)
 + Editor de XCode
 
-> [AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-ios-get-started).
+> [AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-ios-get-started).
 
-##<a id="setup-azme"></a>Configuración de Mobile Engagement para una aplicación iOS
+##<a name="<a-id="setup-azme"></a>setup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Configuración de Mobile Engagement para una aplicación iOS
 
-[AZURE.INCLUDE [Creación de la aplicación de Mobile Engagement en el portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-##<a id="connecting-app"></a>Conectar la aplicación al backend de Mobile Engagement
+##<a name="<a-id="connecting-app"></a>connect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Conectar la aplicación al backend de Mobile Engagement
 
-###Importación del paquete de Unity
+###<a name="import-the-unity-package"></a>Importación del paquete de Unity
 
-1. Descargue el [paquete de Unity para Mobile Engagement](https://aka.ms/azmeunitysdk) y guárdelo en el equipo local.
+1. Descargue el [paquete de Unity para Mobile Engagement](https://aka.ms/azmeunitysdk) y guárdelo en el equipo local. 
 
-2. Vaya a **Assets -> Import Package -> Custom Package** (Recursos -> Importar paquete -> Paquete personalizado) y seleccione el paquete que descargó en el paso anterior.
+2. Vaya a **Assets -> Import Package -> Custom Package** (Recursos -> Importar paquete -> Paquete personalizado) y seleccione el paquete que descargó en el paso anterior. 
 
-	![][70]
+    ![][70] 
 
-3. Asegúrese de que se seleccionan todos los archivos y haga clic en el botón **Import** (Importar).
+3. Asegúrese de que se seleccionan todos los archivos y haga clic en el botón **Import** (Importar). 
 
-	![][71]
+    ![][71] 
 
-4. Una vez que la importación termina correctamente, verá los archivos del SDK importados en el proyecto.
+4. Una vez que la importación termina correctamente, verá los archivos del SDK importados en el proyecto.  
 
-	![][72]
+    ![][72] 
 
-###Actualización de EngagementConfiguration
+###<a name="update-the-engagementconfiguration"></a>Actualización de EngagementConfiguration
 
-1. Abra el archivo de script **EngagementConfiguration** desde la carpeta del SDK y actualice **IOS\_CONNECTION\_STRING** con la cadena de conexión que obtuvo anteriormente desde el Portal de Azure.
+1. Abra el archivo de script **EngagementConfiguration** desde la carpeta del SDK y actualice **IOS\_CONNECTION\_STRING** con la cadena de conexión que obtuvo anteriormente en Azure Portal.  
 
-	![][73]
+    ![][73]
 
-2. Guarde el archivo .
+2. Guarde el archivo . 
 
-###Configuración de la aplicación para un seguimiento básico
+###<a name="configure-the-app-for-basic-tracking"></a>Configuración de la aplicación para un seguimiento básico
 
-1. Abra el script **Playercontroller** asociado al objeto Player para su edición.
+1. Abra el script **Playercontroller** asociado al objeto Player para su edición. 
 
 2. Agregue la siguiente instrucción using:
 
-		using Microsoft.Azure.Engagement.Unity;
+        using Microsoft.Azure.Engagement.Unity;
 
 3. Agregue lo siguiente al método `Start()`.
     
         EngagementAgent.Initialize();
         EngagementAgent.StartActivity("Home");
 
-###Implementación y ejecución de la aplicación
+###<a name="deploy-and-run-the-app"></a>Implementación y ejecución de la aplicación
 
-1. Conecte un dispositivo iOS al equipo.
+1. Conecte un dispositivo iOS al equipo. 
 
-2. Abra **File -> Build Settings** (Archivo -> Configuración de compilación).
+2. Abra **File -> Build Settings** (Archivo -> Configuración de compilación). 
 
-	![][40]
+    ![][40]
 
-3. Seleccione **iOS** y, a continuación, haga clic en **Switch Platform (Cambiar plataforma)**
+3. Seleccione **iOS** y, después, haga clic en **Switch Platform** (Cambiar plataforma).
 
-	![][41]
+    ![][41]
 
-	![][42]
+    ![][42]
 
-4. Haga clic en **Player settings** (Configuración del Reproductor) y proporcione un identificador de agrupación de trabajos válido.
+4. Haga clic en **Player settings** (Configuración del Reproductor) y proporcione un identificador de agrupación de trabajos válido. 
 
-	![][53]
+    ![][53]
 
-5. Por último, haga clic en **Build And Run** (Compilar y ejecutar).
+5. Por último, haga clic en **Build And Run**
 
-	![][54]
+    ![][54]
 
-6. Se le pedirá que proporcione un nombre de carpeta para almacenar el paquete de iOS.
+6. Se le pedirá que proporcione un nombre de carpeta para almacenar el paquete de iOS. 
 
-	![][43]
+    ![][43]
 
-7. Si todo va bien, se compilará el proyecto y se abrirá en la aplicación de XCode.
+7. Si todo va bien, se compilará el proyecto y se abrirá en la aplicación de XCode. 
 
-8. Asegúrese de que el **identificador de la agrupación de trabajos** es correcto en el proyecto.
+8. Asegúrese de que el **identificador de la agrupación de trabajos** es correcto en el proyecto.  
 
-	![][75]
+    ![][75]
 
-10. Ejecute la aplicación en XCode para que el paquete se implemente en su dispositivo conectado y con eso debería ver ya el juego de Unity en el teléfono.
+10. Ejecute la aplicación en XCode para que el paquete se implemente en su dispositivo conectado y con eso debería ver ya el juego de Unity en el teléfono. 
 
-##<a id="monitor"></a>Conexión de la aplicación con la supervisión en tiempo real
+##<a name="<a-id="monitor"></a>connect-app-with-real-time-monitoring"></a><a id="monitor"></a>Conexión de la aplicación con la supervisión en tiempo real
 
-[AZURE.INCLUDE [Conectar la aplicación con la supervisión en tiempo real](../../includes/mobile-engagement-connect-app-with-monitor.md)]
+[AZURE.INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-##<a id="integrate-push"></a>Habilitación de las notificaciones push y la mensajería en aplicación
+##<a name="<a-id="integrate-push"></a>enable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Habilitación de las notificaciones push y la mensajería en aplicación
 
-Mobile Engagement permite interactuar y llegar mediante notificaciones push y mensajería en la aplicación en el contexto de las campañas. Este módulo se denomina REACH en el portal de Mobile Engagement. No tiene que realizar ninguna configuración adicional en la aplicación para recibir notificaciones ya que ya está configurado para ello.
+Mobile Engagement permite interactuar y llegar mediante notificaciones push y mensajería en la aplicación en el contexto de las campañas. Este módulo se denomina REACH en el portal de Mobile Engagement.
+No tiene que realizar ninguna configuración adicional en la aplicación para recibir notificaciones ya que ya está configurado para ello.
 
 [AZURE.INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
 
@@ -131,4 +134,8 @@ Mobile Engagement permite interactuar y llegar mediante notificaciones push y me
 [74]: ./media/mobile-engagement-unity-ios-get-started/74.png
 [75]: ./media/mobile-engagement-unity-ios-get-started/75.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,135 +1,139 @@
 <properties
-	pageTitle="Introducción a Azure AD Cordova | Microsoft Azure"
-	description="Creación de una aplicación Cordova que se integra con Azure AD para el inicio de sesión y llama a las API protegidas de Azure AD mediante OAuth."
-	services="active-directory"
-	documentationCenter=""
-	authors="vibronet"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="Azure AD Cordova Getting Started | Microsoft Azure"
+    description="How to build a Cordova application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth."
+    services="active-directory"
+    documentationCenter=""
+    authors="vibronet"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="vittorib"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="javascript"
+    ms.topic="article"
+    ms.date="09/16/2016"
+    ms.author="vittorib"/>
 
-# Integración de Azure AD con una aplicación Apache Cordova
+
+# <a name="integrate-azure-ad-with-an-apache-cordova-app"></a>Integrate Azure AD with an Apache Cordova app
 
 [AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Apache Cordova permite desarrollar aplicaciones HTML5/JavaScript que se pueden ejecutar en dispositivos móviles como aplicaciones nativas completas. Con Azure AD, puede agregar capacidades de autenticación de nivel empresarial a sus aplicaciones Cordova. Gracias a un SDK nativo de Azure AD del complemento Cordova disponible en iOS, Android, Tienda Windows y Windows Phone, podrá mejorar su aplicación para que admita el inicio de sesión con las cuentas de AD de sus usuarios, permita acceder a Office 365 y a la API de Azure e, incluso, garantice la seguridad de las llamadas a su propia API web personalizada.
+Apache Cordova makes it possible for you to develop HTML5/JavaScript applications which can run on mobile devices as full-fledged native applications.
+With Azure AD, you can add enterprise grade authentication capabilities to your Cordova applications. Thanks to a Cordova plugin wrapping Azure AD's native SDKs on iOS, Android, Windows Store and Windows Phone, you can enhance your application to support sign on with your users' AD accounts, gain access to Office 365 and Azure API, and even protect calls to your own custom Web API.
 
-En este tutorial, usaremos el complemento de Apache Cordova para la biblioteca de autenticación de Active Directory (ADAL) para mejorar una aplicación sencilla con las siguientes características:
+In this tutorial we will use the Apache Cordova plugin for Active Directory Authentication Library (ADAL) to improve a simple app with the following features:
 
--	Con solo unas líneas de código, podrá autenticar a un usuario de AD y obtener un token para llamar a la API Graph de Azure AD.
--	Utilice ese token para invocar la API Graph para consultar ese directorio y mostrar los resultados.
--	Aproveche la caché de tokens de ADAL para reducir al máximo las peticiones de autenticación que se le muestran al usuario.
+-   With just few lines of code, authenticate an AD user and obtain a token for calling the Azure AD Graph API.
+-   Use that token to invoke the Graph API to query that directory and display the results  
+-   Leverage the ADAL token cache for minimizing the authentication prompts for the user.
 
-Para ello, deberá hacer lo siguiente:
+In order to do this, you’ll need to:
 
-2. Registrar una aplicación con Azure AD
-2. Agregar código a la aplicación para solicitar tokens
-3. Agregue código para usar el token para hacer consultas a la API Graph y mostrar los resultados.
-4. Crear el proyecto de implementación de Cordova con todas las plataformas a las que desee dirigirse y el complemento de ADAL de Cordova a fin de probar la solución en emuladores.
+2. Register an application with Azure AD
+2. Add code to your app to request tokens
+3. Add code to use the token for querying the Graph API and display results.
+4. Create the Cordova deployment project with all the platforms you want to target, and the Cordova ADAL plugin and test the solution in emulators.
 
-## *0. Requisitos previos*
+## <a name="*0.-prerequisites*"></a>*0.  Prerequisites*
 
-Para realizar este tutorial, necesitará lo siguiente:
+To complete this tutorial you will need:
 
-- Un inquilino de Azure AD que disponga de una cuenta con derechos de desarrollo de aplicaciones.
-- Un entorno de desarrollo configurado para usar Apache Cordova.
+- An Azure AD tenant where you have an account with app development rights
+- A development environment configured to use Apache Cordova  
 
-Si ya los tiene configurados, vaya directamente al paso 1.
+If you have both already set up, please proceed directly to step 1.
 
-Si no tiene un inquilino de Azure AD, puede encontrar [instrucciones sobre cómo conseguir uno aquí](active-directory-howto-tenant.md).
+If you don't have an Azure AD tenant, you can find [instructions on how to get one here](active-directory-howto-tenant.md).
 
-Si no dispone de Apache Cordova configurado en su equipo, instale lo siguiente:
+If you don't have Apache Cordova set up on your machine, please install the following:
 
 - [Git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [NodeJS](https://nodejs.org/download/)
-- [Interfaz de línea de comandos Cordova](https://cordova.apache.org/) (se instala fácilmente mediante el administrador de paquetes NPM: `npm install -g cordova`)
+- [Cordova CLI](https://cordova.apache.org/) (can be easily installed via NPM package manager: `npm install -g cordova`)
 
-Tenga en cuenta que deberían funcionar tanto en PC como en Mac.
+Note that those should work both on the PC and on the Mac.
 
-Cada plataforma de destino tiene diferentes requisitos previos.
+Each target platform has different prerequisites.
 
-- Para compilar y ejecutar la versión de la aplicación para Windows Tablet/PC o Phone
-	- [Visual Studio 2013 para Windows con la actualización 2 o posterior](http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-windows-8) (Express u otra versión).
-- Para compilar y ejecutar la aplicación para iOS
-	-   Xcode 5.x o superior. Puede descargarla en http://developer.apple.com/downloads o en la [tienda de aplicaciones Mac](http://itunes.apple.com/us/app/xcode/id497799835?mt=12).
-	-   [ios sim](https://www.npmjs.org/package/ios-sim): permite iniciar aplicaciones de iOS en el simulador de iOS desde la línea de comandos (se puede instalar fácilmente mediante el terminal: `npm install -g ios-sim`)
+- To build and run Windows Tablet/PC or Phone app version
+    - [Visual Studio 2013 for Windows with Update 2 or later](http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-windows-8) (Express or another version).
+- To build and run for iOS
+    -   Xcode 5.x or greater. Download it at http://developer.apple.com/downloads or the [Mac App Store](http://itunes.apple.com/us/app/xcode/id497799835?mt=12)
+    -   [ios-sim](https://www.npmjs.org/package/ios-sim) – allows you to launch iOS apps into the iOS Simulator from the command line (can be easily installed via the terminal: `npm install -g ios-sim`)
 
-- Para compilar y ejecutar la aplicación para Android
-	- Instale el [Kit de desarrollo de Java (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) o una versión posterior. Asegúrese de que `JAVA_HOME` (variable de entorno) se haya configurado correctamente según la ruta de instalación de JDK (por ejemplo, C:\\Archivos de programa\\Java\\jdk1.7.0\_75).
-	- Instale el [SDK de Android](http://developer.android.com/sdk/installing/index.html?pkg=tools) y agregue la ubicación `<android-sdk-location>\tools` (por ejemplo, C:\\tools\\Android\\android-sdk\\tools) a su variable de entorno `PATH`.
-	- Abra el Administrador de SDK de Android (por ejemplo, a través de terminal: `android`) y proceda con la instalación.
-    - SDK para la plataforma de *Android 5.0.1 (API 21)*
-    - *Herramientas de compilación de SDK de Android*, versión 19.1.0 o posterior
-    - *Repositorio compatible con Android* (extras)
+- To build and run application for Android
+    - Install [Java Development Kit (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) or later. Make sure `JAVA_HOME` (Environment Variable) is correctly set according to JDK installation path (for example C:\Program Files\Java\jdk1.7.0_75).
+    - Install [Android SDK](http://developer.android.com/sdk/installing/index.html?pkg=tools) and add `<android-sdk-location>\tools` location (for example, C:\tools\Android\android-sdk\tools) to your `PATH` Environment Variable.
+    - Open Android SDK Manager (for example, via terminal: `android`) and install
+    - *Android 5.0.1 (API 21)* platform SDK
+    - *Android SDK Build-tools* version 19.1.0 or higher
+    - *Android Support Repository* (Extras)
 
-  El SDK de Android no proporciona ninguna instancia de emulador predeterminada. Cree una nueva ejecutando `android avd` desde el terminal y, a continuación, seleccione *Crear...* si desea ejecutar la aplicación Android en el emulador. El *nivel de API* recomendado es 19 o superior. Consulte [Administrador AVD](http://developer.android.com/tools/help/avd-manager.html) para obtener más información acerca de las opciones de creación y el emulador de Android.
+  Android sdk doesn't provide any default emulator instance. Create a new one by running `android avd` from terminal and then selecting *Create...* if you want to run Android app on emulator. Recommended *Api Level* is 19 or higher, see [AVD Manager] (http://developer.android.com/tools/help/avd-manager.html) for more information about Android emulator and creation options.
 
 
-## *1. Registre una aplicación con Azure AD*
+## <a name="*1.-register-an-application-with-azure-ad*"></a>*1.  Register an application with Azure AD*
 
-Nota: este __paso es opcional__. El tutorial proporciona valores configurados previamente que le permitirán ver el ejemplo en acción sin tener que realizar cualquier aprovisionamiento en su propio inquilino. Sin embargo, se recomienda que realice este paso y se familiarice con el proceso, ya que será necesario si va a crear sus propias aplicaciones.
+Note: this __step is optional__. The tutorial provided pre-provisioned values that will allow you to see the sample in action without doing any provisioning in your own tenant. However it is recommended that you do perform this step and become familiar with the process, as it will be required when you will create your own applications.
 
-Azure AD solo emitirá tokens para aplicaciones conocidas. Para poder usar Azure AD desde su aplicación, deberá crear una entrada para él en el inquilino. Para registrar una nueva aplicación en el inquilino:
+Azure AD will only issue tokens to known applications. Before you can use Azure AD from your app, you need to create an entry for it in your tenant.  To register a new application in your tenant,
 
--	Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com).
--	En el panel de navegación izquierdo, haga clic en **Active Directory**.
--	Seleccione el inquilino donde desea registrar la aplicación.
--	Haga clic en la pestaña **Aplicaciones** y en **Agregar** en el cajón inferior.
--	Siga las indicaciones y cree una nueva **aplicación de cliente nativo** (a pesar de que las aplicaciones Cordova están basadas en HTML, estamos creando aquí la aplicación cliente nativa de manera que la `Native Client Application` opción debe estar seleccionada; en caso contrario, la aplicación no funcionará).
-    -	El **nombre** de la aplicación servirá de descripción de la aplicación para los usuarios finales.
-    -	El **identificador URI de redirección** es el identificador URI que se usa para devolver tokens a su aplicación. Escriba `http://MyDirectorySearcherApp`.
+-   Sign into the [Azure Management Portal](https://manage.windowsazure.com)
+-   In the left hand nav, click on **Active Directory**
+-   Select the tenant where you wish to register the application.
+-   Click the **Applications** tab, and click **Add** in the bottom drawer.
+-   Follow the prompts and create a new **Native Client Application** (despite the fact that Cordova apps are HTML based, we are creating native client application here so `Native Client Application` option must be selected; otherwise, the application won't work).
+    -   The **Name** of the application will describe your application to end-users
+    -   The **Redirect URI** is the URI used to return tokens to your app. Enter `http://MyDirectorySearcherApp`.
 
-Una vez que haya completado el registro, AAD asignará a su aplicación un identificador de cliente único. Necesitará este valor en las secciones siguientes: se encuentra en la pestaña e **Configuración** de la aplicación recién creada.
+Once you’ve completed registration, AAD will assign your app a unique client identifier.  You’ll need this value in the next sections: you can find it in the **Configure** tab of the newly created app.
 
-Para poder ejecutar `DirSearchClient Sample`, conceda el permiso de aplicación recién creado para consultar la _API de Azure AD Graph_:
--	En la pestaña **Configurar**, busque la sección "Permisos para otras aplicaciones". Para la aplicación "Azure Active Directory", agregue el permiso **Acceder al directorio como usuario con sesión iniciada** en **Permisos delegados**. Esto permitirá a su aplicación consultar la API Graph para los usuarios.
+In order to run `DirSearchClient Sample`, grant the newly created app permission to query the _Azure AD Graph API_:
+-   In **Configure** tab, locate the "Permissions to Other Applications" section.  For the "Azure Active Directory" application, add the **Access the directory as the signed-in user** permission under **Delegated Permissions**.  This will enable your application to query the Graph API for users.
 
-## *2. Clone el repositorio de aplicación de ejemplo necesario para el tutorial*
+## <a name="*2.-clone-the-sample-app-repository-required-for-the-tutorial*"></a>*2. Clone the sample app repository required for the tutorial*
 
-En el shell o en la línea de comandos, escriba lo siguiente:
+From your shell or command line, type the following command:
 
     git clone -b skeleton https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova.git
 
-## *3. Cree la aplicación Cordova*
+## <a name="*3.-create-the-cordova-app*"></a>*3. Create the Cordova app*
 
-Hay varias maneras de crear aplicaciones de Cordova. En este tutorial, utilizaremos la interfaz de línea de comandos (CLI) de Cordova. En el shell o en la línea de comandos, escriba lo siguiente:
+There are multiple ways of creating Cordova applications. In this tutorial we will use the Cordova command line interface (CLI).
+From your shell or command line, type the following command:
 
 
      cordova create DirSearchClient --copy-from="NativeClient-MultiTarget-Cordova/DirSearchClient"
 
-Esta acción creará la estructura de carpetas y el scaffolding para el proyecto Cordova y se copiará el contenido del proyecto de inicio en la subcarpeta www. Acceda a la nueva carpeta de DirSearchClient.
+That will create the folder structure and scaffolding for the Cordova project, copying the content of the starter project in the www subfolder.
+Move to the new DirSearchClient folder.
 
     cd .\DirSearchClient
 
-Agregue el complemento de lista blanca, que es necesario para invocar la API Graph.
+Add the whitelist plugin, necessary for invoking the Graph API.
 
      cordova plugin add cordova-plugin-whitelist
 
-A continuación, agregue todas las plataformas que desea admitir. Para obtener un ejemplo funcional, deberá ejecutar al menos uno de los siguientes comandos. Tenga en cuenta que no podrá emular iOS en Windows ni Windows/Windows Phone en Mac.
+Next, add all of the platforms you want to support. In order to have a working sample, you will need to execute at least one of the commands below. Note that you will not be able to emulate iOS on Windows, or Windows/Windows Phone on a Mac.
 
     cordova platform add android
     cordova platform add ios
     cordova platform add windows
 
-Por último, puede agregar el complemento de ADAL para Cordova al proyecto.
+Finally, you can add the ADAL for Cordova plugin to your project.
 
     cordova plugin add cordova-plugin-ms-adal
 
-## *3. Agregue código para autenticar a los usuarios y obtener tokens de AAD*
+## <a name="*3.-add-code-to-authenticate-users-and-obtain-tokens-from-aad*"></a>*3. Add code to authenticate users and obtain tokens from AAD*
 
-La aplicación que estamos desarrollando en este tutorial proporciona una característica de búsqueda de directorio esencial, donde el usuario final puede escribir el alias de cualquier usuario en el directorio y visualizar algunos atributos básicos. El proyecto de inicio contiene la definición de la interfaz de usuario básica de la aplicación (en www/index.html) y el scaffolding que conecta los ciclos de eventos de la aplicación básica, los enlaces de la interfaz de usuario y la lógica de visualización de los resultados (en www/js/index.js). Lo único que hemos omitido es la adición de la lógica implementando las tareas de identidad.
+The application you are developing in this tutorial will provide a bare-bone directory search feature, where the end user can type the alias of any user in the directory and visualize some basic attributes.  The starter project contains the definition of the basic user interface of the app (in www/index.html) and the scaffolding that wires up basic app event cycles, user interface bindings and results display logic (in www/js/index.js). The only thing left out for you is to add the logic implementing identity tasks.
 
-Lo primero que hay que hacer es introducir en el código los valores de protocolo que usa AAD para identificar la aplicación y los recursos a los que se dirige. Estos valores se utilizarán para construir las solicitudes de tokens más adelante. Inserte el fragmento de código siguiente en la parte superior del archivo index.js.
+The very first thing you need to do is to introduce in your code the protocol values that are used by AAD for identifying your app and the resources you target. Those values will be used to construct the token requests later on. Insert the snippet below at the very top of the index.js file.
 
 ```javascript
     var authority = "https://login.windows.net/common",
@@ -139,9 +143,10 @@ Lo primero que hay que hacer es introducir en el código los valores de protocol
     graphApiVersion = "2013-11-08";
 ```
 
-Los valores `redirectUri` y `clientId` deben coincidir con los valores que describen la aplicación en AAD. Puede encontrarlos en la pestaña Configurar del portal de Azure, tal como se describe en el paso 1 de este tutorial. Nota: si ha optado por no registrar una nueva aplicación en su propio inquilino, puede simplemente pegar los valores preconfigurados anteriores tal cual, lo que le permitirá ver la ejecución del ejemplo, aunque siempre debe crear su propia entrada para las aplicaciones diseñadas para la producción.
+The `redirectUri` and `clientId` values should match the values describing your app in AAD. You can find those from the Configure tab in the Azure portal, as described in step 1 earlier in this tutorial.
+Note: if you opted for not registering a new app in your own tenant, you can simply paste the pre-configured values above as is - that will allow you to see the sample running, though you should always create your own entry for your apps meant for production.
 
-A continuación, hay que agregar el código de la solicitud de token real. Inserte el siguiente fragmento de código entre las definiciones `search ` y `renderdata `.
+Next, we need to add the actual token request code. Insert the following snippet between the `search `and `renderdata `definitions.
 
 ```javascript
     // Shows user authentication dialog if required.
@@ -166,7 +171,9 @@ A continuación, hay que agregar el código de la solicitud de token real. Inser
 
     },
 ```
-Examinemos esa función dividiéndola en dos partes principales. Este ejemplo está diseñado para que funcione con cualquier inquilino, en lugar de vincularse a uno concreto. Se utiliza el extremo "/common", que permite al usuario especificar cualquier cuenta en el momento de la autenticación y dirige la solicitud al inquilino al que pertenece. Esta primera parte del método inspecciona la memoria caché de ADAL para ver si ya hay un token almacenado. Si lo hay, usa los inquilinos de los que proviene para volver a inicializar ADAL. Esto es necesario para evitar mensajes adicionales, ya que el uso de "/common" siempre hace que se le pida al usuario que especifique una nueva cuenta.
+Let's examine that function by breaking it down in its two main parts.
+This sample is designed to work with any tenant, as opposed to be tied to a particular one. It uses the "/common" endpoint, which allows the user to enter any account at authentication time and directs the request to the tenant it belongs.
+This first part of the method inspects the ADAL cache to see if there is already a stored token - and if there is, it uses the tenants it came from for re-initializing ADAL. This is necessary to avoid extra prompts, as the use of "/common" always results in asking the user to enter a new account.
 ```javascript
         app.context = new Microsoft.ADAL.AuthenticationContext(authority);
         app.context.tokenCache.readItems().then(function (items) {
@@ -175,7 +182,9 @@ Examinemos esa función dividiéndola en dos partes principales. Este ejemplo es
                 app.context = new Microsoft.ADAL.AuthenticationContext(authority);
             }
 ```
-La segunda parte del método realiza la solicitud tokewn correcta. El método `acquireTokenSilentAsync` solicita a ADAL que devuelva un token para el recurso especificado sin mostrar ninguna experiencia de usuario. Esto puede ocurrir si la memoria caché ya tiene un token de acceso adecuado almacenado, o si hay un token de actualización que puede utilizarse para obtener un nuevo token de acceso sin mostrar ningún símbolo del sistema. Si dicho intento falla, se recurre a `acquireTokenAsync`, que solicitará visiblemente al usuario que se autentique.
+The second part of the method performs the proper tokewn request.
+The `acquireTokenSilentAsync` method asks to ADAL to return a token for the specified resource without showing any UX. That can happen if the cache already has a suitable access token stored, or if there is a refresh token that can be used to get a new access token without shwoing any prompt.
+If that attempt fails, we fall back on `acquireTokenAsync` - which will visibly prompt the user to authenticate.
 ```javascript
             // Attempt to authorize user silently
             app.context.acquireTokenSilentAsync(resourceUri, clientId)
@@ -187,7 +196,7 @@ La segunda parte del método realiza la solicitud tokewn correcta. El método `a
                 });
             });
 ```
-Ahora que tenemos el token, podemos invocar finalmente la API Graph y realizar la consulta de búsqueda que queremos. Inserte el fragmento de código siguiente justo debajo de la definición `authenticate`.
+Now that we have the token, we can finally invoke the Graph API and perform the search query we want. Insert the following snippet right below the `authenticate` definition.
 
 ```javascript
 // Makes Api call to receive user list.
@@ -214,59 +223,64 @@ Ahora que tenemos el token, podemos invocar finalmente la API Graph y realizar l
     },
 
 ```
-Los archivos de punto de partida proporcionaron una experiencia de usuario esencial para especificar el alias del usuario en un cuadro de texto. Este método utiliza ese valor para construir una consulta, combinarla con el token de acceso, enviarlo a Graph y analizar los resultados. El método renderData, que ya está presente en el archivo de punto de partida, se encarga de visualizar los resultados.
+The starting point files supplied a barebone UX for entering a user's alias in a textbox. This method uses that value to construct a query, combine it with the access token, send it to the Graph, and parse the results. The renderData method, already present in the starting point file, takes care to visualize the results.
 
-## *4. Lleve a cabo la ejecución*
-La aplicación está lista finalmente para ejecutarse. El funcionamiento es muy sencillo: una vez que se inicie la aplicación, escriba en el cuadro de texto el alias del usuario que desea buscar. A continuación, haga clic en el botón. Se le pedirá que se autentique. Tras autenticarse y realizar la búsqueda correctamente, se mostrarán los atributos del usuario buscado. Las ejecuciones posteriores llevarán a cabo la búsqueda sin mostrar ningún símbolo del sistema, gracias a la presencia en memoria caché del token obtenido anteriormente. Los pasos concretos para ejecutar la aplicación varían según la plataforma.
+## <a name="*4.-run*"></a>*4. Run*
+Your app is finally ready to run! Operating it is very simple: once the app starts, enter in the text box the alias of the user you want to look up - then click the button. You will be prompted for authentication. Upon successful authentication and successful search, the attributes of the searched user will be displayed. Subsequent runs will perform the search without showing any prompt, thanks to the presence in cache of the token previously acquired.
+The concrete steps for running the app vary by platform.
 
-####Windows 10:
+####<a name="windows-10:"></a>Windows 10:
 
-   Tableta/PC: `cordova run windows --archs=x64 -- --appx=uap`
+   Tablet/PC: `cordova run windows --archs=x64 -- --appx=uap`
 
-   Dispositivo móvil (requiere el dispositivo Windows10 Mobile conectado a PC): `cordova run windows --archs=arm -- --appx=uap --phone`
+   Mobile (requires Windows10 Mobile device connected to PC): `cordova run windows --archs=arm -- --appx=uap --phone`
 
-   __Nota__: durante la primera ejecución, le pedirá que inicie sesión en una licencia de desarrollador. Consulte [Obtención de una licencia de desarrollador](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx) para obtener más detalles.
+   __Note__: During first run you may be asked to sign in for a developer license. See [Developer license](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx) for more details.
 
-####Tableta/PC con Windows 8.1:
+####<a name="windows-8.1-tablet/pc:"></a>Windows 8.1 Tablet/PC:
 
    `cordova run windows`
 
-   __Nota__: durante la primera ejecución, le pedirá que inicie sesión en una licencia de desarrollador. Consulte [Obtención de una licencia de desarrollador](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx) para obtener más detalles.
+   __Note__: During first run you may be asked to sign in for a developer license. See [Developer license](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx) for more details.
 
-####Windows Phone 8,1:
+####<a name="windows-phone-8.1:"></a>Windows Phone 8.1:
 
-   Para realizar la ejecución en el dispositivo conectado: `cordova run windows --device -- --phone`
+   To run on connected device: `cordova run windows --device -- --phone`
 
-   Para realizar la ejecución en el emulador predeterminado: `cordova emulate windows -- --phone`
+   To run on default emulator: `cordova emulate windows -- --phone`
 
-   Utilice `cordova run windows --list -- --phone` para ver todos los destinos disponibles y `cordova run windows --target=<target_name> -- --phone` para ejecutar la aplicación en el emulador o el dispositivo concreto (por ejemplo, `cordova run windows --target="Emulator 8.1 720P 4.7 inch" -- --phone`).
+   Use `cordova run windows --list -- --phone` to see all available targets and `cordova run windows --target=<target_name> -- --phone` to run application on specific device or emulator (for example,  `cordova run windows --target="Emulator 8.1 720P 4.7 inch" -- --phone`).
 
-####Android:
+####<a name="android:"></a>Android:
 
-   Para realizar la ejecución en el dispositivo conectado: `cordova run android --device`
+   To run on connected device: `cordova run android --device`
 
-   Para realizar la ejecución en el emulador predeterminado: `cordova emulate android`
+   To run on default emulator: `cordova emulate android`
 
-   __Nota__: asegúrese de que ha creado la instancia del emulador usando *AVD Manager*, tal como se mostró en la sección *Requisitos previos*.
+   __Note__: Make sure you've created emulator instance using *AVD Manager* as it is showed in *Prerequisites* section.
 
-   Utilice `cordova run android --list` para ver todos los destinos disponibles y `cordova run android --target=<target_name>` para ejecutar la aplicación en el emulador o el dispositivo concreto (por ejemplo, `cordova run android --target="Nexus4_emulator"`).
+   Use `cordova run android --list` to see all available targets and `cordova run android --target=<target_name>` to run application on specific device or emulator (for example,  `cordova run android --target="Nexus4_emulator"`).
 
-####iOS:
+####<a name="ios:"></a>iOS:
 
-   Para realizar la ejecución en el dispositivo conectado: `cordova run ios --device`
+   To run on connected device: `cordova run ios --device`
 
-   Para realizar la ejecución en el emulador predeterminado: `cordova emulate ios`
+   To run on default emulator: `cordova emulate ios`
 
-   __Nota__: asegúrese de que el paquete `ios-sim` esté instalado para ejecutarse en el emulador. Consulte la sección *Requisitos previos* para obtener más detalles.
+   __Note__: Make sure you have `ios-sim` package installed to run on emulator. See *Prerequisites* section for more details.
 
     Use `cordova run ios --list` to see all available targets and `cordova run ios --target=<target_name>` to run application on specific device or emulator (for example,  `cordova run android --target="iPhone-6"`).
 
-Utilice `cordova run --help` para ver la compilación y las opciones de ejecución adicionales.
+Use `cordova run --help` to see additional build and run options.
 
-Como referencia, [aquí](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient) puede ver el ejemplo finalizado (sin sus valores de configuración). Ahora puede pasar a escenarios más avanzados (y, en consecuencia, más interesantes). También puede probar lo siguiente:
+For reference, the completed sample (without your configuration values) is provided [here](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient).  You can now move on to more advanced (ok, and more interesting) scenarios.  You may want to try:
 
-[Protección de una API Web Node.js con Azure AD >>](active-directory-devquickstarts-webapi-nodejs.md)
+[Secure a Node.js Web API with Azure AD >>](active-directory-devquickstarts-webapi-nodejs.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configuración de MPIO en su host de matriz virtual de StorSimple| Microsoft Azure"
-   description="Describe cómo configurar E/S de múltiples rutas (MPIO) para la matriz virtual de StorSimple conectada a un host que ejecuta Windows Server 2012 R2."
+   pageTitle="Configure MPIO on your StorSimple virtual array host| Microsoft Azure"
+   description="Describes how to configure Multipath I/O (MPIO) for your StorSimple virtual array connected to a host running Windows Server 2012 R2."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,170 +12,175 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/20/2016"
+   ms.date="10/04/2016"
    ms.author="alkohli" />
 
-# Configuración de E/S de múltiples rutas en el host de Windows Server para la matriz Virtual de StorSimple
 
-## Información general
+# <a name="configure-multipath-i/o-on-windows-server-host-for-the-storsimple-virtual-array"></a>Configure Multipath I/O on Windows Server host for the StorSimple Virtual Array
 
-Este artículo describe cómo instalar la característica E/S de múltiples rutas (MPIO) en el host de Windows Server, aplicar una configuración específica solo para volúmenes de StorSimple y, a continuación, comprobar MPIO para volúmenes de StorSimple. En el procedimiento se supone que la matriz virtual de StorSimple 1200 con dos interfaces de red está conectada a un host de Windows Server con dos interfaces de red. La información contenida en este artículo se aplica solo a la matriz virtual. Para más información sobre los dispositivos de la serie 8000 de StorSimple, vaya a [Configuración de MPIO para el host de StorSimple](storsimple-configure-mpio-windows-server.md).
+## <a name="overview"></a>Overview
 
-La característica MPIO en Windows Server ayuda a crear configuraciones de almacenamiento de alta disponibilidad y de tolerancia a fallos. MPIO usa componentes de ruta de acceso físicas redundantes (es decir, adaptadores, cables y conmutadores) para crear rutas de acceso lógicas entre el servidor y el dispositivo de almacenamiento. Si se produce un error de componente, lo que haría que la ruta de acceso lógica no funcionara, la lógica de múltiples rutas usa una ruta alternativa para E/S a fin de que las aplicaciones puedan seguir teniendo acceso a los datos. Además, dependiendo de la configuración de MPIO, puede mejorar el rendimiento al volver a equilibrar la carga entre estas rutas de acceso. Para más información, consulte [Introducción a E/S de múltiples rutas](https://technet.microsoft.com/library/cc725907.aspx "Información general y características de MPIO").
+This article describes how to install Multipath I/O feature (MPIO) on your Windows Server host, apply specific configuration settings for StorSimple-only volumes, and then verify MPIO for StorSimple volumes. The procedure assumes that your StorSimple 1200 Virtual Array with two network interfaces is connected to a Windows Server host with two network interfaces. The information contained in this article applies only to the virtual array. For information on StorSimple 8000 series devices, go to [Configure MPIO for StorSimple host](storsimple-configure-mpio-windows-server.md). 
 
-Para la alta disponibilidad de la solución StorSimple, configure MPIO en los hosts de Windows Server conectados a su matriz virtual de StorSimple 1200 (también conocido como el dispositivo virtual local). Los servidores de host pueden tolerar errores de interfaz, red o vínculo.
+The MPIO feature in Windows Server helps build highly available, fault-tolerant storage configurations. MPIO uses redundant physical path components — adapters, cables, and switches — to create logical paths between the server and the storage device. If there is a component failure, causing a logical path to fail, multipathing logic uses an alternate path for I/O so that applications can still access their data. Additionally depending on your configuration, MPIO can also improve performance by re-balancing the load across all these paths. For more information, see [MPIO overview](https://technet.microsoft.com/library/cc725907.aspx "MPIO overview and features").  
 
-Realice estos pasos para configurar MPIO:
+For the high-availability of your StorSimple solution, configure MPIO on the Windows Server hosts connected to your StorSimple 1200 Virtual Array (also known as the on-premises virtual device). The host servers can then tolerate a link, network, or interface failure. 
 
-- Requisitos previos de configuración
+You will need to follow these steps to configure MPIO: 
 
-- Paso 1: instalar MPIO en el host de Windows Server
+- Configuration prerequisites
 
-- Paso 2: configurar MPIO para volúmenes de StorSimple
+- Step 1: Install MPIO on the Windows Server host
 
-- Paso 3: montar los volúmenes de StorSimple en el host
+- Step 2: Configure MPIO for StorSimple volumes
 
-En las siguientes secciones se detallan cada uno de estos pasos.
+- Step 3: Mount StorSimple volumes on the host
 
-
-## Requisitos previos
-
-En esta sección se detallan los requisitos previos de configuración para la matriz virtual y el host de Windows Server.
-
-### En el host de Windows Server
-
--  Asegúrese de que el host de Windows Server tiene dos interfaces de red habilitadas.
+Each of the above steps is discussed in the following sections.
 
 
-### En la matriz virtual de StorSimple
+## <a name="prerequisites"></a>Prerequisites
 
-- La matriz virtual debe estar configurada como un servidor iSCSI. Para más información, vaya a [Configuración de la matriz virtual como servidor iSCSI](storsimple-ova-deploy3-iscsi-setup.md) Debe habilitarse una o más interfaces de red en la matriz.   
+This section details the configuration prerequisites for the Windows Server host and your virtual array.
 
-- Las interfaces de red en la matriz virtual deben ser accesibles desde el host de Windows Server.
+### <a name="on-windows-server-host"></a>On Windows Server host
 
-- Deben crearse uno o más volúmenes en la matriz virtual de StorSimple. Para más información, vea [Adición de un volumen](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume) en la matriz virtual de StorSimple 1200. En este procedimiento, hemos creado 3 volúmenes (2 localmente anclados y 1 volumen en capas tal como se muestra a continuación) en la matriz virtual.
-	
-	![mpio0](./media/storsimple-ova-configure-mpio-windows-server/mpio0.png)
+-  Make sure that your Windows Server host has 2 network interfaces enabled.
 
-### Configuración de hardware para la matriz virtual de StorSimple
 
-La siguiente ilustración muestra la configuración de hardware para múltiples rutas de alta disponibilidad y equilibrio de carga para el host de Windows Server y la matriz virtual de StorSimple usados en este procedimiento.
+### <a name="on-storsimple-virtual-array"></a>On StorSimple virtual array
 
-![Configuración de hardware de mpio](./media/storsimple-ova-configure-mpio-windows-server/1200hardwareconfig.png)
+- The virtual array should be configured as an iSCSI server. To learn more, see [set up virtual array as an iSCSI server](storsimple-ova-deploy3-iscsi-setup.md). One or more network interfaces should be enabled on the array.   
 
-Como se muestra en la ilustración anterior:
+- The network interfaces on your virtual array should be reachable from the Windows Server host.
 
-- La matriz virtual de StorSimple aprovisionada en Hyper-V es un dispositivo activo de nodo único configurado como un servidor iSCSI.
+- One or more volumes should be created on your StorSimple Virtual Array. To learn more, see [Add a volume](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume) on your StorSimple 1200 virtual array. In this procedure, we created 3 volumes (2 locally pinned and 1 tiered volume as shown below) on the virtual array.
+    
+    ![mpio0](./media/storsimple-ova-configure-mpio-windows-server/mpio0.png)
 
-- Se habilitan dos interfaces de red virtual en la matriz. En la interfaz de usuario web local de la matriz virtual de 1200, compruebe que las dos interfaces de red estén habilitadas desplazándose a **Configuración de red** tal como se muestra a continuación:
+### <a name="hardware-configuration-for-storsimple-virtual-array"></a>Hardware configuration for StorSimple virtual array
 
-	![Interfaces de red habilitadas en 1200](./media/storsimple-ova-configure-mpio-windows-server/mpio9.png)
-	
-	Tenga en cuenta las direcciones IPv4 de las interfaces de red habilitadas (Ethernet, Ethernet 2 de forma predeterminada) y guárdelas para su uso posterior en el host.
+The figure below shows the hardware configuration for high availability and load-balancing multipathing for your Windows Server host and StorSimple  virtual array used in this procedure.  
 
-- Se habilitan dos interfaces de red en el host de Windows Server. Si las interfaces conectadas para el host y la matriz están en la misma subred, habrá 4 rutas de acceso disponibles. Este era el caso de este procedimiento. Sin embargo, si cada interfaz de red en la interfaz en la interfaz del host y la matriz están en una subred IP diferente (y no enrutable), solo estarán disponibles dos rutas de acceso.
+![mpio hardware configuration](./media/storsimple-ova-configure-mpio-windows-server/1200hardwareconfig.png)
 
-## Paso 1: instalar MPIO en el host de Windows Server
+As shown in the preceding figure:
 
-MPIO es una característica opcional en Windows Server y no se instala de forma predeterminada. Se debe instalar como una característica a través del Administrador del servidor. Haga lo siguiente para instalar esta característica en el host de Windows Server.
+- Your StorSimple virtual array provisioned on Hyper-V is a single node active device configured as an iSCSI server.
+
+- Two virtual network interfaces are enabled on your array. In the local web UI of your 1200 virtual array, verify that two network interfaces are enabled by navigating to **Network Settings** as shown below:
+
+    ![Network interfaces enabled on 1200](./media/storsimple-ova-configure-mpio-windows-server/mpio9.png)
+    
+    Note the IPv4 addresses of the enabled network interfaces (Ethernet, Ethernet 2 by default) and save for later use on the host.
+
+- Two network interfaces are enabled on your Windows Server host. If the connected interfaces for host and array are on the same subnet, then there will be 4 paths available. This was the case in this procedure. However, if each network interface on the array and host interface are on a different IP subnet (and not routable), then only 2 paths will be available.
+
+## <a name="step-1:-install-mpio-on-the-windows-server-host"></a>Step 1: Install MPIO on the Windows Server host
+
+MPIO is an optional feature on Windows Server and is not installed by default. It should be installed as a feature through Server Manager. To install this feature on your Windows Server host, complete the following procedure.
 
 [AZURE.INCLUDE [storsimple-install-mpio-windows-server-host](../../includes/storsimple-install-mpio-windows-server-host.md)]
 
 
-## Paso 2: configurar MPIO para volúmenes de StorSimple
+## <a name="step-2:-configure-mpio-for-storsimple-volumes"></a>Step 2: Configure MPIO for StorSimple volumes
 
-MPIO tiene que configurarse de forma que identifique los volúmenes de StorSimple. Haga lo siguiente para configurar MPIO para reconocer volúmenes de StorSimple.
+MPIO needs to be configured to identify StorSimple volumes. To configure MPIO to recognize StorSimple volumes, perform the following steps.
 
 [AZURE.INCLUDE [storsimple-configure-mpio-volumes](../../includes/storsimple-configure-mpio-volumes.md)]
 
-## Paso 3: montar los volúmenes de StorSimple en el host
+## <a name="step-3:-mount-storsimple-volumes-on-the-host"></a>Step 3: Mount StorSimple volumes on the host
 
-Después de configurar MPIO en Windows Server, los volúmenes creados en la matriz de StorSimple se pueden montar para que puedan usar MPIO para la redundancia. Haga lo siguiente para montar un volumen.
+After MPIO is configured on Windows Server, volume(s) created on the StorSimple array can be mounted and can then take advantage of MPIO for redundancy. To mount a volume, perform the following steps.
 
-#### Para montar volúmenes en el host
+#### <a name="to-mount-volumes-on-the-host"></a>To mount volumes on the host
 
-1. Abra la ventana **Propiedades del iniciador iSCSI** en el host de Windows Server. Haga clic en **Administrador del servidor > Panel > Herramientas > Iniciador iSCSI**.
-2. En el cuadro de diálogo **Propiedades del iniciador iSCSI**, haga clic en la pestaña Detección y, después, en **Detectar portal de destino**.
-3. Haga lo siguiente en el cuadro de diálogo **Detectar portal de destino**:
-	
-	- Escriba la dirección IP de la primera interfaz de red habilitada en la matriz virtual de StorSimple. De forma predeterminada, el valor de configuración sería **Ethernet**. 
-	- Haga clic en **Aceptar** para volver al cuadro de diálogo **Propiedades del iniciador iSCSI**.
+1. Open the **iSCSI Initiator Properties** window on the Windows Server host. Click **Server Manager > Dashboard > Tools > iSCSI Initiator**.
+2. In the **iSCSI Initiator Properties** dialog box, click the Discovery tab, and then click **Discover Target Portal**.
+3. In the **Discover Target Portal** dialog box, do the following:
+    
+    - Enter the IP address of the first enabled network interface on your StorSimple virtual array. By default, this would be **Ethernet**. 
+    - Click **OK** to return to the **iSCSI Initiator Properties** dialog box.
 
-	>[AZURE.IMPORTANT] **Si está usando una red privada para las conexiones iSCSI, escriba la dirección IP del puerto DATA que esté conectado a la red privada.**
+    >[AZURE.IMPORTANT] **If you are using a private network for iSCSI connections, enter the IP address of the DATA port that is connected to the private network.**
 
-4. Repita los pasos 2 y 3 para una segunda interfaz de red (por ejemplo, Ethernet 2) en la matriz.
+4. Repeat steps 2-3 for a second network interface (for example, Ethernet 2) on your array. 
 
-5. Seleccione la pestaña **Destinos** del cuadro de diálogo **Propiedades del iniciador iSCSI**. Para la matriz virtual, debería ver la superficie de cada volumen como un destino en **Destinos detectados**. En este caso, se detectan tres destinos (correspondiente a tres volúmenes).
+5. Select the **Targets** tab in the **iSCSI Initiator Properties** dialog box. For your virtual array, you should see each volume surface as a target under **Discovered Targets**. In this case, three targets (corresponding to three volumes) would be discovered.
 
-	![mpio1](./media/storsimple-ova-configure-mpio-windows-server/mpio1.png)
+    ![mpio1](./media/storsimple-ova-configure-mpio-windows-server/mpio1.png)
 
-6. Haga clic en **Conectar** para establecer una sesión iSCSI con la matriz de StorSimple. Aparecerá el cuadro de diálogo **Conectarse al destino**. Active la casilla **Habilitar múltiples rutas**. Haga clic en **Avanzadas**.
+6. Click **Connect** to establish an iSCSI session with your StorSimple array. A **Connect to Target** dialog box will appear. Select the **Enable multi-path** check box. Click **Advanced**.
 
-	![mpio2](./media/storsimple-ova-configure-mpio-windows-server/mpio2.png)
+    ![mpio2](./media/storsimple-ova-configure-mpio-windows-server/mpio2.png)
 
-8. Haga lo siguiente en el cuadro de diálogo **Configuración avanzada**:
-	- 	 En la lista desplegable **Adaptador local**, seleccione **Iniciador iSCSI de Microsoft**.
-	- 	 En la lista desplegable **IP de iniciador**, seleccione la dirección IP del host.
-	- 	 En la lista desplegable **IP del portal de destino**, seleccione la dirección IP de la interfaz de la matriz.
-	- 	 Haga clic en **Aceptar** para volver al cuadro de diálogo **Propiedades del iniciador iSCSI**.
+8. In the **Advanced Settings** dialog box, do the following:                                       
+    -    On the **Local Adapter** drop-down list, select **Microsoft iSCSI Initiator**.
+    -    On the **Initiator IP** drop-down list, select the IP address of the host.
+    -    On the **Target Portal** IP drop-down list, select the IP of array interface.
+    -    Click **OK** to return to the **iSCSI Initiator Properties** dialog box.
 
-	![mpio3](./media/storsimple-ova-configure-mpio-windows-server/mpio3.png)
+    ![mpio3](./media/storsimple-ova-configure-mpio-windows-server/mpio3.png)
 
-9. Haga clic en **Propiedades**.
+9. Click **Properties**. 
 
-	![mpio4](./media/storsimple-ova-configure-mpio-windows-server/mpio4.png)
-10. En el cuadro de diálogo **Propiedades**, haga clic en **Agregar sesión**.
+    ![mpio4](./media/storsimple-ova-configure-mpio-windows-server/mpio4.png)
+10. In the **Properties** dialog box, click **Add Session**.
 
-	![mpio5](./media/storsimple-ova-configure-mpio-windows-server/mpio5.png)
+    ![mpio5](./media/storsimple-ova-configure-mpio-windows-server/mpio5.png)
 
-10. En el cuadro de diálogo **Conectarse al destino**, active la casilla **Habilitar múltiples rutas**. Haga clic en **Avanzadas**.
-11. En el cuadro de diálogo **Configuración avanzada**:										
-	-  En la lista desplegable **Adaptador local**, seleccione Iniciador iSCSI de Microsoft.
-	-  En la lista desplegable **IP de iniciador**, seleccione la dirección IP correspondiente al host. En este caso, estamos conectando dos interfaces de red en la matriz o a una única interfaz de red en el host. Por lo tanto, esta interfaz es la misma que la proporcionada para la primera sesión.
-	-  En la lista desplegable **IP del portal de destino**, seleccione la dirección IP de la segunda interfaz de datos habilitada en la matriz.
-	-  Haga clic en **Aceptar** para volver al cuadro de diálogo Propiedades del iniciador iSCSI. Agregó una segunda sesión al destino.
+10. In the **Connect to Target** dialog box, select the **Enable multi-path** check box. Click **Advanced**.
+11. In the **Advanced Settings** dialog box:                                        
+    -  On the **Local adapter** drop-down list, select Microsoft iSCSI Initiator.
+    -  On the **Initiator IP** drop-down list, select the IP address corresponding to the host. In this case, you are connecting two network interfaces on the array to a single network interface on the host. Therefore, this interface is the same as that provided for the first session.
+    -  On the **Target Portal IP** drop-down list, select the IP address for the second data interface enabled on the array.
+    -  Click **OK** to return to the iSCSI Initiator Properties dialog box. You have added a second session to the target.
 
-		![mpio11](./media/storsimple-ova-configure-mpio-windows-server/mpio11.png)
+        ![mpio11](./media/storsimple-ova-configure-mpio-windows-server/mpio11.png)
 
-	- Después de agregar las sesiones (rutas de acceso) que quiera, en el cuadro de diálogo **Propiedades del iniciador iSCSI**, seleccione el destino y haga clic en **Propiedades**. En la pestaña Sesiones del cuadro de diálogo **Propiedades**, fíjese en los cuatro identificadores de sesión, que se corresponden con las posibles permutaciones de ruta de acceso. Para cancelar una sesión, active la casilla situada junto a un identificador de sesión y, luego, haga clic en **Desconectar**.
+    - After adding the desired sessions (paths), in the **iSCSI Initiator Properties** dialog box, select the target and click **Properties**. On the Sessions tab of the **Properties** dialog box, note the four session identifiers that correspond to the possible path permutations. To cancel a session, select the check box next to a session identifier, and then click **Disconnect**.
  
-	- Para ver los dispositivos presentados en las sesiones, seleccione la pestaña **Dispositivos**. Para configurar la directiva MPIO de un dispositivo seleccionado, haga clic en **MPIO**. Aparecerá el cuadro de diálogo
-	-  Los **detalles**. En la pestaña **MPIO**, puede seleccionar la configuración de **Directiva de equilibrio de carga** apropiada. También puede ver el tipo de ruta de acceso **Activo** o **En espera**.
+    - To view devices presented within sessions, select the **Devices** tab. To configure the MPIO policy for a selected device, click **MPIO**. The **
+    -  Details** dialog box will appear. On the **MPIO** tab, you can select the appropriate **Load Balance Policy** settings. You can also view the **Active** or **Standby** path type.
 
-10. Repita los pasos del 8 al 11 para agregar más sesiones (rutas de acceso) al destino. Con dos interfaces en el host y dos en la matriz virtual, puede agregar un total de cuatro sesiones para cada destino.
+10. Repeat steps 8-11 to add additional sessions (paths) to the target. With two interfaces on the host and two on the virtual array, you can add a total of four sessions for each target. 
 
-	![mpio14](./media/storsimple-ova-configure-mpio-windows-server/mpio14.png)
+    ![mpio14](./media/storsimple-ova-configure-mpio-windows-server/mpio14.png)
 
-11. Debe repetir estos pasos para cada volumen (superficies como destino).
+11. You will need to repeat these steps for each volume (surfaces as a target).
 
-	![mpio 15](./media/storsimple-ova-configure-mpio-windows-server/mpio15.png)
+    ![mpio15](./media/storsimple-ova-configure-mpio-windows-server/mpio15.png)
 
-12. Abra **Administración de equipos**; para ello, vaya a **Administrador del servidor > Panel > Administración de equipos**. En el panel izquierdo, haga clic en **Almacenamiento > Administración de discos**. Los volúmenes creados en la matriz virtual de StorSimple que son visibles para este host aparecerán en **Administración de discos** como discos nuevos.
+12. Open **Computer Management** by navigating to **Server Manager > Dashboard > Computer Management**. In the left pane, click **Storage > Disk Management**. The volume(s) created on the StorSimple virtual array that are visible to this host will appear under **Disk Management** as new disk(s).
 
-13. Inicialice el disco y cree otro volumen. Durante el proceso de formato, seleccione un tamaño de unidad de asignación (AUS) de 64 KB. Repita el proceso para todos los volúmenes disponibles.
+13. Initialize the disk and create a new volume. During the format process, select an allocation unit size (AUS) of 64 KB. Repeat the process for all the available volumes.
 
-	![Administración de discos](./media/storsimple-ova-configure-mpio-windows-server/mpio20.png)
+    ![Disk Management](./media/storsimple-ova-configure-mpio-windows-server/mpio20.png)
 
-14. En **Administración de discos**, haga clic con el botón secundario en el **disco** y seleccione **Propiedades**.
+14. Under **Disk Management**, right-click the **Disk** and select **Properties**.
 
-15. En el cuadro de diálogo **Propiedades del dispositivo de disco de múltiples rutas**, haga clic en la pestaña **MPIO**.
+15. In the **Multi-Path Disk Device Properties** dialog box, click the **MPIO** tab.
 
-	![Propiedades de disco](./media/storsimple-ova-configure-mpio-windows-server/mpio21.png)
+    ![Disk Properties](./media/storsimple-ova-configure-mpio-windows-server/mpio21.png)
 
-16. En la sección **Nombre DSM**, haga clic en **Detalles** y compruebe que los parámetros están establecidos en los valores predeterminados. Los parámetros predeterminados son los siguientes:
+16. In the **DSM Name** section, click **Details** and verify that the parameters are set to the default parameters. The default parameters are:
 
-	- Período de comprob. de ruta = 30
-	- Número de reintentos = 3
-	- Período de eliminación PDO = 20
-	- Intervalo de reintento = 1
-	- Comprobación de ruta habilitada = Sin seleccionar
+    - Path Verify Period = 30
+    - Retry Count = 3
+    - PDO Remove Period = 20
+    - Retry Interval = 1
+    - Path Verify Enabled = Unchecked.
 
-	>[AZURE.NOTE] **No modifique los parámetros predeterminados.**
+    >[AZURE.NOTE] **Do not modify the default parameters.**
 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su matriz virtual de StorSimple](storsimple-ova-manager-service-administration.md).
+Learn more about [using the StorSimple Manager service to administer your StorSimple Virtual Array](storsimple-ova-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

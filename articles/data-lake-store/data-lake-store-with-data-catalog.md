@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Registro de datos del Almacén de Data Lake en el Catálogo de datos de Azure | Azure"
-   description="Registro de datos del Almacén de Data Lake en el Catálogo de datos de Azure"
+   pageTitle="Register data from Data Lake Store in Azure Data Catalog | Azure"
+   description="Register data from Data Lake Store in Azure Data Catalog"
    services="data-lake-store,data-catalog" 
    documentationCenter=""
    authors="nitinme"
@@ -16,82 +16,87 @@
    ms.date="08/02/2016"
    ms.author="nitinme"/>
 
-# Registro de datos del Almacén de Data Lake en el Catálogo de datos de Azure
 
-En este artículo aprenderá a integrar el Almacén de Azure Data Lake con el Catálogo de datos de Azure para hacer que los datos sean reconocibles dentro de una organización mediante la integración con el Catálogo de datos. Para más información sobre la catalogación de datos, consulte [¿Qué es el Catálogo de datos de Azure?](../data-catalog/data-catalog-what-is-data-catalog.md). Para saber en qué escenarios se puede utilizar el Catálogo de datos, consulte [Escenarios comunes del Catálogo de datos de Azure](../data-catalog/data-catalog-common-scenarios.md).
+# <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Register data from Data Lake Store in Azure Data Catalog
 
-## Requisitos previos
+In this article you will learn how to integrate Azure Data Lake Store with Azure Data Catalog to make your data discoverable within an organization by integrating it with Data Catalog. For more information on cataloging data, see [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). To understand scenarios in which you can use Data Catalog, see [Azure Data Catalog common scenarios](../data-catalog/data-catalog-common-scenarios.md).
 
-Antes de empezar este tutorial, debe contar con lo siguiente:
+## <a name="prerequisites"></a>Prerequisites
 
-- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+Before you begin this tutorial, you must have the following:
 
-- **Habilite su suscripción de Azure** para la versión preliminar pública de Azure Data Lake Store. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Cuenta del Almacén de Azure Data Lake**. Siga las instrucciones que se describen en [Introducción al Almacén de Azure Data Lake mediante el Portal de Azure](data-lake-store-get-started-portal.md). Para este tutorial, vamos a crear una cuenta de Almacén de datos de Data Lake denominada **datacatalogstore**.
+- **Enable your Azure subscription** for Data Lake Store Public Preview. See [instructions](data-lake-store-get-started-portal.md#signup).
 
-	Una vez creada la cuenta, cargue un conjunto de datos de ejemplo en ella. En este tutorial, vamos a cargar todos los archivos .csv en la carpeta **AmbulanceData** del [repositorio Git de Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). Puede utilizar varios clientes, como el [explorador de Almacenamiento de Azure](http://storageexplorer.com/), para cargar datos en un contenedor de blobs.
+- **Azure Data Lake Store account**. Follow the instructions at [Get started with Azure Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md). For this tutorial, let us create a Data Lake Store account called **datacatalogstore**. 
 
-- **Catálogo de datos de Azure**. Su organización ya debe tener un Catálogo de datos de Azure creado. Se permite solo un catálogo por cada organización.
+    Once you have created the account, upload a sample data set to it. For this tutorial, let us upload all the .csv files under the **AmbulanceData** folder in the [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). You can use various clients, such as [Azure Storage Explorer](http://storageexplorer.com/), to upload data to a blob container.
 
-## Registro del Almacén de Data Lake como origen para el Catálogo de datos
+- **Azure Data Catalog**. Your organization must already have an Azure Data Catalog created for your organization. Only one catalog is allowed for each organization.
+
+## <a name="register-data-lake-store-as-a-source-for-data-catalog"></a>Register Data Lake Store as a source for Data Catalog
 
 >[AZURE.VIDEO adcwithadl] 
 
-1. Vaya a `https://azure.microsoft.com/services/data-catalog` y haga clic en **Iniciado**.
+1. Go to `https://azure.microsoft.com/services/data-catalog`, and click **Get started**.
 
-2. Inicie sesión en el portal del Catálogo de datos de Azure y haga clic en **Publicar datos**.
+2. Log into the Azure Data Catalog portal, and click **Publish data**.
 
-	![Registro de un origen de datos](./media/data-lake-store-with-data-catalog/register-data-source.png "Registro de un origen de datos")
+    ![Register a data source](./media/data-lake-store-with-data-catalog/register-data-source.png "Register a data source")
 
-3. En la siguiente página, haga clic en **Iniciar aplicación**. Esto descargará el archivo de manifiesto de la aplicación en el equipo. Haga doble clic en este archivo para iniciar la aplicación.
+3. On the next page, click **Launch Application**. This will download the application manifest file on your computer. Double-click the manifest file to start the application.
 
-4. En la página principal, haga clic en **Iniciar sesión** y escriba sus credenciales.
+4. On the Welcome page, click **Sign in**, and enter your credentials.
 
-	![Pantalla principal](./media/data-lake-store-with-data-catalog/welcome.screen.png "Pantalla principal")
+    ![Welcome screen](./media/data-lake-store-with-data-catalog/welcome.screen.png "Welcome screen")
 
-5. En la página Seleccionar un origen de datos, seleccione **Azure Data Lake**, y, a continuación, haga clic en **Siguiente**.
+5. On the Select a Data Source page, select **Azure Data Lake**, and then click **Next**.
 
-	![Selección de origen de datos](./media/data-lake-store-with-data-catalog/select-source.png "Selección de origen de datos")
+    ![Select data source](./media/data-lake-store-with-data-catalog/select-source.png "Select data source")
 
-6. En la siguiente página, proporcione el nombre de la cuenta del Almacén de Data Lake que desea registrar en el Catálogo de datos. Deje las demás opciones con el valor predeterminado y, a continuación, haga clic en **Conectar**.
+6. On the next page, provide the Data Lake Store account name that you want to register in Data Catalog. Leave the other options as default and then click **Connect**.
 
-	![Conexión a orígenes de datos](./media/data-lake-store-with-data-catalog/connect-to-source.png "Conexión a orígenes de datos")
+    ![Connect to data source](./media/data-lake-store-with-data-catalog/connect-to-source.png "Connect to data source")
 
-7. La página resultante se puede dividir en los siguientes segmentos.
+7. The next page can be divided into the following segments.
 
-	a. El cuadro **Jerarquía de servidor** representa la estructura de carpetas de la cuenta del Almacén de Data Lake. **$Root** representa la raíz de la cuenta del Almacén de Data Lake y **AmbulanceData** representa la carpeta creada en la raíz de dicha cuenta.
+    a. The **Server Hierarchy** box represents the Data Lake Store account folder structure. **$Root** represents the Data Lake Store account root, and **AmbulanceData** represents the folder created in the root of the Data Lake Store account.
 
-	b. El cuadro **Objetos disponibles** muestra los archivos y carpetas de la carpeta **AmbulanceData**.
+    b. The **Available objects** box lists the files and folders under the **AmbulanceData** folder.
 
-	c. El cuadro **Objetos que se registrarán** enumera los archivos y carpetas que desea registrar en el Catálogo de datos de Azure.
+    c. **Objects to be registered box** lists the files and folders that you want to register in Azure Data Catalog.
 
-	![Visualización de la estructura de datos](./media/data-lake-store-with-data-catalog/view-data-structure.png "Visualización de la estructura de datos")
+    ![View data structure](./media/data-lake-store-with-data-catalog/view-data-structure.png "View data structure")
 
-8. Para este tutorial, deberá registrar todos los archivos del directorio. Para ello, haga clic en el botón (![movimiento de objetos](./media/data-lake-store-with-data-catalog/move-objects.png "Movimiento de objetos")) para mover todos los archivos al cuadro **Objetos que se registrarán**.
+8. For this tutorial, you should register all the files in the directory. For that, click the (![move objects](./media/data-lake-store-with-data-catalog/move-objects.png "Move objects")) button to move all the files to **Objects to be registered** box. 
 
-	Dado que los datos se registrarán en un catálogo de datos de toda la organización, es recomendable agregar algunos metadatos que podrá utilizar posteriormente para localizar rápidamente los datos. Por ejemplo, puede agregar una dirección de correo electrónico del propietario de los datos (por ejemplo, la persona que está cargando los datos) o agregar una etiqueta para identificar los datos. La captura de pantalla siguiente muestra una etiqueta que se ha agregado a los datos.
+    Because the data will be registered in an organization-wide data catalog, it is a recommened approach to add some metadata which you can later use to quickly locate the data. For example, you can add an e-mail address for the data owner (for example, one who is uploading the data) or add a tag to identify the data. The screen capture below shows a tag that we add to the data.
 
-	![Visualización de la estructura de datos](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "Visualización de la estructura de datos")
+    ![View data structure](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "View data structure")
 
-	Haga clic en **Registrar**.
+    Click **Register**.
 
-8. La captura de pantalla siguiente indica que los datos se han registrado correctamente en el Catálogo de datos.
+8. The following screen capture denotes that the data is successfully registered in the Data Catalog.
 
-	![Registro completado](./media/data-lake-store-with-data-catalog/registration-complete.png "Visualización de la estructura de datos")
+    ![Registration complete](./media/data-lake-store-with-data-catalog/registration-complete.png "View data structure")
 
-9. Haga clic en **Ver portal** para volver atrás al portal del Catálogo de datos y comprobar que ya puede acceder a los datos registrados desde el portal. Para realizar búsquedas en los datos, puede utilizar la etiqueta que usó al registrar los datos.
+9. Click **View Portal** to go back to the Data Catalog portal and verify that you can now access the registered data from the portal. To search the data, you can use the tag you used while registering the data.
 
-	![Búsqueda de datos en el catálogo](./media/data-lake-store-with-data-catalog/search-data-in-catalog.png "Búsqueda de datos en el catálogo")
+    ![Search data in catalog](./media/data-lake-store-with-data-catalog/search-data-in-catalog.png "Search data in catalog")
 
-10. Ahora ya puede realizar operaciones como agregar anotaciones y documentación a los datos. Para más información, consulte los vínculos siguientes:
-	* [Anotación de orígenes de datos](../data-catalog/data-catalog-how-to-annotate.md)
-	* [Orígenes de datos de documentos](../data-catalog/data-catalog-how-to-documentation.md)
+10. You can now perform operations like adding annotations and documentation to the data. For more information, see the following links.
+    * [Annotate data sources in Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
+    * [Document data sources in Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
 
-## Otras referencias
+## <a name="see-also"></a>See also
 
-* [Anotación de orígenes de datos](../data-catalog/data-catalog-how-to-annotate.md)
-* [Orígenes de datos de documentos](../data-catalog/data-catalog-how-to-documentation.md)
-* [Integración del Almacén de Data Lake con otros servicios de Azure](data-lake-store-integrate-with-other-services.md)
+* [Annotate data sources in Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
+* [Document data sources in Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
+* [Integrate Data Lake Store with other Azure services](data-lake-store-integrate-with-other-services.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

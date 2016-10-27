@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Supervisión de operaciones, eventos y contadores para el Equilibrador de carga | Microsoft Azure"
-   description="Aprenda a habilitar eventos de alerta y el registro del estado de mantenimiento del sondeo para el Equilibrador de carga de Azure"
+   pageTitle="Monitor operations, events, and counters for Load Balancer | Microsoft Azure"
+   description="Learn how to enable alert events, and probe health status logging for Azure Load Balancer"
    services="load-balancer"
    documentationCenter="na"
    authors="sdwheeler"
@@ -17,47 +17,50 @@
    ms.date="04/05/2016"
    ms.author="sewhee" />
 
-# Análisis del registros para el Equilibrador de carga de Azure (vista previa)
-Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de equilibradores de carga. Se puede acceder a algunos de estos registros a través del portal y se pueden extraer todos los registros desde un almacenamiento de blobs de Azure y verse en distintas herramientas, como Excel y PowerBI. Puede obtener más información acerca de los diferentes tipos de registros en la lista siguiente.
+
+# <a name="log-analytics-for-azure-load-balancer-(preview)"></a>Log analytics for Azure Load Balancer (Preview)
+You can use different types of logs in Azure to manage and troubleshoot load balancers. Some of these logs can be accessed through the portal, and all logs can be extracted from an Azure blob storage, and viewed in different tools, such as Excel and PowerBI. You can learn more about the different types of logs from the list below.
 
 
-- **Registros de auditoría:** puede usar los [registros de auditoría de Azure](../../articles/azure-portal/insights-debugging-with-events.md) (anteriormente conocido como registros operativos) para ver todas las operaciones enviadas a sus suscripciones de Azure, así como su estado. Los registros de auditoría están habilitados de forma predeterminada y se pueden ver en el Portal de Azure.
-- **Registros de eventos de alerta:** puede utilizar este registro para ver qué alertas se generan para el equilibrador de carga. El estado del equilibrador de carga se recopila cada cinco minutos. Este registro se escribe solo si se produce un evento de alerta del equilibrador de carga.
-- **Registros de sondeo de estado:** puede utilizar este registro para comprobar el estado de mantenimiento del sondeo, cuántas instancias están en línea en el back-end del equilibrador de carga y el porcentaje de máquinas virtuales que reciben tráfico de red del equilibrador de carga. Este registro se escribe en el cambio de evento de estado de sondeo.
+- **Audit logs:** You can use [Azure Audit Logs](../../articles/azure-portal/insights-debugging-with-events.md) (formerly known as Operational Logs) to view all operations being submitted to your Azure subscription(s), and their status. Audit logs are enabled by default, and can be viewed in the Azure portal.
+- **Alert event logs:** You can use this log to view what alerts for load balancer are raised. The status for the load balancer is collected every five minutes. This log is only written if a load balancer alert event is raised.  
+- **Health probe logs:** You can use this log to check for probe health check status, how many instances are online in the load balancer back-end and percentage of virtual machines receiving network traffic from the load balancer. This log is written on probe status event change.
 
->[AZURE.WARNING] Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para entender mejor los dos modelos, consulte el artículo [Descripción de la implementación del Administrador de recursos y la implementación clásica](../../articles/resource-manager-deployment-model.md). <BR> El análisis de registros actualmente solo funciona para los equilibradores de carga orientados hacia Internet. Esta limitación es temporal y puede cambiar en cualquier momento. Asegúrese de volver a visitar esta página para comprobar los cambios futuros.
+>[AZURE.WARNING] Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, reference the [Understanding Resource Manager deployment and classic deployment](../../articles/resource-manager-deployment-model.md) article. <BR>
+>Log analytics currently works only for Internet facing load balancers. This limitation is temporary, and may change at any time. Make sure to revisit this page to verify future changes.
 
-## Habilitación del registro
-El registro de auditoría se habilita automáticamente siempre para todos los recursos del Administrador de recursos. Debe habilitar el registro de eventos y de sondeos de estado para iniciar la recopilación de los datos disponibles a través de esos registros. Para habilitar el registro, siga estos pasos.
+## <a name="enable-logging"></a>Enable logging
+Audit logging is automatically enabled at all times for every Resource Manager resource. You need to enable event and health probe logging to start collecting the data available through those logs. To enable logging, follow the steps below. 
 
-Inicie sesión en el [Portal de Azure](http://portal.azure.com). Si aún no tiene un equilibrador de carga, [cree uno](load-balancer-get-started-internet-arm-ps.md) antes de continuar.
+Sign-in to the [Azure portal](http://portal.azure.com). If you don't already have a load balancer, [create a load balancer](load-balancer-get-started-internet-arm-ps.md) before you continue. 
 
-En el portal, haga clic en **Examinar** >> **Equilibradores de carga**.
+In the portal, click **Browse** >> **Load Balancers**.
 
 ![portal - load-balancer](./media/load-balancer-monitor-log/load-balancer-browse.png)
 
-Seleccione un equilibrador de carga existente >> **Toda la configuración**.
+Select an existing load balancer >> **All Settings**.
 
-![portal - load-balancer-settings](./media/load-balancer-monitor-log/load-balancer-settings.png) <BR>
+![portal - load-balancer-settings](./media/load-balancer-monitor-log/load-balancer-settings.png)
+<BR>
 
-En la hoja **Configuración**, haga clic en **Diagnósticos**, y, a continuación, en el panel **Diagnósticos**, junto a **Estado**, haga clic en **Activado**. En la hoja **Configuración**, haga clic en **Cuenta de almacenamiento** y seleccione una cuenta de almacenamiento existente o cree una nueva.
+In the **Settings** blade, click **Diagnostics**, and then in the **Diagnostics** pane, next to **Status**, click **On** In the **Settings** blade, click **Storage Account**, and either select an existing storage account, or create a new one.
 
-En la lista desplegable situada justo debajo de **Cuenta de almacenamiento**, seleccione si desea registrar los eventos de alerta, el estado de mantenimiento del sondeo (o ambas opciones) y, después, haga clic en **Guardar**.
+In the drop-down list just under **Storage Account**, select whether you want to log alert events, probe health status or both and then click **Save**.
 
-![Portal de vista previa: Registros de diagnóstico](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
+![Preview portal - Diagnostics logs](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 
->[AZURE.INFORMATION] Los registros de auditoría no requieren una cuenta de almacenamiento separada. El uso del almacenamiento para el registro de eventos y de sondeo de estado supondrán un costo adicional de servicio.
+>[AZURE.INFORMATION] Audit logs do not require a separate storage account. The use of storage for event and health probe logging will incur service charges.
 
-## Registro de auditoría
-Azure genera este registro (anteriormente conocido como "registro operativo") de forma predeterminada. Los registros se conservan durante 90 días en el almacén de registros de eventos de Azure. Para obtener más información sobre estos registros, consulte el artículo [Visualización de eventos y registros de auditoría](../../articles/azure-portal/insights-debugging-with-events.md).
+## <a name="audit-log"></a>Audit log
+This log (formerly known as the "operational log") is generated by Azure by default.  The logs are preserved for 90 days in Azure’s Event Logs store. Learn more about these logs by reading the [View events and audit logs](../../articles/azure-portal/insights-debugging-with-events.md) article.
 
-## Registro de eventos de alerta
-Este registro solo se genera si lo habilitó para cada uno de los equilibradores de carga, tal como se indicó anteriormente. Los datos se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. La información se registra en formato JSON, tal como se muestra a continuación.
+## <a name="alert-event-log"></a>Alert event log
+This log is only generated if you've enabled it on a per load balancer basis as detailed above. The data is stored in the storage account you specified when you enabled the logging. The information is logged in JSON format, as seen below.
 
-	
-	{
+    
+    {
     "time": "2016-01-26T10:37:46.6024215Z",
-	"systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
+    "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
     "category": "LoadBalancerAlertEvent",
     "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
     "operationName": "LoadBalancerProbeHealthStatus",
@@ -68,64 +71,68 @@ Este registro solo se genera si lo habilitó para cada uno de los equilibradores
             "public ip address": "40.117.227.32"
         }
     }
-	
+    
 
-El resultado de JSON muestra la propiedad *eventname* que describirá el motivo de creación de una alerta por parte del equilibrador de carga. En este caso, la alerta generada se debió al agotamiento de puertos TCP causado por los límites de IP NAT de origen (SNAT).
+The JSON output shows the *eventname* property which will describe the reason for the load balancer created an alert. In this case, the alert generated was due to TCP port exhaustion caused by source IP NAT limits (SNAT).
 
-## Registro de sondeo de estado
-Este registro solo se genera si lo habilitó para cada uno de los equilibradores de carga, tal como se indicó anteriormente. Los datos se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. Se crea un contenedor denominado "insights-logs-loadbalancerprobehealthstatus" y se registran los datos siguientes:
+## <a name="health-probe-log"></a>Health probe log
+This log is only generated if you've enabled it on a per load balancer basis as detailed above. The data is stored in the storage account you specified when you enabled the logging.  A container named 'insights-logs-loadbalancerprobehealthstatus' is created and the following data is logged:
 
-		{
-	    "records":
+        {
+        "records":
 
-	    {
-	   		"time": "2016-01-26T10:37:46.6024215Z",
-	        "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
-	        "category": "LoadBalancerProbeHealthStatus",
-	        "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
-	        "operationName": "LoadBalancerProbeHealthStatus",
-	        "properties": {
-	            "publicIpAddress": "40.83.190.158",
-	            "port": "81",
-	            "totalDipCount": 2,
-	            "dipDownCount": 1,
-	            "healthPercentage": 50.000000
-	        }
-	    },
-	    {
-	        "time": "2016-01-26T10:37:46.6024215Z",
-			"systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
-	        "category": "LoadBalancerProbeHealthStatus",
-	        "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
-	        "operationName": "LoadBalancerProbeHealthStatus",
-	        "properties": {
-	            "publicIpAddress": "40.83.190.158",
-	            "port": "81",
-	            "totalDipCount": 2,
-	            "dipDownCount": 0,
-	            "healthPercentage": 100.000000
-	        }
-	    }
+        {
+            "time": "2016-01-26T10:37:46.6024215Z",
+            "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
+            "category": "LoadBalancerProbeHealthStatus",
+            "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
+            "operationName": "LoadBalancerProbeHealthStatus",
+            "properties": {
+                "publicIpAddress": "40.83.190.158",
+                "port": "81",
+                "totalDipCount": 2,
+                "dipDownCount": 1,
+                "healthPercentage": 50.000000
+            }
+        },
+        {
+            "time": "2016-01-26T10:37:46.6024215Z",
+            "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
+            "category": "LoadBalancerProbeHealthStatus",
+            "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
+            "operationName": "LoadBalancerProbeHealthStatus",
+            "properties": {
+                "publicIpAddress": "40.83.190.158",
+                "port": "81",
+                "totalDipCount": 2,
+                "dipDownCount": 0,
+                "healthPercentage": 100.000000
+            }
+        }
 
-	]
-	}
+    ]
+    }
 
-El resultado JSON muestra en el campo de propiedades la información básica del estado de mantenimiento del sondeo. La propiedad *dipDownCount* muestra el número total de instancias en el back-end que no están recibiendo tráfico de red debido a las respuestas de sondeo con error.
+The JSON output shows in the properties field the basic information for the probe health status. The *dipDownCount* property shows the total number of instances on the back-end which are not receiving network traffic due to failed probe responses. 
 
-## Visualización y análisis del registro de auditoría
-Puede ver y analizar los datos del registro de auditoría mediante el uso de cualquiera de los métodos siguientes:
+## <a name="view-and-analyze-the-audit-log"></a>View and analyze the audit log
+You can view and analyze audit log data using any of the following methods:
 
-- **Herramientas de Azure:** puede recuperar información de los registros de auditoría a través de Azure PowerShell, de la interfaz de la línea de comandos (CLI) de Azure, la API de REST de Azure o el Portal de vista previa de Azure. En el artículo [Operaciones de auditoría con el Administrador de recursos](../../articles/resource-group-audit.md) se detallan instrucciones paso a paso de cada método.
-- **Power BI:** si todavía no tiene una cuenta de [Power BI](https://powerbi.microsoft.com/pricing), puede probarlo gratis. Con el [paquete de contenido de los registros de auditoría de Azure para Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs) puede analizar los datos con los paneles preconfigurados que puede usar tal cual o personalizarlos.
+- **Azure tools:** Retrieve information from the audit logs through Azure PowerShell, the Azure Command Line Interface (CLI), the Azure REST API, or the Azure preview portal.  Step-by-step instructions for each method are detailed in the [Audit operations with Resource Manager](../../articles/resource-group-audit.md) article.
+- **Power BI:** If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. Using the [Azure Audit Logs content pack for Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs) you can analyze your data with pre-configured dashboards that you can use as-is, or customize.
 
-## Visualización y análisis del registro de eventos y de sondeos de estado 
-Debe conectarse a la cuenta de almacenamiento y recuperar las entradas del registro de JSON para los registros de eventos y de sondeos de estado. Cuando descargue los archivos JSON, se pueden convertir a CSV y consultarlos en Excel, PowerBI o cualquier otra herramienta de visualización de datos.
+## <a name="view-and-analyze-the-health-probe-and-event-log"></a>View and analyze the health probe and event log 
+You need to connect to your storage account and retrieve the JSON log entries for event and health probe logs. Once you download the JSON files, you can convert them to CSV and view in Excel, PowerBI, or any other data visualization tool.
 
->[AZURE.TIP] Si está familiarizado con Visual Studio y con los conceptos básicos de cambiar los valores de constantes y variables de C#, puede usar las [herramientas convertidoras de registros](https://github.com/Azure-Samples/networking-dotnet-log-converter), disponibles en Github.
+>[AZURE.TIP] If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from Github.
 
-## Recursos adicionales
+## <a name="additional-resources"></a>Additional resources
 
-- Entrada de blog [Visualize your Azure Audit Logs with Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) (Visualizar los registros de auditoría de Azure con Power BI).
-- Entrada de blog [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) (Ver y analizar registros de auditoría de Azure en Power BI y más).
+- [Visualize your Azure Audit Logs with Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blog post.
+- [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creación de una función de procesamiento de eventos | Microsoft Azure"
-   description="Utilice Funciones de Azure para crear una función de C# que se ejecuta basándose en un temporizador de eventos."
+   pageTitle="Create an event processing function | Microsoft Azure"
+   description="Use Azure Functions create a C# function that runs based on an event timer."
    services="functions"
    documentationCenter="na"
    authors="ggailey777"
@@ -18,67 +18,75 @@
    ms.date="09/25/2016"
    ms.author="glenga"/>
    
-# Creación de una función de Azure de procesamiento de eventos
 
-Funciones de Azure es una experiencia de procesos a petición orientada a eventos que permite crear unidades de código programadas o desencadenadas que se implementan en diversos lenguajes de programación. Para más información sobre Funciones de Azure, consulte [Información general sobre Funciones de Azure](functions-overview.md).
+# <a name="create-an-event-processing-azure-function"></a>Create an event processing Azure Function
 
-En este tema se muestra cómo crear una nueva función en C# que se ejecuta según un temporizador de eventos para agregar mensajes a una cola de almacenamiento.
+Azure Functions is an event-driven, compute-on-demand experience that enables you to create scheduled or triggered units of code implemented in a variety of programming languages. To learn more about Azure Functions, see the [Azure Functions Overview](functions-overview.md).
 
-## Requisitos previos 
+This topic shows you how to create a new function in C# that executes based on an event timer to add messages to a storage queue. 
 
-Para poder crear una función, tiene que tener una cuenta de Azure activa. Si aún no tiene una cuenta de Azure, [puede crear una gratuita](https://azure.microsoft.com/free/).
+## <a name="prerequisites"></a>Prerequisites 
 
-## Creación de una función desencadenada por un temporizador a partir de la plantilla
+Before you can create a function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/).
 
-Una aplicación de función hospeda la ejecución de sus funciones en Azure. Para poder crear una función, tiene que tener una cuenta de Azure activa. Si aún no tiene una cuenta de Azure, [tiene a su disposición gratuitas](https://azure.microsoft.com/free/).
+## <a name="create-a-timer-triggered-function-from-the-template"></a>Create a timer-triggered function from the template
 
-1. Vaya al [portal de Funciones de Azure](https://functions.azure.com/signin) e inicie sesión con su cuenta de Azure.
+A function app hosts the execution of your functions in Azure. Before you can create a function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/). 
 
-2. Si tiene una aplicación de función existente, selecciónela en **Your function apps** (Sus aplicaciones de función) y haga clic en **Abrir**. Para crear una aplicación de función, escriba un **nombre** único para ella o acepte el que se genera, seleccione su **región** preferida y haga clic en **Create + get started** (Crear y comenzar).
+1. Go to the [Azure Functions portal](https://functions.azure.com/signin) and sign-in with your Azure account.
 
-3. En Function App, haga clic en **+ New Function** (+ Nueva función) > **TimerTrigger - C#** > **Create** (Crear). Esto crea una función con un nombre predeterminado que se ejecuta en la programación predeterminada de una vez cada minuto.
+2. If you have an existing function app to use, select it from **Your function apps** then click **Open**. To create a new function app, type a unique **Name** for your new function app or accept the generated one, select your preferred **Region**, then click **Create + get started**. 
 
-	![Creación de una nueva función desencadenada por temporizador](./media/functions-create-an-event-processing-function/functions-create-new-timer-trigger.png)
+3. In your function app, click **+ New Function** > **TimerTrigger - C#** > **Create**. This creates a function with a default name that is run on the default schedule of once every minute. 
 
-4. En la nueva función, haga clic en la pestaña **Integrate** (Integrar) > **New Output** (Nueva salida) > **Azure Storage Queue** (Cola de Almacenamiento de Azure) > **Select** (Seleccionar).
+    ![Create a new timer-triggered function](./media/functions-create-an-event-processing-function/functions-create-new-timer-trigger.png)
 
-	![Creación de una nueva función desencadenada por temporizador](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding.png)
+4. In your new function, click the **Integrate** tab > **New Output** > **Azure Storage Queue** > **Select**.
 
-5. En **Azure Storage Queue output** (Salida de Cola de Almacenamiento de Azure), en **Storage account connection** (Conexión de cuenta de almacenamiento), seleccione una conexión existente o cree una nueva y haga clic en **Save** (Guardar).
+    ![Create a new timer-triggered function](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding.png)
 
-	![Creación de una nueva función desencadenada por temporizador](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding-2.png)
+5. In  **Azure Storage Queue output**, select an existing **Storage account connection**, or create a new one, then click **Save**. 
 
-6. Vuelva a la pestaña **Develop** (Desarrollar) y reemplace el script de C# existente en la ventana **Code** (Código) por el código siguiente:
+    ![Create a new timer-triggered function](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding-2.png)
 
-		using System;
-		
-		public static void Run(TimerInfo myTimer, out string outputQueueItem, TraceWriter log)
-		{
-		    // Add a new scheduled message to the queue.
-		    outputQueueItem = $"Ping message added to the queue at: {DateTime.Now}.";
-		    
-		    // Also write the message to the logs.
-		    log.Info(outputQueueItem);
-		}
+6. Back in the **Develop** tab, replace the existing C# script in the **Code** window with the following code:
 
-	Este código agrega un nuevo mensaje a la cola con la fecha y hora actuales cuando se ejecuta la función.
+        using System;
+        
+        public static void Run(TimerInfo myTimer, out string outputQueueItem, TraceWriter log)
+        {
+            // Add a new scheduled message to the queue.
+            outputQueueItem = $"Ping message added to the queue at: {DateTime.Now}.";
+            
+            // Also write the message to the logs.
+            log.Info(outputQueueItem);
+        }
 
-7. Haga clic en **Save** (Guardar) y fíjese si en la ventana **Logs** (Registros) se ejecuta la siguiente función.
+    This code adds a new message to the queue with the current date and time when the function is executed.
 
-8. (Opcional) Vaya a la cuenta de almacenamiento y compruebe que los mensajes se agregan a la cola.
+7. Click **Save** and watch the **Logs** windows for the next function execution.
 
-9. Vuelva a la pestaña **Integrate** (Integrar) y cambie el campo de programación a `0 0 * * * *`. La función ahora se ejecuta una vez cada hora.
+8. (Optional) Navigate to the storage account and verify that messages are being added to the queue.
 
-Esto es un ejemplo muy simplificado de un desencadenador de temporizador y de un enlace de salida de cola de almacenamiento. Para más información, consulte los temas [Desencadenador de temporizador de Azure Functions](functions-bindings-timer.md) y [Enlaces y desencadenadores de Azure Functions para Azure Storage](functions-bindings-storage.md).
+9. Go back to the **Integrate** tab and change the schedule field to `0 0 * * * *`. The function now runs once every hour. 
 
-##Pasos siguientes
+This is a very simplified example of both a timer trigger and a storage queue output binding. For more information, see both the [Azure Functions timer trigger](functions-bindings-timer.md) and the [Azure Functions triggers and bindings for Azure Storage](functions-bindings-storage.md) topics.
 
-Consulte estos temas para más información sobre Azure Functions.
+##<a name="next-steps"></a>Next steps
 
-+ [Azure Functions developer reference](functions-reference.md) (Referencia para desarrolladores de Funciones de Azure) contiene las referencias del programador para codificar las funciones y definir los desencadenadores y los enlaces.
-+ [Prueba de Azure Functions](functions-test-a-function.md) describe las diversas herramientas y técnicas para probar sus funciones.
-+ [How to scale Azure Functions](functions-scale.md) (Cómo escalar Funciones de Azure) aborda los planes de servicio disponibles con Funciones de Azure, incluido el plan de servicio dinámico, y cómo elegir el plan adecuado.
+See these topics for more information about Azure Functions.
 
-[AZURE.INCLUDE [Nota de introducción](../../includes/functions-get-help.md)]
++ [Azure Functions developer reference](functions-reference.md)  
+Programmer reference for coding functions and defining triggers and bindings.
++ [Testing Azure Functions](functions-test-a-function.md)  
+Describes various tools and techniques for testing your functions.
++ [How to scale Azure Functions](functions-scale.md)  
+Discusses service plans available with Azure Functions, including the Dynamic service plan, and how to choose the right plan.  
 
-<!---HONumber=AcomDC_0928_2016-->
+[AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

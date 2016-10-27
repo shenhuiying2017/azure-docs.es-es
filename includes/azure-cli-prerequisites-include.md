@@ -1,7 +1,10 @@
-## Requisito previo: instalar la CLI de Azure
+## <a name="prerequisite:-install-the-azure-cli"></a>Prerequisite: Install the Azure CLI
 
-Para seguir los pasos de este artículo, es preciso [instalar la interfaz de línea de comandos de Azure para Mac, Linux y Windows (CLI de Azure)](../articles/xplat-cli-install.md) e [iniciar sesión en Azure](../articles/xplat-cli-connect.md).
+To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](../articles/xplat-cli-install.md) and you need to [log on to Azure](../articles/xplat-cli-connect.md). 
 
-> [AZURE.NOTE] Si no tiene una cuenta de Azure, necesitará una. Regístrese para [obtener una prueba gratuita aquí](../articles/active-directory/sign-up-organization.md). Además, para seguir el tutorial por completo necesita disponer de [jq](https://stedolan.github.io/jq/) o de alguna otra herramienta de análisis o biblioteca de JSON instalada.
+> [AZURE.NOTE] If you don't have an Azure account, you need one. Go sign up for a [free trial here](../articles/active-directory/sign-up-organization.md). In addition, to follow along completely you need to have either [jq](https://stedolan.github.io/jq/) or some other JSON parsing tool or library installed.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,20 +1,23 @@
-### Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
-- Una cuenta de [Salesforce](https://salesforce.com).
+- A [Salesforce](https://salesforce.com) account  
 
 
-Antes de poder usar la cuenta de Salesforce en una aplicación lógica, debe autorizar a la aplicación lógica a conectarse a dicha cuenta. Por suerte, esto se puede hacer fácilmente dentro de la aplicación lógica en el Portal de Azure.
+Before you can use your Salesforce account in a logic app, you must authorize the logic app to connect to your Salesforce account.Fortunately, you can do this easily from within your logic app on the Azure Portal.  
 
-Aquí se explica cómo autorizar a la aplicación lógica a conectarse a su cuenta de Salesforce:
-1. Para crear una conexión a Salesforce, en el diseñador de Logic Apps, seleccione **Mostrar API administradas por Microsoft** en la lista desplegable y, luego, escriba *Salesforce* en el cuadro de búsqueda. Seleccione el desencadenador o la acción que quiera usar:  
-![Imagen 1 de conexión a Salesforce](./media/connectors-create-api-salesforce/salesforce-1.png)  
-2. Si no ha creado ninguna conexión a Salesforce antes, se le pedirá que indique sus credenciales de Salesforce. Estas credenciales se usarán para autorizar a la aplicación lógica a conectarse y acceder a los datos de su cuenta de Salesforce:  
-![Imagen 2 de conexión a Salesforce](./media/connectors-create-api-salesforce/salesforce-2.png)  
-3. Indique su nombre de usuario y contraseña de Salesforce para autorizar a la aplicación lógica:  
-![Imagen 3 de conexión a Salesforce](./media/connectors-create-api-salesforce/salesforce-3.png)  
-4. Permita la conexión a Salesforce:  
-![Imagen 4 de conexión a Salesforce](./media/connectors-create-api-salesforce/salesforce-4.png)  
-5. Observe que la conexión se ha creado y que puede continuar sin problemas con el resto de los pasos en la aplicación lógica:  
-![Imagen 5 de conexión a Salesforce](./media/connectors-create-api-salesforce/salesforce-5.png)  
+Here are the steps to authorize your logic app to connect to your Salesforce account:  
+1. To create a connection to Salesforce, in the logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Salesforce* in the search box. Select the trigger or action you'll like to use:  
+![Salesforce connection image 1](./media/connectors-create-api-salesforce/salesforce-1.png)  
+2. If you haven't created any connections to Salesforce before, you'll get prompted to provide your Salesforce credentials. These credentials will be used to authorize your logic app to connect to, and access your Salesforce account's data:  
+![Salesforce connection image 2](./media/connectors-create-api-salesforce/salesforce-2.png)  
+3. Provide your Salesforce user name and password to authorize your logic app:  
+ ![Salesforce connection image 3](./media/connectors-create-api-salesforce/salesforce-3.png)  
+4. Allow us to connect to Salesforce:  
+![Salesforce connection image 4](./media/connectors-create-api-salesforce/salesforce-4.png)  
+5. Notice the connection has been created and you are now free to proceed with the other steps in your logic app:  
+![Salesforce connection image 5](./media/connectors-create-api-salesforce/salesforce-5.png)  
 
-<!---HONumber=AcomDC_0727_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

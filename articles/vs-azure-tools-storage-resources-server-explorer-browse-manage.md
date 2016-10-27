@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Exploración y administración de recursos de almacenamiento con el Explorador de servidores | Microsoft Azure"
-   description="Exploración y administración de recursos de almacenamiento con el Explorador de servidores"
+   pageTitle="Browsing and managing storage resources with Server Explorer | Microsoft Azure"
+   description="Browsing and managing storage resources with Server Explorer"
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,306 +15,311 @@
    ms.date="07/18/2016"
    ms.author="tarcher" />
 
-# Exploración y administración de recursos de almacenamiento con el Explorador de servidores
+
+# <a name="browsing-and-managing-storage-resources-with-server-explorer"></a>Browsing and Managing Storage Resources with Server Explorer
 
 [AZURE.INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
 
-## Información general
-Si ha instalado Azure Tools para Microsoft Visual Studio, puede ver datos de blob, cola y tabla desde las cuentas de almacenamiento para Azure. El nodo Almacenamiento de Azure en el Explorador de servidores muestra datos que están en la cuenta del emulador de almacenamiento local y las otras cuentas de almacenamiento de Azure.
+## <a name="overview"></a>Overview
+If you've installed the Azure Tools for Microsoft Visual Studio, you can view blob, queue, and table data from your storage accounts for Azure. The Azure Storage node in Server Explorer shows data that’s in your local storage emulator account and your other Azure storage accounts.
 
-Para ver el Explorador de servidores en Visual Studio, en la barra de menús, elija **Ver**, **Explorador de servidores**. El nodo de almacenamiento muestra todas las cuentas de almacenamiento que existen en cada suscripción/certificado de Azure a los que esté conectado. Si no aparece la cuenta de almacenamiento, puede agregarla siguiendo las instrucciones [más adelante en este tema](#add-storage-accounts-by-using-server-explorer).
+To view Server Explorer in Visual Studio, on the menu bar, choose **View**, **Server Explorer**. The storage node shows all of the storage accounts that exist under each Azure subscription/certificate you're connected to. If your storage account doesn't appear, you can add it by following the instructions [later in this topic](#add-storage-accounts-by-using-server-explorer).
 
-A partir del SDK de Azure versión 2.7, también puede usar el nuevo Cloud Explorer para ver y administrar los recursos de Azure. Consulte [Administración de recursos de Azure con Cloud Explorer](./vs-azure-tools-resources-managing-with-cloud-explorer.md) para obtener más información.
+Starting in Azure SDK 2.7, you can also use the new Cloud Explorer to view and manage your Azure resources. See [Managing Azure Resources with Cloud Explorer](./vs-azure-tools-resources-managing-with-cloud-explorer.md) for more information.
 
 
-## Visualización y administración de recursos de almacenamiento en Visual Studio
+## <a name="view-and-manage-storage-resources-in-visual-studio"></a>View and manage storage resources in Visual Studio
 
-El Explorador de servidores muestra automáticamente una lista de blobs, colas y tablas en la cuenta del emulador de almacenamiento. La cuenta del emulador de almacenamiento aparece en el Explorador de servidores bajo el nodo Almacenamiento en el nodo **Desarrollo**.
+Server Explorer automatically shows a list of blobs, queues, and tables in your storage emulator account. The storage emulator account is listed in Server Explorer under the Storage node as the **Development** node.
 
-Para ver los recursos de la cuenta del emulador de almacenamiento, expanda el nodo **Desarrollo**. Si el emulador de almacenamiento aún no está iniciado cuando expanda el nodo **Desarrollo**, se iniciará automáticamente. Esto puede tardar varios segundos. Puede continuar trabajando en otras zonas de Visual Studio mientras se inicia el emulador de almacenamiento.
+To see the storage emulator account’s resources, expand the **Development** node. If the storage emulator hasn’t been started when you expand the **Development** node, it will automatically start. This can take several seconds. You can continue to work in other areas of Visual Studio while the storage emulator starts.
 
-Para ver los recursos en una cuenta de almacenamiento, expanda el nodo de la cuenta de almacenamiento en el Explorador de servidores. Aparecen los siguientes subnodos:
+To view resources in a storage account, expand the storage account’s node in Server Explorer. The following sub-nodes appear:
 
 - Blobs
 
-- Colas
+- Queues
 
-- Tablas
+- Tables
 
-## Trabajo con recursos de blob
+## <a name="work-with-blob-resources"></a>Work with Blob Resources
 
-El nodo Blobs muestra una lista de contenedores para la cuenta de almacenamiento seleccionada. Los contenedores de blobs incluyen archivos de blob, y puede organizar estos blobs en carpetas y subcarpetas. Para obtener más información, consulte [Uso del almacenamiento de blobs en .NET](./storage/storage-dotnet-how-to-use-blobs.md).
+The Blobs node displays a list of containers for the selected storage account. Blob containers contain blob files, and you can organize these blobs into folders and subfolders. See [How to use Blob Storage from .NET](./storage/storage-dotnet-how-to-use-blobs.md) for more information.
 
-### Para crear un contenedor de blobs
+### <a name="to-create-a-blob-container"></a>To create a blob container
 
-1. Abra el menú contextual del nodo **Blobs** y elija **Crear contenedor de blobs**.
+1. Open the shortcut menu for the **Blobs** node, and then choose **Create Blob Container**.
 
-1. Escriba el nombre del contenedor nuevo en el cuadro de diálogo **Crear contenedor de blobs** y después elija **Aceptar**.
+1. Enter the name of the new container in the **Create Blob Container** dialog box and then choose **Ok**.
 
-    ![Agregar un nuevo contenedor de blobs](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744153.bmp)
+    ![Adding a new blob container](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744153.bmp)
 
-    >[AZURE.NOTE] El nombre del contenedor de blobs debe comenzar con una letra minúscula (a–z) o un número (0-9).
+    >[AZURE.NOTE] The blob container name must begin with a number (0-9) or lowercase letter (a-z).
 
-### Para eliminar un contenedor de blobs
+### <a name="to-delete-a-blob-container"></a>To delete a blob container
 
-- Abra el menú contextual del contenedor de blobs que desee quitar y elija **Eliminar**.
+- Open the shortcut menu for the blob container you want to remove and then choose **Delete**.
 
-### Para mostrar una lista de los elementos contenidos en un contenedor de blobs
+### <a name="to-display-a-list-of-the-items-contained-in-a-blob-container"></a>To display a list of the items contained in a blob container
 
-- Abra el menú contextual para un nombre de contenedor de blobs de la lista y elija **Ver contenedor de blob**.
+- Open the shortcut menu for a blob container name in the list and then choose **View Blob Container**.
 
-    Cuando se ve el contenido de un contenedor de blobs, aparece en una pestaña conocida como vista del contenedor de blobs.
+    When you view the contents of a blob container, it appears in a tab known as the blob container view.
 
-    ![VST\_SE\_BlobDesigner](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC749016.png)
+    ![VST_SE_BlobDesigner](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC749016.png)
 
-    Puede realizar las siguientes operaciones en blobs mediante los botones en la esquina superior derecha de la vista del contenedor de blobs:
+    You can perform the following operations on blobs by using the buttons in the top-right corner of the blob container view:
 
-    - Escribir un valor de filtro y aplicarlo
+    - Enter a filter value and apply it
 
-    - Actualizar la lista de blobs del contenedor
+    - Refresh the list of blobs in the container
 
-    - Cargar un archivo
+    - Upload a file
 
-    - Eliminar un blob
+    - Delete a blob
 
-      >[AZURE.NOTE] Cuando elimina un archivo de un contenedor de blobs, no se elimina el archivo subyacente; solo se quita del contenedor de blobs.
+      >[AZURE.NOTE] Deleting a file from a blob container doesn’t delete the underlying file; it only removes it from the blob container.
 
-    - Abrir un blob
+    - Open a blob
 
-    - Guardar un blob en el equipo local
+    - Save a blob to the local computer
 
-### Para crear una carpeta o una subcarpeta en un contenedor de blobs
+### <a name="to-create-a-folder-or-subfolder-in-a-blob-container"></a>To create a folder or subfolder in a blob container
 
-1. Elija el contenedor de blobs en el Explorador de servidores. En la ventana del contenedor, elija el botón **Cargar blob**.
+1. Choose the blob container in Server Explorer. In the container window, choose the **Upload Blob** button.
 
-    ![Cargar un archivo en una carpeta de blob](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766037.png)
+    ![Uploading a file into a blob folder](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766037.png)
 
-1. En el cuadro de diálogo **Cargar nuevo archivo**, seleccione el botón **Examinar** para especificar el archivo que desea cargar y después escriba un nombre de carpeta en el cuadro **Carpeta (opcional)**.
+1. In the **Upload New File** dialog box, choose the **Browse** button to specify the file you want to upload, and then enter a folder name in the **Folder (optional)** box.
 
-    Puede agregar subcarpetas en carpetas de contenedor siguiendo el mismo procedimiento. Si no especifica un nombre de carpeta, el archivo se cargará en el nivel superior del contenedor de blobs. El archivo aparece en la carpeta especificada en el contenedor.
+    You can add subfolders in container folders by following the same procedure. If you don’t specify a folder name, the file will be uploaded to the top level of the blob container.The file appears in the specified folder in the container.
 
-    ![Carpeta agregada a un contenedor de blobs](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766038.png)
+    ![Folder added to a blob container](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766038.png)
 
-1. Haga doble clic en la carpeta o presione ENTRAR para ver el contenido de la carpeta. Cuando esté en la carpeta del contenedor, puede navegar hasta la raíz del contenedor eligiendo el botón **Abrir directorio primario** (flecha arriba).
+1. Double-click the folder or press ENTER to see the contents of the folder. When you’re in the container’s folder, you can navigate back to the root of the container by choosing the **Open Parent Directory** (up arrow) button.
 
-### Para eliminar una carpeta de contenedor
+### <a name="to-delete-a-container-folder"></a>To delete a container folder
 
- - Elimine todos los archivos de la carpeta
+ - Delete all of the files in the folder
 
-    >[AZURE.NOTE] Dado que las carpetas en los contenedores de blob son virtuales, no puede crear una carpeta vacía ni eliminar una carpeta para eliminar los archivos que contiene. Primero debe eliminar todo el contenido de una carpeta para eliminar la carpeta.
+    >[AZURE.NOTE] Because folders in blob containers are virtual folders, you can’t create an empty folder, nor can you delete a folder to delete its file contents. You have to delete the entire contents of a folder to delete the folder.
 
-### Para filtrar los blobs de un contenedor
+### <a name="to-filter-blobs-in-a-container"></a>To filter blobs in a container
 
-Puede filtrar los blobs que se muestran especificando un prefijo común.
+You can filter the blobs that are displayed by specifying a common prefix.
 
-Por ejemplo, si escribe el prefijo `hello` en el cuadro de texto del filtro y después elige el botón **Ejecutar** (**!**), solo aparecen los blobs que comienzan con "hello".
+For example, if you enter the prefix `hello` in the filter text box and then choose the **Execute** (**!**)button, only blobs that begin with 'hello' appear.
 
-![VST\_SE\_FilterBlobs](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC519076.png)
+![VST_SE_FilterBlobs](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC519076.png)
 
 
->[AZURE.NOTE] El campo de filtro distingue mayúsculas de minúsculas y no admite el filtrado con caracteres comodín. Los blobs solo se pueden filtrar por prefijo. El prefijo puede incluir un delimitador si usa uno para organizar los blobs en una jerarquía virtual. Por ejemplo, el filtrado por el prefijo HelloFabric/ devuelve todos los blobs que comienzan con esa cadena.
+>[AZURE.NOTE] The filter field is case-sensitive and doesn’t support filtering with wildcard characters. Blobs can only be filtered by prefix. The prefix may include a delimiter if you are using a delimiter to organize blobs in a virtual hierarchy. For example, filtering on the prefix HelloFabric/ returns all blobs beginning with that string.
 
-### Para descargar datos de blob
+### <a name="to-download-blob-data"></a>To download blob data
 
-- En el **Explorador de servidores**, abra el menú contextual para uno o más blobs y después elija **Abrir**, o bien elija el nombre del blob y después el botón **Abrir** o haga doble clic en el nombre del blob.
+- In **Server Explorer**, open the shortcut menu for one or more blobs and then choose **Open**, or choose the blob name and then choose the **Open** button, or double-click the blob name.
 
-    Puede ver el progreso de la descarga del blob en la ventana **Registro de actividad de Microsoft Azure**.
+    The progress of a blob download appears in the **Azure Activity Log** window.
 
-    El blob se abre en el editor predeterminado para ese tipo de archivo. Si el sistema operativo reconoce el tipo de archivo, el archivo se abre en una aplicación instalada localmente; de lo contrario, se le pedirá que elija una aplicación que sea adecuada para el tipo de archivo del blob. El archivo local que se crea cuando descarga un blob está marcado como de solo lectura.
+    The blob opens in the default editor for that file type. If the operating system recognizes the file type, the file opens in a locally installed application; otherwise, you're prompted to choose an application that’s appropriate for the file type of the blob. The local file that’s created when you download a blob is marked as read-only.
 
-    Los datos de blob se almacenan en caché localmente y se cotejan con la hora de la última modificación del blob en el servicio BLOB. Si el blob se ha actualizado desde que se descargó por última vez, se descargará de nuevo; de lo contrario, el blob se cargará desde el disco local. De forma predeterminada, el blob se descarga en un directorio temporal. Para descargar blobs en un directorio específico, abra el menú contextual para los nombres de blob seleccionados y elija **Guardar como**. Cuando se guarda un blob de esta manera, no se abre el archivo blob y el archivo local se crea con atributos de lectura y escritura.
+    Blob data is cached locally and checked against the blob's last modified time in the Blob service. If the blob has been updated since it was last downloaded, it will be downloaded again; otherwise the blob will be loaded from the local disk. By default a blob is downloaded to a temporary directory. To download blobs to a specific directory, open the shortcut menu for the selected blob names and choose **Save As**. When you save a blob in this manner, the blob file is not opened, and the local file is created with read-write attributes.
 
-### Para cargar blobs
+### <a name="to-upload-blobs"></a>To upload blobs
 
-- Elija el botón **Cargar blob** cuando el contenedor esté abierto para su visualización en la vista del contenedor de blobs.
+- Choose the **Upload Blob** button when the container is open for viewing in the blob container view.
 
-    Puede elegir uno o varios archivos para cargar, así como cargar archivos de cualquier tipo. Puede ver el progreso de la carga en la ventana **Registro de actividad de Microsoft Azure**. Para obtener más información acerca de cómo trabajar con datos de blob, vea [Uso del almacenamiento de blobs de .NET](http://go.microsoft.com/fwlink/p/?LinkId=267911).
+    You can choose one or more files to upload, and you can upload files of any type. The **Azure Activity Log** shows the progress of the upload. For more information about how to work with blob data, see [How to use the Azure Blob Storage Service in .NET](http://go.microsoft.com/fwlink/p/?LinkId=267911).
 
-### Para ver los registros transferidos a blobs
+### <a name="to-view-logs-transferred-to-blobs"></a>To view logs transferred to blobs
 
-- Si usa Diagnósticos de Azure para registrar los datos de la aplicación de Azure y ha transferido los registros a la cuenta de almacenamiento, verá los contenedores creados por Azure para estos registros. Ver estos registros en el Explorador de servidores es una manera fácil de identificar los problemas de la aplicación, especialmente si se ha implementado en Azure. Para obtener más información sobre Diagnósticos de Azure, vea [Recopilar datos de registro mediante Diagnósticos de Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx).
+- If you are using Azure Diagnostics to log data from your Azure application and you have transferred logs to your storage account, you’ll see containers that were created by Azure for these logs. Viewing these logs in Server Explorer is an easy way to identify problems with your application, especially if it’s been deployed to Azure. For more information about Azure Diagnostics, see [Collect Logging Data by Using Azure Diagnostics](https://msdn.microsoft.com/library/azure/gg433048.aspx).
 
-### Para obtener la dirección URL de un blob
+### <a name="to-get-the-url-for-a-blob"></a>To get the URL for a blob
 
-- Abra el menú contextual del blob y después elija **Copiar dirección URL**.
+- Open the blob’s shortcut menu and then choose **Copy URL**.
 
-### Para editar un blob
+### <a name="to-edit-a-blob"></a>To edit a blob
 
-- Seleccione el blob y después elija el botón **Abrir blob**.
+- Select the blob and then choose the **Open Blob** button.
 
-    El archivo se descarga en una ubicación temporal y se abre en el equipo local. Debe cargar el blob de nuevo después de realizar cambios.
+    The file is downloaded to a temporary location and opened on the local computer. You must upload the blob again after you make changes.
 
-## Trabajo con recursos de cola
+## <a name="work-with-queue-resources"></a>Work with Queue Resources
 
-Las colas de servicios de almacenamiento se hospedan en una cuenta de almacenamiento de Azure y se pueden usar para permitir que los roles del servicio en la nube se comuniquen entre sí y con otros servicios mediante un mecanismo de transferencia de mensajes. Puede acceder a la cola mediante programación a través de un servicio en la nube y a través de un servicio web para los clientes externos. También puede acceder a la cola directamente mediante el Explorador de servidores en Visual Studio.
+Storage services queues are hosted in an Azure storage account and you can use them to allow your cloud service roles to communicate with each other and with other services by a message passing mechanism. You can access the queue programmatically through a cloud service and over a web service for external clients. You can also access the queue directly by using Server Explorer in Visual Studio.
 
-Cuando se desarrolla un servicio en la nube que use colas, es recomendable usar Visual Studio para crear colas y trabajar con ellas de forma interactiva mientras desarrolla y prueba el código.
+When you develop a cloud service that uses queues, you might want to use Visual Studio to create queues and work with them interactively while you develop and test your code.
 
-En el Explorador de servidores, puede ver las colas de una cuenta de almacenamiento, crear y eliminar colas, abrir una cola para ver sus mensajes y agregar mensajes a una cola. Cuando se abre una cola para su visualización, puede ver los mensajes individuales y puede realizar las siguientes acciones en la cola mediante los botones en la esquina superior izquierda:
+In Server Explorer, you can view the queues in a storage account, create and delete queues, open a queue to view its messages, and add messages to a queue. When you open a queue for viewing, you can view the individual messages, and you can perform the following actions on the queue by using the buttons in the top-left corner:
 
-- Actualizar la vista de la cola
+- Refresh the view of the queue
 
-- Agregar un mensaje a la cola
+- Add a message to the queue
 
-- Quitar el primer mensaje de la cola
+- Dequeue the topmost message.
 
-- Borrar la cola completa
+- Clear the entire queue
 
-En la siguiente imagen se muestra una cola que contiene dos mensajes.
+The following image shows a queue that contains two messages.
 
-![Ver una cola](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC651470.png)
+![Viewing a Queue](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC651470.png)
 
-Para obtener más información acerca de las colas de servicios de almacenamiento, vea [Uso del almacenamiento de colas de .NET](http://go.microsoft.com/fwlink/?LinkID=264702). Para obtener información sobre el servicio web para colas de servicios de almacenamiento, vea [Conceptos del servicio Cola](http://go.microsoft.com/fwlink/?LinkId=264788). Para obtener información acerca de cómo enviar mensajes a una cola de servicios de almacenamiento mediante Visual Studio, vea [Enviar mensajes a una cola de servicios de almacenamiento](https://msdn.microsoft.com/library/azure/jj649344.aspx).
+For more information about storage services queues, see [How to: Use the Queue Storage Service](http://go.microsoft.com/fwlink/?LinkID=264702). For information about the web service for storage services queues, see [Queue Service Concepts](http://go.microsoft.com/fwlink/?LinkId=264788). For information about how to send messages to a storage services queue by using Visual Studio, see [Sending Messages to a Storage Services Queue](https://msdn.microsoft.com/library/azure/jj649344.aspx).
 
->[AZURE.NOTE] Las colas de servicios de almacenamiento son distintas de las colas del Bus de servicio. Para obtener más información sobre las colas del Bus de servicio, consulte Colas, temas y suscripciones del Bus de servicio.
+>[AZURE.NOTE] Storage services queues are distinct from service bus queues. For more information about service bus queues, see Service Bus Queues, Topics, and Subscriptions.
 
-## Trabajo con recursos de tabla
+## <a name="work-with-table-resources"></a>Work with Table Resources
 
-El servicio de almacenamiento de tablas de Azure permite almacenar una gran cantidad de datos estructurados. El servicio es un almacén de datos NoSQL que acepta llamadas autenticadas desde dentro y fuera de la nube de Azure. Las tablas de Azure son ideales para el almacenamiento de datos estructurados no relacionales.
+The Azure Table storage service stores large amounts of structured data. The service is a NoSQL datastore which accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.
 
-### Creación de una tabla
+### <a name="to-create-a-table"></a>To create a table
 
-1. En el Explorador de servidores, seleccione el nodo **Tablas** de la cuenta de almacenamiento y después elija **Crear tabla**.
+1. In Server Explorer, select the **Tables** node of the storage account, and then choose **Create Table**.
 
-1. En el cuadro de diálogo **Crear tabla**, escriba un nombre para la tabla.
+1. In the **Create Table** dialog box, enter a name for the table.
 
-### Para ver los datos de tabla
+### <a name="to-view-table-data"></a>To view table data
 
-1. En el Explorador de servidores, abra el nodo **Azure** y después el nodo **Almacenamiento**.
+1. In Server Explorer, open the **Azure** node, and then open the **Storage** node.
 
-1. Abra el nodo de la cuenta de almacenamiento que le interese y después abra el nodo **Tablas** para ver una lista de tablas para la cuenta de almacenamiento.
+1. Open the storage account node that you are interested in, and then open the **Tables** node to see a list of tables for the storage account.
 
-1. Abra el menú contextual para una tabla y después elija **Ver tabla**.
+1. Open the shortcut menu for a table and then choose **View Table**.
 
-    ![Una tabla de Azure en el Explorador de soluciones](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744165.png)
+    ![An Azure table in Solution Explorer](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744165.png)
 
-La tabla se organiza por entidades (mostradas en filas) y propiedades (mostradas en columnas). Por ejemplo, en la siguiente ilustración se muestran las entidades que aparecen en el **Diseñador de tablas**:
+The table is organized by entities (shown in rows) and properties (shown in columns). For example, the following illustration shows entities listed in the **Table Designer**:
 
-### Para editar los datos de tabla
+### <a name="to-edit-table-data"></a>To edit table data
 
-1. En el **Diseñador de tablas**, abra el menú contextual de una entidad (una sola fila) o una propiedad (una sola celda) y después elija **Editar**.
+1. In the **Table Designer**, open the shortcut menu for an entity (a single row) or a property (a single cell) and then choose **Edit**.
 
-    ![Agregar o editar una entidad de tabla](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC656238.png)
+    ![Add or Edit a Table Entity](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC656238.png)
 
-    No es necesario que las entidades de una sola tabla compartan el mismo conjunto de propiedades (columnas). Tenga en cuenta las siguientes restricciones de visualización y edición de datos de la tabla.
-    - No se pueden ver ni editar datos binarios (tipo byte), pero se pueden almacenar en una tabla.
+    Entities in a single table aren’t required to have the same set of properties (columns). Keep in mind the following restrictions on viewing and editing table data.
+    - You can’t view or edit binary data (type byte[]), but you can store it in a table.
 
-    - No se pueden editar los valores **PartitionKey** ni **RowKey**, porque el almacenamiento de tablas en Azure no admite esa operación.
+    - You can’t edit the **PartitionKey** or **RowKey** values, because table storage in Azure doesn't support that operation.
 
-    - No se puede crear una propiedad denominada Timestamp; los servicios de Almacenamiento de Azure usan una propiedad con ese nombre.
+    - You can’t create a property called Timestamp, Azure Storage services use a property with that name.
 
-    - Si escribe un valor DateTime, debe seguir un formato adecuado para la configuración regional y de idioma del equipo (por ejemplo, MM/DD/AAAA HH:MM:SS [AM|PM] para Inglés de Estados Unidos).
+    - If you enter a DateTime value, you must follow a format that's appropriate to the region and language settings of your computer (for example, MM/DD/YYYY HH:MM:SS [AM|PM] for U.S. English).
 
-### Para agregar entidades
+### <a name="to-add-entities"></a>To add entities
 
-1. En el **Diseñador de tablas**, elija el botón **Agregar entidad**, que está cerca de la esquina superior derecha de la vista de tabla.
+1. In the **Table Designer**, choose the **Add Entity** button, which is near the top-right corner of the table view.
 
-    ![Agregar entidad](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655336.png)
+    ![Add Entity](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655336.png)
 
-1. En el cuadro de diálogo **Agregar entidad**, escriba los valores de las propiedades **PartitionKey** y **RowKey**.
+1. In the **Add Entity** dialog box, enter the values of the **PartitionKey** and **RowKey** properties.
 
-    ![Cuadro de diálogo Agregar entidad](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655335.png)
+    ![Add Entity Dialog Box](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655335.png)
 
-    Especifique los valores con cuidado porque no se pueden cambiar después de cerrar el cuadro de diálogo a menos que elimine la entidad y vuelva a agregarla.
+    Enter the values carefully because you can't change them after you close the dialog box unless you delete the entity and add it again.
 
-### Para filtrar entidades
+### <a name="to-filter-entities"></a>To filter entities
 
-Puede personalizar el conjunto de entidades que aparecen en una tabla si usa el generador de consultas.
+You can customize the set of entities that appear in a table if you use the query builder.
 
-1. Para abrir el generador de consultas, abra una tabla para su visualización.
+1. To open the query builder, open a table for viewing.
 
-1. Elija el botón más a la derecha de la barra de herramientas de la vista de tabla.
+1. Choose the rightmost button on the table view’s toolbar.
 
-    Aparece el cuadro de diálogo **Generador de consultas**. En la siguiente ilustración, se muestra una consulta que se está generando en el generador de consultas.
+    The **Query Builder** dialog box appears. The following illustration shows a query that's being built in the query builder.
 
-    ![Generador de consultas](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC652231.png)
+    ![Query Builder](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC652231.png)
 
-1. Cuando haya terminado de generar la consulta, cierre el cuadro de diálogo. El formato de texto de la consulta resultante aparece en un cuadro de texto como un filtro de WCF Data Services.
+1. When you’re done building the query, close the dialog box. The resulting text form of the query appears in a text box as a WCF Data Services filter.
 
-1. Para ejecutar la consulta, elija el icono de triángulo verde.
+1. To run the query, choose the green triangle icon.
 
-    También puede filtrar los datos de la entidad que aparece en el **Diseñador de tablas** si escribe una cadena de filtro de WCF Data Services directamente en el campo de filtro. Este tipo de cadena es similar a una cláusula WHERE de SQL, pero se envía al servidor como solicitud HTTP. Para obtener información acerca de cómo construir cadenas de filtro, consulte [Crear cadenas de filtro para el Diseñador de tablas](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+    You can also filter entity data that appears in the **Table Designer** if you enter a WCF Data Services filter string directly in the filter field. This kind of string is similar to a SQL WHERE clause but is sent to the server as an HTTP request. For information about how to construct filter strings, see [Constructing Filter Strings for the Table Designer](https://msdn.microsoft.com/library/azure/ff683669.aspx).
 
-    En la siguiente ilustración se muestra un ejemplo de una cadena de filtro válida:
+    The following illustration shows an example of a valid filter string:
 
-    ![VST\_SE\_TableFilter](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655337.png)
+    ![VST_SE_TableFilter](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655337.png)
 
-### Actualización de los datos de almacenamiento
+### <a name="refresh-storage-data"></a>Refresh storage data
 
-Cuando el Explorador de servidores se conecta a una cuenta de almacenamiento u obtiene datos de ella, se puede tardar hasta un minuto en completar la operación. Si no se puede conectar, la operación podría agotar el tiempo de espera. Mientras se recuperan datos, puede continuar trabajando en otras zonas de Visual Studio. Para cancelar la operación si está tardando demasiado, elija el botón **Detener actualización** en la barra de herramientas del Explorador de servidores.
+When Server Explorer connects to or gets data from a storage account, it might take up to a minute for the operation to complete. If it can’t connect, the operation might time out. While data is retrieved, you can continue to work in other parts of Visual Studio. To cancel the operation if it’s taking too long, choose the **Stop Refresh** button on the Server Explorer toolbar.
 
-#### Para actualizar los datos del contenedor de blobs
+#### <a name="to-refresh-blob-container-data"></a>To refresh blob container data
 
-- Seleccione el nodo **Blobs** bajo **Almacenamiento** y elija el botón **Actualizar** en la barra de herramientas del Explorador de servidores.
+- Select the **Blobs** node beneath **Storage** and choose the **Refresh** button on the Server Explorer toolbar.
 
-- Para actualizar la lista de blobs que se muestra, elija el botón **Ejecutar**.
+- To refresh the list of blobs that is displayed, choose the **Execute** button.
 
-#### Para actualizar los datos de tabla
+#### <a name="to-refresh-table-data"></a>To refresh table data
 
-- Seleccione el nodo **Tablas** bajo **Almacenamiento** y elija el botón **Actualizar**.
+- Select the **Tables** node beneath **Storage** and choose the **Refresh** button.
 
-- Para actualizar la lista de entidades que se muestra en el **Diseñador de tablas**, elija el botón **Ejecutar** en el **Diseñador de tablas**.
+- To refresh the list of entities that is displayed in the **Table Designer**, choose the **Execute** button on the **Table Designer**.
 
-#### Para actualizar los datos de cola
+#### <a name="to-refresh-queue-data"></a>To refresh queue data
 
-- Seleccione el nodo **Colas** y elija el botón **Actualizar**.
+- Select the **Queues** node, and then choose the **Refresh** button.
 
-#### Para actualizar todos los elementos de una cuenta de almacenamiento
+#### <a name="to-refresh-all-items-in-a-storage-account"></a>To refresh all items in a storage account
 
-- Elija el nombre de la cuenta y después seleccione el botón **Actualizar** en la barra de herramientas del Explorador de servidores.
+- Choose the account name, and then choose the **Refresh** button on the toolbar for Server Explorer.
 
-### Adición de cuentas de almacenamiento mediante el Explorador de servidores
+### <a name="add-storage-accounts-by-using-server-explorer"></a>Add storage accounts by using Server Explorer
 
-Existen dos formas de agregar cuentas de almacenamiento mediante el Explorador de servidores. Puede crear una nueva cuenta de almacenamiento en su suscripción de Azure o puede asociar una cuenta de almacenamiento existente.
+There are two ways to add storage accounts by using Server Explorer. You can create a new storage account in your Azure subscription, or you can attach an existing storage account.
 
-#### Para crear una nueva cuenta de almacenamiento mediante el Explorador de servidores
+#### <a name="to-create-a-new-storage-account-by-using-server-explorer"></a>To create a new storage account by using Server Explorer
 
-1. En el Explorador de servidores, abra el menú contextual del nodo Almacenamiento y después elija Crear cuenta de almacenamiento.
+1. In Server Explorer, open the shortcut menu for the Storage node, and then choose Create Storage Account.
 
-    ![Crear una nueva cuenta de almacenamiento de Azure](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744166.png)
+    ![Create a new Azure storage account](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744166.png)
 
-1. Seleccione o escriba la siguiente información para la nueva cuenta de almacenamiento en el cuadro de diálogo **Crear cuenta de almacenamiento**.
+1. Select or enter the following information for the new storage account in the **Create Storage Account** dialog box.
 
-    - Suscripción de Azure a la que desee agregar la cuenta de almacenamiento.
+    - The Azure subscription to which you want to add the storage account.
 
-    - Nombre que quiere usar para la nueva cuenta de almacenamiento.
+    - The name you want to use for the new storage account.
 
-    - La región o el grupo de afinidad (por ejemplo, Oeste de EE. UU. o Asia oriental).
+    - The region or affinity group (such as West US or East Asia).
 
-    - El tipo de replicación que desea usar para la cuenta de almacenamiento, por ejemplo, con redundancia geográfica.
+    - The type of replication you want to use for the storage account, such as Geo-Redundant.
 
-1. Seleccione **Create**.
+1. Choose **Create**.
 
-    La nueva cuenta de almacenamiento aparecerá en la lista **Almacenamiento** del Explorador de soluciones.
+    The new storage account appears in the **Storage** list in Solution Explorer.
 
-#### Para asociar una nueva cuenta de almacenamiento mediante el Explorador de servidores
+#### <a name="to-attach-an-existing-storage-account-by-using-server-explorer"></a>To attach an existing storage account by using Server Explorer
 
-1. En el Explorador de servidores, abra el menú contextual del nodo de almacenamiento de Azure y después elija **Asociar almacenamiento externo**.
+1. In Server Explorer, open the shortcut menu for the Azure storage node, and then choose **Attach External Storage**.
 
-    ![Agregar una cuenta de almacenamiento existente](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766039.png)
+    ![Adding an existing storage account](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766039.png)
 
-1. Seleccione o escriba la siguiente información para la nueva cuenta de almacenamiento en el cuadro de diálogo **Crear cuenta de almacenamiento**.
+1. Select or enter the following information for the new storage account in the **Create Storage Account** dialog box.
 
-    - El nombre de la cuenta de almacenamiento existente que desea asociar. Puede escribir un nombre o seleccionarlo en la lista.
+    - The name of the existing storage account you want to attach. You can enter a name or select it from the list.
 
-    - La clave para la cuenta de almacenamiento seleccionada. Este valor normalmente se proporciona automáticamente cuando se selecciona una cuenta de almacenamiento. Si desea que Visual Studio recuerde la clave de la cuenta de almacenamiento, active la casilla Recordar clave de cuenta.
+    - The key for the selected storage account. This value is typically provided for you when you select a storage account. If you want Visual Studio to remember the storage account key, select the Remember account key box.
 
-    - El protocolo que se va a usar para conectarse a la cuenta de almacenamiento, como HTTP, HTTPS o un extremo personalizado. Consulte [Configurar las cadenas de conexión de Azure](https://msdn.microsoft.com/library/azure/ee758697.aspx) para obtener más información acerca de los extremos personalizados.
+    - The protocol to use to connect to the storage account, such as HTTP, HTTPS, or a custom endpoint. See [How to Configure Connection Strings](https://msdn.microsoft.com/library/azure/ee758697.aspx) for more information about custom endpoints.
 
-### Para ver los extremos secundarios
+### <a name="to-view-the-secondary-endpoints"></a>To view the secondary endpoints
 
-- Si ha creado una cuenta de almacenamiento con la opción de replicación **Redundancia geográfica con acceso de lectura**, puede ver sus extremos secundarios. Abra el menú contextual del nombre de cuenta y elija **Propiedades**.
+- If you created a storage account using the **Read-Access Geo Redundant** replication option, you can view its secondary endpoints. Open the shortcut menu for the account name, and then choose **Properties**.
 
-    ![Extremos secundarios de almacenamiento](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766040.png)
+    ![Storage secondary endpoints](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766040.png)
 
-### Para quitar una cuenta de almacenamiento del Explorador de servidores
+### <a name="to-remove-a-storage-account-from-server-explorer"></a>To remove a storage account from Server Explorer
 
-- En el Explorador de servidores, abra el menú contextual del nombre de cuenta y elija **Eliminar**. Si elimina una cuenta de almacenamiento, también se quita cualquier información de clave guardada para esa cuenta.
+- In Server Explorer, open the shortcut menu for the account name, and then choose **Delete**. If you delete a storage account, any saved key information for that account is also removed.
 
-    >[AZURE.NOTE] Si elimina una cuenta de almacenamiento del Explorador de servidores, esto no afecta a la cuenta de almacenamiento ni a ningún dato que contenga; simplemente se quita la referencia del Explorador de servidores. Para eliminar de forma permanente una cuenta de almacenamiento, use el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885).
+    >[AZURE.NOTE] If you delete a storage account from Server Explorer, it doesn’t affect your storage account or any data that it contains; it simply removes the reference from Server Explorer. To permanently delete a storage account, use the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-Para obtener más información sobre cómo usar los servicios de almacenamiento de Azure, vea [Acceso a los servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
+To learn more about how use Azure storage services, see [Accessing the Azure Storage Services](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

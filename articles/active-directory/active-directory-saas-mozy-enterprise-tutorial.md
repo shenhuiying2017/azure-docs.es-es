@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Integración de Azure Active Directory con Mozy Enterprise | Microsoft Azure" 
-    description="Aprenda a usar Mozy Enterprise con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    pageTitle="Tutorial: Azure Active Directory integration with Mozy Enterprise | Microsoft Azure" 
+    description="Learn how to use Mozy Enterprise with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,150 +11,158 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/08/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Tutorial: Integración de Azure Active Directory con Mozy Enterprise
+
+#<a name="tutorial:-azure-active-directory-integration-with-mozy-enterprise"></a>Tutorial: Azure Active Directory integration with Mozy Enterprise
   
-El objetivo de este tutorial es mostrar la integración de Azure y Mozy Enterprise. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+The objective of this tutorial is to show the integration of Azure and Mozy Enterprise.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Una suscripción de Azure válida
--   Un inquilino de Mozy Enterprise
+-   A valid Azure subscription
+-   A Mozy Enterprise tenant
   
-Después de completar este tutorial, los usuarios de Azure AD asignados a Mozy Enterprise podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Mozy Enterprise (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to Mozy Enterprise will be able to single sign into the application at your Mozy Enterprise company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-La situación descrita en este tutorial consta de los siguientes bloques de creación:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Habilitación de la integración de aplicaciones para Mozy Enterprise
-2.  Configuración del inicio de sesión único
-3.  Configuración del aprovisionamiento de usuario
-4.  Asignación de usuarios
+1.  Enabling the application integration for Mozy Enterprise
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Escenario](./media/active-directory-saas-mozy-enterprise-tutorial/IC777308.png "Escenario")
-##Habilitación de la integración de aplicaciones para Mozy Enterprise
+![Scenario](./media/active-directory-saas-mozy-enterprise-tutorial/IC777308.png "Scenario")
+##<a name="enabling-the-application-integration-for-mozy-enterprise"></a>Enabling the application integration for Mozy Enterprise
   
-El objetivo de esta sección es describir cómo habilitar la integración de aplicaciones para Mozy Enterprise.
+The objective of this section is to outline how to enable the application integration for Mozy Enterprise.
 
-###Siga estos pasos para habilitar la integración de aplicaciones para Mozy Enterprise:
+###<a name="to-enable-the-application-integration-for-mozy-enterprise,-perform-the-following-steps:"></a>To enable the application integration for Mozy Enterprise, perform the following steps:
 
-1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-mozy-enterprise-tutorial/IC700993.png "Active Directory")
 
-2.  En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Aplicaciones](./media/active-directory-saas-mozy-enterprise-tutorial/IC700994.png "Aplicaciones")
+    ![Applications](./media/active-directory-saas-mozy-enterprise-tutorial/IC700994.png "Applications")
 
-4.  Haga clic en **Agregar** en la parte inferior de la página.
+4.  Click **Add** at the bottom of the page.
 
-    ![Agregar aplicación](./media/active-directory-saas-mozy-enterprise-tutorial/IC749321.png "Agregar aplicación")
+    ![Add application](./media/active-directory-saas-mozy-enterprise-tutorial/IC749321.png "Add application")
 
-5.  En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Agregar una aplicación de la galería](./media/active-directory-saas-mozy-enterprise-tutorial/IC749322.png "Agregar una aplicación de la galería")
+    ![Add an application from gallerry](./media/active-directory-saas-mozy-enterprise-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  En el **cuadro de búsqueda**, escriba **mozy enterprise**.
+6.  In the **search box**, type **mozy enterprise**.
 
-    ![Galería de aplicaciones](./media/active-directory-saas-mozy-enterprise-tutorial/IC777309.png "Galería de aplicaciones")
+    ![Application Gallery](./media/active-directory-saas-mozy-enterprise-tutorial/IC777309.png "Application Gallery")
 
-7.  En el panel de resultados, seleccione **Mozy Enterprise** y, a continuación, haga clic en **Completar** para agregar la aplicación.
+7.  In the results pane, select **Mozy Enterprise**, and then click **Complete** to add the application.
 
     ![Mozy Enterprise](./media/active-directory-saas-mozy-enterprise-tutorial/IC777310.png "Mozy Enterprise")
-##Configuración del inicio de sesión único
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-El objetivo de esta sección es describir cómo habilitar la autenticación de usuarios en Mozy Enterprise con su cuenta de Azure AD mediante federación basada en el protocolo SAML. Como parte de este procedimiento, es necesario cargar un certificado codificado en base 64 en su inquilino de Mozy Enterprise. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+The objective of this section is to outline how to enable users to authenticate to Mozy Enterprise with their account in Azure AD using federation based on the SAML protocol.  
+As part of this procedure, you are required to upload a base-64 encoded certificate to your Mozy Enterprise tenant.  
+If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
-###Siga estos pasos para configurar el inicio de sesión único:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Mozy Enterprise**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  In the Azure classic portal, on the **Mozy Enterprise** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-mozy-enterprise-tutorial/IC771709.png "Configurar inicio de sesión único")
+    ![Configure single sign-on](./media/active-directory-saas-mozy-enterprise-tutorial/IC771709.png "Configure single sign-on")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en Mozy Enterprise?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
+2.  On the **How would you like users to sign on to Mozy Enterprise** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-mozy-enterprise-tutorial/IC777311.png "Configurar inicio de sesión único")
+    ![Configure single sign-on](./media/active-directory-saas-mozy-enterprise-tutorial/IC777311.png "Configure single sign-on")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Mozy Enterprise**, escriba su dirección URL con el siguiente patrón "*https://\<NombreDeInquilino>.Mozyenterprise.com*" y, luego, haga clic en **Siguiente**.
+3.  On the **Configure App URL** page, in the **Mozy Enterprise Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.Mozyenterprise.com*", and then click **Next**.
 
-    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-mozy-enterprise-tutorial/IC777312.png "Configurar dirección URL de la aplicación")
+    ![Configure app URL](./media/active-directory-saas-mozy-enterprise-tutorial/IC777312.png "Configure app URL")
 
-4.  En la página **Configuración de inicio de sesión único en Mozy Enterprise**, para descargar el certificado, haga clic en **Descargar certificado** y, a continuación, guarde el archivo de certificado en el equipo.
+4.  On the **Configure single sign-on at Mozy Enterprise** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-mozy-enterprise-tutorial/IC777313.png "Configurar inicio de sesión único")
+    ![Configure single sign-on](./media/active-directory-saas-mozy-enterprise-tutorial/IC777313.png "Configure single sign-on")
 
-5.  En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de Mozy Enterprise.
+5.  In a different web browser window, log into your Mozy Enterprise company site as an administrator.
 
-6.  En la sección **Configuration** (Configuración), haga clic en **Authentication Policy** (Directiva de autenticación).
+6.  In the **Configuration** section, click **Authentication Policy**.
 
-    ![Directiva de autenticación](./media/active-directory-saas-mozy-enterprise-tutorial/IC777314.png "Directiva de autenticación")
+    ![Authentication policy](./media/active-directory-saas-mozy-enterprise-tutorial/IC777314.png "Authentication policy")
 
-7.  En la sección **Authentication Policy** (Directiva de autenticación), realice estos pasos:
+7.  On the **Authentication Policy** section, perform the following steps:
 
-    ![Directiva de autenticación](./media/active-directory-saas-mozy-enterprise-tutorial/IC777315.png "Directiva de autenticación")
+    ![Authentication policy](./media/active-directory-saas-mozy-enterprise-tutorial/IC777315.png "Authentication policy")
 
-    1.  Seleccione **Servicio de directorio** como **Proveedor**.
-    2.  Seleccione **Use LDAP Push** (Usar inserción de LDAP).
-    3.  Haga clic en la pestaña **SAML Authentication** (Autenticación SAML).
-    4.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Mozy Enterprise**, copie el valor de **Dirección URL de solicitud de autenticación** y péguelo en el cuadro de texto **Dirección URL de autenticación**.
-    5.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Mozy Enterprise**, copie el valor de **Identificador del proveedor de identidades** y péguelo en el cuadro de texto **Extremo de SAML**.
-    6.  Cree un archivo **codificado en base 64** a partir del certificado descargado.
+    1.  Select **Directory Service** as **Provider**.
+    2.  Select **Use LDAP Push**.
+    3.  Click the **SAML Authentication** tab.
+    4.  In the Azure classic portal, on the **Configure single sign-on at Mozy Enterprise** dialog page, copy the **Authentication Request URL** value, and then paste it into the **Authentication URL** textbox.
+    5.  In the Azure classic portal, on the **Configure single sign-on at Mozy Enterprise** dialog page, copy the **Identity Provider ID** value, and then paste it into the **SAML Endpoint** textbox.
+    6.  Create a **Base-64 encoded** file from your downloaded certificate.  
 
-        >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP]For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
-    7.  Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el Portapapeles y, a continuación, pegue todo el certificado en el cuadro de texto **Certificado SAML**.
-    8.  Seleccione **Habilitar SSO para que los administradores inicien sesión con sus credenciales de red**.
-    9.  Haga clic en **Guardar cambios**.
+    7.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into **SAML Certificate** textbox.
+    8.  Select **Enable SSO for Admins to log in with their network credentials**.
+    9.  Click **Save Changes**.
 
-8.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Mozy Enterprise**, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completar**.
+8.  In the Azure classic portal, on the **Configure single sign-on at Mozy Enterprise** dialog page, select the single sign-on configuration confirmation, and then click **Complete**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-mozy-enterprise-tutorial/IC777316.png "Configurar inicio de sesión único")
-##Configuración del aprovisionamiento de usuario
+    ![Configure single sign-on](./media/active-directory-saas-mozy-enterprise-tutorial/IC777316.png "Configure single sign-on")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Para permitir que los usuarios de Azure AD inicien sesión en Mozy Enterprise, deben aprovisionarse en Mozy Enterprise. En el caso de Mozy Enterprise, el aprovisionamiento es una tarea manual.
+In order to enable Azure AD users to log into Mozy Enterprise, they must be provisioned into Mozy Enterprise.  
+In the case of Mozy Enterprise, provisioning is a manual task.
 
-###Para aprovisionar cuentas de usuario, realice estos pasos:
+###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
 
-1.  Inicie sesión en su inquilino de **Mozy Enterprise**.
+1.  Log in to your **Mozy Enterprise** tenant.
 
-2.  Haga clic en **Users** (Usuarios) y luego en **Add New User** (Agregar nuevo usuario).
+2.  Click **Users**, and then click **Add New User**.
 
-    ![Usuarios](./media/active-directory-saas-mozy-enterprise-tutorial/IC777317.png "Usuarios")
+    ![Users](./media/active-directory-saas-mozy-enterprise-tutorial/IC777317.png "Users")
 
-    >[AZURE.NOTE]La opción **Add New User** (Agregar nuevo usuario) solo se muestra si **Mozy** está seleccionado como proveedor en **Authentication policy** (Directiva de autenticación). Si la autenticación SAML está configurada, los usuarios se agregan automáticamente al iniciar sesión por primera vez con inicio de sesión único.
+    >[AZURE.NOTE]The **Add New User** option is only displayed only if **Mozy** is selected as the provider under **Authentication policy**. If SAML Authentication is configured then the users are added automatically on their first login through Single sign on.
 
-3.  En el cuadro de diálogo Nuevo usuario, realice los pasos siguientes:
+3.  On the new user dialog, perform the following steps:
 
-    ![Agregar usuarios](./media/active-directory-saas-mozy-enterprise-tutorial/IC777318.png "Agregar usuarios")
+    ![Add Users](./media/active-directory-saas-mozy-enterprise-tutorial/IC777318.png "Add Users")
 
-    1.  En la lista **Choose a Group** (Elija un grupo), seleccione un grupo.
-    2.  En la lista **Tipo de usuario**, seleccione un tipo.
-    3.  En el cuadro de texto **Username** (Nombre de usuario), escriba el nombre de usuario de Azure AD.
-    4.  En el cuadro de texto **Email** (Correo electrónico), escriba la dirección de correo electrónico del usuario de Azure AD.
-    5.  Seleccione **Send user instruction email** (Enviar correo electrónico al usuario con instrucciones).
-    6.  Haga clic en **Add User(s)** (Agregar usuarios).
+    1.  From the **Choose a Group** list, select a group.
+    2.  From the **What type of user** list, select a type.
+    3.  In the **Username** textbox, type the name of the Azure AD user.
+    4.  In the **Email** textbox, type the email address of the Azure AD user.
+    5.  Select **Send user instruction email**.
+    6.  Click **Add User(s)**.
 
-    >[AZURE.NOTE]Después de crear el usuario, se enviará un correo electrónico al usuario de Azure AD que incluye un vínculo para confirmar la cuenta antes de que se active.
+    >[AZURE.NOTE]After creating the user, an email will be sent to the Azure AD user that includes a link to confirm the account before it becomes active.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Mozy Enterprise ofrecida por Mozy Enterprise para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE]You can use any other Mozy Enterprise user account creation tools or APIs provided by Mozy Enterprise to provision AAD user accounts.
 
-##Asignación de usuarios
+##<a name="assigning-users"></a>Assigning users
  
-Para probar la configuración, debe asignar los usuarios de Azure AD que quiera que usen su aplicación para concederles acceso a ella.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Para asignar usuarios a Mozy Enterprise, siga estos pasos:
+###<a name="to-assign-users-to-mozy-enterprise,-perform-the-following-steps:"></a>To assign users to Mozy Enterprise, perform the following steps:
 
-1.  En el Portal de Azure clásico, cree una cuenta de prueba.
+1.  In the Azure classic portal, create a test account.
 
-2.  En la página de integración de aplicaciones de **Mozy Enterprise**, haga clic en **Asignar usuarios**.
+2.  On the **Mozy Enterprise **application integration page, click **Assign users**.
 
-    ![Asignar usuarios](./media/active-directory-saas-mozy-enterprise-tutorial/IC777319.png "Asignar usuarios")
+    ![Assign users](./media/active-directory-saas-mozy-enterprise-tutorial/IC777319.png "Assign users")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sí](./media/active-directory-saas-mozy-enterprise-tutorial/IC767830.png "Sí")
+    ![Yes](./media/active-directory-saas-mozy-enterprise-tutorial/IC767830.png "Yes")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

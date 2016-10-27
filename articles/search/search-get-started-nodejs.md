@@ -1,117 +1,118 @@
 <properties
-	pageTitle="Introducción a Búsqueda de Azure en NodeJS | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
-	description="Revise la creación de una aplicación de búsqueda en un servicio de búsqueda hospedado en la nube en Azure con NodeJS como lenguaje de programación."
-	services="search"
-	documentationCenter=""
-	authors="EvanBoyle"
-	manager="pablocas"
-	editor="v-lincan"/>
+    pageTitle="Get started with Azure Search in NodeJS | Microsoft Azure | Hosted cloud search service"
+    description="Walk through building a search application on a hosted cloud search service on Azure using NodeJS as your programming language."
+    services="search"
+    documentationCenter=""
+    authors="EvanBoyle"
+    manager="pablocas"
+    editor="v-lincan"/>
 
 <tags
-	ms.service="search"
-	ms.devlang="na"
-	ms.workload="search"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.date="07/14/2016"
-	ms.author="evboyle"/>
+    ms.service="search"
+    ms.devlang="na"
+    ms.workload="search"
+    ms.topic="hero-article"
+    ms.tgt_pltfrm="na"
+    ms.date="07/14/2016"
+    ms.author="evboyle"/>
 
-# Introducción a Búsqueda de Azure en NodeJS
+
+# <a name="get-started-with-azure-search-in-nodejs"></a>Get started with Azure Search in NodeJS
 > [AZURE.SELECTOR]
 - [Portal](search-get-started-portal.md)
 - [.NET](search-howto-dotnet-sdk.md)
 
-Aprenda a crear una aplicación de búsqueda de NodeJS personalizada que utiliza Búsqueda de Azure para la experiencia de búsqueda. Este tutorial usa la [API de REST del servicio Búsqueda de Azure](https://msdn.microsoft.com/library/dn798935.aspx) para construir los objetos y las operaciones que se utilizan en este ejercicio.
+Learn how to build a custom NodeJS search application that uses Azure Search for its search experience. This tutorial uses the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx) to construct the objects and operations used in this exercise.
 
-Hemos utilizado [NodeJS](https://nodejs.org) y NPM, [Sublime Text 3](http://www.sublimetext.com/3) y Windows PowerShell en Windows 8.1 para desarrollar y probar este código.
+We used [NodeJS](https://nodejs.org) and NPM, [Sublime Text 3](http://www.sublimetext.com/3), and Windows PowerShell on Windows 8.1 to develop and test this code.
 
-Para ejecutar este ejemplo, debe tener un servicio Búsqueda de Azure, al que puede suscribirse en el [Portal de Azure](https://portal.azure.com). Para obtener instrucciones detalladas, consulte [Creación de un servicio Búsqueda de Azure en el Portal de Azure](search-create-service-portal.md).
+To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure Portal](https://portal.azure.com). See [Create an Azure Search service in the portal](search-create-service-portal.md) for step-by-step instructions.
 
-## Acerca de los datos
+## <a name="about-the-data"></a>About the data
 
-Esta aplicación de ejemplo usa los datos del [Servicio geológico de Estados Unidos (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtrados por el estado de Rhode Island para reducir el tamaño del conjunto de datos. Vamos a usar estos datos para crear una aplicación de búsqueda que devuelva edificios de referencia, como hospitales y escuelas, además de características geológicas como ríos, lagos y montes.
+This sample application uses data from the [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Rhode Island to reduce the dataset size. We'll use this data to build a search application that returns landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
 
-En esta aplicación, el programa **DataIndexer** compila y carga el índice usando una construcción [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx), y obtiene el conjunto de datos filtrado de USGS desde una base de datos SQL pública de Azure. En el código del programa se proporcionan las credenciales y la información de conexión al origen de datos en línea. No es necesario realizar ninguna otra configuración.
+In this application, the **DataIndexer** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from a public Azure SQL Database. Credentials and connection  information to the online data source is provided in the program code. No further configuration is necessary.
 
-> [AZURE.NOTE] Se aplicó un filtro a este conjunto de datos para no sobrepasar el límite de 10.000 documentos del nivel de precios gratuito. Si usa el nivel estándar, este límite no se aplica. Para obtener información más detallada sobre las características de cada plan de tarifa, consulte [Límites de servicio en la Búsqueda de Azure](search-limits-quotas-capacity.md).
+> [AZURE.NOTE] We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use the standard tier, this limit does not apply. For details about capacity for each pricing tier, see [Search service limits](search-limits-quotas-capacity.md).
 
 
 <a id="sub-2"></a>
-## Buscar el nombre del servicio y la clave de API del servicio Búsqueda de Azure
+## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Find the service name and api-key of your Azure Search service
 
-Después de crear el servicio, vuelva al portal para obtener la dirección URL o la `api-key`. Las conexiones con el servicio de búsqueda requieren que tenga la URL y una `api-key` para autenticar la llamada.
+After you create the service, return to the portal to get the URL or `api-key`. Connections to your Search service require that you have both the URL and an `api-key` to authenticate the call.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2. En la barra de acceso rápido, haga clic en **Servicio de búsqueda** para enumerar todos los servicios de Búsqueda de Azure aprovisionados para la suscripción.
-3. Seleccione el servicio que desea utilizar.
-4. En el panel del servicio verá mosaicos con información esencial, así como el icono de llave para tener acceso a las claves de administrador.
+1. Sign in to the [Azure Portal](https://portal.azure.com).
+2. In the jump bar, click **Search service** to list all of the Azure Search services provisioned for your subscription.
+3. Select the service you want to use.
+4. On the service dashboard, you'll see tiles for essential information, as well as the key icon for accessing the admin keys.
 
-  	![][3]
+    ![][3]
 
-5. Copie la dirección URL del servicio, una clave de administración y una clave de consulta. Necesitará las tres más adelante para agregarlas al archivo config.js.
+5. Copy the service URL, an admin key, and a query key. You'll need all three later, when you add them to the config.js file.
 
-## Descarga de los archivos de ejemplo
+## <a name="download-the-sample-files"></a>Download the sample files
 
-Use uno de los siguientes métodos para descargar el ejemplo.
+Use either one of the following approaches to download the sample.
 
-1. Vaya a [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo).
-2. Haga clic en **Download ZIP**, guarde el archivo .zip y extraiga todos los archivos que contiene.
+1. Go to [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo).
+2. Click **Download ZIP**, save the .zip file, and then extract all the files it contains.
 
-Todas las modificaciones y las instrucciones de ejecución subsiguientes se realizarán en los archivos de esta carpeta.
+All subsequent file modifications and run statements will be made against files in this folder.
 
 
-## Actualización del archivo config.js. con la dirección URL del servicio de búsqueda y la clave de API
+## <a name="update-the-config.js.-with-your-search-service-url-and-api-key"></a>Update the config.js. with your Search service URL and api-key
 
-Utilizando la dirección URL y la api-key que copió anteriormente, especifique la dirección URL, la clave de administración y la clave de consulta en el archivo de configuración.
+Using the URL and api-key that you copied earlier, specify the URL, admin-key, and query-key in configuration file.
 
-La clave de administración concede control total sobre las operaciones de servicio, incluidas la creación o eliminación de un índice y la carga de documentos. En cambio, las claves de consulta son para operaciones de solo lectura, utilizadas normalmente por las aplicaciones cliente que se conectan a Búsqueda de Azure.
+Admin keys grant full control over service operations, including creating or deleting an index and loading documents. In contrast, query keys are for read-only operations, typically used by client applications that connect to Azure Search.
 
-En este ejemplo, se incluye la clave de consulta para ayudar a reforzar la práctica recomendada de usar la clave de consulta en aplicaciones cliente.
+In this sample, we include the query key to help reinforce the best practice of using the query key in client applications.
 
-La siguiente captura de pantalla muestra el archivo **config.js** abierto en un editor de texto, con las entradas pertinentes enmarcadas para que pueda ver dónde actualizar el archivo con los valores válidos para el servicio de búsqueda.
+The following screenshot shows **config.js** open in a text editor, with the relevant entries demarcated so that you can see where to update the file with the values that are valid for your search service.
 
 ![][5]
 
 
-## Hospedar un entorno de tiempo de ejecución para el ejemplo
+## <a name="host-a-runtime-environment-for-the-sample"></a>Host a runtime environment for the sample
 
-El ejemplo requiere un servidor HTTP, que puede instalar globalmente mediante npm.
+The sample requires an HTTP server, which you can install globally using npm.
 
-Ejecute los comandos siguientes en una ventana de PowerShell.
+Use a PowerShell window for the following commands.
 
-1. Navegue hasta la carpeta que contiene el archivo **package.json**.
-2. Escriba `npm install`.
-2. Escriba `npm install -g http-server`.
+1. Navigate to the folder that contains the **package.json** file.
+2. Type `npm install`.
+2. Type `npm install -g http-server`.
 
-## Compilación del índice y ejecución de la aplicación
+## <a name="build-the-index-and-run-the-application"></a>Build the index and run the application
 
-1. Escriba `npm run indexDocuments`.
-2. Escriba `npm run build`.
-3. Escriba `npm run start_server`.
-4. Dirija el explorador a `http://localhost:8080/index.html`
+1. Type `npm run indexDocuments`.
+2. Type `npm run build`.
+3. Type `npm run start_server`.
+4. Direct your browser at `http://localhost:8080/index.html`
 
-## Buscar en los datos de USGS
+## <a name="search-on-usgs-data"></a>Search on USGS data
 
-El conjunto de datos de USGS incluye los registros que son relevantes para el estado de Rhode Island. Si hace clic en **Search** en un cuadro de búsqueda vacío, obtendrá las 50 primeras entradas (es el valor predeterminado).
+The USGS data set includes records that are relevant to the state of Rhode Island. If you click **Search** on an empty search box, you will get the top 50 entries, which is the default.
 
-Escriba un término de búsqueda para que el motor de búsqueda tenga con qué trabajar. Pruebe a escribir un nombre regional. "Roger Williams" fue el primer gobernador de Rhode Island. Hay numerosos parques, edificios y escuelas que llevan su nombre.
+Entering a search term will give the search engine something to go on. Try entering a regional name. "Roger Williams" was the first governor of Rhode Island. Numerous parks, buildings, and schools are named after him.
 
 ![][9]
 
-También puede probar con alguno de estos términos:
+You could also try any of these terms:
 
 - Pawtucket
 - Pembroke
 - goose +cape
 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-Este es el primer tutorial de Búsqueda de Azure basado en NodeJS y en el conjunto de datos de USGS. Con el tiempo, ampliaremos este tutorial para mostrar otras características de búsqueda que podría querer usar en sus soluciones personalizadas.
+This is the first Azure Search tutorial based on NodeJS and the USGS dataset. Over time, we'll extend this tutorial to demonstrate additional search features you might want to use in your custom solutions.
 
-Si ya tiene conocimientos sobre Búsqueda de Azure, puede usar este ejemplo como punto de partida para probar proveedores de sugerencias (escritura automática o autocompletar consultas), filtros y navegación por facetas. También puede mejorar la página de resultados de búsqueda si agrega recuentos y procesamiento por lotes de documentos para que los usuarios puedan navegar por las páginas de resultados.
+If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
 
-¿Es la primera vez que usa Búsqueda de Azure? Le recomendamos que pruebe otros tutoriales para comprender mejor lo que puede crear. Visite nuestra [página de documentación](https://azure.microsoft.com/documentation/services/search/) para encontrar más recursos. También puede ver los vínculos en nuestra [lista de vídeos y tutoriales](search-video-demo-tutorial-list.md) para tener acceso a más información.
+New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](https://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](search-video-demo-tutorial-list.md) to access more information.
 
 <!--Image references-->
 [1]: ./media/search-get-started-nodejs/create-search-portal-1.PNG
@@ -120,4 +121,8 @@ Si ya tiene conocimientos sobre Búsqueda de Azure, puede usar este ejemplo como
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

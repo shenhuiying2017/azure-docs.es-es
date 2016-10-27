@@ -1,84 +1,85 @@
 <properties
-	pageTitle="Escalado vertical de conjuntos de escalado de máquinas virtuales de Azure | Microsoft Azure"
-	description="Cómo escalar verticalmente una máquina virtual en respuesta a las alertas de supervisión con Automatización de Azure"
-	services="virtual-machine-scale-sets"
-	documentationCenter=""
-	authors="gbowerman"
-	manager="madhana"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Vertically scale Azure virtual machine scale sets | Microsoft Azure"
+    description="How to vertically scale a Virtual Machine in response to monitoring alerts with Azure Automation"
+    services="virtual-machine-scale-sets"
+    documentationCenter=""
+    authors="gbowerman"
+    manager="madhana"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/03/2016"
-	ms.author="guybo"/>
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-multiple"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/03/2016"
+    ms.author="guybo"/>
 
-# Autoescala vertical con conjuntos de escalado de máquinas virtuales
 
-Este artículo describe cómo escalar verticalmente [conjuntos de escalado de máquinas virtuales](https://azure.microsoft.com/services/virtual-machine-scale-sets/) de Azure con o sin reaprovisionamiento. Para el escalado vertical de máquinas virtuales que no están en conjuntos de escalado, consulte [Vertically scale Azure virtual machine with Azure Automation](../virtual-machines/virtual-machines-windows-vertical-scaling-automation.md) (Escalado vertical de máquinas virtuales de Azure con Automatización de Azure).
+# <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Vertical autoscale with Virtual Machine Scale sets
 
-El escalado vertical, también conocido como _ampliación vertical_ y _reducción vertical_, significa aumentar o disminuir el tamaño de las máquinas virtuales en respuesta a una carga de trabajo. Compare esto con el [escalado horizontal](./virtual-machine-scale-sets-autoscale-overview.md), también denominado _ampliación horizontal_ y _reducción horizontal_, donde se modifica el número de máquinas virtuales según la carga de trabajo.
+This article describes how to vertically scale Azure [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) with or without reprovisioning. For vertical scaling of VMs which are not in scale sets, refer to [Vertically scale Azure virtual machine with Azure Automation](../virtual-machines/virtual-machines-windows-vertical-scaling-automation.md).
 
-Reaprovisionar significa quitar una máquina virtual existente y reemplazarla por una nueva. Al aumentar o disminuir el tamaño de las máquinas virtuales en un conjunto de escalado de máquinas virtuales, en algunos casos puede que quiera cambiar el tamaño de las máquinas virtuales existentes y conservar los datos, aunque en otros casos puede que necesite implementar nuevas máquinas virtuales con el nuevo tamaño. Este documento describe ambos casos.
+Vertical scaling, also known as _scale up_ and _scale down_, means increasing or decreasing virtual machine (VM) sizes in response to a workload. Compare this with [horizontal scaling](./virtual-machine-scale-sets-autoscale-overview.md), also referred to as _scale out_ and _scale in_, where the number of VMs is altered depending on the workload.
 
-El escalado vertical puede resultar útil cuando:
+Reprovisioning means removing an existing VM and replacing it with a new one. When you increase or decrease the size of VMs in a VM Scale Set, in some cases you want to resize existing VMs and retain your data, while in other cases you need to deploy new VMs of the new size. This document covers both cases.
 
-- Un servicio integrado en máquinas virtuales se está infrautilizando (por ejemplo, los fines de semana). Reducir el tamaño de la máquina virtual puede reducir los costos mensuales.
-- Aumentar el tamaño de la máquina virtual para hacer frente a una mayor demanda sin crear máquinas virtuales adicionales.
+Vertical scaling can be useful when:
 
-Puede configurar el escalado vertical para que se desencadene en función de las alertas basadas en métricas de su conjunto de escalado de máquinas virtuales. Cuando la alerta se activa, inicia un webhook que desencadena un Runbook que puede ampliar o reducir verticalmente el conjunto de escalado. El escalado vertical puede configurarse siguiendo estos pasos:
+- A service built on virtual machines is under-utilized (for example at weekends). Reducing the VM size can reduce monthly costs.
+- Increasing VM size to cope with larger demand without creating additional VMs.
 
-1. Cree una cuenta de Automatización de Azure con funciones de ejecución.
-2. Importe a la suscripción los Runbooks de escalado vertical de Automatización de Azure para los conjuntos de escalado de máquinas virtuales.
-3. Agregue un webhook al Runbook.
-4. Agregue una alerta a su conjunto de escalado de máquinas virtuales mediante una notificación de webhook.
+You can set up vertical scaling to be triggered based on metric based alerts from your VM Scale Set. When the alert is activated it fires a webhook that triggers a runbook which can scale your scale set up or down. Vertical scaling can be configured by following these steps:
 
-> [AZURE.NOTE] La autoescala vertical solo se puede realizar en determinados intervalos de tamaños de máquina virtual. Compare las especificaciones de cada tamaño antes de decidir si escalar de una a otra (un número alto no siempre indica un mayor tamaño de máquina virtual). Puede elegir escalar entre los siguientes pares de tamaños:
+1. Create an Azure Automation account with run-as capability.
+2. Import Azure Automation Vertical Scale runbooks for VM Scale Sets into your subscription.
+3. Add a webhook to your runbook.
+4. Add an alert to your VM Scale Set using a webhook notification.
 
->| Pares de escalado de tamaños de VM | |
+> [AZURE.NOTE] Vertical autoscaling can only take place within certain ranges of VM sizes. Compare the specifications of each size before deciding to scale from one to another (higher number does not always indicate bigger VM size). You can choose to scale between the following pairs of sizes:
+
+>| VM sizes scaling pair |   |
 |---|---|
-| Standard\_A0 | Standard\_A11 |
-| Standard\_D1 | Standard\_D14 |
-| Standard\_DS1 | Standard\_DS14 |
-| Standard\_D1v2 | Standard\_D15v2 |
-| Standard\_G1 | Standard\_G5 |
-| Standard\_GS1 | Standard\_GS5 |
+|  Standard_A0 | Standard_A11 |
+|  Standard_D1 |  Standard_D14 |
+|  Standard_DS1 |  Standard_DS14 |
+|  Standard_D1v2 |  Standard_D15v2 |
+|  Standard_G1 |  Standard_G5 |
+|  Standard_GS1 |  Standard_GS5 |
 
-## Creación de una cuenta de Automatización de Azure con funciones de ejecución
+## <a name="create-an-azure-automation-account-with-run-as-capability"></a>Create an Azure Automation Account with run-as capability
 
-Lo primero que debe hacer es crear una cuenta de Automatización de Azure que hospedará los Runbooks que se usan para escalar las instancias del conjunto de escalado de máquinas virtuales. Recientemente, [Automatización de Azure](https://azure.microsoft.com/services/automation/) presentó la característica Cuenta de ejecución, que facilita la configuración de la entidad de servicio para ejecutar los cuadernos automáticamente en nombre de un usuario. Encontrará más información al respecto en el siguiente artículo:
+The first thing you need to do is create an Azure Automation account that will host the runbooks used to scale the VM Scale Set instances. Recently [Azure Automation](https://azure.microsoft.com/services/automation/) introduced the "Run As account" feature which makes setting up the Service Principal for automatically running the runbooks on a user's behalf very easy. You can read more about this in the article below:
 
-* [Autenticación de Runbooks con una cuenta de ejecución de Azure](../automation/automation-sec-configure-azure-runas-account.md)
+* [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md)
 
-## Importación de Runbooks de escalado vertical de Automatización de Azure a la suscripción
+## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Import Azure Automation Vertical Scale runbooks into your subscription
 
-Los Runbooks necesarios para el escalado vertical de los conjuntos de escalado de máquinas virtuales están publicados en la galería de Runbooks de Automatización de Azure. Para importarlos a su suscripción, siga los pasos de este artículo:
+The runbooks needed to vertically scale your VM Scale Sets are already published in the Azure Automation Runbook Gallery. To import them into your subscription follow the steps in this article:
 
-* [Galerías de runbooks y módulos para la automatización de Azure](../automation/automation-runbook-gallery.md)
+* [Runbook and module galleries for Azure Automation](../automation/automation-runbook-gallery.md)
 
-Elija la opción Examinar la galería en el menú Runbooks:
+Choose the Browse Gallery option from the Runbooks menu:
 
-![Runbooks que desea importar][runbooks]
+![Runbooks to be imported][runbooks]
 
-Se muestran los Runbooks que es necesario importar. Seleccione el Runbook en función de si desea un escalado vertical con o sin reaprovisionamiento:
+The runbooks that need to be imported are shown. Select the runbook based on whether you want vertical scaling with or without reprovisioning:
 
-![Galería de Runbooks][gallery]
+![Runbooks gallery][gallery]
 
-## Agregar un webhook al runbook.
+## <a name="add-a-webhook-to-your-runbook"></a>Add a webhook to your runbook
 
-Una vez importados los Runbooks, deberá agregar un webhook al Runbook para que una alerta proveniente de un conjunto de escalado de máquinas virtuales pueda desencadenarlo. En este artículo puede leer los detalles sobre cómo crear un webhook para el Runbook:
+Once you've imported the runbooks you'll need to add a webhook to the runbook so it can be triggered by an alert from a VM Scale Set. The details of creating a webhook for your Runbook are described in this article:
 
-* [Webhooks de Automatización de Azure ](../automation/automation-webhooks.md)
+* [Azure Automation webhooks](../automation/automation-webhooks.md)
 
-> [AZURE.NOTE] Asegúrese de copiar el URI del webhook antes de cerrar el cuadro de diálogo del webhook, porque lo necesitará en la siguiente sección.
+> [AZURE.NOTE] Make sure you copy the webhook URI before closing the webhook dialog as you will need this in the next section.
 
-## Incorporación de una alerta al conjunto de escalado de máquinas virtuales
+## <a name="add-an-alert-to-your-vm-scale-set"></a>Add an alert to your VM Scale Set
 
-El siguiente es un script de PowerShell que muestra cómo agregar una alerta a un conjunto de escalado de máquinas virtuales. Consulte el siguiente artículo para obtener el nombre de la métrica para desencadenar la alerta en: [Métricas comunes de escalado automático de Azure Insights](../azure-portal/insights-autoscale-common-metrics.md).
+Below is a PowerShell script which shows how to add an alert to a VM Scale Set. Refer to the following article to get the name of the metric to fire the alert on: [Azure Insights autoscaling common metrics](../azure-portal/insights-autoscale-common-metrics.md).
 
 ```
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail user@contoso.com
@@ -106,18 +107,22 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
                             -Description $description
 ```
 
-> [AZURE.NOTE] Se recomienda configurar un período de tiempo razonable para la alerta con el fin de evitar activar el escalado vertical, y las interrupciones de servicio asociadas, con demasiada frecuencia. Considere un intervalo mínimo de 20 a 30 minutos. Considere la posibilidad de usar escalado horizontal si necesita evitar cualquier interrupción.
+> [AZURE.NOTE] It is recommended to configure a reasonable time window for the alert in order to avoid triggering vertical scaling, and any associated service interruption, too often. Consider a window of least 20-30 minutes or more. Consider horizontal scaling if you need to avoid any interruption.
 
-Para más información acerca de cómo crear alertas, consulte los artículos siguientes:
+For more information on how to create alerts refer to the following articles:
 
-* [Ejemplos de inicio rápido de PowerShell de Azure Insights](../azure-portal/insights-powershell-samples.md)
-* [Ejemplos de inicio rápido de CLI multiplataforma de Azure Insights](../azure-portal/insights-cli-samples.md)
+* [Azure Insights PowerShell quick start samples](../azure-portal/insights-powershell-samples.md)
+* [Azure Insights Cross-platform CLI quick start samples](../azure-portal/insights-cli-samples.md)
 
-## Resumen
+## <a name="summary"></a>Summary
 
-En este artículo se mostraron ejemplos sencillos de escalado vertical. Con estos bloques de creación (cuenta de automatización, Runbooks, webhooks, alertas) puede conectar una gran variedad de eventos con un conjunto personalizado de acciones.
+This article showed simple vertical scaling examples. With these building blocks - Automation account, runbooks, webhooks, alerts - you can connect a rich variety of events with a customized set of actions.
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png
 [gallery]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

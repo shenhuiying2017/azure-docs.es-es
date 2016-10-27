@@ -1,6 +1,8 @@
 
-| Recurso | Límite |
+| Resource | Limit |
 |----|----|
-| Configuración de escalado automático | 100 por región por suscripción |
+| Autoscale Settings | 100 per region per subscription |
 
-<!---HONumber=AcomDC_0907_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

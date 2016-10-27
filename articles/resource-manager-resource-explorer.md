@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Explorador de recursos de Azure | Microsoft Azure"
-   description="Describe el Explorador de recursos de Azure y cómo se puede usar para ver y actualizar las implementaciones mediante Azure Resource Manager."
+   pageTitle="Azure Resource Explorer | Microsoft Azure"
+   description="Describes Azure Resource Explorer and how it can be used to view and update deployments through Azure Resource Manager"
    services="azure-resource-manager"
    documentationCenter="na"
    authors="stuartleeks"
@@ -16,62 +16,69 @@
    ms.date="08/01/2016"
    ms.author="stuartle;tomfitz"/>
 
-# Uso del Explorador de recursos de Azure para ver y modificar recursos
-El [Explorador de recursos de Azure](https://resources.azure.com) es una excelente herramienta para buscar recursos que ya haya creado en su suscripción. Con esta herramienta, puede comprender cómo se estructuran los recursos y ver las propiedades asignadas a cada recurso. Puede aprender acerca de las operaciones de API de REST y los cmdlets de PowerShell que están disponibles para un tipo de recurso y puede emitir comandos a través de la interfaz. El Explorador de recursos puede resultar especialmente útil al crear plantillas de Azure Resource Manager porque le permite visualizar las propiedades de los recursos existentes.
 
-El código fuente de la herramienta Explorador de recursos está disponible en [github](https://github.com/projectkudu/ARMExplorer), que proporciona una excelente referencia si necesita implementar un comportamiento similar en sus propias aplicaciones.
+# <a name="use-azure-resource-explorer-to-view-and-modify-resources"></a>Use Azure Resource Explorer to view and modify resources
+The [Azure Resource Explorer](https://resources.azure.com) is a great tool for looking at resources that you've already created in your subscription. By using this tool, you can understand how the resources are structured, and see the properties assigned to each resource. You can learn about the REST API operations and PowerShell cmdlets that are available for a resource type, and you can issue commands through the interface. Resource Explorer can be particularly helpful when you are creating Resource Manager templates because it enables you to view the properties for existing resources.
 
-## Visualización de recursos
-Vaya a [https://resources.azure.com](https://resources.azure.com) e inicie sesión con las mismas credenciales que usa para el [Portal de Azure](https://portal.azure.com).
+The source for the Resource Explorer tool is available on [github](https://github.com/projectkudu/ARMExplorer), which provides a valuable reference if you need to implement similar behavior in your own applications.
 
-Una vez cargada, la vista de árbol de la izquierda le permite profundizar en sus suscripciones y grupos de recursos:
+## <a name="view-resources"></a>View resources
+Navigate to [https://resources.azure.com](https://resources.azure.com) and sign in with the same credentials you would use for the [Azure Portal](https://portal.azure.com).
 
-![vista de árbol](./media/resource-manager-resource-explorer/are-01-treeview.png)
+Once loaded, the treeview on the left allows you to drill down into your subscriptions and resource groups:
 
-A medida que se desplace a un grupo de recursos verá los proveedores para los que hay recursos en ese grupo:
+![treeview](./media/resource-manager-resource-explorer/are-01-treeview.png)
+
+As you drill into a resource group you will see the providers for which there are resources in that group:
 
 ![providers](./media/resource-manager-resource-explorer/are-02-treeview-providers.png)
 
-Desde ahí puede comenzar a obtener detalles de las instancias de recursos. En la siguiente captura de pantalla, puede ver la instancia de SQL Server `sltest` en la vista de árbol. En el lado derecho, aparece información acerca de las solicitudes de API de REST que se pueden usar con ese recurso. Si se desplaza hasta el nodo de un recurso, el Explorador de recursos envía automáticamente la solicitud GET para recuperar información sobre el recurso. En el área de texto grande debajo de la dirección URL, verá la respuesta de la API.
+From there you can start drilling into the resource instances. In the screenshot below you can see the `sltest` SQL Server instance in the treeview. On the right hand side, you can see information about the REST API requests you can use with that resource. By navigating to the node for a resource, Resource Explorer automatically makes the GET request to retrieve information about the resource. In the large text area below the URL, you will see the response from the API. 
 
-A medida que se familiarice con las plantillas de Resource Manager, el contenido del cuerpo le empezará a resultar familiar. La sección **Propiedades** de la respuesta coincide con los valores que pueden proporcionarse en la sección **Propiedades** de la plantilla.
+As you become familiar with Resource Manager templates the body content starts to look familiar! The **properties** section of the response matches the values you can provide in the **properties** section of your template.
 
 ![sql server](./media/resource-manager-resource-explorer/are-03-sqlserver-with-response.png)
 
-El Explorador de recursos permite mantener la obtención de detalles para explorar los recursos secundarios. En el caso del servidor de Base de datos SQL, hay recursos secundarios para elementos como bases de datos y reglas de firewall.
+Resource Explorer allows you to keep drilling down to explore child resources, in the case of the SQL Database Server, there are child resources for things such as databases and firewall rules.
 
-Al explorar una base de datos, se muestran sus propiedades. En la siguiente captura de pantalla, vemos que la base de datos `edition` es `Standard` y `serviceLevelObjective` (o nivel de base de datos) es `S1`.
+Exploring a database shows us the properties for that database. In the screenshot below we can see that the database `edition` is `Standard` and the `serviceLevelObjective` (or database tier) is `S1`.
 
-![base de datos sql](./media/resource-manager-resource-explorer/are-04-database-get.png)
+![sql database](./media/resource-manager-resource-explorer/are-04-database-get.png)
 
-## Cambio de recursos
+## <a name="change-resources"></a>Change resources
 
-Una vez localizado un recurso, puede seleccionar el botón Editar para editar el contenido del archivo JSON. Después, puede usar el Explorador de recursos para editar el archivo JSON y enviar una solicitud PUT para cambiar el recurso. Por ejemplo, la siguiente imagen muestra el nivel de base de datos cambiado a `S0`:
+Once you have navigated to a resource, you can select the Edit button to make the JSON content editable. You can then use Resource Explorer to edit the JSON and send a PUT request to change the resource. For example, the image below shows the database tier changed to `S0`:
 
-![base de datos - solicitud PUT](./media/resource-manager-resource-explorer/are-05-database-put.png)
+![database - PUT request](./media/resource-manager-resource-explorer/are-05-database-put.png)
 
-Al seleccionar **PUT**, envía la solicitud.
+By selecting **PUT** you submit the request. 
 
-Una vez enviada la solicitud, el Explorador de recursos vuelve a emitir la solicitud GET para actualizar el estado. En este caso, vemos que `requestedServiceObjectiveId` se ha actualizado y es diferente de `currentServiceObjectiveId`, que indica que una operación de escalado está en curso. Puede hacer clic en el botón GET para actualizar el estado manualmente.
+Once the request has been submitted Resource Explorer re-issues the GET request to refresh the status. In this case we can see that the `requestedServiceObjectiveId` has been updated and is different from the `currentServiceObjectiveId` indicating that a scaling operation is in progress. You can click the GET button to refresh the status manually.
 
-![base de datos - solicitud GET 2](./media/resource-manager-resource-explorer/are-06-database-get2.png)
+![database - GET request2](./media/resource-manager-resource-explorer/are-06-database-get2.png)
 
-## Realización de acciones en los recursos
+## <a name="performing-actions-on-resources"></a>Performing Actions on resources
 
-La pestaña **Acciones** le permite ver y realizar otras operaciones REST. Por ejemplo, si ha seleccionado un recurso de sitio web, la pestaña Acciones presenta una larga lista de operaciones disponibles, algunas de las cuales se muestran a continuación.
+The **Actions** tab enables you to see and perform additional REST operations. For example, when you have selected a web site resource, the Actions tab presents a long list of available operations, some of which are shown below.
 
-![web - solicitud POST](./media/resource-manager-resource-explorer/are-web-post.png)
+![web - POST request](./media/resource-manager-resource-explorer/are-web-post.png)
 
-## Invocación de la API mediante PowerShell
-La pestaña PowerShell del Explorador de recursos muestra los cmdlets que debe usar para interactuar con el recurso que está explorando actualmente. Según el tipo de recurso seleccionado, el script de PowerShell que se muestra puede oscilar entre cmdlets simples (como `Get-AzureRmResource` y `Set-AzureRmResource`) y cmdlets más complejos (como el intercambio de ranuras en un sitio web).
+## <a name="invoking-the-api-via-powershell"></a>Invoking the API via PowerShell
+The PowerShell tab in Resource Explorer shows you the cmdlets to use to interact with the resource that you are currently exploring. Depending on the type of resource you have selected, the displayed PowerShell script can range from simple cmdlets (such as `Get-AzureRmResource` and `Set-AzureRmResource`) to more complicated cmdlets (such as swapping slots on a web site). 
 
 ![PowerShell](./media/resource-manager-resource-explorer/are-07-powershell.png)
 
-Para más información sobre los cmdlets de Azure PowerShell, consulte [Uso de Azure PowerShell con Azure Resource Manager](powershell-azure-resource-manager.md).
+For more information on The Azure PowerShell cmdlets, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md)
 
-## Resumen
-Cuando trabaje con Resource Manager, el Explorador de recursos puede ser una herramienta muy útil. Es una excelente forma de encontrar maneras de usar PowerShell para consultar y realizar cambios. Si está trabajando con la API de REST, es una excelente forma de comenzar a trabajar y probar rápidamente las llamadas a API antes de empezar a escribir código. Y si escribe plantillas, puede ser una excelente forma de comprender la jerarquía de recursos y encontrar la ubicación de la configuración: puede realizar un cambio en el Portal y, a continuación, buscar las entradas correspondientes en el Explorador de recursos.
+## <a name="summary"></a>Summary
+When working with Resource Manager, the Resource Explorer can be an extremely useful tool. It is a great way to find ways to use PowerShell to query and make changes. If you're working with the REST API it is a great way to get started and quickly test API calls before you start writing code. And if you're writing templates it can be a great way to understand the resource hierarchy and find where to put configuration - you can make a change in the Portal and then find the corresponding entries in Resource Explorer!
 
-Para obtener más información, vea el [vídeo de Channel 9 con Scott Hanselman y David Ebbo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo)
+For more information, watch the [Channel 9 video with Scott Hanselman and David Ebbo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

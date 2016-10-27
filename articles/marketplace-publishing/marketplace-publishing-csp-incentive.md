@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Visualización y cambio del Incentivo de revendedores para proveedores de soluciones en la nube | Microsoft Azure"
-   description="Visualización y cambio de su selección referente al incentivo de revendedores para proveedores de soluciones en la nube"
+   pageTitle="How to view and change the Cloud Solution Provider's Reseller Incentive | Microsoft Azure"
+   description="How to view and change your selection for CSP Reseller Incentive"
    services="marketplace-publishing"
    documentationCenter="na"
    authors="DavidBosland"
@@ -16,35 +16,40 @@
    ms.date="02/10/2016"
    ms.author="DavidBosland"/>
 
-# Visualización y cambio del "Incentivo de revendedores" para proveedores de soluciones en la nube de Azure Marketplace
 
-El 15 de marzo de 2016 pondremos el "Incentivo de revendedores" para proveedores de soluciones en la nube a disposición de los anunciantes de Marketplace. El valor predeterminado para este valor incentivo es **Sí**. Como anunciante, puede optar por no participar en el programa de incentivos. En este artículo se muestra cómo cambiar la configuración en el perfil de anunciante para no participar en el programa.
+# <a name="view-and-change-your-cloud-solution-provider-"reseller-incentive"-in-the-azure-marketplace"></a>View and change your Cloud Solution Provider "Reseller Incentive" in the Azure Marketplace
 
-Para ver o cambiar el estado del "Incentivo de revendedores", siga estos pasos:
+On March 15, 2016 we'll make the Cloud Solution Providers (CSPs) “Reseller Incentive” available to Marketplace publishers.  The default setting for this incentive value is **Yes**.  As a publisher you can decide to opt-out of the incentive program.  This article shows how to change the setting in your publisher profile so you can opt-out.
 
-1.	Inicie sesión en su [cuenta de publicación de Microsoft Azure](https://publish.windowsazure.com/workspace).
+To view or change your “Reseller Incentive” status, follow these steps:
 
-    ![Pantalla de aterrizaje del perfil][1]
+1.  Log in to your [Microsoft Azure Publishing account](https://publish.windowsazure.com/workspace)
 
-2.	Haga clic en **Anunciantes**.
+    ![Profile landing screen][1]
 
-    ![Pantalla de aterrizaje del perfil - Vínculo para anunciantes][2]
+2.  Click **Publishers**
 
-3.	Observe la información de su perfil relativa a los proveedores de soluciones en la nube. Hay un **modificador para cambiar a Si o No** el "Incentivo para revendedores" (el estado predeterminado es "Sí").
+    ![Profile landing screen - publishers link][2]
 
-    ![Perfil - Anunciantes][3]
+3.  Notice the information in your profile about CSPs.  There is a **switch to say yes or no** to the "Reseller Incentive" - the default status is “Yes.”
 
-4.	Para cambiar el estado del "Incentivo de revendedores", acceda a su perfil de anunciante, haga su elección y guarde:
+    ![Profile - Publishers][3]
 
-  - Seleccione **Sí** para proporcionar un descuento del 20% a los proveedores de soluciones en la nube que distribuyen las aplicaciones y los servicios que anuncia en Azure Marketplace. O seleccione **No** para no participar en este programa de incentivos. En cualquier caso, el anunciante recibe la misma cantidad.
+4.  To change your "Reseller Incentive" status access your Publisher Profile then select and save your choice:
 
-  - Cuando haya elegido una opción, asegúrese de hacer clic en **Guardar** en la esquina superior derecha.
+  - Select **Yes** to choose to provide the 20 percent discount to the CSPs who are reselling the applications and services you have listed in the Azure Marketplace.  Or select **No** to opt out of this incentive program.  In either case the publisher receives the same payout.
 
-    ![Perfil - Anunciantes - Cuadros de cambio][4]
+  - After you make a selection make sure you click **Save** in the upper right hand corner.
+
+    ![Profile - Publishers - change boxes][4]
 
 [1]: ./media/marketplace-publishing-csp-incentive/profile-stock.png
 [2]: ./media/marketplace-publishing-csp-incentive/profile-boxes.png
 [3]: ./media/marketplace-publishing-csp-incentive/profile-publishers-boxes.png
 [4]: ./media/marketplace-publishing-csp-incentive/profile-publishers-change-boxes.png
 
-<!---HONumber=AcomDC_0218_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

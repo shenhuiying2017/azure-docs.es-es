@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Tabla de límites de Visión operativa"
-   description="Describe los límites del sistema para Información operativa."
+   pageTitle="Operational Insights limits table"
+   description="Describes system limits for Operational Insights."
    services="operational-insights"
    documentationCenter="NA"
    authors="bandersmsft"
@@ -16,16 +16,21 @@
    ms.author="banders" />
 
 
-Los límites siguientes se aplican a las suscripciones de Visión operativa.
+
+The following limits apply to Operational Insights subscriptions.
 
 
-| |LIBRE|ESTÁNDAR|PREMIUM|
+|   |FREE|STANDARD|PREMIUM|
 |---|---|---|---|
-|Límite diario de transferencia de datos|500 MB<sup>1</sup>|None|None|
-|Período de retención de datos|7 días|1 mes|12 meses|
-|Límite de almacenamiento de datos|500 MB * 7 días = 3,5 GB|sin límite|sin límite|
+|Daily data transfer limit|500 MB<sup>1</sup>|None|None|
+|Data retention period|7 days|1 month|12 months|
+|Data storage limit|500 MB * 7 days = 3.5 GB|unlimited|unlimited|
 
 
-<sup>1</sup>Cuando los clientes alcanzan su límite de transferencia de datos diario de 500 MB, el análisis de datos se detiene y se reanuda al comienzo del día siguiente. Un día se basa en UTC.
+<sup>1</sup>When customers reach their 500MB daily data transfer limit, data analysis stops and resumes at the start of the next day. A day is based on UTC.
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

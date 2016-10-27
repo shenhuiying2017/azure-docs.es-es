@@ -1,23 +1,25 @@
 <!---author: alkohli, last updated: 11/05/2015 --->
 
-#### Para configuración y registrar el dispositivo virtual
+#### <a name="to-configure-and-register-the-virtual-device"></a>To configure and register the virtual device
 
-1. Seleccione el **dispositivo virtual StorSimple** que acaba de crear en la página Dispositivos. 
+1. Select the StorSimple virtual device you just created in the **Devices** page. 
 
-2. Haga clic en **Completar la instalación del dispositivo**. Esto inicia al Asistente para configurar dispositivos.
+2. Click **complete device setup**. This starts the Configure device wizard.
 
-    ![Completar configuración de dispositivo de StorSimple en la página Dispositivos](./media/storsimple-configure-register-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
+    ![StorSimple complete device setup in Devices page](./media/storsimple-configure-register-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
 
-3. Escriba la **Clave de cifrado de datos de servicio** en el espacio proporcionado.
+3. Enter the **Service Data Encryption Key** in the space provided.
 
-4. Escriba las contraseñas del administrador de dispositivos y de instantáneas de la longitud y la configuración especificadas.
+4. Enter the Snapshot Manager and Device Administrator passwords of the length and settings specified.
 
-5. Haga clic en la marca de verificación para finalizar la configuración inicial y el registro del dispositivo virtual.
+5. Click the check mark to finish the initial configuration and registration of the virtual device. 
 
-    ![Configuración de dispositivo virtual de StorSimple](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceSettings1.png)
+    ![StorSimple virtual device settings](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceSettings1.png)
 
-Una vez que complete la configuración y el registro, el dispositivo se conectará. (Esto puede demorar varios minutos).
+After the configuration and registration is complete, the device will come online. (It may take several minutes for the device to come online.)
 
-![Fase en línea de dispositivo virtual de StorSimple](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
+![StorSimple virtual device online stage](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!--HONumber=Oct16_HO2-->
+
+

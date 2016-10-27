@@ -1,130 +1,131 @@
 <properties
-	pageTitle="Administración y supervisión de las aplicaciones de API y los conectores en el Servicio de aplicaciones | Microsoft Azure"
-	description="Visualización del rendimiento de los conectores y de las aplicaciones de API en Logic Apps; arquitectura de microservicios"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="MandiOhlinger"
-	manager="dwrede"
-	editor="cgronlun"/>
+    pageTitle="Manage and Monitor your Connectors and API Apps in App Service | Microsoft Azure"
+    description="View performance of your Connectors and API Apps in Logic Apps; microservices architecture"
+    services="app-service\logic"
+    documentationCenter=".net,nodejs,java"
+    authors="MandiOhlinger"
+    manager="anneta"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="logic-apps"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2016"
-	ms.author="mandia"/>
+    ms.service="logic-apps"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/18/2016"
+    ms.author="mandia"/>
 
-# Administración y supervisión de las aplicaciones de API y los conectores integrados
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+# <a name="manage-and-monitor-your-built-in-api-apps-and-connectors"></a>Manage and Monitor your built-in API Apps and Connectors
 
-Ha creado una aplicación de API integrada. ¿Y ahora qué?
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
 
-En Azure, cada aplicación de API es un sitio web independiente que se hospeda en Azure. Como resultado, puede ver fácilmente el número de solicitudes que se realizan y la cantidad de datos que está usando el conector. También puede realizar una copia de seguridad de la aplicación de API, crear alertas, habilitar Tinfoil Security y agregar usuarios y roles.
+You created a built-in API App. Now what?
 
-En este tema se describen algunas de las distintas opciones para administrar la aplicación de API.
+In Azure, every API App is a separate web site hosted on Azure. As a result, you can easily see how many requests are made, and see how much data is being used by the connector. You can also backup your API App, create alerts, enable Tinfoil Security, and add users and roles.
 
-Para ver estas características integradas, abra su aplicación de API en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). Si la aplicación de API se encuentra en el panel de inicio, selecciónela para abrir las propiedades. También puede seleccionar sucesivamente **Examinar**, **Aplicaciones de API** y luego su aplicación de API:
+This topic describes some of the different options to manage your API App.
+
+To see these built-in features, open your API App in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). If the API App is on your startboard, select it to open the properties. You can also select **Browse**, select **API Apps**, and then select your API App:
 
 ![][browse]
 
-## Visualización de las propiedades que ha escrito
+## <a name="see-the-properties-you-entered"></a>See the properties you entered
 
-Cuando abre la aplicación de API, hay varias características y tareas disponibles:
+When you open the API App, there are several features and tasks available:
 
 ![][settings]
 
-Puede:
+You can:
 
-- **Configuración** muestra información específica sobre la aplicación de API, como los detalles de la suscripción, e indica los usuarios que tienen acceso a ella. También puede aumentar o reducir el número de instancias de la aplicación de API con la característica de escala; entre otras características.
-- Use los botones **Iniciar** y **Detener** para controlar la aplicación de API.
-- Cuando se realizan actualizaciones de productos en los archivos subyacentes usados por la aplicación de API, puede hacer clic en **Actualizar** para obtener las versiones más recientes. Por ejemplo, si existe una corrección o una actualización de seguridad publicadas por Microsoft, al hacer clic en **Actualizar** se actualiza automáticamente la aplicación de API para incluir esta corrección.
-- Seleccione **Plan de cambios** para actualizar o cambiar a una versión anterior en función del uso de datos de la aplicación de API. También puede usar esta característica para ver el uso de datos.
-- Al crear un conector que tiene tablas, como el conector SQL, tiene la opción de escribir un nombre de tabla al que conectarse. Automáticamente se crea un esquema basado en la tabla que está disponible al hacer clic en**Descargar esquemas**. Luego, puede usar este esquema descargado para crear una transformación o una asignación.
+- **Settings** shows specific information on the API App, including your subscription details, and lists the users who have access to your API app. You can also increase or decrease the number of instances of your API App using the Scale feature; among other features.
+- Use the **Start** and **Stop** buttons to control the API App.
+- When product updates are made to the underlying files used by your API App, you can click **Update** to get the latest versions. For example, if there is a fix or a security update released by Microsoft, clicking **Update** automatically updates your API App to include this fix.
+- Select **Change Plan** to upgrade or downgrade based on the data usage of the API App. You can also use this feature to see your data usage.
+- When you create a connector that has tables, like the SQL connector, you can optionally enter a table name to connect to. A schema based on the table is automatically created and available when you click **Download Schemas**. You can then use this downloaded schema to create a transform or a map.
 
-## Cambio de los valores de configuración del conector o de la aplicación de API que ha especificado
+## <a name="change-your-connector-or-api-configuration-values-you-entered"></a>Change your connector or API configuration values you entered
 
-Después de configurar o crear su conector integrado, puede cambiar los valores especificados. Por ejemplo, si ha configurado el conector SQL y desea cambiar el nombre de tabla o nombre de SQL Server o el nombre de la tabla, puede hacerlo en la hoja Aplicación de API del conector.
+After you configured or created your built-connector, you can change the values you entered. For example, if you configured the SQL Connector and you want to change the SQL Server name or table name, you can do this in the API App blade for your connector.
 
-Los pasos incluyen:
+Steps include:
 
-1. Abra el conector o la aplicación de API. Cuando lo haga, se abre la hoja Aplicación de API.
-2. En **Essentials**, haga clic en el hipervínculo bajo la propiedad Host. El hipervínculo tiene un nombre parecido a *slackconnector* o *microsoftsqlconnector123*:
+1. Open your connector or API App. When you do, the API App blade opens.
+2. In **Essentials**, click the hyperlink under the Host property. The hyperlink is named something like *slackconnector* or *microsoftsqlconnector123*:
 
-	![][apiapphost]
+    ![][apiapphost]
 
-3. En la hoja Host de aplicaciones API, seleccione **Configuración**. En la hoja Configuración, seleccione **Configuración de la aplicación**. Los valores de configuración se muestran en **Configuración de la aplicación**:
+3. In the API App Host blade, select **Settings**. In the Settings blade, select **Application Settings**. Your configuration values are listed under **App Settings**:
 
-	![][hostsettings]
+    ![][hostsettings]
 
-4. Haga clic en el valor que quiera cambiar, escriba el nuevo valor y haga clic en **Guardar** para guardar los cambios.
+4. Click the setting you want to change, enter the new value, and **Save** your changes.
 
 
-## Instalación del Administrador de conexiones híbridas (opcional)
+## <a name="install-the-hybrid-connection-manager---optional"></a>Install the Hybrid Connection Manager - Optional
 
 ![][hcsetup]
 
-El Administrador de conexiones híbridas permite conectarse a un sistema local, como SQL Server o SAP. Esta conectividad híbrida usa el Bus de servicio de Azure para conectarse y controlar la seguridad entre los recursos de Azure y los recursos locales.
+The Hybrid Connection Manager gives you the ability to connect to an on-premises system, like SQL Server or SAP. This hybrid connectivity uses Azure Service Bus to connect and to control the security between your Azure resources and your on-premises resources.
 
-Consulte [Uso del Administrador de conexiones híbridas del Servicio de aplicaciones de Azure](app-service-logic-hybrid-connection-manager.md)
+See [Using the Hybrid Connection Manager in Azure App Service](app-service-logic-hybrid-connection-manager.md).
 
-> [AZURE.NOTE] El Administrador de conexiones híbridas solo es necesario si va a conectarse a un recurso local detrás del firewall. Si no se va a conectar a un sistema local, puede que el Administrador de conexiones híbridas no aparezca en la hoja del conector.
+> [AZURE.NOTE] Hybrid Connection Manager is required only if you are connecting to an on-premises resource behind your firewall. If you are not connecting to an on-premises system,  the Hybrid Connection Manager may not be listed in your connector blade.
 
-## Supervisión del rendimiento
-Las métricas de rendimiento son características integradas y se incluyen con cada aplicación de API que se crea. Estas métricas son específicas de la aplicación de API hospedada en Azure. Métricas de ejemplo:
+## <a name="monitor-the-performance"></a>Monitor the performance
+Performance metrics are built-in features and included with every API App you create. These metrics are specific to your API App hosted in Azure. Sample metrics:
 
 ![][monitoring]
 
-Puede:
+You can:
 
-- Seleccione **Errores y solicitudes** para agregar distintas métricas de rendimiento, incluidos códigos de error HTTP conocidos, como los códigos de estado 200, 400 o 500 HTTP. También puede ver los tiempos de respuesta, cuántas solicitudes se realizan a la aplicación de API, así como la cantidad de datos que entran y salen. En función de las métricas de rendimiento, puede crear alertas de correo electrónico si una métrica supera un umbral de su elección.
-- En **Uso**, puede ver la cantidad de **CPU** que usa la aplicación de API, revisar la **Cuota de uso** actual en MB y ver el uso de datos máximo según el nivel de costo. La opción **Gasto estimado** le puede ayudar a determinar los costos potenciales de ejecutar su aplicación de API.
-- Seleccione **Procesos** para abrir el Explorador de procesos. Esta acción muestra las instancias web y sus propiedades, incluidos el uso de memoria y el número de subprocesos.
+- Select **Requests and errors** to add different performance metrics including commonly-known HTTP error codes, like 200, 400, or 500 HTTP status codes. You can also see response times,  see how many requests are made to the API App, and see how much data comes in and how much data goes out. Based on the performance metrics, you can create email Alerts if a metric exceeds a threshold of your choosing.
+- In **Usage**, you can see how much **CPU** is used by the API App, review the current **Usage Quota** in MB, and see your maximum data usage based on your cost tier. **Estimated spend**  can help you determine the potential costs of running your API App.
+- Select **Processes** to open Process Explorer. This shows your web instances and their properties, including thread count and memory usage.
 
-Con estas herramientas, puede determinar si el plan de servicio de aplicaciones debe escalarse o reducirse verticalmente, según sus necesidades empresariales. Estas características están integradas en el portal y no se necesitan herramientas adicionales.
+Using these tools, you can determine if the App Service Plan should be scaled up or scaled down, based on your business needs. These features are built-in to the portal with no additional tools required.
 
-## Control de la seguridad
+## <a name="control-the-security"></a>Control the security
 
-Las aplicaciones de API usan seguridad basada en roles. Estos roles se aplican a toda la experiencia de Azure, incluidas las aplicaciones de API y otros recursos de Azure. Los roles incluyen:
+API Apps use role-based security. These roles apply to the entire Azure experience, including API Apps and other Azure resources. The roles include:
 
-Rol | Descripción
+Role | Description
 --- | ---
-Propietario | Tiene acceso total a la experiencia de administración y puede proporcionar acceso a otros usuarios o grupos.
-Colaborador | Tiene acceso total a la experiencia de administración. No puede conceder acceso a otros usuarios o grupos.
-Lector | Puede ver todos los recursos excepto los secretos.
-Administrador de acceso de usuario | Puede ver todos los recursos, crear y administrar roles y crear y administrar incidencias de soporte técnico.
+Owner | Have full access to the management experience and can give access to other users or groups.
+Contributor | Have full access to the management experience. Cannot give access to other users or groups.
+Reader | Can view all resources except secrets.
+User Access Administrator | Can view all resources, create/manage roles, and create/manage support tickets.
 
-[Control de acceso basado en rol en el Portal de Microsoft Azure](../active-directory/role-based-access-control-configure.md)
+See [Role-based access control in the Microsoft Azure portal](../active-directory/role-based-access-control-configure.md).
 
-Puede agregar usuarios de forma fácil y asignarles roles específicos para su aplicación de API. El portal muestra los usuarios que tienen acceso y su rol asignado:
+You can easily add users and assign them specific roles to your API App. The portal shows you the users that have access and their assigned role:
 
-![][access]
+![][access]  
 
-- Seleccione **Usuarios** para agregar un usuario, asignar un rol y quitar un usuario.
-- Seleccione **Roles** para ver todos los usuarios de un rol determinado, agregar un usuario a un rol y quitar un usuario de un rol.
+- Select **Users** to add a user, assign a role, and remove a user.
+- Select **Roles** to see all the users in a specific role, add a user to a role, and remove a user from a role.
 
 
-## Más cosas buenas
-- Seleccione **Definición de API**para abrir el archivo de Swagger creado automáticamente para la aplicación de API específica.
-- Seleccione **Dependencias** para ver los archivos que necesita la aplicación de API. Por ejemplo, si usa el conector SAP, debe instalar algunos archivos adicionales en el Administrador de conexiones de híbridas local. Estas dependencias se muestran en la hoja Aplicación de API.
+## <a name="more-good-stuff"></a>More Good Stuff
+- Select **API definition** to open the automatically-created Swagger file for your specific API app.
+- Select **Dependencies** to view the files required by your API App. For example, if you're using the SAP connector, you install some additional files on the on-premises Hybrid Connection Manager. These dependencies are shown in your API app blade.
 
->[AZURE.IMPORTANT] Cuando abra las propiedades de la aplicación de API y mire en **Essentials**, verá los vínculos **Host** y **Puerta de enlace** que abren nuevas hojas:
+>[AZURE.IMPORTANT] When you open your API app properties and look under **Essentials**, there are **Host** and **Gateway** links that open new blades:
 >
 > ![][host]
 >
->Estas propiedades son específicas del sitio web que hospeda la aplicación de API. Cuando se usa una aplicación de API App o un conector integrados, la mayoría de estas propiedades no se aplican realmente y se recomienda que no las actualice. Si creó su propia aplicación de API en Visual Studio y la implementó en su suscripción a Azure, puede usar las hojas Host y Puerta de enlace. <br/><br/>
+>These properties are specific to the website that hosts your API App. When using a built-in API App or connector, most of these properties don't really apply and we recommend that you  don't update these properties. If you created your own API App in Visual Studio and deployed it to your Azure subscription, then you can use the Host and Gateway blades. <br/><br/>
 
 
->[AZURE.NOTE] Para empezar a utilizar Logic Apps antes de suscribirse para obtener una cuenta de Azure, vaya a [Probar aplicación lógica](https://tryappservice.azure.com/?appservice=logic). Puede crear una aplicación lógica de inicio de corta duración. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] To get started with Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can create a short-lived starter logic app. No credit cards required and no commitments.
 
-## Más información.
+## <a name="read-more"></a>Read More
 
-[Supervisión de las aplicaciones lógica](app-service-logic-monitor-your-logic-apps.md)<br/>
-[Lista de aplicaciones de API y conectores del Servicio de aplicaciones](app-service-logic-connectors-list.md)<br/>
-[Control de acceso basado en roles en el Portal de Microsoft Azure](../active-directory/role-based-access-control-configure.md)<br/>
-[Uso del Administrador de conexiones híbridas en el Servicio de aplicaciones de Azure](app-service-logic-hybrid-connection-manager.md)
+[Monitor your Logic Apps](app-service-logic-monitor-your-logic-apps.md)<br/>
+[Connectors and API Apps List in App Service](app-service-logic-connectors-list.md)<br/>
+[Role-based access control in the Microsoft Azure portal](../active-directory/role-based-access-control-configure.md)<br/>
+[Using the Hybrid Connection Manager in Azure App Service](app-service-logic-hybrid-connection-manager.md)
 
 
 <!--Image references-->
@@ -137,4 +138,8 @@ Puede agregar usuarios de forma fácil y asignarles roles específicos para su a
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

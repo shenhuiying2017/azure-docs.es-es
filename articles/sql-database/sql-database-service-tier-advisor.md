@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Recomendaciones sobre el nivel de precios de Base de datos SQL de Azure" 
-   description="Si se cambian los niveles de precios en el Portal de Azure, se recomienda el nivel más apropiado para ejecutar la carga de trabajo de una Base de datos SQL de Azure existente. Los niveles de precios describen el nivel de servicio y el nivel de rendimiento de una base de datos SQL." 
+   pageTitle="Pricing tier recommendations for Azure SQL Database" 
+   description="When changing pricing tiers in the Azure portal, pricing tier recommendations are provided that recommend the tier that is best suited for running an existing Azure SQL Database’s workload. Pricing tiers describe the service tier and performance level of a SQL database." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -16,76 +16,77 @@
    ms.date="08/08/2016"
    ms.author="sstein"/>
 
-# Recomendaciones sobre el nivel de precios de Base de datos SQL
 
- Se ofrecen recomendaciones del plan de tarifa en el sentido del nivel de servicio y el nivel de rendimiento más apropiados para ejecutar la carga de trabajo de una Base de datos SQL de Azure existente.
+# <a name="sql-database-pricing-tier-recommendations"></a>SQL Database pricing tier recommendations
 
-> [AZURE.NOTE] Las recomendaciones sobre el plan de tarifa solo están disponibles para las bases de datos Web y Business y los grupos de bases de datos elásticas, y solo en el [Portal de Azure](https://portal.azure.com/).
+ Pricing tier recommendations suggest the service tier and performance level that is best suited for running an existing Azure SQL database’s workload.
 
-
-Obtenga recomendaciones del plan de tarifa durante las siguientes tareas:
-
-- [Cambio del nivel de servicio y del nivel de rendimiento (nivel de precios) de una base de datos SQL](sql-database-scale-up.md)
-- [Actualizar un servidor SQL de Azure a V12](sql-database-upgrade-server-portal.md)
-- Busque el servidor V12. Consulte [Recomendaciones sobre el plan de tarifa de Base de datos SQL](sql-database-service-tier-advisor.md).
-- [Creación de un grupo de bases de datos elásticas](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
+> [AZURE.NOTE] Pricing tier recommendations are only available for Web and Business databases and elastic database pools -- and only available in the [Azure portal](https://portal.azure.com/).
 
 
+Get pricing tier recommendations during the following tasks:
+
+- [Change the service tier and performance level (pricing tier) of a SQL database](sql-database-scale-up.md)
+- [Upgrade Azure SQL server to V12](sql-database-upgrade-server-portal.md)
+- Browse to your V12 server. See [SQL Database pricing tier recommendations](sql-database-service-tier-advisor.md).
+- [Create an elastic database pool](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
 
 
 
-## Información general
-
-El servicio de Base de datos de SQL analiza el rendimiento actual y los requisitos de características mediante la evaluación del uso de recursos históricos para una base de datos SQL. Además, el nivel de servicio mínimo aceptable se determina en función del tamaño de la base de datos y las características de [continuidad del negocio](sql-database-business-continuity.md) habilitadas.
-
-Esta información se analiza y se recomienda el nivel de servicio y el nivel de rendimiento que mejor se adapte para ejecutar la carga de trabajo típica de la base de datos y para mantener el conjunto de características actual.
-
-- El servicio examina entre 15 a 30 días anteriores de datos históricos (uso de recursos, tamaño de base de datos y actividad de la base de datos) y realiza una comparación entre la cantidad de recursos consumidos y las limitaciones reales de los niveles de servicio disponibles y los niveles de rendimiento.
-- Los datos se analizan en intervalos de 15 segundos y se clasifica el conjunto de resultados de cada intervalo en el nivel de servicio existente y nivel de rendimiento que sean más adecuados para controlar la carga de trabajo de ese conjunto de resultados.
-- Después, estos ejemplos de 15 segundos se agregan en el análisis más extenso de 15 a 30 días y se recomienda el nivel de servicio y el del rendimiento que pueda manejar de manera óptima el 95% de la carga de trabajo histórica.
-
-### Recomendaciones
-
-Según el uso de la base de datos, se pueden encontrar dos categorías de recomendaciones:+
 
 
-| Recomendación | Description |
+## <a name="overview"></a>Overview
+
+The SQL Database service analyzes current performance and feature requirements by assessing historical resource usage for a SQL database. In addition, the minimum acceptable service tier is determined based on the size of the database, and enabled [business continuity](sql-database-business-continuity.md) features. 
+
+This information is analyzed and the service tier and performance level that is best suited for running the database’s typical workload and maintaining it's current feature set is recommended.
+
+- The service examines the previous 15 to 30 days of historical data (resource usage, database size, and database activity) and performs a comparison between the amount of resources consumed and the actual limitations of the currently available service tiers and performance levels.
+- Data is analyzed in 15 second intervals and each interval's resultset is categorized into the existing service tier and performance level that is best suited for handling that resultset's workload.
+- These 15 second samples are then aggregated into the larger 15-30 day analysis and the service tier and performance level that can optimally handle 95% of the historical workload is recommended.
+
+### <a name="recommendations"></a>Recommendations
+
+Based on your database's usage, there are currently 2 categories of recommendations that can be encountered:
+
+
+| Recommendation | Description |
 | :--- | :--- |
-| Actualizar | Actualice a un nuevo nivel. |
-| No disponible | Las bases de datos requieren una carga de trabajo mínima o aproximadamente 35 días de actividad. No hay suficientes datos para proporcionar una recomendación válida. |
+| Upgrade | Upgrade to a new tier. |
+| Unavailable | A database requires a minimum workload or approximately 35 days of activity. There is not enough data to provide a valid recommendation. |
 
-## Obtención de recomendaciones de nivel de precios
+## <a name="getting-pricing-tier-recommendations"></a>Getting pricing tier recommendations
 
-Para obtener recomendaciones sobre los planes de tarifa, seleccione una base de datos Web o Business existente y haga clic en **Toda la configuración** y luego en **Plan de tarifa (escalar DTU)**. (Las recomendaciones del plan de tarifa también están disponibles durante la [Actualización de SQL Server de Azure a V12](sql-database-upgrade-server-portal.md)).
+Get pricing tier recommendations by selecting an existing Web or Business database, click **All settings**, then click **Pricing tier (scale DTUs)**. (Pricing tier recommendations are also available when you [Upgrade Azure SQL server to V12](sql-database-upgrade-server-portal.md).)
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-2. Haga clic en **EXAMINAR** > **Bases de datos SQL**.
-4. En la hoja **Bases de datos SQL**, haga clic en la base de datos para la que quiere ver una recomendación:
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Click **BROWSE** > **SQL databases**.
+4. In the **SQL databases** blade, click the database that you want to see a recommendation for:
 
-    ![Seleccionar base de datos][1]
+    ![Select database][1]
 
-5. En la hoja de la base de datos, seleccione **Toda la configuración** y luego seleccione **Plan de tarifa (escalar DTU)**.
-
-
-7. Se abre **Planes de tarifa recomendados**, donde puede hacer clic en el plan sugerido y luego hacer clic en el botón **Seleccionar** para cambiar a ese plan.
-
-    ![Suscríbase a la vista previa][4]
-
-8. Opcionalmente, haga clic en **Ver detalles de uso** para abrir la hoja **Detalles de recomendaciones de niveles de precios** donde puede ver el nivel recomendado para la base de datos, una comparación de características entre los niveles actuales y recomendados y un gráfico del análisis de uso de recursos históricos.
-
-    ![Suscríbase a la vista previa][5]
+5. On the database blade, select **All settings** then select **Pricing tier (scale DTUs)**.
 
 
+7. The **Recommended pricing tiers** open where you can click the suggested tier and then click the **Select** button to change to that tier.
 
-## Resumen
+    ![Sign up for the preview][4]
 
-Las recomendaciones de niveles de precios proporcionan una experiencia automatizada para recopilar datos de telemetría para cada Base de datos SQL y para recomendar la combinación del mejor nivel de servicio/nivel de rendimiento según los requisitos de las características y necesidades de rendimiento real de una base de datos. En la hoja Configuración, haga clic en **Plan de tarifa (escalar DTU)** para ver las recomendaciones sobre los planes de tarifa para todas las bases de datos Web y Business.
+8. Optionally, click **View usage details** to open the **Pricing Tier Recommendation Details** blade where you can view the recommended tier for the database, a feature comparison between current and recommended tiers, and a graph of the  historical resource usage analysis.
+
+    ![Sign up for the preview][5]
 
 
 
-## Pasos siguientes
+## <a name="summary"></a>Summary
 
-Dependiendo de los detalles de la base de datos específica, la realización de una actualización a un nivel de servicio superior o inferior no se suele producir de manera instantánea. El portal proporcionará notificaciones cuando la base de datos realice la transición a su nuevo nivel, o puede supervisar el estado de actualización mediante la consulta de la vista [sys.dm\_operation\_status (Base de datos SQL de Azure)](https://msdn.microsoft.com/library/dn270022.aspx) en la base de datos maestra del servidor de Base de datos SQL.
+Pricing tier recommendations provide an automated experience for gathering telemetry data for each SQL database and recommending the best service tier/performance level combination based on a database's actual performance needs and feature requirements. On the Settings blade click **Pricing tier (scale DTUs)** to see pricing tier recommendations for any Web and Business databases.
+
+
+
+## <a name="next-steps"></a>Next steps
+
+Depending on the details of your specific database, performing an upgrade or downgrade usually does not happen instantaneously. The portal will provide notifications as the database transitions to it's new tier, or you can monitor the upgrade status by querying the [sys.dm_operation_status (Azure SQL Database)](https://msdn.microsoft.com/library/dn270022.aspx) view in the SQL Database Server's master database.
 
 
 <!--Image references-->
@@ -96,4 +97,8 @@ Dependiendo de los detalles de la base de datos específica, la realización de 
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

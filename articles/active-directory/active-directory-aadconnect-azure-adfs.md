@@ -1,307 +1,325 @@
 <properties
-	pageTitle="Servicios de federación de Active Directory en Azure | Microsoft Azure"
-	description="En este documento aprenderá cómo implementar AD FS en Azure para alta disponibilidad."
-    keywords="implementar AD FS en azure, implementar azure adfs, azure ad fs, implementar adfs, implementar ad fs, adfs en azure, implementar adfs en azure, implementar AD FS en azure, adfs azure, introducción a AD FS, Azure, AD FS en Azure, iaas, ADFS, mover adfs a azure"
-	services="active-directory"
-	documentationCenter=""
-	authors="anandyadavmsft"
-	manager="femila"
-	editor=""/>
+    pageTitle="Active Directory Federation Services in Azure | Microsoft Azure"
+    description="In this document you will learn how to deploy AD FS in Azure for high availablity."
+    keywords="deploy AD FS in azure, deploy azure adfs, azure adfs, azure ad fs,deploy adfs, deploy ad fs, adfs in azure, deploy adfs in azure, deploy AD FS in azure, adfs azure, introduction to AD FS, Azure, AD FS in Azure, iaas, ADFS, move adfs to azure"
+    services="active-directory"
+    documentationCenter=""
+    authors="anandyadavmsft"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="07/13/2016"
-	ms.author="anandy;billmath"/>
-
-# Implementación de AD FS en Azure 
-
-AD FS proporciona funcionalidades de una federación de identidades simplificada y protegida, así como de inicio de sesión único (SSO) web. La federación con Azure AD u Office 365 permite a los usuarios autenticarse con credenciales locales y acceder a todos los recursos en la nube. Por tanto, es importante disponer de una infraestructura de AD FS de alta disponibilidad para garantizar el acceso a los recursos locales y en la nube. La implementación de AD FS en Azure puede ayudar a lograr la alta disponibilidad necesaria con el mínimo esfuerzo. La implementación de AD FS en Azure tiene varias ventajas; a continuación se enumeran algunas:
-
-* **Alta disponibilidad**: con la potencia de Conjuntos de disponibilidad de Azure, se asegura una infraestructura de alta disponibilidad.
-* **Fácil de escalar**: ¿necesita más rendimiento? Migre fácilmente a máquinas más eficaces con solo unos clics en Azure.
-* **Redundancia geográfica cruzada**: con la redundancia geográfica de Azure puede estar seguro de que su infraestructura tiene alta disponibilidad en todo el mundo.
-* **Fácil de administrar**: con opciones de administración muy simplificadas en el Portal de Azure, administrar su infraestructura es muy fácil y sin complicaciones.
-
-## Principios de diseño
-
-![Diseño de la implementación](./media/active-directory-aadconnect-azure-adfs/deployment.png)
-
-El diagrama anterior muestra la topología básica recomendada para empezar a implementar la infraestructura de AD FS en Azure. Los principios de los distintos componentes de la topología son los siguientes:
-
-* **Servidores de ADFS/controlador de dominio**: si tiene menos de 1000 usuarios, simplemente puede instalar el rol de AD FS en los controladores de dominio. Si no desea que afecte al rendimiento de los controladores de dominio o si tiene más de 1000 usuarios, implemente AD FS en servidores independientes.
-* **Servidor WAP**: es necesario implementar servidores proxy de aplicación web para que los usuarios también puedan acceder a AD FS cuando no están en la red de la empresa.
-* **DMZ**: los servidores proxy de aplicación web se colocarán en la red perimetral, y SOLO se permite el acceso a TCP/443 entre dicha red y la subred interna.
-* **Equilibradores de carga**: para garantizar la alta disponibilidad de servidores proxy de aplicación web y AD FS se recomienda utilizar un equilibrador de carga interno para servidores AD FS y Azure Load Balancer para los servidores proxy de aplicación web.
-* **Conjuntos de disponibilidad**: para proporcionar redundancia a la implementación de AD FS, se recomienda agrupar dos o más máquinas virtuales en un conjunto de disponibilidad para cargas de trabajo similares. Esta configuración garantiza que durante un evento de mantenimiento planeado o no planeado, al menos una máquina virtual estará disponible.
-* **Cuentas de almacenamiento**: se recomienda tener dos cuentas de almacenamiento. Tener una cuenta de almacenamiento única puede llevar a la creación de un único punto de error y puede provocar que la implementación no esté disponible en un escenario poco probable, en el que la cuenta de almacenamiento deje de funcionar. Dos cuentas de almacenamiento ayudarán a asociar una cuenta de almacenamiento para cada línea con errores.
-* **Segregación de la red**: los servidores proxy de aplicación web se deben implementar en una red perimetral independiente. Puede dividir una red virtual en dos subredes y, a continuación, implementar los servidores proxy de aplicación web en una subred aislada. Simplemente, puede definir la configuración del grupo de seguridad de red para cada subred y permitir solo la comunicación necesaria entre las dos subredes. A continuación se proporcionan más detalles para cada escenario de implementación
-
-##Pasos para implementar AD FS en Azure
-
-Los pasos mencionados en esta sección describen las directrices para implementar la siguiente infraestructura de AD FS en Azure.
-
-### 1\. Implementación de la red
-
-Como se describió anteriormente, puede crear dos subredes en una única red virtual, o bien crear dos redes virtuales completamente diferentes. Este artículo se centrará en la implementación de una única red virtual y la dividirá en dos subredes. Actualmente, este enfoque es más sencillo, ya que dos redes virtuales independientes requerirían una puerta de enlace de red virtual a red virtual para las comunicaciones.
-
-**1.1 Creación de una red virtual**
-
-![Creación de una red virtual](./media/active-directory-aadconnect-azure-adfs/deploynetwork1.png)
-	
-Seleccione Red virtual en el Portal de Azure; a continuación, puede implementar la red virtual y una subred inmediatamente con un solo clic. La subred INT también está definida y lista para las máquinas virtuales que se van a agregar. El siguiente paso es agregar otra subred a la red: la subred DMZ. Para crear la subred DMZ, simplemente:
-
-* Seleccione la red recién creada.
-* En las propiedades, seleccione Subredes.
-* En el panel Subredes, haga clic en el botón Agregar.
-* Proporcione el nombre y la información del espacio de direcciones de la subred para crear la subred.
-
-![Subred](./media/active-directory-aadconnect-azure-adfs/deploynetwork2.png)
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="07/13/2016"
+    ms.author="anandy;billmath"/>
 
 
-![Subred DMZ](./media/active-directory-aadconnect-azure-adfs/deploynetwork3.png)
+# <a name="ad-fs-deployment-in-azure"></a>AD FS deployment in Azure 
 
-**1.2. Creación de grupos de seguridad de red**
+AD FS provides simplified, secured identity federation and Web single sign-on (SSO) capabilities. Federation with Azure AD or O365 enables users to authenticate using on-premises credentials and access all resources in cloud. As a result, it becomes important to have a highly available AD FS infrastructure to ensure access to resources both on-premises and in the cloud. Deploying AD FS in Azure can help achieve the high availability required with minimal efforts.
+There are several advantages of deploying AD FS in Azure, a few of them are listed below:
 
-Un grupo de seguridad de red (NSG) contiene una enumeración de las reglas de la lista de control de acceso (ACL), que permiten o deniegan el tráfico de red a sus instancias de máquina virtual en una red virtual. Los NSG se pueden asociar con las subredes o las instancias individuales de máquina virtual dentro de esa subred. Cuando un NSG está asociado a una subred, las reglas de la ACL se aplican a todas las instancias de la máquina virtual de esa subred. Para esta guía, crearemos dos NSG: uno para una red interna y otro para una red perimetral. Se denominarán NSG\_INT y NSG\_DMZ respectivamente.
+* **High Availability** - With the power of Azure Availability Sets, you ensure a highly available infrastructure.
+* **Easy to Scale** – Need more performance? Easily migrate to more powerful machines by just a few clicks in Azure
+* **Cross-Geo Redundancy** – With Azure Geo Redundancy you can be assured that your infrastructure is highly available across the globe
+* **Easy to Manage** – With highly simplified management options in Azure portal, managing your infrastructure is very easy and hassle-free 
 
-![Creación de NSG](./media/active-directory-aadconnect-azure-adfs/creatensg1.png)
+## <a name="design-principles"></a>Design principles
 
-Después de crear el NSG, no habrá ninguna regla de entrada ni de salida. Una vez que los roles de los servidores respectivos están instalados y funcionales, las reglas de entrada y de salida se pueden crear según el nivel de seguridad deseado.
+![Deployment design](./media/active-directory-aadconnect-azure-adfs/deployment.png)
 
-![Inicialización de Git](./media/active-directory-aadconnect-azure-adfs/nsgint1.png)
+The diagram above shows the recommended basic topology to start deploying your AD FS infrastructure in Azure. The principles behind the various components of the topology are listed below:
 
-Después de crear los NSG, asocie NSG\_INT a la subred INT y NSG\_DMZ a la subred DMZ. A continuación se proporciona una captura de pantalla de ejemplo:
+* **DC / ADFS Servers**: If you have fewer than 1,000 users you can simply install AD FS role on your domain controllers. If you do not want any performance impact on the domain controllers or if you have more than 1,000 users, then deploy AD FS on separate servers.
+* **WAP Server** – it is necessary to deploy Web Application Proxy servers, so that users can reach the AD FS when they are not on the company network also.
+* **DMZ**: The Web Application Proxy servers will be placed in the DMZ and ONLY TCP/443 access is allowed between the DMZ and the internal subnet.
+* **Load Balancers**: To ensure high availability of AD FS and Web Application Proxy servers, we recommend using an internal load balancer for AD FS servers and Azure Load Balancer for Web Application Proxy servers.
+* **Availability Sets**: To provide redundancy to your AD FS deployment, it is recommended that you group two or more virtual machines in an Availability Set for similar workloads. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine will be available
+* **Storage Accounts**: It is recommended to have two storage accounts. Having a single storage account can lead to creation of a single point of failure and can cause the deployment to become unavailable in an unlikely scenario where the storage account goes down. Two storage accounts will help associate one storage account for each fault line.
+* **Network segregation**:  Web Application Proxy servers should be deployed in a separate DMZ network. You can divide one virtual network into two subnets and then deploy the Web Application Proxy server(s) in an isolated subnet. You can simply configure the network security group settings for each subnet and allow only required communication between the two subnets. More details are given per deployment scenario below
 
-![Configuración de NSG](./media/active-directory-aadconnect-azure-adfs/nsgconfigure1.png)
+##<a name="steps-to-deploy-ad-fs-in-azure"></a>Steps to deploy AD FS in Azure
 
-* Haga clic en Subredes para abrir el panel Subredes.
-* Seleccione la subred que se asociará al NSG.
+The steps mentioned in this section outline the guide to deploy the below depicted AD FS infrastructure in Azure.
 
-Después de la configuración, el panel Subredes debe ser similar al siguiente:
+### <a name="1.-deploying-the-network"></a>1. Deploying the network
 
-![Subredes después GSN](./media/active-directory-aadconnect-azure-adfs/nsgconfigure2.png)
+As outlined above, you can either create two subnets in a single virtual network or else create two completely different virtual networks (VNet). This article will focus on deploying a single virtual network and divide it into two subnets. This is currently an easier approach as two separate VNets would require a VNet to VNet gateway for communications.
 
-**1.3. Creación de una conexión a local**
+**1.1 Create virtual network**
 
-Necesitamos una conexión local con el fin de implementar el controlador de dominio en Azure. Azure ofrece varias opciones de conectividad para conectar su infraestructura local a la infraestructura de Azure.
+![Create virtual network](./media/active-directory-aadconnect-azure-adfs/deploynetwork1.png)
+    
+In the Azure portal, select virtual network and you can deploy the virtual network and one subnet immediately with just one click. INT subnet is also defined and is ready now for VMs to be added.
+The next step is to add another subnet to the network, i.e. the DMZ subnet. To create the DMZ subnet, simply
 
-* De punto a sitio
-* De sitio a sitio de red virtual
+* Select the newly created network
+* In the properties select subnet
+* In the subnet panel click on the add button
+* Provide the subnet name and address space information to create the subnet
+
+![Subnet](./media/active-directory-aadconnect-azure-adfs/deploynetwork2.png)
+
+
+![Subnet DMZ](./media/active-directory-aadconnect-azure-adfs/deploynetwork3.png)
+
+**1.2. Creating the network security groups**
+
+A Network security group (NSG) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet.
+For the purpose of this guidance, we will create two NSGs: one each for an internal network and a DMZ. They will be labeled NSG_INT and NSG_DMZ respectively.
+
+![Create NSG](./media/active-directory-aadconnect-azure-adfs/creatensg1.png)
+
+After the NSG is created, there will be 0 inbound and 0 outbound rules. Once the roles on the respective servers are installed and functional, then the inbound and outbound rules can be made according to the desired level of security.
+
+![Initialize NSG](./media/active-directory-aadconnect-azure-adfs/nsgint1.png)
+
+After the NSGs are created, associate NSG_INT with subnet INT and NSG_DMZ with subnet DMZ. An example screenshot is given below:
+
+![NSG configure](./media/active-directory-aadconnect-azure-adfs/nsgconfigure1.png)
+
+* Click on Subnets to open the panel for subnets
+* Select the subnet to associate with the NSG 
+
+After configuration, the panel for Subnets should look like below:
+
+![Subnets after NSG](./media/active-directory-aadconnect-azure-adfs/nsgconfigure2.png)
+
+**1.3. Create Connection to on-premises**
+
+We will need a connection to on-premises in order to deploy the domain controller (DC) in azure. Azure offers various connectivity options to connect your on-premises infrastructure to your Azure infrastructure.
+
+* Point-to-site
+* Virtual Network Site-to-site
 * ExpressRoute
 
-Se recomienda usar ExpressRoute. ExpressRoute permite crear conexiones privadas entre los centros de datos de Azure y la infraestructura que está en su entorno local o en un entorno de colocalización. Las conexiones ExpressRoute no pasan por la red pública de Internet. Ofrecen más confiabilidad, velocidades más altas, menores latencias y mayor seguridad que las conexiones habituales a través de Internet. Aunque se recomienda utilizar ExpressRoute, puede elegir el método de conexión más adecuado para su organización. Para aprender más acerca de ExpressRoute y las distintas opciones de conectividad con ExpressRoute, lea [Información técnica de ExpressRoute](https://aka.ms/Azure/ExpressRoute).
+It is recommended to use ExpressRoute. ExpressRoute lets you create private connections between Azure datacenters and infrastructure that’s on your premises or in a co-location environment. ExpressRoute connections do not go over the public Internet. They offer more reliability, faster speeds, lower latencies and higher security than typical connections over the Internet.
+While it is recommended to use ExpressRoute, you may choose any connection method best suited for your organization. To learn more about ExpressRoute and the various connectivity options using ExpressRoute, read [ExpressRoute technical overview](https://aka.ms/Azure/ExpressRoute).
 
-### 2\. Creación de cuentas de almacenamiento
+### <a name="2.-create-storage-accounts"></a>2. Create storage accounts
 
-Para mantener la alta disponibilidad y evitar la dependencia de una sola cuenta de almacenamiento, puede crear dos cuentas de almacenamiento. Divida las máquinas de cada conjunto de disponibilidad en dos grupos y asigne una cuenta de almacenamiento independiente a cada grupo. Recuerde que solo se le facturará el uso real del almacenamiento.
+In order to maintain high availability and avoid dependence on a single storage account, you can create two storage accounts. Divide the machines in each availability set into two groups and then assign each group a separate storage account. Remember, you are only billed for the actual usage of the storage.
 
-![Creación de cuentas de almacenamiento](./media/active-directory-aadconnect-azure-adfs/storageaccount1.png)
+![Create storage accounts](./media/active-directory-aadconnect-azure-adfs/storageaccount1.png)
 
-### 3\. Creación de conjuntos de disponibilidad
+### <a name="3.-create-availability-sets"></a>3. Create availability sets
 
-Para cada rol (DC/AD FS y WAP), cree conjuntos de disponibilidad que contengan dos máquinas como mínimo. Esto le ayudará a lograr una mayor disponibilidad para cada rol. Al crear los conjuntos de disponibilidad, es esencial decidir lo siguiente:
-* **Dominios de error**: máquinas virtuales en el mismo dominio de error comparten la misma fuente de alimentación y el conmutador de red física. Se recomienda un mínimo de dos dominios de error. El valor predeterminado es tres, y puede dejarlo así para esta implementación.
-* **Dominios de actualización**: las máquinas que pertenecen al mismo dominio de actualización se reinician juntas durante una actualización. Conviene tener como mínimo dos dominios de actualización. El valor predeterminado es cinco y puede dejarlo así para esta implementación.
+For each role (DC/AD FS and WAP), create availability sets that will contain 2 machines each at the minimum. This will help achieve higher availability for each role. While creating the availability sets, it is essential to decide on the following:
+* **Fault Domains**: Virtual machines in the same fault domain share the same power source and physical network switch. A minimum of 2 fault domains are recommended. The default value is 3 and you can leave it as is for the purpose of this deployment
+* **Update domains**: Machines belonging to the same update domain are restarted together during an update. You want to have minimum of 2 update domains. The default value is 5 and you can leave it as is for the purpose of this deployment
 
-![Conjuntos de disponibilidad](./media/active-directory-aadconnect-azure-adfs/availabilityset1.png)
+![Availability sets](./media/active-directory-aadconnect-azure-adfs/availabilityset1.png)
 
-Creación de los siguientes conjuntos de disponibilidad
+Create the following availability sets
 
-| Conjunto de disponibilidad | Rol | Dominios de error | Dominios de actualización |
+| Availability Set | Role | Fault domains | Update domains |
 |:----------------:|:----:|:-----------:|:-----------|
 | contosodcset | DC/ADFS | 3 | 5 |
 | contosowapset | WAP | 3 | 5 |
 
-### 4\. Implementación de máquinas virtuales
-El siguiente paso es implementar las máquinas virtuales que hospedarán los distintos roles en su infraestructura. Se recomienda un mínimo de dos máquinas en cada conjunto de disponibilidad. Cree seis máquinas virtuales para la implementación básica.
+### <a name="4.-deploy-virtual-machines"></a>4.  Deploy virtual machines
+The next step is to deploy virtual machines that will host the different roles in your infrastructure. A minimum of two machines are recommended in each availability set. Create six virtual machines for the basic deployment.
 
-| Máquina | Rol | Subred | El conjunto de disponibilidad | Cuenta de almacenamiento | Dirección IP |
+| Machine | Role | Subnet | Availability set | Storage account | IP Address |
 |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|contosodc1|DC/ADFS|INT|contosodcset|contososac1|Estática|
-|contosodc2|DC/ADFS|INT|contosodcset|contososac2|Estática|
-|contosowap1|WAP|DMZ|contosowapset|contososac1|Estática|
-|contosowap2|WAP|DMZ|contosowapset|contososac2|Estática|
+|contosodc1|DC/ADFS|INT|contosodcset|contososac1|Static|
+|contosodc2|DC/ADFS|INT|contosodcset|contososac2|Static|
+|contosowap1|WAP|DMZ|contosowapset|contososac1|Static|
+|contosowap2|WAP|DMZ|contosowapset|contososac2|Static|
 
-Como habrá observado, no se ha especificado ningún NSG. Esto es porque Azure permite usar NSG en el nivel de subred. A continuación, puede controlar el tráfico de red de la máquina mediante el NSG individual asociado a la subred o mediante el objeto NIC. Lea más sobre [¿Qué es un grupo de seguridad de red?](https://aka.ms/Azure/NSG) Se recomienda una dirección IP estática si está administrando el DNS. Puede utilizar DNS de Azure en lugar de los registros de DNS para su dominio; haga referencia a las nuevas máquinas por su nombre de dominio completo de Azure. Una vez completada la implementación, el panel Máquinas virtuales debe ser similar al siguiente:
+As you might have noticed, no NSG has been specified. This is because azure lets you use NSG at the subnet level. Then, you can control machine network traffic by using the individual NSG associated with either the subnet or else the NIC object. Read more on [What is a Network Security Group (NSG)](https://aka.ms/Azure/NSG).
+Static IP address is recommended if you are managing the DNS. You can use Azure DNS and instead in the DNS records for your domain, refer to the new machines by their Azure FQDNs.
+Your virtual machine pane should look like below after the deployment is completed:
 
-![Máquinas virtuales implementadas](./media/active-directory-aadconnect-azure-adfs/virtualmachinesdeployed_noadfs.png)
+![Virtual Machines deployed](./media/active-directory-aadconnect-azure-adfs/virtualmachinesdeployed_noadfs.png)
 
-### 5\. Configuración de los servidores del controlador de dominio o AD FS
- Para autenticar cualquier solicitud entrante, AD FS deberá ponerse en contacto con el controlador de dominio. Para evitar el costoso recorrido de Azure a controlador de dominio local para la autenticación, se recomienda implementar una réplica del controlador de dominio en Azure. Para lograr una alta disponibilidad, se recomienda crear un conjunto de disponibilidad con al menos dos de controladores de dominio.
+### <a name="5.-configuring-the-domain-controller-/-ad-fs-servers"></a>5. Configuring the domain controller / AD FS servers
+ In order to authenticate any incoming request, AD FS will need to contact the domain controller. To save the costly trip from Azure to on-premises DC for authentication, it is recommended to deploy a replica of the domain controller in Azure. In order to attain high availability, it is recommended to create an availability set of at-least 2 domain controllers.
 
-|Controlador de dominio|Rol|Cuenta de almacenamiento|
+|Domain controller|Role|Storage account|
 |:-----:|:-----:|:-----:|
-|contosodc1|Réplica|contososac1|
-|contosodc2|Réplica|contososac2|
+|contosodc1|Replica|contososac1|
+|contosodc2|Replica|contososac2|
 
-* Promueva los dos servidores a controladores de dominio de réplica con DNS.
-* Instale el rol AD FS mediante el administrador del servidor para configurar los servidores AD FS.
+* Promote the two servers as replica domain controllers with DNS
+* Configure the AD FS servers by installing the AD FS role using the server manager.
 
-###6\. Implementación del Equilibrador de carga interno (ILB)
+###<a name="6.-deploying-internal-load-balancer-(ilb)"></a>6.   Deploying Internal Load Balancer (ILB)
 
-**6.1. Creación del ILB**
+**6.1.  Create the ILB**
 
-Para implementar un ILB, seleccione Equilibradores de carga en el Portal de Azure y haga clic en Agregar (+).
->[AZURE.NOTE] Si no ve **Equilibradores de carga** en el menú, haga clic en **Examinar** en la parte inferior izquierda del portal y desplácese hasta que vea **Equilibradores de carga**. A continuación, haga clic en la estrella amarilla para agregarlo al menú. Ahora, seleccione el nuevo icono del equilibrador de carga para abrir el panel y empezar a configurar el equilibrador de carga.
+To deploy an ILB, select Load Balancers in the Azure portal and click on add (+).
+>[AZURE.NOTE] if you do not see **Load Balancers** in your menu, click **Browse** in the lower left of the portal and scroll until you see **Load Balancers**.  Then click the yellow star to add it to your menu. Now select the new load balancer icon to open the panel to begin configuration of the load balancer.
 
-![Examinar el equilibrador de carga](./media/active-directory-aadconnect-azure-adfs/browseloadbalancer.png)
+![Browse load balancer](./media/active-directory-aadconnect-azure-adfs/browseloadbalancer.png)
 
-* **Nombre**: asigne un nombre adecuado al equilibrador de carga.
-* **Esquema**: puesto que este equilibrador de carga se colocará delante de los servidores AD FS y está pensado SOLO para las conexiones de red interna, seleccione "Interno".
-* **Red virtual**: elija la red virtual donde está implementando AD FS.
-* **Subred**: elija aquí la subred interna.
-* **Asignación de dirección IP**: dinámica.
+* **Name**: Give any suitable name to the load balancer
+* **Scheme**: Since this load balancer will be placed in front of the AD FS servers and is meant for internal network connections ONLY, select “Internal”
+* **Virtual Network**: Choose the virtual network where you are deploying your AD FS
+* **Subnet**: Choose the internal subnet here
+* **IP Address assignment**: Dynamic
 
-![Equilibrador de carga interno](./media/active-directory-aadconnect-azure-adfs/ilbdeployment1.png)
+![Internal load balancer](./media/active-directory-aadconnect-azure-adfs/ilbdeployment1.png)
  
-Tras hacer clic en crear y cuando el ILB se implementa, debería verlo en la lista de equilibradores de carga:
+After you click create and the ILB is deployed, you should see it in the list of load balancers:
 
-![Equilibradores de carga después del ILB](./media/active-directory-aadconnect-azure-adfs/ilbdeployment2.png)
+![Load balancers after ILB](./media/active-directory-aadconnect-azure-adfs/ilbdeployment2.png)
  
-El siguiente paso es configurar el grupo back-end y el sondeo de back-end.
+Next step is to configure the backend pool and the backend probe.
 
-**6.2. Configuración del grupo back-end del ILB**
+**6.2.  Configure ILB backend pool**
 
-Seleccione el ILB recién creado en el panel Equilibradores de carga. Se abrirá el panel de configuración.
-1.	Seleccione los grupos back-end en el panel de configuración.
-2.	En el panel Agregar grupo back-end, haga clic en Agregar máquina virtual.
-3.	Aparecerá un panel donde puede elegir el conjunto de disponibilidad.
-4.	Elija el conjunto de disponibilidad de AD FS.
+Select the newly created ILB in the Load Balancers panel. It will open the settings panel. 
+1.  Select backend pools from the settings panel
+2.  In the add backend pool panel, click on add virtual machine
+3.  You will be presented with a panel where you can choose availability set
+4.  Choose the AD FS availability set
 
-![Configuración del grupo back-end del ILB](./media/active-directory-aadconnect-azure-adfs/ilbdeployment3.png)
+![Configure ILB backend pool](./media/active-directory-aadconnect-azure-adfs/ilbdeployment3.png)
  
-**6.3. Configuración del sondeo**
+**6.3.  Configuring probe**
 
-En el panel de configuración del ILB, seleccione Sondeos.
-1.	Haga clic en Agregar.
-2.	Proporcione la información para el sondeo a. **Nombre**: nombre del sondeo b. **Protocolo**: TCP c. **Puerto**: 443 (HTTPS) d. **Intervalo**: 5 (valor predeterminado): intervalo en el que el ILB comprobará las máquinas en el grupo back-end e. **Umbral incorrecto**: 2 (valor predeterminado): umbral de errores de sondeo consecutivos después del cual el ILB declara que una máquina del grupo back-end no responde y dejará de enviarle tráfico.
+In the ILB settings panel, select Probes.
+1.  Click on add
+2.  Provide details for probe a. **Name**: Probe name b. **Protocol**: TCP c. **Port**: 443 (HTTPS) d. **Interval**: 5 (default value) – this is the interval at which ILB will probe the machines in the backend pool e. **Unhealthy threshold limit**: 2 (default val ue) – this is the threshold of consecutive probe failures after which ILB will declare a machine in the backend pool non-responsive and stop sending traffic to it.
 
-![Configuración del sondeo del ILB](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
+![Configure ILB probe](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
  
-**6.4. Creación de reglas de equilibrio de carga**
+**6.4.  Create load balancing rules**
 
-Con el fin de equilibrar el tráfico de forma eficaz, el ILB debe configurarse con reglas de equilibrio de carga. Para crear una regla de equilibrio de carga:
-1.	Seleccione Reglas de equilibrio de carga en el panel de configuración del ILB
-2.	Haga clic en Agregar en el panel Reglas de equilibrio de carga.
-3.	En el panel Agregar regla de equilibrio de carga a. **Nombre**: escriba un nombre para la regla b. **Protocolo**: seleccione TCP c. **Puerto**: 443 d. **Puerto back-end**: 443 e. **Grupo back-end**: seleccione el grupo que creó antes para el clúster de AD FS f. **Sondeo**: seleccione el sondeo que creó antes para los servidores AD FS.
+In order to effectively balance the traffic, the ILB should be configured with load balancing rules. In order to create a load balancing rule, 
+1.  Select Load balancing rule from the settings panel of the ILB
+2.  Click on Add in the Load balancing rule panel
+3.  In the Add load balancing rule panel a. **Name**: Provide a name for the rule b. **Protocol**: Select TCP c. **Port**: 443 d. **Backend port**: 443 e. **Backend pool**: Select the pool you created for the AD FS cluster earlier f. **Probe**: Select the probe created for AD FS servers earlier
 
-![Configuración de las reglas de equilibrio de carga](./media/active-directory-aadconnect-azure-adfs/ilbdeployment5.png)
+![Configure ILB balancing rules](./media/active-directory-aadconnect-azure-adfs/ilbdeployment5.png)
 
-**6.5. Actualización de DNS con el ILB**
+**6.5.  Update DNS with ILB**
 
-Vaya a su servidor DNS y cree un registro CNAME para el ILB. El registro CNAME debe ser para el servicio de federación con la dirección IP apuntando a la dirección IP del ILB. Por ejemplo, si la dirección DIP de ILB es 10.3.0.8 y el servicio de federación instalado es fs.contoso.com, cree un registro CNAME para fs.contoso.com apuntando a 10.3.0.8. Esto garantizará que todas las comunicaciones relativas a fs.contoso.com terminen en el ILB y se enruten correctamente.
+Go to your DNS server and create a CNAME for the ILB. The CNAME should be for the federation service with the IP address pointing to the IP address of the ILB. For example if the ILB DIP address is 10.3.0.8, and the federation service installed is fs.contoso.com, then create a CNAME for fs.contoso.com pointing to 10.3.0.8.
+This will ensure that all communication regarding fs.contoso.com end up at the ILB and are appropriately routed.
 
-###7\. Configuración del servidor proxy de aplicación web
+###<a name="7.-configuring-the-web-application-proxy-server"></a>7.   Configuring the Web Application Proxy server
 
-**7.1. Configuración de los servidores proxy de aplicación web para acceder a servidores AD FS**
+**7.1.  Configuring the Web Application Proxy servers to reach AD FS servers**
 
-Con el fin de garantizar que los servidores proxy de aplicación web puedan llegar a los servidores AD FS detrás del ILB, cree un registro en %systemroot%\\system32\\drivers\\etc\\hosts para el ILB. Tenga en cuenta que el nombre distintivo (DN) debe ser el nombre del servicio de federación; por ejemplo, fs.contoso.com. Y la entrada IP debe ser la de la dirección IP del ILB (en el ejemplo, 10.3.0.8).
+In order to ensure that Web Application Proxy servers are able to reach the AD FS servers behind the ILB, create a record in the %systemroot%\system32\drivers\etc\hosts for the ILB. Note that the distinguished name (DN) should be the federation service name, for example fs.contoso.com. And the IP entry should be that of the ILB’s IP address (10.3.0.8 as in the example).
 
-**7.2. Instalación del rol de proxy de aplicación web**
+**7.2.  Installing the Web Application Proxy role**
 
-Después de asegurarse de que los servidores proxy de aplicación web pueden acceder a los servidores AD FS detrás del ILB puede instalar los servidores proxy de aplicación web. Los servidores proxy de aplicación web no deben unirse al dominio. Instale los roles de proxy de aplicación web en los dos servidores proxy de aplicación web seleccionando el rol de acceso remoto. El administrador del servidor le guiará para completar la instalación de WAP. Para más información sobre cómo implementar WAP, lea [Instalar y configurar el servidor de Proxy de aplicación web](https://technet.microsoft.com/library/dn383662.aspx).
+After you ensure that Web Application Proxy servers are able to reach the AD FS servers behind ILB, you can next install the Web Application Proxy servers. Web Application Proxy servers do not be joined to the domain. Install the Web Application Proxy roles on the two Web Application Proxy servers by selecting the Remote Access role. The server manager will guide you to complete the WAP installation.
+For more information on how to deploy WAP, read [Install and Configure the Web Application Proxy Server](https://technet.microsoft.com/library/dn383662.aspx).
 
-###8\. Implementación del equilibrador de carga accesible desde Internet (público)
+###<a name="8.-deploying-the-internet-facing-(public)-load-balancer"></a>8.   Deploying the Internet Facing (Public) Load Balancer
 
-**8.1. Creación del equilibrador de carga accesible desde Internet (público)**
+**8.1.  Create Internet Facing (Public) Load Balancer**
  
-En el Portal de Azure, seleccione Equilibradores de carga y haga clic en Agregar. En el panel Crear equilibrador de carga, escriba la siguiente información:
-1. **Nombre**: nombre del equilibrador de carga.
-2. **Esquema**: público; esta opción indica a Azure que este equilibrador de carga necesitará una dirección pública.
-3. **Dirección IP**: crea una dirección IP (dinámica).
+In the Azure portal, select Load balancers and then click on Add. In the Create load balancer panel, enter the following information
+1. **Name**: Name for the load balancer
+2. **Scheme**: Public – this option tells Azure that this load balancer will need a public address.
+3. **IP Address**: Create a new IP address (dynamic)
 
-![Equilibrador de carga accesible desde Internet](./media/active-directory-aadconnect-azure-adfs/elbdeployment1.png)
+![Internet facing load balancer](./media/active-directory-aadconnect-azure-adfs/elbdeployment1.png)
 
-Después de la implementación, el equilibrador de carga aparecerá en la lista de equilibradores de carga.
+After deployment, the load balancer will appear in the Load balancers list.
 
-![Lista de equilibradores de carga](./media/active-directory-aadconnect-azure-adfs/elbdeployment2.png)
+![Load balancer list](./media/active-directory-aadconnect-azure-adfs/elbdeployment2.png)
  
-**8.2. Asignación de una etiqueta DNS a la dirección IP pública**
+**8.2.  Assign a DNS label to the public IP**
 
-Haga clic en la entrada del equilibrador de carga recién creada en el panel Equilibradores de carga para que aparezca el panel de configuración. Siga estos pasos para configurar la etiqueta DNS para la dirección IP pública:
-1.	Haga clic en la dirección IP pública. Se abrirá el panel de la dirección IP pública y su configuración.
-2.	Haga clic en Configuración.
-3.	Proporcione una etiqueta DNS. Esta etiqueta se convertirá en la etiqueta DNS pública a la que puede acceder desde cualquier lugar; por ejemplo, contosofs.westus.cloudapp.azure.com. Puede agregar una entrada en el DNS externo para el servicio de federación (como fs.contoso.com) que se resuelve en la etiqueta DNS del equilibrador de carga externo (contosofs.westus.cloudapp.azure.com).
+Click on the newly created load balancer entry in the Load balancers panel to bring up the panel for configuration. Follow below steps to configure the DNS label for the public IP:
+1.  Click on the public IP address. This will open the panel for the public IP and its settings
+2.  Click on Configuration
+3.  Provide a DNS label. This will become the public DNS label that you can access from anywhere, for example contosofs.westus.cloudapp.azure.com. You can add an entry in the external DNS for the federation service (like fs.contoso.com) that resolves to the DNS label of the external load balancer (contosofs.westus.cloudapp.azure.com).
 
-![Configuración del equilibrador de carga accesible desde Internet](./media/active-directory-aadconnect-azure-adfs/elbdeployment3.png)
+![Configure internet facing load balancer](./media/active-directory-aadconnect-azure-adfs/elbdeployment3.png) 
 
-![Configuración del equilibrador de carga accesible desde Internet (DNS)](./media/active-directory-aadconnect-azure-adfs/elbdeployment4.png)
+![Configure internet facing load balancer (DNS)](./media/active-directory-aadconnect-azure-adfs/elbdeployment4.png)
 
-**8.3. Configuración de un grupo back-end para el equilibrador de carga accesible desde Internet (público)**
+**8.3.  Configure backend pool for Internet Facing (Public) Load Balancer** 
 
-Siga los mismos pasos que al crear el equilibrador de carga interno para configurar el grupo back-end para el equilibrador de carga accesible desde Internet (público) como el conjunto de disponibilidad para los servidores WAP. Por ejemplo, contosowapset.
+Follow the same steps as in creating the internal load balancer, to configure the backend pool for Internet Facing (Public) Load Balancer as the availability set for the WAP servers. For example, contosowapset.
 
-![Configuración del grupo back-end del equilibrador de carga accesible desde Internet](./media/active-directory-aadconnect-azure-adfs/elbdeployment5.png)
+![Configure backend pool of Internet Facing Load Balancer](./media/active-directory-aadconnect-azure-adfs/elbdeployment5.png)
  
-**8.4. Configuración del sondeo**
+**8.4.  Configure probe**
 
-Siga los mismos pasos que al configurar el equilibrador de carga interno para configurar el sondeo para el grupo back-end de los servidores WAP.
+Follow the same steps as in configuring the internal load balancer  to configure the probe for the backend pool of WAP servers.
 
-![Configuración del sondeo del equilibrador de carga accesible desde Internet](./media/active-directory-aadconnect-azure-adfs/elbdeployment6.png)
+![Configure probe of Internet Facing Load Balancer](./media/active-directory-aadconnect-azure-adfs/elbdeployment6.png)
  
-**8.5. Creación de reglas de equilibrio de carga**
+**8.5.  Create load balancing rule(s)**
 
-Siga los mismos pasos que en el ILB para configurar la regla de equilibrio de carga para TCP 443.
+Follow the same steps as in ILB to configure the load balancing rule for TCP 443.
 
-![Configuración de reglas de equilibrio del equilibrador de carga accesible desde Internet](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
+![Configure balancing rules of Internet Facing Load Balancer](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
  
-###9\. Protección de la red
+###<a name="9.-securing-the-network"></a>9.   Securing the network
 
-**9.1. Protección de la subred interna**
+**9.1.  Securing the internal subnet**
 
-En general, necesita las siguientes reglas para proteger eficazmente la subred interna (en el orden en el que aparecen a continuación).
+Overall, you need the following rules to efficiently secure your internal subnet (in the order as listed below)
 
-|Regla|Descripción|Flujo|
+|Rule|Description|Flow|
 |:----|:----|:------:|
-|AllowHTTPSFromDMZ| Permitir la comunicación HTTPS desde la red perimetral | Entrada |
-|DenyAllFromDMZ| Esta regla bloqueará todo el tráfico de la subred DMZ a la interna. La regla AllowHTTPSFromDMZ ya se encarga de garantizar que la comunicación HTTPS pasa, mientras que todo lo demás queda bloqueado por esta regla. | Entrada |
-|DenyInternetOutbound| Sin acceso a Internet | Salida |
+|AllowHTTPSFromDMZ| Allow the HTTPS communication from DMZ | Inbound |
+|DenyAllFromDMZ| This rule will block all traffic from DMZ to internal subnet. The rule AllowHTTPSFromDMZ already takes care of ensuring that HTTPS communication goes through and anything else is blocked by this rule | Inbound |
+|DenyInternetOutbound| No access to internet | Outbound |
 
-[comentario]: <> (![Reglas de acceso INT (entrantes)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [comentario]: <> (![Reglas de acceso INT (salientes)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
+[comment]: <> (![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [comment]: <> (![INT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
  
-**9.2. Protección de la subred DMZ**
+**9.2.  Securing the DMZ subnet**
 
-|Regla|Descripción|Flujo|
+|Rule|Description|Flow|
 |:----|:----|:------:|
-|AllowHttpsFromVirtualNetwork| Permite HTTPS desde la red virtual | Entrada |
-|AllowHTTPSInternet| Permite HTTPS de Internet a la red perimetral | Entrada|
-|DenyingressexceptHTTPS| Bloquea todo, excepto HTTPS de Internet | Entrada |
-|DenyOutToInternet|	No se bloquea nada, excepto HTTPS a Internet | Salida |
+|AllowHttpsFromVirtualNetwork| Allow HTTPS from virtual network | Inbound |
+|AllowHTTPSInternet| Allow HTTPS from internet to the DMZ | Inbound|
+|DenyingressexceptHTTPS| Block anything other than HTTPS from internet | Inbound |
+|DenyOutToInternet| Anything except HTTPS to internet is blocked | Outbound |
 
-[comentario]: <> (![Reglas de acceso EXT (entrantes)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) [comentario]: <> (![Reglas de acceso EXT (salientes)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
+[comment]: <> (![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) [comment]: <> (![EXT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
 
->[AZURE.NOTE] Si se requiere la autenticación del certificado de usuario del cliente (autenticación de clientTLS mediante certificados de usuario X509), AD FS necesitará que el puerto TCP 49443 esté habilitado para el acceso de entrada.
+>[AZURE.NOTE] If client user certificate authentication (clientTLS authentication using X509 user certificates) is required, then AD FS requires TCP port 49443 be enabled for inbound access.
 
-###10\. Prueba del inicio de sesión de AD FS
+###<a name="10.-test-the-ad-fs-sign-in"></a>10.  Test the AD FS sign-in
 
-La forma más sencilla es probar AD FS mediante la página IdpInitiatedSignon.aspx. Para poder hacerlo, es necesario habilitar IdpInitiatedSignOn en las propiedades de AD FS. Siga estos pasos para comprobar la configuración de AD FS.
-1.	Ejecute el siguiente cmdlet en el servidor AD FS, con PowerShell, para habilitarlo. Set-AdfsProperties -EnableIdPInitiatedSignonPage $true
-2.	Desde cualquier máquina externa, acceda a https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx
-3.	Debería ver la página de AD FS como aparece a continuación:
+The easiest way is to test AD FS is by using the IdpInitiatedSignon.aspx page. In order to be able to do that, it is required to enable the IdpInitiatedSignOn on the AD FS properties. Follow the steps below to verify your AD FS setup
+1.  Run the below cmdlet on the AD FS server, using PowerShell, to set it to enabled.
+    Set-AdfsProperties -EnableIdPInitiatedSignonPage $true 
+2.  From any external machine access https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx  
+3.  You should see the AD FS page like below:
 
-![Prueba de la página de inicio de sesión](./media/active-directory-aadconnect-azure-adfs/test1.png)
+![Test login page](./media/active-directory-aadconnect-azure-adfs/test1.png)
 
-Cuando se inicia sesión correctamente, aparecerá un mensaje de confirmación similar al siguiente:
+On successful sign-in, it will provide you with a success message as shown below:
 
-![Prueba correcta](./media/active-directory-aadconnect-azure-adfs/test2.png)
+![Test success](./media/active-directory-aadconnect-azure-adfs/test2.png)
 
-## Recursos adicionales
-* [Conjuntos de disponibilidad](https://aka.ms/Azure/Availability)
-* [Equilibrador de carga de Azure](https://aka.ms/Azure/ILB)
-* [Equilibrador de carga interno](https://aka.ms/Azure/ILB/Internal)
-* [Equilibrador de carga accesible desde Internet](https://aka.ms/Azure/ILB/Internet)
-* [Cuentas de almacenamiento](https://aka.ms/Azure/Storage)
-* [Redes virtuales de Azure](https://aka.ms/Azure/VNet)
-* [AD FS y vínculos de proxy de aplicación web](http://aka.ms/ADFSLinks)
+## <a name="additional-resources"></a>Additional resources
+* [Availability Sets](https://aka.ms/Azure/Availability ) 
+* [Azure Load Balancer](https://aka.ms/Azure/ILB)
+* [Internal Load Balancer](https://aka.ms/Azure/ILB/Internal)
+* [Internet Facing Load Balancer](https://aka.ms/Azure/ILB/Internet)
+* [Storage Accounts](https://aka.ms/Azure/Storage )
+* [Azure Virtual Networks](https://aka.ms/Azure/VNet)
+* [AD FS and Web Application Proxy Links](http://aka.ms/ADFSLinks) 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-* [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
-* [Configuración y administración de AD FS con Azure AD Connect](active-directory-aadconnectfed-whatis.md)
-* [Implementación de AD FS en Azure de alta disponibilidad entre regiones geográficas con Azure Traffic Manager](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
+* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+* [Configuring and managing your AD FS using Azure AD Connect](active-directory-aadconnectfed-whatis.md)
+* [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

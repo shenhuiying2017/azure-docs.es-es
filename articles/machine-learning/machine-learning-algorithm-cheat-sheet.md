@@ -1,48 +1,49 @@
 <properties
-	pageTitle="Hoja de referencia rápida de algoritmos de aprendizaje automático | Microsoft Azure"
-	description="Una hoja de referencia rápida de algoritmos de aprendizaje automático que puede imprimirse le ayudará a elegir el algoritmo correcto para el modelo de predicción en Estudio de aprendizaje automático de Azure."
-	keywords="algorithm cheat sheet,cheat sheet,machine learning algorithm"
-	services="machine-learning"
-	documentationCenter=""
-	authors="brohrer"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Machine learning algorithm cheat sheet | Microsoft Azure"
+    description="A printable machine learning algorithm cheat sheet helps you choose the right algorithm for your predictive model in Azure Machine Learning Studio."
+    keywords="algorithm cheat sheet,cheat sheet,machine learning algorithm"
+    services="machine-learning"
+    documentationCenter=""
+    authors="brohrer"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/09/2016"
-	ms.author="brohrer;garye" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/09/2016"
+    ms.author="brohrer;garye" />
 
 
-# Hoja de referencia rápida de algoritmos de aprendizaje automático de Estudio de aprendizaje automático de Microsoft Azure
 
-La **hoja de referencia rápida de algoritmos de Aprendizaje automático de Microsoft Azure** le ayuda a elegir el algoritmo correcto para un modelo de análisis predictivo.
+# <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio
 
-[Estudio de aprendizaje automático de Azure](https://studio.azureml.net/) tiene una gran biblioteca de algoritmos de las familias de ***regresión***, ***clasificación***, ***agrupación en clústeres*** y ***detección de anomalías***. Cada uno de ellos está diseñado para resolver un tipo de problema de aprendizaje automático diferente.
+The **Microsoft Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right algorithm for a predictive analytics model.
+
+[Azure Machine Learning Studio](https://studio.azureml.net/) has a large library of algorithms from the  ***regression***, ***classification***, ***clustering***, and ***anomaly detection*** families. Each is designed to address a different type of machine learning problem.
 
 
-## Descarga: Hoja de referencia rápida de algoritmos de aprendizaje automático
+## <a name="download:-machine-learning-algorithm-cheat-sheet"></a>Download: Machine learning algorithm cheat sheet
 
-**Descargue la hoja de referencia rápida aquí: [Hoja de referencia rápida de algoritmos de aprendizaje automático](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
+**Download the cheat sheet here: [Machine Learning Algorithm Cheat Sheet (11x17 in.)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
 
-![Hoja de referencia rápida de algoritmos de aprendizaje automático: elección de un algoritmo de aprendizaje automático.][cheat-sheet]
+![Machine Learning Algorithm cheat sheet: Learn how to choose a Machine Learning algorithm.][cheat-sheet]
 
 [cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
 
-Descargue e imprima la hoja de referencia rápida de algoritmos de aprendizaje automático en tamaño tabloide para tenerlo a mano y que le sirva de ayuda al elegir un algoritmo.
+Download and print the Machine Learning Algorithm Cheat Sheet in tabloid size to keep it handy and get help choosing an algorithm.
 
-> [AZURE.NOTE] Para obtener una guía detallada del uso de esta hoja de referencia rápida, consulte el artículo [Selección de algoritmos para Aprendizaje automático de Microsoft Azure](machine-learning-algorithm-choice.md).
+> [AZURE.NOTE] See the article [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md) for a detailed guide to using this cheat sheet.
 
-## Más ayuda con los algoritmos
+## <a name="more-help-with-algorithms"></a>More help with algorithms
 
-* Para obtener más información sobre los distintos tipos de algoritmos de aprendizaje automático, cómo se usan y cómo usar esta hoja de referencia rápida para elegir el algoritmo correcto, consulte [Selección de algoritmos para Aprendizaje automático de Microsoft Azure](machine-learning-algorithm-choice.md).
-* Para ver una lista por categoría de todos los algoritmos disponibles de aprendizaje automático en Estudio de aprendizaje automático, consulte [Inicializar modelo][initialize-model] en la Ayuda de módulos y algoritmos de Estudio de aprendizaje automático.
-* Para ver una lista completa de todos los algoritmos de Estudio de aprendizaje automático, consulte [Lista de la A a la Z de módulos de Estudio de aprendizaje automático][a-z-list] en la Ayuda de módulos y algoritmos de Estudio de aprendizaje automático.
-* Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, consulte [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](machine-learning-studio-overview-diagram.md).
+* For a deeper discussion of the different types of machine learning algorithms, how they're used, and how to use this cheat sheet for choosing the right algorithm, see [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
+* For a list by category of all the machine learning algorithms available in Machine Learning Studio, see [Initialize Model][initialize-model] in the Machine Learning Studio Algorithm and Module Help.
+* For a complete list of algorithms and modules in Machine Learning Studio, see [A-Z list of Machine Learning Studio modules][a-z-list] in Machine Learning Studio Algorithm and Module Help.
+* To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](machine-learning-studio-overview-diagram.md).
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -87,4 +88,8 @@ Descargue e imprima la hoja de referencia rápida de algoritmos de aprendizaje a
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

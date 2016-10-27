@@ -1,148 +1,147 @@
 <properties 
-	pageTitle="Implementación de su primera aplicación web de PHP en Azure en 5 minutos | Microsoft Azure" 
-	description="Aprenda lo fácil que es ejecutar aplicaciones web en App Service mediante la implementación de una aplicación de ejemplo. Para empezar, realice un desarrollo real rápidamente y vea los resultados inmediatamente." 
-	services="app-service\web"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
-	editor=""
+    pageTitle="Deploy your first PHP web app to Azure in five minutes | Microsoft Azure" 
+    description="Learn how easy it is to run web apps in App Service by deploying a sample app. Start doing real development quickly and see results immediately." 
+    services="app-service\web"
+    documentationCenter=""
+    authors="cephalin"
+    manager="wpickett"
+    editor=""
 />
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="09/16/2016" 
-	ms.author="cephalin"
+    ms.service="app-service-web"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="09/16/2016" 
+    ms.author="cephalin"
 />
-	
-# Implementación de su primera aplicación web de PHP en Azure en 5 minutos
+    
 
-Este tutorial le ayudará a implementar su primera aplicación web de PHP en [Azure App Service](../app-service/app-service-value-prop-what-is.md).
-App Service se puede usar para crear aplicaciones web, [back-ends de aplicaciones móviles](/documentation/learning-paths/appservice-mobileapps/) y 
-[aplicaciones de API](../app-service-api/app-service-api-apps-why-best-platform.md).
+# <a name="deploy-your-first-php-web-app-to-azure-in-five-minutes"></a>Deploy your first PHP web app to Azure in five minutes
 
-Podrá:
+This tutorial helps you deploy your first PHP web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md).
+You can use App Service to create web apps, [mobile app back ends](/documentation/learning-paths/appservice-mobileapps/), and [API apps](../app-service-api/app-service-api-apps-why-best-platform.md).
 
-- Crear una aplicación web en Azure App Service.
-- Implementar código PHP de ejemplo.
-- Ver la ejecución del código en directo en producción.
-- Actualizar la aplicación web del mismo modo que [insertaría confirmaciones de Git](https://git-scm.com/docs/git-push).
+You will: 
 
-## Requisitos previos
+- Create a web app in Azure App Service.
+- Deploy sample PHP code.
+- See your code running live in production.
+- Update your web app the same way you would [push Git commits](https://git-scm.com/docs/git-push).
 
-- [Instale Git](http://www.git-scm.com/downloads). Compruebe que la instalación se realizó correctamente ejecutando `git --version` en un símbolo del sistema de Windows, 
-una ventana de PowerShell, un shell de Linux o un terminal de OS X.
-- Obtenga una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede 
-[registrarse para una evaluación gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) o 
-[activar los beneficios de suscripción de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+## <a name="prerequisites"></a>Prerequisites
 
->[AZURE.NOTE] También puede [probar App Service](http://go.microsoft.com/fwlink/?LinkId=523751) sin una cuenta de Azure. Cree una aplicación de inicio y juegue con ella durante una hora como máximo; no se requiere ninguna tarjeta de crédito ni ningún compromiso.
+- [Install Git](http://www.git-scm.com/downloads). Verify that your installation is successful by running `git --version` from a new Windows command prompt, PowerShell window, Linux shell, or OS X terminal.
+- Get a Microsoft Azure account. If you don't have an account, you can [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F) or [activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+
+>[AZURE.NOTE] You can [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) without an Azure account. Create a starter app and play with it for up to an hour--no credit card required, no commitments.
 
 <a name="create"></a>
-## Creación de una aplicación web
+## <a name="create-a-web-app"></a>Create a web app
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azure.
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-2. En el menú izquierdo, haga clic en **nuevo** > **Web y móvil** > **Aplicación web**.
+2. From the left menu, click **New** > **Web + Mobile** > **Web App**.
 
     ![](./media/app-service-web-get-started-languages/create-web-app-portal.png)
 
-3. En la hoja de creación de la aplicación, utilice la siguiente configuración para su nueva aplicación:
+3. In the app creation blade, use the following settings for your new app:
 
-    - **Nombre de la aplicación**: escriba un nombre único.
-    - **Grupo de recursos**: seleccione **Crear nuevo** y asígnele un nombre.
-    - **Plan de App Service/Ubicación**: haga clic en esta opción para configurarla y, después, en **Crear nuevo** para establecer el nombre, la ubicación y 
-    el plan de tarifa del plan de App Service. Puede usar el plan de tarifa **Gratis**.
+    - **App name**: Type a unique name.
+    - **Resource group**: Select **Create new** and give the resource group a name.
+    - **App Service plan/Location**: Click it to configure, then click **Create New** to set the name, location, and pricing tier of the App Service plan. Feel free to use the **Free** pricing tier.
 
-    Cuando haya terminado, la hoja de creación de la aplicación debe tener este aspecto:
+    When you're done, your app creation blade should look like this:
 
     ![](./media/app-service-web-get-started-languages/create-web-app-settings.png)
 
-3. Haga clic en **Crear** en la parte inferior. Puede hacer clic en el icono de **notificación**, situado en la parte superior, para ver el progreso.
+3. Click **Create** at the bottom. You can click the **Notification** icon at the top to see the progress.
 
     ![](./media/app-service-web-get-started-languages/create-web-app-started.png)
 
-4. Cuando la implementación haya finalizado, verá este mensaje de notificación. Haga clic en el mensaje para abrir la hoja de implementación.
+4. When deployment is finished, you should see this notification message. Click the message to open your deployment's blade.
 
     ![](./media/app-service-web-get-started-languages/create-web-app-finished.png)
 
-5. En la hoja **Implementación correcta**, haga clic en el vínculo **Recurso** para abrir la hoja de su nueva aplicación web.
+5. In the **Deployment succeeded** blade, click the **Resource** link to open your new web app's blade.
 
     ![](./media/app-service-web-get-started-languages/create-web-app-resource.png)
 
-## Implementación del código en la aplicación web
+## <a name="deploy-code-to-your-web-app"></a>Deploy code to your web app
 
-Ahora vamos a implementar código en Azure mediante Git.
+Now, let's deploy some code to Azure using Git.
 
-5. En la hoja de la aplicación web, desplácese hacia abajo hasta **Opciones de implementación** o búsquela, y haga clic en ella.
+5. In the web app blade, scroll down to **Deployment options** or search for it, then click it. 
 
     ![](./media/app-service-web-get-started-languages/deploy-web-app-deployment-options.png)
 
-6. Haga clic en **Elegir origen** > **Repositorio de Git local** > **Aceptar**.
+6. Click **Choose Source** > **Local Git Repository** > **OK**.
 
-7. En la hoja de la aplicación web, haga clic en **Credenciales de implementación**.
+7. Back in the web app blade, click **Deployment credentials**.
 
-8. Configure las credenciales de implementación y haga clic en **Guardar**.
+8. Set your deployment credentials and click **Save**.
 
-7. En la hoja de la aplicación web, desplácese hacia abajo hasta **Propiedades** o búsquela, y haga clic en ella. Junto a **Dirección URL de Git**, haga clic en el botón **Copiar**.
+7. Back in the web app blade, scroll down to **Properties** or search for it, then click it. Next to **Git URL**, click the **Copy** button.
 
     ![](./media/app-service-web-get-started-languages/deploy-web-app-properties.png)
 
-    Ya está listo para implementar el código con Git.
+    You're now ready to deploy your code with Git.
 
-1. En el terminal de la línea de comandos, cambie a un directorio de trabajo (`CD`) y clone la aplicación de ejemplo del modo siguiente:
+1. In your command-line terminal, change to a working directory (`CD`) and clone the sample app like this:
 
         git clone https://github.com/Azure-Samples/app-service-web-php-get-started.git
 
-    ![Clonación del código de ejemplo de aplicación de su primera aplicación web de Azure](./media/app-service-web-get-started-languages/php-git-clone.png)
+    ![Clone the app sample code for your first web app in Azure](./media/app-service-web-get-started-languages/php-git-clone.png)
 
-    Para *&lt;github_sample_url>*, use una de las siguientes direcciones URL, en función del marco que le guste:
+    For *&lt;github_sample_url>*, use one of the following URLs, depending on the framework that you like:
 
-2. Cambie al repositorio de la aplicación de ejemplo. Por ejemplo,
+2. Change to the repository of your sample app. For example, 
 
         cd app-service-web-html-get-started
 
-3. En el Git remoto, configure la dirección URL de Git de su aplicación de Azure, que copió del portal unos pocos pasos antes.
+3. Configure the Git remote for your Azure app its Git URL, which you copied from the Portal a few steps ago.
 
         git remote add azure <giturlfromportal>
 
-4. Implemente su código de ejemplo en la nueva aplicación de Azure igual que insertaría cualquier código con Git:
+4. Deploy your sample code to your Azure app like you would push any code with Git:
 
         git push azure master
 
-    ![Inserción de código en su primera aplicación web de Azure](./media/app-service-web-get-started-languages/php-git-push.png)
+    ![Push code to your first web app in Azure](./media/app-service-web-get-started-languages/php-git-push.png)    
 
-    Si usó uno de los marcos de lenguaje, verá un resultado diferente. Esto se debe a que `git push` no solo inserta código en Azure, sino que también desencadena tareas de implementación en el motor de implementación. Si tiene cualquier package.json en la raíz del proyecto (repositorio), el script de implementación restaurará los paquetes necesarios para usted. También puede [habilitar la extensión Composer](web-sites-php-mysql-deploy-use-git.md#composer) para procesar automáticamente los archivos composer.json en la aplicación PHP.
+    If you used one of the language frameworks, you'll see different output. This is because `git push` not only puts code in Azure, but also triggers deployment tasks in the deployment engine. If you have any package.json in your project (repository) root, the deployment script restores the required packages for you. You can also [enable the Composer extension](web-sites-php-mysql-deploy-use-git.md#composer) to automatically process composer.json files in your PHP app.
 
-Eso es todo. El código se ejecuta ahora en directo en Azure. En el explorador, vaya a http://*&lt;appname>*.azurewebsites.net para verlo en acción.
+That's it! Your code is now running live in Azure. In your browser, navigate to http://*&lt;appname>*.azurewebsites.net to see it in action. 
 
-## Realización de actualizaciones en la aplicación
+## <a name="make-updates-to-your-app"></a>Make updates to your app
 
-Ahora puede usar Git para efectuar inserciones desde la raíz del proyecto (repositorio) con el fin de realizar una actualización en el sitio activo. Hágalo igual que cuando implementó el código por primera vez. Por ejemplo, cada vez que quiera insertar un nuevo cambio que ha probado localmente, solo tiene que ejecutar los siguientes comandos desde la raíz del proyecto (repositorio):
+You can now use Git to push from your project (repository) root anytime to make an update to the live site. You do it the same way as when you deployed your code the first time. For example, every time you want to push a new change that you've tested locally, just run the following commands from your project (repository) root:
 
     git add .
     git commit -m "<your_message>"
     git push azure master
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-[Creación, configuración e implementación de una aplicación web de Laravel en Azure](app-service-web-php-get-started.md). Gracias a este tutorial, aprenderá los conocimientos básicos necesarios para ejecutar cualquier aplicación web de PHP en Azure, como:
+[Create, configure, and deploy a Laravel web app to Azure](app-service-web-php-get-started.md). By following this tutorial, you will learn the basic skills you need to run any PHP web app in Azure, such as:
 
-- Crear y configurar aplicaciones en Azure desde PowerShell/Bash.
-- Establecer la versión de PHP.
-- Usar un archivo de inicio que no está en el directorio raíz de la aplicación.
-- Habilitar la automatización de Composer.
-- Acceder a variables de entorno específico.
-- Solucionar errores comunes.
+- Create and configure apps in Azure from PowerShell/Bash.
+- Set PHP version.
+- Use a start file that is not in the root application directory.
+- Enable Commposer automation.
+- Access environment-specific variables.
+- Troubleshoot common errors.
 
-También puede hacer más cosas con su primera aplicación web. Por ejemplo:
+Or, do more with your first web app. For example:
 
-- Pruebe [otras formas de implementar el código en Azure](../app-service-web/web-sites-deploy.md). Por ejemplo, para implementar desde uno de los repositorios de GitHub, simplemente seleccione 
-**GitHub** en lugar de **Repositorio de Git local** en **Opciones de implementación**.
-- Lleve su aplicación de Azure aún más lejos. Autentique los usuarios. Escálela según la demanda. Configure algunas alertas de rendimiento. Todo ello con unos cuantos clics. Consulte 
-[Incorporación de funcionalidad a su primera aplicación web](app-service-web-get-started-2.md).
+- Try out [other ways to deploy your code to Azure](../app-service-web/web-sites-deploy.md). For example, to deploy from one of your GitHub repositories, simply select **GitHub** instead of **Local Git Repository** in **Deployment options**.
+- Take your Azure app to the next level. Authenticate your users. Scale it based on demand. Set up some performance alerts. All with a few clicks. See [Add functionality to your first web app](app-service-web-get-started-2.md).
 
-<!----HONumber=AcomDC_0920_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

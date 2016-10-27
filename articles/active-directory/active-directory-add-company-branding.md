@@ -1,232 +1,234 @@
 <properties
-	pageTitle="Incorporación de la personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso"
-	description="Aprenda cómo agregar una personalización de marca de empresa a la página de inicio de sesión en Azure y la página del panel de acceso"
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Add company branding to your sign-in and Access Panel pages"
+    description="Learn how to add a company branding to the Azure sign-in page and the access panel page"
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/30/2016"
-	ms.author="curtand"/>
-
-# Incorporación de la personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso
+    ms.service="active-directory"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/30/2016"
+    ms.author="curtand"/>
 
 
-Para evitar confusiones, muchas empresas quieren aplicar un aspecto coherente en todos los sitios web y servicios que administran. Azure Active Directory ofrece esta funcionalidad, ya que permite personalizar la apariencia de las siguientes páginas web con el logotipo y esquemas de color personalizados:
-
-- **Página de inicio de sesión**: esta es la página que aparece al inicio de sesión de Office 365 o en otras aplicaciones basadas en web que están utilizando Azure AD como proveedor de identidades. Se interactúa con la página durante la detección del dominio de inicio o para escribir las credenciales. La detección del dominio de inicio permite al sistema redirigir a los usuarios federados a sus STS locales (por ejemplo, AD FS).
-
-- **Página del Panel de acceso**: el Panel de acceso es un portal basado en web que le permite ver e iniciar las aplicaciones en la nube a las que el administrador de Azure AD concedió acceso. Para tener acceso al Panel de acceso, utilice la siguiente dirección URL: [https://myapps.microsoft.com](https://myapps.microsoft.com).
-
-Este tema explica cómo personalizar la página de inicio de sesión y la página del panel de acceso.
-
-> [AZURE.NOTE]
->
-- La información de marca de empresa es una característica que solo está disponible si ha actualizado a la edición Premium o Básica de Azure Active Directory, o es un usuario de Office 365. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
-- Las ediciones Premium y Básico de Azure Active Directory están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Premium y Básico de Azure Active Directory no se admiten actualmente en el servicio de Microsoft Azure operado por 21Vianet en China. Para obtener más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+# <a name="add-company-branding-to-your-sign-in-and-access-panel-pages"></a>Add company branding to your sign-in and Access Panel pages
 
 
+To avoid confusion, many companies want to apply a consistent look and feel across all the websites and services they manage. Azure Active Directory provides this capability by allowing you to customize the appearance of the following web pages with your company logo and custom color schemes:
 
-## Personalización de la página de inicio de sesión
+- **Sign-in page** - This is the page that appears when you sign in to Office 365 or other web-based applications that are using Azure AD as your identity provider. You interact with this page either during a Home Realm Discovery or to enter your credentials. The Home Realm Discovery allows the system to redirect federated users to their on-premises STS (such as AD FS).
 
-Normalmente, si necesita acceso basado en explorador a las aplicaciones y servicios en la nube a los que está suscrita su organización, utiliza la página de inicio de sesión.
+- **Access Panel page** - The Access Panel is a web-based portal that allows you to view and launch the cloud-based applications your Azure AD administrator has granted you access to. To access the Access Panel, use the following URL: [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
-Si ha aplicado cambios a la página de inicio de sesión, puede tardar hasta una hora para que aparezcan.
-
-Una página de inicio de sesión de marca solo aparece cuando visite un servicio con una dirección URL específica de inquilino como https://outlook.com/**contoso**.com o https://mail.**contoso**.com.
-
-Cuando visita un servicio con direcciones URL no específicas de inquilinos (p. ej.: https://mail.office365.com), aparece una página de inicio de sesión sin marca. En este caso, la marca aparece una vez que ha escrito el identificador de usuario o que haya seleccionado un icono de usuario.
+This topic explains how you can customize the sign-in page and the access panel page.
 
 > [AZURE.NOTE]
 >
-- El nombre de dominio debe aparecer como "Active" en la sección **Active Directory** > **Directorio** > **Dominios** del Portal de Azure clásico donde se ha configurado la marca.
-- La personalización de marca de la página de inicio de sesión no se traslada a la página de inicio de sesión de cliente de Microsoft. Si inicia sesión con una cuenta de Microsoft personal, puede ver una lista de iconos de usuario con la personalización de marca presentada por Azure AD, pero la personalización de marca de su organización no se aplicará a la página de inicio de sesión de la cuenta de Microsoft.
+- Company branding is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory, or are an Office 365 user. For more information, see [Azure Active Directory editions](active-directory-editions.md).
+- Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 
-Si desea mostrar en su página la marca y los colores de su empresa, además de otros elementos personalizables, vea las imágenes siguientes para entender la diferencia entre las dos experiencias.
 
-La siguiente captura de pantalla muestra un ejemplo de la página de inicio de sesión de Office 365 en un equipo de escritorio **antes** de una personalización:
+## <a name="customizing-the-sign-in-page"></a>Customizing the sign-in page
 
-![Página de inicio de sesión de Office 365 antes de la personalización][1]
+Typically, if you need browser-based access to your cloud apps and services that your organization subscribes to, you use the sign-in page.
 
-La siguiente captura de pantalla muestra un ejemplo de la página de inicio de sesión de Office 365 en un equipo de escritorio **después** de una personalización:
+If you have applied changes to your sign-in page, it can take up to an hour for the changes to appear.
 
-![Página de inicio de sesión de Office 365 después de la personalización][2]
+A branded sign-in page only appears when you visit a service with a tenant-specific URL such as https://outlook.com/**contoso**.com, or https://mail.**contoso**.com.
 
-La siguiente captura de pantalla muestra un ejemplo de la página de inicio de sesión de Office 365 en un dispositivo móvil **antes** de una personalización:
+When you visit a service with non-tenant specific URLs (e.g.: https://mail.office365.com), a non-branded sign-in page appears. in this case, your branding appears once you have entered your user ID or you have selected a user tile.
 
-![Página de inicio de sesión de Office 365 antes de la personalización][3]
-
-
-La siguiente captura de pantalla muestra un ejemplo de la página de inicio de sesión de Office 365 en un dispositivo móvil **después** de una personalización:
-
-![Página de inicio de sesión de Office 365 después de la personalización][4]
+> [AZURE.NOTE]
+>
+- Your domain name must appear as “Active” in the **Active Directory** > **Directory** > **Domains** section of the Azure classic portal where you have configured branding.
+- Sign-in page branding doesn’t carry over to the consumer sign in page of Microsoft. If you sign in with a personal Microsoft account, you may see a branded list of user tiles rendered by Azure AD, but the branding of your organization does not apply to the Microsoft account sign-in page.
 
 
-Cuando se cambia el tamaño de la ventana de un explorador, una ilustración grande, como la mostrada anteriormente, a menudo se recorta para adaptarse a las diferentes relaciones de aspecto de la pantalla. Teniendo esto en cuenta, debe intentar mantener siempre los elementos visuales más importantes de la ilustración para que siempre aparezcan en la esquina superior izquierda (en la superior derecha para los idiomas que se leen de derecha a izquierda). Esto es importante porque el cambio de tamaño normalmente se produce desde la esquina inferior derecha hacia la parte superior o izquierda o desde la parte inferior hacia la parte superior.
+If you want to show your company brand, colors and other customizable elements on this page, see the following images to understand the difference between the two experiences.
 
-La imagen siguiente muestra cómo se recorta la ilustración cuando se cambia el tamaño del explorador hacia la izquierda:
+The following screenshot shows and example for the Office 365 sign-in page on a desktop computer **before** a customization:
+
+![Office 365 sign-in page before customization][1]
+
+The following screenshot shows and example for the Office 365 sign-in page on a desktop computer **after** a customization:
+
+![Office 365 sign-in page after customization][2]
+
+The following screenshot shows an example of the Office 365 sign-in page on a mobile device **before** a customization:
+
+![Office 365 sign-in page before customization][3]
+
+
+The following screenshot shows an example of the Office 365 sign-in page on a mobile device **after** a customization:
+
+![Office 365 sign-in page after customization][4]
+
+
+When you resize a browser window, the large Illustration, like the one shown previously, is often cropped to accommodate different screen aspect ratios. With this in mind, you should try to keep the key visual elements in the illustration so that they always appear in the top-left corner (top-right for right-to-left languages). This is important because resizing typically occurs from the bottom-right corner going towards the top / left or from the bottom towards the top.
+
+The following picture shows how the illustration is cropped when the browser is resized to the left:
 
 ![][6]
 
-Este es el aspecto que tiene después de que el tamaño del explorador se cambie hacia la parte superior:
+Here is how it appears after the browser is resized toward the top:
 
 ![][7]
 
-## ¿Qué elementos de la página puedo personalizar?
+## <a name="what-elements-on-the-page-can-i-customize?"></a>What elements on the page can I customize?
 
-Puede personalizar los siguientes elementos de la página de inicio de sesión:
+You can customize the following elements on the sign-in page:
 
 ![][5]
 
 
 
-| Elemento de la página | Ubicación en la página |
+| Page element  | Location on the page |
 |:--            | ---                  |
-|Logotipo del banner | Se muestra en la parte superior derecha de la página. Reemplaza el logotipo mostrado por el sitio de destino en el que está iniciando sesión (por ejemplo, Office 365 o Azure).|
-|Ilustración grande / Color de fondo | Se muestra a la izquierda de la página. Reemplaza la imagen mostrada por el sitio de destino en el que está iniciando sesión. En conexiones con un ancho de banda bajo o en pantallas estrechas, puede aparecer el color de fondo en lugar de la ilustración grande.|
-|Mantener la sesión iniciada | Se muestra en el cuadro de texto Contraseña. |
-|Texto de la página de inicio de sesión | Se muestra encima del pie de página cuando necesita ofrecer información útil antes de que inicien sesión con su cuenta profesional o educativa. Por ejemplo, es posible que desee incluir el número de teléfono de soporte técnico o una declaración legal.|
+|Banner Logo    | Shown at the top-right of the page. Replaces the logo the destination site you are signing in to displays (For example. Office 365 or Azure).|
+|Large Illustration / Background Color | Shown at the left of the page. Replaces the image the destination site you are signing in to displays. The Background Color may be shown in place of the Large Illustration on low bandwidth connections, or on narrow screens.|
+|Keep me signed-in | Shown under the Password textbox. |
+|Sign-in Page Text | Shown above the page footer when you need to convey helpful information before a sign-in with a work or school account. For example, you may want to include the phone number to your help desk, or a legal statement.|
 
 
 > [AZURE.NOTE]
-Todos los elementos son opcionales. Por ejemplo, si especifica un logotipo del banner pero no una ilustración grande, la página de inicio de sesión muestra su logotipo y la ilustración del sitio de destino (es decir, la imagen de la autopista de California de Office 365).
+All elements are optional. For example, if you specify a Banner Logo but no Large Illustration, the sign-in page shows your logo and the illustration for the destination site (that is, the Office 365 California highway image).
 
 
-En la página de inicio de sesión, la casilla **Mantener la sesión iniciada** permite a un usuario continuar con la sesión iniciada si cierra y vuelva a abrir el explorador. No afecta a la duración de la sesión. Puede ocultar la casilla en la página de inicio de sesión de Azure Active Directory.
+On your sign-in page, the **Keep me signed in** checkbox allows a user to remain signed in when they close and re-open their browser. It does not effect session lifetime. You can hide the checkbox on the Azure Active Directory sign-in page.
 
-Puede decidir si se muestra la casilla o no mediante la configuración de **Ocultar KMSI**.
+Whether the checkbox is displayed depends on the setting of **Hide KMSI**.
 
 ![][9]
 
 
-Para ocultar la casilla, utilice la opción **Oculto**.
+To hide the checkbox, configure this setting to **Hidden**. 
 
-> [AZURE.NOTE] Algunas características de SharePoint Online y Office 2010 dependen de que los usuarios puedan activar esta casilla. Si configura esta opción en oculto, es posible que los usuarios reciban solicitudes adicionales e inesperadas de inicio de sesión.
-
-
-
-
-También puede localizar todos los elementos de esta página. Una vez que haya configurado un conjunto de elementos de personalización "predeterminado", puede configurar más versiones para las diferentes configuraciones regionales. También puede mezclar y hacer coincidir varios elementos. Por ejemplo, puede:
-
-- Crear una ilustración grande "predeterminada" que funcione para todas las culturas y, a continuación, crear versiones específicas para inglés y francés. Al establecer los navegadores en uno de estos dos idiomas, aparece la imagen específica, mientras que la ilustración predeterminada aparece en los demás idiomas.
-
-- Configure logotipos diferentes para su organización (por ejemplo, para las versiones en japonés o hebreo).
+> [AZURE.NOTE] Some features of SharePoint Online and Office 2010 depend on users being able to check this box. If you configure this setting to hidden, your users may see additional and unexpected prompts to sign-in.
 
 
 
-## Personalización de la página del panel de acceso
 
-La página Panel de acceso es esencialmente una página de portal para acceder rápidamente a las aplicaciones de nube a las que ha concedido acceso el administrador. En esta página, las aplicaciones aparecen como iconos de aplicaciones interactivas.
+You can also localize all elements on this page. Once you’ve configured a “default” set of customization elements, you can configure more versions for different locales. You can also mix and match various elements. For example, you can:
+
+- Create a “default” Large Illustration that works for all cultures, then create specific versions for English and French. When you set your browsers to one of these two languages, the specific image appears, while the default illustration appears for all other languages.
+
+- Configure different logos for your organization (e.g. Japanese or Hebrew versions).
 
 
-La siguiente captura de pantalla muestra un ejemplo de una página de panel de acceso después de la personalización.
+
+## <a name="access-panel-page-customization"></a>Access panel page customization
+
+The Access Panel page is essentially a portal page for quick access to the cloud apps you have been granted access to by your administrator. On this page, your apps appear as clickable application tiles.
+
+
+The following screenshot shows an example of an access panel page after customization.
 
 ![][8]
 
-## Configuración de su directorio con la información de marca de empresa
+## <a name="configure-your-directory-with-company-branding"></a>Configure your directory with company branding
 
-Puede configurar un conjunto predeterminado de elementos personalizables por directorio en el Portal de Azure clásico. Después de guardar los valores predeterminados, un administrador puede agregar versiones localizadas de cada elemento para diferentes idiomas o configuraciones regionales. Todos los elementos personalizables son opcionales.
+You can configure one default set of customizable elements per directory in the Azure classic portal. After the defaults have been saved, an administrator can add localized versions of each element, for different languages / locales. All customizable elements are optional.
 
-Por ejemplo, si configura un logotipo del banner predeterminado pero no una ilustración grande, la página de inicio de sesión muestra su logotipo en la esquina superior derecha. Sin embargo, se muestra la ilustración predeterminada del sitio.
+For example, if you configure a default Banner Logo but no Large Illustration, the sign-in page displays your logo in the upper-right corner. However the default illustration of the site is displayed.
 
-Suponga la configuración siguiente:
+Imagine the following configuration:
 
-- Un logotipo del banner predeterminado y el inicio de sesión en el texto de página en inglés
-- Un texto de la página de inicio de sesión específico para un idioma en alemán
+- A default Banner Logo and Sign-In Page Text in English
+- A language-specific sign in Page Text for German
 
-Si su preferencia de idioma es alemán, obtiene el logotipo del banner predeterminado pero con el texto en alemán.
+If your language preference is German, you get the default Banner Logo but the German text.
 
-Aunque técnicamente podría configurar un conjunto diferente para cada idioma admitido por Azure AD, se recomienda que mantenga reducidas las variantes por razones de mantenimiento y rendimiento.
+While you could technically configure a different set for each language supported by Azure AD, we recommend that you keep the number of variations low, for maintenance and performance reasons.
 
-**Para agregar una personalización de marca de la empresa a su directorio, realice los pasos siguientes:**
+**To add company branding to your directory, perform the following steps:**
 
-1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com) como administrador del directorio que desea personalizar.
-2. Seleccione el directorio que desea personalizar.
-3. En la barra de herramientas de la parte superior, haga clic en **Configurar**.
-4. Haga clic en **Personalizar la información de marca**.
-4. Modifique los elementos que desea personalizar. Todos los campos son opcionales.
-5. Haga clic en **Save**.
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator of the directory you want to customize.
+2. Select the directory you want to customize.
+3. In the toolbar on the top, click **Configure**.
+4. Click **Customize Branding**.
+4. Modify the elements you want to customize. All fields are optional.
+5. Click **Save**.
 
-Puede transcurrir hasta una hora para que el cambio efectuado se muestre en la personalización de marca de la página de inicio de sesión.
+It can take up to an hour for new change you made to the sign-in page branding to appear.
 
-**Para agregar una personalización de marca de la empresa específica de un idioma, realice los pasos siguientes:**
+**To add language-specific company branding, perform the following steps:**
 
-1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com) como administrador del directorio que desea personalizar.
-2. Seleccione el directorio que desea personalizar.
-3. En la barra de herramientas de la parte superior, haga clic en **Configurar**.
-4. Haga clic en **Personalizar la información de marca**.
-2. Haga clic en **Agregar personalización de marca para un idioma específico**.
-3. Seleccione el idioma que para el que desea personalizar el logotipo y, después, haga clic en **Siguiente**.
-3. Edite únicamente los elementos para los que desea configurar elementos de reemplazo específicos del idioma. Todos los campos son opcionales. Si un campo se deja en blanco, en su lugar se muestra el valor predeterminado personalizado (o el valor predeterminado de Microsoft si no se ha configurado un valor predeterminado personalizado).
-4. Haga clic en **Save**.
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator of the directory you want to customize.
+2. Select the directory you want to customize.
+3. In the toolbar on the top, click **Configure**.
+4. Click **Customize Branding**.
+2. Click **Add branding for a specific language**.
+3. Select the language you want to customize the logo for, and then click **Next**.
+3. Edit only the elements for which you want to configure language-specific overrides. All fields are optional. If a field is left blank, then the custom default value is displayed instead (or the Microsoft default if a custom default is not configured).
+4. Click **Save**.
 
-**Para quitar la personalización de marca de la empresa de su directorio, realice los pasos siguientes:**
+**To remove company branding from your directory, perform the following steps:**
 
-1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com) como administrador del directorio que desea personalizar.
-2. Seleccione el directorio que desea personalizar.
-3. En la barra de herramientas de la parte superior, haga clic en **Configurar**.
-4. Haga clic en **Personalizar la información de marca**.
-5. En la página Personalizar la información de marca, seleccione **Editar configuración de marca existente** y, a continuación, vaya a la página siguiente.
-3. En función de los elementos que desee quitar, realice una o varias de las acciones siguientes:
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator of the directory you want to customize.
+2. Select the directory you want to customize.
+3. In the toolbar on the top, click **Configure**.
+4. Click **Customize Branding**.
+5. On the Customize Branding page, select **Edit Existing Branding Settings** and then go to the next page.
+3. Depending on which elements you want to remove, do one or more of the following:
 
-	a. En **Logotipo del banner**, seleccione **Quitar logotipo cargado**.
+    a. Under **Banner Logo**, select **Remove uploaded logo**.
 
-    b. En **Logotipo del icono**, seleccione **Quitar logotipo cargado**.
+    b. Under **Tile Logo**, select **Remove uploaded logo**.
 
-    c. Quite el texto de todos los cuadros de texto.
+    c. Remove the text from all textboxes.
 
-    d. Haga clic en **Next**.
+    d. Click **Next**.
 
-    e. Quite el texto de todos los cuadros de texto.
+    e. Remove the text from all textboxes.
 
-4. Haga clic en **Guardar** para quitar los elementos.
-5. Si es necesario, haga clic en **Personalizar la información de marca** de nuevo y repita estos pasos para todos los elementos específicos de la marca del idioma que tengan que quitarse. Se habrán quitado todos los valores de personalización de marca cuando haga clic en **Personalizar la información de marca** y vea el formulario **Personalizar información de la marca predeterminada** sin configuraciones.
+4. Click **Save** to remove the elements.
+5. If necessary, click **Customize Branding** again and repeat these steps for all language-specific branding that needs to be removed.
+    All branding settings have been removed when you click **Customize Branding** and see the **Customize Default Branding** form with no existing settings configured.
 
-## Pruebas y ejemplos
+## <a name="testing-and-examples"></a>Testing and examples
 
-Se recomienda que experimente con un inquilino de prueba antes de realizar cambios en el entorno de producción.
+We recommend that you experiment with a test tenant before making changes in your production environment.
 
-**Para comprobar si se ha aplicado la información de marca:**
+**To verify whether your branding has been applied:**
 
-1. Abra una sesión de explorador InPrivate o de incógnito.
-2. Visite https://outlook.com/contoso.com, sustituyendo contoso.com por el dominio que haya personalizado.
+1. Open an InPrivate or Incognito browser session.
+2. Visit https://outlook.com/contoso.com, replacing contoso.com with the domain you’ve customized.
 
-Esto también funciona con los dominios que tengan un aspecto similar a contoso.onmicrosoft.com.
+This also works with domains that look like contoso.onmicrosoft.com.
 
-Para ayudarle a crear conjuntos eficaces de personalización, hemos personalizado las siguientes dos páginas de inicio de sesión ficticias:
+To help you create effective customization sets, we have customized the following two fictitious sign-in pages:
 
-- [http://AKA.ms/aaddemo001](http://aka.ms/aaddemo001)
-- [http://AKA.ms/aaddemo002](http://aka.ms/aaddemo002)
+- [http://aka.ms/aaddemo001](http://aka.ms/aaddemo001)
+- [http://aka.ms/aaddemo002](http://aka.ms/aaddemo002)
 
-Para probar la configuración específica del idioma, debe modificar las preferencias de idioma predeterminado en el explorador web a un idioma que se haya definido en la personalización. En Internet Explorer, configure esto en el menú **Opciones de Internet**.
+To test the language-specific settings, you need to modify the default language preferences in your web browser to a language you have set in your customization. In Internet Explorer, you configure this in the **Internet Options** menu.
 
-## Elementos personalizables
+## <a name="customizable-elements"></a>Customizable elements
 
-Algunos elementos personalizables de Azure AD disponen de múltiples casos de uso. Puede configurar los logotipos de la compañía una vez por directorio y se utiliza en las páginas de inicio de sesión y del Panel de acceso. Algunos elementos personalizables son específicos únicamente de la página de inicio de sesión. En la tabla siguiente se proporcionan detalles para los diferentes elementos personalizables.
+Some customizable elements in Azure AD have multiple use cases. You can configure company logos once per directory and is used on both, the sign-in and Access Panel pages. Some customizable elements are specific only to the sign-in page. The following table provides details for the different customizable elements.
 
-Nombre | Description | Restricciones | Recomendaciones
-	------------- | ------------- | ------------- | -------------
-Logotipo del banner | El logotipo del banner se muestra en la página de inicio de sesión y en el panel de acceso. | <p>JPG o PNG</p><p>60 x 280 píxeles</p><p>10 KB</p> | <p>Utilice el logotipo completo de su organización (incluidos el pictograma y el logotipo).</p><p>Procure que tenga menos de 30 píxeles de altura para evitar la introducción de barras de desplazamiento en dispositivos móviles.</p><p>Manténgalo por debajo de 4 KB.</p><p>Utilice un PNG transparente (no presuponga que la página de inicio de sesión vaya a tener siempre un fondo blanco).</p>
-Logotipo del icono | (no se utiliza actualmente en la página de inicio de sesión). En el futuro, este texto puede utilizarse para reemplazar el pictograma genérico de "cuenta profesional o educativa" en diferentes lugares de la experiencia. | <p>JPG o PNG</p><p>120 x 120 píxeles</p><p>10 KB</p> | <p>Conserve un diseño sencillo (sin texto pequeño), ya que el tamaño de esta imagen puede cambiar hasta en un 50%.
+Name | Description | Constraints | Recommendations
+    ------------- | ------------- | ------------- | -------------
+Banner Logo | The Banner Logo is displayed on the sign-in page and the Access panel. | <p>JPG or PNG</p><p>60x280 pixels</p><p>10 KB</p> | <p>Use your organization’s full logo (including pictogram and logotype)</p><p>Keep it under 30 pixels high to avoid introducing scrollbars on mobile devices</p><p>Keep it under 4 KB</p><p>Use a transparent PNG (don’t assume that the sign-in page always has a white background)</p>
+Tile Logo | (currently not used in the sign-in page) In the future, this text may be used to replace the generic “work or school account” pictogram in different places of the experience. | <p>JPG or PNG</p><p>120x120 pixels</p><p>10 KB</p> | <p>Keep it simple (no small text), as this image may be resized to 50%
 </p> |
-Etiqueta de nombre de usuario de la página de inicio de sesión | (no se utiliza actualmente en la página de inicio de sesión). En el futuro, este texto puede utilizarse para reemplazar la cadena genérica de "cuenta profesional o educativa" en diferentes lugares de la experiencia. Puede establecerlo en algo como "Cuenta Contoso" o "Id. de Contoso". | <p>Texto Unicode, de hasta 50 caracteres</p><p>Solo texto sin formato (sin vínculos o etiquetas HTML)</p> | <p>Elija un nombre breve y sencillo</p><p>Pregunte a los usuarios cómo suelen hacer referencia a la cuenta profesional o educativa que les proporciona.</p>
-Texto de la página de inicio de sesión | Este texto "reutilizable" aparece debajo del formulario de la página de inicio de sesión y puede utilizarse para comunicar instrucciones adicionales o dónde acudir para obtener ayuda y soporte técnico. | <p>Texto Unicode, hasta 256 caracteres</p><p>Solo texto sin formato (sin vínculos o etiquetas HTML)</p> | No sobrepase los 250 caracteres (aproximadamente 3 líneas de texto)
-Ilustración de la página de inicio de sesión | La ilustración es una imagen grande que se muestra en la página de inicio de sesión a la izquierda del formulario de la página de inicio de sesión. | <p>JPG o PNG</p><p>1420 x 1200</p><p>500 KB</p> | <p>1420 x 1200 píxeles</p><p>Importante: manténgala lo más pequeña posible, lo ideal es que no sobrepase los 200 KB. Si esta imagen es demasiado grande, afecta al rendimiento de la página de inicio de sesión si la imagen no se almacena en caché</p><p>Esta imagen a menudo se recorta para adaptarse a las diferentes relaciones de la pantalla. Mantenga los elementos visuales principales en la esquina superior izquierda (en la esquina superior derecha para los idiomas que se leen de derecha a izquierda), ya que el cambio de tamaño se produce desde la esquina inferior derecha, hacia la parte superior izquierda, a medida que se reduzca la ventana del explorador.</p>
-Color de fondo de la página de inicio de sesión | El color de fondo de la página de inicio de sesión se usa en el área a la izquierda del formulario de la página de inicio de sesión. | Debe ser un color RGB en formato hexadecimal (ejemplo: #FFFFFF) | <p>En conexiones con un ancho de banda bajo, puede aparecer el color de fondo en lugar de la ilustración grande </p><p>Es recomendable elegir el color principal del logotipo del banner</p>.
+Sign-in Page User Name Label | (currently not used in the sign-in page) In the future, this text may be used to replace the generic “work or school account” string in different places of the experience. You can set it to something like “Contoso account” or “Contoso ID.” | <p>Unicode text, up to 50 characters</p><p>Plain text only (no links or HTML tags)</p> | <p>Keep it short and simple</p><p>Ask your users how they usually refer to the work or school account you provide them with.</p>
+Sign-in Page Text | This “boilerplate” text appears below the sign-in page form and can be used to communicate additional instructions, or where to get help and support. | <p>Unicode text, up to 256 characters</p><p>Plain text only (no links or HTML tags)</p> | Keep it under 250 characters (approximately 3 lines of text)
+Sign-in Page Illustration | The illustration is a large image that is displayed on the sign-in page to the left of the sign-in page form. | <p>JPG or PNG</p><p>1420x1200</p><p>500 KB</p> | <p>1420x1200 pixels</p><p>Important: Keep it as small as possible, ideally under 200 KB. If this image is too large, the performance of the Sign-in page is impacted when the image isn’t cached</p><p>This image is often cropped, to accommodate different screen ratios. Keep the primary visual elements in the top left corner (top right for RTL languages), because resizing occurs from the bottom/right corner, going towards the top / left, as the browser window shrinks.</p>
+Sign-in Page Background Color | The sign-in page background color is used in the area to the left of the sign-in page form. | Must be an RGB color in hexadecimal form (example: #FFFFFF) | <p>The background color may be shown in place of the large Illustration on low-bandwidth connections</p><p>We suggest picking the primary color of the Banner Logo</p>
 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next Steps
 
-- [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md)
-- [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md)
+- [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md)
+- [View your access and usage reports](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-add-company-branding/SignInPage_beforecustomization.png
@@ -239,4 +241,8 @@ Color de fondo de la página de inicio de sesión | El color de fondo de la pág
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 [9]: ./media/active-directory-add-company-branding/hidekmsi.png
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,68 +1,71 @@
-## Cómo crear una red virtual clásica mediante la CLI de Azure
+## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>How to create a classic VNet using Azure CLI
 
-Puede utilizar la CLI de Azure para administrar los recursos de Azure desde el símbolo del sistema de cualquier equipo que ejecute Windows, Linux o bien OSX. Para crear una red virtual mediante la CLI de Azure, siga estos pasos.
+You can use the Azure CLI to manage your Azure resources from the command prompt from any computer running Windows, Linux, or OSX. To create a VNet by using the Azure CLI, follow the steps below.
 
-1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../articles/xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
-2. Ejecute el comando **azure network vnet create** para crear una red virtual y una subred, como se muestra a continuación. En la lista que se muestra en la salida se explican los parámetros utilizados.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../articles/xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
+2. Run the **azure network vnet create** command to create a VNet and a subnet, as shown below. The list shown after the output explains the parameters used.
 
-			azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
-	
-	Resultado esperado:
+            azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
+    
+    Expected output:
 
-			info:    Executing command network vnet create
-			+ Looking up network configuration
-			+ Looking up locations
-			+ Setting network configuration
-			info:    network vnet create command OK
+            info:    Executing command network vnet create
+            + Looking up network configuration
+            + Looking up locations
+            + Setting network configuration
+            info:    network vnet create command OK
 
-	- **--vnet**. Nombre de la red virtual que se va a crear. En este escenario, *TestVNet*.
-	- **-e (o --address-space)**. Espacio de direcciones de red virtual. En este escenario, *192.168.0.0*.
-	- **-i (o -cidr)**. Máscara de red en formato CIDR. En este escenario, *16*.
-	- **-n (o --subnet-name**). Nombre de la primera subred. En este escenario, *FrontEnd*.
-	- **-p (or --subnet-start-ip)**. Dirección IP inicial de la subred o el espacio de direcciones de la subred. En este escenario, *192.168.1.0*.
-	- **-r (o --subnet-cidr)**. Máscara de red en formato CIDR para subred. En este escenario, *24*.
-	- **-l (or --location)**. Región de Azure donde se creará la red virtual. En este escenario, *Central US*.
+    - **--vnet**. Name of the VNet to be created. For our scenario, *TestVNet*
+    - **-e (or --address-space)**. VNet address space. For our scenario, *192.168.0.0*
+    - **-i (or -cidr)**. Network mask in CIDR format. For our scenario, *16*.
+    - **-n (or --subnet-name**). Name of the first subnet. For our scenario, *FrontEnd*.
+    - **-p (or --subnet-start-ip)**. Starting IP address for subnet, or subnet address space. For our scenario, *192.168.1.0*.
+    - **-r (or --subnet-cidr)**. Network mask in CIDR format for subnet. For our scenario, *24*.
+    - **-l (or --location)**. Azure region where the VNet will be created. For our scenario, *Central US*.
 
-3. Ejecute el comando **azure network vnet subnet create** para crear una subred, como se muestra a continuación. En la lista que se muestra en la salida se explican los parámetros utilizados.
+3. Run the **azure network vnet subnet create** command to create a subnet as shown below. The list shown after the output explains the parameters used.
 
-			azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
-	
-	Este es el resultado esperado del comando anterior:
+            azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
+    
+    Here is the expected output for the command above:
 
-			info:    Executing command network vnet subnet create
-			+ Looking up network configuration
-			+ Creating subnet "BackEnd"
-			+ Setting network configuration
-			+ Looking up the subnet "BackEnd"
-			+ Looking up network configuration
-			data:    Name                            : BackEnd
-			data:    Address prefix                  : 192.168.2.0/24
-			info:    network vnet subnet create command OK
+            info:    Executing command network vnet subnet create
+            + Looking up network configuration
+            + Creating subnet "BackEnd"
+            + Setting network configuration
+            + Looking up the subnet "BackEnd"
+            + Looking up network configuration
+            data:    Name                            : BackEnd
+            data:    Address prefix                  : 192.168.2.0/24
+            info:    network vnet subnet create command OK
 
-	- **-t (o --vnet-name**. Nombre de la red virtual donde se creará la subred. En este escenario, *TestVNet*.
-	- **-n (or --name)**. Nombre de la nueva subred. En este escenario, *BackEnd*.
-	- **-a (or --address-prefix)**. Bloque CIDR de subred. En este escenario, *192.168.2.0/24*.
+    - **-t (or --vnet-name**. Name of the VNet where the subnet will be created. For our scenario, *TestVNet*.
+    - **-n (or --name)**. Name of the new subnet. For our scenario, *BackEnd*.
+    - **-a (or --address-prefix)**. Subnet CIDR block. Four our scenario, *192.168.2.0/24*.
 
-4. Ejecute el comando **azure network vnet show** para ver las propiedades de la nueva red virtual, tal como se muestra a continuación.
+4. Run the **azure network vnet show** command to view the properties of the new vnet, as shown below.
 
-			azure network vnet show
+            azure network vnet show
 
-	Este es el resultado esperado del comando anterior:
+    Here is the expected output for the command above:
 
-			info:    Executing command network vnet show
-			Virtual network name: TestVNet
-			+ Looking up the virtual network sites
-			data:    Name                            : TestVNet
-			data:    Location                        : Central US
-			data:    State                           : Created
-			data:    Address space                   : 192.168.0.0/16
-			data:    Subnets:
-			data:      Name                          : FrontEnd
-			data:      Address prefix                : 192.168.1.0/24
-			data:
-			data:      Name                          : BackEnd
-			data:      Address prefix                : 192.168.2.0/24
-			data:
-			info:    network vnet show command OK
+            info:    Executing command network vnet show
+            Virtual network name: TestVNet
+            + Looking up the virtual network sites
+            data:    Name                            : TestVNet
+            data:    Location                        : Central US
+            data:    State                           : Created
+            data:    Address space                   : 192.168.0.0/16
+            data:    Subnets:
+            data:      Name                          : FrontEnd
+            data:      Address prefix                : 192.168.1.0/24
+            data:
+            data:      Name                          : BackEnd
+            data:      Address prefix                : 192.168.2.0/24
+            data:
+            info:    network vnet show command OK
 
-<!---HONumber=AcomDC_0323_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

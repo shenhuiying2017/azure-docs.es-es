@@ -1,30 +1,34 @@
-## Definición de una directiva de copia de seguridad
+## <a name="defining-a-backup-policy"></a>Defining a backup policy
 
-Una directiva de copia de seguridad define una matriz del momento en que se toman las instantáneas de datos y cuánto tiempo se retienen las instantáneas. Al definir una directiva para la copia de seguridad de una máquina virtual, puede desencadenar un trabajo de copia de seguridad *una vez al día*. Cuando se crea una nueva directiva, se aplica al almacén. La interfaz de la directiva de copia de seguridad tiene el siguiente aspecto:
+A backup policy defines a matrix of when the data snapshots are taken, and how long those snapshots are retained. When defining a policy for backing up a VM, you can trigger a backup job *once a day*. When you create a new policy, it is applied to the vault. The backup policy interface looks like this:
 
-![Directiva de copia de seguridad](./media/backup-create-policy-for-vms/backup-policy.png)
+![Backup policy](./media/backup-create-policy-for-vms/backup-policy.png)
 
-Para crear una directiva:
+To create a policy:
 
-1. Escriba un nombre para el **nombre de la directiva**.
+1. Enter a name for the **Policy name**.
 
-2. Puede tomar instantáneas de los datos con un intervalo diario o semanal. Use el menú desplegable **Frecuencia de copia de seguridad** para elegir si las instantáneas de datos se realizan diaria o semanalmente.
+2. Snapshots of your data can be taken at Daily or Weekly intervals. Use the **Backup Frequency** drop-down menu to choose whether data snapshots are taken Daily or Weekly.
 
-    - Si elige un intervalo diario, use el control resaltado para seleccionar la hora del día para la instantánea. Para cambiar la hora, anule la selección de la hora actual y seleccione la nueva.
+    - If you choose a Daily interval, use the highlighted control to select the time of the day for the snapshot. To change the hour, de-select the hour, and select the new hour.
 
-    ![Directiva de copia de seguridad diaria](./media/backup-create-policy-for-vms/backup-policy-daily.png) <br/>
+    ![Daily backup policy](./media/backup-create-policy-for-vms/backup-policy-daily.png) <br/>
 
-    - Si elige un intervalo semanal, use los controles resaltados para seleccionar los días de la semana y la hora del día para realizar la instantánea. En el menú del día, seleccione uno o varios días. En el menú de hora, seleccione una hora. Para cambiar la hora, anule la selección de la hora actual y seleccione la nueva.
+    - If you choose a Weekly interval, use the highlighted controls to select the day(s) of the week, and the time of day to take the snapshot. In the day menu, select one or multiple days. In the hour menu, select one hour. To change the hour, de-select the selected hour, and select the new hour.
 
-    ![Directiva de copia de seguridad semanal](./media/backup-create-policy-for-vms/backup-policy-weekly.png)
+    ![Weekly backup policy](./media/backup-create-policy-for-vms/backup-policy-weekly.png)
 
-3. De forma predeterminada, todas las opciones de **Duración de retención** están seleccionadas. Desactive los límites de intervalo de retención que no quiera usar. A continuación, especifique el intervalo que desea usar.
+3. By default, all **Retention Range** options are selected. Uncheck any retention range limit you do not want to use. Then, specify the interval(s) to use.
 
-    Los intervalos de retención mensual y anual le permiten especificar las instantáneas con un incremento diario o semanal.
+    Monthly and Yearly retention ranges allow you to specify the snapshots based on a weekly or daily increment.
 
-    >[AZURE.NOTE] Al proteger una máquina virtual, un trabajo de copia de seguridad se ejecuta una vez al día. La hora a la que se ejecuta la copia de seguridad es la misma en cada intervalo de retención.
+    >[AZURE.NOTE] When protecting a VM, a backup job runs once a day. The time when the backup runs is the same for each retention range.
 
-4. Después de configurar todas las opciones de la directiva, en la parte superior de la hoja, haga clic en **Guardar**.
+4. After setting all options for the policy, at the top of the blade click **Save**.
 
-    La nueva directiva se aplica inmediatamente en el almacén.
+    The new policy is immediately applied to the vault.
+
+
+<!--HONumber=Oct16_HO2-->
+
 

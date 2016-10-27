@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Conmutación por error y recuperación ante desastres de StorSimple | Microsoft Azure"
-   description="Aprenda cómo conmutar por error el dispositivo StorSimple a sí mismo, a otro dispositivo físico o a un dispositivo virtual."
+   pageTitle="StorSimple failover and disaster recovery | Microsoft Azure"
+   description="Learn how to fail over your StorSimple device to itself, another physical device, or a virtual device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,207 +15,213 @@
    ms.date="09/16/2016"
    ms.author="alkohli" />
 
-# Conmutación por error y recuperación ante desastres para el dispositivo StorSimple
 
-## Información general
+# <a name="failover-and-disaster-recovery-for-your-storsimple-device"></a>Failover and disaster recovery for your StorSimple device
 
-En este tutorial se describen los pasos necesarios para conmutar por error un dispositivo StorSimple en caso de desastre. La conmutación por error permite migrar los datos desde un dispositivo de origen en el centro de datos a otro dispositivo físico o incluso virtual situado en la misma ubicación geográfica o en otra diferente.
+## <a name="overview"></a>Overview
 
-La recuperación ante desastres (DR) se coordina a través de la función de recuperación ante desastres del dispositivo y se inicia desde la página **Dispositivos**. Esta página recoge en formato de tabla todos los dispositivos de StorSimple conectados al servicio de Administrador de StorSimple. Para cada dispositivo se muestran el nombre descriptivo, el estado, la capacidad aprovisionada y máxima, el tipo y el modelo.
+This tutorial describes the steps required to fail over a StorSimple device in the event of a disaster. A failover will allow you to migrate your data from a source device in the datacenter to another physical or even a virtual device located in the same or a different geographical location. 
 
-![Página de dispositivos](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
+Disaster recovery (DR) is orchestrated via the device failover feature and is initiated from the **Devices** page. This page tabulates all the StorSimple devices connected to your StorSimple Manager service. For each device, the friendly name, status, provisioned and maximum capacity, type and model are displayed.
 
-Las instrucciones de este tutorial se aplican a dispositivos físicos y virtuales de StorSimple en todas las versiones de software.
+![Devices page](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
 
-
-
-## Recuperación ante desastres y conmutación por error del dispositivo
-
-En un escenario de recuperación ante desastres, el dispositivo principal deja de funcionar. En esta situación, puede mover los datos en la nube asociados al dispositivo con error a otro dispositivo usando el dispositivo primario como *origen* y especificando otro dispositivo como *destino*. Puede seleccionar uno o varios contenedores de volúmenes para migrar al dispositivo de destino. Este proceso se conoce como *conmutación por error*.
-
-Durante la conmutación por error, los contenedores de volúmenes del dispositivo de origen cambian la propiedad y se transfieren al dispositivo de destino. Una vez que los contenedores de volumen cambian la propiedad, estos se eliminan del dispositivo de origen. Una vez completada la eliminación, el dispositivo de destino puede conmutarse por recuperación.
-
-Normalmente, tras una recuperación ante desastres, se utiliza la copia de seguridad más reciente para restaurar los datos al dispositivo de destino. Sin embargo, si hay varias directivas de copia de seguridad para el mismo volumen, se detecta la directiva de copia de seguridad con el mayor número de volúmenes y la copia de seguridad más reciente de esa directiva se usa para restaurar los datos en el dispositivo de destino.
-
-Por ejemplo, si hay dos directivas de copia de seguridad (un valor predeterminado y uno personalizado) *defaultPol*, *customPol* con los detalles siguientes:
-
-- *defaultPol*: un volumen, *vol1*; se ejecuta diariamente a las 22:30.
-- *customPol*: cuatro volúmenes, *vol1*, *vol2*, *vol3* y *vol4*; se ejecuta diariamente a las 22:0.
-
-En este caso, se usará *customPol*, ya que es la que tiene más volúmenes, y establecemos prioridad para la coherencia de bloqueos. La copia de seguridad más reciente de esta directiva se usa para restaurar los datos.
+The guidance in this tutorial applies to StorSimple physical and virtual devices across all software versions.
 
 
-## Consideraciones para la conmutación por error del dispositivo
 
-En caso de desastre, puede elegir conmutar por error el dispositivo StorSimple:
+## <a name="disaster-recovery-(dr)-and-device-failover"></a>Disaster recovery (DR) and device failover
 
-- A un dispositivo físico
-- A sí mismo
-- A un dispositivo virtual
+In a disaster recovery (DR) scenario, the primary device stops functioning. In this situation, you can move the cloud data associated with the failed device to another device by using the primary device as the *source* and specifying another device as the *target*. You can select one or more volume containers to migrate to the target device. This process is referred to as the *failover*. 
 
-En todos los tipos de conmutación por error del dispositivo, tenga en cuenta lo siguiente:
+During the failover, the volume containers from the source device change ownership and are transferred to the target device. Once the volume containers change ownership, these are deleted from the source device. After the deletion is complete, the target device can then be failed back.
 
-- Los requisitos previos para la recuperación ante desastres son que todos los volúmenes incluidos en los contenedores de volúmenes estén desconectados y que los contenedores de volúmenes tengan asociada una instantánea en la nube.
-- Los dispositivos de destino disponibles para la recuperación ante desastres son dispositivos con espacio suficiente para alojar los contenedores de volúmenes seleccionados.
-- Los dispositivos que están conectados al servicio pero que no cumplen los criterios de espacio suficiente no estarán disponibles como dispositivos de destino.
-- Tras una recuperación ante desastres, durante un tiempo limitado, el rendimiento del acceso a datos puede verse afectado de forma significativa, ya que el dispositivo deberá acceder a los datos de la nube y almacenarlos localmente.
+Typically following a DR, the most recent backup is used to restore the data to the target device. However, if there are multiple backup policies for the same volume, then the backup policy with the largest number of volumes gets picked and the most recent backup from that policy is used to restore the data on the target device.
 
-#### Conmutación por error del dispositivo a través de las versiones de software
+As an example, if there are two backup policies (one default and one custom) *defaultPol*, *customPol* with the following details:
 
-Un servicio del administrador de StorSimple en una implementación puede tener varios dispositivos tanto virtuales como físicos, y todos ellos pueden ejecutar versiones de software diferentes. En función de la versión de software, los tipos de volúmenes de los dispositivos también pueden ser diferentes. Por ejemplo, un dispositivo que ejecuta Update 2 o posterior tendría volúmenes anclados localmente y en capas (de tal forma que los archivos serían un subconjunto de las capas). Por otro lado, un dispositivo con una versión anterior a Update 2 puede tener volúmenes en capas y de archivado.
+- *defaultPol* : One volume, *vol1*, runs daily starting at 10:30 PM.
+- *customPol* : Four volumes, *vol1*, *vol2*, *vol3*, *vol4*, runs daily starting at 10:00 PM.
 
-Utilice la tabla siguiente para determinar si puede conmutar por error a otro dispositivo que ejecuta una versión diferente de software y el comportamiento de los tipos de volumen durante la recuperación ante desastres.
+In this case, *customPol* will be used as it has more volumes and we prioritize for crash-consistency. The most recent backup from this policy is used to restore data.
 
-| Conmutación por error desde | Permitida para dispositivo físico | Permitida para dispositivo virtual |
+
+## <a name="considerations-for-device-failover"></a>Considerations for device failover
+
+In the event of a disaster, you may choose to fail over your StorSimple device:
+
+- To a physical device 
+- To itself
+- To a virtual device
+
+For any device failover, keep in mind the following:
+
+- The prerequisites for DR are that all the volumes within the volume containers are offline and the volume containers have an associated cloud snapshot. 
+- The available target devices for DR are devices that have sufficient space to accommodate the selected volume containers. 
+- The devices that are connected to your service but do not meet the criteria of sufficient space will not be available as target devices.
+- Following a DR, for a limited duration, the data access performance can be affected significantly, as the device will need to access the data from the cloud and store it locally.
+
+#### <a name="device-failover-across-software-versions"></a>Device failover across software versions
+
+A StorSimple Manager service in a deployment may have multiple devices, both physical and virtual, all running different software versions. Depending upon the software version, the volume types on the devices may also be different. For instance, a device running Update 2 or higher would have locally pinned and tiered volumes (with archival being a subset of tiered). A pre-Update 2 device on the other hand may have tiered and archival volumes. 
+
+Use the following table to determine if you can fail over to another device running a different software version and the behavior of volume types during DR.
+
+| Fail over from                                      | Allowed for physical device                                                                                                                                                      | Allowed for virtual device                            |
 |----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
-| Update 2 a versión anterior a Update 1 (lanzamiento, 0.1, 0.2, 0.3) | No | No |
-| Update 2 a Update 1 (1, 1.1, 1.2) | Sí <br></br>Si utiliza volúmenes anclados localmente o en capas o una combinación de ambos, la conmutación por error de tales volúmenes siempre se realiza en capas. | Sí<br></br>Si utiliza volúmenes anclados localmente, su conmutación por error se realiza en capas. |
-| Update 2 a Update 2 (versión posterior) | Sí<br></br>Si utiliza volúmenes anclados localmente o en capas o una combinación de ambos, la conmutación por error de tales volúmenes se realiza como el tipo de volumen de partida; los volúmenes en capas como en capas y los anclados localmente como anclados localmente. | Sí<br></br>Si utiliza volúmenes anclados localmente, su conmutación por error se realiza en capas. |
+| Update 2 to pre-Update 1 (Release, 0.1, 0.2, 0.3) | No                                                                                                                                                                               | No                                                    |
+| Update 2 to Update 1 (1, 1.1, 1.2)                 | Yes <br></br>If using locally pinned or tiered volumes or a mix of two, the volumes are always failed over as tiered.                  | Yes<br></br>If using locally pinned volumes, these are failed over as tiered. |
+| Update 2 to Update 2 (later version)                               | Yes<br></br>If using locally pinned or tiered volumes or a mix of two, the volumes are always failed over as the starting volume type; tiered as tiered and locally pinned as locally pinned. | Yes<br></br>If using locally pinned volumes, these are failed over as tiered. |
 
 
-#### Conmutación por error parcial entre versiones de software
+#### <a name="partial-failover-across-software-versions"></a>Partial failover across software versions
 
-Siga esta guía si va a realizar una conmutación por error parcial de un dispositivo de origen StorSimple con una versión anterior a la actualización 1 en un destino en que se ejecuta la actualización 1 o una versión posterior.
+Follow this guidance if you intend to perform a partial failover using a StorSimple source device running pre-Update 1 to a target running Update 1 or later. 
 
 
-| Conmutación por error parcial desde | Permitida para dispositivo físico | Permitida para dispositivo virtual |
+| Partial failover from                                      | Allowed for physical device                                                                                                                                                      | Allowed for virtual device                            |
 |----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
-|Versión anterior a la actualización 1 (lanzamiento, 0.1, 0.2, 0.3) en la versión de actualización 1 o posterior | Sí, consulte abajo la sugerencia de procedimiento recomendado. | Sí, consulte abajo la sugerencia de procedimiento recomendado. |
+|Pre-Update 1 (Release, 0.1, 0.2, 0.3) to Update 1 or later  | Yes, see below for the best practice tip.                                                                                                                                                                               | Yes, see below for the best practice tip.                                                    |
 
 
->[AZURE.TIP] Se produjo un cambio de formato de datos y metadatos de nube en la versión de actualización 1 y posteriores. Por lo tanto, no se recomienda realizar una conmutación por error parcial desde versiones anteriores a la actualización 1 en la versión de actualización 1 o posteriores. Si necesita realizar una conmutación por error parcial, se recomienda que aplique primero la actualización 1 o posterior en ambos dispositivos (origen y destino) y después lleve a cabo la conmutación por error.
+>[AZURE.TIP] There was a cloud metadata and data format change in Update 1 and later versions. Hence, we do not recommend a partial failover from pre-Update 1 to Update 1 or later versions. If you need to perform a partial failover, we recommend that you first apply Update 1 or later on both the devices (source and target) and then proceed with the failover. 
 
-## Conmutar por error a otro dispositivo físico
+## <a name="fail-over-to-another-physical-device"></a>Fail over to another physical device
 
-Siga estos pasos para restaurar el dispositivo a un dispositivo físico de destino.
+Perform the following steps to restore your device to a target physical device.
 
-1. Compruebe que el contenedor de volúmenes que desea conmutar por error tiene asociadas instantáneas en la nube.
+1. Verify that the volume container you want to fail over has associated cloud snapshots.
 
-1. En la página **Dispositivos**, haga clic en la pestaña **Contenedores de volúmenes**.
+1. On the **Devices** page, click the **Volume Containers** tab.
 
-1. Seleccione un contenedor de volúmenes que desee conmutar por error a otro dispositivo. Haga clic en el contenedor de volúmenes para mostrar la lista de volúmenes incluidos dentro de este contenedor. Seleccione un volumen y haga clic en **Desconectar** para desconectar el volumen. Repita este proceso para todos los volúmenes incluidos en el contenedor de volúmenes.
+1. Select a volume container that you would like to fail over to another device. Click the volume container to display the list of volumes within this container. Select a volume and click **Take Offline** to take the volume offline. Repeat this process for all the volumes in the volume container.
 
-1. Repita el paso anterior para todos los contenedores de volúmenes que le gustaría conmutar por error a otro dispositivo.
+1. Repeat the previous step for all the volume containers you would like to fail over to another device.
 
-1. En la página **Dispositivos**, haga clic en **Conmutación por error**.
+1. On the **Devices** page, click **Failover**.
 
-1. En el asistente que se abre, en **Elegir el contenedor de volúmenes para la conmutación por error**:
+1. In the wizard that opens up, under **Choose volume container to fail over**:
 
-	1. En la lista de contenedores de volúmenes, seleccione los contenedores de volúmenes que desea que conmuten por error. **Solo se muestran los contenedores de volúmenes con volúmenes desconectados e instantáneas de nube asociadas.**
+    1. In the list of volume containers, select the volume containers you would like to fail over.
+    **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
 
-	1. En **Elegir un dispositivo de destino** para los volúmenes de los contenedores seleccionados, elija un dispositivo de destino en la lista desplegable de dispositivos disponibles. En la lista desplegable solo se muestran los dispositivos con capacidad disponible.
+    1. Under **Choose a target device** for the volumes in the selected containers, select a target device from the drop-down list of available devices. Only the devices that have the available capacity are displayed in the drop-down list.
 
-	1. Por último, revise toda la configuración de conmutación por error en **Confirmar conmutación por error**. Haga clic en el icono de marca de verificación ![Icono de marca de verificación](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+    1. Finally, review all the failover settings under **Confirm failover**. Click the check icon ![Check icon](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
-1. Se crea un trabajo de conmutación por error que puede supervisarse mediante la página **Trabajos**. Si el contenedor de volúmenes que conmutó por error tiene volúmenes locales, verá los trabajos de restauración individuales de cada volumen local (no de volúmenes en niveles) en el contenedor. Es posible que esos trabajos de restauración tarden bastante tiempo en completarse. Asimismo, es probable que el trabajo de conmutación por error se complete antes. Tenga en cuenta que estos volúmenes solo tendrán garantías locales después de que los trabajos de restauración se completen. Una vez completada la conmutación por error, vaya a la página **Dispositivos**.
+1. A failover job is created that can be monitored via the **Jobs** page. If the volume container that you failed over has local volumes, then you will see individual restore jobs for each local volume (not for tiered volumes) in the container. These restore jobs may take quite some time to complete. It is likely that the failover job may complete earlier. Note that these volumes will have local guarantees only after the restore jobs are complete. After the failover is completed, go to the **Devices** page.                                            
 
-	1. Seleccione el dispositivo que se usó como dispositivo de destino para el proceso de conmutación por error.
+    1. Select the device that was used as the target device for the failover process.
 
-	1. Vaya a la página **Contenedores de volúmenes**. Deberían aparecer todos los contenedores de volúmenes, junto con los volúmenes del dispositivo antiguo.
+    1. Go to the **Volume Containers** page. All the volume containers, along with the volumes from the old device, should be listed.
 
-## Conmutación por error usando un solo dispositivo
+## <a name="failover-using-a-single-device"></a>Failover using a single device
 
-Siga estos pasos si solo dispone de un dispositivo y necesita realizar una conmutación por error.
+Perform the following steps if you only have a single device and need to perform a failover.
 
-1. Tome instantáneas en la nube de todos los volúmenes del dispositivo.
+1. Take cloud snapshots of all the volumes in your device.
 
-1. Restablezca el dispositivo a los valores predeterminados de fábrica. Siga las instrucciones detalladas de [Cómo restablecer un dispositivo StorSimple a los valores predeterminados de fábrica](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+1. Reset your device to factory defaults. Follow the detailed instructions in [how to reset a StorSimple device to factory default settings](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-1. Configure el dispositivo y vuelva a registrarlo con el servicio de Administrador de StorSimple.
+1. Configure your device and register it again with your StorSimple Manager service.
 
-1. En la página **Dispositivos**, el dispositivo antiguo debe aparecer como **Desconectado**. El dispositivo recién registrado debe aparecer como **Conectado**.
+1. On the **Devices** page, the old device should show as **Offline**. The newly registered device should show as **Online**.
 
-1. Complete primero la configuración mínima del dispositivo en el dispositivo nuevo.
-												
-	>[AZURE.IMPORTANT] **Si no se completa primero la configuración mínima, se producirá un error en la recuperación ante desastres como resultado de un error en la implementación actual. Este comportamiento se solucionará en una versión posterior.**
+1. For the new device, complete the minimum configuration of the device first. 
+                                                
+    >[AZURE.IMPORTANT] **If the minimum configuration is not completed first, your DR will fail as a result of a bug in the current implementation. This behavior will be fixed in a later release.**
 
-1. Seleccione el dispositivo antiguo (estado desconectado) y haga clic en **Conmutación por error**. En el asistente que aparece, conmute por error este dispositivo y especifique el dispositivo de destino como dispositivo recién registrado. Para obtener instrucciones detalladas, consulte [Conmutar por error a otro dispositivo físico](#fail-over-to-another-physical-device).
+1. Select the old device (status offline) and click **Failover**. In the wizard that is presented, fail over this device and specify the target device as the newly registered device. For detailed instructions, refer to [Fail over to another physical device](#fail-over-to-another-physical-device).
 
-1. Se creará un trabajo de restauración de dispositivo que puede supervisar desde la página **Trabajos**.
+1. A device restore job will be created that you can monitor from the **Jobs** page.
 
-1. Después de que el trabajo se haya completado correctamente, acceda al dispositivo nuevo y navegue hasta la página **Contenedores de volúmenes**. Ahora se deben migrar todos los contenedores de volúmenes del dispositivo antiguo al dispositivo nuevo.
+1. After the job has successfully completed, access the new device and navigate to the **Volume Containers** page. All the volume containers from the old device should now be migrated to the new device.
 
-## Conmutar por error a un dispositivo virtual de StorSimple
+## <a name="fail-over-to-a-storsimple-virtual-device"></a>Fail over to a StorSimple virtual device
 
-Debe crear y configurar un dispositivo virtual de StorSimple antes de ejecutar este procedimiento. Si ejecuta Update 2, considere el uso de un dispositivo virtual 8020 para la recuperación ante desastres que tiene 64 TB y utiliza el almacenamiento premium.
+You must have a StorSimple virtual device created and configured prior to running this procedure. If running Update 2, consider using an 8020 virtual device for the DR that has 64 TB and uses Premium Storage. 
  
-Siga estos pasos para restaurar el dispositivo a un dispositivo virtual de StorSimple de destino.
+Perform the following steps to restore the device to a target StorSimple virtual device.
 
-1. Compruebe que el contenedor de volúmenes que desea conmutar por error tiene asociadas instantáneas en la nube.
+1. Verify that the volume container you want to fail over has associated cloud snapshots.
 
-1. En la página **Dispositivos**, haga clic en la pestaña **Contenedores de volúmenes**.
+1. On the **Devices** page, click the **Volume Containers** tab.
 
-1. Seleccione un contenedor de volúmenes que desee conmutar por error a otro dispositivo. Haga clic en el contenedor de volúmenes para mostrar la lista de volúmenes incluidos dentro de este contenedor. Seleccione un volumen y haga clic en **Desconectar** para desconectar el volumen. Repita este proceso para todos los volúmenes incluidos en el contenedor de volúmenes.
+1. Select a volume container that you would like to fail over to another device. Click the volume container to display the list of volumes within this container. Select a volume and click **Take Offline** to take the volume offline. Repeat this process for all the volumes in the volume container.
 
-1. Repita el paso anterior para todos los contenedores de volúmenes que le gustaría conmutar por error a otro dispositivo.
+1. Repeat the previous step for all the volume containers you would like to fail over to another device.
 
-1. En la página **Dispositivos**, haga clic en **Conmutación por error**.
+1. On the **Devices** page, click **Failover**.
 
-1. En el asistente que se abre, en **Elegir el contenedor de volúmenes para la conmutación por error**, siga estos pasos:
-													
-	a. En la lista de contenedores de volúmenes, seleccione los contenedores de volúmenes que desea que conmuten por error.
+1. In the wizard that opens up, under **Choose volume container to failover**, complete the following:
+                                                    
+    a. In the list of volume containers, select the volume containers you would like to fail over.
 
-	**Solo se muestran los contenedores de volúmenes con volúmenes desconectados e instantáneas de nube asociadas.**
+    **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
 
-	b. En **Elegir un dispositivo de destino para los volúmenes de los contenedores seleccionados**, seleccione el dispositivo virtual de StorSimple en la lista desplegable de dispositivos disponibles. **En la lista desplegable solo se muestran los dispositivos con capacidad suficiente.**
-	
+    b. Under **Choose a target device for the volumes in the selected containers**, select the StorSimple virtual device from the drop-down list of available devices. **Only the devices that have sufficient capacity are displayed in the drop-down list.**  
+    
 
-1. Por último, revise toda la configuración de conmutación por error en **Confirmar conmutación por error**. Haga clic en el icono de marca de verificación ![Icono de marca de verificación](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+1. Finally, review all the failover settings under **Confirm failover**. Click the check icon ![Check icon](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
-1. Una vez completada la conmutación por error, vaya a la página **Dispositivos**.
-													
-	a. Seleccione el dispositivo virtual de StorSimple que se usó como dispositivo de destino para el proceso de conmutación por error.
-	
-	b. Vaya a la página **Contenedores de volúmenes**. Deberían aparecer todos los contenedores de volúmenes, junto con los volúmenes del dispositivo antiguo.
+1. After the failover is completed, go to the **Devices** page.
+                                                    
+    a. Select the StorSimple virtual device that was used as the target device for the failover process.
+    
+    b. Go to the **Volume Containers** page. All the volume containers, along with the volumes from the old device should now be listed.
 
-![Vídeo disponible](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Vídeo disponible**
+![Video available](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Video available**
 
-Para ver un vídeo que muestra cómo se puede restaurar un dispositivo físico con conmutación por error en un dispositivo virtual en la nube, haga clic [aquí](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
-
-
-## Conmutación por recuperación
-
-Para Update 3 y versiones posteriores, StorSimple también admite la conmutación por recuperación. Cuando se complete la conmutación por error, se producen las siguientes acciones:
-
-- Los contenedores de volumen que se conmutan por error se borran del dispositivo de origen.
-
-- Se inicia un trabajo en segundo plano por contenedor de volúmenes (conmutación por error) en el dispositivo de origen. Si trata de realizar una conmutación por recuperación mientras el trabajo está en curso, recibirá una notificación. Debe esperar hasta que se complete para iniciar este proceso.
-
-	El tiempo que se tarda en eliminar los contenedores de volumen depende de varios factores, como la cantidad y la antigüedad de los datos, el número de copias de seguridad y el ancho de banda de red disponible para la operación. Si piensa probar la conmutación por error y la conmutación por recuperación, se recomienda que pruebe contenedores de volúmenes con menos datos (GB). En la mayoría de los casos, puede iniciar la conmutación por recuperación 24 horas después de que finalice la conmutación por error.
+To watch a video that demonstrates how you can restore a failed over physical device to a virtual device in the cloud, click [here](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
 
+## <a name="failback"></a>Failback
+
+For Update 3 and later versions, StorSimple also supports failback. After the failover is complete, the following actions occur:
+
+- The volume containers that are failed over are cleaned from the source device.
+
+- A background job per volume container (failed over) is initiated on the source device. If you attempt to failback while the job is in progress, you will recieve a notification to that effect. You will need to wait until the job is complete to start the failback. 
+
+    The time to complete the deletion of volume containers is dependent on various factors such as amount of data, age of the data, number of backups, and the network bandwidth available for the operation. If you are planning test failovers/failbacks, we recommend that you test volume containers with less data (Gbs). In most cases, you can start the failback 24 hours after the failover is complete. 
 
 
-## Preguntas más frecuentes
-
-P: **¿Qué ocurre si se produce un error de la recuperación ante desastres o se completa correctamente solo de forma parcial?**
-
-A. Si se produce un error en la recuperación ante desastres, recomendamos que vuelva a intentarlo. La segunda vez, la recuperación ante desastres sabe lo que todo se lleva a cabo y cuándo se detuvo el proceso la primera vez. El proceso de recuperación ante desastres se inicia desde ese punto hacia adelante.
-
-P: **¿Puedo eliminar un dispositivo mientras se realiza la conmutación por error del dispositivo?**
-
-A. No se puede eliminar un dispositivo mientras se realiza una recuperación ante desastres. Solo puede eliminar el dispositivo una vez completada la recuperación ante desastres.
-
-P: **¿Cuándo se inicia la recolección de elementos no utilizados en el dispositivo de origen para que se eliminen los datos locales en el dispositivo de origen?**
-
-A. La recopilación de elementos no utilizados se habilitará en el dispositivo de origen solo después de que el dispositivo se limpie completamente. La limpieza incluye limpiar los objetos que se han conmutado por error desde dispositivo de origen, como volúmenes, objetos de copia de seguridad (no datos), contenedores de volúmenes y directivas.
-
-P: **¿Qué ocurre si se produce un error en el trabajo de eliminación asociado con los contenedores de volúmenes en el dispositivo de origen?**
-
-A. Si se produce un error en el trabajo de eliminación, necesitará desencadenar manualmente la eliminación de los contenedores de volúmenes. En la página **Dispositivos**, seleccione el dispositivo de origen y haga clic en **Contenedores de volúmenes**. Seleccione los contenedores de volúmenes que se conmutaron por error y en la parte inferior de la página, haga clic en **Eliminar**. Una vez que haya eliminado todos los contenedores de volúmenes conmutados por error en el dispositivo de origen, puede iniciar la conmutación por recuperación.
-
-## Recuperación ante desastres y continuidad empresarial (BCDR)
-
-Un escenario de recuperación ante desastres y continuidad empresarial (BCDR) se produce cuando todo el centro de datos de Azure deja de funcionar. Esto puede afectar al servicio de Administrador de StorSimple y a los dispositivos StorSimple asociados.
-
-Si hay dispositivos StorSimple que se registraron justo antes de que ocurra un desastre, es posible que estos dispositivos deban restablecerse a valores de fábrica. Después del desastre, el dispositivo StorSimple se mostrará como desconectado. El dispositivo StorSimple debe eliminarse del portal, restablecerse a valores de fábrica y volver a registrarse.
 
 
-## Pasos siguientes
+## <a name="frequently-asked-questions"></a>Frequently asked questions
 
-- Después de haber realizado una conmutación por error, puede que necesite [desactivar o eliminar el dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
+Q. **What happens if the DR fails or has partial success?**
 
-- Para obtener información sobre cómo usar el servicio del administrador de StorSimple, vaya a [Utilizar el servicio de Administrador de StorSimple para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
+A. If the DR fails, we recommend that you try agian. The second time around, DR knows what all was done and when the process stalled the first time. The DR process starts from that point onwards. 
+
+Q. **Can I delete a device while the device failover is in progress?**
+
+A. You cannot delete a device while a DR is in progress. You can only delete your device after the DR is complete.
+
+Q.  **When does the garbage collection start on the source device so that the local data on source device is deleted?**
+
+A. Garbage collection will be enabled on the source device only after the device is completely cleaned up. The cleanup includes cleaning up objects that have failed over from the source device such as volumes, backup objects (not data), volume containers, and policies.
+
+Q. **What happens if the delete job associated with the volume containers in the source device fails?**
+
+A.  If the delete job fails, then you will need to manually trigger the deletion of the volume containers. In the **Devices** page, select your source device and click **Volume containers**. Select the volume containers that you failed over and in the bottom of the page, click **Delete**. Once you have deleted all the failed over volume containers on the source device, you can start the failback.
+
+## <a name="business-continuity-disaster-recovery-(bcdr)"></a>Business continuity disaster recovery (BCDR)
+
+A business continuity disaster recovery (BCDR) scenario occurs when the entire Azure datacenter stops functioning. This can affect your StorSimple Manager service and the associated StorSimple devices.
+
+If there are StorSimple devices that were registered just before a disaster occurred, then these StorSimple devices may need to undergo a factory reset. After the disaster, the StorSimple device will be shown as offline. The StorSimple device must be deleted from the portal, and a factory reset should be done, followed by a fresh registration.
+
+
+## <a name="next-steps"></a>Next steps
+
+- After you have performed a failover, you may need to [deactivate or delete your StorSimple device](storsimple-deactivate-and-delete-device.md).
+
+- For information about how to use the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

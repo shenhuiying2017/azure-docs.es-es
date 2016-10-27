@@ -1,255 +1,261 @@
 <properties 
-	pageTitle="Uso de bibliotecas personalizadas con un clúster de HDInsight Spark para analizar registros de sitios web | Microsoft Azure" 
-	description="Uso de bibliotecas personalizadas con un clúster de HDInsight Spark para analizar registros de sitios web" 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="jhubbard" 
-	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Use custom libraries with an HDInsight Spark cluster to analyze website logs | Microsoft Azure" 
+    description="Use custom libraries with an HDInsight Spark cluster to analyze website logs" 
+    services="hdinsight" 
+    documentationCenter="" 
+    authors="nitinme" 
+    manager="jhubbard" 
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/25/2016" 
-	ms.author="nitinme"/>
+    ms.service="hdinsight" 
+    ms.workload="big-data" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/05/2016" 
+    ms.author="nitinme"/>
 
-# Análisis de registros de sitio web mediante una biblioteca personalizada con el clúster Apache Spark en HDInsight Linux
 
-En este cuaderno se muestra cómo analizar los datos de registro mediante una biblioteca personalizada con Spark en HDInsight. La biblioteca personalizada que usamos es una biblioteca de Python llamada **iislogparser.py**.
+# <a name="analyze-website-logs-using-a-custom-library-with-apache-spark-cluster-on-hdinsight-linux"></a>Analyze website logs using a custom library with Apache Spark cluster on HDInsight Linux
 
-> [AZURE.TIP] Este tutorial también está disponible como un cuaderno de Jupyter en un clúster Spark (Linux) que se crea en HDInsight. La experiencia del cuaderno le permite ejecutar los fragmentos de código de Python desde el propio Bloc de notas. Para realizar el tutorial desde un cuaderno, cree un clúster Spark, inicie un cuaderno de Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) y luego ejecute el cuaderno **Análisis de registros con Spark mediante una biblioteca personalizada library.ipynb** en la carpeta **PySpark**.
+This notebook demonstrates how to analyze log data using a custom library with Spark on HDInsight. The custom library we use is a Python library called **iislogparser.py**.
 
-**Requisitos previos:**
+> [AZURE.TIP] This tutorial is also available as a Jupyter notebook on a Spark (Linux) cluster that you create in HDInsight. The notebook experience lets you run the Python snippets from the notebook itself. To perform the tutorial from within a notebook, create a Spark cluster, launch a Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), and then run the notebook **Analyze logs with Spark using a custom library.ipynb** under the **PySpark** folder.
 
-Debe tener lo siguiente:
+**Prerequisites:**
 
-- Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Un clúster Apache Spark en HDInsight Linux. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md).
+You must have the following:
 
-## Almacenamiento de datos sin procesar como RDD
+- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-En esta sección, usamos el cuaderno de [Jupyter](https://jupyter.org) asociado con un clúster Apache Spark en HDInsight para ejecutar trabajos que procesan los datos de ejemplo sin procesar y los guardan como una tabla de Hive. Los datos de ejemplo corresponden a un archivo .csv (hvac.csv) que está disponible en todos los clústeres de manera predeterminada.
+## <a name="save-raw-data-as-an-rdd"></a>Save raw data as an RDD
 
-Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, nos conectaremos a la tabla de Hive mediante herramientas de BI como Power BI y Tableau.
+In this section, we use the [Jupyter](https://jupyter.org) notebook associated with an Apache Spark cluster in HDInsight to run jobs that process your raw sample data and save it as a Hive table. The sample data is a .csv file (hvac.csv) available on all clusters by default.
 
-1. Desde el [Portal de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.
+Once your data is saved as a Hive table, in the next section we will connect to the Hive table using BI tools such as Power BI and Tableau.
 
-2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, luego, en la hoja **Panel de clúster**, haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
+1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 
-	> [AZURE.NOTE] También puede comunicarse con el equipo Jupyter Notebook en el clúster si abre la siguiente dirección URL en el explorador. Reemplace __CLUSTERNAME__ por el nombre del clúster:
-	>
-	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
+2. From the Spark cluster blade, click **Cluster Dashboard**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
-2. Cree un nuevo notebook. Haga clic en **Nuevo** y, luego, en **PySpark**.
+    > [AZURE.NOTE] You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace __CLUSTERNAME__ with the name of your cluster:
+    >
+    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-	![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.createnotebook.png "Crear un nuevo cuaderno de Jupyter")
+2. Create a new notebook. Click **New**, and then click **PySpark**.
 
-3. Se crea y se abre un nuevo cuaderno con el nombre Untitled.pynb. Haga clic en el nombre del cuaderno en la parte superior y escriba un nombre descriptivo.
+    ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
 
-	![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.notebook.name.png "Proporcionar un nombre para el cuaderno")
+3. A new notebook is created and opened with the name Untitled.pynb. Click the notebook name at the top, and enter a friendly name.
 
-4. Dado que creó un cuaderno con el kernel PySpark, no necesitará crear ningún contexto explícitamente. Los contextos Spark y Hive se crearán automáticamente al ejecutar la primera celda de código. Puede empezar por importar los tipos que son necesarios para este escenario. Pegue el siguiente fragmento de código en una celda vacía y presione **MAYÚS + ENTRAR**.
+    ![Provide a name for the notebook](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
 
+4. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types that are required for this scenario. Paste the following snippet in an empty cell, and then press **SHIFT + ENTER**.
 
-		from pyspark.sql import Row
-		from pyspark.sql.types import *
 
+        from pyspark.sql import Row
+        from pyspark.sql.types import *
 
-5. Crear un RDD con los datos de registro de ejemplo ya disponibles en el clúster. Puede acceder a los datos de la cuenta de almacenamiento predeterminada asociada al clúster en **\\HdiSamples\\HdiSamples\\WebsiteLogSampleData\\SampleLog\\909f2b.log**.
 
+5. Create an RDD using the sample log data already available on the cluster. You can access the data in the default storage account associated with the cluster at **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log**.
 
-		logs = sc.textFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
 
+        logs = sc.textFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
 
-6. Recupere un registro de ejemplo establecido para comprobar que el paso anterior se ha completado correctamente.
 
-		logs.take(5)
+6. Retrieve a sample log set to verify that the previous step completed successfully.
 
-	Debería ver una salida similar a la siguiente:
+        logs.take(5)
 
-		# -----------------
-		# THIS IS AN OUTPUT
-		# -----------------
+    You should see an output similar to the following:
 
-		[u'#Software: Microsoft Internet Information Services 8.0',
-		 u'#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken',
-		 u'2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step2.png X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 53175 871 46',
-		 u'2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32',
-		 u'2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step4.png X-ARR-LOG-ID=4bea5b3d-8ac9-46c9-9b8c-ec3e9500cbea 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 72177 871 47']
+        # -----------------
+        # THIS IS AN OUTPUT
+        # -----------------
 
-## Análisis de datos de registro mediante una biblioteca personalizada de Python
+        [u'#Software: Microsoft Internet Information Services 8.0',
+         u'#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken',
+         u'2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step2.png X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 53175 871 46',
+         u'2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32',
+         u'2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step4.png X-ARR-LOG-ID=4bea5b3d-8ac9-46c9-9b8c-ec3e9500cbea 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 72177 871 47']
 
-7. En la salida anterior, las primeras líneas del par incluyen la información de encabezado y cada línea restante coincide con el esquema descrito en ese encabezado. Analizar dichos registros podría ser complicado. Por lo tanto, utilizamos una biblioteca personalizada de Python (**iislogparser.py**) que ayuda a analizar estos registros de manera más fácil. De forma predeterminada, esta biblioteca se incluye con el clúster Spark en HDInsight en **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**.
+## <a name="analyze-log-data-using-a-custom-python-library"></a>Analyze log data using a custom Python library
 
-	Sin embargo, esta biblioteca no está en `PYTHONPATH`, por lo que no podemos usarla mediante una instrucción de importación como `import iislogparser`. Para usar esta biblioteca, debemos distribuirla a todos los nodos de trabajo. Ejecute el siguiente fragmento de código:
+7. In the output above, the first couple lines include the header information and each remaining line matches the schema described in that header. Parsing such logs could be complicated. So, we use a custom Python library (**iislogparser.py**) that makes parsing such logs much easier. By default, this library is included with your Spark cluster on HDInsight at **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**.
 
+    However, this library is not in the `PYTHONPATH` so we cannot use it by using an import statement like `import iislogparser`. To use this library, we must distribute it to all the worker nodes. Run the following snippet.
 
-		sc.addPyFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
 
+        sc.addPyFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
 
-9. `iislogparser` proporciona una función `parse_log_line` que devuelve `None` si una línea de registro es una fila de encabezado y devuelve una instancia de la clase `LogLine` si encuentra una línea de registro. Utilice la clase `LogLine` para extraer solo las líneas de registro desde el RDD:
 
-		def parse_line(l):
-		    import iislogparser
-		    return iislogparser.parse_log_line(l)
-		logLines = logs.map(parse_line).filter(lambda p: p is not None).cache()
+9. `iislogparser` provides a function `parse_log_line` that returns `None` if a log line is a header row, and returns an instance of the `LogLine` class if it encounters a log line. Use the `LogLine` class to extract only the log lines from the RDD:
 
+        def parse_line(l):
+            import iislogparser
+            return iislogparser.parse_log_line(l)
+        logLines = logs.map(parse_line).filter(lambda p: p is not None).cache()
 
-10. Recupere un par de líneas de registro extraídas para comprobar que el paso se ha completado correctamente.
 
-		logLines.take(2)
+10. Retrieve a couple of extracted log lines to verify that the step completed successfully.
 
-	La salida debe ser similar a la siguiente:
+        logLines.take(2)
 
-		# -----------------
-		# THIS IS AN OUTPUT
-		# -----------------
+    The output should be similar to the following:
 
-		[2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step2.png X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 53175 871 46,
- 		2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32]
+        # -----------------
+        # THIS IS AN OUTPUT
+        # -----------------
 
+        [2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step2.png X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 53175 871 46,
+        2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32]
 
-11. La clase `LogLine`, a su vez, tiene algunos métodos útiles, como `is_error()`, que indica si una entrada de registro tiene un código de error. Use esto para calcular el número de errores en las líneas de registro extraídas y luego inicie todos los errores en un archivo diferente.
 
-		errors = logLines.filter(lambda p: p.is_error())
-		numLines = logLines.count()
-		numErrors = errors.count()
-		print 'There are', numErrors, 'errors and', numLines, 'log entries'
-		errors.map(lambda p: str(p)).saveAsTextFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
+11. The `LogLine` class, in turn, has some useful methods, like `is_error()`, which returns whether a log entry has an error code. Use this to compute the number of errors in the extracted log lines, and then log all the errors to a different file.
 
-	Debe ver algo parecido a lo siguiente:
+        errors = logLines.filter(lambda p: p.is_error())
+        numLines = logLines.count()
+        numErrors = errors.count()
+        print 'There are', numErrors, 'errors and', numLines, 'log entries'
+        errors.map(lambda p: str(p)).saveAsTextFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
 
-		# -----------------
-		# THIS IS AN OUTPUT
-		# -----------------
+    You should see an output like the following:
 
-		There are 30 errors and 646 log entries
+        # -----------------
+        # THIS IS AN OUTPUT
+        # -----------------
 
-12. También puede usar **Matplotlib** para generar una visualización de los datos. Por ejemplo, si desea aislar la causa de las solicitudes que se ejecutan durante mucho tiempo, puede encontrar los archivos que, como promedio, tarden más tiempo en atenderse. El fragmento de código siguiente recupera los 25 recursos principales que tardaron más tiempo en atender una solicitud.
+        There are 30 errors and 646 log entries
 
-		def avgTimeTakenByKey(rdd):
-		    return rdd.combineByKey(lambda line: (line.time_taken, 1),
-		                            lambda x, line: (x[0] + line.time_taken, x[1] + 1),
-		                            lambda x, y: (x[0] + y[0], x[1] + y[1]))\
-		              .map(lambda x: (x[0], float(x[1][0]) / float(x[1][1])))
-		    
-		avgTimeTakenByKey(logLines.map(lambda p: (p.cs_uri_stem, p))).top(25, lambda x: x[1])
+12. You can also use **Matplotlib** to construct a visualization of the data. For example, if you want to isolate the cause of requests that run for a long time, you might want to find the files that take the most time to serve on average.
+The snippet below retrieves the top 25 resources that took most time to serve a request.
 
-	Debe ver algo parecido a lo siguiente:
+        def avgTimeTakenByKey(rdd):
+            return rdd.combineByKey(lambda line: (line.time_taken, 1),
+                                    lambda x, line: (x[0] + line.time_taken, x[1] + 1),
+                                    lambda x, y: (x[0] + y[0], x[1] + y[1]))\
+                      .map(lambda x: (x[0], float(x[1][0]) / float(x[1][1])))
+            
+        avgTimeTakenByKey(logLines.map(lambda p: (p.cs_uri_stem, p))).top(25, lambda x: x[1])
 
-		# -----------------
-		# THIS IS AN OUTPUT
-		# -----------------
+    You should see an output like the following:
 
-		[(u'/blogposts/mvc4/step13.png', 197.5),
-		 (u'/blogposts/mvc2/step10.jpg', 179.5),
-		 (u'/blogposts/extractusercontrol/step5.png', 170.0),
-		 (u'/blogposts/mvc4/step8.png', 159.0),
-		 (u'/blogposts/mvcrouting/step22.jpg', 155.0),
-		 (u'/blogposts/mvcrouting/step3.jpg', 152.0),
-		 (u'/blogposts/linqsproc1/step16.jpg', 138.75),
-		 (u'/blogposts/linqsproc1/step26.jpg', 137.33333333333334),
-		 (u'/blogposts/vs2008javascript/step10.jpg', 127.0),
-		 (u'/blogposts/nested/step2.jpg', 126.0),
-		 (u'/blogposts/adminpack/step1.png', 124.0),
-		 (u'/BlogPosts/datalistpaging/step2.png', 118.0),
-		 (u'/blogposts/mvc4/step35.png', 117.0),
-		 (u'/blogposts/mvcrouting/step2.jpg', 116.5),
-		 (u'/blogposts/aboutme/basketball.jpg', 109.0),
-		 (u'/blogposts/anonymoustypes/step11.jpg', 109.0),
-		 (u'/blogposts/mvc4/step12.png', 106.0),
-		 (u'/blogposts/linq8/step0.jpg', 105.5),
-		 (u'/blogposts/mvc2/step18.jpg', 104.0),
-		 (u'/blogposts/mvc2/step11.jpg', 104.0),
-		 (u'/blogposts/mvcrouting/step1.jpg', 104.0),
-		 (u'/blogposts/extractusercontrol/step1.png', 103.0),
-		 (u'/blogposts/sqlvideos/sqlvideos.jpg', 102.0),
-		 (u'/blogposts/mvcrouting/step21.jpg', 101.0),
-		 (u'/blogposts/mvc4/step1.png', 98.0)]
+        # -----------------
+        # THIS IS AN OUTPUT
+        # -----------------
 
+        [(u'/blogposts/mvc4/step13.png', 197.5),
+         (u'/blogposts/mvc2/step10.jpg', 179.5),
+         (u'/blogposts/extractusercontrol/step5.png', 170.0),
+         (u'/blogposts/mvc4/step8.png', 159.0),
+         (u'/blogposts/mvcrouting/step22.jpg', 155.0),
+         (u'/blogposts/mvcrouting/step3.jpg', 152.0),
+         (u'/blogposts/linqsproc1/step16.jpg', 138.75),
+         (u'/blogposts/linqsproc1/step26.jpg', 137.33333333333334),
+         (u'/blogposts/vs2008javascript/step10.jpg', 127.0),
+         (u'/blogposts/nested/step2.jpg', 126.0),
+         (u'/blogposts/adminpack/step1.png', 124.0),
+         (u'/BlogPosts/datalistpaging/step2.png', 118.0),
+         (u'/blogposts/mvc4/step35.png', 117.0),
+         (u'/blogposts/mvcrouting/step2.jpg', 116.5),
+         (u'/blogposts/aboutme/basketball.jpg', 109.0),
+         (u'/blogposts/anonymoustypes/step11.jpg', 109.0),
+         (u'/blogposts/mvc4/step12.png', 106.0),
+         (u'/blogposts/linq8/step0.jpg', 105.5),
+         (u'/blogposts/mvc2/step18.jpg', 104.0),
+         (u'/blogposts/mvc2/step11.jpg', 104.0),
+         (u'/blogposts/mvcrouting/step1.jpg', 104.0),
+         (u'/blogposts/extractusercontrol/step1.png', 103.0),
+         (u'/blogposts/sqlvideos/sqlvideos.jpg', 102.0),
+         (u'/blogposts/mvcrouting/step21.jpg', 101.0),
+         (u'/blogposts/mvc4/step1.png', 98.0)]
 
-13. También puede presentar esta información en forma de gráfico. Como primer paso para crear un trazado, permítanos crear primero una tabla temporal **AverageTime**. La tabla agrupa los registros por tiempo para ver si se produjeron picos de latencia inusuales en un momento dado.
 
-		avgTimeTakenByMinute = avgTimeTakenByKey(logLines.map(lambda p: (p.datetime.minute, p))).sortByKey()
-		schema = StructType([StructField('Minutes', IntegerType(), True),
-		                     StructField('Time', FloatType(), True)])
-		                     
-		avgTimeTakenByMinuteDF = sqlContext.createDataFrame(avgTimeTakenByMinute, schema)
-		avgTimeTakenByMinuteDF.registerTempTable('AverageTime')
+13. You can also present this information in the form of plot. As a first step to create a plot, let us first create a temporary table **AverageTime**. The table groups the logs by time to see if there were any unusual latency spikes at any particular time.
 
-14. A continuación, puede ejecutar la siguiente consulta SQL para ubicar todos los registros en la tabla **AverageTime**.
+        avgTimeTakenByMinute = avgTimeTakenByKey(logLines.map(lambda p: (p.datetime.minute, p))).sortByKey()
+        schema = StructType([StructField('Minutes', IntegerType(), True),
+                             StructField('Time', FloatType(), True)])
+                             
+        avgTimeTakenByMinuteDF = sqlContext.createDataFrame(avgTimeTakenByMinute, schema)
+        avgTimeTakenByMinuteDF.registerTempTable('AverageTime')
 
-		%%sql -o averagetime
-		SELECT * FROM AverageTime
+14. You can then run the following SQL query to get all the records in the **AverageTime** table.
 
-	La función mágica `%%sql` seguida de `-o averagetime` garantiza que el resultado de la consulta persiste localmente en el servidor de Jupyter (normalmente, el nodo principal del clúster). El resultado se conserva como una trama de datos [Pandas](http://pandas.pydata.org/) con el nombre especificado **averagetime**.
+        %%sql -o averagetime
+        SELECT * FROM AverageTime
 
-	Debe ver algo parecido a lo siguiente:
+    The `%%sql` magic followed by `-o averagetime` ensures that the output of the query is persisted locally on the Jupyter server (typically the headnode of the cluster). The output is persisted as a [Pandas](http://pandas.pydata.org/) dataframe with the specified name **averagetime**.
 
-	![Resultado de la consulta SQL](./media/hdinsight-apache-spark-custom-library-website-log-analysis/sql.output.png "Resultado de la consulta SQL")
+    You should see an output like the following:
 
-	Para obtener más información sobre la función mágica `%%sql`, así como otras función mágicas disponibles con el kernel de PySpark, vea [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+    ![SQL query output](./media/hdinsight-apache-spark-custom-library-website-log-analysis/sql.output.png "SQL query output")
 
-15. Ahora puede usar Matplotlib, una biblioteca que se usa para construir la visualización de datos, para crear un gráfico. Dado que el gráfico se debe crear a partir de la trama de datos **averagetime** persistente localmente, el fragmento de código debe comenzar con la función mágica `%%local`. Esto garantiza que el código se ejecuta localmente en el servidor de Jupyter.
+    For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 
-		%%local
-		%matplotlib inline
-		import matplotlib.pyplot as plt
-		
-		plt.plot(averagetime['Minutes'], averagetime['Time'], marker='o', linestyle='--')
-		plt.xlabel('Time (min)')
-		plt.ylabel('Average time taken for request (ms)')
+15. You can now use Matplotlib, a library used to construct visualization of data, to create a plot. Because the plot must be created from the locally persisted **averagetime** dataframe, the code snippet must begin with the `%%local` magic. This ensures that the code is run locally on the Jupyter server.
 
-	Debe ver algo parecido a lo siguiente:
+        %%local
+        %matplotlib inline
+        import matplotlib.pyplot as plt
+        
+        plt.plot(averagetime['Minutes'], averagetime['Time'], marker='o', linestyle='--')
+        plt.xlabel('Time (min)')
+        plt.ylabel('Average time taken for request (ms)')
 
-	![Salida de Matplotlib](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdi-apache-spark-web-log-analysis-plot.png "Salida de Matplotlib")
+    You should see an output like the following:
 
-16. Cuando haya terminado de ejecutar la aplicación, debe apagar el cuaderno para liberar los recursos. Para ello, en el menú **Archivo** del cuaderno, haga clic en **Cerrar y detener**. De esta manera se apagará y se cerrará el cuaderno.
-	
+    ![Matplotlib output](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdi-apache-spark-web-log-analysis-plot.png "Matplotlib output")
 
-## <a name="seealso"></a>Otras referencias
+16. After you have finished running the application, you should shutdown the notebook to release the resources. To do so, from the **File** menu on the notebook, click **Close and Halt**. This will shutdown and close the notebook.
+    
 
+## <a name="<a-name="seealso"></a>see-also"></a><a name="seealso"></a>See also
 
-* [Introducción a Apache Spark en HDInsight de Azure](hdinsight-apache-spark-overview.md)
 
-### Escenarios
+* [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
 
-* [Spark with BI: Realizar el análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](hdinsight-apache-spark-use-bi-tools.md)
+### <a name="scenarios"></a>Scenarios
 
-* [Creación de aplicaciones de Aprendizaje automático con Apache Spark en HDInsight de Azure](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark con aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-* [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](hdinsight-apache-spark-eventhub-streaming.md)
+* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
-### Creación y ejecución de aplicaciones
+* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
 
-* [Crear una aplicación independiente con Scala](hdinsight-apache-spark-create-standalone-application.md)
+### <a name="create-and-run-applications"></a>Create and run applications
 
-* [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md)
+* [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
 
-### Herramientas y extensiones
+* [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones Scala Spark)](hdinsight-apache-spark-intellij-tool-plugin.md)
+### <a name="tools-and-extensions"></a>Tools and extensions
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para depurar aplicaciones de Spark de forma remota)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
-* [Kernels disponibles para el cuaderno de Jupyter en el clúster Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
-* [Uso de paquetes externos con cuadernos de Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
-* [Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-### Administración de recursos
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-* [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
+### <a name="manage-resources"></a>Manage resources
 
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md) (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)
+* [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

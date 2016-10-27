@@ -1,135 +1,139 @@
 <properties
-	pageTitle="Tutorial de la infraestructura de ejemplo | Microsoft Azure"
-	description="Obtenga información sobre las directrices clave de diseño e implementación para implementar una infraestructura de ejemplo en Azure."
-	documentationCenter=""
-	services="virtual-machines-linux"
-	authors="iainfoulds"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Example Infrastructure Walkthrough | Microsoft Azure"
+    description="Learn about the key design and implementation guidelines for deploying an example infrastructure in Azure."
+    documentationCenter=""
+    services="virtual-machines-linux"
+    authors="iainfoulds"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/08/2016"
-	ms.author="iainfou"/>
-
-# Tutorial de la infraestructura de Azure de ejemplo
-
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
-
-Este artículo le guía a través de la creación de una infraestructura de aplicación de ejemplo. Detallaremos el diseño de una infraestructura para una tienda en línea sencilla que reúna todas las directrices y decisiones relacionadas con las convenciones de nomenclatura, los conjuntos de disponibilidad, las redes virtuales, los equilibradores de carga y, realmente, la implementación de sus máquinas virtuales (VM).
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/08/2016"
+    ms.author="iainfou"/>
 
 
-## Carga de trabajo de ejemplo
+# <a name="example-azure-infrastructure-walkthrough"></a>Example Azure infrastructure walkthrough
 
-Adventure Works Cycles desea crear una aplicación de la tienda en línea en Azure que conste de:
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] 
 
-- Dos servidores nginx que ejecuten el cliente front-end en un nivel web
-- Dos servidores nginx que procesen datos y pedidos en un nivel de aplicación
-- Dos servidores MongoDB parte de un clúster particionado para almacenar pedidos y datos de productos en un nivel de base de datos
-- Dos controladores de dominio de Active Directory para los proveedores y las cuentas de cliente en un nivel de autenticación
-- Todos los servidores se encuentran en dos subredes:
-	- Una subred front-end para los servidores web
-	- Una subred back-end para los servidores de aplicaciones, el clúster de MongoDB y los controladores de dominio
-
-![Diagrama de distintos niveles de infraestructura de aplicaciones](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
-
-El tráfico web seguro entrante debe ser de carga equilibrada entre los servidores web a medida que los clientes examinan la tienda en línea. El tráfico de procesamiento de pedidos en forma de solicitudes HTTP procedente de los servidores web debe equilibrarse entre los servidores de aplicaciones. Además, la infraestructura debe diseñarse para alta disponibilidad.
-
-El diseño resultante incluirá:
-
-- Una suscripción y una cuenta de Azure
-- Un único grupo de recursos
-- Cuentas de almacenamiento
-- Una red virtual con dos subredes
-- Conjuntos de disponibilidad para las máquinas virtuales con un rol similar
-- Máquinas virtuales
-
-Todo lo anterior seguirá estas convenciones de nomenclatura:
-
-- Adventure Works Cycles usa **[carga de trabajo de TI]-[ubicación]-[recurso de Azure]** como prefijo
-	- En este ejemplo, "**azos**" (siglas en inglés de "tienda en línea de Azure") es el nombre de la carga de trabajo de TI y "**use**" (siglas en inglés de "este de EE.UU. 2") es la ubicación
-- Las cuentas de almacenamiento usan adventureazosusesa**[descripción]**
-	- Se agregó adventure al prefijo para proporcionar exclusividad y que los nombres de cuentas de almacenamiento no admiten el uso de guiones.
-- Las redes virtuales usan AZOS-USE-VN**[número]**
-- Los conjuntos de disponibilidad usan azos-use-as-**[rol]**
-- Los nombres de máquinas virtuales usan azos-use-vm-**[vmname]**
+This article walks through building out an example application infrastructure. We detail designing an infrastructure for a simple on-line store that brings together all the guidelines and decisions around naming conventions, availability sets, virtual networks and load balancers, and actually deploying your virtual machines (VMs).
 
 
-## Suscripciones y cuentas de Azure
+## <a name="example-workload"></a>Example workload
 
-Adventure Works Cycles usa la suscripción Enterprise, denominada Adventure Works Enterprise Subscription, para proporcionar la facturación de esta carga de trabajo de TI.
+Adventure Works Cycles wants to build an on-line store application in Azure that consists of:
 
+- Two nginx servers running the client front-end in a web tier
+- Two nginx servers processing data and orders in an application tier
+- Two MongoDB servers part of a sharded cluster for storing product data and orders in a database tier
+- Two Active Directory domain controllers for customer accounts and suppliers in an authentication tier
+- All the servers are located in two subnets:
+    - a front-end subnet for the web servers 
+    - a back-end subnet for the application servers, MongoDB cluster, and domain controllers
 
-## Cuentas de almacenamiento
+![Diagram of different tiers for application infrastructure](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
 
-Adventure Works Cycles determinó que necesitaba dos cuentas de almacenamiento:
+Incoming secure web traffic must be load-balanced among the web servers as customers browse the on-line store. Order processing traffic in the form of HTTP requests from the web servers must be load-balanced among the application servers. Additionally, the infrastructure must be designed for high availability.
 
-- **adventureazosusesawebapp** para el almacenamiento estándar de los servidores web, los servidores de aplicaciones y los controladores de dominio y sus discos de datos.
-- **adventureazosusesadbclust** para el almacenamiento premium de los servidores de clústeres particionados MongoDB y sus discos de datos.
+The resulting design must incorporate:
 
+- An Azure subscription and account
+- A single resource group
+- Storage accounts
+- A virtual network with two subnets
+- Availability sets for the VMs with a similar role
+- Virtual machines
 
-## Red virtual y subredes
+All the above follow these naming conventions:
 
-Dado que la red virtual no necesita una conectividad continua con la red local de Adventure Work Cycles, la empresa optó por una red virtual solo en la nube.
-
-Creó una red virtual solo en la nube con la siguiente configuración a través del Portal de Azure:
-
-- Nombre: AZOS-USE-VN01
-- Ubicación: Este de EE. UU. 2
-- Espacio de direcciones de red virtual: 10.0.0.0/8
-- Primera subred:
-	- Nombre: FrontEnd
-	- Espacio de direcciones: 10.0.1.0/24
-- Segunda subred:
-	- Nombre: BackEnd
-	- Espacio de direcciones: 10.0.2.0/24
-
-
-## Conjuntos de disponibilidad
-
-Para mantener la alta disponibilidad de los cuatro niveles de su tienda en línea, Adventure Works Cycles optó por cuatro conjuntos de disponibilidad:
-
-- **azos-use-as-web** para los servidores web
-- **azos-use-as-app** para los servidores de aplicaciones
-- **azos-use-as-db** para los servidores del clúster particionado de MongoDB
-- **azos-use-as-dc** para los controladores de dominio
+- Adventure Works Cycles uses **[IT workload]-[location]-[Azure resource]** as a prefix
+    - For this example, "**azos**" (Azure On-line Store) is the IT workload name and "**use**" (East US 2) is the location
+- Storage accounts use adventureazosusesa**[description]**
+    - 'adventure' was added to the prefix to provide uniqueness, and storage account names do not support the use of hyphens.
+- Virtual networks use AZOS-USE-VN**[number]**
+- Availability sets use azos-use-as-**[role]**
+- Virtual machine names use azos-use-vm-**[vmname]**
 
 
-## Máquinas virtuales
+## <a name="azure-subscriptions-and-accounts"></a>Azure subscriptions and accounts
 
-Adventure Works Cycles decidió los siguientes nombres para sus máquinas virtuales de Azure:
-
-- **azos-use-vm-web01** para el primer servidor web
-- **azos-use-vm-web02** para el segundo servidor web
-- **azos-use-vm-app01** para el primer servidor de aplicaciones
-- **azos-use-vm-app02** para el segundo servidor de aplicaciones
-- **azos-use-vm-db01** para el primer servidor MongoDB en el clúster
-- **azos-use-vm-db02** para el segundo servidor MongoDB en el clúster
-- **azos-use-vm-dc01** para el primer controlador de dominio
-- **azos-use-vm-dc02** para el segundo controlador de dominio
-
-Aquí está la configuración resultante.
-
-![Infraestructura de aplicaciones final implementada en Azure](./media/virtual-machines-common-infrastructure-service-guidelines/example-config.png)
-
-Esta configuración incluye:
-
-- Una red virtual solo en la nube con dos subredes (FrontEnd y BackEnd)
-- Dos cuentas de almacenamiento
-- Cuatro conjuntos de disponibilidad, uno para cada nivel de la tienda en línea
-- Las máquinas virtuales para los cuatro niveles
-- Un conjunto externo de carga equilibrada para el tráfico web basado en HTTPS de Internet a los servidores web
-- Un conjunto interno de carga equilibrada para el tráfico web sin cifrar de los servidores web a los servidores de aplicaciones
-- Un único grupo de recursos
+Adventure Works Cycles is using their Enterprise subscription, named Adventure Works Enterprise Subscription, to provide billing for this IT workload.
 
 
-## Pasos siguientes
+## <a name="storage-accounts"></a>Storage accounts
 
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
+Adventure Works Cycles determined that they needed two storage accounts:
 
-<!---HONumber=AcomDC_0914_2016-->
+- **adventureazosusesawebapp** for the standard storage of the web servers, application servers, and domain controllers and their data disks.
+- **adventureazosusesadbclust** for the Premium storage of the MongoDB sharded cluster servers and their data disks.
+
+
+## <a name="virtual-network-and-subnets"></a>Virtual network and subnets
+
+Because the virtual network does not need ongoing connectivity to the Adventure Work Cycles on-premises network, they decided on a cloud-only virtual network.
+
+They created a cloud-only virtual network with the following settings using the Azure portal:
+
+- Name: AZOS-USE-VN01
+- Location: East US 2
+- Virtual network address space: 10.0.0.0/8
+- First subnet:
+    - Name: FrontEnd
+    - Address space: 10.0.1.0/24
+- Second subnet:
+    - Name: BackEnd
+    - Address space: 10.0.2.0/24
+
+
+## <a name="availability-sets"></a>Availability sets
+
+To maintain high availability of all four tiers of their on-line store, Adventure Works Cycles decided on four availability sets:
+
+- **azos-use-as-web** for the web servers
+- **azos-use-as-app** for the application servers
+- **azos-use-as-db** for the servers in the MongoDB sharded cluster
+- **azos-use-as-dc** for the domain controllers
+
+
+## <a name="virtual-machines"></a>Virtual machines
+
+Adventure Works Cycles decided on the following names for their Azure VMs:
+
+- **azos-use-vm-web01** for the first web server
+- **azos-use-vm-web02** for the second web server
+- **azos-use-vm-app01** for the first application server
+- **azos-use-vm-app02** for the second application server
+- **azos-use-vm-db01** for the first MongoDB server in the cluster
+- **azos-use-vm-db02** for the second MongoDB server in the cluster
+- **azos-use-vm-dc01** for the first domain controller
+- **azos-use-vm-dc02** for the second domain controller
+
+Here is the resulting configuration.
+
+![Final application infrastructure deployed in Azure](./media/virtual-machines-common-infrastructure-service-guidelines/example-config.png)
+
+This configuration incorporates:
+
+- A cloud-only virtual network with two subnets (FrontEnd and BackEnd)
+- Two storage accounts
+- Four availability sets, one for each tier of the on-line store
+- The virtual machines for the four tiers
+- An external load balanced set for HTTPS-based web traffic from the Internet to the web servers
+- An internal load balanced set for unencrypted web traffic from the web servers to the application servers
+- A single resource group
+
+
+## <a name="next-steps"></a>Next steps
+
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)] 
+
+
+<!--HONumber=Oct16_HO2-->
+
+

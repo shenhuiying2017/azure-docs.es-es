@@ -1,7 +1,7 @@
 
 <properties
-    pageTitle="Procedimientos recomendados para los clientes de Azure RemoteApp | Microsoft Azure"
-    description="Conozca las prácticas recomendadas para el uso de los clientes de RemoteApp"
+    pageTitle="Best practices for Azure RemoteApp clients | Microsoft Azure"
+    description="Learn about best practices for using the RemoteApp clients"
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -18,15 +18,20 @@
 
 
 
-# Prácticas recomendadas para los clientes de Azure RemoteApp
+
+# <a name="best-practices-for-azure-remoteapp-clients"></a>Best practices for Azure RemoteApp clients
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-La siguiente información puede ayudarle a usar los clientes de Azure RemoteApp:
+The following information can help you use Azure RemoteApp clients:
 
-- Utilice siempre el cliente más reciente. Esto garantiza que la versión del cliente que está ejecutando tiene las últimas correcciones de errores, mejoras y características. Necesitará suscribirse para recibir automáticamente actualizaciones para el cliente en la Tienda adecuada.
+- Always use the latest client. This ensures that the client version you are running has the latest bug fixes, improvements and features. You might need to sign up to automatically receive updates for the client in the appropriate Store.
 
-- RemoteApp cerrará automáticamente la sesión si está inactivo durante un período de tiempo determinado. Para impedir la pérdida de datos, se recomienda cerrar las aplicaciones cuando haya terminado de utilizar el servicio.
+- RemoteApp will automatically log you off if you are inactive for a certain period of time. In order to prevent data loss, we recommend closing your applications when you finish using the service.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

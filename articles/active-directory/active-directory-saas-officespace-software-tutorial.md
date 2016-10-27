@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Integración de Azure Active Directory con OfficeSpace Software | Microsoft Azure" 
-    description="Aprenda cómo usar OfficeSpace Software con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    pageTitle="Tutorial: Azure Active Directory integration with OfficeSpace Software | Microsoft Azure" 
+    description="Learn how to use OfficeSpace Software with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,127 +11,136 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/08/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Tutorial: Integración de Azure Active Directory con OfficeSpace Software
+
+#<a name="tutorial:-azure-active-directory-integration-with-officespace-software"></a>Tutorial: Azure Active Directory integration with OfficeSpace Software
   
-El objetivo de este tutorial es mostrar la integración de Azure e OfficeSpace Software. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+The objective of this tutorial is to show the integration of Azure and OfficeSpace Software.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Una suscripción de Azure válida
--   Un suscripción habilitada para el inicio de sesión único en OfficeSpace Software
+-   A valid Azure subscription
+-   An OfficeSpace Software single sign-on enabled subscription
   
-Después de completar este tutorial, los usuarios de Azure AD que ha asignado a OfficeSpace Software podrán realizar un inicio de sesión único en la aplicación en el sitio de OfficeSpace Software de la compañía (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to OfficeSpace Software will be able to single sign into the application at your OfficeSpace Software company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-La situación descrita en este tutorial consta de los siguientes bloques de creación:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Habilitación de la integración de aplicaciones para OfficeSpace Software
-2.  Configuración del inicio de sesión único
-3.  Configuración del aprovisionamiento de usuario
-4.  Asignación de usuarios
+1.  Enabling the application integration for OfficeSpace Software
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Escenario](./media/active-directory-saas-officespace-software-tutorial/IC777764.png "Escenario")
-##Habilitación de la integración de aplicaciones para OfficeSpace Software
+![Scenario](./media/active-directory-saas-officespace-software-tutorial/IC777764.png "Scenario")
+##<a name="enabling-the-application-integration-for-officespace-software"></a>Enabling the application integration for OfficeSpace Software
   
-El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para OfficeSpace Software.
+The objective of this section is to outline how to enable the application integration for OfficeSpace Software.
 
-###Siga estos pasos para habilitar la integración de aplicaciones para OfficeSpace Software:
+###<a name="to-enable-the-application-integration-for-officespace-software,-perform-the-following-steps:"></a>To enable the application integration for OfficeSpace Software, perform the following steps:
 
-1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-officespace-software-tutorial/IC700993.png "Active Directory")
 
-2.  En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Aplicaciones](./media/active-directory-saas-officespace-software-tutorial/IC700994.png "Aplicaciones")
+    ![Applications](./media/active-directory-saas-officespace-software-tutorial/IC700994.png "Applications")
 
-4.  Haga clic en **Agregar** en la parte inferior de la página.
+4.  Click **Add** at the bottom of the page.
 
-    ![Agregar aplicación](./media/active-directory-saas-officespace-software-tutorial/IC749321.png "Agregar aplicación")
+    ![Add application](./media/active-directory-saas-officespace-software-tutorial/IC749321.png "Add application")
 
-5.  En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Agregar una aplicación de la galería](./media/active-directory-saas-officespace-software-tutorial/IC749322.png "Agregar una aplicación de la galería")
+    ![Add an application from gallerry](./media/active-directory-saas-officespace-software-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  En el **cuadro de búsqueda**, escriba **OfficeSpace Software**.
+6.  In the **search box**, type **OfficeSpace Software**.
 
-    ![Galería de aplicaciones](./media/active-directory-saas-officespace-software-tutorial/IC777765.png "Galería de aplicaciones")
+    ![Application gallery](./media/active-directory-saas-officespace-software-tutorial/IC777765.png "Application gallery")
 
-7.  En el panel de resultados, seleccione **OfficeSpace Software** y, luego, haga clic en **Completa** para agregar la aplicación.
+7.  In the results pane, select **OfficeSpace Software**, and then click **Complete** to add the application.
 
     ![OfficeSpace Software](./media/active-directory-saas-officespace-software-tutorial/IC781007.png "OfficeSpace Software")
-##Configuración del inicio de sesión único
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en OfficeSpace Software con su cuenta de Azure AD usando el protocolo SAML basado en la federación. La configuración de un inicio de sesión único para OfficeSpace Software requiere la recuperación de un valor de huella digital de un certificado. Si no está familiarizado con este procedimiento, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
+The objective of this section is to outline how to enable users to authenticate to OfficeSpace Software with their account in Azure AD using federation based on the SAML protocol.  
+Configuring single sign-on for OfficeSpace Software requires you to retrieve a thumbprint value from a certificate.  
+If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
-###Siga estos pasos para configurar el inicio de sesión único:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **OfficeSpace Software**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  In the Azure classic portal, on the **OfficeSpace Software** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-software-tutorial/IC777766.png "Configurar inicio de sesión único")
+    ![Configure single sign=on](./media/active-directory-saas-officespace-software-tutorial/IC777766.png "Configure single sign=on")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en OfficeSpace Software?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
+2.  On the **How would you like users to sign on to OfficeSpace Software** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-software-tutorial/IC777767.png "Configurar inicio de sesión único")
+    ![Configure single sign-on](./media/active-directory-saas-officespace-software-tutorial/IC777767.png "Configure single sign-on")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de OfficeSpace Software**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en su aplicación OfficeSpace Software (por ejemplo: "*https://company.officespacesoftware.com*") y luego haga clic en **Siguiente**.
+3.  On the **Configure App URL** page, in the **OfficeSpace Software Sign On URL** textbox, type the URL used by your users to sign on to your OfficeSpace Software application (e.g.: "*https://company.officespacesoftware.com*"), and then click **Next**.
 
-    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-officespace-software-tutorial/IC775556.png "Configurar dirección URL de la aplicación")
+    ![Configure App URL](./media/active-directory-saas-officespace-software-tutorial/IC775556.png "Configure App URL")
 
-4.  En la página **Configurar inicio de sesión único en OfficeSpace Software**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado en el equipo.
+4.  On the **Configure single sign-on at OfficeSpace Software** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-software-tutorial/IC793769.png "Configurar inicio de sesión único")
+    ![Configure single sign-on](./media/active-directory-saas-officespace-software-tutorial/IC793769.png "Configure single sign-on")
 
-5.  En otra ventana del explorador web, inicie sesión en como administrador en el sitio de OfficeSpace Software de la compañía.
+5.  In a different web browser window, log into your OfficeSpace Software company site as an administrator.
 
-6.  Vaya a **Administración > Conectores**.
+6.  Go to **Admin \> Connectors**.
 
-    ![Administrador](./media/active-directory-saas-officespace-software-tutorial/IC777769.png "Administrador")
+    ![Admin](./media/active-directory-saas-officespace-software-tutorial/IC777769.png "Admin")
 
-7.  Haga clic en **Autorización de SAML**.
+7.  Click **SAML Authorization**.
 
-    ![Conectores](./media/active-directory-saas-officespace-software-tutorial/IC777770.png "Conectores")
+    ![Connectors](./media/active-directory-saas-officespace-software-tutorial/IC777770.png "Connectors")
 
-8.  En la sección **Autorización SAML**, realice los pasos siguientes:
+8.  In the **SAML Authorization** section, perform the following steps:
 
-    ![Configuración de SAML](./media/active-directory-saas-officespace-software-tutorial/IC777771.png "Configuración de SAML")
+    ![SAML configuration](./media/active-directory-saas-officespace-software-tutorial/IC777771.png "SAML configuration")
 
-    1.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en OfficeSpace Software**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL del proveedor de cierre de sesión**.
-    2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en OfficeSpace Software**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de destino de IdP de cliente**.
-    3.  Copie el valor de **Huella digital** del certificado exportado y luego péguelo en el cuadro de texto **Huella digital del certificado de IdP de cliente**.
+    1.  In the Azure classic portal, on the **Configure single sign-on at OfficeSpace Software** dialogue page, copy the **Remote Login URL** value, and then paste it into the **Logout provider url** textbox.
+    2.  In the Azure classic portal, on the **Configure single sign-on at OfficeSpace Software** dialogue page, copy the **Remote Logout URL** value, and then paste it into the **Client idp target url** textbox.
+    3.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Client idp cert fingerprint** textbox.  
 
         >[AZURE.TIP]
-        Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
+        For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
 
-    4.  Haga clic en **Guardar configuración**.
+    4.  Click **Save Settings**.
 
-9.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-software-tutorial/IC777772.png "Configurar inicio de sesión único")
-##Configuración del aprovisionamiento de usuario
+    ![Configure single sign-on](./media/active-directory-saas-officespace-software-tutorial/IC777772.png "Configure single sign-on")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Para permitir que los usuarios de Azure AD inicien sesión en OfficeSpace Software, tienen que aprovisionarse en OfficeSpace Software. En el caso de OfficeSpace Software, el aprovisionamiento es una tarea automatizada. No hay ningún elemento de acción para usted. Los usuarios se crean automáticamente si es necesario durante el primer intento de inicio de sesión único.
+In order to enable Azure AD users to log into OfficeSpace Software, they must be provisioned into OfficeSpace Software. In the case of OfficeSpace Software, provisioning is an automated task.  
+There is no action item for you.  
+Users are automatically created if necessary during the first single sign-on attempt.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de OfficeSpace Software ofrecida por OfficeSpace Software para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE]You can use any other OfficeSpace Software user account creation tools or APIs provided by OfficeSpace Software to provision AAD user accounts.
 
-##Asignación de usuarios
+##<a name="assigning-users"></a>Assigning users
   
-Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Para asignar usuarios a OfficeSpace Software, lleve a cabo los siguientes pasos:
+###<a name="to-assign-users-to-officespace-software,-perform-the-following-steps:"></a>To assign users to OfficeSpace Software, perform the following steps:
 
-1.  En el Portal de Azure clásico, cree una cuenta de prueba.
+1.  In the Azure classic portal, create a test account.
 
-2.  En la página de integración de aplicaciones de **OfficeSpace Software**, haga clic en **Asignar usuarios**.
+2.  On the **OfficeSpace Software **application integration page, click **Assign users**.
 
-    ![Asignar usuarios](./media/active-directory-saas-officespace-software-tutorial/IC777773.png "Asignar usuarios")
+    ![Assign users](./media/active-directory-saas-officespace-software-tutorial/IC777773.png "Assign users")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sí](./media/active-directory-saas-officespace-software-tutorial/IC767830.png "Sí")
+    ![Yes](./media/active-directory-saas-officespace-software-tutorial/IC767830.png "Yes")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

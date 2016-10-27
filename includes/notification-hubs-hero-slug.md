@@ -1,8 +1,11 @@
 
-El objetivo de este tema es ayudarlo a empezar a usar los Centros de notificaciones lo más rápido posible. En este tema se presenta un ejemplo de escenario de difusión muy sencillo para que pueda concentrarse en los conceptos básicos de los Centros de notificaciones.
+The goal of this topic is to help you get started using Notification Hubs quickly as possible. This topic presents a very simple broadcast scenario example in order to concentrate on the basic concepts for Notification Hubs.
 
-Si ya está familiarizado con los Centros de notificaciones, puede seleccionar otro tema de la barra de navegación izquierda o consultar los vínculos pertinentes en [Pasos siguientes](#next-steps).
+If you are already familiar with Notification Hubs, you may want to select another topic from the left-navigation or see the relevant links in [Next steps](#next-steps).
 
-Nos tomamos muy en serio sus comentarios. Si tiene dificultades para completar este tema o tiene recomendaciones para mejorar este contenido, agradecemos que escriba sus comentarios en la parte inferior de la página.
+We do take your feedback seriously. If you have any difficulties completing this topic, or recommendations for improving this content, we would appreciate your feedback at the bottom of the page.
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

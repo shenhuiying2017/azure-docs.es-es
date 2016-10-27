@@ -1,29 +1,34 @@
 <properties
-	pageTitle="Inicios de sesión desde dispositivos posiblemente infectados"
-	description="Un informe que incluye intentos de inicio de sesión que se han ejecutado desde dispositivos en los que se puede estar ejecutando algún malware (software malintencionado)."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="gchander"
-	editor=""/>
+    pageTitle="Sign ins from possibly infected devices"
+    description="A report that includes sign in attempts that have been executed from devices on which some malware (malicious software) may be running."
+    services="active-directory"
+    documentationCenter=""
+    authors="SSalahAhmed"
+    manager="gchander"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="03/04/2016"
+    ms.author="saah;kenhoff"/>
 
 
-# Inicios de sesión desde dispositivos posiblemente infectados
-Este informe intenta identificar los dispositivos de usuario que se han infectado y ahora forman parte de una red de robots (botnet). Ponemos en correlación las direcciones IP de los inicios de sesión de los usuarios con las direcciones IP que sabemos que están en contacto con servidores de botnets.
 
-Recomendación: este informe marca direcciones IP y no dispositivos de usuario. Se recomienda ponerse en contacto con el usuario y examinar todos sus dispositivos para estar seguro. También es posible que el dispositivo personal del usuario esté infectado o que alguien que no sea el usuario, que estaba usando la misma dirección IP que el usuario, tenga un dispositivo infectado.
+# <a name="sign-ins-from-possibly-infected-devices"></a>Sign ins from possibly infected devices
+This report attempts to identify your users' devices that that have become infected and are now part of a botnet. We correlate IP addresses of users' sign-ins against IP addresses that we know to be in contact with botnet servers.
 
-Para obtener más información acerca de cómo tratar infecciones de malware, consulte el [Centro de protección contra malware](http://go.microsoft.com/fwlink/?linkid=335773).
+Recommendation: This report flags IP addresses, not user devices. We recommend that you contact the user and scan all the user's devices to be certain. It is also possible that a user's personal device is infected, or that someone other than the user, who was using the same IP address as the user, has an infected device.
 
-![Inicios de sesión desde dispositivos posiblemente infectados](./media/active-directory-reporting-sign-ins-from-possibly-infected-devices/signInsFromPossiblyInfectedDevices.PNG)
+For more information about how to address malware infections, see the [Malware Protection Center](http://go.microsoft.com/fwlink/?linkid=335773).
 
-<!---HONumber=AcomDC_0309_2016-->
+![Sign ins from possibly infected devices](./media/active-directory-reporting-sign-ins-from-possibly-infected-devices/signInsFromPossiblyInfectedDevices.PNG)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

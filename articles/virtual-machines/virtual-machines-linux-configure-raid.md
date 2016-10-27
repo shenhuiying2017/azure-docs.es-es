@@ -1,174 +1,179 @@
 <properties 
-	pageTitle="Configuración de RAID de software en una máquina virtual que ejecuta Linux | Microsoft Azure" 
-	description="Aprenda a utilizar mdadm para configurar RAID en Linux en Azure." 
-	services="virtual-machines-linux" 
-	documentationCenter="na" 
-	authors="rickstercdn"  
-	manager="timlt" 
-	editor="tysonn"
-	tag="azure-service-management,azure-resource-manager" />
+    pageTitle="Configure software RAID on a virtual machine running Linux | Microsoft Azure" 
+    description="Learn how to use mdadm to configure RAID on Linux in Azure." 
+    services="virtual-machines-linux" 
+    documentationCenter="na" 
+    authors="rickstercdn"  
+    manager="timlt" 
+    editor="tysonn"
+    tag="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines-linux" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/06/2016" 
-	ms.author="rclaus"/>
+    ms.service="virtual-machines-linux" 
+    ms.workload="infrastructure-services" 
+    ms.tgt_pltfrm="vm-linux" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/06/2016" 
+    ms.author="rclaus"/>
 
 
 
-# Configuración del software RAID en Linux
-Es un escenario habitual usar el software RAID en máquinas virtuales con Linux en Azure para presentar varios discos de datos conectados como un único dispositivo RAID. Se puede utilizar normalmente para aumentar el rendimiento y permitir una capacidad de proceso mejorada en comparación con el uso de un solo disco.
+
+# <a name="configure-software-raid-on-linux"></a>Configure Software RAID on Linux
+It's a common scenario to use software RAID on Linux virtual machines in Azure to present multiple attached data disks as a single RAID device. Typically this can be used to improve performance and allow for improved throughput compared to using just a single disk.
 
 
-## Conexión de discos de datos
-Se necesitan dos o más discos de datos vacíos para configurar un dispositivo RAID. La razón principal para crear un dispositivo RAID es mejorar el rendimiento de la E/S de disco. Según sus requisitos de E/S, puede decidir asociar discos que estén almacenados en nuestro almacenamiento estándar con hasta 500 E/S por segundo por disco o Almacenamiento Premium con hasta 5000 E/S por segundo por disco. En este artículo no entramaremos en detalles sobre cómo asociar discos de datos a una máquina virtual Linux. Consulte el artículo de Microsoft Azure sobre la [conexión de un disco](virtual-machines-linux-add-disk.md) para obtener instrucciones detalladas sobre cómo conectar un disco de datos vacío a una máquina virtual con Linux en Azure.
+## <a name="attaching-data-disks"></a>Attaching data disks
+Two or more empty data disks are needed to configure a RAID device.  The primary reason for creating a RAID device is to improve performance of your disk IO.  Based on your IO needs, you can choose to attach disks that are stored in our Standard Storage, with up to 500 IO/ps per disk or our Premium storage with up to 5000 IO/ps per disk. This article does not go into detail on how to provision and attach data disks to a Linux virtual machine.  See the Microsoft Azure article [attach a disk](virtual-machines-linux-add-disk.md) for detailed instructions on how to attach an empty data disk to a Linux virtual machine on Azure.
 
 
-## Instalación de la utilidad mdadm
+## <a name="install-the-mdadm-utility"></a>Install the mdadm utility
 
 - **Ubuntu**
 
-		# sudo apt-get update
-		# sudo apt-get install mdadm
+        # sudo apt-get update
+        # sudo apt-get install mdadm
 
-- **CentOS y Oracle Linux**
+- **CentOS & Oracle Linux**
 
-		# sudo yum install mdadm
+        # sudo yum install mdadm
 
-- **SLES y openSUSE**
+- **SLES and openSUSE**
 
-		# zypper install mdadm
-
-
-## Creación de las particiones de disco
-En este ejemplo, vamos a crear una única partición de disco en /dev/sdc. Por tanto, la partición de disco nueva se llamará /dev/sdc1.
-
-1. Inicie fdisk para empezar a crear las particiones.
-
-		# sudo fdisk /dev/sdc
-		Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
-		Building a new DOS disklabel with disk identifier 0xa34cb70c.
-		Changes will remain in memory only, until you decide to write them.
-		After that, of course, the previous content won't be recoverable.
-
-		WARNING: DOS-compatible mode is deprecated. It's strongly recommended to
-				 switch off the mode (command 'c') and change display units to
-				 sectors (command 'u').
-
-2. Presione "n" en el símbolo del sistema para crear una partición **n**ueva:
-
-		Command (m for help): n
-
-3. A continuación, presione "p" para crear una partición **p**rincipal:
-
-		Command action
-			e   extended
-			p   primary partition (1-4)
-
-4. Presione "1" para seleccionar el número de la partición 1:
-
-		Partition number (1-4): 1
-
-5. Seleccione el punto de partida de la partición nueva o presione `<enter>` para aceptar el valor predeterminado para colocar la partición al principio del espacio disponible en la unidad:
-
-		First cylinder (1-1305, default 1):
-		Using default value 1
-
-6. Seleccione el tamaño de la partición; por ejemplo, escriba "+10G" para crear una partición de 10 gigabytes. O simplemente presione `<enter>` para crear una única partición que extienda la unidad completa:
-
-		Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
-		Using default value 1305
-
-7. A continuación, cambie el identificador y el **t**ipo de la partición del identificador predeterminado "83" (Linux) por el identificador "fd" (Linux raid auto):
-
-		Command (m for help): t
-		Selected partition 1
-		Hex code (type L to list codes): fd
-
-8. Por último, escriba la tabla de particiones en la unidad y cierre fdisk:
-
-		Command (m for help): w
-		The partition table has been altered!
+        # zypper install mdadm
 
 
-## Creación de la matriz RAID
+## <a name="create-the-disk-partitions"></a>Create the disk partitions
+In this example, we create a single disk partition on /dev/sdc. The new disk partition will be called /dev/sdc1.
 
-1. En el siguiente ejemplo, se "seccionan" (RAID nivel 0) tres particiones ubicadas en tres discos de datos independientes (sdc1, sdd1 y sde1). Después de ejecutar este comando, se creará un nuevo dispositivo RAID llamado **/dev/md127**. Tenga en cuenta también que, si estos discos de datos formaban parte anteriormente de otra matriz RAID inactiva, puede ser necesario agregar el parámetro `--force` al comando `mdadm`:
+1. Start fdisk to begin creating partitions
 
-		# sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
-		  /dev/sdc1 /dev/sdd1 /dev/sde1
+        # sudo fdisk /dev/sdc
+        Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
+        Building a new DOS disklabel with disk identifier 0xa34cb70c.
+        Changes will remain in memory only, until you decide to write them.
+        After that, of course, the previous content won't be recoverable.
 
-2. Cree el sistema de archivos en el nuevo dispositivo RAID.
+        WARNING: DOS-compatible mode is deprecated. It's strongly recommended to
+                 switch off the mode (command 'c') and change display units to
+                 sectors (command 'u').
 
-	**CentOS, Oracle Linux, SLES 12, openSUSE y Ubuntu**
+2. Press 'n' at the prompt to create a **n**ew partition:
 
-		# sudo mkfs -t ext4 /dev/md127
+        Command (m for help): n
 
-	**SLES 11**
+3. Next, press 'p' to create a **p**rimary partition:
 
-		# sudo mkfs -t ext3 /dev/md127
+        Command action
+            e   extended
+            p   primary partition (1-4)
 
-	**SLES 11 y openSUSE**: habilite boot.md y cree mdadm.conf.
+4. Press '1' to select partition number 1:
 
-		# sudo -i chkconfig --add boot.md
-		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
+        Partition number (1-4): 1
 
-	>[AZURE.NOTE] Es posible que sea necesario reiniciar después de realizar estos cambios en los sistemas SUSE. Este paso *no* es necesario en SLES 12.
+5. Select the starting point of the new partition, or press `<enter>` to accept the default to place the partition at the beginning of the free space on the drive:
+
+        First cylinder (1-1305, default 1):
+        Using default value 1
+
+6. Select the size of the partition, for example type '+10G' to create a 10 gigabyte partition. Or, press `<enter>` create a single partition that spans the entire drive:
+
+        Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
+        Using default value 1305
+
+7. Next, change the ID and **t**ype of the partition from the default ID '83' (Linux) to ID 'fd' (Linux raid auto):
+
+        Command (m for help): t
+        Selected partition 1
+        Hex code (type L to list codes): fd
+
+8. Finally, write the partition table to the drive and exit fdisk:
+
+        Command (m for help): w
+        The partition table has been altered!
 
 
-## Incorporación del nuevo sistema de archivos a /etc/fstab
+## <a name="create-the-raid-array"></a>Create the RAID array
 
-**Precaución:** la edición incorrecta del archivo /etc/fstab puede tener como resultado un sistema que no se pueda arrancar. Si no está seguro, consulte la documentación de distribución para obtener información sobre cómo editar correctamente ese archivo. También se recomienda realizar una copia de seguridad del archivo /etc/fstab antes de editarlo.
+1. The following example will "stripe" (RAID level 0) three partitions located on three separate data disks (sdc1, sdd1, sde1).  After running this command a new RAID device called **/dev/md127** is created. Also note that if these data disks we previously part of another defunct RAID array it may be necessary to add the `--force` parameter to the `mdadm` command:
 
-1. Cree el punto de montaje deseado para el nuevo sistema de archivos, por ejemplo:
+        # sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
+          /dev/sdc1 /dev/sdd1 /dev/sde1
 
-		# sudo mkdir /data
+2. Create the file system on the new RAID device
 
-2. Al editar /etc/fstab, el **UUID** debe usarse para hacer referencia al sistema de archivos en lugar de al nombre del dispositivo. Use la utilidad `blkid` para determinar el UUID del nuevo sistema de archivos:
+    **CentOS, Oracle Linux, SLES 12, openSUSE, and Ubuntu**
 
-		# sudo /sbin/blkid
-		...........
-		/dev/md127: UUID="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" TYPE="ext4"
+        # sudo mkfs -t ext4 /dev/md127
 
-3. Abra /etc/fstab en un editor de texto y agregue una entrada al nuevo sistema de archivos, por ejemplo:
+    **SLES 11**
 
-		UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
+        # sudo mkfs -t ext3 /dev/md127
 
-	O en **SLES 11 y openSUSE**:
+    **SLES 11 & openSUSE** - enable boot.md and create mdadm.conf
 
-		/dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
+        # sudo -i chkconfig --add boot.md
+        # sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
 
-	A continuación, guarde y cierre /etc/fstab.
+    >[AZURE.NOTE] A reboot may be required after making these changes on SUSE systems. This step is *not* required on SLES 12.
 
-4. Pruebe que la entrada /etc/fstab sea correcta:
 
-		# sudo mount -a
+## <a name="add-the-new-file-system-to-/etc/fstab"></a>Add the new file system to /etc/fstab
 
-	Si este comando genera un mensaje de error, compruebe la sintaxis del archivo /etc/fstab.
+**Caution:** Improperly editing the /etc/fstab file could result in an unbootable system. If unsure, refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
 
-	A continuación, ejecute el comando `mount` para garantizar el montaje del sistema de archivos:
+1. Create the desired mount point for your new file system, for example:
 
-		# mount
-		.................
-		/dev/md127 on /data type ext4 (rw)
+        # sudo mkdir /data
 
-5. (Opcional) Parámetros de arranque a prueba de errores
+2. When editing /etc/fstab, the **UUID** should be used to reference the file system rather than the device name.  Use the `blkid` utility to determine the UUID for the new file system:
 
-	**Configuración de fstab**
+        # sudo /sbin/blkid
+        ...........
+        /dev/md127: UUID="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" TYPE="ext4"
 
-	Muchas distribuciones incluyen los parámetros de montaje `nobootwait` o `nofail` que pueden agregarse al archivo /etc/fstab. Estos parámetros admiten errores al montar un sistema de archivos concreto y permiten que el sistema Linux continúe iniciándose incluso aunque no pueda montar correctamente el sistema de archivos RAID. Consulte la documentación de su distribución para obtener más información sobre estos parámetros.
+3. Open /etc/fstab in a text editor and add an entry for the new file system, for example:
 
-	Ejemplo (Ubuntu):
+        UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
 
-		UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,nobootwait  0  2
+    Or on **SLES 11 & openSUSE**:
 
-	**Parámetros de inicio de Linux**
+        /dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
 
-	Además de los parámetros anteriores, el parámetro de kernel `bootdegraded=true` puede permitir que el sistema se inicie incluso si RAID se percibe como dañado o degradado, por ejemplo si una unidad de datos se quita accidentalmente de la máquina virtual. De manera predeterminada, esto podría resultar en un sistema no iniciable.
+    Then, save and close /etc/fstab.
 
-	Consulte la documentación sobre la distribución para obtener información acerca de cómo editar correctamente los parámetros de kernel. Por ejemplo, en muchas distribuciones (CentOS, Oracle Linux y SLES 11), estos parámetros pueden agregarse manualmente al archivo "`/boot/grub/menu.lst`". En Ubuntu, este parámetro puede agregarse a la variable `GRUB_CMDLINE_LINUX_DEFAULT` en "/etc/default/grub".
+4. Test that the /etc/fstab entry is correct:
 
-<!---HONumber=AcomDC_0914_2016-->
+        # sudo mount -a
+
+    If this command results in an error message, please check the syntax in the /etc/fstab file.
+
+    Next run the `mount` command to ensure the file system is mounted:
+
+        # mount
+        .................
+        /dev/md127 on /data type ext4 (rw)
+
+5. (Optional) Failsafe Boot Parameters
+
+    **fstab configuration**
+
+    Many distributions include either the `nobootwait` or `nofail` mount parameters that may be added to the /etc/fstab file. These parameters allow for failures when mounting a particular file system and allow the Linux system to continue to boot even if it is unable to properly mount the RAID file system. Refer to your distribution's documentation for more information on these parameters.
+
+    Example (Ubuntu):
+
+        UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,nobootwait  0  2
+
+    **Linux boot parameters**
+
+    In addition to the above parameters, the kernel parameter "`bootdegraded=true`" can allow the system to boot even if the RAID is perceived as damaged or degraded, for example if a data drive is inadvertently removed from the virtual machine. By default this could also result in a non-bootable system.
+
+    Please refer to your distribution's documentation on how to properly edit kernel parameters. For example, in many distributions (CentOS, Oracle Linux, SLES 11) these parameters may be added manually to the "`/boot/grub/menu.lst`" file.  On Ubuntu this parameter can be added to the `GRUB_CMDLINE_LINUX_DEFAULT` variable on "/etc/default/grub".
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

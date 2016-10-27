@@ -1,5 +1,8 @@
-Puede usar un grupo de seguridad de red para controlar el tráfico a una o más máquinas virtuales, instancias de rol, adaptadores de red o subredes de su red virtual. Un grupo de seguridad de red contiene reglas de control de acceso que permitan o denieguen el tráfico según la dirección del tráfico, el protocolo, la dirección de origen y el puerto, y la dirección de destino y el puerto. Las reglas de un grupo de seguridad de red pueden cambiarse en cualquier momento; los cambios se aplican a todas las instancias asociadas.
+You can use an NSG to control traffic to one or more virtual machines (VMs), role instances, network adapters (NICs), or subnets in your virtual network. An NSG contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port. The rules of an NSG can be changed at any time, and changes are applied to all associated instances.
 
-Para obtener más información sobre NSG, visite [¿Qué es un NSG](../articles/virtual-network/virtual-networks-nsg.md).
+For more information about NSGs, visit [what is an NSG](../articles/virtual-network/virtual-networks-nsg.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,326 +1,331 @@
 <properties
-	pageTitle="Uso de la acción de script para instalar Solr en HDInsight basado en Linux | Microsoft Azure"
-	description="Aprenda a instalar Solr en clústeres de Hadoop para HDInsight basados en Linux mediante acciones de script."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="jhubbard"
-	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Use Script Action to install Solr on Linux-based HDInsight | Microsoft Azure"
+    description="Learn how to install Solr on Linux-based HDInsight Hadoop clusters using Script Actions."
+    services="hdinsight"
+    documentationCenter=""
+    authors="Blackmist"
+    manager="jhubbard"
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/13/2016"
-	ms.author="larryfr"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/03/2016"
+    ms.author="larryfr"/>
 
-# Instalación y uso de Solr en clústeres de Hadoop de HDInsight
 
-En este tema aprenderá a instalar Solr en HDInsight de Azure con la acción de script. Solr es una eficaz plataforma de búsqueda eficaz y proporciona capacidades de búsqueda de nivel empresarial en datos administrados por Hadoop. Una vez que haya instalado Solr en un clúster de HDInsight, también aprenderá a buscar datos mediante Solr.
+# <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Install and use Solr on HDInsight Hadoop clusters
 
-> [AZURE.NOTE] Para realizar los pasos que se describen en este documento se requiere un clúster de HDInsight basado en Linux. Para obtener información sobre el uso de Solr con un clúster basado en Windows, vea [Instalación y uso de Solr en clústeres Hadoop de HDinsight (Windows)](hdinsight-hadoop-solr-install.md)
+In this topic, you will learn how to install Solr on Azure HDInsight by using Script Action. Solr is a powerful search platform and provides enterprise-level search capabilities on data managed by Hadoop. Once you have installed Solr on HDInsight cluster, you'll also learn how to search data by using Solr.
 
-El script de ejemplo que se utiliza en este tema crea un clúster de Solr con una configuración concreta. Si desea configurar el clúster de Solr con distintas colecciones, particiones, esquemas o réplicas, entre otras, debe modificar el script y los archivos binarios de Solr en consecuencia.
+> [AZURE.NOTE] The steps in this document require a Linux-based HDInsight cluster. For information on using Solr with a Windows-based cluster, see [Install and use Solr on HDinsight Hadoop clusters (Windows)](hdinsight-hadoop-solr-install.md)
 
-## <a name="whatis"></a>¿Qué es Solr?
+The sample script used in this topic creates a Solr cluster with a specific configuration. If you want to configure the Solr cluster with different collections, shards, schemas, replicas, etc., you must modify the script and Solr binaries accordingly.
 
-[Apache Solr](http://lucene.apache.org/solr/features.html) es una plataforma de búsqueda empresarial que permite una eficaz búsqueda de texto completo en los datos. Si bien Hadoop permite almacenar y administrar grandes cantidades de datos, Apache Solr proporciona las capacidades de búsqueda para recuperar rápidamente los datos. Este tema proporciona instrucciones sobre cómo personalizar un clúster de HDInsight para instalar Solr.
+## <a name="<a-name="whatis"></a>what-is-solr?"></a><a name="whatis"></a>What is Solr?
 
-> [AZURE.WARNING] Los componentes proporcionados con HDInsight son totalmente compatibles. Además, el soporte técnico de Microsoft le ayudará a aislar y resolver problemas relacionados con estos componentes.
+[Apache Solr](http://lucene.apache.org/solr/features.html) is an enterprise search platform that enables powerful full-text search on data. While Hadoop enables storing and managing vast amounts of data, Apache Solr provides the search capabilities to quickly retrieve the data. This topic provides instructions on how to customize an HDInsight cluster to install Solr.
+
+> [AZURE.WARNING] Components provided with the HDInsight cluster are fully supported and Microsoft Support will help to isolate and resolve issues related to these components.
 >
-> Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarlo a solucionar el problema. Esto podría resolver el problema o pedirle que forme parte de los canales disponibles para las tecnologías de código abierto donde se encuentra la más amplia experiencia para esa tecnología. Por ejemplo, hay diversos sitios de la comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/es-ES/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Los proyectos de Apache también tienen sitios de proyecto en [http://apache.org](http://apache.org) (por ejemplo, [Hadoop](http://hadoop.apache.org/)).
+> Custom components, such as Solr, receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/).
 
-## Funcionamiento del script
+## <a name="what-the-script-does"></a>What the script does
 
-Este script realiza los siguientes cambios en el clúster de HDInsight:
+This script makes the following changes to the HDInsight cluster:
 
-* Instala Solr en `/usr/hdp/current/solr`
-* Crea un nuevo usuario, __solrusr__, que se usa para ejecutar el servicio Solr
-* Establece __solruser__ como propietario de `/usr/hdp/current/solr`
-* Agrega una configuración de [Upstart](http://upstart.ubuntu.com/) que iniciará Solr si se reinicia un nodo de clúster. Solr se inicia automáticamente en los nodos del clúster después de la instalación
+* Installs Solr into `/usr/hdp/current/solr`
+* Creates a new user, __solrusr__, which is used to run the Solr service
+* Sets __solruser__ as the owner of `/usr/hdp/current/solr`
+* Adds an [Upstart](http://upstart.ubuntu.com/) configuration that will start Solr if a cluster node restarts. Solr is also automatically started on the cluster nodes after installation
 
-## <a name="install"></a>Instalación de Solr mediante acciones de script
+## <a name="<a-name="install"></a>install-solr-using-script-actions"></a><a name="install"></a>Install Solr using Script Actions
 
-En la siguiente ubicación se encuentra disponible un script de ejemplo para instalar Solr en un clúster de HDInsight.
+A sample script to install Solr on an HDInsight cluster is available at the following location.
 
     https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
 
-En esta sección se proporcionan instrucciones sobre cómo usar el script de ejemplo al crear un nuevo clúster mediante el Portal de Azure.
+This section provides instructions on how to use the sample script when creating a new cluster by using the Azure portal. 
 
-> [AZURE.NOTE] También se puede utilizar Azure PowerShell, la CLI de Azure, el SDK de .NET de HDInsight o las plantillas de Azure Resource Manager para aplicar las acciones de script. También puede aplicar acciones de script a clústeres que ya se estén ejecutando. Para obtener más información, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] Azure PowerShell, the Azure CLI, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Inicie el aprovisionamiento de un clúster siguiendo los pasos que se describen en [Aprovisionamiento de clústeres de HDInsight basado en Linux](hdinsight-provision-linux-clusters.md#portal), pero no complete la operación.
+1. Start provisioning a cluster by using the steps in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md), but do not complete provisioning.
 
-2. En la hoja **Configuración opcional**, seleccione **Acciones de script** y proporcione la información siguiente:
+2. On the **Optional Configuration** blade, select **Script Actions**, and provide the information below:
 
-	* __NOMBRE__: escriba un nombre descriptivo para la acción de script.
-	* __URI DE SCRIPT__: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
-	* __PRINCIPAL__: active esta opción.
-	* __TRABAJO__: active esta opción.
-	* __ZOOKEEPER__: active esta opción para instalar en el nodo Zookeeper.
-	* __PARÁMETROS__: deje este campo en blanco.
+    * __NAME__: Enter a friendly name for the script action.
+    * __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
+    * __HEAD__: Check this option
+    * __WORKER__: Check this option
+    * __ZOOKEEPER__: Check this option to install on the Zookeeper node
+    * __PARAMETERS__: Leave this field blank
 
-3. En la parte inferior de **Acciones de scripts**, use el botón **Seleccionar** para guardar la configuración. Por último, use el botón **Seleccionar** situado en la parte inferior de la hoja **Configuración opcional** para guardar la información de configuración opcional.
+3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
 
-4. Siga aprovisionando el clúster como se describe en [Aprovisionamiento de clústeres de HDInsight basados en Linux](hdinsight-hadoop-create-linux-clusters-portal.md).
+4. Continue provisioning the cluster as described in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-## <a name="usesolr"></a>¿Cómo uso Solr en HDInsight?
+## <a name="<a-name="usesolr"></a>how-do-i-use-solr-in-hdinsight?"></a><a name="usesolr"></a>How do I use Solr in HDInsight?
 
-### Datos de indexación
+### <a name="indexing-data"></a>Indexing data
 
-Debe comenzar con la indización de Solr con algunos archivos de datos. A continuación, puede utilizar Solr para ejecutar consultas de búsqueda en los datos indizados. Use los pasos siguientes para agregar algunos datos de ejemplo a Solr y luego, consúltelo :
+You must start with indexing Solr with some data files. You can then use Solr to run search queries on the indexed data. Use the following steps to add some example data to Solr, and then query it:
 
-1. Conéctese al clúster de HDInsight con SSH:
+1. Connect to the HDInsight cluster using SSH:
 
-		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-	Para obtener más información sobre el uso de SSH con HDInsight, vea lo siguiente:
+    For more information on using SSH with HDInsight, see the following:
 
-	* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-	> [AZURE.IMPORTANT] En unos pasos más adelante en este documento, usará un túnel SSL para conectarse a la interfaz de usuario web Solr. Para poder seguir estos pasos, tiene que establecer un túnel SSL y, a continuación, configurar el explorador para que lo utilice.
-	>
-	> Para obtener más información, consulte [Uso de la tunelación SSH para tener acceso a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md)
+    > [AZURE.IMPORTANT] Steps later in this document make use of an SSL tunnel to connect to the Solr web UI. In order to use these steps, you must establish an SSL tunnel and then configure your browser to use it.
+    >
+    > For more information, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md)
 
-2. Use los siguientes comandos para tener los datos de ejemplo del índice Solr:
+2. Use the following commands to have Solr index sample data:
 
-		cd /usr/hdp/current/solr/example/exampledocs
-		java -jar post.jar solr.xml monitor.xml
+        cd /usr/hdp/current/solr/example/exampledocs
+        java -jar post.jar solr.xml monitor.xml
 
-	Debería ver estos resultados en la consola:
+    You'll see the following output on the console:
 
-		POSTing file solr.xml
-		POSTing file monitor.xml
-		2 files indexed.
-		COMMITting Solr index changes to http://localhost:8983/solr/update..
-		Time spent: 0:00:01.624
+        POSTing file solr.xml
+        POSTing file monitor.xml
+        2 files indexed.
+        COMMITting Solr index changes to http://localhost:8983/solr/update..
+        Time spent: 0:00:01.624
 
-	La utilidad post.jar indexa Solr con dos documentos de muestra, **solr.xml** y **monitor.xml**. Estos se almacenarán en __collection1__ en Solr.
+    The post.jar utility indexes Solr with two sample documents, **solr.xml** and **monitor.xml**. These will be stored in __collection1__ within Solr.
 
-3. Para consultar la API de REST expuestos por Solr, utilice lo siguiente:
+3. Use the following to query the REST API exposed by Solr:
 
-		curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
+        curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
 
-	Esto emite una consulta a __collection1__ sobre cualquier documento coincidente __\*:\*__ (codificado como \*%3A\* en la cadena de consulta) y la respuesta se debe devolver como JSON. Los resultados deberían parecerse a los siguientes:
+    This issues a query against __collection1__ for any documents matching __\*:\*__ (encoded as \*%3A\* in the query string,) and that the response should be returned as JSON. The response should appear similar to the following:
 
-			"response": {
-			    "numFound": 2,
-			    "start": 0,
-			    "maxScore": 1,
-			    "docs": [
-			      {
-			        "id": "SOLR1000",
-			        "name": "Solr, the Enterprise Search Server",
-			        "manu": "Apache Software Foundation",
-			        "cat": [
-			          "software",
-			          "search"
-			        ],
-			        "features": [
-			          "Advanced Full-Text Search Capabilities using Lucene",
-			          "Optimized for High Volume Web Traffic",
-			          "Standards Based Open Interfaces - XML and HTTP",
-			          "Comprehensive HTML Administration Interfaces",
-			          "Scalability - Efficient Replication to other Solr Search Servers",
-			          "Flexible and Adaptable with XML configuration and Schema",
-			          "Good unicode support: héllo (hello with an accent over the e)"
-			        ],
-			        "price": 0,
-			        "price_c": "0,USD",
-			        "popularity": 10,
-			        "inStock": true,
-			        "incubationdate_dt": "2006-01-17T00:00:00Z",
-			        "_version_": 1486960636996878300
-			      },
-			      {
-			        "id": "3007WFP",
-			        "name": "Dell Widescreen UltraSharp 3007WFP",
-			        "manu": "Dell, Inc.",
-			        "manu_id_s": "dell",
-			        "cat": [
-			          "electronics and computer1"
-			        ],
-			        "features": [
-			          "30" TFT active matrix LCD, 2560 x 1600, .25mm dot pitch, 700:1 contrast"
-			        ],
-			        "includes": "USB cable",
-			        "weight": 401.6,
-			        "price": 2199,
-			        "price_c": "2199,USD",
-			        "popularity": 6,
-			        "inStock": true,
-			        "store": "43.17614,-90.57341",
-			        "_version_": 1486960637584081000
-			      }
-			    ]
-			  }
+            "response": {
+                "numFound": 2,
+                "start": 0,
+                "maxScore": 1,
+                "docs": [
+                  {
+                    "id": "SOLR1000",
+                    "name": "Solr, the Enterprise Search Server",
+                    "manu": "Apache Software Foundation",
+                    "cat": [
+                      "software",
+                      "search"
+                    ],
+                    "features": [
+                      "Advanced Full-Text Search Capabilities using Lucene",
+                      "Optimized for High Volume Web Traffic",
+                      "Standards Based Open Interfaces - XML and HTTP",
+                      "Comprehensive HTML Administration Interfaces",
+                      "Scalability - Efficient Replication to other Solr Search Servers",
+                      "Flexible and Adaptable with XML configuration and Schema",
+                      "Good unicode support: héllo (hello with an accent over the e)"
+                    ],
+                    "price": 0,
+                    "price_c": "0,USD",
+                    "popularity": 10,
+                    "inStock": true,
+                    "incubationdate_dt": "2006-01-17T00:00:00Z",
+                    "_version_": 1486960636996878300
+                  },
+                  {
+                    "id": "3007WFP",
+                    "name": "Dell Widescreen UltraSharp 3007WFP",
+                    "manu": "Dell, Inc.",
+                    "manu_id_s": "dell",
+                    "cat": [
+                      "electronics and computer1"
+                    ],
+                    "features": [
+                      "30\" TFT active matrix LCD, 2560 x 1600, .25mm dot pitch, 700:1 contrast"
+                    ],
+                    "includes": "USB cable",
+                    "weight": 401.6,
+                    "price": 2199,
+                    "price_c": "2199,USD",
+                    "popularity": 6,
+                    "inStock": true,
+                    "store": "43.17614,-90.57341",
+                    "_version_": 1486960637584081000
+                  }
+                ]
+              }
 
-### Mediante el panel de Solr
+### <a name="using-the-solr-dashboard"></a>Using the Solr dashboard
 
-El panel de Solr es una interfaz de usuario web que le permite trabajar con Solr mediante el explorador web. El panel de Solr no se expone directamente a Internet desde su clúster de HDInsight, pero debe tener acceso usando un túnel SSH. Para obtener más información sobre el uso de un tune SSH, consulte [Uso de la tunelación SSH para tener acceso a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md)
+The Solr dashboard is a web UI that allows you to work with Solr through your web browser. The Solr dashboard is not exposed directly on the Internet from your HDInsight cluster, but must be accessed using an SSH tunnel. For more information on using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md)
 
-Una vez establecido un túnel SSH, siga estos pasos para usar el panel de Solr:
+Once you have established an SSH tunnel, use the following steps to use the Solr dashboard:
 
-1. Determine el nombre del host del nodo principal primario:
+1. Determine the host name for the primary headnode:
 
-    1. Use SSH para conectarse al clúster en el puerto 22. Por ejemplo, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`, donde __USERNAME__ es el nombre de usuario SSH y __CLUSTERNAME__ es el nombre del clúster.
+    1. Use SSH to connect to the cluster on port 22. For example, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net` where __USERNAME__ is your SSH user name and __CLUSTERNAME__ is the name of your cluster.
 
-        Para más información sobre el uso de SSH, consulte los documentos siguientes:
+        For more information on using SSH, see the following documents:
 
-        * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+        * [Use SSH with Linux-based HDInsight from a Linux, Unix, or Mac OS X client](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-        * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+        * [Use SSH with Linux-based HDInsight from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md)
     
-    3. Use el comando siguiente para obtener el nombre de host completo:
+    3. Use the following command to get the fully qualified hostname:
 
             hostname -f
 
-        Devolverá un nombre similar al siguiente:
+        This will return a name similar to the following:
 
             hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
     
-        Este es el nombre de host que se debe usar en los pasos siguientes.
+        This is the hostname that should be used in the following steps.
     
-1. En el explorador, conéctese a __http://HOSTNAME:8983/solr/#/__, donde __HOSTNAME\_\_ es el nombre que determinó en los pasos anteriores.
+1. In your browser, connect to __http://HOSTNAME:8983/solr/#/__, where __HOSTNAME__ is the name you determined in the previous steps. 
 
-    La solicitud se debe enrutar a través del túnel SSH al nodo principal para el clúster de HDInsight. Debería ver una página similar a la siguiente:
+    The request should be routed through the SSH tunnel to the head node for your HDInsight cluster. You should see a page similar to the following:
 
-	![Imagen del panel de Solr](./media/hdinsight-hadoop-solr-install-linux/solrdashboard.png)
+    ![Image of Solr dashboard](./media/hdinsight-hadoop-solr-install-linux/solrdashboard.png)
 
-2. En el panel izquierdo, use la lista desplegable **Selector principal** para seleccionar **collection1**. Varias entradas aparecerán debajo de __collection1__.
+2. From the left pane, use the **Core Selector** drop-down to select **collection1**. Several entries should them appear below __collection1__.
 
-3. En las entradas que aparecen en __collection1__, seleccione __Consulta__. Use los siguientes valores para rellenar la página de búsqueda:
+3. From the entries below __collection1__, select __Query__. Use the following values to populate the search page:
 
-	* En el cuadro de texto **q**, escriba **\*:**\*. Se devolverán todos los documentos indizados en Solr. Si desea buscar una cadena específica dentro de los documentos, puede especificar esa cadena aquí.
+    * In the **q** text box, enter **\*:**\*. This will return all the documents that are indexed in Solr. If you want to search for a specific string within the documents, you can enter that string here.
 
-	* En el cuadro de texto **wt**, seleccione el formato de salida. El valor predeterminado es **json**.
+    * In the **wt** text box, select the output format. Default is **json**.
 
-	Por último, seleccione el botón **Ejecutar consulta** que aparece en la parte inferior de la página de búsqueda.
+    Finally, select the **Execute Query** button at the bottom of the search pate.
 
-	![Uso de la acción de script para personalizar un clúster](./media/hdinsight-hadoop-solr-install-linux/hdi-solr-dashboard-query.png)
+    ![Use Script Action to customize a cluster](./media/hdinsight-hadoop-solr-install-linux/hdi-solr-dashboard-query.png)
 
-	La salida devuelve los dos documentos utilizados para indizar el Solr. La salida debe ser similar a la siguiente:
+    The output returns the two docs that we used for indexing Solr. The output resembles the following:
 
-			"response": {
-			    "numFound": 2,
-			    "start": 0,
-			    "maxScore": 1,
-			    "docs": [
-			      {
-			        "id": "SOLR1000",
-			        "name": "Solr, the Enterprise Search Server",
-			        "manu": "Apache Software Foundation",
-			        "cat": [
-			          "software",
-			          "search"
-			        ],
-			        "features": [
-			          "Advanced Full-Text Search Capabilities using Lucene",
-			          "Optimized for High Volume Web Traffic",
-			          "Standards Based Open Interfaces - XML and HTTP",
-			          "Comprehensive HTML Administration Interfaces",
-			          "Scalability - Efficient Replication to other Solr Search Servers",
-			          "Flexible and Adaptable with XML configuration and Schema",
-			          "Good unicode support: héllo (hello with an accent over the e)"
-			        ],
-			        "price": 0,
-			        "price_c": "0,USD",
-			        "popularity": 10,
-			        "inStock": true,
-			        "incubationdate_dt": "2006-01-17T00:00:00Z",
-			        "_version_": 1486960636996878300
-			      },
-			      {
-			        "id": "3007WFP",
-			        "name": "Dell Widescreen UltraSharp 3007WFP",
-			        "manu": "Dell, Inc.",
-			        "manu_id_s": "dell",
-			        "cat": [
-			          "electronics and computer1"
-			        ],
-			        "features": [
-			          "30" TFT active matrix LCD, 2560 x 1600, .25mm dot pitch, 700:1 contrast"
-			        ],
-			        "includes": "USB cable",
-			        "weight": 401.6,
-			        "price": 2199,
-			        "price_c": "2199,USD",
-			        "popularity": 6,
-			        "inStock": true,
-			        "store": "43.17614,-90.57341",
-			        "_version_": 1486960637584081000
-			      }
-			    ]
-			  }
+            "response": {
+                "numFound": 2,
+                "start": 0,
+                "maxScore": 1,
+                "docs": [
+                  {
+                    "id": "SOLR1000",
+                    "name": "Solr, the Enterprise Search Server",
+                    "manu": "Apache Software Foundation",
+                    "cat": [
+                      "software",
+                      "search"
+                    ],
+                    "features": [
+                      "Advanced Full-Text Search Capabilities using Lucene",
+                      "Optimized for High Volume Web Traffic",
+                      "Standards Based Open Interfaces - XML and HTTP",
+                      "Comprehensive HTML Administration Interfaces",
+                      "Scalability - Efficient Replication to other Solr Search Servers",
+                      "Flexible and Adaptable with XML configuration and Schema",
+                      "Good unicode support: héllo (hello with an accent over the e)"
+                    ],
+                    "price": 0,
+                    "price_c": "0,USD",
+                    "popularity": 10,
+                    "inStock": true,
+                    "incubationdate_dt": "2006-01-17T00:00:00Z",
+                    "_version_": 1486960636996878300
+                  },
+                  {
+                    "id": "3007WFP",
+                    "name": "Dell Widescreen UltraSharp 3007WFP",
+                    "manu": "Dell, Inc.",
+                    "manu_id_s": "dell",
+                    "cat": [
+                      "electronics and computer1"
+                    ],
+                    "features": [
+                      "30\" TFT active matrix LCD, 2560 x 1600, .25mm dot pitch, 700:1 contrast"
+                    ],
+                    "includes": "USB cable",
+                    "weight": 401.6,
+                    "price": 2199,
+                    "price_c": "2199,USD",
+                    "popularity": 6,
+                    "inStock": true,
+                    "store": "43.17614,-90.57341",
+                    "_version_": 1486960637584081000
+                  }
+                ]
+              }
 
-### Inicio y detención de Solr
+### <a name="starting-and-stopping-solr"></a>Starting and stopping Solr
 
-Si necesita detener o iniciar Solar manualmente, use los siguientes comandos:
+If you need to manually stop or start Solar, use the following commands:
 
-	sudo stop solr
+    sudo stop solr
 
-	sudo start solr
+    sudo start solr
 
-## Copia de seguridad de los datos indizados
+## <a name="backup-indexed-data"></a>Backup indexed data
 
-Se recomienda que cree una copia de seguridad de los datos indexados desde los nodos del clúster de Solr en el almacenamiento de blobs de Azure. Realice los pasos siguientes para ello:
+As a good practice, you should back up the indexed data from the Solr cluster nodes onto Azure Blob storage. Perform the following steps to do so:
 
-1. Conéctese al clúster con SSH y, luego, use el comando siguiente para obtener el nombre del host para el nodo principal:
+1. Connect to the cluster using SSH, then use the following command to get the host name for the head node:
 
         hostname -f
         
-2. Use lo siguiente para crear una instantánea de los datos indexados. Reemplace __HOSTNAME__ por el nombre que devolvió el comando anterior:
+2. Use the following to create a snapshot of the indexed data. Replace __HOSTNAME__ with the name returned from the previous command:
 
-		curl http://HOSTNAME:8983/solr/replication?command=backup
+        curl http://HOSTNAME:8983/solr/replication?command=backup
 
-	Debería obtener una respuesta similar a la siguiente:
+    You should see a response like this:
 
-		<?xml version="1.0" encoding="UTF-8"?>
-		<response>
-		  <lst name="responseHeader">
-		    <int name="status">0</int>
-		    <int name="QTime">9</int>
-		  </lst>
-		  <str name="status">OK</str>
-		</response>
+        <?xml version="1.0" encoding="UTF-8"?>
+        <response>
+          <lst name="responseHeader">
+            <int name="status">0</int>
+            <int name="QTime">9</int>
+          </lst>
+          <str name="status">OK</str>
+        </response>
 
-2. A continuación, cambie al directorio __/usr/hdp/current/solr/example/solr__. Habrá un subdirectorio aquí para cada colección. Cada directorio de la colección contiene un directorio de __datos__, que es donde se encuentra la instantánea de la colección.
+2. Next, change directories to __/usr/hdp/current/solr/example/solr__. There will be a subdirectory here for each collection. Each collection directory contains a __data__ directory, which is where the snapshot for that collection is located.
 
-	Por ejemplo, si usa los pasos anteriores para indexar los documentos de ejemplo, el directorio __/usr/hdp/current/solr/example/solr/collection1/data__ debería contener ahora un directorio denominado __snapshot.###########__ donde los símbolos # se refieren a la fecha y la hora de la instantánea.
+    For example, if you used the steps earlier to index the sample documents, the __/usr/hdp/current/solr/example/solr/collection1/data__ directory should now contain a directory named __snapshot.###########__ where the #'s are the date and time of the snapshot.
 
-3. Cree un archivo comprimido de la carpeta de instantáneas mediante un comando similar al siguiente:
+3. Create a compressed archive of the snapshot folder using a command similar to the following:
 
-		tar -zcf snapshot.20150806185338855.tgz snapshot.20150806185338855
+        tar -zcf snapshot.20150806185338855.tgz snapshot.20150806185338855
 
-	Esto creará un nuevo archivo denominado __snapshot.20150806185338855.tgz__, que contiene el contenido del directorio __snapshot.20150806185338855__.
+    This will create a new archive named __snapshot.20150806185338855.tgz__, which contains the contents of the __snapshot.20150806185338855__ directory.
 
-3. A continuación, puede almacenar el archivo en el almacenamiento principal del clúster con el comando siguiente:
+3. You can then store the archive to the cluster's primary storage using the following command:
 
-	hadoop fs -copyFromLocal snapshot.20150806185338855.tgz /example/data
+    hadoop fs -copyFromLocal snapshot.20150806185338855.tgz /example/data
 
-	> [AZURE.NOTE] Puede que desee crear un directorio dedicado a almacenar las instantáneas Solr. Por ejemplo: `hadoop fs -mkdir /solrbackup`.
+    > [AZURE.NOTE] You may want to create a dedicated directory for storing Solr snapshots. For example, `hadoop fs -mkdir /solrbackup`.
 
-Para obtener más información sobre cómo trabajar con copia de seguridad y restauraciones de Solr, consulte [Making and restoring backups of SolrCores](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores) (Realización y restauración de copias de seguridad de SolrCores).
+For more information on working with Solr backup and restores, see [Making and restoring backups of SolrCores](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores).
 
 
-## Otras referencias
+## <a name="see-also"></a>See also
 
-- [Instalación y uso de Hue en clústeres de HDInsight](hdinsight-hadoop-hue-linux.md). Hue es una interfaz de usuario web que simplifica la creación, la ejecución y el guardado de trabajos de Pig y Hive, así como el examen del almacenamiento predeterminado de su clúster de HDInsight.
+- [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). Hue is a web UI that makes it easy to create, run and save Pig and Hive jobs, as well as browse the default storage for your HDInsight cluster.
 
-- [Instalación de R en clústeres de HDInsight][hdinsight-install-r]. Use la personalización del clúster para instalar R en clústeres de Hadoop para HDInsight. R es un entorno y lenguaje de código abierto para computación estadística. Proporciona cientos de de funciones estadísticas integradas y su propio lenguaje de programación que combina aspectos de la programación funcional y orientada a objetos. También proporciona amplias capacidades gráficas.
+- [Install R on HDInsight clusters][hdinsight-install-r]. Use cluster customization to install R on HDInsight Hadoop clusters. R is an open-source language and environment for statistical computing. It provides hundreds of built-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming. It also provides extensive graphical capabilities.
 
-- [Instalación de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md). Use la personalización del clúster para instalar Giraph en clústeres de Hadoop para HDInsight. Giraph permite realizar un procesamiento gráfico mediante Hadoop, y se puede usar con HDInsight de Azure.
+- [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing by using Hadoop, and can be used with Azure HDInsight.
 
-- [Instalación de Hue en clústeres de HDInsight](hdinsight-hadoop-hue-linux.md). Use la personalización del clúster para instalar Hue en clústeres de Hadoop para HDInsight. Hue es un conjunto de aplicaciones web que se usan para interactuar con un clúster de Hadoop.
+- [Install Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). Use cluster customization to install Hue on HDInsight Hadoop clusters. Hue is a set of Web applications used to interact with a Hadoop cluster.
 
 
 
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

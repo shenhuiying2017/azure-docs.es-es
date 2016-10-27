@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Visualización de operaciones de implementación con la CLI de Azure | Microsoft Azure"
-   description="Describe cómo usar la CLI de Azure para detectar los problemas de la implementación de Resource Manager."
+   pageTitle="View deployment operations with Azure CLI | Microsoft Azure"
+   description="Describes how to use the Azure CLI to detect issues from Resource Manager deployment."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
@@ -17,31 +17,32 @@
    ms.date="08/15/2016"
    ms.author="tomfitz"/>
 
-# Visualización de operaciones de implementación con la CLI de Azure
+
+# <a name="view-deployment-operations-with-azure-cli"></a>View deployment operations with Azure CLI
 
 > [AZURE.SELECTOR]
 - [Portal](resource-manager-troubleshoot-deployments-portal.md)
 - [PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
-- [CLI de Azure](resource-manager-troubleshoot-deployments-cli.md)
-- [API DE REST](resource-manager-troubleshoot-deployments-rest.md)
+- [Azure CLI](resource-manager-troubleshoot-deployments-cli.md)
+- [REST API](resource-manager-troubleshoot-deployments-rest.md)
 
-Si recibe un error al implementar recursos en Azure, quizás desee conocer más detalles acerca de las operaciones de implementación ejecutadas. La CLI de Azure proporciona comandos que permiten buscar los errores y determinar las posibles correcciones.
+If you've received an error when deploying resources to Azure, you may want to see more details about the deployment operations that were executed. Azure CLI provides commands that enable you to find the errors and determine potential fixes.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
-Puede evitar algunos errores si valida la plantilla y la infraestructura antes de la implementación. También puede registrar información adicional sobre solicitudes y respuestas durante la implementación que podría resultarle de ayuda más adelante para solucionar los problemas. Para obtener más información sobre la validación, así como del registro de la información de solicitudes y respuestas, consulte [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy-cli.md) (Implementación de un grupo de recursos con la plantilla de Azure Resource Manager).
+You can avoid some errors by validating your template and infrastructure before deployment. You can also log additional request and response information during deployment that may be helpful later for troubleshooting. To learn about validating, and logging request and response information, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy-cli.md).
 
-## Uso de registros de auditoría para solucionar problemas
+## <a name="use-audit-logs-to-troubleshoot"></a>Use audit logs to troubleshoot
 
 [AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
 
-Para ver los errores de una implementación, siga estos pasos:
+To see errors for a deployment, use the following steps:
 
-1. Para ver los registros de auditoría, ejecute el comando **azure group log show**. Puede incluir la opción **--last- deployment** para recuperar solo el registro de la implementación más reciente.
+1. To see the audit logs, run the **azure group log show** command. You can include the **--last-deployment** option to retrieve only the log for the most recent deployment.
 
         azure group log show ExampleGroup --last-deployment
 
-2. El comando **azure group log show** devuelve mucha información. Para solucionar problemas, lo habitual es centrarse en las operaciones que produjeron un error. El script siguiente usa la opción **--json** y la utilidad [jq](https://stedolan.github.io/jq/) de JSON para buscar en el registro errores de implementación.
+2. The **azure group log show** command returns a lot of information. For troubleshooting, you usually want to focus on operations that failed. The following script uses the **--json** option and the [jq](https://stedolan.github.io/jq/) JSON utility to search the log for deployment failures.
 
         azure group log show ExampleGroup --json | jq '.[] | select(.status.value == "Failed")'
         
@@ -75,24 +76,24 @@ Para ver los errores de una implementación, siga estos pasos:
         },
         "properties": {
           "statusCode": "Conflict",
-          "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name
-            mysite already exists."},{"Code":"Conflict"},{"ErrorEntity":{"Code":"Conflict","Message":"Website with given name mysite already exists.","ExtendedCode":
-            "54001","MessageTemplate":"Website with given name {0} already exists.","Parameters":["mysite"],"InnerErrors":null}}],"Innererror":null}"
+          "statusMessage": "{\"Code\":\"Conflict\",\"Message\":\"Website with given name mysite already exists.\",\"Target\":null,\"Details\":[{\"Message\":\"Website with given name
+            mysite already exists.\"},{\"Code\":\"Conflict\"},{\"ErrorEntity\":{\"Code\":\"Conflict\",\"Message\":\"Website with given name mysite already exists.\",\"ExtendedCode\":
+            \"54001\",\"MessageTemplate\":\"Website with given name {0} already exists.\",\"Parameters\":[\"mysite\"],\"InnerErrors\":null}}],\"Innererror\":null}"
         },
         ...
 
-    Puede ver que **properties** incluye información de json sobre la operación con error.
+    You can see **properties** includes information in json about the failed operation.
 
-    Puede usar las opciones **--verbose** y **-vv** para ver más información de los registros. Use la opción **--verbose** para mostrar los pasos que recorren las operaciones en `stdout`. Para ver un historial completo de la solicitud, use la opción **-vv**. Los mensajes suelen ofrecer pistas fundamentales sobre la causa de cualquier error.
+    You can use the **--verbose** and **-vv** options to see more information from the logs.  Use the **--verbose** option to display the steps the operations go through on `stdout`. For a complete request history, use the **-vv** option. The messages often provide vital clues about the cause of any failures.
 
-3. Para centrarse en el mensaje de estado de las entradas con errores, use el siguiente comando:
+3. To focus on the status message for failed entries, use the following command:
 
-        azure group log show ExampleGroup --json | jq -r ".[] | select(.status.value == "Failed") | .properties.statusMessage"
+        azure group log show ExampleGroup --json | jq -r ".[] | select(.status.value == \"Failed\") | .properties.statusMessage"
 
 
-## Uso de operaciones de implementación para solucionar problemas
+## <a name="use-deployment-operations-to-troubleshoot"></a>Use deployment operations to troubleshoot
 
-1. Obtenga el estado general de una implementación con el comando **azure group deployment show**. En el ejemplo siguiente la implementación produjo un error.
+1. Get the overall status of a deployment with the **azure group deployment show** command. In the example below the deployment has failed.
 
         azure group deployment show --resource-group ExampleGroup --name ExampleDeployment
         
@@ -112,15 +113,19 @@ Para ver los errores de una implementación, siga estos pasos:
         data:    workerSize       String  0
         info:    group deployment show command OK
 
-2. Para ver el mensaje de las operaciones con errores de una implementación, use:
+2. To see the message for failed operations for a deployment, use:
 
-        azure group deployment operation list --resource-group ExampleGroup --name ExampleDeployment --json  | jq ".[] | select(.properties.provisioningState == "Failed") | .properties.statusMessage.Message"
+        azure group deployment operation list --resource-group ExampleGroup --name ExampleDeployment --json  | jq ".[] | select(.properties.provisioningState == \"Failed\") | .properties.statusMessage.Message"
 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-- Para obtener ayuda con la resolución de errores de implementación concretos, consulte [Solución de problemas comunes al implementar recursos en Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- Para obtener más información acerca de cómo usar los registros de auditoría para supervisar otros tipos de acciones, consulte [Operaciones de auditoría con Resource Manager](resource-group-audit.md).
-- Para validar la implementación antes de ejecutarla, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](resource-group-template-deploy.md).
+- For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
+- To learn about using the audit logs to monitor other types of actions, see [Audit operations with Resource Manager](resource-group-audit.md).
+- To validate your deployment before executing it, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

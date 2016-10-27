@@ -1,37 +1,40 @@
-### Configuración de una etiqueta DNS para la dirección IP pública
+### <a name="configure-a-dns-label-for-the-public-ip-address"></a>Configure a DNS Label for the public IP address
 
-Para conectarse al motor de base de datos de SQL Server desde Internet, primero debe configurar una etiqueta DNS para la dirección IP pública.
+To connect to the SQL Server Database Engine from the Internet, first configure a DNS Label for your public IP address.
 
-> [AZURE.NOTE] Si solo piensa conectarse a la instancia de SQL Server desde de la misma red virtual o de forma local, no necesita etiquetas DNS.
+> [AZURE.NOTE] DNS Labels are not required if you plan to only connect to the SQL Server instance within the same Virtual Network or only locally.
 
-Para crear una etiqueta DNS, seleccione primero **Máquinas virtuales** en el portal. Seleccione su máquina virtual de SQL Server para que aparezcan sus propiedades.
+To create a DNS Label, first select **Virtual machines** in the portal. Select your SQL Server VM to bring up its properties.
 
-1. En la hoja de la máquina virtual, seleccione **Dirección IP pública**.
+1. In the virtual machine blade, select your **Public IP address.**
 
-	![dirección ip pública](./media/virtual-machines-sql-server-connection-steps/rm-public-ip-address.png)
+    ![public ip address](./media/virtual-machines-sql-server-connection-steps/rm-public-ip-address.png)
 
-2. En las propiedades de la dirección IP pública, expanda **Configuración**.
+2. In the properties for your Public IP address, expand **Configuration**.
 
-3. Escriba un nombre para la etiqueta DNS. Este nombre es un registro A que se puede usar para conectarse a la máquina virtual de SQL Server utilizando el nombre en lugar de usar directamente la dirección IP.
+3. Enter a DNS Label name. This name is an A Record that can be used to connect to your SQL Server VM by name instead of by IP Address directly.
 
-4. Haga clic en el botón **Save** (Guardar).
+4. Click the **Save** button.
 
-	![etiqueta dns](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
+    ![dns label](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
-### Conexión al motor de base de datos desde otro equipo
+### <a name="connect-to-the-database-engine-from-another-computer"></a>Connect to the Database Engine from another computer
 
-1. En otro equipo que esté conectado a Internet, abra SQL Server Management Studio (SSMS).
+1. On a computer connected to the internet, open SQL Server Management Studio (SSMS).
 
-2. En el cuadro de diálogo **Conectar al servidor** o **Conectarse al motor de base de datos**, edite el valor de **Nombre del servidor**. Escriba el nombre DNS completo de la máquina virtual (que se determinó en la tarea anterior).
+2. In the **Connect to Server** or **Connect to Database Engine** dialog box, edit the **Server name** value. Enter the full DNS name of the virtual machine (determined in the previous task).
 
-3. En el cuadro **Autenticación**, seleccione **Autenticación de SQL Server**.
+3. In the **Authentication** box, select **SQL Server Authentication**.
 
-5. En el cuadro **Inicio de sesión**, escriba un nombre de inicio de sesión de SQL válido.
+5. In the **Login** box, type the name of a valid SQL login.
 
-6. En el cuadro **Contraseña**, escriba la contraseña de inicio de sesión.
+6. In the **Password** box, type the password of the login.
 
-7. Haga clic en **Conectar**.
+7. Click **Connect**.
 
-	![conexión ssms](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
+    ![ssms connect](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
 
-<!---HONumber=AcomDC_0629_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Escenario de aplicación lógica: creación de un desencadenador de Bus de servicio de Funciones de Azure| Microsoft Azure"
-   description="Uso de Funciones de Azure para crear un desencadenador de Bus de servicio para una aplicación lógica"
+   pageTitle="Logic app scenario: Create an Azure Functions Service Bus trigger | Microsoft Azure"
+   description="Use Azure Functions to create a Service Bus trigger for a logic app"
    services="logic-apps,functions"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -16,30 +16,32 @@
    ms.date="05/23/2016"
    ms.author="jehollan"/>
 
-# Escenario de aplicación lógica: creación de un desencadenador de Bus de servicio de Azure mediante Funciones de Azure
 
-Puede utilizar Funciones de Azure para crear un desencadenador para una aplicación lógica cuando necesite implementar un agente de escucha o una tarea de ejecución prolongada. Por ejemplo, puede crear una función de Azure que escuche en una cola y que active inmediatamente una aplicación lógica como desencadenador de push.
+# <a name="logic-app-scenario:-create-an-azure-service-bus-trigger-by-using-azure-functions"></a>Logic app scenario: Create an Azure Service Bus trigger by using Azure Functions
 
-## Compilación de la aplicación lógica
+You can use Azure Functions to create a trigger for a logic app when you need to deploy a long-running listener or task. For example, you can create a function that will listen in on a queue and then immediately fire a logic app as a push trigger.
 
-En este ejemplo, se ejecuta una función para cada aplicación lógica que necesite desencadenarse. En primer lugar, cree una aplicación lógica que tenga un desencadenador de solicitud HTTP. La función llama a ese punto de conexión siempre que se reciba un mensaje en cola.
+## <a name="build-the-logic-app"></a>Build the logic app
 
-1. Cree una aplicación lógica nueva y seleccione el desencadenador **Manual - When an HTTP Request is Received** (Manual: cuando se recibe una solicitud HTTP). Opcionalmente, puede especificar un esquema JSON para usar con el mensaje de cola mediante una herramienta como [jsonschema.net](http://jsonschema.net). Pegue el esquema en el desencadenador. Esto ayuda al diseñador a conocer la forma de los datos y hacer fluir más fácilmente las propiedades a través del flujo de trabajo.
-1. Agregue los pasos adicionales que desee que tengan lugar después de recibir un mensaje en cola. Por ejemplo, enviar un correo electrónico a través de Office 365.
-1. Guarde la aplicación lógica para generar la dirección URL de devolución de llamada para el desencadenador a esta aplicación lógica. La dirección URL aparece en la tarjeta de desencadenador.
+In this example, you have a function running for each logic app that needs to be triggered. First, create a logic app that has an HTTP request trigger. The function calls that endpoint whenever a queue message is received.  
 
-![La dirección URL de devolución de la llamada aparece en la tarjeta de desencadenador.][1]
+1. Create a new logic app; select the **Manual - When an HTTP Request is Received** trigger.  
+   Optionally, you can specify a JSON schema to use with the queue message by using a tool like [jsonschema.net](http://jsonschema.net). Paste the schema in the trigger. This helps the designer understand the shape of the data and more easily flow properties through the workflow.
+1. Add any additional steps that you want to occur after a queue message is received. For example, send an email via Office 365.  
+1. Save the logic app to generate the callback URL for the trigger to this logic app. The URL appears on the trigger card.
 
-## Compilación de la función
+![The callback URL appears on the trigger card][1]
 
-A continuación, es preciso que cree una función que actúe como desencadenador y escuche a la cola.
+## <a name="build-the-function"></a>Build the function
 
-1. En el [portal de Funciones de Azure](https://functions.azure.com/signin), seleccione **Nueva función** y luego seleccione la plantilla **ServiceBusQueueTrigger - C#**.
+Next, you need to create a function that will act as the trigger and listen to the queue.
 
-    ![Portal de Funciones de Azure][2]
+1. In the [Azure Functions portal](https://functions.azure.com/signin), select **New Function**, and then select the **ServiceBusQueueTrigger - C#** template.
 
-2. Configure la conexión a la cola de Bus de servicio (que va a utilizar el agente de escucha `OnMessageReceive()` del SDK del Bus de servicio de Azure).
-3. Escriba una función simple para llamar al punto de conexión de la aplicación lógica (creado anteriormente) usando el mensaje de cola como desencadenador. Este es un ejemplo completo de una función. El ejemplo utiliza un tipo de contenido de mensaje `application/json`, pero puede cambiarlo si es necesario.
+    ![Azure Functions portal][2]
+
+2. Configure the connection to the Service Bus queue (which will use the Azure Service Bus SDK `OnMessageReceive()` listener).
+3. Write a simple function to call the logic app endpoint (created earlier) by using the queue message as a trigger. Here's a full example of a function. The example uses an `application/json` message content type, but you can change this if needed.
 
    ```
    using System;
@@ -60,10 +62,14 @@ A continuación, es preciso que cree una función que actúe como desencadenador
    }
    ```
 
-Para probar, agregue un mensaje en cola a través de una herramienta como el [Explorador de Bus de servicio](https://github.com/paolosalvatori/ServiceBusExplorer). Consulte la aplicación lógica inmediatamente después de que la función reciba el mensaje.
+To test, add a queue message via a tool like [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer). See the logic app fire immediately after the function receives the message.
 
 <!-- Image References -->
 [1]: ./media/app-service-logic-scenario-function-sb-trigger/manualTrigger.PNG
 [2]: ./media/app-service-logic-scenario-function-sb-trigger/newQueueTriggerFunction.PNG
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

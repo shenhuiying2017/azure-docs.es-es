@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Modificación de los prefijos de direcciones IP de la puerta de enlace de red local y la IP de la puerta de enlace | Microsoft Azure"
-   description="Este artículo explica paso a paso cómo cambiar los prefijos de direcciones IP de la puerta de enlace de red local."
+   pageTitle="Modify local network gateway IP address prefixes and gateway IP | Microsoft Azure"
+   description="This article walks you through changing IP address prefixes for your local network gateway"
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -17,24 +17,30 @@
    ms.date="08/08/2016"
    ms.author="cherylmc"/>
 
-# Modificación de la configuración de la puerta de enlace de red local mediante PowerShell
 
-A veces, cambia la configuración de la puerta de enlace de red local AddressPrefix o GatewayIPAddress. Las instrucciones siguientes lo ayudarán a modificar la configuración de la puerta de enlace de red local. También puede modificar estos valores en el Portal de Azure.
+# <a name="modify-local-network-gateway-settings-using-powershell"></a>Modify local network gateway settings using PowerShell
 
-## Antes de empezar
-	
-Necesitará instalar la versión más reciente de los cmdlets de PowerShell del Administrador de recursos de Azure. Consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para obtener más información sobre cómo instalar los cmdlets de PowerShell.
+Sometimes the settings for your local network gateway AddressPrefix or GatewayIPAddress change. The instructions below will help you modify your local network gateway settings. You can also modify these settings in the Azure portal.
 
-## Procedimiento para modificar los prefijos de direcciones IP
+## <a name="before-you-begin"></a>Before you begin
+    
+You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
+
+## <a name="to-modify-ip-address-prefixes"></a>To modify IP address prefixes
 
 [AZURE.INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
-## Procedimiento para modificar la dirección IP de la puerta de enlace
+## <a name="to-modify-the-gateway-ip-address"></a>To modify the gateway IP address
 
 [AZURE.INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-Puede comprobar la conexión de la puerta de enlace. Consulte [Comprobación de una conexión de puerta de enlace](vpn-gateway-verify-connection-resource-manager.md).
+You can verify your gateway connection. See [Verify a gateway connection](vpn-gateway-verify-connection-resource-manager.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

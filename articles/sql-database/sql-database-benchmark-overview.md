@@ -1,133 +1,138 @@
 <properties
-	pageTitle="Información general sobre la prueba comparativa Base de datos SQL de Azure"
-	description="Este tema describe la prueba comparativa Base de datos SQL de Azure Benchmark, que se usa para la medición del rendimiento de la Base de datos SQL de Azure."
-	services="sql-database"
-	documentationCenter="na"
-	authors="CarlRabeler"
-	manager="jhubbard"
-	editor="monicar" />
+    pageTitle="Azure SQL Database benchmark overview"
+    description="This topic describes the Azure SQL Database Benchmark used in measuring the performance of Azure SQL Database."
+    services="sql-database"
+    documentationCenter="na"
+    authors="CarlRabeler"
+    manager="jhubbard"
+    editor="monicar" />
 
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="06/21/2016"
-	ms.author="carlrab" />
+    ms.service="sql-database"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="data-management"
+    ms.date="06/21/2016"
+    ms.author="carlrab" />
 
-# Información general sobre la prueba comparativa Base de datos SQL de Azure
 
-## Información general
-La Base de datos SQL de Microsoft Azure ofrece tres [niveles de servicio](sql-database-service-tiers.md) con varios niveles de rendimiento. Cada nivel de rendimiento proporciona un conjunto de recursos (o "capacidad") cada vez mayor, diseñado para proporcionar un mayor rendimiento.
+# <a name="azure-sql-database-benchmark-overview"></a>Azure SQL Database benchmark overview
 
-Es importante poder cuantificar cómo se traduce la potencia creciente de cada nivel de rendimiento en un rendimiento de base de datos mejorado. Para ello, Microsoft ha desarrollado la prueba comparativa Base de datos SQL de Azure Benchmark (ASDB). La prueba comparativa ejerce una combinación de operaciones básicas que se encuentran en todas las cargas de trabajo OLTP. Medimos el rendimiento conseguido para bases de datos que se ejecuten en cada nivel de rendimiento.
+## <a name="overview"></a>Overview
+Microsoft Azure SQL Database offers three [service tiers](sql-database-service-tiers.md) with multiple performance levels. Each performance level provides an increasing set of resources, or ‘power’, designed to deliver increasingly higher throughput.
 
-Los recursos y la potencia de cada nivel de servicio y nivel de rendimiento se expresan en términos de [unidades de rendimiento de base de datos (DTU)](sql-database-technical-overview.md#understand-dtus). Las DTU proporcionan un modo de describir la capacidad relativa de un nivel de rendimiento basándose en una medición combinada de CPU, memoria y velocidades de lectura y escritura ofrecidas por cada nivel de rendimiento. Doblar la tasa de DTU de una base de datos es equiparable a doblar la potencia de la base de datos. La prueba comparativa nos permite evaluar el impacto en el rendimiento de la base de datos de la cada vez mayor capacidad que ofrece cada nivel de rendimiento realizando operaciones reales en la base de datos, mientras se escala el tamaño de la base de datos, el número de usuarios y las velocidades de transacción en proporción a los recursos proporcionados a la base de datos.
+It is important to be able to quantify how the increasing power of each performance level translates into increased database performance. To do this Microsoft has developed the Azure SQL Database Benchmark (ASDB). The benchmark exercises a mix of basic operations found in all OLTP workloads. We measure the throughput achieved for databases running in each performance level.
 
-Al expresar el rendimiento del nivel de servicio Básico mediante el uso de transacciones por hora, el nivel de servicio Estándar mediante el uso de transacciones por minuto y el nivel de servicio Premium mediante el uso de transacciones por segundo, se facilita la rápida correlación del potencial rendimiento de cada nivel de servicio con los requisitos de una aplicación.
+The resources and power of each service tier and performance level are expressed in terms of [Database Transaction Units (DTUs)](sql-database-technical-overview.md#understand-dtus). DTUs provide a way to describe the relative capacity of a performance level based on a blended measure of CPU, memory, and read and write rates offered by each performance level. Doubling the DTU rating of a database equates to doubling the database power. The benchmark allows us to assess the impact on database performance of the increasing power offered by each performance level by exercising actual database operations, while scaling database size, number of users, and transaction rates in proportion to the resources provided to the database.
 
-## Correlación de los resultados de la prueba comparativa con el rendimiento real de la base de datos
-Es importante comprender que el ASDB, al igual que todas las pruebas comparativas, solo es representativo e indicativo. Las velocidades de transacción logradas con la aplicación de la prueba comparativa no serán iguales que las que se podrían lograr con otras aplicaciones. La prueba comparativa comprende un conjunto de diferentes tipos de transacción ejecutados en un esquema que contiene una variedad de tipos de datos y tablas. Si bien la prueba comparativa ejerce las mismas operaciones básicas que son comunes para todas las cargas de trabajo OLTP, no representa ninguna clase específica de base de datos o aplicación. El objetivo de la prueba comparativa es proporcionar una orientación razonable del rendimiento relativo de una base de datos que se puede esperar al aumentar o reducir el nivel de rendimiento. En realidad, las bases de datos son de distintos tamaños y complejidad, tienen distintas combinaciones de cargas de trabajo y responden de maneras diferentes. Por ejemplo, una aplicación que haga un uso intensivo de ES podría alcanzar antes el umbral de ES, o una que haga un uso intensivo de la CPU podría alcanzar antes los límites de CPU. No se garantiza que una base de datos concreta se escale de la misma manera que la prueba comparativa bajo una carga creciente.
+By expressing the throughput of the Basic service tier using transactions per-hour, the Standard service tier using transactions per-minute, and the Premium service tier using transactions per-second, it makes it easier to quickly relate the performance potential of each service tier to the requirements of an application.
 
-La prueba comparativa y su metodología se describen a continuación de forma más detallada.
+## <a name="correlating-benchmark-results-to-real-world-database-performance"></a>Correlating benchmark results to real world database performance
+It is important to understand that ASDB, like all benchmarks, is representative and indicative only. The transaction rates achieved with the benchmark application will not be the same as those that might be achieved with other applications. The benchmark comprises a collection of different transaction types run against a schema containing a range of tables and data types. While the benchmark exercises the same basic operations that are common to all OLTP workloads, it does not represent any specific class of database or application. The goal of the benchmark is to provide a reasonable guide to the relative performance of a database that might be expected when scaling up or down between performance levels. In reality, databases are of different sizes and complexity, encounter different mixes of workloads, and will respond in different ways. For example, an IO-intensive application may hit IO thresholds sooner, or a CPU-intensive application may hit CPU limits sooner. There is no guarantee that any particular database will scale in the same way as the benchmark under increasing load.
 
-## Resumen de la prueba comparativa
-El ASDB mide el rendimiento de una combinación de operaciones de bases de datos básicas que se producen con mayor frecuencia en las cargas de trabajo de procesamiento de transacciones en línea (OLTP). Aunque la prueba comparativa está diseñada teniendo en cuenta la computación en la nube, el esquema de la base de datos, el rellenado de datos y las transacciones se diseñaron para representar ampliamente los elementos básicos usados con mayor frecuencia en las cargas de trabajo OLTP.
+The benchmark and its methodology are described in more detail below.
 
-## Esquema
-El esquema se ha diseñado para que presente una variedad y complejidad suficientes como para permitir una amplia gama de operaciones. La prueba comparativa se ejecuta en una base de datos formada por seis tablas. Las tablas pertenecen a tres categorías: de tamaño fijo, de escalado y de crecimiento. Existen dos tablas de tamaño fijo, tres tablas de escalado y una tabla de crecimiento. Las tablas de tamaño fijo tienen un número de filas constante. Las tablas de escalado presentan una cardinalidad proporcional al rendimiento de la base de datos, pero no cambian durante la prueba comparativa. La tabla de crecimiento tiene un tamaño igual que la tabla de escalado en la carga inicial, pero después la cardinalidad cambia durante el transcurso de la prueba comparativa según se van insertando y eliminando filas.
+## <a name="benchmark-summary"></a>Benchmark summary
+ASDB measures the performance of a mix of basic database operations which occur most frequently in online transaction processing (OLTP) workloads. Although the benchmark is designed with cloud computing in mind, the database schema, data population, and transactions have been designed to be broadly representative of the basic elements most commonly used in OLTP workloads.
 
-El esquema incluye una combinación de tipos de datos que incluyen valores enteros, numéricos, caracteres y fecha/hora. El esquema incluye claves principales y secundarias, pero no claves externas; es decir, no hay restricciones de integridad referenciales entre las tablas.
+## <a name="schema"></a>Schema
+The schema is designed to have enough variety and complexity to support a broad range of operations. The benchmark runs against a database comprised of six tables. The tables fall into three categories: fixed-size, scaling, and growing. There are two fixed-size tables; three scaling tables; and one growing table. Fixed-size tables have a constant number of rows. Scaling tables have a cardinality that is proportional to database performance, but doesn’t change during the benchmark. The growing table is sized like a scaling table on initial load, but then the cardinality changes in the course of running the benchmark as rows are inserted and deleted.
 
-Un programa de generación de datos genera los datos para la base de datos inicial. Los datos enteros y numéricos se generan con diversas estrategias. En algunos casos, los valores se distribuyen al azar a lo largo de un intervalo. En otros casos, se permuta al azar un conjunto de valores para asegurarse de que se mantiene una distribución específica. Los campos de texto se generan a partir de una lista ponderada de palabras para producir datos con aspecto real.
+The schema includes a mix of data types, including integer, numeric, character, and date/time. The schema includes primary and secondary keys, but not any foreign keys – that is, there are no referential integrity constraints between tables.
 
-La base de datos se dimensiona basándose en un “factor de escala”. El factor de escala (abreviado SF) determina la cardinalidad de las tablas de escalado y de crecimiento. Como se describe a continuación en la sección Usuarios y velocidad, el tamaño de la base de datos, el número de usuarios y el rendimiento máximo se escalan de modo proporcional entre sí.
+A data generation program generates the data for the initial database. Integer and numeric data is generated with various strategies. In some cases, values are distributed randomly over a range. In other cases, a set of values is randomly permuted to ensure that a specific distribution is maintained. Text fields are generated from a weighted list of words to produce realistic looking data.
 
-## Transacciones
-La carga de trabajo consta de nueve tipos de transacciones, como se muestra en la tabla siguiente. Cada transacción se diseño para destacar un conjunto determinado de características del sistema en el motor de la base de datos y en el hardware del sistema, con un elevado contraste con respecto a las otras transacciones. Este enfoque facilita la evaluación del impacto de diferentes componentes sobre el rendimiento global. Por ejemplo, la transacción “Lectura intensa” produce un número significativo de operaciones de lectura de disco.
+The database is sized based on a “scale factor.” The scale factor (abbreviated as SF) determines the cardinality of the scaling and growing tables. As described below in the section Users and Pacing, the database size, number of users, and maximum performance all scale in proportion to each other.
 
-| Tipo de transacción | Descripción |
+## <a name="transactions"></a>Transactions
+The workload consists of nine transaction types, as shown in the table below. Each transaction is designed to highlight a particular set of system characteristics in the database engine and system hardware, with high contrast from the other transactions. This approach makes it easier to assess the impact of different components to overall performance. For example, the transaction “Read Heavy” produces a significant number of read operations from disk.
+
+| Transaction Type | Description |
 |---|---|
-| Lectura ligera | SELECT; en memoria; solo lectura |
-| Lectura mediana | SELECT; principalmente en memoria; solo lectura |
-| Lectura intensa | SELECT; principalmente no en memoria; solo lectura |
-| Actualización ligera | UPDATE; en memoria; solo escritura |
-| Actualización intensa | UPDATE; principalmente no en memoria; solo escritura |
-| Inserción ligera | INSERT; en memoria; solo escritura |
-| Inserción intensa | INSERT; principalmente no en memoria; solo escritura |
-| Eliminar | DELETE; combinación de en memoria y no en memoria; solo lectura |
-| CPU intensa | SELECT; en memoria; carga en CPU relativamente intensa; solo lectura |
+| Read Lite | SELECT; in-memory; read-only |
+| Read Medium | SELECT; mostly in-memory; read-only |
+| Read Heavy | SELECT; mostly not in-memory; read-only |
+| Update Lite | UPDATE; in-memory; read-write |
+| Update Heavy | UPDATE; mostly not in-memory; read-write |
+| Insert Lite | INSERT; in-memory; read-write |
+| Insert Heavy | INSERT; mostly not in-memory; read-write |
+| Delete | DELETE; mix of in-memory and not in-memory; read-write |
+| CPU Heavy | SELECT; in-memory; relatively heavy CPU load; read-only |
 
-## Combinación de cargas de trabajo
-Las transacciones se seleccionan aleatoriamente de una distribución ponderada con la siguiente combinación global. La combinación global presenta una relación de lectura/escritura aproximadamente de 2:1.
+## <a name="workload-mix"></a>Workload mix
+Transactions are selected at random from a weighted distribution with the following overall mix. The overall mix has a read/write ratio of approximately 2:1.
 
-| Tipo de transacción | % de combinación |
+| Transaction Type | % of Mix |
 |---|---|
-| Lectura ligera | 35 |
-| Lectura mediana | 20 | |
-| Lectura intensa | 5 |
-| Actualización ligera | 20 | |
-| Actualización intensa | 3 |
-| Inserción ligera | 3 |
-| Inserción intensa | 2 |
-| Eliminar | 2 |
-| CPU intensa | 10 |
+| Read Lite | 35 |
+| Read Medium | 20 |
+| Read Heavy | 5 |
+| Update Lite | 20 |
+| Update Heavy | 3 |
+| Insert Lite | 3 |
+| Insert Heavy | 2 |
+| Delete | 2 |
+| CPU Heavy | 10 |
 
-## Usuarios y velocidad
-La carga de trabajo de la prueba comparativa está dirigida a partir de una herramienta que envía transacciones a través de un conjunto de conexiones para simular el comportamiento de numerosos usuarios simultáneos. Aunque todas las conexiones y transacciones son generadas a máquina, para simplificar nos referiremos a estas conexiones como “usuarios”. Aunque cada usuario opera independientemente de todos los demás usuarios, todos los usuarios realizan el mismo ciclo de pasos mostrado a continuación:
+## <a name="users-and-pacing"></a>Users and pacing
+The benchmark workload is driven from a tool that submits transactions across a set of connections to simulate the behavior of a number of concurrent users. Although all of the connections and transactions are machine generated, for simplicity we refer to these connections as “users.” Although each user operates independently of all other users, all users perform the same cycle of steps shown below:
 
-1. Establecer una conexión de base de datos.
-2. Repetir hasta que se señale la salida:
-	- Seleccionar una transacción aleatoriamente (a partir de una distribución ponderada).
-	- Realizar la transacción seleccionada y medir el tiempo de respuesta.
-	- Esperar un retraso de velocidad.
-3. Cerrar la conexión de la base de datos.
-4. Salir.
+1. Establish a database connection.
+2. Repeat until signaled to exit:
+    - Select a transaction at random (from a weighted distribution).
+    - Perform the selected transaction and measure the response time.
+    - Wait for a pacing delay.
+3. Close the database connection.
+4. Exit.
 
-El retraso de velocidad (en el paso 2c) se selecciona aleatoriamente, pero con una distribución que tenga un promedio de 1,0 segundos. De este modo, cada usuario puede, en promedio, generar como máximo una transacción por segundo.
+The pacing delay (in step 2c) is selected at random, but with a distribution that has an average of 1.0 second. Thus each user can, on average, generate at most one transaction per second.
 
-## Reglas de escalado
-El número de usuarios viene determinado por el tamaño de la base de datos (en unidades de factor de escala). Hay un usuario por cada cinco unidades de factor de escala. Debido al retraso de velocidad, un usuario puede, en promedio, generar como máximo una transacción por segundo.
+## <a name="scaling-rules"></a>Scaling rules
+The number of users is determined by the database size (in scale-factor units). There is one user for every five scale-factor units. Because of the pacing delay, one user can generate at most one transaction per second, on average.
 
-Por ejemplo, una base de datos que tenga un factor de escala 500 (SF=500) tendrá 100 usuarios y podrá alcanzar una velocidad máxima de 100 TPS. Para generar una velocidad de TPS mayor, son necesarios más usuarios y una base de datos mayor.
+For example, a scale-factor of 500 (SF=500) database will have 100 users and can achieve a maximum rate of 100 TPS. To drive a higher TPS rate requires more users and a larger database.
 
-La tabla siguiente muestra el número de usuarios sostenidos realmente para cada nivel de servicio y nivel de rendimiento.
+The table below shows the number of users actually sustained for each service tier and performance level.
 
-| Nivel de servicio (nivel de rendimiento) | Usuarios | Tamaño de base de datos |
+| Service Tier (Performance Level) | Users | Database Size |
 |---|---|---|
-| Básica | 5 | 720 MB |
-| Estándar (S0) | 10 | 1 GB |
-| Estándar (S1) | 20 | | 2,1 GB |
-| Estándar (S2) | 50 | 7,1 GB |
+| Basic | 5 | 720 MB |
+| Standard (S0) | 10 | 1 GB |
+| Standard (S1) | 20 | 2.1 GB |
+| Standard (S2) | 50 | 7.1 GB |
 | Premium (P1) | 100 | 14 GB |
 | Premium (P2) | 200 | 28 GB |
 | Premium (P6/P3) | 800 | 114 GB |
 
-## Duración de la medición
-Una ejecución válida de la prueba comparativa precisa una duración de medición en estado fijo de al menos una hora.
+## <a name="measurement-duration"></a>Measurement duration
+A valid benchmark run requires a steady-state measurement duration of at least one hour.
 
-## Métricas
-Las métricas clave de la prueba comparativa son rendimiento y tiempo de respuesta.
+## <a name="metrics"></a>Metrics
+The key metrics in the benchmark are throughput and response time.
 
-- El rendimiento es la medición de rendimiento esencial en la prueba comparativa. El rendimiento se indica en transacciones por unidad de tiempo, contando todos los tipos de transacciones.
-- El tiempo de respuesta es una medición de la previsibilidad del rendimiento. La restricción del tiempo de respuesta varía con la clase de servicio, presentando las clases de servicio mayores un requisito de tiempo de respuesta más estricto, como se muestra a continuación.
+- Throughput is the essential performance measure in the benchmark. Throughput is reported in transactions per unit-of-time, counting all transaction types.
+- Response time is a measure of performance predictability. The response time constraint varies with class of service, with higher classes of service having a more stringent response time requirement, as shown below.
 
-| Clase de servicio | Medición del rendimiento | Requisito del tiempo de respuesta |
+| Class of Service  | Throughput Measure | Response Time Requirement |
 |---|---|---|
-| Premium | Transacciones por segundo | Percentil 95 en 0,5 segundos |
-| Standard | Transacciones por minuto | Percentil 90 en 1,0 segundo |
-| Básica | Transacciones por hora | Percentil 80 en 2,0 segundos |
+| Premium | Transactions per second | 95th percentile at 0.5 seconds |
+| Standard | Transactions per minute | 90th percentile at 1.0 seconds |
+| Basic | Transactions per hour | 80th percentile at 2.0 seconds |
 
-## Conclusión
-La prueba comparativa Base de datos SQL de Azure Benchmark mide el rendimiento relativo de la Base de datos SQL de Azure que se ejecuta a lo largo del intervalo de niveles de servicio y niveles de rendimiento disponibles. La prueba comparativa ejerce una combinación de operaciones de bases de datos básicas que se producen con mayor frecuencia en las cargas de trabajo de procesamiento de transacciones en línea (OLTP). Mediante la medición del rendimiento real, la prueba comparativa proporciona una evaluación más significativa del impacto que tiene sobre el rendimiento el cambio del nivel de rendimiento de lo que sería posible con solo enumerando los recursos proporcionados por cada nivel, como velocidad de CPU, tamaño de memoria e IOPS. En el futuro, continuaremos evolucionando la prueba comparativa para ampliar su ámbito y los datos proporcionados.
+## <a name="conclusion"></a>Conclusion
+The Azure SQL Database Benchmark measures the relative performance of Azure SQL Database running across the range of available service tiers and performance levels. The benchmark exercises a mix of basic database operations which occur most frequently in online transaction processing (OLTP) workloads. By measuring actual performance, the benchmark provides a more meaningful assessment of the impact on throughput of changing the performance level than is possible by just listing the resources provided by each level such as CPU speed, memory size, and IOPS. In the future, we will continue to evolve the benchmark to broaden its scope and expand the data provided.
 
-## Recursos
-[Introducción a Base de datos SQL](sql-database-technical-overview.md)
+## <a name="resources"></a>Resources
+[Introduction to SQL Database](sql-database-technical-overview.md)
 
-[Niveles de servicio y niveles de rendimiento](sql-database-service-tiers.md)
+[Service tiers and performance levels](sql-database-service-tiers.md)
 
-[Guía de rendimiento de Base de datos SQL de Azure para bases de datos únicas](sql-database-performance-guidance.md)
+[Performance guidance for single databases](sql-database-performance-guidance.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

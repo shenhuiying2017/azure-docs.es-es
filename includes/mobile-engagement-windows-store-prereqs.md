@@ -1,14 +1,17 @@
 
-Este tutorial requiere lo siguiente:
+This tutorial requires the following:
 
 + Visual Studio 2015
-+ Paquete de Nuget [MicrosoftAzure.MobileEngagement](http://go.microsoft.com/?linkid=9864592)
++ [MicrosoftAzure.MobileEngagement](http://go.microsoft.com/?linkid=9864592) Nuget package
 
-> [AZURE.IMPORTANT] En este tutorial se da por supuesto el uso de Visual Studio 15. También puede usar 13 de Visual Studio, pero esa interfaz de usuario es ligeramente diferente de la que se aparece en este tutorial.
+> [AZURE.IMPORTANT] This tutorial assumes use of Visual Studio 15. You can also use Visual Studio 13, but that user interface is slightly different from what is in this tutorial.
 
 &nbsp;
 
 
-> [AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdocumentation%2Farticles%2Fmobile-engagement-windows-store-dotnet-get-started).
+> [AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-windows-store-dotnet-get-started).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

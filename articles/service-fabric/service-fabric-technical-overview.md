@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Información general sobre la terminología de Service Fabric | Microsoft Azure"
-   description="Descripción sobre la terminología de Service Fabric. Describe la terminología y los conceptos clave que se emplean en el resto de la documentación."
+   pageTitle="Service Fabric terminology overview | Microsoft Azure"
+   description="A terminology overview of Service Fabric. Discusses key terminology concepts and terms used in the rest of the documentation."
    services="service-fabric"
    documentationCenter=".net"
    authors="rwike77"
@@ -16,78 +16,83 @@
    ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
-# Información general sobre la terminología de Service Fabric
 
-Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables. En este tema se describe la terminología que se usa en Service Fabric para comprender los términos que se usan en la documentación.
+# <a name="service-fabric-terminology-overview"></a>Service Fabric terminology overview
 
-## Conceptos de infraestructura
-**Clúster**: conjunto de máquinas físicas o virtuales conectadas a la red en las que se implementan y administran los microservicios. Los clústeres pueden escalar a miles de equipos.
+Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. This topic details the terminology used by Service Fabric in order to understand the terms used in the documentation.
 
-**Nodo**: cada una de las máquinas físicas o virtuales que forman parte de un clúster se denominan "nodo". A cada nodo se le asigna un nombre de nodo (una cadena). Los nodos tienen características como las propiedades de colocación. Cada máquina física o virtual tiene un servicio de Windows de inicio automático, `FabricHost.exe`, que empieza a ejecutarse en el arranque y luego inicia dos ejecutables: `Fabric.exe` y `FabricGateway.exe`. Estos dos ejecutables conforman el nodo. En los escenarios de prueba, se pueden hospedar varios nodos en un solo equipo y máquina virtual mediante la ejecución de varias instancias de `Fabric.exe` y `FabricGateway.exe`.
+## <a name="infrastructure-concepts"></a>Infrastructure concepts
+**Cluster**: A network-connected set of virtual or physical machines into which your microservices are deployed and managed.  Clusters can scale to thousands of machines.
 
-## Conceptos de las aplicaciones
-**Tipo de aplicación**: el nombre o versión asignados a una colección de tipos de servicios. Esta información se define en un archivo `ApplicationManifest.xml`, insertado en un directorio del paquete de aplicación, que luego se copia en el almacén de imágenes del clúster de Service Fabric. Después puede crear una aplicación con nombre de este tipo de aplicación en el clúster.
+**Node**: A machine or VM that is part of a cluster is called a node. Each node is assigned a node name (a string). Nodes have characteristics such as placement properties. Each machine or VM has an auto-start Windows service, `FabricHost.exe`, which starts running upon boot and then starts two executables: `Fabric.exe` and `FabricGateway.exe`. These two executables make up the node. For testing scenarios, you can host multiple nodes on a single machine or VM by running multiple instances of `Fabric.exe` and `FabricGateway.exe`.
 
-Para más información, consulte el artículo [Modelar una aplicación en Service Fabric](service-fabric-application-model.md).
+## <a name="application-concepts"></a>Application concepts
+**Application Type**: The name/version assigned to a collection of service types. Defined in an `ApplicationManifest.xml` file, embedded in an application package directory, which is then copied to the Service Fabric cluster's image store. You can then create a named application from this application type within the cluster.
 
-**Paquete de aplicación**: un directorio del disco que contiene el archivo `ApplicationManifest.xml` del tipo de aplicación. Hace referencia a los paquetes de servicios de cada uno de los tipos de servicios que conforman el tipo de aplicación. Los archivos en el directorio del paquete de aplicación se copian en el almacén de imágenes del clúster de Service Fabric. Por ejemplo, un paquete de aplicación de un tipo de aplicación de correo electrónico puede contener referencias a un paquete de servicios de cola, un paquete de servicios de front-end y un paquete de servicios de base de datos.
+Read the [Application Model](service-fabric-application-model.md) article for more information.
 
-**Aplicación con nombre**: una vez que un paquete de aplicación se copia en el almacén de imágenes, crea una instancia de la aplicación en el clúster especificando el tipo de aplicación del paquete de aplicación (mediante su nombre o versión). A cada instancia del tipo de aplicación se le asigna un nombre de URI similar al siguiente: `"fabric:/MyNamedApp"`. En un clúster se pueden crear varias aplicaciones con nombre de un único tipo de aplicación. También se pueden crear aplicaciones con nombre de diferentes tipos de aplicación. Cada aplicación con nombre se administra de manera independiente y tiene versiones independientes.
+**Application Package**: A disk directory containing the application type's `ApplicationManifest.xml` file. References the service packages for each service type that makes up the application type. The files in the application package directory are copied to Service Fabric cluster's image store. For example, an application package for an email application type could contain references to a queue service package, a frontend service package, and a database service package.
 
-**Tipo de servicio**: el nombre o versión asignados a los paquetes de código, paquetes de datos y paquetes de configuración de un servicio. Se define en un archivo `ServiceManifest.xml`, insertado en un directorio del paquete de servicio, al que después hace referencia un archivo `ApplicationManifest.xml` del paquete de aplicación. En el clúster, después de crear una aplicación con nombre se pude crear un servicio con nombre desde uno de los tipos de servicio del tipo de aplicación. El archivo `ServiceManifest.xml` del tipo de servicio describe el servicio.
+**Named Application**: After an application package is copied to the image store, you create an instance of the application within the cluster by specifying the application package's application type (using its name/version). Each application type instance is assigned a URI name that looks like this: `"fabric:/MyNamedApp"`. Within a cluster, you can create multiple named applications from a single application type. You can also create named applications from different application types. Each named application is managed and versioned independently.      
 
-Para más información, consulte el artículo [Modelar una aplicación en Service Fabric](service-fabric-application-model.md).
+**Service Type**: The name/version assigned to a service's code packages, data packages, and configuration packages. Defined in a `ServiceManifest.xml` file, embedded in a service package directory and the service package directory is then referenced by an application package's `ApplicationManifest.xml` file. Within the cluster, after creating a named application, you can create a named service from one of the application type's service types. The service type's `ServiceManifest.xml` file describes the service.
 
-Existen dos tipos de servicios:
+Read the [Application Model](service-fabric-application-model.md) article for more information.
 
-- **Sin estado:** los servicios sin estado se usan cuando el estado persistente del servicio se almacena en un servicio de almacenamiento externo como Almacenamiento de Azure, Base de datos SQL de Azure o Azure DocumentDB. Utilice un servicio sin estado en el caso de que el servicio no tenga almacenamiento persistente. Por ejemplo, un servicio de calculadora en el que se pasan valores al servicio, se realizan cálculos con dichos valores y se devuelve un resultado.
+There are two types of services:
 
-- **Con estado:** los servicios con estado se usan se desea que Service Fabric administre el estado del servicio a través de sus modelos de programación Reliable Collections o Reliable Actors. Especifique el número de particiones por las que desea distribuir el estado (a efectos de escalabilidad) al crear un servicio con nombre. Especifique también cuántas veces debe replicarse su estado en todos los nodos (para lograr una mayor confiabilidad). Todos los servicios con nombre tienen una única réplica principal y varias réplicas secundarias. Puede modificar el estado de su servicio con nombre escribiendo en la réplica principal. Tras ello, Service Fabric replica este estado en todas las réplicas secundarias, manteniendo el estado sincronizado. Service Fabric detecta automáticamente cuándo se produce un error de una réplica principal y, como respuesta, promueve una de las réplicas secundarias existentes para que ocupe el puesto de réplica principal. Seguidamente, Service Fabric crea una nueva réplica secundaria.
+- **Stateless:** Use a stateless service when the service's persistent state is stored in an external storage service such as Azure Storage, Azure SQL Database, or Azure DocumentDB. Use a stateless service when the service has no persistent storage at all. For example, a calculator service where values are passed to the service, a computation is performed using these values, and a result is returned.
 
-**Paquete de servicio**: un directorio del disco que contiene el archivo `ServiceManifest.xml` del tipo de servicio. Este archivo hace referencia al código, a los datos estáticos y a los paquetes de configuración del tipo de servicio. El archivo `ApplicationManifest.xml` del tipo de aplicación hace referencia a los archivos del directorio del paquete de servicio. Por ejemplo, un paquete de servicio puede hacer referencia al código, a los datos estáticos y a los paquetes de configuración que conforman un servicio de base de datos.
+- **Stateful:** Use a stateful service when you want Service Fabric to manage your service's state via its Reliable Collections or Reliable Actors programming models. Specify how many partitions you want to spread your state over (for scalability) when creating a named service. Also specify how many times to replicate your state across nodes (for reliability). Each named service has a single primary replica and multiple secondary replicas. You modify your named service's state by writing to the primary replica. Service Fabric then replicates this state to all the secondary replicas keeping your state in sync. Service Fabric automatically detects when a primary replica fails and promotes an existing secondary replica to a primary replica. Service Fabric then creates a new secondary replica.  
 
-**Servicio con nombre**: después de crear una aplicación con nombre puede crear una instancia de uno de sus tipos de servicio en el clúster mediante la especificación del tipo de servicio (con su nombre o versión). A cada instancia del tipo de servicio se le asigna un nombre de URI cuyo ámbito es el URI de su aplicación con nombre. Por ejemplo, si crea un servicio con nombre "MyDatabase" en la aplicación con nombre "MyNamedApp", el URI será similar al siguiente: `"fabric:/MyNamedApp/MyDatabase"`. En una aplicación con nombre, se pueden crear varios servicios con nombre. Todos los servicios con nombre pueden tener su propio esquema de partición y cuentas de instancia o réplica.
+**Service Package**: A disk directory containing the service type's `ServiceManifest.xml` file. This file references the code, static data, and configuration packages for the service type. The files in the service package directory are referenced by the application type's `ApplicationManifest.xml` file. For example, a service package could refer to the code, static data, and configuration packages that make up a database service.
 
-**Paquete de código**: un directorio del disco que contiene archivos ejecutables (normalmente EXE o DLL) del tipo de servicio. El archivo `ServiceManifest.xml` del tipo de servicio hace referencia a los archivos del directorio del paquete de código. Cuando se crea un servicio con nombre, el paquete de código se copia en los nodos seleccionados para la ejecución de dicho servicio con nombre. A continuación, el código comienza a ejecutarse. Hay dos tipos de ejecutables de paquetes de código:
+**Named Service**: After creating a named application, you can create an instance of one of its service types within the cluster by specifying the service type (using its name/version). Each service type instance is assigned a URI name scoped under its named application's URI. For example, if you create a "MyDatabase" named service within a "MyNamedApp" named application, the URI looks like: `"fabric:/MyNamedApp/MyDatabase"`. Within a named application, you can create several named services. Each named service can have its own partition scheme and instance/replica counts.
 
-- **Ejecutables de invitado**: ejecutables que se ejecutan tal cual en sistema operativo host (Windows o Linux). Es decir, estos ejecutables no se vinculan ni hacen referencia a los archivos de tiempo de ejecución de Service Fabric y, por consiguiente, no usan ninguno de los modelos de programación de Service Fabric. Estos ejecutables no pueden utilizar algunas características de Service Fabric, como el servicio de nomenclatura para la detección de puntos de conexión. Los ejecutables de invitado no pueden informar de métricas de carga específicas de cada instancia del servicio.
+**Code Package**: A disk directory containing the service type's executable files (typically EXE/DLL files). The files in the code package directory are referenced by the service type's `ServiceManifest.xml` file. When a named service is created, the code package is copied to the one or more nodes selected to run the named service. Then the code starts running. There are two types of code package executables:
 
-- **Ejecutables de host de servicios**: son ejecutables que utilizan los modelos de programación de Service Fabric mediante la vinculación a los archivos del sistema en tiempo de ejecución de Service Fabric, lo que habilita las características de Service Fabric. Por ejemplo, una instancia del servicio con nombre puede registrar puntos de conexión con en el servicio de nombres de Service Fabric y también puede notificar métricas de carga.
+- **Guest executables**: Executables that run as-is on the host operating system (Windows or Linux). That is, these executables do not link to or reference any Service Fabric runtime files and therefore do not use any Service Fabric programming models. These executables are unable to use some Service Fabric features such as the naming service for endpoint discovery. Guest executables cannot report load metrics specific to each service instance.
 
-**Paquete de datos**: un directorio del disco que contiene los archivos de datos de solo lectura estáticos del tipo de servicio (normalmente archivos fotográficos, de sonido y de vídeo). El archivo `ServiceManifest.xml` del tipo de servicio hace referencia a los archivos del directorio del paquete de datos. Cuando se crea un servicio con nombre, el paquete de datos se copia en los nodos seleccionados para la ejecución de dicho servicio con nombre. El código empieza a ejecutarse, tras lo cual se habilita el acceso a los archivos de datos.
+- **Service Host Executables**: Executables that use Service Fabric programming models by linking to Service Fabric runtime files, enabling Service Fabric features. For example, a named service instance can register endpoints with Service Fabric's Naming Service and can also report load metrics.      
 
-**Paquete de configuración**: un directorio del disco que contiene los archivos de configuración de solo lectura estáticos del tipo de servicio (normalmente archivos de texto). El archivo `ServiceManifest.xml` del tipo de servicio hace referencia a los archivos del directorio del paquete de configuración. Cuando se crea un servicio con nombre, los archivos del paquete de configuración se copian en los nodos seleccionados para la ejecución de dicho servicio con nombre. Seguidamente, el código empieza a ejecutarse, tras lo cual se habilita el acceso a los archivos de configuración.
+**Data Package**: A disk directory containing the service type's static, read-only data files (typically photo, sound, and video files). The files in the data package directory are referenced by the service type's `ServiceManifest.xml` file. When a named service is created, the data package is copied to the one or more nodes selected to run the named service.  The code starts running and can now access the data files.
 
-**Esquema de partición**: al crear un servicio con nombre, especifique un esquema de partición. Los servicios con grandes cantidades de estado dividen los datos entre las particiones que los distribuyen entre los nodos del clúster. Esto permite el escalado del estado del servicio con nombre. Dentro de una partición, los servicios con nombre sin estado tienen instancias, mientras que los servicios con nombre con estado tienen réplicas. Normalmente, los servicios con nombre sin estado solo tienen una partición, ya que no tienen un estado interno. Las instancias de la partición se proporcionan para disponibilidad; si se produce un error en una instancia, otras instancias seguirán operando con normalidad y luego Service Fabric creará una nueva instancia. Los servicios con nombre con estado mantienen su estado dentro de las réplicas y cada partición tiene su propio conjunto de réplicas en los que todos los estados se mantienen sincronizados. Si se produce algún error en una réplica, Service Fabric creará una nueva réplica a partir de las réplicas existentes.
+**Configuration Package**: A disk directory containing the service type's static, read-only configuration files (typically text files). The files in the configuration package directory are referenced by the service type's `ServiceManifest.xml` file. When a named service is created, the files in the configuration package are copied to the one or more nodes selected to run the named service. Then the code starts running and can now access the configuration files.
 
-Para obtener más información, consulte el artículo [Partición de Reliable Services de Service Fabric](service-fabric-concepts-partitioning.md).
+**Partition Scheme**: When creating a named service, you specify a partition scheme. Services with large amounts of state split the data across partitions which spreads it across the cluster's nodes. This allows your named service's state to scale. Within a partition, stateless named services have instances while stateful named services have replicas. Usually, stateless named services only ever have one partition since they have no internal state. The partition instances provide for availability; if one instance fails, other instances continue to operate normally and then Service Fabric will create a new instance. Stateful named services maintain their state within replicas and each partition has its own replica set with all the state being kept in sync. Should a replica fail, Service Fabric builds a new replica from the existing replicas.
 
-## Servicios del sistema
-Hay servicios del sistema que se crean en cada clúster que proporcionan las funciones de la plataforma de Service Fabric.
+Read the [Partition Service Fabric reliable services](service-fabric-concepts-partitioning.md) article for more information.
 
-**Servicio de nomenclatura**: servicio presente en cada clúster de Service Fabric, que resuelve los nombres de servicio como una ubicación del clúster. Usted administra las propiedades y los nombres de servicio de manera similar a un servicio de nombres de dominio (DNS) para el clúster. Los clientes pueden comunicarse de forma segura con cualquier nodo del clúster mediante el servicio de nomenclatura para resolver el nombre de un servicio y su ubicación. Los clientes obtienen la dirección IP real de la máquina y el puerto en el que se esté ejecutando. Puede desarrollar servicios y clientes capaces de resolver la ubicación de red actual aunque las aplicaciones se muevan dentro del clúster (por ejemplo, debido a errores, equilibrio de recursos o el ajuste del tamaño del clúster).
+## <a name="system-services"></a>System services
+There are system services that are created in every cluster that provide the platform capabilities of Service Fabric.
 
-Lea [Conexión y comunicación con servicios en Service Fabric](service-fabric-connect-and-communicate-with-services.md) para obtener más información sobre las API de comunicación de clientes y servicios compatibles con el servicio de nomenclatura.
+**Naming Service**: Each Service Fabric cluster has a Naming service, which resolves service names to a location in the cluster. You manage the service names and properties, similar to an internet Domain Name Service (DNS) for the cluster. Clients securely communicate with any node in the cluster using the Naming Service to resolve a service name and its location.  Clients obtain the actual machine IP address and port where it is currently running. You can develop services and clients capable of resolving the current network location despite applications being moved within the cluster for example due to failures, resource balancing, or the resizing of the cluster.
 
-**Servicio de almacenamiento de imágenes**: cada clúster de Service Fabric tiene un servicio de almacenamiento de imágenes donde se guardan los paquetes de aplicación implementados y con versión. Copie un paquete de aplicación en el almacén de imágenes y luego registre el tipo de aplicación en dicho paquete. Después de aprovisionar el tipo de aplicación, cree una aplicación con nombre a partir de él. El registro de un tipo de aplicación del servicio de almacenamiento de imágenes se puede anular una vez eliminadas todas sus aplicaciones con nombre.
+Read [Communicate with services](service-fabric-connect-and-communicate-with-services.md) for more information on the client and service communication APIs that work with the Naming service.
 
-Para obtener más información sobre la implementación en el almacén de imágenes, consulte el artículo [Implementación de una aplicación](service-fabric-deploy-remove-applications.md).
+**Image Store Service**: Each Service Fabric cluster has an Image Store service where deployed, versioned application packages are kept. Copy an application package to the Image Store and then register the application type contained within that application package. After the application type is provisioned, you create a named applications from it. You can unregister an application type from the Image Store service after all its named applications have been deleted.
 
-## Modelos de programación integrados
-Hay modelos de programación de .NET Framework disponibles para generar servicios de Service Fabric:
+Read the [Deploy an application](service-fabric-deploy-remove-applications.md) article for more information on deploying applications to the Image store service.
 
-**Reliable Services**: una API para generar servicios con y sin estado. Los servicios con estado almacenan su estado en Reliable Collections (como un diccionario o una cola). También le permiten de conectar una amplia variedad de pilas de comunicación, como la API de web y Windows Communication Foundation (WCF).
+## <a name="built-in-programming-models"></a>Built-in programming models
+There are .NET Framework programming models available for you to build Service Fabric services:
 
-**Reliable Actors**: una API para crear objetos con y sin estado a través del modelo de programación de actor virtual. Este modelo puede resultar útil cuando hay muchas unidades independientes de cálculo/estado. Dado que este modelo utiliza un modelo de subprocesos basado en turnos, es conveniente evitar usar código que llame a otros actores o servicios, ya que un actor individual no puede procesar otras solicitudes entrantes hasta que se completen todas sus solicitudes salientes.
+**Reliable Services**: An API to build stateless and stateful services. Stateful service store their state in Reliable Collections (such as a dictionary or a queue). You also get to plug in a variety of communication stacks such as Web API and Windows Communication Foundation (WCF).
 
-Para obtener más información, consulte el artículo [Elección de un marco para su servicio](service-fabric-choose-framework.md).
+**Reliable Actors**: An API to build stateless and stateful objects through the virtual Actor programming model. This model can be useful when you have lots of independent units of computation/state. Because this model uses a turn-based threading model, it is best to avoid code that calls out to other actors or services since an individual actor cannot process other incoming requests until all its outbound requests have completed.
+
+Read the [Choose a Programming Model for your service](service-fabric-choose-framework.md) article for more information.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Pasos siguientes
-Para más información acerca de Service Fabric:
+## <a name="next-steps"></a>Next steps
+To learn more about Service Fabric:
 
-- [Información general de Service Fabric](service-fabric-overview.md)
-- [¿Por qué usar un enfoque de microservicios para crear aplicaciones?](service-fabric-overview-microservices.md)
-- [Escenarios de aplicación](service-fabric-application-scenarios.md)
+- [Overview of Service Fabric](service-fabric-overview.md)
+- [Why a microservices approach to building applications?](service-fabric-overview-microservices.md)
+- [Application scenarios](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Información general del Proveedor de recursos de red | Microsoft Azure"
-   description="Más información sobre el nuevo Proveedor de recursos de red del Administrador de recursos de Azure"
+   pageTitle="Network Resource Provider Overview | Microsoft Azure"
+   description="Learn about the new Network Resource Provider in Azure Resource Manager"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -15,44 +15,45 @@
    ms.date="03/15/2016"
    ms.author="jdial" />
 
-# Proveedor de recursos de red
-Una necesidad que sustenta el éxito de un negocio hoy en día es la capacidad de crear y administrar aplicaciones compatibles con redes de gran escala de una forma ágil, flexible, segura y repetible. El Administrador de recursos de Azure (ARM) permite crear aplicaciones, como una única colección de recursos en grupos de recursos. Estos recursos se administran a través de diversos proveedores de recursos en el Administrador de recursos de Azure.
 
-El Administrador de recursos de Azure utiliza distintos proveedores de recursos para proporcionar acceso a los recursos. Hay tres proveedores de recursos principales: redes, almacenamiento y proceso. En este documento, se describen las características y ventajas del proveedor de recursos de red, entre otros:
+# <a name="network-resource-provider"></a>Network Resource Provider
+An underpinning need in today’s business success, is the ability to build and manage large scale network aware applications in an agile, flexible, secure and repeatable way. Azure Resource Manager (ARM) enables you to create such applications, as a single collection of resources in resource groups. Such resources are managed through various resource providers under ARM.
 
-- **Metadatos**: puede agregar información a los recursos mediante etiquetas. Estas etiquetas pueden utilizarse para realizar el seguimiento de la utilización de recursos en todas las suscripciones y los grupos de recursos.
-- **Mayor control de la red**: los recursos de red están acoplados holgadamente y los puede controlar de forma más detallada. Esto significa que tendrá una mayor flexibilidad en la administración de los recursos de red.
-- **Configuración más rápida**: dado que los recursos de red están acoplados holgadamente, puede crear y organizar los recursos de red en paralelo. Esto ha reducido drásticamente el tiempo de configuración.
-- **Control de acceso basado en rol (RBAC)**: RBAC proporciona roles predeterminados, con un ámbito de seguridad específico, además de permitir la creación de roles personalizados para una administración segura.
-- **Administración e implementación más sencillas**: resulta más fácil implementar y administrar aplicaciones, ya que puede crear una pila de toda la aplicación como una única colección de recursos en un grupo de recursos. Y más rápido de implementar, ya que es posible hacerlo con solo proporcionar una carga JSON de la plantilla.
-- **Personalización rápida**: puede utilizar las plantillas de estilo declarativo para habilitar la personalización repetible y rápida de las implementaciones.
-- **Personalización repetible**: puede utilizar las plantillas de estilo declarativo para habilitar la personalización repetible y rápida de las implementaciones.
-- **Interfaces de administración**: puede utilizar cualquiera de las siguientes interfaces para administrar los recursos:
-	- API basadas en REST
-	- PowerShell
-	- .NET SDK
-	- SDK de Node.JS
-	- SDK de Java
-	- Azure CLI
-	- Portal de vista previa
-	- Lenguaje de la plantilla del Administrador de recursos de Azure
+Azure Resource Manager relies on different resource providers to provide access to your resources. There are three main resource providers: Network, Storage and Compute. This document discusses the characteristics and benefits of the Network Resource Provider, including:
 
-## Recursos de red
-Ahora puede administrar los recursos de red de forma independiente, en lugar de tener hacerlo a través de un recurso de proceso único (una máquina virtual). Esto garantiza un mayor grado de flexibilidad y agilidad a la hora de componer una infraestructura compleja y de gran escala en un grupo de recursos.
+- **Metadata** – you can add information to resources using tags. These tags can be used to track resource utilization across resource groups and subscriptions.
+- **Greater control of your network** - network resources are loosely coupled and you can control them in a more granular fashion. This means you have more flexibility in managing the networking resources.
+- **Faster configuration** - because network resources are loosely coupled, you can create and orchestrate network resources in parallel. This has drastically reduced configuration time.
+- **Role Based Access Control** - RBAC provides default roles, with specific security scope, in addition to allowing the creation of custom roles for secure management.
+- **Easier management and deployment** - it’s easier to deploy and manage applications since you can can create an entire application stack as a single collection of resources in a resource group. And faster to deploy, since you can deploy by simply providing a template JSON payload.
+- **Rapid customization** - you can use declarative-style templates to enable repeatable and rapid customization of deployments.
+- **Repeatable customization** - you can use declarative-style templates to enable repeatable and rapid customization of deployments.
+- **Management interfaces** - you can use any of the following interfaces to manage your resources:
+    - REST based API
+    - PowerShell
+    - .NET SDK
+    - Node.JS SDK
+    - Java SDK
+    - Azure CLI
+    - Preview Portal
+    - ARM template language
 
-A continuación se presenta una vista conceptual de una implementación de ejemplo que implica una aplicación de varios niveles. Todos los recursos que vea, por ejemplo, las NIC, las direcciones IP públicas y las máquinas virtuales, pueden administrarse de forma independiente.
+## <a name="network-resources"></a>Network resources
+You can now manage network resources independently, instead of having them all managed through a single compute resource (a virtual machine). This ensures a higher degree of flexibility and agility in composing a complex and large scale infrastructure in a resource group.
 
-![Modelo de recursos de red](./media/resource-groups-networking/Figure2.png)
+A conceptual view of a sample deployment involving a multi-tiered application is presented below. Each resource you see, such as NICs, public IP addresses, and VMs, can be managed independently.
 
-Cada recurso contiene un conjunto común de propiedades y un conjunto de propiedades individual. Las propiedades comunes son:
+![Network resource model](./media/resource-groups-networking/Figure2.png)
 
-|Propiedad|Description|Valores de ejemplo|
+Every resource contains a common set of properties, and their individual property set. The common properties are:
+
+|Property|Description|Sample values|
 |---|---|---|
-|**name**|Nombre de recurso único. Cada tipo de recurso tiene sus propias restricciones de nomenclatura.|PIP01, VM01, NIC01|
-|**ubicación**|Región de Azure en la que reside el recurso.|westus, eastus|
-|**id**|URI único basado en la identificación|/subscriptions/<subGUID>/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestPIP|
+|**name**|Unique resource name. Each resource type has its own naming restrictions.|PIP01, VM01, NIC01|
+|**location**|Azure region in which the resource resides|westus, eastus|
+|**id**|Unique URI based identification|/subscriptions/<subGUID>/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestPIP|
 
-Puede comprobar las propiedades individuales de los recursos en las secciones siguientes.
+You can check the individual properties of resources in the sections below.
 
 [AZURE.INCLUDE [virtual-networks-nrp-pip-include](../../includes/virtual-networks-nrp-pip-include.md)]
 
@@ -74,194 +75,198 @@ Puede comprobar las propiedades individuales de los recursos en las secciones si
 
 [AZURE.INCLUDE [virtual-networks-nrp-tm-include](../../includes/virtual-networks-nrp-tm-include.md)]
 
-## Interfaces de administración
-Puede administrar los recursos de redes de Azure mediante distintas interfaces. En este documento, nos centraremos en las interfaces API de REST y las plantillas.
+## <a name="management-interfaces"></a>Management interfaces
+You can manage your Azure networking resources using different interfaces. In this document we will focus on tow of those interfaces: REST API, and templates.
 
-### API de REST
-Como se mencionó anteriormente, se pueden administrar los recursos de red a través de una variedad de interfaces, incluidas API de REST, .NET SDK, SDK de Node.JS, SDK de Java, PowerShell, CLI, Portal de Azure y plantillas.
+### <a name="rest-api"></a>REST API
+As mentioned earlier, network resources can be managed via a variety of interfaces, including REST API,.NET SDK, Node.JS SDK, Java SDK, PowerShell, CLI, Azure Portal and templates.
 
-Las API de REST se ajustan a la especificación del protocolo HTTP 1.1. A continuación se presenta la estructura general de URI de la API:
+The Rest API’s conform to the HTTP 1.1 protocol specification. The general URI structure of the API is presented below:
 
-	https://management.azure.com/subscriptions/{subscription-id}/providers/{resource-provider-namespace}/locations/{region-location}/register?api-version={api-version}
+    https://management.azure.com/subscriptions/{subscription-id}/providers/{resource-provider-namespace}/locations/{region-location}/register?api-version={api-version}
 
-Y los parámetros entre llaves representan los elementos siguientes:
+And the parameters in braces represent the following elements:
 
-- **subscription-id**: identificador de su suscripción a Azure.
-- **resource-provider-namespace**: espacio de nombres para el proveedor que se utiliza. El valor para el proveedor de recursos de red es *Microsoft.Network*.
-- **region-name**: el nombre de la región de Azure.
+- **subscription-id** - your Azure subscription id.
+- **resource-provider-namespace** - namespace for the provider being used. THe value for the network resource provider is *Microsoft.Network*.
+- **region-name** - the Azure region name
 
-Se admiten los siguientes métodos HTTP cuando se realizan llamadas a la API de REST:
+The following HTTP methods are supported when making calls to the REST API:
 
-- **PUT**: se utiliza para crear un recurso de un tipo determinado, modificar una propiedad de recurso o cambiar una asociación entre recursos.
-- **GET**: se utiliza para recuperar información para un recurso aprovisionado.
-- **DELETE**: se utiliza para eliminar un recurso existente.
+- **PUT** - used to create a resource of a given type, modify a resource property or change an association between resources.
+- **GET** - used to retrieve information for a provisioned resource.
+- **DELETE** - used to delete an existing resource.
 
-La solicitud y la respuesta se ajustan a un formato de carga JSON. Para obtener más información, consulte [API de administración de recursos de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx).
+Both the request and response conform to a JSON payload format. For more details, see [Azure Resource Management APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx).
 
-### Lenguaje de la plantilla del Administrador de recursos de Azure
-Además de administrar recursos de forma imperativa (a través de API o SDK), también puede utilizar un estilo de programación declarativo para crear y administrar recursos de red mediante el lenguaje de la plantilla del Administrador de recursos de Azure.
+### <a name="arm-template-language"></a>ARM template language
+In addition to managing resources imperatively (via APIs or SDK), you can also use a declarative programming style to build and manage network resources by using the ARM Template Language.
 
-A continuación se proporciona una representación de una plantilla de ejemplo:
+A sample representation of a template is provided below –
 
-	{
-	  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
-	  "contentVersion": "<version-number-of-template>",
-	  "parameters": { <parameter-definitions-of-template> },
-	  "variables": { <variable-definitions-of-template> },
-	  "resources": [ { <definition-of-resource-to-deploy> } ],
-	  "outputs": { <output-of-template> }    
-	}
+    {
+      "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+      "contentVersion": "<version-number-of-template>",
+      "parameters": { <parameter-definitions-of-template> },
+      "variables": { <variable-definitions-of-template> },
+      "resources": [ { <definition-of-resource-to-deploy> } ],
+      "outputs": { <output-of-template> }    
+    }
 
-La plantilla es principalmente una descripción de JSON de los recursos y los valores de instancia insertados a través de parámetros. El ejemplo siguiente puede utilizarse para crear una red virtual con dos subredes.
+The template is primarily a JSON description of the resources and the instance values injected via parameters. The example below can be used to create a virtual network with 2 subnets.
 
-	{
-	    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/VNET.json",
-	    "contentVersion": "1.0.0.0",
-	    "parameters" : {
-	      "location": {
-	        "type": "String",
-	        "allowedValues": ["East US", "West US", "West Europe", "East Asia", "South East Asia"],
-	        "metadata" : {
-	          "Description" : "Deployment location"
-	        }
-	      },
-	      "virtualNetworkName":{
-	        "type" : "string",
-	        "defaultValue":"myVNET",
-	        "metadata" : {
-	          "Description" : "VNET name"
-	        }
-	      },
-	      "addressPrefix":{
-	        "type" : "string",
-	        "defaultValue" : "10.0.0.0/16",
-	        "metadata" : {
-	          "Description" : "Address prefix"
-	        }
+    {
+        "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/VNET.json",
+        "contentVersion": "1.0.0.0",
+        "parameters" : {
+          "location": {
+            "type": "String",
+            "allowedValues": ["East US", "West US", "West Europe", "East Asia", "South East Asia"],
+            "metadata" : {
+              "Description" : "Deployment location"
+            }
+          },
+          "virtualNetworkName":{
+            "type" : "string",
+            "defaultValue":"myVNET",
+            "metadata" : {
+              "Description" : "VNET name"
+            }
+          },
+          "addressPrefix":{
+            "type" : "string",
+            "defaultValue" : "10.0.0.0/16",
+            "metadata" : {
+              "Description" : "Address prefix"
+            }
 
-	      },
-	      "subnet1Name": {
-	        "type" : "string",
-	        "defaultValue" : "Subnet-1",
-	        "metadata" : {
-	          "Description" : "Subnet 1 Name"
-	        }
-	      },
-	      "subnet2Name": {
-	        "type" : "string",
-	        "defaultValue" : "Subnet-2",
-	        "metadata" : {
-	          "Description" : "Subnet 2 name"
-	        }
-	      },
-	      "subnet1Prefix" : {
-	        "type" : "string",
-	        "defaultValue" : "10.0.0.0/24",
-	        "metadata" : {
-	          "Description" : "Subnet 1 Prefix"
-	        }
-	      },
-	      "subnet2Prefix" : {
-	        "type" : "string",
-	        "defaultValue" : "10.0.1.0/24",
-	        "metadata" : {
-	          "Description" : "Subnet 2 Prefix"
-	        }
-	      }
-	    },
-	    "resources": [
-	    {
-	      "apiVersion": "2015-05-01-preview",
-	      "type": "Microsoft.Network/virtualNetworks",
-	      "name": "[parameters('virtualNetworkName')]",
-	      "location": "[parameters('location')]",
-	      "properties": {
-	        "addressSpace": {
-	          "addressPrefixes": [
-	            "[parameters('addressPrefix')]"
-	          ]
-	        },
-	        "subnets": [
-	          {
-	            "name": "[parameters('subnet1Name')]",
-	            "properties" : {
-	              "addressPrefix": "[parameters('subnet1Prefix')]"
-	            }
-	          },
-	          {
-	            "name": "[parameters('subnet2Name')]",
-	            "properties" : {
-	              "addressPrefix": "[parameters('subnet2Prefix')]"
-	            }
-	          }
-	        ]
-	      }
-	    }
-	    ]
-	}
+          },
+          "subnet1Name": {
+            "type" : "string",
+            "defaultValue" : "Subnet-1",
+            "metadata" : {
+              "Description" : "Subnet 1 Name"
+            }
+          },
+          "subnet2Name": {
+            "type" : "string",
+            "defaultValue" : "Subnet-2",
+            "metadata" : {
+              "Description" : "Subnet 2 name"
+            }
+          },
+          "subnet1Prefix" : {
+            "type" : "string",
+            "defaultValue" : "10.0.0.0/24",
+            "metadata" : {
+              "Description" : "Subnet 1 Prefix"
+            }
+          },
+          "subnet2Prefix" : {
+            "type" : "string",
+            "defaultValue" : "10.0.1.0/24",
+            "metadata" : {
+              "Description" : "Subnet 2 Prefix"
+            }
+          }
+        },
+        "resources": [
+        {
+          "apiVersion": "2015-05-01-preview",
+          "type": "Microsoft.Network/virtualNetworks",
+          "name": "[parameters('virtualNetworkName')]",
+          "location": "[parameters('location')]",
+          "properties": {
+            "addressSpace": {
+              "addressPrefixes": [
+                "[parameters('addressPrefix')]"
+              ]
+            },
+            "subnets": [
+              {
+                "name": "[parameters('subnet1Name')]",
+                "properties" : {
+                  "addressPrefix": "[parameters('subnet1Prefix')]"
+                }
+              },
+              {
+                "name": "[parameters('subnet2Name')]",
+                "properties" : {
+                  "addressPrefix": "[parameters('subnet2Prefix')]"
+                }
+              }
+            ]
+          }
+        }
+        ]
+    }
 
-Tiene la opción de proporcionar los valores de los parámetros manualmente cuando se utiliza una plantilla, o bien puede usar un archivo de parámetros. El ejemplo siguiente muestra un posible conjunto de valores de parámetros para usar con la plantilla anterior:
+You have the option of providing the parameter values manually when using a template, or you can use a parameter file. The example below shows a possible set of parameter values to be used with the template above:
 
-	{
-	  "location": {
-	      "value": "East US"
-	  },
-	  "virtualNetworkName": {
-	      "value": "VNET1"
-	  },
-	  "subnet1Name": {
-	      "value": "Subnet1"
-	  },
-	  "subnet2Name": {
-	      "value": "Subnet2"
-	  },
-	  "addressPrefix": {
-	      "value": "192.168.0.0/16"
-	  },
-	  "subnet1Prefix": {
-	      "value": "192.168.1.0/24"
-	  },
-	  "subnet2Prefix": {
-	      "value": "192.168.2.0/24"
-	  }
-	}
-
-
-Las principales ventajas derivadas del uso de plantillas son las siguientes:
-
-- Puede crear una infraestructura compleja en un grupo de recursos de estilo declarativo. La coordinación de la creación de recursos, incluida la administración de dependencias, se controla mediante el Administrador de recursos de Azure.
-- La infraestructura se puede crear de una manera repetible en diferentes regiones y dentro de una misma región cambiando simplemente parámetros.
-- El estilo declarativo permite reducir el tiempo necesario para generar las plantillas y distribuir la infraestructura.
-
-Para ver plantillas de ejemplo, consulte [Plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates).
-
-Para obtener más información sobre el lenguaje de la plantilla del Administrador de recursos de Azure, vea [Idioma de la plantilla del administrador de recursos de Azure](../resource-group-authoring-templates.md).
-
-La plantilla del ejemplo anterior utiliza la red virtual y los recursos de la subred. Hay otros recursos de red que se pueden utilizar, como se muestra a continuación:
-
-### Uso de una plantilla
-
-Puede implementar servicios en Azure desde una plantilla mediante PowerShell, CLI de Azure o mediante un clic para implementar desde GitHub. Para implementar servicios de una plantilla en GitHub, ejecute los siguientes pasos:
-
-1. Abra el archivo de plantilla 3 desde GitHub. Como ejemplo, abra [Red virtual con dos subredes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-virtual-network).
-2. Haga clic en **Implementación en Azure**, y, a continuación, inicie sesión en el Portal de Azure con sus credenciales.
-3. Compruebe la plantilla y, a continuación, haga clic en **Guardar**.
-4. Haga clic en **Editar parámetros** y seleccione una ubicación, como *West US*, para la red virtual y las subredes.
-5. Si es necesario, cambie los parámetros **ADDRESSPREFIX** y **SUBNETPREFIX** y, a continuación, haga clic en **Aceptar**.
-6. Haga clic en **Seleccionar un grupo de recursos** y, a continuación, haga clic en el grupo de recursos al que desea agregar la red virtual y las subredes. Como alternativa, puede crear un nuevo grupo de recursos haciendo clic en **Crear nuevo**.
-3. Haga clic en **Crear**. Observe el icono que muestra **Implementación de plantillas de aprovisionamiento**. Una vez que se realiza la implementación, verá una pantalla similar a la siguiente.
-
-![Implementación de plantilla de ejemplo](./media/resource-groups-networking/Figure6.png)
+    {
+      "location": {
+          "value": "East US"
+      },
+      "virtualNetworkName": {
+          "value": "VNET1"
+      },
+      "subnet1Name": {
+          "value": "Subnet1"
+      },
+      "subnet2Name": {
+          "value": "Subnet2"
+      },
+      "addressPrefix": {
+          "value": "192.168.0.0/16"
+      },
+      "subnet1Prefix": {
+          "value": "192.168.1.0/24"
+      },
+      "subnet2Prefix": {
+          "value": "192.168.2.0/24"
+      }
+    }
 
 
-## Pasos siguientes
+The main advantages of using templates are:
 
-[Idioma de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md)
+- You can build a complex infrastructure in a resource group in a declarative style. The orchestration of creating the resources, including dependency management, is handled by ARM.
+- The infrastructure can be created in a repeatable way across various regions and within a region by simply changing parameters.
+- The declarative style leads to shorter lead time in building the templates and rolling out the infrastructure.
 
-[Redes de Azure: plantillas utilizadas habitualmente](https://github.com/Azure/azure-quickstart-templates)
+For sample templates, see [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates).
 
-[Proveedor de recursos de proceso](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)
+For more information on the ARM Template Language, see [Azure Resource Manager Template Language](../resource-group-authoring-templates.md).
 
-[Información general del Administrador de recursos de Azure](../resource-group-overview.md)
+The sample template above uses the virtual network and subnet resources. There are other network resources you can use as listed below:
 
-<!---HONumber=AcomDC_0810_2016-->
+### <a name="using-a-template"></a>Using a template
+
+You can deploy services to Azure from a template by using PowerShell, AzureCLI, or by performing a click to deploy from GitHub. To deploy services from a template in GitHub, execute the following steps:
+
+1. Open the template3 file from GitHub. As an example, open [Virtual network with two subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/101-virtual-network).
+2. Click on **Deploy to Azure**, and then sign in on to the Azure portal with your credentials.
+3. Verify the template, and then click **Save**.
+4. Click **Edit parameters** and select a location, such as *West US*, for the vnet and subnets.
+5. If necessary, change the **ADDRESSPREFIX** and **SUBNETPREFIX** parameters, and then click **OK**.
+6. Click **Select a resource group** and then click on the resource group you want to add the vnet and subnets to. Alternatively, you can create a new resource group by clicking **Or create new**.
+3. Click **Create**. Notice the tile displaying **Provisioning Template deployment**. Once the deployment is done, you will see a screen similar to one below.
+
+![Sample template deployment](./media/resource-groups-networking/Figure6.png)
+
+
+## <a name="next-steps"></a>Next steps
+
+[Azure Resource Manager Template Language](../resource-group-authoring-templates.md)
+
+[Azure Networking – commonly used templates](https://github.com/Azure/azure-quickstart-templates)
+
+[Compute Resource Provider](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)
+
+[Azure Resource Manager Overview](../resource-group-overview.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

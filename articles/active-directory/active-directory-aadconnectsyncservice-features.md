@@ -1,22 +1,23 @@
 <properties
-	pageTitle="Características y configuración del servicio de sincronización de Azure AD Connect | Microsoft Azure"
-	description="Describe las características del servicio de sincronización de Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+    pageTitle="Características y configuración del servicio de sincronización de Azure AD Connect | Microsoft Azure"
+    description="Describe las características del servicio de sincronización de Azure AD Connect."
+    services="active-directory"
+    documentationCenter=""
+    authors="andkjell"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/22/2016"
-	ms.author="andkjell;markvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/22/2016"
+    ms.author="andkjell;markvi"/>
 
-# Características del servicio de sincronización de Azure AD Connect
+
+# <a name="azure-ad-connect-sync-service-features"></a>Características del servicio de sincronización de Azure AD Connect
 
 La característica de sincronización de Azure AD Connect tiene dos componentes:
 
@@ -27,7 +28,8 @@ En este tema se explica cómo funcionan las siguientes características del **se
 
 Estas opciones se configuran mediante el [módulo Azure Active Directory para Windows PowerShell](http://aka.ms/aadposh). Descárguelo e instálelo por separado desde Azure AD Connect. Los cmdlets descritos en este tema se introdujeron con la [versión de marzo de 2016 (compilación 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Si no tiene los cmdlets que se documentan en este tema o estos no generan el mismo resultado, asegúrese de que ejecuta la versión más reciente.
 
-Para ver la configuración en el directorio de Azure AD, ejecute `Get-MsolDirSyncFeatures`. ![Resultado de Get-MsolDirSyncFeatures](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)
+Para ver la configuración en el directorio de Azure AD, ejecute `Get-MsolDirSyncFeatures`.  
+![Resultado de Get-MsolDirSyncFeatures](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)
 
 Muchas de estas opciones solo se pueden cambiar mediante Azure AD Connect.
 
@@ -53,25 +55,25 @@ PasswordSync | [Implementación de la sincronización de contraseña mediante la
 UnifiedGroupWriteback | [Versión preliminar: reescritura de grupos](active-directory-aadconnect-feature-preview.md#group-writeback)
 UserWriteback | No se admite actualmente.
 
-## Resistencia de atributos duplicados
+## <a name="duplicate-attribute-resiliency"></a>Resistencia de atributos duplicados
 En lugar de no aprovisionar objetos con atributos UPN/proxyAddresses duplicados, el atributo duplicado se "pone en cuarentena" y se le asigna un valor temporal. Cuando se resuelve el conflicto, el UPN temporal se cambia por el valor correcto automáticamente. Este comportamiento se puede habilitar para UPN y proxyAddress por separado. Para obtener más información, consulte [Sincronización de identidades y resistencia de atributos duplicados](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
 
-## Coincidencia parcial de UserPrincipalName
+## <a name="userprincipalname-soft-match"></a>Coincidencia parcial de UserPrincipalName
 Cuando esta característica está habilitada, se activa la coincidencia parcial en UPN, así como la [dirección SMTP principal](https://support.microsoft.com/kb/2641663), que siempre está habilitada. La coincidencia parcial se utiliza para hacer coincidir los usuarios de Azure AD en la nube con los locales.
 
 Si necesita que coincidan las cuentas de AD locales con las cuentas existentes creadas en la nube y no está utilizando Exchange Online, esta característica resulta útil. En este escenario, normalmente no tiene una razón para establecer el atributo de SMTP en la nube.
 
-Esta característica está activa de forma predeterminada para los directorios de Azure AD recién creados. Puede ver si esta característica está habilitada en su caso ejecutando lo siguiente:
+Esta característica está activa de forma predeterminada para los directorios de Azure AD recién creados. Puede ver si esta característica está habilitada en su caso ejecutando lo siguiente:  
 ```
 Get-MsolDirSyncFeatures -Feature EnableSoftMatchOnUpn
 ```
 
-Si esta característica no está habilitada para el directorio de Azure AD, puede habilitarla ejecutando lo siguiente:
+Si esta característica no está habilitada para el directorio de Azure AD, puede habilitarla ejecutando lo siguiente:  
 ```
 Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 ```
 
-## Sincronización de las actualizaciones de userPrincipalName
+## <a name="synchronize-userprincipalname-updates"></a>Sincronización de las actualizaciones de userPrincipalName
 Históricamente, las actualizaciones para el atributo UserPrincipalName con el servicio de sincronización desde una instancia local han estado bloqueadas, a menos que se cumplieran las siguientes condiciones:
 
 - El usuario está administrado (no federado).
@@ -81,21 +83,25 @@ Para obtener más información, consulte [Nombres de usuario en Office 365, Azur
 
 Esta característica permite al motor de sincronización actualizar el valor de userPrincipalName cuando se modifica de manera local y se usa la sincronización de contraseñas. Si utiliza la federación, no se admite esta característica.
 
-Esta característica está activa de forma predeterminada para los directorios de Azure AD recién creados. Puede ver si esta característica está habilitada en su caso ejecutando lo siguiente:
+Esta característica está activa de forma predeterminada para los directorios de Azure AD recién creados. Puede ver si esta característica está habilitada en su caso ejecutando lo siguiente:  
 ```
 Get-MsolDirSyncFeatures -Feature SynchronizeUpnForManagedUsers
 ```
 
-Si esta característica no está habilitada para el directorio de Azure AD, puede habilitarla ejecutando lo siguiente:
+Si esta característica no está habilitada para el directorio de Azure AD, puede habilitarla ejecutando lo siguiente:  
 ```
 Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 ```
 
-Después de habilitar esta característica, los valores existentes de userPrincipalName permanecerán tal cual. En el próximo cambio del atributo userPrincipalName en la instancia local, la sincronización diferencial normal de los usuarios actualizará el UPN.
+Después de habilitar esta característica, los valores existentes de userPrincipalName permanecerán tal cual. En el próximo cambio del atributo userPrincipalName en la instancia local, la sincronización diferencial normal de los usuarios actualizará el UPN.  
 
-## Otras referencias
+## <a name="see-also"></a>Otras referencias
 
 - [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 - [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

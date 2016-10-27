@@ -1,7 +1,10 @@
-Además de conectar automáticamente los clientes a la réplica principal, un agente de escucha también se puede utilizar para redirigir las cargas de trabajo de solo lectura a las secundarias. Esto puede mejorar el rendimiento y la escalabilidad de tu solución general. Para más información, consulta el tema [Utilizar el ReadIntent de enrutamiento con el agente de escucha del grupo de disponibilidad de Azure AlwaysOn](http://go.microsoft.com/fwlink/?LinkId=522515).
+In addition to automatically connecting clients to the primary replica, a listener can also be used to redirect read-only workloads to the secondaries. This can improve the performance and scalability of your overall solution. For more information, see [Use ReadIntent Routing with Azure AlwaysOn Availability Group Listener](http://go.microsoft.com/fwlink/?LinkId=522515).
 
->[AZURE.NOTE] Para obtener sugerencias sobre solución de problemas en los agentes de escucha de Azure, vea [Troubleshooting Availability Group Listener in Azure](http://blogs.msdn.com/b/alwaysonpro/archive/2016/02/01/troubleshooting-availability-group-listener-in-azure.aspx) (Solución de problemas de agentes de escucha de grupos de disponibilidad en Azure) en el [blog](http://blogs.msdn.com/b/alwaysonpro/) del equipo de soporte técnico de AlwaysOn.
+>[AZURE.NOTE] For troubleshooting tips on Azure listeners, see [Troubleshooting Availability Group Listener in Azure](http://blogs.msdn.com/b/alwaysonpro/archive/2016/02/01/troubleshooting-availability-group-listener-in-azure.aspx) in the AlwaysOn Support Team [blog](http://blogs.msdn.com/b/alwaysonpro/).
 
-Para obtener más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Máquinas virtuales de Azure](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md).
+For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

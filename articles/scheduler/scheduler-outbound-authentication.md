@@ -1,10 +1,10 @@
 <properties
- pageTitle="Autenticación saliente de Programador"
- description="Autenticación saliente de Programador"
+ pageTitle="Scheduler Outbound Authentication"
+ description="Scheduler Outbound Authentication"
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,45 +13,46 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="08/15/2016"
- ms.author="krisragh"/>
+ ms.author="deli"/>
 
-# Autenticación saliente de Programador
 
-Puede que los trabajos de Programador tengan que llamar a servicios que requieren autenticación. De este modo, un servicio llamado puede determinar si el trabajo de Programador puede tener acceso a sus recursos. Algunos de estos servicios incluyen otros servicios de Azure, Salesforce.com, Facebook y sitios web personalizados que sean seguros.
+# <a name="scheduler-outbound-authentication"></a>Scheduler Outbound Authentication
 
-## Incorporación y eliminación de autenticación
+Scheduler jobs may need to call out to services that require authentication. This way, a called service can determine if the Scheduler job can access its resources. Some of these services include other Azure services, Salesforce.com, Facebook, and secure custom websites.
 
-La incorporación de autenticación a un trabajo de Programador es sencilla: agregue un elemento secundario JSON `authentication` al elemento `request` al crear o actualizar un trabajo. Los secretos que se pasan al servicio Programador en una solicitud PUT, PATCH o POST, como parte del objeto `authentication`, nunca se devuelven en respuestas. En las respuestas, la información secreta se establece en null o puede que tenga un token público que represente la entidad autenticada.
+## <a name="adding-and-removing-authentication"></a>Adding and Removing Authentication
 
-Para quitar la autenticación, incluya explícitamente una solicitud PUT o PATCH en el trabajo, lo que establece el objeto `authentication` en null. No verá ninguna propiedad de autenticación en la respuesta.
+Adding authentication to a Scheduler job is simple – add a JSON child element `authentication` to the `request` element when creating or updating a job. Secrets passed to the Scheduler service in a PUT, PATCH, or POST request – as part of the `authentication` object – are never returned in responses. In responses, secret information is set to null or may have a public token that represents the authenticated entity.
 
-Actualmente, los únicos tipos de autenticación compatibles son el modelo `ClientCertificate` (para usar los certificados de cliente SSL/TLS), el modelo `Basic` (para la autenticación básica) y el modelo `ActiveDirectoryOAuth` (para autenticación ActiveDirectoryOAuth).
+To remove authentication, PUT or PATCH the job explicitly, setting the `authentication` object to null. You will not see any authentication properties back in response.
 
-## Cuerpo de la solicitud en autenticación ClientCertificate
+Currently, the only supported authentication types are the `ClientCertificate` model (for using the SSL/TLS client certificates), the `Basic` model (for Basic authentication), and the `ActiveDirectoryOAuth` model (for Active Directory OAuth authentication.)
 
-Al agregar autenticación mediante el modelo `ClientCertificate`, especifique los siguientes elementos adicionales en el cuerpo de la solicitud.
+## <a name="request-body-for-clientcertificate-authentication"></a>Request Body for ClientCertificate Authentication
 
-|Elemento|Description|
+When adding authentication using the `ClientCertificate` model, specify the following additional elements in the request body.  
+
+|Element|Description|
 |:---|:---|
-|_authentication (parent element)_|Objeto de autenticación para usar un certificado de cliente SSL.|
-|_type_|Obligatorio. Tipo de autenticación. En certificados de cliente SSL, el valor debe ser `ClientCertificate`.|
-|_pfx_|Obligatorio. Contenido codificado en base 64 del archivo PFX.|
-|_password_|Obligatorio. Contraseña de acceso al archivo PFX.|
+|_authentication (parent element)_|Authentication object for using an SSL client certificate.|
+|_type_|Required. Type of authentication.For SSL client certificates, the value must be `ClientCertificate`.|
+|_pfx_|Required. Base64-encoded contents of the PFX file.|
+|_password_|Required. Password to access the PFX file.|
 
 
-## Cuerpo de la respuesta en autenticación ClientCertificate
+## <a name="response-body-for-clientcertificate-authentication"></a>Response Body for ClientCertificate Authentication
 
-Cuando se envía una solicitud con información de autenticación, la respuesta contiene los siguientes elementos relacionados con la autenticación.
+When a request is sent with authentication info, the response contains the following authentication-related elements.
 
-|Elemento |Description |
+|Element |Description |
 |:--|:--|
-|_authentication (parent element)_ |Objeto de autenticación para usar un certificado de cliente SSL.|
-|_type_ |Tipo de autenticación. Para los certificados de cliente SSL, el valor es `ClientCertificate`.|
-|_certificateThumbprint_ |Huella digital del certificado.|
-|_certificateSubjectName_ |Nombre distintivo del sujeto del certificado.|
-|_certificateExpiration_ |Fecha de expiración del certificado|
+|_authentication (parent element)_ |Authentication object for using an SSL client certificate.|
+|_type_ |Type of authentication. For SSL client certificates, the value is `ClientCertificate`.|
+|_certificateThumbprint_ |The thumbprint of the certificate.|
+|_certificateSubjectName_ |The subject distinguished name of the certificate.|
+|_certificateExpiration_ |The expiration date of the certificate.|
 
-## Ejemplo de solicitud de REST para la autenticación ClientCertificate
+## <a name="sample-rest-request-for-clientcertificate-authentication"></a>Sample REST Request for ClientCertificate Authentication
 
 ```
 PUT https://management.azure.com/subscriptions/1fe0abdf-581e-4dfe-9ec7-e5cb8e7b205e/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
@@ -67,10 +68,10 @@ Content-Type: application/json; charset=utf-8
       "request": {
         "uri": "https://mywebserviceendpoint.com",
         "method": "GET",
-		"headers": {
+        "headers": {
           "x-ms-version": "2013-03-01"
         },
-		"authentication": {
+        "authentication": {
           "type": "clientcertificate",
           "password": "password",
           "pfx": "pfx key"
@@ -88,7 +89,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## Ejemplo de respuesta de REST para la autenticación ClientCertificate
+## <a name="sample-rest-response-for-clientcertificate-authentication"></a>Sample REST Response for ClientCertificate Authentication
 
 ```
 HTTP/1.1 200 OK
@@ -145,28 +146,28 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 }
 ```
 
-## Cuerpo de la solicitud en autenticación básica
+## <a name="request-body-for-basic-authentication"></a>Request Body for Basic Authentication
 
-Al agregar autenticación mediante el modelo `Basic`, especifique los siguientes elementos adicionales en el cuerpo de la solicitud.
+When adding authentication using the `Basic` model, specify the following additional elements in the request body.
 
-|Elemento|Description|
+|Element|Description|
 |:--|:--|
-|_authentication (parent element)_ |Objeto de autenticación para usar autenticación básica.|
-|_type_ |Obligatorio. Tipo de autenticación. En autenticación básica, el valor debe ser `Basic`.|
-|_username_ |Obligatorio. Nombre de usuario para autenticar.|
-|_password_ |Obligatorio. Contraseña para autenticar.|
+|_authentication (parent element)_ |Authentication object for using Basic authentication.|
+|_type_ |Required. Type of authentication. For Basic authentication, the value must be `Basic`.|
+|_username_ |Required. Username to authenticate.|
+|_password_ |Required. Password to authenticate.|
 
-## Cuerpo de la respuesta en autenticación básica
+## <a name="response-body-for-basic-authentication"></a>Response Body for Basic Authentication
 
-Cuando se envía una solicitud con información de autenticación, la respuesta contiene los siguientes elementos relacionados con la autenticación.
+When a request is sent with authentication info, the response contains the following authentication-related elements.
 
-|Elemento|Description|
+|Element|Description|
 |:--|:--|
-|_authentication (parent element)_ |Objeto de autenticación para usar autenticación básica.|
-|_type_ |Tipo de autenticación. En autenticación básica, el valor es `Basic`.|
-|_username_ |Nombre del usuario autenticado.|
+|_authentication (parent element)_ |Authentication object for using Basic authentication.|
+|_type_ |Type of authentication. For Basic authentication, the value is `Basic`.|
+|_username_ |The authenticated username.|
 
-## Ejemplo de solicitud de REST para la autenticación Basic
+## <a name="sample-rest-request-for-basic-authentication"></a>Sample REST Request for Basic Authentication
 
 ```
 PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
@@ -183,12 +184,12 @@ Content-Type: application/json; charset=utf-8
       "request": {
         "uri": "https://mywebserviceendpoint.com",
         "method": "GET",
-		"headers": {
+        "headers": {
           "x-ms-version": "2013-03-01"
         },
-		"authentication": {
+        "authentication": {
           "type": "basic",
-		  "username": "user",
+          "username": "user",
           "password": "password"
         }
       },
@@ -204,7 +205,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## Ejemplo de respuesta de REST para la autenticación Basic
+## <a name="sample-rest-response-for-basic-authentication"></a>Sample REST Response for Basic Authentication
 
 ```
 HTTP/1.1 200 OK
@@ -259,36 +260,36 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 }
 ```
 
-## Cuerpo de la solicitud en autenticación ActiveDirectoryOAuth
+## <a name="request-body-for-activedirectoryoauth-authentication"></a>Request Body for ActiveDirectoryOAuth Authentication
 
-Al agregar autenticación mediante el modelo `ActiveDirectoryOAuth`, especifique los siguientes elementos adicionales en el cuerpo de la solicitud.
+When adding authentication using the `ActiveDirectoryOAuth` model, specify the following additional elements in the request body.
 
-|Elemento |Description |
+|Element |Description |
 |:--|:--|
-|_authentication (parent element)_ |Objeto de autenticación para usar autenticación ActiveDirectoryOAuth.|
-|_type_ |Obligatorio. Tipo de autenticación. En autenticación ActiveDirectoryOAuth, el valor debe ser `ActiveDirectoryOAuth`.|
-|_tenant_ |Obligatorio. Identificador del inquilino de Azure AD.|
-|_audience_ |Obligatorio. Se establece en https://management.core.windows.net/.|
-|_clientId_ |Obligatorio. Proporcione el identificador de cliente para la aplicación de Azure AD.|
-|_secret_ |Obligatorio. Secreto del cliente que solicita el token.|
+|_authentication (parent element)_ |Authentication object for using ActiveDirectoryOAuth authentication.|
+|_type_ |Required. Type of authentication. For ActiveDirectoryOAuth authentication, the value must be `ActiveDirectoryOAuth`.|
+|_tenant_ |Required. The tenant identifier for the Azure AD tenant.|
+|_audience_ |Required. This is set to https://management.core.windows.net/.|
+|_clientId_ |Required. Provide the client identifier for the Azure AD application.|
+|_secret_ |Required. Secret of the client that is requesting the token.|
 
-### Determinación del identificador del inquilino
+### <a name="determining-your-tenant-identifier"></a>Determining your Tenant Identifier
 
-Encontrará el identificador del inquilino de Azure AD ejecutando `Get-AzureAccount` en Azure PowerShell.
+You can find the tenant identifier for the Azure AD tenant by running `Get-AzureAccount` in Azure PowerShell.
 
-## Cuerpo de la respuesta en autenticación ActiveDirectoryOAuth
+## <a name="response-body-for-activedirectoryoauth-authentication"></a>Response Body for ActiveDirectoryOAuth Authentication
 
-Cuando se envía una solicitud con información de autenticación, la respuesta contiene los siguientes elementos relacionados con la autenticación.
+When a request is sent with authentication info, the response contains the following authentication-related elements.
 
-|Elemento |Description |
+|Element |Description |
 |:--|:--|
-|_authentication (parent element)_ |Objeto de autenticación para usar autenticación ActiveDirectoryOAuth.|
-|_type_ |Tipo de autenticación. En autenticación ActiveDirectoryOAuth, el valor es `ActiveDirectoryOAuth`.|
-|_tenant_ |Identificador del inquilino de Azure AD. |
-|_audience_ |Se establece en https://management.core.windows.net/.|.
-|_clientId_ |Identificador de cliente para la aplicación de Azure AD.|
+|_authentication (parent element)_ |Authentication object for using ActiveDirectoryOAuth authentication.|
+|_type_ |Type of authentication. For ActiveDirectoryOAuth authentication, the value is `ActiveDirectoryOAuth`.|
+|_tenant_ |The tenant identifier for the Azure AD tenant. |
+|_audience_ |This is set to https://management.core.windows.net/.|
+|_clientId_ |The client identifier for the Azure AD application.|
 
-## Ejemplo de solicitud de REST para la autenticación ActiveDirectoryOAuth
+## <a name="sample-rest-request-for-activedirectoryoauth-authentication"></a>Sample REST Request for ActiveDirectoryOAuth Authentication
 
 ```
 PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
@@ -305,10 +306,10 @@ Content-Type: application/json; charset=utf-8
       "request": {
         "uri": "https://mywebserviceendpoint.com",
         "method": "GET",
-		"headers": {
+        "headers": {
           "x-ms-version": "2013-03-01"
         },
-		"authentication": {
+        "authentication": {
           "tenant":"microsoft.onmicrosoft.com",
           "audience":"https://management.core.windows.net/",
           "clientId":"dc23e764-9be6-4a33-9b9a-c46e36f0c137",
@@ -328,7 +329,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## Ejemplo de respuesta de REST para la autenticación ActiveDirectoryOAuth
+## <a name="sample-rest-response-for-activedirectoryoauth-authentication"></a>Sample REST Response for ActiveDirectoryOAuth Authentication
 
 ```
 HTTP/1.1 200 OK
@@ -386,23 +387,27 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 }
 ```
 
-## Otras referencias
+## <a name="see-also"></a>See Also
 
 
- [¿Qué es Programador?](scheduler-intro.md)
+ [What is Scheduler?](scheduler-intro.md)
 
- [Conceptos, terminología y jerarquía de entidades de Programador de Azure](scheduler-concepts-terms.md)
+ [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
- [Introducción al Programador de Azure en el Portal de Azure](scheduler-get-started-portal.md)
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
 
- [Planes y facturación en Programador de Azure](scheduler-plans-billing.md)
+ [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 
- [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/mt629143)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
 
- [Referencia de cmdlets de PowerShell de Programador de Azure](scheduler-powershell-reference.md)
+ [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 
- [Alta disponibilidad y confiabilidad de Programador de Azure](scheduler-high-availability-reliability.md)
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
 
- [Límites, valores predeterminados y códigos de error de Programador de Azure](scheduler-limits-defaults-errors.md)
+ [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

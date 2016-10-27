@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creación de clústeres de Hadoop basados en Windows en HDInsight con Azure PowerShell | Microsoft Azure"
-   	description="Aprenda a crear clústeres para HDInsight de Azure con Azure PowerShell."
+   pageTitle="Create Windows-based Hadoop clusters in HDInsight using Azure PowerShell| Microsoft Azure"
+    description="Learn how to create clusters for Azure HDInsight by using Azure PowerShell."
    services="hdinsight"
    documentationCenter=""
    tags="azure-portal"
@@ -17,31 +17,34 @@
    ms.date="08/10/2016"
    ms.author="jgao"/>
 
-# Creación de clústeres de Hadoop basados en Windows en HDInsight con Azure PowerShell
+
+# <a name="create-windows-based-hadoop-clusters-in-hdinsight-using-azure-powershell"></a>Create Windows-based Hadoop clusters in HDInsight using Azure PowerShell
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Aprenda a crear clústeres de HDInsight con Azure PowerShell. Azure PowerShell es un módulo que ofrece cmdlet para administrar Azure con Windows PowerShell. Para consultar otras herramientas y características de creación de clústeres, haga clic en la selección de pestaña de la parte superior de esta página o consulte los [métodos de creación de clústeres](hdinsight-provision-clusters.md#cluster-creation-methods).
+Learn how to create HDInsight clusters using Azure PowerShell. Azure PowerShell is a module that provides cmdlets to manage Azure with Windows PowerShell. For other cluster creation tools and features click the tab select on the top of this page or see [Cluster creation methods](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 
-##Requisitos previos:
+##<a name="prerequisites:"></a>Prerequisites:
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
+Before you begin the instructions in this article, you must have the following:
 
-- Suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Azure PowerShell.
 
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
+### <a name="access-control-requirements"></a>Access control requirements
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+
+## <a name="create-clusters"></a>Create clusters
+Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. This section provides instructions on how to create an HDInsight cluster by using Azure PowerShell. For information on configuring a workstation to run HDInsight Windows PowerShell cmdlets, see [Install and configure Azure PowerShell](../powershell-install-configure.md). For more information on using Azure PowerShell with HDInsight, see [Administer HDInsight using PowerShell](hdinsight-administer-use-powershell.md). For the list of the HDInsight Windows PowerShell cmdlets, see [HDInsight cmdlet reference](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
 
-## Creación de clústeres
-Azure PowerShell es un potente entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Azure. Esta sección proporciona instrucciones sobre cómo crear un clúster de HDInsight con Azure PowerShell. Para obtener información sobre la configuración de una estación de trabajo para que ejecute cmdlets de HDInsight Windows PowerShell, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md). Para obtener más información sobre el uso de Azure PowerShell con HDInsight, consulte [Administración de HDInsight con PowerShell](hdinsight-administer-use-powershell.md). Para obtener una lista de los cmdlets de HDInsight Windows PowerShell, consulte [Documentación de referencia de los cmdlets de HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
-
-
-Los siguientes procedimientos son necesarios para crear un clúster de HDInsight con Azure PowerShell:
+The following procedures are needed to create an HDInsight cluster by using Azure PowerShell:
 
     ####################################
     # Set these variables
@@ -130,23 +133,23 @@ Los siguientes procedimientos son necesarios para crear un clúster de HDInsight
     ####################################
     Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName 
 
-## Creación de clústeres con la plantilla de ARM
+## <a name="create-clusters-using-arm-template"></a>Create clusters using ARM template
 
-Puede usar Azure PowerShell para implementar una plantilla de ARM que cree un clúster de HDInsight. Consulte [Call templates using Azure PowerShell](hdinsight-hadoop-create-windows-clusters-arm-templates.md#call-templates-using-powershell) (Llamada a plantillas mediante Azure PowerShell).
+You can use Azure PowerShell to deploy an ARM template which creates an HDInsight cluster.  See [Call templates using Azure PowerShell](hdinsight-hadoop-create-windows-clusters-arm-templates.md#call-templates-using-powershell).
 
-##Personalización de los clústeres
+##<a name="customize-clusters"></a>Customize clusters
 
-- Consulte [Personalización de los clústeres de HDInsight con Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
-- Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Windows)](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).
+- See [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
+- See [Customize Windows-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).
 
 
-##Pasos siguientes
-En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight. Para obtener más información, consulte los artículos siguientes:
+##<a name="next-steps"></a>Next steps
+In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:
 
-* [Introducción a HDInsight de Azure](hdinsight-hadoop-linux-tutorial-get-started.md): aprenda a empezar a trabajar con su clúster de HDInsight
-* [Envío de trabajos de Hadoop mediante programación](hdinsight-submit-hadoop-jobs-programmatically.md): aprenda a enviar trabajos a HDInsight mediante programación
-* [Administración de clústeres de Hadoop en HDInsight con PowerShell de Azure](hdinsight-administer-use-powershell.md): aprenda a trabajar con HDInsight mediante Azure PowerShell
-* [Documentación del SDK de HDInsight de Azure][hdinsight-sdk-documentation]\: descubra el SDK de HDInsight
+* [Get started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) - Learn how to start working with your HDInsight cluster
+* [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md) - Learn how to programmatically submit jobs to HDInsight
+* [Manage Hadoop clusters in HDInsight using PowerShell](hdinsight-administer-use-powershell.md) - Learn how to work with HDInsight by using Azure PowerShell
+* [Azure HDInsight SDK documentation] [hdinsight-sdk-documentation] - Discover the HDInsight SDK
 
 
 
@@ -158,4 +161,8 @@ En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight
 [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

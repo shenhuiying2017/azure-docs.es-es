@@ -1,21 +1,24 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Para instalar revisiones en el modo de mantenimiento a través de Windows PowerShell para StorSimple
+#### <a name="to-install-maintenance-mode-hotfixes-via-windows-powershell-for-storsimple"></a>To install Maintenance mode hotfixes via Windows PowerShell for StorSimple
 
-> [AZURE.IMPORTANT]En el modo de mantenimiento, deberá aplicar la revisión primero en un controlador y, a continuación, en el otro controlador.
+> [AZURE.IMPORTANT] In Maintenance mode, you need to apply the hotfix first on one controller and then on the other controller.
 
-1. Active el modo de mantenimiento del dispositivo. Consulte [Paso 2: Acceso al modo de mantenimiento](storsimple-update-device.md#step2) para obtener instrucciones sobre cómo acceder al modo de mantenimiento.
+1. Place the device into Maintenance mode. See [Step 2: Enter Maintenance mode](storsimple-update-device.md#step2) for instructions on how to enter Maintenance mode.
 
-2. Para aplicar la revisión, escriba:
+2. To apply the hotfix, type:
 
-     `Start-HcsHotfix`
+     `Start-HcsHotfix` 
 
-3. Cuando se le solicite, proporcione la ruta de acceso a la carpeta compartida de red que contiene los archivos de la revisión.
+3. When prompted, supply the path to the network shared folder that contains the hotfix files.
 
-4. Se le pedirá confirmación. Escriba **Y** para continuar con la instalación de la revisión.
+4. You will be prompted for confirmation. Type **Y** to proceed with the hotfix installation.
 
-5. Después de aplicar la revisión en un controlador, inicie sesión en el otro controlador. Aplique la revisión tal y como lo hizo con el controlador anterior.
+5. After you have applied the hotfix on one controller, log on to the other controller. Apply the hotfix as you did for the previous controller.
 
-6. Una vez aplicadas las revisiones, salga del modo de mantenimiento. Consulte [Paso 4: Salida del modo de mantenimiento](storsimple-update-device.md#step4) para obtener instrucciones.
+6. After the hotfixes are applied, exit Maintenance mode. See [Step 4: Exit Maintenance mode](storsimple-update-device.md#step4) for instructions.
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

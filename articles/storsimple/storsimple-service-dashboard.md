@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Panel del servicio del Administrador de StorSimple | Microsoft Azure"
-   description="Describe el panel del servicio del Administrador de StorSimple y explica cómo se usa para supervisar el estado de la solución de StorSimple."
+   pageTitle="StorSimple Manager service dashboard | Microsoft Azure"
+   description="Describes the StorSimple Manager service dashboard and explains how to use it to monitor the health of your StorSimple solution."
    services="storsimple"
    documentationCenter=""
    authors="SharS"
@@ -15,65 +15,70 @@
    ms.date="05/24/2016"
    ms.author="v-sharos" />
 
-# Uso del panel del servicio StorSimple Manager
 
-## Información general
+# <a name="use-the-storsimple-manager-service-dashboard"></a>Use the StorSimple Manager service dashboard
 
-La página del panel del servicio StorSimple Manager proporciona una vista resumida de todos los dispositivos que están conectados al servicio StorSimple Manager, y resalta aquellas que requieren la atención del administrador del sistema. Este tutorial presenta la página del panel, explica el contenido y la función del panel, y describe las tareas que puede realizar desde esta página.
+## <a name="overview"></a>Overview
 
-![Panel del servicio](./media/storsimple-service-dashboard/HCS_ServiceDashboard.png)
+The StorSimple Manager service dashboard page provides a summary view of all the devices that are connected to the StorSimple Manager service, highlighting those that need a system administrator's attention. This tutorial introduces the dashboard page, explains the dashboard content and function, and describes the tasks that you can perform from this page.
 
-El panel del servicio StorSimple Manager muestra la siguiente información:
+![Service dashboard](./media/storsimple-service-dashboard/HCS_ServiceDashboard.png)
 
-- En el área **gráfica**, puede ver el gráfico de las métricas pertinentes para sus dispositivos. Puede ver el almacenamiento principal (organizado en capas y anclado localmente) usado en todos los dispositivos, así como el almacenamiento en la nube consumido por los dispositivos durante un período. Use los controles de la esquina superior derecha del gráfico para especificar una escala de tiempo de 1 semana, 1 mes, 3 meses o 1 año.
+The StorSimple Manager service dashboard displays the following information:
 
-- La **información general del uso** muestra el almacenamiento principal aprovisionado y usado por todos los dispositivos en relación con el almacenamiento total disponible en todos los dispositivos. **Aprovisionado** se refiere a la cantidad de almacenamiento que está preparada y asignada para su uso, mientras que **Usado** se refiere al uso de los volúmenes, tal como lo ven los iniciadores que están conectados a los dispositivos.
+- In the **chart** area, you can see the relevant metrics chart for your devices. You can view the primary storage (locally pinned and tiered) used across all the devices, as well as the cloud storage consumed by devices over a period of time. Use the controls in the top-right corner of the chart to specify a 1-week, 1-month, 3-month, or 1-year time scale.
 
-- El área **alertas** proporciona una instantánea de todas las alertas activas en todos los dispositivos, agrupados por gravedad. Al hacer clic en el nivel de gravedad se abre la página **alertas**, dedicada a mostrar dichas alertas. En la página **alertas**, puede hacer clic en una alerta individual para ver detalles adicionales acerca de ella, incluidas las acciones recomendadas. También puede desactivar la alerta si el problema se ha resuelto.
+- The **usage overview** shows the primary storage that is provisioned and consumed by all devices relative to the total storage available across all devices. **Provisioned** refers to the amount of storage that is prepared and allocated for use, while **Used** refers to usage of volumes as viewed by the initiators that are connected to the devices.
 
-- El área **trabajos** proporciona una instantánea de los trabajos recientes en todos los dispositivos que están conectados a su servicio. Hay vínculos que puede usar para consultar los trabajos que están actualmente en curso, los que produjeron errores en las últimas 24 horas o los que están programados para ejecutarse en las próximas 24 horas.
+- The **alerts** area provides a snapshot of all the active alerts across all the devices, grouped by alert severity. Clicking the severity level opens the **Alerts** page, scoped to show those alerts. On the **Alerts** page, you can click an individual alert to view additional details about that alert, including any recommended actions. You can also clear the alert if the issue has been resolved.
 
-- El área de **vista rápida** proporciona información útil, como el estado del servicio, el número de dispositivos conectados al servicio, la ubicación del servicio y los detalles de la suscripción asociada con el servicio. También hay un vínculo al registro de operaciones. Haga clic en el vínculo para ver una lista de todas las operaciones completadas del servicio StorSimple Manager.
+- The **jobs** area provides a snapshot of recent jobs across all devices that are connected to your service. There are links that you can use to look at jobs that are currently in progress, those that failed in the last 24 hours, or those that are scheduled to run in the next 24 hours.
 
-Puede usar la página del panel del servicio StorSimple Manager para iniciar las siguientes tareas:
+- The **quick glance** area provides useful information such as service status, number of devices connected to the service, location of the service, and details of the subscription that is associated with the service. There is also a link to the operations log. Click the link to see a list of all completed StorSimple Manager service operations.
 
-- Ver o volver a generar la clave de registro del servicio.
-- Cambiar la clave de cifrado de datos del servicio.
-- Ver los registros de operaciones.
+You can use the StorSimple Manager service dashboard page to initiate the following tasks:
 
-## Ver o volver a generar la clave de registro de servicio
+- View or regenerate the service registration key.
+- Change the service data encryption key.
+- View the operation logs.
 
-La clave de registro del servicio se usa para registrar un dispositivo de Microsoft Azure StorSimple con el servicio StorSimple Manager, para que el dispositivo aparezca en el Portal de Azure clásico para otras tareas administrativas. La clave se crea en el primer dispositivo y se comparte con el resto de los dispositivos.
+## <a name="view-or-regenerate-the-service-registration-key"></a>View or regenerate the service registration key
 
-Al hacer clic en **Clave de registro** (en la parte inferior de la página), se abre el cuadro de diálogo **Clave de registro del servicio**, donde puede copiar la clave de registro del servicio actual en el Portapapeles o volver a generar la clave de registro del servicio.
+The service registration key is used to register a Microsoft Azure StorSimple device with the StorSimple Manager service, so that the device appears in the Azure classic portal for further management actions. The key is created on the first device and shared with the rest of your devices.
 
-Volver a generar la clave no afecta a los dispositivos registrados anteriormente: solo afecta a los dispositivos que se registran en el servicio después de volver a generar la clave.
+Clicking **Registration Key** (at the bottom of the page) opens the **Service Registration Key** dialog box, where you can either copy the current service registration key to the clipboard or regenerate the service registration key.
 
-Para obtener más información sobre cómo ver y generar la clave de registro del servicio, vaya a [Obtener la clave de registro del servicio](storsimple-manage-service.md#get-the-service-registration-key)
+Regenerating the key does not affect previously registered devices: it affects only the devices that are registered with the service after the key is regenerated.
 
-## Cambiar la clave de cifrado de datos de servicio
+For more information about viewing and generating the service registration key, go to [Get the service registration key](storsimple-manage-service.md#get-the-service-registration-key).
 
-Las claves de cifrado de datos del servicio se usan para cifrar datos confidenciales de los clientes, como las credenciales de la cuenta de almacenamiento, que se envían desde el servicio StorSimple Manager al dispositivo de StorSimple. Necesitará cambiar estas claves periódicamente si su organización de TI tiene una directiva de rotación de claves en los dispositivos de almacenamiento. El proceso de cambio de clave puede ser ligeramente diferente dependiendo de si el servicio StorSimple Manager administra uno o varios dispositivos.
+## <a name="change-the-service-data-encryption-key"></a>Change the service data encryption key
 
-El cambio de la clave de cifrado de datos del servicio se realiza en 3 pasos:
+Service data encryption keys are used to encrypt confidential customer data, such as storage account credentials, that are sent from your StorSimple Manager service to the StorSimple device. You will need to change these keys periodically if your IT organization has a key rotation policy on the storage devices. The key change process can be slightly different depending on whether there is a single device or multiple devices managed by the StorSimple Manager service.
 
-1. En el Portal de Azure clásico, autorice que un dispositivo cambie la clave de cifrado de datos del servicio.
-2. En Windows PowerShell para StorSimple, inicie el cambio de claves de cifrado de datos del servicio.
-3. Si tiene más de un dispositivo de StorSimple, actualice la clave de cifrado de datos del servicio en los demás dispositivos.
+Changing the service data encryption key is a 3-step process:
 
-Los pasos siguientes describen el proceso de sustitución de la clave de cifrado de datos del servicio.
+1. Using the Azure classic portal, authorize a device to change the service data encryption key.
+2. Using Windows PowerShell for StorSimple, initiate the service data encryption key change.
+3. If you have more than one StorSimple device, update the service data encryption key on the other devices.
+
+The following steps describe the rollover process for the service data encryption key.
 
 [AZURE.INCLUDE [storsimple-change-data-encryption-key](../../includes/storsimple-change-data-encryption-key.md)]
 
 
-## Consulta de los registros de operaciones
+## <a name="view-the-operations-logs"></a>View the operations logs
 
-Para ver los registros de operaciones, haga clic en el vínculo de registros de operaciones disponible en la sección **vista rápida** del panel. Esto le llevará a la página de servicios de administración, donde puede filtrar y ver los registros específicos de su servicio StorSimple Manager.
+You can view the operation logs by clicking the operation logs link available in the **quick glance** pane of the dashboard. This will take you to the management services page, where you can filter and see the logs specific to your StorSimple Manager service.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-- Aprenda cómo [solucionar problemas de un dispositivo de StorSimple](storsimple-troubleshoot-operational-device.md).
+- Learn how to [troubleshoot a StorSimple device](storsimple-troubleshoot-operational-device.md).
 
-- Obtenga más información sobre cómo [usar el servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
+- Learn more about how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

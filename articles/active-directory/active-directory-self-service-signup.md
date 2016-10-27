@@ -1,235 +1,240 @@
 <properties
-	pageTitle="¿Qué es la suscripción de autoservicio de Azure? | Microsoft Azure"
-	description="Información general de la suscripción de autoservicio de Azure: cómo administrar el proceso de suscripción y adquirir un nombre de dominio DNS."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="What is Self-Service Signup for Azure? | Microsoft Azure"
+    description="An overview self-service signup for Azure, how to manage the signup process, and how to take over a DNS domain name."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/23/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="08/23/2016"
+    ms.author="curtand"/>
 
 
-# ¿Qué es la suscripción de autoservicio de Azure?
 
-En este tema se explica el proceso de registro de autoservicio y el modo de adquirir un nombre de dominio DNS.
+# <a name="what-is-self-service-signup-for-azure?"></a>What is Self-Service Signup for Azure?
 
-## Razones para usar la suscripción de autoservicio
+This topic explains the self-service signup process and how to take over a DNS domain name.  
 
-- Permita que los usuarios tengan acceso a los servicios que desean más rápido.
-- Cree ofertas basadas en correo electrónico para un servicio.
-- Cree flujos de suscripción basados en correo electrónico que permitan a los usuarios crear identidades rápidamente con sus alias de correo electrónico del trabajo fáciles de recordar.
-- Los directorios de Azure no administrados se pueden convertir en directorios administrados más adelante y reutilizarse para otros servicios.
+## <a name="why-use-self-service-signup?"></a>Why use self-service signup?
 
-## Términos y definiciones
+- Get customers to services they want faster.
+- Create email-based offers for a service.
+- Create email-based signup flows which quickly allow users to create identities using their easy-to-remember work email aliases.
+- Unmanaged Azure directories can be made into managed directories later and be reused for other services.
 
-+ **Registro de autoservicio**: método por el que un usuario se registra en un servicio en la nube y por el que se le crea automáticamente una identidad en Azure Active Directory (AD) basada en su dominio de correo electrónico.
-+ **Directorio de Azure no administrado**: directorio donde se crea la identidad. Un directorio no administrado es un directorio que no tiene administrador global.
-+ **Usuario comprobado por correo electrónico**: tipo de cuenta de usuario en Azure AD. Un usuario que tiene una identidad que se crean automáticamente después de suscribirse a una oferta de autoservicio se conoce como usuario comprobado por correo electrónico. Un usuario comprobado por correo electrónico es un miembro regular de un directorio etiquetado con creationmethod = EmailVerified.
+## <a name="terms-and-definitions"></a>Terms and Definitions
 
-## Experiencia del usuario
++ **Self-service sign up**: This is the method by which a user signs up for a cloud service and has an identity automatically created for them in Azure Active Directory (Azure AD) based on their email domain.
++ **Unmanaged Azure directory**: This is the directory where that identity is created. An unmanaged directory is a directory that has no global administrator.
++ **Email-verified user**: This is a type of user account in Azure AD. A user who has an identity created automatically after signing up for a self-service offer is known as an email-verified user. An email-verified user is a regular member of a directory tagged with creationmethod=EmailVerified.
 
-Por ejemplo, supongamos que un usuario cuyo correo electrónico es Dan@BellowsCollege.com recibe archivos confidenciales por correo electrónico. Los archivos se han protegido con Azure Rights Management (Azure RMS). Pero la organización de Dan, Bellows College, no se ha suscrito a Azure RMS ni ha implementado Active Directory RMS. En este caso, Dan puede obtener una suscripción gratuita de RMS para usuarios a fin de leer los archivos protegidos.
+## <a name="user-experience"></a>User experience
 
-Si Dan es el primer usuario con una dirección de correo electrónico de BellowsCollege.com en registrarse en esta oferta de autoservicio, se creará un directorio no administrado para BellowsCollege.com en Azure AD. Si otros usuarios del dominio BellowsCollege.com se registran en esta oferta o una oferta de autoservicio similar, también se crearán para ellos cuentas de usuario verificadas por correo electrónico en el mismo directorio no administrado en Azure.
+For example, let's say a user whose email is Dan@BellowsCollege.com receives sensitive files via email. The files have been protected by Azure Rights Management (Azure RMS). But Dan's organization, Bellows College, has not signed up for Azure RMS, nor has it deployed Active Directory RMS. In this case, Dan can sign up for a free subscription to RMS for individuals in order to read the protected files.
 
-## Experiencia del administrador
+If Dan is the first user with an email address from BellowsCollege.com to sign up for this self-service offering, then an unmanaged directory will be created for BellowsCollege.com in Azure AD. If other users from the BellowsCollege.com domain sign up for this offering or a similar self-service offering, they will also have email-verified user accounts created in the same unmanaged directory in Azure.
 
-Un administrador que posee el nombre de dominio DNS de un directorio de Azure no administrado puede adquirir o fusionar el directorio después de demostrar la propiedad. En las secciones siguientes se explica con más detalle la experiencia del administrador, pero a continuación se incluye un resumen:
+## <a name="admin-experience"></a>Admin experience
 
-- Al adquirir un directorio de Azure no administrado, se convierte en administrador global del directorio no administrado. Esto se denomina a veces adquisición interna.
-- Al fusionar un directorio de Azure no administrado, agregue el nombre de dominio DNS del directorio no administrado a su directorio de Azure administrado; se creará una asignación de usuarios a recursos para que los usuarios puedan seguir teniendo acceso a los servicios sin interrupción. Esto se denomina a veces adquisición externa.
+An admin who owns the DNS domain name of an unmanaged Azure directory can take over or merge the directory after proving ownership. The next sections explain the admin experience in more detail, but here's a summary:
 
-## ¿Qué se crea en Azure Active Directory?
+- When you take over an unmanaged Azure directory, you simply become the global administrator of the unmanaged directory. This is sometimes called an internal takeover.
+- When you merge an unmanaged Azure directory, you add the DNS domain name of the unmanaged directory to your managed Azure directory and a mapping of users-to-resources is created so users can continue to access services without interruption. This is sometimes called an external takeover.
 
-#### Directorio
+## <a name="what-gets-created-in-azure-active-directory?"></a>What gets created in Azure Active Directory?
 
-- Se crea un directorio de Azure Active Directory para el dominio, un directorio por dominio.
-- El directorio de Azure AD no tiene ningún administrador global.
+#### <a name="directory"></a>directory
 
-#### Usuarios
+- An Azure Active Directory directory for the domain is created, one directory per domain.
+- The Azure AD directory has no global admin.
 
-- Para cada usuario que se registra, se crea un objeto de usuario en el directorio de Azure AD.
-- Cada objeto de usuario se marca como externo.
-- Cada usuario tiene acceso al servicio en el que se ha registrado.
+#### <a name="users"></a>Users
 
-### ¿Cómo puedo reclamar un directorio de Azure AD de autoservicio para un dominio de mi propiedad?
+- For each user who signs up, a user object is created in the Azure AD directory.
+- Each user object is marked as external.
+- Each user is given access to the service that they signed up for.
 
-Puede reclamar un directorio de Azure AD de autoservicio realizando la validación del dominio. La validación del dominio demuestra que es el propietario del dominio mediante la creación de registros DNS.
+### <a name="how-do-i-claim-a-self-service-azure-ad-directory-for-a-domain-i-own?"></a>How do I claim a self-service Azure AD directory for a domain I own?
 
-Hay dos formas de realizar una adquisición de DNS de un directorio de Azure AD:
+You can claim a self-service Azure AD directory by performing domain validation. Domain validation proves you own the domain by creating DNS records.
 
-- Adquisición interna (el administrador detecta un directorio de Azure no administrado y desea convertirlo en un directorio administrado).
-- Adquisición externa (el administrador intenta agregar un nuevo dominio a su directorio de Azure administrado).
+There are two ways to do a DNS takeover of an Azure AD directory:
 
-Puede que le interese validar que posee un dominio, porque va a adquirir un directorio no administrado después de que un usuario realice un registro de autoservicio, o bien puede que quiera agregar un dominio nuevo a un directorio administrado existente. Por ejemplo, tiene un dominio denominado contoso.com y desea agregar un nuevo dominio denominado contoso.co.uk o contoso.uk.
+- internal takeover (Admin discovers an unmanaged Azure directory, and wants to turn into a managed directory)
+- external takeover (Admin tries to add a new domain to their managed Azure directory)
 
-## ¿Qué es la adquisición de un dominio?  
+You might be interested in validating that you own a domain because you are taking over an unmanaged directory after a user performed self-service signup, or you might be adding a new domain to an existing managed directory. For example, you have a domain named contoso.com and you want to add a new domain named contoso.co.uk or contoso.uk.
 
-En esta sección se describe cómo validar la propiedad de su dominio.
+## <a name="what-is-domain-takeover?"></a>What is domain takeover?  
 
-### ¿Qué es la validación de dominios y por qué se usa?
+This section covers how to validate that you own a domain
 
-Para realizar operaciones en un directorio, Azure AD necesita que valide la propiedad del dominio DNS. La validación del dominio permite reclamar el directorio y promover el directorio de autoservicio a un directorio administrado o fusionar el directorio de autoservicio en un directorio administrado existente.
+### <a name="what-is-domain-validation-and-why-is-it-used?"></a>What is domain validation and why is it used?
 
-## Ejemplos de validación de dominio
+In order to perform operations on a directory, Azure AD requires that you validate ownership of the DNS domain.  Validation of the domain allows you to claim the directory and either promote the self-service directory to a managed directory, or merge the self-service directory into an existing managed directory.
 
-Hay dos formas de realizar una adquisición de DNS de un directorio:
+## <a name="examples-of-domain-validation"></a>Examples of domain validation
 
-+ Adquisición interna (por ejemplo, un administrador detecta un directorio no administrado de autoservicio y desea convertirlo en un directorio administrado).
-+ Adquisición externa (por ejemplo, un administrador intenta agregar un nuevo dominio a un directorio administrado).
+There are two ways to do a DNS takeover of a directory:
 
-### Adquisición interna: promueva un directorio no administrado de autoservicio a un directorio administrado.
++ internal takeover  (For example, an admin discovers a self-service, unmanaged directory, and wants to turn into managed directory)
++ external takeover (For example, a admin tries to add a new domain to a managed directory)
 
-Al realizar una adquisición interna, el directorio pasa de ser un directorio no administrado a un directorio administrado. Debe completar la validación del nombre de dominio DNS, donde crea un registro MX o un registro TXT en la zona DNS. Esa acción:
+### <a name="internal-takeover---promote-a-self-service,-unmanaged-directory-to-be-a-managed-directory"></a>Internal Takeover - promote a self-service, unmanaged directory to be a managed directory
 
-+ Valida la propiedad de su dominio
-+ Hace que el directorio sea administrado
-+ Le convierte en administrador global del directorio
+When you do internal takeover, the directory gets converted from an unmanaged directory to a managed directory. You need to complete DNS domain name validation, where you create an MX record or a TXT record in the DNS zone. That action:
 
-Supongamos que un administrador de TI de Bellows College detecta que los usuarios de la escuela se han suscrito a ofertas de autoservicio. Como propietario registrado del nombre DNS BellowsCollege.com, el administrador de TI puede validar la propiedad del nombre DNS en Azure y adquirir el directorio no administrado. A continuación, el directorio se convierte en un directorio administrado y al administrador de TI se le asigna el rol de administrador global para el directorio BellowsCollege.com.
++ Validates that you own the domain
++ Makes the directory managed
++ Makes you the global admin of the directory
 
-### Adquisición externa: fusión de un directorio de autoservicio en un directorio administrado existente
+Let's say an IT administrator from Bellows College discovers that users from the school have signed up for self-service offerings. As the registered owner of the DNS name BellowsCollege.com, the IT administrator can validate ownership of the DNS name in Azure and then take over the unmanaged directory. The directory then becomes a managed directory, and the IT administrator is assigned the global administrator role for the BellowsCollege.com directory.
 
-En una adquisición externa, ya tiene un directorio administrado y desea que todos los usuarios y grupos de un directorio no administrado se unan a ese directorio administrado en lugar de poseer dos directorios independientes.
+### <a name="external-takeover---merge-a-self-service-directory-into-an-existing-managed-directory"></a>External Takeover - merge a self-service directory into an existing managed directory
 
-Como administrador de un directorio administrado, se agrega un dominio que tiene asociado un directorio no administrado.
+In an external takeover, you already have a managed directory and you want all users and groups from an unmanaged directory to join that managed directory, rather than own two separate directories.
 
-Por ejemplo, suponga que es administrador de TI y ya tiene un directorio administrado para Contoso.com, un nombre de dominio registrado para su organización. Descubre que los usuarios de su organización han realizado una suscripción de autoservicio a una oferta con un nombre de dominio de correo electrónico user@contoso.co.uk, que es otro nombre de dominio que posee su organización. Actualmente, esos usuarios tienen cuentas en un directorio no administrado para contoso.co.uk.
+As an admin of a managed directory, you add a domain, and that domain happens to have an unmanaged directory associated with it.
 
-Usted no desea administrar dos directorios independientes, por lo que fusiona el directorio no administrado para contoso.co.uk en su directorio administrado de TI existente para contoso.com.
+For example, let's say you are an IT administrator and you already have a managed directory for Contoso.com, a domain name that is registered to your organization. You discover that users from your organization have performed self-service sign up for an offering by using email domain name user@contoso.co.uk, which is another domain name that your organization owns. Those users currently have accounts in an unmanaged directory for contoso.co.uk.
 
-La adquisición externa sigue el mismo proceso de validación de DNS que la adquisición interna. La diferencia es que se reasignan los usuarios y servicios al directorio administrado de TI.
+You don't want to manage two separate directories, so you merge the unmanaged directory for contoso.co.uk into your existing IT managed directory for contoso.com.
 
-#### ¿Cuál es el impacto de realizar una adquisición externa?
+External takeover follows the same DNS validation process as internal takeover.  Difference being: users and services are remapped to the IT managed directory.
 
-Con una adquisición externa, se crea una asignación de usuarios a recursos para que los usuarios sigan teniendo acceso a los servicios sin interrupción. Muchas aplicaciones, como RMS para usuarios, administran la asignación de usuarios a los recursos bien y los usuarios pueden seguir teniendo acceso a los servicios sin cambios. Si una aplicación no administra la asignación de usuarios a recursos de forma eficaz, es posible que se bloquee la adquisición externa explícitamente para evitar una experiencia deficiente de los usuarios.
+#### <a name="what's-the-impact-of-performing-an-external-takeover?"></a>What's the impact of performing an external takeover?
 
-#### Admisión de la adquisición del directorio por servicio
+With an external takeover, a mapping of users-to-resources is created so users can continue to access services without interruption. Many applications, including RMS for individuals, handle the mapping of users-to-resources well, and users can continue to access those services without change. If an application does not handle the mapping of users-to-resources effectively, external takeover may be explicitly blocked to prevent users from a poor experience.
 
-Actualmente, los servicios siguientes admiten la adquisición:
+#### <a name="directory-takeover-support-by-service"></a>directory takeover support by service
+
+Currently the following services support takeover:
 
 - RMS
 
 
-Los siguientes servicios admitirán la adquisición próximamente:
+The following services will soon be supporting takeover:
 
 - PowerBI
 
-Los siguientes servicios no la admiten y requieren una acción adicional del administrador para migrar datos de usuario después de una adquisición externa.
+The following do not and require additional admin action to migrate user data after an external takeover.
 
 - SharePoint/OneDrive
 
 
-## Realización de una adquisición de nombre de dominio DNS
+## <a name="how-to-perform-a-dns-domain-name-takeover"></a>How to perform a DNS domain name takeover
 
-Tiene unas cuantas opciones para realizar una validación de dominio (y realizar una adquisición si lo desea):
+You have a few options for how to perform a domain validation (and do a takeover if you wish):
 
-1.  Portal de administración de Azure
+1.  Azure Management Portal
 
-	Una adquisición se desencadena agregando un dominio. Si ya existe un directorio para el dominio, tendrá la opción de realizar una adquisición externa.
+    A takeover is triggered by doing a domain addition.  If a directory already exists for the domain, you'll have the option to perform an external takeover.
 
-	Inicio de sesión en el portal de Azure con credenciales Vaya al directorio existente y, después, a **Agregar dominio**.
+    Sign in to the Azure portal using your credentials.  Navigate to your existing directory and then to **Add domain**.
 
 2.  Office 365
 
-	Puede usar las opciones de la [Administrar dominios](https://support.office.com/article/Navigate-to-the-Office-365-Manage-domains-page-026af1f2-0e6d-4f2d-9b33-fd147420fac2/) en Office 365 para trabajar con sus dominios y registros DNS. Consulte [Comprobar el dominio en Office 365](https://support.office.com/article/Verify-your-domain-in-Office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611/).
+    You can use the options on the [Manage domains](https://support.office.com/article/Navigate-to-the-Office-365-Manage-domains-page-026af1f2-0e6d-4f2d-9b33-fd147420fac2/) page in Office 365 to work with your domains and DNS records. See [Verify your domain in Office 365](https://support.office.com/article/Verify-your-domain-in-Office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611/).
 
 3.  Windows PowerShell
 
-	Los pasos siguientes son necesarios para realizar una validación con Windows PowerShell.
+    The following steps are required to perform a validation using Windows PowerShell.
 
-	Paso |	Cmdlet que se debe usar
-	-------	| -------------
-	Crear un objeto de credencial | Get-Credential
-	Conectarse a Azure | Connect-MsolService
-	Obtener una lista de dominios | Get-MsolDomain
-	Crear un desafío | Get-MsolDomainVerificationDns
-	Crear un registro DNS | Realice esta acción en su servidor de DNS
-	Comprobar el desafío | Confirm-MsolEmailVerifiedDomain
+    Step    |   Cmdlet to use
+    ------- | -------------
+    Create a credential object | Get-Credential
+    Connect to Azure AD | Connect-MsolService
+    get a list of domains   | Get-MsolDomain
+    Create a challenge  | Get-MsolDomainVerificationDns
+    Create DNS record   | Do this on your DNS server
+    Verify the challenge    | Confirm-MsolEmailVerifiedDomain
 
-Por ejemplo:
+For example:
 
-1. Conéctese a Azure AD con las credenciales que se usaron para responder a la oferta de autoservicio: import-module MSOnline $msolcred = get-credential connect-msolservice -credential $msolcred
+1. Connect to Azure AD using the credentials that were used to respond to the self-service offering:      import-module MSOnline      $msolcred = get-credential      connect-msolservice -credential $msolcred
 
-2. Obtenga una lista de dominios:
+2. Get a list of domains:
 
-	Get-MsolDomain
+    Get-MsolDomain
 
-3. A continuación, ejecute el cmdlet Get-MsolDomainVerificationDns para crear un desafío:
+3. Then run the Get-MsolDomainVerificationDns cmdlet to create a challenge:
 
-	Get-MsolDomainVerificationDns –DomainName *nombre\_de\_dominio* –Mode DnsTxtRecord
+    Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
 
-	Por ejemplo:
+    For example:
 
-	Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
+    Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
 
-4. Copie el valor (el desafío) que se devuelve desde este comando.
+4. Copy the value (the challenge) that is returned from this command.
 
-	Por ejemplo:
+    For example:
 
-	MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
+    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
 
-5. En el espacio de nombres DNS público, cree un registro txt de DNS que contenga el valor que copió en el paso anterior.
+5. In your public DNS namespace, create a DNS txt record that contains the value that you copied in the previous step.
 
-	El nombre de este registro es el nombre del dominio principal, por lo que si crea este registro de recursos con el rol DNS desde Windows Server, deje el nombre del registro en blanco y pegue el valor en el cuadro de texto.
+    The name for this record is the name of the parent domain, so if you create this resource record by using the DNS role from Windows Server, leave the Record name blank and just paste the value into the Text box
 
-6. Ejecute el cmdlet Confirm-MsolDomain para comprobar el desafío:
+6. Run the Confirm-MsolDomain cmdlet to verify the challenge:
 
-	Confirm-MsolEmailVerifiedDomain -DomainName *nombre\_de\_dominio*
+    Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
 
-	Por ejemplo:
+    for example:
 
-	Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
+    Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
 
-Un desafío correcto le devuelve el mensaje sin errores.
+A successful challenge returns you to the prompt without an error.
 
-## ¿Cómo controlo la configuración de autoservicio?
+## <a name="how-do-i-control-self-service-settings?"></a>How do I control self-service settings?
 
-Actualmente, los administradores tienen dos controles de autoservicio . Pueden controlar:
+Admins have two self-service controls today. They can control:
 
-- Si los usuarios pueden unirse o no al directorio mediante el correo electrónico.
-- Si los usuarios pueden concederse o no licencias para aplicaciones y servicios.
-
-
-### ¿Cómo puedo controlar estas capacidades?
-
-Un administrador puede configurar estas capacidades con estos parámetros Set-MsolCompanySettings de cmdlet de Azure AD:
-
-+ **AllowEmailVerifiedUsers** controla si un usuario puede crear o unirse a un directorio no administrado. Si establece este parámetro en $false, ningún usuario comprobado por correo electrónico se puede unir al directorio.
-+ **AllowAdHocSubscriptions** controla la capacidad de los usuarios de realizar suscripciones de autoservicio. Si establece el parámetro en $false, ningún usuario puede realizar suscripciones de autoservicio.
+- Whether or not users can join the directory via email.
+- Whether or not users can license themselves for applications and services.
 
 
-### ¿Cómo funciona los controles conjuntamente?
+### <a name="how-can-i-control-these-capabilities?"></a>How can I control these capabilities?
 
-Estos dos parámetros se pueden usar juntos para definir un control más preciso de la suscripción de autoservicio. Por ejemplo, el comando siguiente permitirá a los usuarios realizar suscripciones de autoservicio pero solo si estos usuarios ya tienen una cuenta en Azure AD (en otras palabras, los usuarios que necesitan crear una cuenta comprobada por correo electrónico no pueden realizar suscripciones de autoservicio):
+An admin can configure these capabilities using these Azure AD cmdlet Set-MsolCompanySettings parameters:
 
-	Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
++ **AllowEmailVerifiedUsers** controls whether a user can create or join an unmanaged directory. If you set that parameter to $false, no email-verified users can join the directory.
++ **AllowAdHocSubscriptions** controls the ability for users to perform self-service sign up. If you set that parameter to $false, no users can perform self-service signup.
 
-En el siguiente diagrama se explican las distintas combinaciones de estos parámetros y las condiciones resultantes para el directorio y el registro de autoservicio.
+
+### <a name="how-do-the-controls-work-together?"></a>How do the controls work together?
+
+These two parameters can be used in conjunction to define more precise control over self-service sign up. For example, the following command will allow users to perform self-service sign up, but only if those users already have an account in Azure AD (in other words, users who would need an email-verified account to be created cannot perform self-service sign up):
+
+    Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
+
+The following flowchart explains all the different combinations for these parameters and the resulting conditions for the directory and self-service sign up.
 
 ![][1]
 
-Para obtener más información y ejemplos de cómo usar estos parámetros, consulte [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx).
+For more information and examples of how to use these parameters, see [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx).
 
-## Otras referencias
+## <a name="see-also"></a>See Also
 
--  [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md)
+-  [How to install and configure Azure PowerShell](../powershell-install-configure.md)
 
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 
--  [Referencia de cmdlets de Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx)
+-  [Azure Cmdlet Reference](https://msdn.microsoft.com/library/azure/jj554330.aspx)
 
 -  [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx)
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

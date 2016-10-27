@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Integración de Azure Active Directory con Work.com | Microsoft Azure" 
-    description="Aprenda cómo usar Work.com con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    pageTitle="Tutorial: Azure Active Directory integration with Work.com | Microsoft Azure" 
+    description="Learn how to use Work.com with Azure Active Directory to enable single sign-on, automated provisioning, and more!." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,200 +14,204 @@
     ms.date="09/11/2016" 
     ms.author="jeedes" />
 
-#Tutorial: Integración de Azure Active Directory con Work.com
+
+#<a name="tutorial:-azure-active-directory-integration-with-work.com"></a>Tutorial: Azure Active Directory integration with Work.com
   
-El objetivo de este tutorial es mostrar la integración de Azure y Work.com.  
-En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+The objective of this tutorial is to show the integration of Azure and Work.com.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Una suscripción de Azure válida
--   Una suscripción habilitada para el inicio de sesión único en Work.com
+-   A valid Azure subscription
+-   A Work.com single sign-on enabled subscription
   
-Después de completar este tutorial, los usuarios de AAD a los que ha asignado acceso a Work.com podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Work.com (inicio de sesión iniciado por el proveedor del servicio) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the AAD users to whom you have assign Work.com access will be able to single sign into the application at your Work.com company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-La situación descrita en este tutorial consta de los siguientes bloques de creación:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Habilitación de la integración de aplicaciones en Work.com
-2.  Configuración del inicio de sesión único
-3.  Configuración del aprovisionamiento de usuario
-4.  Asignación de usuarios
+1.  Enabling the application integration for Work.com
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Escenario](./media/active-directory-saas-work-com-tutorial/IC794105.png "Escenario")
+![Scenario](./media/active-directory-saas-work-com-tutorial/IC794105.png "Scenario")
 
-##Habilitación de la integración de aplicaciones en Work.com
+##<a name="enabling-the-application-integration-for-work.com"></a>Enabling the application integration for Work.com
   
-El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones para Work.com.
+The objective of this section is to outline how to enable the application integration for Work.com.
 
-###Siga estos pasos para habilitar la integración de aplicaciones para Work.com:
+###<a name="to-enable-the-application-integration-for-work.com,-perform-the-following-steps:"></a>To enable the application integration for Work.com, perform the following steps:
 
-1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-work-com-tutorial/IC700993.png "Active Directory")
 
-2.  En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Aplicaciones](./media/active-directory-saas-work-com-tutorial/IC700994.png "Aplicaciones")
+    ![Applications](./media/active-directory-saas-work-com-tutorial/IC700994.png "Applications")
 
-4.  Haga clic en **Agregar** en la parte inferior de la página.
+4.  Click **Add** at the bottom of the page.
 
-    ![Agregar aplicación](./media/active-directory-saas-work-com-tutorial/IC749321.png "Agregar aplicación")
+    ![Add application](./media/active-directory-saas-work-com-tutorial/IC749321.png "Add application")
 
-5.  En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Agregar una aplicación de la galería](./media/active-directory-saas-work-com-tutorial/IC749322.png "Agregar una aplicación de la galería")
+    ![Add an application from gallerry](./media/active-directory-saas-work-com-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  En el **cuadro de búsqueda**, escriba **Work.com**.
+6.  In the **search box**, type **Work.com**.
 
-    ![Galería de aplicaciones](./media/active-directory-saas-work-com-tutorial/IC794106.png "Galería de aplicaciones")
+    ![Application Gallery](./media/active-directory-saas-work-com-tutorial/IC794106.png "Application Gallery")
 
-7.  En el panel de resultados, seleccione **Work.com** y luego haga clic en **Completar** para agregar la aplicación.
+7.  In the results pane, select **Work.com**, and then click **Complete** to add the application.
 
     ![Work.com](./media/active-directory-saas-work-com-tutorial/IC794107.png "Work.com")
 
-##Configuración del inicio de sesión único
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Work.com con su cuenta de Azure AD usando el protocolo SAML basado en la federación.  
-Como parte de este procedimiento, es necesario cargar un certificado en Work.com.com.
+The objective of this section is to outline how to enable users to authenticate to Work.com with their account in Azure AD using federation based on the SAML protocol.  
+As part of this procedure, you are required to upload a certificate to Work.com.com.
 
->[AZURE.NOTE] Para configurar el inicio de sesión único, deberá configurar todavía un nombre de dominio personalizado de Work.com. Deberá definir al menos un nombre de dominio, probar su nombre de dominio e implementarlo en toda la organización.
+>[AZURE.NOTE] To configure single sign-on, you need to setup a custom Work.com domain name yet. You need to define at least a domain name, test your domain name, and deploy it to your entire organization.
 
-###Siga estos pasos para configurar el inicio de sesión único:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Inicie sesión en su inquilino de Work.com como administrador.
+1.  Log in to your Work.com tenant as administrator.
 
-2.  Acceda a **Setup** (Configuración).
+2.  Go to **Setup**.
 
-    ![Configuración](./media/active-directory-saas-work-com-tutorial/IC794108.png "Configuración")
+    ![Setup](./media/active-directory-saas-work-com-tutorial/IC794108.png "Setup")
 
-3.  En el panel de navegación izquierdo, en la sección **Administrar**, haga clic en **Administración de dominios** para expandir la sección relacionada y, luego, haga clic en la página **Mi dominio** para abrir la página **Mi dominio**.
+3.  On the left navigation pane, in the **Administer** section, click **Domain Management** to expand the related section, and then click **My Domain** to open the **My Domain** page. 
 
-    ![Mi dominio](./media/active-directory-saas-work-com-tutorial/IC767825.png "Mi dominio")
+    ![My Domain](./media/active-directory-saas-work-com-tutorial/IC767825.png "My Domain")
 
-4.  Para comprobar que el dominio se ha configurado correctamente, asegúrese de que está en el **Paso 4 Implementación para usuarios** y revise **Mi configuración de dominio**.
+4.  To verify that your domain has been setup correctly, make sure that it is in “**Step 4 Deployed to Users**” and review your “**My Domain Settings**”.
 
-    ![Dominio implementado al usuario](./media/active-directory-saas-work-com-tutorial/IC784377.png "Dominio implementado al usuario")
+    ![Doman Deployed to User](./media/active-directory-saas-work-com-tutorial/IC784377.png "Doman Deployed to User")
 
-5.  En otra ventana del explorador web, inicie sesión en el Portal de Azure clásico.
+5.  In a different web browser window, log in to your Azure classic portal.
 
-6.  En la página de integración de aplicaciones de **Work.com**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+6.  On the **Work.com **application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-work-com-tutorial/IC794109.png "Configurar inicio de sesión único")
+    ![Configure Single Sign-On](./media/active-directory-saas-work-com-tutorial/IC794109.png "Configure Single Sign-On")
 
-7.  En la página **¿Cómo desea que los usuarios inicien sesión en Work.com?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, luego , haga clic en **Siguiente**.
+7.  On the **How would you like users to sign on to Work.com** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-work-com-tutorial/IC794110.png "Configurar inicio de sesión único")
+    ![Configure Single Sign-On](./media/active-directory-saas-work-com-tutorial/IC794110.png "Configure Single Sign-On")
 
-8.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Work.com**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en su aplicación Work.com (por ejemplo: *http://company.my.salesforce.com*”) y luego haga clic en **Siguiente**:
+8.  On the **Configure App URL** page, in the **Work.com Sign On URL** textbox, type the URL used by your users to sign on to your Work.com application (e.g.:” *http://company.my.salesforce.com*”), and then click **Next**: 
 
-    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-work-com-tutorial/IC794111.png "Configurar dirección URL de la aplicación")
+    ![Configure App URL](./media/active-directory-saas-work-com-tutorial/IC794111.png "Configure App URL")
 
-9.  En la página **Configurar inicio de sesión único en Work.com**, para descargar el certificado, haga clic en **Descargar certificado** y, a continuación, guarde el archivo de certificado en el equipo.
+9.  On the **Configure single sign-on at Work.com** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-work-com-tutorial/IC794112.png "Configurar inicio de sesión único")
+    ![Configure Single Sign-On](./media/active-directory-saas-work-com-tutorial/IC794112.png "Configure Single Sign-On")
 
-10. Inicie sesión en su inquilino de Work.com.
+10. Log in to your Work.com tenant.
 
-11. Acceda a **Setup** (Configuración).
+11. Go to **Setup**.
 
-    ![Configuración](./media/active-directory-saas-work-com-tutorial/IC794108.png "Configuración")
+    ![Setup](./media/active-directory-saas-work-com-tutorial/IC794108.png "Setup")
 
-12. Expanda el menú **Security Controls** (Controles de seguridad) y luego haga clic en **Single Sign-On Settings** (Configuración de inicio de sesión único).
+12. Expand the **Security Controls** menu, and then click **Single Sign-On Settings**.
 
-    ![Configuración de inicio de sesión único](./media/active-directory-saas-work-com-tutorial/IC794113.png "Configuración de inicio de sesión único")
+    ![Single Sign-On Settings](./media/active-directory-saas-work-com-tutorial/IC794113.png "Single Sign-On Settings")
 
-13. En la página del cuadro de diálogo **Single Sign-On Settings** (Configuración de inicio de sesión único), siga estos pasos:
+13. On the **Single Sign-On Settings** dialog page, perform the following steps:
 
-    ![SAML habilitado](./media/active-directory-saas-work-com-tutorial/IC781026.png "SAML habilitado")
+    ![SAML Enabled](./media/active-directory-saas-work-com-tutorial/IC781026.png "SAML Enabled")
 
-    1.  Seleccione **SAML habilitado**.
-    2.  Haga clic en **Nuevo**.
+    1.  Select **SAML Enabled**.
+    2.  Click **New**.
 
-14. En la sección **SAML Single Sign-On Settings** (Configuración del inicio de sesión único de SAML), siga estos pasos:
+14. In the **SAML Single Sign-On Settings** section, perform the following steps:
 
-    ![Configuración de inicio de sesión único SAML](./media/active-directory-saas-work-com-tutorial/IC794114.png "Configuración de inicio de sesión único SAML")
+    ![SAML Single Sign-On Setting](./media/active-directory-saas-work-com-tutorial/IC794114.png "SAML Single Sign-On Setting")
 
-    1.  En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración.
+    1.  In the **Name** textbox, type a name for your configuration.  
 
-        >[AZURE.NOTE] Si se proporciona un valor para **Name** (Nombre), el cuadro de texto **API Name** (Nombre de API) se completa automáticamente.
+        >[AZURE.NOTE] Providing a value for **Name** does automatically populate the **API Name** textbox.
 
-    2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Work.com**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **Emisor**.
-    3.  Para cargar el certificado descargado, haga clic en **Examinar** .
-    4.  En el cuadro de texto **Id. de entidad**, escriba **https://salesforce-work.com**.
-    5.  Como **Tipo de identidad SAML**, seleccione **La aserción contiene el identificador de la federación del objeto de usuario**.
-    6.  Como **Ubicación de identidad SAML**, seleccione **La identidad está en el elemento NameIdentifier de la instrucción Subject**.
-    7.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Work.com**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Identity Provider Login URL** (Dirección URL de inicio de sesión de proveedor de identidades).
-    8.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Work.com**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Identity Provider Logout URL** (Dirección URL de cierre de sesión de proveedor de identidades).
-    9.  Como **Vinculación de solicitud iniciada del proveedor de servicios**, seleccione **HTTP Post**.
-    10. Haga clic en **Save**.
+    2.  In the Azure classic portal, on the **Configure single sign-on at Work.com** dialog page, copy the **Issuer URL** value, and then paste it into the **Issuer** textbox.
+    3.  To upload the downloaded certificate, click **Browse**.
+    4.  In the **Entity Id** textbox, type **https://salesforce-work.com**.
+    5.  As **SAML Identity Type**, select **Assertion contains the Federation ID from the User object**.
+    6.  As **SAML Identity Location**, select **Identity is in the NameIdentfier element of the Subject statement**.
+    7.  In the Azure classic portal, on the **Configure single sign-on at Work.com** dialog page, copy the **Remote Login URL** value, and then paste it into the **Identity Provider Login URL** textbox.
+    8.  In the Azure classic portal, on the **Configure single sign-on at Work.com** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Identity Provider Logout URL** textbox.
+    9.  As **Service Provider Initiated Request Binding**, select **HTTP Post**.
+    10. Click **Save**.
 
-15. En el portal de Work.com, en el panel de navegación izquierdo, haga clic en **Domain Management** (Administración de dominios) para expandir la sección relacionada y luego haga clic en la página **My Domain** (Mi dominio) para abrir la página **My Domain** (Mi dominio).
+15. In your Work.com classic portal, on the left navigation pane, click **Domain Management** to expand the related section, and then click **My Domain** to open the **My Domain** page. 
 
-    ![Mi dominio](./media/active-directory-saas-work-com-tutorial/IC794115.png "Mi dominio")
+    ![My Domain](./media/active-directory-saas-work-com-tutorial/IC794115.png "My Domain")
 
-16. En la página **Mi dominio**, en la sección **Personalización de marca de la página de inicio de sesión**, haga clic en **Editar**.
+16. On the **My Domain** page, in the **Login Page Branding** section, click **Edit**.
 
-    ![Personalización de marca de la página de inicio de sesión](./media/active-directory-saas-work-com-tutorial/IC767826.png "Personalización de marca de la página de inicio de sesión")
+    ![Login Page Branding](./media/active-directory-saas-work-com-tutorial/IC767826.png "Login Page Branding")
 
-17. En la página **Login Page Branding** (Personalización de marca de la página de inicio de sesión), en la sección **Authentication Service** (Servicio de autenticación), se muestra el nombre de su **SAML SSO Settings** (Configuración de SSO de SAML). Selecciónelo y luego haga clic en **Save** (Guardar).
+17. On the **Login Page Branding** page, in the **Authentication Service** section, the name of your **SAML SSO Settings** is displayed. Select it, and then click **Save**.
 
-    ![Personalización de marca de la página de inicio de sesión](./media/active-directory-saas-work-com-tutorial/IC784366.png "Personalización de marca de la página de inicio de sesión")
+    ![Login Page Branding](./media/active-directory-saas-work-com-tutorial/IC784366.png "Login Page Branding")
 
-18. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+18. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-work-com-tutorial/IC794116.png "Configurar inicio de sesión único")
+    ![Configure Single Sign-On](./media/active-directory-saas-work-com-tutorial/IC794116.png "Configure Single Sign-On")
 
-##Configuración del aprovisionamiento de usuario
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Para que los usuarios de Azure Active Directory puedan iniciar sesión, deben aprovisionarse a Work.com.  
-En el caso de Work.com, el aprovisionamiento es una tarea manual.
+For Azure Active Directory users to be able to sign in, they must be provisioned to Work.com.  
+In the case of Work.com, provisioning is a manual task.
 
-###Siga estos pasos para configurar el aprovisionamiento de usuario:
+###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-1.  Inicie sesión en su sitio de la compañía de Work.com como administrador.
+1.  Sign on to your Work.com company site as an administrator.
 
-2.  Acceda a **Setup** (Configuración).
+2.  Go to **Setup**.
 
-    ![Configuración](./media/active-directory-saas-work-com-tutorial/IC794108.png "Configuración")
+    ![Setup](./media/active-directory-saas-work-com-tutorial/IC794108.png "Setup")
 
-3.  Vaya a **Administrar usuarios > Usuarios**.
+3.  Go to **Manage Users \> Users**.
 
-    ![Administrar usuarios](./media/active-directory-saas-work-com-tutorial/IC784369.png "Administrar usuarios")
+    ![Manage Users](./media/active-directory-saas-work-com-tutorial/IC784369.png "Manage Users")
 
-4.  Haga clic en **Nuevo usuario**.
+4.  Click **New User**.
 
-    ![Todos los usuarios](./media/active-directory-saas-work-com-tutorial/IC794117.png "Todos los usuarios")
+    ![All Users](./media/active-directory-saas-work-com-tutorial/IC794117.png "All Users")
 
-5.  En la sección Edición de usuario, lleve a cabo estos pasos:
+5.  In the User Edit section, perform the following steps:
 
-    ![Edición de usuarios](./media/active-directory-saas-work-com-tutorial/IC794118.png "Edición de usuarios")
+    ![User Edit](./media/active-directory-saas-work-com-tutorial/IC794118.png "User Edit")
 
-    1.  Escriba los atributos **Apellido**, **Alias**, **Correo electrónico**, **Nombre de usuario** y **Sobrenombre** de una cuenta de Azure Active Directory válida que quiera aprovisionar en los cuadros de texto relacionados.
-    2.  Seleccione **Role** (Rol), **User License** (Licencia de usuario) y **Profile** (Perfil).
-    3.  Haga clic en **Save**.
+    1.  Type the **Last Name**, **Alias**, **Email**, **Username** and **Nickname** attributes of a valid Azure Active Directory account you want to provision into the related textboxes.
+    2.  Select **Role**, **User License** and **Profile**.
+    3.  Click **Save**.  
 
-        >[AZURE.NOTE] El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo electrónico con un vínculo para confirmar la cuenta antes de que se active.
+        >[AZURE.NOTE] The Azure Active Directory account holder will get an email including a link to confirm the account before it becomes active.
 
->[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Work.com ofrecida por Work.com para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] You can use any other Work.com user account creation tools or APIs provided by Work.com to provision AAD user accounts.
 
-##Asignación de usuarios
+##<a name="assigning-users"></a>Assigning users
   
-Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Para asignar usuarios a Work.com, lleve a cabo los siguientes pasos:
+###<a name="to-assign-users-to-work.com,-perform-the-following-steps:"></a>To assign users to Work.com, perform the following steps:
 
-1.  En el Portal de Azure clásico, cree una cuenta de prueba.
+1.  In the Azure classic portal, create a test account.
 
-2.  En la página de integración de la aplicación Work.com, haga clic en **Asignar usuarios**.
+2.  On the Work.com application integration page, click **Assign users**.
 
-    ![Asignar usuarios](./media/active-directory-saas-work-com-tutorial/IC794119.png "Asignar usuarios")
+    ![Assign Users](./media/active-directory-saas-work-com-tutorial/IC794119.png "Assign Users")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sí](./media/active-directory-saas-work-com-tutorial/IC767830.png "Sí")
+    ![Yes](./media/active-directory-saas-work-com-tutorial/IC767830.png "Yes")
   
-Ahora debería esperar 10 minutos y comprobar si la cuenta se ha sincronizado en Work.com.com.
+You should now wait for 10 minutes and verify that the account has been synchronized to Work.com.com.
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

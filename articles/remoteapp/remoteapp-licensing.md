@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Licencias de Azure RemoteApp | Microsoft Azure"
-    description="Obtenga información sobre cómo funcionan las licencias en RemoteApp de Azure."
+    pageTitle="Azure RemoteApp licensing | Microsoft Azure"
+    description="Learn how licensing works in Azure RemoteApp."
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -16,25 +16,30 @@
     ms.author="elizapo" />
 
 
-# ¿Cómo funciona la concesión de licencias de RemoteApp de Azure?
+
+# <a name="how-does-licensing-work-in-azure-remoteapp?"></a>How does licensing work in Azure RemoteApp?
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp va a dejar de estar disponible. Para más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Ha configurado el servicio de RemoteApp de Azure, creado las plantillas y está listo para publicar aplicaciones para los usuarios. Pero hay una última cosa que debe averiguar: cómo funciona la concesión de licencias. ¿Cómo funcionan exactamente las licencias para RemoteApp y para las aplicaciones que se comparten a través de RemoteApp?
+So you've set up your Azure RemoteApp service, created your templates, and are ready to publish apps to your users. But there's still one last thing to figure out: licensing. Just how does licensing work for RemoteApp and for the apps you share through RemoteApp?
 
-RemoteApp no requiere licencias de Windows ni licencias de acceso de cliente (CAL) de Escritorio remoto. La suscripción se encarga de lo relativo a RemoteApp. (Consulte los detalles de los [planes de precios](https://azure.microsoft.com/pricing/details/remoteapp)).
+RemoteApp does not require any Windows licenses or Remote Desktop CALs. Your subscription takes care of the RemoteApp side itself. (Check out the details of the [pricing plans](https://azure.microsoft.com/pricing/details/remoteapp).)
 
-Si utiliza una de las imágenes incluidas en su suscripción, puede compartir cualquiera de las aplicaciones instaladas en esa imagen sin necesidad de una licencia aparte. Por ejemplo, si usa la imagen de plantilla de Windows Server 2012 R2 para generar una colección, puede compartir System Center Endpoint Protection con los usuarios. Las únicas excepciones a esta regla son Office 365 ProPlus, que requiere una suscripción independiente, y Office 2013, que no se puede compartir en una colección de producción.
+If you use one of the images that is included in your subscription, you can share any of the apps installed on that image without needing a separate license. For example, if you use the Windows Server 2012 R2 template image to build your collection, you can share System Center Endpoint Protection with your users. The only exceptions to this rule are Office 365 ProPlus, which requires a separate subscription, and Office 2013, which cannot be shared in a production collection.
 
-Si quiere usar la imagen de plantilla de Office 365 que viene con RemoteApp de Azure, debe tener un plan de Office 365 ProPlus *existente*. Lo mismo ocurre con cualquier aplicación de Office 365 que se publique mediante una plantilla personalizada. Debe activar las aplicaciones con su propia suscripción. Lo mismo ocurre con las suscripciones de prueba y de pago. Si quiere usar la imagen de plantilla de Office 365 durante el período de prueba, *y ya no tiene una suscripción*, vaya a la página de Office 365 para [suscribirse](https://go.microsoft.com/fwlink/p/?LinkID=403802) y obtener una suscripción de prueba. Consulte [¿Cómo funcionan conjuntamente RemoteApp y Office?](remoteapp-o365.md) para obtener más información.
+If you want to use the Office 365 template image that comes with RemoteApp, you must have an *existing* Office 365 ProPlus plan. The same is true for any Office 365 app that you publish using a custom template. You need to activate the apps with your own subscription. This is true for both trial and paid subscriptions. If you want to use the Office 365 template image during the trial, *and you don't already have a subscription*, go to the Office 365 page to [sign up](https://go.microsoft.com/fwlink/p/?LinkID=403802) for a trial subscription. See [How do RemoteApp and Office work together?](remoteapp-o365.md) for more information.
 
-Si, durante el período de prueba, no quiere obtener una suscripción de prueba de Office 365, use la imagen de plantilla de Office 2013 Professional Plus que viene con RemoteApp. Esta imagen de plantilla solo puede usarse durante 30 días y no se puede convertir en una colección de pago.
+If, during the trial period, you don't want to get an Office 365 trial subscription, use the Office 2013 Professional Plus template image that comes with RemoteApp. This template image can only be used for 30 days and cannot be converted into a paid collection.
 
-Para otras aplicaciones, deberá asegurarse de que dispone de la licencia necesaria para compartir la aplicación.
+For other apps, you need to make sure that you have the license to share the app.
 
-Esto tiene sentido, ¿no? Puede publicar cualquier aplicación que pueda compartir legalmente. Además, deberá asegurarse de que realmente tiene derecho a compartir sus programas.
+That makes sense, right? You can publish any app that you are legally entitled to share. And you need to make sure you really are entitled to share your programs.
 
-Tenga en cuenta que no puede usar un contrato de licencia por volumen ni una licencia CAL en una colección en la nube. *Puede* usar un contrato de licencia por volumen para activar aplicaciones en su colección híbrida (excepto para Office). Necesitará instalarlas en la imagen de plantilla desde los soportes de licencias por volumen. Siga la información del proveedor de la aplicación para instalar licencias en un entorno de Escritorio remoto.
+Please note that you cannot use a CAL or Volume License agreement in a cloud collection. You *can* use a Volume License agreement to activate applications in your hybrid collection (except for Office). You just need to install them on your template image from the Volume License media. Follow the information from the application vendor to install licenses in a Remote Desktop environment.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

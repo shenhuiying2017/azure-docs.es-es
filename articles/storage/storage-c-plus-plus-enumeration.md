@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Enumeración de recursos de almacenamiento de Azure con la biblioteca de cliente de Almacenamiento de Microsoft Azure para C++ | Microsoft Azure"
-    description="Obtenga información acerca de cómo usar las API de enumeración en la biblioteca de cliente de Almacenamiento de Microsoft Azure para C++ para enumerar los contenedores, blobs, colas, tablas y entidades."
+    pageTitle="List Azure Storage Resources with the Microsoft Azure Storage Client Library for C++ | Microsoft Azure"
+    description="Learn how to use the listing APIs in Microsoft Azure Storage Client Library for C++ to enumerate containers, blobs, queues, tables, and entities."
     documentationCenter=".net"
     services="storage"
     authors="dineshmurthy"
@@ -12,176 +12,181 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/20/2016"
-    ms.author="dineshm;tamram"/>
+    ms.date="10/18/2016"
+    ms.author="dineshm"/>
 
-# Lista los recursos de almacenamiento de Azure en C++
 
-Las operaciones de enumeración son clave para muchos escenarios de desarrollo con el Almacenamiento de Azure. En este artículo se describe cómo enumerar los objetos del Almacenamiento de Azure de manera eficaz con las API de enumeración proporcionadas en la biblioteca de cliente de Almacenamiento de Microsoft Azure para C++.
+# <a name="list-azure-storage-resources-in-c++"></a>List Azure Storage Resources in C++
 
->[AZURE.NOTE] Esta guía tiene como destino la biblioteca de cliente de Almacenamiento de Azure para C++ versión 2.x, que está disponible a través de [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/Azure/azure-storage-cpp).
+Listing operations are key to many development scenarios with Azure Storage. This article describes how to most efficiently enumerate objects in Azure Storage using the listing APIs provided in the Microsoft Azure Storage Client Library for C++.
 
-La biblioteca de cliente de almacenamiento proporciona una variedad de métodos para enumerar o consultar objetos en Almacenamiento de Azure. En este artículo se tratan los siguientes escenarios:
+>[AZURE.NOTE] This guide targets the Azure Storage Client Library for C++ version 2.x, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp).
 
--	Enumerar contenedores de una cuenta
--	Enumerar blobs de un contenedor o un directorio virtual de blobs
--	Enumerar colas de una cuenta
--	Enumerar tablas en una cuenta
--	Query Entities de una tabla
+The Storage Client Library provides a variety of methods to list or query objects in Azure Storage. This article addresses the following scenarios:
 
-Cada uno de estos métodos se muestra con diferentes sobrecargas para diferentes escenarios.
+-   List containers in an account
+-   List blobs in a container or virtual blob directory
+-   List queues in an account
+-   List tables in an account
+-   Query entities in a table
 
-## Asincrónica frente sincrónica
+Each of these methods is shown using different overloads for different scenarios.
 
-Puesto que la biblioteca de cliente de almacenamiento para C++ está integrada en la [biblioteca de REST de C++](https://github.com/Microsoft/cpprestsdk), inherentemente admitimos operaciones asincrónicas usando [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Por ejemplo:
+## <a name="asynchronous-versus-synchronous"></a>Asynchronous versus synchronous
 
-	pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
+Because the Storage Client Library for C++ is built on top of the [C++ REST library](https://github.com/Microsoft/cpprestsdk), we inherently support asynchronous operations by using [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). For example:
 
-Las operaciones sincrónicas contienen las operaciones asincrónicas correspondientes:
+    pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
 
-	list_blob_item_segment list_blobs_segmented(const continuation_token& token) const
-	{
-	    return list_blobs_segmented_async(token).get();
-	}
+Synchronous operations wrap the corresponding asynchronous operations:
 
-Si está trabajando con varias aplicaciones o servicios de subprocesos, es recomendable usar las API asincrónicas directamente en lugar de crear un subproceso para llamar a las API sincrónicas, lo que afecta de forma significativa a su rendimiento.
+    list_blob_item_segment list_blobs_segmented(const continuation_token& token) const
+    {
+        return list_blobs_segmented_async(token).get();
+    }
 
-## Enumeración segmentada
+If you are working with multiple threading applications or services, we recommend that you use the async APIs directly instead of creating a thread to call the sync APIs, which significantly impacts your performance.
 
-El escalamiento del almacenamiento en la nube requiere la enumeración segmentada. Por ejemplo, puede tener más de un millón de blobs en un contenedor de blobs de Azure o más de mil millones de entidades en una tabla de Azure. Estos no son números teóricos, sino casos de uso reales de clientes.
+## <a name="segmented-listing"></a>Segmented listing
 
-Por lo tanto, no resulta práctico enumerar todos los objetos en una sola respuesta. En su lugar, puede enumerar objetos mediante la paginación. Cada una de las API de enumeración tienen una sobrecarga *segmentada*.
+The scale of cloud storage requires segmented listing. For example, you can have over a million blobs in an Azure blob container or over a billion entities in an Azure Table. These are not theoretical numbers, but real customer usage cases.
 
-La respuesta para una operación de enumeración segmentada incluye:
+It is therefore impractical to list all objects in a single response. Instead, you can list objects using paging. Each of the listing APIs has a *segmented* overload.
 
--	<i>\_segment</i>, que contiene el conjunto de resultados devueltos para una única llamada a la API de enumeración.
--	*continuation\_token*, que se pasa a la siguiente llamada con el fin de obtener la siguiente página de resultados. Cuando no hay más resultados para devolver, el token de continuación es nulo.
+The response for a segmented listing operation includes:
 
-Por ejemplo, es posible que una llamada típica para enumerar todos los blobs de un contenedor tenga un aspecto similar al siguiente fragmento de código. El código está disponible en nuestros [ejemplos](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
+-   <i>_segment</i>, which contains the set of results returned for a single call to the listing API.
+-   *continuation_token*, which is passed to the next call in order to get the next page of results. When there are no more results to return, the continuation token is null.
 
-	// List blobs in the blob container
-	azure::storage::continuation_token token;
-	do
-	{
-	    azure::storage::list_blob_item_segment segment = container.list_blobs_segmented(token);
-	    for (auto it = segment.results().cbegin(); it != segment.results().cend(); ++it)
-	{
-	    if (it->is_blob())
-	    {
-	        process_blob(it->as_blob());
-	    }
-	    else
-	    {
-	        process_diretory(it->as_directory());
-	    }
-	}
+For example, a typical call to list all blobs in a container may look like the following code snippet. The code is available in our [samples](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
 
-	    token = segment.continuation_token();
-	}
-	while (!token.empty());
+    // List blobs in the blob container
+    azure::storage::continuation_token token;
+    do
+    {
+        azure::storage::list_blob_item_segment segment = container.list_blobs_segmented(token);
+        for (auto it = segment.results().cbegin(); it != segment.results().cend(); ++it)
+    {
+        if (it->is_blob())
+        {
+            process_blob(it->as_blob());
+        }
+        else
+        {
+            process_diretory(it->as_directory());
+        }
+    }
 
-Tenga en cuenta que el número de resultados devueltos en una página puede controlarse mediante el parámetro *max\_results* en la sobrecarga de cada API, por ejemplo:
+        token = segment.continuation_token();
+    }
+    while (!token.empty());
 
-	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing,
-		blob_listing_details::values includes, int max_results, const continuation_token& token,
-		const blob_request_options& options, operation_context context)
+Note that the number of results returned in a page can be controlled by the parameter *max_results* in the overload of each API, for example:
 
-Si no se especifica el parámetro *max\_results*, se devolverá el valor máximo predeterminado de hasta 5.000 resultados en una sola página.
+    list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing,
+        blob_listing_details::values includes, int max_results, const continuation_token& token,
+        const blob_request_options& options, operation_context context)
 
-Tenga en cuenta también que una consulta en el almacenamiento de tablas de Azure puede no devolver ningún registro o menos registros que el valor del parámetro *max\_results* especificado por usted, incluso si el token de continuación no está vacío. Una razón podría ser que la consulta no se pudo completar en cinco segundos. Siempre y cuando el token de continuación no esté vacío, la consulta debe continuar y el código no debe suponer el tamaño del resultado del segmento.
+If you do not specify the *max_results* parameter, the default maximum value of up to 5000 results is returned in a single page.
 
-El patrón de codificación recomendado para la mayoría de los escenarios es la enumeración segmentada, que proporciona información de progreso explícita de la enumeración o la consulta y sobre cómo responde el servicio a cada solicitud. Especialmente para las aplicaciones o servicios de C++, es posible que el control de bajo nivel de la enumeración ayude a controlar la memoria y el rendimiento.
+Also note that a query against Azure Table storage may return no records, or fewer records than the value of the *max_results* parameter that you specified, even if the continuation token is not empty. One reason might be that the query could not complete in five seconds. As long as the continuation token is not empty, the query should continue, and your code should not assume the size of segment results.
 
-## Enumeración expansiva
+The recommended coding pattern for most scenarios is segmented listing, which provides explicit progress of listing or querying, and how the service responds to each request. Particularly for C++ applications or services, lower-level control of the listing progress may help control memory and performance.
 
-Las versiones anteriores de la biblioteca de cliente de almacenamiento de C++ (versiones 0.5.0 de vista previa y versiones anteriores) incluyen API de enumeración no segmentadas para las tablas y colas, como en el ejemplo siguiente:
+## <a name="greedy-listing"></a>Greedy listing
 
-	std::vector<cloud_table> list_tables(const utility::string_t& prefix) const;
-	std::vector<table_entity> execute_query(const table_query& query) const;
-	std::vector<cloud_queue> list_queues() const;
+Earlier versions of the Storage Client Library for C++ (versions 0.5.0 Preview and earlier) included non-segmented listing APIs for tables and queues, as in the following example:
 
-Estos métodos se implementaron como contenedores de API segmentadas. Para cada respuesta de la enumeración segmentada, el código anexa los resultados a un vector y devuelve todos los resultados después de analizar los contenedores completos.
+    std::vector<cloud_table> list_tables(const utility::string_t& prefix) const;
+    std::vector<table_entity> execute_query(const table_query& query) const;
+    std::vector<cloud_queue> list_queues() const;
 
-Este enfoque puede funcionar si la cuenta de almacenamiento o la tabla contiene un pequeño número de objetos. Sin embargo, con un aumento en el número de objetos, la memoria necesaria podría aumentar sin límite, porque todos los resultados permanecen en memoria. Una operación de enumeración puede tardar mucho tiempo, durante el cual el autor de la llamada no tenía ninguna información sobre su progreso.
+These methods were implemented as wrappers of segmented APIs. For each response of segmented listing, the code appended the results to a vector and returned all results after the full containers were scanned.
 
-Estas API enumeración expansiva del SDK no existen en C#, Java o el entorno de JavaScript Node.js. Para evitar los posibles problemas con el uso de estas API expansivas, las hemos eliminado en la versión 0.6.0 de vista previa.
+This approach might work when the storage account or table contains a small number of objects. However, with an increase in the number of objects, the memory required could increase without limit, because all results remained in memory. One listing operation can take a very long time, during which the caller had no information about its progress.
 
-Si el código llama a estas API expansivas:
+These greedy listing APIs in the SDK do not exist in C#, Java, or the JavaScript Node.js environment. To avoid the potential issues of using these greedy APIs, we removed them in version 0.6.0 Preview.
 
-	std::vector<azure::storage::table_entity> entities = table.execute_query(query);
-	for (auto it = entities.cbegin(); it != entities.cend(); ++it)
-	{
-	    process_entity(*it);
-	}
+If your code is calling these greedy APIs:
 
-Deberá modificar el código para usar las API de enumeración segmentada:
+    std::vector<azure::storage::table_entity> entities = table.execute_query(query);
+    for (auto it = entities.cbegin(); it != entities.cend(); ++it)
+    {
+        process_entity(*it);
+    }
 
-	azure::storage::continuation_token token;
-	do
-	{
-	    azure::storage::table_query_segment segment = table.execute_query_segmented(query, token);
-	    for (auto it = segment.results().cbegin(); it != segment.results().cend(); ++it)
-	    {
-	        process_entity(*it);
-	    }
+Then you should modify your code to use the segmented listing APIs:
 
-	    token = segment.continuation_token();
-	} while (!token.empty());
+    azure::storage::continuation_token token;
+    do
+    {
+        azure::storage::table_query_segment segment = table.execute_query_segmented(query, token);
+        for (auto it = segment.results().cbegin(); it != segment.results().cend(); ++it)
+        {
+            process_entity(*it);
+        }
 
-Mediante la especificación del parámetro *max\_results* del segmento, puede obtener equilibrio entre los números de solicitudes y el uso de memoria para cumplir con las consideraciones de rendimiento de la aplicación.
+        token = segment.continuation_token();
+    } while (!token.empty());
 
-Además, si usa API de enumeración segmentadas pero almacena los datos en una colección local de manera "expansiva", también es altamente recomendable refactorizar el código para controlar el almacenamiento de datos de una colección local cuidadosamente a escala.
+By specifying the *max_results* parameter of the segment, you can balance between the numbers of requests and memory usage to meet performance considerations for your application.
 
-## Enumeración diferida
+Additionally, if you’re using segmented listing APIs, but store the data in a local collection in a "greedy" style, we also strongly recommend that you refactor your code to handle storing data in a local collection carefully at scale.
 
-Aunque la enumeración expansiva produjo posibles problemas, es recomendable si no hay demasiados objetos en el contenedor.
+## <a name="lazy-listing"></a>Lazy listing
 
-Si también usa C# o SDK de Java de Oracle, debe estar familiarizado con el modelo de programación Enumerable, que ofrece una enumeración de estilo diferido, en la que los datos con un determinado desplazamiento solo se capturan si es necesario. En C++, la plantilla de iterador también proporciona un enfoque similar.
+Although greedy listing raised potential issues, it is convenient if there are not too many objects in the container.
 
-Una API de enumeración diferida normal, con **list\_blobs** como ejemplo, tiene el siguiente aspecto:
+If you’re also using C# or Oracle Java SDKs, you should be familiar with the Enumerable programming model, which offers a lazy-style listing, where the data at a certain offset is only fetched if it is required. In C++, the iterator-based template also provides a similar approach.
 
-	list_blob_item_iterator list_blobs() const;
+A typical lazy listing API, using **list_blobs** as an example, looks like this:
 
-Un fragmento de código típico que usa el patrón de lista diferida podría tener este aspecto:
+    list_blob_item_iterator list_blobs() const;
 
-	// List blobs in the blob container
-	azure::storage::list_blob_item_iterator end_of_results;
-	for (auto it = container.list_blobs(); it != end_of_results; ++it)
-	{
-		if (it->is_blob())
-		{
-			process_blob(it->as_blob());
-		}
-		else
-		{
-			process_directory(it->as_directory());
-		}
-	}
+A typical code snippet that uses the lazy listing pattern might look like this:
 
-Tenga en cuenta que la enumeración diferida solo está disponible en modo sincrónico.
+    // List blobs in the blob container
+    azure::storage::list_blob_item_iterator end_of_results;
+    for (auto it = container.list_blobs(); it != end_of_results; ++it)
+    {
+        if (it->is_blob())
+        {
+            process_blob(it->as_blob());
+        }
+        else
+        {
+            process_directory(it->as_directory());
+        }
+    }
 
-En comparación con la enumeración expansiva, la diferida captura los datos solo cuando es necesario. En segundo plano, recupera los datos del almacenamiento de Azure solo cuando se mueve el iterador siguiente al siguiente segmento. Por lo tanto, el uso de la memoria se controla con un tamaño límitado y la operación es rápida.
+Note that lazy listing is only available in synchronous mode.
 
-Las API de enumeración diferida se incluyen en la biblioteca de cliente de almacenamiento de C++ en la versión 2.2.0.
+Compared with greedy listing, lazy listing fetches data only when necessary. Under the covers, it fetches data from Azure Storage only when the next iterator moves into next segment. Therefore, memory usage is controlled with a bounded size, and the operation is fast.
 
-## Conclusión
+Lazy listing APIs are included in the Storage Client Library for C++ in version 2.2.0.
 
-En este artículo, hemos tratado diferentes sobrecargas para API de enumeración de varios objetos de la biblioteca de cliente de almacenamiento de C++. Resumiendo:
+## <a name="conclusion"></a>Conclusion
 
--	Se recomiendan encarecidamente las API asincrónicas en escenarios de varios subprocesos.
--	La enumeración segmentada es recomendable para la mayoría de los escenarios.
--	La enumeración diferida se proporciona en la biblioteca como un contenedor conveniente en escenarios sincrónicos.
--	La enumeración expansiva no se recomienda y se ha eliminado de la biblioteca.
+In this article, we discussed different overloads for listing APIs for various objects in the Storage Client Library for C++ . To summarize:
 
-##Pasos siguientes
+-   Async APIs are strongly recommended under multiple threading scenarios.
+-   Segmented listing is recommended for most scenarios.
+-   Lazy listing is provided in the library as a convenient wrapper in synchronous scenarios.
+-   Greedy listing is not recommended and has been removed from the library.
 
-Para obtener más información sobre el almacenamiento de Azure y la biblioteca de cliente de C++, consulte los siguientes recursos.
+##<a name="next-steps"></a>Next steps
 
--	[Cómo usar el almacenamiento de blobs de C++](storage-c-plus-plus-how-to-use-blobs.md)
--	[Cómo usar el almacenamiento de tablas de C++](storage-c-plus-plus-how-to-use-tables.md)
--	[Cómo usar el almacenamiento de colas de C++](storage-c-plus-plus-how-to-use-queues.md)
--	[Documentación de la Biblioteca de cliente de almacenamiento de Azure para la API de C++.](http://azure.github.io/azure-storage-cpp/)
--	[Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
--	[Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
+For more information about Azure Storage and Client Library for C++, see the following resources.
 
-<!---HONumber=AcomDC_0921_2016-->
+-   [How to use Blob Storage from C++](storage-c-plus-plus-how-to-use-blobs.md)
+-   [How to use Table Storage from C++](storage-c-plus-plus-how-to-use-tables.md)
+-   [How to use Queue Storage from C++](storage-c-plus-plus-how-to-use-queues.md)
+-   [Azure Storage Client Library for C++ API documentation.](http://azure.github.io/azure-storage-cpp/)
+-   [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
+-   [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

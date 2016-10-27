@@ -1,6 +1,6 @@
 <properties
-pageTitle="Crear una aplicación de HBase con Maven y luego implementar en HDInsight basado en Windows | Microsoft Azure"
-description="Aprenda a usar Apache Maven para compilar una aplicación de Apache HBase basada en Java e implementarla después en un clúster de HDInsight de Azure basado en Windows."
+pageTitle="Build an HBase application using Maven, and deploy to Windows-based HDInsight | Microsoft Azure"
+description="Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to a Windows-based Azure HDInsight cluster."
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
@@ -14,46 +14,49 @@ ms.workload="big-data"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="07/25/2016"
+ms.date="10/03/2016"
 ms.author="larryfr"/>
 
-#Uso de Maven para compilar aplicaciones Java que utilicen HBase con HDInsight basado en Windows (Hadoop)
 
-Aprenda a crear y compilar una aplicación de [Apache HBase](http://hbase.apache.org/) en Java con Apache Maven. Luego use la aplicación con Azure HDInsight (Hadoop).
+#<a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-(hadoop)"></a>Use Maven to build Java applications that use HBase with Windows-based HDInsight (Hadoop)
 
-[Maven](http://maven.apache.org/) es una herramienta de administración y comprensión de proyectos de software que le permite compilar software, documentación e informes para proyectos Java. En este artículo, aprenderá a usarla para crear una aplicación Java básica que crea, consulta y elimina una tabla de HBase en un clúster de HDInsight de Azure.
+Learn how to create and build an [Apache HBase](http://hbase.apache.org/) application in Java by using Apache Maven. Then use the application with Azure HDInsight (Hadoop).
 
-> [AZURE.NOTE] En este documento se da por hecho que usa un clúster de HDInsight basado en Windows. Para obtener información sobre cómo utilizar un clúster de HDInsight basado en Linux, consulte [Uso de Maven para compilar aplicaciones Java que utilicen HBase con HDInsight basado en Linux (Hadoop)](hdinsight-hbase-build-java-maven-linux.md).
+[Maven](http://maven.apache.org/) is a software project management and comprehension tool that allows you to build software, documentation, and reports for Java projects. In this article, you learn how to use it to create a basic Java application that that creates, queries, and deletes an HBase table on an Azure HDInsight cluster.
 
-##Requisitos
+> [AZURE.NOTE] The steps in this document assume that you are using a Windows-based HDInsight cluster. For information on using a Linux-based HDInsight cluster, see [Use Maven to build Java applications that use HBase with Linux-based HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
-* [JDK de la plataforma Java 7](http://www.oracle.com/technetwork/java/javase/downloads/index.html) o posterior
+##<a name="requirements"></a>Requirements
+
+* [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 or later
 
 * [Maven](http://maven.apache.org/)
 
-* [Un clúster de HDInsight basado en Windows con HBase](hdinsight-hbase-get-started.md#create-hbase-cluster)
 
-    > [AZURE.NOTE] Los pasos descritos en este documento se han probado con las versiones 3.2 y 3.3 del clúster de HDInsight. Los valores predeterminados proporcionados en los ejemplos corresponden a la versión 3.3 de un clúster de HDInsight.
+* [A Windows-based HDInsight cluster with HBase](hdinsight-hbase-tutorial-get-started.md#create-hbase-cluster)
 
-##Creación del proyecto
 
-1. Desde la línea de comandos de su entorno de desarrollo, cambie los directorios por la ubicación en la que desea crear el proyecto, por ejemplo, `cd code\hdinsight`.
+    > [AZURE.NOTE] The steps in this document have been tested with HDInsight cluster versions 3.2 and 3.3. The default values provided in examples are for a HDInsight 3.3 cluster.
 
-2. Use el comando __mvn__, que se instala con Maven, para generar el scaffolding del proyecto.
+##<a name="create-the-project"></a>Create the project
+
+1. From the command line in your development environment, change directories to the location where you want to create the project, for example, `cd code\hdinsight`.
+
+2. Use the __mvn__ command, which is installed with Maven, to generate the scaffolding for the project.
 
         mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
-    Esta acción creará un directorio en el directorio actual, con el nombre especificado por el parámetro __artifactID__ (**hbaseapp** en este ejemplo). Este directorio contendrá los siguientes elementos:
+    This command creates a directory in the current location, with the name specified by the __artifactID__ parameter (**hbaseapp** in this example.) This directory contains the following items:
 
-    * __pom.xml__: el modelo de objetos de proyectos ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contiene la información y los detalles de configuración usados para compilar el proyecto.
+    * __pom.xml__:  The Project Object Model ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contains information and configuration details used to build the project.
 
-    * __src__: directorio que contiene a su vez el directorio __main\\java\\com\\microsoft\\examples__, donde creará la aplicación.
+    * __src__: The directory that contains the __main\java\com\microsoft\examples__ directory, where you will author the application.
 
-3. Elimine el archivo __src\\test\\java\\com\\microsoft\\examples\\apptest.java__, puesto que no se usará en este ejemplo.
+3. Delete the __src\test\java\com\microsoft\examples\apptest.java__ file because it is not used in this example.
 
-##Actualización del modelo de objetos de proyectos
+##<a name="update-the-project-object-model"></a>Update the Project Object Model
 
-1. Edite el archivo __pom.xml__ y agregue lo siguiente dentro de la sección `<dependencies>`:
+1. Edit the __pom.xml__ file and add the following code inside the `<dependencies>` section:
 
         <dependency>
           <groupId>org.apache.hbase</groupId>
@@ -61,18 +64,18 @@ Aprenda a crear y compilar una aplicación de [Apache HBase](http://hbase.apache
           <version>1.1.2</version>
         </dependency>
 
-    Esta acción le indica a Maven que el proyecto requiere la versión __1.1.2__ de __hbase-client__. En el momento de compilación, esto se descargará desde el repositorio de Maven predeterminado. Puede usar la [búsqueda del repositorio central de Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) para ver más información sobre esta dependencia.
+    This section tells Maven that the project requires __hbase-client__ version __1.1.2__. At compile time, this dependency is downloaded from the default Maven repository. You can use the [Maven Central Repository Search](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) to learn more about this dependency.
 
-    > [AZURE.IMPORTANT] El número de versión debe coincidir con la versión de HBase que se proporciona con el clúster de HDInsight. Utilice la siguiente tabla para buscar el número de versión correcto.
+    > [AZURE.IMPORTANT] The version number must match the version of HBase that is provided with your HDInsight cluster. Use the following table to find the correct version number.
 
-    | Versión del clúster de HDInsight | Versión de HBase que se va a utilizar |
-    | ----- | ----- |
-    | 3\.2 | 0\.98.4-hadoop2 |
-    | 3\.3 | 1\.1.2 |
+  	| HDInsight cluster version | HBase version to use |
+  	| ----- | ----- |
+  	| 3.2 | 0.98.4-hadoop2 |
+  	| 3.3 | 1.1.2 |
 
-    Para obtener más información sobre las versiones de HDInsight y los componentes, consulte [¿Cuáles son los diferentes componentes de Hadoop disponibles con HDInsight?](hdinsight-component-versioning.md)
+    For more information on HDInsight versions and components, see [What are the different Hadoop components available with HDInsight](hdinsight-component-versioning.md).
 
-2. Si está usando la versión 3.3 de un clúster de HDInsight, también debe agregar lo siguiente a la sección `<dependencies>`:
+2. If you are using an HDInsight 3.3 cluster, you must also add the following to the `<dependencies>` section:
 
         <dependency>
             <groupId>org.apache.phoenix</groupId>
@@ -80,9 +83,9 @@ Aprenda a crear y compilar una aplicación de [Apache HBase](http://hbase.apache
             <version>4.4.0-HBase-1.1</version>
         </dependency>
     
-    Con esto, se cargarán los componentes principales de Phoenix, que utilizan versiones 1.1.x de Hbase.
+    This dependency will load the phoenix-core components, which are used by Hbase version 1.1.x.
 
-2. Agregue el siguiente código al archivo __pom.xml__. Esto debe estar dentro de las etiquetas `<project>...</project>` en el archivo; por ejemplo, entre `</dependencies>` y `</project>`.
+2. Add the following code to the __pom.xml__ file. This section must be inside the `<project>...</project>` tags in the file, for example, between `</dependencies>` and `</project>`.
 
         <build>
           <sourceDirectory>src</sourceDirectory>
@@ -127,17 +130,17 @@ Aprenda a crear y compilar una aplicación de [Apache HBase](http://hbase.apache
           </plugins>
         </build>
 
-    Esta acción configura un recurso (__conf\\hbase-site.xml__,) que contiene información de configuración para HBase.
+    The `<resources>` section configures a resource (__conf\hbase-site.xml__) that contains configuration information for HBase.
 
-    > [AZURE.NOTE] También puede establecer los valores de configuración mediante código. Vea los comentarios del ejemplo __CreateTable__ que sigue para ver cómo hacer esto.
+    > [AZURE.NOTE] You can also set configuration values via code. See the comments in the __CreateTable__ example that follows for how to do this.
 
-    Esta acción también configura [Maven Compiler Plugin](http://maven.apache.org/plugins/maven-compiler-plugin/) y [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/). El complemento compiler se usa para compilar la topología. El complemento shade se usa para evitar la duplicación de licencias en el paquete JAR compilado por Maven. La razón de usar este complemento es que los archivos de licencia duplicados pueden provocar un error en tiempo de ejecución en el clúster de HDInsight. El uso del complemento maven-shade-plugin con la implementación de `ApacheLicenseResourceTransformer` evita este error.
+    This `<plugins>` section configures the [Maven Compiler Plugin](http://maven.apache.org/plugins/maven-compiler-plugin/) and [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/). The compiler plug-in is used to compile the topology. The shade plug-in is used to prevent license duplication in the JAR package that is built by Maven. The reason this is used is that the duplicate license files cause an error at run time on the HDInsight cluster. Using maven-shade-plugin with the `ApacheLicenseResourceTransformer` implementation prevents this error.
 
-    El complemento maven-shade-plugin también producirá un uberjar (o fatjar), que contiene todas las dependencias que necesita la aplicación.
+    The maven-shade-plugin also produces an uber jar (or fat jar) that contains all the dependencies required by the application.
 
-3. Guarde el archivo __pom.xml__.
+3. Save the __pom.xml__ file.
 
-4. Cree un nuevo directorio llamado __conf__ en el directorio __hbaseapp__. En el directorio __conf__, cree un nuevo archivo llamado __hbase-site.xml__ y use el siguiente contenido.
+4. Create a new directory named __conf__ in the __hbaseapp__ directory. In the __conf__ directory, create a file named __hbase-site.xml__. Use the following as the contents of the file:
 
         <?xml version="1.0"?>
         <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
@@ -177,17 +180,17 @@ Aprenda a crear y compilar una aplicación de [Apache HBase](http://hbase.apache
           </property>
         </configuration>
 
-    Este archivo se usará para cargar la configuración de HBase de un clúster de HDInsight.
+    This file will be used to load the HBase configuration for an HDInsight cluster.
 
-    > [AZURE.NOTE] Este es un archivo hbase-site.xml mínimo, que contiene la configuración básica elemental del clúster de HDInsight.
+    > [AZURE.NOTE] This is a minimal hbase-site.xml file, and it contains the bare minimum settings for the HDInsight cluster.
 
-3. Guarde el archivo __hbase-site.xml__.
+3. Save the __hbase-site.xml__ file.
 
-##Creación de la aplicación
+##<a name="create-the-application"></a>Create the application
 
-1. Vaya al directorio __hbaseapp\\src\\main\\java\\com\\microsoft\\examples__ y cambie el nombre del archivo app.java a __CreateTable.java__.
+1. Go to the __hbaseapp\src\main\java\com\microsoft\examples__ directory and rename the app.java file to __CreateTable.java__.
 
-2. Abra el archivo __CreateTable.java__ y reemplace el contenido existente por lo siguiente:
+2. Open the __CreateTable.java__ file and replace the existing contents with the following code:
 
         package com.microsoft.examples;
         import java.io.IOException;
@@ -253,11 +256,11 @@ Aprenda a crear y compilar una aplicación de [Apache HBase](http://hbase.apache
           }
         }
 
-    Esta es la clase __CreateTable__, que creará una tabla llamada __people__ y la rellenará con algunos usuarios predefinidos.
+    This is the __CreateTable__ class, which will create a table named __people__ and populate it with some predefined users.
 
-3. Guarde el archivo __CreateTable.java__.
+3. Save the __CreateTable.java__ file.
 
-4. En el directorio __hbaseapp\\src\\main\\java\\com\\microsoft\\examples__, cree un nuevo archivo denominado __SearchByEmail.java__. Use el siguiente contenido para este archivo:
+4. In the __hbaseapp\src\main\java\com\microsoft\examples__ directory, create a new file named __SearchByEmail.java__. Use the following code as the contents of this file:
 
         package com.microsoft.examples;
         import java.io.IOException;
@@ -330,11 +333,11 @@ Aprenda a crear y compilar una aplicación de [Apache HBase](http://hbase.apache
           }
         }
 
-    La clase __SearchByEmail__ se puede usar para consultar filas por dirección de correo electrónico. Dado que esta clase usa un filtro de expresiones regulares, puede proporcionar una cadena o una expresión regular cuando la utilice.
+    The __SearchByEmail__ class can be used to query for rows by email address. Because it uses a regular expression filter, you can provide either a string or a regular expression when using the class.
 
-5. Guarde el archivo __SearchByEmail.java__.
+5. Save the __SearchByEmail.java__ file.
 
-6. En el directorio __hbaseapp\\src\\main\\hava\\com\\microsoft\\examples__, cree un nuevo archivo denominado __DeleteTable.java__. Use el siguiente contenido para este archivo:
+6. In the __hbaseapp\src\main\hava\com\microsoft\examples__ directory, create a new file named __DeleteTable.java__. Use the following code as the contents of this file:
 
         package com.microsoft.examples;
         import java.io.IOException;
@@ -356,32 +359,32 @@ Aprenda a crear y compilar una aplicación de [Apache HBase](http://hbase.apache
           }
         }
 
-    Esta clase es solo para limpiar este ejemplo. Para ello, primero se deshabilita y luego se elimina la tabla creada por la clase __CreateTable__.
+    This class is for cleaning up this example by disabling and dropping the table created by the __CreateTable__ class.
 
-7. Guarde el archivo __DeleteTable.java__.
+7. Save the __DeleteTable.java__ file.
 
-##Compilación y empaquetado de la aplicación
+##<a name="build-and-package-the-application"></a>Build and package the application
 
-1. Abra un símbolo del sistema y cambie los directorios por el directorio __hbaseapp__.
+1. Open a command prompt and change directories to the __hbaseapp__ directory.
 
-2. Use el siguiente comando para compilar un archivo JAR que contenga la aplicación:
+2. Use the following command to build a JAR file that contains the application:
 
         mvn clean package
 
-    Esta acción eliminará los artefactos de compilación anteriores, descargará las dependencias que no se hayan instalado aún y luego compilará y empaquetará la aplicación.
+    This cleans any previous build artifacts, downloads any dependencies that have not already been installed, then builds and packages the application.
 
-3. Cuando el comando termine de ejecutarse, el directorio __hbaseapp\\target__ contendrá un archivo llamado __hbaseapp-1.0-SNAPSHOT.jar__.
+3. When the command completes, the __hbaseapp\target__ directory contains a file named __hbaseapp-1.0-SNAPSHOT.jar__.
 
-    > [AZURE.NOTE] El archivo __hbaseapp-1.0-SNAPSHOT.jar__ es un uberjar (en ocasiones llamado fatjar) que contiene todas las dependencias necesarias para ejecutar la aplicación.
+    > [AZURE.NOTE] The __hbaseapp-1.0-SNAPSHOT.jar__ file is an uber jar (sometimes called a fat jar,) which contains all the dependencies required to run the application.
 
-##Carga del archivo JAR e inicio de un trabajo
+##<a name="upload-the-jar-file-and-start-a-job"></a>Upload the JAR file and start a job
 
-Existen muchas formas de cargar un archivo en el clúster de HDInsight, tal y como se describe en [Carga de datos para trabajos de Hadoop en HDInsight](hdinsight-upload-data.md). En los siguientes pasos se usa Azure PowerShell.
+There are many ways to upload a file to your HDInsight cluster, as described in [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md). The following steps use Azure PowerShell.
 
 [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
-1. Tras instalar y configurar Azure PowerShell, cree un nuevo archivo llamado __hbase-runner.psm1__. Use el siguiente contenido para este archivo:
+1. After installing and configuring Azure PowerShell, create a new file named __hbase-runner.psm1__. Use the following as the contents of this file:
 
         <#
         .SYNOPSIS
@@ -587,41 +590,41 @@ Existen muchas formas de cargar un archivo en el clúster de HDInsight, tal y co
         # Only export the verb-phrase things
         export-modulemember *-*
 
-    Este archivo contiene dos módulos:
+    This file contains two modules:
 
-    * __Add-HDInsightFile__: se usa para cargar archivos en HDInsight.
+    * __Add-HDInsightFile__ - used to upload files to HDInsight
 
-    * __Start-HBaseExample__: se usa para ejecutar las clases creadas anteriormente.
+    * __Start-HBaseExample__ - used to run the classes created earlier
 
-2. Guarde el archivo __hbase-runner.psm1__.
+2. Save the __hbase-runner.psm1__ file.
 
-3. Abra una nueva ventana de Azure PowerShell, cambie los directorios por el directorio __hbaseapp__ y luego ejecute el siguiente comando.
+3. Open a new Azure PowerShell window, change directories to the __hbaseapp__ directory, and then run the following command.
 
         PS C:\ Import-Module c:\path\to\hbase-runner.psm1
 
-    Cambie la ruta de acceso a la ubicación del archivo __hbase-runner.psm1__ creado anteriormente. Esta acción registrará el módulo para esta sesión de Azure PowerShell.
+    Change the path to the location of the __hbase-runner.psm1__ file created earlier. This registers the module for this Azure PowerShell session.
 
-2. Use el comando siguiente para cargar el archivo __hbaseapp-1.0-SNAPSHOT.jar__ en el clúster de HDInsight.
+2. Use the following command to upload the __hbaseapp-1.0-SNAPSHOT.jar__ to your HDInsight cluster.
 
         Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName hdinsightclustername
 
-    Reemplace __hdinsightclustername__ por el nombre del clúster de HDInsight. El comando cargará a continuación el archivo __hbaseapp-1.0-SNAPSHOT.jar__ en la ubicación __example/jars__ del almacenamiento principal del clúster de HDInsight.
+    Replace __hdinsightclustername__ with the name of your HDInsight cluster. The command uploads the __hbaseapp-1.0-SNAPSHOT.jar__ to the __example/jars__ location in the primary storage for your HDInsight cluster.
 
-3. Una vez cargados los archivos, use el comando siguiente para crear una nueva tabla con __hbaseapp__:
+3. After the files are uploaded, use the following code to create a table using the __hbaseapp__:
 
         Start-HBaseExample -className com.microsoft.examples.CreateTable -clusterName hdinsightclustername
 
-    Reemplace __hdinsightclustername__ por el nombre del clúster de HDInsight.
+    Replace __hdinsightclustername__ with the name of your HDInsight cluster.
 
-    Este comando creará una nueva tabla llamada __people__ en el clúster de HDInsight. Este comando no muestra ninguna salida en la ventana de la consola.
+    This command creates a new table named __people__ in your HDInsight cluster. This command does not show any output in the console window.
 
-2. Para buscar entradas en la tabla, use el siguiente comando:
+2. To search for entries in the table, use the following command:
 
         Start-HBaseExample -className com.microsoft.examples.SearchByEmail -clusterName hdinsightclustername -emailRegex contoso.com
 
-    Reemplace __hdinsightclustername__ por el nombre del clúster de HDInsight.
+    Replace __hdinsightclustername__ with the name of your HDInsight cluster.
 
-    Este comando usa la clase **SearchByEmail** para buscar filas donde la familia de columnas __contactinformation__ y la columna __email__ contengan la cadena __contoso.com__. Debe recibir los siguientes resultados:
+    This command uses the **SearchByEmail** class to search for any rows where the __contactinformation__ column family and the __email__ column, contains the string __contoso.com__. You should receive the following results:
 
           Franklin Holtz - ID: 2
           Franklin Holtz - franklin@contoso.com - ID: 2
@@ -630,20 +633,24 @@ Existen muchas formas de cargar un archivo en el clúster de HDInsight, tal y co
           Gabriela Ingram - ID: 6
           Gabriela Ingram - gabriela@contoso.com - ID: 6
 
-    Si se usa __fabrikam.com__ como valor de `-emailRegex` se devolverán los usuarios que tienen __fabrikam.com__ en el campo de correo electrónico. Dado que esta búsqueda se implementa usando un filtro basado en una expresión regular, también puede escribir expresiones regulares como __^r__, lo cual devolverá entradas en las que el correo electrónico empiece por la letra 'r'.
+    Using __fabrikam.com__ for the `-emailRegex` value returns the users that have __fabrikam.com__ in the email field. Since this search is implemented by using a regular expression-based filter, you can also enter regular expressions, such as __^r__, which returns entries where the email begins with the letter 'r'.
 
-##Eliminación de la tabla
+##<a name="delete-the-table"></a>Delete the table
 
-Cuando haya terminado con el ejemplo, use el siguiente comando desde la sesión de Azure PowerShell para eliminar la tabla __people__ usada en este ejemplo:
+When you are done with the example, use the following command from the Azure PowerShell session to delete the __people__ table used in this example:
 
     Start-HBaseExample -className com.microsoft.examples.DeleteTable -clusterName hdinsightclustername
 
-Reemplace __hdinsightclustername__ por el nombre del clúster de HDInsight.
+Replace __hdinsightclustername__ with the name of your HDInsight cluster.
 
-##Solución de problemas
+##<a name="troubleshooting"></a>Troubleshooting
 
-###Sin resultados o resultados inesperados al usar Start-HBaseExample
+###<a name="no-results-or-unexpected-results-when-using-start-hbaseexample"></a>No results or unexpected results when using Start-HBaseExample
 
-Use el parámetro `-showErr` para ver el error estándar (STDERR) producido mientras se ejecutaba el trabajo.
+Use the `-showErr` parameter to view the standard error (STDERR) that is produced while running the job.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,40 +1,41 @@
 <properties
-	pageTitle="Conceptos para desarrolladores del Catálogo de datos de Azure | Microsoft Azure"
-	description="Introducción a los conceptos clave en el modelo conceptual del Catálogo de datos de Azure, como se expone mediante la API de REST del catálogo."
-	services="data-catalog"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
-	editor=""
-	tags=""/>
-<tags 
-	ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="07/25/2016"
-	ms.author="spelluru"/>
+    pageTitle="Conceptos para desarrolladores del Catálogo de datos de Azure | Microsoft Azure"
+    description="Introducción a los conceptos clave en el modelo conceptual del Catálogo de datos de Azure, como se expone mediante la API de REST del catálogo."
+    services="data-catalog"
+    documentationCenter=""
+    authors="spelluru"
+    manager="jhubbard"
+    editor=""
+    tags=""/>
+<tags
+    ms.service="data-catalog"
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="data-catalog"
+    ms.date="10/11/2016"
+    ms.author="spelluru"/>  
 
-# Conceptos para desarrolladores del Catálogo de datos de Azure
+
+# <a name="azure-data-catalog-developer-concepts"></a>Conceptos para desarrolladores del Catálogo de datos de Azure
 
 **Catálogo de datos de Microsoft Azure** es un servicio en la nube totalmente administrado que proporciona capacidades de detección de origen de datos y para metadatos de origen de datos de micromecenazgo. Los desarrolladores pueden usar el servicio a través de sus API de REST. Comprender los conceptos que se implementa en el servicio es importante para los desarrolladores para integrarse correctamente con **Catálogo de datos de Azure**.
 
-## Conceptos clave
+## <a name="key-concepts"></a>Conceptos clave
 
-El modelo conceptual **Catálogo de datos de Azure** se basa en cuatro conceptos clave: el **catálogo**, los **usuarios**, los **recursos** y las **anotaciones**.
+El modelo conceptual **Azure Data Catalog** se basa en cuatro conceptos clave: el **catálogo**, los **usuarios**, los **recursos** y las **anotaciones**.
 
 ![concepto][1]
 
 *Figura 1: Modelo conceptual simplificado del Catálogo de datos de Azure*
 
-### Catálogo
+### <a name="catalog"></a>Catálogo
 
 Un **catálogo** es el contenedor de nivel superior para todos los metadatos almacenados por una organización. Se permite un **catálogo** por cuenta de Azure. Los catálogos están vinculados a una suscripción de Azure, pero solo se puede crear un **catálogo** para una sola cuenta de Azure, aunque una cuenta puede tener varias suscripciones.
 
 Un catálogo contiene **usuarios** y **recursos**.
 
-### Usuarios
+### <a name="users"></a>Usuarios
 
 Los usuarios son entidades de seguridad que tienen permisos para realizar acciones (buscar en el catálogo, agregar, editar o eliminar elementos, etc...) en el catálogo.
 
@@ -44,9 +45,9 @@ Se pueden agregar usuarios individuales y grupos de seguridad.
 
 Catálogo de datos de Azure usa Azure Active Directory para la administración de identidades y acceso. Cada usuario de catálogo debe ser un miembro de Active Directory para la cuenta.
 
-### Recursos
+### <a name="assets"></a>recursos
 
-Un **catálogo** contiene recursos de datos. Los **Recursos** son la unidad de granularidad que administra el catálogo.
+Un **catálogo** contiene recursos de datos. **recursos** son la unidad de granularidad que administra el catálogo.
 
 La granularidad de un recurso varía según el origen de datos. Para una o Base de datos SQL Server o de Oracle, un recurso puede ser una tabla o una vista. Para SQL Server Analysis Services, un recurso puede ser una medida, una dimensión o un indicador clave de rendimiento (KPI). Para SQL Server Reporting Services, un recurso es un informe.
 
@@ -54,21 +55,21 @@ Un **Recurso** es el elemento que se agrega o quita de un Catálogo. Es la unida
 
 Un **Recurso** está compuesto por su nombre, ubicación y tipo, así como de las anotaciones que lo describen.
 
-### Anotaciones
+### <a name="annotations"></a>anotaciones
 
 Las anotaciones son elementos que representan los metadatos acerca de los recursos.
 
 Ejemplos de las anotaciones incluyen descripciones, etiquetas, esquemas, documentación, etc. Una lista completa de los tipos de recursos y de anotaciones se encuentra en la sección Modelo de objeto de recurso.
 
-## Anotaciones de micromecenazgo y perspectiva del usuario (multiplicidad de opinión)
+## <a name="crowdsourcing-annotations-and-user-perspective-(multiplicity-of-opinion)"></a>Anotaciones de micromecenazgo y perspectiva del usuario (multiplicidad de opinión)
 
 Un aspecto clave del Catálogo de datos de Azure es cómo admite el micromecenazgo de los metadatos en el sistema. En contraposición con un enfoque de wiki (en el que solo hay una opinión y el último escritor es el que gana), el modelo del Catálogo de datos de Azure permite escribir varias opiniones en el sistema.
 
 Este enfoque refleja el mundo real de los datos empresariales, en el que distintos usuarios pueden tener distintas perspectivas en un recurso:
 
--	Un administrador de base de datos puede proporcionar información sobre los acuerdos de nivel de servicio o la ventana de procesamiento disponible para las operaciones de ETL masivas
--	Un administrador de datos puede proporcionar información sobre los procesos de negocio a los que se aplica el recurso, o las clasificaciones que la empresa le ha aplicado
--	Un analista financiero puede proporcionar información acerca de cómo se usan los datos durante las tareas de informes de final de período
+-   Un administrador de base de datos puede proporcionar información sobre los acuerdos de nivel de servicio o la ventana de procesamiento disponible para las operaciones de ETL masivas
+-   Un administrador de datos puede proporcionar información sobre los procesos de negocio a los que se aplica el recurso, o las clasificaciones que la empresa le ha aplicado
+-   Un analista financiero puede proporcionar información acerca de cómo se usan los datos durante las tareas de informes de final de período
 
 Para admitir este ejemplo, cada usuario (el DBA, el ddministrador de datos y el analista) puede agregar una descripción a una única tabla que se ha registrado en el catálogo. Todas las descripciones se mantienen en el sistema y en el portal del Catálogo de datos de Azure se muestran todas las descripciones.
 
@@ -78,19 +79,19 @@ Por ejemplo, en la raíz del recurso se encuentra una matriz de objetos de descr
 
 A continuación, la experiencia de usuario puede elegir cómo mostrar la combinación. A continuación se muestran tres modelos diferentes para mostrar.
 
--	El modelo más simple es "Show All". En este patrón, se muestran todos los objetos en una vista de lista. El portal del Catálogo de datos de Azure UX utiliza este patrón para la descripción.
--	Otro patrón es "Merge". En este patrón, todos los valores de los distintos usuarios se combinan, y se eliminan los duplicados. Ejemplos de este patrón en la experiencia del usuario del portal de Catálogo de datos de Azure son las etiquetas y las propiedades de expertos.
--	Un tercer patrón es "el último escritor gana". En este patrón, solo se muestra el valor más reciente escrito. friendlyName es un ejemplo de este patrón.
+-   El modelo más simple es "Show All". En este patrón, se muestran todos los objetos en una vista de lista. El portal del Catálogo de datos de Azure UX utiliza este patrón para la descripción.
+-   Otro patrón es "Merge". En este patrón, todos los valores de los distintos usuarios se combinan, y se eliminan los duplicados. Ejemplos de este patrón en la experiencia del usuario del portal de Catálogo de datos de Azure son las etiquetas y las propiedades de expertos.
+-   Un tercer patrón es "el último escritor gana". En este patrón, solo se muestra el valor más reciente escrito. friendlyName es un ejemplo de este patrón.
 
-## Modelo de objeto de recurso
+## <a name="asset-object-model"></a>Modelo de objeto de recurso
 
 Como se mencionó en la sección Conceptos clave, el modelo de objetos **Catálogo de datos de Azure** incluye elementos, que pueden ser recursos o anotaciones. Los elementos tienen propiedades, que pueden ser optional o required. Algunas propiedades se aplican a todos los elementos. Algunas propiedades se aplican a todos los recursos. Algunas propiedades se aplican solo a tipos de recursos específicos.
 
-### Propiedades del sistema
+### <a name="system-properties"></a>Propiedades del sistema
 
-<table><tr><td><b>Nombre de propiedad</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr><tr><td>timestamp</td><td>DateTime</td><td>La última vez que se modificó el elemento. El servidor genera este campo cuando se inserta un elemento y cada vez que se actualiza. El valor de esta propiedad se omite en la entrada de las operaciones de publicación.</td></tr><tr><td>id</td><td>Identificador URI</td><td>Dirección URL absoluta del elemento (solo lectura). Es el identificador URI direccionable único para el elemento. El valor de esta propiedad se omite en la entrada de las operaciones de publicación.</td></tr><tr><td>type</td><td>String</td><td>El tipo de recurso (solo lectura).</td></tr><tr><td>ETag</td><td>String</td><td>Una cadena correspondiente a la versión del elemento que puede utilizarse para el control de simultaneidad optimista al realizar operaciones que actualizan elementos en el catálogo. "*" puede usarse para coincidir con cualquier valor.</td></tr></table>
+<table><tr><td><b>Nombre de propiedad</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr><tr><td>timestamp</td><td>DateTime</td><td>La última vez que se modificó el elemento. El servidor genera este campo cuando se inserta un elemento y cada vez que se actualiza. El valor de esta propiedad se omite en la entrada de las operaciones de publicación.</td></tr><tr><td>id</td><td>Identificador URI</td><td>Dirección URL absoluta del elemento (solo lectura). Es el identificador URI direccionable único para el elemento.  El valor de esta propiedad se omite en la entrada de las operaciones de publicación.</td></tr><tr><td>type</td><td>String</td><td>El tipo de recurso (solo lectura).</td></tr><tr><td>ETag</td><td>Cadena</td><td>Una cadena correspondiente a la versión del elemento que puede utilizarse para el control de simultaneidad optimista al realizar operaciones que actualizan elementos en el catálogo. "*" puede usarse para coincidir con cualquier valor.</td></tr></table>
 
-### Propiedades comunes
+### <a name="common-properties"></a>Propiedades comunes
 
 Estas propiedades se aplican a todos los tipos de recursos de raíz y a todos los tipos de anotación.
 
@@ -99,12 +100,12 @@ Estas propiedades se aplican a todos los tipos de recursos de raíz y a todos lo
 <tr><td>fromSourceSystem</td><td>Booleano</td><td>Indica si los datos del elemento derivan de un sistema de origen (como base de datos de SQL Server, base de datos de Oracle) o creados por un usuario.</td></tr>
 </table>
 
-### Propiedades de raíz comunes
+### <a name="common-root-properties"></a>Propiedades de raíz comunes
 <p>
 Estas propiedades se aplican a todos los tipos de recursos de raíz.
-<table><tr><td><b>Nombre de propiedad</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr><tr><td>name</td><td>String</td><td>Un nombre derivado de la información de ubicación del origen de datos</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>Describe el origen de datos de forma exclusiva y es uno de los identificadores del recurso. (Consulte la sección de identidad dual). La estructura del dsl varía según el protocolo y el tipo de origen.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Más información sobre el tipo de recurso.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Describe el usuario que registró más recientemente este recurso. Contiene el identificador único para el usuario (upn) y un nombre para mostrar (lastName y firstName).</td></tr><tr><td>containerId</td><td>String</td><td>Id. del activo de contenedor para el origen de datos. Esta propiedad no se admite para el tipo de contenedor.</td></tr></table>
+<table><tr><td><b>Nombre de propiedad</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr><tr><td>name</td><td>String</td><td>Un nombre derivado de la información de ubicación del origen de datos</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>Describe el origen de datos de forma exclusiva y es uno de los identificadores del recurso. (Consulte la sección de identidad dual).  La estructura del dsl varía según el protocolo y el tipo de origen.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Más información sobre el tipo de recurso.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Describe el usuario que registró más recientemente este recurso.  Contiene el identificador único para el usuario (upn) y un nombre para mostrar (lastName y firstName).</td></tr><tr><td>containerId</td><td>String</td><td>Id. del activo de contenedor para el origen de datos. Esta propiedad no se admite para el tipo de contenedor.</td></tr></table>
 
-### Propiedades comunes de anotación no de singleton
+### <a name="common-non-singleton-annotation-properties"></a>Propiedades comunes de anotación no de singleton
 
 Estas propiedades se aplican a todos los tipos de anotación no singleton (anotaciones que pueden ser múltiples por recurso).
 
@@ -113,37 +114,37 @@ Estas propiedades se aplican a todos los tipos de anotación no singleton (anota
 <tr><td>key</td><td>String</td><td>Clave especificada por el usuario que identifica de forma única la anotación en la colección actual. La longitud de la clave no puede superar los 256 caracteres.</td></tr>
 </table>
 
-### Tipos de recursos de raíz
+### <a name="root-asset-types"></a>Tipos de recursos de raíz
 
-Los tipos de recursos de raíz son aquellos que representan los distintos tipos de recursos de datos que se pueden registrar en el catálogo. Para cada tipo de raíz hay una vista definida que describe el recurso y las anotaciones que se incluyen en la vista. El nombre de la vista debe usarse en el segmento de dirección URL {view\_name} correspondiente al publicar un recurso mediante la API de REST.
+Los tipos de recursos de raíz son aquellos que representan los distintos tipos de recursos de datos que se pueden registrar en el catálogo. Para cada tipo de raíz hay una vista definida que describe el recurso y las anotaciones que se incluyen en la vista. El nombre de la vista debe usarse en el segmento de dirección URL {view_name} correspondiente al publicar un recurso mediante la API de REST.
 
-<table><tr><td><b>Tipo de recurso (nombre de la vista)</b></td><td><b>Propiedades adicionales</b></td><td><b>Tipo de datos</b></td><td><b>Anotaciones permitidas</b></td><td><b>Comentarios</b></td></tr><tr><td>Tabla ("tables")</td><td></td><td></td><td>Description<p>FriendlyName<p>Etiqueta<p>Esquema<p>ColumnDescription<p>ColumnTag<p> Experto<p>Vista previa<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Documentación<p></td><td>Una tabla representa datos tabulares. Por ejemplo, una tabla SQL, una vista SQL, una tabla del modelo tabular de Analysis Services, una dimensión multidimensional de Analysis Services, una tabla de Oracle, etc.   </td></tr><tr><td>Medidas ("measures")</td><td></td><td></td><td>Description<p>FriendlyName<p>Etiqueta<p>Experto<p>AccessInstruction<p>Documentación<p></td><td>Este tipo representa una medida de Analysis Services.</td></tr><tr><td></td><td>measure</td><td>Columna</td><td></td><td>Metadatos que describen la medida</td></tr><tr><td></td><td>isCalculated </td><td>Booleano</td><td></td><td>Especifica si se calcula la medida o no.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Contenedor físico de medida</td></tr><td>KPI ("kpis")</td><td></td><td></td><td>Description<p>FriendlyName<p>Etiqueta<p>Experto<p>AccessInstruction<p>Documentación</td><td></td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Contenedor físico de medida</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td></td><td>Una expresión numérica MDX o un cálculo que devuelve el valor objetivo del KPI.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td></td><td>Una expresión numérica MDX que devuelve el valor real del KPI.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td></td><td>Una expresión MDX que representa el estado del KPI en un punto especificado en el tiempo.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>Una expresión MDX que evalúa el valor del KPI en el tiempo. La tendencia puede ser cualquier criterio basado en el tiempo que sea útil en un contexto empresarial específico.</td>
+<table><tr><td><b>Tipo de recurso (nombre de la vista)</b></td><td><b>Propiedades adicionales</b></td><td><b>Tipo de datos</b></td><td><b>Anotaciones permitidas</b></td><td><b>Comentarios</b></td></tr><tr><td>Tabla ("tables")</td><td></td><td></td><td>Description<p>FriendlyName<p>Etiqueta<p>Esquema<p>ColumnDescription<p>ColumnTag<p> Experto<p>Vista previa<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Documentación<p></td><td>Una tabla representa datos tabulares.  Por ejemplo, una tabla SQL, una vista SQL, una tabla del modelo tabular de Analysis Services, una dimensión multidimensional de Analysis Services, una tabla de Oracle, etc.   </td></tr><tr><td>Medidas ("measures")</td><td></td><td></td><td>Description<p>FriendlyName<p>Etiqueta<p>Experto<p>AccessInstruction<p>Documentación<p></td><td>Este tipo representa una medida de Analysis Services.</td></tr><tr><td></td><td>measure</td><td>Columna</td><td></td><td>Metadatos que describen la medida</td></tr><tr><td></td><td>isCalculated </td><td>Booleano</td><td></td><td>Especifica si se calcula la medida o no.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Contenedor físico de medida</td></tr><td>KPI ("kpis")</td><td></td><td></td><td>Description<p>FriendlyName<p>Etiqueta<p>Experto<p>AccessInstruction<p>Documentación</td><td></td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Contenedor físico de medida</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td></td><td>Una expresión numérica MDX o un cálculo que devuelve el valor objetivo del KPI.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td></td><td>Una expresión numérica MDX que devuelve el valor real del KPI.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td></td><td>Una expresión MDX que representa el estado del KPI en un punto especificado en el tiempo.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>Una expresión MDX que evalúa el valor del KPI en el tiempo. La tendencia puede ser cualquier criterio basado en el tiempo que sea útil en un contexto empresarial específico.</td>
 <tr><td>Informe ("reports")</td><td></td><td></td><td>Description<p>FriendlyName<p>Etiqueta<p>Experto<p>AccessInstruction<p>Documentación<p></td><td>Este tipo representa un informe de SQL Server Reporting Services </td></tr><tr><td></td><td>assetCreatedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>String</td><td></td><td></td></tr><tr><td>Contenedor ("containers")</td><td></td><td></td><td>Description<p>FriendlyName<p>Etiqueta<p>Experto<p>AccessInstruction<p>Documentación<p></td><td>Este tipo representa un contenedor de otros activos, como una base de datos SQL, un contenedor de blobs de Azure o un modelo de Analysis Services.</td></tr></table>
 
-### Tipos de anotación
+### <a name="annotation-types"></a>Tipos de anotación
 
 Los tipos de anotación representan tipos de metadatos que se pueden asignar a otros tipos dentro del catálogo.
 
 <table>
 <tr><td><b>Tipo de anotación (nombre de la vista anidada)</b></td><td><b>Propiedades adicionales</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr>
 
-<tr><td>Descripción ("descriptions")</td><td></td><td></td><td>Esta propiedad contiene una descripción para un recurso. Cada usuario del sistema puede agregar sus propia descripción. Solo ese usuario puede editar el objeto de la descripción. (Los administradores y los propietarios de recursos pueden eliminar el objeto Description, pero no editarlo). El sistema mantiene las descripciones de los usuarios por separado. Por lo tanto, hay una matriz de descripciones en cada recurso (una para cada usuario que ha contribuido con sus conocimientos sobre el recurso, además de posiblemente uno que contenga información derivada del origen de datos).</td></tr>
+<tr><td>Descripción ("descriptions")</td><td></td><td></td><td>Esta propiedad contiene una descripción para un recurso. Cada usuario del sistema puede agregar sus propia descripción.  Solo ese usuario puede editar el objeto de la descripción.  (Los administradores y los propietarios de recursos pueden eliminar el objeto Description, pero no editarlo). El sistema mantiene las descripciones de los usuarios por separado.  Por lo tanto, hay una matriz de descripciones en cada recurso (una para cada usuario que ha contribuido con sus conocimientos sobre el recurso, además de posiblemente uno que contenga información derivada del origen de datos).</td></tr>
 <tr><td></td><td>description</td><td>string</td><td>Una descripción breve (de entre 2 y 3 líneas) del recurso</td></tr>
 
-<tr><td>Etiqueta ("tags")</td><td></td><td></td><td>Esta propiedad define una etiqueta para un recurso. Cada usuario del sistema puede agregar varias etiquetas para un recurso. Solo el usuario que ha creado objetos Tag puede modificarlos. (Los administradores y los propietarios de recursos pueden eliminar el objeto Tag, pero no editarlo). El sistema mantiene las etiquetas de los usuarios por separado. Por lo tanto, hay una matriz de objetos Tag en cada recurso.</td></tr>
+<tr><td>Etiqueta ("tags")</td><td></td><td></td><td>Esta propiedad define una etiqueta para un recurso. Cada usuario del sistema puede agregar varias etiquetas para un recurso.  Solo el usuario que ha creado objetos Tag puede modificarlos.  (Los administradores y los propietarios de recursos pueden eliminar el objeto Tag, pero no editarlo). El sistema mantiene las etiquetas de los usuarios por separado.  Por lo tanto, hay una matriz de objetos Tag en cada recurso.</td></tr>
 <tr><td></td><td>etiqueta</td><td>string</td><td>Una etiqueta que describe el recurso.</td></tr>
 
-<tr><td>FriendlyName ("friendlyName")</td><td></td><td></td><td>Esta propiedad contiene un nombre descriptivo para un recurso. FriendlyName es una anotación de singleton: solo un objeto FriendlyName puede agregarse a un recurso. Solo el usuario que creó el objeto FriendlyName puede editarlo. (Los administradores y los propietarios de recursos pueden eliminar el objeto FriendlyName, pero no editarlo). El sistema mantiene los nombres descriptivos de los usuarios por separado.</td></tr>
+<tr><td>FriendlyName ("friendlyName")</td><td></td><td></td><td>Esta propiedad contiene un nombre descriptivo para un recurso. FriendlyName es una anotación de singleton: solo un objeto FriendlyName puede agregarse a un recurso.  Solo el usuario que creó el objeto FriendlyName puede editarlo. (Los administradores y los propietarios de recursos pueden eliminar el objeto FriendlyName, pero no editarlo). El sistema mantiene los nombres descriptivos de los usuarios por separado.</td></tr>
 <tr><td></td><td>friendlyName</td><td>string</td><td>Nombre descriptivo del recurso.</td></tr>
 
-<tr><td>Esquema ("schema")</td><td></td><td></td><td>El esquema describe la estructura de los datos. Enumera los nombres de los atributos (columna, atributo, campo, etc.), así como otros metadatos. Esta información se deriva del origen de datos. El esquema es una anotación de singleton: solo puede agregarse un esquema a un recurso.</td></tr>
+<tr><td>Esquema ("schema")</td><td></td><td></td><td>El esquema describe la estructura de los datos.  Enumera los nombres de los atributos (columna, atributo, campo, etc.), así como otros metadatos.  Esta información se deriva del origen de datos.  El esquema es una anotación de singleton: solo puede agregarse un esquema a un recurso.</td></tr>
 <tr><td></td><td>columnas</td><td>Column[]</td><td>Una matriz de objetos de columna. Describen la columna con información obtenida a partir del origen de datos.</td></tr>
 
-<tr><td>ColumnDescription ("columnDescriptions")</td><td></td><td></td><td>Esta propiedad contiene una descripción para una columna. Cada usuario del sistema puede agregar sus propias descripciones para varias columnas (a lo sumo uno por columna). Solo el usuario que ha creado objetos ColumnDescription puede modificarlos. (Los administradores y los propietarios de recursos pueden eliminar el objeto ColumnDescription, pero no editarlo). El sistema mantiene las descripciones de las columnas de usuario por separado. Por lo tanto, hay una matriz de objetos ColumnDescription en cada recurso (uno por columna para cada usuario que ha contribuido con sus conocimientos acerca de la columna, además de posiblemente uno que contiene información derivada del origen de datos). ColumnDescription está enlazado de forma flexible con el esquema, por lo que puede dejar de estar sincronizado. ColumnDescription puede describir una columna que ya no existe en el esquema. El escritor puede decidir si desea mantener la descripción y el esquema sincronizados. El origen de datos también puede tener información de descripción de las columnas, y hay objetos ColumnDescription adicionales que se crean al ejecutar la herramienta.</td></tr>
+<tr><td>ColumnDescription ("columnDescriptions")</td><td></td><td></td><td>Esta propiedad contiene una descripción para una columna.  Cada usuario del sistema puede agregar sus propias descripciones para varias columnas (a lo sumo uno por columna). Solo el usuario que ha creado objetos ColumnDescription puede modificarlos.  (Los administradores y los propietarios de recursos pueden eliminar el objeto ColumnDescription, pero no editarlo). El sistema mantiene las descripciones de las columnas de usuario por separado.  Por lo tanto, hay una matriz de objetos ColumnDescription en cada recurso (uno por columna para cada usuario que ha contribuido con sus conocimientos acerca de la columna, además de posiblemente uno que contiene información derivada del origen de datos).  ColumnDescription está enlazado de forma flexible con el esquema, por lo que puede dejar de estar sincronizado. ColumnDescription puede describir una columna que ya no existe en el esquema.  El escritor puede decidir si desea mantener la descripción y el esquema sincronizados.  El origen de datos también puede tener información de descripción de las columnas, y hay objetos ColumnDescription adicionales que se crean al ejecutar la herramienta.</td></tr>
 <tr><td></td><td>columnName</td><td>String</td><td>Nombre de la columna a la que hace referencia esta descripción.</td></tr>
 <tr><td></td><td>description</td><td>String</td><td>Una descripción breve (de entre 2 y 3 líneas) de la columna.</td></tr>
 
-<tr><td>ColumnTag ("columnTags")</td><td></td><td></td><td>Esta propiedad contiene una etiqueta para una columna. Todos los usuarios del sistema pueden agregar varias etiquetas a una columna determinada y agregar etiquetas de varias columnas. Solo el usuario que ha creado objetos ColumnTag puede modificarlos. (Los administradores y los propietarios de recursos pueden eliminar el objeto ColumnTag, pero no editarlo). El sistema mantiene las etiquetas de columna de estos usuarios por separado. Por lo tanto, hay una matriz de objetos ColumnTag en cada recurso. ColumnTag flexible está enlazado de forma flexible con el esquema, por lo que puede dejar de estar sincronizado. ColumnTag puede describir una columna que ya no existe en el esquema. El escritor puede decidir si desea mantener la etiqueta de la columna y el esquema sincronizados.</td></tr>
+<tr><td>ColumnTag ("columnTags")</td><td></td><td></td><td>Esta propiedad contiene una etiqueta para una columna. Todos los usuarios del sistema pueden agregar varias etiquetas a una columna determinada y agregar etiquetas de varias columnas. Solo el usuario que ha creado objetos ColumnTag puede modificarlos. (Los administradores y los propietarios de recursos pueden eliminar el objeto ColumnTag, pero no editarlo). El sistema mantiene las etiquetas de columna de estos usuarios por separado.  Por lo tanto, hay una matriz de objetos ColumnTag en cada recurso.  ColumnTag flexible está enlazado de forma flexible con el esquema, por lo que puede dejar de estar sincronizado. ColumnTag puede describir una columna que ya no existe en el esquema.  El escritor puede decidir si desea mantener la etiqueta de la columna y el esquema sincronizados.</td></tr>
 <tr><td></td><td>columnName</td><td>String</td><td>Nombre de la columna a la que hace referencia esta etiqueta.</td></tr>
 <tr><td></td><td>etiqueta</td><td>String</td><td>Una etiqueta que describe la columna.</td></tr>
 
@@ -151,7 +152,7 @@ Los tipos de anotación representan tipos de metadatos que se pueden asignar a o
 <tr><td></td><td>expert</td><td>SecurityPrincipal</td><td></td></tr>
 
 <tr><td>Vista previa ("previews")</td><td></td><td></td><td>La vista previa contiene una instantánea de las 20 filas principales de datos para el recurso. La vista previa solo tiene sentido para algunos tipos de recursos (tiene sentido para las tablas, pero no para las medidas).</td></tr>
-<tr><td></td><td>Vista previa</td><td>object[]</td><td>Matriz de objetos que representan una columna. Cada objeto tiene una asignación de propiedad para una columna con un valor para la columna de la fila.</td></tr>
+<tr><td></td><td>Vista previa</td><td>object[]</td><td>Matriz de objetos que representan una columna.  Cada objeto tiene una asignación de propiedad para una columna con un valor para la columna de la fila.</td></tr>
 
 <tr><td>AccessInstruction ("accessInstructions")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>mimeType</td><td>string</td><td>El tipo MIME del contenido.</td></tr>
@@ -176,20 +177,20 @@ Los tipos de anotación representan tipos de metadatos que se pueden asignar a o
 
 </table>
 
-### Tipos comunes
+### <a name="common-types"></a>Tipos comunes
 
 Tipos comunes pueden usarse como tipos de propiedades, pero no son elementos.
 <table>
 <tr><td><b>Tipo común</b></td><td><b>Propiedades</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr>
 <tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>sourceType</td><td>string</td><td>Describe el tipo de origen de datos. Por ejemplo: SQL Server, Base de datos de Oracle, etc.  </td></tr>
+<tr><td></td><td>sourceType</td><td>string</td><td>Describe el tipo de origen de datos.  Por ejemplo: SQL Server, Base de datos de Oracle, etc.  </td></tr>
 <tr><td></td><td>objectType</td><td>string</td><td>Describe el tipo de objeto en el origen de datos. Por ejemplo, tabla, vista de SQL Server.</td></tr>
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>protocolo</td><td>string</td><td>Obligatorio. Describe un protocolo utilizado para comunicarse con el origen de datos. Por ejemplo, "tds" para SQl Server, "oracle" para Oracle, etc. Consulte [Especificación de referencia de origen de datos: estructura de DSL](data-catalog-dsr.md) para la lista de protocolos admitidos actualmente.</td></tr>
-<tr><td></td><td>address</td><td>Diccionario &lt;cadena, objeto></td><td>Obligatorio. La dirección es un conjunto de datos específicos del protocolo que se utiliza para identificar el origen de datos al que se hace referencia. Los datos de direcciones con ámbito en un protocolo determinado, lo que significa que no tiene sentido sin conocer el protocolo.</td></tr>
+<tr><td></td><td>address</td><td>Diccionario<string, object></td><td>Obligatorio. La dirección es un conjunto de datos específicos del protocolo que se utiliza para identificar el origen de datos al que se hace referencia. Los datos de direcciones con ámbito en un protocolo determinado, lo que significa que no tiene sentido sin conocer el protocolo.</td></tr>
 <tr><td></td><td>authentication</td><td>string</td><td>Opcional. El esquema de autenticación que se utiliza para comunicarse con el origen de datos. Por ejemplo, windows, oauth, etc.</td></tr>
-<tr><td></td><td>connectionProperties</td><td>Diccionario &lt;cadena, objeto></td><td>Opcional. Información adicional sobre cómo conectarse a un origen de datos.</td></tr>
+<tr><td></td><td>connectionProperties</td><td>Diccionario<string, object></td><td>Opcional. Información adicional sobre cómo conectarse a un origen de datos.</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>El back-end no realiza ninguna validación de las propiedades proporcionadas en AAD durante la publicación.</td></tr>
 <tr><td></td><td>upn</td><td>string</td><td>Dirección de correo electrónico única del usuario. Debe especificarse si no se proporciona el identificador de objeto o en el contexto de la propiedad "lastRegisteredBy"; de lo contrario, es opcional.</td></tr>
@@ -199,7 +200,7 @@ Tipos comunes pueden usarse como tipos de propiedades, pero no son elementos.
 
 <tr><td>Columna</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>name</td><td>string</td><td>Nombre de la columna o atributo.</td></tr>
-<tr><td></td><td>type</td><td>string</td><td>Tipo de datos de la columna o atributo. Los tipos permitidos dependen del sourceType de datos del recurso. Solo se admite un subconjunto de tipos.</td></tr>
+<tr><td></td><td>type</td><td>string</td><td>Tipo de datos de la columna o atributo. Los tipos permitidos dependen del sourceType de datos del recurso.  Solo se admite un subconjunto de tipos.</td></tr>
 <tr><td></td><td>maxLength</td><td>int</td><td>Longitud máxima permitida para la columna o el atributo. Derivada del origen de datos. Solo se aplica a algunos tipos de origen.</td></tr>
 <tr><td></td><td>precision</td><td>byte</td><td>Precisión de la columna o atributo. Derivada del origen de datos. Solo se aplica a algunos tipos de origen.</td></tr>
 <tr><td></td><td>isNullable</td><td>Booleano</td><td>Si se permite que la columna tenga un valor null o no. Derivada del origen de datos. Solo se aplica a algunos tipos de origen.</td></tr>
@@ -218,10 +219,13 @@ Tipos comunes pueden usarse como tipos de propiedades, pero no son elementos.
 
 </table>
 
-## Identidad de recursos
-Catálogo de datos de Azure utiliza las propiedades de identidad y "protocolo" desde el contenedor de propiedades "address" de la propiedad "dsl" DataSourceLocation para generar la identidad del recurso que se usa para dirigir el recurso dentro del Catálogo. Por ejemplo, el protocolo "tds" tiene las propiedades de identidad "server", "database", "schema" y "object". Las combinaciones de las propiedades de identidad y protocolo se utilizan para generar la identidad del recurso de la tabla de SQL Server. Catálogo de datos de Azure proporciona varios protocolos de origen de datos integrados que se enumeran en [Especificación de referencia de origen de datos: estructura de DSL](data-catalog-dsr.md). El conjunto de protocolos admitidos se puede extender mediante programación (consulte la referencia de API de REST de Catálogo de datos). Los administradores del Catálogo pueden registrar los protocolos de orígenes de datos personalizados. En la tabla siguiente se describen las propiedades necesarias para registrar un protocolo personalizado.
+## <a name="asset-identity"></a>Identidad de recursos
+Catálogo de datos de Azure utiliza las propiedades de identidad y "protocolo" desde el contenedor de propiedades "address" de la propiedad "dsl" DataSourceLocation para generar la identidad del recurso que se usa para dirigir el recurso dentro del Catálogo.
+Por ejemplo, el protocolo "tds" tiene las propiedades de identidad "server", "database", "schema" y "object". Las combinaciones de las propiedades de identidad y protocolo se utilizan para generar la identidad del recurso de la tabla de SQL Server.
+Catálogo de datos de Azure proporciona varios protocolos de origen de datos integrados que se enumeran en [Especificación de referencia de origen de datos: estructura de DSL](data-catalog-dsr.md).
+El conjunto de protocolos admitidos se puede extender mediante programación (consulte la referencia de API de REST de Catálogo de datos). Los administradores del Catálogo pueden registrar los protocolos de orígenes de datos personalizados. En la tabla siguiente se describen las propiedades necesarias para registrar un protocolo personalizado.
 
-### Especificación del protocolo de orígenes de datos personalizados
+### <a name="custom-data-source-protocol-specification"></a>Especificación del protocolo de orígenes de datos personalizados
 <table>
 <tr><td><b>Tipo</b></td><td><b>Propiedades</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr>
 
@@ -243,36 +247,40 @@ Catálogo de datos de Azure utiliza las propiedades de identidad y "protocolo" d
 
 </table>
 
-## Roles y autorización
+## <a name="roles-and-authorization"></a>Roles y autorización
 
 Catálogo de datos de Microsoft Azure proporciona capacidades de autorización para las operaciones CRUD en recursos y anotaciones.
 
-## Conceptos clave
+## <a name="key-concepts"></a>Conceptos clave
 
 El Catálogo de datos de Azure usa dos mecanismos de autorización:
 
 - Autorización basada en roles
 - Autorización basada en permisos
 
-### Roles
+### <a name="roles"></a>Roles
 
-Existen tres roles: **Administrador**, **Propietario** y **Colaborador**. Cada rol tiene su ámbito y sus derechos, que se resumen en la tabla siguiente.
+Existen tres roles: **Administrador**, **Propietario** y **Colaborador**.  Cada rol tiene su ámbito y sus derechos, que se resumen en la tabla siguiente.
 
-<table><tr><td><b>Rol</b></td><td><b>Ámbito</b></td><td><b>Derechos</b></td></tr><tr><td>Administrador</td><td>Catálogo (todos los recursos/anotaciones del catálogo)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Propietario</td><td>Cada recurso (elemento raíz)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Colaborador</td><td>Cada recurso y anotación individual</td><td>Read Update Delete ViewRoles Nota: todos los derechos se revocarán si la operación de lectura en el elemento se ha revocado desde el colaborador</td></tr></table>
+<table><tr><td><b>Rol</b></td><td><b>Scope</b></td><td><b>Derechos</b></td></tr><tr><td>Administrador</td><td>Catálogo (todos los recursos/anotaciones del catálogo)</td><td>Read Delete ViewRoles
+
+ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Propietario</td><td>Cada recurso (elemento raíz)</td><td>Read Delete ViewRoles
+
+ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Colaborador</td><td>Cada recurso y anotación individual</td><td>Read Update Delete ViewRoles Nota: todos los derechos se revocarán si la operación de lectura en el elemento se ha revocado desde el colaborador</td></tr></table>
 
 > [AZURE.NOTE] Los derechos **Read**, **Update**, **Delete** y **ViewRoles** se pueden aplicar a cualquier elemento (recurso o anotación), mientras que **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility** y **ViewPermissions** solo se pueden aplicar al recurso de raíz.
 >
->El derecho **Delete** se aplica a un elemento y a los elementos secundarios o únicos situados debajo de él. Por ejemplo, la eliminación de un recurso también eliminará todas las anotaciones de ese recurso.
+>**Delete** se aplica a un elemento y a los elementos secundarios o únicos situados debajo de él. Por ejemplo, la eliminación de un recurso también eliminará todas las anotaciones de ese recurso.
 
-### Permisos
+### <a name="permissions"></a>Permisos
 
 Un permiso es un lista de entradas de control de acceso. Cada entrada de control de acceso asigna un conjunto de derechos a una entidad de seguridad. Los permisos solo se pueden especificar en un recurso (es decir, el elemento raíz) y se aplican al recurso y a los elementos secundarios.
 
-Durante la vista previa del **Catálogo de datos de Azure**, solo se admite el derecho **Read** en la lista de permisos para habilitar el escenario que restringe la visibilidad de un recurso.
+Durante la vista previa del **Azure Data Catalog**, solo se admite el derecho **Read** en la lista de permisos para habilitar el escenario que restringe la visibilidad de un recurso.
 
 De forma predeterminada, cualquier usuario autenticado tiene derecho **Read** para cualquier elemento del catálogo, a menos que la visibilidad esté restringida al conjunto de entidades de los permisos.
 
-## API de REST
+## <a name="rest-api"></a>API de REST
 
 Las solicitudes de elementos de visualización **PUT** y **POST** pueden usarse para controlar roles y permisos; además de la carga de elementos, pueden especificarse dos propiedades del sistema: **roles** y **permissions**.
 
@@ -280,77 +288,83 @@ Las solicitudes de elementos de visualización **PUT** y **POST** pueden usarse 
 >
 > **permissions** solo se aplica a un elemento de raíz.
 >
-> El rol **Propietario** solo es aplicable a un elemento de raíz.
+> **Propietario** solo es aplicable a un elemento de raíz.
 >
-> De forma predeterminada, cuando se crea un elemento en el catálogo, su **Colaborador** se establece como el usuario autenticado actualmente. Si el elemento debe poder ser actualizable por todo el mundo, el **Colaborador** debe establecerse como entidad de seguridad especial &lt;Todos&gt; en la propiedad **roles** cuando se publique la propiedad por primera vez (consulte el ejemplo siguiente). El **Colaborador** no se puede cambiar y permanece igual mientras dura un elemento (incluso **Administrador** o **Propietario** no tienen derecho para cambiar el **Colaborador**). El único valor que se admite para la configuración explícita del **Colaborador** es &lt;Todos&gt;; es decir, el **Colaborador** solo puede ser un usuario que haya creado un elemento o &lt;Todos&gt;.
+> De forma predeterminada, cuando se crea un elemento en el catálogo, su **Colaborador** se establece como el usuario autenticado actualmente. Si el elemento debe poder ser actualizable por todo el mundo, el **Colaborador** debe establecerse como entidad de seguridad especial &lt;Todos&gt; en la propiedad **roles** cuando se publique la propiedad por primera vez (consulte el ejemplo siguiente). El **Colaborador** no se puede cambiar y permanece igual mientras dura un elemento (incluso **Administrador** o **Propietario** no tienen derecho para cambiar el **Colaborador**). El único valor que se admite para la configuración explícita de **Colaborador** es &lt;Todos&gt;: es decir, **Colaborador** solo puede ser un usuario que haya creado un elemento o &lt;Todos&gt;.
 
-###Ejemplos
-**Establecer el Colaborador como &lt;Todos&gt; al publicar un elemento.** La entidad de seguridad especial &lt;Todos&gt; tiene el elemento objectId "00000000-0000-0000-0000-000000000201". **POST** https://api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
+###<a name="examples"></a>Ejemplos
+**Establecer Colaborador como &lt;Todos&gt; al publicar un elemento.**
+La entidad de seguridad especial &lt;Todos&gt; tiene el elemento objectId "00000000-0000-0000-0000-000000000201".
+  **POST** https://api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
 
   > [AZURE.NOTE] Algunas implementaciones de cliente HTTP pueden volver a emitir automáticamente solicitudes como respuesta a HTTP 302 desde el servidor, pero normalmente eliminan encabezados Authorization de la solicitud. Dado que el encabezado Authorization se requiere para realizar solicitudes a Azure Data Catalog, es preciso asegurarse de que todavía se proporciona el encabezado Authorization al volver a emitir una solicitud a una ubicación de redireccionamiento especificada por Azure Data Catalog. El ejemplo de código siguiente lo demuestra mediante el objeto HttpWebRequest. NET.
 
 **Cuerpo**
 
-	{
-		"roles": [
-			{
-				"role": "Contributor",
-				"members": [
-					{
-						"objectId": "00000000-0000-0000-0000-000000000201"
-					}
-				]
-			}
-		]
-	}
+    {
+        "roles": [
+            {
+                "role": "Contributor",
+                "members": [
+                    {
+                        "objectId": "00000000-0000-0000-0000-000000000201"
+                    }
+                ]
+            }
+        ]
+    }
 
-  **Asignar propietarios y restringir la visibilidad de un elemento de raíz existente**: **PUT**https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
+  **Asignar propietarios y restringir la visibilidad de un elemento raíz existente**: **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
 
-	{
-		"roles": [
-			{
-				"role": "Owner",
-				"members": [
-					{
-						"objectId": "c4159539-846a-45af-bdfb-58efd3772b43",
-						"upn": "user1@contoso.com"
-					},
-					{
-						"objectId": "fdabd95b-7c56-47d6-a6ba-a7c5f264533f",
-						"upn": "user2@contoso.com"
-					}
-				]
-			}
-		],
-		"permissions": [
-			{
-				"principal": {
-					"objectId": "27b9a0eb-bb71-4297-9f1f-c462dab7192a",
-					"upn": "user3@contoso.com"
-				},
-				"rights": [
-					{
-						"right": "Read"
-					}
-				]
-			},
-			{
-				"principal": {
-					"objectId": "4c8bc8ce-225c-4fcf-b09a-047030baab31",
-					"upn": "user4@contoso.com"
-				},
-				"rights": [
-					{
-						"right": "Read"
-					}
-				]
-			}
-		]
-	}
+    {
+        "roles": [
+            {
+                "role": "Owner",
+                "members": [
+                    {
+                        "objectId": "c4159539-846a-45af-bdfb-58efd3772b43",
+                        "upn": "user1@contoso.com"
+                    },
+                    {
+                        "objectId": "fdabd95b-7c56-47d6-a6ba-a7c5f264533f",
+                        "upn": "user2@contoso.com"
+                    }
+                ]
+            }
+        ],
+        "permissions": [
+            {
+                "principal": {
+                    "objectId": "27b9a0eb-bb71-4297-9f1f-c462dab7192a",
+                    "upn": "user3@contoso.com"
+                },
+                "rights": [
+                    {
+                        "right": "Read"
+                    }
+                ]
+            },
+            {
+                "principal": {
+                    "objectId": "4c8bc8ce-225c-4fcf-b09a-047030baab31",
+                    "upn": "user4@contoso.com"
+                },
+                "rights": [
+                    {
+                        "right": "Read"
+                    }
+                ]
+            }
+        ]
+    }
 
 > [AZURE.NOTE] En PUT no es necesario especificar una carga de elementos en el cuerpo: PUT puede usarse para actualizar solo roles y permisos.
 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

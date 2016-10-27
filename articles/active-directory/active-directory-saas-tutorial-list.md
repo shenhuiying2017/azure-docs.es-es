@@ -13,21 +13,22 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="09/28/2016"
+    ms.date="10/07/2016"
     ms.author="markvi"/>
 
-#Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory
+
+#<a name="list-of-tutorials-on-how-to-integrate-saas-apps-with-azure-active-directory"></a>Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory
 
 Para ayudarle a integrar todas las aplicaciones en la nube [(SaaS)](https://azure.microsoft.com/overview/what-is-saas/) con Azure Active Directory, hemos desarrollado un conjunto de tutoriales que muestran todos los pasos de configuración necesarios.
 
 Para obtener una lista completa de las aplicaciones SaaS que fueron previamente integradas en Azure AD, consulte [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
 
-##Lista de tutoriales
+##<a name="list-of-tutorials"></a>Lista de tutoriales
 
 | Logotipo| Nombre de la aplicación |
 | --- | --- |
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Frankly.png)| [&frankly](https://go.microsoft.com/fwLink/?LinkID=823723&clcid=0x409)|
-| ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_AtTask.png)| [@Tarea](https://go.microsoft.com/fwLink/?LinkID=522550&clcid=0x409)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_AtTask.png)| [@Task](https://go.microsoft.com/fwLink/?LinkID=522550&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_10KPlans.png)| [10,000ft Plans](http://go.microsoft.com/fwlink/?LinkID=785279&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_15five.png)| [15Five](https://go.microsoft.com/fwLink/?LinkID=510255&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_23video.png)| [23 Video](https://go.microsoft.com/fwLink/?LinkID=530248&clcid=0x409)|
@@ -106,10 +107,11 @@ Para obtener una lista completa de las aplicaciones SaaS que fueron previamente 
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_EverBridge.png)| [EverBridge](https://go.microsoft.com/fwLink/?LinkID=808005&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Expensify.png)| [Expensify](https://go.microsoft.com/fwLink/?LinkID=733442&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_FBAtWork.png)| [Facebook en el trabajo](http://go.microsoft.com/fwlink/?LinkID=708665&clcid=0x409)|
-| ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_FieldGlass.png)| [Fieldglass](https://go.microsoft.com/fwLink/?LinkID=822857&clcid=0x409)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Fieldglass.png)| [Fieldglass](https://go.microsoft.com/fwLink/?LinkID=822857&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_FlatterFiles.png)| [Archivos más planos](https://go.microsoft.com/fwLink/?LinkID=530224&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_FMSystems.png)| [FM:Systems](https://go.microsoft.com/fwLink/?LinkID=512744&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Freshdesk.png)| [Freshdesk](https://go.microsoft.com/fwLink/?LinkID=522553&clcid=0x409)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Freshgrade.png)| [Freshgrade](https://go.microsoft.com/fwLink/?LinkID=823739&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Freshservice.png)| [FreshService](https://go.microsoft.com/fwLink/?LinkID=512743&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Front.png)| [Front](https://go.microsoft.com/fwLink/?LinkID=823725&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Fuse.png)| [Fuse](https://go.microsoft.com/fwLink/?LinkID=691858&clcid=0x409)|
@@ -154,6 +156,7 @@ Para obtener una lista completa de las aplicaciones SaaS que fueron previamente 
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Learningpool.png)| [Learningpool](https://go.microsoft.com/fwLink/?LinkID=530220&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_LearnUpon.png)| [LearnUpon](https://go.microsoft.com/fwLink/?LinkID=708690&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Lessonly.png)| [Lesson.ly](https://go.microsoft.com/fwLink/?LinkID=708686&clcid=0x409)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_LifesizeCloud.png)| [Nube Lifesize](https://go.microsoft.com/fwLink/?LinkID=828374&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Litmos.png)| [Litmos](https://go.microsoft.com/fwLink/?LinkID=691853&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_LogicMonitor.png)| [LogicMonitor](https://go.microsoft.com/fwLink/?LinkID=403233&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Lucidchart.png)| [Lucidchart](https://go.microsoft.com/fwLink/?LinkID=522563&clcid=0x409)|
@@ -180,6 +183,7 @@ Para obtener una lista completa de las aplicaciones SaaS que fueron previamente 
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Optimizely.png)| [Optimizely](https://go.microsoft.com/fwLink/?LinkID=808000&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Origami.png)| [Origami Risk](http://go.microsoft.com/fwlink/?LinkID=785284&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_OverdriveBooks.png)| [Overdrive Books](https://go.microsoft.com/fwLink/?LinkID=512730&clcid=0x409)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_PacificTimesheet.png)| [Pacific Timesheet](https://go.microsoft.com/fwLink/?LinkID=828369&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_PagerDuty.png)| [Pagerduty](https://go.microsoft.com/fwLink/?LinkID=510244&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Panopto.png)| [Panopto](https://go.microsoft.com/fwLink/?LinkID=512739&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Panorama9.png)| [Panorama9](https://go.microsoft.com/fwLink/?LinkID=510253&clcid=0x409)|
@@ -195,6 +199,7 @@ Para obtener una lista completa de las aplicaciones SaaS que fueron previamente 
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Printix.png)| [Printix](https://go.microsoft.com/fwLink/?LinkID=785283&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Projectplace.png)| [Projectplace](https://go.microsoft.com/fwLink/?LinkID=510265&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_ProMapp.png)| [Promapp](http://go.microsoft.com/fwlink/?LinkId=530229)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_ProofpointOnDemand.png)| [Proofpoint on Demand](https://go.microsoft.com/fwLink/?LinkID=708678&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_QlikSenseEnterprise.png)| [Qlik Sense Enterprise](https://go.microsoft.com/fwLink/?LinkID=822859&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Qualtrics.png)| [Qualtrics](https://go.microsoft.com/fwLink/?LinkID=522567&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Questetra_BPM_Suite.png)| [Questetra BPM Suite](https://go.microsoft.com/fwLink/?LinkID=530240&clcid=0x409)|
@@ -282,10 +287,13 @@ Para obtener una lista completa de las aplicaciones SaaS que fueron previamente 
 
 
 
-
-##Artículos relacionados
+##<a name="related-articles"></a>Artículos relacionados
 
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 - [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Descripción del manifiesto de aplicación de Azure Active Directory | Microsoft Azure"
-   description="Cobertura detallada de cómo usar el manifiesto de aplicación de Azure Active Directory, que representa la configuración de identidad de una aplicación en un inquilino de Azure AD, y se usa para facilitar la autorización de OAuth, la experiencia de consentimiento y mucho más."
+   pageTitle="Understanding the Azure Active Directory Application Manifest | Microsoft Azure"
+   description="Detailed coverage of the Azure Active Directory application manifest, which represents an application's identity configuration in an Azure AD tenant, and is used to facilitate OAuth authorization, consent experience, and more."
    services="active-directory"
    documentationCenter=""
    authors="bryanla"
@@ -13,60 +13,61 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/25/2016"
+   ms.date="10/11/2016"
    ms.author="dkershaw;bryanla"/>
 
-# Descripción del manifiesto de aplicación de Azure Active Directory
 
-Las aplicaciones que se integran con Azure Active Directory (AD) deben estar registradas con un inquilino de Azure AD y proporcionar una configuración persistente de identidad para la aplicación. Esta configuración se consulta en tiempo de ejecución, lo que habilita los escenarios que permiten una aplicación para externalizar y negociar la autenticación/autorización mediante Azure AD. Para obtener más información sobre el modelo de aplicación de Azure AD, vea el artículo [Adición, actualización y eliminación de una aplicación][ADD-UPD-RMV-APP].
+# <a name="understanding-the-azure-active-directory-application-manifest"></a>Understanding the Azure Active Directory application manifest
 
-## Actualización de la configuración de identidad de una aplicación
+Applications that integrate with Azure Active Directory (AD) must be registered with an Azure AD tenant, providing a persistent identity configuration for the application. This configuration is consulted at runtime, enabling scenarios that allow an application to outsource and broker authentication/authorization through Azure AD. For more information about the Azure AD application model, see the [Adding, Updating, and Removing an Application][ADD-UPD-RMV-APP] article.
 
-Hay en realidad varias opciones disponibles para actualizar las propiedades de la configuración de identidad de una aplicación, que varían en función de las capacidades y los niveles de dificultad, incluidas las siguientes:
+## <a name="updating-an-application's-identity-configuration"></a>Updating an application's identity configuration
 
-- La **interfaz de usuario web del [Portal de Azure clásico][AZURE-CLASSIC-PORTAL]** le permite actualizar las propiedades más comunes de una aplicación. Esta es la forma más rápida y menos propensa a errores de actualizar las propiedades de la aplicación pero no le otorga acceso completo a todas las propiedades, como sí lo hacen los dos métodos siguientes.
-- Para escenarios más avanzados donde necesita actualizar las propiedades que no se exponen en el Portal de Azure clásico, puede modificar el **manifiesto de aplicación**. Este es el punto importante de este artículo y se explica con más detalle a partir de la siguiente sección.
-- También es posible **escribir una aplicación que use la [API Graph][GRAPH-API]** para actualizarla, lo que requiere un mayor esfuerzo. Esto puede ser una opción atractiva, no obstante, si está escribiendo software de administración o si necesita actualizar las propiedades de la aplicación periódicamente de forma automática.
+There are actually multiple options available for updating the properties on an application's identity configuration, which vary in capabilities and degrees of difficulty, including the following:
 
-## Uso del manifiesto de aplicación para actualizar la configuración de identidad de una aplicación
-A través del [Portal de Azure clásico][AZURE-CLASSIC-PORTAL], puede administrar la configuración de identidad de la aplicación, mediante la descarga y carga de la representación de un archivo JSON, que se denomina un manifiesto de aplicación. No se almacena ningún archivo real en el directorio: el manifiesto de aplicación es simplemente una operación GET de HTTP en la entidad de aplicación de API Graph de Azure AD y la carga es una operación PATCH de HTTP en la entidad de aplicación.
+- The **[Azure classic portal's][AZURE-CLASSIC-PORTAL] Web user interface** allows you to update the most common properties of an application. This is the quickest and least error prone way of updating your application's properties, but does not give you full access to all properties, like the next two methods.
+- For more advanced scenarios where you need to update properties that are not exposed in the Azure classic portal, you can modify the **application manifest**. This is the focus of this article and is discussed in more detail starting in the next section.
+- It's also possible to **write an application that uses the [Graph API][GRAPH-API]** to update your application, which requires the most effort. This may be an attractive option though, if you are writing management software, or need to update application properties on a regular basis in an automated fashion.
 
-Por lo tanto, para comprender el formato y las propiedades del manifiesto de aplicación, deberá hacer referencia a la documentación de la [entidad de aplicación][APPLICATION-ENTITY] de API Graph. Ejemplos de actualizaciones que se pueden realizar mediante la carga del manifiesto de aplicación:
+## <a name="using-the-application-manifest-to-update-an-application's-identity-configuration"></a>Using the application manifest to update an application's identity configuration
+Through the [Azure classic portal][AZURE-CLASSIC-PORTAL], you can manage your application's identity configuration, by downloading and uploading a JSON file representation, which is called an application manifest. No actual file is stored in the directory. The application manifest is merely an HTTP GET operation on the Azure AD Graph API Application entity, and the upload is an HTTP PATCH operation on the Application entity.
 
-- **Declarar los ámbitos de permiso (oauth2Permissions)** que expone la API web. Consulte el tema "Exposición de las API web a otras aplicaciones" en [Integración de aplicaciones con Azure Active Directory][INTEGRATING-APPLICATIONS-AAD] para obtener información sobre cómo implementar la suplantación de usuario mediante el ámbito de permisos delegados de oauth2Permissions. Tal como se mencionó anteriormente, todas las propiedades de la entidad de aplicación están documentadas en el artículo de referencia [Entity and Complex Type reference][APPLICATION-ENTITY] de API Graph, incluido el miembro oauth2Permissions que es una colección de tipo [OAuth2Permission][APPLICATION-ENTITY-OAUTH2-PERMISSION].
-- **Declarar los roles de aplicación (appRoles) que expone la aplicación**. La propiedad appRole de la entidad de aplicación es una colección de tipo [AppRole][APPLICATION-ENTITY-APP-ROLE]. Vea el artículo [Control de acceso basado en roles en aplicaciones en la nube con Azure AD][RBAC-CLOUD-APPS-AZUREAD] para un ejemplo de implementación.
-- **Declarar las aplicaciones cliente conocidas (knownClientApplications)**, que permiten enlazar de forma lógica el consentimiento de las aplicaciones cliente especificadas a la API de recursos o web.
-- **Solicitar a Azure AD que emita una notificación de pertenencias a grupos** para el usuario que inició sesión (groupMembershipClaims). NOTA: esto puede configurarse para emitir además notificaciones sobre pertenencias a roles de directorio del usuario. Vea el artículo [Autorización en aplicaciones en la nube con grupos de AD][AAD-GROUPS-FOR-AUTHORIZATION] para obtener un ejemplo de implementación.
-- **Permitir que la aplicación admita flujos de concesión implícita de OAuth 2.0** (oauth2AllowImplicitFlow). Este tipo de flujo de concesión se utiliza con páginas web JavaScript integradas o aplicaciones de página única (SPA). Para más información sobre la concesión de autorización implícita, consulte [Descripción del flujo de concesión implícita de OAuth2 de Azure Active Directory (AD)][IMPLICIT-GRANT].
-- **Habilitar el uso de certificados X509 como clave secreta** (keyCredentials). Vea los artículos [Compilar aplicaciones de servicio y demonio en Office 365][O365-SERVICE-DAEMON-APPS] y [Guía del desarrollador para la autenticación con la API del Administrador de recursos de Azure ][DEV-GUIDE-TO-AUTH-WITH-ARM] para ejemplos de implementación.
-- **Agregar un nuevo URI de id. de aplicación** para la aplicación (identifierURIs). Los URI de id. de aplicación se utilizan para identificar aplicaciones dentro de su inquilino de Azure AD (o en varios inquilinos de Azure AD para el caso de los escenarios de varios inquilinos cuando se cualifican mediante un dominio personalizado verificado). Se emplean cuando se solicitan permisos para una aplicación de recursos o cuando se obtiene un token de acceso para una aplicación de recursos. Al actualizar este elemento, se realiza la misma actualización en la colección servicePrincipalNames de la entidad de servicio correspondiente, que se encuentra en el inquilino principal de la aplicación.
+As a result, in order to understand the format and properties of the application manifest, you will need to reference the Graph API [Application entity][APPLICATION-ENTITY] documentation. Examples of updates that can be performed though application manifest upload include:
 
-El manifiesto de aplicación también proporciona una forma adecuada de realizar un seguimiento del estado del registro de la aplicación. Como está disponible en formato JSON, la representación del archivo se puede proteger en el control de código fuente, junto con el código fuente de la aplicación.
+- **Declare permission scopes (oauth2Permissions)** exposed by your web API. See the "Exposing Web APIs to Other Applications" topic in [Integrating Applications with Azure Active Directory][INTEGRATING-APPLICATIONS-AAD] for information on implementing user impersonation using the oauth2Permissions delegated permission scope. As mentioned previously, Application entity properties are documented in the Graph API [Entity and Complex Type][APPLICATION-ENTITY] reference article, including the oauth2Permissions property which is a collection of type [OAuth2Permission][APPLICATION-ENTITY-OAUTH2-PERMISSION].
+- **Declare application roles (appRoles) exposed by your app**. The Application entity's appRoles property is a collection of type [AppRole][APPLICATION-ENTITY-APP-ROLE]. See the [Role based access control in cloud applications using Azure AD][RBAC-CLOUD-APPS-AZUREAD] article for an implementation example.
+- **Declare known client applications (knownClientApplications)**, which allow you to logically tie the consent of the specified client application(s) to the resource/web API.
+- **Request Azure AD to issue group memberships claim** for the signed in user (groupMembershipClaims).  This can also be configured to issue claims about the user's directory roles memberships. See the [Authorization in Cloud Applications using AD Groups][AAD-GROUPS-FOR-AUTHORIZATION] article for an implementation example.
+- **Allow your application to support OAuth 2.0 Implicit grant** flows (oauth2AllowImplicitFlow). This type of grant flow is used with embedded JavaScript web pages or Single Page Applications (SPA). For more information on the implicit authorization grant, see [Understanding the OAuth2 implicit grant flow in Azure Active Directory][IMPLICIT-GRANT].
+- **Enable use of X509 certificates as the secret key** (keyCredentials). See the [Build service and daemon apps in Office 365][O365-SERVICE-DAEMON-APPS] and [Developer’s guide to auth with Azure Resource Manager API][DEV-GUIDE-TO-AUTH-WITH-ARM] articles for implementation examples.
+- **Add a new App ID URI** for your application (identifierURIs[]). App ID URIs are used to uniquely identify an application within its Azure AD tenant (or across multiple Azure AD tenants, for multi-tenant scenarios when qualified via verified custom domain). They are used when requesting permissions to a resource application, or acquiring an access token for a resource application. When you update this element, the same update is made to the corresponding service principal's servicePrincipalNames[] collection, which lives in the application's home tenant.
 
-## Ejemplo paso a paso
-Ahora vamos a recorrer los pasos necesarios para actualizar la configuración de identidad de la aplicación mediante el manifiesto de aplicación: Nos centraremos en uno de los ejemplos dados anteriormente, que muestra cómo declarar un nuevo ámbito de permiso en una aplicación de recursos:
+The application manifest also provides a good way to track the state of your application registration. Because it's available in JSON format, the file representation can be checked into your source control, along with your application's source code.
 
-1. Navegue hasta el [Portal de Azure clásico][AZURE-CLASSIC-PORTAL] e inicie sesión con una cuenta que tenga privilegios de administrador o coadministrador de servicios.
+## <a name="step-by-step-example"></a>Step by step example
+Now lets walk through the steps required to update your application's identity configuration through the application manifest. We will highlight one of the preceding examples, showing how to declare a new permission scope on a resource application:
 
-2. Una vez autenticado, desplácese hacia abajo y seleccione la extensión "Active Directory" de Azure en el panel de navegación de la izquierda (1) y haga clic en el inquilino de Azure AD en el que está registrada la aplicación (2).
+1. Navigate to the [Azure classic portal][AZURE-CLASSIC-PORTAL] and sign in with an account that has service administrator or co-administrator privileges.
 
-    ![Selección del inquilino de Azure AD][SELECT-AZURE-AD-TENANT]
+2. After you've authenticated, scroll down and select the Azure "Active Directory" extension in the left navigation panel (1), then click on the Azure AD tenant where your application is registered (2).
 
-3. Cuando se abre la página de directorio, haga clic en "Aplicaciones" (1) en la parte superior de la página para ver una lista de aplicaciones registradas en el inquilino. A continuación, busque la aplicación que desea actualizar en la lista y haga clic en ella (2).
+    ![Select the Azure AD tenant][SELECT-AZURE-AD-TENANT]
 
-    ![Selección del inquilino de Azure AD][SELECT-AZURE-AD-APP]
+3. When the directory page comes up, click "Applications" (1) on the top of the page to see a list of applications registered in the tenant. Then find the application you want to update in the list and click on it (2).
 
-4. Ahora que ha seleccionado la página principal de la aplicación, tenga en cuenta la característica "Administrar manifiesto" en la parte inferior de la página (1). Si hace clic en este vínculo, se le pedirá que descargue o cargue el archivo de manifiesto de JSON. Haga clic en "Descargar manifiesto" (2), tras lo que aparecerá el cuadro de diálogo de confirmación de descarga que le solicitará confirmación. Para ello, haga clic en "Descargar manifiesto" (3) y abra o guarde el archivo localmente (4).
+    ![Select the Azure AD tenant][SELECT-AZURE-AD-APP]
 
-    ![Administración del manifiesto, opción de descarga][MANAGE-MANIFEST-DOWNLOAD]
+4. Now that you've selected the application's main page, notice the "Manage Manifest" feature on the bottom of the page (1). If you click this link, you will be prompted to either download or upload the JSON manifest file. Click "Download Manifest" (2). This will be immediately followed with the download confirmation dialog prompting you to confirm by clicking "Download Manifest" (3), then either open or save the file locally (4).
 
-    ![Descarga del manifiesto][DOWNLOAD-MANIFEST]
+    ![Manage the manifest, download option][MANAGE-MANIFEST-DOWNLOAD]
 
-5. En este ejemplo, se guarda el archivo localmente, lo que permite abrirlo en un editor, realizar cambios en JSON y volver a guardarlo. Este es el aspecto de la estructura de JSON dentro del editor de JSON de Visual Studio. Tenga en cuenta que sigue el esquema de la [entidad de aplicación][APPLICATION-ENTITY] tal como se mencionó anteriormente:
+    ![Download the manifest][DOWNLOAD-MANIFEST]
 
-    ![Actualización del manifiesto de JSON][UPDATE-MANIFEST]
+5. In this example, we saved the file locally, allowing us to open in an editor, make changes to the JSON, and save again. Here's what the JSON structure looks like inside the Visual Studio JSON editor. Note that it follows the schema for the [Application entity][APPLICATION-ENTITY] as we mentioned earlier:
 
-    Por ejemplo, suponiendo que desea implementar o exponer un permiso nuevo llamado "Employees.Read.All" en nuestra aplicación (API) de recursos, simplemente agregaría un elemento nuevo o adicional a la colección oauth2Permissions, es decir:
+    ![Update the manifest JSON][UPDATE-MANIFEST]
+
+    For example, assuming we want to implement/expose a new permission called "Employees.Read.All" on our resource application (API), you would simply add a new/second element to the oauth2Permissions collection, ie:
 
         "oauth2Permissions": [
         {
@@ -91,33 +92,36 @@ Ahora vamos a recorrer los pasos necesarios para actualizar la configuración de
         }
         ],
 
-    La entrada debe ser única y, por tanto, debe generar un nuevo identificador único global (GUID) para la propiedad `"id"`. En este caso, como especificamos `"type": "User"`, este permiso puede ser consentido por cualquier cuenta autenticada por el inquilino de Azure AD en el que se registra la aplicación de recursos o de API, de forma que se concede a la aplicación cliente permiso para tener acceso a él en nombre de la cuenta. Las cadenas de descripción y nombre para mostrar se usan durante el consentimiento y para su presentación en el Portal de Azure clásico.
+    The entry must be unique, and you must therefore generate a new Globally Unique ID (GUID) for the `"id"` property. In this case, because we specified `"type": "User"`, this permission can be consented to by any account authenticated by the Azure AD tenant in which the resource/API application is registered. This grants the client application permission to access it on the account's behalf. The description and display name strings are used during consent and for display in the Azure classic portal.
 
-6. Cuando termine de actualizar el manifiesto, vuelva a la página de aplicación de Azure AD en el Portal de Azure clásico, haga clic en la característica "Administrar manifiesto" de nuevo (1) pero esta vez seleccione la opción "Cargar manifiesto" (2). De forma parecida a la descarga, aparecerá de nuevo un segundo cuadro de diálogo que le solicitará la ubicación del archivo de JSON. Haga clic en "Buscar archivo..." (3), a continuación, use el cuadro de diálogo "Elegir archivos para cargar" a fin de seleccionar el archivo de JSON (4) y haga clic en "Abrir". Una vez que el cuadro de diálogo desaparece, seleccione la marca de verificación de "Correcto" (5) y se cargará el manifiesto.
+6. When you're finished updating the manifest, return to the Azure AD application page in the Azure classic portal, and click the "Manage Manifest" feature again (1). But this time, select the "Upload Manifest" option (2). Similar to the download, you will be greeted again with a second dialog, prompting you for the location of the JSON file. Click "Browse for file ..." (3), then use the "Choose File to Upload" dialog to select the JSON file (4), and press "Open". Once the dialog goes away, select the "OK" check mark (5) and your manifest will be uploaded.  
 
-    ![Administración del manifiesto, opción de carga][MANAGE-MANIFEST-UPLOAD]
+    ![Manage the manifest, upload option][MANAGE-MANIFEST-UPLOAD]
 
-    ![Carga del manifiesto de JSON][UPLOAD-MANIFEST]
+    ![Upload the manifest JSON][UPLOAD-MANIFEST]
 
-    ![Carga del manifiesto de JSON - confirmación][UPLOAD-MANIFEST-CONFIRM]
+    ![Upload the manifest JSON - confirmation][UPLOAD-MANIFEST-CONFIRM]
 
-Ahora que el manifiesto está guardado, puede otorgar a una aplicación cliente registrada acceso al nuevo permiso que agregamos antes, pero esta vez puede usar la interfaz de usuario web del Portal de Azure clásico en lugar de editar el manifiesto de la aplicación cliente:
+Now that the manifest is saved, you can give a registered client application access to the new permission we added above. This time you can use the Azure classic portal's Web UI instead of editing the client application's manifest:  
 
-1. Primero, vaya a la página "Configurar" de la aplicación cliente a la que desea agregar acceso a la nueva API y haga clic en el botón "Agregar aplicación".
-2. A continuación, aparecerá la lista de aplicaciones (API) de recursos registrado en el inquilino. Haga clic en el signo de la suma (+) junto al nombre de la aplicación de recursos para seleccionarla.
-3. A continuación, haga clic en la marca de verificación de la esquina inferior derecha.
-4. Cuando vuelva a la sección "Agregar aplicación" de la página de configuración de su cliente, verá la nueva aplicación de recursos en la lista. Si mantiene el mouse sobre la sección "Permisos delegados" a la derecha de esa fila, verá aparecer una lista desplegable. Haga clic en la lista y seleccione el nuevo permiso para poder agregarlo a la lista de permisos solicitados del cliente. Nota: Este permiso nuevo se almacenará en la configuración de identidad de la aplicación cliente, en la propiedad de colección "requiredResourceAccess".
+1. First go to the "Configure" page of the client application to which you wish to add access to the new API, and click the "Add application" button.
+2. Then you will be presented with the list of registered resource applications (APIs) in the tenant. Click the plus/+ symbol next to the resource application's name to select it.  
+3. Then click the check mark in the lower right.
+4. When you return to the "Add Application" section of your client's configuration page, you will see the new resource application in the list. If you hover over the "Delegated Permissions" section to the right of that row, you will see a drop-down list show up. Click the list, then select the new permission in order to add it to the client's requested list of permissions. Note: this new permission will be stored in the client application's identity configuration, in the "requiredResourceAccess" collection property.
 
-![Permisos para otras aplicaciones][PERMS-TO-OTHER-APPS]
+![Permissions to other applications][PERMS-TO-OTHER-APPS]
 
-![Permisos para otras aplicaciones][PERMS-SELECT-APP]
+![Permissions to other applications][PERMS-SELECT-APP]
 
-![Permisos para otras aplicaciones][PERMS-SELECT-PERMS]
+![Permissions to other applications][PERMS-SELECT-PERMS]
 
-Eso es todo. Ahora las aplicaciones se ejecutarán con su nueva configuración de identidad.
+That's it. Now your applications will run using their new identity configuration.
 
-## Pasos siguientes
-Use la siguiente sección de comentarios DISQUS para proporcionar comentarios y ayudarnos a refinar y remodelar nuestro contenido.
+## <a name="next-steps"></a>Next steps
+- For more details on the relationship between an application's Application and Service Principal object(s), see [Application and service principal objects in Azure AD][AAD-APP-OBJECTS].
+- See the [Azure AD developer glossary][AAD-DEVELOPER-GLOSSARY] for definitions of some of the core Azure Active Directory (AD) developer concepts.
+
+Please use the DISQUS comments section below to provide feedback and help us refine and shape our content.
 
 <!--Image references-->
 [DOWNLOAD-MANIFEST]: ./media/active-directory-application-manifest/download-manifest.png
@@ -133,6 +137,8 @@ Use la siguiente sección de comentarios DISQUS para proporcionar comentarios y 
 [UPLOAD-MANIFEST-CONFIRM]: ./media/active-directory-application-manifest/upload-manifest-confirm.png
 
 <!--article references -->
+[AAD-APP-OBJECTS]: active-directory-application-objects.md
+[AAD-DEVELOPER-GLOSSARY]: active-directory-dev-glossary.md
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [ADD-UPD-RMV-APP]: active-directory-integrating-applications.md
 [APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
@@ -147,4 +153,9 @@ Use la siguiente sección de comentarios DISQUS para proporcionar comentarios y 
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

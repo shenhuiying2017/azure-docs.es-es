@@ -1,85 +1,90 @@
 
 <properties
-	pageTitle="Referencia técnica del acceso condicional de Azure Active Directory | Microsoft Azure"
-	description="Con el control de acceso condicional, Azure Active Directory comprueba las condiciones específicas que se eligen al autenticar al usuario y antes de permitirle acceso a la aplicación. Si se cumplen las condiciones, el usuario queda autenticado y se le permite el acceso a la aplicación."
+    pageTitle="Azure Active Directory Conditional Access technical reference | Microsoft Azure"
+    description="With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."
     services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila"
-	editor=""/>
+    documentationCenter=""
+    authors="MarkusVi"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="07/26/2016"
-	ms.author="markvi"/>
+    ms.date="10/20/2016"
+    ms.author="markvi"/>
 
-# Referencia técnica del acceso condicional de Azure Active Directory
 
-## Servicios habilitados con acceso condicional
-Las reglas de acceso condicional se admiten en varios tipos de aplicaciones de Azure AD. Esta lista incluye:
+# <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory Conditional Access technical reference
 
-- Aplicaciones federadas de la Galería de aplicaciones de Azure AD
-- Aplicaciones de inicio de sesión único con contraseña de la Galería de aplicaciones de Azure AD
-- Aplicaciones registradas con el proxy de aplicación de Azure
-- Aplicaciones desarrolladas de línea de negocio y multiinquilino registradas con Azure AD
+## <a name="services-enabled-with-conditional-access"></a>Services enabled with conditional access
+Conditional Access rules are supported across various Azure AD application types. This list includes:
+
+- Federated applications from the Azure AD application gallery
+- Password SSO applications from the Azure AD application gallery
+- Applications registered with the Azure Application Proxy
+- Developed line of business and multi-tenant applications registered with Azure AD
 - Visual Studio Online
-- Azure RemoteApp
-- 	Dynamics CRM
-- Yammer de Microsoft Office 365
+- Azure Remote App
+-   Dynamics CRM
+- Microsoft Office 365 Yammer
 - Microsoft Office 365 Exchange Online
-- Microsoft Office 365 SharePoint Online (incluye OneDrive para la Empresa)
+- Microsoft Office 365 SharePoint Online (includes OneDrive for Business)
 
 
-## Habilitación de reglas de acceso
+## <a name="enable-access-rules"></a>Enable access rules
 
-Cada regla puede habilitarse o deshabilitarse en función de la aplicación. Cuando las reglas estén **ACTIVADAS**, se habilitarán y se aplicarán a los usuarios que accedan a la aplicación. Cuando estén **DESACTIVADAS**, no se usarán ni afectarán a la experiencia de inicio de sesión de los usuarios.
+Each rule can be enabled or disabled on a per application bases. When rules are **ON** they will be enabled and enforced for users accessing the application. When they are **OFF** they will not be used and will not impact the users sign in experience.
 
-## Aplicación de reglas a usuarios específicos
-Las reglas se pueden aplicar a conjuntos específicos de usuarios basados enun grupo de seguridad mediante la configuración de **Aplicar a**. **Aplicar a** puede establecerse en **Todos los usuarios** o **Grupos**. Cuando esté establecido en **Todos los usuarios**, las reglas se aplicarán a cualquier usuario con acceso a la aplicación. La opción **Grupos** permite seleccionar grupos de seguridad y distribución específicos; las reglas solo se aplicarán a estos grupos.
+## <a name="applying-rules-to-specific-users"></a>Applying rules to specific users
+Rules can be applied to specific sets of users based on security group by setting **Apply To**. **Apply To** can be set to **All Users** or **Groups**. When set to **All Users** the rules will apply to any user with access to the application. The **Groups** option allows specific security and distribution groups to be selected, rules will only be enforced for these groups.
 
-Al implementar una regla, se suele aplicar primero a un conjunto limitado de usuarios que sean miembros de grupos de proyectos piloto. Una vez finalizada la regla, puede aplicarse a **Todos los usuarios**. Esto hará que la regla se pueda exigir a todos los usuarios de la organización.
+When deploying a rule,  it is common to first apply it a limited set of users, that are members of a piloting groups. Once complete the rule can be applied to **All Users**. This will cause the rule to be enforced for all users in the organization.
 
-Asimismo, se pueden excluir de la directiva grupos seleccionados mediante la opción **Excepto**. Aunque aparezcan en un grupo incluido, todos los miembros de estos grupos quedarán excluidos.
+Select groups may also be exempted from policy using the **Except** option. Any members of these groups will be exempted even if they appear in an included group.
 
-## Redes "en el trabajo"
-
-
-Las reglas de acceso condicional que utilizan una red "en el trabajo" dependen de intervalos de direcciones IP de confianza que se han configurado en Azure AD, o del uso de la notificación "dentro de la red corporativa" de AD FS. Estas reglas incluyen:
-
-- Requerir autenticación multifactor fuera del trabajo
-- Bloquear el acceso fuera del trabajo
-
-Opciones para especificar redes "en el trabajo"
-
-1. Configurar intervalos de direcciones IP de confianza en la [página de configuración de la autenticación multifactor](../multi-factor-authentication/multi-factor-authentication-whats-next.md). La directiva de acceso condicional usará los intervalos configurados en cada solicitud de autenticación y emisión de tokens para evaluar las reglas.
-2. Configurar el uso de la notificación "dentro de la red corporativa"; esta opción se puede usar con directorios federados mediante AD FS. [Aprenda más sobre las notificaciones "dentro de la red corporativa"](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
-3. Configurar intervalos de direcciones IP públicas. En la pestaña Configurar de su directorio, puede configurar direcciones IP públicas. Estas direcciones se usarán en el acceso condicional como direcciones IP "en el trabajo", lo que permite la configuración de intervalos adicionales por encima del límite de 50 direcciones IP que se aplica en la página de configuración de MFA.
+## <a name="“at-work”-networks"></a>“At work” networks
 
 
+Conditional access rules that use an “At work” network, rely on trusted IP address ranges that have been configured in Azure AD, or use of the "inside corpnet" claim from AD FS. These rules include:
 
-## Reglas basadas en la confidencialidad de las aplicaciones
+- Require multi-factor authentication when not at work
+- Block access when not at work
 
-Las reglas se configuran por aplicación, lo que permite a los servicios de alto valor estar protegidos sin que se vea afectado el acceso a otros servicios. Se pueden configurar reglas de acceso condicional en la pestaña **Configurar** de la aplicación.
+Options for specifiying “at work” networks
 
-Reglas que se ofrecen actualmente:
+1. Configure trusted IP address ranges in the [multi-factor authentication configuration page](../multi-factor-authentication/multi-factor-authentication-whats-next.md). Conditional Access policy will use the configured ranges on each authentication request and token issuance to evaluate rules. 
+2. Configure use of the inside corpnet claim, this option can be used with federated directories, using AD FS. [Learn more about the inside coronet claims](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
+3. Configure public IP address ranges. On the configure tab, for your directory, you can set public IP addresses. Conditional Access will use these as ‘at work’ IP addresses, this allows additional ranges to be configure, above the 50 IP address limit that is enforced by the MFA setting page.
 
-- **Requerir autenticación multifactor**
- - Todos los usuarios a los que se aplica la directiva deberán autenticarse mediante la autenticación multifactor al menos una vez.
+
+
+## <a name="rules-based-on-application-sensitivity"></a>Rules based on application sensitivity
+
+Rules are configured per application allowing the high value services to be secured without impacting access to other services. Conditional access rules can be configured on the  **Configure** tab of the application. 
+
+Rules currently offered:
+
+- **Require multi-factor authentication**
+ - All users that this policy is applied to will be required to authenticate via multi-factor authentication at least once.
  
-- **Requerir autenticación multifactor fuera del trabajo**
- - Si se aplica esta directiva, se exigirá a todos los usuarios que realicen la autenticación multifactor al menos una vez si acceden al servicio desde una ubicación remota fuera del trabajo. Si pasan de una ubicación en el trabajo a una ubicación remota, se les exigirá que realicen la autenticación multifactor cuando accedan al servicio.
+- **Require multi-factor authentication when not at work**
+ - If this policy is applied, all users will be required to have performed multi-factor authentication at least once if they access the service from a non-work remote location. If they move from a work to remote location, they will be required to perform multifactor authentication when accessing the service.
  
-- **Bloquear el acceso fuera del trabajo**
- - Cuando los usuarios pasan de una ubicación en el trabajo a una ubicación remota, se les bloqueará si se les aplica la directiva "Bloquear acceso cuando no está en el trabajo". Se les volverá a permitir el acceso cuando estén en una ubicación de trabajo.
+- **Block access when not at work** 
+ - When users move from work to a remote location, they will be blocked if the "Block access when not at work" policy is applied to them.  They will be re-allowed access when at a work location.
 
 
-## Temas relacionados
+## <a name="related-topics"></a>Related topics
 
-- [Protección del acceso a Office 365 y otras aplicaciones conectadas a Azure Active Directory](active-directory-conditional-access.md)
-- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+- [Securing access to Office 365 and other apps connected to Azure Active Directory](active-directory-conditional-access.md)
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Depuración de aplicaciones de Azure en Eclipse"
-    description="Obtenga información sobre la depuración de aplicaciones de Azure con el kit de herramientas de Azure para Eclipse."
+    pageTitle="Debugging Azure Applications in Eclipse"
+    description="Learn about the Debugging Azure Applications using the Azure Toolkit for Eclipse."
     services=""
     documentationCenter="java"
     authors="rmcmurray"
@@ -16,122 +16,128 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
+
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690949.aspx -->
 
-# Depuración de aplicaciones de Azure en Eclipse #
+# <a name="debugging-azure-applications-in-eclipse"></a>Debugging Azure Applications in Eclipse #
 
-Si usa Windows como sistema operativo, puede depurar las aplicaciones con el kit de herramientas de Azure para Eclipse, tanto si se ejecutan en Azure como en el emulador de proceso. La imagen siguiente muestra el cuadro de diálogo de propiedades **Debugging** (Depuración) que se usa para habilitar la depuración remota:
+Using the Azure Toolkit for Eclipse, you can debug your applications whether they are running in Azure, or in the compute emulator if you are using Windows as your operating system. The following image shows the **Debugging** properties dialog used to enable remote debugging:
 
 ![][ic719504]
 
-En este tutorial se supone que ya tiene una aplicación correctamente creada y está familiarizado con el emulador de proceso y la implementación en Azure.
+This tutorial assumes you already have an application that has been successfully created, and are familiar with the compute emulator and deploying to Azure.
 
-Como punto de partida de este tema, vamos a usar la aplicación del tutorial [Uso de la biblioteca de tiempo de ejecución del servicio de Azure en JSP][]. Si aún no lo ha hecho, cree esa aplicación antes de continuar.
+We'll use the application from the [Using the Azure Service Runtime Library in JSP][] tutorial as the starting point for this topic. Before proceeding, create that application if you have not already done so.
 
-## Para depurar la aplicación mientras se ejecuta en Azure ##
+## <a name="to-debug-your-application-while-running-in-azure"></a>To debug your application while running in Azure ##
 
->[AZURE.WARNING] La compatibilidad actual de este kit de herramientas con la depuración remota de Java está pensada principalmente para implementaciones que se ejecuten en el emulador de proceso de Azure. Dado que la conexión de depuración no es segura, no debe habilitar la depuración remota en implementaciones de producción. Si necesita depurar una aplicación que se ejecuta en la nube de Azure, use una implementación de ensayo, pero tenga en cuenta que el acceso no autorizado a la sesión de depuración es posible si alguien conoce la dirección IP de la implementación en la nube, aunque se trate de una implementación de ensayo.
+>[AZURE.WARNING] The toolkit's current support for remote Java debugging is intended primarily for deployments running in the Azure compute emulator. Because the debugging connection is not secure, you should not enable remote debugging in production deployments. If you need to debug an application running in the Azure cloud, use a staging deployment, but realize that unauthorized access to your debug session is possible if someone knows the IP address of your cloud deployment, even if it is a staging deployment.
 
-1. Compile el proyecto para realizar pruebas en el emulador: en el Project Explorer (Explorador de proyectos) de Eclipse, haga clic en **MyAzureProject**, **Properties** (Propiedades), **Azure**, y establezca **Build for** (Compilar para) en **Deployment to cloud** (Implementación en la nube).
-1. Recompile el proyecto: en el menú de Eclipse, haga clic en **Project** (Proyecto) y luego en **Build All** (Compilar todo).
-1. Implementación de la aplicación en *ensayo* de Azure
-    >[AZURE.IMPORTANT] Como se mencionó anteriormente, se recomienda especialmente depurar en el emulador de proceso en la mayoría de los casos y luego depurar en el entorno de ensayo solo si se requiere depuración adicional. Se recomienda no depurar en el entorno de producción.
-1. Cuando la implementación esté lista en Azure, obtenga el nombre DNS para la implementación del [Portal de administración de Azure][]. Una implementación de ensayo tiene un nombre DNS en forma de http://*&lt;guid&gt;*.cloudapp.net, donde *&lt;guid&gt;* es un valor GUID que Azure asigna.
-1. En el explorador de proyectos de Eclipse, haga clic con el botón derecho en **WorkerRole1**, **Azure**, y luego en **Debugging** (Depuración).
-1. En el cuadro de diálogo **Properties for WorkerRole1 Debugging** (Propiedades para la depuración de WorkerRole1):
-    1. Active **Enable remote debugging for this role** (Habilitar la depuración remota para este rol).
-    1. Como **Input endpoint to use** (Punto de conexión de entrada que se va a usar), use **Debugging (public:8090, private:8090)** (Depuración (público:8090, privado:8090)).
-    1. Asegúrese de que **Start JVM in suspended mode, waiting for a debugger connection** (Iniciar JVM en modo suspendido, esperando una conexión del depurador) está desactivada.
-        >[AZURE.IMPORTANT] La opción **Start JVM in suspended mode, waiting for a debugger connection** está diseñada solo para escenarios de depuración avanzada en el emulador de proceso (no para implementaciones en la nube). Si se usa la opción **Start JVM in suspended mode, waiting for a debugger connection**, suspenderá el proceso de inicio del servidor hasta que el depurador de Eclipse se conecte a su JVM. Aunque puede emplear esta opción para una sesión de depuración con el emulador de proceso, no la use para una sesión de depuración en una implementación en la nube. La inicialización de un servidor se produce en una tarea de inicio de Azure y la nube de Azure no tiene puntos de conexión públicos disponibles hasta que se complete la tarea de inicio. Por lo tanto, un proceso de inicio no se completará correctamente si esta opción está habilitada en una implementación de la nube, ya que no será capaz de recibir una conexión desde un cliente externo de Eclipse.
-    1. Haga clic en **Create Debug Configurations** (Crear configuraciones de depuración).
-1. En el cuadro de diálogo **Azure Debug Configuration** (Configuración de depuración de Azure):
-    1. Como **Java project to debug** (Proyecto Java para depurar), seleccione el proyecto **MyHelloWorld**.
-    1. En **Configure debugging for** (Configurar depuración para), active **Azure cloud (staging)** (Nube de Azure (ensayo)).
-    1. Asegúrese de que **Azure compute emulator** (Emulador de proceso de Azure) está desactivada.
-    1. Para **Host**, escriba el nombre DNS de su implementación de ensayo, pero sin la parte **http://** del principio. Por ejemplo, use su GUID en lugar del GUID que se muestra aquí: **4e616d65-6f6e-6d65-6973-526f62657274.cloudapp.net**
-1. Haga clic en **OK** (Aceptar) para cerrar el cuadro de diálogo **Azure Debug Configuration**.
-1. Haga clic en **OK** para cerrar el cuadro de diálogo **Properties for WorkerRole1 Debugging**.
-1. Si no tiene un punto de interrupción ya establecido en index.jsp, establézcalo:
-    1. En el explorador de proyectos de Eclipse, expanda **MyHelloWorld**, expanda **WebContent**, y haga doble clic en **index.jsp**.
-    1. Dentro de index.jsp, haga clic con el botón derecho en la barra azul a la izquierda del código Java y haga clic en **Toggle Breakpoints** (Alternar puntos de interrupción), como se muestra a continuación: ![][ic551537]
-1. En el menú de Eclipse, haga clic en **Run** (Ejecutar) y luego en **Debug Configurations** (Depurar configuraciones).
-1. En el cuadro de diálogo **Debug Configurations** (Depurar configuraciones), expanda **Remote Java Application** (Aplicación de Java remota) en el panel de la izquierda, seleccione **Azure Cloud (WorkerRole1)** (Nube de Azure (WorkerRole1)) y haga clic en **Debug** (Depurar).
-1. En el explorador, ejecute la aplicación de ensayo **http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld** sustituyendo el GUID de su nombre DNS por *&lt;guid&gt;*. Si un cuadro de diálogo **Confirm Perspective Switch** (Confirmar cambio de perspectiva) se lo pide, haga clic en **Yes (Sí)**. La sesión de depuración debe ejecutarse ahora en la línea de código donde se estableció el punto de interrupción.
+1. Build your project for testing in the emulator: In Eclipse's Project Explorer, right-click **MyAzureProject**, click **Properties**, click **Azure**, and set **Build for** to **Deployment to cloud**.
+1. Rebuild your project: From the Eclipse menu, click **Project**, then click **Build All**.
+1. Deploy your application to *staging* in Azure.
+    >[AZURE.IMPORTANT] As mentioned above, it is highly recommended that you debug in the compute emulator in most cases, then debug in the staging environment only if additional debugging is needed. It is recommended to not debug in the production environment.
+1. Once your deployment is ready in Azure, obtain the DNS name for the deployment from the [Azure Management Portal][]. A staging deployment has a DNS name in the form of http://*&lt;guid&gt;*.cloudapp.net, where *&lt;guid&gt;* is a GUID value assigned by Azure.
+1. In Eclipse's Project Explorer, right-click **WorkerRole1**, click **Azure**, and then click **Debugging**.
+1. In the **Properties for WorkerRole1 Debugging** dialog:
+    1. Check **Enable remote debugging for this role.**
+    1. For **Input endpoint to use**, use **Debugging (public:8090, private:8090)**.
+    1. Ensure **Start JVM in suspended mode, waiting for a debugger connection** is unchecked.
+        >[AZURE.IMPORTANT] The **Start JVM in suspended mode, waiting for a debugger connection** option is intended for advanced debugging scenarios in the compute emulator only (not for cloud deployments). If the **Start JVM in suspended mode, waiting for a debugger connection** option is used, it will suspend the server's startup process until the Eclipse debugger is connected to its JVM. While you could use this option for a debugging session using the compute emulator, do not use it for a debugging session in a cloud deployment. A server's initialization takes place in an Azure startup task, and the Azure cloud does not make public endpoints available until the startup task is completed. Hence, a startup process will not complete successfully if this option is enabled in a cloud deployment, because it will not be able to receive a connection from an external Eclipse client.
+1. Click **Create Debug Configurations**.
+1. In the **Azure Debug Configuration** dialog:
+    1. For **Java project to debug**, select the **MyHelloWorld** project.
+    1. For **Configure debugging for**, check **Azure cloud (staging)**.
+    1. Ensure **Azure compute emulator** is unchecked.
+    1. For **Host**, enter the DNS name of your staged deployment, but without the preceding **http://**. For example (use your GUID in place of the GUID shown here): **4e616d65-6f6e-6d65-6973-526f62657274.cloudapp.net**
+1. Click **OK** to close the **Azure Debug Configuration** dialog.
+1. Click **OK** to close the **Properties for WorkerRole1 Debugging** dialog.
+1. If you don't have a breakpoint already set in index.jsp, set it:
+    1. Within Eclipse's Project Explorer, expand **MyHelloWorld**, expand **WebContent**, and double-click **index.jsp**.
+    1. Within index.jsp, right-click in the blue bar to the left of your Java code and click **Toggle Breakpoints**, as shown in the following:  ![][ic551537]
+1. Within Eclipse's menu, click **Run** and then click **Debug Configurations**.
+1. In the **Debug Configurations** dialog, expand **Remote Java Application** in the left-hand pane, select **Azure Cloud (WorkerRole1)**, and click **Debug**.
+1. Within your browser, run your staged application, **http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld**, substituting the GUID from your DNS name for *&lt;guid&gt;*. If prompted by a **Confirm Perspective Switch** dialog box, click **Yes**. Your debug session should now execute to the line of code where the breakpoint was set.
 
->[AZURE.NOTE] Si intenta iniciar una conexión de depuración remota con una implementación que tiene varias instancias de rol en ejecución, actualmente no puede controlar con qué instancia se conectará inicialmente el depurador, ya que el equilibrador de carga de Azure seleccionará una instancia aleatoriamente. Aunque una vez que conectado a esa instancia, seguirá depurando la misma instancia. Tenga en cuenta también que si hay un período de inactividad de más de cuatro minutos (por ejemplo, cuando se detiene en un punto de interrupción durante demasiado tiempo), puede que Azure cierre la conexión.
+>[AZURE.NOTE] If you're attempting to start a remote debugging connection to a deployment that has multiple role instances running, you cannot currently control which instance the debugger will be initially connected to, as the Azure load balancer will pick an instance at random. Once you're connected with that instance, though, you will continue debugging the same instance. Note also, if there is a period of inactivity of more than 4 minutes (for example, when you're stopped at a breakpoint for too long), Azure may close the connection.
 
-## Depuración de una instancia de rol específica en una implementación de varias instancias ##
+## <a name="debugging-a-specific-role-instance-in-a-multi-instance-deployment"></a>Debugging a specific role instance in a multi-instance deployment ##
 
-Cuando la implementación se ejecuta en la nube, es muy probable que se ejecute en varias instancias de proceso o de rol. Esto le permite aprovechar la garantía de 99,95% de disponibilidad de Azure y escalar horizontalmente la aplicación.
+When your deployment is running in the cloud, you will most likely be running it in multiple compute, or role, instances. This enables you to take advantage of Azure 99.95% availability guarantee, and to scale out your application.
 
-En estos casos, es posible que tenga que depurar la aplicación de Java de forma remota en una instancia de rol específica. Pero, si habilita un punto de conexión de entrada normal para la depuración, el equilibrador de carga de Azure hará casi imposible conectar el depurador a una instancia de rol específica. En su lugar lo conectará a una instancia de rol que elige aleatoriamente.
+In such scenarios, you may need to remotely debug your Java application in a specific role instance. However, if you enable only a regular input endpoint for debugging, the Azure load balancer will make it virtually impossible for you to connect the debugger to a specific role instance. Instead it will connect you to a role instance that it picks at random.
 
-Este es el tipo de escenario donde si saca partido de los puntos de conexión de entrada de instancia le resultará más fácil depurar una instancia de rol específica.
+This is the type of scenario where taking advantage of instance input endpoints will make it easier for you to debug a specific role instance.
 
-Supongamos que tiene previsto ejecutar hasta cinco instancias de rol de la implementación. Mediante la página de propiedades **Endpoints** (Puntos de conexión) del cuadro de diálogo de propiedades del rol, cree un punto de conexión de entrada de instancia y asigne un intervalo de puertos públicos, en lugar de un solo número de puerto. Por ejemplo, en el cuadro de entrada **Public port** (Puerto público), especifique **81-85**.
+Let's say you plan to run up to 5 role instances of your deployment. Using the **Endpoints** property page in the role properties dialog, create an instance input endpoint and assign it a range of public ports, rather than a single port number. For example, in the **Public port** input box, specify **81-85**.
 
-Después de implementar la aplicación con este punto de conexión de instancia, Azure asignará un número de puerto único de este intervalo a cada una de las instancias de rol. Después, para averiguar a qué instancia se asignó el número de puerto, puede usar la variable de entorno *InstanceEndpointName***\_PUBLICPORT** (donde *InstanceEndpointName* es el nombre que se asignó al crear el punto de conexión de la instancia) que el kit de herramientas configuró automáticamente en la implementación (por ejemplo, al devolver este valor en el pie de página de una página web, para que pueda leerlo cuando vaya a él).
+After you deploy your application with this instance endpoint, Azure will assign a unique port number from this range to each of the role instances. Then, in order to find out which instance got assigned which port number, you can use the *InstanceEndpointName***_PUBLICPORT** environment variable (where *InstanceEndpointName* is the name you assigned when you created the instance endpoint) automatically configured by the toolkit in your deployment (for example, by returning its value in the footer of a webpage, so you could read it when you browse to it).
 
-Cuando sepa qué número de puerto público se ha asignado a esa instancia, puede hacer referencia a él en la configuración de depuración en Eclipse, añadiéndolo como afijo al nombre de host del servicio. Esto permitirá que el depurador de Eclipse se conecte a esa instancia específica y no a alguna de las demás instancias.
+Once you know what public port number that instance was assigned, you can reference it in your debug configuration in Eclipse, by affixing it to the host name of your service. This will enable the Eclipse debugger to connect to that specific instance, and not any of the other instances.
 
-## Solo Windows: Para depurar la aplicación mientras se ejecuta en el emulador de proceso ##
+## <a name="windows-only:-to-debug-your-application-while-running-in-the-compute-emulator"></a>Windows only: To debug your application while running in the compute emulator ##
 
->[AZURE.NOTE] El emulador de Azure solo está disponible en Windows. Omita esta sección si usa un sistema operativo distinto de Windows.
+>[AZURE.NOTE] The Azure emulator is only available on Windows. Skip this section if you are using an operating system other than Windows. 
 
-1. Compile el proyecto para realizar pruebas en el emulador: en el Project Explorer (Explorador de proyectos) de Eclipse, haga clic en **MyAzureProject**, **Properties** (Propiedades), **Azure**, y establezca **Build for** (Compilar para) en **Testing in emulator** (Pruebas en el emulador).
-1. Recompile el proyecto: en el menú de Eclipse, haga clic en **Project** (Proyecto) y luego en **Build All** (Compilar todo).
-1. En el explorador de proyectos de Eclipse, haga clic con el botón derecho en **WorkerRole1**, **Azure**, y luego en **Debugging** (Depuración).
-1. En el cuadro de diálogo **Properties for WorkerRole1 Debugging** (Propiedades para la depuración de WorkerRole1):
-    1. Active **Enable remote debugging for this role** (Habilitar la depuración remota para este rol).
-    1. Como **Input endpoint to use**, use el punto de conexión predeterminado que generó automáticamente el kit de herramientas, que aparece como **Debugging (public:8090, private:8090)**.
-    1. Asegúrese de que la opción **Start JVM in suspended mode, waiting for a debugger connection** (Iniciar JVM en modo suspendido, esperando una conexión del depurador) está desactivada.
-        >[AZURE.IMPORTANT] La opción **Start JVM in suspended mode, waiting for a debugger connection** está diseñada solo para escenarios de depuración avanzada en el emulador de proceso (no para implementaciones en la nube). Si se usa la opción **Start JVM in suspended mode, waiting for a debugger connection**, suspenderá el proceso de inicio del servidor hasta que el depurador de Eclipse se conecte a su JVM. Aunque puede emplear esta opción para una sesión de depuración con el emulador de proceso, no la use para una sesión de depuración en una implementación en la nube. La inicialización de un servidor se produce en una tarea de inicio de Azure y la nube de Azure no tiene puntos de conexión públicos disponibles hasta que se complete la tarea de inicio. Por lo tanto, un proceso de inicio no se completará correctamente si esta opción está habilitada en una implementación de la nube, ya que no será capaz de recibir una conexión desde un cliente externo de Eclipse.
-    1. Haga clic en **Create Debug Configurations** (Crear configuraciones de depuración).
-1. En el cuadro de diálogo **Azure Debug Configuration** (Configuración de depuración de Azure):
-    1. Como **Java project to debug** (Proyecto Java para depurar), seleccione el proyecto **MyHelloWorld**.
-    1. En **Configure debugging for** (Configurar depuración para), active **Azure compute emulator** (Emulador de proceso de Azure).
-1. Haga clic en **OK** (Aceptar) para cerrar el cuadro de diálogo **Azure Debug Configuration**.
-1. Haga clic en **OK** para cerrar el cuadro de diálogo **Properties for WorkerRole1 Debugging**.
-1. Establezca un punto de interrupción en index.jsp:
-    1. En el explorador de proyectos de Eclipse, expanda **MyHelloWorld**, expanda **WebContent**, y haga doble clic en **index.jsp**.
-    1. Dentro de index.jsp, haga clic con el botón derecho en la barra azul a la izquierda del código Java y haga clic en **Toggle Breakpoints** (Alternar puntos de interrupción), como se muestra a continuación: ![][ic551537]
+1. Build your project for testing in the emulator: In Eclipse's Project Explorer, right-click **MyAzureProject**, click **Properties**, click **Azure**, and set **Build for** to **Testing in emulator**.
+1. Rebuild your project: From the Eclipse menu, click **Project**, then click **Build All**.
+1. In Eclipse's Project Explorer, right-click **WorkerRole1**, click **Azure**, and then click **Debugging**.
+1. In the **Properties for WorkerRole1 Debugging** dialog:
+    1. Check **Enable remote debugging for this role.**
+    1. For **Input endpoint to use**, use the default endpoint automatically generated by the toolkit, listed as **Debugging (public:8090, private:8090)**.
+    1. Ensure the **Start JVM in suspended mode, waiting for a debugger connection** option is unchecked.
+        >[AZURE.IMPORTANT] The **Start JVM in suspended mode, waiting for a debugger connection** option is intended for advanced debugging scenarios in the compute emulator only (not for cloud deployments). If the **Start JVM in suspended mode, waiting for a debugger connection** option is used, it will suspend the server's startup process until the Eclipse debugger is connected to its JVM. While you could use this option for a debugging session using the compute emulator, do not use it for a debugging session in a cloud deployment. A server's initialization takes place in an Azure startup task, and the Azure cloud does not make public endpoints available until the startup task is completed. Hence, a startup process will not complete successfully if this option is enabled in a cloud deployment, because it will not be able to receive a connection from an external Eclipse client.
+1. Click **Create Debug Configurations**.
+1. In the **Azure Debug Configuration** dialog:
+    1. For **Java project to debug**, select the **MyHelloWorld** project.
+    1. For **Configure debugging for**, check **Azure compute emulator**.
+1. Click **OK** to close the **Azure Debug Configuration** dialog.
+1. Click **OK** to close the **Properties for WorkerRole1 Debugging** dialog.
+1. Set a breakpoint in index.jsp:
+    1. Within Eclipse's Project Explorer, expand **MyHelloWorld**, expand **WebContent**, and double-click **index.jsp**.
+    1. Within index.jsp, right-click in the blue bar to the left of your Java code and click **Toggle Breakpoints**, as shown in the following:  ![][ic551537]
 
-       Hay establecido un punto de interrupción si ve un icono de punto de introducción dentro de la barra azul que se encuentra a la izquierda del código Java.
-1. Inicie la aplicación en el emulador de proceso haciendo clic en el botón **Run in Azure Emulator** (Ejecutar en el emulador de Azure) en la barra de herramientas de Azure.
-1. En el menú de Eclipse, haga clic en **Run** (Ejecutar) y luego en **Debug Configurations** (Depurar configuraciones).
-1. En el cuadro de diálogo **Debug Configurations** (Depurar configuraciones), expanda **Remote Java Application** (Aplicación de Java remota) en el panel de la izquierda, seleccione **Azure Emulator (WorkerRole1)** (Emulador de Azure (WorkerRole1)) y haga clic en **Debug** (Depurar).
-1. Cuando el emulador de proceso indique que la aplicación se ejecuta en el explorador, ejecute **http://localhost:8080/MyHelloWorld**. Si un cuadro de diálogo **Confirm Perspective Switch** (Confirmar cambio de perspectiva) se lo pide, haga clic en **Yes (Sí)**. La sesión de depuración debe ejecutarse ahora en la línea de código donde se estableció el punto de interrupción.
+       A breakpoint is set if you see a breakpoint icon within the blue bar to the left of your Java code.
+1. Start the application in the compute emulator by clicking the **Run in Azure Emulator** button on the Azure toolbar.
+1. Within Eclipse's menu, click **Run** and then click **Debug Configurations**.
+1. In the **Debug Configurations** dialog, expand **Remote Java Application** in the left-hand pane, select **Azure Emulator (WorkerRole1)**, and click **Debug**.
+1. After the compute emulator indicates that your application is running, within your browser, run **http://localhost:8080/MyHelloWorld**.
+    If prompted by a **Confirm Perspective Switch** dialog box, click **Yes**.
+    Your debug session should now execute to the line of code where the breakpoint was set.
 
-Con esto se ha mostrado cómo depurar en el emulador de proceso; la sección siguiente muestra cómo depurar una aplicación implementada en Azure.  
+This showed you how to debug in the compute emulator; the next section shows you how to debug an application deployed to Azure.
 
+## <a name="debugging-notes"></a>Debugging Notes ##
 
-## Notas de la depuración ##
+* After debugging, you can switch the perspective from **Debug** to **Java** via clicking Eclipse's menu, by clicking **Window**, **Open Perspective**, and selecting the perspective that you want to use.
+* To enable remote debugging in GlassFish, do not use the remote debugging configuration feature of the Azure Toolkit for Eclipse. Instead configure GlassFish manually. Because of the way GlassFish treats Java options predefined in environment variables, the toolkit's remote debugging configuration feature does not work properly with GlassFish. If the toolkit's remote debugging configuration feature is enabled, it may prevent GlassFish from starting.
 
-* Tras la depuración, puede cambiar la perspectiva de **Depurar** a **Java** haciendo clic en el menú de Eclipse, en **Window** (Ventana), **Open Perspective** (Abrir perspectiva), y seleccionando la perspectiva que quiere usar.
-* Para habilitar la depuración remota en GlassFish, no use la característica de configuración de depuración remota del kit de herramientas de Azure para Eclipse. En su lugar, configure manualmente GlassFish. Debido a la manera en que GlassFish trata las opciones de Java predefinidas en variables de entorno, la característica de configuración de depuración remota de este kit de herramientas no funciona correctamente con GlassFish. Si la característica de configuración de depuración remota de este kit de herramientas está habilitada, puede que impida que GlassFish se inicie.
+## <a name="see-also"></a>See Also ##
 
-## Otras referencias ##
+[Azure Toolkit for Eclipse][]
 
-[Kit de herramientas de Azure para Eclipse][]
+[Creating a Hello World Application for Azure in Eclipse][]
 
-[Creación de una aplicación Hello World para Azure en Eclipse][]
+[Installing the Azure Toolkit for Eclipse][] 
 
-[Instalación del kit de herramientas de Azure para Eclipse][]
-
-Para obtener más información sobre el uso de Azure con Java, vea el [Centro para desarrolladores de Java de Azure][].
+For more information about using Azure with Java, see the [Azure Java Developer Center][].
 
 <!-- URL List -->
 
-[Centro para desarrolladores de Java de Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Portal de administración de Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Kit de herramientas de Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Creación de una aplicación Hello World para Azure en Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Instalación del kit de herramientas de Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Uso de la biblioteca de tiempo de ejecución del servicio de Azure en JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Using the Azure Service Runtime Library in JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
 
 <!-- IMG List -->
 
 [ic719504]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic719504.png
 [ic551537]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic551537.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

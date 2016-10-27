@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creación de una red virtual usando el portal de Azure | Microsoft Azure"
-   description="Aprenda a crear una red virtual mediante el Portal de Azure en ARM | Administrador de recursos."
+   pageTitle="Create a virtual network using the Azure portal | Microsoft Azure"
+   description="Learn how to create a virtual network using the Azure portal in ARM | Resource Manager."
    services="virtual-network"
    documentationCenter=""
    authors="jimdial"
@@ -17,17 +17,21 @@
    ms.date="03/15/2016"
    ms.author="jdial"/>
 
-# Creación de una red virtual mediante el Portal de Azure
+
+# <a name="create-a-virtual-network-using-the-azure-portal"></a>Create a virtual network using the Azure portal
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnet-selectors-arm-include.md)]
 
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este documento describe la creación de una red virtual mediante el modelo de implementación del Administrador de recursos. También puede [crear una red virtual usando el modelo de implementación clásica mediante el portal de vista previa de Azure](virtual-networks-create-vnet-classic-pportal.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This document covers creating a VNet by using the Resource Manager deployment model. You can also [create a virtual network in the classic deployment model by using the Azure preview portal](virtual-networks-create-vnet-classic-pportal.md).
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-pportal-include](../../includes/virtual-networks-create-vnet-arm-pportal-include.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,117 +1,123 @@
 <properties
-	pageTitle="Administración de imágenes personalizadas de Azure DevTest Labs para crear máquinas virtuales | Microsoft Azure"
-	description="Aprenda a crear una imagen personalizada desde un archivo VHD o desde una máquina virtual existente en Azure DevTest Labs"
-	services="devtest-lab,virtual-machines"
-	documentationCenter="na"
-	authors="tomarcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="Manage Azure DevTest Labs custom images to create VMs | Microsoft Azure"
+    description="Learn how to create a custom image from a VHD file, or from an existing VM in Azure DevTest Labs"
+    services="devtest-lab,virtual-machines"
+    documentationCenter="na"
+    authors="tomarcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="devtest-lab"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="tarcher"/>
-
-# Administración de imágenes personalizadas de Azure DevTest Labs para crear máquinas virtuales
-
-En Azure DevTest Labs, las imágenes personalizadas le permiten crear máquinas virtuales rápidamente sin tener que esperar a que todo el software necesario esté instalado en la máquina de destino. Las imágenes personalizadas le permiten instalar previamente todo el software que necesita en un archivo VHD y luego usar dicho archivo para crear la máquina virtual. Dado que el software ya está instalado, la máquina virtual se tarda mucho menos tiempo en crear. Además, las imágenes personalizadas se usan para clonar máquinas virtuales mediante la creación de una imagen personalizada a partir de una máquina virtual y la posterior creación de máquinas virtuales a partir de esa imagen personalizada.
-
-En este artículo, aprenderá a:
-
-- [Crear una imagen personalizada a partir de un archivo VHD](#create-a-custom-image-from-a-vhd-file) para poder crear luego una máquina virtual con esa imagen personalizada.
-- [Crear una imagen personalizada a partir de una máquina virtual](#create-a-custom-image-from-a-vm) para la clonación rápida de máquinas virtuales.
-
-## Creación de una imagen personalizada desde un archivo VHD
-
-En esta sección, aprenderá a crear una imagen personalizada a partir de un archivo VHD. Necesitará acceso a un archivo VHD válido para realizar todos los pasos de esta sección.
+    ms.service="devtest-lab"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/07/2016"
+    ms.author="tarcher"/>
 
 
-1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+# <a name="manage-azure-devtest-labs-custom-images-to-create-vms"></a>Manage Azure DevTest Labs custom images to create VMs
 
-1. Seleccione **Más servicios** y luego seleccione **DevTest Labs** en la lista.
+In Azure DevTest Labs, custom images enable you to create VMs quickly without waiting for all the required software to be installed on the target machine. Custom images allow you to pre-install all the software that you need in a VHD file, and then use the VHD file to create a VM. Because the software is already installed, the VM creation time is much quicker. In addition, custom images are used to clone VMs by creating a custom image from a VM, and then creating VMs from that custom image.
 
-1. En la lista de laboratorios, seleccione el laboratorio que desee.
+In this article, you learn how to:
 
-1. En la hoja del laboratorio, seleccione **Configuración**.
+- [Create a custom image from a VHD file](#create-a-custom-image-from-a-vhd-file) so that you can then create a VM from that custom image. 
+- [Create a custom image from a VM](#create-a-custom-image-from-a-vm) for rapid VM cloning.
 
-1. En la hoja **Configuración** del laboratorio, seleccione **Imágenes personalizadas**.
+## <a name="create-a-custom-image-from-a-vhd-file"></a>Create a custom image from a VHD file
 
-1. En la hoja **Imágenes personalizadas**, seleccione **+ Custom Image** (+Imagen personalizada).
+In this section, you see how to create a custom image from a VHD file.
+You need access to a valid VHD file to perform all the steps in this section.   
 
-    ![Adición de imágenes personalizadas](./media/devtest-lab-create-template/add-custom-image.png)
 
-1. Escriba el nombre de la imagen personalizada. Este nombre se muestra en la lista de imágenes base al crear una máquina virtual.
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Escriba la descripción de la imagen personalizada. Esta descripción se muestra en la lista de imágenes base al crear una máquina virtual.
+1. Select **More services**, and then select **DevTest Labs** from the list.
 
-1. Seleccione el **archivo VHD**.
+1. From the list of labs, select the desired lab.  
 
-1. Si tiene acceso a un archivo VHD que no aparece, agréguelo siguiendo las instrucciones de la sección [Carga de un archivo VHD](#upload-a-vhd-file) y vuelva aquí cuando termine.
+1. On the lab's blade, select **Configuration**. 
 
-1. Seleccione el archivo VHD deseado.
+1. On the lab **Configuration** blade, select **Custom images**.
 
-1. Seleccione **Aceptar** para cerrar la hoja **Archivo VHD**.
+1. On the **Custom images** blade, select **+ Custom image**.
 
-1. Seleccione la **configuración del sistema operativo**.
+    ![Add Custom image](./media/devtest-lab-create-template/add-custom-image.png)
 
-1. En la pestaña **Configuración del sistema operativo**, seleccione **Windows** o **Linux**.
+1. Enter the name of the custom image. This name is displayed in the list of base images when creating a VM.
 
-1. Si se selecciona **Windows**, especifique mediante la casilla si se ha ejecutado *Sysprep* en la máquina.
+1. Enter the description of the custom image. This description is displayed in the list of base images when creating a VM.
 
-1. Seleccione **Aceptar** para cerrar la hoja **onfiguración del sistema operativo**.
+1. Select **VHD File**.
 
-1. Seleccione **Aceptar** para crear la imagen personalizada.
+1. If you have access to a VHD file that is not listed, add it by following the instructions in the [Upload a VHD file](#upload-a-vhd-file) section, and return here when finished.
 
-1. Vaya a la sección [Pasos siguientes](#next-steps).
+1. Select the desired VHD file.
 
-###Carga de un archivo VHD
+1. Select **OK** to close the **VHD File** blade.
 
-Para agregar una imagen personalizada, debe tener acceso a un archivo VHD.
+1. Select **OS Configuration**.
 
-1. En la hoja **Archivo VHD**, seleccione **Upload a VHD file using PowerShell** (Cargar un archivo VHD con PowerShell).
+1. On the **OS Configuration** tab, select either **Windows** or **Linux**.
 
-    ![Cargar imagen](./media/devtest-lab-create-template/upload-image-using-psh.png)
+1. If **Windows** is selected, specify via the checkbox whether *Sysprep* has been run on the machine.
 
-1. En la siguiente hoja se muestran instrucciones para modificar y ejecutar un script de PowerShell que carga un archivo VHD en su suscripción de Azure. **Nota:** Este proceso puede durar bastante tiempo, en función del tamaño del archivo VHD y de la velocidad de conexión.
+1. Select **OK** to close the **OS Configuration** blade.
 
-## Creación de una imagen personalizada desde una máquina virtual
-Si tiene una máquina virtual que ya está configurada, puede crear una imagen personalizada a partir de ella y después usar esa imagen personalizada para crear otras máquinas virtuales idénticas. Los siguientes pasos muestran cómo crear una imagen personalizada desde una máquina virtual:
+1. Select **OK** to create the custom image.
 
-1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Go to the [Next Steps](#next-steps) section.
 
-1. Seleccione **Más servicios** y luego seleccione **DevTest Labs** en la lista.
+###<a name="upload-a-vhd-file"></a>Upload a VHD file
 
-1. En la lista de laboratorios, seleccione el laboratorio que desee.
+To add a custom image, you need to have access to a VHD file.
 
-1. En la hoja del laboratorio, seleccione **Mis máquinas virtuales**.
+1. On the **VHD File** blade, select **Upload a VHD file using PowerShell**.
+
+    ![Upload image](./media/devtest-lab-create-template/upload-image-using-psh.png)
+
+1. The next blade will display instructions for modifying and running a PowerShell script that uploads to your Azure subscription a VHD file. 
+**Note:** This process can be lengthy depending on the size of the VHD file and your connection speed.
+
+## <a name="create-a-custom-image-from-a-vm"></a>Create a custom image from a VM
+If you have a VM that is already configured, you can create a custom image from that VM, and afterwards use that custom image to create other identical VMs. The following steps illustrate how to create a custom image from a VM:
+
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+
+1. Select **More services**, and then select **DevTest Labs** from the list.
+
+1. From the list of labs, select the desired lab.  
+
+1. On the lab's blade, select **My virtual machines**.
  
-1. En la hoja **Mis máquinas virtuales**, seleccione la máquina virtual desde la que quiere crear la imagen personalizada.
+1. On the **My virtual machines** blade, select the VM from which you want to create the custom image.
 
-1. En la hoja de la máquina virtual, seleccione **Create custom image (VHD)** (Crear imagen personalizada [VHD]).
+1. On the VM's blade, select **Create custom image (VHD)**.
 
-	![Crear elemento de menú de imagen personalizada](./media/devtest-lab-create-template/create-custom-image.png)
+    ![Create custom image menu item](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. En la hoja **Create image** (Crear imagen), escriba un nombre y una descripción para la imagen personalizada. Esta información se muestra en la lista de bases cuando se crea una máquina virtual.
+1. On the **Create image** blade, enter a name and description for your custom image. This information is displayed in the list of bases when you create a VM.
 
-	![Crear imagen personalizada](./media/devtest-lab-create-template/create-custom-image-blade.png)
+    ![Create custom image blade](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
-1. Seleccione si sysprep se ha ejecutado en la máquina virtual. Si no se ha ejecutado sysprep en la máquina virtual, especifique si quiere ejecutar sysprep cuando se cree una máquina virtual a partir de esta imagen personalizada.
+1. Select whether sysprep was run on the VM. If the sysprep was not run on the VM, specify whether you want sysprep run when a VM is created from this custom image.
 
-1. Cuando termine de crear la imagen personalizada, seleccione **Aceptar**.
+1. Select **OK** when finished to create the custom image.
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## Entradas blogs relacionadas
+## <a name="related-blog-posts"></a>Related blog posts
 
-- [Custom images or formulas? (¿Imágenes personalizadas o fórmulas?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
-- [Copying Custom Images between Azure DevTest Labs (Copiar imágenes personalizadas entre instancias de Azure DevTest Labs)](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
+- [Custom images or formulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Copying Custom Images between Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-##Pasos siguientes
+##<a name="next-steps"></a>Next steps
 
-Cuando se haya agregado una imagen personalizada para usarla al crear una máquina virtual, el siguiente paso consiste en [agregar una máquina virtual a su laboratorio](./devtest-lab-add-vm-with-artifacts.md).
+Once you have added a custom image for use when creating a VM, the next step is to [add a VM to your lab](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

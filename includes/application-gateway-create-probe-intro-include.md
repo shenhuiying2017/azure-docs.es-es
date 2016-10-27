@@ -1,5 +1,8 @@
-Los sondeos personalizados le permiten tener un control más específico sobre el estado de supervisión de mantenimiento de su grupo de back-end de servidores. Puede cambiar las comprobaciones de intervalo, el umbral de solicitudes con error y la configuración de tiempo de espera.
+Custom probes allows you to have more granular control about health monitoring status for your back end pool of servers. You can change the interval checks, failed request threshold and timeout settings.
 
-Este artículo le ayuda a crear una puerta de enlace de aplicaciones con un sondeo personalizado o a agregar un sondeo personalizado a una puerta de enlace de aplicaciones existente.
+This article will guide you to create an application gateway with a custom probe or adding a custom probe to an existing application gateway. 
 
-<!---HONumber=AcomDC_0107_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

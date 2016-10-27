@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Solución del problema de la lentitud de copias de seguridad de archivos y carpetas en Copia de seguridad de Azure | Microsoft Azure"
-   description="Le proporciona una guía para solucionar problemas que le ayudará a diagnosticar la causa de los problemas de rendimiento de Copia de seguridad de Azure"
+   pageTitle="Troubleshoot slow backup of files and folders in Azure Backup| Microsoft Azure"
+   description="Provides troubleshooting guidance to help you diagnose the cause of Azure Backup performance issues"
    services="backup"
    documentationCenter=""
    authors="genlin"
@@ -13,75 +13,80 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/20/2016"
+    ms.date="10/13/2016"
     ms.author="genli"/>
 
-# Solución de problemas de lentitud en la copia de seguridad de archivos y carpetas en Copia de seguridad de Azure
 
-Este artículo proporciona una guía para la solución de problemas que le ayudará a diagnosticar la causa de un rendimiento lento en la copia de seguridad de archivos y carpetas cuando se usa Copia de seguridad de Azure. Si se utiliza el agente de Copia de seguridad de Azure para hacer copia de seguridad de los archivos, el proceso puede tardar más de lo esperado. Este problema puede deberse a uno o a varios de los siguientes motivos:
+# <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Troubleshoot slow backup of files and folders in Azure Backup
 
--	[Hay cuellos de botella que afectan al rendimiento del equipo en el que se realiza la copia de seguridad](#cause1).
--	[Otro proceso o software antivirus que interfiere en el proceso de Copia de seguridad de Azure](#cause2).
--	[El agente de Copia de seguridad se ejecuta en una máquina virtual (VM) de Azure.](#cause3)
--	[Se realiza una copia de seguridad de un número elevado (varios millones) de archivos.](#cause4)
+This article provides troubleshooting guidance to help you diagnose the cause of slow backup performance for files and folders when you're using Azure Backup. When you use the Azure Backup agent to back up files, the backup process might take longer than expected. This delay might be caused by one or more of the following:
 
-Antes de empezar a solucionar problemas, se recomienda descargar e instalar el [agente de Copia de seguridad de Azure más reciente](http://aka.ms/azurebackup_agent). Se realizan actualizaciones frecuentes en el agente de copia de seguridad para corregir varios problemas, agregar características y mejorar el rendimiento.
+-   [There are performance bottlenecks on the computer that’s being backed up.](#cause1)
+-   [Another process or antivirus software is interfering with the Azure Backup process.](#cause2)
+-   [The Backup agent is running on an Azure virtual machine (VM).](#cause3)  
+-   [You're backing up a large number (millions) of files.](#cause4)
 
-También recomendamos encarecidamente que revise el artículo [P+F de servicio de Copia de seguridad de Azure](backup-azure-backup-faq.md) para asegurarse de que no experimenta alguno de los problemas habituales de la configuración.
+Before you start troubleshooting issues, we recommend that you download and install the [latest Azure Backup agent](http://aka.ms/azurebackup_agent). We make frequent updates to the Backup agent to fix various issues, add features, and improve performance.
+
+We also strongly recommend that you review the [Azure Backup service FAQ](backup-azure-backup-faq.md) to make sure you're not experiencing any of the common configuration issues.
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 <a id="cause1"></a>
-## Causa: cuellos de botella que afectan al rendimiento del equipo.
+## <a name="cause:-performance-bottlenecks-on-the-computer"></a>Cause: Performance bottlenecks on the computer
 
-Los cuellos de botella del equipo en el que se realiza la copia de seguridad pueden provocar retrasos. Por ejemplo, la capacidad del equipo para leer o escribir en el disco, o el ancho de banda disponible para enviar datos a través de la red pueden provocar cuellos de botella.
+Bottlenecks on the computer that's being backed up can cause delays. For example, the computer's ability to read or write to disk, or available bandwidth to send data over the network, can cause bottlenecks.
 
-Windows proporciona una herramienta integrada que se denomina [Monitor de rendimiento de](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon) para detectar cuellos de botella.
+Windows provides a built-in tool that's called [Performance Monitor](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon) to detect these bottlenecks.
 
-Estos son algunos contadores de rendimiento e intervalos que pueden resultar útiles para diagnosticar cuellos de botella, con el fin de que las copias de seguridad sean óptimas.
+Here are some performance counters and ranges that can be helpful in diagnosing bottlenecks for optimal backups.
 
-| Contador | Estado |
+| Counter  | Status  |
 |---|---|
-|Logical Disk(Physical Disk) [Disco lógico (disco físico)]--% de inactividad | • Entre 100 % y 50 % de inactividad = Correcto</br> • Del 49 % al 20 % de inactividad = Advertencia o supervisión</br>• Del 19 % al 0 % de inactividad = Situación crítica o fuera de la especificación|
-| Logical Disk(Physical Disk) [Disco lógico (disco físico)]--% promedio Disk Sec Read or Write (Segundos de disco de lectura o escritura) | • De 0,001 ms a 0,015 ms = Correcto</br>• Entre 0,015 ms y 0,025 ms = Advertencia o supervisión</br>• 0.026 o más = Situación crítica o fuera de la especificación|
-| Logical Disk(Physical Disk) [Disco lógico (disco físico)] -- Longitud actual de la cola de disco (para todas las instancias) | 80 solicitudes durante más de 6 minutos |
-| Memoria: Pool Non Paged Bytes (Bytes de bloque no paginado)|• Menos del 60 % del grupo consumido = Correcto<br>• Entre un 61 % y un 80 % del grupo consumido = Advertencia o supervisión</br>• Más del 80 % del grupo consumido = Situación crítica o fuera de la especificación|
-| Memoria: Bytes de bloque paginado |• Menos del 60 % del grupo consumido = Correcto</br>• Entre un 61 % y un 80 % del grupo consumido = Advertencia o supervisión</br>• Más del 80 % del grupo consumido = Situación crítica o fuera de la especificación|
-| Memoria: Megabytes disponibles| • El 50 % de la memoria libre, o más, está disponible = Correcto</br>• El 25 % de la memoria libre está disponible = Supervisión.</br>• El 10 % de memoria libre está disponible = Advertencia.</br>• Menos de 100 MB o del 5 % de memoria libre está disponible = Situación crítica o fuera de la especificación.|
-|Procesador: \\% de tiempo de procesador (todas las instancias)|• Menos del 60 % consumido = Correcto</br>• Del 61 % al 90 % consumido = Supervisión o precaución</br>• Del 91 % al 100 % consumido = Situación crítica|
+|Logical Disk(Physical Disk)--%idle   | • 100% idle to 50% idle = Healthy</br>• 49% idle to 20% idle = Warning or Monitor</br>• 19% idle to 0% idle = Critical or Out of Spec|
+|  Logical Disk(Physical Disk)--%Avg. Disk Sec Read or Write |  • 0.001 ms to 0.015 ms  = Healthy</br>• 0.015 ms to 0.025 ms = Warning or Monitor</br>• 0.026 ms or longer = Critical or Out of Spec|
+|  Logical Disk(Physical Disk)--Current Disk Queue Length (for all instances) | 80 requests for more than 6 minutes |
+| Memory--Pool Non Paged Bytes|• Less than 60% of pool consumed = Healthy<br>• 61% to 80% of pool consumed = Warning or Monitor</br>• Greater than 80% pool consumed = Critical or Out of Spec|
+| Memory--Pool Paged Bytes |• Less than 60% of pool consumed = Healthy</br>• 61% to 80% of pool consumed = Warning or Monitor</br>• Greater than 80% pool consumed = Critical or Out of Spec|
+| Memory--Available Megabytes| • 50% of free memory available or more = Healthy</br>• 25% of free memory available = Monitor</br>• 10% of free memory available = Warning</br>• Less than 100 MB or 5% of free memory available = Critical or Out of Spec|
+|Processor--\%Processor Time (all instances)|• Less than 60% consumed = Healthy</br>• 61% to 90% consumed = Monitor or Caution</br>• 91% to 100% consumed = Critical|
 
 
-> [AZURE.NOTE] Si determina que la causa es la infraestructura, se recomienda desfragmentar los discos periódicamente para mejorar su rendimiento.
+> [AZURE.NOTE] If you determine that the infrastructure is the culprit, we recommend that you defragment the disks regularly for better performance.
 
 <a id="cause2"></a>
-## Causa: otro proceso o software antivirus interfiere con Copia de seguridad de Azure.
+## <a name="cause:-another-process-or-antivirus-software-interfering-with-azure-backup"></a>Cause: Another process or antivirus software interfering with Azure Backup
 
-Se han detectado varios ejemplos en los que otros procesos del sistema de Windows han afectado negativamente al rendimiento del proceso del agente de Copia de seguridad de Azure. Por ejemplo, si utiliza el agente de Copia de seguridad de Azure y otro programa para realizar copias de seguridad de los datos o si se ejecuta un software antivirus que tiene bloqueados los archivos de los que se va a realizar la copia de seguridad, estos bloqueos de varios archivos podrían causar una contención. En esta situación, se podría producir un error en la copia de seguridad o el trabajo podría tardar más de lo esperado.
+We've seen several instances where other processes in the Windows system have negatively affected performance of the Azure Backup agent process. For example, if you use both the Azure Backup agent and another program to back up data, or if antivirus software is running and has a lock on files to be backed up, the multiple locks on files might cause contention. In this situation, the backup might fail, or the job might take longer than expected.
 
-La mejor recomendación en este escenario consiste en desactivar el otro programa de copia de seguridad para ver si cambia el tiempo de copia de seguridad del agente de Copia de seguridad de Azure. Normalmente, para evitar que unos trabajos de copia de seguridad afecten a otros es suficiente asegurarse de que no se ejecuta varios trabajos al mismo tiempo.
+The best recommendation in this scenario is to turn off the other backup program to see whether the backup time for the Azure Backup agent changes. Usually, making sure that multiple backup jobs are not running at the same time is sufficient to prevent them from affecting each other.
 
-En el caso de los programas antivirus, se recomienda que excluya los siguientes archivos y ubicaciones:
+For antivirus programs, we recommend that you exclude the following files and locations:
 
-- C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent\\bin\\cbengine.exe como proceso.
-- Carpetas de C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent\\.
-- La ubicación de la carpeta temporal (si no utiliza la ubicación estándar).
+- C:\Program Files\Microsoft Azure Recovery Services Agent\bin\cbengine.exe as a process
+- C:\Program Files\Microsoft Azure Recovery Services Agent\ folders
+- Scratch location (if you're not using the standard location)
 
 <a id="cause3"></a>
-## Causa: el agente de Copia de seguridad se ejecuta en una máquina virtual de Azure.
+## <a name="cause:-backup-agent-running-on-an-azure-virtual-machine"></a>Cause: Backup agent running on an Azure virtual machine
 
-Si el agente de Copia de seguridad se ejecuta en una máquina virtual, el rendimiento será peor que si lo hace en una máquina física. Esto se debe a limitaciones de IOPS. Sin embargo, el rendimiento se puede optimizar mediante el cambio de las unidades de datos de las que se realiza la copia de seguridad al Almacenamiento premium de Azure. Estamos trabajando para solucionar este problema y dicha solución estará disponible en futuras versiones.
+If you're running the Backup agent on a VM, performance will be slower than when you run it on a physical machine. This is expected due to IOPS limitations.  However, you can optimize the performance by switching the data drives that are being backed up to Azure Premium Storage. We're working on fixing this issue, and the fix will be available in a future release.
 
 <a id="cause4"></a>
-## Causa: se realiza una copia de seguridad de un número elevado (varios millones) de archivos.
+## <a name="cause:-backing-up-a-large-number-(millions)-of-files"></a>Cause: Backing up a large number (millions) of files
 
-El movimiento de un gran volumen de datos tarda más tiempo en realizarse el de un volumen más pequeño. En algunos casos, el tiempo que tarda en realizarse una copia de seguridad está relacionado no solo con el tamaño de los datos, sino también con el número de archivos o carpetas. Esto sucede especialmente cuando se realizan copias de seguridad de millones de archivos pequeños (que tienen entre unos pocos bytes y unos pocos kilobytes).
+Moving a large volume of data will take longer than moving a smaller volume of data. In some cases, backup time is related to not only the size of the data, but also the number of files or folders. This is especially true when millions of small files (a few bytes to a few kilobytes) are being backed up.
 
-Este comportamiento se produce porque mientras se realiza la copia de seguridad de los datos y su movimiento a Azure, Azure está catalogando los archivos. En algunos casos poco frecuentes, la operación de catálogo puede tardar más tiempo del esperado.
+This behavior occurs because while you're backing up the data and moving it to Azure, Azure is simultaneously cataloging your files. In some rare scenarios, the catalog operation might take longer than expected.
 
-Los siguientes indicadores pueden ayudarle a entender el cuello de botella y trabajar según corresponda en los pasos siguientes:
+The following indicators can help you understand the bottleneck and accordingly work on the next steps:
 
-- **La interfaz de usuario muestra el progreso de la transferencia de datos**. La transferencia de datos no ha finalizado. El ancho de banda de la red o el tamaño de datos pueden estar causando retrasos.
+- **UI is showing progress for the data transfer**. The data is still being transferred. The network bandwidth or the size of data might be causing delays.
 
-- **La interfaz de usuario no muestra el progreso de la transferencia de datos**. Abra los registros ubicados en "C:\\Microsoft Azure Recovery Services Agent\\Temp" y busque en ellos la entrada FileProvider::EndData. Esta entrada indica que la transferencia de datos ha finalizado y que se está realizando la operación de catálogo. No cancele los trabajos de copia de seguridad. Es preferible que espere hasta que finalice la operación de catálogo. Si el problema persiste, póngase en contacto con el [servicio de soporte técnico de Azure](https://portal.azure.com/#create/Microsoft.Support).
+- **UI is not showing progress for the data transfer**. Open the logs located at C:\Microsoft Azure Recovery Services Agent\Temp, and then check for the FileProvider::EndData entry in the logs. This entry signifies that the data transfer finished and the catalog operation is happening. Don't cancel the backup jobs. Instead, wait a little longer for the catalog operation to finish. If the problem persists, contact [Azure support](https://portal.azure.com/#create/Microsoft.Support).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

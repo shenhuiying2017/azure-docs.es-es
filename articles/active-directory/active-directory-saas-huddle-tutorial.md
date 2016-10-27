@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: integración de Azure Active Directory con Huddle | Microsoft Azure" 
-    description="Aprenda a usar Huddle con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." 
+    pageTitle="Tutorial: Azure Active Directory integration with Huddle | Microsoft Azure" 
+    description="Learn how to use Huddle with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,129 +11,136 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/09/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Tutorial: integración de Azure Active Directory con Huddle
+
+#<a name="tutorial:-azure-active-directory-integration-with-huddle"></a>Tutorial: Azure Active Directory integration with Huddle
   
-El objetivo de este tutorial es mostrar la integración de Azure y Huddle. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+The objective of this tutorial is to show the integration of Azure and Huddle.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Una suscripción de Azure válida
--   Una suscripción habilitada para el inicio de sesión único en Huddle
+-   A valid Azure subscription
+-   A Huddle single sign-on enabled subscription
   
-Después de completar este tutorial, los usuarios de Azure AD que haya asignado a Huddle podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Huddle (inicio de sesión iniciado por el proveedor de servicios) o desde [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to Huddle will be able to single sign into the application at your Huddle company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-La situación descrita en este tutorial consta de los siguientes bloques de creación:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Habilitación de la integración de aplicaciones para Huddle
-2.  Configuración del inicio de sesión único
-3.  Configuración del aprovisionamiento de usuario
-4.  Asignación de usuarios
+1.  Enabling the application integration for Huddle
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Configurar inicio de sesión único](./media/active-directory-saas-huddle-tutorial/IC787830.png "Configurar inicio de sesión único")
-##Habilitación de la integración de aplicaciones para Huddle
+![Configure Single Sign-On](./media/active-directory-saas-huddle-tutorial/IC787830.png "Configure Single Sign-On")
+##<a name="enabling-the-application-integration-for-huddle"></a>Enabling the application integration for Huddle
   
-El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones para Huddle.
+The objective of this section is to outline how to enable the application integration for Huddle.
 
-###Siga estos pasos para habilitar la integración de aplicaciones para Huddle:
+###<a name="to-enable-the-application-integration-for-huddle,-perform-the-following-steps:"></a>To enable the application integration for Huddle, perform the following steps:
 
-1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-huddle-tutorial/IC700993.png "Active Directory")
 
-2.  En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Aplicaciones](./media/active-directory-saas-huddle-tutorial/IC700994.png "Aplicaciones")
+    ![Applications](./media/active-directory-saas-huddle-tutorial/IC700994.png "Applications")
 
-4.  Haga clic en **Agregar** en la parte inferior de la página.
+4.  Click **Add** at the bottom of the page.
 
-    ![Agregar aplicación](./media/active-directory-saas-huddle-tutorial/IC749321.png "Agregar aplicación")
+    ![Add application](./media/active-directory-saas-huddle-tutorial/IC749321.png "Add application")
 
-5.  En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Agregar una aplicación de la galería](./media/active-directory-saas-huddle-tutorial/IC749322.png "Agregar una aplicación de la galería")
+    ![Add an application from gallerry](./media/active-directory-saas-huddle-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  En el **cuadro de búsqueda**, escriba **Huddle**.
+6.  In the **search box**, type **Huddle**.
 
-    ![Galería de aplicaciones](./media/active-directory-saas-huddle-tutorial/IC787831.png "Galería de aplicaciones")
+    ![Application Gallery](./media/active-directory-saas-huddle-tutorial/IC787831.png "Application Gallery")
 
-7.  En el panel de resultados, seleccione **Huddle** y luego haga clic en **Completar** para agregar la aplicación.
+7.  In the results pane, select **Huddle**, and then click **Complete** to add the application.
 
     ![Huddle](./media/active-directory-saas-huddle-tutorial/IC787832.png "Huddle")
-##Configuración del inicio de sesión único
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-El objetivo de esta sección es describir cómo permitir a los usuarios autenticarse en Huddle con su cuenta de Azure AD mediante federación basada en el protocolo SAML.
+The objective of this section is to outline how to enable users to authenticate to Huddle with their account in Azure AD using federation based on the SAML protocol.
 
-###Siga estos pasos para configurar el inicio de sesión único:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Huddle**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  In the Azure classic portal, on the **Huddle** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-huddle-tutorial/IC787833.png "Configurar inicio de sesión único")
+    ![Configure Single Sign-On](./media/active-directory-saas-huddle-tutorial/IC787833.png "Configure Single Sign-On")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en Huddle?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
+2.  On the **How would you like users to sign on to Huddle** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-huddle-tutorial/IC787834.png "Configurar inicio de sesión único")
+    ![Configure Single Sign-On](./media/active-directory-saas-huddle-tutorial/IC787834.png "Configure Single Sign-On")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Huddle**, escriba la dirección URL de su inquilino de Huddle con el siguiente patrón "*http://company.huddle.com*" y luego haga clic en **Siguiente**.
+3.  On the **Configure App URL** page, in the **Huddle Sign On URL** textbox, type the URL of your Huddle tenant using the following pattern "*http://company.huddle.com*", and then click **Next**.
 
-    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-huddle-tutorial/IC787835.png "Configurar dirección URL de la aplicación")
+    ![Configure App URL](./media/active-directory-saas-huddle-tutorial/IC787835.png "Configure App URL")
 
-4.  En la página **Configurar inicio de sesión único en Huddle**, siga estos pasos:
+4.  On the **Configure single sign-on at Huddle** page, perform the following steps:
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-huddle-tutorial/IC787836.png "Configurar inicio de sesión único")
+    ![Configure Single Sign-On](./media/active-directory-saas-huddle-tutorial/IC787836.png "Configure Single Sign-On")
 
-    1.  Haga clic en **Descargar certificado** y luego guarde el archivo de certificado en el equipo.
-    2.  Copie el valor de **URL del emisor**, el valor de **Dirección URL de SSO de SAML** y el certificado descargado, y luego envíelos al equipo de soporte técnico de Huddle.
+    1.  Click **Download certificate**, and then save the certificate file on your computer.
+    2.  Copy the **Issuer URL** value, the **SAML SSO URL** value and the downloaded certificate, and then send them to the Huddle support team.
 
-    >[AZURE.NOTE] El inicio de sesión único debe habilitarlo el equipo de soporte técnico de Huddle. Cuando se haya completado la configuración, recibirá una notificación.
+    >[AZURE.NOTE] Single sign-on needs to be enabled by the Huddle support team.
+You will get a notification when the configuration has been completed.
 
-5.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+5.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-huddle-tutorial/IC787837.png "Configurar inicio de sesión único")
-##Configuración del aprovisionamiento de usuario
+    ![Configure Single Sign-On](./media/active-directory-saas-huddle-tutorial/IC787837.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Para permitir que los usuarios de Azure AD inicien sesión en Huddle, deben aprovisionarse en Huddle. En el caso de Huddle, el aprovisionamiento es una tarea manual.
+In order to enable Azure AD users to log into Huddle, they must be provisioned into Huddle.  
+In the case of Huddle, provisioning is a manual task.
 
-###Siga estos pasos para configurar el aprovisionamiento de usuario:
+###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-1.  Inicie sesión en el sitio de compañía de **Huddle** como administrador.
+1.  Log in to your **Huddle** company site as administrator.
 
-2.  Haga clic en **Área de trabajo**.
+2.  Click **Workspace**.
 
-3.  Haga clic en **Contactos > Invitar a contactos**.
+3.  Click **People \> Invite People**.
 
-    ![Contactos](./media/active-directory-saas-huddle-tutorial/IC787838.png "Contactos")
+    ![People](./media/active-directory-saas-huddle-tutorial/IC787838.png "People")
 
-4.  En la sección **Crear nueva invitación**, lleve a cabo estos pasos:
+4.  In the **Create a new invitation** section, perform the following steps:
 
-    ![Nueva invitación](./media/active-directory-saas-huddle-tutorial/IC787839.png "Nueva invitación")
+    ![New Invitation](./media/active-directory-saas-huddle-tutorial/IC787839.png "New Invitation")
 
-    1.  En la lista **Elegir un equipo al que invitar a unirse a los contactos**, seleccione **equipo**.
-    2.  En el cuadro de texto relacionado, escriba la **Dirección de correo electrónico** de una cuenta de AAD válida que quiera aprovisionar.
-    3.  Haga clic en **Invitar**.
+    1.  In the **Choose a team to invite people to join** list, select **team**.
+    2.  Type the **Email Address** of a valid AAD account you want to provision into the related textbox.
+    3.  Click **Invite**.
 
-    >[AZURE.NOTE] El titular de la cuenta de Azure AD recibirá un mensaje de correo electrónico con un vínculo para confirmar la cuenta antes de que se active.
+    >[AZURE.NOTE] The Azure AD account holder will receive an email including a link to confirm the account before it becomes active.
 
->[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Huddle que proporcione Huddle para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] You can use any other Huddle user account creation tools or APIs provided by Huddle to provision AAD user accounts.
 
-##Asignación de usuarios
+##<a name="assigning-users"></a>Assigning users
   
-Para probar la configuración, tiene que conceder acceso, mediante su asignación, a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Para asignar usuarios a Huddle, lleve a cabo los siguientes pasos:
+###<a name="to-assign-users-to-huddle,-perform-the-following-steps:"></a>To assign users to Huddle, perform the following steps:
 
-1.  En el Portal de Azure clásico, cree una cuenta de prueba.
+1.  In the Azure classic portal, create a test account.
 
-2.  En la página de integración de aplicaciones de **Huddle**, haga clic en **Asignar usuarios**.
+2.  On the **Huddle **application integration page, click **Assign users**.
 
-    ![Asignar usuarios](./media/active-directory-saas-huddle-tutorial/IC787840.png "Asignar usuarios")
+    ![Assign Users](./media/active-directory-saas-huddle-tutorial/IC787840.png "Assign Users")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sí](./media/active-directory-saas-huddle-tutorial/IC767830.png "Sí")
+    ![Yes](./media/active-directory-saas-huddle-tutorial/IC767830.png "Yes")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

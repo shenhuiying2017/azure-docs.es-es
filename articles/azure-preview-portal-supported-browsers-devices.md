@@ -1,35 +1,40 @@
 <properties
-	pageTitle="Exploradores y dispositivos compatibles"
-	description="Describe los exploradores y dispositivos en los que funcionará el Portal de Azure." 
-	services=""
-	documentationCenter=""
-	authors="flanakin"
-	writer="flanakin"
-	manager="lwelicki"
-	editor=""/>
+    pageTitle="Supported browsers and devices"
+    description="Describes the browsers and devices on which the Azure portal will work." 
+    services=""
+    documentationCenter=""
+    authors="flanakin"
+    writer="flanakin"
+    manager="lwelicki"
+    editor=""/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/23/2015"
-	ms.author="micflan"/>
+    ms.service="multiple"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/23/2015"
+    ms.author="micflan"/>
 
-#Exploradores y dispositivos compatibles
-El Portal de Microsoft Azure se puede ejecutar en todos los exploradores y dispositivos modernos como tabletas y equipos de escritorio.
 
-### Dispositivos compatibles
-El portal se ejecutará de manera excelente en tabletas, Mac y PC modernos. Los teléfonos móviles no son compatibles actualmente.
+#<a name="supported-browsers-and-devices"></a>Supported browsers and devices
+The Microsoft Azure portal runs on all modern desktop and tablet devices and browsers.
 
-### Exploradores compatibles
-Son compatibles las últimas versiones de los siguientes exploradores:
+### <a name="supported-devices"></a>Supported devices
+The portal will run great on modern PCs, Macs, and tablets. Mobile phones are not currently supported.
 
-- Edge (última versión)
+### <a name="supported-browsers"></a>Supported browsers
+The latest versions of the following browsers are supported:
+
+- Edge (latest)
 - Internet Explorer 11
-- Safari (más reciente, solo Mac)
-- Chrome (última versión)
-- Firefox (última versión)
+- Safari (latest, Mac only)
+- Chrome (latest)
+- Firefox (latest)
 
-<!---HONumber=AcomDC_0420_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

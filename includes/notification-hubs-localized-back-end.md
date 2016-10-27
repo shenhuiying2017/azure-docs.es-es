@@ -2,34 +2,34 @@
 
 
 
-Cuando envía notificaciones de plantilla, solo es necesario proporcionar un conjunto de propiedades; en nuestro caso, enviaremos, por ejemplo, el conjunto de propiedades que contiene la versión localizada de las noticias de actualidad:
+When you send template notifications you only need to provide a set of properties, in our case we will send the set of properties containing the localized version of the current news, for instance:
 
-	{
-		"News_English": "World News in English!",
-    	"News_French": "World News in French!",
-    	"News_Mandarin": "World News in Mandarin!"
-	}
-
-
-En esta sección se muestra cómo enviar notificaciones con una aplicación de consola
-
-El código incluido se difunde tanto a los dispositivos de la Tienda Windows como a los iOS, dado que el back-end puede difundir a cualquiera de los dispositivos compatibles.
+    {
+        "News_English": "World News in English!",
+        "News_French": "World News in French!",
+        "News_Mandarin": "World News in Mandarin!"
+    }
 
 
-### Para enviar notificaciones mediante una aplicación de consola de C# 
+This section shows how to send notifications using a console app
 
-Modifique el método `SendTemplateNotificationAsync` en la aplicación de consola que creó anteriormente con el código siguiente. Observe cómo en este caso no hay necesidad de enviar varias notificaciones para diferentes configuraciones regionales y plataformas.
+The included code broadcasts to both Windows Store and iOS devices, since the backend can broadcast to any of the supported devices.
+
+
+### <a name="to-send-notifications-using-a-c#-console-app"></a>To send notifications using a C# console app 
+
+Modify the `SendTemplateNotificationAsync` method in the console app you previously created with the following code. Notice how in this case there is no need to send multiple notifications for different locales and platforms.
 
         private static async void SendTemplateNotificationAsync()
         {
             // Define the notification hub.
             NotificationHubClient hub = 
-				NotificationHubClient.CreateClientFromConnectionString(
-					"<connection string with full access>", "<hub name>");
+                NotificationHubClient.CreateClientFromConnectionString(
+                    "<connection string with full access>", "<hub name>");
 
             // Sending the notification as a template notification. All template registrations that contain 
-			// "messageParam" or "News_<local selected>" and the proper tags will receive the notifications. 
-			// This includes APNS, GCM, WNS, and MPNS template registrations.
+            // "messageParam" or "News_<local selected>" and the proper tags will receive the notifications. 
+            // This includes APNS, GCM, WNS, and MPNS template registrations.
             Dictionary<string, string> templateParams = new Dictionary<string, string>();
 
             // Create an array of breaking news categories.
@@ -45,7 +45,7 @@ Modifique el método `SendTemplateNotificationAsync` en la aplicación de consol
                 {
                     string key = "News_" + locale;
 
-					// Your real localized news content would go here.
+                    // Your real localized news content would go here.
                     templateParams[key] = "Breaking " + category + " News in " + locale + "!";
                 }
 
@@ -54,24 +54,28 @@ Modifique el método `SendTemplateNotificationAsync` en la aplicación de consol
         }
 
 
-Tenga en cuenta que esta simple llamada entregará la noticia localizada a **todos** los dispositivos, con independencia de la plataforma, puesto que el Centro de notificaciones crea y entrega la carga nativa correcta a todos los dispositivos suscritos a una etiqueta específica.
+Note that this simple call will deliver the localized piece of news to **all** your devices, irrespective of the platform, as your Notification Hub builds and delivers the correct native payload to all the devices subscribed to a specific tag.
 
-### Envío de la notificación con Servicios móviles
+### <a name="sending-the-notification-with-mobile-services"></a>Sending the notification with Mobile Services
 
-En el programador de servicios móviles, puede usar el siguiente script:
+In your Mobile Service scheduler, you can use the following script:
 
-	var azure = require('azure');
+    var azure = require('azure');
     var notificationHubService = azure.createNotificationHubService('<hub name>', '<connection string with full access>');
     var notification = {
-			"News_English": "World News in English!",
-			"News_French": "World News in French!",
-			"News_Mandarin", "World News in Mandarin!"
-	}
-	notificationHubService.send('World', notification, function(error) {
-		if (!error) {
-			console.warn("Notification successful");
-		}
-	});
-	
+            "News_English": "World News in English!",
+            "News_French": "World News in French!",
+            "News_Mandarin", "World News in Mandarin!"
+    }
+    notificationHubService.send('World', notification, function(error) {
+        if (!error) {
+            console.warn("Notification successful");
+        }
+    });
+    
 
-<!---HONumber=AcomDC_1217_2015-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

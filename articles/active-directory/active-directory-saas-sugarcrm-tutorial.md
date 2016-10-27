@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: integración de Azure Active Directory con SugarCRM | Microsoft Azure" 
-    description="Aprenda cómo usar SugarCRM con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    pageTitle="Tutorial: Azure Active Directory integration integration with SugarCRM | Microsoft Azure" 
+    description="Learn how to use SugarCRM with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,162 +14,170 @@
     ms.date="09/11/2016" 
     ms.author="jeedes" />
 
-#Tutorial: integración de Azure Active Directory con SugarCRM
+
+#<a name="tutorial:-azure-active-directory-integration-integration-with-sugarcrm"></a>Tutorial: Azure Active Directory integration integration with SugarCRM
   
-El objetivo de este tutorial es mostrar la integración de Azure y SugarCRM. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+The objective of this tutorial is to show the integration of Azure and Sugar CRM.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Una suscripción de Azure válida
--   Un suscripción habilitada para el inicio de sesión único en SugarCRM
+-   A valid Azure subscription
+-   A Sugar CRM single sign-on enabled subscription
   
-Después de completar este tutorial, los usuarios de Azure AD que asignó a SugarCRM podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de SugarCRM (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to Sugar CRM will be able to single sign into the application at your Sugar CRM company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-La situación descrita en este tutorial consta de los siguientes bloques de creación:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Habilitación de la integración de aplicaciones para SugarCRM
-2.  Configuración del inicio de sesión único
-3.  Configuración del aprovisionamiento de usuario
-4.  Asignación de usuarios
+1.  Enabling the application integration for Sugar CRM
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Escenario](./media/active-directory-saas-sugarcrm-tutorial/IC795881.png "Escenario")
+![Scenario](./media/active-directory-saas-sugarcrm-tutorial/IC795881.png "Scenario")
 
-##Habilitación de la integración de aplicaciones para SugarCRM
+##<a name="enabling-the-application-integration-for-sugar-crm"></a>Enabling the application integration for Sugar CRM
   
-El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para SugarCRM.
+The objective of this section is to outline how to enable the application integration for Sugar CRM.
 
-###Siga estos pasos para habilitar la integración de aplicaciones para SugarCRM:
+###<a name="to-enable-the-application-integration-for-sugar-crm,-perform-the-following-steps:"></a>To enable the application integration for Sugar CRM, perform the following steps:
 
-1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-sugarcrm-tutorial/IC700993.png "Active Directory")
 
-2.  En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Aplicaciones](./media/active-directory-saas-sugarcrm-tutorial/IC700994.png "Aplicaciones")
+    ![Applications](./media/active-directory-saas-sugarcrm-tutorial/IC700994.png "Applications")
 
-4.  Haga clic en **Agregar** en la parte inferior de la página.
+4.  Click **Add** at the bottom of the page.
 
-    ![Agregar aplicación](./media/active-directory-saas-sugarcrm-tutorial/IC749321.png "Agregar aplicación")
+    ![Add application](./media/active-directory-saas-sugarcrm-tutorial/IC749321.png "Add application")
 
-5.  En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Agregar una aplicación de la galería](./media/active-directory-saas-sugarcrm-tutorial/IC749322.png "Agregar una aplicación de la galería")
+    ![Add an application from gallerry](./media/active-directory-saas-sugarcrm-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  En el **cuadro de búsqueda**, escriba **SugarCRM**.
+6.  In the **search box**, type **Sugar CRM**.
 
-    ![Galería de aplicaciones](./media/active-directory-saas-sugarcrm-tutorial/IC795882.png "Galería de aplicaciones")
+    ![Application Gallery](./media/active-directory-saas-sugarcrm-tutorial/IC795882.png "Application Gallery")
 
-7.  En el panel de resultados, seleccione **SugarCRM** y luego haga clic en **Completa** para agregar la aplicación.
+7.  In the results pane, select **Sugar CRM**, and then click **Complete** to add the application.
 
-    ![SugarCRM](./media/active-directory-saas-sugarcrm-tutorial/IC795883.png "SugarCRM")
+    ![Sugar CRM](./media/active-directory-saas-sugarcrm-tutorial/IC795883.png "Sugar CRM")
 
-##Configuración del inicio de sesión único
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en SugarCRM con su cuenta de Azure AD usando el protocolo SAML basado en la federación. Como parte de este procedimiento, es necesario cargar un certificado codificado en base 64 en su inquilino de SugarCRM. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+The objective of this section is to outline how to enable users to authenticate to Sugar CRM with their account in Azure AD using federation based on the SAML protocol.  
+As part of this procedure, you are required to upload a base-64 encoded certificate to your Sugar CRM tenant.  
+If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
-###Siga estos pasos para configurar el inicio de sesión único:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **SugarCRM**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  In the Azure classic portal, on the **Sugar CRM** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-sugarcrm-tutorial/IC795884.png "Configurar inicio de sesión único")
+    ![Configure Single Sign-On](./media/active-directory-saas-sugarcrm-tutorial/IC795884.png "Configure Single Sign-On")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en SugarCRM?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, luego , haga clic en **Siguiente**.
+2.  On the **How would you like users to sign on to Sugar CRM** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-sugarcrm-tutorial/IC795885.png "Configurar inicio de sesión único")
+    ![Configure Single Sign-On](./media/active-directory-saas-sugarcrm-tutorial/IC795885.png "Configure Single Sign-On")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de SugarCRM**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en su aplicación SugarCRM (por ejemplo: "**http://company.sugarondemand.com*") y luego haga clic en **Siguiente**.
+3.  On the **Configure App URL** page, in the **Sugar CRM Sign On URL** textbox, type the URL used by your users to sign-on to your Sugar CRM application (e.g.: "*http://company.sugarondemand.com*", and then click **Next**.
 
-    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-sugarcrm-tutorial/IC795886.png "Configurar dirección URL de la aplicación")
+    ![Configure App URL](./media/active-directory-saas-sugarcrm-tutorial/IC795886.png "Configure App URL")
 
-4.  En la página **Configuración de inicio de sesión único en SugarCRM**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado en el equipo.
+4.  On the **Configure single sign-on at Sugar CRM** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-sugarcrm-tutorial/IC796918.png "Configurar inicio de sesión único")
+    ![Configure Single Sign-On](./media/active-directory-saas-sugarcrm-tutorial/IC796918.png "Configure Single Sign-On")
 
-5.  En otra ventana del explorador web, inicie sesión en su sitio de la compañía de SugarCRM como administrador.
+5.  In a different web browser window, log into your Sugar CRM company site as an administrator.
 
-6.  Vaya a **Administración**.
+6.  Go to **Admin**.
 
-    ![Administrador](./media/active-directory-saas-sugarcrm-tutorial/IC795888.png "Administrador")
+    ![Admin](./media/active-directory-saas-sugarcrm-tutorial/IC795888.png "Admin")
 
-7.  En la sección **Administración**, haga clic en**Administración de contraseñas**.
+7.  In the **Administration** section, click **Password Management**.
 
-    ![Administración](./media/active-directory-saas-sugarcrm-tutorial/IC795889.png "Administración")
+    ![Administration](./media/active-directory-saas-sugarcrm-tutorial/IC795889.png "Administration")
 
-8.  Seleccione **Habilitar autenticación SAML**.
+8.  Select **Enable SAML Authentication**.
 
-    ![Administración](./media/active-directory-saas-sugarcrm-tutorial/IC795890.png "Administración")
+    ![Administration](./media/active-directory-saas-sugarcrm-tutorial/IC795890.png "Administration")
 
-9.  En la sección **Autenticación SAML**, realice los pasos siguientes:
+9.  In the **SAML Authentication** section, perform the following steps:
 
-    ![Autenticación SAML](./media/active-directory-saas-sugarcrm-tutorial/IC795891.png "Autenticación SAML")
+    ![SAML Authentication](./media/active-directory-saas-sugarcrm-tutorial/IC795891.png "SAML Authentication")
 
-    1.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en SugarCRM**, copie el valor de **Dirección URL del inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
-    2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en SugarCRM**, copie el valor de **Dirección URL del inicio de sesión remoto** y péguelo en el cuadro de texto **SLO URL** (Dirección URL de SLO).
-    3.  Cree un archivo **codificado en base 64** a partir del certificado descargado.
+    1.  In the Azure classic portal, on the **Configure single sign-on at Sugar CRM** dialog page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
+    2.  In the Azure classic portal, on the **Configure single sign-on at Sugar CRM** dialog page, copy the **Remote Login URL** value, and then paste it into the **SLO URL** textbox.
+    3.  Create a **Base-64 encoded** file from your downloaded certificate.
 
-        >[AZURE.TIP] Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
-    4.  Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el Portapapeles y luego pegue todo el certificado en el cuadro de texto **Certificado X.509**.
-    5.  Haga clic en **Guardar**.
+    4.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into **X.509 Certificate** textbox.
+    5.  Click **Save**.
 
-10. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en SugarCRM**, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa**.
+10. In the Azure classic portal, on the **Configure single sign-on at Sugar CRM** dialog page, select the single sign-on configuration confirmation, and then click **Complete**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-sugarcrm-tutorial/IC796919.png "Configurar inicio de sesión único")
+    ![Configure Single Sign-On](./media/active-directory-saas-sugarcrm-tutorial/IC796919.png "Configure Single Sign-On")
 
-##Configuración del aprovisionamiento de usuario
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Para permitir que los usuarios de Azure AD inicien sesión en SugarCRM, deben aprovisionarse a SugarCRM. En el caso de SugarCRM, el aprovisionamiento es una tarea manual.
+In order to enable Azure AD users to log into Sugar CRM, they must be provisioned to Sugar CRM.  
+In the case of Sugar CRM, provisioning is a manual task.
 
-###Para aprovisionar cuentas de usuario, realice estos pasos:
+###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
 
-1.  Inicie sesión en su sitio de compañía de **SugarCRM** como administrador.
+1.  Log in to your **Sugar CRM** company site as administrator.
 
-2.  Vaya a **Administración**.
+2.  Go to **Admin**.
 
-    ![Administrador](./media/active-directory-saas-sugarcrm-tutorial/IC795888.png "Administrador")
+    ![Admin](./media/active-directory-saas-sugarcrm-tutorial/IC795888.png "Admin")
 
-3.  En la sección **Administración**, haga clic en**Administración de usuarios**.
+3.  In the **Administration** section, click **User Management**.
 
-    ![Administración](./media/active-directory-saas-sugarcrm-tutorial/IC795893.png "Administración")
+    ![Administration](./media/active-directory-saas-sugarcrm-tutorial/IC795893.png "Administration")
 
-4.  Vaya a **Usuarios > Crear nuevo usuario**.
+4.  Go to **Users \> Create New User**.
 
-    ![Crear nuevo usuario](./media/active-directory-saas-sugarcrm-tutorial/IC795894.png "Crear nuevo usuario")
+    ![Create New User](./media/active-directory-saas-sugarcrm-tutorial/IC795894.png "Create New User")
 
-5.  En la pestaña **Perfil de usuario**, realice los siguientes pasos:
+5.  On the **User Profile** tab, perform the following steps:
 
-    ![Nuevo usuario](./media/active-directory-saas-sugarcrm-tutorial/IC795895.png "Nuevo usuario")
+    ![New User](./media/active-directory-saas-sugarcrm-tutorial/IC795895.png "New User")
 
-    1.  Escriba el nombre de usuario, el apellido y la dirección de correo electrónico de un usuario de Azure Active Directory válido en los cuadros de texto relacionados.
+    1.  Type the user name, last name and email address of a valid Azure Active Directory user into the related textboxes.
 
-6.  Como **Estado**, seleccione **Activo**.
+6.  As **Status**, select **Active**.
 
-7.  En la pestaña Contraseña, realice los pasos siguientes:
+7.  On the Password tab, perform the following steps:
 
-    ![Nuevo usuario](./media/active-directory-saas-sugarcrm-tutorial/IC795896.png "Nuevo usuario")
+    ![New User](./media/active-directory-saas-sugarcrm-tutorial/IC795896.png "New User")
 
-    1.  Escriba la contraseña en el cuadro de texto relacionado.
-    2.  Haga clic en **Guardar**.
+    1.  Type the password into the related textbox.
+    2.  Click **Save**.
 
->[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de SugarCRM ofrecida por SugarCRM para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] You can use any other Sugar CRM user account creation tools or APIs provided by Sugar CRM to provision AAD user accounts.
 
-##Asignación de usuarios
+##<a name="assigning-users"></a>Assigning users
   
-Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Para asignar usuarios a SugarCRM, lleve a cabo los siguientes pasos:
+###<a name="to-assign-users-to-sugar-crm,-perform-the-following-steps:"></a>To assign users to Sugar CRM, perform the following steps:
 
-1.  En el Portal de Azure clásico, cree una cuenta de prueba.
+1.  In the Azure classic portal, create a test account.
 
-2.  En la página de integración de la aplicación **Sugar CRM**, haga clic en **Asignar usuarios**.
+2.  On the **Sugar CRM** application integration page, click **Assign users**.
 
-    ![Asignar usuarios](./media/active-directory-saas-sugarcrm-tutorial/IC795897.png "Asignar usuarios")
+    ![Assign Users](./media/active-directory-saas-sugarcrm-tutorial/IC795897.png "Assign Users")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sí](./media/active-directory-saas-sugarcrm-tutorial/IC767830.png "Sí")
+    ![Yes](./media/active-directory-saas-sugarcrm-tutorial/IC767830.png "Yes")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

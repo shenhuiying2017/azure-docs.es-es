@@ -1,8 +1,8 @@
 
 
 <properties
-   pageTitle="Información general sobre la supervisión de estado para la puerta de enlace de aplicaciones de Azure | Microsoft Azure"
-   description="Aprenda sobre las funciones de supervisión de la puerta de enlace de aplicaciones de Azure"
+   pageTitle="Health monitoring overview for Azure Application Gateway | Microsoft Azure"
+   description="Learn about the monitoring capabilities in Azure Application Gateway"
    services="application-gateway"
    documentationCenter="na"
    authors="georgewallace"
@@ -19,53 +19,62 @@
    ms.date="08/29/2016"
    ms.author="gwallace" />
 
-# Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones
 
-La puerta de enlace de aplicaciones de Azure supervisa de forma predeterminada el estado de todos los recursos de su grupo de back-end y elimina automáticamente del grupo los recursos que se considera que están en mal estado. Además, continúa supervisando las instancias en mal estado y las agrega de nuevo al grupo de back-end en buen estado, una vez que están disponibles y responden a los sondeos de estado.
+# <a name="application-gateway-health-monitoring-overview"></a>Application Gateway health monitoring overview
 
-![ejemplo de sondeo de Application Gateway][1]
+Azure Application Gateway by default monitors the health of all resources in its back-end pool and automatically removes any resource considered unhealthy from the pool. Application Gateway continues to monitor the unhealthy instances and adds them back to the healthy back-end pool once they become available and respond to health probes.
 
-Aparte del uso de la supervisión del sondeo de estado, también puede personalizar el sondeo de estado para adaptarlo a las necesidades de su aplicación. En este artículo trataremos ambos sondeos de estado: el personalizado y el predeterminado.
+![application gateway probe example][1]
 
-## Sondeo de estado predeterminado
+In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. In this article, both default and custom health probes are covered.
 
-Una puerta de enlace de aplicaciones configura automáticamente un sondeo de estado predeterminado cuando no hay ningún sondeo personalizado configurado. El comportamiento de supervisión consiste en realizar una solicitud HTTP a las direcciones IP configuradas para el grupo de back-end.
+## <a name="default-health-probe"></a>Default health probe
 
-Por ejemplo: configura la puerta de enlace de aplicaciones para usar los servidores back-end A, B y C para recibir el tráfico de red HTTP en el puerto 80. La supervisión de estado predeterminada comprueba los tres servidores cada 30 segundos para ver que la respuesta de HTTP es correcta. Una respuesta HTTP correcta tiene un [código de estado](https://msdn.microsoft.com/library/aa287675.aspx) entre 200 y 399.
+An application gateway automatically configures a default health probe when you don't set up any custom probe configuration. The monitoring behavior works by making an HTTP request to the IP addresses configured for the back-end pool.
 
-Si la comprobación de sondeo predeterminado da error en el servidor A, la puerta de enlace de aplicaciones lo elimina de su grupo de back-end y el tráfico de red deja de fluir a este servidor. El sondeo predeterminado sigue comprobando el servidor A cada 30 segundos. Cuando el servidor A responde correctamente a una solicitud de un sondeo de estado predeterminado, se considera que está en buen estado y se agrega de nuevo al grupo de back-end; el tráfico comienza a fluir de nuevo a él.
+For example: You configure your application gateway to use back-end servers A, B, and C to receive HTTP network traffic on port 80. The default health monitoring tests the three servers every 30 seconds for a healthy HTTP response. A healthy HTTP response has a [status code](https://msdn.microsoft.com/library/aa287675.aspx) between 200 and 399.
 
-### Configuración de sondeo de estado predeterminado
+If the default probe check fails for server A, the application gateway removes it from its back-end pool, and network traffic stops flowing to this server. The default probe still continues to check for server A every 30 seconds. When server A responds successfully to one request from a default health probe, it is added back as healthy to the back-end pool, and traffic starts flowing to the server again.
 
-|Propiedad de sondeo | Valor | Description|
+### <a name="default-health-probe-settings"></a>Default health probe settings
+
+|Probe property | Value | Description|
 |---|---|---|
-| Dirección URL de sondeo| http://127.0.0.1:\<puerto>/ | Ruta de acceso URL |
-| Intervalo | 30 | Intervalo de sondeo en segundos |
-| Tiempo de espera | 30 | Tiempo de espera del sondeo en segundos |
-| Umbral incorrecto | 3 | Número de reintentos de sondeo. El servidor back-end se marca como inactivo después de que el número de errores de sondeo consecutivos alcanza el umbral incorrecto. |
+| Probe URL| http://127.0.0.1:\<port\>/ | URL path |
+| Interval | 30 | Probe interval in seconds |
+| Time-out  | 30 | Probe time-out in seconds |
+| Unhealthy threshold | 3 | Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
-El sondeo predeterminado solo examina http://127.0.0.1:\<port> para determinar el estado de mantenimiento. Si necesita configurar el sondeo de estado para ir a una dirección URL personalizada o modificar alguna otra configuración, debe usar sondeos personalizada tal como se describe en los siguientes pasos.
+The default probe looks only at http://127.0.0.1:\<port\> to determine health status. If you need to configure the health probe to go to a custom URL or modify any other settings, you must use custom probes as described in the following steps.
 
-## Sondeo de estado personalizado
+## <a name="custom-health-probe"></a>Custom health probe
 
-Los sondeos personalizados permiten un control más específico sobre la supervisión de estado. Cuando se usan sondeos personalizados, puede configurar el intervalo de sondeo, la dirección URL y la ruta de acceso a la comprobación y cuántas respuestas erróneas se aceptan antes de marcar la instancia del grupo de back-end como en mal estado.
+Custom probes allow you to have a more granular control over the health monitoring. When using custom probes, you can configure the probe interval, the URL and path to test, and how many failed responses to accept before marking the back-end pool instance as unhealthy.
 
-### Configuración de sondeo de estado personalizado
+### <a name="custom-health-probe-settings"></a>Custom health probe settings
 
-|Propiedad de sondeo| Description|
+The following table provides definitions for the properties of a custom health probe.
+
+|Probe property| Description|
 |---|---|
-| Nombre | Nombre del sondeo. Este nombre se usa para hacer referencia al sondeo en la configuración de HTTP de back-end. |
-| Protocol | Protocolo usado para enviar el sondeo. HTTP o HTTPS son protocolos válidos. |
-| Host | Nombre de host para enviar el sondeo. |
-| Ruta de acceso | Ruta de acceso relativa del sondeo. La ruta de acceso válida se inicia desde '/'. La sonda se envía a <protocolo> ://<host>:< puerto><ruta de acceso>. |
-| Intervalo | Intervalo de sondeo en segundos. Es el intervalo de tiempo entre dos sondeos consecutivos.|
-| Tiempo de espera | Tiempo de espera del sondeo en segundos. El sondeo se marca como error si no se recibe una respuesta válida dentro de este período de tiempo de espera. |
-| Umbral incorrecto | Número de reintentos de sondeo. El servidor back-end se marca como inactivo después de que el número de errores de sondeo consecutivos alcanza el umbral incorrecto. |
+| Name | Name of the probe. This name is used to refer to the probe in back-end HTTP settings. |
+| Protocol | Protocol used to send the probe. The probe will use the protocol defined in the back-end HTTP settings |
+| Host |  Host name to send the probe. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This is different from VM host name. |
+| Path | Relative path of the probe. The valid path starts from '/'. |
+| Interval | Probe interval in seconds. This is the time interval between two consecutive probes.|
+| Time-out | Probe time-out in seconds. The probe is marked as failed if a valid response is not received within this time-out period. |
+| Unhealthy threshold | Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
-## Pasos siguientes
+> [AZURE.IMPORTANT] If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
+For reference a custom probe is sent to \<protocol\>://\<host\>:\<port\>\<path\>.
 
-Como ya ha aprendido sobre la supervisión de estado de Application Gateway, puede configurar un [sondeo de estado personalizado](application-gateway-create-probe-portal.md) en el Portal de Azure o un [sondeo de estado personalizado](application-gateway-create-probe-ps.md) mediante el modelo de implementación de Azure Resource Manager y PowerShell.
+## <a name="next-steps"></a>Next steps
+
+After learning about Application Gateway health monitoring, you can configure a [custom health probe](application-gateway-create-probe-portal.md) in the Azure portal or a [custom health probe](application-gateway-create-probe-ps.md) using PowerShell and the Azure Resource Manager deployment model.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

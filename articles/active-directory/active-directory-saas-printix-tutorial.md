@@ -1,280 +1,281 @@
 <properties
-	pageTitle="Tutorial: Integración de Azure Active Directory con Printix | Microsoft Azure"
-	description="Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Printix."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with Printix | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and Printix."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2016"
-	ms.author="jeedes"/>
-
-
-# Tutorial: Integración de Azure Active Directory con Printix
-
-En este tutorial, obtendrá información sobre cómo integrar Printix con Azure Active Directory (Azure AD).
-
-La integración de Printix con Azure AD le proporciona las siguientes ventajas:
-
-- Puede controlar en Azure AD quién tiene acceso a Printix.
-- Puede permitir que los usuarios inicien sesión automáticamente en Printix (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
-
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
-
-## Requisitos previos
-
-Para configurar la integración de Azure AD con Printix, necesita los siguientes elementos:
-
-- Una suscripción de Azure AD
-- Una suscripción habilitada para inicio de sesión único en Printix
-
-
-> [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No debe usar el entorno de producción, a menos que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
-
-
-## Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba.
-
-La situación descrita en este tutorial consta de dos bloques de creación principales:
-
-1. Adición de Printix desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
-
-
-## Adición de Printix desde la galería
-Para configurar la integración de Printix en Azure AD, deberá agregar Printix desde la galería a la lista de aplicaciones SaaS administradas.
-
-**Para agregar Printix desde la galería, realice los pasos siguientes:**
-
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
-
-	![Active Directory][1]
-2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
-
-3. Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
-
-	![Aplicaciones][2]
-
-4. Haga clic en **Agregar** en la parte inferior de la página.
-
-	![Aplicaciones][3]
-
-5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
-
-	![Aplicaciones][4]
-
-6. En el cuadro de búsqueda, escriba **Printix**.
-
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-printix-tutorial/tutorial_printix_01.png)
-7. En el panel de resultados, seleccione **Printix** y luego haga clic en **Completar** para agregar la aplicación.
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/01/2016"
+    ms.author="jeedes"/>
 
 
 
-##  Configuración y comprobación del inicio de sesión único de Azure AD
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con Printix con un usuario de prueba llamado "Britta Simon".
+# <a name="tutorial:-azure-active-directory-integration-with-printix"></a>Tutorial: Azure Active Directory integration with Printix
 
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Printix para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Printix.
+In this tutorial, you learn how to integrate Printix with Azure Active Directory (Azure AD).
 
-Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en Printix.
+Integrating Printix with Azure AD provides you with the following benefits:
 
-Para configurar y probar el inicio de sesión único de Azure AD con Printix, es preciso completar los siguientes bloques de creación:
+- You can control in Azure AD who has access to Printix
+- You can enable your users to automatically get signed-on to Printix (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)**: para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Printix](#creating-a-printix-test-user)**: para tener un homólogo de Britta Simon en Printix que esté vinculado a la representación de ella en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-### Configuración del inicio de sesión único de Azure AD
+## <a name="prerequisites"></a>Prerequisites
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en el portal clásico y configurará el inicio de sesión único en la aplicación Printix.
+To configure Azure AD integration with Printix, you need the following items:
+
+- An Azure AD subscription
+- A Printix single-sign on enabled subscription
 
 
-**Para configurar el inicio de sesión único de Azure AD con Printix, realice los pasos siguientes:**
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
-1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Printix**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
-	 
-	![Configurar inicio de sesión único][6]
 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en Printix?**, seleccione **Inicio de sesión único de Azure AD** y después haga clic en **Siguiente**.
+To test the steps in this tutorial, you should follow these recommendations:
 
-	![Configurar inicio de sesión único](./media/active-directory-saas-printix-tutorial/tutorial_printix_03.png)
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
-3. En la página de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes:
 
-	![Configurar inicio de sesión único](./media/active-directory-saas-printix-tutorial/tutorial_printix_04.png)
+## <a name="scenario-description"></a>Scenario description
+In this tutorial, you test Azure AD single sign-on in a test environment.
 
-    a. En el cuadro de texto **URL de respuesta**, escriba `https://auth.printix.net/saml/SSO`.
-	
-	b. Haga clic en **Siguiente**.
+The scenario outlined in this tutorial consists of two main building blocks:
+
+1. Adding Printix from the gallery
+2. Configuring and testing Azure AD single sign-on
+
+
+## <a name="adding-printix-from-the-gallery"></a>Adding Printix from the gallery
+To configure the integration of Printix into Azure AD, you need to add Printix from the gallery to your list of managed SaaS apps.
+
+**To add Printix from the gallery, perform the following steps:**
+
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+
+    ![Active Directory][1]
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Applications][2]
+
+4. Click **Add** at the bottom of the page.
+
+    ![Applications][3]
+
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+
+    ![Applications][4]
+
+6. In the search box, type **Printix**.
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-printix-tutorial/tutorial_printix_01.png)
+7. In the results pane, select **Printix**, and then click **Complete** to add the application.
+
+
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+In this section, you configure and test Azure AD single sign-on with Printix based on a test user called "Britta Simon".
+
+For single sign-on to work, Azure AD needs to know what the counterpart user in Printix is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Printix needs to be established.
+
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Printix.
+
+To configure and test Azure AD single sign-on with Printix, you need to complete the following building blocks:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Creating a Printix test user](#creating-a-printix-test-user)** - to have a counterpart of Britta Simon in Printix that is linked to the Azure AD representation of her.
+4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
+
+In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Printix application.
+
+
+**To configure Azure AD single sign-on with Printix, perform the following steps:**
+
+1. In the classic portal, on the **Printix** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+     
+    ![Configure Single Sign-On][6] 
+
+2. On the **How would you like users to sign on to Printix** page, select **Azure AD Single Sign-On**, and then click **Next**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-printix-tutorial/tutorial_printix_03.png) 
+
+3. On the **Configure App Settings** dialog page, perform the following steps:
+
+    ![Configure Single Sign-On](./media/active-directory-saas-printix-tutorial/tutorial_printix_04.png) 
+
+    a. In the **Reply URL** textbox,  type `https://auth.printix.net/saml/SSO`.
+    
+    b. click **Next**
  
-4. En la página **Configurar inicio de sesión único en Printix**, siga estos pasos:
+4. On the **Configure single sign-on at Printix** page, perform the following steps:
 
-	![Configurar inicio de sesión único](./media/active-directory-saas-printix-tutorial/tutorial_printix_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-printix-tutorial/tutorial_printix_05.png)
 
-    a. Haga clic en **Descargar metadatos** y luego guarde el archivo en el equipo.
+    a. Click **Download metadata**, and then save the file on your computer.
 
-    b. Haga clic en **Next**.
-
-
-5. Inicie la sesión en el inquilino de Printix como administrador.
+    b. Click **Next**.
 
 
-6. En el menú de la parte superior, haga clic en el icono situado en la esquina superior derecha y seleccione "**Authentication**" (Autenticación).
-
-	![Configurar inicio de sesión único](./media/active-directory-saas-printix-tutorial/tutorial_printix_06.png)
-
-7. En la pestaña **Setup** (Configuración), seleccione **Enable Azure/Office 365 authentication** (Habilitar la autenticación de Azure y Office 365).
-
-	![Configurar inicio de sesión único](./media/active-directory-saas-printix-tutorial/tutorial_printix_07.png)
-
-8. En la pestaña **Azure**, escriba la dirección URL de metadatos de federación en el cuadro de texto de "**Federation metadata document**" (Documento de metadatos de federación).
-	
-	![Configurar inicio de sesión único](./media/active-directory-saas-printix-tutorial/tutorial_printix_08.png)
-
-	a. Adjunte el archivo xml de metadatos que descargó en el paso 4 al equipo de soporte técnico de Printix mediante "**support@printix.net**". Ellos cargarán el archivo y le proporcionarán una dirección URL de metadatos de federación.
+5. Sign-on to your Printix tenant as an administrator.
 
 
-9. Haga clic en el botón "**Test**" (Probar) y, si la prueba se ha realizado correctamente, en el botón "**OK**" (Aceptar).
+6. In the menu on the top, click the icon at the upper right corner and select "**Authentication**".
 
-	a. Después de hacer clic en el botón **Test** (Probar) se mostrará la página de Azure Active Directory. El mensaje "The test was successful" (La prueba se realizó correctamente) aquí significa que después de escribir las credenciales de su cuenta de prueba de Azure se mostrará el mensaje "Settings tested OK" (Configuración probada correctamente). A continuación, haga clic en el botón **OK** (Aceptar).
+    ![Configure Single Sign-On](./media/active-directory-saas-printix-tutorial/tutorial_printix_06.png)
 
-	![Configurar inicio de sesión único](./media/active-directory-saas-printix-tutorial/tutorial_printix_09.png)
+7. On the **Setup** tab, select **Enable Azure/Office 365 authentication**
+
+    ![Configure Single Sign-On](./media/active-directory-saas-printix-tutorial/tutorial_printix_07.png)
+
+8. On the **Azure** tab, input federation metadata URL to the textbox of "**Federation metadata document**". 
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-printix-tutorial/tutorial_printix_08.png)
+
+    a. Attached the metadata xml file which you downloaded in step 4 to Printix support team via "**support@printix.net**". Then they will upload the xml file and provide a federation metadata URL with you.
 
 
-10. Haga clic en el botón **Save** (Guardar) en la página "**Authentication**" (Autenticación).
+9. Click the "**Test**" button and click "**OK**" button if the test was successful.
+
+    a. Azure active directory page will show after clicking the **test** button. "The test was successful" here means after entering the credentials of your Azure test account it will popo up a message "Settings tested OK".Then click the **OK** button.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-printix-tutorial/tutorial_printix_09.png)
 
 
-11. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
-	
-	![Inicio de sesión único de Azure AD][10]
+10. Click the **Save** button on "**Authentication**" page.
 
-12. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.
+
+11. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+    
+    ![Azure AD Single Sign-On][10]
+
+12. On the **Single sign-on confirmation** page, click **Complete**.  
  
-	![Inicio de sesión único de Azure AD][11]
+    ![Azure AD Single Sign-On][11]
 
 
-### Creación de un usuario de prueba de Azure AD
-En esta sección, creará un usuario de prueba llamado Britta Simon en el portal clásico.
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+In this section, you create a test user in the classic portal called Britta Simon.
 
 
-![Creación de un usuario de Azure AD][20]
+![Create Azure AD User][20]
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+**To create a test user in Azure AD, perform the following steps:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-printix-tutorial/create_aaduser_09.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-printix-tutorial/create_aaduser_09.png) 
 
-2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.
+3. To display the list of users, in the menu on the top, click **Users**.
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-printix-tutorial/create_aaduser_03.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-printix-tutorial/create_aaduser_03.png) 
 
-4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-printix-tutorial/create_aaduser_04.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-printix-tutorial/create_aaduser_04.png) 
 
-5. En la página de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
-	
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-printix-tutorial/create_aaduser_05.png)
+5. On the **Tell us about this user** dialog page, perform the following steps:
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-printix-tutorial/create_aaduser_05.png) 
 
-    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
+    a. As Type Of User, select New user in your organization.
 
-    b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
+    b. In the User Name **textbox**, type **BrittaSimon**.
 
-    c. Haga clic en **Next**.
+    c. Click **Next**.
 
-6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
+6.  On the **User Profile** dialog page, perform the following steps:
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-printix-tutorial/create_aaduser_06.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-printix-tutorial/create_aaduser_06.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **Britta**.
+    a. In the **First Name** textbox, type **Britta**.  
 
-    b. En el cuadro de texto **Apellidos**, escriba **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
 
-    c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
-    d. En la lista **Rol**, seleccione **Usuario**.
+    d. In the **Role** list, select **User**.
 
-    e. Haga clic en **Siguiente**.
+    e. Click **Next**.
 
-7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
+7. On the **Get temporary password** dialog page, click **create**.
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-printix-tutorial/create_aaduser_07.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-printix-tutorial/create_aaduser_07.png) 
 
-8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
+8. On the **Get temporary password** dialog page, perform the following steps:
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-printix-tutorial/create_aaduser_08.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-printix-tutorial/create_aaduser_08.png) 
 
-    a. Anote el valor del campo **Nueva contraseña**.
+    a. Write down the value of the **New Password**.
 
-    b. Haga clic en **Completo**.
-
-
-
-### Creación de un usuario de prueba de Printix
-
-El objetivo de esta sección es crear un usuario llamado Britta Simon en Printix. Printix admite el aprovisionamiento just-in-time, que está habilitado de forma predeterminada.
-
-No hay ningún elemento de acción para usted en esta sección. Al intentar acceder a Printix se creará un nuevo usuario, en caso de que no exista. [Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on).
-
-> [AZURE.NOTE] Si necesita crear manualmente un usuario, es preciso que se ponga en contacto con el equipo de soporte técnico de Printix.
+    b. Click **Complete**.   
 
 
-### Asignación del usuario de prueba de Azure AD
 
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Printix.
+### <a name="creating-an-printix-test-user"></a>Creating an Printix test user
 
-![Asignar usuario][200]
+The objective of this section is to create a user called Britta Simon in Printix. Printix supports just-in-time provisioning, which is by default enabled.
 
-**Para asignar a Britta Simon a Printix, realice los pasos siguientes:**
+There is no action item for you in this section. A new user will be created during an attempt to access Printix if it doesn't exist yet. [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on).
 
-1. En el portal clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
-
-	![Asignar usuario][201]
-
-2. En la lista de aplicaciones, seleccione **Printix**.
-
-	![Configurar inicio de sesión único](./media/active-directory-saas-printix-tutorial/tutorial_printix_50.png)
-
-3. En el menú de la parte superior, haga clic en **Usuarios**.
-
-	![Asignar usuario][203]
-
-4. En la lista Usuarios, seleccione **Britta Simon**.
-
-5. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
-
-	![Asignar usuario][205]
+> [AZURE.NOTE] If you need to create an user manually, you need to contact the Printix support team.
 
 
-### Prueba del inicio de sesión único
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Printix.
 
-Al hacer clic en el icono de Printix en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Printix.
+![Assign User][200] 
+
+**To assign Britta Simon to Printix, perform the following steps:**
+
+1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Assign User][201] 
+
+2. In the applications list, select **Printix**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-printix-tutorial/tutorial_printix_50.png) 
+
+3. In the menu on the top, click **Users**.
+
+    ![Assign User][203]
+
+4. In the Users list, select **Britta Simon**.
+
+5. In the toolbar on the bottom, click **Assign**.
+
+    ![Assign User][205]
 
 
-## Recursos adicionales
+### <a name="testing-single-sign-on"></a>Testing single sign-on
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+
+When you click the Printix tile in the Access Panel, you should get automatically signed-on to your Printix application.
+
+
+## <a name="additional-resources"></a>Additional resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -295,4 +296,8 @@ Al hacer clic en el icono de Printix en el panel de acceso, debería iniciar ses
 [204]: ./media/active-directory-saas-printix-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-printix-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

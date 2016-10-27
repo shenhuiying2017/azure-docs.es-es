@@ -1,99 +1,100 @@
 <properties 
-	pageTitle="Depuración de una aplicación web de Java en Azure mediante Eclipse | Microsoft Azure" 
-	description="En este tutorial se muestra cómo utilizar el kit de herramientas de Azure para Eclipse con el objetivo de crear una aplicación web de Java que se ejecute en Azure." 
-	services="app-service\web" 
-	documentationCenter="java" 
-	authors="selvasingh" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Debug a Java Web App on Azure in Eclipse | Microsoft Azure" 
+    description="This tutorial shows you how to use the Azure Toolkit for Eclipse to debug a Java Web App running on Azure." 
+    services="app-service\web" 
+    documentationCenter="java" 
+    authors="selvasingh" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="09/20/2016" 
-	ms.author="asirveda;robmcm"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="Java" 
+    ms.topic="article" 
+    ms.date="09/20/2016" 
+    ms.author="asirveda;robmcm"/>
 
-# Depuración de una aplicación web de Java en Azure mediante Eclipse
 
-En este tutorial se muestra cómo depurar una aplicación web de Java que se ejecuta en Azure mediante el [kit de herramientas de Azure para Eclipse]. Por simplicidad, en este tutorial se utilizará un ejemplo básico de Java Server Page (JSP), pero los pasos serían similares para depurar un servlet de Java en Azure.
+# <a name="debug-a-java-web-app-on-azure-in-eclipse"></a>Debug a Java Web App on Azure in Eclipse
 
-Cuando haya terminado este tutorial, la aplicación se parecerá a la que se muestra en la siguiente ilustración al depurarla en Eclipse:
+This tutorial shows how to debug a Java Web App running on Azure by using the [Azure Toolkit for Eclipse]. For the sake of simplicity, you will use a basic Java Server Page (JSP) example for this tutorial, but the steps would be similar for a Java servlet when you are debugging on Azure.
+
+When you have completed this tutorial, your application will look similar to the following illustration when you are debugging it in Eclipse:
 
 ![][01]
  
-## Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Un kit para desarrolladores de Java (JDK) de la versión 1.8 o superior.
-* Eclipse IDE para Java EE Developers, Indigo o superior. Esto se puede descargar en <http://www.eclipse.org/downloads/>.
-* Una distribución de un servidor web basado en Java o un servidor de aplicaciones, como Apache Tomcat o Jetty.
-* Una suscripción de Azure, que se puede adquirir en <https://azure.microsoft.com/es-ES/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
-* El kit de herramientas de Azure para Eclipse. Para más información, consulte [Instalación del kit de herramientas de Azure para Eclipse].
-* Un proyecto web dinámico creado e implementado en el Servicio de aplicaciones de Azure; por ejemplo, consulte [Creación de una aplicación web Hello World para Azure en Eclipse].
+* A Java Developer Kit (JDK), v 1.8 or later.
+* Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>.
+* A distribution of a Java-based web server or application server, such as Apache Tomcat or Jetty.
+* An Azure subscription, which can be acquired from <https://azure.microsoft.com/en-us/free/> or <http://azure.microsoft.com/pricing/purchase-options/>.
+* The Azure Toolkit for Eclipse. For more information, see [Installing the Azure Toolkit for Eclipse].
+* A Dynamic Web Project created and deployed to Azure App Service; for example see [Create a Hello World Web App for Azure in Eclipse].
 
-## Pasos para depurar una aplicación web de Java en Azure
+## <a name="to-debug-a-java-web-app-on-azure"></a>To Debug a Java Web App on Azure
 
-Para completar los pasos de esta sección, puede usar un proyecto web dinámico existente que ya haya implementado como una aplicación web de Java en Azure, descargar un [proyecto web dinámico de ejemplo] y seguir los pasos de [Creación de una aplicación web Hello World para Azure en Eclipse] para implementarla en Azure.
+To complete these steps in this section, you can use an existing Dynamic Web Project which you have already deployed as a Java Web App on Azure, you download a [Sample Dynamic Web Project] and follow steps in [Create a Hello World Web App for Azure in Eclipse] to deploy it on Azure. 
 
-1. Abra Eclipse.
+1. Open Eclipse.
 
-1. Configure los tiempos de espera para la depuración remota:
+1. Configure time-outs for remote debugging:
 
-    1. Haga clic en el menú **Windows** (Ventanas) de Eclipse y, luego, en **Preferences** (Preferencias).
-    1. Expanda el nodo **Java** y seleccione **Debug** (Depurar).
-    1. Configure los valores de configuración **Debugger timeout (ms)** (Tiempo de espera del depurador [ms]) y **Launch timeout (ms)** (Tiempo de espera de inicio [ms]) en `120000`.
+    1. Click the **Windows** menu in Eclipse, and then click **Preferences**.
+    1. Expand the **Java** node, then select **Debug**.
+    1. Configure both the **Debugger timeout (ms)** and **Launch timeout (ms)** settings to `120000`.
 
         ![][02]
 
-    1. Haga clic en **OK** (Aceptar) para cerrar el cuadro de diálogo **Preferences** (Preferencias).
+    1. Click **OK** to close the **Preferences** dialog.
 
-1. En la vista del Explorador de proyectos de Eclipse, haga clic con el botón derecho en el proyecto web dinámico que ha implementado en Azure. Cuando aparezca el menú contextual, seleccione **Debug As** (Depurar como) y, después, haga clic en **Azure Web App** (Aplicación web de Azure).
+1. In  Eclipse's Project Explorer view, right click the Dynamic Web Project which you have deployed to Azure. When the context menu appears, select **Debug As**, and then click **Azure Web App**.
 
     ![][03]
 
-1. Si es la primera vez que se está depurando el proyecto web dinámico, se abrirá el cuadro de diálogo **Debug Configurations** (Configuraciones de depuración). Puede aceptar los valores predeterminados que se especifican mediante el kit de herramientas en la pestaña **Connect** (Conectar). En la pestaña **Source** (Origen), haga clic en **Add** (Agregar) y, después, en **Java project** (Proyecto de Java). Seleccione **Dynamic Web Project** (Proyecto web dinámico) y haga clic en **OK** (Aceptar). Cuando haya completado estos pasos, haga clic en **Debug** (Depurar).
+1. If this is the first time you are debugging your Dynamic Web Project, the **Debug Configurations** dialog will open; you can accept the default values which are specified by the Toolkit on the **Connect** tab. On the **Source** tab, click **Add**, then **Java project**, select **Dynamic Web Project**, and then click **OK**. Once you have completed these steps, click **Debug**.
 
     ![][04]
 
-1. Cuando se le pregunte si quiere **habilitar ahora la depuración remota en la aplicación web remota**, haga clic en **OK** (Aceptar).
+1. When prompted to **Enable remote debugging in the remote Web App now?**, click **OK**.
 
-1. Cuando se indique que **la aplicación web ya está lista para la depuración remota**, haga clic en **OK** (Aceptar).
+1. When prompted that **Your web app is now ready for remote debugging**, click **OK**.
 
     ![][05]
 
-1. Cuando se vuelva a mostrar el cuadro de diálogo **Debug Configurations** (Configuraciones de depuración), haga clic en **Debug** (Depurar).
+1. When the **Debug Configurations** dialog reappears, click **Debug**.
 
-1. Un símbolo del sistema de Windows o el shell de Unix abrirán y prepararán la conexión necesaria para realizar la depuración. Antes de continuar, debe esperar hasta que la conexión a la aplicación web de Java remota se lleve a cabo correctamente. Si usa Windows, el resultado será similar al que se muestra en esta ilustración.
+1. A Windows command prompt or Unix shell will open and prepare necessary connection for debugging; you need to wait until the connection to your remote Java Web app is successful before you continue. If you are using Windows, it will look like the following illustration.
 
     ![][06]
 
-1. Inserte un punto de interrupción en la página JSP; después, abra la dirección URL de la aplicación web de Java en un explorador:
+1. Insert a break point in your JSP page, then open the URL for your Java Web App in a browser:
 
-    1. Abra el **Explorador de Azure** en Eclipse.
-    1. Vaya a **Web Apps** (Aplicaciones web) y a la aplicación web de Java que quiera depurar.
-    1. Haga clic con el botón derecho en la aplicación web y, con el izquierdo, en **Open in Browser** (Abrir en el explorador).
-    1. Eclipse entrará ahora en el modo de depuración.
+    1. Open up **Azure Explorer** in Eclipse.
+    1. Navigate to **Web Apps** and the Java Web App you want to debug.
+    1. Right click on the Web App, and click **Open in Browser**.
+    1. Eclipse will now enter into debug mode.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next Steps
 
-Para obtener más información sobre el uso de Azure con Java, vea el [Centro para desarrolladores de Java de Azure].
+For more information about using Azure with Java, see the [Azure Java Developer Center].
 
-Para obtener más información sobre cómo crear aplicaciones web de Azure, consulte [Introducción a Aplicaciones web].
+For additional information about creating Azure Web Apps, see the [Web Apps Overview].
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
 
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
-[kit de herramientas de Azure para Eclipse]: ../azure-toolkit-for-eclipse.md
-[Instalación del kit de herramientas de Azure para Eclipse]: ../azure-toolkit-for-eclipse-installation.md
-[Creación de una aplicación web Hello World para Azure en Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
-[proyecto web dinámico de ejemplo]: http://go.microsoft.com/fwlink/?LinkId=817337
+[Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
+[Installing the Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse-installation.md
+[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
+[Sample Dynamic Web Project]: http://go.microsoft.com/fwlink/?LinkId=817337
 
-[Centro para desarrolladores de Java de Azure]: https://azure.microsoft.com/develop/java/
-[Introducción a Aplicaciones web]: ./app-service-web-overview.md
+[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
+[Web Apps Overview]: ./app-service-web-overview.md
 
 <!-- IMG List -->
 
@@ -104,4 +105,8 @@ Para obtener más información sobre cómo crear aplicaciones web de Azure, cons
 [05]: ./media/app-service-web-debug-java-web-app-in-eclipse/05-ready-for-remote-debugging.png
 [06]: ./media/app-service-web-debug-java-web-app-in-eclipse/06-windows-command-prompt-connection-successful-to-remote.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

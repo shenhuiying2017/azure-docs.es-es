@@ -1,35 +1,36 @@
 <properties
-	pageTitle="Administración de la red CDN de Azure con PowerShell | Microsoft Azure"
-	description="Aprenda a usar los cmdlets de Azure PowerShell para administrar la red CDN de Azure."
-	services="cdn"
-	documentationCenter=""
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Manage Azure CDN with PowerShell | Microsoft Azure"
+    description="Learn how to use the Azure PowerShell cmdlets to manage Azure CDN."
+    services="cdn"
+    documentationCenter=""
+    authors="camsoper"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="casoper"/>
+    ms.service="cdn"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/17/2016"
+    ms.author="casoper"/>
 
 
-# Administración de la red CDN de Azure con PowerShell
 
-PowerShell proporciona uno de los métodos más flexibles para administrar los perfiles y puntos de conexión de la red CDN de Azure. Puede usar PowerShell interactivamente o mediante la escritura de scripts para automatizar tareas de administración. Este tutorial muestra algunas de las tareas más comunes que puede realizar con PowerShell para administrar los perfiles y puntos de conexión de la red CDN de Azure.
+# <a name="manage-azure-cdn-with-powershell"></a>Manage Azure CDN with PowerShell
 
-## Requisitos previos
+PowerShell provides one of the most flexible methods to manage your Azure CDN profiles and endpoints.  You can use PowerShell interactively or by writing scripts to automate management tasks.  This tutorial demonstrates several of the most common tasks you can accomplish with PowerShell to manage your Azure CDN profiles and endpoints.
 
-Para usar PowerShell para administrar los perfiles y puntos de conexión de la red CDN de Azure debe tener instalado el módulo de Azure PowerShell. Para obtener información sobre cómo instalar Azure PowerShell y conectarlo a Azure mediante el cmdlet `Login-AzureRmAccount` consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
+## <a name="prerequisites"></a>Prerequisites
 
->[AZURE.IMPORTANT] Debe iniciar sesión con `Login-AzureRmAccount` para poder ejecutar los cmdlets de Azure PowerShell.
+To use PowerShell to manage your Azure CDN profiles and endpoints, you must have the Azure PowerShell module installed.  To learn how to install Azure PowerShell and connect to Azure using the `Login-AzureRmAccount` cmdlet, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-## Lista de los cmdlets de la red CDN de Azure
+>[AZURE.IMPORTANT] You must log in with `Login-AzureRmAccount` before you can execute Azure PowerShell cmdlets.
 
-Puede enumerar todos los cmdlets de la red CDN de Azure mediante el cmdlet `Get-Command`.
+## <a name="listing-the-azure-cdn-cmdlets"></a>Listing the Azure CDN cmdlets
+
+You can list all the Azure CDN cmdlets using the `Get-Command` cmdlet.
 
 ```text
 PS C:\> Get-Command -Module AzureRM.Cdn
@@ -58,9 +59,9 @@ Cmdlet          Test-AzureRmCdnCustomDomain                        2.0.0      Az
 Cmdlet          Unpublish-AzureRmCdnEndpointContent                2.0.0      AzureRm.Cdn
 ```
 
-## Ayuda
+## <a name="getting-help"></a>Getting help
 
-Puede obtener ayuda para cualquiera de estos cmdlets mediante el cmdlet `Get-Help`. `Get-Help` proporciona el uso y la sintaxis y, opcionalmente, muestra ejemplos.
+You can get help with any of these cmdlets using the `Get-Help` cmdlet.  `Get-Help` provides usage and syntax, and optionally shows examples.
 
 ```text
 PS C:\> Get-Help Get-AzureRmCdnProfile
@@ -90,15 +91,15 @@ REMARKS
 
 ```
 
-## Listado de perfiles existentes de la red CDN de Azure
+## <a name="listing-existing-azure-cdn-profiles"></a>Listing existing Azure CDN profiles
 
-El cmdlet `Get-AzureRmCdnProfile` sin parámetros permite recuperar todos los perfiles de red CDN existentes.
+The `Get-AzureRmCdnProfile` cmdlet without any parameters retrieves all your existing CDN profiles.
 
 ```powershell
 Get-AzureRmCdnProfile
 ```
 
-Esta salida se puede canalizar a cmdlets para la enumeración.
+This output can be piped to cmdlets for enumeration.
 
 ```powershell
 # Output the name of all profiles on this subscription.
@@ -108,17 +109,17 @@ Get-AzureRmCdnProfile | ForEach-Object { Write-Host $_.Name }
 Get-AzureRmCdnProfile | Where-Object { $_.Sku.Name -eq "StandardVerizon" }
 ```
 
-También puede devolver un solo perfil especificando el grupo de recursos y el nombre del perfil.
+You can also return a single profile by specifying the profile name and resource group.
 
 ```powershell
 Get-AzureRmCdnProfile -ProfileName CdnDemo -ResourceGroupName CdnDemoRG
 ```
 
->[AZURE.TIP] Es posible tener varios perfiles de red CDN con el mismo nombre, siempre y cuando estén en distintos grupos de recursos. Si se omite el parámetro `ResourceGroupName` se devolverán todos los perfiles con un nombre coincidente.
+>[AZURE.TIP] It is possible to have multiple CDN profiles with the same name, so long as they are in different resource groups.  Omitting the `ResourceGroupName` parameter returns all profiles with a matching name.
 
-## Listado de los puntos de conexión existentes de la red CDN
+## <a name="listing-existing-cdn-endpoints"></a>Listing existing CDN endpoints
 
-`Get-AzureRmCdnEndpoint` puede recuperar un punto de conexión individual o todos los puntos de conexión de un perfil.
+`Get-AzureRmCdnEndpoint` can retrieve an individual endpoint or all the endpoints on a profile.  
 
 ```powershell
 # Get a single endpoint.
@@ -134,9 +135,9 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint
 Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Where-Object { $_.ResourceState -eq "Running" }
 ```
 
-## Creación de perfiles y puntos de conexión de red CDN
+## <a name="creating-cdn-profiles-and-endpoints"></a>Creating CDN profiles and endpoints
 
-`New-AzureRmCdnProfile` y `New-AzureRmCdnEndpoint` se utilizan para crear perfiles y puntos de conexión de red CDN.
+`New-AzureRmCdnProfile` and `New-AzureRmCdnEndpoint` are used to create CDN profiles and endpoints.
 
 ```powershell
 # Create a new profile
@@ -150,9 +151,9 @@ New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku
 
 ```
 
-## Comprobación de la disponibilidad del nombre de un punto de conexión
+## <a name="checking-endpoint-name-availability"></a>Checking endpoint name availability
 
-`Get-AzureRmCdnEndpointNameAvailability` devuelve un objeto que indica si un nombre de punto de conexión está disponible.
+`Get-AzureRmCdnEndpointNameAvailability` returns an object indicating if an endpoint name is available.
 
 ```powershell
 # Retrieve availability
@@ -163,11 +164,11 @@ If($availability.NameAvailable) { Write-Host "Yes, that endpoint name is availab
 Else { Write-Host "No, that endpoint name is not available." }
 ```
 
-## Incorporación de un dominio personalizado
+## <a name="adding-a-custom-domain"></a>Adding a custom domain
 
-`New-AzureRmCdnCustomDomain` agrega un nombre de dominio personalizado a un punto de conexión existente.
+`New-AzureRmCdnCustomDomain` adds a custom domain name to an existing endpoint.
 
->[AZURE.IMPORTANT] Debe configurar el CNAME con su proveedor de DNS como se describe en [Cómo asignar un dominio personalizado al punto de conexión de la Red de entrega de contenido (CDN)](./cdn-map-content-to-custom-domain.md). Puede probar la asignación antes de modificar el punto de conexión mediante `Test-AzureRmCdnCustomDomain`.
+>[AZURE.IMPORTANT] You must set up the CNAME with your DNS provider as described in [How to map Custom Domain to Content Delivery Network (CDN) endpoint](./cdn-map-content-to-custom-domain.md).  You can test the mapping before modifying your endpoint using `Test-AzureRmCdnCustomDomain`.
 
 ```powershell
 # Get an existing endpoint
@@ -180,9 +181,9 @@ $result = Test-AzureRmCdnCustomDomain -CdnEndpoint $endpoint -CustomDomainHostNa
 If($result.CustomDomainValidated){ New-AzureRmCdnCustomDomain -CustomDomainName Contoso -HostName "cdn.contoso.com" -CdnEndpoint $endpoint }
 ```
 
-## Modificación de un punto de conexión
+## <a name="modifying-an-endpoint"></a>Modifying an endpoint
 
-`Set-AzureRmCdnEndpoint` modifica un punto de conexión ya existente.
+`Set-AzureRmCdnEndpoint` modifies an existing endpoint.
 
 ```powershell
 # Get an existing endpoint
@@ -196,9 +197,9 @@ $endpoint.ContentTypesToCompress = "text/javascript","text/css","application/jso
 Set-AzureRmCdnEndpoint -CdnEndpoint $endpoint
 ```
 
-## Purga o precarga de los recursos de red CDN
+## <a name="purging/pre-loading-cdn-assets"></a>Purging/Pre-loading CDN assets
 
-`Unpublish-AzureRmCdnEndpointContent` purga los recursos de la caché, mientras que `Publish-AzureRmCdnEndpointContent` precarga los recursos en puntos de conexión compatibles.
+`Unpublish-AzureRmCdnEndpointContent` purges cached assets, while `Publish-AzureRmCdnEndpointContent` pre-loads assets on supported endpoints.
 
 ```powershell
 # Purge some assets.
@@ -211,8 +212,8 @@ Publish-AzureRmCdnEndpointContent -ProfileName CdnDemo -ResourceGroupName CdnDem
 Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Unpublish-AzureRmCdnEndpointContent -PurgeContent "/images/*"
 ```
 
-## Inicio y detención de puntos de conexión de red CDN
-`Start-AzureRmCdnEndpoint` y `Stop-AzureRmCdnEndpoint` se pueden utilizar para iniciar y detener los puntos de conexión individuales o los grupos de estos.
+## <a name="starting/stopping-cdn-endpoints"></a>Starting/Stopping CDN endpoints
+`Start-AzureRmCdnEndpoint` and `Stop-AzureRmCdnEndpoint` can be used to start and stop individual endpoints or groups of endpoints.
 
 ```powershell
 # Stop the cdndocdemo endpoint
@@ -225,9 +226,9 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Stop-AzureRmCdnEndpoint
 Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Start-AzureRmCdnEndpoint
 ```
 
-## Eliminación de recursos de red CDN
+## <a name="deleting-cdn-resources"></a>Deleting CDN resources
 
-`Remove-AzureRmCdnProfile` y `Remove-AzureRmCdnEndpoint` se pueden utilizar para quitar perfiles y puntos de conexión.
+`Remove-AzureRmCdnProfile` and `Remove-AzureRmCdnEndpoint` can be used to remove profiles and endpoints.
 
 ```powershell
 # Remove a single endpoint
@@ -240,10 +241,16 @@ Get-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG | Ge
 Remove-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG
 ```
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next Steps
 
-Aprenda a automatizar la red CDN de Azure con [.NET](./cdn-app-dev-net.md) o [Node.js](./cdn-app-dev-node.md).
+Learn how to automate Azure CDN with [.NET](./cdn-app-dev-net.md) or [Node.js](./cdn-app-dev-node.md).
 
-Para obtener información acerca de las características de la red CDN, consulte [Información general de la red CDN](./cdn-overview.md).
+To learn about CDN features, see [CDN Overview](./cdn-overview.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

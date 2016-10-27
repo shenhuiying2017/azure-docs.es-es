@@ -1,255 +1,258 @@
 <properties
-	pageTitle="Tutorial: Integración de Azure Active Directory con Kronos | Microsoft Azure"
-	description="Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Kronos."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with Kronos | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and Kronos."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/19/2016"
-	ms.author="jeedes"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/19/2016"
+    ms.author="jeedes"/>
 
 
-# Tutorial: Integración de Azure Active Directory con Kronos
 
-En este tutorial, obtendrá información sobre cómo integrar Kronos con Azure Active Directory (Azure AD).
+# <a name="tutorial:-azure-active-directory-integration-with-kronos"></a>Tutorial: Azure Active Directory integration with Kronos
 
-La integración de Kronos con Azure AD le proporciona las siguientes ventajas:
+In this tutorial, you learn how to integrate Kronos with Azure Active Directory (Azure AD).
 
-- Puede controlar en Azure AD quién tiene acceso a Kronos
-- Puede permitir que los usuarios inicien sesión automáticamente en Kronos (inicio de sesión único) con sus cuentas de Azure AD
-- Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
+Integrating Kronos with Azure AD provides you with the following benefits:
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
+- You can control in Azure AD who has access to Kronos
+- You can enable your users to automatically get signed-on to Kronos (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-## Requisitos previos
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Para configurar la integración de Azure AD con Kronos, necesita los siguientes elementos:
+## <a name="prerequisites"></a>Prerequisites
 
-- Una suscripción de Azure AD
-- Una suscripción a **Kronos Workforce Central** con el inicio de sesión único habilitado
+To configure Azure AD integration with Kronos, you need the following items:
 
-
-> [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
+- An Azure AD subscription
+- A **Kronos Workforce Central** single-sign on enabled subscription
 
 
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No debe usar el entorno de producción, a menos que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
 
-## Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+To test the steps in this tutorial, you should follow these recommendations:
 
-1. Adición de Kronos desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
-
-
-## Adición de Kronos desde la galería
-Para configurar la integración de Kronos en Azure AD, deberá agregar Kronos desde la galería a la lista de aplicaciones SaaS administradas.
-
-**Para agregar Kronos desde la galería, realice los pasos siguientes:**
-
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
-
-	![Active Directory][1]
-
-2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
-
-3. Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
-
-	![Aplicaciones][2]
-
-4. Haga clic en **Agregar** en la parte inferior de la página.
-
-	![Aplicaciones][3]
-
-5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
-
-	![Aplicaciones][4]
-
-6. En el cuadro de búsqueda, escriba **Kronos**.
-
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kronos-tutorial/tutorial_kronos_01.png)
-
-7. En el panel de resultados, seleccione **Kronos** y luego haga clic en **Completar** para agregar la aplicación.
-
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kronos-tutorial/tutorial_kronos_06.png)
-
-##  Configuración y comprobación del inicio de sesión único de Azure AD
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Kronos con un usuario de prueba llamado "Britta Simon".
-
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Kronos para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Kronos. Esta relación de vínculo se establece asignando el valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en Kronos.
-
-Para configurar y probar el inicio de sesión único de Azure AD con Kronos, es preciso completar los siguientes bloques de creación:
-
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Creación de un usuario de prueba de Kronos](#creating-an-kronos-test-user)**: para tener un homólogo de Britta Simon en Kronos que esté vinculado a la representación de ella en Azure AD.
-5. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
-
-### Configuración del inicio de sesión único de Azure AD
-
-En esta sección, habilitará el inicio de sesión único de Azure AD en el portal clásico y configurará el inicio de sesión único en la aplicación Kronos.
-
-La aplicación Kronos espera las aserciones de SAML en un formato concreto. Trabaje primero con el equipo de Kronos para identificar el identificador de usuario correcto que se asignará a la aplicación. También siga las instrucciones del equipo de Kronos sobre el atributo que desean usar para esta asignación. Microsoft recomienda utilizar el atributo **"NameIdentifier"** como identificador de usuario. Puede administrar el valor de este atributo desde la pestaña **"Atributo"** de la aplicación. La siguiente captura de pantalla le muestra un ejemplo de esto. Aquí hemos asignado la notificación nameidentifier con el atributo **userprincipalname** junto con la función **ExtractMailPrefix**, que proporciona el identificador de usuario único, que se enviará a la aplicación Kronos en cada respuesta de SAML correcta.
-
-![Configurar inicio de sesión único](./media/active-directory-saas-kronos-tutorial/tutorial_kronos_07.png)
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 
-**Para configurar el inicio de sesión único de Azure AD con Kronos, realice los pasos siguientes:**
+## <a name="scenario-description"></a>Scenario description
+In this tutorial, you test Azure AD single sign-on in a test environment. The scenario outlined in this tutorial consists of two main building blocks:
 
-1. En el Portal clásico, en la página de integración de aplicaciones de **Kronos**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
-
-	 ![Configurar inicio de sesión único][6]
-
-2. En la página **¿Cómo desea que los usuarios inicien sesión en Kronos?**, seleccione **Inicio de sesión único de Azure AD** y después haga clic en **Siguiente**.
- 	
-	![Configurar inicio de sesión único](./media/active-directory-saas-kronos-tutorial/tutorial_kronos_03.png)
-
-3. En la página del cuadro de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes:
-
-	![Configurar inicio de sesión único](./media/active-directory-saas-kronos-tutorial/tutorial_kronos_04.png)
+1. Adding Kronos from the gallery
+2. Configuring and testing Azure AD single sign-on
 
 
-    a. En el cuadro de texto IDENTIFICADOR, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación de Kronos con el siguiente patrón: `https://<company name>.kronos.net/`
+## <a name="adding-kronos-from-the-gallery"></a>Adding Kronos from the gallery
+To configure the integration of Kronos into Azure AD, you need to add Kronos from the gallery to your list of managed SaaS apps.
 
-	b. En URL de respuesta, escriba la dirección URL con el siguiente patrón: `https://<company name>.kronos.net/wfc/navigator/logonWithUID`
+**To add Kronos from the gallery, perform the following steps:**
+
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
+
+    ![Active Directory][1]
+
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Applications][2]
+
+4. Click **Add** at the bottom of the page.
+
+    ![Applications][3]
+
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+
+    ![Applications][4]
+
+6. In the search box, type **Kronos**.
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-kronos-tutorial/tutorial_kronos_01.png)
+
+7. In the results pane, select **Kronos**, and then click **Complete** to add the application.
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-kronos-tutorial/tutorial_kronos_06.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+In this section, you configure and test Azure AD single sign-on with Kronos based on a test user called "Britta Simon".
+
+For single sign-on to work, Azure AD needs to know what the counterpart user in Kronos is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Kronos needs to be established.
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Kronos.
+
+To configure and test Azure AD single sign-on with Kronos, you need to complete the following building blocks:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Creating an Kronos test user](#creating-an-kronos-test-user)** - to have a counterpart of Britta Simon in Kronos that is linked to the Azure AD representation of her.
+5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
+
+In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Kronos application.
+
+Your Kronos application expects the SAML assertions in a specific format. Please work with Kronos team first to identify the correct user identifier which will be mapped into the application. Also please take the guidance from Kronos team about the attribute which they want to use for this mapping. Microsoft recommend to use the **"NameIdentifier"** attribute as user identifier. You can manage the value of this attribute from the **"Atrribute"** tab of the application. The following screenshot shows an example for this. Here we have mapped the nameidentifier claim with the **userprincipalname** attribute along with the **ExtractMailPrefix** function, which provides unique user ID, which will be sent to the Kronos application in the every successful SAML Response.
+
+![Configure Single Sign-On](./media/active-directory-saas-kronos-tutorial/tutorial_kronos_07.png) 
 
 
-4. En la página **Configurar inicio de sesión único en Kronos**, siga estos pasos:
+**To configure Azure AD single sign-on with Kronos, perform the following steps:**
 
-	![Configurar inicio de sesión único](./media/active-directory-saas-kronos-tutorial/tutorial_kronos_05.png)
+1. In the classic portal, on the **Kronos** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 
-    a. Haga clic en **Descargar metadatos** y luego guarde el archivo en el equipo.
+     ![Configure Single Sign-On][6] 
 
-    b. Haga clic en **Next**.
+2. On the **How would you like users to sign on to Kronos** page, select **Azure AD Single Sign-On**, and then click **Next**.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-kronos-tutorial/tutorial_kronos_03.png) 
+
+3. On the **Configure App Settings** dialog page, perform the following steps:.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-kronos-tutorial/tutorial_kronos_04.png) 
 
 
-5.  Para obtener SSO configurado para la aplicación, póngase en contacto con su administrador de cuentas de Kronos y le ayudará con el canal apropiado para configurar SSO. Tenga en cuenta que tendrá que enviar un correo electrónico y adjuntar el archivo de metadatos descargado.
+    a. In the IDENTIFIER textbox, type the URL used by your users to sign-on to your Kronos application using the following pattern: `https://<company name>.kronos.net/`
+
+    b. In the Reply URL type the URL in the following pattern: `https://<company name>.kronos.net/wfc/navigator/logonWithUID`
+
+
+4. On the **Configure single sign-on at Kronos** page, perform the following steps:
+
+    ![Configure Single Sign-On](./media/active-directory-saas-kronos-tutorial/tutorial_kronos_05.png) 
+
+    a. Click **Download metadata**, and then save the file on your computer.
+
+    b. Click **Next**.
+
+
+5.  To get SSO configured for your application, contact your Kronos Account Manager and he will assist with the proper channel to configure SSO. Please note that you have to send email and attach downloaded metadata file.
   
-6. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
-	
-	![Inicio de sesión único de Azure AD][10]
+6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+    
+    ![Azure AD Single Sign-On][10]
 
-7. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.
-  	
-	![Inicio de sesión único de Azure AD][11]
+7. On the **Single sign-on confirmation** page, click **Complete**.  
+    
+    ![Azure AD Single Sign-On][11]
 
 
 
-### Creación de un usuario de prueba de Azure AD
-En esta sección, creará un usuario de prueba llamado Britta Simon en el portal clásico.
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+In this section, you create a test user in the classic portal called Britta Simon.
 
-![Creación de un usuario de Azure AD][20]
+![Create Azure AD User][20]
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+**To create a test user in Azure AD, perform the following steps:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
-	
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kronos-tutorial/create_aaduser_09.png)
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-kronos-tutorial/create_aaduser_09.png) 
 
-2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.
-	
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kronos-tutorial/create_aaduser_03.png)
+3. To display the list of users, in the menu on the top, click **Users**.
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-kronos-tutorial/create_aaduser_03.png) 
 
-4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kronos-tutorial/create_aaduser_04.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-kronos-tutorial/create_aaduser_04.png) 
 
-5. En la página de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
+5. On the **Tell us about this user** dialog page, perform the following steps:
  
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kronos-tutorial/create_aaduser_05.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-kronos-tutorial/create_aaduser_05.png) 
 
-    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
+    a. As Type Of User, select New user in your organization.
 
-    b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
+    b. In the User Name **textbox**, type **BrittaSimon**.
 
-    c. Haga clic en **Next**.
+    c. Click **Next**.
 
-6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
+6.  On the **User Profile** dialog page, perform the following steps:
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kronos-tutorial/create_aaduser_06.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-kronos-tutorial/create_aaduser_06.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **Britta**.
+    a. In the **First Name** textbox, type **Britta**.  
 
-    b. En el cuadro de texto **Apellidos**, escriba **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
 
-    c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
-    d. En la lista **Rol**, seleccione **Usuario**.
+    d. In the **Role** list, select **User**.
 
-    e. Haga clic en **Siguiente**.
+    e. Click **Next**.
 
-7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
+7. On the **Get temporary password** dialog page, click **create**.
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kronos-tutorial/create_aaduser_07.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-kronos-tutorial/create_aaduser_07.png) 
 
-8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
+8. On the **Get temporary password** dialog page, perform the following steps:
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kronos-tutorial/create_aaduser_08.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-kronos-tutorial/create_aaduser_08.png) 
 
-    a. Anote el valor del campo **Nueva contraseña**.
+    a. Write down the value of the **New Password**.
 
-    b. Haga clic en **Completo**.
-
-
-
-### Creación de un usuario de prueba de Kronos
-
-En esta sección, creará un usuario llamado Britta Simon en Kronos. La aplicación Kronos necesita que todos los usuarios estén aprovisionados en la aplicación antes de realizar el inicio de sesión único. Así pues, colabore con el servicio de asistencia al cliente de Kronos para aprovisionar todos estos usuarios en la aplicación.
+    b. Click **Complete**.   
 
 
-> [AZURE.NOTE] Si necesita crear un usuario de forma manual o por lotes de los usuarios, póngase en contacto con el equipo de soporte técnico de Kronos.
+
+### <a name="creating-an-kronos-test-user"></a>Creating an Kronos test user
+
+In this section, you create a user called Britta Simon in Kronos. Kronos application need all the users to be provisioned in the application before doing Single Sign On. So please work with the Kronos Customer support associate to provision all these users into the application. 
 
 
-### Asignación del usuario de prueba de Azure AD
-
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Kronos.
-
-![Asignar usuario][200]
-
-**Para asignar Britta Simon a Kronos, realice los pasos siguientes:**
-
-1. En el Portal clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
-
-	![Asignar usuario][201]
-
-2. En la lista de aplicaciones, seleccione **Kronos**.
-
-	![Configurar inicio de sesión único](./media/active-directory-saas-kronos-tutorial/tutorial_kronos_50.png)
-
-1. En el menú de la parte superior, haga clic en **Usuarios**.
-
-	![Asignar usuario][203]
-
-1. En la lista Usuarios, seleccione **Britta Simon**.
-
-2. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
-
-	![Asignar usuario][205]
+> [AZURE.NOTE] If you need to create a user manually or batch of users, you need to contact the Kronos support team.
 
 
-### Prueba del inicio de sesión único
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso. Al hacer clic en el icono de Kronos en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Kronos.
+In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Kronos.
+
+![Assign User][200] 
+
+**To assign Britta Simon to Kronos, perform the following steps:**
+
+1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Assign User][201] 
+
+2. In the applications list, select **Kronos**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-kronos-tutorial/tutorial_kronos_50.png) 
+
+1. In the menu on the top, click **Users**.
+
+    ![Assign User][203] 
+
+1. In the Users list, select **Britta Simon**.
+
+2. In the toolbar on the bottom, click **Assign**.
+
+    ![Assign User][205]
 
 
-## Recursos adicionales
+### <a name="testing-single-sign-on"></a>Testing single sign-on
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+When you click the Kronos tile in the Access Panel, you should get automatically signed-on to your Kronos application.
+
+
+## <a name="additional-resources"></a>Additional resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 
@@ -271,4 +274,8 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 [204]: ./media/active-directory-saas-kronos-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kronos-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

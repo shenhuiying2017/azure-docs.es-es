@@ -1,33 +1,38 @@
 <properties
-	pageTitle="Usuarios con actividad de inicio de sesión erróneo."
-	description="Un informe que indica todas las cuentas de usuario respecto a las cuales se ha identificado la actividad de inicio de sesión anómala."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="gchander"
-	editor=""/>
+    pageTitle="Users with anomalous sign in activity"
+    description="A report that indicates all user accounts for which anomalous sign in activity has been identified."
+    services="active-directory"
+    documentationCenter=""
+    authors="SSalahAhmed"
+    manager="gchander"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="03/04/2016"
+    ms.author="saah;kenhoff"/>
 
-# Usuarios con actividad de inicio de sesión erróneo.
-Se trata de un informe de agregado que combina los inicios de sesión sospechosos de los siguientes informes:
 
-<ul><li>Inicios de sesión desde orígenes desconocidos</li>
-<li>Inicios de sesión tras varios errores</li>
-<li>Inicios de sesión desde varias ubicaciones geográficas</li>
-<li>Inicios de sesión desde direcciones IP con actividad sospechosa</li>
-<li>Inicios de sesión desde dispositivos posiblemente infectados</li>
-<li>Actividad de inicio de sesión irregular</li>
+# <a name="users-with-anomalous-sign-in-activity"></a>Users with anomalous sign in activity
+This is an aggregate report that combines suspicious sign-ins from the following reports:
+
+<ul><li>Sign ins from unknown sources</li>
+<li>Sign-ins after multiple failures</li>
+<li>Sign-ins from multiple geographies</li>
+<li>Sign-ins from IP addresses with suspicious activity</li>
+<li>Sign-ins from possibly infected devices</li>
+<li>Irregular sign-in activity</li>
 </ul>
 
 
-![Usuarios con actividad de inicio de sesión erróneo.](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
+![Users with anomalous sign in activity](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
 
-<!---HONumber=AcomDC_0309_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

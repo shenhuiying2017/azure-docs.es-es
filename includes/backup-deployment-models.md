@@ -1,10 +1,13 @@
-El servicio Azure Backup tiene dos tipos de almacenes: el almacén de Backup y el almacén de Recovery Services. El almacén de Backup fue el primero. A continuación, surgió el almacén de Recovery Services para admitir las implementaciones expandidas de Resource Manager. Microsoft recomienda utilizar las implementaciones de Resource Manager, a menos que se requiera específicamente una implementación mediante el método clásico.
+The Azure Backup service has two types of vaults - the Backup vault and the Recovery Services vault. The Backup vault came first. Then the Recovery Services vault came along to support the expanded Resource Manager deployments. Microsoft recommends using Resource Manager deployments unless you specifically require a Classic deployment.
 
-| **Implementación** | **Portal** | **Almacén** |
+| **Deployment** | **Portal** | **Vault** |
 |-----------|------|-----|
-|Clásico|[Clásico](https://manage.windowsazure.com)|Copia de seguridad|
-|Resource Manager|[Las tablas de Azure](https://portal.azure.com)|Servicios de recuperación|
+|Classic|[Classic](https://manage.windowsazure.com)|Backup|
+|Resource Manager|[Azure](https://portal.azure.com)|Recovery Services|
 
-> [AZURE.NOTE] Los almacenes de copia de seguridad no pueden proteger soluciones implementadas con Resource Manager. Sin embargo, puede usar un almacén de Servicios de recuperación para proteger los servidores y las máquinas virtuales implementados con el modelo clásico.
+> [AZURE.NOTE] Backup vaults cannot protect Resource Manager-deployed solutions. However, you can use a Recovery Services vault to protect classically-deployed servers and VMs.  
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

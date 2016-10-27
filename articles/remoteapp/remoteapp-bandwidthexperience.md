@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Azure RemoteApp: ¿cómo funcionan el ancho de banda de red y la calidad de la experiencia conjuntamente? | Microsoft Azure"
-	description="Obtenga información acerca de cómo puede afectar el ancho de banda de red en Azure RemoteApp a la calidad de la experiencia de los usuarios."
-	services="remoteapp"
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" />
+    pageTitle="Azure RemoteApp - how do network bandwidth and quality of experience work together? | Microsoft Azure"
+    description="Learn how network bandwidth in Azure RemoteApp can impact your user's quality of experience."
+    services="remoteapp"
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
@@ -15,27 +15,31 @@
     ms.date="08/15/2016" 
     ms.author="elizapo" />
 
-# Azure RemoteApp: ¿cómo funcionan el ancho de banda de red y la calidad de la experiencia conjuntamente?
+
+# <a name="azure-remoteapp---how-do-network-bandwidth-and-quality-of-experience-work-together?"></a>Azure RemoteApp - how do network bandwidth and quality of experience work together?
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Cuando esté analizando el [ancho de banda de red general](remoteapp-bandwidth.md) requerido para Azure RemoteApp, tenga en cuenta los siguientes factores, Todos ellos forman parte de un sistema dinámico que afecta a la experiencia general del usuario.
+When you are looking at the [overall network bandwidth](remoteapp-bandwidth.md) required for Azure RemoteApp, keep in mind the following factors - these are all part of a dynamic system that impacts the overall user experience. 
 
-- **Ancho de banda de red disponible y condiciones de red actuales**: un conjunto de parámetros (pérdida, latencia, vibración) en la misma red en un momento dado puede afectar a la experiencia de descarga de la aplicación, lo que implica una experiencia de usuario general reducida. El ancho de banda disponible en la red es una función de congestión, pérdida aleatoria y latencia, ya que todos estos parámetros afectan al mecanismo de control de congestión, que a su vez controla la velocidad de transmisión para evitar colisiones. Por ejemplo, una red con pérdida de información o con una latencia alta, hará que la experiencia de usuario sea mala incluso en una red con un ancho de banda de 1000 MB. La latencia y la pérdida varían según el número de usuarios que se encuentran en la misma red y en lo que hacen los usuarios (por ejemplo, ver vídeos, descargar o cargar archivos grandes o imprimir).
-- **Escenario de uso**: la experiencia depende de lo que hacen los usuarios como individuos y como un grupo en la misma red. Por ejemplo, la lectura de una diapositiva requiere únicamente la actualización de un solo fotograma; si el usuario pasa por encima y se desplaza por el contenido de un documento de texto, necesitará la actualización de un número mayor de fotogramas por segundo. El intercambio de mensajes en el servidor en este escenario consumirá, en definitiva, más ancho de banda de red. Considere también un ejemplo extremo: varios usuarios están viendo vídeos de alta definición (como, por ejemplo, con una resolución de 4K), realizando llamadas de conferencias HD, jugando a videojuegos en 3D o trabajando en sistemas CAD. Todo esto puede hacer que incluso una red con un ancho de banda muy alto sea prácticamente inservible.
-- **Resolución de pantalla y el número de pantallas**: se necesita más ancho de banda de red para actualizar completamente las pantallas grandes que las pequeñas. La tecnología subyacente realiza un buen trabajo codificando y transmitiendo solo las regiones de las pantallas que se han actualizado, pero de vez en cuando, es necesario actualizar toda la pantalla. Cuando el usuario tiene una pantalla de resolución superior (por ejemplo, una resolución de 4K), esa actualización requiere más ancho de banda de red que una pantalla con una resolución inferior (por ejemplo, 1024 x 768 px). Esta misma lógica se aplica si usa más de una pantalla de redireccionamiento. El ancho de banda necesita incrementarse con el número de pantallas.
-- **Redireccionamiento del portapapeles y los dispositivos**: este no es un problema muy evidente, pero en muchos casos si un usuario almacena un grupo de datos grande en el portapapeles, es necesario un poco de tiempo para transferir esa información desde el cliente de Escritorio remoto al servidor. La experiencia de bajada puede verse afectada por la experiencia de subir el contenido del portapapeles. Lo mismo se aplica para el redireccionamiento de dispositivos: si un escáner o una cámara web produce muchos datos que necesitan subirse al servidor, o una impresora necesita recibir un documento grande o el almacenamiento local necesita estar disponible para que una aplicación que se está ejecutando en la nube copie un archivo de gran tamaño, los usuarios pueden experimentar fotogramas perdidos o vídeos temporalmente "inmovilizados" porque los datos necesarios para el redireccionamiento de dispositivos está aumentando las necesidades del ancho de banda de red.
+- **Available network bandwidth and current network conditions** - A set of parameters (loss, latency, jitter) on the same network at a given time can impact the application streaming experience, meaning a lowered overall user experience. The bandwidth available in your network is a function of congestion, random loss, latency because all these parameters affect the congestion control mechanism, which in turn controls the transmission speed to avoid collisions.  For example, a lossy network or network with high latency will make the user experience bad even on a network with 1000 MB bandwidth. The loss and latency vary based on the number of users that are on the same network and what those users are doing (for example, watching videos, downloading or uploading large files, printing).
+- **Usage scenario** - The experience depends on what the users are doing as individuals and as a group on the same network. For example, reading one slide requires only a single frame to be updated; if the user skims and scrolls over the content of a text document, they need a higher number of frames to be updated per second. The communication back and forth to the server in this scenario will eventually consume more network bandwidth. Also consider an extreme example: multiple users are watching high-definition videos (like 4K resolution), holding HD conference calls, playing 3D video games, or working on CAD systems. All of these can make even a really high bandwidth network practically unusable.
+- **Screen resolution and the number of screens** - More network bandwidth is required to full update bigger screens than smaller screens. The underlying technology does a pretty good job of encoding and transmitting only the regions of the screens that have been updated, but once in a while, the whole screen needs to be updated. When the user has a higher resolution screen (for example 4K resolution), that update requires more network bandwidth than a screen with lower resolution (like 1024x768px). This same logic applies if you use more than one screen for redirection. Bandwidth needs to increase with the number of screens.
+- **Clipboard and device redirection** - This is a not very obvious issue, but in many cases if a user stores a large chunk of data to the clipboard, it takes a bit of time for that information to transfer from the Remote Desktop client to the server. The downstream experience can be impacted by the experience of sending the clipboard content upstream. The same applies for device redirection - if a scanner or web cam produces a lot of data that needs to be sent upstream to the server, or a printer needs to receive a large document, or local storage needs to be available to an app running in the cloud to copy a large file, users might notice dropped frames or temporarily "frozen" video because the data needed for the device redirection is increasing the network bandwidth needs. 
 
-Al evaluar sus necesidades de ancho de banda de red, asegúrese de tener en cuenta el funcionamiento de todos estos factores en un sistema.
+When you evaluate your network bandwidth needs, make sure to consider all of these factors working as a system.
 
-Ahora, vuelva al [artículo de ancho de banda de red principal](remoteapp-bandwidth.md), o continúe para probar su [ancho de banda de red](remoteapp-bandwidthtests.md).
+Now, go back to the [main network bandwidth article](remoteapp-bandwidth.md), or move on to testing your [network bandwidth](remoteapp-bandwidthtests.md).
 
-## Más información
-- [Calcular el uso del ancho de banda de red de Azure RemoteApp](remoteapp-bandwidth.md)
+## <a name="learn-more"></a>Learn more
+- [Estimate Azure RemoteApp network bandwidth usage](remoteapp-bandwidth.md)
 
-- [Azure RemoteApp - testing your network bandwidth usage with some common scenarios (Azure RemoteApp: probar su uso de ancho de banda de red con algunos escenarios comunes)](remoteapp-bandwidthtests.md)
+- [Azure RemoteApp - testing your network bandwidth usage with some common scenarios](remoteapp-bandwidthtests.md)
 
-- [Ancho de banda de red de Azure RemoteApp: directrices generales (si no puede probarlo usted mismo)](remoteapp-bandwidthguidelines.md)
+- [Azure RemoteApp network bandwidth - general guidelines (if you can't test your own)](remoteapp-bandwidthguidelines.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

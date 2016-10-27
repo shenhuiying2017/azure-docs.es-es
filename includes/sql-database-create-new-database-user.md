@@ -1,24 +1,30 @@
 
 
-## Creación de un nuevo usuario de base de datos con SSMS
+## <a name="create-new-database-user-using-ssms"></a>Create new database user using SSMS
 
-Utilice los pasos siguientes para crear un nuevo usuario en una base de datos existente con SSMS.
+Use the following steps to create a new database user in an existing database using SSMS. 
 
-Estos pasos se basan en el supuesto de que está conectado a Base de datos SQL en el Explorador de objetos mediante SSMS y que está conectado al servidor lógico de Base de datos SQL como un administrador de entidad de seguridad de nivel de servidor o con una cuenta de usuario con permisos para crear un nuevo usuario.
+These steps assume that you are connected to SQL Database in Object Explorer using SSMS and are connected to your SQL Database logical server as a server-level principal administrator or with a user account with permissions to create a new user. 
 
-1. En el Explorador de objetos, expanda el nodo Bases de datos y seleccione la base de datos en el que quiere crear una nueva cuenta de usuario.
+1. In Object Explorer, expand the Databases node and select the database in which you wish to create a new user account.
 
-     ![SQL Server Management Studio: conexión a un servidor de Base de datos SQL](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-1.png)
+     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-1.png)
 
-2. Haga clic con el botón derecho en la base de datos seleccionada y luego haga clic en **Consulta**.
+2. Right-click the selected database and then click **Query**.
 
-     ![SQL Server Management Studio: conexión a un servidor de Base de datos SQL](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-2.png)
+     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-2.png)
 
-3. En la ventana de consulta, edite y utilice la siguiente instrucción Transact-SQL para crear un usuario contenido en la base de datos de usuario.
+3. In the query window, edit and use the following Transact-SQL statement to create a contained user in your user database. 
 
     ```CREATE USER user1 WITH PASSWORD ='p@ssw0rd1';
     ```
 
-     ![SQL Server Management Studio: conexión a un servidor de Base de datos SQL](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
+     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

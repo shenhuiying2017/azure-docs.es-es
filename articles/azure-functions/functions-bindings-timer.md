@@ -1,34 +1,35 @@
 <properties
-	pageTitle="Desencadenador de temporizador de funciones de Azure | Microsoft Azure"
-	description="Descubra cómo utilizar desencadenadores de temporizador en funciones de Azure."
-	services="functions"
-	documentationCenter="na"
-	authors="christopheranderson"
-	manager="erikre"
-	editor=""
-	tags=""
-	keywords="funciones de azure, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor"/>
+    pageTitle="Azure Functions timer trigger | Microsoft Azure"
+    description="Understand how to use timer triggers in Azure Functions."
+    services="functions"
+    documentationCenter="na"
+    authors="christopheranderson"
+    manager="erikre"
+    editor=""
+    tags=""
+    keywords="azure functions, functions, event processing, dynamic compute, serverless architecture"/>
 
 <tags
-	ms.service="functions"
-	ms.devlang="multiple"
-	ms.topic="reference"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/22/2016"
-	ms.author="chrande; glenga"/>
+    ms.service="functions"
+    ms.devlang="multiple"
+    ms.topic="reference"
+    ms.tgt_pltfrm="multiple"
+    ms.workload="na"
+    ms.date="08/22/2016"
+    ms.author="chrande; glenga"/>
 
-# Desencadenador de temporizador de funciones de Azure
+
+# <a name="azure-functions-timer-trigger"></a>Azure Functions timer trigger
 
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Este artículo explica cómo configurar desencadenadores de temporizador en funciones de Azure. El temporizador desencadena las funciones de llamada según una programación, una hora o de forma periódica.
+This article explains how to configure timer triggers in Azure Functions. Timer triggers call functions based on a schedule, one time or recurring.  
 
-[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
-## function.json con desencadenador de temporizador
+## <a name="function.json-for-timer-trigger"></a>function.json for timer trigger
 
-El archivo *function.json* proporciona una expresión de programación. Por ejemplo, la siguiente programación ejecuta la función cada minuto:
+The *function.json* file provides a schedule expression. For example, the following schedule runs the function every minute:
 
 ```json
 {
@@ -44,55 +45,55 @@ El archivo *function.json* proporciona una expresión de programación. Por ejem
 }
 ```
 
-El desencadenador de temporizador controla el escalado horizontal de varias instancias de forma automática: solo se ejecutará una única instancia de una función de temporizador determinada en todas las instancias.
+The timer trigger handles multi-instance scale-out automatically: only a single instance of a particular timer function will be running across all instances.
 
-## Formato de expresión de programación
+## <a name="format-of-schedule-expression"></a>Format of schedule expression
 
-La expresión de programación es una [expresión CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) que incorpora 6 campos: `{second} {minute} {hour} {day} {month} {day of the week}`.
+The schedule expression is a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that includes 6 fields:  `{second} {minute} {hour} {day} {month} {day of the week}`. 
 
-Tenga en cuenta que muchas de las expresiones CRON que puede encontrar en Internet omiten el campo {second}, por lo que si copia uno de ellos tendrá que ajustar el campo adicional.
+Note that many of the cron expressions you find online omit the {second} field, so if you copy from one of those you'll have to adjust for the extra field. 
 
-Estos son algunos otros ejemplos de expresiones de programación.
+Here are some other schedule expression examples:
 
-Para desencadenar una vez cada cinco minutos:
+To trigger once every 5 minutes:
 
 ```json
 "schedule": "0 */5 * * * *"
 ```
 
-Para desencadenar una vez al principio de cada hora:
+To trigger once at the top of every hour:
 
 ```json
 "schedule": "0 0 * * * *",
 ```
 
-Para desencadenar una vez cada dos horas:
+To trigger once every two hours:
 
 ```json
 "schedule": "0 0 */2 * * *",
 ```
 
-Para desencadenar una vez cada hora de las 9:00 a las 17:00:
+To trigger once every hour from 9 AM to 5 PM:
 
 ```json
 "schedule": "0 0 9-17 * * *",
 ```
 
-Para desencadenar a las 9:30 cada día:
+To trigger At 9:30 AM every day:
 
 ```json
 "schedule": "0 30 9 * * *",
 ```
 
-Para desencadenar a 9:30 cada día comprendido entre lunes y viernes:
+To trigger At 9:30 AM every weekday:
 
 ```json
 "schedule": "0 30 9 * * 1-5",
 ```
 
-## Ejemplo de código de C# de desencadenador de temporizador
+## <a name="timer-trigger-c#-code-example"></a>Timer trigger C# code example
 
-Este ejemplo de código de C# escribe un único registro cada vez que se desencadena la función.
+This C# code example writes a single log each time the function is triggered.
 
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
@@ -101,8 +102,12 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 }
 ```
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next steps
 
-[AZURE.INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
+[AZURE.INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)] 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

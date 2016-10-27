@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Integración de Azure Active Directory con Overdrive Books | Microsoft Azure" 
-    description="Aprenda cómo usar Overdrive Books con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    pageTitle="Tutorial: Azure Active Directory integration with Overdrive Books | Microsoft Azure" 
+    description="Learn how to use Overdrive Books with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,106 +11,112 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/08/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Tutorial: Integración de Azure Active Directory con Overdrive Books
+
+#<a name="tutorial:-azure-active-directory-integration-with-overdrive-books"></a>Tutorial: Azure Active Directory integration with Overdrive Books
   
-El objetivo de este tutorial es mostrar la integración de Azure y OverDrive. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+The objective of this tutorial is to show the integration of Azure and OverDrive.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Una suscripción de Azure válida
--   Una suscripción habilitada para el inicio de sesión único en OverDrive
+-   A valid Azure subscription
+-   An OverDrive single sign-on enabled subscription
   
-Después de completar este tutorial, los usuarios de Azure AD que ha asignado a OverDrive podrán realizar un inicio de sesión único en la aplicación en el sitio de OverDrive de la compañía (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to OverDrive will be able to single sign into the application at your OverDrive company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-La situación descrita en este tutorial consta de los siguientes bloques de creación:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Habilitación de la integración de aplicaciones para OverDrive
-2.  Configuración del inicio de sesión único
-3.  Configuración del aprovisionamiento de usuario
-4.  Asignación de usuarios
+1.  Enabling the application integration for OverDrive
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Escenario](./media/active-directory-saas-overdrive-books-tutorial/IC784462.png "Escenario")
-##Habilitación de la integración de aplicaciones para OverDrive
+![Scenario](./media/active-directory-saas-overdrive-books-tutorial/IC784462.png "Scenario")
+##<a name="enabling-the-application-integration-for-overdrive"></a>Enabling the application integration for OverDrive
   
-El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para OverDrive.
+The objective of this section is to outline how to enable the application integration for OverDrive.
 
-###Siga estos pasos para habilitar la integración de aplicaciones para OverDrive:
+###<a name="to-enable-the-application-integration-for-overdrive,-perform-the-following-steps:"></a>To enable the application integration for OverDrive, perform the following steps:
 
-1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-overdrive-books-tutorial/IC700993.png "Active Directory")
 
-2.  En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Aplicaciones](./media/active-directory-saas-overdrive-books-tutorial/IC700994.png "Aplicaciones")
+    ![Applications](./media/active-directory-saas-overdrive-books-tutorial/IC700994.png "Applications")
 
-4.  Haga clic en **Agregar** en la parte inferior de la página.
+4.  Click **Add** at the bottom of the page.
 
-    ![Agregar aplicación](./media/active-directory-saas-overdrive-books-tutorial/IC749321.png "Agregar aplicación")
+    ![Add application](./media/active-directory-saas-overdrive-books-tutorial/IC749321.png "Add application")
 
-5.  En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Agregar una aplicación de la galería](./media/active-directory-saas-overdrive-books-tutorial/IC749322.png "Agregar una aplicación de la galería")
+    ![Add an application from gallerry](./media/active-directory-saas-overdrive-books-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  En el **cuadro de búsqueda**, escriba **OverDrive**.
+6.  In the **search box**, type **OverDrive**.
 
-    ![Galería de aplicaciones](./media/active-directory-saas-overdrive-books-tutorial/IC784463.png "Galería de aplicaciones")
+    ![Application Gallery](./media/active-directory-saas-overdrive-books-tutorial/IC784463.png "Application Gallery")
 
-7.  En el panel de resultados, seleccione **OverDrive** y luego haga clic en **Completar** para agregar la aplicación.
+7.  In the results pane, select **OverDrive**, and then click **Complete** to add the application.
 
     ![OverDrive](./media/active-directory-saas-overdrive-books-tutorial/IC799950.png "OverDrive")
-##Configuración del inicio de sesión único
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en OverDrive con su cuenta de Azure AD mediante federación basada en el protocolo SAML.
+The objective of this section is to outline how to enable users to authenticate to OverDrive with their account in Azure AD using federation based on the SAML protocol.
 
-###Siga estos pasos para configurar el inicio de sesión único:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **OverDrive**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  In the Azure classic portal, on the **OverDrive** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Habilitar el inicio de sesión único](./media/active-directory-saas-overdrive-books-tutorial/IC784465.png "Habilitar inicio de sesión único")
+    ![Enable single sign-on](./media/active-directory-saas-overdrive-books-tutorial/IC784465.png "Enable single sign-on")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en OverDrive?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
+2.  On the **How would you like users to sign on to OverDrive** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-overdrive-books-tutorial/IC784466.png "Configurar inicio de sesión único")
+    ![Configure single sign-on](./media/active-directory-saas-overdrive-books-tutorial/IC784466.png "Configure single sign-on")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **URL de inicio de sesión de OverDrive**, escriba su dirección URL con el siguiente patrón "*http://mslibrarytest.libraryreserve.com*" y luego haga clic en **Siguiente**.
+3.  On the **Configure App URL** page, in the **OverDrive Sign In URL** textbox, type your URL using the following pattern "*http://mslibrarytest.libraryreserve.com*", and then click **Next**.
 
-    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-overdrive-books-tutorial/IC784467.png "Configurar dirección URL de la aplicación")
+    ![Configure App URL](./media/active-directory-saas-overdrive-books-tutorial/IC784467.png "Configure App URL")
 
-4.  En la página **Configurar inicio de sesión único en OverDrive**, para descargar el archivo de metadatos, y luego envíelo al equipo de soporte de OverDrive.
+4.  On the **Configure single sign-on at OverDrive** page, to download the metadata file, and then send it to the OverDrive support team.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-overdrive-books-tutorial/IC784468.png "Configurar inicio de sesión único")
+    ![Configure single sign-on](./media/active-directory-saas-overdrive-books-tutorial/IC784468.png "Configure single sign-on")
 
-    >[AZURE.NOTE]El equipo de soporte técnico de OverDrive configura para usted el inicio de sesión único y le envía una notificación cuando se ha completado la configuración.
+    >[AZURE.NOTE]The OverDrive support team configures single sign-on for you and sends you a notification when the configuration has been completed.
 
-5.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+5.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-overdrive-books-tutorial/IC784469.png "Configurar inicio de sesión único")
-##Configuración del aprovisionamiento de usuario
+    ![Configure single sign-on](./media/active-directory-saas-overdrive-books-tutorial/IC784469.png "Configure single sign-on")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-No hay elemento de acción para que configure el aprovisionamiento de usuarios en OverDrive. Cuando un usuario asignado intenta iniciar sesión en OverDrive, se crea automáticamente una cuenta de OverDrive si es necesario.
+There is no action item for you to configure user provisioning to OverDrive.  
+When an assigned user tries to log into OverDrive, an OverDrive account is automatically created if necessary.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de OverDrive que proporcione OverDrive para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE]You can use any other OverDrive user account creation tools or APIs provided by OverDrive to provision AAD user accounts.
 
-##Asignación de usuarios
+##<a name="assigning-users"></a>Assigning users
   
-Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Para asignar usuarios a OverDrive, lleve a cabo los siguientes pasos:
+###<a name="to-assign-users-to-overdrive,-perform-the-following-steps:"></a>To assign users to OverDrive, perform the following steps:
 
-1.  En el Portal de Azure clásico, cree una cuenta de prueba.
+1.  In the Azure classic portal, create a test account.
 
-2.  En la página de integración de aplicaciones **OverDrive**, haga clic en **Asignar usuarios**.
+2.  On the **OverDrive **application integration page, click **Assign users**.
 
-    ![Asignar usuarios](./media/active-directory-saas-overdrive-books-tutorial/IC784470.png "Asignar usuarios")
+    ![Assign Users](./media/active-directory-saas-overdrive-books-tutorial/IC784470.png "Assign Users")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sí](./media/active-directory-saas-overdrive-books-tutorial/IC767830.png "Sí")
+    ![Yes](./media/active-directory-saas-overdrive-books-tutorial/IC767830.png "Yes")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

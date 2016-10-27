@@ -1,44 +1,49 @@
 <properties 
-	pageTitle="Integración del SDK de Android para Azure Mobile Engagement" 
-	description="Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+    pageTitle="Azure Mobile Engagement Android SDK Integration" 
+    description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="piyushjo" 
+    manager="dwrede" 
+    editor="" />
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/19/2016" 
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-android" 
+    ms.devlang="Java" 
+    ms.topic="article" 
+    ms.date="08/19/2016" 
+    ms.author="piyushjo" />
 
-#Contenido del SDK
 
-En este documento se indica y describe el contenido del archivo SDK.
+#<a name="sdk-content"></a>SDK Content
+
+This document lists and describes the content of the SDK archive.
 
 `mobile-engagement-VERSION.jar`
 
-> Archivos de clase del SDK de Engagement.
+> Engagement SDK class files.
 
-Carpeta `res`
+`res` folder
 
-> Recursos del SDK de Reach para Engagement (archivos dibujables y de diseño para incluir en las aplicaciones).
+> Engagement Reach SDK resources (drawable and layout files to include in your applications).
 
-Carpeta `src`
+`src` folder
 
-> Código fuente del SDK de Engagement.
+> Engagement SDK source code.
 >
-> Tenga en cuenta que no se incluyen los archivos de código fuente del servicio (`com.microsoft.azure.engagement.service.EngagementService` y sus archivos de código fuente relacionados).
+> Note that the sources of the service are not included (`com.microsoft.azure.engagement.service.EngagementService` and its related source files).
 
 `documentation.html`
 
-> Un acceso directo al sitio de documentación que corresponde a la versión descargada del SDK.
+> A shortcut to the documentation site corresponding to the downloaded version of the SDK.
 
-Los otros archivos corresponden a una copia de las licencias de software.
+Other files are a copy of the software licenses.
  
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

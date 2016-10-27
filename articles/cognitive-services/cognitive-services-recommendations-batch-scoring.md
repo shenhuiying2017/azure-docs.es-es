@@ -1,56 +1,59 @@
 
 <properties
-	pageTitle="Obtención de recomendaciones por lotes: Recommendations API de Aprendizaje automático | Microsoft Azure"
-	description="Recomendaciones de Aprendizaje automático de Azure - Obtención de recomendaciones por lotes"
-	services="cognitive-services"
-	documentationCenter=""
-	authors="luiscabrer"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Getting recommendations in batches: Machine learning recommendations API | Microsoft Azure"
+    description="Azure machine learning recommendations--getting recommendations in batches"
+    services="cognitive-services"
+    documentationCenter=""
+    authors="luiscabrer"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="cognitive-services"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="luisca"/>
+    ms.service="cognitive-services"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/17/2016"
+    ms.author="luisca"/>
 
-# Obtención de recomendaciones por lotes
 
->[AZURE.NOTE] Obtener recomendaciones por lotes resulta más complicado que obtenerlas una a una. Consulte las API para obtener información acerca de cómo obtener recomendaciones para una única solicitud:
+# <a name="get-recommendations-in-batches"></a>Get recommendations in batches
 
-> [Item-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d4) (Recomendaciones de Item-to-Item)<br> [User-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd) (Recomendaciones de User-to-Item)
+>[AZURE.NOTE] Getting recommendations in batches is more complicated than getting recommendations one at a time. Check the APIs for information about how to get recommendations for a single request:
+
+> [Item-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d4)<br>
+> [User-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd)
 >
-> La puntuación por lotes solo funciona en las compilaciones creadas a partir del 21 de julio de 2016.
+> Batch scoring only works for builds that were created after July 21, 2016.
 
 
-Hay situaciones en las que es necesario obtener recomendaciones para varios elementos a la vez. Es posible, por ejemplo, que quiera crear una memoria caché de recomendaciones o incluso analizar los tipos de recomendaciones que recibe.
+There are situations in which you need to get recommendations for more than one item at a time. For instance, you might be interested in creating a recommendations cache or even analyzing the types of recommendations that you are getting.
 
-Las operaciones de puntuación por lotes, tal y como las llamamos, son operaciones asincrónicas. Tiene que enviar la solicitud, esperar a que la operación se termine y recopilar después los resultados.
+Batch scoring operations, as we call them, are asynchronous operations. You need to submit the request, wait for the operation to finish, and then gather your results.  
 
-En concreto, estos son los pasos que debe seguir:
+To be more precise, these are the steps to follow:
 
-1.	Cree un contenedor de Almacenamiento de Azure, si aún no se ha creado.
-2.	Cargue en Almacenamiento de blobs de Azure un archivo de entrada que describe cada solicitud de recomendación.
-3.	Inicio del trabajo de puntuación por lotes.
-4.	Espere hasta que se termine la operación asincrónica.
-5.	Cuando haya terminado la operación, recopile los resultados del Almacenamiento de blobs.
+1.  Create an Azure Storage container if you don’t have one already.
+2.  Upload an input file that describes each of your recommendation requests to Azure Blob storage.
+3.  Kick-start the scoring batch job.
+4.  Wait for the asynchronous operation to finish.
+5.  When the operation has finished, gather the results from Blob storage.
 
-Vamos a ver en detalle cada uno de estos pasos.
+Let’s walk through each of these steps.
 
-## Creación de un contenedor de Almacenamiento, si aún no se ha creado
+## <a name="create-a-storage-container-if-you-don’t-have-one-already"></a>Create a Storage container if you don’t have one already
 
-Vaya al [Portal de Azure](https://portal.azure.com) y cree una nueva cuenta de almacenamiento si aún no tiene una. Para ello, vaya a **Nuevo** > **Datos** y **almacenamiento** > **Cuenta de almacenamiento**.
+Go to the [Azure portal](https://portal.azure.com) and create a new storage account if you don’t have one already. To do this, navigate to **New** > **Data** + **Storage** > **Storage Account**.
 
-Una vez que tenga la cuenta de almacenamiento, deberá crear los contenedores de blobs en los que almacenará la entrada y salida de la ejecución por lotes.
+After you have a storage account, you need to create the blob containers where you will store the input and output of the batch execution.
 
-En un Almacenamiento de blobs, cargue un archivo de entrada en el que se describan todas las solicitudes de recomendaciones (en esta demostración, el archivo se llamará input.json). Una vez que tenga el contenedor, deberá cargar un archivo en el que se describan todas las solicitudes que necesita ejecutar en el Servicio de recomendaciones.
+Upload an input file that describes each of your recommendation requests to Blob storage--let's call the file input.json here.
+After you have a container, you need to upload a file that describes each of the requests that you need to perform from the recommendations service.
 
-Un lote solamente puede realizar un tipo de solicitud en una compilación específica. En la siguiente sección, explicaremos cómo se define esta información. Por ahora, asumiremos que las recomendaciones de los elementos se van a realizar sin usar una compilación específica. El archivo de entrada contiene la información de entrada (en este caso, los elementos de inicialización) de cada una de las solicitudes.
+A batch can perform only one type of request from a specific build. We will explain how to define this information in the next section. For now, let’s assume that we will be performing item recommendations out of a specific build. The input file then contains the input information (in this case, the seed items) for each of the requests.
 
-En este ejemplo se muestra el aspecto que tendría el archivo input.json:
+This is an example of what the input.json file looks like:
 
     {
       "requests": [
@@ -65,15 +68,15 @@ En este ejemplo se muestra el aspecto que tendría el archivo input.json:
       ]
     }
 
-Como puede ver, se trata de un archivo JSON en el que cada una de las solicitudes tiene la información necesaria para enviar una solicitud de recomendación. Cree un archivo JSON similar para las solicitudes que necesite realizar y cópielo en el contenedor que acaba de crear en Almacenamiento de blobs.
+As you can see, the file is a JSON file, where each of the requests has the information that's necessary to send a recommendations request. Create a similar JSON file for the requests that you need to fulfill, and copy it to the container that you just created in Blob storage.
 
-## Inicio del trabajo de puntuación por lotes
+## <a name="kick-start-the-batch-job"></a>Kick-start the batch job
 
-El siguiente paso consiste en enviar un nuevo trabajo por lotes. Para más información, consulte la [Referencia de API](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/).
+The next step is to submit a new batch job. For more information, check the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/).
 
-En el cuerpo de la solicitud de la API, deben estar definidas las ubicaciones en las se van a guardar los archivos de entrada, salida y error. También debe definir las credenciales necesarias para acceder a dichas ubicaciones. Además, debe especificar algunos parámetros que se aplican a todo el lote, como el tipo de recomendación que se va a solicitar, el modelo o compilación que se va a utilizar, el número de resultados por llamada, etc.
+The request body of the API needs to define the locations where the input, output, and error files need to be stored. It also needs to define the credentials that are necessary to access those locations. In addition, you need to specify some parameters that apply to the whole batch (the type of recommendations to request, the model/build to use, the number of results per call, and so on.)
 
-En este ejemplo se muestra cómo quedaría el cuerpo de la solicitud:
+This is an example of what the request body should look like:
 
     {
       "input": {
@@ -104,23 +107,24 @@ En este ejemplo se muestra cómo quedaría el cuerpo de la solicitud:
       }
     }
 
-Hay varios aspectos importantes que se deben tener en cuenta:
+Here a few important things to note:
 
--	En la actualidad, **AuthenticationType** siempre debe estar establecido en **PublicOrSas**.
+-   Currently, **authenticationType** should always be set to **PublicOrSas**.
 
--	Necesita un token de Firma de acceso compartido (SAS) para que Recommendations API pueda leer la cuenta de Almacenamiento de blobs y escribir en ella. Para más información acerca de cómo generar tokens de SAS consulte [la página de Recommendations API](../storage/storage-dotnet-shared-access-signature-part-1.md).
+-   You need to get a Shared Access Signature (SAS) token to allow the Recommendations API to read and write from/to your Blob storage account. More information about how to generate SAS tokens can be found on [the Recommendations API page](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
--	El único valor de **apiName** que se admite en la actualidad es **ItemRecommend**, que es el que se utiliza en las recomendaciones de Item-to-Item. El procesamiento por lotes no admite actualmente las recomendaciones User-to-Item.
+-   The only **apiName** that's currently supported is **ItemRecommend**, which is used for Item-to-Item  recommendations. Batching doesn't currently support User-to-Item recommendations.
 
-## Espere hasta que se termine la operación asincrónica.
+## <a name="wait-for-the-asynchronous-operation-to-finish"></a>Wait for the asynchronous operation to finish
 
-Cuando inicie la operación por lotes, esta operación devolverá el encabezado de Operation-Location que le proporcionará la información que necesita para hacer el seguimiento de la operación. Utilice la [Retrieve Operation Status API](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3da), tal y como haría para hacer el seguimiento de una operación de compilación.
+When you start the batch operation, the response returns the Operation-Location header that gives you the information that's necessary to track the operation.
+You track the operation by using the [Retrieve Operation Status API]( https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3da), just like you do for tracking the operation of a build operation.
 
-## Obtención de los resultados
+## <a name="get-the-results"></a>Get the results
 
-Una vez que se ha terminado la operación (y suponiendo que no se han producido errores), puede recopilar los resultados del Almacenamiento de blobs de salida.
+After the operation has finished, assuming that there were no errors, you can gather the results from your output Blob storage.
 
-El ejemplo siguiente muestra el aspecto que podría tener la salida. Para abreviar, en este ejemplo se han incluido los resultados de un lote con solo dos solicitudes.
+The example below show what the output might look like. In this example, we show results for a batch with only two requests (for brevity).
 
     {
       "results":
@@ -193,9 +197,13 @@ El ejemplo siguiente muestra el aspecto que podría tener la salida. Para abrevi
     ]}
 
 
-## Obtenga información acerca de las limitaciones
+## <a name="learn-about-the-limitations"></a>Learn about the limitations
 
--	Solo se puede llamar a un único trabajo por lotes por cada suscripción.
--	El tamaño de los archivos de entrada del trabajo por lotes no puede ser superior a 2 MB.
+-   Only one batch job can be called per subscription at a time.
+-   A batch job input file cannot be more than 2 MB.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

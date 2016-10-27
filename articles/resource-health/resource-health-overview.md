@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Información general sobre Estado de los recursos de Azure | Microsoft Azure"
-   description="Estado de los recursos de Azure. Información general"
+   pageTitle="Azure Resource health overview | Microsoft Azure"
+   description="Overview of Azure Resource health"
    services="Resource health"
    documentationCenter="dev-center-name"
    authors="BernardoAMunoz"
@@ -16,95 +16,100 @@
    ms.date="06/01/2016"
    ms.author="BernardoAMunoz"/>
 
-# Información general sobre Estado de los recursos de Azure
 
-Estado de los recursos de Azure es un servicio que expone el estado de los recursos individuales de Azure y proporciona instrucciones para solucionar problemas. En un entorno de nube en el que no es posible tener acceso directo a los servidores o a los elementos de la infraestructura, el objetivo de Estado de los recursos es reducir el tiempo que los clientes gastan en solucionar problemas, especialmente reducir el tiempo que dedican a determinar si la raíz del problema reside dentro de la aplicación o si la causa se encuentra en un evento dentro de la plataforma de Azure.
+# <a name="azure-resource-health-overview"></a>Azure Resource health overview
 
-## ¿Qué se considera que es un recurso y cómo Estado de los recursos decide si el estado de un recurso es correcto? 
-Un recurso es una instancia creada por un usuario de un tipo de recurso proporcionado por un servicio, por ejemplo: una máquina virtual, una aplicación web o una base de datos SQL.
+Azure Resource health is a service that exposes the health of individual Azure resources and provides actionable guidance to troubleshoot problems. In a cloud environment where it isn’t possible to directly access servers or infrastructure elements, the goal for Resource health is to reduce the time customers spend on troubleshooting, in particular reducing the time spent determining if the root of the problem lays inside the application or if it is caused by an event inside the Azure platform.
 
-Estado de los recursos se basa en las señales emitidas por el recurso y/o en el servicio para determinar si el estado de un recurso es correcto o no. Es importante tener en cuenta que en la actualidad Estado de los recursos solo lleva el mantenimiento de un tipo específico de recursos y no tiene en cuenta otros elementos que pueden contribuir al estado general. Por ejemplo, cuando realiza un informe sobre el estado de una máquina virtual, solo se considera la parte de proceso de la infraestructura, es decir, los problemas en la red no se mostrarán en Estado de los recursos, a menos que haya una interrupción del servicio declarada, en cuyo caso aparecerá en un mensaje emergente en la parte superior de la hoja. Más adelante en este artículo se ofrece más información sobre interrupciones del servicio.
+## <a name="what-is-considered-a-resource-and-how-does-resource-health-decides-if-the-resource-is-healthy-or-not?"></a>What is considered a Resource and how does resource health decides if the resource is healthy or not? 
+A resource is a user created instance of a resource type provided by a service, for example: a virtual machine, a Web app or a SQL database. 
 
-## ¿Cuál es la diferencia entre Estado de los recursos y el panel de estado del servicio?
+Resource health relies on signals emitted by the resource and/or the service to determine if a resource is healthy or not. It is important to notice that currently Resource health only accounts for the health of one specific resource type and does not consider other elements that may contribute to the overall health. For example, when reporting the status of a virtual machine, only the compute portion of the infrastructure is considered, i.e. issues in the network will not be shown in Resource health, unless there is a declared service outage, in which case, it will be surfaced through the banner at the top of the blade. More information about service outage is offered later in this article. 
 
-La información proporcionada por el servicio Estado de los recursos es más granular que la que se proporciona en el panel de estado del servicio. Mientras que el panel de estado comunica los eventos que afectan a la disponibilidad de un servicio en una región, Estado de los recursos expone información relevante de un recurso específico, por ejemplo, mostrará los eventos que afectan a la disponibilidad de una máquina virtual, una aplicación web o una base de datos SQL. Por ejemplo, si un nodo se reinicia de forma inesperada, los clientes cuyas máquinas virtuales se estaban ejecutando en ese nodo pueden conocer el motivo por el que su máquina virtual no estuvo disponible durante un período específico.
+## <a name="how-is-resource-health-different-from-service-health-dashboard?"></a>How is Resource health different from Service Health Dashboard?
 
-## Acceso a Estado de los recursos
-Para los servicios disponibles a través de Estado de los recursos, existen 2 formas de acceder.
+The information provided by Resource health is more granular than what is provided by the Service Health Dashboard. While SHD communicates events that impact the availability of a service in a region, Resource health exposes information relevant to a specific resource, e.g. it will expose events that impact the availability of a virtual machine, a web app, or a SQL database. For example, if a node unexpectedly reboots, customers whose virtual machines were running on that node will be able to obtain the reason why their VM was unavailable for a period of time.   
 
-### Portal de Azure
-La hoja Estado de los recursos en el Portal de Azure proporciona información detallada sobre el estado del recurso, así como las acciones recomendadas que varían dependiendo del estado actual del recurso. Esta hoja proporciona la mejor experiencia a la hora de consultar Estado de los recursos, ya que facilita el acceso a otros recursos dentro del portal. Como se mencionó antes, el conjunto de acciones recomendadas en la hoja Estado de los recursos varían según el estado en ese momento:
+## <a name="how-to-access-resource-health"></a>How to access Resource health
+For the services available through Resource health, there are 2 ways to access Resource health.
 
-* Recursos correctos: puesto que no se ha detectado ningún problema que podría afectar al estado del recurso, las acciones se centran en ayudar al proceso de solución de problemas. Por ejemplo, proporciona acceso directo a la hoja de solución de problemas, que se ofrece orientación sobre cómo resolver los problemas más comunes con los que se puede encontrar el cliente.
-* Recurso incorrecto: en el caso de los problemas causados por Azure, la hoja mostrará las acciones que Microsoft está realizando (o ya ha realizado) para recuperar el recurso. Para los problemas causados por acciones iniciadas por el usuario, la hoja presentará una lista de acciones que los clientes pueden realizar para solucionar el problema y recuperar el recurso.
+### <a name="azure-portal"></a>Azure Portal
+The Resource health blade in the Azure Portal, provides detailed information about the health of the resource as well as recommended actions that vary depending on the current health of the resource. This blade provides the best experience when querying Resource health, as it facilitates access to other resources inside the portal. As mentioned before, the set of recommended actions in the Resource health blade will vary based on the current health:
 
-Una vez que haya iniciado sesión en el Portal de Azure, hay dos maneras de obtener acceso a la hoja de Estado de los recursos:
+* Healthy resources: Since no issue that could impact the health of the resource has been detected, the actions are focused on helping the troubleshooting process. For example, it provides direct access to the Troubleshooting blade, which offers guidance on how to solve the most common problems customers face.
+* Unhealthy resource: For problems caused by Azure, the blade will display actions Microsoft is taking (or has taken) to recover the resource. For problems caused by user initiated actions, the blade will a list of actions customers can take so address the problem and recover the resource.  
 
-###Abrir la hoja del recurso
-Abra la hoja de recursos para un recurso determinado. En la hoja Configuración que se abre junto a la hoja del recurso, haga clic en Estado de los recursos para abrir la hoja Estado de los recursos.
+Once you have logged into the Azure Portal, there are two ways to access the Resource health blade: 
 
-![Hoja de Estado de los recursos](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
+###<a name="open-the-resource-blade"></a>Open the Resource blade
+Open the Resource blade for a given resource. On the Settings blade that opens next to the Resource blade, click on Resource Health to open the Resource health blade. 
 
-### Abrir la hoja de ayuda y soporte técnico
-Abra la hoja de ayuda y soporte técnico haciendo clic en el signo de interrogación en la esquina superior derecha y seleccionando Ayuda y soporte técnico.
+![Resource health blade](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
 
-**Desde la barra de navegación superior**
+### <a name="help-and-support-blade"></a>Help and Support blade
+Open the Help and Support blade by clicking on the question mark in the upper right corner then selecting Help + Support. 
 
-![Ayuda y soporte técnico](./media/resource-health-overview/HelpAndSupport.png)
+**From the top navigation bar**
 
-Al hacer clic en el icono se abrirá la hoja de la suscripción de Estado de los recursos que mostrará una lista de todos los recursos en su suscripción. Junto a cada recurso hay un icono que indica su estado. Al hacer clic en cada recurso se abrirá la hoja de Estado de los recursos.
+![Help + support](./media/resource-health-overview/HelpAndSupport.png)
 
-**Icono Estado de los recursos**
+Clicking the tile opens the Resource health subscription blade which will list all of the resources in your subscription. Beside each resource, there is an icon indicating its health. Clicking on each resource will open the Resource health blade.
 
-![Icono Estado de los recursos](./media/resource-health-overview/resourceHealthTile.png)
+**Resource health tile**
 
-## ¿Qué significa el estado de mantenimiento de los recursos que veo en la pantalla?
-Hay 4 estados de mantenimiento distintos que pueden aparecer para un recurso.
+![Resource health tile](./media/resource-health-overview/resourceHealthTile.png)
 
-### Disponible
-El servicio no ha detectado ningún problema en la plataforma que podría estar afectando a la disponibilidad del recurso. Esto se indica mediante un icono de marca de verificación verde.
+## <a name="what-does-my-resource-health-status-mean?"></a>What does my Resource health status mean?
+There are 4 different health statuses that you might see for your resource.
 
-![Recurso está disponible](./media/resource-health-overview/Available.png)
+### <a name="available"></a>Available
+The service has not detected any problems in the platform that could be impacting the availability of the resource. This is indicated by a green check mark icon. 
 
-### No disponible
+![Resource is available](./media/resource-health-overview/Available.png)
 
-En este caso el servicio ha detectado un problema en curso en la plataforma que afecta a la disponibilidad de este recurso, por ejemplo, el nodo donde se ejecuta la máquina virtual se reinició de forma inesperada. Esto se indica mediante un icono de advertencia rojo. En la sección intermedia de la hoja, se proporciona información adicional sobre el problema que incluye:
+### <a name="unavailable"></a>Unavailable
 
-1.	Las acciones que está realizando Microsoft para recuperar el recurso
-2.	Una escala de tiempo detallada del problema, incluyendo el tiempo de resolución esperado
-3.	Una lista de medidas recomendadas para los usuarios
+In this case the service has detected an ongoing problem in the platform that is impacting the availability of this resource, for example, the node where the VM was running unexpectedly rebooted. This is indicated by a red warning icon. Additional information about the problem is provided in the middle section of the blade, including: 
 
-![Recurso no está disponible](./media/resource-health-overview/Unavailable.png)
+1.  What actions Microsoft is taking to recover the resource 
+2.  A detailed timeline of the problem, including the expected resolution time
+3.  A list recommended actions for users 
 
-### No disponible: iniciado por el cliente
-El recurso no está disponible debido a una solicitud de cliente, como la detención de un recurso o la petición de reinicio. Esto se indica mediante un icono azul de información.
+![Resource is unavailable](./media/resource-health-overview/Unavailable.png)
 
-![Recurso no está disponible debido a una acción iniciada por el usuario](./media/resource-health-overview/userInitiated.png)
+### <a name="unavailable-–-customer-initiated"></a>Unavailable – customer initiated
+The resource is unavailable due to a customer request such as stopping a resource or requesting a restart. This is indicated by a blue informational icon. 
 
-### Desconocido
-El servicio no ha recibido información sobre este recurso durante más de 5 minutos. Esto se indica mediante un icono de signo de interrogación gris.
+![Resource is unavailable due to user an initiated action](./media/resource-health-overview/userInitiated.png)
 
-Es importante tener en cuenta que esto no es una indicación definitiva de que hay algún problema con un recurso, por lo que los clientes deben seguir estas recomendaciones:
+### <a name="unknown"></a>Unknown
+The service has not received information about this resource for more than 5 minutes. This is indicated by a grey question mark icon. 
 
-* Si el recurso se está ejecutando según lo esperado, pero su estado aparece como Desconocido en Estado de los recursos, no hay problemas y cabe esperar que el estado del recurso se actualice a correcto después de unos minutos.
-* Si hay problemas de acceso al recurso y su estado es Desconocido en Estado de los recursos, esto podría ser una indicación temprana de hay un problema y deben realizarse investigaciones adicionales hasta que el estado se actualice a correcto o incorrecto
+It is important to note that this is not a definitive indication that there is something wrong with a resource, so customers should follow these recommendations:
 
-![Estado del recurso es desconocido](./media/resource-health-overview/unknown.png)
+* If the resource is running as expected but its health is set to Unknown in Resource health, there are no problems and you can expect the status of the resource to update to healthy after a few minutes.
+* If there are problems accessing the resource and its health is set to Unknown in Resource health, this could be an early indication there could be an issue and additional investigations should be done until the health is updated to either healthy or unhealthy
 
-## Eventos que afectan al servicio
-Si está en curso un evento que afecte al servicio que pueda tener repercusiones en el recurso, se mostrará un mensaje emergente en la parte superior de la hoja de Estado de los recursos. Al hacer clic en el mensaje se abrirá la hoja Eventos de auditoría, que mostrará más información de la interrupción.
+![Resource health is unknown](./media/resource-health-overview/unknown.png)
 
-![Estado del recursos puede verse afectado por un evento que afecta al servicio](./media/resource-health-overview/serviceImpactingEvent.png)
+## <a name="service-impacting-events"></a>Service Impacting Events
+If the resource may be impacted by an ongoing Service Impacting Event, a banner will be displayed at the top of the Resource health blade. Clicking on the banner will open the Audit Events blade, which will display additional information about the outage.
 
-## ¿Qué más necesito saber sobre Estado de los recursos?
+![Resource health may be impacted by a SIE](./media/resource-health-overview/serviceImpactingEvent.png)
 
-### Latencia de señal
-Las señales que alimentan Estado de los recursos pueden tener un retraso de hasta 15 minutos, lo que puede producir discrepancias entre el estado de mantenimiento actual del recurso y su disponibilidad real. Es importante tener esto presente para eliminar en lo posible tiempo innecesario en investigar problemas no confirmados.
+## <a name="what-else-do-i-need-to-know-about-resource-health?"></a>What else do I need to know about Resource health?
 
-### Caso especial de SQL 
-Estado de los recursos informa sobre el estado de la base de datos SQL, no de SQL Server. Aunque esta opción proporcione una idea más realista del estado, también requiere que se tengan en cuenta varios componentes y servicios para determinar el estado de la base de datos. La señal actual se basa en los inicios de sesión en la base de datos, lo que significa que en el caso de las bases de datos con inicios de sesión regulares (lo que incluye entre otras cosas, recibir solicitudes de ejecución de consulta) el estado de mantenimiento se mostrará con regularidad. Si no ha habido accesos a la base de datos durante un período de 10 minutos o más, se moverá al estado desconocido. Esto no significa que la base de datos no está disponible, simplemente que no se ha emitido ninguna señal porque no se han realizado inicios de sesión. La conexión a la base de datos y la ejecución de una consulta emitirá las señales necesarias para determinar y actualizar el estado de mantenimiento de la base de datos.
+### <a name="signal-latency"></a>Signal latency
+The signals that feed Resource health, may be up to 15 min delayed, which can cause discrepancies between the current health status of the resource and its actual availability. It is important to keep this in mind as it will help eliminate unnecessary time spent investigating possible issues. 
 
-## Comentarios
-Siempre estamos abiertos a todo tipo de comentarios y sugerencias. No dude en enviarnos sus [sugerencias](https://feedback.azure.com/forums/266794-support-feedback). Además, puede ponerse en contacto con nosotros a través de [Twitter](https://twitter.com/azuresupport) o los [foros de MSDN](https://social.msdn.microsoft.com/Forums/azure).
+### <a name="special-case-for-sql"></a>Special case for SQL 
+Resource health reports the status of the SQL database, not the SQL server. While going this route provides a more realistic health picture, it requires that multiple components and services be taken into consideration to determine the health of the database. The current signal relies on logins to the database, which means that for databases that receive regular logins (which includes among other things, receiving query execution requests) the health status will be regularly displayed. If the database has not been accessed for a period of 10 minutes or more, it will be moved to the unknown state. This does not mean that the database is unavailable, just that no signal has been emitted because no logins have been performed. Connecting to the database and running a query will emit the signals needed to determine and update the health status of the database.
 
-<!---HONumber=AcomDC_0831_2016-->
+## <a name="feedback"></a>Feedback
+We are always open to feedback and suggestions! Please send us your [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Additionally, you can engage with us via [Twitter](https://twitter.com/azuresupport) or the [MSDN forums](https://social.msdn.microsoft.com/Forums/azure).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

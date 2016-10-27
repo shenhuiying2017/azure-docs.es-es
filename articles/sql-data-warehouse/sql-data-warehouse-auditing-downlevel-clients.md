@@ -16,7 +16,8 @@
    ms.date="09/24/2016" 
    ms.author="rortloff;barbkess;sonyama"/>
 
-# Almacenamiento de datos SQL: compatibilidad con clientes de nivel inferior para enmascaramiento de datos dinámicos y auditoría
+
+# <a name="sql-data-warehouse---downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>SQL Data Warehouse: compatibilidad con clientes de nivel inferior para enmascaramiento de datos dinámicos y auditoría
 
 [Auditoría](sql-data-warehouse-auditing-overview.md) funciona con los clientes SQL que admiten el redireccionamiento de TDS.
 
@@ -35,6 +36,10 @@ Una lista parcial de "Clientes de nivel inferior" incluye:
 - JDBC (aunque JDBC admite TDS 7.4, la característica de redireccionamiento de TDS no es totalmente compatible)
 - Tedious (para Node.JS)
 
-**Comentario:** la anterior modificación de FDQN de servidor puede resultar útil también para aplicar una directiva de auditoría de nivel de SQL Server sin necesidad de un paso de configuración en cada base de datos (mitigación temporal).
+**Comentario:** la anterior modificación de FDQN de servidor puede resultar útil también para aplicar una directiva de auditoría de nivel de SQL Server sin necesidad de un paso de configuración en cada base de datos (mitigación temporal).     
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

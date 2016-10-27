@@ -17,7 +17,8 @@
   ms.date="09/27/2016" 
   ms.author="ahmetb" />
 
-# Implementación de su propio Docker Registry privado en Azure
+
+# <a name="deploying-your-own-private-docker-registry-on-azure"></a>Implementación de su propio Docker Registry privado en Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -31,31 +32,33 @@ En este documento se considera que:
 2. Dispone de un servidor que tiene instalado el motor de Docker. (¿No es así? [Hágalo rápidamente en Azure](https://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/).)
 
 
-## ¿Qué es un Docker Registry privado?
+## <a name="what-is-a-private-docker-registry?"></a>¿Qué es un Docker Registry privado?
 
-Para enviar sus aplicaciones que están en el contenedor a la nube, construya una imagen de contenedor de Docker y almacénelo en algún lugar para poder usarlo usted y otros usuarios.
+Para enviar sus aplicaciones que están en el contenedor a la nube, construya una imagen de contenedor de Docker y almacénelo en algún lugar para poder usarlo usted y otros usuarios. 
 
 Aunque es fácil crear una imagen de contenedor y enviarla a la nube, almacenar la imagen generada de forma confiable es un reto. Por ese motivo, Docker ofrece un servicio centralizado llamado [Docker Hub][docker-hub] para almacenar las imágenes en la nube de contenedor y que permite crear contenedores en cualquier momento con esas imágenes.
 
-Aunque [Docker Hub][docker-hub] es un servicio de pago para almacenar las imágenes del contenedor de aplicaciones privadas, Docker respeta las necesidades de los desarrolladores y proporciona un conjunto de herramientas de código abierto para almacenar las imágenes en su propio Docker Registry privado detrás de un firewall o de forma local, sin llegar a la red Internet pública. Dado que el almacenamiento de blobs de Azure es fácil de proteger, puede utilizarlo rápidamente para crear y usar un Docker Registry privado de Azure controlado por usted.
+Aunque [Docker Hub][docker-hub] es un servicio de pago para almacenar las imágenes del contenedor de aplicaciones privadas, Docker respeta las necesidades de los desarrolladores y proporciona un conjunto de herramientas de código abierto para almacenar las imágenes en su propio Docker Registry privado detrás de un firewall o de forma local, sin llegar a la red pública de Internet.
+Dado que el almacenamiento de blobs de Azure es fácil de proteger, puede utilizarlo rápidamente para crear y usar un Docker Registry privado de Azure controlado por usted.
 
-## ¿Por qué se debe hospedar Docker Registry en Azure?
+## <a name="why-should-you-host-a-docker-registry-on-azure?"></a>¿Por qué se debe hospedar Docker Registry en Azure?
 
 Hospedar la instancia de Docker Registry en Microsoft Azure y almacenar sus imágenes en el almacenamiento de blobs de Azure puede tener varias ventajas:
 
-**Seguridad:** las imágenes de Docker no abandonan los centros de datos de Azure, por lo que no cruzan la Internet pública como si ocurriría si se usará Docker Hub.
+**Seguridad:** las imágenes de Docker no abandonan los centros de datos de Azure, por lo que no cruzan la red pública de Internet como ocurriría si se usara Docker Hub.
   
 **Rendimiento:** las imágenes de Docker se almacenan dentro del mismo centro de datos o región que sus aplicaciones. Esto significa que las imágenes se van a extraer con mayor rapidez y confiabilidad en comparación con Docker Hub.
 
 **Confiabilidad:** mediante el uso de almacenamiento de blobs de Microsoft Azure, puede utilizar muchas propiedades de almacenamiento, como alta disponibilidad, redundancia, almacenamiento premium (SSD), etc.
 
-## Configuración de Docker Registry para utilizar el almacenamiento de blobs de Azure
+## <a name="configuring-docker-registry-to-use-azure-blob-storage"></a>Configuración de Docker Registry para utilizar el almacenamiento de blobs de Azure
 
-(Se recomienda leer la [documentación de Docker Registry 2.0 ][registry-docs] antes de continuar).
+(Se recomienda leer la [documentación de Docker Registry 2.0][registry-docs] antes de continuar).
 
-También puede [configurar][registry-config] Docker Registry de dos maneras diferentes. Puede:
+También puede [configurar][registry-config] Docker Registry de dos maneras diferentes.
+Puede:
 
-1. Use un archivo `config.yml`. En este caso necesitará crear una imagen de Docker independiente encima de la imagen de `registry`.
+1. Use un archivo `config.yml` . En este caso necesitará crear una imagen de Docker independiente encima de la imagen de `registry`.
 2. Reemplace el archivo de configuración predeterminado mediante variables de entorno: todo se hará sin crear ni mantener una imagen de Docker independiente.
 
 Por simplicidad, este tema sigue la opción 2, el uso de variables de entorno.
@@ -90,9 +93,9 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 >
 > Lea la documentación [Configuración de Docker Registry][registry-config] para aprender a proteger la instancia del registro y sus imágenes.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado el registro, es hora de usarlo más. Comience con [registry-docs] de Docker.
+Una vez configurado el registro, es hora de usarlo más. Comience con [registry-docs]de Docker. 
 
 [docker-hub]: https://hub.docker.com/
 [registry]: https://github.com/docker/distribution
@@ -100,4 +103,8 @@ Una vez configurado el registro, es hora de usarlo más. Comience con [registry-
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
