@@ -1,12 +1,12 @@
 <properties
-    pageTitle="Add a delay in logic apps | Microsoft Azure"
-    description="Overview of the delay and delay-until actions, and how to use them with an Azure logic app."
-    services=""
-    documentationCenter=""
-    authors="jeffhollan"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+	pageTitle="Adición de retraso en aplicaciones lógicas | Microsoft Azure"
+	description="Información general sobre las acciones de retraso y retraso hasta y cómo usarlas con una aplicación lógica de Azure."
+	services=""
+	documentationCenter=""
+	authors="jeffhollan"
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -17,70 +17,63 @@
    ms.date="07/18/2016"
    ms.author="jehollan"/>
 
+# Introducción a las acciones de retraso y retraso hasta
 
-# <a name="get-started-with-the-delay-and-delay-until-actions"></a>Get started with the delay and delay-until actions
+Con las acciones de retraso y retraso hasta, puede completar escenarios de flujo de trabajo como los siguientes.
 
-By using the delay and "delay-until" actions, you can complete workflow scenarios.
+Por ejemplo, puede:
 
-For example, you can:
+- Esperar hasta un día de la semana para enviar una actualización de estado por correo electrónico.
+- Retrasar el flujo de trabajo hasta que una llamada HTTP tenga tiempo para completarse antes de reanudarse y recuperar el resultado.
 
-- Wait until a weekday to send a status update over email.
-- Delay the workflow until an HTTP call has time to finish before resuming and retrieving the result.
+Para empezar a usar la acción de retraso en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To get started using the delay action in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Uso de las acciones de retraso
 
-## <a name="use-the-delay-actions"></a>Use the delay actions
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](connectors-overview.md).
 
-An action is an operation that is carried out by the workflow that is defined in a logic app. [Learn more about actions](connectors-overview.md).
+Esta es una secuencia de ejemplo de cómo usar un paso de retraso en una aplicación lógica:
 
-Here’s an example sequence of how to use a delay step in a logic app:
+1. Después de agregar un desencadenador, haga clic en **Nuevo paso** para agregar una acción.
+2. Busque **delay** para mostrar las acciones de retraso. En este ejemplo, se seleccionará **Delay**.
 
-1. After adding a trigger, click **New Step** to add an action.
-2. Search for **delay** to bring up the delay actions. In this example, we will select **Delay**.
+	![Acciones de retraso](./media/connectors-native-delay/using-action-1.png)
 
-    ![Delay actions](./media/connectors-native-delay/using-action-1.png)
+3. Complete cualquiera de las propiedades de acción para configurar el retraso.
 
-3. Complete any of the action properties to configure the delay.
+	![Configuración de retraso](./media/connectors-native-delay/using-action-2.png)
 
-    ![Delay config](./media/connectors-native-delay/using-action-2.png)
-
-4. Click **Save** to publish and activate the logic app.
+4. Haga clic en **Guardar** para publicar y activar la aplicación lógica.
 
 
-## <a name="action-details"></a>Action details
+## Detalles de la acción
 
-The recurrence trigger has the following properties that can be configured.
+El desencadenador de periodicidad tiene las siguientes propiedades que se pueden configurar.
 
-### <a name="delay-action"></a>Delay action
+### Acción de retraso
 
-This action delays the run for a certain time interval.
-A * means that it is a required field.
+Esta acción retrasa la ejecución durante un determinado intervalo de tiempo. Un * significa que es un campo obligatorio.
 
-|Display name|Property name|Description|
+|Nombre para mostrar|Nombre de propiedad|Description|
 |---|---|---|
-|Count*|count|The number of time units to delay|
-|Unit*|unit|The unit of time: `Second`, `Minute`, `Hour`, or `Day`|
+|Recuento*|count|El número de unidades de tiempo de retraso|
+|Unidad*|unit|La unidad de tiempo: `Second`, `Minute`, `Hour` o `Day`.|
 <br>
 
-### <a name="delay-until-action"></a>Delay-until action
+### Acción de retraso hasta
 
-This action delays the run until a specified date/time.
-A * means that it is a required field.
+Esta acción retrasa la ejecución hasta una fecha u hora especificada. Un * significa que es un campo obligatorio.
 
-|Display name|Property name|Description|
+|Nombre para mostrar|Nombre de propiedad|Description|
 |---|---|---|
-|Year*|timestamp|The year to delay until (GMT)|
-|Month*|timestamp|The month to delay until (GMT)|
-|Day*|timestamp|The day to delay until (GMT)|
+|Año*|timestamp|El año hasta el que retrasar (GMT)|
+|Mes*|timestamp|El mes hasta el que retrasar (GMT)|
+|Día*|timestamp|El día hasta el que retrasar (GMT)|
 <br>
 
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
+Ahora, pruebe la plataforma y [cree una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md) ahora. Puede explorar los demás conectores disponibles en aplicaciones consultando nuestra [lista de API](apis-list.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

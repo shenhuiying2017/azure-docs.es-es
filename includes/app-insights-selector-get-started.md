@@ -3,9 +3,6 @@
 - [Java](../articles/application-insights/app-insights-java-get-started.md)
 - [Node.js](../articles/application-insights/app-insights-nodejs.md)
 - [JavaScript](../articles/application-insights/app-insights-javascript.md)
-- [Other](../articles/application-insights/app-insights-platforms.md)
+- [Otros](../articles/application-insights/app-insights-platforms.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0608_2016-->

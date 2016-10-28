@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Initiate a planned or unplanned failover for Azure SQL Database with Transact-SQL | Microsoft Azure" 
-    description="Initiate a planned or unplanned failover for Azure SQL Database using Transact-SQL" 
+    pageTitle="Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure con Transact-SQL | Microsoft Azure" 
+    description="Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure con Transact-SQL" 
     services="sql-database" 
     documentationCenter="" 
     authors="CarlRabeler" 
@@ -16,96 +16,91 @@
     ms.date="08/29/2016"
     ms.author="carlrab"/>
 
-
-# <a name="initiate-a-planned-or-unplanned-failover-for-azure-sql-database-with-transact-sql"></a>Initiate a planned or unplanned failover for Azure SQL Database with Transact-SQL
+# Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure con Transact-SQL
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-geo-replication-failover-portal.md)
+- [Portal de Azure](sql-database-geo-replication-failover-portal.md)
 - [PowerShell](sql-database-geo-replication-failover-powershell.md)
 - [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
 
-This article shows you how to initiate failover to a secondary SQL Database using Transact-SQL. To configure Geo-Replication, see [Configure Geo-Replication for Azure SQL Database](sql-database-geo-replication-transact-sql.md).
+En este artículo se muestra cómo iniciar la conmutación por error a una Base de datos SQL secundaria con Transact-SQL. Para configurar la replicación geográfica, consulte [Configuración de la replicación geográfica para Base de datos SQL de Azure con PowerShell](sql-database-geo-replication-transact-sql.md).
 
 
 
-To initiate failover, you need the following:
+Para iniciar la conmutación por error, necesitará lo siguiente:
 
-- A login that is DBManager on the primary, have db_ownership of the local database that you will geo-replicate, and be DBManager on the partner server(s) to which you will configure Geo-Replication.
+- Un inicio de sesión que es DBManager en la base de datos principal (tiene db\_ownership de la base de datos local que va a replicar geográficamente) y que es DBManager en los servidores asociados en los que se configurará la replicación geográfica.
 - SQL Server Management Studio (SSMS)
 
 
-> [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> [AZURE.IMPORTANT] Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 
 
 
-## <a name="initiate-a-planned-failover-promoting-a-secondary-database-to-become-the-new-primary"></a>Initiate a planned failover promoting a secondary database to become the new primary
+## Inicio de una conmutación por error planeada que promueve una base de datos secundaria a la nueva principal
 
-You can use the **ALTER DATABASE** statement to promote a secondary database to become the new primary database in a planned fashion, demoting the existing primary to become a secondary. This statement is executed on the master database on the Azure SQL Database logical server in which the geo-replicated secondary database that is being promoted resides. This functionality is designed for planned failover, such as during the DR drills, and requires that the primary database be available.
+Puede usar la instrucción **ALTER DATABASE** para promover una base de datos secundaria para que sea la nueva base de datos principal de forma planeada; de ese modo, se degrada la base de datos principal ya existente y se convierte en secundaria. Esta instrucción se ejecuta en la base de datos maestra en el servidor lógico de Base de datos SQL Azure en el que reside la base de datos secundaria con replicación geográfica que se está promocionando. Esta funcionalidad está diseñada para la conmutación por error planeada, por ejemplo, durante las exploraciones de DR, y requiere que esté disponible la base de datos principal.
 
-The command performs the following workflow:
+El comando ejecuta el siguiente flujo de trabajo:
 
-1. Temporarily switches replication to synchronous mode, causing all outstanding transactions to be flushed to the secondary and blocking all new transactions;
+1. Cambia temporalmente la replicación al modo sincrónico, lo que hace que todas las transacciones pendientes se vacíen en la secundaria y se bloqueen todas las nuevas transacciones.
 
-2. Switches the roles of the two databases in the Geo-Replication partnership.  
+2. Cambia los roles de las dos bases de datos de la asociación de replicación geográfica.
 
-This sequence guarantees that the two databases are synchronized before the roles switch and therefore no data loss will occur. There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. If the primary database has multiple secondary databases, the command will automatically reconfigure the other secondaries to connect to the new primary.  The entire operation should take less than a minute to complete under normal circumstances. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](sql-database-service-tiers.md).
+Esta secuencia garantiza que las dos bases de datos se sincronizan antes del cambio de roles y, por tanto, no se producirá ninguna pérdida de datos. Hay un breve período durante el que ambas bases de datos no están disponibles (del orden de 0 a 25 segundos) mientras se cambian los roles. Si la base de datos principal tiene varias bases de datos secundarias, el comando reconfigura automáticamente las demás secundarias para conectarse a la nueva principal. En circunstancias normales, toda la operación debería tardar menos de un minuto en completarse. Para obtener más información, consulte [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) y [Niveles de servicio](sql-database-service-tiers.md).
 
 
-Use the following steps to initiate a planned failover.
+Use los pasos siguientes para iniciar una conmutación por error planeada.
 
-1. In Management Studio, connect to the Azure SQL Database logical server in which a geo-replicated secondary database resides.
+1. En Management Studio, conéctese al servidor lógico de Base de datos SQL de Azure en el que reside una base de datos secundaria con replicación geográfica.
 
-2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
+2. Abra la carpeta Bases de datos, expanda la carpeta **Bases de datos del sistema**, haga clic con el botón derecho en **maestra** y, a continuación, haga clic en **Nueva consulta**.
 
-3. Use the following **ALTER DATABASE** statement to switch the secondary database to the primary role.
+3. Use la siguiente instrucción **ALTER DATABASE** para cambiar la base de datos secundaria al rol principal.
 
         ALTER DATABASE <MyDB> FAILOVER;
 
-4. Click **Execute** to run the query.
+4. Haga clic en **Ejecutar** para ejecutar la consulta.
 
->[AZURE.NOTE] In rare cases, it is possible that the operation cannot complete and may appear stuck. In this case, the user can execute the force failover command and accept data loss.
+>[AZURE.NOTE] En contadas ocasiones, es posible que la operación no pueda completarse y que aparezca detenida. En este caso, el usuario puede ejecutar el comando para forzar la conmutación por error y aceptar la pérdida de datos.
 
 
-## <a name="initiate-an-unplanned-failover-from-the-primary-database-to-the-secondary-database"></a>Initiate an unplanned failover from the primary database to the secondary database
+## Inicio de una conmutación por error no planeada desde la base de datos principal a la base de datos secundaria
 
-You can use the **ALTER DATABASE** statement to promote a secondary database to become the new primary database in an unplanned fashion, forcing the demotion of the existing primary to become a secondary at a time when the primary databse is no longer available. This statement is executed on the master database on the Azure SQL Database logical server in which the geo-replicated secondary database that is being promoted resides.
+Puede usar la instrucción **ALTER DATABASE** para promover una base de datos secundaria para que sea la nueva base de datos principal de forma no planeada, y así forzar la degradación de la base de datos principal ya existente a una base de datos secundaria, en un momento en el que la base de datos principal ya no esté disponible. Esta instrucción se ejecuta en la base de datos maestra en el servidor lógico de Base de datos SQL Azure en el que reside la base de datos secundaria con replicación geográfica que se está promocionando.
 
-This functionality is designed for disaster recovery when restoring availability of the database is critical and some data loss is acceptable. When forced failover is invoked, the specified secondary database immediately becomes the primary database and begins accepting write transactions. As soon as the original primary database is able to reconnect with this new primary database, an incremental backup is taken on the original primary database and the old primary database is made into a secondary database for the new primary database; subsequently, it is merely a synchronizing replica of the new primary.
+Esta funcionalidad está diseñada para situaciones de recuperación ante desastres en los que resulta fundamental restaurar la disponibilidad de la base de datos y la pérdida de algunos datos resulta aceptable. Cuando se invoca la conmutación por error forzada, la base de datos secundaria especificada se convierte inmediatamente en la base de datos principal y comienza a aceptar transacciones de escritura. Tan pronto como la base de datos principal original puede volver a conectar con esta nueva base de datos principal, se realiza una copia de seguridad incremental en la base de datos principal original y la base de datos principal anterior se convierte en una base de datos secundaria para la nueva base de datos principal; por consiguiente, es simplemente una réplica de sincronización de la nueva principal.
 
-However, because Point In Time Restore is not supported on the secondary databases, if the user wishes to recover data committed to the old primary database that had not been replicated to the new primary database before the forced failover occurred, the user will need to engage support to recover this lost data.
+Sin embargo, como la restauración a un momento dado no se admite en las bases de datos secundarias, si el usuario desea recuperar datos comprometidos en la base de datos principal anterior que no se habían replicado en la nueva base de datos principal antes de que se produjera la conmutación por error forzosa, el usuario deberá acudir al soporte técnico para recuperar estos datos perdidos.
 
-If the primary database has multiple secondary databases, the command will automatically reconfigure the other secondaries to connect to the new primary.
+Si la base de datos principal tiene varias bases de datos secundarias, el comando reconfigura automáticamente las demás secundarias para conectarse a la nueva principal.
 
-Use the following steps to initiate an unplanned failover.
+Use los pasos siguientes para iniciar una conmutación por error no planeada.
 
-1. In Management Studio, connect to the Azure SQL Database logical server in which a geo-replicated secondary database resides.
+1. En Management Studio, conéctese al servidor lógico de Base de datos SQL de Azure en el que reside una base de datos secundaria con replicación geográfica.
 
-2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
+2. Abra la carpeta Bases de datos, expanda la carpeta **Bases de datos del sistema**, haga clic con el botón derecho en **maestra** y, a continuación, haga clic en **Nueva consulta**.
 
-3. Use the following **ALTER DATABASE** statement to switch the secondary database to the primary role.
+3. Use la siguiente instrucción **ALTER DATABASE** para cambiar la base de datos secundaria al rol principal.
 
         ALTER DATABASE <MyDB>   FORCE_FAILOVER_ALLOW_DATA_LOSS;
 
-4. Click **Execute** to run the query.
+4. Haga clic en **Ejecutar** para ejecutar la consulta.
 
->[AZURE.NOTE] If the command is issued when the both primary and secondary are online the old primary will become the new secondary immediately without data synchronization. If the primary is committing transactions when the command is issued some data loss may occur.
-
-
-
-## <a name="next-steps"></a>Next steps   
-
-- After failover, ensure the authentication requirements for your server and database are configured on the new primary. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
-- To learn recovering after a disaster using Active Geo-Replication, including pre and post recovery steps and performing a disaster recovery drill, see [Disaster Recovery](sql-database-disaster-recovery.md)
-- For a Sasha Nosov blog post about Active Geo-Replication, see [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- For information about designing cloud applications to use Active Geo-Replication, see [Designing cloud applications for business continuity using Geo-Replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- For information about using Active Geo-Replication with elastic database pools, see [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
-- For an overview of business continurity, see [Business Continuity Overview](sql-database-business-continuity.md)
+>[AZURE.NOTE] Si el comando se emite cuando las bases de datos principal y secundaria están en línea, la principal anterior se convertirá inmediatamente en la nueva secundaria sin sincronización de datos. Si la principal está confirmando transacciones cuando se emite el comando, es posible que produzca alguna pérdida de datos.
 
 
 
-<!--HONumber=Oct16_HO2-->
+## Pasos siguientes   
 
+- Después de la conmutación por error, asegúrese de que los requisitos de autenticación para el servidor y la base de datos se configuran en el nuevo elemento principal. Para obtener más información, consulte [Administración de la seguridad de Base de datos SQL de Azure después de la recuperación ante desastres](sql-database-geo-replication-security-config.md).
+- Para obtener información sobre cómo llevar a cabo tareas de recuperación después de desastres mediante la replicación geográfica activa, incluidos los pasos previos y posteriores, consulte [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery.md).
+- Para ver una entrada de blog de Sasha Nosov sobre la replicación geográfica activa, consulte [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Lo más destacado de las nuevas funcionalidades de replicación geográfica).
+- Para obtener información sobre cómo diseñar aplicaciones en la nube para usar la replicación geográfica activa, consulte [Diseño de una aplicación para la recuperación ante desastres en la nube mediante replicación geográfica activa en Base de datos SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+- Para saber cómo utilizar la replicación geográfica activa con los grupos de bases de datos elásticas, consulte [Estrategias de recuperación ante desastres para aplicaciones que usan el grupo elástico de Base de datos SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+- Para ver una descripción general de la continuidad empresarial, consulte [Introducción a la continuidad empresarial con Base de datos SQL de Azure](sql-database-business-continuity.md).
 
+<!---HONumber=AcomDC_0831_2016-->

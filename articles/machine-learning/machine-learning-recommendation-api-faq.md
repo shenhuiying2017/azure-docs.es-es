@@ -1,147 +1,140 @@
 <properties 
-    pageTitle="Set up and use the Machine Learning Recommendations API | Microsoft Azure" 
-    description="Microsoft RECOMMENDATIONS API built with Azure Machine Learning FAQ" 
-    services="machine-learning" 
-    documentationCenter="" 
-    authors="LuisCabrer" 
-    manager="jhubbard" 
-    editor="cgronlun"/>
+	pageTitle="Configuración y uso de la API de recomendaciones de Aprendizaje automático | Microsoft Azure" 
+	description="Preguntas frecuentes de la API de RECOMENDACIONES de Microsoft creada con el aprendizaje automático de Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="LuisCabrer" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
 <tags 
-    ms.service="machine-learning" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/08/2016" 
-    ms.author="luisca"/> 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2016" 
+	ms.author="luisca"/>
+
+#Preguntas más frecuentes (P+F) sobre cómo configurar y utilizar la API de recomendaciones de Aprendizaje automático
 
 
-#<a name="setting-up-and-using-machine-learning-recommendations-api-faq"></a>Setting up and using Machine Learning Recommendations API FAQ
+**¿Qué son las recomendaciones?**
 
+>[AZURE.NOTE] Debe empezar a utilizar el servicio Cognitive Services de la API de Recomendaciones en lugar de esta versión. El servicio Cognitive Services de Recomendaciones va a sustituir a este servicio y todas las características nuevas se desarrollarán en esta nueva versión. Tiene nuevas funcionalidades como compatibilidad con procesamientos por lotes, un explorador de API más eficaz, una interfaz de API más limpia, una experiencia de facturación y suscripción más coherente, etc. Obtenga más información sobre cómo [migrar al nuevo servicio Cognitive Services](http://aka.ms/recomigrate).
 
-**What is RECOMMENDATIONS?**
-
->[AZURE.NOTE] You should start using the Recommendations API Cognitive Service instead of this version. The Recommendations Cognitive Service will be replacing this service, and all the new features will be developed there. It has new capabilities like batching support, a better API Explorer, a cleaner API surface, more consistent signup/billing experience, etc.
-> Learn more about [Migrating to the new Cognitive Service](http://aka.ms/recomigrate)
-
-For organizations and businesses that rely on recommendations to cross-sell and up-sell products and services to their customers, RECOMMENDATIONS in Azure Machine Learning provides a self-service recommendations engine. It is an implementation of collaborative filtering that uses matrix factorization as its core algorithm. Application developers can access RECOMMENDATIONS by using REST APIs. 
+Para las organizaciones y empresas que dependen de las recomendaciones para la venta cruzada y la venta adicional de productos a sus clientes, las recomendaciones de Aprendizaje automático de Azure les ofrecen un motor de recomendaciones de autoservicio. Es una implementación del filtrado de colaboración que usa la factorización matricial como algoritmo básico. Los desarrolladores de aplicaciones pueden tener acceso a recomendaciones mediante las API de REST.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-**What can I do with RECOMMENDATIONS?**
+**¿Qué puedo hacer con las recomendaciones?**
 
-RECOMMENDATIONS takes as input an item or a set of items and returns a list of relevant recommendations. For example: A customer of an online retailer clicks a product. The online retailer sends that product as input to RECOMMENDATIONS, gets a list of products in return, and decides which of these products will be shown to the customer. You may want to use RECOMMENDATIONS to optimize your online store or even to inform your inside sales department or call center.
+Las recomendaciones toman como entrada un elemento o un conjunto de elementos y devuelven una lista de recomendaciones pertinentes. Por ejemplo, un cliente de un minorista en línea hace clic en un producto. El minorista en línea envía ese producto como entrada a las recomendaciones, recibe una lista de productos a cambio y decide cuál de estos productos se mostrará al cliente. Puede que desee utilizar las recomendaciones para optimizar la tienda en línea o incluso para informar al departamento de ventas interno o centro de llamadas.
 
-**Are there any usage limitations?**
+**¿Hay alguna limitación de uso?**
 
-Recommendations has the following usage limitations:
-* Maximum number of models per subscription: 10
-* Maximum number of items that a catalog can hold: 100,000
-* The maximum number of usage points that are kept is ~5,000,000. The oldest will be deleted if new ones will be uploaded or reported.
-* Maximum size of data that can be sent in email (for example, import catalog data, import usage data) is 200 MB
-* Number of transactions per second (TPS) for a Recommendations model build that is not active is ~2 TPS. A Recommendations model build that is active can hold up to 20 TPS.
+Recomendaciones tiene las siguientes limitaciones de uso:
+* Número máximo de modelos por suscripción: 10
+* Número máximo de elementos que puede contener un catálogo: 100.000
+* El número máximo de puntos de uso que se mantienen es ~ 5 000 000. Se eliminarán los más antiguos si se cargan o notifican unos nuevos.
+* El tamaño máximo de datos que puede enviarse por correo electrónico (por ejemplo, importar datos de catálogo o importar datos de uso) es de 200 MB.
+* El número de transacciones por segundo (TPS) para una compilación de modelo de Recomendaciones que no está activa es de ~2 TPS. Una compilación de modelo de recomendaciones que esté activa puede contener hasta 20 TPS.
 
-##<a name="purchase-and-billing"></a>Purchase and Billing 
+##Compra y facturación 
 
 
-**How much does Recommendations cost during the launch period?**
+**¿Cuánto cuestan las recomendaciones durante el período de lanzamiento?**
 
-Recommendations is a subscription-based service. Charging is based on volume of transactions per month. You can check the [offer page] (https://datamarket.azure.com/dataset/amla/recommendations) in Microsoft Azure Marketplace for pricing information.
+Las recomendaciones son un servicio basado en suscripción. El pago se realiza en función del volumen de transacciones al mes. Puede consultar la [página de ofertas](https://datamarket.azure.com/dataset/amla/recommendations) de Microsoft Azure Marketplace para obtener más información sobre los precios.
 
-**Are there any costs associated with having Recommendations track and store user activity for me?**
+**¿Hay algún coste asociado al seguimiento de las recomendaciones o al almacenamiento de la actividad del usuario?**
 
-Not at the moment.
+No en este momento.
 
-**Does Recommendations have a free trial?**
+**¿Tienen las recomendaciones una prueba gratuita?**
 
-There is a free trail which is restricted to 10,000 transactions per month.
+Hay una prueba gratuita que se limita a 10.000 transacciones al mes.
 
-**When will I be billed for Recommendations?**
+**¿Cuánto se me facturará por las recomendaciones?**
 
-A paid subscription is any subscription for which there is a monthly fee. When you purchase a paid subscription, you are immediately charged for the first month's use. You are charged the amount that is associated with the offer on the subscription page (plus applicable taxes). This monthly charge is made each month on the same calendar date as your original purchase until you cancel the subscription. 
+Una suscripción de pago es cualquier suscripción para la que hay que pagar una cuota mensual. Al comprar una suscripción de pago, se le cobrará inmediatamente por el uso del primer mes. Se le cobrará la cantidad asociada a la oferta en la página de suscripción (además de los impuestos correspondientes). Este cargo mensual se realiza cada mes en la misma fecha que la compra original hasta que se cancela la suscripción.
 
-**How do I upgrade to a higher tier service?**
+**¿Cómo actualizo a un servicio de nivel superior?**
 
-You can buy or update your subscription from the [offer page] (https://datamarket.azure.com/dataset/amla/recommendations) page on Microsoft Azure Marketplace.
+Puede comprar o actualizar su suscripción desde la [página de oferta](https://datamarket.azure.com/dataset/amla/recommendations) de Microsoft Azure Marketplace.
 
-When you upgrade a subscription:
+Al actualizar una suscripción:
 
-* Transactions that are remaining on your old subscription are not added to your new subscription. 
-* You pay full price for the new subscription, even though you have unused transactions on your old subscription.
+* Las transacciones que quedan en la suscripción anterior no se agregan a la nueva.
+* Pagará el precio completo de la nueva suscripción, aunque tenga transacciones no utilizadas en su suscripción anterior.
 
-Process to upgrade a subscription:
+Proceso para actualizar una suscripción:
 
-* Nevigate to the [offer page] (https://datamarket.azure.com/dataset/amla/recommendations).
-* Sign in to the Marketplace if you aren't already Signed in.
-* In the right pane, all the available plans are listed. Click the radio button for the plan you want to upgrade to.
-* If you want to upgrade, click **OK**. If you do not want to upgrade, click **Cancel**.
+* Acceda a la [página de oferta](https://datamarket.azure.com/dataset/amla/recommendations).
+* Inicie sesión en Marketplace si no la ha iniciado todavía.
+* En el panel derecho, se muestran todos los planes disponibles. Haga clic en el botón de opción del plan al que desee actualizar.
+* Si desea actualizar, haga clic en **Aceptar**. Si no desea actualizar, haga clic en **Cancelar**.
 
-**Important** Carefully read the dialog box before you upgrade because there are billing and use implications.
+**Importante**: lea detenidamente el cuadro de diálogo antes de actualizar, ya que hay información sobre facturación y uso.
 
-**When will my subscription to Recommendations end?**
+**¿Cuándo finalizará mi suscripción a las recomendaciones?**
 
-Your subscription will end when you cancel it. If you would like to cancel your subscriptions, see the following instructions.
+La suscripción finalizará cuando la cancele. Si desea cancelar las suscripciones, consulte las instrucciones siguientes.
 
-**How do I cancel my Recommendations subscription?**
+**¿Cómo cancelo mi suscripción a las recomendaciones?**
 
-To cancel your subscription, use the following steps. If your current subscription is a paid subscription, your subscription continues in effect until the end of the current billing period. If you need the cancellation to be effective immediately, contact us at [Microsoft Support](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn).
+Para cancelar la suscripción, siga estos pasos. Si su suscripción actual es una suscripción de pago, la suscripción seguirá en vigor hasta el final del período de facturación actual. Si necesita que la cancelación surta efecto inmediatamente, póngase en contacto con nosotros a través del [Soporte técnico de Microsoft](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn).
 
-**Note** No refund is given if you cancel before the end of a billing period or for unused transactions in a billing period.
+**Nota** No hay ningún reembolso si cancela antes del final del período de facturación. Tampoco se reembolsan las transacciones no utilizadas en un período de facturación.
 
-* Navigate to the [offer page] (https://datamarket.azure.com/dataset/amla/recommendations).
-* Sign in to the Marketplace if you aren't already Signed in.
-* Click **Cancel** to the right of the dataset name and status. You can use this subscription until the end of the current billing period or your transaction limit is reached (whichever occurs first).
+* Vaya a la [página de oferta](https://datamarket.azure.com/dataset/amla/recommendations).
+* Inicie sesión en Marketplace si no la ha iniciado todavía.
+* Haga clic en **Cancelar** a la derecha del nombre y el estado del conjunto de datos. Puede usar esta suscripción hasta que llegue al final del período de facturación actual o hasta que se alcance el límite de la transacción, lo que ocurra primero.
 
-If you would like to cancel your subscription immediately so you can purchase a new subscription, file a ticket at [Microsoft Support](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn).
+Si desea cancelar su suscripción inmediatamente, para poder adquirir una nueva suscripción, presente una incidencia en el [Soporte técnico de Microsoft](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn).
 
-##<a name="getting-started-with-recommendations"></a>Getting started with Recommendations
+##Introducción a las recomendaciones
 
-**Is Recommendations for me?** 
+**¿Me van a servir las recomendaciones?**
 
-Recommendations in Machine Learning is for organizations and businesses that rely on recommendations to cross-sell and up-sell products or services to their customers. If you have a customer-facing website, a sales force, an inside sales force, or a call center, and if you offer a catalog of more than a few dozen products or services, your bottom line may benefit from using Recommendations. 
+Las recomendaciones de Aprendizaje automático de Azure son aconsejables para aquellas organizaciones y empresas que dependen de recomendaciones para la venta cruzada y la venta adicional de productos a sus clientes. Si tiene un sitio web orientado a clientes, personal de ventas, un equipo de ventas interno o un centro de llamadas y si, además, ofrece un catálogo con varias docenas de productos o servicios, su balance final puede beneficiarse de usar estas recomendaciones.
 
-Experimenting with Recommendations is designed to be fairly simple. The current API-based version requires basic programming skills. If you need assistance, contact the vendor who developed your website. If you have an internal IT department or an in-house developer, they should be able to get Recommendations to work for you. 
+La experimentación con recomendaciones se ha diseñado para que sea muy sencilla. La versión actual basada en API requiere conocimientos básicos de programación. Si necesita asistencia, póngase en contacto con el proveedor que ha desarrollado su sitio web. Si cuenta con un departamento de TI o un desarrollador internos, estos deben ser capaces de aprovechar todas las ventajas que le ofrecen las recomendaciones.
 
-**What are the prerequisites for setting up Recommendations?**
+**¿Cuáles son los requisitos previos para configurar las recomendaciones?**
 
-Recommendations requires that you have a log of user choices as it relates to your catalog. If you don�t have such a log and you do have a customer facing website, Recommendations can collect user activity for you. 
+Las recomendaciones requieren que cuente con un registro de las opciones de los usuarios con respecto a su catálogo. Si no dispone de un registro de este tipo y cuenta con un sitio web orientado al cliente, las recomendaciones pueden recopilar la actividad de los usuarios por usted.
 
-Recommendations also requires a catalog of your products or services. If you don�t have the catalog, Recommendations can use the actual customer usage data and distill a catalog. An �implied� catalog will not include items that were not �reported� as part of user transactions.
+Las recomendaciones también requieren un catálogo de sus productos o servicios. Si no tiene un catálogo, las recomendaciones podrán utilizar los datos de uso de los clientes reales y elaborar un catálogo. Un catálogo "implícito" no incluirá artículos que no estaban "notificados" como parte de transacciones de usuario.
 
-**How do I set up Recommendations for the first time?**
+**¿Cómo configuro las recomendaciones por primera vez?**
 
-After [subscribing] (https://datamarket.azure.com/dataset/amla/recommendations) to Recommendations, you should use the API documentation in the [Azure Machine Learning Recommendations � Quick Start Guide](machine-learning-recommendation-api-quick-start-guide.md) to set up the service.
+Después de [suscribirse](https://datamarket.azure.com/dataset/amla/recommendations) a las recomendaciones, debe usar la documentación de API que figura en la [Guía de inicio rápido sobre recomendaciones de Aprendizaje automático de Azure](machine-learning-recommendation-api-quick-start-guide.md) para configurar el servicio.
 
-**Where can I find API documentation?** 
+**¿Dónde puedo encontrar documentación de API?**
 
-The API documentation is [Azure Machine Learning Recommendations � Quick Start Guide](machine-learning-recommendation-api-quick-start-guide.md).
+La documentación de API está incluida en la [Guía de inicio rápido sobre recomendaciones de Aprendizaje automático de Azure](machine-learning-recommendation-api-quick-start-guide.md).
 
-**What options do I have to upload catalog and usage data to Recommendations?**
+**¿De qué opciones dispongo para cargar datos de uso y de catálogo en las recomendaciones?**
 
-You have two options for uploading your catalog and usage data: You can export the data from your CRM system or other logs and upload it to Recommendations, or you can add tags to your website that will track user activities. If you use the latter method, the data will be stored in Azure.
+Tiene dos opciones para cargar los datos de uso y el catálogo: puede exportar estos datos desde el sistema CRM u otros registros y cargarlos en las recomendaciones. La otra opción es agregar etiquetas al sitio web que realizará el seguimiento de las actividades del usuario. Si utiliza el segundo método, los datos se almacenarán en Azure.
 
-##<a name="maintenance-and-support"></a>Maintenance and support
+##Mantenimiento y soporte técnico
 
-**How large can my data set be?**
+**¿Qué volumen pueden tener mis datos?**
 
-Each data set can contain up to 100,000 catalog items and up to 2048 MB of usage data.
-In addition, a subscription can contain up to 10 data sets (models).
+Cada conjunto de datos puede contener hasta 100 000 elementos del catálogo y hasta 2048 MB de datos de uso. Además, una suscripción puede contener hasta 10 conjuntos de datos (modelos).
 
-**Where can I get technical support for Recommendations?**
+**¿Dónde puedo obtener soporte técnico para las recomendaciones?**
 
-Technical support is available on the [Microsoft Azure Support](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) site.
+El soporte técnico está disponible en el sitio de [Soporte técnico de Microsoft Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
 
-**Where can I find the terms of use?**
+**¿Dónde puedo encontrar los términos de uso?**
 
-[Microsoft Azure Machine Learning Recommendations API Terms of Service](https://datamarket.azure.com/dataset/amla/recommendations#terms).
+[Términos de uso de la API de recomendaciones de Aprendizaje automático de Microsoft Azure](https://datamarket.azure.com/dataset/amla/recommendations#terms).
 
 
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

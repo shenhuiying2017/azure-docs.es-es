@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Replace a disk drive on a StorSimple device | Microsoft Azure"
-   description="Explains how to replace a disk drive on a StorSimple primary enclosure or an EBOD enclosure."
+   pageTitle="Reemplazar un disco duro en un dispositivo StorSimple | Microsoft Azure"
+   description="Explica cómo reemplazar una unidad de disco en un receptáculo principal de StorSimple o un receptáculo EBOD."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,118 +15,113 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
+# Reemplazar un disco duro en el dispositivo StorSimple
 
-# <a name="replace-a-disk-drive-on-your-storsimple-device"></a>Replace a disk drive on your StorSimple device
+## Información general
 
-## <a name="overview"></a>Overview
+Este tutorial explica cómo quitar y reemplazar una unidad de disco duro que no funciona correctamente o defectuosa en un dispositivo StorSimple de Microsoft Azure. Para reemplazar una unidad de disco, necesitará:
 
-This tutorial explains how you can remove and replace a malfunctioning or failed hard disk drive on a Microsoft Azure StorSimple device. To replace a disk drive, you need to:
+- Desactivar el bloqueo antisabotaje
 
-- Disengage the antitamper lock
+- Quitar la unidad de disco
 
-- Remove the disk drive
+- Instalar la unidad de disco de reemplazo
 
-- Install the replacement disk drive
+>[AZURE.IMPORTANT] Antes de quitar y reemplazar una unidad de disco, revise la información de seguridad en [Reemplazo de componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
->[AZURE.IMPORTANT] Before removing and replacing a disk drive, review the safety information in [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
+## Desactivar el bloqueo antisabotaje
 
-## <a name="disengage-the-antitamper-lock"></a>Disengage the antitamper lock
+Este procedimiento explica cómo pueden activarse o desactivarse los bloqueos antisabotaje del dispositivo StorSimple al reemplazar las unidades de disco. Los bloqueos antisabotaje se instalan en las asas transportadoras de la unidad, y se accede a ellos a través de un pequeño orificio en la sección del pestillo del asa. Las unidades se suministran con los bloqueos establecidos en la posición bloqueada.
 
-This procedure explains how the antitamper locks on your StorSimple device can be engaged or disengaged when you replace the disk drives. The antitamper locks are fitted in the drive carrier handles, and they are accessed through a small aperture in the latch section of the handle. Drives are supplied with the locks set to the locked position.
+#### Para desbloquear el bloqueo antisabotaje
 
-#### <a name="to-unlock-the-antitamper-lock"></a>To unlock the antitamper lock
+1. Inserte cuidadosamente la clave de bloqueo (un destornillador T10 "inviolable" proporcionado por Microsoft) en el orificio del asa y en la toma.
 
-1. Carefully insert the lock key (a "tamperproof" T10 screwdriver that Microsoft provided) into the aperture in the handle and into its socket. 
+    >[AZURE.NOTE] Si el bloqueo antisabotaje está activado, el indicador rojo está visible en el orificio.
 
-    >[AZURE.NOTE] If the antitamper lock is activated, the red indicator is visible in the aperture.
+    ![Unidad de disco bloqueada](./media/storsimple-disk-drive-replacement/IC741056.png)
 
-    ![Locked disk drive](./media/storsimple-disk-drive-replacement/IC741056.png)
+    **Figura 1** Bloqueo antisabotaje activado
 
-    **Figure 1** Anti-tamper lock engaged
+    |Etiqueta|Description|
+    |:----|:----------|
+    |1|Orificio indicador|
+    |2|Bloqueo antisabotaje|
 
-  	|Label|Description|
-  	|:----|:----------|
-  	|1|Indicator aperture|
-  	|2|Antitamper lock|
+2. Gire la clave hacia la derecha hasta que el indicador rojo no esté visible en el orificio por encima de la clave.
 
-2. Rotate the key in an anticlockwise direction until the red indicator is not visible in the aperture above the key.
+3. Quite la llave.
 
-3. Remove the key.
+    ![Unidad de disco desbloqueada](./media/storsimple-disk-drive-replacement/IC741057.png)
 
-    ![Unlocked disk drive](./media/storsimple-disk-drive-replacement/IC741057.png)
+    **Figura 2** Unidad de disco desbloqueada
 
-    **Figure 2** Unlocked disk drive
+4. Ahora se puede quitar la unidad de disco.
 
-4. The disk drive can now be removed.
+Siga los pasos en orden inverso para activar el bloqueo.
 
-Follow the steps in reverse to engage the lock.
+## Quitar la unidad de disco
 
-## <a name="remove-the-disk-drive"></a>Remove the disk drive
-
-Your StorSimple device supports a RAID 10-like storage spaces configuration. This implies that it can operate normally with one failed disk, solid-state drive (SSD), or hard disk drive (HDD). 
+El dispositivo StorSimple es compatible con una configuración de espacios de almacenamiento similares a RAID 10. Esto implica que puede funcionar normalmente con un disco, unidad de estado sólido (SSD), o unidad de disco duro (HDD) defectuoso.
 
 >[AZURE.IMPORTANT]
 >
->- If your system has more than one failed disk, do not remove more than one SSD or HDD from the system at any point in time. Doing so could result in loss of data.
+>- Si el sistema tiene más de un disco defectuoso, no quite más de un SSD o unidad de disco duro del sistema en un determinado momento. Esto puede provocar la pérdida de datos.
 >
->- Make sure that you place a replacement SSD in a slot that previously contained an SSD. Similarly, place a replacement HDD in a slot that previously contained an HDD.
+>- Asegúrese de colocar un SSD de reemplazo en una ranura que previamente contenía un SSD. Asegúrese de colocar un HDD de reemplazo en una ranura que previamente contenía un HDD.
 >
->- In the Azure classic portal, slots are numbered from 0 – 11. Therefore, if the portal shows that a disk in slot 2 has failed, on the device, look for the failed disk in the third slot from the top left.
+>- En el Portal de Azure clásico, las ranuras se numeran de 0 a 11. Por lo tanto, si el portal muestra que ha fallado un disco en la ranura 2, en el dispositivo, busque el disco defectuoso en la tercera ranura de la parte superior izquierda.
 
-Drives can be removed and replaced while the system is operating.
+Las unidades de disco se pueden quitar y reemplazar mientras el sistema está en funcionamiento.
 
-#### <a name="to-remove-a-drive"></a>To remove a drive
+#### Para quitar una unidad
 
-1. To identify the failed disk, in the Azure classic portal, go to **Devices** > **Maintenance** > **Hardware Status**. Because a disk can fail in the primary enclosure and/or in an EBOD enclosure (if you are using a 8600 model), look at the status of the disks under **Shared Components** and under **EBOD enclosure Shared Components**. A failed disk in either enclosure will be shown with a red status.
+1. Para identificar el disco defectuoso, en el Portal de Azure clásico, vaya a **Dispositivos** > **Mantenimiento** > **Estado del hardware**. Dado que se puede producir un error en un disco en el gabinete principal o en el gabinete EBOD (si está utilizando un modelo 8600), examine el estado de los discos en **Componentes compartidos** y en **Componentes compartidos del gabinete EBOD**. Un disco defectuoso en cualquier gabinete se mostrará con un estado rojo.
 
-2. Locate the drives in the front of the primary enclosure or the EBOD enclosure. 
+2. Busque las unidades en la parte frontal del gabinete principal o del gabinete EBOD.
 
-3. If the disk is unlocked, proceed to the next step. If the disk is locked, unlock it by following the procedure in [Disengage the antitamper lock](#disengage-the-antitamper-lock).
+3. Si el disco está desbloqueado, continúe con el paso siguiente. Si el disco está bloqueado, desbloquéelo siguiendo el procedimiento descrito en [Desactivar el bloqueo antisabotaje](#disengage-the-antitamper-lock).
 
-4. Press the black latch on the drive carrier module and pull the drive carrier handle out and away from the front of the chassis. 
+4. Presione el pestillo negro en el módulo transportador de unidades y tire del asa transportadora de la unidad hacia afuera y lejos de la parte frontal del chasis.
 
-    ![Releasing disk drive handle](./media/storsimple-disk-drive-replacement/IC741051.png)
+    ![Liberar el asa de la unidad de disco](./media/storsimple-disk-drive-replacement/IC741051.png)
 
-    **Figure 3** Releasing the drive handle
+    **Figura 3** Liberar el asa de la unidad
 
-5. When the drive carrier handle is fully extended, slide the drive carrier out of the chassis. 
+5. Cuando el asa transportadora de la unidad está totalmente extendida, deslice el transportador de la unidad fuera del chasis.
 
-    ![Sliding disk out of disk drive](./media/storsimple-disk-drive-replacement/IC741052.png)
+    ![Deslizamiento del disco fuera de la unidad de disco](./media/storsimple-disk-drive-replacement/IC741052.png)
     
-    **Figure 4** Sliding the disk drive out of the carrier
+    **Figura 4** Deslizamiento de la unidad de disco fuera del transportador
 
-## <a name="install-the-replacement-disk-drive"></a>Install the replacement disk drive
+## Instalar la unidad de disco de reemplazo
 
-After a drive has failed in your StorSimple device and you have removed it, follow this procedure to replace it with a new drive.
+Después de que se ha producido un error en la unidad de su dispositivo StorSimple y de que la haya quitado, siga este procedimiento para reemplazarla por una nueva unidad.
 
-#### <a name="to-insert-a-drive"></a>To insert a drive
+#### Para insertar una unidad
 
-1. Ensure the drive carrier handle is fully extended, as shown in the following image.
+1. Asegúrese de que el asa transportadora de la unidad esté totalmente extendida, como se muestra en la siguiente imagen.
 
-    ![Disk drive with handle extended](./media/storsimple-disk-drive-replacement/IC741044.png)
+    ![Unidad de disco con asa extendida](./media/storsimple-disk-drive-replacement/IC741044.png)
 
-    **Figure 5** Drive with handle extended
+    **Figura 5** Unidad con asa extendida
 
-2. Slide the drive carrier all the way into the chassis. 
+2. Deslice el transportador de la unidad por completo hacia el chasis.
 
-    ![Sliding disk into disk drive carrier](./media/storsimple-disk-drive-replacement/IC741045.png)
+    ![Deslizamiento del disco hacia el transportador de la unidad de disco](./media/storsimple-disk-drive-replacement/IC741045.png)
 
-    **Figure 6**  Sliding the drive carrier into the chassis
+    **Figura 6** Deslizamiento del transportador de la unidad hacia el chasis
 
-3. With the drive carrier inserted, close the drive carrier handle while continuing to push the drive carrier into the chassis, until the drive carrier handle snaps into a locked position.
+3. Con el transportador de la unidad insertado, cierre el asa transportadora de la unidad mientras continúa empujando el transportador de la unidad hacia el chasis, hasta que el asa transportadora de la unidad encaje en una posición de bloqueo.
 
-4. Use the lock key that was provided by Microsoft (tamperproof Torx screwdriver) to secure the carrier handle into place by turning the lock screw a quarter turn clockwise.
+4. Utilice la llave de bloqueo proporcionada por Microsoft (destornillador Torx inviolable) para fijar el asa transportadora en su lugar girando el destornillador de bloqueo un cuarto de vuelta hacia la derecha.
 
-5. Verify that the replacement was successful and the drive is operational by accessing the Azure classic portal and navigating to **Maintenance** > **Hardware Status**. Under **Shared Components** or **EBOD enclosure Shared Components**, the drive status should be green, indicating that it is healthy.
+5. Compruebe que el reemplazo se realizó correctamente y que la unidad funcione. Para ello, acceda al Portal de Azure clásico y vaya a **Mantenimiento** > **Estado del hardware**. En **Componentes compartidos** o **Componentes compartidos del gabinete EBOD**, el estado de la unidad debe ser verde, que indica que está en buenas condiciones.
 
-    >[AZURE.NOTE] It may take several hours for the disk status to turn green after the replacement.
+    >[AZURE.NOTE] Puede tardar varias horas para que el estado del disco cambie a verde, después de la sustitución.
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-Learn more about [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
+Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

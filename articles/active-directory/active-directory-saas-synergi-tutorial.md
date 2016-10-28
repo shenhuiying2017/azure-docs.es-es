@@ -1,255 +1,254 @@
 <properties
-    pageTitle="Tutorial: Azure Active Directory integration with Synergi | Microsoft Azure"
-    description="Learn how to configure single sign-on between Azure Active Directory and Synergi."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeevansd"
-    manager="femila"
-    editor=""/>
+	pageTitle="Tutorial: integración de Azure Active Directory con Synergi | Microsoft Azure"
+	description="Aprenda cómo configurar el inicio de sesión único entre Azure Active Directory y Synergi."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeevansd"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/20/2016"
-    ms.author="jeedes"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/20/2016"
+	ms.author="jeedes"/>
 
 
+# Tutorial: integración de Azure Active Directory con Synergi
 
-# <a name="tutorial:-azure-active-directory-integration-with-synergi"></a>Tutorial: Azure Active Directory integration with Synergi
+En este tutorial, aprenderá cómo integrar Synergi con Azure Active Directory (Azure AD).
 
-In this tutorial, you learn how to integrate Synergi with Azure Active Directory (Azure AD).
+Integrar Synergi con Azure AD proporciona las siguientes ventajas:
 
-Integrating Synergi with Azure AD provides you with the following benefits:
+- En Azure AD, puede controlar quién tiene acceso a Synergi.
+- Puede permitir que los usuarios inicien sesión automáticamente en Synergi (inicio de sesión único) con sus cuentas de Azure AD.
+- Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
 
-- You can control in Azure AD who has access to Synergi
-- You can enable your users to automatically get signed-on to Synergi (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure classic portal
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+## Requisitos previos
 
-## <a name="prerequisites"></a>Prerequisites
+Para configurar la integración de Azure AD con Synergi se necesitan los siguientes elementos:
 
-To configure Azure AD integration with Synergi, you need the following items:
-
-- An Azure AD subscription
-- A Synergi single-sign on enabled subscription
-
-
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+- Una suscripción de Azure AD
+- Una suscripción habilitada para el inicio de sesión único en Synergi
 
 
-To test the steps in this tutorial, you should follow these recommendations:
-
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
 
-## <a name="scenario-description"></a>Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment.
+Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
-The scenario outlined in this tutorial consists of two main building blocks:
-
-1. Adding Synergi from the gallery
-2. Configuring and testing Azure AD single sign-on
+- No debe usar el entorno de producción, a menos que sea necesario.
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## <a name="adding-synergi-from-the-gallery"></a>Adding Synergi from the gallery
-To configure the integration of Synergi into Azure AD, you need to add Synergi from the gallery to your list of managed SaaS apps.
+## Descripción del escenario
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-**To add Synergi from the gallery, perform the following steps:**
+La situación descrita en este tutorial consta de dos bloques de creación principales:
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
-
-    ![Active Directory][1]
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Applications][2]
-
-4. Click **Add** at the bottom of the page.
-
-    ![Applications][3]
-
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-
-    ![Applications][4]
-
-6. In the search box, type **Synergi**.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-synergi-tutorial/tutorial_synergi_01.png)
-
-7. In the results pane, select **Synergi**, and then click **Complete** to add the application.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-synergi-tutorial/tutorial_synergi_02.png)
+1. Incorporación de Synergi desde la galería
+2. Configuración y comprobación del inicio de sesión único de Azure AD
 
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Synergi based on a test user called "Britta Simon".
+## Incorporación de Synergi desde la galería
+Para configurar la integración de Synergi en Azure AD, deberá agregar Synergi desde la galería a la lista de aplicaciones SaaS administradas.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Synergi is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Synergi needs to be established.
+**Para agregar Synergi desde la galería, realice los pasos siguientes:**
 
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Synergi.
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
-To configure and test Azure AD single sign-on with Synergi, you need to complete the following building blocks:
+	![Active Directory][1]
+2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Synergi test user](#creating-a-synergi-test-user)** - to have a counterpart of Britta Simon in Synergi that is linked to the Azure AD representation of her.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+3. Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
+	![Aplicaciones][2]
 
-In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Synergi application.
+4. Haga clic en **Agregar** en la parte inferior de la página.
+
+	![Aplicaciones][3]
+
+5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
+
+	![Aplicaciones][4]
+
+6. En el cuadro de búsqueda, escriba **Synergi**.
+
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-synergi-tutorial/tutorial_synergi_01.png)
+
+7. En el panel de resultados, seleccione **Synergi** y haga clic en **Completar** para agregar la aplicación.
+
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-synergi-tutorial/tutorial_synergi_02.png)
 
 
-**To configure Azure AD single sign-on with Synergi, perform the following steps:**
+##  Configuración y comprobación del inicio de sesión único de Azure AD
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Synergi con un usuario de prueba llamado "Britta Simon".
 
-1. In the classic portal, on the **Synergi** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
-     
-    ![Configure Single Sign-On][6] 
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Synergi para un usuario de Azure AD. En otras palabras, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Synergi.
 
-2. On the **How would you like users to sign on to Synergi** page, select **Azure AD Single Sign-On**, and then click **Next**.
+Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en Synergi.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-synergi-tutorial/tutorial_synergi_03.png) 
+Para configurar y probar el inicio de sesión único de Azure AD con Synergi, es preciso completar los siguientes bloques de creación:
 
-3. On the **Configure App Settings** dialog page, perform the following steps:
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)**: para permitir a los usuarios usar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba de Synergi](#creating-a-synergi-test-user)**: para tener un homólogo de Britta Simon en Synergi que esté vinculado a su representación en Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-synergi-tutorial/tutorial_synergi_04.png) 
+### Configuración del inicio de sesión único de Azure AD
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Synergi application using the following pattern: **https://\<company name\>.irmsecurity.com/sso/\<organization id\>**.
-    
-    b. click **Next**
+En esta sección, habilitará el inicio de sesión único de Azure AD en el portal clásico y configurará el inicio de sesión único en la aplicación Synergi.
+
+
+**Para configurar el inicio de sesión único de Azure AD con Synergi, realice los pasos siguientes:**
+
+1. En el portal clásico, en la página de integración de aplicaciones de **Synergi**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+	 
+	![Configurar inicio de sesión único][6]
+
+2. En la página **¿Cómo desea que los usuarios inicien sesión en Synergi?**, seleccione **Inicio de sesión único de Azure AD** y haga clic en **Siguiente**.
+
+	![Configurar inicio de sesión único](./media/active-directory-saas-synergi-tutorial/tutorial_synergi_03.png)
+
+3. En la página de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes:
+
+	![Configurar inicio de sesión único](./media/active-directory-saas-synergi-tutorial/tutorial_synergi_04.png)
+
+    a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL usada por los usuarios para iniciar sesión en la aplicación de Synergi con el siguiente patrón: **https://\<nombre de la compañía>.irmsecurity.com/sso/<id. de la organización>**.
+	
+	b. Haga clic en **Siguiente**.
  
-4. On the **Configure single sign-on at Synergi** page, perform the following steps:
+4. En la página **Configurar inicio de sesión único en Synergi**, realice los pasos siguientes:
 
-    ![Configure Single Sign-On](./media/active-directory-saas-synergi-tutorial/tutorial_synergi_05.png)
+	![Configurar inicio de sesión único](./media/active-directory-saas-synergi-tutorial/tutorial_synergi_05.png)
 
-    a. Click **Download certificate**, and then save the file on your computer.
+    a. Haga clic en **Descargar certificado** y después guarde el archivo en el equipo.
 
-    b. Click **Next**.
+    b. Haga clic en **Next**.
 
 
-5. To get SSO configured for your application, contact Synergi support team and provide them with the following:
+5. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el equipo de soporte técnico de Synergi y proporcione lo siguiente:
 
-    • The downloaded certificate
+	• El certificado descargado
 
-    • The **Entity ID**
+	• El **identificador de entidad**
 
-    • The **Single Sign Out Service URL**
+	• La **dirección URL del servicio de cierre de sesión único**
 
-6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
-    
-    ![Azure AD Single Sign-On][10]
+6. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
+	
+	![Inicio de sesión único de Azure AD][10]
 
-7. On the **Single sign-on confirmation** page, click **Complete**.  
+7. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.
  
-    ![Azure AD Single Sign-On][11]
+	![Inicio de sesión único de Azure AD][11]
 
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-In this section, you create a test user in the classic portal called Britta Simon.
+### Creación de un usuario de prueba de Azure AD
+En esta sección, creará un usuario de prueba llamado Britta Simon en el portal clásico.
 
 
-![Create Azure AD User][20]
+![Creación de un usuario de Azure AD][20]
 
-**To create a test user in Azure AD, perform the following steps:**
+**Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-synergi-tutorial/create_aaduser_09.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-synergi-tutorial/create_aaduser_09.png)
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
-3. To display the list of users, in the menu on the top, click **Users**.
+3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-synergi-tutorial/create_aaduser_03.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-synergi-tutorial/create_aaduser_03.png)
 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-synergi-tutorial/create_aaduser_04.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-synergi-tutorial/create_aaduser_04.png)
 
-5. On the **Tell us about this user** dialog page, perform the following steps:  ![Creating an Azure AD test user](./media/active-directory-saas-synergi-tutorial/create_aaduser_05.png) 
+5. En la página de diálogo **Proporcione información sobre este usuario**, siga estos pasos: ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-synergi-tutorial/create_aaduser_05.png)
 
-    a. As Type Of User, select New user in your organization.
+    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    c. Click **Next**.
+    c. Haga clic en **Siguiente**.
 
-6.  On the **User Profile** dialog page, perform the following steps: ![Creating an Azure AD test user](./media/active-directory-saas-synergi-tutorial/create_aaduser_06.png) 
+6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos: ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-synergi-tutorial/create_aaduser_06.png)
 
-    a. In the **First Name** textbox, type **Britta**.  
+    a. En el cuadro de texto **Nombre**, escriba **Britta**.
 
-    b. In the **Last Name** textbox, type, **Simon**.
+    b. En el cuadro de texto **Apellidos**, escriba **Simon**.
 
-    c. In the **Display Name** textbox, type **Britta Simon**.
+    c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
 
-    d. In the **Role** list, select **User**.
+    d. En la lista **Rol**, seleccione **Usuario**.
 
-    e. Click **Next**.
+    e. Haga clic en **Siguiente**.
 
-7. On the **Get temporary password** dialog page, click **create**.
+7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-synergi-tutorial/create_aaduser_07.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-synergi-tutorial/create_aaduser_07.png)
 
-8. On the **Get temporary password** dialog page, perform the following steps:
+8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-synergi-tutorial/create_aaduser_08.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-synergi-tutorial/create_aaduser_08.png)
 
-    a. Write down the value of the **New Password**.
+    a. Anote el valor del campo **Nueva contraseña**.
 
-    b. Click **Complete**.   
-
-
-
-### <a name="creating-an-synergi-test-user"></a>Creating an Synergi test user
-
-In this section, you create a user called Britta Simon in Synergi. Please work with Synergi support team to add the users in the Synergi platform.
+    b. Haga clic en **Completo**.
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Synergi.
+### Creación de un usuario de prueba de Synergi
 
-![Assign User][200] 
-
-**To assign Britta Simon to Synergi, perform the following steps:**
-
-1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Assign User][201] 
-
-2. In the applications list, select **Synergi**.
-
-    ![Configure Single Sign-On](./media/active-directory-saas-synergi-tutorial/tutorial_synergi_50.png) 
-
-3. In the menu on the top, click **Users**.
-
-    ![Assign User][203]
-
-4. In the Users list, select **Britta Simon**.
-
-5. In the toolbar on the bottom, click **Assign**.
-
-    ![Assign User][205]
+En esta sección, creará un usuario llamado Britta Simon en Synergi. Trabaje con el equipo de soporte técnico de Synergi para agregar los usuarios a la plataforma Synergi.
 
 
-### <a name="testing-single-sign-on"></a>Testing Single Sign-On
+### Asignación del usuario de prueba de Azure AD
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Synergi.
 
-When you click the Synergi tile in the Access Panel, you should get automatically signed-on to your Synergi application.
+![Asignar usuario][200]
+
+**Para asignar a Britta Simon a Synergi, realice los pasos siguientes:**
+
+1. En el Portal clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
+
+	![Asignar usuario][201]
+
+2. En la lista de aplicaciones, seleccione **Synergi**.
+
+	![Configurar inicio de sesión único](./media/active-directory-saas-synergi-tutorial/tutorial_synergi_50.png)
+
+3. En el menú de la parte superior, haga clic en **Usuarios**.
+
+	![Asignar usuario][203]
+
+4. En la lista Usuarios, seleccione **Britta Simon**.
+
+5. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
+
+	![Asignar usuario][205]
 
 
-## <a name="additional-resources"></a>Additional resources
+### Prueba del inicio de sesión único
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+
+Al hacer clic en el icono de Synergi del panel de acceso, debería iniciar sesión automáticamente en su aplicación Synergi.
+
+
+## Recursos adicionales
+
+* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -270,8 +269,4 @@ When you click the Synergi tile in the Access Panel, you should get automaticall
 [204]: ./media/active-directory-saas-synergi-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-synergi-tutorial/tutorial_general_205.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

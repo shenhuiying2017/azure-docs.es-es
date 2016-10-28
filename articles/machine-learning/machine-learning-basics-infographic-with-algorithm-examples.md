@@ -1,47 +1,46 @@
 <properties
-    pageTitle="Infographic: Machine learning basics - algorithm examples | Microsoft Azure"
-    description="An easy-to-understand overview of machine learning basics includes algorithm examples. The downloadable infographic covers most machine learning questions."
-    keywords="machine learning basics,algorithm examples,machine learning for beginners,machine learning questions,popular algorithms,algorithm infographic"
-    services="machine-learning"
-    documentationCenter=""
-    authors="garyericson"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="Infografía: Conceptos básicos de aprendizaje automático - Ejemplos de algoritmos | Microsoft Azure"
+	description="Una introducción fácil de comprender de principios básicos de aprendizaje automático incluye ejemplos de algoritmos. La infografía descargable trata la mayoría de las preguntas sobre aprendizaje automático."
+	keywords="conceptos básicos de aprendizaje automático,ejemplos de algoritmo, aprendizaje automático para principiantes,preguntas sobre aprendizaje automático,algoritmos populares,infografía de algoritmos"
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/19/2016"
-    ms.author="garye" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/19/2016"
+	ms.author="garye" />
 
 
+# Infografía descargable: Conceptos básicos de aprendizaje automático con ejemplos de algoritmos
 
-# <a name="downloadable-infographic:-machine-learning-basics-with-algorithm-examples"></a>Downloadable Infographic: Machine learning basics with algorithm examples
+Descargue esta introducción infográfica fácil de entender sobre los conceptos básicos del aprendizaje automático. Obtenga información sobre algoritmos populares que se usan para responder a preguntas comunes sobre el aprendizaje automático. Los ejemplos de algoritmos ayudan a los empiezan a usar el aprendizaje automático a comprender qué algoritmos usar y para qué.
 
-Download this easy-to-understand infographic overview of machine learning basics. Learn about popular algorithms used to answer common machine learning questions. Algorithm examples help the machine learning beginner understand which algorithms to use and what they are used for.
+## Algoritmos populares en Estudio de aprendizaje automático
 
-## <a name="popular-algorithms-in-machine-learning-studio"></a>Popular algorithms in Machine Learning Studio
+[Estudio de aprendizaje automático de Azure](https://studio.azureml.net/) incluye un gran biblioteca de algoritmos para el análisis predictivo. La infografía muestra familias populares de algoritmos: **regresión**, **detección de anomalías**, **agrupación en clústeres** y **clasificación**.
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) comes with a large library of algorithms for predictive analytics. The infographic shows popular families of algorithms: **regression**, **anomaly detection**, **clustering**, and **classification**.
+La [Galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/) muestra cómo se pueden aplicar estos algoritmos en muchas soluciones del mundo real. Siga los vínculos de la infografía para ver ejemplos de trabajo.
 
-[Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) shows how these algorithms can be applied in many real-world solutions. Follow links in the infographic to see working examples.
+## Descargue la infografía con ejemplos de algoritmos
 
-## <a name="download-the-infographic-with-algorithm-examples"></a>Download the infographic with algorithm examples
-
-**[Download: Infographic of machine learning basics with links to algorithm examples (PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
+**[Descarga: Infografía de conceptos básicos del aprendizaje automático con vínculos a ejemplos de algoritmos (PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
 
 
-![Infographic: Machine learning basics with algorithm examples. Popular algorithms. Machine learning for beginners.](./media/machine-learning-basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
+![Infografía: Conceptos básicos de aprendizaje automático con ejemplos de algoritmos. Algoritmos populares. Aprendizaje automático para principiantes.](./media/machine-learning-basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
 
-## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>More help with algorithms for beginners and advanced users
+## Más ayuda con los algoritmos para principiantes y usuarios avanzados
 
-* For a deeper discussion of the different types of machine learning algorithms, how they're used, and how to choose the right one for your solution, see [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
-* For a list by category of all the machine learning algorithms available in Machine Learning Studio, see [Initialize Model][initialize-model] in the Machine Learning Studio Algorithm and Module Help.
-* For a complete list of algorithms and modules in Machine Learning Studio, see [A-Z list of Machine Learning Studio modules][a-z-list] in Machine Learning Studio Algorithm and Module Help.
-* To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](machine-learning-studio-overview-diagram.md).
+* Para obtener más información sobre los distintos tipos de algoritmos de aprendizaje automático, cómo se usan y cómo elegir el correcto para su solución, consulte [Cómo elegir algoritmos para Aprendizaje automático de Microsoft Azure](machine-learning-algorithm-choice.md).
+* Para ver una lista por categoría de todos los algoritmos disponibles de aprendizaje automático en Estudio de aprendizaje automático, consulte [Inicializar modelo][initialize-model] en la Ayuda de módulos y algoritmos de Estudio de aprendizaje automático.
+* Para ver una lista completa de todos los algoritmos de Estudio de aprendizaje automático, consulte [Lista de la A a la Z de módulos de Estudio de aprendizaje automático][a-z-list] en la Ayuda de módulos y algoritmos de Estudio de aprendizaje automático.
+* Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, consulte [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](machine-learning-studio-overview-diagram.md).
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -53,8 +52,4 @@ Download this easy-to-understand infographic overview of machine learning basics
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

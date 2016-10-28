@@ -1,38 +1,37 @@
 <properties
-    pageTitle="Pause and resume data migration (Stretch Database) | Microsoft Azure"
-    description="Learn how to pause or resume data migration to Azure."
-    services="sql-server-stretch-database"
-    documentationCenter=""
-    authors="douglaslMS"
-    manager=""
-    editor=""/>
+	pageTitle="Pausa y reanudación de la migración de datos (Stretch Database) | Microsoft Azure"
+	description="Aprenda a pausar o reanudar la migración de datos en Azure."
+	services="sql-server-stretch-database"
+	documentationCenter=""
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
-    ms.service="sql-server-stretch-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="06/14/2016"
-    ms.author="douglasl"/>
+	ms.service="sql-server-stretch-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/14/2016"
+	ms.author="douglasl"/>
 
+# Pausa y reanudación de la migración de datos (Stretch Database)
 
-# <a name="pause-and-resume-data-migration-(stretch-database)"></a>Pause and resume data migration (Stretch Database)
+Para pausar o reanudar la migración de datos en Azure, seleccione **Stretch** para una tabla en SQL Server Management Studio y después seleccione **Pausar** para pausar la migración de datos o **Reanudar** para reanudarla. También puede usar Transact-SQL para pausarla o reanudarla.
 
-To pause or resume data migration to Azure, select **Stretch** for a table in SQL Server Management Studio, and then select **Pause** to pause data migration or **Resume** to resume data migration. You can also use Transact\-SQL to pause or resume data migration.
+Pause la migración de datos en tablas individuales cuando desee solucionar problemas en el servidor local o para maximizar el ancho de banda de red disponible.
 
-Pause data migration on individual tables when you want to troubleshoot problems on the local server or to maximize the available network bandwidth.
+## Pausa de migración de datos
 
-## <a name="pause-data-migration"></a>Pause data migration
+### Uso de SQL Server Management Studio para pausar la migración de datos
 
-### <a name="use-sql-server-management-studio-to-pause-data-migration"></a>Use SQL Server Management Studio to pause data migration
+1.  En SQL Server Management Studio, en el Explorador de objetos, seleccione la tabla habilitada para Stretch en la que desee pausar la migración de datos.
 
-1.  In SQL Server Management Studio, in Object Explorer, select the Stretch\-enabled table for which you want to pause data migration.
+2.  Haga clic con el botón derecho, seleccione **Stretch** y después seleccione **Pausar**.
 
-2.  Right\-click and select **Stretch**, and then select **Pause**.
-
-### <a name="use-transact\-sql-to-pause-data-migration"></a>Use Transact\-SQL to pause data migration
-Run the following command.
+### Uso de Transact-SQL para pausar la migración de datos
+Ejecute el siguiente comando.
 
 ```tsql
 USE <Stretch-enabled database name>;
@@ -42,16 +41,16 @@ ALTER TABLE <Stretch-enabled table name>
 GO
 ```
 
-## <a name="resume-data-migration"></a>Resume data migration
+## Reanudación de la migración de datos
 
-### <a name="use-sql-server-management-studio-to-resume-data-migration"></a>Use SQL Server Management Studio to resume data migration
+### Uso de SQL Server Management Studio para reanudar la migración de datos
 
-1.  In SQL Server Management Studio, in Object Explorer, select the Stretch\-enabled table for which you want to resume data migration.
+1.  En SQL Server Management Studio, en el Explorador de objetos, seleccione la tabla habilitada para Stretch en la que desee reanudar la migración de datos.
 
-2.  Right\-click and select **Stretch**, and then select **Resume**.
+2.  Haga clic con el botón derecho, seleccione **Stretch** y después seleccione **Reanudar**.
 
-### <a name="use-transact\-sql-to-resume-data-migration"></a>Use Transact\-SQL to resume data migration
-Run the following command.
+### Uso de Transact-SQL para reanudar la migración de datos
+Ejecute el siguiente comando.
 
 ```tsql
 USE <Stretch-enabled database name>;
@@ -61,21 +60,16 @@ ALTER TABLE <Stretch-enabled table name>
  GO
 ```
 
-## <a name="check-whether-migration-is-active-or-paused"></a>Check whether migration is active or paused
+## Comprobación de si la migración está activa o en pausa
 
-### <a name="use-sql-server-management-studio-to-check-whether-migration-is-active-or-paused"></a>Use SQL Server Management Studio to check whether migration is active or paused
-In SQL Server Management Studio, open **Stretch Database Monitor** and check the value of the **Migration State** column. For more info, see [Monitor and troubleshoot data migration](sql-server-stretch-database-monitor.md).
+### Uso de SQL Server Management Studio para comprobar si la migración está activa o en pausa
+En SQL Server Management Studio, abra **Stretch Database Monitor** y compruebe el valor de la columna **Migration State** (Estado de migración). Para más información, consulte [Supervisión y solución de problemas de migración de datos (Stretch Database)](sql-server-stretch-database-monitor.md).
 
-### <a name="use-transact-sql-to-check-whether-migration-is-active-or-paused"></a>Use Transact-SQL to check whether migration is active or paused
-Query the catalog view **sys.remote_data_archive_tables** and check the value of the **is_migration_paused** column. For more info, see [sys.remote_data_archive_tables](https://msdn.microsoft.com/library/dn935003.aspx).
+### Uso de Transact-SQL para comprobar si la migración está activa o en pausa
+Abra la vista de catálogo **sys.remote\_data\_archive\_tables** y compruebe el valor de la columna **is\_migration\_paused**. Para más información, consulte [sys.remote\_data\_archive\_tables](https://msdn.microsoft.com/library/dn935003.aspx).
 
-## <a name="see-also"></a>See also
+## Consulte también
 
-[ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
-[Monitor and troubleshoot data migration](sql-server-stretch-database-monitor.md)
+[ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx) [Supervisión y solución de problemas de migración de datos (Stretch Database)](sql-server-stretch-database-monitor.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

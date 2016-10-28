@@ -1,109 +1,104 @@
 <properties
-    pageTitle="Troubleshoot common connection issues to Azure SQL Database"
-    description="Steps to identify and resolve common connection errors for Azure SQL Database."
-    services="sql-database"
-    documentationCenter=""
-    authors="dalechen"
-    manager="felixwu"
-    editor=""/>
+	pageTitle="Solución de problemas de conexión comunes relacionados con la base de datos SQL de Azure"
+	description="Pasos para identificar y resolver errores de conexión comunes para la base de datos SQL de Azure."
+	services="sql-database"
+	documentationCenter=""
+	authors="dalechen"
+	manager="felixwu"
+	editor=""/>
 
 <tags
-    ms.service="sql-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/31/2016"
-    ms.author="daleche"/>
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2016"
+	ms.author="daleche"/>
 
+# Solución de problemas de conexión de Base de datos SQL de Azure
 
-# <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Troubleshoot connection issues to Azure SQL Database
+Cuando la conexión a Base de datos SQL de Azure no se logra establecer, se reciben [mensajes de error](sql-database-develop-error-messages.md). Este artículo es un tema centralizado que ayuda a la solución de problemas de conectividad de Base de datos SQL de Azure. Se presentan [las causas habituales](#cause) de problemas de conexión, se recomienda [una herramienta de solución de problemas](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) que le ayuda a identificar el problema y se proporciona pasos de solución de problemas para resolver [errores transitorios](#troubleshoot-transient-errors) y [errores persistentes o no transitorios](#troubleshoot-the-persistent-errors). Por último, se enumeran [todos los artículos relacionados con la conectividad de Base de datos SQL de Azure](#all-topics-for-azure-sql-database-connection-problems).
 
-When the connection to Azure SQL Database fails, you receive [error messages](sql-database-develop-error-messages.md). This article is a centralized topic that helps you troubleshoot Azure SQL Database connectivity issues. It introduces [the common causes](#cause) of connection issues, recommends [a troubleshooting tool](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) that helps you identity the problem, and provides troubleshooting steps to solve [transient errors](#troubleshoot-transient-errors) and [persistent or non-transient errors](#troubleshoot-the-persistent-errors). Finally, it lists [all the relevant articles for Azure SQL Database connectivity issues](#all-topics-for-azure-sql-database-connection-problems).
-
-If you encounter the connection issues, try the troubleshoot steps that are described in this article.
+Si encuentra problemas de conexión, pruebe los pasos de solución de problemas que se describen en este artículo. 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="cause"></a>Cause
+## Causa
 
-Connection problems may be caused by any of the following:
+Los problemas de conexión pueden tener alguna de las siguientes causas:
 
-- Failure to apply best practices and design guidelines during the application design process.  See [SQL Database Development Overview](sql-database-develop-overview.md) to get started.
-- Azure SQL Database reconfiguration
-- Firewall settings
-- Connection time-out
-- Incorrect login information
-- Maximum limit reached on some Azure SQL Database resources
+- Error al aplicar los procedimientos recomendados y las directrices de diseño durante el proceso de diseño de aplicaciones. Para comenzar, consulte [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md).
+- Reconfiguración de la Base de datos SQL de Azure
+- Configuración de firewall
+- Tiempo de espera de conexión agotado
+- Información de inicio de sesión incorrecta
+- Límite máximo alcanzado en algunos recursos de Base de datos SQL de Azure
 
-Generally, connection issues to Azure SQL Database can be classified as follows:
+Por lo general, los problemas de conexión de Base de datos SQL de Azure se pueden clasificar en los siguientes:
 
-- [Transient errors (short-lived or intermittent)](#troubleshoot-transient-errors)
-- [Persistent or non-transient errors (errors that regularly recur)](#troubleshoot-the-persistent-errors)
+- [Errores transitorios (corta duración o intermitentes)](#troubleshoot-transient-errors)
+- [Errores persistentes o no transitorios (errores que se repiten con frecuencia)](#troubleshoot-the-persistent-errors)
 
-## <a name="try-the-troubleshooter-for-azure-sql-database-connectivity-issues"></a>Try the troubleshooter for Azure SQL Database connectivity issues
+## Pruebe el solucionador de problemas para los problemas de conectividad de Base de datos SQL de Azure
 
-If you encounter a specific connection error, try [this tool](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database), which will help you quickly identity and resolve your problem.
+Si se produce un error de conexión específico, pruebe [esta herramienta](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database), que le ayudará a identificar y resolver el problema.
 
-## <a name="troubleshoot-transient-errors"></a>Troubleshoot transient errors
-If your application is experiencing transient errors, review the following topics for tips about how to troubleshoot and reduce the frequency of these errors:
+## Solución de problemas de errores transitorios
+Si la aplicación está experimentando errores transitorios, revise los siguientes temas para obtener sugerencias acerca de cómo solucionar problemas y reducir la frecuencia de estos errores:
 
-- [Troubleshooting Database &lt;x&gt; on Server &lt;y&gt; is unavailable (Error: 40613)](sql-database-troubleshoot-connection.md)
-- [Troubleshoot, diagnose, and prevent SQL connection errors and transient errors for SQL Database](sql-database-connectivity-issues.md)
+- [Troubleshooting Database &lt;x&gt; on Server &lt;y&gt; is unavailable (Error: 40613) (Solución de problemas del error La base de datos &lt;x&gt; del servidor &lt;y&gt; no está disponible (Error: 40613))](sql-database-troubleshoot-connection.md)
+- [Acciones para solucionar problemas, diagnosticar y evitar errores de conexión y errores transitorios en Base de datos SQL](sql-database-connectivity-issues.md)
 
 <a id="troubleshoot-the-persistent-errors" name="troubleshoot-the-persistent-errors"></a>
 
-## <a name="troubleshoot-persistent-errors-(non-transient-errors)"></a>Troubleshoot persistent errors (non-transient errors)
+## Solución de problemas de errores persistentes (no transitorios)
 
-If the application persistently fails to connect to Azure SQL Database, it usually indicates an issue with one of the following:
+Si la aplicación no se puede conectar a la Base de datos SQL de Azure de forma persistente, normalmente indica un problema con uno de los siguientes elementos:
 
-- Firewall configuration. The Azure SQL database or client-side firewall is blocking connections to Azure SQL Database.
-- Network reconfiguration on the client side: for example, a new IP address or a proxy server.
-- User error: for example, mistyped connection parameters, such as the server name in the connection string.
+- Configuración del firewall. La base de datos SQL de Azure o el firewall del cliente están bloqueando las conexiones de la base de datos SQL de Azure.
+- Reconfiguración de la red en el lado cliente: por ejemplo, un nuevo servidor de proxy o dirección IP.
+- Error de usuario: por ejemplo, escribió incorrectamente los parámetros de conexión, como el nombre del servidor en la cadena de conexión.
 
-### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Steps to resolve persistent connectivity issues
+### Pasos para resolver los problemas de conectividad persistentes
 
-1.  Set up [firewall rules](sql-database-configure-firewall-settings.md) to allow the client IP address.
-2.  On all firewalls between the client and the Internet, make sure that port 1433 is open for outbound connections. Review [Configure the Windows Firewall to Allow SQL Server Access](https://msdn.microsoft.com/library/cc646023.aspx) for additional pointers.
-3.  Verify your connection string and other connection settings. See the Connection String section in the [connectivity issues topic](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
-4.  Check service health in the dashboard. If you think there’s a regional outage, see [Recover from an outage](sql-database-disaster-recovery.md) for steps to recover to a new region.
+1.	Configure las [reglas de firewall](sql-database-configure-firewall-settings.md) para permitir la dirección IP del cliente.
+2.	En todos los firewalls entre el cliente e Internet, asegúrese de que el puerto 1433 está abierto para las conexiones salientes. Consulte [Configurar Firewall de Windows para permitir el acceso a SQL Server](https://msdn.microsoft.com/library/cc646023.aspx) para obtener indicaciones adicionales.
+3.	Compruebe la cadena de conexión y otras opciones de conexión. Vea la sección Cadena de conexión en el [tema de los problemas de conectividad](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
+4.	Compruebe el estado del servicio en el panel. Si piensa que hay un interrupción regional, vea [Recuperación tras una interrupción](sql-database-disaster-recovery.md) para los pasos para recuperarse para una región nueva.
 
-## <a name="all-topics-for-azure-sql-database-connection-problems"></a>All topics for Azure SQL Database connection problems
+## Todos los temas de problemas de conexión de Base de datos SQL de Azure
 
-The following table lists every connection problem topic that applies directly to the Azure SQL Database service.
+En la siguiente tabla se enumeran todos los temas de problemas de conexión que se aplican directamente al servicio Base de datos SQL de Azure.
 
 
-| &nbsp; | Title | Description |
+| &nbsp; | Título | Descripción |
 | --: | :-- | :-- |
-| 1 | [Troubleshoot connection issues to Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md) | This is the landing page for troubleshooting connectivity issues in Azure SQL Database. It describes how to identify and resolve transient errors and persistent or non-transient errors in Azure SQL Database. |
-| 2 | [Troubleshoot, diagnose, and prevent SQL connection errors and transient errors for SQL Database](sql-database-connectivity-issues.md) | Learn how to troubleshoot, diagnose, and prevent a SQL connection error or transient error in Azure SQL Database. |
-| 3 | [General transient fault-handling guidance](best-practices-retry-general.md) | Provides general guidance for transient fault handling when connecting to Azure SQL Database. |
-| 4 | [Troubleshoot connectivity issues with Microsoft Azure SQL Database](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database) | This tool helps identity your problem solve connection errors. |
-| 5 | [Troubleshoot "Database &lt;x&gt; on server &lt;y&gt; is not currently available. Please retry the connection later" error](sql-database-troubleshoot-connection.md) | Describes how to identify and resolve a 40613 error: "Database &lt;x&gt; on server &lt;y&gt; is not currently available. Please retry the connection later." |
-| 6 | [SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md) | Provides info about SQL error codes for SQL Database client applications, such as common database connection errors, database copy issues, and general errors. |
-| 7 | [Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md) | Provides guidance to help you determine which service tier is right for your application. Also provides recommendations for tuning your application to get the most out of your Azure SQL Database. |
-| 8 | [SQL Database Development Overview](sql-database-develop-overview.md) | Provides links to code samples for various technologies that you can use to connect to and interact with Azure SQL Database. |
-| 9 | Upgrade to Azure SQL Database v12 page ([Azure portal](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) | Provides directions for upgrading existing Azure SQL Database V11 servers and databases to Azure SQL Database V12 by using Azure portal or PowerShell. |
+| 1 | [Solución de problemas de conexión comunes relacionados con la base de datos SQL de Azure](sql-database-troubleshoot-common-connection-issues.md) | Se trata de la página de inicio para solucionar problemas de conectividad de Base de datos SQL de Azure. En ella se describe cómo identificar y resolver errores transitorios y errores persistentes o no transitorios en Base de datos SQL de Azure. |
+| 2 | [Acciones para solucionar problemas, diagnosticar y evitar errores de conexión y errores transitorios en Base de datos SQL](sql-database-connectivity-issues.md) | Aprenda a solucionar problemas, diagnosticar y evitar un error de conexión de SQL o un error transitorio en la Base de datos SQL de Azure. |
+| 3 | [Orientación general sobre reintentos](best-practices-retry-general.md) | Se proporcionan instrucciones generales para el tratamiento de los errores transitorios al conectarse a Base de datos SQL de Azure. |
+| 4 | [Solucionar problemas de conectividad con la Base de datos SQL de Microsoft Azure](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database) | Esta herramienta ayuda a identificar problemas y a resolver problemas de conexión. |
+| 5 | [Solución del error "Database <x> on server <y> is not currently available. Please retry the connection later" (La base de datos <x> del servidor <y> no está disponible. Vuelva a intentar la conexión más tarde.). Please retry the connection later" (La base de datos &lt;x&gt; del servidor &lt;y&gt; no está disponible. Vuelva a intentar la conexión más tarde)](sql-database-troubleshoot-connection.md) | Se describe cómo identificar y resolver un error 40613: "La base de datos &lt;x&gt; en el servidor &lt;y&gt; no está disponible actualmente. Vuelva a intentar la conexión más tarde.) |
+| 6 | [Códigos de error para las aplicaciones cliente de la Base de datos SQL: error de conexión de base de datos y otros problemas.](sql-database-develop-error-messages.md) | Proporciona información sobre los códigos de error de SQL de las aplicaciones cliente de Base de datos SQL, como errores de conexión de base de datos más comunes, problemas de copia de la base de datos y errores generales. |
+| 7 | [Guía de rendimiento de Base de datos SQL de Azure](sql-database-performance-guidance.md) | Se proporcionan instrucciones para ayudarle a determinar qué nivel de servicio es adecuado para su aplicación. También se incluyen recomendaciones para optimizar la aplicación y así sacar el máximo provecho de su instancia de Base de datos SQL de Azure. |
+| 8 | [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md) | Proporciona vínculos a ejemplos de código para diversas tecnologías que puede usar para conectarse a Base de datos SQL de Azure e interactuar con este servicio. |
+| 9 | Actualización a la página de Base de datos SQL de Azure v12 ([Portal de Azure](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) | Se proporcionan instrucciones para actualizar los servidores y bases de datos de Base de datos SQL de Azure V11 existentes a Base de datos SQL de Azure V12 mediante el Portal de Azure o PowerShell. |
 
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-- [Troubleshoot Azure SQL Database performance issues](sql-database-troubleshoot-performance.md)
-- [Troubleshoot Azure SQL Database permissions issues](sql-database-troubleshoot-permissions.md)
-- [See all topics for the Azure SQL Database service](sql-database-index-all-articles.md)
-- [Search the documentation on Microsoft Azure](http://azure.microsoft.com/search/documentation/)
-- [View the latest updates to the Azure SQL Database service](http://azure.microsoft.com/updates/?service=sql-database)
-
-
-## <a name="additional-resources"></a>Additional resources
-
-- [SQL Database Development Overview](sql-database-develop-overview.md)
-- [General transient fault-handling guidance](../best-practices-retry-general.md)
-- [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
-- [The learning path for using Azure SQL Database](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
-- [The learning path for using elastic database features and tools](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
+- [Evaluación y mejora del rendimiento de la base de datos con la Base de datos SQL de Azure](sql-database-troubleshoot-performance.md)
+- [Tareas administrativas comunes en Base de datos SQL de Azure](sql-database-troubleshoot-permissions.md)
+- [Todos los temas del servicio Base de datos SQL de Azure](sql-database-index-all-articles.md)
+- [Buscar en la documentación de Microsoft Azure](http://azure.microsoft.com/search/documentation/)
+- [Ver las últimas actualizaciones del servicio Base de datos SQL](http://azure.microsoft.com/updates/?service=sql-database)
 
 
+## Recursos adicionales
 
-<!--HONumber=Oct16_HO2-->
+- [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md)
+- [Orientación general sobre reintentos](../best-practices-retry-general.md)
+- [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md)
+- [La ruta aprendizaje para el uso de Base de datos SQL de Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
+- [La ruta de aprendizaje para el uso de herramientas y características de bases de datos elásticas](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale)
 
-
+<!---HONumber=AcomDC_0831_2016-->

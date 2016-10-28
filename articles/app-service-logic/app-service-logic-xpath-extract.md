@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using the BizTalk XPath Extractor in logic apps in Azure App Service | Microsoft Azure"
-   description="BizTalk XPath Extractor"
+   pageTitle="Uso del Extractor XPath de BizTalk en aplicaciones lógicas del Servicio de aplicaciones de Azure | Microsoft Azure"
+   description="Extractor XPath de BizTalk"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="rajram"
@@ -16,42 +16,35 @@
    ms.date="04/20/2016"
    ms.author="rajram"/>
 
-
-# <a name="biztalk-xpath-extractor"></a>BizTalk XPath Extractor
+# Extractor XPath de BizTalk
 
 [AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 
-BizTalk XPath Extract connector helps your app lookup and extract data from XML content based on a given XPath.
+El conector Extractor XPath de BizTalk ayuda a su aplicación a buscar y extraer datos desde contenido XML según un XPath determinado.
 
-## <a name="using-the-biztalk-xpath-extractor"></a>Using the BizTalk Xpath Extractor
-1. To use the BizTalk Xpath Extractor, you need to first create an instance of the BizTalk Xpath Extractor API app. This can be done either inline while creating a logic app or by selecting the BizTalk Xpath Extractor API app from the Azure Marketplace.
+## Uso del Extractor XPath de BizTalk
+1. Para utilizar el Extractor XPath de BizTalk, primero debe crear una instancia de la aplicación de API del Extractor XPath de BizTalk. Esto puede hacerse ya sea en línea, mediante la creación de una aplicación lógica o mediante la selección de la aplicación de API del Extractor XPath de BizTalk desde Azure Marketplace.
 
-    >[AZURE.NOTE] There are no configuration settings associated with BizTalk Xpath Extractor.
-2. [Create a new logic app]. Open “Triggers and Actions” within your Logic App to open the Logic Apps Designer to configure your flow.
-3. On designer, the right pane lists the API Apps available to build your flow. Find the "BizTalk XPath Extractor". Selecting it adds the Xpath Extractor to your flow and provisions an instance of it.
-4. Once provisioned, the designer shows up the action associated with BizTalk XPath Extractor API App:  
-    ![BizTalk XPath Extractor Choose Action][1]
+	>[AZURE.NOTE] No hay opciones de configuración asociadas a BizTalk Xpath Extractor.
+2. [Creación de una nueva aplicación lógica] Abra "Desencadenadores y acciones" en la aplicación lógica para abrir el Diseñador de aplicaciones lógicas y configure el flujo.
+3. En el diseñador, el panel derecho enumera las aplicaciones de API con las que se puede compilar el flujo. Busque el «Extractor XPath de BizTalk» Al seleccionarlo se agrega el Extractor XPath al flujo y se aprovisiona una instancia del mismo.
+4. Una vez aprovisionada, el diseñador muestra la acción asociada con la aplicación de API Extractor XPath de BizTalk: ![Elegir acción de Extractor XPath de BizTalk][1]
 
-5. Choose "Extract Using XPath". "Extract Using XPath" evaluates input xpath expression on a given input XML:  
-    ![BizTalk XPath Extractor Input][2]
+5. Elija "Extraer mediante XPath". "Extraer mediante XPath" evalúa la expresión xpath de entrada en un XML de entrada determinado: ![Entrada de Extractor XPath de BizTalk][2]
 
-    Parameter|Type|Description of the parameter
+	Parámetro|Tipo|Descripción del parámetro
 ---|---|---
-XPath|string|Query path inside xml.
-Input Xml|string|Input Xml content.
+XPath|cadena|Ruta de la consulta dentro de XML.
+Input Xml|cadena|Contenido XML de entrada.
 
-The action returns the output as a string - Result. Result contains the value of query path inside the XML.
+La acción devuelve la salida como una cadena - resultado. El resultado contiene el valor de la ruta de la consulta dentro de XML.
 
 <!-- References -->
 [1]: ./media/app-service-logic-xpath-extract/ChooseAction.PNG
 [2]: ./media/app-service-logic-xpath-extract/ConfigureInput.PNG
 
 <!-- Links -->
-[Create a new Logic App]: app-service-logic-create-a-logic-app.md
+[Creación de una nueva aplicación lógica]: app-service-logic-create-a-logic-app.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

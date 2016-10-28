@@ -1,553 +1,548 @@
 <properties
-    pageTitle="Getting started with queue storage and Visual Studio connected services (WebJob projects) | Microsoft Azure"
-    description="How to get started using Azure Queue storage in a WebJob project after connecting to a storage account using Visual Studio connected services."
-    services="storage"
-    documentationCenter=""
-    authors="TomArcher"
-    manager="douge"
-    editor=""/>
+	pageTitle="Introducción al almacenamiento de colas y servicios conectados de Visual Studio (proyectos de WebJobs) | Microsoft Azure"
+	description="Cómo empezar a usar el almacenamiento de colas de Azure en un proyecto de WebJob después de conectarse a una cuenta de almacenamiento con los servicios conectados de Visual Studio."
+	services="storage"
+	documentationCenter=""
+	authors="TomArcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-    ms.service="storage"
-    ms.workload="web"
-    ms.tgt_pltfrm="vs-getting-started"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/18/2016"
-    ms.author="tarcher"/>
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/18/2016"
+	ms.author="tarcher"/>
 
-
-# <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-(webjob-projects)"></a>Getting started with Azure Queue storage and Visual Studio connected services (WebJob Projects)
+# Introducción al Almacenamiento de colas de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)
 
 [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Overview
+## Información general
 
-This article describes how get started using Azure Queue storage in a Visual Studio Azure WebJob project after you have created or referenced an Azure storage account by using the Visual Studio  **Add Connected Services** dialog box. When you add a storage account to a WebJob project by using the Visual Studio **Add Connected Services** dialog, the appropriate Azure Storage NuGet packages are installed, the appropriate .NET references are added to the project, and connection strings for the storage account are updated in the App.config file.  
+En este artículo se describe cómo empezar a usar el Almacenamiento en cola de Azure en un proyecto de WebJobs de Azure de Visual Studio después de crear una cuenta de almacenamiento de Azure o hacer referencia a ella con el cuadro de diálogo <1>Agregar servicios conectados</1> de Visual Studio. Al agregar una cuenta de almacenamiento a un proyecto de WebJobs con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio, se instalan los paquetes de NuGet de Almacenamiento de Azure adecuados, se agregan las referencias de .NET adecuadas al proyecto y se actualizan las cadenas de conexión para la cuenta de almacenamiento en el archivo App.config.
 
-This article provides C# code samples that show how to use the Azure WebJobs SDK version 1.x with the Azure Queue storage service.
+En este artículo se ofrecen ejemplos de código C# que muestran cómo usar la versión 1.x del SDK de WebJobs de Azure con el servicio Almacenamiento de colas de Azure.
 
-Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account. See [Get started with Azure Queue Storage using .NET](storage-dotnet-how-to-use-queues.md) for more information. For more information about ASP.NET, see [ASP.NET](http://www.asp.net).
-
-
-
-## <a name="how-to-trigger-a-function-when-a-queue-message-is-received"></a>How to trigger a function when a queue message is received
-
-To write a function that the WebJobs SDK calls when a queue message is received, use the **QueueTrigger** attribute. The attribute constructor takes a string parameter that specifies the name of the queue to poll. To see how to set the queue name dynamically, check out [How to set Configuration Options](#how-to-set-configuration-options).
-
-### <a name="string-queue-messages"></a>String queue messages
-
-In the following example, the queue contains a string message, so **QueueTrigger** is applied to a string parameter named **logMessage** which contains the content of the queue message. The function [writes a log message to the Dashboard](#how-to-write-logs).
+El almacenamiento en cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Un único mensaje en cola puede tener un tamaño de hasta 64 KB y una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento. Consulte [Introducción al Almacenamiento en cola de Azure mediante .NET](storage-dotnet-how-to-use-queues.md) para más información. Para obtener más información acerca de ASP.NET, consulte [ASP.NET](http://www.asp.net).
 
 
-        public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
-        {
-            logger.WriteLine(logMessage);
-        }
 
-Besides **string**, the parameter may be a byte array, a **CloudQueueMessage** object, or a POCO  that you define.
+## Desencadenar una función cuando se recibe un mensaje de cola
 
-### <a name="poco-[(plain-old-clr-object](http://en.wikipedia.org/wiki/plain_old_clr_object))-queue-messages"></a>POCO [(Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) queue messages
+Para escribir una función que el SDK de WebJobs llama cuando se recibe un mensaje en cola, use el atributo **QueueTrigge**. El constructor de atributo toma un parámetro de cadena que especifica el nombre de la cola para sondear. Para ver cómo establecer dinámicamente el nombre de la cola, consulte [Establecimiento de opciones de configuración](#how-to-set-configuration-options).
 
-In the following example, the queue message contains JSON for a **BlobInformation** object which includes a **BlobName** property. The SDK automatically deserializes the object.
+### Mensajes en cola de cadena
 
-        public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobInfo, TextWriter logger)
-        {
-            logger.WriteLine("Queue message refers to blob: " + blobInfo.BlobName);
-        }
+En el ejemplo siguiente, la cola contiene un mensaje de cadena, por lo que **QueueTrigger** se aplica a un parámetro de cadena llamado **logMessage** que tiene el contenido del mensaje de la cola. La función [ escribe un mensaje de registro en el panel](#how-to-write-logs).
 
-The SDK uses the [Newtonsoft.Json NuGet package](http://www.nuget.org/packages/Newtonsoft.Json) to serialize and deserialize messages. If you create queue messages in a program that doesn't use the WebJobs SDK, you can write code like the following example to create a POCO queue message that the SDK can parse.
 
-        BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
-        var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
-        logQueue.AddMessage(queueMessage);
+		public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
+		{
+		    logger.WriteLine(logMessage);
+		}
 
-### <a name="async-functions"></a>Async functions
+Además de **string**, el parámetro puede ser una matriz de bytes, un objeto **CloudQueueMessage** o un objeto POCO que defina.
 
-The following async function [writes a log to the Dashboard](#how-to-write-logs).
+### Mensajes en cola POCO [ (objeto CRL estándar](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 
-        public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
-        {
-            await logger.WriteLineAsync(logMessage);
-        }
+En el ejemplo siguiente, el mensaje de cola contiene JSON para un objeto **BlobInformation** que incluye una propiedad **BlobName**. El SDK automáticamente deserializa el objeto.
 
-Async functions may take a [cancellation token](http://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), as shown in the following example which copies a blob. (For an explanation of the **queueTrigger** placeholder, see the [Blobs](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) section.)
+		public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobInfo, TextWriter logger)
+		{
+		    logger.WriteLine("Queue message refers to blob: " + blobInfo.BlobName);
+		}
 
-        public async static Task ProcessQueueMessageAsyncCancellationToken(
-            [QueueTrigger("blobcopyqueue")] string blobName,
-            [Blob("textblobs/{queueTrigger}",FileAccess.Read)] Stream blobInput,
-            [Blob("textblobs/{queueTrigger}-new",FileAccess.Write)] Stream blobOutput,
-            CancellationToken token)
-        {
-            await blobInput.CopyToAsync(blobOutput, 4096, token);
-        }
+El SDK usa el [paquete Newtonsoft.Json NuGet](http://www.nuget.org/packages/Newtonsoft.Json) para serializar y deserializar los mensajes. Si crea mensajes en cola en un programa que no usa el SDK de WebJobs, puede escribir código similar al siguiente ejemplo para crear un mensaje en cola POCO que pueda analizar el SDK.
 
-## <a name="types-the-queuetrigger-attribute-works-with"></a>Types the QueueTrigger attribute works with
+		BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
+		var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
+		logQueue.AddMessage(queueMessage);
 
-You can use **QueueTrigger** with the following types:
+### Funciones asincrónicas
 
-* **string**
-* A POCO type serialized as JSON
-* **byte[]**
+La siguiente función async [escribe un registro en el panel](#how-to-write-logs).
+
+		public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
+		{
+		    await logger.WriteLineAsync(logMessage);
+		}
+
+Las funciones asincrónicas pueden tomar un [token de cancelación](http://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), como se muestra en el siguiente ejemplo, que copia un blob. (Para obtener una explicación del marcador de posición **queueTrigger**, consulte la sección [Blobs](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message)).
+
+		public async static Task ProcessQueueMessageAsyncCancellationToken(
+		    [QueueTrigger("blobcopyqueue")] string blobName,
+		    [Blob("textblobs/{queueTrigger}",FileAccess.Read)] Stream blobInput,
+		    [Blob("textblobs/{queueTrigger}-new",FileAccess.Write)] Stream blobOutput,
+		    CancellationToken token)
+		{
+		    await blobInput.CopyToAsync(blobOutput, 4096, token);
+		}
+
+## Tipos con los que funciona el atributo QueueTrigger
+
+Puede usar **QueueTrigger** con los tipos siguientes:
+
+* **cadena**
+* Un tipo de POCO serializado como JSON
+* **byte**
 * **CloudQueueMessage**
 
-## <a name="polling-algorithm"></a>Polling algorithm
+## Algoritmo de sondeo
 
-The SDK implements a random exponential back-off algorithm to reduce the effect of idle-queue polling on storage transaction costs.  When a message is found, the SDK waits two seconds and then checks for another message; when no message is found it waits about four seconds before trying again. After subsequent failed attempts to get a queue message, the wait time continues to increase until it reaches the maximum wait time, which defaults to one minute. [The maximum wait time is configurable](#how-to-set-configuration-options).
+El SDK implementa un algoritmo de interrupción exponencial aleatorio para reducir el efecto del sondeo de cola inactiva en los costos de transacción de almacenamiento. Cuando se encuentra un mensaje, el SDK espera dos segundos y, a continuación, comprueba si hay otro mensaje; cuando no se encuentra ningún mensaje, espera unos cuatro segundos antes de intentarlo de nuevo. Después de varios intentos fallidos para obtener un mensaje de la cola, el tiempo de espera sigue aumentando hasta que alcanza el tiempo de espera máximo, predeterminado en un minuto. [El tiempo de espera máximo es configurable](#how-to-set-configuration-options).
 
-## <a name="multiple-instances"></a>Multiple instances
+## Varias instancias
 
-If your web app runs on multiple instances, a continuous WebJobs runs on each machine, and each machine will wait for triggers and attempt to run functions. In some scenarios this can lead to some functions processing the same data twice, so functions should be idempotent (written so that calling them repeatedly with the same input data doesn't produce duplicate results).  
+Si la aplicación web se ejecuta en varias instancias, un WebJobs continuo se ejecuta en cada máquina y estas, a su vez, esperarán a los desencadenadores e intentarán ejecutar funciones. En algunos escenarios puede ocurrir que algunas funciones procesen los mismos datos dos veces, por lo que las funciones deben ser idempotentes (escritas de tal forma que al llamarlas repetidamente con los mismos datos de entrada no se generen resultados duplicados).
 
-## <a name="parallel-execution"></a>Parallel execution
+## Ejecución en paralelo
 
-If you have multiple functions listening on different queues, the SDK will call them in parallel when messages are received simultaneously.
+Si tiene varias funciones escuchando en diferentes colas, el SDK las llamará en paralelo cuando se reciban mensajes simultáneamente.
 
-The same is true when multiple messages are received for a single queue. By default, the SDK gets a batch of 16 queue messages at a time and executes the function that processes them in parallel. [The batch size is configurable](#how-to-set-configuration-options). When the number being processed gets down to half of the batch size, the SDK gets another batch and starts processing those messages. Therefore the maximum number of concurrent messages being processed per function is one and a half times the batch size. This limit applies separately to each function that has a **QueueTrigger** attribute. If you don't want parallel execution for messages received on one queue, set the batch size to 1.
+Esto también se da cuando se reciben varios mensajes de una sola cola. De forma predeterminada, el SDK obtiene un lote de 16 mensajes de la cola a la vez y ejecuta la función que se procesa en paralelo. [El tamaño del lote es configurable](#how-to-set-configuration-options). Cuando el número que se está procesando llegue a la mitad del tamaño del lote, el SDK obtiene otro lote y empieza a procesar los mensajes. Por lo tanto, el número máximo de mensajes simultáneos que se procesan por función es uno y medio por el tamaño del lote. Este límite se aplica por separado para cada función que tenga un atributo **QueueTrigger**. Si no desea la ejecución en paralelo de los mensajes en una cola, establezca el tamaño del lote en 1.
 
-## <a name="get-queue-or-queue-message-metadata"></a>Get queue or queue message metadata
+## Obtener metadatos de cola o de mensaje en cola
 
-You can get the following message properties by adding parameters to the method signature:
+Puede obtener las siguientes propiedades de mensaje agregando parámetros a la firma del método:
 
 * **DateTimeOffset** expirationTime
 * **DateTimeOffset** insertionTime
 * **DateTimeOffset** nextVisibleTime
-* **string** queueTrigger (contains message text)
+* **string** queueTrigger (contiene texto de mensaje)
 * **string** id
 * **string** popReceipt
 * **int** dequeueCount
 
-If you want to work directly with the Azure storage API, you can also add a **CloudStorageAccount** parameter.
+Si desea trabajar directamente con la API de almacenamiento de Azure, también puede agregar un parámetro **CloudStorageAccount**.
 
-The following example writes all of this metadata to an INFO application log. In the example, both logMessage and queueTrigger contain the content of the queue message.
+En el siguiente ejemplo escribirá todos estos metadatos en un registro de aplicación de información. En el ejemplo, logMessage y queueTrigger contienen el contenido del mensaje en cola.
 
-        public static void WriteLog([QueueTrigger("logqueue")] string logMessage,
-            DateTimeOffset expirationTime,
-            DateTimeOffset insertionTime,
-            DateTimeOffset nextVisibleTime,
-            string id,
-            string popReceipt,
-            int dequeueCount,
-            string queueTrigger,
-            CloudStorageAccount cloudStorageAccount,
-            TextWriter logger)
-        {
-            logger.WriteLine(
-                "logMessage={0}\n" +
-            "expirationTime={1}\ninsertionTime={2}\n" +
-                "nextVisibleTime={3}\n" +
-                "id={4}\npopReceipt={5}\ndequeueCount={6}\n" +
-                "queue endpoint={7} queueTrigger={8}",
-                logMessage, expirationTime,
-                insertionTime,
-                nextVisibleTime, id,
-                popReceipt, dequeueCount,
-                cloudStorageAccount.QueueEndpoint,
-                queueTrigger);
-        }
+		public static void WriteLog([QueueTrigger("logqueue")] string logMessage,
+		    DateTimeOffset expirationTime,
+		    DateTimeOffset insertionTime,
+		    DateTimeOffset nextVisibleTime,
+		    string id,
+		    string popReceipt,
+		    int dequeueCount,
+		    string queueTrigger,
+		    CloudStorageAccount cloudStorageAccount,
+		    TextWriter logger)
+		{
+		    logger.WriteLine(
+		        "logMessage={0}\n" +
+			"expirationTime={1}\ninsertionTime={2}\n" +
+		        "nextVisibleTime={3}\n" +
+		        "id={4}\npopReceipt={5}\ndequeueCount={6}\n" +
+		        "queue endpoint={7} queueTrigger={8}",
+		        logMessage, expirationTime,
+		        insertionTime,
+		        nextVisibleTime, id,
+		        popReceipt, dequeueCount,
+		        cloudStorageAccount.QueueEndpoint,
+		        queueTrigger);
+		}
 
-Here is a sample log written by the sample code:
+Este es un registro de ejemplo escrito por el código de ejemplo:
 
-        logMessage=Hello world!
-        expirationTime=10/14/2014 10:31:04 PM +00:00
-        insertionTime=10/7/2014 10:31:04 PM +00:00
-        nextVisibleTime=10/7/2014 10:41:23 PM +00:00
-        id=262e49cd-26d3-4303-ae88-33baf8796d91
-        popReceipt=AgAAAAMAAAAAAAAAfc9H0n/izwE=
-        dequeueCount=1
-        queue endpoint=https://contosoads.queue.core.windows.net/
-        queueTrigger=Hello world!
+		logMessage=Hello world!
+		expirationTime=10/14/2014 10:31:04 PM +00:00
+		insertionTime=10/7/2014 10:31:04 PM +00:00
+		nextVisibleTime=10/7/2014 10:41:23 PM +00:00
+		id=262e49cd-26d3-4303-ae88-33baf8796d91
+		popReceipt=AgAAAAMAAAAAAAAAfc9H0n/izwE=
+		dequeueCount=1
+		queue endpoint=https://contosoads.queue.core.windows.net/
+		queueTrigger=Hello world!
 
-## <a name="graceful-shutdown"></a>Graceful shutdown
+## Apagado correcto
 
-A function that runs in a continuous WebJob can accept a **CancellationToken** parameter which enables the operating system to notify the function when the WebJob is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
+Una función que se ejecuta en un WebJob continuo puede aceptar un parámetro **CancellationToken** que permite al sistema operativo notificar a la función cuando el WebJob está a punto de terminar. Puede utilizar esta notificación para asegurarse de que la función no se termina inesperadamente en una forma que deje los datos en un estado incoherente.
 
-The following example shows how to check for impending WebJob termination in a function.
+En el ejemplo siguiente se muestra cómo comprobar la finalización de WebJob inminente en una función.
 
-    public static void GracefulShutdownDemo(
-                [QueueTrigger("inputqueue")] string inputText,
-                TextWriter logger,
-                CancellationToken token)
-    {
-        for (int i = 0; i < 100; i++)
-        {
-            if (token.IsCancellationRequested)
-            {
-                logger.WriteLine("Function was cancelled at iteration {0}", i);
-                break;
-            }
-            Thread.Sleep(1000);
-            logger.WriteLine("Normal processing for queue message={0}", inputText);
-        }
-    }
+	public static void GracefulShutdownDemo(
+	            [QueueTrigger("inputqueue")] string inputText,
+	            TextWriter logger,
+	            CancellationToken token)
+	{
+	    for (int i = 0; i < 100; i++)
+	    {
+	        if (token.IsCancellationRequested)
+	        {
+	            logger.WriteLine("Function was cancelled at iteration {0}", i);
+	            break;
+	        }
+	        Thread.Sleep(1000);
+	        logger.WriteLine("Normal processing for queue message={0}", inputText);
+	    }
+	}
 
-**Note:** The Dashboard might not correctly show the status and output of functions that have been shut down.
+**Nota:** el Panel puede no mostrar correctamente el estado y la salida de funciones que se hayan cerrado.
 
-For more information, see [WebJobs Graceful Shutdown](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR).   
+Para obtener más información, consulte [Cierre estable de WebJobs](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR).
 
-## <a name="how-to-create-a-queue-message-while-processing-a-queue-message"></a>How to create a queue message while processing a queue message
+## Creación de un mensaje de cola al procesar un mensaje de cola
 
-To write a function that creates a new queue message, use the **Queue** attribute. Like **QueueTrigger**, you pass in the queue name as a string or you can [set the queue name dynamically](#how-to-set-configuration-options).
+Para escribir una función que crea un mensaje en cola nuevo, use el atributo **Queue**. Al igual que **QueueTrigger**, pasa el nombre de cola como una cadena o puede [establecer el nombre de la cola dinámicamente](#how-to-set-configuration-options).
 
-### <a name="string-queue-messages"></a>String queue messages
+### Mensajes en cola de cadena
 
-The following non-async code sample creates a new queue message in the queue named "outputqueue" with the same content as the queue message received in the queue named "inputqueue". (For async functions use **IAsyncCollector<T>** as shown later in this section.)
+El siguiente ejemplo de código no asincrónico crea un mensaje en cola nuevo en la cola llamada "outputqueue", con el mismo contenido que el mensaje en cola recibido en la cola llamada "inputqueue". (En el caso de las funciones asincrónicas, use **IAsyncCollector<T>** como se muestra más adelante en esta sección).
 
 
-        public static void CreateQueueMessage(
-            [QueueTrigger("inputqueue")] string queueMessage,
-            [Queue("outputqueue")] out string outputQueueMessage )
-        {
-            outputQueueMessage = queueMessage;
-        }
+		public static void CreateQueueMessage(
+		    [QueueTrigger("inputqueue")] string queueMessage,
+		    [Queue("outputqueue")] out string outputQueueMessage )
+		{
+		    outputQueueMessage = queueMessage;
+		}
 
-### <a name="poco-[(plain-old-clr-object](http://en.wikipedia.org/wiki/plain_old_clr_object))-queue-messages"></a>POCO [(Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) queue messages
+### Mensajes en cola POCO [ (objeto CRL estándar](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 
-To create a queue message that contains a POCO rather than a string, pass the POCO type as an output parameter to the **Queue** attribute constructor.
+Para crear un mensaje en cola que contiene un objeto POCO en lugar de una cadena, pase el tipo POCO como un parámetro de salida al constructor de atributo **Queue**.
 
-        public static void CreateQueueMessage(
-            [QueueTrigger("inputqueue")] BlobInformation blobInfoInput,
-            [Queue("outputqueue")] out BlobInformation blobInfoOutput )
-        {
-            blobInfoOutput = blobInfoInput;
-        }
+		public static void CreateQueueMessage(
+		    [QueueTrigger("inputqueue")] BlobInformation blobInfoInput,
+		    [Queue("outputqueue")] out BlobInformation blobInfoOutput )
+		{
+		    blobInfoOutput = blobInfoInput;
+		}
 
-The SDK automatically serializes the object to JSON. A queue message is always created, even if the object is null.
+El SDK serializa automáticamente el objeto a JSON. Siempre se crea un mensaje en cola, incluso si el objeto es null.
 
-### <a name="create-multiple-messages-or-in-async-functions"></a>Create multiple messages or in async functions
+### Crear varios mensajes o en funciones asincrónicas
 
-To create multiple messages, make the parameter type for the output queue **ICollector<T>** or **IAsyncCollector<T>**, as shown in the following example.
+Para crear varios mensajes, convierta el tipo de parámetro para la cola de salida **ICollector<T>** o **IAsyncCollector<T>**, tal y como se muestra en el ejemplo siguiente.
 
-        public static void CreateQueueMessages(
-            [QueueTrigger("inputqueue")] string queueMessage,
-            [Queue("outputqueue")] ICollector<string> outputQueueMessage,
-            TextWriter logger)
-        {
-            logger.WriteLine("Creating 2 messages in outputqueue");
-            outputQueueMessage.Add(queueMessage + "1");
-            outputQueueMessage.Add(queueMessage + "2");
-        }
+		public static void CreateQueueMessages(
+		    [QueueTrigger("inputqueue")] string queueMessage,
+		    [Queue("outputqueue")] ICollector<string> outputQueueMessage,
+		    TextWriter logger)
+		{
+		    logger.WriteLine("Creating 2 messages in outputqueue");
+		    outputQueueMessage.Add(queueMessage + "1");
+		    outputQueueMessage.Add(queueMessage + "2");
+		}
 
-Each queue message is created immediately when the **Add** method is called.
+Cada mensaje de cola se crea inmediatamente cuando se llama al método **Add**.
 
-### <a name="types-that-the-queue-attribute-works-with"></a>Types that the Queue attribute works with
+### Tipos con los que funciona el atributo Queue
 
-You can use the **Queue** attribute on the following parameter types:
+Puede usar el atributo **Queue** en los siguientes tipos de parámetro:
 
-* **out string** (creates queue message if parameter value is non-null when the function ends)
-* **out byte[]** (works like **string**)
-* **out CloudQueueMessage** (works like **string**)
-* **out POCO** (a serializable type, creates a message with a null object if the paramter is null when the function ends)
+* **out string** (crea un mensaje en cola si el valor de parámetro es no nulo cuando termina la función)
+* **out byte** (funciona como **cadena**)
+* **out CloudQueueMessage** (funciona como **cadena**)
+* **out POCO** (un tipo serializable, crea un mensaje con un objeto nulo si el parámetro es nulo cuando termina la función)
 * **ICollector**
 * **IAsyncCollector**
-* **CloudQueue** (for creating messages manually using the Azure Storage API directly)
+* **CloudQueue** (para crear manualmente mensajes usando directamente la API de Almacenamiento de Azure)
 
-### <a name="use-webjobs-sdk-attributes-in-the-body-of-a-function"></a>Use WebJobs SDK attributes in the body of a function
+### Utilizar atributos del SDK de WebJobs en el cuerpo de una función
 
-If you need to do some work in your function before using a WebJobs SDK attribute such as **Queue**, **Blob**, or **Table**, you can use the **IBinder** interface.
+Si necesita realizar algún trabajo en la función antes de usar un atributo del SDK de WebJobs como **Queue**, **Blob** o **Table**, puede usar la interfaz **IBinder**.
 
-The following example takes an input queue message and creates a new message with the same content in an output queue. The output queue name is set by code in the body of the function.
+En el siguiente ejemplo se toma un mensaje de la cola de entrada y se crea un mensaje nuevo con el mismo contenido en una cola de salida. El nombre de la cola de salida se establece por el código en el cuerpo de la función.
 
-        public static void CreateQueueMessage(
-            [QueueTrigger("inputqueue")] string queueMessage,
-            IBinder binder)
-        {
-            string outputQueueName = "outputqueue" + DateTime.Now.Month.ToString();
-            QueueAttribute queueAttribute = new QueueAttribute(outputQueueName);
-            CloudQueue outputQueue = binder.Bind<CloudQueue>(queueAttribute);
-            outputQueue.AddMessage(new CloudQueueMessage(queueMessage));
-        }
+		public static void CreateQueueMessage(
+		    [QueueTrigger("inputqueue")] string queueMessage,
+		    IBinder binder)
+		{
+		    string outputQueueName = "outputqueue" + DateTime.Now.Month.ToString();
+		    QueueAttribute queueAttribute = new QueueAttribute(outputQueueName);
+		    CloudQueue outputQueue = binder.Bind<CloudQueue>(queueAttribute);
+		    outputQueue.AddMessage(new CloudQueueMessage(queueMessage));
+		}
 
-The **IBinder** interface can also be used with the **Table** and **Blob** attributes.
+La interfaz **IBinder** también puede usarse con los atributos **Table** y **Blob**.
 
-## <a name="how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message"></a>How to read and write blobs and tables while processing a queue message
+## Lectura y escritura de blobs y tablas al procesar un mensaje de cola
 
-The **Blob** and **Table** attributes enable you to read and write blobs and tables. The samples in this section apply to blobs. For code samples that show how to trigger processes when blobs are created or updated, see [How to use Azure blob storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), and for code samples that read and write tables, see [How to use Azure table storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
+Los atributos **Blob** y **Table** permiten leer y escribir los blobs y tablas. Los ejemplos en esta sección se aplican a los blobs. Para los ejemplos de código que muestran cómo desencadenar procesos cuando se crean o actualizan los blobs, consulte [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), y para obtener ejemplos de código que leen y escriben las tablas, vea [Cómo usar el almacenamiento de tablas Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
 
-### <a name="string-queue-messages-triggering-blob-operations"></a>String queue messages triggering blob operations
+### Mensajes en cola de cadena que desencadenan operaciones de blob
 
-For a queue message that contains a string, **queueTrigger** is a placeholder you can use in the **Blob** attribute's **blobPath** parameter that contains the contents of the message.
+Para un mensaje de cola que contiene una cadena, **queueTrigger** es un marcador de posición que se puede usar en el parámetro **blobPath** del atributo **Blob** que tiene el contenido del mensaje.
 
-The following example uses **Stream** objects to read and write blobs. The queue message is the name of a blob located in the textblobs container. A copy of the blob with "-new" appended to the name is created in the same container.
+El ejemplo siguiente usa objetos **Stream** para leer y escribir blobs. El mensaje en cola es el nombre de un blob ubicado en el contenedor textblobs. Se creará una copia del blob con "-new" anexado al nombre en el mismo contenedor.
 
-        public static void ProcessQueueMessage(
-            [QueueTrigger("blobcopyqueue")] string blobName,
-            [Blob("textblobs/{queueTrigger}",FileAccess.Read)] Stream blobInput,
-            [Blob("textblobs/{queueTrigger}-new",FileAccess.Write)] Stream blobOutput)
-        {
-            blobInput.CopyTo(blobOutput, 4096);
-        }
+		public static void ProcessQueueMessage(
+		    [QueueTrigger("blobcopyqueue")] string blobName,
+		    [Blob("textblobs/{queueTrigger}",FileAccess.Read)] Stream blobInput,
+		    [Blob("textblobs/{queueTrigger}-new",FileAccess.Write)] Stream blobOutput)
+		{
+		    blobInput.CopyTo(blobOutput, 4096);
+		}
 
-The **Blob** attribute constructor takes a **blobPath** parameter that specifies the container and blob name. For more information about this placeholder, see [How to use Azure blob storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md).
+El constructor de atributo **Blob** toma un parámetro **blobPath** que especifica el nombre del contenedor y el nombre del blob. Para más información acerca de este marcador de posición, consulte [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md).
 
-When the attribute decorates a **Stream** object, another constructor parameter specifies the **FileAccess** mode as read, write, or read/write.
+Cuando el atributo representa a un objeto **Stream**, otro parámetro de constructor especifica el modo **FileAccess** como lectura, escritura o lectura/escritura.
 
-The following example uses a **CloudBlockBlob** object to delete a blob. The queue message is the name of the blob.
+En el ejemplo siguiente se usa un objeto **CloudBlockBlob** para eliminar un blob. El mensaje en cola es el nombre del blob.
 
-        public static void DeleteBlob(
-            [QueueTrigger("deleteblobqueue")] string blobName,
-            [Blob("textblobs/{queueTrigger}")] CloudBlockBlob blobToDelete)
-        {
-            blobToDelete.Delete();
-        }
+		public static void DeleteBlob(
+		    [QueueTrigger("deleteblobqueue")] string blobName,
+		    [Blob("textblobs/{queueTrigger}")] CloudBlockBlob blobToDelete)
+		{
+		    blobToDelete.Delete();
+		}
 
-### <a name="poco-[(plain-old-clr-object](http://en.wikipedia.org/wiki/plain_old_clr_object))-queue-messages"></a>POCO [(Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) queue messages
+### Mensajes en cola POCO [ (objeto CRL estándar](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 
-For a POCO stored as JSON in the queue message, you can use placeholders that name properties of the object in the **Queue** attribute's **blobPath** parameter. You can also use queue metadata property names as placeholders. See [Get queue or queue message metadata](#get-queue-or-queue-message-metadata).
+Para un objeto POCO almacenado como JSON en el mensaje de la cola, puede usar marcadores de posición que asignen nombre a propiedades del objeto en el parámetro **blobPath** del atributo **Queue**. También puede utilizar nombres de propiedad de metadatos de cola como marcadores de posición. Consulte [Obtener metadatos de cola o de mensaje en cola](#get-queue-or-queue-message-metadata).
 
-The following example copies a blob to a new blob with a different extension. The queue message is a **BlobInformation** object that includes **BlobName** and **BlobNameWithoutExtension** properties. The property names are used as placeholders in the blob path for the **Blob** attributes.
+El ejemplo siguiente copia un blob a un blob nuevo con una extensión distinta. El mensaje de la cola es un objeto **BlobInformation** que incluye las propiedades **BlobName** y **BlobNameWithoutExtension**. Los nombres de propiedad se usan como marcadores de posición en la ruta de acceso del blob para los atributos **Blob**.
 
-        public static void CopyBlobPOCO(
-            [QueueTrigger("copyblobqueue")] BlobInformation blobInfo,
-            [Blob("textblobs/{BlobName}", FileAccess.Read)] Stream blobInput,
-            [Blob("textblobs/{BlobNameWithoutExtension}.txt", FileAccess.Write)] Stream blobOutput)
-        {
-            blobInput.CopyTo(blobOutput, 4096);
-        }
+		public static void CopyBlobPOCO(
+		    [QueueTrigger("copyblobqueue")] BlobInformation blobInfo,
+		    [Blob("textblobs/{BlobName}", FileAccess.Read)] Stream blobInput,
+		    [Blob("textblobs/{BlobNameWithoutExtension}.txt", FileAccess.Write)] Stream blobOutput)
+		{
+		    blobInput.CopyTo(blobOutput, 4096);
+		}
 
-The SDK uses the [Newtonsoft.Json NuGet package](http://www.nuget.org/packages/Newtonsoft.Json) to serialize and deserialize messages. If you create queue messages in a program that doesn't use the WebJobs SDK, you can write code like the following example to create a POCO queue message that the SDK can parse.
+El SDK usa el [paquete Newtonsoft.Json NuGet](http://www.nuget.org/packages/Newtonsoft.Json) para serializar y deserializar los mensajes. Si crea mensajes en cola en un programa que no usa el SDK de WebJobs, puede escribir código similar al siguiente ejemplo para crear un mensaje en cola POCO que pueda analizar el SDK.
 
-        BlobInformation blobInfo = new BlobInformation() { BlobName = "boot.log", BlobNameWithoutExtension = "boot" };
-        var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
-        logQueue.AddMessage(queueMessage);
+		BlobInformation blobInfo = new BlobInformation() { BlobName = "boot.log", BlobNameWithoutExtension = "boot" };
+		var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
+		logQueue.AddMessage(queueMessage);
 
-If you need to do some work in your function before binding a blob to an object, you can use the attribute in the body of the function, as shown in [Use WebJobs SDK attributes in the body of a function](#use-webjobs-sdk-attributes-in-the-body-of-a-function).
+Si necesita realizar algún trabajo en la función antes de enlazar un blob a un objeto, puede usar el atributo en el cuerpo de la función, como se ha mostrado en [Utilizar atributos del SDK de WebJobs en el cuerpo de una función](#use-webjobs-sdk-attributes-in-the-body-of-a-function).
 
-###<a name="types-you-can-use-the-blob-attribute-with"></a>Types you can use the Blob attribute with
+###Tipos con los que puede usar el atributo Blob
 
-The **Blob** attribute can be used with the following types:
+El atributo **Blob** se puede usar con los siguientes tipos:
 
-* **Stream** (read or write, specified by using the FileAccess constructor parameter)
+* **Stream** (lectura o escritura, especificado según el uso del parámetro del constructor FileAccess)
 * **TextReader**
 * **TextWriter**
-* **string** (read)
-* **out string** (write; creates a blob only if the string parameter is non-null when the function returns)
-* POCO (read)
-* out POCO (write; always creates a blob, creates as null object if POCO parameter is null when the function returns)
-* **CloudBlobStream** (write)
-* **ICloudBlob** (read or write)
-* **CloudBlockBlob** (read or write)
-* **CloudPageBlob** (read or write)
+* **string** (lectura)
+* **out string** (escritura; crea un blob solo si el parámetro de cadena es no nulo cuando se devuelve la función)
+* POCO (lectura)
+* out POCO (escritura; siempre crea un blob, crea como objeto nulo si el parámetro POCO es nulo cuando se devuelve la función)
+* **CloudBlobStream** (escritura)
+* **ICloudBlob** (lectura o escritura)
+* **CloudBlockBlob** (lectura o escritura)
+* **CloudPageBlob** (lectura o escritura)
 
-##<a name="how-to-handle-poison-messages"></a>How to handle poison messages
+##Control de mensajes dudosos
 
-Messages whose content causes a function to fail are called *poison messages*. When the function fails, the queue message is not deleted and eventually is picked up again, causing the cycle to be repeated. The SDK can automatically interrupt the cycle after a limited number of iterations, or you can do it manually.
+Los mensajes cuyo contenido produce un error de una función se denominan *mensajes dudosos*. Cuando se produce un error en la función, el mensaje de la cola no se elimina y se recoge de nuevo, provocando que el ciclo se repita. El SDK puede interrumpir automáticamente el ciclo después de un número limitado de iteraciones, o puede hacerlo usted manualmente.
 
-### <a name="automatic-poison-message-handling"></a>Automatic poison message handling
+### Control automático de mensajes dudosos
 
-The SDK will call a function up to 5 times to process a queue message. If the fifth try fails, the message is moved to a poison queue. You can see how to configure the maximum number of retries in [How to set configuration options](#how-to-set-configuration-options).
+El SDK llamará a una función hasta 5 veces para procesar un mensaje de la cola. Si se produce un error en el quinta intento, el mensaje se mueve a una cola de mensajes dudosos. Puede ver cómo configurar el número máximo de reintentos en [Establecimiento de opciones de configuración](#how-to-set-configuration-options).
 
-The poison queue is named *{originalqueuename}*-poison. You can write a function to process messages from the poison queue by logging them or sending a notification that manual attention is needed.
+La cola de mensajes dudosos se denomina *{originalqueuename}*-poison. Puede escribir una función para procesar los mensajes desde la cola de mensajes dudosos registrándolos o enviando una notificación indicando que se necesita atención manual.
 
-In the following example the **CopyBlob** function will fail when a queue message contains the name of a blob that doesn't exist. When that happens, the message is moved from the copyblobqueue queue to the copyblobqueue-poison queue. The **ProcessPoisonMessage** then logs the poison message.
+En el siguiente ejemplo la función **CopyBlob** generará un error cuando un mensaje de cola contenga el nombre de un blob que no existe. Cuando esto ocurre, el mensaje se mueve desde la cola de copyblobqueue a la cola copyblobqueue-poison. Después, **ProcessPoisonMessage** registra el mensaje dudoso.
 
-        public static void CopyBlob(
-            [QueueTrigger("copyblobqueue")] string blobName,
-            [Blob("textblobs/{queueTrigger}", FileAccess.Read)] Stream blobInput,
-            [Blob("textblobs/{queueTrigger}-new", FileAccess.Write)] Stream blobOutput)
-        {
-            blobInput.CopyTo(blobOutput, 4096);
-        }
+		public static void CopyBlob(
+		    [QueueTrigger("copyblobqueue")] string blobName,
+		    [Blob("textblobs/{queueTrigger}", FileAccess.Read)] Stream blobInput,
+		    [Blob("textblobs/{queueTrigger}-new", FileAccess.Write)] Stream blobOutput)
+		{
+		    blobInput.CopyTo(blobOutput, 4096);
+		}
 
-        public static void ProcessPoisonMessage(
-            [QueueTrigger("copyblobqueue-poison")] string blobName, TextWriter logger)
-        {
-            logger.WriteLine("Failed to copy blob, name=" + blobName);
-        }
+		public static void ProcessPoisonMessage(
+		    [QueueTrigger("copyblobqueue-poison")] string blobName, TextWriter logger)
+		{
+		    logger.WriteLine("Failed to copy blob, name=" + blobName);
+		}
 
-The following illustration shows console output from these functions when a poison message is processed.
+La ilustración siguiente muestra la salida de consola de estas funciones cuando se procesa un mensaje dudoso.
 
-![Console output for poison message handling](./media/vs-storage-webjobs-getting-started-queues/poison.png)
+![Salida de consola para el control de mensajes dudosos](./media/vs-storage-webjobs-getting-started-queues/poison.png)
 
-### <a name="manual-poison-message-handling"></a>Manual poison message handling
+### Control manual de mensajes dudosos
 
-You can get the number of times a message has been picked up for processing by adding an **int** parameter named **dequeueCount** to your function. You can then check the dequeue count in function code and perform your own poison message handling when the number exceeds a threshold, as shown in the following example.
+Puede obtener el número de veces que se ha recogido un mensaje para el procesamiento agregando un parámetro **int** llamado **dequeueCount** a la función. Puede consultar el recuento de eliminación de cola en el código de función y realizar su propio control de mensajes dudosos cuando el número supere un umbral, tal y como se muestra en el ejemplo siguiente.
 
-        public static void CopyBlob(
-            [QueueTrigger("copyblobqueue")] string blobName, int dequeueCount,
-            [Blob("textblobs/{queueTrigger}", FileAccess.Read)] Stream blobInput,
-            [Blob("textblobs/{queueTrigger}-new", FileAccess.Write)] Stream blobOutput,
-            TextWriter logger)
-        {
-            if (dequeueCount > 3)
-            {
-                logger.WriteLine("Failed to copy blob, name=" + blobName);
-            }
-            else
-            {
-            blobInput.CopyTo(blobOutput, 4096);
-            }
-        }
+		public static void CopyBlob(
+		    [QueueTrigger("copyblobqueue")] string blobName, int dequeueCount,
+		    [Blob("textblobs/{queueTrigger}", FileAccess.Read)] Stream blobInput,
+		    [Blob("textblobs/{queueTrigger}-new", FileAccess.Write)] Stream blobOutput,
+		    TextWriter logger)
+		{
+		    if (dequeueCount > 3)
+		    {
+		        logger.WriteLine("Failed to copy blob, name=" + blobName);
+		    }
+		    else
+		    {
+		    blobInput.CopyTo(blobOutput, 4096);
+		    }
+		}
 
-## <a name="how-to-set-configuration-options"></a>How to set configuration options
+## Establecimiento de opciones de configuración
 
-You can use the **JobHostConfiguration** type to set the following configuration options:
+Puede usar el tipo **JobHostConfiguration** para establecer las opciones de configuración siguientes:
 
-* Set the SDK connection strings in code.
-* Configure **QueueTrigger** settings such as maximum dequeue count.
-* Get queue names from configuration.
-
-###<a name="set-sdk-connection-strings-in-code"></a>Set SDK connection strings in code
+* Establecer las cadenas de conexión de SDK en el código.
+* Definir la configuración **QueueTrigger** como el número máximo de eliminaciones de la cola.
+* Obtener nombres de cola a partir de la configuración.
+
+###Establecimiento de cadenas de conexión del SDK en código
 
-Setting the SDK connection strings in code enables you to use your own connection string names in configuration files or environment variables, as shown in the following example.
+Configurar las cadenas de conexión de SDK en el código permite utilizar sus propios nombres de cadena de conexión en archivos de configuración o las variables de entorno, como se muestra en el ejemplo siguiente.
 
-        static void Main(string[] args)
-        {
-            var _storageConn = ConfigurationManager
-                .ConnectionStrings["MyStorageConnection"].ConnectionString;
+		static void Main(string[] args)
+		{
+		    var _storageConn = ConfigurationManager
+		        .ConnectionStrings["MyStorageConnection"].ConnectionString;
 
-            var _dashboardConn = ConfigurationManager
-                .ConnectionStrings["MyDashboardConnection"].ConnectionString;
+		    var _dashboardConn = ConfigurationManager
+		        .ConnectionStrings["MyDashboardConnection"].ConnectionString;
 
-            var _serviceBusConn = ConfigurationManager
-                .ConnectionStrings["MyServiceBusConnection"].ConnectionString;
+		    var _serviceBusConn = ConfigurationManager
+		        .ConnectionStrings["MyServiceBusConnection"].ConnectionString;
 
-            JobHostConfiguration config = new JobHostConfiguration();
-            config.StorageConnectionString = _storageConn;
-            config.DashboardConnectionString = _dashboardConn;
-            config.ServiceBusConnectionString = _serviceBusConn;
-            JobHost host = new JobHost(config);
-            host.RunAndBlock();
-        }
+		    JobHostConfiguration config = new JobHostConfiguration();
+		    config.StorageConnectionString = _storageConn;
+		    config.DashboardConnectionString = _dashboardConn;
+		    config.ServiceBusConnectionString = _serviceBusConn;
+		    JobHost host = new JobHost(config);
+		    host.RunAndBlock();
+		}
 
-### <a name="configure-queuetrigger-settings"></a>Configure QueueTrigger  settings
+### Configurar QueueTrigger
 
-You can configure the following settings that apply to the queue message processing:
+Puede configurar los siguientes valores, que se aplican para el procesamiento de mensajes de la cola:
 
-- The maximum number of queue messages that are picked up simultaneously to be executed in parallel (default is 16).
-- The maximum number of retries before a queue message is sent to a poison queue (default is 5).
-- The maximum wait time before polling again when a queue is empty (default is 1 minute).
+- El número máximo de mensajes en cola que se recogen simultáneamente para ejecutarse en paralelo (el valor predeterminado es 16).
+- El número máximo de reintentos antes de enviar un mensaje de la cola a una cola de mensajes dudosos (el valor predeterminado es 5).
+- El tiempo de espera máximo antes de volver a sondear cuando una cola está vacía (el valor predeterminado es 1 minuto).
 
-The following example shows how to configure these settings:
+En el ejemplo siguiente se muestra cómo configurar estas opciones:
 
-        static void Main(string[] args)
-        {
-            JobHostConfiguration config = new JobHostConfiguration();
-            config.Queues.BatchSize = 8;
-            config.Queues.MaxDequeueCount = 4;
-            config.Queues.MaxPollingInterval = TimeSpan.FromSeconds(15);
-            JobHost host = new JobHost(config);
-            host.RunAndBlock();
-        }
+		static void Main(string[] args)
+		{
+		    JobHostConfiguration config = new JobHostConfiguration();
+		    config.Queues.BatchSize = 8;
+		    config.Queues.MaxDequeueCount = 4;
+		    config.Queues.MaxPollingInterval = TimeSpan.FromSeconds(15);
+		    JobHost host = new JobHost(config);
+		    host.RunAndBlock();
+		}
 
-### <a name="set-values-for-webjobs-sdk-constructor-parameters-in-code"></a>Set values for WebJobs SDK constructor parameters in code
+### Establecer valores para los parámetros del constructor del SDK de WebJobs en el código
 
-Sometimes you want to specify a queue name, a blob name or container, or a table name in code rather than hard-code it. For example, you might want to specify the queue name for **QueueTrigger** in a configuration file or environment variable.
+En ocasiones, deseará especificar un nombre de cola, un contenedor o nombre de blob o un nombre de cola en el código en lugar de codificarlo. Por ejemplo, es posible que desee especificar el nombre de la cola para **QueueTrigger** en un archivo de configuración o una variable de entorno.
 
-You can do that by passing in a **NameResolver** object to the **JobHostConfiguration** type. You include special placeholders surrounded by percent (%) signs in WebJobs SDK attribute constructor parameters, and your **NameResolver** code specifies the actual values to be used in place of those placeholders.
+Puede hacerlo pasando un objeto **NameResolver** para el tipo **JobHostConfiguration**. Incluya marcadores de posición especiales rodeados de signos de porcentaje (%) en los parámetros del constructor de atributos del SDK de WebJobs y el código **NameResolver** especifica los valores reales que se usarán en lugar de esos marcadores de posición.
 
-For example, suppose you want to use a queue named logqueuetest in the test environment and one named logqueueprod in production. Instead of a hard-coded queue name, you want to specify the name of an entry in the **appSettings** collection that would have the actual queue name. If the **appSettings** key is logqueue, your function could look like the following example.
+Por ejemplo, suponga que desea usar una cola denominada logqueuetest en el entorno de prueba y un logqueueprod denominado en producción. En lugar de un nombre de cola codificado de forma rígida, desea especificar el nombre de una entrada en la colección **appSettings** que tendría el nombre de cola real. Si la clave **appSettings** es logqueue, la función podría ser similar al ejemplo siguiente.
 
-        public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
-        {
-            Console.WriteLine(logMessage);
-        }
+		public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
+		{
+		    Console.WriteLine(logMessage);
+		}
 
-Your **NameResolver** class could then get the queue name from **appSettings** as shown in the following example:
+La clase **NameResolver** podría entonces obtener el nombre de la cola de **appSettings** como se muestra en el ejemplo siguiente:
 
-        public class QueueNameResolver : INameResolver
-        {
-            public string Resolve(string name)
-            {
-                return ConfigurationManager.AppSettings[name].ToString();
-            }
-        }
+		public class QueueNameResolver : INameResolver
+		{
+		    public string Resolve(string name)
+		    {
+		        return ConfigurationManager.AppSettings[name].ToString();
+		    }
+		}
 
-You pass the **NameResolver** class in to the **JobHost** object as shown in the following example.
+Pasa la clase **NameResolver** en el objeto **JobHost** tal y como se muestra en el ejemplo siguiente.
 
-        static void Main(string[] args)
-        {
-            JobHostConfiguration config = new JobHostConfiguration();
-            config.NameResolver = new QueueNameResolver();
-            JobHost host = new JobHost(config);
-            host.RunAndBlock();
-        }
+		static void Main(string[] args)
+		{
+		    JobHostConfiguration config = new JobHostConfiguration();
+		    config.NameResolver = new QueueNameResolver();
+		    JobHost host = new JobHost(config);
+		    host.RunAndBlock();
+		}
 
-**Note:** Queue, table, and blob names are resolved each time a function is called, but blob container names are resolved only when the application starts. You can't change blob container name while the job is running.
+**Nota**: los nombres de cola, tabla y blob se resuelven cada vez que se llama a una función, pero los nombres de contenedores de blobs solo se resuelven cuando se inicia la aplicación. No puede cambiar el nombre del contenedor de blobs mientras el trabajo está en ejecución.
 
-## <a name="how-to-trigger-a-function-manually"></a>How to trigger a function manually
+## Desencadenar una función manualmente
 
-To trigger a function manually, use the **Call** or **CallAsync** method on the **JobHost** object and the **NoAutomaticTrigger** attribute on the function, as shown in the following example.
+Para desencadenar una función manualmente, use el método **Call** o **CallAsync** en el objeto **JobHost** y el atributo **NoAutomaticTrigger** en la función, tal y como se muestra en el ejemplo siguiente.
 
-        public class Program
-        {
-            static void Main(string[] args)
-            {
-                JobHost host = new JobHost();
-                host.Call(typeof(Program).GetMethod("CreateQueueMessage"), new { value = "Hello world!" });
-            }
+		public class Program
+		{
+		    static void Main(string[] args)
+		    {
+		        JobHost host = new JobHost();
+		        host.Call(typeof(Program).GetMethod("CreateQueueMessage"), new { value = "Hello world!" });
+		    }
 
-            [NoAutomaticTrigger]
-            public static void CreateQueueMessage(
-                TextWriter logger,
-                string value,
-                [Queue("outputqueue")] out string message)
-            {
-                message = value;
-                logger.WriteLine("Creating queue message: ", message);
-            }
-        }
+		    [NoAutomaticTrigger]
+		    public static void CreateQueueMessage(
+		        TextWriter logger,
+		        string value,
+		        [Queue("outputqueue")] out string message)
+		    {
+		        message = value;
+		        logger.WriteLine("Creating queue message: ", message);
+		    }
+		}
 
-## <a name="how-to-write-logs"></a>How to write logs
+## Escritura de registros
 
-The Dashboard shows logs in two places: the page for the WebJob, and the page for a particular WebJob invocation.
+El Panel muestra registros en dos lugares: la página del trabajo web y la página de una invocación de trabajo web en especial.
 
-![Logs in WebJob page](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
+![Registros en la página del trabajo web](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-![Logs in function invocation page](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
+![Registros en la página de invocación de la función](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
-Output from Console methods that you call in a function or in the **Main()** method appears in the Dashboard page for the WebJob, not in the page for a particular method invocation. Output from the TextWriter object that you get from a parameter in your method signature appears in the Dashboard page for a method invocation.
+El resultado de los métodos de consola que llama en una función o en el método **Main()** aparece en la página Panel del WebJob y no en la página de una invocación de método en especial. El resultado del objeto TextWriter que obtiene a partir de un parámetro en la firma del método aparece en la página Panel de una invocación de un método.
 
-Console output can't be linked to a particular method invocation because the Console is single-threaded, while many job functions may be running at the same time. That's why the  SDK provides each function invocation with its own unique log writer object.
+El resultado de la consola no se puede vincular a una invocación de método en especial, porque la consola tiene un solo subproceso, mientras que muchas funciones de trabajo se pueden ejecutar al mismo tiempo. Esta es la razón por la que el SDK proporciona a cada invocación de función su objeto escritor de registros único.
 
-To write [application tracing logs](web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), use **Console.Out** (creates logs marked as INFO) and **Console.Error** (creates logs marked as ERROR). An alternative is to use [Trace or TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), which provides Verbose, Warning, and Critical levels in addition to Info and Error. Application tracing logs appear in the web app log files, Azure tables, or Azure blobs depending on how you configure your Azure web app. As is true of all Console output, the most recent 100 application logs also appear in the Dashboard page for the WebJob, not the page for a function invocation.
+Para escribir [registros de seguimiento de aplicación](web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), use **Console.Out** (crea registros marcados como INFO) y **Console.Error** (crea registros marcados como ERROR). Una alternativa es usar [Trace o TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), que proporciona niveles de Modo detallado, Advertencia y Críticos, además de Info y Error. Los registros de seguimiento de aplicaciones aparecen en los archivos de registro de la aplicación web, tablas de Azure o blobs de Azure, dependiendo de cómo se configuró la aplicación web de Azure. Como ocurre en todos los resultados de la consola, los 100 registros de aplicación más recientes también aparecen en la página Panel para el trabajo web, no en la página para una innovación de función.
 
-Console output appears in the Dashboard only if the program is running in an Azure WebJob, not if the program is running locally or in some other environment.
+El resultado de la consola aparece en el Panel solo si el programa se ejecuta en un Azure WebJob, no si el programa se ejecuta localmente o en algún otro entorno.
 
-You can disable logging by setting the Dashboard connection string to null. For more information, see [How to set Configuration Options](#how-to-set-configuration-options).
+Para deshabilitar el registro estableciendo la cadena de conexión del panel en null. Para más información, consulte [Establecimiento de opciones de configuración](#how-to-set-configuration-options).
 
-The following example shows several ways to write logs:
+En el ejemplo siguiente se muestran varias maneras de escribir registros:
 
-        public static void WriteLog(
-            [QueueTrigger("logqueue")] string logMessage,
-            TextWriter logger)
-        {
-            Console.WriteLine("Console.Write - " + logMessage);
-            Console.Out.WriteLine("Console.Out - " + logMessage);
-            Console.Error.WriteLine("Console.Error - " + logMessage);
-            logger.WriteLine("TextWriter - " + logMessage);
-        }
+		public static void WriteLog(
+		    [QueueTrigger("logqueue")] string logMessage,
+		    TextWriter logger)
+		{
+		    Console.WriteLine("Console.Write - " + logMessage);
+		    Console.Out.WriteLine("Console.Out - " + logMessage);
+		    Console.Error.WriteLine("Console.Error - " + logMessage);
+		    logger.WriteLine("TextWriter - " + logMessage);
+		}
 
-In the WebJobs SDK Dashboard, the output from the **TextWriter** object shows up when you go to the page for a particular function invocation and select **Toggle Output**:
+En el panel del SDK de WebJobs, la salida del objeto **TextWriter** aparece cuando va a la página para una invocación de función determinada y selecciona **Toggle Output** (Alternar salida):
 
-![Invocation link](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
+![Vínculo de invocación](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
 
-![Logs in function invocation page](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
+![Registros en la página de invocación de la función](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
-In the WebJobs SDK Dashboard, the most recent 100 lines of Console output show up when you go to the page for the WebJob (not for the function invocation) and select **Toggle Output**.
+En el panel del SDK de WebJobs, las 100 líneas más recientes de los resultados de la consola aparecen cuando va a la página de WebJob (no de la invocación de función) y selecciona **Toggle Output** (Alternar salida).
 
-![Toggle output](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
+![Alternar salida](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-In a continuous WebJob, application logs show up in /data/jobs/continuous/*{webjobname}*/job_log.txt in the web app file system.
+En un WebJob continuo, los registros de aplicación aparecen en /data/jobs/continuous/*{webjobname}*/job\_log.txt en el sistema de archivos de la aplicación web.
 
-        [09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
-        [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
-        [09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
+		[09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
+		[09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
+		[09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
-In an Azure blob the application logs look like this: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!, 2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,
+En un blob de Azure el aspecto de los registros de aplicación es similar al siguiente: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!, 2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,
 
-And in an Azure table the **Console.Out** and **Console.Error** logs look like this:
+Y en una tabla de Azure los registros **Console.Out** y **Console.Error** tienen el siguiente aspecto:
 
-![Info log in table](./media/vs-storage-webjobs-getting-started-queues/tableinfo.png)
+![Registro de información en la tabla](./media/vs-storage-webjobs-getting-started-queues/tableinfo.png)
 
-![Error log in table](./media/vs-storage-webjobs-getting-started-queues/tableerror.png)
+![Registro de errores en la tabla](./media/vs-storage-webjobs-getting-started-queues/tableerror.png)
 
-##<a name="next-steps"></a>Next steps
+##Pasos siguientes
 
-This article has provided code samples that show how to handle common scenarios for working with Azure queues. For more information about how to use Azure WebJobs and the WebJobs SDK, see [Azure WebJobs documentation resources](http://go.microsoft.com/fwlink/?linkid=390226).
+En este artículo se han proporcionado ejemplos de código que muestran cómo tratar escenarios comunes para trabajar con colas de Azure. Para más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de documentación de WebJobs de Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

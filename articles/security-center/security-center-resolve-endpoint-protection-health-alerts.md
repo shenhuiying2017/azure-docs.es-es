@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Resolve endpoint protection health alerts in Azure Security Center| Microsoft Azure"
-   description="This document shows you how to implement the Azure Security Center recommendation **Resolve Endpoint Protection health alerts**."
+   pageTitle="Resolución de alertas de estado de Endpoint Protection en Azure Security Center | Microsoft Azure"
+   description="En este documento se muestra cómo implementar la recomendación de Azure Security Center de resolver las alertas de estado de Endpoint Protection."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -16,36 +16,31 @@
    ms.date="07/29/2016"
    ms.author="terrylan"/>
 
+# Resolución de alertas de estado de Endpoint Protection en Azure Security Center
 
-# <a name="resolve-endpoint-protection-health-alerts-in-azure-security-center"></a>Resolve endpoint protection health alerts in Azure Security Center
+Azure Security Center recomendará resolver las alertas de estado detectadas de Endpoint Protection. Asimismo, permite ver qué máquinas virtuales tienen errores de Endpoint Protection y cuántos.
 
-Azure Security Center will recommend that you resolve detected endpoint protection health alerts.  Security Center enables you to see which virtual machines (VMs) have endpoint protection failures and how many failures.
+> [AZURE.NOTE] En este documento se presenta el servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
 
-> [AZURE.NOTE] This document introduces the service by using an example deployment. This is not a step-by-step guide.
+## Implementación de la recomendación
 
-## <a name="implement-the-recommendation"></a>Implement the recommendation
+1. En la hoja **Recomendaciones**, seleccione **Resolver alertas de estado de Endpoint Protection**. ![Resolver alertas de estado de Endpoint Protection][1]
 
-1. In the **Recommendations blade**, select **Resolve Endpoint Protection health alerts**.
-![Resolve endpoint protection health alerts][1]
+2. Se abrirá la hoja **Error de Endpoint Protection** que enumera las máquinas virtuales con errores y el número de errores en cada máquina virtual. Seleccione una máquina virtual de la lista. ![Error de Endpoint Protection][2]
 
-2. This opens the blade **Endpoint Protection failure** which lists VMs with failures and the number of failures for each VM. Select a VM from the list.
-![Endpoint protection failure][2]
+3. Se abrirá la hoja **Lista de errores** de la máquina virtual seleccionada mostrando una lista de errores. Seleccione un error en la lista para obtener más información. Se abrirá una hoja con información sobre el error seleccionado. ![Lista de errores][3] ![Eventos de error][4]
 
-3. A **Failures List** blade opens for the selected VM, displaying a list of failures. Select a failure from the list to learn more. This opens a blade with information about the selected failure.
-![Failures list][3]
-  ![Failure event][4]
+## Consulte también
 
-## <a name="see-also"></a>See also
+Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
-To learn more about Security Center, see the following:
-
-- [Setting security policies in Azure Security Center](security-center-policies.md)--Learn how to configure security policies for your Azure subscriptions and resource groups.
-- [Managing security recommendations in Azure Security Center](security-center-recommendations.md)--Learn how recommendations help you protect your Azure resources.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)--Learn how to manage and respond to security alerts.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
-- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/)--Get the latest Azure security news and information.
+- [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+- [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md): recomendaciones que lo ayudan a proteger los recursos de Azure.
+- [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
+- [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
+- [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
+- [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): busque las preguntas más frecuentes sobre cómo usar el servicio.
+- [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): obtenga las últimas noticias e información sobre la seguridad en Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-resolve-endpoint-protection/resolve-endpoint-protection.png
@@ -53,8 +48,4 @@ To learn more about Security Center, see the following:
 [3]: ./media/security-center-resolve-endpoint-protection/failure-list.png
 [4]: ./media/security-center-resolve-endpoint-protection/failure-event.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

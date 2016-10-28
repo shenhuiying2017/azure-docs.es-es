@@ -1,73 +1,68 @@
 <properties
-    pageTitle="Role-Based Access Control | Microsoft Azure"
-    description="Get started in access management with Azure role-based access control in the Azure Portal. Use role assignments to assign permissions in your directory."
-    services="active-directory"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor=""/>
+	pageTitle="Control de acceso basado en roles | Microsoft Azure"
+	description="Introducción al control de acceso basado en roles de Azure en el Portal de Azure. Use las asignaciones de roles para asignar permisos en el directorio."
+	services="active-directory"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="08/03/2016"
-    ms.author="kgremban"/>
+	ms.service="active-directory"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/03/2016"
+	ms.author="kgremban"/>
 
+# Introducción a la administración de acceso en el Portal de Azure
 
-# <a name="get-started-with-access-management-in-the-azure-portal"></a>Get started with access management in the Azure portal
+Las empresas de seguridad deben centrarse en conceder a los empleados los permisos exactos que necesiten. Un número elevado de permisos provocará que la cuenta esté expuesta a los atacantes. Si se conceden muy pocos, los empleados no podrán realizar su trabajo de manera eficaz. Gracias al control de acceso basado en roles (RBAC) de Azure, podrá abordar este problema, ya que es posible realizar una administración avanzada del acceso para Azure.
 
-Security-oriented companies should focus on giving employees the exact permissions they need. Too many permissions exposes an account to attackers. Too few permissions means that employees can't get their work done efficiently. Azure Role-Based Access Control (RBAC) helps address this problem by offering fine-grained access management for Azure.
+También podrá repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo. En lugar de proporcionar a todos los empleados permisos no restringidos en los recursos o la suscripción de Azure, puede permitir solo determinadas acciones. Por ejemplo, utilice RBAC para dejar que un empleado administre máquinas virtuales en una suscripción, y que otro pueda administrar bases de datos SQL en la misma suscripción.
 
-Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, you can allow only certain actions. For example, use RBAC to let one employee manage virtual machines in a subscription, while another can manage SQL databases within the same subscription.
+## Aspectos básicos de la administración de acceso en Azure
+Cada suscripción de Azure está asociada a un directorio de Azure Active Directory (AD). Los usuarios, grupos y aplicaciones de ese directorio pueden administrar los recursos en la suscripción de Azure. Asigne estos derechos de acceso con el Portal de Azure, las herramientas de la línea de comandos de Azure o las API de administración de Azure.
 
-## <a name="basics-of-access-management-in-azure"></a>Basics of access management in Azure
-Each Azure subscription is associated with one Azure Active Directory (AD) directory. Users, groups, and applications from that directory can manage resources in the Azure subscription. Assign these access rights using the Azure portal, Azure command-line tools, and Azure Management APIs.
+Conceda acceso asignando el rol RBAC adecuado a usuarios, grupos y aplicaciones de un determinado ámbito. El ámbito de una asignación de roles puede ser una suscripción, un grupo de recursos o un único recurso. Un rol asignado en un ámbito principal también concede acceso a los elementos secundarios dentro del mismo. Por ejemplo, un usuario con acceso a un grupo de recursos puede administrar todos los recursos que contiene, como sitios web, máquinas virtuales y subredes.
 
-Grant access by assigning the appropriate RBAC role to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource. A role assigned at a parent scope also grants access to the children contained within it. For example, a user with access to a resource group can manage all the resources it contains, like websites, virtual machines, and subnets.
+![Relación entre elementos de Azure Active Directory - diagrama](./media/role-based-access-control-what-is/rbac_aad.png)
 
-![Relationship between Azure Active Directory elements - diagram](./media/role-based-access-control-what-is/rbac_aad.png)
+El rol RBAC que se asigna determina qué recursos puede administrar el usuario, el grupo o la aplicación dentro de ese ámbito.
 
-The RBAC role that you assign dictates what resources the user, group, or application can manage within that scope.
+## Roles integrados
+RBAC de Azure cuenta con tres roles básicos que se aplican a todos los tipos de recurso:
 
-## <a name="built-in-roles"></a>Built-in roles
-Azure RBAC has three basic roles that apply to all resource types:
+- El **propietario** tiene acceso completo a todos los recursos y cuenta con el derecho a delegar este acceso a otros.
+- El **colaborador** puede crear y administrar todos los tipos de recursos de Azure pero no puede conceder acceso a otros.
+- El **lector** solo puede ver los recursos existentes de Azure.
 
-- **Owner** has full access to all resources including the right to delegate access to others.
-- **Contributor** can create and manage all types of Azure resources but can’t grant access to others.
-- **Reader** can view existing Azure resources.
+El resto de los roles RBAC de Azure permiten la administración de recursos específicos de Azure. Por ejemplo, el rol de colaborador de máquina virtual permite al usuario crear y administrar máquinas virtuales. No otorga acceso a la red virtual ni a la subred a las que se conecta la máquina virtual.
 
-The rest of the RBAC roles in Azure allow management of specific Azure resources. For example, the Virtual Machine Contributor role allows the user to create and manage virtual machines. It does not give them access to the virtual network or the subnet that the virtual machine connects to.
+[Roles RBAC integrados](role-based-access-built-in-roles.md) muestra los roles disponibles en Azure. Especifica las operaciones y el ámbito de cada rol integrado que se concede a los usuarios. Si quiere definir sus propios roles para tener un mayor control, consulte [Custom Roles in Azure RBAC](role-based-access-control-custom-roles.md) (Roles personalizados en RBAC de Azure).
 
-[RBAC built-in roles](role-based-access-built-in-roles.md) lists the roles available in Azure. It specifies the operations and scope that each built-in role grants to users. If you're looking to define your own roles for even more control, see how to build [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md).
+## Jerarquía de recursos de Azure y herencia de acceso
+- Cada **suscripción** de Azure pertenece a un único directorio.
+- Cada **grupo de recursos** pertenece a una única suscripción.
+- Cada **recurso** pertenece a un único grupo de recursos.
 
-## <a name="resource-hierarchy-and-access-inheritance"></a>Resource hierarchy and access inheritance
-- Each **subscription** in Azure belongs to only one directory.
-- Each **resource group** belongs to only one subscription.
-- Each **resource** belongs to only one resource group.
+El acceso que se concede en el nivel principal se hereda en los ámbitos secundarios. Por ejemplo:
 
-Access that you grant at parent scopes is inherited at child scopes. For example:
+- Asigne el rol de lector a un grupo de Azure AD en el ámbito de la suscripción. Los miembros de ese grupo pueden ver todos los grupos de recursos y los recursos de la suscripción.
+- Asigne el rol de colaborador a una aplicación en el ámbito del grupo de recursos. Puede administrar todos los tipos de recursos de ese grupo de recursos, pero no otros grupos de la suscripción.
 
-- You assign the Reader role to an Azure AD group at the subscription scope. The members of that group can view every resource group and resource in the subscription.
-- You assign the Contributor role to an application at the resource group scope. It can manage resources of all types in that resource group, but not other resource groups in the subscription.
+## RBAC de Azure frente a administradores de la suscripción clásica
+Los administradores y coadministradores de la suscripción clásica tienen acceso completo a la suscripción de Azure. Pueden administrar recursos mediante el [Portal de Azure](https://portal.azure.com) con las API de Azure Resource Manager, o mediante el [Portal de Azure clásico ](https://manage.windowsazure.com) y el modelo de implementación clásica de Azure. En el modelo RBAC, a los administradores clásicos se les asigna el rol de propietario en el ámbito de suscripción.
 
-## <a name="azure-rbac-vs.-classic-subscription-administrators"></a>Azure RBAC vs. classic subscription administrators
-Classic subscription administrators and co-admins have full access to the Azure subscription. They can manage resources using the [Azure portal](https://portal.azure.com) with Azure Resource Manager APIs, or the [Azure classic portal](https://manage.windowsazure.com) and Azure classic deployment model. In the RBAC model, classic administrators are assigned the Owner role at the subscription scope.
+RBAC de Azure solo es compatible con el Portal de Azure y las nuevas API de Azure Resource Manager. Los usuarios y las aplicaciones a los que se asignan roles RBAC no pueden usar el Portal de administración clásico ni el modelo de implementación clásica de Azure.
 
-Only the Azure portal and the new Azure Resource Manager APIs support Azure RBAC. Users and applications that are assigned RBAC roles cannot use the classic management portal and the Azure classic deployment model.
+## Autorización para administración frente a operaciones de datos
+RBAC de Azure solo es compatible con operaciones de administración de los recursos de Azure del Portal de Azure y de las API de Azure Resource Manager. No todas las operaciones de nivel de datos para recursos de Azure pueden autorizarse. Por ejemplo, puede autorizar a un empleado que administre las cuentas de almacenamiento, pero no los blobs o las tablas de una cuenta de almacenamiento. De igual forma, una base de datos SQL se puede administrar, pero no las tablas que contiene.
 
-## <a name="authorization-for-management-vs.-data-operations"></a>Authorization for management vs. data operations
-Azure RBAC only supports management operations of the Azure resources in the Azure portal and Azure Resource Manager APIs. It cannot authorize all data level operations for Azure resources. For example, you can authorize someone to manage Storage Accounts, but not to the blobs or tables within a Storage Account cannot. Similarly, a SQL database can be managed, but not the tables within it.
+## Pasos siguientes
+- Introducción a [Control de acceso basado en roles en el Portal de Azure](role-based-access-control-configure.md).
+- Consulte los [roles integrados en RBAC](role-based-access-built-in-roles.md).
+- Defina sus propios [roles personalizados en RBAC de Azure](role-based-access-control-custom-roles.md).
 
-## <a name="next-steps"></a>Next Steps
-- Get started with [Role-Based Access Control in the Azure portal](role-based-access-control-configure.md).
-- See the [RBAC built-in roles](role-based-access-built-in-roles.md)
-- Define your own [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

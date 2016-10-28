@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Migrate SQL Server database to SQL Database using Deploy Database to Microsoft Azure Database Wizard | Microsoft Azure"
-   description="Microsoft Azure SQL Database, database migration, Microsoft Azure Database Wizard"
+   pageTitle="Migración de una base de datos SQL Server a Base de datos SQL mediante el asistente para la implementación de una base de datos en Base de datos de Microsoft Azure | Microsoft Azure"
+   description="Base de datos SQL de Microsoft Azure, migración de bases de datos, Asistente para bases de datos de Microsoft Azure"
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -16,67 +16,62 @@
    ms.date="08/24/2016"
    ms.author="carlrab"/>
 
-
-# <a name="migrate-sql-server-database-to-sql-database-using-deploy-database-to-microsoft-azure-database-wizard"></a>Migrate SQL Server database to SQL Database using Deploy Database to Microsoft Azure Database Wizard
+# Migrar la base de datos de SQL Server a Base de datos SQL con el Asistente para implementar base de datos en Base de datos de Microsoft Azure
 
 
 > [AZURE.SELECTOR]
-- [SSMS Migration Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
-- [Export to BACPAC File](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-- [Import from BACPAC File](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-- [Transactional Replication](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
+- [Asistente para migración de SSMS](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
+- [Exportación a un archivo BACPAC](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+- [Importación desde un archivo BACPAC](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [Replicación transaccional](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
 
-The Deploy Database to Microsoft Azure Database wizard in SQL Server Management Studio migrates a [compatible SQL Server database](sql-database-cloud-migrate.md) directly into your Azure SQL Database server.
+El Asistente para implementar bases de datos en base de datos SQL de Microsoft Azure en SQL Server Management Studio migra una [bases de datos de SQL Server compatible](sql-database-cloud-migrate.md) directamente en un servidor de Base de datos SQL de Azure.
 
-## <a name="use-the-deploy-database-to-microsoft-azure-database-wizard"></a>Use the Deploy Database to Microsoft Azure Database Wizard
+## Uso del Asistente de implementación de bases de datos en la Base de datos de Microsoft Azure
 
-> [AZURE.NOTE] The following steps assume that you have a [provisioned SQL Database server](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database/).
+> [AZURE.NOTE] En los pasos siguientes se supone que tiene un [servidor de Base de datos SQL aprovisionado](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database/).
 
-1. Verify that you have the latest version of SQL Server Management Studio. New versions of Management Studio are updated monthly to remain in sync with updates to the Azure portal.
+1. Compruebe que dispone de la versión más reciente de SQL Server Management Studio. Las nuevas versiones de Management Studio se actualizan mensualmente a fin de que sigan sincronizadas con las actualizaciones para el Portal de Azure.
 
-    > [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+    > [AZURE.IMPORTANT] Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
-2. Open Management Studio and connect to your SQL Server database to be migrated in Object Explorer.
-3. Right-click the database in the Object Explorer, point to **Tasks**, and click **Deploy Database to Microsoft Azure SQL Database…**
+2. Abra Management Studio y conéctese a la base de datos de SQL Server que se va a migrar en el Explorador de objetos.
+3. Haga clic con el botón derecho en la base de datos del Explorador de objetos, seleccione **Tareas** y haga clic en **Implementar base de datos en Base de datos SQL de Microsoft Azure...**
 
-    ![Deploy to Azure from Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard01.png)
+	![Implementación en Azure desde el menú Tareas](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard01.png)
 
-4.  In the deployment wizard, click **Next**, and then click **Connect** to configure the connection to your SQL Database server.
+4.	En el asistente para la implementación, haga clic en **Siguiente** y en **Conectar** para configurar la conexión con el servidor de Base de datos SQL.
 
-    ![Deploy to Azure from Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard002.png)
+	![Implementación en Azure desde el menú Tareas](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard002.png)
 
-5. In the Connect to Server dialog box, enter your connection information to connect to your SQL Database server.
+5. En el cuadro de diálogo Conectar con el servidor, escriba la información de conexión para conectarse a su servidor de Base de datos SQL.
 
-    ![Deploy to Azure from Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard00.png)
+	![Implementación en Azure desde el menú Tareas](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard00.png)
 
-5.  Provide the following for the [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file that this wizard creates during the migration process:
+5.	Proporcione los siguiente elementos para el archivo [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) que crea el asistente durante el proceso de migración:
 
- - The **New database name** 
- - The **Edition of Microsoft Azure SQL Database** ([service tier](sql-database-service-tiers.md))
- - The **Maximum database size**
- - The **Service Objective** (performance level)
- - The **Temporary file name**  
+ - El **nuevo nombre de base de datos**
+ - La **edición de Base de datos SQL de Microsoft Azure** ([nivel de servicio](sql-database-service-tiers.md))
+ - El **tamaño máximo de la base de datos**
+ - El **objetivo de servicio** (nivel de rendimiento)
+ - El **nombre de archivo temporal**
 
-    ![Export settings](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
+    ![Exportar configuración](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
 
-6.  Complete the wizard. Depending on the size and complexity of the database, deployment may take from a few minutes to many hours. If this wizard detects compatibility issues, errors are displayed to the screen and the migration does not continue. For guidance on how to fix database compatibility issues, go to [fix database compatibility issues](sql-database-cloud-migrate-fix-compatibility-issues.md).
+6.	Realice los pasos del asistente. Según el tamaño y la complejidad de la base de datos, es posible que la implementación tarde desde unos minutos hasta varias horas. Si el asistente detecta problemas de compatibilidad, se muestran errores en la pantalla y la migración no continúa. Para instrucciones sobre cómo solucionar problemas de compatibilidad de bases de datos, vaya a [Solución de problemas de compatibilidad de bases de datos](sql-database-cloud-migrate-fix-compatibility-issues.md).
 
-7.  Using Object Explorer, connect to your migrated database in your Azure SQL Database server.
-8.  Using the Azure portal, view your database and its properties.
+7.	Con el Explorador de objetos, conéctese a la base de datos migrada en el servidor de Base de datos SQL de Azure.
+8.	Use el Portal de Azure para ver la base de datos y sus propiedades.
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-- [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
-- [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Versión más reciente de SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Versión más reciente de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 
-## <a name="additional-resources"></a>Additional resources
+## Recursos adicionales
 
-- [SQL Database V12](sql-database-v12-whats-new.md)
-- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
-- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
+- [Base de datos SQL V12](sql-database-v12-whats-new.md)
+- [Diferencias de Transact-SQL de Base de datos SQL de Azure](sql-database-transact-sql-information.md)
+- [Migración de bases de datos no SQL Server mediante SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

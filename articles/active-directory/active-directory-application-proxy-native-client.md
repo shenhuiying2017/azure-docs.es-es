@@ -1,95 +1,90 @@
 <properties
-    pageTitle="How to enable publishing of native client apps with proxy applications | Microsoft Azure"
-    description="Covers how to enable native client apps to communicate with Azure AD Application Proxy Connector to provide secure remote access to your on-premises apps."
-    services="active-directory"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor=""/>
+	pageTitle="Habilitación de la publicación de aplicaciones de cliente nativas con aplicaciones proxy | Microsoft Azure"
+	description="Explica cómo habilitar las aplicaciones cliente nativas para comunicarse con el conector del proxy de la aplicación de Azure AD para proporcionar acceso remoto seguro a las aplicaciones locales."
+	services="active-directory"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="06/22/2016"
-    ms.author="kgremban"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/22/2016"
+	ms.author="kgremban"/>
 
+# Habilitación de las aplicaciones cliente nativas para interactuar con el proxy de la aplicación
 
-# <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>How to enable native client apps to interact with proxy Applications
+El proxy de la aplicación de Azure Active Directory se usa por lo general para publicar aplicaciones de explorador como SharePoint, Outlook Web Access y aplicaciones de línea de negocio personalizadas. También puede utilizarse para publicar aplicaciones de cliente nativo que se diferencian de las aplicaciones web porque se instalan en un dispositivo. Esto se lleva a cabo mediante la compatibilidad de tokens emitidos por Azure AD que se envían en encabezados HTTP de autorización estándar.
 
-Azure Active Directory Application Proxy is widely used to publish browser applications such as SharePoint, Outlook Web Access and custom line of business applications. It can also be used to publish native client apps, which differ from web apps because they get installed on a device. This is done by supporting Azure AD issued tokens that are sent in standard Authorize HTTP headers.
+![Relación entre los usuarios finales, Azure Active Directory y las aplicaciones publicadas](./media/active-directory-application-proxy-native-client/richclientflow.png)
 
-![Relationship between end users, Azure Active Directory, and published applications](./media/active-directory-application-proxy-native-client/richclientflow.png)
+El método recomendado para publicar estas aplicaciones es usar Azure AD Authentication Library, que se encarga de todos los problemas de autenticación y admite muchos entornos de cliente diferentes. El proxy de la aplicación se adapta a la [aplicación nativa para el escenario de Web API](active-directory-authentication-scenarios.md#native-application-to-web-api). El proceso para llevarlo a cabo es el siguiente:
 
-The recommended method to publish such applications is to use the Azure AD Authentication Library, which takes care of all the authentication hassle and supports many different client environments. Application Proxy fits into the [Native Application to Web API scenario](active-directory-authentication-scenarios.md#native-application-to-web-api). The process for accomplishing this is as follows:
+## Paso 1: Publicación de la aplicación
 
-## <a name="step-1:-publish-your-application"></a>Step 1: Publish your application
+Publique su aplicación proxy, al igual que haría con cualquier otra aplicación, asigne los usuarios y concédales licencias básicas o premium. Para obtener más información, consulte [Publicación de aplicaciones con el proxy de la aplicación](active-directory-application-proxy-publish.md).
 
-Publish your proxy application as you would any other application, assign users and give them premium or basic licenses. For more information see  [Publish applications with Application Proxy](active-directory-application-proxy-publish.md).
+## Paso 2: Configuración de la aplicación
 
-## <a name="step-2:-configure-your-application"></a>Step 2: Configure your application
+Configure su aplicación nativa de la manera siguiente:
 
-Configure your native application as follows:
+1. Inicie sesión en el portal clásico de Azure.
+2. Seleccione el icono de Active Directory en el menú de la izquierda y luego su directorio.
+3. En el menú superior, haga clic en **Aplicaciones**. Si no se han agregado aplicaciones al directorio, esta página solo muestra el vínculo **Agregar una aplicación**. Haga clic en el vínculo; como alternativa, puede hacer clic en el botón **Agregar** de la barra de comandos.
+4. En la página **¿Qué desea hacer?**, haga clic en el vínculo para **Agregar una aplicación que mi organización está desarrollando**.
+5. En la página **Proporcione información sobre su aplicación**, especifique un nombre para la aplicación y elija **Aplicación de cliente nativo**. Haga clic en el icono de flecha para continuar.
+6. En la página **Información de la aplicación**, proporcione el **URI de redirección** para la aplicación de cliente nativo y haga clic en la marca de verificación para finalizar.
 
-1. Sign in to the Azure classic portal.
-2. Select the Active Directory icon on the left menu, and then select your directory.
-3. On the top menu, click **Applications**. If no apps have been added to your directory, this page will only show the **Add an App** link. Click on the link, or alternatively you can click on the **Add** button on the command bar.
-4. On the **What do you want to do** page, click on the link to **Add an application my organization is developing**.
-5. On the **Tell us about your application** page, specify a name for your application and choose **Native client application**. Click the arrow icon to continue.
-6. On the **Application information** page, provide the **Redirect URI** for the native client application, then click the checkmark to finish.
+La aplicación se agrega y le llevará a la página Inicio rápido de la aplicación.
 
-Your application has been added, and you will be taken to the Quick Start page for your application.
+## Paso 3: Conceder acceso a otras aplicaciones
 
-## <a name="step-3:-grant-access-to-other-applications"></a>Step 3: Grant access to other applications
+Habilite la aplicación nativa para que se exponga a otras aplicaciones en el directorio:
 
-Enable the native application to be exposed to other applications in your directory:
+1. En el menú superior, haga clic en **Aplicaciones**, seleccione la nueva aplicación nativa y haga clic en **Configurar**.
+2. Desplácese hacia abajo hasta la sección **Permisos para otras aplicaciones**. Haga clic en el botón **Agregar aplicación** y seleccione la aplicación proxy a la que desea conceder acceso a la aplicación nativa y haga clic en la marca de verificación de la esquina inferior derecha. En el menú desplegable **Permisos delegados**, seleccione el nuevo permiso.
 
-1. On the top menu, click **Applications**, select the new native application, and then click **Configure**.
-2. Scroll down to the **permissions to other applications** section. Click on the **Add application** button and select the proxy application that you want to grant the native application access to, and click the check mark in the bottom right corner. From the **Delegated Permissions** drop-down menu, select the new permission.
+![Captura de pantalla de Permisos para otras aplicaciones - agregar aplicación](./media/active-directory-application-proxy-native-client/delegate_native_app.png)
 
-![Permissions to other applications screenshot - add application](./media/active-directory-application-proxy-native-client/delegate_native_app.png)
+## Paso 4: Editar la biblioteca de autenticación de Active Directory
 
-## <a name="step-4:-edit-the-active-directory-authentication-library"></a>Step 4: Edit the Active Directory Authentication Library
+Edite el código de la aplicación nativa en el contexto de autenticación de Active Directory Authentication Library (ADAL) para incluir lo siguiente:
 
-Edit the native application code in the authentication context of the Active Directory Authentication Library (ADAL) to include the following:
-
-        // Acquire Access Token from AAD for Proxy Application
-        AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/<TenantId>");
-        AuthenticationResult result = authContext.AcquireToken("< Frontend Url of Proxy App >",
+		// Acquire Access Token from AAD for Proxy Application
+		AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/<TenantId>");
+		AuthenticationResult result = authContext.AcquireToken("< Frontend Url of Proxy App >",
                                                         "< Client Id of the Native app>",
                                                         new Uri("< Redirect Uri of the Native App>"),
                                                         PromptBehavior.Never);
 
-        //Use the Access Token to access the Proxy Application
-        HttpClient httpClient = new HttpClient();
-        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
-        HttpResponseMessage response = await httpClient.GetAsync("< Proxy App API Url >");
+		//Use the Access Token to access the Proxy Application
+		HttpClient httpClient = new HttpClient();
+		httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
+		HttpResponseMessage response = await httpClient.GetAsync("< Proxy App API Url >");
 
-The variables should be replaced as follows:
+Las variables deben reemplazarse como sigue:
 
-- **TenantId** can be found in the GUID in the URL of the application's **Configuration** page, right after “/Directory/”.
-- **Frontend URL** is the front end URL you entered in the Proxy Application and can be found on the **Configuration** page of the proxy app.
-- **Client Id** of the native app can be found on the **Configure** page of the native application.
-- **Redirect URI of the native app** can be found on the **Configure** page of the native application.
+- **TenantId** puede encontrarse en el GUID de la dirección URL de la página **Configuración** del solicitante, justo después de “/Directory/”.
+- **Frontend URL** es la dirección URL de front-end especificada en la aplicación proxy y se encuentra en la página **Configuración** de la aplicación proxy.
+- **Client Id** de la aplicación nativa se encuentra en la página **Configurar** de la aplicación nativa.
+- **Redirect URI of the native app** se puede encontrar en la página **Configurar** de la aplicación nativa.
 
-![New native application configure page screenshot](./media/active-directory-application-proxy-native-client/new_native_app.png)
+![Captura de pantalla de la página de configuración de la nueva aplicación nativa](./media/active-directory-application-proxy-native-client/new_native_app.png)
 
-For more information about the native application flow, see [Native application to web API](active-directory-authentication-scenarios.md#native-application-to-web-api).
-
-
-## <a name="see-also"></a>See also
-
-- [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
-- [Enable conditional access](active-directory-application-proxy-conditional-access.md)
-- [Working with claims aware applications](active-directory-application-proxy-claims-aware-apps.md)
-- [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
-
-For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+Para más información sobre el flujo de la aplicación nativa, consulte el escenario de [Aplicación nativa a API web](active-directory-authentication-scenarios.md#native-application-to-web-api).
 
 
+## Consulte también
 
-<!--HONumber=Oct16_HO2-->
+- [Publicar aplicaciones mediante su propio nombre de dominio](active-directory-application-proxy-custom-domains.md)
+- [Habilitar el acceso condicional](active-directory-application-proxy-conditional-access.md)
+- [Trabajar con las aplicaciones para notificaciones](active-directory-application-proxy-claims-aware-apps.md)
+- [Habilitar el inicio de sesión único](active-directory-application-proxy-sso-using-kcd.md)
 
+Para ver las últimas noticias y actualizaciones, consulte el [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (Blog de Proxy de aplicación).
 
+<!---HONumber=AcomDC_0622_2016-->

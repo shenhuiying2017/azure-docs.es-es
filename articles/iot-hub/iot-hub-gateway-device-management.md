@@ -1,6 +1,6 @@
 <properties
- pageTitle="Enable managed devices behind an IoT gateway | Microsoft Azure"
- description="Guidance topic using an IoT Gateway created using the Gateway SDK along with devices managed by IoT Hub."
+ pageTitle="Habilitación de los dispositivos administrados detrás de una puerta de enlace de IoT | Microsoft Azure"
+ description="Tema de referencia donde se utiliza una puerta de enlace de IoT creada mediante el SDK de puerta de enlace junto con dispositivos administrados por el Centro de IoT."
  services="iot-hub"
  documentationCenter=""
  authors="chipalost"
@@ -16,71 +16,80 @@
  ms.date="04/29/2016"
  ms.author="cstreet"/>
  
+# Habilitación de los dispositivos administrados detrás de una puerta de enlace de IoT
 
-# <a name="enable-managed-devices-behind-an-iot-gateway"></a>Enable managed devices behind an IoT gateway
+## Aislamiento básico de dispositivos
 
-## <a name="basic-device-isolation"></a>Basic device isolation
+Las organizaciones utilizan a menudo puertas de enlace de IoT para aumentar la seguridad general de sus soluciones de IoT. Algunos dispositivos necesitan enviar datos a la nube, pero no son capaces de protegerse de las amenazas de Internet. Puede proteger estos dispositivos de subprocesos externos haciendo que se comuniquen con el mundo exterior mediante una puerta de enlace.
 
-Organizations often use IoT gateways to increase the overall security of their IoT solutions. Some devices need to send data to the cloud but are not capable of protecting themselves from threats on the internet. You can shield these devices from external threads by having them communicate with the outside world through a gateway.
-
-The gateway sits on the border between a secure environment and the open internet. Devices talk to the gateway and the gateway passes the messages along to the correct cloud destination. The gateway is hardened against external threads, blocks unauthorized requests, allows authorized in-bound traffic, and forwards that in-bound traffic to the correct device.
+La puerta de enlace se sitúa en la frontera entre un entorno seguro y la red Internet abierta. Los dispositivos hablan con la puerta de enlace y la puerta de enlace pasa los mensajes al destino en la nube correcto. La puerta de enlace está protegida frente a subprocesos externos, bloquea las solicitudes no autorizadas, permite el tráfico de entrada autorizado y reenvía dicho tráfico al dispositivo correcto.
 
 ![][1]
 
-You can also place devices that can protect themselves behind a gateway for an added layer of security. In this scenario you only need to keep the gateway OS patched against the latest vulnerabilities, instead of updating the OS on every device.
+Otra opción es colocar los dispositivos que se pueden proteger ellos mismos detrás de la puerta de enlace como una capa de seguridad añadida. En este escenario, solo necesitará mantener revisado el SO de la puerta de enlace frente a las vulnerabilidades más recientes, en lugar de actualizar el SO en cada dispositivo.
 
-## <a name="isolation-plus-intelligence"></a>Isolation plus intelligence
+## Aislamiento más inteligencia
 
-A hardened router is a sufficient gateway to simply isolate devices. However, IoT solutions often require that a gateway provides more intelligence than simply isolating devices. For example, you may want to manage your devices from the cloud. You are able use LWM2M, a standard device management protocol, for the cloud management part of the solution. However, the devices send telemetry using a non TCP/IP enabled protocol. Furthermore, the devices produce lots of data and you only want to upload a filtered subset of the telemetry. You can build a solution that incorporates an IoT gateway capable of dealing with two distinct streams of data. The gateway should:
+Un enrutador protegido es una puerta de enlace suficiente para aislar dispositivos de forma sencilla. Sin embargo, las soluciones de IoT con frecuencia requieren una puerta de enlace que proporcione inteligencia más aislar simplemente los dispositivos. Por ejemplo, puede que quiera administrar los dispositivos desde la nube. Puede usar LWM2M, un protocolo estándar de administración de dispositivos, en la parte de administración en la nube de la solución. Sin embargo, los dispositivos envían datos de telemetría mediante un protocolo no habilitado para TCP/IP. Además, los dispositivos generan grandes cantidades de datos y solo quiere cargar un subconjunto filtrado de datos de telemetría. Puede crear una solución que incorpore una puerta de enlace de IoT capaz de tratar con dos flujos de datos distintas. La puerta de enlace debe:
 
--   Understand the **Telemetry**, filter it, and then upload it to the cloud through the gateway. The gateway is no longer a simple router that simply forwards data between the device and the cloud.
+-   Comprender los datos de **telemetría**, filtrarlos y luego cargarlos en la nube. La puerta de enlace ya no es un simple enrutador que se limita a reenviar datos entre el dispositivo y la nube.
 
--   Simply exchange the **LWM2M device management data** between the devices and the cloud. The gateway does not need to understand the data coming into it, and only needs to make sure the data gets passed back and forth between the devices and the cloud.
+-   Intercambie simplemente los **datos de administración de dispositivos de LWM2M** entre los dispositivos y la nube. No es necesario que la puerta de enlace comprenda los datos que llegan, solo tiene que asegurarse de que los datos van y vienen entre los dispositivos y la nube.
 
-The following figure illustrates this scenario:
+En la siguiente ilustración se muestra este escenario:
 
 ![][2]
 
-## <a name="the-solution:-azure-iot-device-management-and-the-gateway-sdk"></a>The solution: Azure IoT device management and the Gateway SDK 
+## La solución: administración de dispositivos de IoT de Azure y el SDK de puerta de enlace 
 
-The public preview release of [Azure IoT device management][lnk-device-management] and beta release of the [Azure IoT Gateway SDK] enable this scenario. The gateway handles each stream of data as follows:
+La versión preliminar pública de [administración de dispositivos IoT de Azure][lnk-device-management] y al versión beta del [SDK de puerta de enlace de IoT de Azure] hacen posible este escenario. La puerta de enlace administra cada flujo de datos de la manera siguiente:
 
--   **Telemetry**: You can use the Gateway SDK to build a pipeline that understands, filters, and sends telemetry data to the cloud. The Gateway SDK provides code that implements parts of this pipeline on behalf of the developer. You can find more information on the architecture of the SDK in the [IoT Gateway SDK - Get Started][lnk-gateway-get-started] tutorial.
+-   **Telemetría**: puede usar el SDK de puerta de enlace para crear una canalización que comprenda, filtre y envíe los datos de telemetría a la nube. El SDK de puerta de enlace proporciona código que implementa partes de esta canalización en nombre del desarrollador. Puede encontrar más información sobre la arquitectura del SDK en el tutorial [SDK de puerta de enlace de IoT: introducción][lnk-gateway-get-started].
 
--   **Device management**: Azure device management provides an LWM2M client that runs on the device as well as a cloud interface for issuing management commands to the device.
+-   **Administración de dispositivos**: la administración de dispositivos de Azure ofrece un cliente de LWM2M que se ejecuta en el dispositivo, así como una interfaz de nube para la emisión de comandos de administración al dispositivo.
     
-    You don't require any special logic on the gateway because it does not need to process the LWM2M data exchanged between the device and your IoT hub. You can enable internet connection sharing, a feature of many modern operating systems, on the gateway to enable the exchange of LWM2M data. You can can choose a suitable operating system for this scenario because the gateway SDK supports a variety of operating systems. Here are instructions for enabling internet connection sharing on [Windows 10] and [Ubuntu], two of the many supported operating systems.
+    No se necesita ninguna lógica especial en la puerta de enlace ya no es necesario procesar los datos de LWM2M intercambiados entre el dispositivo y el Centro de IoT. Puede habilitar la conexión compartida a Internet, una característica de muchos sistemas operativos modernos, en la puerta de enlace para permitir el intercambio de datos de LWM2M. En este escenario puede elegir un sistema operativo adecuado, ya que el SDK de puerta de enlace admite diversos sistemas operativos. Estas son las instrucciones para habilitar la conexión compartida a Internet en [Windows 10] y [Ubuntu], dos de las muchos sistemas operativos admitidos.
 
-The following illustration shows the high level architecture used to enable this scenario using [Azure IoT device management][lnk-device-management] and the [Azure IoT Gateway SDK].
+La siguiente ilustración muestra la arquitectura de alto nivel usada para permitir este escenario mediante [administración de dispositivos IoT de Azure][lnk-device-management] y el [SDK de puerta de enlace de IoT de Azure].
 
 ![][3]
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-To learn about how to use the Gateway SDK, see the following tutorials:
+Para más información sobre cómo usar el SDK de puerta de enlace, consulte los siguientes tutoriales:
 
-- [IoT Gateway SDK - Get started using Linux][lnk-gateway-get-started]
-- [IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated]
+- [SDK de puerta de enlace de IoT: introducción mediante Linux][lnk-gateway-get-started]
+- [SDK de puerta de enlace: envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway-simulated].
 
-To further explore the capabilities of IoT Hub, see:
+Para aprender a usar las funciones de administración de dispositivos, consulte [Introducción a la biblioteca de cliente de administración de dispositivos de Centro de IoT de Azure][lnk-library-c].
 
-- [Developer guide][lnk-devguide]
-- [Simulating a device with the Gateway SDK][lnk-gateway-simulated]
+Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+
+- [Diseño de la solución][lnk-design]
+- [Guía del desarrollador][lnk-devguide]
+- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
+- [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
 
 <!-- Images and links -->
 [1]: media/iot-hub-gateway-device-management/overview.png
 [2]: media/iot-hub-gateway-device-management/manage.png
-[Azure IoT Gateway SDK]: https://github.com/Azure/azure-iot-gateway-sdk/
-[Windows 10]: http://windows.microsoft.com/en-us/windows/using-internet-connection-sharing#1TC=windows-7
+[SDK de puerta de enlace de IoT de Azure]: https://github.com/Azure/azure-iot-gateway-sdk/
+[Windows 10]: http://windows.microsoft.com/es-ES/windows/using-internet-connection-sharing#1TC=windows-7
 [Ubuntu]: https://help.ubuntu.com/community/Internet/ConnectionSharing
 [3]: media/iot-hub-gateway-device-management/manage_2.png
 [lnk-gateway-get-started]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-gateway-simulated]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-device-management]: iot-hub-device-management-overview.md
 
+[lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
+[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
+[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
+[lnk-dm-gateway]: iot-hub-gateway-device-management.md
+[lnk-library-c]: iot-hub-device-management-library.md
+
+[lnk-design]: iot-hub-guidance.md
 [lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

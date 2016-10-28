@@ -1,206 +1,192 @@
 <properties 
-    pageTitle="Overview of X12 and the Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
-    description="Learn how to use X12 agreements to create Logic apps" 
-    services="logic-apps" 
-    documentationCenter=".net,nodejs,java"
-    authors="msftman" 
-    manager="erikre" 
-    editor="cgronlun"/>
+	pageTitle="Información general sobre X12 y Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure | Microsoft Azure" 
+	description="Aprenda a utilizar los contratos X12 para crear Aplicaciones lógicas." 
+	services="logic-apps" 
+	documentationCenter=".net,nodejs,java"
+	authors="msftman" 
+	manager="erikre" 
+	editor="cgronlun"/>
 
 <tags 
-    ms.service="app-service-logic" 
-    ms.workload="integration" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/08/2016" 
-    ms.author="deonhe"/>
+	ms.service="app-service-logic" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/08/2016" 
+	ms.author="deonhe"/>
+
+# Integración de empresas con X12 
+
+>[AZURE.NOTE]Esta página abarca las características de X12 de Logic Apps. Para más información sobre EDIFACT, haga clic [aquí](app-service-logic-enterprise-integration-edifact.md).
+
+## Creación de un contrato X12 
+Para poder intercambiar mensajes X12, hay que crear un contrato X12 y almacenarlo en la cuenta de integración. Los siguientes pasos lo guían a lo largo del proceso de creación de un contrato X12.
+
+### Requisitos para poder comenzar
+- Debe tener una [cuenta de integración](./app-service-logic-enterprise-integration-accounts.md) definida en su suscripción de Azure.
+- Debe tener al menos dos [asociados](./app-service-logic-enterprise-integration-partners.md) ya definidos en su cuenta de integración.
+
+>[AZURE.NOTE]Al crear un contrato, el contenido del archivo de contrato debe coincidir con el tipo de contrato.
 
 
-# <a name="enterprise-integration-with-x12"></a>Enterprise integration with X12 
+Cuando haya [creado una cuenta de integración](./app-service-logic-enterprise-integration-accounts.md) y [agregado los asociados](./app-service-logic-enterprise-integration-partners.md), podrá generar un acuerdo X12 siguiendo estos pasos:
 
->[AZURE.NOTE]This page covers the X12 features of Logic Apps. For information on EDIFACT click [here](app-service-logic-enterprise-integration-edifact.md).
+### En la página principal del Portal de Azure
 
-## <a name="create-an-x12-agreement"></a>Create an X12 agreement 
-Before you can exchange X12 messages, you need to create an X12 agreement and store it in your integration account. The following steps will walk you through the process of creating an X12 agreement.
+Después de iniciar sesión en el [Portal de Azure](http://portal.azure.com "Portal de Azure"):
+1. En el menú de la izquierda, seleccione **Examinar**.
 
-### <a name="here's-what-you-need-before-you-get-started"></a>Here's what you need before you get started
-- An [integration account](./app-service-logic-enterprise-integration-accounts.md) defined in your Azure subscription  
-- At least two [partners](./app-service-logic-enterprise-integration-partners.md) already defined in your integration account  
+>[AZURE.TIP]Si no ve el vínculo **Examinar**, puede que primero tenga que expandir el menú. Para ello, haga clic en el vínculo **Mostrar menú** que se encuentra en la parte superior izquierda del menú contraído.
 
->[AZURE.NOTE]When creating an agreement, the content in the agreement file must match the agreement type.    
+![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
+2. Escriba *integration* en el cuadro de búsqueda del filtro; después, seleccione **Cuentas de integración** en la lista de resultados. ![](./media/app-service-logic-enterprise-integration-x12/x12-1-3.png)
+3. En la hoja **Cuentas de integración** que se abre, seleccione la cuenta de integración en la que va a crear el acuerdo. Si no ve ninguna lista con cuentas de integración, [cree una antes](./app-service-logic-enterprise-integration-accounts.md "Todo sobre las cuentas de integración"). ![](./media/app-service-logic-enterprise-integration-x12/x12-1-4.png)
+4.  Seleccione el icono **Acuerdos**. Si no lo ve, agréguelo antes. ![](./media/app-service-logic-enterprise-integration-x12/x12-1-5.png)
+5. Seleccione el botón **Agregar** en la hoja Acuerdos que se abre. ![](./media/app-service-logic-enterprise-integration-agreements/agreement-2.png)
+6. Escriba un **nombre** para el acuerdo; después, seleccione **Tipo de contrato**, **Asociado del host**, **Identidad del host**, **Asociado invitado**, **Identidad del invitado** en la hoja Acuerdos que se abre. ![](./media/app-service-logic-enterprise-integration-x12/x12-1.png)
+7. Cuando haya establecido las propiedades de configuración de recepción, seleccione el botón **Aceptar**. Continuemos:
+8. Seleccione **Configuración de recepción** para configurar cómo se administran los mensajes que se reciben través de este contrato.
+9. El control de la configuración de recepción se divide en las siguientes secciones: Identifiers (Identificadores), Acknowledgement (Confirmación), Schemas (Esquemas), Envelopes (Sobres), Control Numbers (Números de control), Validations (Validaciones) e Internal Settings (Configuración interna). Configure estas propiedades en función del contrato con el asociado con el que intercambiará mensajes. A continuación se ofrece una vista de estos controles; configúrelos en función de cómo desee que este acuerdo identifique y controle los mensajes entrantes: ![](./media/app-service-logic-enterprise-integration-x12/x12-2.png)
 
+![](./media/app-service-logic-enterprise-integration-x12/x12-3.png)
+10. Seleccione el botón **Aceptar** para guardar la configuración.
 
-After you've [created an integration account](./app-service-logic-enterprise-integration-accounts.md) and [added partners](./app-service-logic-enterprise-integration-partners.md), you can create an X12 agreement by following these steps:  
+### Identifiers (Identificadores)
 
-### <a name="from-the-azure-portal-home-page"></a>From the Azure portal home page
-
-After you log into the [Azure portal](http://portal.azure.com "Azure portal"):  
-1. Select **Browse** from the menu on the left.  
-
->[AZURE.TIP]If you don't see the **Browse** link, you may need to expand the menu first. Do this by selecting the **Show menu** link that's located at the top left of the collapsed menu.  
-
-![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
-2. Type *integration* into the filter search box then select **Integration Accounts** from the list of results.       
-![](./media/app-service-logic-enterprise-integration-x12/x12-1-3.png)    
-3. In the **Integration Accounts** blade that opens up, select the integration account in which you will create the agreement. If you don't see any integration accounts lists, [create one first](./app-service-logic-enterprise-integration-accounts.md "All about integration accounts").  
-![](./media/app-service-logic-enterprise-integration-x12/x12-1-4.png)  
-4.  Select the **Agreements** tile. If you don't see the agreements tile, add it first.   
-![](./media/app-service-logic-enterprise-integration-x12/x12-1-5.png)     
-5. Select the **Add** button in the Agreements blade that opens.  
-![](./media/app-service-logic-enterprise-integration-agreements/agreement-2.png)  
-6. Enter a **Name** for your agreement then select the **Agreement type**, **Host Partner**, **Host Identity**,  **Guest Partner**, **Guest Identity**, in the Agreements blade that opens.  
-![](./media/app-service-logic-enterprise-integration-x12/x12-1.png)  
-7. After you have set the receive settings properties, select the **OK** button  
-Let's continue:  
-8. Select **Receive Settings** to configure how messages received via this agreement are to be handled.  
-9. The Receive Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Envelopes, Control Numbers, Validations and Internal Settings. Configure these properties based on your agreement with the partner you will be exchanging messages with. Here is a view of these controls, configure them based on how you want this agreement to identify and handle incoming messages:  
-![](./media/app-service-logic-enterprise-integration-x12/x12-2.png)  
-
-![](./media/app-service-logic-enterprise-integration-x12/x12-3.png)  
-10. Select the **OK** button to save your settings.  
-
-### <a name="identifiers"></a>Identifiers
-
-|Property|Description |
+|Propiedad|Descripción |
 |---|---|
-|ISA1 (Authorization Qualifier)|Select the Authorization qualifier value from the drop-down list.|
-|ISA2|Optional. Enter Authorization information value. If the value you entered for ISA1 is other than 00, enter a minimum of one alphanumeric character and a maximum of 10.|
-|ISA3 (Security Qualifier)|Select the Security qualifier value from the drop-down list.|
-|ISA4|Optional. Enter the Security information value. If the value you entered for ISA3 is other than 00, enter a minimum of one alphanumeric character and a maximum of 10.|
+|ISA1 (Authorization Qualifier) (ISA1 (calificador de autorización))|Seleccione el valor del calificador de autorización en la lista desplegable.|
+|ISA2|Opcional. Escriba el valor de la información de autorización. Si el valor especificado en ISA1 es distinto de 00, escriba como mínimo un carácter alfanumérico y, como máximo, diez.|
+|ISA3 (Security Qualifier) (ISA3 (calificador de seguridad))|Seleccione el valor del calificador de seguridad en la lista desplegable.|
+|ISA4|Opcional. Escriba el valor de la información de seguridad. Si el valor especificado en ISA3 es distinto de 00, especifique como mínimo un carácter alfanumérico y, como máximo, diez.|
 
-### <a name="acknowledgments"></a>Acknowledgments 
+### Agradecimientos 
 
-|Property|Description |
+|Propiedad|Descripción |
 |----|----|
-|TA1 expected|Select this checkbox to return a technical (TA1) acknowledgment to the interchange sender. These acknowledgments are sent to the interchange sender based on the Send Settings for the agreement.|
-|FA expected|Select this checkbox to return a functional (FA) acknowledgment to the interchange sender. Then select whether you want the 997 or 999 acknowledgements, based on the schema versions you are working with. These acknowledgments are sent to the interchange sender based on the Send Settings for the agreement.|
-|Include AK2/IK2 Loop|Select this checkbox to enable generation of AK2 loops in functional acknowledgments for accepted transaction sets.Note: This checkbox is enabled only if you selected the FA expected checkbox.|
+|TA1 expected (TA1 esperada)|Seleccione esta casilla para devolver una confirmación técnica (TA1) al remitente del intercambio. Estas confirmaciones se envían al remitente del intercambio según la configuración de envío del contrato.|
+|FA expected (FA esperada)|Seleccione esta casilla para devolver una confirmación funcional (FA) al remitente del intercambio. A continuación, seleccione si desea la confirmación 997 o la 999, en función de las versiones del esquema con las que esté trabajando. Estas confirmaciones se envían al remitente del intercambio según la configuración de envío del contrato.|
+|Include AK2/IK2 Loop (Incluir bucle AK2/IK2)|Active esta casilla para habilitar la generación de bucles AK2 en confirmaciones funcionales para conjuntos de transacciones aceptados. Nota: Esta casilla se habilita solo si activó la casilla FA expected (FA esperada).|
 
-### <a name="schemas"></a>Schemas
+### Esquemas
 
-Choose a schema for each transaction type (ST1) and Sender Application (GS2). The receive pipeline disassembles the incoming message by matching the values for ST1 and GS2 in the incoming message with the values you set here, and the schema of the incoming message with the schema you set here.
+Elija un esquema para cada tipo de transacción (ST1) y aplicación remitente (GS2). La canalización de recepción desensambla el mensaje entrante haciendo coincidir los valores de ST1 y GS2 del mensaje entrante con los valores que establezca aquí y el esquema del mensaje entrante con el esquema que configure aquí.
 
-|Property|Description |
+|Propiedad|Descripción |
 |----|----|
-|Version|Select the X12 version|
-|Transaction Type (ST01)|Select the transaction type|
-|Sender Application (GS02)|Select the sender application|
-|Schema|Select the schema file you want to us. Schema files are located in your integration account.|
+|Versión|Seleccione la versión de X12.|
+|Transaction Type (ST01) (Tipo de transacción (ST01))|Seleccione el tipo de transacción.|
+|Sender Application (GS02) (Aplicación remitente (GS02))|Seleccione la aplicación remitente.|
+|Esquema|Seleccione el archivo de esquema que desee enviarnos. Los archivos de esquema se encuentran en la cuenta de integración.|
 
-### <a name="envelopes"></a>Envelopes
+### Envelopes (Sobres)
 
-|Property|Description |
+|Propiedad|Descripción |
 |----|----|
-|ISA11 Usage|Use this field to specify the separator in a transaction set:</br></br>Select the Standard identifier to use the decimal notation of “.” instead of the decimal notation of the incoming document in the EDI receive pipeline.</br></br>Select Repetition separator to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, (^) is usually used as repetition separator. For HIPAA schemas, you can only use (^).|
+|ISA11 Usage (Uso de ISA11)|Utilice este campo para especificar el separador de un conjunto de transacciones:</br></br>Seleccione Identificador estándar para utilizar la notación decimal "." en lugar de la notación decimal del documento entrante en la canalización de recepción de EDI.</br></br>Seleccione Separador de repeticiones para especificar el separador de las repeticiones de un elemento de datos simple o de una estructura de datos. Por ejemplo, se suele utilizar (^) como separador de repeticiones. En los esquemas HIPAA, solo se puede usar (^).|
 
-### <a name="control-numbers"></a>Control Numbers
+### Control Numbers (Números de control)
 
-|Property|Description |
+|Propiedad|Descripción |
 |----|----|
-|Disallow Interchange Control Number duplicates|Check this option to block duplicate interchanges. If selected, the BizTalk Services Portal checks that the interchange control number (ISA13) for the received interchange does not match the interchange control number. If a match is detected, the receive pipeline does not process the interchange.<br/>If you opted to disallow duplicate interchange control numbers, then you can specify the number of days at which the check is performed by giving the appropriate value for Check for duplicate ISA13 every x days.|
-|Disallow Group control number duplicates|Check this option to block interchanges with duplicate group control numbers.|
-|Disallow Transaction set control number duplicates|Check this option to block interchanges with duplicate transaction set control numbers.|
+|Disallow Interchange Control Number duplicates (No permitir duplicados del número de control de intercambio)|Active esta opción para bloquear los intercambios duplicados. Si la selecciona, el portal Servicios de BizTalk comprueba que el número de control de intercambio (ISA13) del intercambio recibido no coincida con el número de control de intercambio. Si se detecta una coincidencia, la canalización de recepción no procesa el intercambio.<br/>Si optó por no permitir números de control de intercambio duplicados, puede especificar el número de días que se realizará la comprobación indicando el valor pertinente en el cuadro de comprobación de duplicados de ISA13 cada x días.|
+|Disallow Group control number duplicates (No permitir duplicados del número de control de grupo)|Active esta opción para bloquear los intercambios con números de control de grupo duplicados.|
+|Disallow Transaction set control number duplicates (No permitir duplicados del número de control del conjunto de transacciones)|Active esta opción para bloquear los intercambios con números de control de conjuntos de transacciones duplicados.|
 
-### <a name="validations"></a>Validations
+### Validations (Validaciones)
 
-|Property|Description |
+|Propiedad|Descripción |
 |----|----|
-|Message Type|EDI Message type, like 850-Purchase Order or 999-Implementation Acknowledgement.|
-|EDI Validation|Performs EDI validation on data types as defined by the EDI properties of the schema, length restrictions, empty data elements, and trailing separators.|
-|Extended Validation|If the data type is not EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min/max).|
-|Allow Leading/Trailing Zeroes|Any additional space and zero characters that are leading or trailing are retained. They are not removed.|
-|Trailing Separator Policy|Generates trailing separators on the interchange received. Options include NotAllowed, Optional, and Mandatory.|
+|Message Type (Tipo de mensaje)|Tipo de mensaje de EDI como, por ejemplo, 890-Purchase Order (850: Pedido de compra) o 999-Implementation Acknowledgement (999: Confirmación de la implementación).|
+|EDI Validation (Validación de EDI)|Realiza una validación de EDI en los tipos de datos según lo definido en las propiedades de EDI del esquema, las restricciones de longitud, los elementos de datos vacíos y los separadores finales.|
+|Extended Validation (Validación extendida)|Si el tipo de datos no es EDI, lo que se valida es el requisito de elemento de datos, así como las repeticiones permitidas, las enumeraciones y la validación de la longitud del elemento de datos (mín./máx.).|
+|Allow Leading/Trailing Zeroes (Permitir ceros a la izquierda/finales)|Se conservan todos los espacios y ceros adicionales que se encuentren a la izquierda o a la derecha. No se eliminan.|
+|Trailing Separator Policy (Directiva de separador final)|Genera separadores finales en el intercambio recibido. Entre las opciones se encuentran NotAllowed (No permitidos), Optional (Opcionales) y Mandatory (Obligatorios).|
 
-### <a name="internal-settings"></a>Internal Settings
+### Internal Settings (Configuración interna)
 
-|Property|Description |
+|Propiedad|Descripción |
 |----|----|
-|Convert implied decimal format Nn to base 10 numeric value|Converts an EDI number that is specified with the format Nn into a base-10 numeric value in the intermediate XML in the BizTalk Services Portal.|
-|Create empty XML tags if trailing separators are allowed|Select this check box to have the interchange sender include empty XML tags for trailing separators.|
-|Inbound batching processing|Split Interchange as transaction sets - suspend transaction sets on error: Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope to the transaction set. With this option, if one or more transaction sets in the interchange fail validation, then BizTalk Services suspends only those transaction sets. </br></br>Split Interchange as transaction sets - suspend interchange on error: Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope. With this option, if one or more transaction sets in the interchange fail validation, then BizTalk Services suspends the entire interchange.</br></br>Preserve Interchange - suspend transaction sets on error: Leaves the interchange intact, creating an XML document for the entire batched interchange. With this option, if onAe or more transaction sets in the interchange fail validation, then BizTalk Services suspends only those transaction sets, while continuing to process all other transaction sets.</br></br>Preserve Interchange - suspend interchange on error: Leaves the interchange intact, creating an XML document for the entire batched interchange. With this option, if one or more transaction sets in the interchange fail validation, then BizTalk Services suspends the entire interchange.</br></br>|
+|Convert implied decimal format Nn to base 10 numeric value (Convertir formato decimal implícito Nn a valor numérico de base 10)|Convierte un número EDI especificado con el formato Nn en un valor numérico de base 10 en el XML intermedio del portal Servicios de BizTalk.|
+|Create empty XML tags if trailing separators are allowed (Crear etiquetas XML vacías si se permiten separadores finales)|Seleccione esta casilla para que el remitente del intercambio incluya etiquetas XML vacías para los separadores finales.|
+|Inbound batching processing (Procesamiento por lotes entrantes)|Split Interchange as transaction sets - suspend transaction sets on error (Dividir intercambio como conjuntos de transacciones: suspender conjuntos de transacciones en caso de error): Suspende todos los conjuntos de transacciones de un intercambio en un documento XML independiente aplicando el sobre adecuado al conjunto de transacciones. Con esta opción, si uno o más conjuntos de transacciones del intercambio no superan la validación, Servicios de BizTalk suspenderá solo esos conjuntos de transacciones. </br></br>Dividir intercambio como conjuntos de transacciones: suspender intercambio en caso de error: redistribuye todos los conjuntos de transacciones de un intercambio en un documento XML independiente aplicando el sobre adecuado. Con esta opción, si uno o más conjuntos de transacciones del intercambio no superan la validación, Servicios de BizTalk suspende el intercambio por completo.</br></br>Conservar intercambio: suspender conjuntos de transacciones en caso de error: deja el intercambio intacto, ya que crea un documento XML para todo el intercambio por lotes. Con esta opción, si uno o más conjuntos de transacciones del intercambio no superan la validación, Servicios de BizTalk suspende el intercambio por completo.</br></br>Conservar intercambio: suspender intercambio en caso de error: deja el intercambio intacto, ya que crea un documento XML para todo el intercambio por lotes. Con esta opción, si uno o más conjuntos de transacciones del intercambio no superan la validación, Servicios de BizTalk suspenderá el intercambio por completo.</br></br>|
 
-Your agreement is ready to handle incoming messages that conform to the schema you selected.
+El contrato está preparado para controlar los mensajes entrantes que cumplen el esquema seleccionado.
 
-To configure the settings that handle messages you send to partners:  
-11. Select **Send Settings** to configure how messages sent via this agreement are to be handled.  
+Para configurar las opciones que controlan los mensajes que se envían a los asociados, siga estos pasos:
+11. Seleccione **Send Settings** (Configuración de envío) para configurar cómo se controlarán los mensajes enviados mediante este acuerdo.
 
-The Send Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Envelopes, Control Numbers, Character Sets and Separators and  Validation. 
+El control de la configuración de envío se divide en las siguientes secciones: Identifiers (Identificadores), Acknowledgement (Confirmación), Schemas (Esquemas), Envelopes (Sobres), Control Numbers (Números de control), Character Sets and Separators (Juegos de caracteres y separadores) y Validation (Validación).
 
-Here is a view of these controls. Make the selections based on how you want to handle messages you send to partners via this agreement:   
-![](./media/app-service-logic-enterprise-integration-x12/x12-4.png)  
+A continuación, se muestra una vista de estos controles. Realice las selecciones en función de cómo desee controlar los mensajes que envía a los asociados por medio de este acuerdo: ![](./media/app-service-logic-enterprise-integration-x12/x12-4.png)
 
-![](./media/app-service-logic-enterprise-integration-x12/x12-5.png)  
+![](./media/app-service-logic-enterprise-integration-x12/x12-5.png)
 
-![](./media/app-service-logic-enterprise-integration-x12/x12-6.png)  
-12. Select the **OK** button to save your settings.  
+![](./media/app-service-logic-enterprise-integration-x12/x12-6.png)
+12. Seleccione el botón **Aceptar** para guardar la configuración.
 
-### <a name="identifiers"></a>Identifiers
-|Property|Description |
+### Identifiers (Identificadores)
+|Propiedad|Descripción |
 |----|----|
-|Authorization qualifier (ISA1)|Select the Authorization qualifier value from the drop-down list.|
-|ISA2|Enter Authorization information value. If this value is other than 00, then enter a minimum of one alphanumeric character and a maximum of 10.|
-|Security qualifier (ISA3)|Select the Security qualifier value from the drop-down list.|
-|ISA4|Enter the Security information value. If this value is other than 00, for the Value (ISA4) text box, then enter a minimum of one alphanumeric value and a maximum of 10.|
+|ISA1 (Authorization Qualifier) (ISA1 (calificador de autorización))|Seleccione el valor del calificador de autorización en la lista desplegable.|
+|ISA2|Escriba el valor de la información de autorización. Si el valor especificado es distinto de 00, especifique como mínimo un carácter alfanumérico y, como máximo, diez.|
+|ISA3 (Security Qualifier) (ISA3 (calificador de seguridad))|Seleccione el valor del calificador de seguridad en la lista desplegable.|
+|ISA4|Escriba el valor de la información de seguridad. Si el valor especificado es distinto de 00, especifique como mínimo un carácter alfanumérico y, como máximo, diez en el cuadro de texto del valor (ISA4).|
 
-### <a name="acknowledgment"></a>Acknowledgment
-|Property|Description |
+### Acknowledgement (Confirmación)
+|Propiedad|Descripción |
 |----|----|
-|TA1 expected|Select this checkbox to return a technical (TA1) acknowledgment to the interchange sender. This setting specifies that the host partner who is sending the message requests an acknowledgement from the guest partner in the agreement. These acknowledgments are expected by the host partner based on the Receive Settings of the agreement.|
-|FA expected|Select this checkbox to return a functional (FA) acknowledgment to the interchange sender, and then select whether you want the 997 or 999 acknowledgements, based on the schema versions you are working with. These acknowledgments are expected by the host partner based on the Receive Settings of the agreement.|
-|FA Version|Select the FA version|
+|TA1 expected (TA1 esperada)|Seleccione esta casilla para devolver una confirmación técnica (TA1) al remitente del intercambio. Esta configuración especifica que el asociado del host que envía el mensaje solicita una confirmación del asociado invitado en el contrato. El asociado del host espera estas confirmaciones en función de la configuración de recepción del contrato.|
+|FA expected (FA esperada)|Seleccione esta casilla para devolver una confirmación funcional (FA) al remitente del intercambio y seleccione si desea la confirmación 997 o la 999, en función de las versiones del esquema con el que esté trabajando. El asociado del host espera estas confirmaciones en función de la configuración de recepción del contrato.|
+|FA Version (Versión de FA)|Seleccione la versión de FA|
 
-### <a name="schemas"></a>Schemas
-|Property|Description |
+### Esquemas
+|Propiedad|Descripción |
 |----|----|
-|Version|Select the X12 version|
-|Transaction Type (ST01)|Select the transaction type|
-|SCHEMA|Select the schema to use. Schemas are located in your integration account. To access your schemas, first link your integration account to your Logic app.|
+|Versión|Seleccione la versión de X12.|
+|Transaction Type (ST01) (Tipo de transacción (ST01))|Seleccione el tipo de transacción.|
+|SCHEMA (ESQUEMA)|Seleccione el esquema que se utilizará. Los esquemas se encuentran en la cuenta de integración. Para obtener acceso a los esquemas, antes debe vincular su cuenta de integración con su aplicación lógica.|
 
-### <a name="envelopes"></a>Envelopes
-|Property|Description |
+### Envelopes (Sobres)
+|Propiedad|Descripción |
 |----|----|
-|ISA11 Usage|Use this field to specify the separator in a transaction set:</br></br>Select the Standard identifier to use the decimal notation of “.” instead of the decimal notation of the incoming document in the EDI receive pipeline.</br></br>Select Repetition separator to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, (^) is usually used as repetition separator. For HIPAA schemas, you can only use (^).</br>|
-|Repetition separator|Enter the repetition separator|
-|Control Version Number (ISA12)|Select the version of the X12 standard that is used by the BizTalk Services Portal for generating an outgoing interchange.|
-|Usage Indicator (ISA15)|Enter whether the context of an interchange is information (I), production data (P), or test data (T). The EDI receive pipeline promotes this property to the context.|
-|Schema|You can enter how the BizTalk Services Portal generates the GS and ST segments for an X12-encoded interchange that it sends to the Send Pipeline.</br></br>You can associate values of the GS1, GS2, GS3, GS4, GS5, GS7, and GS8 data elements with values of the Transaction Type, and Version/Release data elements. When the BizTalk Services Portal determines that an XML message has the values set for the Transaction Type, and Version/Release elements in a row of the grid, then it populates the GS1, GS2, GS3, GS4, GS5, GS7, and GS8 data elements in the envelope of the outgoing interchange with the values from the same row of the grid. The values of the Transaction Type, and Version/Release elements must be unique.</br></br>Optional. For GS1, select a value for the functional code from the drop-down list.</br></br>Required. For GS2, enter an alphanumeric value for the application sender with a minimum of two characters and a maximum of 15 characters.</br></br>Required. For GS3, enter an alphanumeric value for the application receiver with a minimum of two characters and a maximum of 15 characters.</br></br>Optional. For GS4, select CCYYMMDD or YYMMDD.</br></br>Optional. For GS5, select HHMM, HHMMSS, or HHMMSSdd.</br></br>Optional. For GS7, select a value for the responsible agency from the drop-down list.</br></br>Optional. For GS8, enter an alphanumeric value for the document identified with a minimum of one character and a maximum of 12 characters.</br></br>**Note**:These are the values that the BizTalk Services Portal enters in the GS fields of the interchange it is building if the Transaction Type, and Version/Release elements in the same row are a match for those associated with the interchange.|
+|ISA11 Usage (Uso de ISA11)|Utilice este campo para especificar el separador de un conjunto de transacciones:</br></br>Seleccione Identificador estándar para utilizar la notación decimal "." en lugar de la notación decimal del documento entrante en la canalización de recepción de EDI.</br></br>Seleccione Separador de repeticiones para especificar el separador de las repeticiones de un elemento de datos simple o de una estructura de datos. Por ejemplo, se suele utilizar (^) como separador de repeticiones. En los esquemas HIPAA, solo se puede usar (^).</br>|
+|Repetition separator (Separador de repeticiones)|Escriba el separador de repeticiones.|
+|Control version number (ISA12) (Número de versión de control (ISA12))|Seleccione la versión de X12 estándar que usa el portar Servicios de BizTalk para generar un intercambio saliente.|
+|Usage Indicator (ISA15) (Indicador de uso (ISA15))|Especifique si el contexto de un intercambio es información (I), los datos de producción (P) o los datos de pruebas (T). La canalización de recepción de EDI promociona esta propiedad en el contexto.|
+|Esquema|Puede especificar la forma en que el portal Servicios de BizTalk debe generar los segmentos GS y ST para un intercambio X12 codificado que envía a la canalización de envío.</br></br>Puede asociar los valores de los elementos de datos GS1, GS2, GS3, GS4, GS5, GS7 y GS8 con los valores de los elementos de datos de versión y de tipo de transacción. Si el portal Servicios de BizTalk determina que un mensaje XML tiene los valores establecidos para los elementos de versión y de tipo de transacción en una fila de la cuadrícula, a continuación, rellena los elementos de datos GS1, GS2, GS3, GS4, GS5, GS7 y GS8 en el sobre del intercambio saliente con los valores de la misma fila de la cuadrícula. Los valores de los elementos de tipo de transacción y de versión deben ser únicos.</br></br>Opcional. En GS1, seleccione un valor para el código funcional en la lista desplegable.</br></br>Obligatorio. En GS2, especifique un valor alfanumérico para el remitente de la aplicación con dos caracteres como mínimo y quince como máximo.</br></br>Obligatorio. En GS3, especifique un valor alfanumérico para el receptor de la aplicación con dos caracteres como mínimo y quince como máximo.</br></br>Opcional. En GS4, seleccione CCYYMMDD (SSAAMMDD) o YYMMDD (AAMMDD).</br></br>Opcional. En GS5, seleccione HHMM, HHMMSS o HHMMSSdd.</br></br>Opcional. En GS7, seleccione un valor para la agencia responsable de la lista desplegable.</br></br>Opcional. En GS8, especifique un valor alfanumérico para el documento identificado con un carácter como mínimo y doce como máximo.</br></br>**Nota**: Estos son los valores que especifica el portal Servicios de BizTalk en los campos GS del intercambio que está creando si los elementos de tipo de transacción y de versión de la misma fila coinciden con los que están asociados con el intercambio.|
 
-### <a name="control-numbers"></a>Control Numbers
-|Property|Description |
+### Control Numbers (Números de control)
+|Propiedad|Descripción |
 |----|----|
-|Interchange Control Number (ISA13)|Required. Enter a range of values for the interchange control number used by the BizTalk Services Portal in generating an outgoing interchange. Enter a numeric value with a minimum of 1 and a maximum of 999999999.|
-|Group Control Number (GS06)|Required. Enter the range of numbers that the BizTalk Services Portal should use for the group control number. Enter a numeric value with a minimum of one character and a maximum of nine characters.|
-|Transaction Set Control Number (ST02)|For Transaction Set Control number (ST02), enter a range of numeric values for the required middle fields, and alphanumeric values for the optional prefix and suffix. The maximum length of all four fields is nine characters.|
-|Prefix|To designate the range of transaction set control numbers used in an acknowledgment, enter values in the ACK Control number (ST02) fields. Enter a numeric value for the middle two fields, and an alphanumeric value (if desired) for the prefix and suffix fields. The middle fields are required and contain the minimum and maximum values for the control number; the prefix and suffix are optional. The maximum length for all three fields is nine characters.|
-|Suffix|To designate the range of transaction set control numbers used in an acknowledgment, enter values in the ACK Control number (ST02) fields. Enter a numeric value for the middle two fields, and an alphanumeric value (if desired) for the prefix and suffix fields. The middle fields are required and contain the minimum and maximum values for the control number; the prefix and suffix are optional. The maximum length for all three fields is nine characters.|
+|Interchange Control Number (ISA13) (Número de control de intercambio (ISA13))|Obligatorio. Escriba un intervalo de valores para el número de control de intercambio utilizado por el portal de Servicios de BizTalk para generar un intercambio saliente. Escriba un valor numérico: 1 como mínimo y 999999999 como máximo.|
+|Group Control Number (GS06) (Número de control de grupo (GS06))|Obligatorio. Escriba el intervalo de números que debe usar el portal Servicios de BizTalk para el número de control de grupo. Escriba un valor numérico con un carácter como mínimo y nueve como máximo.|
+|Transaction Set Control Number (ST02) (Número de control de conjunto de transacciones (ST02))|En este campo, especifique un intervalo de valores numéricos para los campos obligatorios centrales y valores alfanuméricos para el prefijo y sufijo opcionales. La longitud máxima de los cuatro campos es de nueve caracteres.|
+|Prefijo|Para designar el intervalo de números de control de conjunto de transacciones utilizados en una confirmación, escriba los valores en los campos de número de control de ACK (ST02). Escriba un valor numérico en los dos campos centrales y un valor alfanumérico (si lo desea) en los campos Prefijo y Sufijo. Los campos centrales son obligatorios y contienen los valores mínimo y máximo del número de control; el prefijo y el sufijo son opcionales. La longitud máxima de los tres campos es de nueve caracteres.|
+|Sufijo|Para designar el intervalo de números de control de conjunto de transacciones utilizados en una confirmación, escriba los valores en los campos de número de control de ACK (ST02). Escriba un valor numérico en los dos campos centrales y un valor alfanumérico (si lo desea) en los campos Prefijo y Sufijo. Los campos centrales son obligatorios y contienen los valores mínimo y máximo del número de control; el prefijo y el sufijo son opcionales. La longitud máxima de los tres campos es de nueve caracteres.|
 
-### <a name="character-sets-and-separators"></a>Character Sets and Separators
-Other than the character set, you can enter a different set of delimiters to be used for each message type. If a character set is not specified for a given message schema, then the default character set is used.
+### Character Sets and Separators (Juegos de caracteres y separadores)
+Además del juego de caracteres, puede especificar un conjunto de delimitadores diferente para cada tipo de mensaje. Si no se especifica un juego de caracteres en un esquema de mensaje concreto, se usará el juego de caracteres predeterminado.
 
-|Property|Description |
+|Propiedad|Descripción |
 |----|----|
-|Character Set to be used|Select the X12 character set to validate the properties that you enter for the agreement.</br></br>**Note**: The BizTalk Services Portal only uses this setting to validate the values entered for the related agreement properties. The receive pipeline or send pipeline ignores this character-set property when performing run-time processing.|
-|Schema|Select the (+) symbol and select a schema from the drop-down list. For the selected schema, select the separators set to be used:</br></br>Component element separator – Enter a single character to separate composite data elements.</br></br>Data Element Separator – Enter a single character to separate simple data elements within composite data elements.</br></br></br></br>Replacement Character – Select this check box if the payload data contains characters that are also used as data, segment, or component separators. You can then enter a replacement character. When generating the outbound X12 message, all instances of separator characters in the payload data are replaced with the specified character.</br></br>Segment Terminator – Enter a single character to indicate the end of an EDI segment.</br></br>Suffix – Select the character that is used with the segment identifier. If you designate a suffix, then the segment terminator data element can be empty. If the segment terminator is left empty, then you must designate a suffix.|
+|Character Set to be used (Juego de caracteres que se va a usar)|Seleccione el juego de caracteres de X12 para validar las propiedades que especifique para el acuerdo.</br></br>**Nota**: El portal Servicios de BizTalk solo usa esta configuración para validar los valores especificados para las propiedades relacionadas del acuerdo. La canalización de recepción o envío omite esta propiedad del juego de caracteres al procesar el tiempo de ejecución.|
+|Esquema|Seleccione el símbolo (+) y seleccione un esquema de la lista desplegable. En el esquema seleccionado, seleccione el conjunto de separadores que se debe usar:</br></br>Separador de elementos de componente: especifique un único carácter para separar los elementos de datos compuestos.</br></br>Separador de elementos de datos: especifique un único carácter para separar los elementos de datos simples dentro de los elementos de datos compuestos.</br></br></br></br>Replacement Character (Carácter de reemplazo): seleccione esta casilla si los datos de carga útil contienen caracteres que también se utilizan como datos, segmentos o separadores de componentes. Seguidamente, podrá especificar un carácter de reemplazo. Al generar el mensaje X12 saliente, todas las instancias de caracteres separadores de los datos de carga útil se reemplazan por el carácter especificado.</br></br>Terminador de segmento: especifique un único carácter para indicar el final de un segmento EDI.</br></br>Sufijo: seleccione el carácter que se usa con el identificador de segmento. Si designa un sufijo, el elemento de datos del terminador de segmento podrá estar vacío. Si se deja vacío el terminador de segmento, deberá designar un sufijo.|
 
-### <a name="validation"></a>Validation
-|Property|Description |
+### Validación
+|Propiedad|Descripción |
 |----|----|
-|Message Type|Selecting this option enables validation on the interchange receiver. This validation performs EDI validation on transaction-set data elements, validating data types, length restrictions, and empty data elements and trailing separators.|
-|EDI Validation||
-|Extended Validation|Selecting this option enables extended validation of interchanges received from the interchange sender. This includes validation of field length, optionality, and repeat count in addition to XSD data type validation. You can enable extension validation without enabling EDI validation, or vice versa.|
-|Allow leading/ trailing zeroes|Selecting this option specifies that an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of or trailing spaces, but does conform to its length requirement when they are removed.|
-|Trailing separator|Selecting this option specifies an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of leading (or trailing) zeroes or trailing spaces, but does conform to its length requirement when they are removed.</br></br>Select Not Allowed if you do not want to allow trailing delimiters and separators in an interchange received from the interchange sender. If the interchange contains trailing delimiters and separators, it is declared invalid.</br></br>Select Optional to accept interchanges with or without trailing delimiters and separators.</br></br>Select Mandatory if the received interchange must contain trailing delimiters and separators.|
+|Message Type (Tipo de mensaje)|Al seleccionar esta opción, se habilita la validación en el receptor del intercambio. Esta validación realiza la validación de EDI en los elementos de datos del conjunto de transacciones, lo que valida los tipos de datos, las restricciones de longitud, los elementos de datos vacíos y los separadores finales.|
+|EDI Validation (Validación de EDI)||
+|Extended Validation (Validación extendida)|Al seleccionar esta opción, se habilita la validación extendida de los intercambios recibidos del remitente del intercambio. Esto incluye la validación de la longitud del campo, la opcionalidad y el número de repeticiones, además de la validación del tipo de datos XSD. Puede habilitar la validación extendida sin habilitar la validación de EDI o viceversa.|
+|Allow Leading/Trailing Zeroes (Permitir ceros a la izquierda/finales)|Al seleccionar esta opción, se especifica que un intercambio EDI recibido de la entidad superará la validación si un elemento de datos de un intercambio EDI no cumple el requisito de longitud debido a los espacios finales, pero sí lo cumple si estos se eliminan.|
+|Trailing Separator (Separador final)|Al seleccionar esta opción, se especifica que un intercambio EDI recibido de la entidad superará la validación si un elemento de datos de un intercambio EDI no cumple el requisito de longitud debido a los ceros a la izquierda (o finales), pero sí lo cumple si estos se eliminan.</br></br>Seleccione Not Allowed (No permitidos) si no desea permitir delimitadores y separadores finales en un intercambio recibido del remitente del intercambio. Si el intercambio contiene delimitadores y separadores finales, se declarará no válido.</br></br>Seleccione Optional (Opcionales) para aceptar intercambios con o sin delimitadores y separadores finales.</br></br>Seleccione Mandatory (Obligatorios) si el intercambio recibido debe contener delimitadores y separadores finales.|
 
-After you select **OK** on the open blades:  
-13. Select the **Agreements** tile on the Integration Account blade and you will see the newly added agreement listed.  
-![](./media/app-service-logic-enterprise-integration-x12/x12-7.png)   
+Después de seleccionar **Aceptar** en las hojas abiertas, siga estos pasos:
+13. Seleccione el icono de **Acuerdos** de la hoja Cuenta de integración; verá en la lista el acuerdo que acaba de agregar. ![](./media/app-service-logic-enterprise-integration-x12/x12-7.png)
 
-## <a name="learn-more"></a>Learn more
-- [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
+## Más información
+- [Más información sobre Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

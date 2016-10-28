@@ -1,23 +1,22 @@
 <properties 
-    pageTitle="Configure the Elemental Live encoder to send a single bitrate live stream | Microsoft Azure" 
-    description="This topic shows how to configure the Elemental Live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="cenkdin" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="Configuración del codificador Elemental Live para enviar una transmisión en vivo con velocidad de bits única | Microsoft Azure" 
+	description="En este tema se muestra cómo configurar el codificador Elemental Live para enviar una transmisión con velocidad de bits única a canales AMS habilitados para la codificación en directo." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="cenkdin" 
+	manager="dwrede" 
+	editor=""/>
 
 <tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="ne" 
-    ms.topic="article" 
-    ms.date="10/12/2016"
-    ms.author="cenkdin;anilmur;juliako"/>
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ne" 
+	ms.topic="article" 
+	ms.date="09/19/2016"
+	ms.author="cenkdin;anilmur;juliako"/>
 
-
-#<a name="use-the-elemental-live-encoder-to-send-a-single-bitrate-live-stream"></a>Use the Elemental Live encoder to send a single bitrate live stream
+#Use el codificador Elemental Live para enviar una transmisión en directo con velocidad de bits única
 
 > [AZURE.SELECTOR]
 - [Elemental Live](media-services-configure-elemental-live-encoder.md)
@@ -25,158 +24,152 @@
 - [Wirecast](media-services-configure-wirecast-live-encoder.md)
 - [FMLE](media-services-configure-fmle-live-encoder.md)
 
-This topic shows how to configure the [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live) encoder to send a single bitrate stream to AMS channels that are enabled for live encoding.  For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+En este tema se muestra cómo configurar el codificador [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live) para enviar una transmisión con velocidad de bits única a canales AMS habilitados para la codificación en directo. Para obtener más información, consulte [Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. This tool only runs on Windows PC. If you are on Mac or Linux, use the Azure portal to create [channels](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) and [programs](media-services-portal-creating-live-encoder-enabled-channel.md#create-and-manage-a-program).
+En este tutorial se muestra cómo administrar Servicios multimedia de Azure (AMS) con la herramienta Explorador de Servicios multimedia de Azure (AMSE). Esta herramienta solo se ejecuta en Windows PC. Si se encuentra en Mac o Linux, use el Portal de Azure clásico para crear [canales](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) y [programas](media-services-portal-creating-live-encoder-enabled-channel.md#create-and-manage-a-program).
 
-##<a name="prerequisites"></a>Prerequisites
+##Requisitos previos
 
-- Must have a working knowledge of using Elemental Live web interface to create live events.
-- [Create an Azure Media Services account](media-services-portal-create-account.md)
-- Ensure there is a Streaming Endpoint running with at least one streaming unit allocated. For more information, see [Manage Streaming Endpoints in a Media Services Account](media-services-portal-manage-streaming-endpoints.md).
-- Install the latest version of the [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) tool.
-- Launch the tool and connect to your AMS account.
+- Debe tener un conocimiento práctico del uso de la interfaz web de Elemental Live para crear eventos en directo.
+- [Creación de una cuenta de Servicios multimedia de Azure](media-services-create-account.md)
+- Asegúrese de que haya un extremo de streaming en ejecución que tenga asignada al menos una unidad de streaming. Para más información, consulte [Administración de puntos de conexión de streaming en una cuenta de Media Services](media-services-portal-manage-streaming-endpoints.md).
+- Debe instalar la última versión de la herramienta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer).
+- Inicie la herramienta y conéctese a la cuenta de AMS.
 
-##<a name="tips"></a>Tips
+##Sugerencias
 
-- Whenever possible, use a hardwired internet connection.
-- A good rule of thumb when determining bandwidth requirements is to double the streaming bitrates. While this is not a mandatory requirement, it will help mitigate the impact of network congestion.
-- When using software based encoders, close out any unnecessary programs.
+- Siempre que sea posible, use una conexión a Internet por cable.
+- Una buena regla general al determinar los requisitos de ancho de banda consiste en duplicar las velocidades de bits de streaming. Aunque no se trata de un requisito obligatorio, contribuirá a mitigar el impacto de la congestión de la red.
+- Cuando se usen codificadores por software, cierre todos los programas innecesarios.
 
-## <a name="elemental-live-with-rtp-ingest"></a>Elemental Live with RTP ingest
+## Elemental Live con entrada RTP
 
-This section shows how to configure the Elemental Live encoder that sends a single bitrate live stream over RTP.  For more information, see [MPEG-TS stream over RTP](media-services-manage-live-encoder-enabled-channels.md#channel).
+En esta sección se muestra cómo configurar el codificador Elemental Live que envía una transmisión en directo con una velocidad de bits única a través de RTP. Para obtener más información, consulte [Transmisión MPEG TS sobre RTP](media-services-manage-live-encoder-enabled-channels.md#channel).
 
-### <a name="create-a-channel"></a>Create a channel
+### Crear un canal
 
-1.  In the AMSE tool, navigate to the **Live** tab, and right click within the channel area. Select **Create channel…** from the menu.
+1.  En la herramienta AMSE, navegue a la pestaña **Directo** y haga clic con el botón derecho dentro del área de canales. Seleccione **Crear canal...** en el menú.
 
 ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental1.png)
 
-2. Specify a channel name, the description field is optional. Under Channel Settings, select **Standard** for the Live Encoding option, with the Input Protocol set to **RTP (MPEG-TS)**. You can leave all other settings as is.
+2. Especifique un nombre de canal (el campo de descripción es opcional). En Configuración de canal, seleccione **Estándar** para la opción de codificación en directo, con el protocolo de entrada establecido en **RTP (MPEG-TS)**. Puede dejar todas las demás opciones como están.
 
 
-Make sure the **Start the new channel now** is selected.
+Asegúrese de que la opción **Iniciar el nuevo canal ahora** esté seleccionada.
 
-3. Click **Create Channel**.
-![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental12.png)
+3. Haga clic en **Crear canal**. ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental12.png)
 
->[AZURE.NOTE] The channel can take as long as 20 minutes to start.
+>[AZURE.NOTE] El canal puede tardar hasta 20 minutos en iniciarse.
 
-While the channel is starting you can [configure the encoder](media-services-configure-elemental-live-encoder.md#configure_elemental_rtp).
+Mientras se inicia el canal puede [configurar el codificador](media-services-configure-elemental-live-encoder.md#configure_elemental_rtp).
 
->[AZURE.IMPORTANT] Note that billing starts as soon as Channel goes into a ready state. For more information, see [Channel's states](media-services-manage-live-encoder-enabled-channels.md#states).
+>[AZURE.IMPORTANT] Tenga en cuenta que la facturación comienza tan pronto como el canal entra en un estado Listo. Para obtener más información, consulte [Estados del canal](media-services-manage-live-encoder-enabled-channels.md#states).
 
-###<a name="<a-id=configure_elemental_rtp></a>configure-the-elemental-live-encoder"></a><a id=configure_elemental_rtp></a>Configure the Elemental Live encoder 
+###<a id=configure_elemental_rtp></a>Configurar el codificador Elemental Live 
 
-In this tutorial the following output settings are used. The rest of this section describes configuration steps in more detail. 
+En este tutorial se usa la siguiente configuración de salida. En el resto de esta sección se describen los pasos de configuración con más detalle.
 
-**Video**:
+**Vídeo**:
  
-- Codec: H.264 
-- Profile: High (Level 4.0) 
-- Bitrate: 5000 kbps 
-- Keyframe: 2 seconds (60 seconds) 
-- Frame Rate: 30
+- Codec (Códec): H.264
+- Profile (Perfil): High (Level 4.0) (Alto [Nivel 4.0])
+- Bitrate (Velocidad de bits): 5000 kbps
+- Keyframe (Fotograma clave): 2 seconds (60 seconds) (2 segundos [60 segundos])
+- Frame Rate (Velocidad de fotogramas): 30
  
 **Audio**:
 
-- Codec: AAC (LC) 
-- Bitrate: 192 kbps 
-- Sample Rate: 44.1 kHz
+- Codec (Códec): AAC (LC)
+- Bitrate (Velocidad de bits): 192 kbps
+- Sample Rate (Frecuencia de muestreo): 44,1 kHz
 
 
-####<a name="configuration-steps"></a>Configuration steps
+####Pasos de configuración
 
-1. Navigate to the **Elemental Live** web interface, and set up the encoder for **UDP/TS** streaming. 
+1. Vaya a la interfaz web de **Elemental Live** y configure el codificador para el streaming **UDP/TS**.
 
-2. Once a new event is created, scroll down to the output groups and add the **UDP/TS** output group. 
+2. Una vez creado un nuevo evento, desplácese hacia abajo hasta los grupos de salida y agregue el grupo de salida **UDP/TS**.
 
-3. Create a new output by selecting **New Stream** and then clicking **Add Output**.  
-    
-    ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental13.png)
-    
-    >[AZURE.NOTE] It is recommended that the Elemental event has the timecode set to "System Clock" to help the encoder reconnect in the case of a stream failure.
+3. Cree una nueva salida seleccionando **Nueva transmisión** y haga clic en **Agregar salida**.
+	
+	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental13.png)
+	
+	>[AZURE.NOTE] Se recomienda que el evento Elemental tenga el código de tiempo establecido en "Reloj del sistema" para ayudar a que el codificador se vuelva a conectar en el caso de un error de transmisión.
 
-4. Now that the Output has been created, click **Add Stream**. The output settings can now be configured. 
-5. Scroll down to the "Stream 1" that was just created, click the **Video** tab on the left and expand the **Advanced** settings section. 
+4. Ahora que se creó la salida, haga clic en **Agregar transmisión**. Ahora pueden configurarse las opciones de salida.
+5. Desplácese hacia abajo hasta la "Transmisión 1" que acaba de crear, haga clic en la pestaña **Vídeo** situada a la izquierda y expanda la sección de configuración **Avanzada**.
 
-    ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental4.png)
+	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental4.png)
 
-    While Elemental Live has a wide range of available customizing, the following settings are recommended for getting started with streaming to AMS. 
-    
-    - Resolution: 1280 x 720 
-    - Framerate: 30 
-    - GOP Size: 60 frames 
-    - Interlace Mode: Progressive 
-    - Bitrate: 5000000 bit/s (This can be adjusted based on network limitations) 
-    
+	Aunque Elemental Live tiene una amplia gama de opciones de personalización disponibles, se recomienda la siguiente configuración para comenzar a usar el streaming a AMS.
+	
+	- Resolution (Resolución): 1280 x 720
+	- Framerate (Velocidad de fotogramas): 30
+	- GOP Size (Tamaño de GOP): 60 fotogramas
+	- Interlace Mode (Modo de vídeo entrelazado): Progresivo
+	- Bit Rate (Velocidad de bits): 5000000 bits/s (se puede ajustar en función de las limitaciones de red)
+	
 
-    ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental5.png)
+	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental5.png)
 
-6. Get the channel's input URL.
-    
-    Navigate back to the AMSE tool, and check on the channel completion status. Once the State has changed from **Starting** to **Running**, you can get the input URL.
-      
-    When the channel is running, right click the channel name, navigate down to hover over **Copy Input URL to clipboard** and then select **Primary Input  URL**.  
-    
-    ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental6.png)
-    
-1. Paste this information in the **Primary Destination** field of the Elemental. All other settings can remain the default.
-    
-    ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental14.png)
+6. Obtenga la dirección URL de entrada del canal.
+	
+	Vaya de nuevo a la herramienta AMSE y compruebe el estado de finalización del canal. Una vez que se ha cambiado el estado de **Iniciando** a **En ejecución**, puede obtener la dirección URL de entrada.
+	  
+	Mientras se ejecuta el canal, haga clic con el botón derecho en el nombre del canal, desplácese hacia abajo y mantenga el puntero sobre **Copiar dirección URL de entrada en el portapapeles** y seleccione **Dirección URL de entrada principal**.
+	
+	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental6.png)
+	
+1. Pegue esta información en el campo **Destino principal** de Elemental. Todas las demás configuraciones pueden quedarse con el valor predeterminado.
+	
+	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental14.png)
 
-    For extra redundancy, repeat these steps with the Secondary Input URL by creating a separate "Output" tab for UDP/TS Streaming.
-    
-7. Click **Create** (if a new event was created) or **Update** (if editing a pre-existing event) and then proceed to start the encoder. 
+	Para obtener redundancia adicional, repita estos pasos con la dirección URL de entrada secundaria, creando una pestaña “Salida” independiente para el streaming UDP/TS.
+	
+7. Haga clic en **Crear** (si se creó un nuevo evento) o en **Actualizar** (si está modificando un evento ya existente) e inicie el codificador.
 
->[AZURE.IMPORTANT] Before you click **Start** on the Elemental Live web interface, you **must** ensure that the Channel is ready. 
->Also, make sure not to leave the Channel in a ready state without an event for longer than > 15 minutes.
+>[AZURE.IMPORTANT] Antes de hacer clic en **Iniciar** en la interfaz web de Elemental Live, **debe** asegurarse de que el canal está listo. Además, asegúrese de no dejar el canal en un estado Listo sin un evento durante más de 15 minutos.
 
-After the stream has been running for 30 seconds, navigate back to the AMSE tool and test playback.  
+Cuando la transmisión lleve 30 segundos en ejecución, vuelva a la herramienta AMSE y pruebe la reproducción.
 
-###<a name="test-playback"></a>Test playback
+###Prueba de reproducción
   
-1. Navigate to the AMSE tool, and right click the channel to be tested. From the menu, hover over **Playback the Preview** and select **with Azure Media Player**.  
+1. Vaya a la herramienta AMSE y haga clic con el botón derecho en el canal que se va a probar. En el menú, mantenga el puntero sobre **Reproducir la vista previa** y seleccione **con el Reproductor multimedia de Azure**.
 
-    ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental8.png)
+	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental8.png)
 
-If the stream appears in the player, then the encoder has been properly configured to connect to AMS. 
+Si la transmisión aparece en el reproductor, entonces el codificador se configuró correctamente para conectarse a AMS.
 
-If an error is received, the channel will need to be reset and encoder settings adjusted. Please see the [troubleshooting](media-services-troubleshooting-live-streaming.md) topic for guidance.   
+Si se recibe un error, se deberá restablecer el canal y ajustar la configuración del codificador. Consulte el tema de [solución de problemas](media-services-troubleshooting-live-streaming.md) para obtener instrucciones.
 
-###<a name="create-a-program"></a>Create a program
+###Creación de un programa
 
-1. Once channel playback is confirmed, create a program. Under the **Live** tab in the AMSE tool, right click within the program area and select **Create New Program**.  
+1. Una vez confirmada la reproducción de canales, cree un programa. En la pestaña **Directo** de la herramienta AMSE, haga clic con el botón derecho dentro del área de programas y seleccione **Crear programa**.
 
-    ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental9.png)
+	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental9.png)
 
-2. Name the program and, if needed, adjust the **Archive Window Length** (which defaults to 4 hours). You can also specify a storage location or leave as the default.  
-3. Check the **Start the Program now** box.
-4. Click **Create Program**.  
+2. Dé nombre al programa y, si es necesario, ajuste el valor de **Duración de la ventana de archivo** (que de forma predeterminada es 4 horas). También puede especificar una ubicación de almacenamiento o dejar el valor predeterminado.
+3. Active la casilla **Iniciar el programa ahora**.
+4. Haga clic en **Crear programa**.
   
-    Note: Program creation takes less time than channel creation.    
+	Nota: la creación de programas tarda menos que la creación de canales.
  
-5. Once the program is running, confirm playback by right clicking the program and navigating to **Playback the program(s)** and then selecting **with Azure Media Player**.  
-6. Once confirmed, right click the program again and select **Copy the Output URL to Clipboard** (or retrieve this information from the **Program information and settings** option from the menu). 
+5. Cuando el programa esté en ejecución, confirme la reproducción. Para ello, haga clic con el botón derecho en el programa y vaya a **Reproducir los programas**. Luego, seleccione **con el Reproductor multimedia de Azure**.
+6. Una vez confirmada, haga clic con el botón derecho de nuevo en el programa y seleccione **Copiar la dirección URL de salida en el portapapeles** (o recupere esta información desde la opción **Información y configuración del programa** en el menú).
 
-The stream is now ready to be embedded in a player, or distributed to an audience for live viewing.  
+La transmisión está ahora preparada para insertarse en un reproductor o distribuirse a una audiencia para su visualización en directo.
 
-## <a name="troubleshooting"></a>Troubleshooting
+## Solución de problemas
 
-Please see the [troubleshooting](media-services-troubleshooting-live-streaming.md) topic for guidance. 
+Consulte el tema de [solución de problemas](media-services-troubleshooting-live-streaming.md) para obtener instrucciones.
 
 
-##<a name="media-services-learning-paths"></a>Media Services learning paths
+##Rutas de aprendizaje de Servicios multimedia
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Provide feedback
+##Envío de comentarios
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

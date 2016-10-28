@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure SQL Database Secures and Protects"
-   description="Learn how SQL Database helps secure and protect"
+   pageTitle="Azure SQL Database Secures and Protects (Seguridad y protección de Base de datos SQL de Azure)"
+   description="Obtenga más información acerca de cómo Base de datos SQL le puede ayudar y proteger"
    keywords=""
    services="sql-database"
    documentationCenter=""
@@ -17,50 +17,42 @@
    ms.date="09/13/2016"
    ms.author="carlrab"/>
    
+# Azure SQL Database Secures and Protects (Seguridad y protección de Base de datos SQL de Azure)
 
-# <a name="azure-sql-database-secures-and-protects"></a>Azure SQL Database Secures and Protects
+## Mantenga los datos de la aplicación a salvo
 
-## <a name="keep-your-app’s-data-safe-and-secure"></a>Keep your app’s data safe and secure
+La base de datos de SQL Azure admite millones de bases de datos esenciales en la nube&mdash; donde todos se benefician de una alta disponibilidad, seguridad, cumplimiento y alto rendimiento. Para todas las empresas, desde la más pequeña compañía recién creada hasta las más grandes, la seguridad de los datos es lo más importante y Base de datos SQL puede ayudarlas a todas.
 
-Azure SQL Database supports millions of mission-critical databases in the cloud&mdash;where they all benefit from high availability, security, compliance, and high performance. From the smallest startup to the largest enterprise, data security is increasingly top of mind for all businesses, and SQL Database supports everyone.
+![ayuda-y-protege](./media/sql-database-helps-secures-and-protects/sql-database-helps-secures-and-protects.png)
 
-![helps-secures-and-protects](./media/sql-database-helps-secures-and-protects/sql-database-helps-secures-and-protects.png)
+## ¡Puede contar con nosotros!
 
-## <a name="we’ve-got-your-back"></a>We’ve got your back
+La única esperanza es que no necesite tener acceso a las copias de seguridad de ayer o recuperarse de un desastre. Pero si se encuentra en esta situación, Base de datos SQL está ahí para ayudarle. Con una disponibilidad del 99,99 %, copias de seguridad automáticas, restauración a un momento dado, replicación geográfica integrada y opciones de conmutación por error, se podrá despreocupar por completo ya que sabe que su aplicación está a salvo.
 
-You can only hope you don't need to access yesterday's backups or recover from a disaster. But if you find yourself in this situation, SQL Database is there to help. With 99.99% availability, automatic backups, Point-in-Time Restore, built-in Geo-Replication, and failover options, you'll rest easy knowing your app is safe and sound.
+[Lea la documentación](sql-database-business-continuity.md)
 
-[Read the documentation](sql-database-business-continuity.md)
+## El cumplimiento más amplio
 
-## <a name="the-largest-compliance-portfolio"></a>The largest compliance portfolio
+Base de datos SQL presenta el cumplimiento más amplio del sector. Por tanto, si necesita HIPPA o FERPA o incluso Singapore MTCS nivel 3 no se preocupe&mdash;nosotros le respaldaremos.
 
-SQL Database has the largest compliance portfolio in the industry. So if you need HIPPA compliance or FERPA or even Singapore MTCS Level 3 don't worry&mdash;we got you covered.  
+[Lea la documentación](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
 
-[Read the documentation](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
+## Niveles de protección
 
-## <a name="layers-of-protection"></a>Layers of protection
+Base de datos SQL proporciona varios niveles de protección de datos. Sus datos están protegidos mediante el cifrado de datos en reposo, en movimiento o en uso, mediante la autenticación solo de los usuarios autorizados en la base de datos o aplicación de autenticación y la limitación del acceso de usuarios al subconjunto adecuado de los datos. Además, Base de datos SQL proporciona una supervisión continua y auditoría de actividades para detectar posibles amenazas y proporcionar un registro de eventos críticos en caso de una infracción. Estas características se equilibran con la capacidad para implementar rápidamente características y mitigar los riesgos de seguridad sin comprometer la productividad del desarrollador o la experiencia del cliente.
 
-SQL Database provides multiple layers of data protection. Your data is protected by encrypting data while at rest, in motion or in use, authenticating only authorized users against the database or application, and limiting user access to the appropriate subset of the data. Additionally, SQL Database provides continuous monitoring and auditing of activities to help detect potential threats and provide a record of critical events in case of a breach. These features are balanced by the ability to quickly implement features and mitigate security risk without compromising developer productivity or a customer’s experience.
+[Lea la documentación](http://go.microsoft.com/fwlink/?LinkID=787593)
 
-[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787593)
+Vaya a la página principal para ver qué mas puede ofrecerle Base de datos SQL. [Compruébelo.](https://azure.microsoft.com/services/sql-database/)
 
-Go to the homepage to see what else SQL Database has to offer.
-[Check it out](https://azure.microsoft.com/services/sql-database/) 
+## Pasos siguientes
 
-## <a name="next-steps"></a>Next steps
+Obtenga una [suscripción a Azure gratuita](https://azure.microsoft.com/get-started/) y [cree su primera base de datos SQL de Azure](sql-database-get-started.md).
 
-Get a [free Azure subscription](https://azure.microsoft.com/get-started/) and [create your first Azure SQL Database](sql-database-get-started.md).
+## Recursos adicionales
 
-## <a name="additional-resources"></a>Additional resources
-
-Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+Explore todas las [funcionalidades de Base de datos SQL](https://azure.microsoft.com/services/sql-database/).
  
-Review the [technical overview of SQL Database](sql-database-technical-overview.md).  
+Revise la [información general técnica de Base de datos SQL](sql-database-technical-overview.md).
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

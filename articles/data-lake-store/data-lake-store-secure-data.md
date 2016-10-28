@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Securing data stored in Azure Data Lake Store | Microsoft Azure" 
-   description="Learn how to secure data in Azure Data Lake Store using groups and access control lists" 
+   pageTitle="Protección de los datos almacenados en el Almacén de Azure Data Lake | Microsoft Azure" 
+   description="Aprenda a proteger los datos del almacén de Azure Data Lake mediante grupos y listas de control de acceso" 
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
@@ -13,169 +13,176 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="09/29/2016"
+   ms.date="09/06/2016"
    ms.author="nitinme"/>
 
+# Protección de los datos almacenados en el Almacén de Azure Data Lake
 
-# <a name="securing-data-stored-in-azure-data-lake-store"></a>Securing data stored in Azure Data Lake Store
+Para proteger los datos en el Almacén de Azure Data Lake, se adopta un enfoque de tres pasos.
 
-Securing data in Azure Data Lake Store is a three-step approach.
+1. Comience creando grupos de seguridad en Azure Active Directory (AAD). Estos grupos de seguridad se usan para implementar el control de acceso basado en roles (RBAC) en el Portal de Azure. Para obtener más información, consulte [Control de acceso basado en roles de Azure Active Directory](../active-directory/role-based-access-control-configure.md).
 
-1. Start by creating security groups in Azure Active Directory (AAD). These security groups are used to implement role-based access control (RBAC) in Azure Portal. For more information see [Role-based Access Control in Microsoft Azure](../active-directory/role-based-access-control-configure.md).
+2. Asigne los grupos de seguridad de AAD a la cuenta de Almacén de Azure Data Lake. Esto controla el acceso a la cuenta de Almacén de Data Lake desde el portal y las operaciones de administración desde el portal o las API.
 
-2. Assign the AAD security groups to the Azure Data Lake Store account. This controls access to the Data Lake Store account from the portal and management operations from the portal or APIs.
+3. Asigne los grupos de seguridad de AAD como listas de control de acceso (ACL) en el sistema de archivos del Almacén de Data Lake.
 
-3. Assign the AAD security groups as access control lists (ACLs) on the Data Lake Store file system.
+4. Además, también puede establecer un intervalo de direcciones IP para los clientes que pueden acceder a los datos en el Almacén de Data Lake.
 
-4. Additionally, you can also set an IP address range for clients that can access the data in Data Lake Store.
+En este artículo se proporcionan instrucciones sobre cómo usar el Portal de Azure para realizar las tareas anteriores. Para más información sobre cómo el almacén de Data Lake implementa la seguridad en el nivel de cuenta y datos, consulte [Security in Azure Data Lake Store](data-lake-store-security-overview.md) (Seguridad en el Almacén de Azure Data Lake).
 
-This article provides instructions on how to use the Azure portal to perform the above tasks. For in-depth information on how Data Lake Store implements security at the account and data level, see [Security in Azure Data Lake Store](data-lake-store-security-overview.md). For deep-dive information on how ACLs are implemented in Azure Data Lake Store, see [Overview of Access Control in Data Lake Store](data-lake-store-access-control.md).
+## Requisitos previos
 
-## <a name="prerequisites"></a>Prerequisites
+Antes de empezar este tutorial, debe contar con lo siguiente:
 
-Before you begin this tutorial, you must have the following:
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+- **Una cuenta de Almacén de Azure Data Lake**. Para obtener instrucciones sobre cómo crear una, consulte la [introducción al Almacén de Azure Data Lake](data-lake-store-get-started-portal.md).
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-- **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
+## ¿Obtener información más rápidamente con vídeos?
 
-## <a name="create-security-groups-in-azure-active-directory"></a>Create security groups in Azure Active Directory
+[Vea este vídeo](https://mix.office.com/watch/1q2mgzh9nn5lx) sobre cómo proteger los datos almacenados en el Almacén de Data Lake.
 
-For instructions on how to create AAD security groups and how to add users to the group, see [Managing security groups in Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
+## Creación de grupos de seguridad en Azure Active Directory
 
-## <a name="assign-users-or-security-groups-to-azure-data-lake-store-accounts"></a>Assign users or security groups to Azure Data Lake Store accounts
+Para obtener instrucciones sobre cómo crear grupos de seguridad de AAD y cómo agregar usuarios al grupo, consulte [Administración de grupos de seguridad en Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
 
-When you assign users or security groups to Azure Data Lake Store accounts, you control access to the management operations on the account using the Azure portal and Azure Resource Manager APIs. 
+## Asignación de grupos de seguridad o usuarios a cuentas de Almacén de Azure Data Lake
 
-1. Open an Azure Data Lake Store account. From the left pane, click **Browse**, click **Data Lake Store**, and then from the Data Lake Store blade, click the account name to which you want to assign a user or security group.
+Cuando asigna usuarios o grupos de seguridad a cuentas de Almacén de Azure Data Lake, controla el acceso a las operaciones de administración en la cuenta mediante el Portal de Azure y las API del Administrador de recursos de Azure.
 
-2. In your Data Lake Store account blade, click **Settings**. From the **Settings** blade, click **Users**.
+1. Abra una cuenta de Almacén de Azure Data Lake. En el panel izquierdo, haga clic en **Examinar** y en **Almacén de Data Lake**; después, en la hoja Almacén de Data Lake, haga clic en el nombre de la cuenta a la que desee asignar un usuario o un grupo de seguridad.
 
-    ![Assign security group to Azure Data Lake Store account](./media/data-lake-store-secure-data/adl.select.user.icon.png "Assign security group to Azure Data Lake Store account")
+2. En la hoja de su cuenta de Almacén de Data Lake, haga clic en el icono de usuarios.
 
-3. The **User** blade by default lists **Subscription admins** group as an owner. 
+	![Asignación de un grupo de seguridad a la cuenta de Almacén de Azure Data Lake](./media/data-lake-store-secure-data/adl.select.user.icon.png "Asignación de un grupo de seguridad a la cuenta de Almacén de Azure Data Lake")
 
-    ![Add users and roles](./media/data-lake-store-secure-data/adl.add.group.roles.png "Add users and roles")
+3. La hoja **Usuarios** indica de forma predeterminada el grupo **Administradores de suscripciones** como propietario.
+
+	![Agregar usuarios y roles](./media/data-lake-store-secure-data/adl.add.group.roles.png "Agregar usuarios y roles")
  
-    There are two ways to add a group and assign relevant roles.
+	Existen dos maneras de agregar un grupo y asignar roles pertinentes.
 
-    * Add a user/group to the account and then assign a role, or
-    * Add a role and then assign users/groups to role.
+	* Agregue un usuario o grupo a la cuenta y después asigne un rol o
+	* Agregue un rol y después asigne usuarios o grupos al rol.
 
-    In this section, we look at the first approach, adding a group and then assigning roles. You can perform similar steps to first select a role and then assign groups to that role.
-    
-4. In the **Users** blade, click **Add** to open the **Add access** blade. In the **Add access** blade, click **Select a role**, and then select a role for the user/group.
+	En esta sección, nos centramos en el primer enfoque: agregar un grupo y después asignar roles. Puede realizar pasos similares para seleccionar primero un rol y después asignar grupos a ese rol.
+	
+4. En la hoja **Usuarios**, haga clic en **Agregar** para abrir la hoja **Agregar acceso**. En la hoja **Agregar acceso**, haga clic en **Seleccionar un rol** y después seleccione un rol para el usuario o grupo.
 
-     ![Add a role for the user](./media/data-lake-store-secure-data/adl.add.user.1.png "Add a role for the user")
+	 ![Agregar un rol para el usuario](./media/data-lake-store-secure-data/adl.add.user.1.png "Agregar un rol para el usuario")
 
-    The **Owner** and **Contributor** role provide access to a variety of administration functions on the data lake account. For users who will interact with data in the data lake, you can add them to the **Reader **role. The scope of these roles is limited to the management operations related to the Azure Data Lake Store account.
+	Los roles **Propietario** y **Colaborador** proporcionan acceso a diversas funciones de administración en la cuenta de Data Lake. Para aquellos usuarios que interactúan con datos en Data Lake, pueden agregarlos al rol **Lector**. El ámbito de estos roles se limita a las operaciones de administración relacionadas con la cuenta de Almacén de Azure Data Lake.
 
-    For data operations individual file system permissions define what the users can do. Therefore, a user having a Reader role can only view administrative settings associated with the account but can potentially read and write data based on file system permissions assigned to them. Data Lake Store file system permissions are described at [Assign security group as ACLs to the Azure Data Lake Store file system](#filepermissions).
-
-
-
-5. In the **Add access** blade, click **Add users** to open the **Add users** blade. In this blade, look for the security group you created earlier in Azure Active Directory. If you have a lot of groups to search from, use the text box at the top to filter on the group name. Click **Select**.
-
-    ![Add a security group](./media/data-lake-store-secure-data/adl.add.user.2.png "Add a security group")
-
-    If you want to add a group/user that is not listed, you can invite them by using the **Invite** icon and specifying the e-mail address for the user/group.
-
-6. Click **OK**. You should see the security group added as shown below.
-
-    ![Security group added](./media/data-lake-store-secure-data/adl.add.user.3.png "Security group added")
-
-7. Your user/security group now has access to the Azure Data Lake Store account. If you want to provide access to specific users, you can add them to the security group. Similarly, if you want to revoke access for a user, you can remove them from the security group. You can also assign multiple security groups to an account. 
-
-## <a name="<a-name="filepermissions"></a>assign-users-or-security-group-as-acls-to-the-azure-data-lake-store-file-system"></a><a name="filepermissions"></a>Assign users or security group as ACLs to the Azure Data Lake Store file system
-
-By assigning user/security groups to the Azure Data Lake file system, you set access control on the data stored in Azure Data Lake Store.
-
-1. In your Data Lake Store account blade, click **Data Explorer**.
-
-    ![Create directories in Data Lake Store account](./media/data-lake-store-secure-data/adl.start.data.explorer.png "Create directories in Data Lake account")
-
-2. In the **Data Explorer** blade, click the file or folder for which you want to configure the ACL, and then click **Access**. To assign ACL to a file, you must click **Access** from the **File Preview** blade.
-
-    ![Set ACLs on Data Lake file system](./media/data-lake-store-secure-data/adl.acl.1.png "Set ACLs on Data Lake file system")
-
-3. The **Access** blade lists the standard access and custom access already assigned to the root. Click the **Add** icon to add custom-level ACLs.
-
-    ![List standard and custom access](./media/data-lake-store-secure-data/adl.acl.2.png "List standard and custom access")
-
-    * **Standard access** is the UNIX-style access, where you specify read, write, execute (rwx) to three distinct user classes: owner, group, and others.
-    * **Custom access** corresponds to the POSIX ACLs that enables you to set permissions for specific named users or groups, and not only the file's owner or group. 
-    
-    For more information, see [HDFS ACLs](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). For more information on how ACLs are implemented in Data Lake Store, see [Access Control in Data Lake Store](data-lake-store-access-control.md).
-
-4. Click the **Add** icon to open the **Add Custom Access** blade. In this blade, click **Select User or Group**, and then in **Select User or Group** blade, look for the security group you created earlier in Azure Active Directory. If you have a lot of groups to search from, use the text box at the top to filter on the group name. Click the group you want to add and then click **Select**.
-
-    ![Add a group](./media/data-lake-store-secure-data/adl.acl.3.png "Add a group")
-
-5. Click **Select Permissions**, select the permissions and whether you want to assign the permissions as a default ACL, access ACL, or both. Click **OK**.
-
-    ![Assign permissions to group](./media/data-lake-store-secure-data/adl.acl.4.png "Assign permissions to group")
-
-    For more information about permissions in Data Lake Store, and Default/Access ACLs, see [Access Control in Data Lake Store](data-lake-store-access-control.md).
-
-
-6. In the **Add Custom Access** blade, click **OK**. The newly added group, with the associated permissions, will now be listed in the **Access** blade.
-
-    ![Assign permissions to group](./media/data-lake-store-secure-data/adl.acl.5.png "Assign permissions to group")
-
-    > [AZURE.IMPORTANT] In the current release, you can only have 9 entries under **Custom Access**. If you want to add more than 9 users, you should create security groups, add users to security groups, add provide access to those security groups for the Data Lake Store account.
-
-7. If required, you can also modify the access permissions after you have added the group. Clear or select the check box for each permission type (Read, Write, Execute) based on whether you want to remove or assign that permission to the security group. Click **Save** to save the changes, or **Discard** to undo the changes.
-
-## <a name="set-ip-address-range-for-data-access"></a>Set IP address range for data access
-
-Azure Data Lake Store enables you to further lock down access to your data store at network level. You can enable firewall, specify an IP address, or define an IP address range for your trusted clients. Once enabled, only clients that have the IP addresses within defined range can connect to the store.
-
-![Firewall settings and IP access](./media/data-lake-store-secure-data/firewall-ip-access.png "Firewall settings and IP address")
-
-## <a name="remove-security-groups-for-an-azure-data-lake-store-account"></a>Remove security groups for an Azure Data Lake Store account
-
-When you remove security groups from Azure Data Lake Store accounts, you are only changing access to the management operations on the account using the Azure Portal and Azure Resource Manager APIs.
-
-1. In your Data Lake Store account blade, click **Settings**. From the **Settings** blade, click **Users**.
-
-    ![Assign security group to Azure Data Lake account](./media/data-lake-store-secure-data/adl.select.user.icon.png "Assign security group to Azure Data Lake account")
-
-2. In the **Users** blade click the security group you want to remove.
-
-    ![Security group to remove](./media/data-lake-store-secure-data/adl.add.user.3.png "Security group to remove")
-
-3. In the blade for the security group, click **Remove**.
-
-    ![Security group removed](./media/data-lake-store-secure-data/adl.remove.group.png "Security group removed")
-
-## <a name="remove-security-group-acls-from-azure-data-lake-store-file-system"></a>Remove security group ACLs from Azure Data Lake Store file system
-
-When you remove security groups ACLs from Azure Data Lake Store file system, you change access to the data in the Data Lake Store.
-
-1. In your Data Lake Store account blade, click **Data Explorer**.
-
-    ![Create directories in Data Lake account](./media/data-lake-store-secure-data/adl.start.data.explorer.png "Create directories in Data Lake account")
-
-2. In the **Data Explorer** blade, click the file or folder for which you want to remove the ACL, and then in your account blade, click the **Access** icon. To remove ACL for a file, you must click **Access** from the **File Preview** blade.
-
-    ![Set ACLs on Data Lake file system](./media/data-lake-store-secure-data/adl.acl.1.png "Set ACLs on Data Lake file system")
-
-3. In the **Access** blade, from the **Custom Access** section, click the security group you want to remove. In the **Custom Access** blade, click **Remove** and then click **OK**.
-
-    ![Assign permissions to group](./media/data-lake-store-secure-data/adl.remove.acl.png "Assign permissions to group")
-
-
-## <a name="see-also"></a>See also
-
-- [Overview of Azure Data Lake Store](data-lake-store-overview.md)
-- [Copy data from Azure Storage Blobs to Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
-- [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-- [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-- [Get Started with Data Lake Store using PowerShell](data-lake-store-get-started-powershell.md)
-- [Get Started with Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Access diagnostic logs for Data Lake Store](data-lake-store-diagnostic-logs.md)
+	Para las operaciones de datos, los permisos individuales del sistema de archivos definen lo que los usuarios pueden hacer. Por lo tanto, un usuario con el rol Lector solamente ve la configuración administrativa asociada a la cuenta pero potencialmente puede leer y escribir datos en función de los permisos del sistema de archivos que tengan asignados. Los permisos del sistema de archivos del Almacén de Data Lake se describen en [Asignación de usuarios o grupos de seguridad como ACL al sistema de archivos del Almacén de Azure Data Lake](#filepermissions).
 
 
 
-<!--HONumber=Oct16_HO2-->
+5. En la hoja **Agregar acceso**, haga clic en **Agregar usuarios** para abrir la hoja **Agregar usuarios**. En esta hoja, busque el grupo de seguridad que creó antes en Azure Active Directory. Si tiene muchos grupos en los que buscar, use el cuadro de texto en la parte superior para filtrar según el nombre del grupo. Haga clic en **Seleccionar**.
+
+	![Agregar un grupo de seguridad](./media/data-lake-store-secure-data/adl.add.user.2.png "Agregar un grupo de seguridad")
+
+	Si desea agregar un grupo o usuario que no aparece, para invitarles, use el icono **Invitar** y especifique la dirección de correo electrónico para el usuario o grupo.
+
+6. Haga clic en **Aceptar**. Debería ver el grupo de seguridad que se agregó como se muestra a continuación.
+
+	![Grupo de seguridad agregado](./media/data-lake-store-secure-data/adl.add.user.3.png "Grupo de seguridad agregado")
+
+7. Ahora el usuario o el grupo de seguridad tienen acceso a la cuenta de Almacén de Azure Data Lake. Si desea proporcionar acceso a usuarios específicos, puede agregarlos al grupo de seguridad. De forma similar, si desea revocar el acceso de un usuario, puede quitarle del grupo de seguridad. También puede asignar varios grupos de seguridad a una cuenta.
+
+## <a name="filepermissions"></a>Asignación de usuarios o grupos de seguridad como ACL al sistema de archivos del Almacén de Azure Data Lake
+
+Al asignar usuarios o grupos de seguridad al sistema de archivos de Azure Data Lake, establece el control de acceso sobre los datos almacenados en el Almacén de Azure Data Lake.
+
+>[AZURE.NOTE] En la versión actual, solo puede establecer las ACL en el nodo raíz de la cuenta del Almacén de Data Lake. Además, solo los usuarios que tengan asignado el rol de Propietario pueden agregar o modificar las ACL.
+
+1. En la hoja de su cuenta de Almacén de Data Lake, haga clic en **Explorador de datos**.
+
+	![Creación de directorios en la cuenta de Almacén de Data Lake](./media/data-lake-store-secure-data/adl.start.data.explorer.png "Crear directorios en la cuenta de Data Lake")
+
+2. En la hoja **Explorador de datos**, haga clic en la raíz de su cuenta y después, en la hoja de la cuenta, haga clic en el icono **Acceso**.
+
+	![Establecer las ACL en el sistema de archivos de Data Lake](./media/data-lake-store-secure-data/adl.acl.1.png "Establecer las ACL en el sistema de archivos de Data Lake")
+
+3. La hoja **Acceso** enumera el acceso estándar y el acceso personalizado ya asignados a la raíz. Haga clic en el icono **Agregar** para agregar las ACL de nivel personalizado.
+
+	![Mostrar acceso estándar y personalizado](./media/data-lake-store-secure-data/adl.acl.2.png "Mostrar acceso estándar y personalizado")
+
+	* **Acceso estándar** es el acceso de estilo UNIX, donde se especifican lectura, escritura y ejecución (rwx) para tres clases de usuario distintos: propietario, grupo y otros.
+	* **Acceso personalizado** corresponde a las ACL de POSIX y permite establecer permisos para usuarios o grupos designados específicos y no solo para el propietario o el grupo del archivo.
+	
+	Para obtener más información, consulte la página sobre las [ACL de HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists).
+
+4. Haga clic en el icono **Agregar** para abrir la hoja **Agregar acceso personalizado**. En esta hoja, haga clic en **Seleccionar usuario o grupo** y después, en la hoja **Seleccionar usuario o grupo**, busque el grupo de seguridad que creó antes en Azure Active Directory. Si tiene muchos grupos en los que buscar, use el cuadro de texto en la parte superior para filtrar según el nombre del grupo. Haga clic en el grupo que desee agregar y después en **Seleccionar**.
+
+	![Agregar un grupo](./media/data-lake-store-secure-data/adl.acl.3.png "Agregar un grupo")
+
+5. Haga clic en **Seleccionar permisos**, seleccione los permisos que desea asignar al grupo y después haga clic en **Aceptar**.
+
+	![Asignar permisos al grupo](./media/data-lake-store-secure-data/adl.acl.4.png "Asignar permisos al grupo")
+
+	Los permisos se pueden describir de la siguiente forma:
+
+	* **Lectura**: si se establece este permiso para un directorio, ofrece la posibilidad de leer los nombres de los archivos del directorio.
+	* **Escritura**: si se establece este permiso para un directorio, ofrece la posibilidad de modificar las entradas de dicho directorio, lo cual permite, por ejemplo, crear o eliminar un archivo, o cambiarle el nombre.
+	* **Ejecución**: si se establece este permiso para un directorio, ofrece la posibilidad de acceder al contenido del archivo del directorio. También proporciona acceso a los metadatos del archivo, siempre que se conozca el nombre del mismo. Sin embargo, este permiso no le permitirá mostrar los archivos del directorio, a menos que el permiso de **Lectura** esté también establecido.
+
+	>[AZURE.NOTE] Se necesita el permiso de **Lectura y ejecución** para la enumeración de directorios y, con frecuencia, cuando se proporciona acceso de solo lectura a los datos a un usuario o grupo.
 
 
+6. En la hoja **Agregar acceso personalizado**, haga clic en **Aceptar**. El grupo recién agregado, con los permisos asociados, se mostrará ahora en la hoja **Acceso**.
+
+	![Asignar permisos al grupo](./media/data-lake-store-secure-data/adl.acl.5.png "Asignar permisos al grupo")
+
+	> [AZURE.IMPORTANT] En la versión actual, solo puede tener nueve entradas en **Acceso personalizado**. Si desea agregar más de 9 usuarios, debe crear grupos de seguridad, agregar usuarios a los grupos de seguridad y proporcionar acceso a esos grupos de seguridad para la cuenta de Almacén de Data Lake.
+
+7. Si es necesario, también puede modificar los permisos de acceso después de agregar el grupo. Active o desactive la casilla para cada tipo de permiso (lectura, escritura, ejecución) en función de si desea quitarlo o asignarlo al grupo de seguridad. Haga clic en **Guardar** para guardar los cambios o en **Descartar** para deshacerlos.
+
+## Configuración del intervalo de direcciones IP para el acceso a los datos
+
+El Almacén de Azure Data Lake permite bloquear aún más el acceso a su almacén de datos en el nivel de red. Puede habilitar el firewall, especificar una dirección IP o definir un intervalo de direcciones IP para los clientes de confianza. Una vez habilitado, solo los clientes que tienen las direcciones IP dentro del intervalo definido pueden conectarse al almacén.
+
+![Configuración del firewall y el acceso a IP](./media/data-lake-store-secure-data/firewall-ip-access.png "Configuración del firewall y la dirección IP")
+
+## Quitar grupos de seguridad de una cuenta de Almacén de Azure Data Lake
+
+Cuando quita usuarios o grupos de seguridad de cuentas de Almacén de Azure Data Lake, solamente está cambiando el acceso a las operaciones de administración en la cuenta mediante el Portal de Azure y las API del Administrador de recursos de Azure.
+
+1. En la hoja de su cuenta de Almacén de Data Lake, haga clic en el icono de usuarios.
+
+	![Asignar un grupo de seguridad a la cuenta de Azure Data Lake](./media/data-lake-store-secure-data/adl.select.user.icon.png "Asignar un grupo de seguridad a la cuenta de Azure Data Lake")
+
+2. En la hoja **Usuarios**, haga clic en el grupo de seguridad que desea quitar.
+
+	![Grupo de seguridad para quitar](./media/data-lake-store-secure-data/adl.add.user.3.png "Grupo de seguridad para quitar")
+
+3. En la hoja del grupo de seguridad, haga clic en **Quitar**.
+
+	![Grupo de seguridad quitado](./media/data-lake-store-secure-data/adl.remove.group.png "Grupo de seguridad quitado")
+
+## Quitar las ACL de grupo de seguridad del sistema de archivos del Almacén de Azure Data Lake
+
+Cuando quita las ACL de grupos de seguridad del sistema de archivos del Almacén de Azure Data Lake, está cambiando el acceso a los datos del Almacén de Data Lake.
+
+1. En la hoja de su cuenta de Almacén de Data Lake, haga clic en **Explorador de datos**.
+
+	![Crear directorios en la cuenta de Data Lake](./media/data-lake-store-secure-data/adl.start.data.explorer.png "Crear directorios en la cuenta de Data Lake")
+
+2. En la hoja **Explorador de datos**, haga clic en la raíz de su cuenta y después, en la hoja de la cuenta, haga clic en el icono **Acceso**.
+
+	![Establecer las ACL en el sistema de archivos de Data Lake](./media/data-lake-store-secure-data/adl.acl.1.png "Establecer las ACL en el sistema de archivos de Data Lake")
+
+3. En la hoja **Acceso**, en la sección **Acceso personalizado**, haga clic en el grupo de seguridad que desee quitar. En la hoja **Acceso personalizado**, haga clic en **Quitar** y después en **Aceptar**.
+
+	![Asignar permisos al grupo](./media/data-lake-store-secure-data/adl.remove.acl.png "Asignar permisos al grupo")
+
+
+## Consulte también
+
+- [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
+- [Copiar datos de los blobs de almacenamiento de Azure en el Almacén Data Lake](data-lake-store-copy-data-azure-storage-blob.md)
+- [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+- [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Introducción al Almacén de Azure Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)
+- [Introducción al Almacén de Azure Data Lake mediante .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Acceso a los registros de diagnóstico de Azure Data Lake Store](data-lake-store-diagnostic-logs.md)
+
+<!---HONumber=AcomDC_0914_2016-->

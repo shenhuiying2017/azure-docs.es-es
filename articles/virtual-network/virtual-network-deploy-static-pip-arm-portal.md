@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Deploy a VM with a static public IP using the Azure portal in Resource Manager | Microsoft Azure"
-   description="Learn how to deploy VMs with a static public IP using the zure portal in Resource Manager"
+   pageTitle="Implementación de una VM con una dirección IP pública estática a través del Portal de Azure en el Administrador de recursos | Microsoft Azure"
+   description="Obtenga más información acerca de la implementación de VM con una dirección IP pública estática a través del Portal de Azure en el Administrador de recursos"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -17,50 +17,46 @@
    ms.date="02/04/2016"
    ms.author="jdial" />
 
-
-# <a name="deploy-a-vm-with-a-static-public-ip-using-the-azure-portal"></a>Deploy a VM with a static public IP using the Azure portal
+# Implementar una máquina virtual con una dirección IP pública estática mediante el portal de Azure
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-arm-selectors-include.md](../../includes/virtual-network-deploy-static-pip-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica.
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
-## <a name="create-a-vm-with-a-static-public-ip"></a>Create a VM with a static public IP 
+## Creación de una máquina virtual con una IP pública estática 
 
-To create a VM with a static public IP address in the Azure portal, follow the steps below.
+Para crear una máquina virtual con una dirección IP pública estática en el portal de Azure, siga estos pasos.
 
-1. From a browser, navigate to the [Azure portal](https://portal.azure.com) and, if necessary, sign in with your Azure account.
-2. On the top left hand corner of the portal, click **New**>>**Compute**>**Windows Server 2012 R2 Datacenter**.
-3. In the **Select a deployment model** list, select **Resource Manager** and click **Create**.
-4. In the **Basics** blade, enter the VM information as shown below, and then click **OK**.
+1. Desde un explorador, vaya al [Portal de Azure](https://portal.azure.com) y, si fuera necesario, inicie sesión con su cuenta de Azure.
+2. En la esquina superior izquierda del portal, haga clic en **Nuevo**>>**Proceso**>**Windows Server 2012 R2 Datacenter**.
+3. En la lista **Seleccionar un modelo de implementación**, seleccione **Administrador de recursos** y haga clic en **Crear**.
+4. En la hoja **Fundamentos**, escriba la información de la máquina virtual, tal como se muestra a continuación, y haga clic en **Aceptar**.
 
-    ![Azure portal - Basics](./media/virtual-network-deploy-static-pip-arm-portal/figure1.png)
+	![Portal de Azure: conceptos básicos](./media/virtual-network-deploy-static-pip-arm-portal/figure1.png)
 
-5. In the **Choose a size** blade, click **A1 Standard** as shown below, and then click **Select**.
+5. En la hoja **Elegir un tamaño**, haga clic en **A1 estándar**, tal como se muestra a continuación, y haga clic en **Seleccionar**.
 
-    ![Azure portal - Choose a size](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
+	![Portal de Azure: elegir un tamaño](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
 
-6. In the **Settings** blade, click **Public IP address**, then in the **Create public IP address** blade, under **Assignment**, click **Static** as shown below. And then click **OK**.
+6. En la hoja **Configuración**, haga clic en **Dirección IP pública** luego en la hoja **Crear la dirección IP pública**, en **Asignación**, haga clic en **Estático**, tal como se muestra a continuación. A continuación, haga clic en **Aceptar**.
 
-    ![Azure portal - Create public IP address](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
+	![Portal de Azure: crear la dirección IP pública](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
 
-7. In the **Settings** blade, click **OK**.
-8. Review the **Summary** blade, as shown below, and then click **OK**.
+7. En la hoja **Configuración**, haga clic en **Aceptar**.
+8. Revise la hoja **Resumen**, tal como se muestra a continuación, y haga clic en **Aceptar**.
 
-    ![Azure portal - Create public IP address](./media/virtual-network-deploy-static-pip-arm-portal/figure4.png)
+	![Portal de Azure: crear la dirección IP pública](./media/virtual-network-deploy-static-pip-arm-portal/figure4.png)
 
-9. Notice the new tile in your dashboard.
+9. Observe el nuevo icono en el panel.
 
-    ![Azure portal - Create public IP address](./media/virtual-network-deploy-static-pip-arm-portal/figure5.png)
+	![Portal de Azure: crear la dirección IP pública](./media/virtual-network-deploy-static-pip-arm-portal/figure5.png)
 
-10. Once the VM is created, the **Settings** blade will be displayed as shown below
+10. Una vez creada la máquina virtual, la hoja **Configuración** se muestra, tal como se indica a continuación.
 
-    ![Azure portal - Create public IP address](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
+	![Portal de Azure: crear la dirección IP pública](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

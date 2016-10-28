@@ -1,181 +1,180 @@
 <properties
-    pageTitle="Develop and run Azure functions locally | Microsoft Azure"
-    description="Learn how to code and test Azure functions in Visual Studio before running them in Azure App Service."
-    services="functions"
-    documentationCenter="na"
-    authors="tdykstra"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Desarrollo y ejecución de funciones de Azure de forma local | Microsoft Azure"
+	description="Aprenda a codificar y probar las funciones de Azure en Visual Studio antes de ejecutarlas en el Servicio de aplicaciones de Azure."
+	services="functions"
+	documentationCenter="na"
+	authors="tdykstra"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="functions"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.date="08/22/2016"
-    ms.author="glenga"/>
+	ms.service="functions"
+	ms.workload="na"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="glenga"/>
 
+# Codificación y comprobación de las funciones de Azure en Visual Studio
 
-# <a name="how-to-code-and-test-azure-functions-in-visual-studio"></a>How to code and test Azure functions in Visual Studio
+## Información general
 
-## <a name="overview"></a>Overview
+Este artículo explica cómo ejecutar [Funciones de Azure](functions-overview.md) localmente mediante la descarga del repositorio de GitHub [WebJobs.Script](https://github.com/Azure/azure-webjobs-sdk-script/) y la ejecución de la solución de Visual Studio que contiene.
 
-This article explains how to run [Azure Functions](functions-overview.md) locally by downloading the [WebJobs.Script](https://github.com/Azure/azure-webjobs-sdk-script/) GitHub repository and running the Visual Studio solution that it contains.
+El tiempo de ejecución de Funciones de Azure es una implementación del proyecto de código abierto WebJobs.Script. Este proyecto a su vez se basa en el [SDK de WebJobs de Azure](../app-service-web/websites-dotnet-webjobs-sdk.md) y ambos marcos se pueden ejecutar localmente. No obstante, es necesario conectarse a una cuenta de Almacenamiento de Azure, ya que el SDK de WebJobs usa unas características de cuenta de almacenamiento que no son compatibles con el emulador de almacenamiento.
 
-The runtime for Azure Functions is an implementation of the WebJobs.Script open source project. This project is in turn built on the [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md), and both frameworks can run locally. You do need to connect to an Azure storage account, however, because the WebJobs SDK uses storage account features that the storage emulator doesn't support.
+Las funciones son fáciles de codificar y comprobar en el Portal de Azure pero, a veces, resulta útil trabajar con ellas de forma local antes de ejecutarlas en Azure. Por ejemplo, algunos de los idiomas compatibles con Funciones de Azure son fáciles de codificar en Visual Studio porque este proporciona [IntelliSense](https://msdn.microsoft.com/library/hcw1s69b.aspx). Y aunque puede depurar una función de forma remota, puede ser más rápido y fácil depurarla localmente. Cuando se ejecuta localmente, puede depurar y establecer puntos de interrupción en el código de función así como en el código de host de WebJobs.Script.
 
-Functions are easy to code and test in the Azure portal, but sometimes it's useful to work with them locally before running in Azure. For example, some of the languages that Azure Functions supports are easier to write code for in Visual Studio because it provides [IntelliSense](https://msdn.microsoft.com/library/hcw1s69b.aspx). And while you can debug a function remotely, it may be quicker and easier to debug locally. When you run locally, you can debug and set breakpoints in function code as well as in the WebJobs Script host code.  
+>[AZURE.NOTE] Funciones de Azure está actualmente en vista previa y, tanto la experiencia global, como las herramientas todavía están experimentando un rápido desarrollo. Los procedimientos descritos en este artículo no reflejan la experiencia de desarrollo local final y sería estupendo que nos [proporcionara sus comentarios](https://feedback.azure.com/forums/355860-azure-functions).
 
->[AZURE.NOTE] Azure Functions is currently in preview, and the overall experience including tooling is still under rapid development. The procedures outlined in this article do not reflect the final local development experience, and we’d love for you to [provide your feedback](https://feedback.azure.com/forums/355860-azure-functions).
+## Requisitos previos
 
-## <a name="prerequisites"></a>Prerequisites
+### Una cuenta de Azure con una aplicación de función
 
-### <a name="an-azure-account-with-a-function-app"></a>An Azure account with a function app
+Este artículo presupone que ha trabajado con [Funciones de Azure](functions-overview.md) en el portal y está familiarizado con conceptos de las mismas como [desencadenadores, enlaces y JobHost](functions-reference.md).
 
-This article assumes that you have worked with [Azure Functions](functions-overview.md) in the portal and are familiar with Azure Functions concepts such as [triggers, bindings, and JobHost](functions-reference.md).
+Cuando se ejecutan localmente las funciones, se obtienen algunas salidas en la ventana de consola, pero también deberá utilizar el panel que está hospedado en una aplicación de función en vivo para ver las invocaciones y registros a las funciones.
 
-When you run functions locally, you get some output in the console window, but you'll also want to use the dashboard that is hosted by a live function app to view function invocations and logs.
+### Visual Studio 2015 con el SDK más reciente de Azure para .NET
 
-### <a name="visual-studio-2015-with-the-latest-azure-sdk-for-.net"></a>Visual Studio 2015 with the latest Azure SDK for .NET
+Si no tiene Visual Studio 2015 o no tiene el SDK de Azure actual, [descargue el SDK de Azure para Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Si aún no lo tiene, Visual Studio 2015 se instala automáticamente con el SDK.
 
-If you don't have Visual Studio 2015, or you don't have the current Azure SDK, [download the Azure SDK for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio 2015 is automatically installed with the SDK if you don't already have it.
+### Condiciones previas
 
-### <a name="conditional-prerequisites"></a>Conditional prerequisites
+Algunos recursos de Azure e instalaciones de software solo son necesarias si va a ejecutar funciones que los utilicen, por ejemplo:
 
-Some Azure resources and software installations are required only if you plan to run functions that use them, for example:  
+* Recursos de Azure
+	* Bus de servicio
+	* Tablas fáciles
+	* DocumentDB
+	* Centros de eventos
+	* Centros de notificaciones
 
-* Azure resources
-    * Service Bus
-    * Easy Tables
-    * DocumentDB
-    * Event Hubs
-    * Notification Hubs
+* Motores de scripts y compiladores
+	* F#
+	* BASH
+	* Python
+	* PHP
 
-* Compilers and script engines
-    * F#
-    * BASH
-    * Python
-    * PHP
+Para más información acerca de estos requisitos, incluidas las variables de entorno que se deben establecer para ellas, consulte las [páginas wiki para el repositorio de WebJobs.Script](https://github.com/Azure/azure-webjobs-sdk-script/wiki/home)
 
-For details about these requirements, including environment variables that you have to set for them, see the [wiki pages for the WebJobs.Script repository](https://github.com/Azure/azure-webjobs-sdk-script/wiki/home)
+Si su objetivo es contribuir al proyecto WebJobs.SDK, necesitará todas las condiciones previas para ejecutar pruebas completas.
 
-If your purpose is to contribute to the WebJobs.SDK project, you need all of the conditional prerequisites to run complete tests.
+## Ejecución en modo local
 
-## <a name="to-run-locally"></a>To run locally
+1. [Clone](https://github.com/Azure/azure-webjobs-sdk-script/) o [descargar](https://github.com/Azure/azure-webjobs-sdk-script/archive/master.zip) el repositorio de Webjobs.Script.
 
-1. [Clone](https://github.com/Azure/azure-webjobs-sdk-script/) or [download](https://github.com/Azure/azure-webjobs-sdk-script/archive/master.zip) the Webjobs.Script repository.
+2. Establezca las variables de entorno para las cadenas de conexión de almacenamiento.
 
-2. Set environment variables for storage connection strings.
+	* AzureWebJobsStorage
+	* AzureWebJobsDashboard
 
-    * AzureWebJobsStorage
-    * AzureWebJobsDashboard
+	Puede obtener estos valores de la hoja del portal de **configuración de la aplicación** del Servicio de aplicaciones de una aplicación de la función.
 
-    You can get these values from the App Service **Application Settings** portal blade for a function app.
+	a. En la hoja **Contenedor de funciones** hoja, haga clic en **Configuración del contenedor de funciones**.
 
-    a. On the **Function app** blade, click **Function app settings**.
-
-    ![Click Function App Settings](./media/functions-run-local/clickfuncappsettings.png)
+	![Haga clic en Configuración del contenedor de funciones](./media/functions-run-local/clickfuncappsettings.png)
  
-    b. On the **Function App Settings** blade, click **Go to App Service Settings**.
+	b. En la hoja **Configuración del contenedor de funciones**, haga clic en **Ir a la configuración del Servicio de aplicaciones**.
 
-    ![Click App Service Settings](./media/functions-run-local/clickappsvcsettings.png)
+	![Haga clic en Configuración del Servicio de aplicaciones](./media/functions-run-local/clickappsvcsettings.png)
  
-    c. On the **Settings** blade, click **Application settings**.
+	c. En la hoja **Configuración**, haga clic en **Configuración de la aplicación**.
 
-    ![Click Application Settings](./media/functions-run-local/clickappsettings.png)
+	![Haga clic en Configuración de la aplicación](./media/functions-run-local/clickappsettings.png)
  
-    d. On the **Application settings** blade, scroll down to the **App settings** section and find the WebJobs SDK settings.
+	d. En la hoja **Configuración de la aplicación**, desplácese hacia abajo hasta la sección **Configuración de la aplicación** y busque la configuración del SDK de WebJobs.
 
-    ![WebJobs settings](./media/functions-run-local/wjsettings.png)
+	![Configuración de WebJobs](./media/functions-run-local/wjsettings.png)
 
-    e. Set an environment variable with the same name and value as the `AzureWebJobsStorage` app setting.
+	e. Establezca una variable de entorno con el mismo nombre y valor que el de la configuración de la aplicación `AzureWebJobsStorage`.
 
-    f. Do the same for the `AzureWebJobsDashboard` app setting.
+	f. Haga lo mismo para la configuración de la aplicación`AzureWebJobsDashboard`.
 
-2. Create an environment variable named AzureWebJobsServiceBus, and set it to your Service Bus connection string.
+2. Cree una variable de entorno denominada AzureWebJobsServiceBus y establézcala en la cadena de conexión del bus de servicio.
 
-    This environment variable is required for Service Bus bindings, and we recommend that you set it even if you don't use Service Bus bindings. In some scenarios, you might see exceptions if the Service Bus connection string is not set, regardless of the bindings in use.
+	Esta variable de entorno es necesaria para los enlaces del bus de servicio y es recomendable que la establezca incluso si no utiliza tales enlaces. En algunos escenarios, puede que vea excepciones si la cadena de conexión del bus de servicio no está establecida, independientemente de los enlaces en uso.
 
-3. Make sure any other environment variables that you need are set. (See preceding [Conditional prerequisites](#conditional-prerequisites) section).
+3. Asegúrese de que se establecen las variables de entorno que necesita. (Consulte la sección anterior [Condiciones previas](#conditional-prerequisites)).
 
-4. Start Visual Studio, and then open the WebJobs.Script solution.
+4. Inicie Visual Studio y, a continuación, abra la solución WebJobs.Script.
 
-6. Set the startup project. If you want to run functions that use HTTP or WebHook triggers, choose **WebJobs.Script.WebHost**; otherwise, choose **WebJobs.Script.Host**.
+6. Establezca el proyecto de inicio. Si desea ejecutar las funciones que utilizan los desencadenadores HTTP o WebHook, elija **WebJobs.Script.WebHost**; en caso contrario, elija **WebJobs.Script.Host**.
 
-4. If your startup project is WebJobs.Script.Host:
+4. Si su proyecto de inicio es WebJobs.Script.Host:
 
-    a. In **Solution Explorer**, right-click the WebJobs.Script.Host project, and then click **Properties**. 
+	a. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto WebJobs.Script.Host y, a continuación, haga clic en **Propiedades**.
 
-    b. In the **Debug** tab of the **Project Properties** window, set **Command line arguments** to `..\..\..\..\sample`. 
+	b. En la pestaña **Depurar** de la ventana **Propiedades del proyecto**, establezca **Argumentos de la línea de comandos** en `..\..\..\..\sample`.
 
-    ![Command line arguments](./media/functions-run-local/cmdlineargs.png)
+	![Argumentos de la línea de comandos](./media/functions-run-local/cmdlineargs.png)
 
-    This is a relative path to the *sample* folder in the repository.   The *sample* folder contains a *host.json* file that contains global settings, and a folder for each sample function. 
+	Se trata de una ruta de acceso relativa a la carpeta de *ejemplo* del repositorio. La carpeta de *ejemplo* contiene un archivo *host.json* que incluye la configuración global y una carpeta para cada función de ejemplo.
 
-    To get started it's easiest to use the *sample* folder that's provided. Later you can add your own functions to the *sample* folder or use any folder that contains a *host.json* and function folders.
+	Para empezar, lo más fácil es utilizar la carpeta de *ejemplo* que se proporciona. Más adelante puede agregar sus propias funciones a la carpeta de *ejemplo* o utilizar cualquier carpeta que contenga un archivo *host.json* y carpetas de función.
 
-5. If your startup project is WebJobs.Script.WebHost:
+5. Si su proyecto de inicio es WebJobs.Script.WebHost:
 
-    a. Set an AzureWebJobsScriptRoot environment variable to the full path to the `sample` folder.
+	a. Establezca una variable de entorno AzureWebJobsScriptRoot en la ruta de acceso completa a la carpeta `sample`.
 
-    b. Restart Visual Studio to pick up the new environment variable value.
+	b. Reinicie Visual Studio para que recoja el nuevo valor de la variable de entorno.
 
-    See the [API keys](#api-keys) section for additional information about how to run HTTP trigger functions.
+	Consulte la sección [Claves de API](#api-keys) para más información acerca de cómo ejecutar funciones de desencadenador HTTP.
 
-5. Open the *sample\host.json* file, and add a `functions` property to specify which functions you want to run.
+5. Abra el archivo *sample\\host.json* y agregue una propiedad `functions` para especificar qué funciones desea ejecutar.
 
-    For example, the following JSON will make the WebJobs SDK JobHost look for only two functions. 
+	Por ejemplo, el siguiente JSON hará que el objeto JobHost del SDK de WebJobs busque solo dos funciones.
 
-        {
-          "functions": [ "TimerTrigger-CSharp", "QueueTrigger-CSharp"],
-          "id": "5a709861cab44e68bfed5d2c2fe7fc0c"
-        }
+		{
+		  "functions": [ "TimerTrigger-CSharp", "QueueTrigger-CSharp"],
+		  "id": "5a709861cab44e68bfed5d2c2fe7fc0c"
+		}
 
-    When you use your own folder instead of the *sample* folder, include in it only the functions that you want to run. Then you can omit the `functions` property in *host.json*.
+	Si usa su propia carpeta en lugar de la carpeta de *ejemplo*, incluya en ella solo las funciones que desea ejecutar. Después, puede omitir la propiedad `functions` en *host.json*.
  
-6. Build and run the solution.
+6. Compile y ejecute la solución.
 
-    The console window shows that the JobHost only finds the functions specified in the `host.json` file. 
+	La ventana de consola muestra que el objeto JobHost busca solo las funciones especificadas en el archivo `host.json`.
 
-        Found the following functions:
-        Host.Functions.QueueTrigger-CSharp
-        Host.Functions.TimerTrigger-CSharp
-        Job host started
+		Found the following functions:
+		Host.Functions.QueueTrigger-CSharp
+		Host.Functions.TimerTrigger-CSharp
+		Job host started
 
-    If you're starting the WebHost project, you get a blank browser page because there is no content to serve at the base URL of the project. See the [API keys](#apikeys) section for information about URLs to use for HTTP trigger functions.
+	Si inició el proyecto de WebHost, se mostrará una página en blanco en el explorador porque no hay contenido al que acceder en la dirección URL base del proyecto. Consulte la sección [Claves de API](#apikeys) para obtener información acerca de cómo utilizar direcciones URL con las funciones de desencadenador HTTP.
 
-## <a name="viewing-function-output"></a>Viewing function output
+## Visualización de la salida de función
 
-Go to the dashboard for your function app to see function invocations and log output for them.
+Vaya al panel de la aplicación de la función para ver las invocaciones de funciones y registre la salida para ellas.
 
-The dashboard is at the following URL:
+El panel se encuentra en la siguiente dirección URL:
 
-    https://{function app name}.scm.azurewebsites.net/azurejobs/#/functions
+	https://{function app name}.scm.azurewebsites.net/azurejobs/#/functions
 
-The **Functions** page displays a list of functions that have been executed, and a list of function invocations.
+La página **Funciones** muestra una lista de funciones que se ejecutaron y una lista de invocaciones de funciones.
 
-![Invocation Detail](./media/functions-run-local/invocationdetail.png)
+![Detalles de invocación](./media/functions-run-local/invocationdetail.png)
 
-Click an invocation to see the **Invocation Details** page, which indicates when the function was triggered, the approximate run time, and successful completion. Click the **Toggle Output** button to see logs written by the function code.
+Haga clic en una invocación para ver la página **Invocation Details** (Detalles de la invocación), que indica cuando se desencadenó la función, el tiempo de ejecución aproximado y si finalizó correctamente. Haga clic en el botón **Toggle Output** (Alternar salida) para ver los registros escritos por el código de función.
 
-![Invocation Detail](./media/functions-run-local/invocationdetail.png)
+![Detalles de invocación](./media/functions-run-local/invocationdetail.png)
 
-## <a name="<a-id="apikeys"></a>-api-keys-for-http-triggers"></a><a id="apikeys"></a> API Keys for HTTP triggers
+## <a id="apikeys"></a> Claves de API para desencadenadores HTTP
 
-To run an HTTP or WebHook function, you'll need an API key unless you include `"authLevel": "anonymous"` in the *function.json* file.
+Para ejecutar una función HTTP o WebHook, necesitará una clave de API a menos que incluya `"authLevel": "anonymous"` en el archivo *function.json*.
 
-For example, if the API key is `12345`, you can trigger the *HttpTrigger* function with the following URL when the WebJobs.Script.WebHost project is running.
+Por ejemplo, si la clave de API es `12345`, puede desencadenar la función *HttpTrigger* con la siguiente dirección URL durante la ejecución del proyecto WebJobs.Script.WebHost.
 
-    http://localhost:28549/api/httptrigger?code=12345
+	http://localhost:28549/api/httptrigger?code=12345
 
-(As an alternative, you can put the API key in the `x-functions-key` HTTP header.)
+(Como alternativa, puede colocar la clave de API en el encabezado HTTP `x-functions-key`).
 
-API keys are stored in `.json` files in the [App_Data/secrets](https://github.com/Azure/azure-webjobs-sdk-script/tree/master/src/WebJobs.Script.WebHost/App_Data/secrets) folder in the WebJobs.Script.WebHost project.
+Las claves de API se almacenan en archivos `.json` en la carpeta [App\_Data/secrets](https://github.com/Azure/azure-webjobs-sdk-script/tree/master/src/WebJobs.Script.WebHost/App_Data/secrets) del proyecto WebJobs.Script.WebHost.
 
-### <a name="api-keys-that-apply-to-all-http-and-webhook-functions"></a>API keys that apply to all HTTP and WebHook functions
+### Claves de API que se aplican a todas las funciones de HTTP y WebHook
 
-The *host.json* file in the *App_Data/secrets* folder has two keys:
+El archivo *host.json* de la carpeta *App\_Data/secrets* contiene dos claves:
 
 ```json
 {
@@ -184,17 +183,17 @@ The *host.json* file in the *App_Data/secrets* folder has two keys:
 }
 ```
 
-The `functionKey` property stores a key that can be used for any HTTP or WebHook function if no override for that particular function is defined. This feature eliminates the need to always define new API keys for every function you create.
+La propiedad `functionKey` almacena una clave que se puede usar para cualquier función de HTTP o WebHook si no se definió ningún reemplazo para esa función determinada. Esta característica elimina la necesidad de definir siempre nuevas claves de API para cada función que se crea.
 
-The `masterKey` property stores a key that is useful in some testing scenarios:
+La propiedad `masterKey` almacena una clave que es útil en algunos escenarios de prueba:
 
-* If you call a WebHook function with a master key, the WebJobs SDK bypasses the validation of the WebHook provider's signature.
+* Si llama a una función de WebHook con una clave maestra, el SDK de WebJobs omite la validación de la firma del proveedor de WebHook.
 
-* If you call an HTTP or WebHook function with a master key, the function is triggered even if it's disabled in the *function.json* file. This is used in the Azure portal to make the **Run** button work even for disabled functions.
+* Si llama a una función de HTTP o WebHook con una clave maestra, la función se desencadena incluso si está deshabilitada en el archivo *function.json*. Se utiliza en el Portal de Azure para hacer que el botón **Ejecutar** funcione incluso para las funciones deshabilitadas.
  
-### <a name="api-keys-that-apply-to-individual-functions"></a>API keys that apply to individual functions
+### Claves de API que se aplican a funciones individuales
 
-Files that are named *{function name}.json* contain the API key for a particular function. For example, the following example JSON content in *App_Data/secrets/HttpTrigger.json* sets the API key for the `HttpTrigger` function.
+Los archivos que se denominan *{nombre de la función}.json* contienen la clave de API para una función determinada. Por ejemplo, el siguiente ejemplo de contenido de JSON en *App\_Data/secrets/HttpTrigger.json* establece la clave de API para la función `HttpTrigger`.
 
 ```json
 {
@@ -202,30 +201,26 @@ Files that are named *{function name}.json* contain the API key for a particular
 }
 ```
 
-## <a name="using-nuget-package-references-in-functions"></a>Using NuGet package references in functions  
+## Uso de referencias de paquetes de NuGet en funciones  
 
-Due to the way NuGet references are currently processed, make sure that you "touch" the *project.json* file while the host is running. The host watches for file modifications and initiates a restore when it detects changes. Also, *NuGet.exe* (3.3.0 recommended) must either be in your path or you must have an environment variable named AzureWebJobs_NuGetPath set, with the path to *NuGet.exe*.
+Debido al modo en que actualmente se procesan las referencias de NuGet, asegúrese de "tocar" el *project.json* archivo mientras se está ejecutando el host. El host busca modificaciones en el archivo e inicia una restauración cuando detecta cambios. Además, *NuGet.exe* (se recomienda la versión 3.3.0) debe estar ubicado en la ruta de acceso o bien debe tener una variable de entorno con el nombre de conjunto de AzureWebJobs\_NuGetPath, con la ruta de acceso *NuGet.exe*.
 
-## <a name="troubleshooting"></a>Troubleshooting
+## Solución de problemas
 
-Environment variable changes done while Visual Studio is running aren't picked up automatically. If you added or changed an environment variable after starting Visual Studio, shut down Visual Studio and restart it to make sure it is picking up the current values.
+Los cambios de variables de entorno realizados mientras se ejecuta Visual Studio no se recogen automáticamente. Si agrega o cambia una variable de entorno después de iniciar Visual Studio, cierre Visual Studio y reinícielo para asegurarse de que recoge los valores actuales.
 
-When you're debugging, you might get more information about exceptions by selecting **Common Language Runtime Exceptions** in the **Exception Settings** window (CTRL-ALT-E to open the window).
+Al depurar, puede obtener más información sobre excepciones seleccionando la opción **Common Language Runtime Exceptions** (Excepciones de Common Language Runtime) en la ventana **Configuración de excepciones** (pulse Ctrl+Alt+E para abrir la ventana).
 
-Another way you might get more exception information while debugging is to set a breakpoint in the `catch` block of the main loop for the script host. You'll find this in the WebJobs.Script project, in *Host/ScriptHostManager.cs*, in the `RunAndBlock` method.
+Otra manera de obtener más información sobre las excepciones durante la depuración consiste en establecer un punto de interrupción en el bloque `catch` del bucle principal para el host de script. Lo encontrará en el proyecto WebJobs.Script, en *Host/ScriptHostManager.cs*, en el método `RunAndBlock`.
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-For more information, see the following resources:
+Para obtener más información, consulte los siguientes recursos:
 
-* [Azure Functions developer reference](functions-reference.md)
-* [Azure Functions C# developer reference](functions-reference-csharp.md)
-* [Azure Functions F# developer reference](functions-reference-fsharp.md)
-* [Azure Functions NodeJS developer reference](functions-reference-node.md)
-* [Azure Functions triggers and bindings](functions-triggers-bindings.md)
+* [Referencia para desarrolladores de Funciones de Azure](functions-reference.md)
+* [Referencia para desarrolladores de C# de Funciones de Azure](functions-reference-csharp.md)
+* [Referencia para desarrolladores de F# de Azure Functions](functions-reference-fsharp.md)
+* [Referencia para desarrolladores de NodeJS de Funciones de Azure](functions-reference-node.md)
+* [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,10 +1,7 @@
-|  | **Classic Deployment**  | **Resource Manager Deployment**|
+| | **Implementación clásica** | **Implementación del Administrador de recursos**|
 |-----------------------------|-------------|---------------------|
-| **Classic Portal**          | Not Supported          | Not Supported                  |
-| **Azure Portal**            | Not Supported         | Not Supported                  |
-| **PowerShell** | [Article](../articles/expressroute/expressroute-howto-coexist-classic.md) | [Article](../articles/expressroute/expressroute-howto-coexist-resource-manager.md) |
+| **Portal clásico** | No compatible | No compatible |
+| **Portal de Azure** | No compatible | No compatible |
+| **PowerShell** | [Artículo](../articles/expressroute/expressroute-howto-coexist-classic.md) | [Artículo](../articles/expressroute/expressroute-howto-coexist-resource-manager.md) |
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

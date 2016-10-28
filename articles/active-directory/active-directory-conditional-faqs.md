@@ -1,49 +1,44 @@
 <properties
-    pageTitle="Azure Active Directory Conditional Access FAQ | Microsoft Azure"
-    description="Frequently asked questions about conditional access "
-    services="active-directory"
-    documentationCenter=""
-    authors="MarkusVi"
-    manager="femila"
-    editor=""/>
+	pageTitle="Preguntas más frecuentes acerca del acceso condicional de Azure Active Directory | Microsoft Azure"
+	description="Preguntas más frecuentes sobre el acceso condicional "
+	services="active-directory"
+	documentationCenter=""
+	authors="markusvi"
+	manager="swadhwa"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/20/2016"
-    ms.author="markvi"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/26/2016"
+	ms.author="markvi"/>
 
+# Preguntas más frecuentes acerca del acceso condicional de Azure Active Directory
 
-# <a name="azure-active-directory-conditional-access-faq"></a>Azure Active Directory Conditional Access FAQ
+## ¿Qué aplicaciones funcionan con directivas de acceso condicional?
 
-## <a name="which-applications-work-with-conditional-access-policies?"></a>Which applications work with conditional access policies?
+**R:** consulte el tema [Compatibilidad con el acceso condicional de las aplicaciones](active-directory-conditional-access-supported-apps.md).
 
-**A:** Please see the topic, [Conditional access- What applications are supported](active-directory-conditional-access-supported-apps.md).
+## ¿Se aplican directivas de acceso condicional a usuarios de colaboración B2B o invitados?
 
-## <a name="are-conditional-access-policies-enforced-for-b2b-collaboration-and-guest-users?"></a>Are conditional access policies enforced for B2B collaboration and guest users?
+**R:** se exigen las directivas a usuarios de la colaboración B2B. Sin embargo, en algunos casos, puede que un usuario no sea capaz de cumplir los requisitos de la directiva si, por ejemplo, una organización no admite la autenticación multifactor.
 
-**A:** Policies are enforced for B2B collaboration users. However, in some cases, a user might not be able to satisfy the policy requirement if, for example, an organization does not support multi-factor authentication. 
+Actualmente, la directiva no se exige a los usuarios invitados de SharePoint. La relación de invitado se mantiene dentro de SharePoint. Las cuentas de usuarios invitados no están sujetas a las directivas de acceso del servidor de autenticación. El acceso de invitado se puede administrar en SharePoint.
 
-The policy is currently not enforced for SharePoint guest users. The guest relationship is maintained within SharePoint. Guest users accounts are not subject to access polices at the authentication server. Guest access can be managed at SharePoint.
+## ¿Se aplica la directiva de SharePoint Online también a OneDrive para la Empresa?
 
-## <a name="does-a-sharepoint-online-policy-also-apply-to-onedrive-for-business?"></a>Does a SharePoint Online policy also apply to OneDrive for Business?
-
-**A:** Yes.
+**R:** Sí.
  
-## <a name="why-can’t-i-set-a-policy-on-client-apps,-like-word-or-outlook?"></a>Why can’t I set a policy on client apps, like Word or Outlook?
+## ¿Por qué no se puede establecer una directiva en las aplicaciones cliente, como Word o Outlook?
 
-**A:** A conditional access policy sets requirements for accessing a service and is enforced when authentication happens to that service. The policy is not set directly on a client application; instead, it is applied when it calls into a service. For example, a policy set on SharePoint applies to clients calling SharePoint and a policy set on Exchange applies to Outlook.
-
-
-## <a name="does-a-conditional-access-policy-apply-to-service-accounts?"></a>Does a conditional access policy apply to service accounts?
-
-**A:** Conditional access policies apply to all user accounts. This includes user accounts used as service accounts. In many cases, a service account that runs unattended is not able to satisfy a policy. This is, for example the case, when MFA is required. In these cases, services accounts can be excluded from a policy, using conditional access policy management settings. Learn more about applying a policy to users here.
+**R:** una directiva de acceso condicional establece los requisitos de acceso a un servicio y se exige cuando se realiza la autenticación en dicho servicio. La directiva no se establece directamente en una aplicación cliente, sino que se aplica cuando llama a un servicio. Por ejemplo, una directiva establecida en SharePoint se aplicará a los clientes que llamen a SharePoint, mientras que una directiva establecida en Exchange se aplicará a Outlook.
 
 
+## ¿Se aplica una directiva de acceso condicional a las cuentas de servicio?
 
-<!--HONumber=Oct16_HO2-->
+**R:** las directivas de acceso condicional se aplican a todas las cuentas de servicio. Aquí se incluyen las cuentas de usuario que se utilizan como cuentas de servicio. En muchos casos, una cuenta de servicio que se ejecuta en modo desatendido no puede satisfacer una directiva. Por ejemplo, esto sucede cuando se requiere MFA. En estos casos, las cuentas de los servicios se pueden excluir de una directiva, para lo que se usa la configuración de administración de directivas de acceso condicional. Aquí encontrará más información acerca de cómo aplicar una directiva a los usuarios.
 
-
+<!---HONumber=AcomDC_0727_2016-->

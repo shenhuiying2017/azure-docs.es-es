@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service Fabric Cluster Resource Manager - Placement Policies | Microsoft Azure"
-   description="Overview of additional placement policies and rules for Service Fabric Services"
+   pageTitle="Administrador de recursos de clúster de Service Fabric: directivas de colocación | Microsoft Azure"
+   description="Información general sobre las reglas y directivas de colocación adicionales para los servicios de Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -16,16 +16,15 @@
    ms.date="08/19/2016"
    ms.author="masnider"/>
 
+# Directivas de colocación de servicios de Service Fabric
+Existen numerosas reglas adicionales que podrían afectarle si el clúster de Service Fabric está distribuido entre varias distancias geográficas, por ejemplo, entre varios centros de datos o regiones de Azure, o si su entorno abarca diversas áreas de control geopolítico (o cualquier otro caso en el que haya límites legales o de directiva que le afecten, o en el que las distancias implicadas tengan un impacto real en el rendimiento o la latencia). La mayoría pueden configurarse mediante propiedades de nodo y restricciones de colocación, pero otras son más complicadas. Para simplificar las cosas, proporcionamos estos comandos adicionales. Al igual que sucede con otras restricciones de ubicación, las directivas de selección de ubicación pueden configurarse en función de la instancia de servicio con nombre.
 
-# <a name="placement-policies-for-service-fabric-services"></a>Placement policies for service fabric services
-There are many different additional rules that you may end up caring about if your Service Fabric cluster is spanned across a geographic distances, say multiple datacenters or Azure regions, or if your environment spans multiple areas of geopolitical control (or some other case where you have legal or policy boundaries you care about, or the distances involved have actual performance/latency impact). Most of these could be configured via node properties and placement constraints, but some are more complicated. To make things simpler we provide these additional commmands. Just like with other placement constraints, placement policies can be configured on a per-named service instance basis.
+## Especificación de dominios no válidos
+La directiva de colocación InvalidDomain le permite especificar que un determinado dominio de error no es válido para esta carga de trabajo. Resulta útil para garantizar que un servicio específico no se ejecute nunca en un área determinada, por ejemplo por motivos geopolíticos o relacionados con la directiva corporativa. Pueden especificarse varios dominios no válidos mediante distintas directivas.
 
-## <a name="specifying-invalid-domains"></a>Specifying invalid domains
-The InvalidDomain placement policy allows you to specify that a particular Fault Domain is invalid for this workload. This policy ensures that a particular service never runs in a particular area, for example for geopolitical or corporate policy reasons. Multiple invalid domains may be specified via separate policies.
+![Ejemplo de dominio no válido][Image1]
 
-![Invalid Domain Example][Image1]
-
-Code:
+Código:
 
 ```csharp
 ServicePlacementInvalidDomainPolicyDescription invalidDomain = new ServicePlacementInvalidDomainPolicyDescription();
@@ -38,12 +37,12 @@ Powershell:
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("InvalidDomain,fd:/DCEast”)
 ```
-## <a name="specifying-required-domains"></a>Specifying required domains
-The required domain placement policy requires that all of the stateful replicas or stateless service instances for the service be present in the specified domain. Multiple required domains can be specified via separate policies.
+## Especificación de dominios requeridos
+La directiva de selección de ubicación de dominios requeridos exige que todas las réplicas con estado o instancias de servicio sin estado del servicio existan en el dominio especificado. Pueden especificarse varios dominios requeridos mediante directivas diferentes.
 
-![Required Domain Example][Image2]
+![Ejemplo de dominio requerido][Image2]
 
-Code:
+Código:
 
 ```csharp
 ServicePlacementRequiredDomainPolicyDescription requiredDomain = new ServicePlacementRequiredDomainPolicyDescription();
@@ -57,10 +56,10 @@ Powershell:
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("RequiredDomain,fd:/DC01/RK03/BL2")
 ```
 
-## <a name="specifying-a-preferred-domain-for-the-primary-replicas"></a>Specifying a preferred domain for the primary replicas
-The Preferred Primary Domain is an interesting control, since it allows selection of the fault domain in which the primary should be placed if it is possible to do so. When everything is healthy the primary will end up in this domain. Should the domain or the primary replica fail or be shut down for some reason the Primary will be migrated to some other location. If this location isn't in the preferred domain, then when possible the Cluster Resource Manager will move it back to the preferred domain. Naturally this setting only makes sense for stateful services. This policy is most useful in clusters which are spanned across Azure regions or multiple datacenters. In these situations you're using all the locations for redundancy, but would prefer that the primary replicas be placed in a certain location in order to provide lower latency for operations which go to the primary (writes and also by default all reads are served by the primary).
+## Especificación de un dominio preferido para las réplicas principales
+El dominio principal preferido es un control interesante, ya que permite seleccionar el dominio de error en el que debe existir el dominio principal, si es posible hacerlo. Cuando todo está correcto, el dominio principal acabará en este dominio. Si se produce un error en el dominio o la réplica principal, o bien se apagan por algún motivo, el dominio principal se migrará a otra ubicación. Si esta ubicación no está en el dominio preferido, Cluster Resource Manager la devolverá al dominio preferido, siempre que sea posible. Evidentemente, esta configuración solo tiene sentido para los servicios con estado. Esta directiva resulta útil principalmente en clústeres que están distribuidos entre regiones de Azure o entre varios centros de datos. En estas situaciones usará todas las ubicaciones de cara a la redundancia, pero preferirá que las réplicas principales se coloquen en una ubicación determinada a fin de proporcionar una menor latencia en operaciones que se dirigen a las principales (las escrituras y, de forma predeterminada, todas las lecturas se atienden en las principales).
 
-![Preferred Primary Domains and Failover][Image3]
+![Dominios principales preferidos y conmutación por error][Image3]
 
 ```csharp
 ServicePlacementPreferPrimaryDomainPolicyDescription primaryDomain = new ServicePlacementPreferPrimaryDomainPolicyDescription();
@@ -74,14 +73,14 @@ Powershell:
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("PreferredPrimaryDomain,fd:/EastUS")
 ```
 
-## <a name="requiring-replicas-to-be-distributed-among-all-domains-and-disallowing-packing"></a>Requiring replicas to be distributed among all domains and disallowing packing
-Another policy you can specify is to require replicas to always be distributed among the available fault domains. This will happen by default in most cases where the cluster is healthy, however there are degenerate cases where replicas for a given partition may end up temporarily packed into a single fault or upgrade domain. For example, let's say that although the cluster has 9 nodes in 3 fault domains (0, 1, and 2), and your service has 3 replicas, the nodes that were being used for those replicas in Fault Domains 1 and 2 went down, and due to capacity issues none of the other nodes in those domains were valid. If Service Fabric were to build replacements for those replicas, the Cluster Resource Manager would have to put them in Fault Domain 0, but that creates a situation where the Fault Domain constraint is being violated. It also increases the chance that the whole replica set could be lost (if FD 0 were to be permananently lost). (For more information on constraints and constraint priorities generally, check out [this topic](service-fabric-cluster-resource-manager-management-integration.md#constraint-priorities) )
+## Exigir que las réplicas se distribuyan entre todos los dominios y no permitir el empaquetado
+Otra directiva que puede especificar es exigir que las réplicas se distribuyan siempre entre los dominios de error disponibles. En la mayoría de los casos en los que el clúster tenga un estado correcto, esto sucederá de forma predeterminada; sin embargo, hay casos degenerados en los que las réplicas de una partición dada pueden acabar empaquetadas temporalmente en un único dominio de error o actualización. Por ejemplo, aunque el clúster tuviera 9 nodos en 3 dominios de error (0, 1 y 2) y el servicio tuviera 3 réplicas, los nodos que se usaran para esas réplicas en los dominios de error 1 y 2 se volverían inactivos y, debido a los problemas de capacidad, ninguno de los otros nodos de esos dominios sería válido. Si Service Fabric crea sustituciones para esas réplicas, Cluster Resource Manager tendrá que ponerlas en el dominio de error 0, lo que crea una situación en la que se infringe la restricción del dominio de error. También aumenta la probabilidad de que todo el conjunto de réplicas se pierda (si el dominio de error 0 se pierde definitivamente). (Para más información sobre las restricciones y las prioridades de restricción en general, consulte [en este tema](service-fabric-cluster-resource-manager-management-integration.md#constraint-priorities)).
 
-If you've ever seen a health warning like "The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: FaultDomain" you've hit this condition or something like it. Usually these situations are transient (the nodes don't stay down long, or if they do and we need to build replacements there are other nodes in the correct fault domains which are valid), but there are some workloads that would rather trade availability for the risk of losing all their replicas. We can do this by specifying the "RequireDomainDistribution" policy, which will guarantee that no two replicas from the same partition are ever allowed in the same fault or upgrade domain.
+Si alguna vez ha visto una advertencia de estado como "El equilibrador de carga detectó una infracción de limitación para esta réplica:fabric:/<algún nombre de servicio> la partición secundaria <algún identificador de partición> está infringiendo la restricción: FaultDomain", se ha topado con esta condición o algo parecido. Estas situaciones suelen ser transitorias (los nodos no permanecen inactivos mucho tiempo o, si lo hacen, es necesario crear sustituciones donde haya otros nodos en los dominios de error correctos que sean válidos), pero hay algunas cargas de trabajo en las que preferirá disponibilidad antes que arriesgarse a perder todas sus réplicas. Para ello, podemos especificar la directiva "RequireDomainDistribution"que garantizará que dos réplicas cualesquiera de la misma partición no podrán estar jamás en el mismo dominio de error o actualización.
 
-Some workloads would rather have the target number of replicas (copies of state) at all times (betting against total domain failures and knowing that they can usually recover local state), whereas others would rather take the downtime earlier than risk the correctness and dataloss concerns. Since most production workloads run with more than 3 replicas, the default is to not require domain distribution and let balancing and failover handle cases normally even if that means that temporarily a domain has multiple replicas packed into it.
+Algunas cargas de trabajo preferirán tener siempre el número objetivo de réplicas (copias de estado) en todo momento (apostando contra el número total de errores del dominio y sabiendo que habitualmente pueden recuperar el estado local), mientras que otras preferirán tener tiempo de inactividad antes que arriesgarse a problemas de exactitud y pérdida de datos. Como la mayoría de las cargas de trabajo de producción se ejecutan con más de 3 réplicas, el valor predeterminado es no exigir la distribución de dominios y permitir que el equilibrio y la conmutación por error controlen los casos con normalidad, aunque eso signifique que temporalmente se empaquetarán varias réplicas en un dominio.
 
-Code:
+Código:
 
 ```csharp
 ServicePlacementRequireDomainDistributionPolicyDescription distributeDomain = new ServicePlacementRequireDomainDistributionPolicyDescription();
@@ -94,17 +93,13 @@ Powershell:
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("RequiredDomainDistribution")
 ```
 
-Now, would it be possible to use these configurations for services in a cluster which was not geographically spanned? Sure you could! But there’s not a great reason too – especially the required, invalid, and preferred domain configurations should be avoided unless you’re actually running a geographically spanned cluster - it doesn't make any sense to try to force a given workload to run in a single rack, or to prefer some segment of your local cluster over another unless there's different types of hardware or workload segmentation going on, and those cases can be handled via normal placement constraints.
+Se preguntará si sería posible usar estas configuraciones para los servicios de un clúster que no esté distribuido geográficamente. Por supuesto que se puede. Pero tampoco hay una buena razón para ello; en concreto, se deben evitar configuraciones de dominios preferidos requeridos y no válidos a no ser que realmente vaya a ejecutar un clúster distribuido geográficamente - no tiene sentido intentar forzar que una carga de trabajo determinada se ejecute en un solo bastidor, o dar preferencia a algún segmento del clúster local sobre otro a menos que haya diferentes tipos de hardware o que se produzca la segmentación de la carga de trabajo, y esos casos se pueden administrar mediante restricciones de ubicación normales.
 
-## <a name="next-steps"></a>Next steps
-- For more information about the other options available for configuring services check out the topic on the other Cluster Resource Manager configurations available [Learn about configuring Services](service-fabric-cluster-resource-manager-configure-services.md)
+## Pasos siguientes
+- Para más información sobre las otras opciones disponibles para configurar servicios, consulte el tema sobre las demás configuraciones de Cluster Resource Manager disponibles en [Más información sobre la configuración de servicios](service-fabric-cluster-resource-manager-configure-services.md).
 
-[Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-invalid-placement-domain.png
-[Image2]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-required-placement-domain.png
-[Image3]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-preferred-primary-domain.png
+[Image1]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-invalid-placement-domain.png
+[Image2]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-required-placement-domain.png
+[Image3]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-preferred-primary-domain.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

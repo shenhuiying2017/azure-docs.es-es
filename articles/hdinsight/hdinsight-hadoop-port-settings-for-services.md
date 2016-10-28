@@ -1,6 +1,6 @@
 <properties
-pageTitle="Ports used by HDInsight | Azure"
-description="A list of ports used by Hadoop services running on HDInsight."
+pageTitle="Puertos utilizados por HDInsight | Azure"
+description="Una lista de puertos utilizados por los servicios Hadoop que se ejecutan en HDInsight."
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
@@ -13,139 +13,134 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="10/03/2016"
+ms.date="09/13/2016"
 ms.author="larryfr"/>
 
+# Puertos e identificadores URI usados en HDInsight
 
-# <a name="ports-and-uris-used-by-hdinsight"></a>Ports and URIs used by HDInsight
+En este documento se proporciona una lista de puertos que se usan con los servicios de Hadoop que se ejecutan en clústeres de HDInsight basados en Linux. También se proporciona información sobre los puertos utilizados para conectarse al clúster mediante SSH.
 
-This document provides a list of the ports used by Hadoop services running on Linux-based HDInsight clusters. It also provides information on ports used to connect to the cluster using SSH.
+## Puertos públicos frente a puertos no públicos
 
-## <a name="public-ports-vs.-non-public-ports"></a>Public ports vs. non-public ports
+Los clústeres de HDInsight basados en Linux solo exponen tres puertos públicamente en Internet: 22, 23 y 443. Estos puertos se usan para el acceso seguro al clúster mediante SSH y a los servicios expuestos a través del protocolo HTTPS seguro.
 
-Linux-based HDInsight clusters only exposes three ports publicly on the internet; 22, 23, and 443. These are used to securely access the cluster using SSH and services exposed over the secure HTTPS protocol.
+Internamente, HDInsight se implementa mediante varias máquinas virtuales de Azure (los nodos del clúster) que se ejecutan en una red virtual de Azure. Desde dentro de la red virtual, puede acceder a los puertos no expuestos a través de Internet. Por ejemplo, si se conecta a uno de los nodos principales con SSH, desde él puede acceder directamente a los servicios que se ejecutan en los nodos del clúster.
 
-Internally, HDInsight is implemented by several Azure Virtual Machines (the nodes within the cluster,) running on an Azure Virtual Network. From within the virtual network, you can access ports not exposed over the internet. For example, if you connect to one of the head nodes using SSH, from the head node you can then directly access services running on the cluster nodes.
+> [AZURE.IMPORTANT] Al crear un clúster de HDInsight, si no especifica una red virtual de Azure como opción de configuración, se crea una; sin embargo, no puede unir otros equipos (por ejemplo, otras máquinas virtuales de Azure o el equipo de desarrollo de cliente) a esta red virtual creada automáticamente.
 
-> [AZURE.IMPORTANT] When you create an HDInsight cluster, if you do not specify an Azure Virtual Network as a configuration option, one is created; however, you cannot join other machines (such as other Azure Virtual Machines or your client development machine,) to this automatically created virtual network. 
+Para unir equipos adicionales a la red virtual, debe crear primero la red virtual y luego especificarla al crear el clúster de HDInsight. Para más información, consulte [Extensión de las funcionalidades de HDInsight con Red virtual de Azure](hdinsight-extend-hadoop-virtual-network.md).
 
-To join additional machines to the virtual network, you must create the virtual network first, and then specify it when creating your HDInsight cluster. For more information, see [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md)
+## Puertos públicos
 
-## <a name="public-ports"></a>Public ports
+Todos los nodos de un clúster de HDInsight se encuentran en una red virtual de Azure y no son accesibles directamente desde Internet. Una puerta de enlace pública proporciona acceso desde Internet a los puertos siguientes, que son comunes a todos los tipos de clúster de HDInsight.
 
-All the nodes in an HDInsight cluster are located in an Azure Virtual Network, and cannot be directly accessed from the internet. A public gateway provides internet access to the following ports, which are common across all HDInsight cluster types.
-
-| Service | Port | Protocol | Description |
+| Servicio | Port | Protocol | Description |
 | ---- | ---------- | -------- | ----------- | ----------- |
-| sshd | 22 | SSH | Connects clients to sshd on the primary headnode. See [Use SSH with Linux-based HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) |
-| sshd | 22 | SSH | Connects clients to sshd on the edge node (HDInsight Premium only). See [Get started using R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md) |
-| sshd | 23 | SSH | Connects clients to sshd on the secondary headnode. See [Use SSH with Linux-based HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) |
-| Ambari | 443 | HTTPS | Ambari web UI. See [Manage HDInsight using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md) |
-| Ambari | 443 | HTTPS | Ambari REST API. See [Manage HDInsight using the Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat | 443 | HTTPS | HCatalog REST API. See [Use Hive with Curl](hdinsight-hadoop-use-pig-curl.md), [Use Pig with Curl](hdinsight-hadoop-use-pig-curl.md), [Use MapReduce with Curl](hdinsight-hadoop-use-mapreduce-curl.md) |
-| HiveServer2 | 443 | ODBC | Connects to Hive using ODBC. See [Connect Excel to HDInsight with the Microsoft ODBC driver](hdinsight-connect-excel-hive-odbc-driver.md). |
-| HiveServer2 | 443 | JDBC | Connects to Hive using JDBC. See [Connect to Hive on HDInsight using the Hive JDBC driver](hdinsight-connect-hive-jdbc-driver.md) |
+| sshd | 22 | SSH | Conecta los clientes a sshd en el nodo primario principal. Consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md). |
+| sshd | 22 | SSH | Conecta los clientes a sshd en el nodo de borde (solo HDInsight Premium). Consulte [Introducción al uso de R Server en HDInsight (versión preliminar)](hdinsight-hadoop-r-server-get-started.md). |
+| sshd | 23 | SSH | Conecta los clientes a sshd en el nodo primario secundario. Consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md). |
+| Ambari | 443 | HTTPS | Interfaz de usuario web de Ambari. Consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md). |
+| Ambari | 443 | HTTPS | API de REST de Ambari. Consulte [Administración de clústeres de HDInsight con la API de REST de Ambari](hdinsight-hadoop-manage-ambari-rest-api.md). |
+| WebHCat | 443 | HTTPS | API de REST de HCatalog. Consulte [Uso de Hive con Curl](hdinsight-hadoop-use-Pig-curl.md), [Uso de Pig con Curl](hdinsight-hadoop-use-Pig-curl.md) y [Uso de MapReduce con Curl](hdinsight-hadoop-use-mapreduce-curl.md). |
+| HiveServer2 | 443 | ODBC | Conecta a Hive mediante ODBC. Consulte [Conexión de Excel en HDInsight con el controlador ODBC de Microsoft](hdinsight-connect-excel-hive-odbc-driver.md). |
+| HiveServer2 | 443 | JDBC | Conecta a Hive mediante JDBC. Consulte [Conexión a Hive en HDInsight de Azure con el controlador JDBC de Hive](hdinsight-connect-hive-jdbc-driver.md). |
 
-The following are available for specific cluster types:
+Las siguientes opciones están disponibles para determinados tipos de clúster:
 
-| Service | Port | Protocol |Cluster type | Description |
+| Servicio | Port | Protocol |Tipo de clúster | Description |
 | ------------ | ---- |  ----------- | --- | ----------- |
-| Stargate | 443 | HTTPS | HBase | HBase REST API. See [Get started using HBase](hdinsight-hbase-tutorial-get-started-linux.md) |
-| Livy | 443 | HTTPS |  Spark | Spark REST API. See [Submit Spark jobs remotely using Livy](hdinsight-apache-spark-livy-rest-interface.md) |
-| Storm | 443 | HTTPS | Storm | Storm web UI. See [Deploy and manage Storm topologies on HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
+| Stargate | 443 | HTTPS | HBase | API de REST de HBase. Consulte [Introducción al uso de HBase](hdinsight-hbase-tutorial-get-started-linux.md). |
+| Livy | 443 | HTTPS | Spark | API de REST de Spark. Consulte [Envío de trabajos de Spark remotamente a un clúster de Apache Spark en HDInsight Linux mediante Livy](hdinsight-apache-spark-livy-rest-interface.md). |
+| Storm | 443 | HTTPS | Storm | La interfaz de usuario web de Storm. Consulte [Implementación y administración de topologías de Apache Storm en HDInsight basado en Linux](hdinsight-storm-deploy-monitor-topology-linux.md).
 
-### <a name="authentication"></a>Authentication
+### Autenticación
 
-All services publicly exposed on the internet must be authenticated:
+Todos los servicios expuestos públicamente en Internet se deben autenticar:
 
-| Port | Credentials |
+| Port | Credenciales |
 | ---- | ----------- |
-| 22 or 23 | The SSH user credentials specified during cluster creation |
-| 443 | The login name (default: admin,) and password that were set during cluster creation |
+| 22 o 23 | Las credenciales de usuario de SSH especificadas durante la creación del clúster. |
+| 443 | El nombre de inicio de sesión (predeterminado: admin) y la contraseña que se establecieron durante la creación del clúster. |
 
-## <a name="non-public-ports"></a>Non-public ports
+## Puertos no públicos
 
-> [AZURE.NOTE] Some services are only available on specific cluster types. For example, HBase is only available on HBase cluster types.
+> [AZURE.NOTE] Algunos servicios solo están disponibles en determinados tipos de clúster. Por ejemplo, HBase solo está disponible en los tipos de clúster de HBase.
 
-### <a name="hdfs-ports"></a>HDFS ports
+### Puertos HDFS
 
-| Service | Node(s) | Port | Protocol | Description |
+| Servicio | Nodo(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- | 
-| NameNode web UI | Head nodes | 30070 | HTTPS | Web UI to view current status |
-| NameNode metadata service | head nodes | 8020 | IPC | File system metadata 
-| DataNode | All worker nodes | 30075 | HTTPS | Web UI to view status, logs, etc. |
-| DataNode | All worker nodes | 30010 | &nbsp; | Data transfer |
-| DataNode | All worker nodes | 30020 | IPC | Metadata operations |
-| Secondary NameNode | Head nodes | 50090 | HTTP | Checkpoint for NameNode metadata |
+| Interfaz de usuario web de NameNode | Nodos principales | 30070 | HTTPS | Interfaz de usuario web para ver el estado actual |
+| Servicio de metadatos de NameNode | nodos principales | 8020 | IPC | Metadatos del sistema de archivos 
+| DataNode | Todos los nodos de trabajo | 30075 | HTTPS | Interfaz de usuario web para ver el estado, los registros, etc. |
+| DataNode | Todos los nodos de trabajo | 30010 | &nbsp; | Transferencia de datos |
+| DataNode | Todos los nodos de trabajo | 30020 | IPC | Operaciones de metadatos |
+| NameNode secundario | Nodos principales | 50090 | HTTP | Punto de control para metadatos de NameNode |
 
-### <a name="yarn-ports"></a>YARN ports
+### Puertos de YARN
 
-| Service | Node(s) | Port | Protocol | Description |
+| Servicio | Nodo(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
-| Resource Manager web UI | Head nodes | 8088 | HTTP | Web UI for Resource Manager |
-| Resource Manager web UI | Head nodes | 8090 | HTTPS | Web UI for Resource Manager |
-| Resource Manager admin interface | head nodes | 8141 | IPC | For application submissions (Hive, Hive server, Pig, etc.) |
-| Resource Manager scheduler | head nodes | 8030 | HTTP | Administrative interface |
-| Resource Manager application interface | head nodes | 8050 | HTTP |Address of the applications manager interface |
-| NodeManager | All worker nodes | 30050 | &nbsp; | The address of the container manager |
-| NodeManager web UI | All worker nodes | 30060 | HTTP | Resource manager interface |
-| Timeline address | Head nodes | 10200 | RPC | The Timeline service RPC service. |
-| Timeline web UI | Head nodes | 8181 | HTTP | The Timeline service web UI |
+| Interfaz de usuario web de Resource Manager | Nodos principales | 8088 | HTTP | Interfaz de usuario web para Resource Manager |
+| Interfaz de usuario web de Resource Manager | Nodos principales | 8090 | HTTPS | Interfaz de usuario web para Resource Manager |
+| Interfaz de administración de Resource Manager | nodos principales | 8141 | IPC | Para envíos de aplicaciones (Hive, servidor de Hive, Pig, etc.) |
+| Programador de Resource Manager | nodos principales | 8030 | HTTP | Interfaz administrativa |
+| Interfaz de aplicación de Resource Manager | nodos principales | 8050 | HTTP |Dirección de la interfaz del administrador de aplicaciones |
+| NodeManager | Todos los nodos de trabajo | 30050 | &nbsp; | La dirección del administrador de contenedores |
+| Interfaz de usuario web de NodeManager | Todos los nodos de trabajo | 30060 | HTTP | Interfaz de Resource Manager |
+| Dirección de escala de tiempo | Nodos principales | 10200 | RPC | El servicio RPC del servicio de escala de tiempo. |
+| Interfaz de usuario web de escala de tiempo | Nodos principales | 8181 | HTTP | La interfaz de usuario web del servicio de escala de tiempo |
 
-### <a name="hive-ports"></a>Hive ports
+### Puertos de Hive
 
-| Service | Node(s) | Port | Protocol | Description |
+| Servicio | Nodo(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
-| HiveServer2 | Head nodes | 10001 | Thrift | Service for programmatically connecting to Hive (Thrift/JDBC) |
-| HiveServer | Head nodes | 10000 | Thrift | Service for programmatically connecting to Hive (Thrift/JDBC) |
-| Hive Metastore | Head nodes | 9083 | Thrift | Service for programmatically connecting to Hive metadata (Thrift/JDBC) |
+| HiveServer2 | Nodos principales | 10001 | Thrift | Servicio para conectarse mediante programación a Hive (Thrift/JDBC) |
+| HiveServer | Nodos principales | 10000 | Thrift | Servicio para conectarse mediante programación a Hive (Thrift/JDBC) |
+| Tienda de metadatos Hive | Nodos principales | 9083 | Thrift | Servicio para conectarse mediante programación a metadatos de Hive (Thrift/JDBC) |
 
-### <a name="webhcat-ports"></a>WebHCat ports
+### Puertos de WebHCat
 
-| Service | Node(s) | Port | Protocol | Description |
+| Servicio | Nodo(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
-| WebHCat server | Head nodes | 30111 | HTTP | Web API on top of HCatalog and other Hadoop services |
+| Servidor de WebHCat | Nodos principales | 30111 | HTTP | Web API encima de HCatalog y otros servicios de Hadoop |
 
-### <a name="mapreduce-ports"></a>MapReduce ports
+### Puertos de MapReduce
 
-| Service | Node(s) | Port | Protocol | Description |
+| Servicio | Nodo(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
-| JobHistory | Head nodes | 19888 | HTTP | MapReduce JobHistory web UI |
-| JobHistory | Head nodes | 10020 | &nbsp; | MapReduce JobHistory server |
-| ShuffleHandler | &nbsp; | 13562 | &nbsp; | Transfers intermediate Map outputs to requesting Reducers |
+| Historial de trabajos | Nodos principales | 19888 | HTTP | Interfaz de usuario web del historial de trabajos de MapReduce |
+| Historial de trabajos | Nodos principales | 10020 | &nbsp; | Servidor de historial de trabajos de MapReduce |
+| ShuffleHandler | &nbsp; | 13562 | &nbsp; | Transfiere las salidas de mapa intermedias a los reductores solicitantes |
 
-### <a name="oozie"></a>Oozie
+### Oozie
 
-| Service | Node(s) | Port | Protocol | Description |
+| Servicio | Nodo(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
-| Oozie server | Head nodes | 11000 | HTTP | URL for Oozie service |
-| Oozie server | Head nodes | 11001 | HTTP | Port for Oozie admin |
+| Servidor de Oozie | Nodos principales | 11000 | HTTP | Dirección URL del servicio de Oozie |
+| Servidor de Oozie | Nodos principales | 11001 | HTTP | Puerto de administración de Oozie |
 
-### <a name="ambari-metrics"></a>Ambari Metrics
+### Métricas de Ambari
 
-| Service | Node(s) | Port | Protocol | Description |
+| Servicio | Nodo(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
-| TimeLine (Application history) | Head nodes | 6188 | HTTP | The TimeLine service web UI |
-| TimeLine (Application history) | Head nodes | 30200 | RPC | The TimeLine service web UI |
+| Escala de tiempo (historial de aplicaciones) | Nodos principales | 6188 | HTTP | La interfaz de usuario web del servicio de escala de tiempo |
+| Escala de tiempo (historial de aplicaciones) | Nodos principales | 30200 | RPC | La interfaz de usuario web del servicio de escala de tiempo |
 
-### <a name="hbase-ports"></a>HBase ports
+### Puertos de HBase
 
-| Service | Node(s) | Port | Protocol | Description |
+| Servicio | Nodo(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
-| HMaster | Head nodes | 16000 | &nbsp; | &nbsp; |
-| HMaster info Web UI | Head nodes | 16010 | HTTP | The port for the HBase Master web UI |
-| Region server | All worker nodes | 16020 | &nbsp; | &nbsp; |
-| &nbsp; | &nbsp; | 2181 | &nbsp; | The port that clients use to connect to ZooKeeper |
+| HMaster | Nodos principales | 16000 | &nbsp; | &nbsp; |
+| Interfaz de usuario web de información de HMaster | Nodos principales | 16010 | HTTP | El puerto de la interfaz de usuario web de HBase Master |
+| Servidor de región | Todos los nodos de trabajo | 16020 | &nbsp; | &nbsp; |
+| &nbsp; | &nbsp; | 2181 | &nbsp; | El puerto que los clientes utilizan para conectarse a ZooKeeper |
 
-### <a name="kafka-ports"></a>Kafka ports
+### Puertos Kafka
 
-| Service | Node(s) | Port | Protocol | Description |
+| Servicio | Nodo(s) | Port | Protocol | Description |
 | ------- | ------- | ---- | -------- | ----------- |
-| Broker  | Worker nodes | 9092 | [Kafka Wire Protocol](http://kafka.apache.org/protocol.html) | Used for client communication |
-| &nbsp; | Zookeeper nodes | 2181 | &nbsp; | The port that clients use to connect to Zookeeper |
+| Agente | Nodos de trabajo | 9092 | [Protocolo de conexión de Kafka](http://kafka.apache.org/protocol.html) | Se utiliza para la comunicación del cliente |
+| &nbsp; | Nodos Zookeeper | 2181 | &nbsp; | El puerto que los clientes utilizan para conectarse a ZooKeeper |
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

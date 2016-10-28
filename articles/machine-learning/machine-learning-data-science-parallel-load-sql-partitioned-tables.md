@@ -1,39 +1,38 @@
 <properties 
-    pageTitle="Parallel Bulk Data Import Using SQL Partition Tables | Microsoft Azure" 
-    description="Parallel Bulk Data Import Using SQL Partition Tables" 
-    services="machine-learning" 
-    documentationCenter="" 
-    authors="bradsev"
-    manager="jhubbard" 
-    editor="cgronlun" />
+	pageTitle="Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL | Microsoft Azure" 
+	description="Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="bradsev"
+	manager="jhubbard" 
+	editor="cgronlun" />
 
 <tags 
-    ms.service="machine-learning" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/19/2016" 
-    ms.author="bradsev" /> 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/19/2016" 
+	ms.author="bradsev" />
+
+# Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL
+
+En este documento se describe cómo se pueden crear tablas con particiones para la importación paralela masiva de datos en una base de datos de SQL Server. Para cargar o transferir macrodatos a SQL Database, es posible mejorar la importación de datos en SQL Database y las consultas posteriores mediante _tablas y vistas con particiones_.
 
 
-# <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Parallel Bulk Data Import Using SQL Partition Tables
+## Crear una nueva base de datos y un conjunto de grupos de archivos
 
-This document describes how to build partitioned table(s) for fast parallel bulk importing of data to a SQL Server database. For big data loading/transfer to a SQL database, importing data to the SQL DB and subsequent queries can be improved by using _Partitioned Tables and Views_. 
+- [Crear una nueva base de datos](https://technet.microsoft.com/library/ms176061.aspx) (si no existe)
+- Agregar grupos de archivos de base de datos a la base de datos que contendrá los archivos físicos con particiones
 
+  Nota: Esto puede hacerse con [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) si es nuevo o [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) si ya existe la base de datos
 
-## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Create a new database and a set of filegroups
+- Agregar uno o varios archivos (según sea necesario) a cada grupo de archivos de base de datos
 
-- [Create a new database](https://technet.microsoft.com/library/ms176061.aspx) (if it doesn't exist)
-- Add database filegroups to the database which will hold the partitioned physical files
-
-  Note: This can be done with [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) if new or [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) if the database exists already
-
-- Add one or more files (as needed) to each database filegroup
-
- > [AZURE.NOTE] Specify the target filegroup which holds data for this partition and the physical database file name(s) where the filegroup data will be stored.
+ > [AZURE.NOTE] Especifique el grupo de archivos de destino que contiene los datos de esta partición y los nombres de archivo de las bases de datos físicas donde se almacenarán los datos del grupo de archivos.
  
-The following example creates a new database with three filegroups other than the primary and log groups, containing one physical file in each. The database files are created in the default SQL Server Data folder, as configured in the SQL Server instance. For more information about the default file locations, see [File Locations for Default and Named Instances of SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
+En el ejemplo siguiente se crea una nueva base de datos con tres grupos de archivos distintos de los grupos principal y de registro, que contiene un archivo físico en cada uno. Los archivos de base de datos se crean en la carpeta de datos de SQL Server predeterminada, como está configurado en la instancia de SQL Server. Para obtener más información acerca de las ubicaciones de archivo predeterminadas, consulte [Ubicaciones de archivos para las instancias predeterminadas y con nombre de SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
 
     DECLARE @data_path nvarchar(256);
     SET @data_path = (SELECT SUBSTRING(physical_name, 1, CHARINDEX(N'master.mdf', LOWER(physical_name)) - 1)
@@ -41,81 +40,81 @@ The following example creates a new database with three filegroups other than th
       WHERE database_id = 1 AND file_id = 1);
     
     EXECUTE ('
-        CREATE DATABASE <database_name>
-        ON  PRIMARY 
-        ( NAME = ''Primary'', FILENAME = ''' + @data_path + '<primary_file_name>.mdf'', SIZE = 4096KB , FILEGROWTH = 1024KB ), 
-        FILEGROUP [filegroup_1] 
-        ( NAME = ''FileGroup1'', FILENAME = ''' + @data_path + '<file_name_1>.ndf'' , SIZE = 4096KB , FILEGROWTH = 1024KB ), 
-        FILEGROUP [filegroup_2] 
-        ( NAME = ''FileGroup1'', FILENAME = ''' + @data_path + '<file_name_2>.ndf'' , SIZE = 4096KB , FILEGROWTH = 1024KB ), 
-        FILEGROUP [filegroup_3] 
-        ( NAME = ''FileGroup1'', FILENAME = ''' + @data_path + '<file_name>.ndf'' , SIZE = 102400KB , FILEGROWTH = 10240KB ), 
-        LOG ON 
-        ( NAME = ''LogFileGroup'', FILENAME = ''' + @data_path + '<log_file_name>.ldf'' , SIZE = 1024KB , FILEGROWTH = 10%)
+    	CREATE DATABASE <database_name>
+     	ON  PRIMARY 
+    	( NAME = ''Primary'', FILENAME = ''' + @data_path + '<primary_file_name>.mdf'', SIZE = 4096KB , FILEGROWTH = 1024KB ), 
+     	FILEGROUP [filegroup_1] 
+    	( NAME = ''FileGroup1'', FILENAME = ''' + @data_path + '<file_name_1>.ndf'' , SIZE = 4096KB , FILEGROWTH = 1024KB ), 
+     	FILEGROUP [filegroup_2] 
+    	( NAME = ''FileGroup1'', FILENAME = ''' + @data_path + '<file_name_2>.ndf'' , SIZE = 4096KB , FILEGROWTH = 1024KB ), 
+     	FILEGROUP [filegroup_3] 
+    	( NAME = ''FileGroup1'', FILENAME = ''' + @data_path + '<file_name>.ndf'' , SIZE = 102400KB , FILEGROWTH = 10240KB ), 
+     	LOG ON 
+    	( NAME = ''LogFileGroup'', FILENAME = ''' + @data_path + '<log_file_name>.ldf'' , SIZE = 1024KB , FILEGROWTH = 10%)
     ')
     
-## <a name="create-a-partitioned-table"></a>Create a partitioned table
+## Crear una tabla con particiones
 
-Create partitioned table(s) according to the data schema, mapped to the database filegroups created in the previous step. When data is bulk imported to the partitioned table(s), records will be distributed among the filegroups according to a partition scheme, as described below.
+Crear tablas con particiones según el esquema de datos, que se asignan a los grupos de archivos de base de datos que se crearon en el paso anterior. Cuando se importan datos de forma masiva en las tablas con particiones, los registros se distribuirán entre los grupos de archivos según un esquema de partición, tal y como se describe a continuación.
 
-**To create a partition table, you need to:**
+**Para crear una tabla de partición, debe:**
 
-- [Create a partition function](https://msdn.microsoft.com/library/ms187802.aspx) which defines the range of values/boundaries to be included in each individual partition table, e.g., to limit partitions by month(some\_datetime\_field) in the year 2013:
+- [Crear una función de partición](https://msdn.microsoft.com/library/ms187802.aspx) que define el intervalo de valores o límites que se incluirán en cada tabla de particiones individual; por ejemplo, para limitar las particiones por mes(un\_campo\_datetime) en el año 2013:
 
-        CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
-        AS RANGE RIGHT FOR VALUES (
-            '20130201', '20130301', '20130401',
-            '20130501', '20130601', '20130701', '20130801',
-            '20130901', '20131001', '20131101', '20131201' )
+	    CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
+	    AS RANGE RIGHT FOR VALUES (
+	    	'20130201', '20130301', '20130401',
+	    	'20130501', '20130601', '20130701', '20130801',
+	    	'20130901', '20131001', '20131101', '20131201' )
 
-- [Create a partition scheme](https://msdn.microsoft.com/library/ms179854.aspx) which maps each partition range in the partition function to a physical filegroup, e.g.:
+- [Crear un esquema de partición](https://msdn.microsoft.com/library/ms179854.aspx) que asigne cada intervalo de particiones en la función de partición a un grupo de archivos físico, por ejemplo:
 
-        CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
-        PARTITION <DatetimeFieldPFN> TO (
-        <filegroup_1>, <filegroup_2>, <filegroup_3>, <filegroup_4>,
-        <filegroup_5>, <filegroup_6>, <filegroup_7>, <filegroup_8>,
-        <filegroup_9>, <filegroup_10>, <filegroup_11>, <filegroup_12> )
+	    CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
+	    PARTITION <DatetimeFieldPFN> TO (
+	    <filegroup_1>, <filegroup_2>, <filegroup_3>, <filegroup_4>,
+	    <filegroup_5>, <filegroup_6>, <filegroup_7>, <filegroup_8>,
+	    <filegroup_9>, <filegroup_10>, <filegroup_11>, <filegroup_12> )
 
-  Tip: To verify the ranges in effect in each partition according to the function/scheme, run the following query:
+  Sugerencia: Para comprobar los intervalos en vigor en cada partición según el esquema de función, ejecute la consulta siguiente:
 
-        SELECT psch.name as PartitionScheme,
-            prng.value AS ParitionValue,
-            prng.boundary_id AS BoundaryID
-        FROM sys.partition_functions AS pfun
-        INNER JOIN sys.partition_schemes psch ON pfun.function_id = psch.function_id
-        INNER JOIN sys.partition_range_values prng ON prng.function_id=pfun.function_id
-        WHERE pfun.name = <DatetimeFieldPFN>
+	    SELECT psch.name as PartitionScheme,
+	    	prng.value AS ParitionValue,
+	    	prng.boundary_id AS BoundaryID
+	    FROM sys.partition_functions AS pfun
+	    INNER JOIN sys.partition_schemes psch ON pfun.function_id = psch.function_id
+	    INNER JOIN sys.partition_range_values prng ON prng.function_id=pfun.function_id
+	    WHERE pfun.name = <DatetimeFieldPFN>
 
-- [Create partitioned table](https://msdn.microsoft.com/library/ms174979.aspx)(s) according to your data schema, and specify the partition scheme and constraint field used to partition the table, e.g.:
+- [Crear tablas con particiones](https://msdn.microsoft.com/library/ms174979.aspx) según el esquema de datos y especifique el esquema de partición y el campo de restricción que se usó para crear las particiones de la tabla; por ejemplo:
 
-        CREATE TABLE <table_name> ( [include schema definition here] )
-        ON <TablePScheme>(<partition_field>)
+	    CREATE TABLE <table_name> ( [include schema definition here] )
+	    ON <TablePScheme>(<partition_field>)
 
-For more information, see [Create Partitioned Tables and Indexes](https://msdn.microsoft.com/library/ms188730.aspx).
+Para obtener más información, consulte [Crear tablas e índices con particiones](https://msdn.microsoft.com/library/ms188730.aspx).
 
 
-## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>Bulk import the data for each individual partition table
+## Importación masiva de datos para cada tabla de partición individual
 
-- You may use BCP, BULK INSERT, or other methods such as [SQL Server Migration Wizard](http://sqlazuremw.codeplex.com/). The example provided uses the BCP method.
+- Puede usar BCP, BULK INSERT u otros métodos como el [Asistente para migración de SQL Server](http://sqlazuremw.codeplex.com/). En el ejemplo que se incluye, se usa el método BCP.
 
-- [Alter the database](https://msdn.microsoft.com/library/bb522682.aspx) to change transaction logging scheme to BULK_LOGGED to minimize overhead of logging, e.g.:
+- [Modifique la base de datos](https://msdn.microsoft.com/library/bb522682.aspx) para cambiar el esquema de registro de transacciones a BULK\_LOGGED y así minimizar la sobrecarga del inicio de sesión; por ejemplo:
 
-        ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
+	    ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
 
-- To expedite data loading, launch the bulk import operations in parallel. For tips on expediting bulk importing of big data into SQL Server databases, see [Load 1TB in less than 1 hour](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
+- Para acelerar la carga de datos, inicie las operaciones de importación masiva en paralelo. Para obtener sugerencias sobre la aceleración de la importación masiva de big data en las bases de datos de SQL Server, consulte [Cargar 1 TB en menos de 1 hora](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
 
-The following PowerShell script is an example of parallel data loading using BCP.
+El siguiente script de PowerShell es un ejemplo de carga paralela de datos mediante BCP.
 
     # Set database name, input data directory, and output log directory
-    # This example loads comma-separated input data files
-    # The example assumes the partitioned data files are named as <base_file_name>_<partition_number>.csv
-    # Assumes the input data files include a header line. Loading starts at line number 2.
+	# This example loads comma-separated input data files
+	# The example assumes the partitioned data files are named as <base_file_name>_<partition_number>.csv
+	# Assumes the input data files include a header line. Loading starts at line number 2.
 
-    $dbname = "<database_name>"
-    $indir  = "<path_to_data_files>"
-    $logdir = "<path_to_log_directory>"
+	$dbname = "<database_name>"
+	$indir  = "<path_to_data_files>"
+	$logdir = "<path_to_log_directory>"
 
-    # Select authentication mode
+	# Select authentication mode
     $sqlauth = 0
     
     # For SQL authentication, set the server and user credentials
@@ -126,10 +125,10 @@ The following PowerShell script is an example of parallel data loading using BCP
     # Set number of partitions per table - Should match the number of input data files per table
     $numofparts = <number_of_partitions>
        
-    # Set table name to be loaded, basename of input data files, input format file, and number of partitions
-    $tbname = "<table_name>"
-    $basename = "<base_input_data_filename_no_extension>"
-    $fmtfile = "<full_path_to_format_file>"
+	# Set table name to be loaded, basename of input data files, input format file, and number of partitions
+	$tbname = "<table_name>"
+	$basename = "<base_input_data_filename_no_extension>"
+	$fmtfile = "<full_path_to_format_file>"
    
     # Create log directory if it does not exist
     New-Item -ErrorAction Ignore -ItemType directory -Path $logdir
@@ -137,13 +136,13 @@ The following PowerShell script is an example of parallel data loading using BCP
     # BCP example using Windows authentication
     $ScriptBlock1 = {
        param($dbname, $tbname, $basename, $fmtfile, $indir, $logdir, $num)
-       bcp ($dbname + ".." + $tbname) in ($indir + "\" + $basename + "_" + $num + ".csv") -o ($logdir + "\" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -T -b 2500 -t "," -r \n
+       bcp ($dbname + ".." + $tbname) in ($indir + "" + $basename + "_" + $num + ".csv") -o ($logdir + "" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -T -b 2500 -t "," -r \n
     }
     
     # BCP example using SQL authentication
     $ScriptBlock2 = {
        param($dbname, $tbname, $basename, $fmtfile, $indir, $logdir, $num, $sqlusr, $server, $pass)
-       bcp ($dbname + ".." + $tbname) in ($indir + "\" + $basename + "_" + $num + ".csv") -o ($logdir + "\" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -U $sqlusr -S $server -P $pass -b 2500 -t "," -r \n
+       bcp ($dbname + ".." + $tbname) in ($indir + "" + $basename + "_" + $num + ".csv") -o ($logdir + "" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -U $sqlusr -S $server -P $pass -b 2500 -t "," -r \n
     }
     
     # Background processing of all partitions
@@ -168,29 +167,25 @@ The following PowerShell script is an example of parallel data loading using BCP
     date
 
 
-## <a name="create-indexes-to-optimize-joins-and-query-performance"></a>Create indexes to optimize joins and query performance
+## Crear índices para optimizar el rendimiento de las combinaciones y consultas
 
-- If you will extract data for modeling from multiple tables, create indexes on the join keys to improve the join performance.
+- Si se extraerán datos para el modelado de varias tablas, cree índices en las claves de combinación para mejorar el rendimiento de las combinaciones.
 
-- [Create indexes](https://technet.microsoft.com/library/ms188783.aspx) (clustered or non-clustered) targeting the same filegroup for each partition, for e.g.:
+- [Cree índices](https://technet.microsoft.com/library/ms188783.aspx) (agrupados o no agrupados) que tengan como destino el mismo grupo de archivos de cada partición; por ejemplo:
 
-        CREATE CLUSTERED INDEX <table_idx> ON <table_name>( [include index columns here] )
-        ON <TablePScheme>(<partition)field>)
-or,
+	    CREATE CLUSTERED INDEX <table_idx> ON <table_name>( [include index columns here] )
+	    ON <TablePScheme>(<partition)field>)
+o bien,
 
-        CREATE INDEX <table_idx> ON <table_name>( [include index columns here] )
-        ON <TablePScheme>(<partition)field>)
+	    CREATE INDEX <table_idx> ON <table_name>( [include index columns here] )
+	    ON <TablePScheme>(<partition)field>)
 
- > [AZURE.NOTE] You may choose to create the indexes before bulk importing the data. Index creation before bulk importing will slow down the data loading.
+ > [AZURE.NOTE] Puede crear los índices antes de importar los datos de forma masiva. La creación de índices antes de la importación masiva ralentizará la carga de datos.
 
 
-## <a name="advanced-analytics-process-and-technology-in-action-example"></a>Advanced Analytics Process and Technology in Action Example
+## Ejemplo de Tecnología y procesos de análisis avanzado en acción
 
-For an end-to-end walkthrough example using the Cortana Analytics Process with a public dataset, see [Cortana Analytics Process in Action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+Para ver un tutorial de ejemplo completo del proceso de análisis de Cortana con un conjunto de datos público, consulte [Proceso de análisis de Cortana en acción: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

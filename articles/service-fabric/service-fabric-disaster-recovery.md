@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric disaster recovery | Microsoft Azure"
-   description="Azure Service Fabric offers the capabilities necessary to deal with all types of disasters. This article describes the types of disasters that can occur and how to deal with them."
+   pageTitle="Recuperación ante desastres de Service Fabric de Azure | Microsoft Azure"
+   description="Service Fabric de Azure ofrece las funciones necesarias para tratar con todo tipo de desastre. En este artículo se describen los tipos de desastres que pueden surgir y cómo resolverlos."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
@@ -16,66 +16,65 @@
    ms.date="08/10/2016"
    ms.author="seanmck"/>
 
+# Recuperación ante desastres en Service Fabric de Azure
 
-# <a name="disaster-recovery-in-azure-service-fabric"></a>Disaster recovery in Azure Service Fabric
+Una parte fundamental de la entrega de una aplicación de nube de alta disponibilidad consiste en garantizar su supervivencia a los distintos tipos de errores, incluidos los que están fuera de su control. En este artículo se describe el diseño físico de un clúster de Service Fabric de Azure en el contexto de posibles desastres y se proporciona orientación sobre cómo tratar tales desastres para limitar o eliminar el riesgo de pérdida de datos o tiempo de inactividad.
 
-A critical part of delivering a high-availability cloud application is ensuring that it can survive all different types of failures, including those that are outside of your control. This article describes the physical layout of an Azure Service Fabric cluster in the context of potential disasters and provides guidance on how to deal with such disasters to limit or eliminate the risk of downtime or data loss.
+## Diseño físico de clústeres de Service Fabric de Azure
 
-## <a name="physical-layout-of-service-fabric-clusters-in-azure"></a>Physical layout of Service Fabric clusters in Azure
+Para comprender el riesgo que presentan los diferentes tipos de errores, es útil saber cómo los clústeres están dispuestos físicamente en Azure.
 
-To understand the risk posed by different types of failures, it is useful to know how clusters are physically laid out in Azure.
+Al crear un clúster de Service Fabric en Azure, se le pide que elija una región donde se hospedará. La infraestructura de Azure aprovisiona luego los recursos de ese clúster dentro de la región, en particular el número de máquinas virtuales (VM) solicitadas. Echemos un vistazo más detenidamente a cómo y dónde se aprovisionan esas máquinas virtuales.
 
-When you create a Service Fabric cluster in Azure, you are required to choose a region where it will be hosted. The Azure infrastructure then provisions the resources for that cluster within the region, most notably the number of virtual machines (VMs) requested. Let's look more closely at how and where those VMs are provisioned.
+### Dominios de error
 
-### <a name="fault-domains"></a>Fault domains
+De forma predeterminada, las máquinas virtuales del clúster se distribuyen uniformemente entre grupos lógicos conocidos como "dominios de error" (FD), que segmentan las máquinas en función de los posibles errores en el hardware del host. En concreto, si dos máquinas virtuales residen en dos FD distintos, puede estar seguro de que no compartirán la misma fuente de alimentación o el mismo conmutador de red. Como resultado, un error de alimentación o de la red local que afecte a una de las máquinas virtuales no afectará a la otra, lo que permitirá a Service Fabric restablecer el equilibrio de la carga de trabajo de la máquina que no responde dentro del clúster.
 
-By default, the VMs in the cluster are evenly spread across logical groups known as fault domains (FDs), which segment the machines based on potential failures in the host hardware. Specifically, if two VMs reside in two distinct FDs, you can be sure that they do not share the same power source or network switch. As a result, a local network or power failure affecting one VM will not affect the other, allowing Service Fabric to rebalance the work load of the unresponsive machine within the cluster.
+Puede visualizar el diseño del clúster en los dominios de error mediante el mapa de clúster que se proporciona en el [Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md):
 
-You can visualize the layout of your cluster across fault domains using the cluster map provided in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md):
+![Distribución de nodos entre dominios de error en el Explorador de Service Fabric][sfx-cluster-map]
 
-![Nodes spread across fault domains in Service Fabric Explorer][sfx-cluster-map]
+>[AZURE.NOTE] El otro eje del mapa de clúster muestra los dominios de actualización, que agrupen nodos de forma lógica según actividades de mantenimiento planeadas. Los clústeres de Service Fabric en Azure siempre se distribuyen entre cinco dominios de actualización.
 
->[AZURE.NOTE] The other axis in the cluster map shows upgrade domains, which logically group nodes based on planned maintenance activities. Service Fabric clusters in Azure are always laid out across five upgrade domains.
+### Distribución geográfica
 
-### <a name="geographic-distribution"></a>Geographic distribution
+Actualmente, [hay 26 regiones de Azure en todo el mundo][azure-regions], y se han anunciado varias más. Una región individual puede contener uno o varios centros de datos lógicos según la demanda y la disponibilidad de las ubicaciones adecuadas, entre otros factores. Sin embargo, tenga en cuenta que incluso en regiones que contienen varios centros de datos físicos, no existe garantía de que las máquinas virtuales del clúster se vayan a distribuir uniformemente entre esas ubicaciones físicas. De hecho, actualmente, todas las máquinas virtuales de un clúster determinado se aprovisionan dentro de un único sitio físico.
 
-There are currently [26 Azure regions throughout the world][azure-regions], with several more announced. An individual region can contain one or more physical data centers depending on demand and the availability of suitable locations, among other factors. Note, however, that even in regions that contain multiple physical data centers, there is no guarantee that your cluster's VMs will be evenly spread across those physical locations. Indeed, currently, all VMs for a given cluster are provisioned within a single physical site.
+## Gestión de los errores
 
-## <a name="dealing-with-failures"></a>Dealing with failures
+Hay varios tipos de errores que pueden afectar al clúster, cada uno con su propia solución. Los veremos en orden de probabilidad de que ocurran.
 
-There are several types of failures that can impact your cluster, each with its own mitigation. We will look at them in order of likelihood to occur.
+### Errores de máquinas individuales
 
-### <a name="individual-machine-failures"></a>Individual machine failures
+Como se ha mencionado, los errores de máquinas individuales, bien dentro de la máquina virtual o en el hardware o el software que la hospeda en un dominio de error, no presentan riesgo por sí solos. Service Fabric normalmente detectará el error en cuestión de segundos y responderá en consecuencia según el estado del clúster. Por ejemplo, si el nodo hospedaba las réplicas principales de una partición, se elige un nuevo elemento principal de las réplicas secundarias de la partición. Cuando Azure vuelva a activar la máquina con error, unirá de nuevo el clúster automáticamente y una vez más se hará cargo de su parte de la carga de trabajo.
 
-As mentioned, individual machine failures, either within the VM or in the hardware or software hosting it within a fault domain, pose no risk on their own. Service Fabric will typically detect the failure within seconds and respond accordingly based on the state of the cluster. For instance, if the node was hosting the primary replicas for a partition, a new primary is elected from the partition's secondary replicas. When Azure brings the failed machine back up, it will rejoin the cluster automatically and once again take on its share of the workload.
+### Varios errores de máquina simultáneos
 
-### <a name="multiple-concurrent-machine-failures"></a>Multiple concurrent machine failures
+Si bien los dominios de error reducen considerablemente el riesgo de errores de máquina simultáneos, existe siempre la posibilidad de que varios errores aleatorios desactiven varias máquinas de un clúster a la vez.
 
-While fault domains significantly reduce the risk of concurrent machine failures, there is always the potential for multiple random failures to bring down several machines in a cluster simultaneously.
+En general, mientras la mayoría de los nodos permanezcan disponibles, el clúster seguirá funcionando, no obstante con menos capacidad, dado que las réplicas con estado se empaquetan en un conjunto más pequeño de máquinas y hay menos instancias sin estado disponibles para repartir la carga.
 
-In general, as long as a majority of the nodes remain available, the cluster will continue to operate, albeit at lower capacity as stateful replicas get packed into a smaller set of machines and fewer stateless instances are available to spread load.
+#### Pérdida de quórum
 
-#### <a name="quorum-loss"></a>Quorum loss
+Si la mayoría de las réplicas de la partición de un servicio con estado deja de funcionar, esa partición pasa a un estado conocido como "pérdida de cuórum". En este punto, Service Fabric deja de permitir que se escriba en esa partición para asegurarse de que conserva un estado coherente y confiable. De hecho, hemos elegido aceptar un período de falta de disponibilidad para tener la seguridad de que no se informa a los clientes de que sus datos se han guardado cuando no es el caso. Tenga en cuenta que si ha optado por permitir lecturas desde réplicas secundarias para ese servicio con estado, puede seguir realizando esas operaciones de lectura mientras se encuentre en este estado. Una partición permanece en pérdida de cuórum hasta que esté disponible un número suficiente de réplicas o hasta que el administrador del clúster fuerce al sistema a seguir adelante mediante la [API Repair-ServiceFabricPartition][repair-partition-ps].
 
-If a majority of the replicas for a stateful service's partition go down, that partition enters a state known as "quorum loss." At this point, Service Fabric stops allowing writes to that partition to ensure that its state remains consistent and reliable. In effect, we are choosing to accept a period of unavailability to ensure that clients are not told that their data was saved when in fact it was not. Note that if you have opted in to allowing reads from secondary replicas for that stateful service, you can continue to perform those read operations while in this state. A partition remains in quorum loss until a sufficient number of replicas come back or until the cluster administrator forces the system to move on using the [Repair-ServiceFabricPartition API][repair-partition-ps].
+>[AZURE.WARNING] Si se realiza una acción de reparación mientras la réplica principal está inactiva, se producirá una pérdida de datos.
 
->[AZURE.WARNING] Performing a repair action while the primary replica is down will result in data loss.
+Los servicios del sistema también pueden sufrir pérdida de quórum, afectando específicamente al servicio en cuestión. Por ejemplo, la pérdida de quórum en el servicio de nombres afectará a la resolución de nombres, mientras que la pérdida de quórum en el administrador de conmutación por error bloqueará la creación de nuevos servicios y las conmutaciones por error. Tenga en cuenta que, a diferencia de sus propios servicios, *no* se recomienda reparar los servicios del sistema. Es preferible simplemente esperar a que las réplicas inactivas vuelvan a estar disponibles.
 
-System services can also suffer quorum loss, with the impact being specific to the service in question. For instance, quorum loss in the naming service will impact name resolution, whereas quorum loss in the failover manager service will block new service creation and failovers. Note that unlike for your own services, attempting to repair system services is *not* recommended. Instead, it is preferable to simply wait until the down replicas return.
+#### Minimización del riesgo de pérdida de quórum
 
-#### <a name="minimizing-the-risk-of-quorum-loss"></a>Minimizing the risk of quorum loss
+Puede minimizar el riesgo de pérdida de quórum aumentando el tamaño del conjunto de réplicas de destino para el servicio. Resulta útil considerar el número de réplicas que necesita en términos del número de nodos no disponibles que puede tolerar a la vez al tiempo que permanecen disponibles para las escrituras, teniendo en cuenta, junto con los errores de hardware, que las actualizaciones de aplicaciones o clústeres pueden dejar a los nodos temporalmente no disponibles.
 
-You can minimize your risk of quorum loss by increasing the target replica set size for your service. It is helpful to think of the number of replicas you need in terms of the number of unavailable nodes you can tolerate at once while remaining available for writes, keeping in mind that application or cluster upgrades can make nodes temporarily unavailable, in addition to hardware failures.
+Considere los siguientes ejemplos que asumen que ha configurado los servicios con un valor de MinReplicaSetSize de tres, el número más pequeño recomendado para los servicios de producción. Con un valor de TargetReplicaSetSize de tres (una principal y dos secundarias), un error de hardware durante una actualización (dos réplicas inactivas) dará lugar a pérdida de quórum y su servicio pasará a ser de solo lectura. Como alternativa, si tiene cinco réplicas, podría resistir dos errores durante la actualización (tres réplicas inactivas), dado que las dos réplicas restantes pueden seguir formando un quórum dentro del conjunto de réplicas mínimo.
 
-Consider the following examples assuming that you've configured your services to have a MinReplicaSetSize of three, the smallest number recommended for production services. With a TargetReplicaSetSize of three (one primary and two secondaries), a hardware failure during an upgrade (two replicas down) will result in quorum loss and your service will become read-only. Alternatively, if you have five replicas, you would be able to withstand two failures during upgrade (three replicas down) as the remaining two replicas can still form a quorum within the minimum replica set.
+### Interrupciones o destrucción del centro de datos
 
-### <a name="data-center-outages-or-destruction"></a>Data center outages or destruction
+En raras ocasiones, los centros de datos físicos pueden dejar de estar disponibles temporalmente debido a la pérdida de conectividad de red o de alimentación. En estos casos, las aplicaciones y los clústeres de Service Fabric igualmente dejarán de estar disponibles, pero sus datos se conservarán. Para los clústeres que se ejecutan en Azure, puede ver las actualizaciones en caso de interrupciones en la [página de estado de Azure][azure-status-dashboard].
 
-In rare cases, physical data centers can become temporarily unavailable due to loss of power or network connectivity. In these cases, your Service Fabric clusters and applications will likewise be unavailable but your data will be preserved. For clusters running in Azure, you can view updates on outages on the [Azure status page][azure-status-dashboard].
+En el caso muy poco probable de que se destruyera un centro de datos físico entero, los clústeres de Service Fabric allí hospedados se perderán, junto con su estado.
 
-In the highly unlikely event that an entire physical data center is destroyed, any Service Fabric clusters hosted there will be lost, along with their state.
-
-To protect against this possibility, it is critically important to periodically [backup your state](service-fabric-reliable-services-backup-restore.md) to a geo-redundant store and ensure that you have validated the ability to restore it. How often you perform a backup will be dependent on your recovery point objective (RPO). Even if you have not fully implemented backup and restore yet, you should implement a handler for the `OnDataLoss` event so that you can log when it occurs as follows:
+Para protegerse contra esta posibilidad, es muy importante [realizar una copia de seguridad periódica de su estado](service-fabric-reliable-services-backup-restore.md) en un almacén con redundancia geográfica y asegurarse de la posibilidad de restaurarlo. La frecuencia con la que realice una copia de seguridad dependerá de su objeto de punto de recuperación (RPO). Incluso si no ha implementado aún completamente la característica de copia de seguridad y restauración, debe implementar un identificador para el evento `OnDataLoss` con el fin de poder registrarlo cuando se produzca, de la manera siguiente:
 
 ```c#
 protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
@@ -86,23 +85,23 @@ protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
 ```
 
 
-### <a name="software-failures-and-other-sources-of-data-loss"></a>Software failures and other sources of data loss
+### Errores de software y otros orígenes de pérdida de datos
 
-As a cause of data loss, code defects in services, human operational errors, and security breaches are more common than widespread data center failures. However, in all cases, the recovery strategy is the same: take regular backups of all stateful services and exercise your ability to restore that state.
+Entre las causas de pérdida de datos, los defectos en el código de los servicios, los errores de manipulación humanos y las infracciones de seguridad son más comunes que los errores generalizados de los centros de datos. Sin embargo, en todos los casos, la estrategia de recuperación es la misma: realizar copias de seguridad regulares de todos los servicios con estado y ejercer la posibilidad de restaurar dicho estado.
 
-## <a name="next-steps"></a>Next Steps
+## Pasos siguientes
 
-- Learn how to simulate various failures using the [testability framework](service-fabric-testability-overview.md)
-- Read other disaster-recovery and high-availability resources. Microsoft has published a large amount of guidance on these topics. While some of these documents refer to specific techniques for use in other products, they contain many general best practices you can apply in the Service Fabric context as well:
- - [Availability checklist](../best-practices-availability-checklist.md)
- - [Performing a disaster recovery drill](../sql-database/sql-database-disaster-recovery-drills.md)
- - [Disaster recovery and high availability for Azure applications][dr-ha-guide]
+- Obtenga más información sobre cómo simular varios errores mediante la [plataforma de comprobación](service-fabric-testability-overview.md).
+- Lea otros recursos sobre alta disponibilidad y recuperación ante desastres. Microsoft ha publicado una gran cantidad de instrucciones sobre estos temas. Aunque algunos de estos documentos se refieren a técnicas específicas para su uso en otros productos, contienen muchos procedimientos recomendados generales que se pueden aplicar también en el contexto de Service Fabric:
+ - [Lista de comprobación de disponibilidad](../best-practices-availability-checklist.md)
+ - [Exploración en profundidad de la recuperación ante desastres](../sql-database/sql-database-disaster-recovery-drills.md)
+ - [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure][dr-ha-guide]
 
 
 <!-- External links -->
 
 [repair-partition-ps]: https://msdn.microsoft.com/library/mt163522.aspx
-[azure-status-dashboard]:https://azure.microsoft.com/status/
+[azure-status-dashboard]: https://azure.microsoft.com/status/
 [azure-regions]: https://azure.microsoft.com/regions/
 [dr-ha-guide]: https://msdn.microsoft.com/library/azure/dn251004.aspx
 
@@ -111,8 +110,4 @@ As a cause of data loss, code defects in services, human operational errors, and
 
 [sfx-cluster-map]: ./media/service-fabric-disaster-recovery/sfx-clustermap.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

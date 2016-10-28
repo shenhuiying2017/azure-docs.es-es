@@ -1,6 +1,6 @@
 <properties
-pageTitle="Use DataFu with Pig on HDInsight"
-description="DataFu is a collection of libraries for use with Hadoop. Learn how you can use DataFu with Pig on your HDInsight cluster."
+pageTitle="Uso de DataFu con Pig en HDInsight"
+description="DataFu es un conjunto de bibliotecas para su uso con Hadoop. Aprenda cómo usar DataFu con Pig en su clúster de HDInsight."
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
@@ -16,57 +16,56 @@ ms.workload="big-data"
 ms.date="08/23/2016"
 ms.author="larryfr"/>
 
+#Uso de DataFu con Pig en HDInsight
 
-#<a name="use-datafu-with-pig-on-hdinsight"></a>Use DataFu with pig on HDInsight
+DataFu es un conjunto de bibliotecas de código abierto para su uso con Hadoop. En este documento, obtendrá información sobre cómo usar DataFu en su clúster de HDInsight y cómo usar funciones definida por usuario (UDF) de DataFu con Pig.
 
-DataFu is a collection of Open Source libraries for use with Hadoop. In this document, you will learn how to use DataFu on your HDInsight cluster, and how to use DataFu User Defined Functions (UDF) with Pig.
+##Requisitos previos
 
-##<a name="prerequisites"></a>Prerequisites
+* Una suscripción de Azure.
 
-* An Azure subscription.
+* Clúster de HDInsight de Azure (basado en Linux o Windows)
 
-* An Azure HDInsight cluster (Linux or Windows based)
+* Cierta familiaridad básica con el [uso de Pig en HDInsight](hdinsight-use-pig.md)
 
-* A basic familiarity with [using Pig on HDInsight](hdinsight-use-pig.md)
+##Instalación de DataFu en HDInsight basado en Linux
 
-##<a name="install-datafu-on-linux-based-hdinsight"></a>Install DataFu on Linux-based HDInsight
-
-> [AZURE.NOTE] DataFu is installed on Linux-based clusters version 3.3 and higher, and on Windows-based clusters. It is not installed on Linux-based clusters earlier than 3.3.
+> [AZURE.NOTE] DataFu se instala en clústeres basados en Linux 3.3 y versiones posteriores, así como en clústeres basados en Windows. No se instala en clústeres basados en Linux anteriores a la versión 3.3.
 >
-> If you are using a Linux-based cluster version 3.3 or higher, or a Windows-based cluster, you can skip this section.
+> Si usa un clúster basado en Linux versión 3.3 o superior, o bien un clúster basado en Windows, puede omitir esta sección.
 
-DataFu can be downloaded and installed from the Maven repository. Use the following steps to add DataFu to your HDInsight cluster:
+DataFu puede descargarse e instalarse desde el repositorio de Maven. Use los pasos siguientes para agregar DataFu a su clúster de HDInsight:
 
-1. Connect to your Linux-based HDInsight cluster using SSH. For more information on using SSH with HDInsight, see one of the following documents:
+1. Conéctese al clúster de HDInsight basado en Linux mediante SSH. Para obtener más información sobre el uso de SSH con HDInsight, consulta uno de los siguientes documentos:
 
-    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, and Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
-    * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Uso de SSH con Hadoop en HDInsight basado en Linux desde Linux, OS X y Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-unix.md)
     
-2. Use the following command to download the DataFu jar file using the wget utility, or copy and paste the link into your browser to begin the download.
+2. Use el comando siguiente para descargar el archivo jar de DataFu mediante la utilidad wget, o copie y pegue el vínculo en el explorador para iniciar la descarga.
 
         wget http://central.maven.org/maven2/com/linkedin/datafu/datafu/1.2.0/datafu-1.2.0.jar
 
-3. Next, upload the file to default storage for your HDInsight cluster. This makes the file available to all nodes in the cluster, and the file will stay in storage even if you delete and recreate the cluster.
+3. Después, cargue el archivo en el almacenamiento predeterminado para el clúster de HDInsight. Esto hace que el archivo esté disponible para todos los nodos del clúster y que el archivo permanezca en el almacenamiento aunque se elimine y se vuelva a crear el clúster.
 
         hdfs dfs -put datafu-1.2.0.jar /example/jars
     
-    > [AZURE.NOTE] The above example stores the jar in `wasbs:///example/jars` since this directory already exists on the cluster storage. You can use any location you wish on HDInsight cluster storage.
+    > [AZURE.NOTE] En el ejemplo anterior se almacena el archivo jar en `wasbs:///example/jars` ya que este directorio ya existe en el almacenamiento del clúster. Puede usar la ubicación que desee en el almacenamiento del clúster de HDInsight.
 
-##<a name="use-datafu-with-pig"></a>Use DataFu With Pig
+##Uso de DataFu con Pig
 
-The steps in this section assume that you are familiar with using Pig on HDInsight, and only provide the Pig Latin statements, not the steps on how to use them with the cluster. For more information on using Pig with HDInsight, see [Use Pig with HDInsight](hdinsight-use-pig.md).
+Los pasos descritos en esta sección asumen que está familiarizado con el uso de Pig en HDInsight y solo se proporcionan las instrucciones de Pig Latin, no los pasos necesarios para usarlos con el clúster. Para obtener más información acerca del uso de Pig con HDInsight, consulte [Uso de Pig con HDInsight](hdinsight-use-pig.md).
 
-> [AZURE.IMPORTANT] When using DataFu from Pig on a Linux-based HDInsight cluster, you must first register the jar file using the following Pig Latin statement:
+> [AZURE.IMPORTANT] Al usar DataFu desde Pig en un clúster de HDInsight basado en Linux, primero debe registrar el archivo jar mediante la siguiente instrucción de Pig Latin:
 >
 > ```register wasbs:///example/jars/datafu-1.2.0.jar```
 >
-> DataFu is registered by default on Windows-based HDInsight clusters.
+> DataFu se registra de forma predeterminada en los clústeres de HDInsight basados en Windows.
 
-You will usually define an alias for DataFu functions. For example:
+Normalmente, definirá un alias para las funciones de DataFu. Por ejemplo:
 
     DEFINE SHA datafu.pig.hash.SHA();
     
-This defines an alias named `SHA` for the SHA hashing function. You can then use this in a Pig Latin script to generate a hash for the input data. For example, the following replaces the names in the input data with a hash value:
+Se define un alias denominado `SHA` para la función hash de SHA. Después puede usarlo en un script de Pig Latin para generar un valor hash para los datos de entrada. Por ejemplo, lo siguiente reemplaza los nombres de los datos de entrada con un valor hash:
 
     raw = LOAD '/data/raw/' USING PigStorage(',') AS  
         (name:chararray, 
@@ -76,7 +75,7 @@ This defines an alias named `SHA` for the SHA hashing function. You can then use
     mask = FOREACH raw GENERATE SHA(name), int1, int2, int3; 
     DUMP mask;
 
-If this is used with the following input data:
+Si se usa con los siguientes datos de entrada:
 
     Lana Zemljaric,5,9,1
     Qiong Zhong,9,3,6
@@ -89,7 +88,7 @@ If this is used with the following input data:
     Shi Liao,4,6,0
     Tjasa Zemljaric,0,2,5
     
-It will generate the following output:
+El resultado será el siguiente:
 
     (c1a743b0f34d349cfc2ce00ef98369bdc3dba1565fec92b4159a9cd5de186347,5,9,1)
     (713d030d621ab69aa3737c8ea37a2c7c724a01cd0657a370e103d8cdecac6f99,9,3,6)
@@ -102,16 +101,12 @@ It will generate the following output:
     (fa9c436469096ff1bd297e182831f460501b826272ae97e921f5f6e3f54747e8,4,6,0)
     (bc22db7c238b86c37af79a62c78f61a304b35143f6087eb99c34040325865654,0,2,5)
 
-##<a name="next-steps"></a>Next steps
+##Pasos siguientes
 
-For more information on DataFu or Pig, see the following documents:
+Para obtener más información sobre DataFu o Pig, consulte los documentos siguientes:
 
-* [Apache DataFu Pig Guide](http://datafu.incubator.apache.org/docs/datafu/guide.html).
+* [Guía de Pig de Apache DataFu](http://datafu.incubator.apache.org/docs/datafu/guide.html).
 
-* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

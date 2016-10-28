@@ -1,314 +1,313 @@
 <properties
-    pageTitle="Tutorial: Azure Active Directory integration with Keylight | Microsoft Azure"
-    description="Learn how to configure single sign-on between Azure Active Directory and Keylight."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeevansd"
-    manager="femila"
-    editor=""/>
+	pageTitle="Tutorial: Integración de Azure Active Directory con Keylight | Microsoft Azure"
+	description="Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Keylight."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeevansd"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/29/2016"
-    ms.author="jeedes"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/11/2016"
+	ms.author="jeedes"/>
 
 
+# Tutorial: Integración de Azure Active Directory con Keylight
 
-# <a name="tutorial:-azure-active-directory-integration-with-keylight"></a>Tutorial: Azure Active Directory integration with Keylight
+En este tutorial, obtendrá información sobre cómo integrar Keylight con Azure Active Directory (Azure AD).
 
-In this tutorial, you learn how to integrate Keylight with Azure Active Directory (Azure AD).
+Integrar Keylight con Azure AD le proporciona las siguientes ventajas:
 
-Integrating Keylight with Azure AD provides you with the following benefits:
+- Puede controlar en Azure AD quién tiene acceso a Keylight.
+- Puede permitir que los usuarios inicien sesión automáticamente en Keylight (inicio de sesión único) con sus cuentas de Azure AD.
+- Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
 
-- You can control in Azure AD who has access to Keylight
-- You can enable your users to automatically get signed-on to Keylight (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure classic portal
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+## Requisitos previos
 
-## <a name="prerequisites"></a>Prerequisites
+Para configurar la integración de Azure AD con Keylight, necesita los siguientes elementos:
 
-To configure Azure AD integration with Keylight, you need the following items:
-
-- An Azure subscription
-- A Keylight single-sign on enabled subscription
-
-
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+- Una suscripción de Azure
+- Una suscripción habilitada para el inicio de sesión único en Keylight
 
 
-To test the steps in this tutorial, you should follow these recommendations:
-
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
 
-## <a name="scenario-description"></a>Scenario Description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
+Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
-The scenario outlined in this tutorial consists of two main building blocks:
-
-1. Adding Keylight from the gallery
-2. Configuring and testing Azure AD single sign-on
+- No debe usar el entorno de producción, a menos que sea necesario.
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## <a name="adding-keylight-from-the-gallery"></a>Adding Keylight from the gallery
-To configure the integration of Keylight into Azure AD, you need to add Keylight from the gallery to your list of managed SaaS apps.
+## Descripción del escenario
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-**To add Keylight from the gallery, perform the following steps:**
+La situación descrita en este tutorial consta de dos bloques de creación principales:
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
-
-    ![Active Directory][1]
-
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Applications][2]
-
-4. Click **Add** at the bottom of the page.
-
-    ![Applications][3]
-
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-
-    ![Applications][4]
-
-6. In the search box, type **Keylight**.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_01.png)
-
-7. In the results pane, select **Keylight**, and then click **Complete** to add the application.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_02.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Keylight based on a test user called "Britta Simon".
-
-To configure and test Azure AD single sign-on with Keylight, you need to complete the following building blocks:
-
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a Keylight test user](#creating-a-keylight-test-user)** - to have a counterpart of Britta Simon in Keylight that is linked to the Azure AD representation of her.
-5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
-
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
-
-In this section, you enable Azure AD single sign-on in the Azure classic portal and configure single sign-on in your Keylight application.
+1. Incorporación de Keylight desde la galería
+2. Configuración y comprobación del inicio de sesión único de Azure AD
 
 
-**To configure Azure AD single sign-on with Keylight, perform the following steps:**
+## Incorporación de Keylight desde la galería
+Para configurar la integración de Keylight en Azure AD, es preciso agregar Keylight desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. In the Azure classic portal, on the **Keylight** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+**Para agregar Keylight desde la galería, realice los pasos siguientes:**
 
-    ![Configure Single Sign-On][6] 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
+
+	![Active Directory][1]
+
+2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
+
+3. Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
+
+	![Aplicaciones][2]
+
+4. Haga clic en **Agregar** en la parte inferior de la página.
+
+	![Aplicaciones][3]
+
+5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
+
+	![Aplicaciones][4]
+
+6. En el cuadro de búsqueda, escriba **Keylight**.
+
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_01.png)
+
+7. En el panel de resultados, seleccione **Keylight** y luego haga clic en **Completar** para agregar la aplicación.
+
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_02.png)
+
+##  Configuración y comprobación del inicio de sesión único de Azure AD
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Keylight con un usuario de prueba llamado "Britta Simon".
+
+Para configurar y probar el inicio de sesión único de Azure AD con Keylight, es preciso completar los siguientes bloques de creación:
+
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Creación de un usuario de prueba de Keylight](#creating-a-keylight-test-user)**: para tener un homólogo de Britta Simon en Keylight que esté vinculado a la representación de ella en Azure AD.
+5. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
+
+### Configuración del inicio de sesión único de Azure AD
+
+En esta sección, habilitará el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurará el inicio de sesión único en la aplicación Keylight.
 
 
-2. On the **How would you like users to sign on to Keylight** page, select **Azure AD Single Sign-On**, and then click **Next**.
+**Para configurar el inicio de sesión único de Azure AD con Keylight, realice los pasos siguientes:**
 
-    ![Configure Single Sign-On](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_03.png) 
+1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Keylight**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
-3. On the **Configure App Settings** dialog page, perform the following steps:
+	![Configurar inicio de sesión único][6]
+
+
+2. En la página **¿Cómo desea que los usuarios inicien sesión en Keylight?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y después haga clic en **Siguiente**.
+
+	![Configurar inicio de sesión único](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_03.png)
+
+3. En la página de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes:
  
-    ![Configure Single Sign-On](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_04.png) 
+	![Configurar inicio de sesión único](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_04.png)
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Keylight application using the following pattern: **“https://\<company name\>.keylightgrc.com/Login.aspx?saml=1”**.
+    a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que los usuarios usan para iniciar sesión en su aplicación Keylight con el siguiente patrón: **"https://<nombre de la compañía>.keylightgrc.com/Login.aspx?saml=1"**.
 
 
-4. On the **Configure single sign-on at Keylight** page, perform the following steps:
+4. En la página **Configurar inicio de sesión único en Keylight**, siga estos pasos:
  
-    ![Configure Single Sign-On](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_05.png) 
+	![Configurar inicio de sesión único](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_05.png)
 
-    a. Click **Download certificate**, and then save the file on your computer.
+    a. Haga clic en **Descargar certificado** y después guarde el archivo en el equipo.
 
-    b. Click **Next**.
+    b. Haga clic en **Siguiente**.
 
 
-5. To enable SSO in Keylight, perform the following steps:
+5. Realice los pasos siguientes para habilitar el inicio de sesión único en Keylight:
  
-    a. Sign-on to your Keylight account as administrator.
+    a. Inicie sesión en su cuenta de Keylight como administrador.
 
-    b. In the menu on the top, click **Person**, and select **Keylight Setup**.
+    b. En el menú de la parte superior, haga clic en el icono de la **persona** y seleccione **Keylight Setup** (Configuración de Keylight).
        
-    ![Configure Single Sign-On](./media/active-directory-saas-keylight-tutorial/401.png) 
+	![Configurar inicio de sesión único](./media/active-directory-saas-keylight-tutorial/401.png)
 
-    c. In the treeview on the left, click **SAML**.
+    c. En la vista de árbol de la izquierda, haga clic en **SAML**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-keylight-tutorial/402.png) 
+	![Configurar inicio de sesión único](./media/active-directory-saas-keylight-tutorial/402.png)
 
-    d. On the **SAML Settings** dialog, click **Edit**.
+    d. En el cuadro de diálogo **SAML Settings ** (Configuración de SAML), haga clic en **Edit** (Editar).
 
-    ![Configure Single Sign-On](./media/active-directory-saas-keylight-tutorial/404.png) 
+	![Configurar inicio de sesión único](./media/active-directory-saas-keylight-tutorial/404.png)
   
 
-5. On the **Edit SAML Settings** dialog page, perform the following steps:
+5. En la página del cuadro de diálogo **Edit SAML Settings** (Editar la configuración de SAML), realice los pasos siguientes:
 
-    ![Configure Single Sign-On](./media/active-directory-saas-keylight-tutorial/405.png) 
+	![Configurar inicio de sesión único](./media/active-directory-saas-keylight-tutorial/405.png)
 
-    a. Set **SAML authentication** to **Active**.
-
-
-    b. In Azure AD classic portal, copy the **SAML SSO URL** value, and then paste it into the **Identity Provider Login URL** textbox.
-
-    c. In Azure AD classic portal, copy the **Single Sign-Out Service URL** value, and then paste it into the **Identity Provider Logout URL** textbox.
-
-    d. Click **Choose File** to select your downloaded Keylight certificate, and then click **Open** to upload the certificate.
+    a. Establezca **SAML authentication** (Autenticación SAML) como **Active** (Activada).
 
 
-    e. Set **SAML User Id location** to **NameIdentifier element of the subject statement**.
+    b. En el Portal de Azure AD clásico, copie el valor de **Dirección URL de inicio de sesión único de SAML** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión del proveedor de identidades**.
+
+    c. En el Portal de Azure AD clásico, copie el valor de **Dirección URL del servicio de cierre de sesión único** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión del proveedor de identidades**.
+
+    d. Haga clic en **Elegir archivo** para seleccionar el certificado de Keylight descargado y después haga clic en **Abrir** para cargarlo.
+
+
+    e. Establezca **SAML User Id location** (Ubicación de id. de usuario de SAML) en **NameIdentifier element of the subject statement** (Elemento NameIdentifier de la instrucción Subject).
    
-    f. Provide the **Keylight Service Provider using the following pattern: **https://&lt;Company Name&gt;.keylightgrc.com**.
+    f. Proporcione la información del campo **Proveedor de servicios de Keylight mediante el siguiente patrón: **https://&lt;Companynombre de la compañía&gt;.keylightgrc.com**.
 
-    g. Set **Auto-provision users** to **Active**.
+    g. Establezca **Auto-provision users** (Usuarios de aprovisionamiento automático) en **Active** (Activado).
 
-    h. Set **Auto-provision account type** to **Full User**.
+    h. Establezca **Auto-provision account type** (Tipo de cuenta de aprovisionamiento automático) en **Full User** (Usuario completo).
 
-    i. As **Auto-provision security role**, select **Standard User with SAML**.
+    i. En el campo **Auto-provision security role** (Rol de seguridad de aprovisionamiento automático), seleccione **Standard User with SAML** (Usuario estándar con SAML).
    
-    j. As **Auto-provision security config**, select **Standard User Configuration**.
+    j. En el campo **Auto-provision security config** (Configuración de seguridad de aprovisionamiento automático), seleccione **Standard User Configuration** (Configuración de usuario estándar).
    
-    k. In the Email attribute textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    k. En el cuadro de texto Email Attribute (Atributo de correo electrónico), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
-    l. In the **First name attribute** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    l. En el cuadro de texto **First name attribute** (Atributo de nombre), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
 
-    m. In the **Last name attribute** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    m. En el cuadro de texto **Last name attribute** (Atributo de apellido), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 
-    n. Click **Save**.
-   
-  
+    n. Haga clic en **Guardar**.
    
   
-6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+   
+  
+6. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
 
-    ![Azure AD Single Sign-On][10]
+	![Inicio de sesión único de Azure AD][10]
 
-7. On the **Single sign-on confirmation** page, click **Complete**.  
+7. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.
 
-    ![Azure AD Single Sign-On][11]
+	![Inicio de sesión único de Azure AD][11]
 
 
 
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-In this section, you create a test user in the Azure classic portal called Britta Simon.
+### Creación de un usuario de prueba de Azure AD
+En esta sección, se crea un usuario de prueba llamado Britta Simon en el Portal de Azure clásico.
 
-In the Users list, select **Britta Simon**.
+En la lista Usuarios, seleccione **Britta Simon**.
 
-![Create Azure AD User][20]
+![Creación de un usuario de Azure AD][20]
 
 
 
-**To create a test user in Azure AD, perform the following steps:**
+**Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**.
+1. En el panel de navegación izquierdo del **Portal de Azure clásico**, haga clic en **Active Directory**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-keylight-tutorial/create_aaduser_09.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_09.png)
 
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
-3. To display the list of users, in the menu on the top, click **Users**.
+3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-keylight-tutorial/create_aaduser_03.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_03.png)
 
 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-keylight-tutorial/create_aaduser_04.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_04.png)
 
-5. On the **Tell us about this user** dialog page, perform the following steps:
+5. En la página del cuadro de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-keylight-tutorial/create_aaduser_05.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_05.png)
 
-    a. As Type Of User, select New user in your organization.
+    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    c. Click **Next**.
+    c. Haga clic en **Siguiente**.
 
-6.  On the **User Profile** dialog page, perform the following steps:
+6.  En la página del cuadro de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-keylight-tutorial/create_aaduser_06.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_06.png)
 
-    a. In the **First Name** textbox, type **Britta**.  
+    a. En el cuadro de texto **Nombre**, escriba **Britta**.
 
-    b. In the **Last Name** textbox, type, **Simon**.
+    b. En el cuadro de texto **Apellidos**, escriba **Simon**.
 
-    c. In the **Display Name** textbox, type **Britta Simon**.
+    c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
 
-    d. In the **Role** list, select **User**.
+    d. En la lista **Rol**, seleccione **Usuario**.
 
-    e. Click **Next**.
+    e. Haga clic en **Siguiente**.
 
-7. On the **Get temporary password** dialog page, click **create**.
+7. En la página del cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-keylight-tutorial/create_aaduser_07.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_07.png)
 
-8. On the **Get temporary password** dialog page, perform the following steps:
+8. En la página del cuadro de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-keylight-tutorial/create_aaduser_08.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_08.png)
 
-    a. Write down the value of the **New Password**.
+    a. Anote el valor del campo **Nueva contraseña**.
 
-    b. Click **Complete**.   
+    b. Haga clic en **Completo**.
 
 
 
-### <a name="creating-a-keylight-test-user"></a>Creating a Keylight test user
+### Crear un usuario de prueba de Keylight
 
-In this section, you create a user called Britta Simon in Keylight. Keylight supports just-in-time provisioning, which is enabled by default.
+En esta sección, creará un usuario llamado Britta Simon en Keylight. Keylight admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada.
 
-There is no action item for you in this section. A new user is created when accessing Keylight if the user doesn't exist yet. 
+No hay ningún elemento de acción para usted en esta sección. Se crea un nuevo usuario al acceder a Keylight en caso de que el usuario todavía no exista.
 
-> [AZURE.NOTE] If you need to create a user manually, you need to contact the Keylight support team.
+> [AZURE.NOTE] Si necesita crear manualmente un usuario, debe ponerse en contacto con el equipo de soporte técnico de Keylight.
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
+### Asignación del usuario de prueba de Azure AD
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Keylight.
+En esta sección, permitirá que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a Keylight.
 
-![Assign User][200] 
+![Asignar usuario][200]
 
-**To assign Britta Simon to Keylight, perform the following steps:**
+**Para asignar a Britta Simon a Keylight, realice los pasos siguientes:**
 
-1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+1. En el Portal de Azure clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
 
-    ![Assign User][201] 
+	![Asignar usuario][201]
 
-2. In the applications list, select **Keylight**.
+2. En la lista de aplicaciones, seleccione **Keylight**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_50.png) 
+	![Configurar inicio de sesión único](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_50.png)
 
-1. In the menu on the top, click **Users**.
+1. En el menú de la parte superior, haga clic en **Usuarios**.
 
-    ![Assign User][203] 
+	![Asignar usuario][203]
 
-1. In the Users list, select **Britta Simon**.
+1. En la lista Usuarios, seleccione **Britta Simon**.
 
-2. In the toolbar on the bottom, click **Assign**.
+2. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
 
-    ![Assign User][205]
+	![Asignar usuario][205]
 
 
 
-### <a name="testing-single-sign-on"></a>Testing Single Sign-On
+### Prueba del inicio de sesión único
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-When you click the Keylight tile in the Access Panel, you should get automatically signed-on to your Keylight application.
+Al hacer clic en el icono de Keylight en el Panel de acceso, debería iniciar sesión automáticamente en la aplicación Keylight.
 
 
-## <a name="additional-resources"></a>Additional Resources
+## Recursos adicionales
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 
@@ -330,8 +329,4 @@ When you click the Keylight tile in the Access Panel, you should get automatical
 [204]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_205.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

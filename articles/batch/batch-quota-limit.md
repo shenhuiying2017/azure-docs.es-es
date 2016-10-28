@@ -1,105 +1,104 @@
 <properties
-    pageTitle="Batch service quotas and limits | Microsoft Azure"
-    description="Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases"
-    services="batch"
-    documentationCenter=""
-    authors="mmacy"
-    manager="timlt"
-    editor=""/>
+	pageTitle="Límites y cuotas del servicio Lote | Microsoft Azure"
+	description="Obtenga información sobre las restricciones, los límites y las cuotas de Azure Batch predeterminados y cómo solicitar un aumento de la cuota."
+	services="batch"
+	documentationCenter=""
+	authors="mmacy"
+	manager="timlt"
+	editor=""/>
 
 <tags
-    ms.service="batch"
-    ms.workload="big-compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/10/2016"
-    ms.author="marsma"/>
+	ms.service="batch"
+	ms.workload="big-compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/10/2016"
+	ms.author="marsma"/>
 
+# Cuotas y límites del servicio de Lote de Azure
 
-# <a name="quotas-and-limits-for-the-azure-batch-service"></a>Quotas and limits for the Azure Batch service
+Al igual que en otros servicios de Azure, existen límites en determinados recursos asociados con el servicio Lote. Muchos de ellos son cuotas predeterminadas que Azure aplica en el nivel de cuenta o suscripción. En este artículo se describen esos valores predeterminados y cómo solicitar un aumento de la cuota.
 
-As with other Azure services, there are limits on certain resources associated with the Batch service. Many of these limits are default quotas applied by Azure at the subscription or account level. This article discusses those defaults, and how you can request quota increases.
+Si planea ejecutar cargas de trabajo de producción en Lote, es posible que tenga que aumentar el valor predeterminado de una o varias de las cuotas. Si desea aumentar una cuota, puede abrir una [solicitud de soporte técnico al cliente](#increase-a-quota) en línea sin ningún costo.
 
-If you plan to run production workloads in Batch, you may need to increase one or more of the quotas above the default. If you want to raise a quota, you can open an online [customer support request](#increase-a-quota) at no charge.
+>[AZURE.NOTE] Una cuota es un límite de crédito, no una garantía de capacidad. Si tiene necesidades de capacidad a gran escala, póngase en contacto con el soporte técnico de Azure.
 
->[AZURE.NOTE] A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, please contact Azure support.
-
-## <a name="subscription-quotas"></a>Subscription quotas
-**Resource**|**Default Limit**|**Maximum Limit**
+## Cuotas de suscripción
+**Recurso**|**Límite predeterminado**|**Límite máximo**
 ---|---|---
-Batch accounts per region per subscription | 1 | 50
+Cuentas de Lote por región y suscripción | 1 | 50
 
-## <a name="batch-account-quotas"></a>Batch account quotas
+## Cuotas de la cuenta de Lote
 [AZURE.INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
-## <a name="other-limits"></a>Other limits
-**Resource**|**Maximum Limit**
+## Otros límites
+**Recurso**|**Límite máximo**
 ---|---
-[Concurrent tasks](batch-parallel-node-tasks.md) per compute node | 4 x number of node cores
-[Applications](batch-application-packages.md) per Batch account        | 20
-Application packages per application  | 40
-Application package size (each)       | Approx. 195GB<sup>1</sup>
+[Tareas simultáneas](batch-parallel-node-tasks.md) por nodo de proceso | 4 × número de núcleos de nodo
+[Aplicaciones](batch-application-packages.md) por cuenta de Lote | 20 |
+Paquetes de aplicación por aplicación | 40
+Tamaño del paquete de aplicación (cada uno) | Aprox. 195 GB<sup>1</sup>
 
-<sup>1</sup> Azure Storage limit for maximum block blob size
+<sup>1</sup> Límite de Almacenamiento de Azure para el tamaño máximo de blob en bloques
 
-## <a name="view-batch-quotas"></a>View Batch quotas
+## Visualización de las cuotas de Lote
 
-View your Batch account quotas in the [Azure portal][portal].
+Vea las cuotas de la cuenta de Lote en el [Portal de Azure][portal].
 
-1. Select **Batch accounts** in the portal, then select the Batch account you're interested in.
+1. Seleccione **Cuentas de Batch** en el portal y, luego, seleccione la cuenta de Batch que le interesan.
 
-2. Select **Properties** on the Batch account's menu blade
+2. Seleccione **Propiedades** en la hoja del menú de la cuenta de Batch
 
-3. The Properties blade displays the **quotas** currently applied to the Batch account
+3. La hoja Propiedades muestra las **cuotas** que hay aplicadas actualmente en la cuenta de Batch.
 
-    ![Batch account quotas][account_quotas]
+	![Cuotas de la cuenta de Lote][account_quotas]
 
-## <a name="increase-a-quota"></a>Increase a quota
+## Aumento de la cuota
 
-Follow the steps below to request a quota increase using the [Azure portal][portal].
+Siga los pasos a continuación para solicitar un aumento de la cuota mediante el [Portal de Azure][portal].
 
-1. Select the **Help + support** tile on your portal dashboard, or the question mark (**?**) in the upper-right corner of the portal.
+1. Seleccione el icono **Ayuda y soporte técnico** en el panel del portal o el signo de interrogación (**?**) en la esquina superior derecha del portal.
 
-2. Select **New support request** > **Basics**.
+2. Seleccione **Nueva solicitud de soporte técnico** > **Básico**.
 
-3. On the **Basics** blade:
+3. En la hoja **Básico**:
 
-    a. **Issue Type** > **Quota**
+	a. **Tipo de problema** > **Cuota**
 
-    b. Select your subscription.
+	b. Seleccione su suscripción.
 
-    c. **Quota type** > **Batch**
+	c. **Tipo de cuota** > **Lote**
 
-    d. **Support plan** > **Quota support - Included**
+	d. **Plan de soporte técnico** > **Quota support - Included** (Soporte de cuota incluido)
 
-    Click **Next**.
+	Haga clic en **Siguiente**.
 
-4. On the **Problem** blade:
+4. En la hoja **Problema**:
 
-    a. Select a **Severity** according to your [business impact][support_sev].
+	a. Seleccione una de las opciones en **Gravedad** según su [impacto en el negocio][support_sev].
 
-    b. In **Details**, specify each quota you want to change, the Batch account name, and the new limit.
+	b. En **Detalles**, especifique cada cuota que desee cambiar, el nombre de cuenta de Lote y el nuevo límite.
 
-    Click **Next**.
+	Haga clic en **Siguiente**.
 
-5. On the **Contact information** blade:
+5. En la hoja **Información de contacto**:
 
-    a. Select a **Preferred contact method**.
+	a. Seleccione un valor en **Método de contacto preferido**.
 
-    b. Verify and enter the required contact details.
+	b. Compruebe y especifique los detalles de contacto necesarios.
 
-    Click **Create** to submit the support request.
+	Haga clic en **Crear** para enviar la solicitud de soporte técnico.
 
-Once you've submitted your support request, Azure support will contact you. Note that completing the request can take up to 2 business days.
+Una vez que haya enviado la solicitud de soporte técnico, el servicio de soporte técnico de Azure se comunicará con usted. Tenga en cuenta que se puede tardar hasta 2 días laborables en completar la solicitud.
 
-## <a name="related-topics"></a>Related topics
+## Temas relacionados
 
-* [Create an Azure Batch account using the Azure portal](batch-account-create-portal.md)
+* [Creación de una cuenta de Lote de Azure con el Portal de Azure](batch-account-create-portal.md)
 
-* [Azure Batch feature overview](batch-api-basics.md)
+* [Información general de las características de Lote de Azure](batch-api-basics.md)
 
-* [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md)
+* [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
@@ -107,8 +106,4 @@ Once you've submitted your support request, Azure support will contact you. Note
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

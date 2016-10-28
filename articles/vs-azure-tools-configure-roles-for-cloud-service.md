@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configure the Roles for an Azure Cloud Service with Visual Studio | Microsoft Azure"
-   description="Learn how to set up and configure roles for Azure cloud services by using Visual Studio."
+   pageTitle="Configuración de los roles para un servicio en la nube de Azure con Visual Studio | Microsoft Azure"
+   description="Aprenda a instalar y a configurar roles para servicios en la nube de Azure mediante Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,100 +15,99 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Configuración de los roles para un servicio en la nube de Azure con Visual Studio
 
-# <a name="configure-the-roles-for-an-azure-cloud-service-with-visual-studio"></a>Configure the Roles for an Azure Cloud Service with Visual Studio
-
-An Azure cloud service can have one or more worker or web roles. For each role you need to define how that role is set up and also configure how that role runs. To learn more about roles in cloud services, see the video [Introduction to Azure Cloud Services](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services). The information for your cloud service is stored in the following files:
+Un servicio en la nube de Azure puede tener uno o más roles web o de trabajo. Para cada rol debe definir cómo se configura ese rol y también configurar cómo se ejecuta. Para obtener más información sobre los roles en servicios en la nube, vea el vídeo [Introducción a los servicios en la nube de Azure](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services). La información para su servicio en la nube se almacena en los siguientes archivos:
 
 - **ServiceDefinition.csdef**
 
-    The service definition file defines the runtime settings for your cloud service including what roles are required, endpoints, and virtual machine size. None of the data stored in this file can be changed when your role is running.
+    El archivo de definición de servicio define la configuración del tiempo de ejecución de su servicio en la nube, incluidos los roles que se requieren, los extremos y el tamaño de la máquina virtual. Ninguno de los datos almacenados en este archivo se puede cambiar cuando se ejecuta el rol.
 
 - **ServiceConfiguration.cscfg**
 
-    The service configuration file configures how many instances of a role are run and the values of the settings defined for a role. The data stored in this file can be changed while your role is running.
+    El archivo de configuración de servicio configura el número de instancias de un rol que se ejecutan y los valores de la configuración definida para un rol. Los datos almacenados en este archivo se pueden cambiar mientras se ejecuta el rol.
 
-To be able to store different values for these settings for how your role runs, you can have multiple service configurations. You can use a different service configuration for each deployment environment. For example, you can set your storage account connection string to use the local Azure storage emulator in a local service configuration and create another service configuration to use the Azure storage in the cloud.
+Para poder almacenar diferentes valores para esta configuración para el funcionamiento de su rol, puede tener varias configuraciones del servicio. Puede usar una configuración de servicio diferente para cada entorno de implementación. Por ejemplo, puede establecer su cadena de conexión de la cuenta de almacenamiento para usar el emulador de almacenamiento de Azure local en una configuración de servicio local y crear otra configuración del servicio para usar el almacenamiento de Azure en la nube.
 
-When you create a new Azure cloud service in Visual Studio, two service configurations are created by default. These configurations are added to your Azure project. The configurations are named:
+Cuando cree un nuevo servicio en la nube de Azure en Visual Studio, se crearán dos configuraciones de servicio de forma predeterminada. Estas configuraciones se agregan a su proyecto de Azure. Las configuraciones se denominan:
 
 - ServiceConfiguration.Cloud.cscfg
 
 - ServiceConfiguration.Local.cscfg
 
-## <a name="configure-an-azure-cloud-service"></a>Configure an Azure cloud service
+## Configurar un servicio en la nube de Azure
 
-You can configure an Azure cloud service from Solution Explorer in Visual Studio, as shown in the following illustration.
+Puede configurar un servicio en la nube de Azure desde el Explorador de soluciones en Visual Studio, como se muestra en la siguiente ilustración.
 
-![Configure Cloud Service](./media/vs-azure-tools-configure-roles-for-cloud-service/IC713462.png)
+![Configuración de un servicio en la nube](./media/vs-azure-tools-configure-roles-for-cloud-service/IC713462.png)
 
-### <a name="to-configure-an-azure-cloud-service"></a>To configure an Azure cloud service
+### Para configurar un servicio en la nube de Azure
 
-1. To configure each role in your Azure project from **Solution Explorer**, open the shortcut menu for the role in the Azure project and then choose **Properties**.
+1. Para configurar cada rol en un proyecto de Azure desde el **Explorador de soluciones**, abra el menú contextual para el rol en el proyecto de Azure y luego elija **Propiedades**.
 
-    A page with the name of the role is displayed in the Visual Studio editor. The page displays the fields for the **Configuration** tab.
+    Se mostrará una página con el nombre del rol en el editor de Visual Studio. La página muestra los campos de la pestaña **Configuración**.
 
-1. In the **Service Configuration** list, choose the name of the service configuration that you want to edit.
+1. En la lista **Configuración del servicio**, elija el nombre de la configuración del servicio que quiere editar.
 
-    If you want to make changes to all of the service configurations for this role, you can choose **All Configurations**.
+    Si desea realizar cambios en todas las configuraciones del servicio para este rol, puede elegir **Todas las configuraciones**.
 
-    >[AZURE.IMPORTANT] If you choose a specific service configuration, some properties are disabled because they can only be set for all configurations. To edit these properties, you must choose All Configurations.
+    >[AZURE.IMPORTANT] Si elige una configuración de servicio específica, algunas propiedades están deshabilitadas porque solo se pueden establecer para todas las configuraciones. Para editar estas propiedades, debe elegir Todas las configuraciones.
 
-    You can now choose a tab to update any enabled properties on that view.
+    Ahora puede elegir una pestaña para actualizar cualquier propiedad habilitada en esa vista.
 
-## <a name="change-the-number-of-role-instances"></a>Change the number of role instances
+## Cambiar el número de instancias de rol
 
-To improve the performance of your cloud service, you can change the number of instances of a role that are running, based on the number of users or the load expected for a particular role. A separate virtual machine is created for each instance of a role when the cloud service runs in Azure. This will affect the billing for the deployment of this cloud service. For more information about billing, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
+Para mejorar el rendimiento de su servicio en la nube, puede cambiar el número de instancias de un rol que se están ejecutando, en función del número de usuarios o de la carga esperada para un rol concreto. Se crea una máquina virtual independiente para cada instancia de un rol cuando se ejecuta el servicio en la nube en Azure. Esto afectará a la facturación de la implementación de este servicio en la nube. Para obtener más información sobre la facturación, vea [Comprender la factura de Microsoft Azure](billing-understand-your-bill.md).
 
-### <a name="to-change-the-number-of-instances-for-a-role"></a>To change the number of instances for a role
+### Para cambiar el número de instancias para un rol
 
-1. Choose the **Configuration** tab.
+1. Elija la pestaña **Configuración**.
 
-1. In the **Service Configuration** list, choose the service configuration that you want to update.
+1. En la lista **Configuración del servicio**, elija la configuración del servicio que quiera actualizar.
 
-    >[AZURE.NOTE] You can set the instance count for a specific service configuration or for all service configurations.
+    >[AZURE.NOTE] Puede establecer el recuento de instancias para una configuración de servicio específico o para todas las configuraciones de servicio.
 
-1. In the **Instance count** text box, enter the number of instances that you want to start for this role.
+1. En el cuadro de texto **Recuento de instancias**, escriba el número de instancias que quiere iniciar para este rol.
 
-    >[AZURE.NOTE] Each instance is run on a separate virtual machine when you publish your cloud service to Azure.
+    >[AZURE.NOTE] Cada instancia se ejecuta en una máquina virtual independiente al publicar su servicio en la nube en Azure.
 
-1. Choose the **Save** button on the toolbar to save these changes to the service configuration file.
+1. Elija el botón **Guardar** en la barra de herramientas para guardar estos cambios en el archivo de configuración de servicio.
 
-## <a name="manage-connection-strings-for-storage-accounts"></a>Manage connection strings for storage accounts
+## Administrar cadenas de conexión para cuentas de almacenamiento
 
-You can add, remove or modify connection strings for your service configurations. You might want different connection strings for different service configurations. For example, you might want a local connection string for a local service configuration that has a value of `UseDevelopmentStorage=true`. You might also want to configure a cloud service configuration that uses a storage account in Azure.
+Puede agregar, quitar o modificar cadenas de conexión para sus configuraciones de servicio. Es posible que quiera diferentes cadenas de conexión para distintas configuraciones del servicio. Por ejemplo, es posible que quiera una cadena de conexión local para una configuración de servicio local que tiene un valor de `UseDevelopmentStorage=true`. También puede que desee configurar una configuración de servicio en la nube que use una cuenta de almacenamiento de Azure.
 
->[AZURE.WARNING] When you enter the Azure storage account key information for a storage account connection string, this information is stored locally in the service configuration file. However, this information is currently not stored as encrypted text.
+>[AZURE.WARNING] Al especificar la información de la clave de la cuenta de almacenamiento de Azure para una cadena de conexión de la cuenta de almacenamiento, esta información se almacena localmente en el archivo de configuración de servicio. Sin embargo, esta información no se almacena actualmente como texto cifrado.
 
-By using a different value for each service configuration, you do not have to use different connection strings in your cloud service or modify your code when you publish your cloud service to Azure. You can use the same name for the connection string in your code and the value will be different, based on the service configuration that you select when you build your cloud service or when you publish it.
+Si usa un valor diferente para cada configuración de servicio, no tendrá que usar cadenas de conexión diferentes en su servicio en la nube ni modificar su código al publicar su servicio en la nube en Azure. Puede usar el mismo nombre para la cadena de conexión en el código y el valor será diferente, en función de la configuración del servicio que selecciona al crear su servicio en la nube o al publicarlo.
 
-### <a name="to-manage-connection-strings-for-storage-accounts"></a>To manage connection strings for storage accounts
+### Para administrar cadenas de conexión para cuentas de almacenamiento
 
-1. Choose the **Settings** tab.
+1. Elija la pestaña **Configuración**.
 
-1. In the **Service Configuration** list, choose the service configuration that you want to update.
+1. En la lista **Configuración del servicio**, elija la configuración del servicio que quiera actualizar.
 
-    >[AZURE.NOTE] You can update connection strings for a specific service configuration, but if you need to add or delete a connection string you must select All Configurations.
+    >[AZURE.NOTE] Puede actualizar las cadenas de conexión para una configuración de servicio específica, pero si necesita agregar o eliminar una cadena de conexión, debe seleccionar Todas las configuraciones.
 
-1. To add a connection string, choose the **Add Setting** button. A new entry is added to the list.
+1. Para agregar una cadena de conexión, elija el botón **Agregar configuración**. Se agrega una nueva entrada a la lista.
 
-1. In the **Name** text box, type the name that you want to use for the connection string.
+1. En el cuadro de texto **Nombre**, escriba el nombre que quiere usar para la cadena de conexión.
 
-1. In the **Type** drop-down list, choose **Connection String**.
+1. En la lista desplegable **Tipo**, elija **Cadena de conexión**.
 
-1. To change the value for the connection string, choose the ellipsis (...) button. The **Create Storage Connection String** dialog box appears.
+1. Para cambiar el valor de la cadena de conexión, elija el botón de puntos suspensivos (...). Aparecerá el cuadro de diálogo **Crear cadena de conexión de almacenamiento**.
 
-1. To use the local storage account emulator, choose the **Microsoft Azure storage emulator** option button and then choose the **OK** button.
+1. Para usar el emulador de la cuenta de almacenamiento local, elija el botón de opción **Emulador de almacenamiento de Microsoft Azure** y luego elija el botón **Aceptar**.
 
-1. To use a storage account in Azure, choose the **Your subscription** option button and select the desired storage account.
+1. Para usar una cuenta de almacenamiento en Azure, elija el botón de opción **Su suscripción** y seleccione la cuenta de almacenamiento que quiera.
 
-1. To use custom credentials, choose the **Manually entered credentials** options button. Enter the storage account name, and either the primary or second key. For information about how to create a storage account and how to enter the details for the storage account in the **Create Storage Connection String** dialog box, see [Prepare to publish or deploy an Azure application from Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
+1. Para usar las credenciales personalizadas, elija el botón de opciones **Credenciales especificadas manualmente**. Escriba el nombre de la cuenta de almacenamiento y la clave principal o secundaria. Para obtener información sobre cómo crear una cuenta de almacenamiento y sobre cómo escribir los detalles de la cuenta de almacenamiento en el cuadro de diálogo **Crear cadena de conexión de almacenamiento**, vea [Preparación para publicar o implementar una aplicación de Azure desde Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
 
-1. To delete a connection string, select the connection string and then choose the **Remove Setting** button.
+1. Para eliminar una cadena de conexión, selecciónela y luego elija el botón **Quitar configuración**.
 
-1. Choose the **Save** icon on the toolbar to save these changes to the service configuration file.
+1. Elija el icono **Guardar** en la barra de herramientas para guardar estos cambios en el archivo de configuración de servicio.
 
-1. To access the connection string in the service configuration file, you must get the value of the configuration setting. The following code shows an example where blob storage is created and data uploaded using a connection string `MyConnectionString` from the service configuration file when a user chooses **Button1** on the Default.aspx page in the web role for an Azure cloud service. Add the following using statements to Default.aspx.cs:
+1. Para obtener acceso a la cadena de conexión en el archivo de configuración de servicio, debe obtener el valor de la opción de configuración. El código siguiente muestra un ejemplo de donde se crea el almacenamiento de blobs y se cargan los datos mediante una cadena de conexión `MyConnectionString` desde el archivo de configuración de servicio cuando un usuario elige **Button1** en la página Default.aspx del rol web para un servicio en la nube de Azure. Agregue las siguientes instrucciones using a Default.aspx.cs:
 
     ```
     using Microsoft.WindowsAzure;
@@ -116,7 +115,7 @@ By using a different value for each service configuration, you do not have to us
     using Microsoft.WindowsAzure.ServiceRuntime;
     ```
 
-1. Open Default.aspx.cs in design view, and add a button from the toolbox. Add the following code to the `Button1_Click` method. This code uses `GetConfigurationSettingValue` to get the value from the service configuration file for the connection string. Then a blob is created in the storage account that is referenced in the connection string `MyConnectionString` and finally the program adds text to the blob.
+1. Abra Default.aspx.cs en la vista de diseño y agregue un botón del cuadro de herramientas. Agregue el siguiente código al método `Button1_Click`. Este código usa `GetConfigurationSettingValue` para obtener el valor del archivo de configuración de servicio para la cadena de conexión. A continuación, se crea un blob en la cuenta de almacenamiento a la que se hace referencia en la cadena de conexión `MyConnectionString` y finalmente el programa agrega texto al blob.
 
     ```
     protected void Button1_Click(object sender, EventArgs e)
@@ -134,37 +133,37 @@ By using a different value for each service configuration, you do not have to us
     }
     ```
 
-## <a name="add-custom-settings-to-use-in-your-azure-cloud-service"></a>Add custom settings to use in your Azure cloud service
+## Agregar valores personalizados para usarlos en su servicio en la nube de Azure
 
-Custom settings in the service configuration file let you add a name and value for a string for a specific service configuration. You might choose to use this setting to configure a feature in your cloud service by reading the value of the setting and using this value to control the logic in your code. You can change these service configuration values without having to rebuild your service package or when your cloud service is running. Your code can check for notifications of when a setting changes. See [RoleEnvironment.Changing Event](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx).
+La configuración personalizada del archivo de configuración de servicio le permite agregar un nombre y un valor para una cadena de una configuración de servicio específico. Puede elegir usar esta configuración para definir una característica en su servicio en la nube leyendo el valor de la configuración y usando este valor para controlar la lógica de su código. Puede cambiar estos valores de configuración de servicio sin tener que volver a generar el paquete de servicio o cuando se ejecuta el servicio en la nube. Su código puede buscar las notificaciones de cuando cambia un valor. Vea [RoleEnvironment.Changing Event](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx).
 
-You can add, remove or modify custom settings for your service configurations. You might want different values for these strings for different service configurations.
+Puede agregar, quitar o modificar valores personalizados para sus configuraciones de servicio. Es posible que quiera valores diferentes para estas cadenas para distintas configuraciones del servicio.
 
-By using a different value for each service configuration, you do not have to use different strings in your cloud service or modify your code when you publish your cloud service to Azure. You can use the same name for the string in your code and the value will be different, based on the service configuration that you select when you build your cloud service or when you publish it.
+Al usar un valor diferente para cada configuración de servicio, no tendrá que usar distintas cadenas en su servicio en la nube ni modificar su código al publicar su servicio en la nube en Azure. Puede usar el mismo nombre para la cadena en el código y el valor será diferente, en función de la configuración del servicio que selecciona al crear su servicio en la nube o al publicarlo.
 
-### <a name="to-add-custom-settings-to-use-in-your-azure-cloud-service"></a>To add custom settings to use in your Azure cloud service
+### Para agregar valores personalizados para usarlos en su servicio en la nube de Azure
 
-1. Choose the **Settings** tab.
+1. Elija la pestaña **Configuración**.
 
-1. In the **Service Configuration** list, choose the service configuration that you want to update.
+1. En la lista **Configuración del servicio**, elija la configuración del servicio que quiera actualizar.
 
-    >[AZURE.NOTE] You can update strings for a specific service configuration, but if you need to add or delete a string, you must select **All Configurations**.
+    >[AZURE.NOTE] Puede actualizar las cadenas para una configuración de servicio específico, pero si necesita agregar o eliminar una cadena, debe seleccionar **Todas las configuraciones**.
 
-1. To add a string, choose the **Add Setting** button. A new entry is added to the list.
+1. Para agregar una cadena, elija el botón **Agregar configuración**. Se agrega una nueva entrada a la lista.
 
-1. In the **Name** text box, type the name that you want to use for the string.
+1. En el cuadro de texto **Nombre**, escriba el nombre que quiere usar para la cadena.
 
-1. In the **Type** drop-down list, choose **String**.
+1. En la lista desplegable **Tipo**, elija **Cadena**.
 
-1. To add or change the value for the string, in the **Value** text box type the new value.
+1. Para agregar o cambiar el valor de la cadena, en el cuadro de texto **Valor** escriba el nuevo valor.
 
-1. To delete a string, select the string and then choose the **Remove Setting** button.
+1. Para eliminar una cadena, seleccione la cadena y luego elija el botón **Quitar configuración**.
 
-1. Choose the **Save** button on the toolbar to save these changes to the service configuration file.
+1. Elija el botón **Guardar** en la barra de herramientas para guardar estos cambios en el archivo de configuración de servicio.
 
-1. To access the string in the service configuration file, you must get the value of the configuration setting.
+1. Para obtener acceso a la cadena en el archivo de configuración de servicio, debe obtener el valor de la opción de configuración.
 
-    You need to make sure that the following using statements are already added to Default.aspx.cs just as you did in the previous procedure.
+    Debe asegurarse de que las siguientes instrucciones using se han agregado a Default.aspx.cs igual que lo hizo en el procedimiento anterior.
 
     ```
     using Microsoft.WindowsAzure;
@@ -172,7 +171,7 @@ By using a different value for each service configuration, you do not have to us
     using Microsoft.WindowsAzure.ServiceRuntime;
     ```
 
-1. Add the following code to the `Button1_Click` method to access this string in the same way that you access a connection string. Your code can then perform some specific code based on the value of the settings string for the service configuration file that is used.
+1. Agregue el código siguiente al método `Button1_Click` para acceder a esta cadena de la misma manera que lo haría para una cadena de conexión. El código puede realizar algún código concreto en función del valor de la cadena de configuración para el archivo de configuración de servicio que se usa.
 
     ```
     var settingValue = RoleEnvironment.GetConfigurationSettingValue("MySetting");
@@ -182,42 +181,42 @@ By using a different value for each service configuration, you do not have to us
     }
     ```
 
-## <a name="manage-local-storage-for-each-role-instance"></a>Manage local storage for each role instance
+## Administrar el almacenamiento local para cada instancia de rol
 
-You can add local file system storage for each instance of a role. You can store local data here that does not need to be accessed by other roles. Any data that you do not need to save into table, blob, or SQL Database storage can be stored in here. For example, you could use this local storage to cache data that might need to be used again. This stored data can’t be accessed by other instances of a role. 
+Puede agregar almacenamiento del sistema de archivos local para cada instancia de un rol. Puede almacenar los datos locales aquí a los que no necesitan obtener acceso otros roles. Los datos que no tenga que guardar en tabla, blob o almacenamiento de base de datos SQL pueden almacenarse aquí. Por ejemplo, podría usar este almacenamiento local para almacenar datos en caché que deben volver a usarse. No se puede tener acceso a estos datos almacenados por otras instancias de un rol.
 
-Local storage settings apply to all service configurations. You can only add, remove, or modify local storage for all service configurations.
+Los valores de almacenamiento local se aplican a todas las configuraciones de servicio. Solo puede agregar, quitar o modificar el almacenamiento local para todas las configuraciones de servicio.
 
-### <a name="to-manage-local-storage-for-each-role-instance"></a>To manage local storage for each role instance
+### Para administrar el almacenamiento local para cada instancia de rol
 
-1. Choose the **Local Storage** tab.
+1. Elija la pestaña **Almacenamiento local**.
 
-1. In the **Service Configuration** list, choose **All Configurations**.
+1. En la lista **Configuración de servicio**, elija **Todas las configuraciones**.
 
-1. To add a local storage entry, choose the **Add Local Storage** button. A new entry is added to the list.
+1. Para agregar una entrada de almacenamiento local, elija el botón **Agregar almacenamiento local**. Se agrega una nueva entrada a la lista.
 
-1. In the **Name** text box, type the name that you want to use for this local storage.
+1. En el cuadro de texto **Nombre**, escriba el nombre que quiere usar para este almacenamiento local.
 
-1. In the **Size** text box, type the size in MB that you need for this local storage.
+1. En el cuadro de texto **Tamaño**, escriba el tamaño en MB que necesita para este almacenamiento local.
 
-1. To remove the data in this local storage when the virtual machine for this role is recycled, select the **Clean on role recycle** check box.
+1. Para quitar los datos en este almacenamiento local cuando se recicla la máquina virtual para este rol, active la casilla **Limpiar al reciclar rol**.
 
-1. To edit an existing local storage entry, choose the row that you need to update. Then you can edit the fields, as described in the previous steps.
+1. Para editar una entrada de almacenamiento local existente, elija la fila que necesita actualizar. Luego podrá editar los campos, como se describe en los pasos anteriores.
 
-1. To delete a local storage entry, choose the storage entry in the list and then choose the **Remove Local Storage** button.
+1. Para eliminar una entrada de almacenamiento local, elija la entrada de almacenamiento en la lista y luego elija el botón **Quitar el almacenamiento local**.
 
-1. To save these changes to the service configuration files, choose the **Save** icon on the toolbar.
+1. Para guardar estos cambios en el archivo de configuración de servicio, elija el icono **Guardar** en la barra de herramientas.
 
-1. To access the local storage that you have added in the service configuration file, you must get the value of the local resource configuration setting. Use the following lines of code to access this value and create a file called **MyStorageTest.txt** and write a line of test data into that file. You can add this code into the `Button_Click` method that you used in the previous procedures:
+1. Para tener acceso al almacenamiento local que ha agregado en el archivo de configuración de servicio, debe obtener el valor de la opción de configuración del recurso local. Use las siguientes líneas de código para tener acceso a este valor y cree un archivo llamado **MyStorageTest.txt** y escriba una línea de datos de prueba en ese archivo. Puede agregar este código al método `Button_Click` que usó en los procedimientos anteriores:
 
-1. You need to make sure that the following using statements are added to Default.aspx.cs:
+1. Debe asegurarse de que se agregan las siguientes instrucciones using a Default.aspx.cs:
 
     ```
     using System.IO;
     using System.Text;
     ```
 
-1. Add the following code to the `Button1_Click` method. This creates the file in the local storage and writes test data into that file.
+1. Agregue el siguiente código al método `Button1_Click`. Esto crea el archivo en el almacenamiento local y escribe los datos de prueba en ese archivo.
 
     ```
     // Retrieve an object that points to the local storage resource
@@ -234,151 +233,147 @@ Local storage settings apply to all service configurations. You can only add, re
     }
     ```
 
-1. (Optional) To view this file that you created when you run your cloud service locally, use the following steps:
+1. (Opcional) Para ver este archivo que ha creado al ejecuta su servicio en la nube localmente, lleve a cabo los pasos siguientes:
 
-  1. Run the web role and select **Button1** to make sure that the code inside `Button1_Click` gets called.
+  1. Ejecute el rol web y seleccione **Button1** para asegurarse de que se llama al código que se encuentra dentro de `Button1_Click`.
 
-  1. In the notification area, open the shortcut menu for the Azure icon and choose **Show Compute Emulator UI**. The **Azure Compute Emulator** dialog box appears.
+  1. En el área de notificación, abra el menú contextual del icono de Azure y elija **Mostrar la interfaz de usuario del emulador de proceso**. Aparece el cuadro de diálogo **Emulador de proceso de Azure** .
 
-  1. Select the web role.
+  1. Seleccione el rol web.
 
-  1. On the menu bar, choose **Tools**, **Open local store**. A Windows Explorer window appears.
+  1. En la barra de menús, elija **Herramientas**, **Abrir almacén local**. Aparecerá una ventana del explorador de Windows.
 
-  1. On the menu bar, enter **MyStorageTest.txt** into the **Search** text box and then choose **Enter** to start the search.
+  1. En la barra de menús, escriba **MyStorageTest.txt** en el cuadro de texto **Búsqueda** texto y luego elija **Entrar** para iniciar la búsqueda.
 
-    The file is displayed in the search results.
+    El archivo se muestra en los resultados de la búsqueda.
 
-  1. To view the contents of the file, open the shortcut menu for the file and choose **Open**.
+  1. Para ver el contenido del archivo, abra el menú contextual para el archivo y elija **Abrir**.
 
-## <a name="collect-cloud-service-diagnostics"></a>Collect cloud service diagnostics
+## Recopilar diagnóstico del servicio en la nube
 
-You can collect diagnostics data for your Azure cloud service. This data is added to a storage account. You might want different connection strings for different service configurations. For example, you might want a local storage account for a local service configuration that has a value of UseDevelopmentStorage=true. You might also want to configure a cloud service configuration that uses a storage account in Azure. For more information about Azure diagnostics, see Collect Logging Data by Using Azure Diagnostics.
+Puede recopilar datos de diagnóstico para el servicio en la nube de Azure. Estos datos se agregan a una cuenta de almacenamiento. Es posible que quiera diferentes cadenas de conexión para distintas configuraciones del servicio. Por ejemplo, es posible que quiera una cuenta de almacenamiento local para una configuración de servicio local que tiene un valor de UseDevelopmentStorage=true. También puede que desee configurar una configuración de servicio en la nube que use una cuenta de almacenamiento de Azure. Para obtener más información sobre los diagnósticos de Azure, consulte Recopilar datos de registro mediante Diagnósticos de Azure.
 
->[AZURE.NOTE] The local service configuration is already configured to use local resources. If you use the cloud service configuration to publish your Azure cloud service, the connection string that you specify when you publish is also used for the diagnostics connection string unless you have specified a connection string. If you package your cloud service using Visual Studio, the connection string in the service configuration is not changed.
+>[AZURE.NOTE] La configuración del servicio local ya está configurada para usar los recursos locales. Si usa la configuración del servicio en la nube para publicar su servicio en la nube de Azure, la cadena de conexión que especifique al publicar también se utiliza para la cadena de conexión de diagnóstico a menos que haya especificado una cadena de conexión. Si empaqueta su servicio en la nube con Visual Studio, no se cambia la cadena de conexión en la configuración del servicio.
 
-### <a name="to-collect-cloud-service-diagnostics"></a>To collect cloud service diagnostics
+### Para recopilar diagnóstico del servicio en la nube
 
-1. Choose the **Configuration** tab.
+1. Elija la pestaña **Configuración**.
 
-1. In the **Service Configuration** list, choose the service configuration that you want to update or choose **All Configurations**.
+1. En la lista **Configuración del servicio**, elija la configuración del servicio que quiere actualizar o elija **Todas las configuraciones**.
 
-    >[AZURE.NOTE] You can update the storage account for a specific service configuration, but if you want to enable or disable diagnostics you must choose All Configurations.
+    >[AZURE.NOTE] Puede actualizar la cuenta de almacenamiento para una configuración de servicio específica, pero si quiere habilitar o deshabilitar los diagnósticos, debe elegir Todas las configuraciones.
 
-1. To enable diagnostics, select the **Enable Diagnostics** check box.
+1. Para habilitar los diagnósticos, active la casilla **Habilitar diagnósticos**.
 
-1. To change the value for the storage account, choose the ellipsis (...) button.
+1. Para cambiar el valor de la cuenta de almacenamiento, elija el botón de puntos suspensivos (...).
 
-    The **Create Storage Connection String** dialog box appears.
+    Aparecerá el cuadro de diálogo **Crear cadena de conexión de almacenamiento**.
 
-1. To use a local connection string, choose Azure storage emulator option and then choose the **OK** button.
+1. Para usar una cadena de conexión local, elija la opción del emulador de almacenamiento de Azure y luego elija el botón **Aceptar**.
 
-1. To use a storage account associated with your Azure subscription, choose the **Your subscription** option.
+1. Para usar una cuenta de almacenamiento asociada a su suscripción de Azure, elija la opción **Su suscripción**.
 
-1. To use a storage account for the local connection string, choose the **Manually entered credentials** option.
+1. Para usar una cuenta de almacenamiento para la cadena de conexión local, elija la opción **Credenciales especificadas manualmente**.
 
-    For more information about how to create a storage account and how to enter the details for the storage account in the **Create Storage Connection String** dialog box, see [Prepare to publish or deploy an Azure application from Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
+    Para obtener más información sobre cómo crear una cuenta de almacenamiento y sobre cómo escribir los detalles de la cuenta de almacenamiento en el cuadro de diálogo **Crear cadena de conexión de almacenamiento**, vea [Preparación para publicar o implementar una aplicación de Azure desde Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
 
-1. Choose the storage account you want to use in **Account name**.
+1. Elija la cuenta de almacenamiento que quiera usar en **Nombre de cuenta**.
 
-    If you are manually entering your storage account credentials, copy or type your primary key in **Account key**. This key can be copied from the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). To copy this key, following these steps from the **Storage Accounts** view in the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885):
+    Si va a especificar manualmente sus credenciales de la cuenta de almacenamiento, copie o escriba su clave principal en **Clave de cuenta**. Esta clave se puede copiar desde el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885). Para copiar esta clave, siga estos pasos desde la vista **Cuentas de almacenamiento** en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885):
     
-  1. Select the storage account that you want to use for your cloud service.
+  1. Seleccione la cuenta de almacenamiento que quiera usar para su servicio en la nube.
 
-  1. Choose the **Manage Access Keys** button located at the bottom of the screen. The **Manage Access Keys** dialog box appears.
+  1. Elija el botón **Administrar claves de acceso** que se encuentra en la parte inferior de la pantalla. Aparecerá el cuadro de diálogo **Administrar claves de acceso**.
 
-  1. To copy the access key, choose the **Copy to clipboard** button. You can now paste this key into the **Account key** field.
+  1. Para copiar la clave de acceso, elija el botón **Copiar al Portapapeles**. Ahora puede pegar esta clave en el campo **Clave de cuenta**.
 
-1. To use the storage account that you provide, as the connection string for diagnostics (and caching) when you publish your cloud service to Azure, select the **Update development storage connection strings for Diagnostics and Caching with Azure storage account credentials when publishing to Azure** check box.
+1. Para usar la cuenta de almacenamiento proporcionada como la cadena de conexión para diagnósticos (y almacenamiento en caché) cuando publica su servicio en la nube en Azure, active la casilla **Actualizar cadenas de conexión de almacenamiento de desarrollo para diagnóstico y almacenamiento en caché con las credenciales de la cuenta de almacenamiento de Azure al publicar en Azure**.
 
-1. Choose the **Save** button on the toolbar to save these changes to the service configuration file.
+1. Elija el botón **Guardar** en la barra de herramientas para guardar estos cambios en el archivo de configuración de servicio.
 
-## <a name="change-the-size-of-the-virtual-machine-used-for-each-role"></a>Change the size of the virtual machine used for each role
+## Cambiar el tamaño de la máquina virtual que se usa para cada rol
 
-You can set the virtual machine size for each role. You can only set this size for all service configurations. If you select a smaller machine size, then less CPU cores, memory and local disk storage is allocated. The allocated bandwidth is also smaller. For more information about these sizes and the resources allocated, see [Sizes for Cloud Services](cloud-services/cloud-services-sizes-specs.md).
+Puede establecer el tamaño de la máquina virtual para cada rol. Solo puede establecer este tamaño para todas las configuraciones de servicio. Si selecciona un tamaño de máquina menor, se asignarán menos núcleos de CPU, memoria y almacenamiento en disco local. El ancho de banda asignado también es menor. Para obtener más información sobre estos tamaños y los recursos asignados, vea [Tamaños para los Servicios en la nube](cloud-services/cloud-services-sizes-specs.md).
 
-The resources required for each virtual machine in Azure affects the cost of running your cloud service in Azure. For more information about Azure Billing, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
+Los recursos necesarios para cada máquina virtual en Azure afectan al costo de ejecutar su servicio en la nube en Azure. Para obtener más información sobre la facturación de Azure, vea [Comprender la factura de Microsoft Azure](billing-understand-your-bill.md).
 
-### <a name="to-change-the-size-of-the-virtual-machine"></a>To change the size of the virtual machine
+### Para cambiar el tamaño de la máquina virtual
 
-1. Choose the **Configuration** tab.
+1. Elija la pestaña **Configuración**.
 
-1. In the **Service Configuration** list, choose **All Configurations**.
+1. En la lista **Configuración de servicio**, elija **Todas las configuraciones**.
 
-1. To select the size for the virtual machine for this role, choose the appropriate size from the **VM size** list.
+1. Para seleccionar el tamaño de la máquina virtual para este rol, elija el tamaño adecuado en la lista **Tamaño de VM**.
 
-1. Choose the **Save** button on the toolbar to save these changes to the service configuration file.
+1. Elija el botón **Guardar** en la barra de herramientas para guardar estos cambios en el archivo de configuración de servicio.
 
-## <a name="manage-endpoints-and-certificates-for-your-roles"></a>Manage endpoints and certificates for your roles
+## Administrar extremos y certificados para sus roles
 
-You configure networking endpoints by specifying the protocol, the port number, and, for HTTPS, the SSL certificate information. Releases before June 2012 support HTTP, HTTPS, and TCP. The June 2012 release supports those protocols and UDP. You can’t use UDP for input endpoints in the compute emulator. You can use that protocol only for internal endpoints.
+Para configurar los extremos de redes, especifique el protocolo, el número de puerto y, para HTTPS, la información del certificado SSL. Las versiones anteriores a junio de 2012 admiten HTTP, HTTPS y TCP. La versión de junio de 2012 admite esos protocolos y UDP. No puede usar UDP para los extremos de entrada en el emulador de proceso. Puede usar ese protocolo solo para los extremos internos.
 
-To improve the security of your Azure cloud service, you can create endpoints that use the HTTPS protocol. For example, if you have a cloud service that is used by customers to purchase orders, you want to make sure that their information is secure by using SSL.
+Para mejorar la seguridad de su servicio en la nube de Azure, puede crear extremos que usen el protocolo HTTPS. Por ejemplo, si tiene un servicio en la nube que se usa por los clientes para pedidos de compra, querrá asegurarse de que su información es segura usando SSL.
 
-You can also add endpoints that can be used internally or externally. External endpoints are called input endpoints. An input endpoint allows another access point to users to your cloud service. If you have a WCF service, you might want to expose an internal endpoint for a web role to use to access this service.
+También puede agregar extremos que se pueden usar interna o externamente. Los extremos externos se denominan extremos de entrada. Un extremo de entrada permite otro punto de acceso a los usuarios para su servicio en la nube. Si tiene un servicio WCF, es posible que quiera exponer un extremo interno para que un rol web tenga acceso a este servicio.
 
->[AZURE.IMPORTANT] You can only update endpoints for all service configurations.
+>[AZURE.IMPORTANT] Solo puede actualizar extremos para todas las configuraciones de servicio.
 
-If you add HTTPS endpoints, you need to use an SSL certificate. To do this you can associate certificates with your role for all service configurations and use these for your endpoints.
+Si agrega extremos HTTPS, debe usar un certificado SSL. Para ello, puede asociar certificados a su rol para todas las configuraciones de servicio y usarlos para sus extremos.
 
->[AZURE.IMPORTANT] These certificates are not packaged with your service. You must upload your certificates separately to Azure through the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+>[AZURE.IMPORTANT] Estos certificados no se empaquetan con su servicio. Debe cargar sus certificados por separado en Azure mediante el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-Any management certificates that you associate with your service configurations apply only when your cloud service runs in Azure. When your cloud service runs in the local development environment, a standard certificate that is managed by the Azure compute emulator is used.
+Cualquier certificado de administración que asocie a sus configuraciones de servicio solo se aplicarán cuando se ejecute su servicio en la nube en Azure. Cuando su servicio en la nube se ejecute en el entorno de desarrollo local, se usará un certificado estándar administrado por el emulador de proceso de Azure.
 
-### <a name="to-add-a-certificate-to-a-role"></a>To add a certificate to a role
+### Para agregar un certificado a un rol
 
-1. Choose the **Certificates** tab.
+1. Elija la pestaña **Certificados**.
 
-1. In the **Service Configuration** list, choose **All Configurations**.
+1. En la lista **Configuración de servicio**, elija **Todas las configuraciones**.
 
-    >[AZURE.NOTE] To add or remove certificates, you must select All Configurations. You can update the name and the thumbprint for a specific service configuration if it is required.
+    >[AZURE.NOTE] Para agregar o quitar certificados, debe seleccionar Todas las configuraciones. Puede actualizar el nombre y la huella digital de una configuración de servicio concreta si es necesario.
 
-1. To add a certificate for this role, choose the **Add Certificate** button. A new entry is added to the list.
+1. Para agregar un certificado para este rol, elija el botón **Agregar certificado**. Se agrega una nueva entrada a la lista.
 
-1. In the **Name** text box, enter the name for the certificate.
+1. En el cuadro de texto **Nombre**, escriba el nombre del certificado.
 
-1. In the **Store Location** list, choose the location for the certificate that you want to add.
+1. En la lista **Ubicación del almacén**, elija la ubicación del certificado que quiere agregar.
 
-1. In the **Store Name** list, choose the store that you want to use to select the certificate.
+1. En la lista **Nombre de almacén**, elija el almacén que quiere usar para seleccionar el certificado.
 
-1. To add the certificate, choose the ellipsis (...) button. The **Windows Security** dialog box appears.
+1. Para agregar el certificado, elija el botón de puntos suspensivos (...). Aparecerá el cuadro de diálogo **Seguridad de Windows**.
 
-1. Choose the certificate that you want to use from the list and then choose the **OK** button.
+1. Elija el certificado que quiera usar en la lista y luego elija el botón **Aceptar**.
 
-    >[AZURE.NOTE] When you add a certificate from the certificate store, any intermediate certificates are added automatically to the configuration settings for you. These intermediate certificates must also be uploaded to Azure in order to correctly configure your service for SSL.
+    >[AZURE.NOTE] Al agregar un certificado del almacén de certificados, cualquier certificado intermedio se agrega automáticamente a la configuración. Estos certificados intermedios también se deben cargar en Azure para configurar el servicio correctamente para SSL.
 
-1. To delete a certificate, choose the certificate and then choose the **Remove Certificate** button.
+1. Para eliminar un certificado, seleccione el certificado y luego presione el botón **Quitar certificado**.
 
-1. Choose the **Save** icon in the toolbar to save these changes to the service configuration files.
+1. Elija el icono **Guardar** en la barra de herramientas para guardar estos cambios en los archivos de configuración de servicio.
 
-### <a name="to-manage-endpoints-for-a-role"></a>To manage endpoints for a role
+### Para administrar extremos para un rol
 
-1. Choose the **Endpoints** tab.
+1. Elija la pestaña **Extremos**.
 
-1. In the **Service Configuration** list, choose **All Configurations**.
+1. En la lista **Configuración de servicio**, elija **Todas las configuraciones**.
 
-1. To add an endpoint, choose the **Add Endpoint** button. A new entry is added to the list.
+1. Para agregar un extremo, elija el botón **Agregar extremo**. Se agrega una nueva entrada a la lista.
 
-1. In the **Name** text box, type the name that you want to use for this endpoint.
+1. En el cuadro de texto **Nombre**, escriba el nombre que quiera usar para este extremo.
 
-1. Choose the type of endpoint that you need from the **Type** list.
+1. Elija el tipo de extremo que necesita en la lista **Tipo**.
 
-1. Choose the protocol for the endpoint that you need from the **Protocol** list.
+1. Elija el protocolo para el extremo que necesita en la lista **Protocolo**.
 
-1. If it is an input endpoint, in the **Public Port** text box, enter the public port to use.
+1. Si es un extremo de entrada, en el cuadro de texto **Puerto público**, escriba el puerto público que quiere usar.
 
-1. In the **Private Port** text box type the private port to use.
+1. En el cuadro de texto **Puerto privado** escriba el puerto privado que quiere usar.
 
-1. If the endpoint requires the https protocol, in the **SSL Certificate Name** list choose a certificate to use.
+1. Si el extremo requiere el protocolo https, en la lista **Nombre del certificado SSL**, elija un certificado para usarlo.
 
-    >[AZURE.NOTE] This list shows the certificates that you have added for this role in the **Certificates** tab.
+    >[AZURE.NOTE] En esta lista se muestran los certificados que se han agregado para este rol en la pestaña **Certificados**.
 
-1. Choose the **Save** button on the toolbar to save these changes to the service configuration files.
+1. Elija el botón **Guardar** en la barra de herramientas para guardar estos cambios en los archivos de configuración de servicio.
 
-## <a name="next-steps"></a>Next steps
-Learn more about Azure projects in Visual Studio by reading [Configuring an Azure Project](vs-azure-tools-configuring-an-azure-project.md). Learn more about the cloud service schema by reading [Schema Reference](https://msdn.microsoft.com/library/azure/dd179398).
+## Pasos siguientes
+Para obtener más información sobre los proyectos de Azure en Visual Studio, consulte [Configurar un proyecto de Azure](vs-azure-tools-configuring-an-azure-project.md). Para obtener más información sobre el esquema del servicio en la nube, consulte [Referencia de esquema](https://msdn.microsoft.com/library/azure/dd179398).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

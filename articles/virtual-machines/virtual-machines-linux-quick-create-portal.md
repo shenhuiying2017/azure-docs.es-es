@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Create a Linux VM using the Azure Portal | Microsoft Azure"
-    description="Create a Linux VM using the Azure Portal."
+    pageTitle="Creación de una máquina virtual con Linux mediante el Portal de Azure | Microsoft Azure"
+    description="Cree una máquina virtual con Linux mediante el Portal de Azure."
     services="virtual-machines-linux"
     documentationCenter=""
     authors="vlivech"
@@ -19,68 +19,63 @@
     ms.author="v-livech"
 />
 
-
-# <a name="create-a-linux-vm-on-azure-using-the-portal"></a>Create a Linux VM on Azure using the Portal
-
-
-This article shows how to use the [Azure portal](https://portal.azure.com/) to create a Linux Virtual Machine quickly. The only requirements are [an Azure account](https://azure.microsoft.com/pricing/free-trial/) and [SSH public and private key files](virtual-machines-linux-mac-create-ssh-keys.md).
+# Creación de una máquina virtual de Linux en Azure mediante el Portal
 
 
-1. Signed into the Azure portal with your Azure account identity, click **+ New** in the upper left corner:
+En este artículo se muestra cómo usar el [Portal de Azure](https://portal.azure.com/) para crear una máquina virtual Linux rápidamente. Los únicos requisitos son [una cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/) y [archivos de clave pública y privada SSH](virtual-machines-linux-mac-create-ssh-keys.md).
+
+
+1. Inicie sesión en el Portal de Azure con la identidad de la cuenta de Azure y haga clic en **+ Nuevo** en la esquina superior izquierda:
 
     ![screen1](../media/virtual-machines-linux-quick-create-portal/screen1.png)
 
-2. Click **Virtual Machines** in the **Marketplace** then **Ubuntu Server 14.04 LTS** from the **Featured Apps** images list.  Verify at the bottom that the deployment model is `Resource Manager` and then click **Create**.
+2. Haga clic en **Máquinas virtuales** en **Marketplace** y luego en **Ubuntu Server 14.04 LTS** en la lista de imágenes **Aplicaciones destacadas**. En la parte inferior, compruebe que el modelo de implementación sea `Resource Manager` y haga clic en **Crear**.
 
     ![screen2](../media/virtual-machines-linux-quick-create-portal/screen2.png)
 
-3. On the **Basics** page, enter:
-    - a name for the VM
-    - a username for the Admin User
-    - the Authentication Type set to **SSH public key**
-    - your SSH public Key as a string (from your `~/.ssh/` directory)
-    - a resource group name or select an existing group
+3. En la página **Básico**, escriba:
+    - un nombre para la máquina virtual;
+    - un nombre de usuario para el usuario administrador;
+    - el tipo de autenticación, que debe ser **Clave pública SSH**;
+    - la clave pública SSH como cadena (del directorio `~/.ssh/`);
+    - un nombre de grupo de recursos o seleccione un grupo existente
 
-    and Click **OK** to continue and choose the VM size; it should look something like the following:
+    y haga clic en **Aceptar** para continuar y elegir el tamaño de la máquina virtual; debe ser similar a lo siguiente:
 
     ![screen3](../media/virtual-machines-linux-quick-create-portal/screen3.png)
 
-4. Choose the **DS1** size, which installs Ubuntu on a Premium SSD, and click **Select** to configure settings.
+4. Elija el tamaño **DS1**, que instala Ubuntu en una SSD Premium y haga clic en **Seleccionar** para configurar los valores.
 
     ![screen4](../media/virtual-machines-linux-quick-create-portal/screen4.png)
 
-5. In **Settings**, leave the defaults for Storage and Network values, and click **OK** to view the summary.  Notice the disk type has been set to Premium SSD by choosing DS1, the **S** notates SSD.
+5. En **Configuración**, deje los valores predeterminados de Almacenamiento y Red, y haga clic en **Aceptar** para ver el resumen. Observe que el tipo de disco se ha establecido en Premium (SSD) al elegir DS1; la **S** indica SSD.
 
     ![screen5](../media/virtual-machines-linux-quick-create-portal/screen5.png)
 
-6. Confirm the settings for your new Ubuntu VM, and click **OK**.
+6. Confirme la configuración de la nueva máquina virtual con Ubuntu y haga clic en **Aceptar**.
 
     ![screen6](../media/virtual-machines-linux-quick-create-portal/screen6.png)
 
-7. Open the Portal Dashboard and in **Network interfaces** choose your NIC
+7. Abra el panel del portal y, en **Interfaces de red**, elija su NIC.
 
     ![screen7](../media/virtual-machines-linux-quick-create-portal/screen7.png)
 
-8. Open the Public IP addresses menu under the NIC settings
+8. Abra el menú de direcciones IP públicas en la configuración de NIC.
 
     ![screen8](../media/virtual-machines-linux-quick-create-portal/screen8.png)
 
-9. SSH into the public IP using your SSH public key
+9. SSH en la dirección IP pública con la clave pública SSH
 
 ```
 ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
 ```
 
-## <a name="next-steps"></a>Next Steps
+## Pasos siguientes
 
-Now you've created a Linux VM quickly to use for testing or demonstration purposes. To create a Linux VM customized for your infrastructure, you can follow any of these articles.
+Ahora ha creado una máquina virtual con Linux rápidamente para usarla con fines de prueba o demostración. Para crear una máquina virtual Linux personalizada para su infraestructura, puede seguir cualquiera de estos artículos.
 
-- [Create a Linux VM on Azure using Templates](virtual-machines-linux-cli-deploy-templates.md)
-- [Create an SSH Secured Linux VM on Azure using Templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-- [Create a Linux VM using the Azure CLI](virtual-machines-linux-create-cli-complete.md)
+- [Implementación y administración de máquinas virtuales con plantillas de Azure Resource Manager y la CLI de Azure](virtual-machines-linux-cli-deploy-templates.md)
+- [Creación de una máquina virtual Linux protegida con SSH en Azure mediante plantillas](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+- [Creación de una máquina virtual con Linux desde cero con la CLI de Azure](virtual-machines-linux-create-cli-complete.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

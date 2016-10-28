@@ -1,6 +1,6 @@
 <properties
-pageTitle="Azure Active Directory Application and Service Principal Objects | Microsoft Azure"
-description="A discussion of the relationship between application and service principal objects in Azure Active Directory"
+pageTitle="Objetos de aplicación y de entidad de servicio de Azure Active Directory | Microsoft Azure"
+description="Una descripción de la relación entre los objetos de aplicación y de entidad de servicio en Azure Active Directory"
 documentationCenter="dev-center-name"
 authors="bryanla"
 manager="mbaldwin"
@@ -16,47 +16,46 @@ ms.workload="identity"
 ms.date="08/10/2016"
 ms.author="bryanla;mbaldwin"/>
 
+# Objetos de aplicación y de entidad de servicio de Azure Active Directory
+Cuando lee sobre una "aplicación" de Azure Active Directory (AD), no siempre es claro saber exactamente a qué hace referencia el autor. El objetivo de este artículo es intentar aclararlo, definiendo los aspectos concretos y conceptuales de integración de aplicaciones de Azure AD con un ejemplo de registro y su consentimiento para una [aplicación multiinquilino](active-directory-dev-glossary.md#multi-tenant-application).
 
-# <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Application and service principal objects in Azure Active Directory
-When you read about an Azure Active Directory (AD) "application", it's not always clear exactly what is being referred to by the author. The goal of this article is to make it clearer, by defining the conceptual and concrete aspects of Azure AD application integration, with an example of registration and consent for a [multi-tenant application](active-directory-dev-glossary.md#multi-tenant-application).
+## Información general
+El concepto de aplicación de Azure AD es más amplio que simplemente una parte del software. Es un término conceptual, que hace referencia no solo al software de la aplicación, sino también a su registro (también conocido como configuración de identidad) con Azure AD, que permite participar en las "conversaciones" de autenticación y autorización en tiempo de ejecución. Por definición, una aplicación puede funcionar en un rol de [cliente](active-directory-dev-glossary.md#client-application) (al consumir un recurso), un rol de [servidor de recursos](active-directory-dev-glossary.md#resource-server) (al exponer las API a los clientes), o incluso ambos. El protocolo de conversación se define mediante un [flujo de concesión de autorizaciones de OAuth 2.0](active-directory-dev-glossary.md#authorization-grant), con el objetivo de permitir que el cliente o recurso acceda o proteja los datos de un recurso respectivamente. Ahora vamos a profundizar un poco más y ver cómo representa una aplicación internamente el modelo de aplicaciones de Azure AD.
 
-## <a name="overview"></a>Overview
-An Azure AD application is broader than just a piece of software. It's a conceptual term, referring not only to application software, but also its registration (aka: identity configuration) with Azure AD, which allows it to participate in authentication and authorization "conversations" at runtime. By definition, an application can function in a [client](active-directory-dev-glossary.md#client-application) role (consuming a resource), a [resource server](active-directory-dev-glossary.md#resource-server) role (exposing APIs to clients), or even both. The conversation protocol is defined by an [OAuth 2.0 Authorization Grant flow](active-directory-dev-glossary.md#authorization-grant), with a goal of allowing the client/resource to access/protect a resource's data respectively. Now let's go a level deeper, and see how the Azure AD application model represents an application internally. 
+## Registro de la aplicación
+Al registrar una aplicación en el [Portal de Azure clásico][AZURE-Classic-Portal], se crean dos objetos en el inquilino de Azure AD: un objeto de aplicación y un objeto de entidad de servicio.
 
-## <a name="application-registration"></a>Application registration
-When you register an application in the [Azure classic portal][AZURE-Classic-Portal], two objects are created in your Azure AD tenant: an application object, and a service principal object.
+#### Objeto de aplicación
+Una aplicación de Azure AD se *define* por su único objeto de aplicación, que reside en el inquilino de Azure AD donde se registró la aplicación, conocido como inquilino "principal" de la aplicación. El objeto de aplicación proporciona información relacionada con la identidad de una aplicación y es la plantilla desde la que *proceden* sus correspondientes objetos de entidad de servicio para su uso en tiempo de ejecución.
 
-#### <a name="application-object"></a>Application object
-An Azure AD application is *defined* by its one and only application object, which resides in the Azure AD tenant where the application was registered, referred to as the application's "home" tenant. The application object provides identity-related information for an application, and is the template from which its corresponding service principal object(s) are *derived* for use at run-time. 
+Se puede pensar en la aplicación como una representación *global* de la aplicación (para su uso en todos los inquilinos) y la entidad de servicio como una representación *local* (para su uso en un inquilino específico). La [entidad de aplicación][AAD-Graph-App-Entity] de Azure AD Graph define el esquema de un objeto de aplicación. Por lo tanto, un objeto de aplicación tiene una relación 1:1 con la aplicación de software y una relación 1:*n* con sus correspondientes *n* objetos de entidad de servicio.
 
-You can think of the application as the *global* representation of your application (for use across all tenants), and the service principal as the *local* representation (for use in a specific tenant). The Azure AD Graph [Application entity][AAD-Graph-App-Entity] defines the schema for an application object. An application object therefore has a 1:1 relationship with the software application, and a 1:*n* relationship with its corresponding *n* service principal object(s).
+#### Objeto de entidad de servicio
+El objeto de entidad de servicio define la directiva y los permisos de una aplicación, que proporciona la base para una entidad de seguridad para representar la aplicación cuando se accede a los recursos en tiempo de ejecución. La [entidad ServicePrincipal][AAD-Graph-Sp-Entity] de Azure AD Graph define el esquema de un objeto de entidad de servicio.
 
-#### <a name="service-principal-object"></a>Service principal object
-The service principal object defines the policy and permissions for an application, providing the basis for a security principal to represent the application when accessing resources at run-time. The Azure AD Graph [ServicePrincipal entity][AAD-Graph-Sp-Entity] defines the schema for a service principal object. 
+Es necesario un objeto de entidad de servicio en cada inquilino para el que se debe representar una instancia de uso de la aplicación, lo que permite el acceso seguro a recursos que pertenecen a las cuentas de usuario de dicho inquilino. Una aplicación de un solo inquilino solamente tendrá una entidad de servicio (en su inquilino doméstica). Una [aplicación web](active-directory-dev-glossary.md#web-client) multiinquilino también tendrá una entidad de servicio en cada inquilino donde un administrador o incluso varios usuarios de ese inquilino han dado su consentimiento, lo que le permite tener acceso a sus recursos. Después de consentimiento, se consultará el objeto de entidad de servicio para las solicitudes de autorización futuras.
 
-A service principal object is required in each tenant for which an instance of the application's usage must be represented, enabling secure access to resources owned by user accounts from that tenant. A single-tenant application will have only one service principal (in its home tenant). A multi-tenant [Web application](active-directory-dev-glossary.md#web-client) will also have a service principal in each tenant where an administrator or user(s) from that tenant have given consent, allowing it to access their resources. Following consent, the service principal object will be consulted for future authorization requests. 
+> [AZURE.NOTE] Los cambios que realice en el objeto de aplicación también se reflejan en el objeto de entidad de servicio, solo en el inquilino principal de la aplicación (es decir, el inquilino en donde se registró). Para aplicaciones multiinquilino, los cambios realizados en el objeto de aplicación no se reflejan en los objetos de entidad de servicio del inquilino consumidor hasta que este quite el acceso y lo conceda de nuevo.
 
-> [AZURE.NOTE] Any changes you make to your application object, are also reflected in its service principal object in the application's home tenant only (the tenant where it was registered). For multi-tenant applications, changes to the application object are not reflected in any consumer tenants' service principal objects, until the consumer tenant removes access and grants access again.
+## Ejemplo
+En el siguiente se muestra la relación entre un objeto de aplicación de la aplicación y los objetos de entidad de servicio correspondientes, en el contexto de una aplicación multiinquilino de ejemplo denominada **HR app**. En este escenario hay tres inquilinos de Azure AD:
 
-## <a name="example"></a>Example
-The following diagram illustrates the relationship between an application's application object and corresponding service principal objects, in the context of a sample multi-tenant application called **HR app**. There are three Azure AD tenants in this scenario: 
+- **Adatum**: el inquilino usado por la empresa que desarrolló la **aplicación de recursos humanos**
+- **Contoso**: el inquilino usado por la organización Contoso, que es un consumidor de la **aplicación de recursos humanos**
+- **Fabrikam**: el inquilino usado por la organización Fabrikam, que también consume la **aplicación de recursos humanos**
 
-- **Adatum** - the tenant used by the company that developed the **HR app**
-- **Contoso** - the tenant used by the Contoso organization, which is a consumer of the **HR app**
-- **Fabrikam** - the tenant used by the Fabrikam organization, which also consumes the **HR app**
+![Relación entre un objeto de aplicación y un objeto de entidad de servicio](./media/active-directory-application-objects/application-objects-relationship.png)
 
-![Relationship between an application object and a service principal object](./media/active-directory-application-objects/application-objects-relationship.png)
+En el diagrama anterior, el paso 1 es el proceso de creación de los objetos de aplicación y de entidad de servicio del inquilino principal de la aplicación.
 
-In the previous diagram, Step 1 is the process of creating the application and service principal objects in the application's home tenant.
+En el paso 2, cuando los administradores de Contoso y Fabrikam completan el consentimiento, se crea un objeto de entidad de servicio en el inquilino de Azure AD de la empresa y se asignan los permisos que concede el administrador. Tenga en cuenta también que la aplicación de recursos humanos podría estar configurada o diseñada para dar consentimiento a los usuarios para el uso individual.
 
-In Step 2, when Contoso and Fabrikam administrators complete consent, a service principal object is created in their company's Azure AD tenant and assigned the permissions that the administrator granted. Also note that the HR app could be configured/designed to allow consent by users for individual use.
+En el paso 3, los inquilinos consumidores de la aplicación HR (Contoso y Fabrikam) tienen cada uno de ellos su propio objeto de entidad de servicio. Cada uno representa su uso de una instancia de la aplicación en tiempo de ejecución, que se rige por los permisos que consiente el administrador correspondiente.
 
-In Step 3, the consumer tenants of the HR application (Contoso and Fabrikam) each have their own service principal object. Each represents their use of an instance of the application at runtime, governed by the permissions consented by the respective administrator.
+## Pasos siguientes
+Se puede acceder al objeto de aplicación de la aplicación a través de la API Graph de Azure AD, tal como está representada por su [entidad Application][AAD-Graph-App-Entity] de OData.
 
-## <a name="next-steps"></a>Next steps
-An application's application object can be accessed via the Azure AD Graph API, as represented by its OData [Application entity][AAD-Graph-App-Entity]
-
-An application's service principal object can be accessed via the Azure AD Graph API, as represented by its OData [ServicePrincipal entity][AAD-Graph-Sp-Entity]
+Se puede acceder al objeto de entidad de servicio de la aplicación a través de la API Graph de Azure AD, tal como está representada por su [entidad ServicePrincipal][AAD-Graph-Sp-Entity] de OData.
 
 
 
@@ -67,7 +66,4 @@ An application's service principal object can be accessed via the Azure AD Graph
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AZURE-Classic-Portal]: https://manage.windowsazure.com
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

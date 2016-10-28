@@ -1,33 +1,30 @@
-There are some limits on the number of metrics and events per application (that is, per instrumentation key). 
+Hay algunos límites en el número de métricas y eventos por aplicación (es decir, por clave de instrumentación).
 
-Limits depend on the [pricing tier](https://azure.microsoft.com/pricing/details/application-insights/) that you choose.
+Los límites dependen del [nivel de precios](https://azure.microsoft.com/pricing/details/application-insights/) que elija.
 
-**Resource** | **Default Limit** | **Maximum Limit**
+**Recurso** | **Límite predeterminado** | **Límite máximo**
 -------- | ------------- | -------------
-Session data points<sup>1, 2</sup> per month | unlimited | 
-Total data points per month for request, event, dependency, trace, exception, and page view | 5 million | 50 million<sup>3</sup>
-[Trace and Log](../articles/application-insights/app-insights-search-diagnostic-logs.md) data rate | 200 dp/s | 500 dp/s
-[Exception](../articles/application-insights/app-insights-asp-net-exceptions.md) data rate | 50 dp/s | 50 dp/s
-Total data rate for request, event, dependency, and page view telemetry | 200 dp/s | 500 dp/s
-Raw data retention for [Search](../articles/application-insights/app-insights-diagnostic-search.md) and [Analytics](../articles/application-insights/app-insights-analytics.md) | 7 days
-Aggregated data retention for [Metrics explorer](../articles/application-insights/app-insights-metrics-explorer.md) | 90 days
-[Property](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) name count | 100 |
-Property name length | 150 | 
-Property value length | 8192 | 
-Trace and Exception message length | 10000 |
-[Metric](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) name count | 100 |
-Metric name length |  150 | 
-[Availability tests](../articles/application-insights/app-insights-monitor-web-app-availability.md) | 10 | 
+Puntos de datos de sesión<sup>1, 2</sup> por mes | sin límite | 
+Puntos de datos totales por mes de solicitud, evento, dependencia, seguimiento, excepción y vista de página | 5 millones | 50 millones<sup>3</sup>
+Velocidad de datos de [seguimiento y registro](../articles/application-insights/app-insights-search-diagnostic-logs.md) | 200 dp/s | 500 dp/s
+Velocidad de datos de [excepción](../articles/application-insights/app-insights-asp-net-exceptions.md) | 50 dp/s | 50 dp/s
+Velocidad total de datos de solicitud, evento, dependencia y telemetría de vista de página | 200 dp/s | 500 dp/s
+Retención de datos sin procesar para [Búsqueda](../articles/application-insights/app-insights-diagnostic-search.md) y [Análisis](../articles/application-insights/app-insights-analytics.md) | 7 días
+Retención de datos agregada para [Explorador de métricas](../articles/application-insights/app-insights-metrics-explorer.md) | 90 días
+Cantidad de nombres de [propiedad](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) | 100 |
+Longitud del nombre de la propiedad | 150 | 
+Longitud del valor de la propiedad | 8192 | 
+Longitud del mensaje de seguimiento y excepción | 10000 |
+Cantidad de nombres de [métrica](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) | 100 |
+Longitud del nombre de métrica | 150 | 
+[Pruebas de disponibilidad](../articles/application-insights/app-insights-monitor-web-app-availability.md) | 10 | 
 
-<sup>1</sup> A data point is an individual metric value or event, with attached properties and measurements.
+<sup>1</sup> Un punto de datos es un evento o valor métrico individual, con propiedades adjuntas y medidas.
 
-<sup>2</sup> A session data point logs the start or end of a session, and logs user identity.
+<sup>2</sup> Un punto de datos de sesión registra el inicio o el final de una sesión y registra la identidad del usuario.
 
-<sup>3</sup> You can purchase additional capacity beyond 50 million.
+<sup>3</sup> Puede comprar capacidad adicional por encima de 50 millones.
  
-[About pricing and quotas in Application Insights](../articles/application-insights/app-insights-pricing.md)
+[Información acerca de precios y cuotas para Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

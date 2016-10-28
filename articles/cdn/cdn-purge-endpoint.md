@@ -1,70 +1,65 @@
 <properties
-    pageTitle="Purge an Azure CDN endpoint | Microsoft Azure"
-    description="Learn how to purge all cached content from a CDN endpoint."
-    services="cdn"
-    documentationCenter=""
-    authors="camsoper"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Purga de un punto de conexión de red CDN de Azure| Microsoft Azure"
+	description="Obtenga información sobre cómo purgar todo el contenido almacenado en caché desde un punto de conexión de red CDN."
+	services="cdn"
+	documentationCenter=""
+	authors="camsoper"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="cdn"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/28/2016"
-    ms.author="casoper"/>
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2016"
+	ms.author="casoper"/>
 
+# Purgar un punto de conexión de red CDN de Azure
 
-# <a name="purge-an-azure-cdn-endpoint"></a>Purge an Azure CDN endpoint
+## Información general
 
-## <a name="overview"></a>Overview
+Los nodos perimetrales de la red CDN almacenarán recursos en caché hasta que el período de vida de dichos recursos (TTL) expire. Tras la expiración del TTL del activo, cuando un cliente solicite el activo desde el nodo perimetral, este nodo recuperará una nueva copia actualizada del activo para atender la solicitud de cliente y almacenar actualizada la memoria caché.
 
-Azure CDN edge nodes will cache assets until the asset's time-to-live (TTL) expires.  After the asset's TTL expires, when a client requests the asset from the edge node, the edge node will retrieve a new updated copy of the asset to serve the client request and store refresh the cache.
+A veces puede que quiera purgar contenido almacenado en caché de todos los nodos perimetrales y forzarlos todos para recuperar nuevos activos actualizados. Esto puede deberse a actualizaciones de la aplicación web o a actualizaciones rápidas de los activos de actualización que contienen información incorrecta.
 
-Sometimes you may wish to purge cached content from all edge nodes and force them all to retrieve new updated assets.  This might be due to updates to your web application, or to quickly update assets that contain incorrect information.
+> [AZURE.TIP] Tenga en cuenta que el purgado solo borra el contenido almacenado en caché de los servidores perimetrales de la red CDN. Es posible que las cachés de nivel inferior, como las cachés de servidores proxy y de explorador local, aún contengan una copia en caché del archivo. Es importante que recuerde esto cuando defina el período de vida de un archivo. Para hacer que un cliente de nivel inferior solicite la versión más reciente del archivo, asígnele un nombre único cada vez que lo actualice o use el [almacenamiento en caché de cadenas de consulta](cdn-query-string.md).
 
-> [AZURE.TIP] Note that purging only clears the cached content on the CDN edge servers.  Any downstream caches, such as proxy servers and local browser caches, may still hold a cached copy of the file.  It's important to remember this when you set a file's time-to-live.  You can force a downstream client to request the latest version of your file by giving it a unique name every time you update it, or by taking advantage of [query string caching](cdn-query-string.md).  
+Este tutorial le guiará a través de purga de los recursos de todos los nodos perimetrales de un punto de conexión.
 
-This tutorial walks you through purging assets from all edge nodes of an endpoint.
+## Tutorial
 
-## <a name="walkthrough"></a>Walkthrough
+1. En el [Portal de Azure](https://portal.azure.com), examine el perfil de red CDN que contiene el punto de conexión que quiera purgar.
 
-1. In the [Azure Portal](https://portal.azure.com), browse to the CDN profile containing the endpoint you wish to purge.
+2. En la hoja Perfil de CDN, haga clic en el botón para purgar.
 
-2. From the CDN profile blade, click the purge button.
+	![Hoja del perfil de red CDN](./media/cdn-purge-endpoint/cdn-profile-blade.png)
 
-    ![CDN profile blade](./media/cdn-purge-endpoint/cdn-profile-blade.png)
+	Abre la hoja para purgar.
 
-    The Purge blade opens.
+	![Hoja de purga de red CDN](./media/cdn-purge-endpoint/cdn-purge-blade.png)
 
-    ![CDN purge blade](./media/cdn-purge-endpoint/cdn-purge-blade.png)
+3. En la hoja para purgar, seleccione la dirección del servicio que quiera purgar en la lista desplegable de la dirección URL.
 
-3. On the Purge blade, select the service address you wish to purge from the URL dropdown.
+	![Formulario para purgar](./media/cdn-purge-endpoint/cdn-purge-form.png)
 
-    ![Purge form](./media/cdn-purge-endpoint/cdn-purge-form.png)
+	> [AZURE.NOTE] También puede obtener acceso a la hoja para purgar haciendo clic en el botón **Purgar** de la hoja del punto de conexión de red de CDN. En ese caso, el campo **URL** se rellenará previamente con la dirección del servicio de ese punto de conexión concreto.
 
-    > [AZURE.NOTE] You can also get to the Purge blade by clicking the **Purge** button on the CDN endpoint blade.  In that case, the **URL** field will be pre-populated with the service address of that specific endpoint.
+4. Seleccione los activos que quiera purgar de los nodos perimetrales. Si quiere borrar todos los recursos, haga clic en la casilla **Purgar todo**. De lo contrario, escriba la ruta de acceso completa de cada recurso que quiera purgar (por ejemplo, `/pictures/kitten.png`) en el cuadro de texto **Ruta de acceso**.
 
-4. Select what assets you wish to purge from the edge nodes.  If you wish to clear all assets, click the **Purge all** checkbox.  Otherwise, type the full path of each asset you wish to purge (e.g., `/pictures/kitten.png`) in the **Path** textbox.
+	> [AZURE.TIP] Aparecerán más cuadros de texto de **Ruta de acceso** después de escribir texto para permitirle crear una lista de varios activos. Puede eliminar activos en la lista haciendo clic en el botón de puntos suspensivos (...).
+	>
+	> Las rutas de acceso deben ser una dirección URL relativa que se ajuste a la siguiente [expresión regular](https://msdn.microsoft.com/library/az24scfc.aspx): `^\/(?:[a-zA-Z0-9-_.\u0020]+\/)**$";`. Para la **red CDN de Azure de Verizon** (estándar y premium), el asterisco (*) se puede usar como un carácter comodín (por ejemplo, `/music/*`). Los caracteres comodín y **Purgar todo** no se admiten con la **red CDN de Azure de Akamai**.
+	
+5. Haga clic en el botón **Purgar**.
 
-    > [AZURE.TIP] More **Path** textboxes will appear after you enter text to allow you to build a list of multiple assets.  You can delete assets from the list by clicking the ellipsis (...) button.
-    >
-    > Paths must be a relative URL that fit the following [regular expression](https://msdn.microsoft.com/library/az24scfc.aspx):  `^\/(?:[a-zA-Z0-9-_.\u0020]+\/)*\*$";`.  For **Azure CDN from Verizon** (Standard and Premium), asterisk (\*) may be used as a wildcard (e.g., `/music/*`).  Wildcards and  **Purge all** are not allowed with **Azure CDN from Akamai**.
-    
-5. Click the **Purge** button.
+	![Botón Purgar](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
-    ![Purge button](./media/cdn-purge-endpoint/cdn-purge-button.png)
+> [AZURE.IMPORTANT] Las solicitudes de purga tardan aproximadamente de 2 a 3 minutos en procesarse con la red **CDN de Azure de Verizon** (estándar y premium) y unos 7 minutos con la **red CDN de Azure de Akamai**. La red CDN de Azure tiene un límite de 50 solicitudes de purga simultáneas en un momento dado.
 
-> [AZURE.IMPORTANT] Purge requests take approximately 2-3 minutes to process with **Azure CDN from Verizon** (Standard and Premium), and approximately 7 minutes with **Azure CDN from Akamai**.  Azure CDN has a limit of 50 concurrent purge requests at any given time. 
+## Consulte también
+- [Carga previa de activos en un punto de conexión de CDN de Azure](cdn-preload-endpoint.md)
+- [Referencia de la API de REST de red de CDN de Azure - purgar o cargar previamente un punto de conexión](https://msdn.microsoft.com/library/mt634451.aspx)
 
-## <a name="see-also"></a>See also
-- [Pre-load assets on an Azure CDN endpoint](cdn-preload-endpoint.md)
-- [Azure CDN REST API reference - Purge or Pre-Load an Endpoint](https://msdn.microsoft.com/library/mt634451.aspx)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

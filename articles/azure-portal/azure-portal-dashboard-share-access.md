@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure portal dashboard access | Microsoft Azure"
-   description="This article explains how to share access to a dashboard in the Azure portal."
+   pageTitle="Acceso al panel del Portal de Azure | Microsoft Azure"
+   description="En este artículo se explica cómo compartir el acceso a un panel en el Portal de Azure."
    services="azure-portal"
    documentationCenter=""
    authors="tfitzmac"
@@ -16,73 +16,69 @@
    ms.date="08/01/2016"
    ms.author="tomfitz"/>
 
+# Uso compartido de paneles de Azure
 
-# <a name="sharing-azure-dashboards"></a>Sharing Azure dashboards
+Después de configurar un panel, puede publicarlo y compartirlo con otros usuarios de su organización. Permita que otros usuarios tengan acceso al panel mediante el [Control de acceso basado en roles](../active-directory/role-based-access-control-configure.md) de Azure. Asigne un usuario o grupo de usuarios a un rol y ese rol definirá si los usuarios pueden ver o modificar el panel publicado.
 
-After configuring a dashboard, you can publish it and share it with other users in your organization. You permit others to access your dashboard by using Azure [Role Based Access Control](../active-directory/role-based-access-control-configure.md). You assign a user or group of users to a role, and that role defines whether those users can view or modify the published dashboard. 
+Todos los paneles publicados se implementan como recursos de Azure, lo que significa que existen como elementos administrables dentro de su suscripción y se encuentran en un grupo de recursos. Desde una perspectiva de control de acceso, los paneles no son distintos de otros recursos como una máquina virtual o una cuenta de almacenamiento.
 
-All published dashboards are implemented as Azure resources, which means they exist as manageable items within your subscription and are contained in a resource group.  From an access control perspective, dashboards are no different than other resources, such as a virtual machine or a storage account.
+> [AZURE.TIP] Los iconos individuales del panel tendrán sus propios requisitos de control de acceso en función de los recursos que muestran. Esto significa que puede diseñar un panel que se comparta ampliamente mientras sigue protegiendo los datos de iconos individuales.
 
-> [AZURE.TIP] Individual tiles on the dashboard enforce their own access control requirements based on the resources they display.  Therefore, you can design a dashboard that is shared broadly while still protecting the data on individual tiles.
+## Descripción del control de acceso para los paneles
 
-## <a name="understanding-access-control-for-dashboards"></a>Understanding access control for dashboards
-
-With role-based access control, you can assign users to roles at three different levels of scope:
+Mediante el control de acceso basado en roles, puede asignar a usuarios a los roles en tres niveles distintos de ámbito:
 
 - subscription
 - resource group
 - resource
 
-The permissions you assign are inherited from subscription down to the resource. The published dashboard is a resource. Therefore, you may already have users assigned to roles for the subscription which also work for the published dashboard. 
+Los permisos que asigne se heredan desde la suscripción hasta el recurso. El panel publicado es un recurso. Por lo tanto, es posible que ya tenga usuarios asignados a los roles de la suscripción que también funcionen para el panel publicado.
 
-Here is an example.  Let's say you have an Azure subscription and various members of your team have been assigned the roles of **owner**, **contributor**, or **reader** for the subscription. Users who are owners or contributors are able to list, view, create, modify, or delete dashboards within the subscription.  Users who are readers are able to list and view dashboards, but cannot modify or delete them.  Users with reader access are able to make local edits to a published dashboard (such as, when troubleshooting an issue), but are not able to publish those changes back to the server.  They will have the option to make a private copy of the dashboard for themselves
+Aquí tiene un ejemplo. Supongamos que tiene una suscripción de Azure y que a varios miembros del equipo se les han asignado los roles de **propietario**, **colaborador** o **lector** de la suscripción. Los usuarios que son propietarios o colaboradores pueden enumerar, ver, crear, modificar o eliminar paneles dentro de la suscripción. Los usuarios que sean lectores pueden enumerar y ver los paneles, pero no pueden modificarlos ni eliminarlos. Los usuarios con acceso de lectura pueden realizar modificaciones locales en un panel publicado (por ejemplo, para solucionar un problema), pero no tienen la opción de publicar esos cambios de vuelta en el servidor. Podrán realizar una copia privada del panel para ellos mismos.
 
-However, you could also assign permissions to the resource group that contains several dashboards or to an individual dashboard. For example, you may decide that a group of users should have limited permissions across the subscription but greater access to a particular dashboard. You assign those users to a role for that dashboard. 
+Sin embargo, también puede asignar permisos al grupo de recursos que contiene varios paneles o a un panel individual. Por ejemplo, puede decidir que un grupo de usuarios tenga permisos limitados a través de la suscripción pero un mayor acceso a un panel determinado. Asigne estos usuarios a un rol para ese panel.
 
-## <a name="publish-dashboard"></a>Publish dashboard
+## Publicación del panel
 
-Let's suppose you have finished configuring a dashboard that you want to share with a group of users in your subscription. The steps below depict a customized group called Storage Managers, but you can name your group whatever you would like. For information about creating an Active Directory group and adding users to that group, see [Managing groups in Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
+Supongamos que ha terminado de configurar un panel que desea compartir con un grupo de usuarios de la suscripción. Los pasos siguientes describen un grupo personalizado denominado Administradores de almacenamiento, pero puede llamar al grupo como desee. Para más información sobre cómo crear un grupo de Active Directory y agregar usuarios a ese grupo, consulte [Administración de grupos en Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
 
-1. In the dashboard, select **Share**.
+1. En el panel, seleccione **Compartir**.
 
-     ![select share](./media/azure-portal-dashboard-share-access/select-share.png)
+     ![seleccionar recurso compartido](./media/azure-portal-dashboard-share-access/select-share.png)
 
-2. Before assigning access, you must publish the dashboard. By default, the dashboard will be published to a resource group named **dashboards**. Select **Publish**.
+2. Antes de asignar el acceso, debe publicar el panel. De forma predeterminada, el panel se publicará en un grupo de recursos denominado **paneles**. Seleccione **Publicar**.
 
      ![publish](./media/azure-portal-dashboard-share-access/publish.png)
 
-Your dashboard is now published. If the permissions inherited from the subscription are suitable, you do not need to do anything more. Other users in your organization will be able to access and modify the dashboard based on their subscription level role. However, for this tutorial, let's assign a group of users to a role for that dashboard.
+Tras esto, el panel ya se ha publicado. Si son adecuados los permisos heredados de la suscripción, ya no es necesario hacer nada más. Otros usuarios de la organización podrán acceder y modificar el panel según su rol de nivel de suscripción. Sin embargo, para este tutorial, vamos a asignar un grupo de usuarios a un rol de ese panel.
 
-## <a name="assign-access-to-a-dashboard"></a>Assign access to a dashboard
+## Asignación de acceso a un panel
 
-1. After publishing the dashboard, select **Manage users**.
+1. Después de publicar el panel, seleccione **Administrar usuarios**.
 
-     ![manage users](./media/azure-portal-dashboard-share-access/manage-users.png)
+     ![administrar usuarios](./media/azure-portal-dashboard-share-access/manage-users.png)
 
-2. You will see a list of existing users that are already assigned a role for this dashboard. Your list of existing users will be different than the image below. Most likely, the assignments are inherited from the subscription. To add a new user or group, select **Add**.
+2. Verá una lista de los usuarios existentes que ya están asignados a un rol para este panel. La lista de usuarios existentes será diferente a la de la imagen siguiente. Probablemente, las asignaciones se heredan de la suscripción. Seleccione **Agregar** para agregar un usuario o grupo nuevo.
 
-     ![add user](./media/azure-portal-dashboard-share-access/existing-users.png)
+     ![agregar usuario](./media/azure-portal-dashboard-share-access/existing-users.png)
 
-3. Select the role that represents the permissions you would like to grant. For this example, select **Contributor**.
+3. Seleccione el rol que representa los permisos que desea conceder. En este ejemplo, seleccione **Colaborador**.
 
-     ![select role](./media/azure-portal-dashboard-share-access/select-role.png)
+     ![seleccionar rol](./media/azure-portal-dashboard-share-access/select-role.png)
 
-4. Select the user or group that you wish to assign to the role. If you do not see the user or group you are looking for in the list, use the search box. Your list of available groups will depend on the groups you have created in your Active Directory.
+4. Seleccione el usuario o grupo que desea asignar al rol. Si no ve el usuario o grupo que está buscando en la lista, utilice el cuadro de búsqueda. La lista de grupos disponibles dependerá de los grupos que haya creado en Active Directory.
 
-     ![select user](./media/azure-portal-dashboard-share-access/select-user.png) 
+     ![seleccionar usuario](./media/azure-portal-dashboard-share-access/select-user.png)
 
-5. When you have finished adding users or groups, select **OK**. 
+5. Cuando haya terminado de agregar usuarios o grupos, seleccione **Aceptar**.
 
-6. The new assignment is added to the list of users. Notice that its **Access** is listed as **Assigned** rather than **Inherited**.
+6. La nueva asignación se agrega a la lista de usuarios. Observe que su **acceso** aparece como **Asignado** en lugar de **Heredado**.
 
-     ![assigned roles](./media/azure-portal-dashboard-share-access/assigned-roles.png)
+     ![roles asignados](./media/azure-portal-dashboard-share-access/assigned-roles.png)
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-- For a list of roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md).
-- To learn about managing resources, see [Manage Azure resources through portal](resource-group-portal.md).
+- Para obtener una lista de roles, consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md).
+- Para más información acerca de cómo administrar los recursos, consulte [Administración de los recursos de Azure a través del Portal](resource-group-portal.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

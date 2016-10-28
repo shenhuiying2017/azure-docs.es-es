@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configure CHAP for your StorSimple device | Microsoft Azure"
-   description="Describes how to configure the Challenge Handshake Authentication Protocol (CHAP) on a StorSimple device."
+   pageTitle="Configurar CHAP para su dispositivo StorSimple | Microsoft Azure"
+   description="Describe cómo configurar el protocolo de autenticación por desafío mutuo (CHAP) en un dispositivo StorSimple."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,192 +15,187 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
+# Configurar CHAP para el dispositivo StorSimple
 
-# <a name="configure-chap-for-your-storsimple-device"></a>Configure CHAP for your StorSimple device
+Este tutorial explica cómo configurar CHAP para su dispositivo StorSimple. El procedimiento descrito en este artículo se aplica a la serie 8000 de StorSimple, así como a dispositivos StorSimple 1200.
 
-This tutorial explains how to configure CHAP for your StorSimple device. The procedure detailed in this article applies to StorSimple 8000 series as well as StorSimple 1200 devices.
+CHAP significa Protocolo de autenticación por desafío mutuo. Es un esquema de autenticación utilizado por los servidores para validar la identidad de los clientes remotos. La verificación se basa en una contraseña o clave compartidas. CHAP puede ser unidireccional o mutuo (bidireccional). CHAP unidireccional es cuando el destino autentica el iniciador. CHAP mutuo o invertido, por otra parte, requiere que el destino autentique el iniciador y luego que el iniciador autentique el destino. La autenticación del iniciador puede implementarse sin la autenticación del destino. Sin embargo, la autenticación del destino solo puede implementarse si también se implementa la autenticación del iniciador.
 
-CHAP stands for Challenge Handshake Authentication Protocol. It is an authentication scheme used by servers to validate the identity of remote clients. The verification is based on a shared password or secret. CHAP can be one-way (unidirectional) or mutual (bidirectional). One-way CHAP is when the target authenticates an initiator. Mutual or reverse CHAP, on the other hand, requires that the target authenticate the initiator and then the initiator authenticate the target. Initiator authentication can be implemented without target authentication. However, target authentication can be implemented only if initiator authentication is also implemented. 
+Como procedimiento recomendado, aconsejamos utilizar CHAP para mejorar la seguridad iSCSI.
 
-As a best practice, we recommend that you use CHAP to enhance iSCSI security.
+>[AZURE.NOTE] Tenga en cuenta que los dispositivos StorSimple no admiten IPSEC actualmente.
 
->[AZURE.NOTE] Keep in mind that IPSEC is not currently supported on StorSimple devices.
+Los parámetros de CHAP del dispositivo StorSimple pueden configurarse de las siguientes formas:
 
-The CHAP settings on the StorSimple device can be configured in the following ways:
+- Autenticación unidireccional
 
-- Unidirectional or one-way authentication
+- Autenticación bidireccional o mutua o inversa
 
-- Bidirectional or mutual or reverse authentication
+En cada uno de estos casos, deben configurarse el portal del dispositivo y el software del iniciador iSCSI del servidor. En el siguiente tutorial se describen los pasos detallados para esta configuración.
 
-In each of these cases, the portal for the device and the server iSCSI initiator software needs to be configured. The detailed steps for this configuration are described in the following tutorial.
+## Autenticación unidireccional
 
-## <a name="unidirectional-or-one-way-authentication"></a>Unidirectional or one-way authentication
+En la autenticación unidireccional, el destino autentica el iniciador. Esta autenticación requiere que configure los parámetros del iniciador de CHAP en el dispositivo StorSimple y el software del iniciador iSCSI en el host. Los procedimientos detallados para su dispositivo StorSimple y el host de Windows se describen a continuación.
 
-In unidirectional authentication, the target authenticates the initiator. This authentication requires that you configure the CHAP initiator settings on the StorSimple device and the iSCSI Initiator software on the host. The detailed procedures for your StorSimple device and Windows host are described next.
+#### Para configurar su dispositivo para la autenticación unidireccional
 
-#### <a name="to-configure-your-device-for-one-way-authentication"></a>To configure your device for one-way authentication
+1. En el Portal de Azure clásico, en la página **Dispositivos**, haga clic en la pestaña **Configurar**.
 
-1. In the Azure classic portal, on the **Devices** page, click the **Configure** tab.
+    ![Iniciador CHAP](./media/storsimple-configure-chap/IC740943.png)
 
-    ![CHAP Initiator](./media/storsimple-configure-chap/IC740943.png)
+2. Desplácese hacia abajo en esta página y, en la sección **Iniciador de CHAP**:
+													
+	1. Proporcione un nombre de usuario para su iniciador de CHAP.
 
-2. Scroll down on this page, and in the **CHAP Initiator** section:
-                                                    
-    1. Provide a user name for your CHAP initiator.
+	2. Proporcionar una contraseña para su iniciador de CHAP.
 
-    2. Supply a password for your CHAP initiator.
-
-         > [AZURE.IMPORTANT] The CHAP user name must contain fewer than 233 characters. The CHAP password must be between 12 and 16 characters. A longer user name or password will result in an authentication failure on the Windows host.
+   		 > [AZURE.IMPORTANT] El nombre de usuario de CHAP no puede contener más de 233 caracteres. La contraseña de CHAP debe contener entre 12 y 16 caracteres. Los nombres de usuario o contraseñas de mayor longitud generarán un error de autenticación en el host de Windows.
     
-    3. Confirm the password.
+	3. Confirme la contraseña.
 
-4. Click **Save**. A confirmation message will be displayed. Click **OK** to save the changes.
+4. Haga clic en **Save**. Aparecerá un mensaje de confirmación. Haga clic en **Aceptar** para guardar los cambios.
 
-#### <a name="to-configure-one-way-authentication-on-the-windows-host-server"></a>To configure one-way authentication on the Windows host server
+#### Para configurar la autenticación unidireccional en el servidor host de Windows
 
-1. On the Windows host server, start the iSCSI Initiator.
+1. En el servidor host de Windows, inicie el iniciador iSCSI.
 
-2. In the **iSCSI Initiator Properties** window, perform the following steps:
-                                                    
-    1. Click the **Discovery** tab.
+2. En la ventana **Propiedades del iniciador iSCSI**, realice los siguientes pasos:
+													
+	1. Haga clic en la pestaña **Detección**.
 
-        ![iSCSI initiator properties](./media/storsimple-configure-chap/IC740944.png)
+		![Propiedades del iniciador iSCSI](./media/storsimple-configure-chap/IC740944.png)
 
-    2. Click **Discover Portal**.
+	2. Haga clic en **Detectar portal**.
 
-3. In the **Discover Target Portal** dialog box:
-                                                    
-    1. Specify the IP address of your device.
+3. En el cuadro de diálogo **Detectar portal de destino**:
+													
+	1. Especifique la dirección IP de su dispositivo.
 
-    3. Click **Advanced**.
+	3. Haga clic en **Avanzadas**.
 
-        ![Discover target portal](./media/storsimple-configure-chap/IC740945.png)
+		![Detectar portal de destino](./media/storsimple-configure-chap/IC740945.png)
 
-4. In the **Advanced Settings** dialog box:
-                                                    
-    1. Select the **Enable CHAP log on** check box.
+4. En el cuadro de diálogo **Configuración avanzada**:
+													
+	1. Active la casilla **Habilitar inicio de sesión CHAP**.
 
-    2. In the **Name** field, supply the user name that you specified for the CHAP Initiator in the classic portal.
+	2. En el campo **Nombre**, proporcione el nombre de usuario que especificó para el iniciador de CHAP en el Portal clásico.
 
-    3. In the **Target secret** field, supply the password that you specified for the CHAP Initiator in the classic portal.
+	3. En el campo **Secreto de destino**, proporcione la contraseña que especificó para el iniciador de CHAP en el Portal clásico.
 
-    4. Click **OK**.
+	4. Haga clic en **Aceptar**.
 
-        ![Advanced settings general](./media/storsimple-configure-chap/IC740946.png)
+		![General - Configuración avanzada](./media/storsimple-configure-chap/IC740946.png)
 
-5. On the **Targets** tab of the **iSCSI Initiator Properties** window, the device status should appear as **Connected**. If you are using a StorSimple 1200 device, then each volume will be mounted as an iSCSI target as shown below. Hence, steps  3-4 will need to be repeated for each volume.
+5. En la pestaña **Destinos** de la ventana **Propiedades del iniciador iSCSI**, el estado del dispositivo debe aparecer como **Conectado**. Si usa un dispositivo StorSimple 1200, cada volumen se montará como un destino iSCSI como se muestra a continuación. Por lo tanto, los pasos 3 y 4 deberán repetirse para cada volumen.
 
-    ![Volumes mounted as separate targets](./media/storsimple-configure-chap/chap4.png)
+	![Volúmenes montados como destinos independientes](./media/storsimple-configure-chap/chap4.png)
 
-    > [AZURE.IMPORTANT] If you change the iSCSI name, the new name will be used for new iSCSI sessions. New settings are not used for existing sessions until you log off and log on again.
+    > [AZURE.IMPORTANT] Si cambia el nombre de iSCSI, el nuevo nombre se utilizará para nuevas sesiones de iSCSI. La nueva configuración no se utiliza para las sesiones existentes hasta que cierra sesión y vuelve a iniciar sesión.
 
-For more information about configuring CHAP on the Windows host server, go to [Additional considerations](#additional-considerations).
+Para obtener más información acerca de la configuración de CHAP en el servidor de host de Windows, vaya a [Consideraciones adicionales](#additional-considerations).
 
 
-## <a name="bidirectional-or-mutual-authentication"></a>Bidirectional or mutual authentication
+## Autenticación bidireccional o mutua
 
-In bidirectional authentication, the target authenticates the initiator and then the initiator authenticates the target. This requires the user to configure the CHAP initiator settings, as well as the reverse CHAP settings on the device and iSCSI Initiator software on the host. The following procedures describe the steps to configure mutual authentication on the device and on the Windows host.
+En la autenticación bidireccional, el destino autentica el iniciador y luego el iniciador autentica el destino. Esto requiere que el usuario configure los parámetros del iniciador de CHAP, así como los parámetros de CHAP inverso en el dispositivo y el software del iniciador iSCSI en el host. Los siguientes procedimientos describen los pasos para configurar la autenticación mutua en el dispositivo y en el host de Windows.
 
-#### <a name="to-configure-your-device-for-mutual-authentication"></a>To configure your device for mutual authentication
+#### Para configurar su dispositivo para la autenticación mutua
 
-1. In the Azure classic portal, on the **Devices** page, click the **Configure** tab.
+1. En el Portal de Azure clásico, en la página **Dispositivos**, haga clic en la pestaña **Configurar**.
 
-    ![CHAP target](./media/storsimple-configure-chap/IC740948.png)
+    ![Destino CHAP](./media/storsimple-configure-chap/IC740948.png)
 
-2. Scroll down on this page, and in the **CHAP Target** section:
-                                                    
-    1. Provide a **Reverse CHAP user name** for your device.
+2. Desplácese hacia abajo en esta página y, en la sección **Destino de CHAP**:
+													
+	1. Proporcione un**Nombre de usuario de CHAP inverso** para su dispositivo.
 
-    2. Supply a **Reverse CHAP password** for your device.
+	2. Proporcione una **Contraseña de CHAP inverso**para su dispositivo.
 
-    3. Confirm the password.
+	3. Confirme la contraseña.
 
-3. In the **CHAP Initiator** section:
-                                                
-    1. Provide a **user name** for your device.
+3. En la sección **Iniciador de CHAP**:
+												
+	1. Proporcione un **nombre de usuario** para su dispositivo.
 
-    1. Provide a **password** for your device.
+	1. Proporcione una **contraseña** para su dispositivo.
 
-    3. Confirm the password.
+	3. Confirme la contraseña.
 
-4. Click **Save**. A confirmation message will be displayed. Click **OK** to save the changes.
+4. Haga clic en **Guardar**. Aparecerá un mensaje de confirmación. Haga clic en **Aceptar** para guardar los cambios.
 
-#### <a name="to-configure-bidirectional-authentication-on-the-windows-host-server"></a>To configure bidirectional authentication on the Windows host server
+#### Para configurar la autenticación bidireccional en el servidor host de Windows
 
-1. On the Windows host server, start the iSCSI Initiator.
+1. En el servidor host de Windows, inicie el iniciador iSCSI.
 
-2. In the **iSCSI Initiator Properties** window, click the **Configuration** tab.
+2. En la ventana **Propiedades del iniciador iSCSI** haga clic en la pestaña **Configuración**.
 
-3. Click **CHAP**.
+3. Haga clic en **CHAP**.
 
-4. In the **iSCSI Initiator Mutual CHAP Secret** dialog box:
-                                                    
-    1. Type the **Reverse CHAP Password** that you configured in the Azure classic portal.
+4. En el cuadro de diálogo **Secreto CHAP mutuo del iniciador iSCSI**:
+													
+	1. Escriba la **Contraseña de CHAP inverso** que configuró en el Portal de Azure clásico.
 
-    2. Click **OK**.
+	2. Haga clic en **Aceptar**.
 
-        ![iSCSI initiator mutual CHAP secret](./media/storsimple-configure-chap/IC740949.png)
+		![Secreto CHAP mutuo del iniciador iSCSI](./media/storsimple-configure-chap/IC740949.png)
 
-5. Click the **Targets** tab.
+5. Haga clic en la pestaña **Destinos**.
 
-6. Click the **Connect** button. 
+6. Haga clic en el botón **Conectar**.
 
-7. In the **Connect To Target** dialog box, click **Advanced**.
+7. En el cuadro de diálogo **Conectar a destino**, haga clic en **Avanzado**.
 
-8. In the **Advanced Properties** dialog box:
-                                                    
-    1. Select the **Enable CHAP log on** check box.
+8. En el cuadro de diálogo **Propiedades avanzadas**:
+													
+	1. Active la casilla **Habilitar inicio de sesión CHAP**.
 
-    2. In the **Name** field, supply the user name that you specified for the CHAP Initiator in the classic portal.
+	2. En el campo **Nombre**, proporcione el nombre de usuario que especificó para el iniciador de CHAP en el Portal clásico.
 
-    3. In the **Target secret** field, supply the password that you specified for the CHAP Initiator in the classic portal.
+	3. En el campo **Secreto de destino**, proporcione la contraseña que especificó para el iniciador de CHAP en el Portal clásico.
 
-    4. Select the **Perform mutual authentication** check box.
+	4. Active la casilla **Realizar autenticación mutua**.
 
-        ![Advanced settings mutual authentication](./media/storsimple-configure-chap/IC740950.png)
+		![Autenticación mutua de configuración avanzada](./media/storsimple-configure-chap/IC740950.png)
 
-    5. Click **OK** to complete the CHAP configuration
-     
-For more information about configuring CHAP on the Windows host server, go to [Additional considerations](#additional-considerations).
+	5. Haga clic en **Aceptar** para completar la configuración de CHAP.
+	 
+Para obtener más información acerca de la configuración de CHAP en el servidor de host de Windows, vaya a [Consideraciones adicionales](#additional-considerations).
 
-## <a name="additional-considerations"></a>Additional considerations
+## Consideraciones adicionales
 
-The **Quick Connect** feature does not support connections that have CHAP enabled. When CHAP is enabled, make sure that you use the **Connect** button that is available on the **Targets** tab to connect to a target.
+La característica **Conexión rápida** no admite las conexiones con CHAP habilitado. Cuando CHAP esté habilitado, asegúrese de utilizar el botón **Conectar** que está disponible en la pestaña **Destinos** para conectarse a un destino.
 
-![Connect to target](./media/storsimple-configure-chap/IC740947.png)
+![Conectar a destino](./media/storsimple-configure-chap/IC740947.png)
 
-In the **Connect to Target** dialog box that is presented, select the **Add this connection to the list of Favorite Targets** check box. This ensures that every time the computer restarts, an attempt is made to restore the connection to the iSCSI favorite targets.
+En el cuadro de diálogo **Conectar a destino** que aparece, active la casilla **Agregar esta conexión a la lista de destinos favoritos**. Esto garantiza que cada vez que se reinicie el equipo, se intente restaurar la conexión a los destinos favoritos de iSCSI.
 
-## <a name="errors-during-configuration"></a>Errors during configuration
+## Errores durante la configuración
 
-If your CHAP configuration is incorrect, then you are likely to see an **Authentication failure** error message.
+Si su configuración de CHAP es incorrecta, es probable que vea el mensaje de error **Falla de autenticación**.
 
-## <a name="verification-of-chap-configuration"></a>Verification of CHAP configuration
+## Verificación de la configuración de CHAP
 
-You can verify that CHAP is being used by completing the following steps.
+Puede verificar que CHAP esté en uso mediante los siguientes pasos.
 
-#### <a name="to-verify-your-chap-configuration"></a>To verify your CHAP configuration
+#### Para verificar su configuración de CHAP
 
-1. Click **Favorite Targets**.
+1. Haga clic en **Destinos favoritos**.
 
-2. Select the target for which you enabled authentication.
+2. Seleccione el destino para el que se ha habilitado la autenticación.
 
-3. Click **Details**.
+3. Haga clic en **Detalles**.
 
-    ![iSCSI initiator properties favorite targets](./media/storsimple-configure-chap/IC740951.png)
+    ![Destinos favoritos de las propiedades del iniciador iSCSI](./media/storsimple-configure-chap/IC740951.png)
 
-4. In the **Favorite Target Details** dialog box, note the entry in the **Authentication** field. If the configuration was successful, it should say **CHAP**.
+4. En el cuadro de diálogo **Detalles de destino favorito**, observe la entrada del campo **Autenticación**. Si la configuración se realizó correctamente, debe decir **CHAP**.
 
-    ![Favorite target details](./media/storsimple-configure-chap/IC740952.png)
+    ![Detalles de destino favorito](./media/storsimple-configure-chap/IC740952.png)
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-- Learn more about [StorSimple security](storsimple-security.md).
+- Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-security.md).
 
-- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

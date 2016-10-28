@@ -1,67 +1,66 @@
 <properties 
-    pageTitle="Debug your Model in Azure Machine Learning | Microsoft Azure" 
-    description="Explains how to How to debug your Model in Azure Machine Learning." 
-    services="machine-learning"
-    documentationCenter="" 
-    authors="garyericson" 
-    manager="jhubbard" 
-    editor="cgronlun"/>
+	pageTitle="Depurar el modelo en Aprendizaje automático de Azure | Microsoft Azure" 
+	description="Explica cómo depurar el modelo en Aprendizaje automático de Azure." 
+	services="machine-learning"
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
 <tags 
-    ms.service="machine-learning" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/09/2016" 
-    ms.author="bradsev;garye" />
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/09/2016" 
+	ms.author="bradsev;garye" />
 
+# Depurar el modelo en Aprendizaje automático de Azure
 
-# <a name="debug-your-model-in-azure-machine-learning"></a>Debug your Model in Azure Machine Learning
+En este artículo se explica cómo depurar los modelos en Aprendizaje automático de Microsoft Azure. En concreto, se tratan las posibles razones por las cuales podría encontrar uno de los dos siguientes escenarios de error al ejecutar un modelo:
 
-This article explains of how to debug your models in Microsoft Azure Machine Learning. Specifically, it covers the potential reasons why either of the following two failure scenarios might be encountered when running a model:
-
-* the [Train Model][train-model] module throws an error 
-* the [Score Model][score-model] module produces incorrect results 
+* el módulo [Entrenar modelo][train-model] produce un error
+* el módulo [Puntuar modelo][score-model] produce resultados incorrectos
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## <a name="train-model-module-throws-an-error"></a>Train Model Module throws an error
+## El módulo Entrenar modelo produce un error
 
-![image1](./media/machine-learning-debug-models/train_model-1.png)
+![imagen1](./media/machine-learning-debug-models/train_model-1.png)
 
-The [Train Model][train-model] Module expects the following 2 inputs:
+El módulo [Entrenar modelo][train-model] espera las dos entradas siguientes:
 
-1. The type of Classification/Regression Model from the collection of models provided by Azure Machine Learning
-2. The training data with a specified Label column. The Label column specifies the variable to predict. The rest of the columns included are assumed to be Features.
+1. El tipo de modelo de clasificación o regresión de la colección de modelos que proporciona Aprendizaje automático de Azure
+2. Los datos de entrenamiento con una columna de etiqueta especificada. La columna de etiqueta especifica la variable que se va a predecir. Se supone que el resto de columnas incluidas son características.
 
-This module throws an error in the following cases:
+Este módulo produce un error en los siguientes casos:
 
-1. The Label column is specified incorrectly because either more than one column is selected as the Label or an incorrect column index is selected. For example, the second case would apply if a column index of 30 was used with an input dataset which had only 25 columns.
+1. Si la columna de etiqueta se especificó incorrectamente, porque se seleccionó más de una columna como de etiqueta o se seleccionó un índice de columna incorrecto. Por ejemplo, el segundo caso se aplicaría si se usara un índice de columna de 30 con un conjunto de datos de entrada que solo tuviese 25 columnas.
 
-2. The dataset does not contain any Feature columns. For example, if the input dataset has only 1 column, which is marked as the Label column, there would be no features with which to build the model. In this case, the [Train Model][train-model] module will throw an error.
+2. Si el conjunto de datos no contiene ninguna columna de característica. Por ejemplo, si el conjunto de datos de entrada tiene solo 1 columna, que se marca como la columna de etiqueta, no habría ninguna característica con la que se pudiera generar el modelo. En este caso, el módulo [Entrenar modelo][train-model] producirá un error.
 
-3. The input dataset (Features or Label) contain Infinity as a value.
+3. Si el conjunto de datos de entrada (características o de etiqueta) contienen infinito como valor.
 
 
-## <a name="score-model-module-does-not-produce-correct-results"></a>Score Model Module does not produce correct results
+## El módulo Puntuar modelo no produce resultados correctos
 
-![image2](./media/machine-learning-debug-models/train_test-2.png)
+![imagen2](./media/machine-learning-debug-models/train_test-2.png)
 
-In a typical training/testing graph for supervised learning, the [Split Data][split] module divides the original dataset into two parts: the part that is used to train the model and the part that is reserved to score how well the trained model performs on data it did not train on. The trained model is then used to score the test data after which the results are evaluated to determine the accuracy of the model.
+En un gráfico típico de entrenamiento y pruebas de aprendizaje supervisado, el módulo de [división de datos][split] separa el conjunto de datos original en dos partes: la parte que se utiliza para entrenar el modelo y la parte que se reserva para puntuar el rendimiento del modelo entrenado con los datos que no entrenó. A continuación, se usa el modelo entrenado para puntuar los datos de prueba después de los cuales se evalúan los resultados para determinar la precisión del modelo.
 
-The [Score Model][score-model] module requires two inputs:
+El módulo [Puntuar modelo][score-model] requiere dos entradas:
 
-1. A trained model output from [Train Model][train-model] module
-2. A scoring dataset not that the model was not trained on
+1. Una salida de modelo entrenado del módulo [Entrenar modelo][train-model]
+2. Un conjunto de datos de puntuación que no se hayan usado para entrenar el modelo
 
-It may happen that even though the experiment succeeds, the [Score Model][score-model] module produces incorrect results. Several scenarios may cause this to happen:
+Puede ocurrir que, aunque el experimento se realice correctamente, el módulo [Puntuar modelo][score-model] produzca resultados incorrectos. Varios escenarios pueden provocar que esto ocurra:
 
-1. If the specified Label is categorical and a regression model is trained on the data, an incorrect output would be produced by the [Score Model][score-model] module. This is because regression requires a continuous response variable. In this case it should be more suitable to use a classification model. 
-2. Similarly, if a classification model is trained on a dataset having floating point numbers in the Label column, it may produce undesirable results. This is because classification requires a discrete response variable that only allows values that range over a finite and usually somewhat small set of classes.
-3. If the scoring dataset does not contain all the features used to train the model, the [Score Model][score-model] will produce an error.
-4. The [Score Model][score-model] would not produce any output corresponding to a row in the scoring dataset that contains a missing value or an infinite value for any of its features.
-5. The [Score Model][score-model] may produce identical outputs for all rows in the scoring dataset. This could occur, for example, in the when attempting classification using Decision Forests if the minimum number of samples per leaf node is chosen to be more than the number of training examples available.
+1. Si la etiqueta especificada es de categoría y se entrena un modelo de regresión con los datos, se genera una salida incorrecta producida por el módulo [Puntuar modelo][score-model]. Esto es debido a que la regresión requiere una variable de respuesta continua. En este caso, sería más adecuado usar un modelo de clasificación.
+2. De forma similar, si un modelo de clasificación se entrena con un conjunto de datos con números de punto flotante en la columna de etiqueta, se podrían producir resultados no deseados. Esto es debido a que la clasificación requiere una variable de respuesta discreta que solo permite valores que abarcan un conjunto finito y generalmente bastante pequeño de clases.
+3. Si el conjunto de datos de puntuación no contiene todas las características que se usan para entrenar el modelo, [Puntuar modelo][score-model] generará un error.
+4. [Puntuar modelo][score-model] no produciría ningún resultado correspondiente a una fila del conjunto de datos de puntuación que contenga un valor que falte o un valor infinito de cualquiera de sus características.
+5. [Puntuar modelo][score-model] puede producir resultados idénticos para todas las filas del conjunto de datos de puntuación. Esto puede ocurrir, por ejemplo, cuando se intenta la clasificación mediante bosques de decisión, si se elige que el número mínimo de muestras por cada nodo de hoja sea mayor que el número de ejemplos de aprendizaje disponibles.
 
 
 <!-- Module References -->
@@ -70,8 +69,4 @@ It may happen that even though the experiment succeeds, the [Score Model][score-
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Resource Manager template for a secret in a key vault | Microsoft Azure"
-   description="Shows the Resource Manager schema for deploying key vault secrets through a template."
+   pageTitle="Plantilla del Administrador de recursos para un secreto en un almacén de claves | Microsoft Azure"
+   description="Muestra el esquema del Administrador de recursos para implementar los secretos del almacén de claves mediante una plantilla."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,14 +16,13 @@
    ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
+# Esquema de la plantilla del secreto del Almacén de claves
 
-# <a name="key-vault-secret-template-schema"></a>Key vault secret template schema
+Crea un secreto que se almacena en un almacén de claves. Este tipo de recurso se implementa con frecuencia como un recurso secundario de [almacén de claves](resource-manager-template-keyvault.md).
 
-Creates a secret that is stored in a key vault. This resource type is frequently deployed as a child resource of [key vault](resource-manager-template-keyvault.md).
+## Formato de esquema
 
-## <a name="schema-format"></a>Schema format
-
-To create a key vault secret, add the following schema to your template. The secret can be defined as either a child resource of a key vault or as top-level resource. You can define it as a child resource when the key vault is deployed in the same template. You will need to define the secret as a top-level resource when the key vault is not deployed in the same template, or when you need to create multiple secrets by looping on the resource type. 
+Para crear un secreto del almacén de claves, agregue el siguiente esquema a la plantilla. El secreto puede definirse como un recurso de secundario de un almacén de claves o como recurso de nivel superior. Se puede definir como un recurso secundario cuando el almacén de claves se implementa en la misma plantilla. Debe definir el secreto como un recurso de nivel superior cuando el almacén de claves no esté implementado en la misma plantilla, o cuando necesite crear varios secretos mediante un bucle en el tipo de recurso.
 
     {
         "type": enum,
@@ -35,29 +34,29 @@ To create a key vault secret, add the following schema to your template. The sec
         "dependsOn": [ array values ]
     }
 
-## <a name="values"></a>Values
+## Valores
 
-The following tables describe the values you need to set in the schema.
+Las tablas siguientes describen los valores que debe establecer en el esquema.
 
-| Name | Value |
+| Nombre | Valor |
 | ---- | ---- | 
-| type | Enum<br />Required<br />**secrets** (when deployed as a child resource of key vault) or<br /> **Microsoft.KeyVault/vaults/secrets** (when deployed as a top-level resource)<br /><br />The resource type to create. |
-| apiVersion | Enum<br />Required<br />**2015-06-01** or **2014-12-19-preview**<br /><br />The API version to use for creating the resource. | 
-| name | String<br />Required<br />A single word when deployed as a child resource of a key vault, or in the format **{key-vault-name}/{secret-name}** when deployed as a top-level resource to be added to an existing key vault.<br /><br />The name of the secret to create. |
-| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that specifies the value of the secret to create. |
-| dependsOn | Array<br />Optional<br />A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this link depends on. If the key vault for the secret is deployed in the same template, include the name of the key vault in this element to ensure it is deployed first. |
+| type | Enum<br />Obligatorio<br />**secrets** (cuando se implementa como un recurso secundario de almacén de claves) o<br /> **Microsoft.KeyVault/vaults/secrets** (cuando se implementa como un recurso de nivel superior)<br /><br />Tipo de recurso que se creará. |
+| apiVersion | Enum<br />Obligatorio<br />**2015-06-01** o **2014-12-19-preview**<br /><br />Versión de la API que se usará para crear el recurso. | 
+| name | Cadena<br />Obligatorio<br />Una sola palabra cuando se implementa como un recurso secundario de un almacén de claves o en el formato **{nombre-almacén-claves}/{nombre-secreto}** cuando se implementa como un recurso de nivel superior que se agregará a un almacén de claves actual.<br /><br />Nombre del secreto que se va a crear. |
+| propiedades | Objeto<br />Obligatorio<br />[Objeto de propiedades](#properties)<br /><br />Objeto que especifica el valor del secreto que se va a crear. |
+| dependsOn | Matriz<br />Opcional<br />Lista separada por comas de nombres o identificadores únicos de recursos.<br /><br />Colección de recursos de los que depende este vínculo. Si se implementa el almacén de claves para el secreto en la misma plantilla, incluya el nombre del almacén de claves en este elemento para asegurarse de que se implementa en primer lugar. |
 
 <a id="properties" />
-### <a name="properties-object"></a>properties object
+### properties object
 
-| Name | Value |
+| Nombre | Valor |
 | ---- | ---- | 
-| value | String<br />Required<br /><br />The secret value to store in the key vault. When passing in a value for this property, use a parameter of type **securestring**.  |
+| value | Cadena<br />Obligatorio<br /><br />Valor del secreto que se almacenará en el almacén de claves. Al pasar un valor para esta propiedad, use un parámetro de tipo **securestring**. |
 
-    
-## <a name="examples"></a>Examples
+	
+## Ejemplos
 
-The first example deploys a secret as a child resource of a key vault.
+El primer ejemplo implementa un secreto como un recurso secundario de un almacén de claves.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -183,7 +182,7 @@ The first example deploys a secret as a child resource of a key vault.
         }]
     }
 
-The second example deploys the secret as a top-level resource that is stored in an existing key vault.
+En el segundo ejemplo se implementa el secreto como un recurso de nivel superior que se almacena en un almacén de claves existente.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -223,15 +222,9 @@ The second example deploys the secret as a top-level resource that is stored in 
     }
 
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-- For general information about key vaults, see [Get started with Azure Key Vault](./key-vault/key-vault-get-started.md).
-- For an example of referencing a key vault secret when deploying templates, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
+- Para obtener información general sobre almacenes de claves, consulte [Introducción al Almacén de claves de Azure](./key-vault/key-vault-get-started.md).
+- Para obtener un ejemplo de referencia de un secreto de almacén de claves al implementar plantillas, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md).
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

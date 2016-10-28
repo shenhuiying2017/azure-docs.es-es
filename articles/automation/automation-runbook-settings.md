@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Runbook settings"
-   description="Describes the configuration settings for a runbook in Azure Automation and how to change them using both the Azure Management Portal and Windows PowerShell."
+   pageTitle="Configuración de runbook"
+   description="Describe las opciones de configuración para un runbook en Automatización de Azure y cómo cambiarlas mediante el Portal de administración de Azure y Windows PowerShell."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -15,53 +15,49 @@
    ms.date="02/09/2016"
    ms.author="bwren" />
 
+# Configuración de runbook
 
-# <a name="runbook-settings"></a>Runbook settings
+Cada runbook en Automatización de Azure tiene varias opciones de configuración para ayudarle a identificar y cambiar su comportamiento de registro. A continuación se describen todas estas opciones, seguido de procedimientos acerca de cómo modificarlas.
 
-Each runbook in Azure Automation has multiple settings that help it to be identified and to change its logging behavior. Each of these settings is described below followed by procedures on how to modify them.
+## Settings
 
-## <a name="settings"></a>Settings
+### Nombre y descripción
 
-### <a name="name-and-description"></a>Name and description
+No se puede cambiar el nombre de un runbook después de su creación. La descripción es opcional y puede tener hasta 512 caracteres.
 
-You cannot change the name of a runbook after it has been created. The Description is optional and can be up to 512 characters.
+### Etiquetas
 
-### <a name="tags"></a>Tags
+Las etiquetas permiten asignar diferentes palabras y frases para ayudar a identificar un runbook. Por ejemplo, cuando se envía un runbook a la [Galería de runbooks](https://msdn.microsoft.com/library/dn781422.aspx), se especifican etiquetas determinadas para identificar qué categorías deben aparecer en el runbook. Puede especificar varias etiquetas para un runbook separándolas por comas.
 
-Tags allow you to assign distinct words and phrases to help identify a runbook. For example, when you submit a runbook to the [Runbook Gallery](https://msdn.microsoft.com/library/dn781422.aspx), you specify particular tags to identify which categories the runbook should be listed in. You can specify multiple tags for a runbook by separating them with commas.
+### Registro
 
-### <a name="logging"></a>Logging
+De forma predeterminada, los registros detallados y de progreso no se escriben en el historial de trabajos. Puede cambiar la configuración de un runbook determinado para estas entradas de registro. Para obtener más información sobre estos registros, consulte [Salida y mensajes de los runbooks](https://msdn.microsoft.com/library/dn879148.aspx).
 
-By default, Verbose and Progress records are not written to job history. You can change the settings for a particular runbook to log these records. For more information on these records, see [Runbook Output and Messages](https://msdn.microsoft.com/library/dn879148.aspx).
+## Cambio de la configuración del runbook
 
-## <a name="changing-runbook-settings"></a>Changing runbook settings
+### Cambio de la configuración del runbook mediante el Portal de administración de Azure
 
-### <a name="changing-runbook-settings-with-the-azure-management-portal"></a>Changing runbook settings with the Azure Management Portal
+Puede cambiar la configuración de un runbook en el Portal de administración de Azure desde la página **Configurar** del runbook.
 
-You can change settings for a runbook in the Azure Management Portal from the **Configure** page for the runbook.
+1. En el Portal de administración de Azure, seleccione **Automatización** y, a continuación, haga clic en el nombre de una cuenta de Automatización.
+1. Seleccione la pestaña **Runbooks**.
+1. Haga clic en el nombre de un runbook.
+1. Seleccione la pestaña **Configurar**.
 
-1. In the Azure Management Portal, select **Automation** and then then click the name of an automation account.
-1. Select the **Runbooks** tab.
-1. Click the name of a runbook.
-1. Select the **Configure** tab.
+### Cambio de la configuración del runbook mediante Windows PowerShell
 
-### <a name="changing-runbook-settings-with-windows-powershell"></a>Changing runbook settings with Windows PowerShell
+Puede utilizar el cmdlet [Set-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690275.aspx) para cambiar la configuración de un runbook. Si desea especificar varias etiquetas, se puede proporcionar una matriz o una sola cadena con valores delimitados por comas al parámetro Tags. Puede obtener las etiquetas actuales con el [Get-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690278.aspx).
 
-You can use the [Set-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690275.aspx) cmdlet to change the settings for a runbook. If you want to specify multiple tags, you can either provide an array or a single string with comma delimited values to the Tags parameter. You can get the current tags with the [Get-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690278.aspx).
+Los siguientes comandos de ejemplo muestran cómo establecer las propiedades de un runbook. Este ejemplo agrega tres etiquetas a las etiquetas existentes y especifica que se deben registrar registros detallados.
 
-The following sample commands show how to set the properties for a runbook. This sample adds three tags to the existing tags and specifies that verbose records should be logged.
+	$automationAccountName = "MyAutomationAccount"
+	$runbookName = "Sample-TestRunbook"
+	$tags = (Get-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName).Tags
+	$tags += "Tag1,Tag2,Tag3"
+	Set-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName –LogVerbose $true –Tags $tags
 
-    $automationAccountName = "MyAutomationAccount"
-    $runbookName = "Sample-TestRunbook"
-    $tags = (Get-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName).Tags
-    $tags += "Tag1,Tag2,Tag3"
-    Set-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName –LogVerbose $true –Tags $tags
+## Artículos relacionados
+- [Salida y mensajes de los runbooks](../automation-runbook-output-and-messages) 
+- [Creación o importación de un runbook](https://msdn.microsoft.com/library/dn643637.aspx) 
 
-## <a name="related-articles"></a>Related articles
-- [Runbook Output and Messages](../automation-runbook-output-and-messages) 
-- [Creating or Importing a Runbook](https://msdn.microsoft.com/library/dn643637.aspx) 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0211_2016-->

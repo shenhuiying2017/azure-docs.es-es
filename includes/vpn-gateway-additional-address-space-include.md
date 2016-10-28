@@ -1,21 +1,18 @@
-### <a name="to-add-address-space"></a>To add address space
+### Para agregar espacio de direcciones:
 
-1. To add additional address space, click **All settings** to open the **Settings** blade. 
+1. Para agregar espacio de direcciones adicional, haga clic en **Todas las configuraciones** para abrir la hoja **Configuración**. 
 
-2. On the **Settings** blade, click **Address space** to open the Address space blade. Add the additional address space in this blade, and then click **Save** at the top of the blade.
+2. En la hoja **Configuración**, haga clic en **Espacio de direcciones** para abrir la hoja Espacio de direcciones. Agregue el espacio de direcciones adicional en esta hoja y, después, haga clic en **Guardar** en la parte superior de la hoja.
 
-    ![Add address space](./media/vpn-gateway-additional-address-space-include/address400.png)
+	![Adición de espacio de direcciones](./media/vpn-gateway-additional-address-space-include/address400.png)
 
-### <a name="to-add-subnets"></a>To add subnets 
+### Para agregar subredes 
 
-1. To add additional subnets to your address spaces, in the **Settings** blade, click **Subnets** to open the **Subnets** blade. 
+1. Para agregar subredes adicionales a los espacios de direcciones, en la hoja **Configuración**, haga clic en **Subredes** para abrir la hoja **Subredes**. 
 
-2. In the Subnets blade, click **Add** to open the **Add subnet** blade. Name your new subnet and specify the address range, and then click **OK** at the bottom of the blade. Once a subnet has been created, you can use the subnets blade to view all of your subnets for a VNet.
-
-
-    ![Subnet settings](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)       
+2. En la hoja Subredes, haga clic en **Agregar** para abrir la hoja **Agregar subred**. Asigne un nombre a la nueva subred y especifique el intervalo de direcciones y, después, haga clic en **Aceptar** en la parte inferior de la hoja. Una vez creada una subred, puede usar la hoja Subredes para ver todas las subredes de una red virtual.
 
 
-<!--HONumber=Oct16_HO2-->
+	![Configuración de subred](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)
 
-
+<!----HONumber=AcomDC_0406_2016-->

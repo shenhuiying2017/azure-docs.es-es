@@ -1,95 +1,94 @@
 <properties 
-    pageTitle="Using elastic database client library with Entity Framework | Microsoft Azure" 
-    description="Use Elastic Database client library and Entity Framework for coding databases" 
-    services="sql-database" 
-    documentationCenter="" 
-    manager="jhubbard" 
-    authors="torsteng" 
-    editor=""/>
+	pageTitle="Uso de la biblioteca de cliente de Base de datos elástica con Entity Framework | Microsoft Azure" 
+	description="Uso de la biblioteca de cliente de Base de datos elástica y Entity Framework para la codificación de bases de datos" 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="jhubbard" 
+	authors="torsteng" 
+	editor=""/>
 
 <tags 
-    ms.service="sql-database" 
-    ms.workload="sql-database" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="05/27/2016" 
-    ms.author="torsteng"/>
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/27/2016" 
+	ms.author="torsteng"/>
 
-
-# <a name="elastic-database-client-library-with-entity-framework"></a>Elastic Database client library with Entity Framework 
+# Biblioteca de cliente de base de datos elástica con Entity Framework 
  
-This document shows the changes in an Entity Framework application that are needed to integrate with the [Elastic Database tools](sql-database-elastic-scale-introduction.md). The focus is on composing [shard map management](sql-database-elastic-scale-shard-map-management.md) and [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md) with the Entity Framework **Code First** approach. The [Code First – New Database](http://msdn.microsoft.com/data/jj193542.aspx) tutorial for EF serves as our running example throughout this document. The sample code accompanying this document is part of elastic database tools' set of samples in the Visual Studio Code Samples.
+Este documento muestra los cambios que es necesario realizar en una aplicación de Entity Framework para su integración con las [herramientas de Base de datos elástica](sql-database-elastic-scale-introduction.md). Se centra en la composición de la [administración de mapas de particiones](sql-database-elastic-scale-shard-map-management.md) y el [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) con el enfoque **Code First** de Entity Framework. El tutorial [Code First – Nueva base de datos](http://msdn.microsoft.com/data/jj193542.aspx) para EF sirve como ejemplo en ejecución en este documento. El código de ejemplo que acompaña a este documento forma parte del conjunto de ejemplos de las herramientas de bases de datos elásticas en los ejemplos de código de Visual Studio.
   
-## <a name="downloading-and-running-the-sample-code"></a>Downloading and Running the Sample Code
-To download the code for this article:
+## Descarga y ejecución del código de ejemplo
+Para descargar el código de este artículo:
 
-* Visual Studio 2012 or later is required. 
-* Start Visual Studio. 
-* In Visual Studio, select File -> New Project. 
-* In the ‘New Project’ dialog, navigate to the **Online Samples** for **Visual C#** and type "elastic db" into the search box in the upper right.
+* Se requiere Visual Studio 2012 o posterior. 
+* Inicie Visual Studio. 
+* En Visual Studio, seleccione Archivo -> Nuevo proyecto. 
+* En el cuadro de diálogo "Nuevo proyecto", vaya a los **ejemplos en línea** de **Visual C#** y escriba "base de datos elástica" en el cuadro de búsqueda de la parte superior derecha.
     
-    ![Entity Framework and elastic database sample app][1] 
+    ![Entity Framework y aplicación de ejemplo de bases de datos elásticas][1]
 
-    Select the sample called **Elastic DB Tools for Azure SQL – Entity Framework Integration**. After accepting the license, the sample loads. 
+    Seleccione el ejemplo llamado **Herramientas de Base de datos elástica para SQL de Azure – Integración con Entity Framework**. Después de aceptar la licencia, el ejemplo se carga.
 
-To run the sample, you need to create three empty databases in Azure SQL Database:
+Para ejecutar el ejemplo, debe crear tres bases de datos vacías en Base de datos SQL de Azure:
 
-* Shard Map Manager database
-* Shard 1 database
-* Shard 2 database
+* Base de datos de administrador de mapas de particiones
+* Base de datos de partición 1
+* Base de datos de partición 2
 
-Once you have created these databases, fill in the place holders in **Program.cs** with your Azure SQL DB server name, the database names and your credentials to connect to the databases. Build the solution in Visual Studio. Visual Studio will download the required NuGet packages for the elastic database client library, Entity Framework, and Transient Fault handling as part of the build process. Make sure that restoring NuGet packages is enabled for your solution. You can enable this setting by right-clicking on the solution file in the Visual Studio Solution Explorer. 
+Cuando haya creado estas bases de datos, rellene los marcadores de posición en **Program.cs** con el nombre del servidor de Base de datos SQL de Azure, los nombres de base de datos y las credenciales para conectarse a las bases de datos. Compile la solución en Visual Studio. Visual Studio descargará los paquetes de NuGet necesarios para la biblioteca de cliente de bases de datos elásticas, Entity Framework y control de errores transitorios como parte del proceso de compilación. Asegúrese de que la restauración de paquetes de NuGet está habilitada para la solución. Puede habilitar esta configuración haciendo clic con el botón derecho en el archivo de solución en el Explorador de soluciones de Visual Studio.
 
-## <a name="entity-framework-workflows"></a>Entity Framework workflows 
+## Flujos de trabajo de Entity Framework 
 
-Entity Framework developers rely on one of the following four workflows to build applications and to ensure persistence for application objects: 
+Los desarrolladores de Entity Framework se basan en uno de los cuatro flujos de trabajo siguientes para compilar aplicaciones y garantizar la persistencia de los objetos de la aplicación:
 
-* **Code First (New Database)**: The EF developer creates the model in the application code and then EF generates the database from it. 
-* **Code First (Existing Database)**: The developer lets EF generate the application code for the model from an existing database.
-* **Model First**: The developer creates the model in the EF designer and then EF creates the database from the model.
-* **Database First**: The developer uses EF tooling to infer the model from an existing database. 
+* **Code First (nueva base de datos)**: el desarrollador de EF crea el modelo en el código de aplicación y luego EF genera la base de datos a partir de él. 
+* **Code First (base de datos existente)**: el desarrollador permite que EF genere el código de aplicación para el modelo de una base de datos existente.
+* **Model First**: el desarrollador crea el modelo en el diseñador de EF y luego EF crea la base de datos a partir del modelo.
+* **Database First**: el desarrollador usa las herramientas de EF para deducir el modelo a partir de una base de datos existente. 
 
-All these approaches rely on the DbContext class to transparently manage database connections and database schema for an application. As we will discuss in more detail later in the document, different constructors on the DbContext base class allow for different levels of control over connection creation, database bootstrapping and schema creation. Challenges arise primarily from the fact that the database connection management provided by EF intersects with the connection management capabilities of the data dependent routing interfaces provided by the elastic database client library. 
+Todos estos métodos se basan en la clase DbContext para administrar de forma transparente las conexiones de base de datos y el esquema de base de datos de una aplicación. Como se explica con más detalle más adelante en el documento, diferentes constructores de la clase base DbContext permiten distintos niveles de control sobre la creación de la conexión, el arranque de base de datos y la creación del esquema. Los problemas surgen principalmente del hecho de que la administración de conexiones de base de datos proporcionada por EF interfiere con la funcionalidad de administración de conexiones de las interfaces de enrutamiento dependientes de datos proporcionadas por la biblioteca de cliente de bases de datos elásticas.
 
-## <a name="elastic-database-tools-assumptions"></a>Elastic database tools assumptions 
+## Suposiciones de herramientas de bases de datos elásticas 
 
-For term definitions, see [Elastic Database tools glossary](sql-database-elastic-scale-glossary.md).
+Para definiciones de términos, consulte el [Glosario de herramientas de Base de datos elástica](sql-database-elastic-scale-glossary.md).
 
-With elastic database client library, you define partitions of your application data called shardlets. Shardlets are identified by a sharding key and are mapped to specific databases. An application may have as many databases as needed and distribute the shardlets to provide enough capacity or performance given current business requirements. The mapping of sharding key values to the databases is stored by a shard map provided by the elastic database client APIs. We call this capability **Shard Map Management**, or SMM for short. The shard map also serves as the broker of database connections for requests that carry a sharding key. We refer to this capability as **data-dependent routing**. 
+Con la biblioteca de cliente de bases de datos elásticas, se definen particiones de los datos de la aplicación, denominadas shardlets. Los shardlets se identifican mediante una clave de particionamiento y se asignan a bases de datos específicas. Una aplicación puede tener tantas bases de datos como sea necesario y distribuir los shardlets para proporcionar suficiente capacidad o rendimiento en función de los requisitos del negocio actuales. La asignación de valores de clave de particionamiento a las bases de datos se almacena en un mapa de particiones que proporcionan las API de cliente de bases de datos elásticas. A esta capacidad la denominamos **Administración de mapas de particiones** o, para abreviar, SMM. El mapa de particiones también funciona como el agente de conexiones de base de datos para las solicitudes que llevan una clave de particionamiento. A esta capacidad nos referimos como **enrutamiento dependiente de datos**.
  
-The shard map manager protects users from inconsistent views into shardlet data that can occur when concurrent shardlet management operations (such as relocating data from one shard to another) are happening. To do so, the shard maps managed by the client library broker the database connections for an application. This allows the shard map functionality to automatically kill a database connection when shard management operations could impact the shardlet that the connection has been created for. This approach needs to integrate with some of EF’s functionality, such as creating new connections from an existing one to check for database existence. In general, our observation has been that the standard DbContext constructors only work reliably for closed database connections that can safely be cloned for EF work. The design principle of elastic database instead is to only broker opened connections. One might think that closing a connection brokered by the client library before handing it over to the EF DbContext may solve this issue. However, by closing the connection and relying on EF to re-open it, one foregoes the validation and consistency checks performed by the library. The migrations functionality in EF, however, uses these connections to manage the underlying database schema in a way that is transparent to the application. Ideally, we would like to retain and combine all these capabilities from both the elastic database client library and EF in the same application. The following section discusses these properties and requirements in more detail. 
+El Administrador de mapas de particiones protege a los usuarios de vistas incoherentes en datos de shardlet que se pueden producir cuando se producen operaciones de administración de shardlets simultáneas (por ejemplo, la reubicación de datos de una partición a otra). Para ello, los mapas de particiones administrados por la biblioteca de cliente negocian las conexiones de base de datos de una aplicación. Esto permite que la funcionalidad de asignación de mapas elimine automáticamente una conexión de base de datos cuando las operaciones de administración de particiones puedan afectar al shardlet para el que se ha creado la conexión. Este enfoque debe integrarse con parte de la funcionalidad de EF, como la creación de nuevas conexiones a partir de otra existente, para comprobar la existencia de la base de datos. En general, hemos observado que los constructores de DbContext estándar solo funcionan de forma confiable con las conexiones de base de datos cerradas que pueden clonarse para el funcionamiento de EF. En lugar de ello, el principio de diseño de la base de datos elástica solo negocia conexiones abiertas. Se podría pensar que cerrando una conexión negociada por la biblioteca de cliente antes de entregarla a DbContext de EF resolvería este problema. Sin embargo, al cerrar la conexión y depender de EF para volver a abrirla, se renuncia a las comprobaciones de validación y coherencia que realiza la biblioteca. Sin embargo, la funcionalidad de migraciones de EF usa estas conexiones para administrar el esquema de base de datos subyacente de forma transparente a la aplicación. Idealmente, desearíamos conservar y combinar todas estas funcionalidades de la biblioteca de cliente de bases de datos elásticas y EF en la misma aplicación. En la siguiente sección se describen estas propiedades y los requisitos con más detalle.
 
 
-## <a name="requirements"></a>Requirements 
+## Requisitos 
 
-When working with both the elastic database client library and Entity Framework APIs, we want to retain the following properties: 
+Cuando se trabaja con la biblioteca de cliente de bases de datos elásticas y las API de Entity Framework, queremos conservar las propiedades siguientes:
 
-* **Scale-out**: To add or remove databases from the data tier of the sharded application as necessary for the capacity demands of the application. This means control over the the creation and deletion of databases and using the elastic database shard map manager APIs to manage databases, and mappings of shardlets. 
+* **Escalado horizontal**: es necesario poder agregar o quitar bases de datos de la capa de datos de la aplicación particionada cuando las demandas de capacidad de la aplicación lo requieran. Esto se traduce en control sobre la creación y eliminación de bases de datos y el uso de las API del administrador de mapas de particiones de bases de datos elásticas para administrar bases de datos y las asignaciones de shardlets. 
 
-* **Consistency**: The application employs sharding, and uses the data dependent routing capabilities of the client library. To avoid corruption or wrong query results, connections are brokered through the shard map manager. This also retains validation and consistency.
+* **Coherencia**: la aplicación emplea particionamiento y usa la funcionalidad de enrutamiento dependiente de datos de Escalado elástico. Para evitar daños o resultados de la consulta incorrectos, las conexiones se negocian mediante el administrador de mapas de particiones. También mantiene la validación y la coherencia.
  
-* **Code First**: To retain the convenience of EF’s code first paradigm. In Code First, classes in the application are mapped transparently to the underlying database structures. The application code interacts with DbSets that mask most aspects involved in the underlying database processing.
+* **Code First**: permite conservar la ventaja del paradigma de Code First de EF. En Code First, las clases de la aplicación se asignan de manera transparente a las estructuras de base de datos subyacente. El código de aplicación interactúa con DbSets que enmascaran la mayoría de los aspectos implicados en el procesamiento de la base de datos subyacente.
  
-* **Schema**: Entity Framework handles initial database schema creation and subsequent schema evolution through migrations. By retaining these capabilities, adapting your app is easy as the data evolves. 
+* **Esquema**: Entity Framework controla la creación del esquema de base de datos inicial y la evolución del esquema posterior a través de migraciones. Al conservar estas capacidades, la adaptación de la aplicación se simplifica a medida que los datos evolucionan.
 
-The following guidance instructs how to satisfy these requirements for Code First applications using elastic database tools. 
+Las instrucciones siguientes indican cómo satisfacer estos requisitos para las aplicaciones de Code First con las herramientas de bases de datos elásticas.
 
-## <a name="data-dependent-routing-using-ef-dbcontext"></a>Data dependent routing using EF DbContext 
+## Enrutamiento dependiente de datos con DbContext de EF 
 
-Database connections with Entity Framework are typically managed through subclasses of **DbContext**. Create these subclasses by deriving from **DbContext**. This is where you define your **DbSets** that implement the database-backed collections of CLR objects for your application. In the context of data dependent routing, we can identify several helpful properties that do not necessarily hold for other EF code first application scenarios: 
+Las conexiones de base de datos con Entity Framework se suelen administrar mediante subclases de **DbContext**. Cree estas subclases basándose en **DbContext**. Aquí es donde define los **DbSets** que implementan las colecciones de objetos CLR con respaldo de base de datos para la aplicación. En el contexto de enrutamiento dependiente de datos, podemos identificar varias propiedades útiles que no necesariamente se incluyen en otros escenarios de aplicación EF Code First:
 
-* The database already exists and has been registered in the elastic database shard map. 
-* The schema of the application has already been deployed to the database (explained below). 
-* Data-dependent routing connections to the database are brokered by the shard map. 
+* La base de datos ya existe y se ha registrado en el mapa de particiones de bases de datos elásticas. 
+* El esquema de la aplicación ya se ha implementado en la base de datos (que se explica más adelante). 
+* Las conexiones de enrutamiento dependiente de datos con la base de datos se negocian con el mapa de particiones. 
 
-To integrate **DbContexts** with data-dependent routing for scale-out:
+Para integrar **DbContexts** con enrutamiento dependiente de datos para escalado horizontal:
 
-1. Create physical database connections through the elastic database client interfaces of the shard map manager, 
-2. Wrap the connection with the **DbContext** subclass
-3. Pass the connection down into the **DbContext** base classes to ensure all the processing on the EF side happens as well. 
+1. Cree conexiones de base de datos física a través de las interfaces de cliente de bases de datos elásticas del administrador de mapas de particiones. 
+2. Ajuste la conexión con la subclase **DbContext**.
+3. Transfiera la conexión a las clases base **DbContext** para asegurarse de que también se produce todo el procesamiento del lado EF. 
 
-The following code example illustrates this approach. (This code is also in the accompanying Visual Studio project)
+En el ejemplo de código siguiente se muestra este método. (Este código también se encuentra en el proyecto de Visual Studio adjunto).
 
     public class ElasticScaleContext<T> : DbContext
     {
@@ -122,20 +121,20 @@ The following code example illustrates this approach. (This code is also in the 
             return conn;
         }    
 
-## <a name="main-points"></a>Main points
-* A new constructor replaces the default constructor in the DbContext subclass 
-* The new constructor takes the arguments that are required for data dependent routing through elastic database client library:
-    * the shard map to access the data-dependent routing interfaces,
-    * the sharding key to identify the shardlet,
-    * a connection string with the credentials for the data-dependent routing connection to the shard. 
+## Puntos principales
+* Un nuevo constructor reemplaza al constructor predeterminado en la subclase DbContext 
+* El nuevo constructor adopta los argumentos necesarios para el enrutamiento dependiente de datos a través de la biblioteca de cliente de bases de datos elásticas:
+    * El mapa de particiones para acceder a las interfaces de enrutamiento dependiente de datos.
+    * La clave de particionamiento para identificar el shardlet.
+    * Una cadena de conexión con las credenciales para la conexión de enrutamiento dependiente de datos a la partición. 
  
-* The call to the base class constructor takes a detour into a static method that performs all the steps necessary for data-dependent routing. 
-   * It uses the OpenConnectionForKey call of the elastic database client interfaces on the shard map to establish an open connection.
-   * The shard map creates the open connection to the shard that holds the shardlet for the given sharding key.
-   * This open connection is passed back to the base class constructor of DbContext to indicate that this connection is to be used by EF instead of letting EF create a new connection automatically. This way the connection has been tagged by the elastic database client API so that it can guarantee consistency under shard map management operations.
+* La llamada al constructor de clase base se desvía a un método estático que realiza todos los pasos necesarios para enrutamiento dependiente de datos.
+   * Usa la llamada OpenConnectionForKey de las interfaces de cliente de bases de datos elásticas en el mapa de particiones para establecer una conexión abierta.
+   * El mapa de particiones crea la conexión abierta con la partición que contiene el shardlet para la clave de particionamiento especificada.
+   * Esta conexión abierta se transfiere de nuevo al constructor de la clase base DbContext para indicar que se va a usar esta conexión en EF en lugar de dejar que EF cree automáticamente una conexión. De este modo, la API de cliente de bases de datos elásticas etiqueta la conexión para que pueda garantizar la coherencia en las operaciones de administración de mapas de particiones.
  
   
-Use the new constructor for your DbContext subclass instead of the default constructor in your code. Here is an example: 
+Use en el código el nuevo constructor para la subclase DbContext en lugar del constructor predeterminado. Aquí tiene un ejemplo:
 
     // Create and save a new blog.
 
@@ -158,12 +157,12 @@ Use the new constructor for your DbContext subclass instead of the default const
      … 
     }
 
-The new constructor opens the connection to the shard that holds the data for the shardlet identified by the value of **tenantid1**. The code in the **using** block stays unchanged to access the **DbSet** for blogs using EF on the shard for **tenantid1**. This changes semantics for the code in the using block such that all database operations are now scoped to the one shard where **tenantid1** is kept. For instance, a LINQ query over the blogs **DbSet** would only return blogs stored on the current shard, but not the ones stored on other shards.  
+El nuevo constructor abre la conexión con la partición que contiene los datos para el shardlet identificado por el valor de **tenantid1**. El código en el bloque **using** permanece sin cambios para acceder al **DbSet** de los blogs que usan EF en la partición de **tenantid1**. Esto cambia la semántica para el código del bloque using de modo que todas las operaciones de base de datos ahora se limitan a la partición donde se guarda **tenantid1**. Por ejemplo, una consulta LINQ en los blogs de **DbSet** solo devolvería los blogs almacenados en la partición actual, pero no los almacenados en otras particiones.
 
-#### <a name="transient-faults-handling"></a>Transient faults handling
-The Microsoft Patterns & Practices team published the [The Transient Fault Handling Application Block](https://msdn.microsoft.com/library/dn440719.aspx). The library is used with elastic scale client library in combination with EF. However, ensure that any transient exception returns to a place where we can ensure that the new constructor is being used after a transient fault so that any new connection attempt is made using the constructors we have tweaked. Otherwise, a connection to the correct shard is not guaranteed, and there are no assurances the connection is maintained as changes to the shard map occur. 
+#### Control de errores transitorios
+El equipo de Microsoft Patterns & Practices publicó el [bloque de aplicación de gestión de errores transitorios](https://msdn.microsoft.com/library/dn440719.aspx). La biblioteca se usa con la biblioteca de cliente de escalado elástico conjuntamente con EF. Sin embargo, asegúrese de que cualquier excepción transitoria se devuelve a un lugar donde podamos garantizar que después de un error transitorio se usa el nuevo constructor para que cualquier nuevo intento de conexión se realice con los constructores que hemos ajustado. De lo contrario, no se garantiza una conexión a la partición correcta y no hay ninguna certeza de que la conexión se mantiene cuando se producen cambios en el mapa de particiones.
 
-The following code sample illustrates how a SQL retry policy can be used around the new **DbContext** subclass constructors: 
+El ejemplo de código siguiente muestra cómo se puede usar una directiva de reintentos SQL en torno a los nuevos constructores de subclase **DbContext**:
 
     SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
     { 
@@ -179,37 +178,37 @@ The following code sample illustrates how a SQL retry policy can be used around 
             } 
         }); 
 
-**SqlDatabaseUtils.SqlRetryPolicy** in the code above is defined as a **SqlDatabaseTransientErrorDetectionStrategy** with a retry count of 10, and 5 seconds wait time between retries. This approach is similar to the guidance for EF and user-initiated transactions (see [Limitations with Retrying Execution Strategies (EF6 onwards)](http://msdn.microsoft.com/data/dn307226). Both situations require that the application program controls the scope to which the transient exception returns: to either reopen the transaction, or (as shown) recreate the context from the proper constructor that uses the elastic database client library.
+**SqlDatabaseUtils.SqlRetryPolicy** en el código anterior se define como **SqlDatabaseTransientErrorDetectionStrategy** con un número de reintentos de 10 y un tiempo de espera de 5 segundos entre reintentos. Este enfoque es parecido a las instrucciones para EF y las transacciones iniciadas por el usuario (consulte las [limitaciones con las estrategias de ejecución de reintentos [EF6 en adelante])](http://msdn.microsoft.com/data/dn307226). En ambas situaciones es necesario que el programa de la aplicación controle el ámbito en el que se devuelve la excepción transitoria: para volver a abrir la transacción o (como se muestra) volver a crear el contexto a partir del constructor adecuado que usa la biblioteca de cliente de bases de datos elásticas.
 
-The need to control where transient exceptions take us back in scope also precludes the use of the built-in **SqlAzureExecutionStrategy** that comes with EF. **SqlAzureExecutionStrategy** would reopen a connection but not use **OpenConnectionForKey** and therefore bypass all the validation that is performed as part of the **OpenConnectionForKey** call. Instead, the code sample uses the built-in **DefaultExecutionStrategy** that also comes with EF. As opposed to **SqlAzureExecutionStrategy**, it works correctly in combination with the retry policy from Transient Fault Handling. The execution policy is set in the **ElasticScaleDbConfiguration** class. Note that we decided not to use **DefaultSqlExecutionStrategy** since it suggests to use **SqlAzureExecutionStrategy** if transient exceptions occur - which would lead to wrong behavior as discussed. For more information on the different retry policies and EF, see [Connection Resiliency in EF](http://msdn.microsoft.com/data/dn456835.aspx).     
+La necesidad de controlar dónde las excepciones transitorias nos llevan de vuelta en el ámbito también impide el uso de la **SqlAzureExecutionStrategy** integrada que se incluye con EF. **SqlAzureExecutionStrategy** volvería a abrir la conexión pero no usa **OpenConnectionForKey** y, por tanto, pasa por alto toda la validación que se realiza como parte de la llamada **OpenConnectionForKey**. En su lugar, el código de ejemplo usa **DefaultExecutionStrategy** integrada que también se incluye con EF. Al contrario que **SqlAzureExecutionStrategy**, funciona correctamente en combinación con la directiva de reintentos de gestión de errores transitorios. La directiva de ejecución se establece en la clase **ElasticScaleDbConfiguration**. Tenga en cuenta que hemos decidido no usar **DefaultSqlExecutionStrategy** dado que sugiere el uso de **SqlAzureExecutionStrategy** si se producen excepciones transitorias, lo que podría llevar a un comportamiento erróneo, como hemos comentado. Para obtener más información sobre las diferentes directivas de reintento y EF, consulte [Resistencia de conexión en EF](http://msdn.microsoft.com/data/dn456835.aspx).
 
-#### <a name="constructor-rewrites"></a>Constructor rewrites
-The code examples above illustrate the default constructor re-writes required for your application in order to use  data dependent routing with the Entity Framework. The following table generalizes this approach to other constructors. 
+#### Reescrituras del constructor
+Los ejemplos de código anteriores muestran las reescrituras del constructor predeterminado que requiere la aplicación para usar enrutamiento dependiente de datos con Entity Framework. La siguiente tabla generaliza este método para otros constructores.
 
 
-Current Constructor  | Rewritten Constructor for data | Base Constructor | Notes
+Constructor actual | Constructor reescrito para datos | Constructor base | Notas
 ---------- | ----------- | ------------|----------
-MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |The connection needs to be a function of the shard map and the data-dependent routing key. You need to by-pass automatic connection creation by EF and instead use the shard map to broker the connection. 
-MyContext(string)|ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |The connection is a function of the shard map and the data-dependent routing key. A fixed database name or connection string will not work as they by-pass validation by the shard map. 
-MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |The connection will get created for the given shard map and sharding key with the model provided. The compiled model will be passed on to the base c’tor.
-MyContext(DbConnection, bool) |ElasticScaleContext(ShardMap, TKey, bool) |DbContext(DbConnection, bool) |The connection needs to be inferred from the shard map and the key. It cannot be provided as an input (unless that input was already using the shard map and the key). The Boolean will be passed on. 
-MyContext(string, DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |The connection needs to be inferred from the shard map and the key. It cannot be provided as an input (unless that input was using the shard map and the key). The compiled model will be passed on. 
-MyContext(ObjectContext, bool) |ElasticScaleContext(ShardMap, TKey, ObjectContext, bool) |DbContext(ObjectContext, bool) |The new constructor needs to ensure that any connection in the ObjectContext passed as an input is re-routed to a connection managed by Elastic Scale. A detailed discussion of ObjectContexts is beyond the scope of this document.
-MyContext(DbConnection, DbCompiledModel,bool) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel, bool)| DbContext(DbConnection, DbCompiledModel, bool); |The connection needs to be inferred from the shard map and the key. The connection cannot be provided as an input (unless that input was already using the shard map and the key). Model and Boolean are passed on to the base class constructor. 
+MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |La conexión debe ser una función de la asignación de particiones y la clave de enrutamiento dependiente de datos. Se debe omitir la creación de conexión automática por parte de EF y usar en su lugar el mapa de particiones para negociar la conexión. 
+MyContext(string)|ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |La conexión es una función del mapa de particiones y la clave de enrutamiento dependiente de datos. Una cadena de nombre de base de datos o de conexión fija no funcionará ya que omite la validación por parte del mapa de particiones. 
+MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |La conexión se creará para el mapa de particiones determinado y la clave de particionamiento con el modelo proporcionado. El modelo compilado se transferirá al constructor base.
+MyContext(DbConnection, bool) |ElasticScaleContext(ShardMap, TKey, bool) |DbContext(DbConnection, bool) |La conexión se tiene que deducir del mapa de particiones y la clave. No se puede especificar como entrada (a menos que la entrada ya use el mapa de particiones y la clave). Se transferirá el valor booleano. 
+MyContext(string, DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |La conexión se tiene que deducir del mapa de particiones y la clave. No se puede especificar como entrada (a menos que la entrada use el mapa de particiones y la clave). Se transferirá el modelo compilado. 
+MyContext(ObjectContext, bool) |ElasticScaleContext(ShardMap, TKey, ObjectContext, bool) |DbContext(ObjectContext, bool) |El nuevo constructor debe asegurarse de que las conexiones de ObjectContext pasado como entrada se vuelve a enrutar a una conexión administrada por el escalado elástico. No es el objetivo de este documento dar una explicación detallada de ObjectContext.
+MyContext(DbConnection, DbCompiledModel,bool) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel, bool)| DbContext(DbConnection, DbCompiledModel, bool); |La conexión se tiene que deducir del mapa de particiones y la clave. La conexión no se puede especificar como entrada (a menos que la entrada ya use el mapa de particiones y la clave). El modelo y los valores booleanos se transfieren al constructor de clase base. 
 
-## <a name="shard-schema-deployment-through-ef-migrations"></a>Shard schema deployment through EF migrations 
+## Implementación del esquema de partición mediante migraciones de EF 
 
-Automatic schema management is a convenience provided by the Entity Framework. In the context of applications using elastic database tools, we want to retain this capability to automatically provision the schema to newly created shards when databases are added to the sharded application. The primary use case is to increase capacity at the data tier for sharded applications using EF. Relying on EF’s capabilities for schema management reduces the database administration effort with a sharded application built on EF. 
+La administración automática de esquemas es una ventaja que ofrece Entity Framework. En el contexto de aplicaciones con herramientas de bases de datos elásticas, queremos conservar esta capacidad para aprovisionar automáticamente el esquema a las particiones recién creadas cuando se agregan bases de datos a la aplicación particionada. El principal caso de uso es aumentar la capacidad en la capa de datos para aplicaciones particionadas con EF. Al basarse en la funcionalidad de EF para la administración de esquemas se reducen las tareas de administración de base de datos con una aplicación particionada que esté integrada en EF.
 
-Schema deployment through EF migrations works best on **unopened connections**. This is in contrast to the scenario for data dependent routing that relies on the opened connection provided by the elastic database client API. Another difference is the consistency requirement: While desirable to ensure consistency for all data-dependent routing connections to protect against concurrent shard map manipulation, it is not a concern with initial schema deployment to a new database that has not yet been registered in the shard map, and not yet been allocated to hold shardlets. We can therefore rely on regular database connections for this scenarios, as opposed to data-dependent routing.  
+La implementación del esquema a través de migraciones de EF funciona mejor en **conexiones sin abrir**. Esto difiere del escenario de enrutamiento dependiente de datos que se basa en la conexión abierta que proporciona la API de cliente de bases de datos elásticas. Otra diferencia es el requisito de coherencia: aunque es conveniente garantizar la coherencia de todas las conexiones de enrutamiento dependiente de datos como protección ante la manipulación del mapa de particiones simultánea, no hay ningún problema con la implementación del esquema inicial en una nueva base de datos que aún no se haya registrado en el mapa de particiones y no se haya asignado para que contenga shardlets. Por lo tanto, podemos confiar en las conexiones de base de datos normales para estos escenarios, en lugar de enrutamiento dependiente de datos.
 
-This leads to an approach where schema deployment through EF migrations is tightly coupled with the registration of the new database as a shard in the application’s shard map. This relies on the following prerequisites: 
+Esto conduce a un método en el que la implementación de esquemas mediante migraciones de EF está estrechamente vinculado al registro de la nueva base de datos como partición del mapa de particiones de la aplicación. Se basa en los requisitos previos siguientes:
 
-* The database has already been created. 
-* The database is empty – it holds no user schema and no user data.
-* The database cannot yet be accessed through the elastic database client APIs for data-dependent routing. 
+* Ya se ha creado la base de datos. 
+* La base de datos está vacía, no contiene ningún esquema de usuario ni hay datos de usuario.
+* Aún no se puede tener acceso a la base de datos mediante las API de cliente de bases de datos elásticas para enrutamiento dependiente de datos. 
 
-With these prerequisites in place, we can create a regular un-opened **SqlConnection** to kick off EF migrations for schema deployment. The following code sample illustrates this approach. 
+Una vez satisfechos estos requisitos previos, podemos crear una **SqlConnection** normal sin abrir para iniciar migraciones de EF para la implementación del esquema. En el ejemplo de código siguiente se muestra este método.
 
         // Enter a new shard - i.e. an empty database - to the shard map, allocate a first tenant to it  
         // and kick off EF intialization of the database to deploy schema 
@@ -239,7 +238,7 @@ With these prerequisites in place, we can create a regular un-opened **SqlConnec
         } 
  
 
-This sample shows the method **RegisterNewShard** that registers the shard in the shard map, deploys the schema through EF migrations, and stores a mapping of a sharding key to the shard. It relies on a constructor of the **DbContext** subclass (**ElasticScaleContext** in the sample) that takes a SQL connection string as input. The code of this constructor is straight-forward, as the following example shows: 
+Este ejemplo muestra el método **RegisterNewShard** que registra la partición en el mapa de particiones, implementa el esquema mediante migraciones de EF y almacena la asignación de una clave de particionamiento en la partición. Se basa en un constructor de la subclase **DbContext** (**ElasticScaleContext** en el ejemplo) que toma una cadena de conexión SQL como entrada. El código de este constructor es sencillo, como se muestra en el ejemplo siguiente:
 
 
         // C'tor to deploy schema and migrations to a new shard 
@@ -258,22 +257,22 @@ This sample shows the method **RegisterNewShard** that registers the shard in th
             return connnectionString; 
         } 
  
-One might have used the version of the constructor inherited from the base class. But the code needs to ensure that the default initializer for EF is used when connecting. Hence the short detour into the static method before calling into the base class constructor with the connection string. Note that the registration of shards should run in a different app domain or process to ensure that the initializer settings for EF do not conflict. 
+Se podría haber usado la versión del constructor heredado de la clase base. Pero el código debe garantizar que el inicializador predeterminado para EF se usa al conectarse. De ahí el breve desvío del método estático antes de llamar al constructor de clase base con la cadena de conexión. Tenga en cuenta que el registro de particiones debe ejecutarse en un dominio de aplicación diferente o procesarse para garantizar que los valores de configuración del inicializador para EF no entren en conflicto.
 
 
-## <a name="limitations"></a>Limitations 
+## Limitaciones 
 
-The approaches outlined in this document entail a couple of limitations: 
+Los métodos descritos en este documento implican un par de limitaciones:
 
-* EF applications that use **LocalDb** first need to migrate to a regular SQL Server database before using elastic database client library. Scaling out an application through sharding with Elastic Scale is not possible with **LocalDb**. Note that development can still use **LocalDb**. 
+* Las aplicaciones de EF que usen **LocalDb** deben migrar en primer lugar a una base de datos de SQL Server normal antes de usar la biblioteca de cliente de Base de datos elástica. El escalado horizontal de una aplicación mediante particionamiento con Escalado elástico no es posible con **LocalDb**. Tenga en cuenta que los desarrolladores pueden seguir usando **LocalDb**. 
 
-* Any changes to the application that imply database schema changes need to go through EF migrations on all shards. The sample code for this document does not demonstrate how to do this. Consider using Update-Database with a ConnectionString parameter to iterate over all shards; or extract the T-SQL script for the pending migration using Update-Database with the –Script option and apply the T-SQL script to your shards.  
+* Los cambios efectuados en la aplicación que implican cambios en el esquema de base de datos deben pasar por migraciones de EF en todas las particiones. El código de ejemplo de este documento no muestra cómo hacerlo. Considere el uso de Update-Database con un parámetro ConnectionString para iterar en todas las particiones; o extraiga el script T-SQL para la migración pendiente usando Update-Database con la opción –Script y aplique el script T-SQL en sus particiones.
 
-* Given a request, it is assumed that all of its database processing is contained within a single shard as identified by the sharding key provided by the request. However, this assumption does not always hold true. For example, when it is not possible to make a sharding key available. To address this, the client library provides the **MultiShardQuery** class that implements a connection abstraction for querying over several shards. Learning to use the **MultiShardQuery** in combination with EF is beyond the scope of this document
+* Dada una solicitud, se supone que todo el procesamiento de la base de datos está contenido en una sola partición que se identifica con la clave de particionamiento especificada por la solicitud. Sin embargo, esta suposición no siempre es cierta. Por ejemplo, cuando no se puede disponer de una clave de particionamiento. Para solucionar este problema, la biblioteca cliente proporciona la clase **MultiShardQuery** que implementa una abstracción de conexión para realizar consultas en varias particiones. No es el objetivo de este documento tratar sobre el uso de **MultiShardQuery** junto con EF.
 
-## <a name="conclusion"></a>Conclusion
+## Conclusión
 
-Through the steps outlined in this document, EF applications can use the elastic database client library's capability for data dependent routing by refactoring constructors of the **DbContext** subclasses used in the EF application. This limits the  changes required to those places where **DbContext** classes already exist. In addition, EF applications can continue to benefit from automatic schema deployment by combining the steps that invoke the necessary EF migrations with the registration of new shards and mappings in the shard map. 
+Con los pasos descritos en este documento, las aplicaciones de EF pueden utilizar la funcionalidad de enrutamiento dependiente de datos de la biblioteca cliente de bases de datos elásticas mediante la refactorización de constructores de las subclases **DbContext** que se usan en la aplicación de EF. Esto limita los cambios necesarios en los lugares donde ya existen clases **DbContext**. Además, las aplicaciones de EF pueden seguir aprovechando la implementación automática de esquemas mediante la combinación de los pasos que invocan las migraciones de EF necesarias con el registro de nuevas particiones y asignaciones en el mapa de particiones.
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -282,7 +281,4 @@ Through the steps outlined in this document, EF applications can use the elastic
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0601_2016-->

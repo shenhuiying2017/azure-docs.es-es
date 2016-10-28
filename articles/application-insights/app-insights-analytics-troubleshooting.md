@@ -1,144 +1,136 @@
 <properties 
-    pageTitle="Troubleshooting Analytics - the powerful search tool of Application Insights | Microsoft Azure" 
-    description="Problems with Application Insights analytics? Start here. " 
-    services="application-insights" 
+	pageTitle="Solución de problemas de Analytics: la herramienta de búsqueda eficaz de Application Insights | Microsoft Azure" 
+	description="¿Problemas con Analytics de Application Insights? Comience aquí. " 
+	services="application-insights" 
     documentationCenter=""
-    authors="alancameronwills" 
-    manager="douge"/>
+	authors="alancameronwills" 
+	manager="douge"/>
 
 <tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/11/2016" 
-    ms.author="awills"/>
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/11/2016" 
+	ms.author="awills"/>
+
+
+# Solución de problemas de Analytics en Application Insights
+
+
+¿Problemas con [Analytics de Application Insights](app-insights-analytics.md)? Comience aquí. Analytics es una herramienta de búsqueda eficaz de Visual Studio Application Insights.
 
 
 
-# <a name="troubleshoot-analytics-in-application-insights"></a>Troubleshoot Analytics in Application Insights
+## Límites
+
+* En la actualidad, los resultados de consulta están limitados exclusivamente a solo una semana de datos antiguos.
+* Exploradores en los que la hemos probado: últimas ediciones de Chrome, Edge e Internet Explorer.
 
 
-Problems with [Application Insights Analytics](app-insights-analytics.md)? Start here. Analytics is the powerful search tool of Visual Studio Application Insights.
-
-
-
-## <a name="limits"></a>Limits
-
-* At present, query results are limited to just over a week of past data.
-* Browsers we test on: latest editions of Chrome, Edge, and Internet Explorer.
-
-
-## <a name="known-incompatible-browser-extensions"></a>Known incompatible browser extensions
+## Extensiones de explorador incompatibles conocidas
 
 * Ghostery
 
-Disable the extension or use a different browser.
+Deshabilite la extensión o use un explorador diferente.
 
 
-##<a name="<a-name="e-a"></a>-"unexpected-error""></a><a name="e-a"></a> "Unexpected error"
+##<a name="e-a"></a> "Error inesperado"
 
-![Unexpected error screen](./media/app-insights-analytics-troubleshooting/010.png)
+![Pantalla de error inesperado](./media/app-insights-analytics-troubleshooting/010.png)
 
-Internal error occurred during portal runtime – unhandled exception.
+Error interno durante el tiempo de ejecución del portal: excepción no controlada.
 
-* Clean the browser's cache. 
+* Limpie la caché del explorador.
 
-## <a name="<a-name="e-b"></a>403-...-please-try-to-reload"></a><a name="e-b"></a>403 ... please try to reload
+## <a name="e-b"></a>403... intente volver a cargar
 
-![403 ... please try to reload](./media/app-insights-analytics-troubleshooting/020.png)
+![403\... intente volver a cargar](./media/app-insights-analytics-troubleshooting/020.png)
 
-An authentication related error occurred (during authentication or during access token generation). The portal may have no way to  recover without changing browser settings.
+Se ha producido un error relacionado con la autenticación (durante la autenticación o durante la generación del token de acceso). Puede que el portal no tenga forma de recuperarse sin cambiar la configuración del explorador.
 
-* Verify [third party cookies are enabled](#cookies) in the browser. 
-
-
-## <a name="<a-name="authentication"></a>403-...-verify-security-zone"></a><a name="authentication"></a>403 ... verify security zone
-
-![403 ...verify security zone](./media/app-insights-analytics-troubleshooting/030.png)
-
-An authentication related error occurred (during authentication or during access token generation). The portal may have no way to  recover without changing browser settings.
-
-1. Verify [third party cookies are enabled](#cookies) in the browser. 
-
-2. Did you use a favorite, bookmark or saved link to open the Analytics portal? Are you signed in with different credentials than you used when you saved the link?
-
-2. Try using an in-private/incognito browser window (after closing all such windows). You'll have to provide your credentials. 
-
-2. Open another (ordinary) browser window and go to [Azure](https://portal.azure.com). Sign out. Then open your link and sign in with the correct credentials.
-
-2. Edge and Internet Explorer users can also get this error when trusted zone settings are not supported.
-
-    Verify both [Analytics portal](https://analytics.applicationinsights.io) and [Azure Active Directory portal](https://portal.azure.com) are in the same security zone:
-
- * In Internet Explorer, open **Internet Options**, **Security**, **Trusted sites**, **Sites**:
-
-    ![Internet Options dialog, adding a site to Trusted Sites](./media/app-insights-analytics-troubleshooting/033.png)
-
-    In the Websites list, if any of the following URLs are included, make sure that the others are included also:
-
-    https://analytics.applicationinsights.io<br/>
-    https://login.microsoftonline.com<br/>
-    https://login.windows.net
+* Compruebe que las [cookies de terceros estén habilitadas](#cookies) en el explorador.
 
 
-## <a name="<a-name="e-d"></a>404-...-resource-not-found"></a><a name="e-d"></a>404 ... Resource not found
+## <a name="authentication"></a>403... compruebe la zona de seguridad
 
-![404 ... resource not found](./media/app-insights-analytics-troubleshooting/040.png)
+![403\... compruebe la zona de seguridad](./media/app-insights-analytics-troubleshooting/030.png)
 
-Application resource was deleted from Application Insights and isn’t available anymore. This can happen if you saved the URL to the Analytics page.
+Se ha producido un error relacionado con la autenticación (durante la autenticación o durante la generación del token de acceso). Puede que el portal no tenga forma de recuperarse sin cambiar la configuración del explorador.
 
+1. Compruebe que las [cookies de terceros estén habilitadas](#cookies) en el explorador.
 
-## <a name="<a-name="e-e"></a>403-...-no-authorization"></a><a name="e-e"></a>403 ... No authorization
+2. ¿Ha utilizado un favorito, un marcador o un vínculo guardado para abrir el portal de Analytics? ¿Ha iniciado sesión con credenciales diferentes a las que utilizó cuando guardó el vínculo?
 
-![403 ... not authorized](./media/app-insights-analytics-troubleshooting/050.png)
+2. Pruebe a usar una ventana de exploración privada o de incógnito (después de cerrar todas estas ventanas). Tendrá que proporcionar sus credenciales.
 
-You don't have permission to open this application in Analytics.
+2. Abra otra ventana de explorador (ordinaria) y vaya a [Azure](https://portal.azure.com). Cierre la sesión. A continuación, abra el vínculo e inicie sesión con las credenciales correctas.
 
-* Did you get the link from someone else? Ask them to make sure you are in the [readers or contributors for this resource group](app-insights-resources-roles-access-control.md).
-* Did you save the link using different credentials? Open the [Azure portal](https://portal.azure.com), sign out, and then try this link again, providing the correct credentials.
+2. Los usuarios de Edge y de Internet Explorer también pueden recibir este error cuando no se admite la configuración de zona Sitios de confianza.
 
-## <a name="<a-name="html-storage"></a>403-...-html5-storage"></a><a name="html-storage"></a>403 ... HTML5 Storage
+	Compruebe que tanto el [portal de Analytics](https://analytics.applicationinsights.io) como el [portal de Azure Active Directory](https://portal.azure.com) ase encuentren en la misma zona de seguridad:
 
-Our portal uses HTML5 localStorage and sessionStorage.
+ * En Internet Explorer, abra **Opciones de Internet**, **Seguridad**, **Sitios de confianza**, **Sitios**:
 
-* Chrome: Settings, privacy, content settings.
-* Internet Explorer: Internet Options, Advanced tab, Security, Enable DOM Storage
+    ![Cuadro de diálogo Opciones de Internet, agregar un sitio a Sitios de confianza](./media/app-insights-analytics-troubleshooting/033.png)
 
+    En la lista de sitios web, si se incluye alguna de las siguientes direcciones URL, asegúrese de que las otras se incluyan también:
 
-![403 ... try to enable HTML5 storage](./media/app-insights-analytics-troubleshooting/060.png)
-
-## <a name="<a-name="e-g"></a>404-...-subscription-not-found"></a><a name="e-g"></a>404 ... Subscription not found
+    https://analytics.applicationinsights.io<br/> https://login.microsoftonline.com<br/> https://login.windows.net
 
 
-![404 ... Subscription not found](./media/app-insights-analytics-troubleshooting/070.png)
+## <a name="e-d"></a>404 ... Recurso no encontrado
 
-The URL is invalid. 
+![404 \... recurso no encontrado](./media/app-insights-analytics-troubleshooting/040.png)
 
-* Open the app resource in [Application Insights portal](https://portal.azure.com). Then use the Analytics button.
+Los recursos de la aplicación se eliminaron de Application Insights y ya no están disponibles. Esto puede suceder si guardó la dirección URL en la página de Analytics.
 
-## <a name="<a-name="e-h"></a>404-...-page-doesn't-exist"></a><a name="e-h"></a>404 ... page doesn't exist
 
-![404 ... Page does not exist](./media/app-insights-analytics-troubleshooting/080.png)
+## <a name="e-e"></a>403 ... Sin autorización
 
-The URL is invalid.
+![403 \... no autorizado](./media/app-insights-analytics-troubleshooting/050.png)
 
-* Open the app resource in [Application Insights portal](https://portal.azure.com). Then use the Analytics button.
+No tiene permiso para abrir esta aplicación en Analytics.
 
-## <a name="<a-name="cookies"></a>enable-third-party-cookies"></a><a name="cookies"></a>Enable third-party cookies
+* ¿Recibió el vínculo de otra persona? Pregúnteles para asegurarse de que se encuentra en los roles de [lector o colaborador en este grupo de recursos](app-insights-resources-roles-access-control.md).
+* ¿Guardó el vínculo mediante credenciales diferentes? Abra el [Portal de Azure](https://portal.azure.com), cierre sesión y vuelva a probar este vínculo con las credenciales correctas.
 
-  See [how to disable third party cookies](http://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers), but notice we need to **enable** them.
+## <a name="html-storage"></a>403 ... Almacenamiento de HTML5
 
-## <a name="<a-name="e-x"></a>if-all-else-fails"></a><a name="e-x"></a>If all else fails    
+Nuestro portal utiliza localStorage y sessionStorage de HTML5.
 
-[Contact us](app-insights-get-dev-support.md).
+* Chrome: Configuración, Privacidad, Configuración de contenido.
+* Internet Explorer: Opciones de Internet, pestaña Opciones avanzadas, Seguridad, Habilitar el almacenamiento DOM
+
+
+![403\... pruebe a habilitar el almacenamiento de HTML5](./media/app-insights-analytics-troubleshooting/060.png)
+
+## <a name="e-g"></a>404 ... Suscripción no encontrada
+
+
+![404 \... Suscripción no encontrada](./media/app-insights-analytics-troubleshooting/070.png)
+
+La dirección URL no es válida.
+
+* Abra el recurso de aplicación en el [portal de Application Insights](https://portal.azure.com). A continuación, utilice el botón de Analytics.
+
+## <a name="e-h"></a>404... la página no existe
+
+![404 \... La página no existe](./media/app-insights-analytics-troubleshooting/080.png)
+
+La dirección URL no es válida.
+
+* Abra el recurso de aplicación en el [portal de Application Insights](https://portal.azure.com). A continuación, utilice el botón de Analytics.
+
+## <a name="cookies"></a>Habilitar cookies de terceros
+
+  Vea [How to disable third-party cookies in all major web browsers](http://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers) (Cómo deshabilitar las cookies de terceros en todos los principales exploradores), pero tenga en cuenta que es necesario **habilitarlas**.
+
+## <a name="e-x"></a>Si todo lo demás no funciona    
+
+[Póngase en contacto con nosotros](app-insights-get-dev-support.md).
  
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

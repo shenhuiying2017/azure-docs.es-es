@@ -1,27 +1,25 @@
-#### <a name="vpn-type---resource-manager-deployment-model"></a>VPN type - Resource Manager deployment model
+#### Tipo de VPN: modelo de implementación de Resource Manager
 
-|      | **RouteBased**    | **PolicyBased** |
+| | **RouteBased** | **PolicyBased** |
 |-----------------------------------|-------------|------------------|
-| **Site-to-Site**                  | Supported   | Supported        |
-| **VNet-to-VNet**                  | Supported   | Not Supported    |
-| **Multi-Site**                    | Supported   | Not Supported    |
-| **S2S and ExpressRoute coexist**  | Supported   | Not Supported    |
-| **Point-to-Site**                 | Supported   | Not Supported    |
-| **Classic to Resource Manager**   | Supported   | Not Supported    |
+| **De sitio a sitio** | Compatible | Compatible |
+| **De red virtual a red virtual** | Compatible | No compatible |
+| **Multisitio** | Compatible | No compatible |
+| **S2S y ExpressRoute coexisten** | Compatible | No compatible |
+| **De punto a sitio** | Compatible | No compatible |
+| **Clásico a Resource Manager** | Compatible | No compatible |
 
 
-#### <a name="vpn-type---classic-deployment-model"></a>VPN type - classic deployment model
+#### Tipo de VPN: modelo de implementación clásica
 
 
-|       | **Dynamic**        | **Static**   |
+| | **Dinámica** | **Estática** |
 |---------------------------------------------|--------------|--------------|
-| **Site-to-Site**                            | Supported    | Supported      |
-| **VNet-to-VNet**                            | Supported    | Not Supported  |
-| **Multi-Site**                              | Supported    | Not Supported  |
-| **S2S and ExpressRoute coexist**            | Supported    | Not Supported  |
-| **Point-to-Site**                           | Supported    | Not Supported  |
-| **Classic to Resource Manager**             | Supported    | Not Supported  |
+| **De sitio a sitio** | Compatible | Compatible |
+| **De red virtual a red virtual** | Compatible | No compatible |
+| **Multisitio** | Compatible | No compatible |
+| **S2S y ExpressRoute coexisten** | Compatible | No compatible |
+| **De punto a sitio** | Compatible | No compatible |
+| **Clásico a Resource Manager** | Compatible | No compatible |
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,145 +1,140 @@
 <properties
-    pageTitle="Microsoft Authenticator app for mobile phones | Microsoft Azure"
-    description="Learn how to upgrade to the latest version of Azure Authenticator."
-    services="multi-factor-authentication"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor="curtland"/>
+	pageTitle="Aplicación Microsoft Authenticator para teléfonos móviles | Microsoft Azure"
+	description="Aprenda a actualizar a la versión más reciente de Azure Authenticator."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtland"/>
 
 <tags
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/22/2016"
-    ms.author="kgremban"/>
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="kgremban"/>
 
+# Microsoft Authenticator
 
-# <a name="microsoft-authenticator"></a>Microsoft Authenticator
+La aplicación Microsoft Authenticator proporciona un nivel de seguridad adicional a la cuenta de Azure (por ejemplo, bsimon@contoso.onmicrosoft.com), la cuenta profesional local (por ejemplo, bsimon@contoso.com) o la cuenta de Microsoft (por ejemplo, bsimon@outlook.com).
 
-The Microsoft Authenticator app provides an additional level of security in your Azure account (for example, bsimon@contoso.onmicrosoft.com), your on-premises work account (for example, bsimon@contoso.com), or your Microsoft account (for example, bsimon@outlook.com).
+La aplicación funciona de una de estas dos formas:
 
-The app works in one of two ways:
+- **Notificación**. La aplicación puede ayudar a impedir el acceso no autorizado a las cuentas y detener las transacciones fraudulentas mediante el envío de una notificación al smartphone o a la tableta. Solo tiene que ver la notificación y, si es legítima, seleccionar **Comprobar**. De lo contrario, seleccione **Denegar**. Para más información sobre cómo denegar notificaciones, consulte How to use the Deny and Report Fraud Feature for Multi-Factor Authentication (Uso de la característica Denegar y notificar fraude para Multi-Factor Authentication).
 
-- **Notification**. The app can help prevent unauthorized access to accounts and stop fraudulent transactions by pushing a notification to your smartphone or tablet. Simply view the notification, and if it's legitimate, select **Verify**. Otherwise, you can select **Deny**. For information about denying notifications, see How to use the Deny and Report Fraud Feature for Multi-Factor Authentication.
+- **Contraseña con código de comprobación**. La aplicación puede utilizarse como token de software para generar un código de comprobación de OAuth. Escriba el código que facilita la aplicación en la pantalla de inicio de sesión, junto con el nombre de usuario y la contraseña, cuando se le pida. El código de comprobación es una forma adicional de autenticación.
 
-- **Password with verification code**. The app can be used as a software token to generate an OAuth verification code. You enter the code provided by the app into the sign-in screen, along with the user name and password, when prompted. The verification code provides a second form of authentication.
+Con el lanzamiento de la aplicación Microsoft Authenticator, se sustituye la antigua aplicación Azure Authenticator. La aplicación Azure Authenticator seguirá funcionando, pero si decide dar el paso a la nueva aplicación Microsoft Authenticator, este artículo puede servirle de ayuda.
 
-With the release of the Microsoft Authenticator app, the old Azure Authenticator app is being replaced.  The Azure Authenticator app will continue to work, but if you decide to move to the new Microsoft Authenticator app, this article can assist you.  
+## Instalación de la aplicación
 
-## <a name="install-the-app"></a>Install the app
+La aplicación Microsoft Authenticator está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
-The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+## Incorporación de cuentas a la aplicación
 
-## <a name="add-accounts-to-the-app"></a>Add accounts to the app
+Siga uno de los procedimientos siguientes para cada cuenta que desee agregar a la aplicación Microsoft Authenticator.
 
-For each account that you want to add to the Microsoft Authenticator app, use one of the following procedures.
+### Incorporación de una cuenta a la aplicación con el escáner de códigos QR
 
-### <a name="add-an-account-to-the-app-by-using-the-qr-code-scanner"></a>Add an account to the app by using the QR code scanner
+1. Vaya a la pantalla de configuración de comprobación de seguridad. Para información sobre cómo ir a esta pantalla, consulte la sección sobre el [cambio de la configuración de seguridad](multi-factor-authentication-end-user-manage-settings.md).
 
-1. Go to the security verification settings screen.  For information on how to get to this screen, see [Changing your security settings](multi-factor-authentication-end-user-manage-settings.md).
+2. Seleccione **Configurar**.
 
-2. Select **Configure**.
+	![Botón Configurar en la pantalla de configuración de la comprobación de seguridad](./media/multi-factor-authentication-azure-authenticator/azureauthe.png)
 
-    ![The Configure button on the security verification settings screen](./media/multi-factor-authentication-azure-authenticator/azureauthe.png)
+	Aparecerá una pantalla con un código QR.
 
-    This brings up a screen with a QR code on it.
+	![Pantalla que proporciona el código QR](./media/multi-factor-authentication-azure-authenticator/barcode2.png)
 
-    ![Screen that provides the QR code](./media/multi-factor-authentication-azure-authenticator/barcode2.png)
+3. Abra la aplicación Microsoft Authenticator. En la pantalla **Cuentas**, seleccione **+** y especifique que desea agregar una cuenta profesional o de formación.
 
-3. Open the Microsoft Authenticator app. On the **accounts** screen, select **+**, and then specify that you want to add a work or school account.
+	![Pantalla Cuentas con el signo más](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
-    ![The accounts screen with plus sign](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
+	![Pantalla para especificar una cuenta profesional o de formación](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
 
-    ![Screen for specifying a work or school account](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
+4. Utilice la cámara para digitalizar el código QR y seleccione **Listo** para cerrar la pantalla de código QR.
 
-4. Use the camera to scan the QR code, and then select **Done** to close the QR code screen.
+	![Pantalla para digitalizar un código QR](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan2.png)
 
-    ![Screen for scanning a QR code](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan2.png)
+	Si la cámara no funciona correctamente, puede escribir manualmente la dirección URL y el código QR. Para más información, consulte [Incorporación manual de una cuenta a la aplicación](#add-an-account-to-the-app-manually).
 
-    If your camera is not working properly, you can enter the QR code and URL manually. For more information, see [Add an account to the app manually](#add-an-account-to-the-app-manually).
+5. Espere mientras se activa la cuenta. Cuando termine la activación, seleccione **Contact me** (Contacto). Con esto se envía una notificación o un código de verificación al teléfono. Seleccione **Comprobar**.
 
-5. Wait while the account is activated. When activation finishes, select **Contact me**.  This sends either a notification or a verification code to your phone.  Select **Verify**.
+	![Pantalla para seleccionar la comprobación de inicio de sesión](./media/multi-factor-authentication-end-user-first-time-mobile-app/verify.png)
 
-    ![Screen where you select Verify to sign in](./media/multi-factor-authentication-end-user-first-time-mobile-app/verify.png)
+6. Si su empresa requiere un PIN para aprobar la comprobación de inicio de sesión, escríbalo.
 
-6. If your company requires a PIN for approving sign-in verification, enter it.
+	![Cuadro para escribir un NIP](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
 
-    ![Box for entering a PIN](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
+7. Cuando haya terminado de escribir el PIN, seleccione **Cerrar**. A estas alturas, la verificación debería haberse realizado correctamente.
+8. Lo recomendable es introducir el número de teléfono móvil por si perdiera el acceso a la aplicación. Especifique el país en la lista desplegable y escriba su número de teléfono móvil en la casilla junto al país. Seleccione **Siguiente**.
+9. Llegados a este punto, ya ha configurado el método de contacto. Ahora es el momento de configurar contraseñas para aplicaciones que no son aplicaciones de explorador, como Outlook 2010 o anteriores. Si no utiliza estas aplicaciones, seleccione **Listo**. De lo contrario, continúe con el paso siguiente.
 
-7. After PIN entry is complete, select **Close**. At this point, your verification should be successful.
-8. We recommend that you enter your mobile phone number in case you lose access to your app. Specify your country from the drop-down list, and enter your mobile phone number in the box next to the country name. Select **Next**.
-9. At this point, you have set up your contact method. Now it's time to set up app passwords for non-browser apps, such as Outlook 2010 or older. If you don't use these apps, select **Done**. Otherwise, continue to the next step.
+	![Pantalla para crear una contraseña de aplicación](./media/multi-factor-authentication-end-user-first-time-mobile-app/step4.png)
 
-    ![Screen for creating an app password](./media/multi-factor-authentication-end-user-first-time-mobile-app/step4.png)
+10. Si está usando aplicaciones sin explorador, copie la contraseña de aplicación proporcionada y péguela en la aplicación sin explorador. Para información acerca de aplicaciones específicas como Outlook y Lync, consulte How to change the password in your email to the app password (Cómo cambiar la contraseña del correo electrónico por la de aplicación) y How to change the password in your application to the app password (Cómo cambiar la contraseña de la aplicación por la contraseña de aplicación).
+11. Seleccione **Listo**.
 
-10. If you're using non-browser apps, copy the provided app password and paste the password into your apps. For steps on individual apps such as Outlook and Lync, see How to change the password in your email to the app password and How to change the password in your application to the app password.
-11. Select **Done**.
+Ahora debería ver la nueva cuenta en la pantalla **Cuentas**.
 
-You should now see the new account on the **accounts** screen.
+![Pantalla Cuentas](./media/multi-factor-authentication-azure-authenticator/accounts.png)
 
-![Accounts screen](./media/multi-factor-authentication-azure-authenticator/accounts.png)
+### Incorporación manual de una cuenta a la aplicación
 
-### <a name="add-an-account-to-the-app-manually"></a>Add an account to the app manually
+1. Vaya a la pantalla de configuración de comprobación de seguridad. Para información sobre cómo ir a esta pantalla, consulte la sección sobre el [cambio de la configuración de seguridad](multi-factor-authentication-end-user-manage-settings.md).
 
-1. Go to the security verification settings screen.  For information on how to get to this screen, see [Changing your security settings](multi-factor-authentication-end-user-manage-settings.md).
+2. Seleccione **Configurar**.
 
-2. Select **Configure**.
+	![Botón Configurar en la pantalla de configuración de la comprobación de seguridad](./media/multi-factor-authentication-azure-authenticator/azureauthe.png)
 
-    ![The Configure button on the security verification settings screen](./media/multi-factor-authentication-azure-authenticator/azureauthe.png)
+	Aparecerá una pantalla con un código QR. Anote la dirección URL y el código.
 
-    This brings up a screen with a QR code on it.  Note the code and URL.
+	![Pantalla que proporciona el código QR y la dirección URL](./media/multi-factor-authentication-azure-authenticator/barcode2.png)
 
-    ![Screen that provides the QR code and URL](./media/multi-factor-authentication-azure-authenticator/barcode2.png)
+3. Abra la aplicación Microsoft Authenticator. En la pantalla **Cuentas**, seleccione **+** y especifique que desea agregar una cuenta profesional o de formación.
 
-3. Open the Microsoft Authenticator app. On the **accounts** screen, select **+**, and then specify that you want to add a work or school account.
+	![Pantalla Cuentas con el signo más](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
-    ![The accounts screen with plus sign](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
+	![Pantalla para especificar una cuenta profesional o de formación](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
 
-    ![Screen for specifying a work or school account](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
+4. En el digitalizador, elija **escribir el código manualmente**.
 
-4. In the scanner, select **enter code manually**.
+	![Pantalla para digitalizar un código QR](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan2.png)
 
-    ![Screen for scanning a QR code](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan2.png)
+5. En la aplicación, escriba el código y la dirección URL en los cuadros correspondientes.
 
-5. Enter the code and the URL in the appropriate boxes in the app.
+	![Pantalla para escribir el código y la dirección URL](./media/multi-factor-authentication-azure-authenticator/manual.png)
 
-    ![Screen for entering code and URL](./media/multi-factor-authentication-azure-authenticator/manual.png)
+	![Pantalla para escribir el código y la dirección URL](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount2.png)
 
-    ![Screen for entering code and URL](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount2.png)
+6. Espere mientras se activa la cuenta. Cuando termine la activación, seleccione **Contact me** (Contacto). Con esto se envía una notificación o un código de verificación al teléfono. Seleccione **Comprobar**.
 
-6. Wait while the account is activated. When the activation finishes, select **Contact me**. This sends either a notification or a verification code to your phone. Select **Verify**.
+Ahora debería ver la nueva cuenta en la pantalla **Cuentas**.
 
-You should now see the new account on the **accounts** screen.
+![Pantalla Cuentas](./media/multi-factor-authentication-azure-authenticator/accounts.png)
 
-![Accounts screen](./media/multi-factor-authentication-azure-authenticator/accounts.png)
+### Incorporación de una cuenta a la aplicación con Touch ID
 
-### <a name="add-an-account-to-the-app-by-using-touch-id"></a>Add an account to the app by using Touch ID
+La aplicación Microsoft Authenticator de iOS es compatible con Touch ID. Azure Multi-Factor Authentication permite a las organizaciones pedir un PIN para los dispositivos. Con Touch ID, los usuarios de iOS no tienen por qué escribir un PIN. En su lugar, pueden digitalizar su huella y seleccionar **Aprobar**.
 
-The Microsoft Authenticator app on iOS supports Touch ID.  Azure Multi-Factor Authentication allows organizations to require a PIN for devices. With Touch ID, iOS users don’t need to enter a PIN. Instead, they can scan their fingerprint and select **Approve**.
+Configurar Touch ID con Microsoft Authenticator es sencillo. Un PIN supone un reto de comprobación normal. Si el dispositivo es compatible con Touch ID, Microsoft Authenticator lo configura automáticamente para esa cuenta.
 
-Setting up Touch ID with Microsoft Authenticator is simple. You complete a normal verification challenge with a PIN. If your device supports Touch ID, Microsoft Authenticator will set it up automatically for that account.
+![Comprobación de la configuración de Touch ID](./media/multi-factor-authentication-azure-authenticator/touchid1.png)
 
-![Verification of Touch ID setup](./media/multi-factor-authentication-azure-authenticator/touchid1.png)
+A partir de ese momento, cuando se requiera que compruebe el inicio de sesión, seleccione la notificación push recibida y digitalice la huella dactilar en lugar de escribir su PIN.
 
-From that point forward, when you're required to verify your sign-in, you select the received push notification and scan your fingerprint instead of entering your PIN.
+![Notificación push](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
 
-![Push notification](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
+## Desinstalación de la aplicación de autenticación de Azure antigua
 
-## <a name="uninstall-the-old-azure-authentication-app"></a>Uninstall the old Azure Authentication app
+Cuando haya agregado todas las cuentas a la aplicación nueva, desinstale la aplicación antigua del teléfono.
 
-After you have added all the accounts to the new app, you can uninstall the old app from your phone.
+## Eliminación de una cuenta
 
-## <a name="delete-an-account"></a>Delete an account
+Para quitar una cuenta de la aplicación Microsoft Authenticator, selecciónela y elija **Eliminar**.
 
-To remove an account from the Microsoft Authenticator app, select the account, and then select **Delete**.
+![Botón Eliminar](./media/multi-factor-authentication-azure-authenticator/remove.png)
 
-![Delete button](./media/multi-factor-authentication-azure-authenticator/remove.png)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

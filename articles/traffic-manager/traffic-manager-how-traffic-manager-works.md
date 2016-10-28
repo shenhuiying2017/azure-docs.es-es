@@ -1,129 +1,134 @@
 <properties
-    pageTitle="How Traffic Manager Works | Microsoft Azure"
-    description="This article explains how Azure Traffic Manager works"
-    services="traffic-manager"
-    documentationCenter=""
-    authors="sdwheeler"
-    manager="carmonm"
-    editor=""
-/>
+   pageTitle="Cómo funciona el Administrador de tráfico | Microsoft Azure"
+   description="Este artículo le ayudará a comprender el funcionamiento del Administrador de tráfico de Azure"
+   services="traffic-manager"
+   documentationCenter=""
+   authors="sdwheeler"
+   manager="carmonm"
+   editor="tysonn"/>
+
 <tags
-    ms.service="traffic-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="10/11/2016"
-    ms.author="sewhee"
-/>
+   ms.service="traffic-manager"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="06/07/2016"
+   ms.author="sewhee"/>
 
+# Cómo funciona el Administrador de tráfico
 
-# <a name="how-traffic-manager-works"></a>How Traffic Manager works
+El Administrador de tráfico de Azure permite controlar cómo se distribuye el tráfico a través de los puntos de conexión de la aplicación. Un punto de conexión puede ser cualquiera que esté orientado a Internet, esté o no hospedado en Azure.
 
-Azure Traffic Manager enables you to control the distribution of traffic across your application endpoints. An endpoint is any Internet-facing service hosted inside or outside of Azure.
+El Administrador de tráfico ofrece dos ventajas principales:
 
-Traffic Manager provides two key benefits:
+1. La distribución del tráfico de acuerdo con uno o varios [métodos de enrutamiento de tráfico](traffic-manager-routing-methods.md)
+2. La [supervisión continua del estado de los puntos de conexión](traffic-manager-monitoring.md) y la conmutación por error automática en caso de error en estos
 
-1. Distribution of traffic according to one of several [traffic-routing methods](traffic-manager-routing-methods.md)
-2. [Continuous monitoring of endpoint health](traffic-manager-monitoring.md) and automatic failover when endpoints fail
+Cuando un usuario final intenta conectarse a un punto de conexión de servicio, el cliente (PC, teléfono, etc.) debe resolver en primer lugar el nombre DNS de ese punto de conexión en una dirección IP. Luego, el cliente se conecta a esa dirección IP para tener acceso al servicio.
 
-When a client attempts to connect to a service, it must first resolve the DNS name of the service to an IP address. The client then connects to that IP address to access the service.
+**Es fundamental entender que el Administrador de tráfico funciona a nivel de DNS.** El Administrador de tráfico utiliza DNS para dirigir a los usuarios finales a puntos de conexión de servicio determinados, según el método de enrutamiento de tráfico elegido y el estado del punto de conexión actual. Los clientes se conectan luego **directamente** al punto de conexión seleccionado. El Administrador de tráfico no es un proxy y no ve el tráfico que circula entre el cliente y el servicio.
 
-**The most important point to understand is that Traffic Manager works at the DNS level.**  Traffic Manager uses DNS to direct clients to specific service endpoints based on the rules of the traffic-routing method. Clients connect to the selected endpoint **directly**. Traffic Manager is not a proxy or a gateway. Traffic Manager does not see the traffic passing between the client and the service.
+## Ejemplo de Administrador de tráfico
 
-## <a name="traffic-manager-example"></a>Traffic Manager example
+Contoso Corp ha desarrollado un nuevo portal para asociados. La dirección URL de este portal será https://partners.contoso.com/login.aspx. La aplicación se hospeda en Azure, y para mejorar la disponibilidad y maximizar el rendimiento global, la empresa desea implementar la aplicación en 3 regiones en todo el mundo y usar el Administrador de tráfico para dirigir a los usuarios finales al punto de conexión disponible más cercano.
 
-Contoso Corp have developed a new partner portal. The URL for this portal is https://partners.contoso.com/login.aspx. The application is hosted in three regions of Azure. To improve availability and maximize global performance, they use Traffic Manager to distribute client traffic to the closest available endpoint.
+Para lograr esta configuración:
 
-To achieve this configuration:
+- En la empresa se implementan 3 instancias de su servicio. Los nombres DNS de estas implementaciones son "contoso-us.cloudapp.net", "contoso-eu.cloudapp.net" y "contoso-asia.cloudapp.net".
+- A continuación, se crea un perfil de Administrador de tráfico con el nombre "contoso.trafficmanager.net", que está configurado para utilizar el método de enrutamiento de tráfico "Rendimiento" entre los 3 puntos de conexión mencionados anteriormente.
+- Por último, se configura un dominio personal, "partners.contoso.com", para que apunte a "contoso.trafficmanager.net" con un registro CNAME de DNS.
 
-- They deploy three instances of their service. The DNS names of these deployments are 'contoso-us.cloudapp.net', 'contoso-eu.cloudapp.net', and 'contoso-asia.cloudapp.net'.
-- They then create a Traffic Manager profile, named 'contoso.trafficmanager.net', and configure it to use the 'Performance' traffic-routing method across the three endpoints.
-- Finally, they configure their vanity domain name, 'partners.contoso.com', to point to 'contoso.trafficmanager.net', using a DNS CNAME record.
+![Configuración de DNS del Administrador de tráfico][1]
 
-![Traffic Manager DNS configuration][1]
+> [AZURE.NOTE] Cuando se utiliza un dominio personal con el Administrador de tráfico de Azure, debe usar un registro CNAME para que el nombre de dominio personalizado apunte a su nombre de dominio del Administrador de tráfico.
 
-> [AZURE.NOTE] When using a vanity domain with Azure Traffic Manager, you must use a CNAME to point your vanity domain name to your Traffic Manager domain name. DNS standards do not allow you to create a CNAME at the 'apex' (or root) of a domain. Thus you cannot create a CNAME for 'contoso.com' (sometimes called a 'naked' domain). You can only create a CNAME for a domain under 'contoso.com', such as 'www.contoso.com'. To work around this limitation, we recommend using a simple HTTP redirect to direct requests for 'contoso.com' to an alternative name such as 'www.contoso.com'.
+> Debido a una restricción de los estándares DNS, no se puede crear un CNAME en la "cúspide" (o raíz) de un dominio. Por lo tanto no se puede crear un registro CNAME para "contoso.com" (lo que también se conoce como un dominio "desnudo"). Solo se puede crear un registro CNAME para un dominio bajo "contoso.com", como "www.contoso.com".
 
-## <a name="how-clients-connect-using-traffic-manager"></a>How clients connect using Traffic Manager
+> Por lo tanto no se puede usar el Administrador de tráfico directamente con un dominio desnudo. Para solucionar este problema, se recomienda usar una sencilla redirección HTTP para dirigir las solicitudes de "contoso.com" a un nombre alternativo como "www.contoso.com".
 
-Continuing from the previous example, when a client requests the page https://partners.contoso.com/login.aspx, the client performs the following steps to resolve the DNS name and establish a connection:
+## Conexión de clientes mediante el Administrador de tráfico
 
-![Connection establishment using Traffic Manager][2]
+Cuando un usuario solicita la página https://partners.contoso.com/login.aspx (como se describe en el ejemplo anterior), el cliente realiza los pasos siguientes para resolver el nombre de DNS y establecer una conexión.
 
-1. The client sends a DNS query to its configured recursive DNS service to resolve the name 'partners.contoso.com'. A recursive DNS service, sometimes called a 'local DNS' service, does not host DNS domains directly. Rather, the client off-loads the work of contacting the various authoritative DNS services across the Internet needed to resolve a DNS name.
-2. To resolve the DNS name, the recursive DNS service finds the name servers for the 'contoso.com' domain. It then contacts those name servers to request the 'partners.contoso.com' DNS record. The contoso.com DNS servers return the CNAME record that points to contoso.trafficmanager.net.
-3. Next, the recursive DNS service finds the name servers for the 'trafficmanager.net' domain, which are provided by the Azure Traffic Manager service. It then sends a request for the 'contoso.trafficmanager.net' DNS record to those DNS servers.
-4. The Traffic Manager name servers receive the request. They choose an endpoint based on:
+![Establecimiento de la conexión mediante el Administrador de tráfico][2]
 
-    * The configured state of each endpoint (disabled endpoints are not returned)
-    * The current health of each endpoint, as determined by the Traffic Manager health checks. For more information, see [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md).
-    * The chosen traffic-routing method. For more information, see [Traffic Manager Routing Methods](traffic-manager-routing-methods.md).
+1.	El cliente (PC, teléfono, etc.) realiza una consulta de DNS a "partners.contoso.com" en su servicio DNS recursivo configurado. (Un servicio DNS recursivo, a veces denominado servicio "DNS local", no hospeda los dominios DNS directamente. En su lugar, el cliente lo usa para descargar el trabajo de ponerse en contacto con los diversos servicios DNS autoritativos a través de Internet, lo cual es paso necesario para resolver un nombre DNS).
+2.	Ahora, el servicio DNS recursivo resuelve el nombre DNS "partners.contoso.com". En primer lugar, el servicio DNS recursivo busca entre los servidores DNS el dominio "contoso.com". A continuación, se pone en contacto con esos servidores DNS a fin de solicitar el registro "partners.contoso.com". Se obtiene el registro CNAME para contoso.trafficmanager.net.
+3.	El servicio DNS recursivo ahora busca los servidores DNS para el dominio trafficmanager.net, que se proporcionan con el servicio Administrador de tráfico de Azure. Luego se pone en contacto con estos servidores DNS para solicitar el registro DNS "contoso.trafficmanager.net".
+4.	Los servidores DNS del Administrador de tráfico reciben la solicitud. En ese momento, estos eligen qué punto de conexión debe devolverse, tomando en consideración para ello lo siguiente: a. El estado habilitado o deshabilitado de cada punto de conexión (no se devuelven los puntos de conexión deshabilitados). b. El estado actual de cada punto de conexión, según lo determinado por las comprobaciones de estado del Administrador de tráfico. Para más información, consulte Acerca de la supervisión del Administrador de tráfico. c. El método de enrutamiento de tráfico elegido. Para más información, consulte Métodos de enrutamiento del Administrador de tráfico.
+5.	El punto de conexión elegido se devuelve como otro registro CNAME de DNS; en este caso, supongamos que es contoso-us.cloudapp.net.
+6.	Ahora, el servicio DNS recursivo busca los servidores DNS para el dominio "cloudapp.net". Se pone en contacto con estos servidores DNS para solicitar el registro DNS "contoso-us.cloudapp.net". Se devuelve un registro "A" de DNS que contiene la dirección IP del punto de conexión de servicio basado en Estados Unidos.
+7.	El servicio DNS recursivo devuelve los resultados consolidados de la secuencia anterior de resoluciones de nombres al cliente.
+8.	El cliente recibe los resultados DNS del servicio DNS recursivo y se conecta a la dirección IP especificada. Tenga en cuenta que se conecta al punto de conexión de servicio de la aplicación directamente, no mediante el Administrador de tráfico. Puesto que es un punto de conexión HTTPS, lleva a cabo el protocolo de enlace SSL/TLS necesario y, a continuación, realiza una solicitud GET de HTTP para la página "/login.aspx".
 
-5. The chosen endpoint is returned as another DNS CNAME record. In this case, let us suppose contoso-us.cloudapp.net is returned.
-6. Next, the recursive DNS service finds the name servers for the 'cloudapp.net' domain. It contacts those name servers to request the 'contoso-us.cloudapp.net' DNS record. A DNS 'A' record containing the IP address of the US-based service endpoint is returned.
-7. The recursive DNS service consolidates the results and returns a single DNS response to the client.
-8. The client receives the DNS results and connects to the given IP address. The client connects to the application service endpoint directly, not through Traffic Manager. Since it is an HTTPS endpoint, the client performs the necessary SSL/TLS handshake, and then makes an HTTP GET request for the '/login.aspx' page.
+Tenga en cuenta que el servicio DNS recursivo almacenará en caché las respuestas DNS que reciba, al igual que hará el cliente DNS en el dispositivo del usuario final. De este modo, las consultas DNS posteriores se responderán más rápidamente al utilizar datos de la memoria caché en lugar de consultar otros servidores DNS. La duración de la memoria caché viene determinada por la propiedad de período de vida (TTL) de cada registro DNS. Unos valores más breves darán lugar a una expiración de la caché más rápida y, por tanto, a más consultas a los servidores DNS del Administrador de tráfico; unos valores más largos implican que es posible que se tarde más en redirigir el tráfico desde un punto de conexión no válido. El Administrador de tráfico permite configurar el valor TTL utilizado en las respuestas DNS del Administrador de tráfico, lo que le permite elegir el valor que responda mejor a las necesidades de su aplicación.
 
-The recursive DNS service caches the DNS responses it receives. The DNS resolver on the client device also caches the result. Caching enables subsequent DNS queries to be answered more quickly by using data from the cache rather than querying other name servers. The duration of the cache is determined by the 'time-to-live' (TTL) property of each DNS record. Shorter values result in faster cache expiry and thus more round-trips to the Traffic Manager name servers. Longer values mean that it can take longer to direct traffic away from a failed endpoint. Traffic Manager allows you to configure the TTL used in Traffic Manager DNS responses, enabling you to choose the value that best balances the needs of your application.
+## P+F
 
-## <a name="faq"></a>FAQ
+### ¿Qué dirección IP usa el Administrador de tráfico?
 
-### <a name="what-ip-address-does-traffic-manager-use?"></a>What IP address does Traffic Manager use?
+Tal y como se explica al comienzo de este artículo, este servicio funciona utilizando respuestas DNS para dirigir a los clientes al punto de conexión de servicio adecuado. Después, los clientes se conectan directamente al punto de conexión de servicio, y no a través del Administrador de tráfico.
 
-As explained in How Traffic Manager Works, Traffic Manager works at the DNS level. It sends DNS responses to direct clients to the appropriate service endpoint. Clients then connect to the service endpoint directly, not through Traffic Manager.
+Por lo tanto, este servicio no proporciona un punto de conexión o una dirección IP para que los clientes puedan conectarse. En resumen, se requiere, por ejemplo, una dirección IP estática que debe configurarse en el servicio, no en el Administrador de tráfico.
 
-Therefore, Traffic Manager does not provide an endpoint or IP address for clients to connect to. Therefore, if you want static IP address for your service, that must be configured at the service, not in Traffic Manager.
+### ¿Admite el Administrador de tráfico sesiones temporales?
 
-### <a name="does-traffic-manager-support-'sticky'-sessions?"></a>Does Traffic Manager support 'sticky' sessions?
+Tal y como explicamos [anteriormente](#how-clients-connect-using-traffic-manager), este servicio funciona utilizando respuestas DNS para dirigir a los clientes al punto de conexión de servicio adecuado. Después, los clientes se conectan directamente al punto de conexión de servicio, y no a través del Administrador de tráfico. Por lo tanto, el Administrador de tráfico no observa el tráfico HTTP entre cliente y servidor, ni tampoco las cookies.
 
-As explained [previously](#how-clients-connect-using-traffic-manager), Traffic Manager works at the DNS level. It uses DNS responses to direct clients to the appropriate service endpoint. Clients connect to the service endpoint directly, not through Traffic Manager. Therefore, Traffic Manager does not see the HTTP traffic between the client and the server.
+Además, tenga en cuenta que la dirección IP de origen de la consulta de DNS que recibe el Administrador de tráfico es la del servicio DNS recursivo, no la dirección IP del cliente.
 
-Additionally, the source IP address of the DNS query received by Traffic Manager belongs to the recursive DNS service, not the client. Therefore, Traffic Manager has no way to track individual clients and cannot implement 'sticky' sessions. This limitation is common to all DNS-based traffic management systems and is not specific to Traffic Manager.
+Por lo tanto, el Administrador de tráfico no tiene forma de identificar clientes individuales ni de realizar un seguimiento de ellos, así que no puede implementar sesiones temporales. Esto es algo común en todos los sistemas de administración de tráfico basado en DNS; no se trata de una restricción del Administrador de tráfico.
 
-### <a name="why-am-i-seeing-an-http-error-when-using-traffic-manager?"></a>Why am I seeing an HTTP error when using Traffic Manager?
+### ¿Por qué obtengo un error HTTP al utilizar el Administrador de tráfico?
 
-As explained [previously](#how-clients-connect-using-traffic-manager), Traffic Manager works at the DNS level. It uses DNS responses to direct clients to the appropriate service endpoint. Clients then connect to the service endpoint directly, not through Traffic Manager. Traffic Manager does not see HTTP traffic between client and server. Therefore, any HTTP error you see must be coming from your application. For the client to connect to the application, all DNS resolution steps are complete. That includes any interaction that Traffic Manager has on the application traffic flow.
+Tal y como explicamos [anteriormente](#how-clients-connect-using-traffic-manager), este servicio funciona utilizando respuestas DNS para dirigir a los clientes al punto de conexión de servicio adecuado. Después, los clientes se conectan directamente al punto de conexión de servicio, y no a través del Administrador de tráfico.
 
-Further investigation should therefore focus on the application.
+Por lo tanto, el Administrador de tráfico no observa el tráfico HTTP entre cliente y servidor, ni tampoco puede generar errores HTTP. Todos los errores HTTP que obtenga deben provenir de la aplicación. Como el cliente se conecta a la aplicación, esto también significa que debe haberse completado la resolución DNS, incluido el rol de Administrador de tráfico.
 
-The HTTP host header sent from the client's browser is the most common source of problems. Make sure that the application is configured to accept the correct host header for the domain name you are using. For endpoints using the Azure App Service, see [configuring a custom domain name for a web app in Azure App Service using Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md).
+Por tanto, debe llevar a cabo una investigación más extensa centrándose en la aplicación.
 
-### <a name="what-is-the-performance-impact-of-using-traffic-manager?"></a>What is the performance impact of using Traffic Manager?
+Un problema común sucede cuando se utiliza el Administrador de tráfico. El encabezado HTTP de host que transmite el explorador a la aplicación mostrará el nombre de dominio que emplea el explorador. Puede ser el nombre de dominio del Administrador de tráfico (por ejemplo, miperfil.trafficmanager.net) si lo utiliza durante las pruebas, o bien el registro CNAME de dominio personal configurado para apuntar al nombre de dominio del Administrador de tráfico. En cualquier caso, compruebe que la aplicación está configurada para aceptar este encabezado de host.
 
-As explained [previously](#how-clients-connect-using-traffic-manager), Traffic Manager works at the DNS level. Since clients connect to your service endpoints directly, there is no performance impact incurred when using Traffic Manager once the connection is established.
+Si la aplicación se hospeda en el Servicio de aplicaciones de Azure, consulte [Configuración de un nombre de dominio personalizado para una aplicación web en Servicio de aplicaciones de Azure utilizando el Administrador de tráfico](../app-service-web/web-sites-traffic-manager-custom-domain-name.md).
 
-Since Traffic Manager integrates with applications at the DNS level, it does require an additional DNS lookup to be inserted into the DNS resolution chain (see [Traffic Manager examples](#traffic-manager-example)). The impact of Traffic Manager on DNS resolution time is minimal. Traffic Manager uses a global network of name servers, and uses [anycast](https://en.wikipedia.org/wiki/Anycast) networking to ensure DNS queries are always routed to the closest available name server. In addition, caching of DNS responses means that the additional DNS latency incurred by using Traffic Manager applies only to a fraction of sessions.
+### ¿Cómo afecta al rendimiento el uso del Administrador de tráfico?
 
-The Performance method routes traffic to the closest available endpoint. The net result is that the overall performance impact associated with this method should be minimal. Any increase in DNS latency should be offset by lower network latency to the endpoint.
+Tal y como explicamos [anteriormente](#how-clients-connect-using-traffic-manager), este servicio funciona utilizando respuestas DNS para dirigir a los clientes al punto de conexión de servicio adecuado. Después, los clientes se conectan directamente al punto de conexión de servicio, y no a través del Administrador de tráfico.
 
-### <a name="what-application-protocols-can-i-use-with-traffic-manager?"></a>What application protocols can I use with Traffic Manager?
+Puesto que los clientes se conectan directamente a los puntos de conexión de servicio, el rendimiento no se verá afectado cuando se utiliza el Administrador de tráfico una vez establecida la conexión.
 
-As explained [previously](#how-clients-connect-using-traffic-manager), Traffic Manager works at the DNS level. Once the DNS lookup is complete, clients connect to the application endpoint directly, not through Traffic Manager. Therefore the connection can use any application protocol. However, Traffic Manager's endpoint health checks require either an HTTP or HTTPS endpoint. The endpoint for a health check can be different than the application endpoint that clients connect to.
+Como el Administrador de tráfico se integra con las aplicaciones en el nivel de DNS, hay que insertar una búsqueda DNS adicional en la cadena de resolución DNS (consulte [Ejemplo de Administrador de tráfico](#traffic-manager-example)). El impacto del Administrador de tráfico en el tiempo de resolución DNS es mínimo. El Administrador de tráfico usa una red global de servidores de nombres y redes de difusión por proximidad (anycast) para asegurarse de que siempre se enruten las consultas de DNS en el servidor de nombres disponible más cercano. Además, como las respuestas DNS se almacenan en caché, la latencia DNS adicional que se genera por utilizar Administrador de tráfico se aplica solo a una fracción de las sesiones.
 
-### <a name="can-i-use-traffic-manager-with-a-'naked'-domain-name?"></a>Can I use Traffic Manager with a 'naked' domain name?
+Como consecuencia, el impacto de rendimiento general asociado a incorporar el Administrador de tráfico en una aplicación debería ser mínimo.
 
-No. The DNS standards do not permit CNAMEs to co-exist with other DNS records of the same name. The apex (or root) of a DNS zone always contains two pre-existing DNS records; the SOA and the authoritative NS records. This means a CNAME record cannot be created at the zone apex without violating the DNS standards.
+Además, en los sitios donde se utiliza el [método de enrutamiento de tráfico "Rendimiento"](traffic-manager-routing-methods.md#performance-traffic-routing-method), el aumento de la latencia DNS debe quedar más que compensado con la mejora de rendimiento que se obtiene al dirigir a los usuarios finales a su punto de conexión disponible más cercano.
 
-As explained in the [Traffic Manager example](#traffic-manager-example), Traffic Manager requires a DNS CNAME record to map the vanity DNS name. For example, you map www.contoso.com to the Traffic Manager profile DNS name contoso.trafficmanager.net. Additionally, the Traffic Manager profile returns a second DNS CNAME to indicate which endpoint the client should connect to.
+### ¿Qué protocolos de aplicación puedo usar con el Administrador de tráfico?
+Tal y como explicamos [anteriormente](#how-clients-connect-using-traffic-manager), este servicio funciona utilizando respuestas DNS. Una vez finalizada la búsqueda DNS, los clientes se conectan directamente al punto de conexión de la aplicación, y no a través del Administrador de tráfico. Por tanto, esta conexión puede emplear cualquier protocolo de aplicación.
 
-To work around this issue, we recommend using an HTTP redirect to direct traffic from the naked domain name to a different URL, which can then use Traffic Manager. For example, the naked domain 'contoso.com' can redirect users to the CNAME 'www.contoso.com' that points to the Traffic Manager DNS name.
+Sin embargo, para realizar las comprobaciones de estado del Administrador de tráfico se requiere un punto de conexión HTTP o HTTPS. Puede ser independiente del punto de conexión de la aplicación al que los clientes se conectan si se especifica una ruta de acceso URI o un puerto TCP distintos en la configuración de comprobación de estado de perfil del Administrador de tráfico.
 
-Full support for naked domains in Traffic Manager is tracked in our feature backlog. You can register your support for this feature request by [voting for it on our community feedback site](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
+### ¿Puedo usar el Administrador de tráfico con un nombre de dominio vacío (sin el "www")?
 
-## <a name="next-steps"></a>Next steps
+Actualmente, no.
 
-Learn more about Traffic Manager [endpoint monitoring and automatic failover](traffic-manager-monitoring.md).
+El tipo de registro CNAME de DNS se utiliza para crear una asignación de nombre DNS a otro. Tal y como se explica en la sección [Ejemplo de Administrador de tráfico](#traffic-manager-example), este servicio requiere un registro CNAME de DNS para asignar el nombre DNS personal (por ejemplo, www.contoso.com) al nombre DNS del perfil de Administrador de tráfico (por ejemplo, contoso.trafficmanager.net). Además, este perfil devuelve un segundo registro CNAME de DNS para indicar a qué punto de conexión debe conectarse el cliente.
 
-Learn more about Traffic Manager [traffic routing methods](traffic-manager-routing-methods.md).
+Los estándares DNS no permiten que los registros CNAME coexistan con otros registros DNS del mismo tipo. Puesto que el vértice (o raíz) de una zona DNS siempre contiene dos registros DNS existentes (los SOA y los NS autoritativos), no podrá crearse un registro CNAME en el vértice de zona sin infringir los estándares DNS.
+
+Para evitar este problema, recomendamos que los servicios que empleen un dominio vacío (sin el "www") que quiera que utilice el Administrador de tráfico usen el redireccionamiento de HTTP para dirigir el tráfico del dominio vacío a una dirección URL diferente, que, luego, puede emplear el Administrador de tráfico. Por ejemplo, el dominio vacío contoso.com puede redirigir a los usuarios a www.contoso.com que, posteriormente, podrá utilizar el Administrador de tráfico.
+
+En nuestra cola de trabajos pendientes de características realizamos un seguimiento de los dominios vacíos que son totalmente compatibles con el Administrador de tráfico. Si le interesa esta característica, registre su idea [votando por ella en nuestro sitio de comentarios de la comunidad](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
+
+## Pasos siguientes
+
+Obtenga más información sobre la [supervisión del punto de conexión y la conmutación por error automática](traffic-manager-monitoring.md) del Administrador de tráfico.
+
+Obtenga más información sobre los [métodos de enrutamiento del tráfico](traffic-manager-routing-methods.md) del Administrador de tráfico.
 
 <!--Image references-->
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

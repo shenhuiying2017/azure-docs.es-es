@@ -1,69 +1,64 @@
 <properties
-    pageTitle="Azure Active Directory B2C: Production-scale vs. preview B2C tenants | Microsoft Azure"
-    description="A topic on the types of Azure Active Directory B2C tenants"
-    services="active-directory-b2c"
-    documentationCenter=""
-    authors="swkrish"
-    manager="mbaldwin"
-    editor="bryanla"/>
+	pageTitle="Azure Active Directory B2C: Escala de producción frente a versión preliminar de inquilinos de B2C | Microsoft Azure"
+	description="Un tema sobre los tipos de inquilinos de Azure Active Directory B2C"
+	services="active-directory-b2c"
+	documentationCenter=""
+	authors="swkrish"
+	manager="msmbaldwin"
+	editor="bryanla"/>
 
 <tags
-    ms.service="active-directory-b2c"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/30/2016"
-    ms.author="swkrish"/>
+	ms.service="active-directory-b2c"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/30/2016"
+	ms.author="swkrish"/>
 
+# Azure Active Directory B2C: inquilinos de B2C de escala de producción frente a de versión preliminar
 
-# <a name="azure-active-directory-b2c:-production-scale-vs.-preview-b2c-tenants"></a>Azure Active Directory B2C: Production-scale vs. preview B2C tenants
+Si planea escribir una aplicación de producción en Azure Active Directory (Azure AD) B2C, es preciso que esté seguro de que tiene el "tipo" de inquilino correcto en la que activarla. Para ver lo que tiene, siga estos pasos para [ir a la hoja de características de B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) en el Portal de Azure y mire en **Tenant type** (Tipo de inquilino).
 
-If you are planning to write a production app on Azure Active Directory (Azure AD) B2C, you'll need to be certain that you have the right tenant "type" to go live on. To see what you have, follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on the Azure portal and look under **Tenant type**.
+## Resumen
 
-## <a name="summary"></a>Summary
+Azure AD B2C admite aplicaciones de producción SOLO en inquilinos B2C de **escala de producción** de Norteamérica.
 
-Azure AD B2C supports production apps ONLY on **Production-scale** B2C tenants in North America.
-
-| Tenant type | Countries/regions | Generally-available? |
+| Tipo de inquilino | Países o regiones | ¿Disponible generalmente? |
 | ----------- | -------------- | --------------------- |
-| **Production-scale tenant** | North American countries/regions | Yes |
-| **Production-scale tenant** | All countries/regions except North America | No |
-| **Preview tenant** | All countries/regions | No |
+| **Inquilino de escala de producción** | Países o regiones de Norteamérica | Sí |
+| **Inquilino de escala de producción** | Todos los países o regiones, excepto Norteamérica | No |
+| **Inquilino de versión preliminar** | Todos los países o regiones | No |
 
 > [AZURE.NOTE]
-Azure AD B2C tenants (for consumers) are currently unavailable in a few countries or regions where Azure AD tenants (for employees) are available. Read the following sections for more details.
+Los inquilinos de Azure AD B2C (para consumidores) actualmente no están disponibles en algunos países o regiones en los que están disponibles los inquilinos de Azure AD (para empleados). Para más información, consulte las secciones siguientes.
 
-## <a name="production-scale-b2c-tenant-in-north-america"></a>Production-scale B2C tenant in North America
+## Inquilino de B2C de escala de producción en Norteamérica
 
-If you [created your B2C tenant](active-directory-b2c-get-started.md) in North America, i.e., in one of the following countries or regions: United States, Canada, Costa Rica, Dominican Republic, El Salvador, Guatemala, Mexico, Panama, Puerto Rico and Trinidad & Tobago, AND the **Tenant type** on your B2C Admin UI says **Production-scale**, your tenant can be used for production apps.
+Si se [creado un inquilino de B2C](active-directory-b2c-get-started.md) en Norteamérica, es decir, en uno de los siguientes países o regiones: Estados Unidos, Canadá, Costa Rica, República Dominicana, El Salvador, Guatemala, México, Panamá, Puerto Rico y Trinidad y Tobago, Y el **tipo de inquilino** de la interfaz de usuario del administrador de B2C es **Escala de producción**, el inquilino puede utilizarse para aplicaciones de producción.
 
 > [AZURE.NOTE]
-Production-scale tenants are capable of scaling to 100s of millions of consumer identities per tenant.
+Los inquilinos de la escala de producción son capaces de escalar a centenares de millones de identidades de consumidor por inquilino.
 
-![Screen shot of a production-scale tenant](./media/active-directory-b2c-reference-tenant-type/production-scale-b2c-tenant.png)
+![Captura de pantalla de un inquilino de escala de producción](./media/active-directory-b2c-reference-tenant-type/production-scale-b2c-tenant.png)
 
-## <a name="preview-b2c-tenant-in-any-country/region"></a>Preview B2C tenant in any country/region
+## Obtención de una versión preliminar de un inquilino de B2C en cualquier país o región
 
-If you had created a B2C tenant during Azure AD B2C's preview period, it is likely that your **Tenant type** says **Preview tenant**. If this is the case, you MUST use your tenant only for development and testing purposes, and NOT for production apps.
+Si había creado un inquilino de B2C durante el período de versión preliminar de Azure AD B2C, es probable que en **Tipo de inquilino** aparezca **Preview tenant** (Inquilino de versión preliminar). En ese caso, al inquilino se DEBE usar solo para fines de prueba y desarrollo, NO para aplicaciones de producción.
 
 > [AZURE.IMPORTANT]
-There is no migration path from a preview B2C tenant to a production-scale B2C tenant. Note that there are known issues when you delete a preview B2C tenant and re-create a production-scale B2C tenant with the same domain name. You have to create a production-scale B2C tenant with a different domain name.
+No hay ninguna ruta de migración de un inquilino de B2C de versión preliminar a un inquilino de B2C de escala de producción. Tenga en cuenta que existen problemas conocidos al eliminar un inquilino de B2C preliminar y volver a crear un inquilino B2C a escala de producción con el mismo nombre de dominio. Es necesario crear un inquilino de B2C a escala de producción con otro nombre de dominio.
 
-![Screen shot of a preview tenant](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)
+![Captura de pantalla de un inquilino de versión preliminar](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)
 
-## <a name="production-scale-b2c-tenant-outside-of-north-america"></a>Production-scale B2C tenant outside of North America
+## Inquilino de B2C de escala de producción fuera de Norteamérica
 
-Azure AD B2C is currently NOT generally-available outside of North America. However you can create and use production-scale tenants, for development and testing purposes, in one of the following countries or regions: Algeria, Austria, Azerbaijan, Bahrain, Belarus, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic, Denmark, Egypt, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Israel, Italy, Jordan, Kazakhstan, Kenya, Kuwait, Lativa, Lebanon, Liechtenstein, Lituania, Luxembourg, Macedonia FYRO, Malta, Montenegro, Morocco, Netherlands, Nigeria, Norway, Oman, Pakistan, Poland, Portugal, Qatar, Romania, Russia, Saudi Arabia, Serbia, Slovakia, Slovenia, South Africa, Spain, Sweden, Switzerland, Tunisia, Turkey, Ukraine, United Arab Emirates and United Kingdom.
+Azure AD B2C NO está disponible generalmente fuera de Norteamérica. Sin embargo, se pueden crear y usar inquilinos de escala de producción, con fines de desarrollo y pruebas, en cualquiera de los siguientes países o regiones: Alemania, Arabia Saudí, Argelia, Austria, Azerbaiyán, Bahréin, Bélgica, Bielorrusia, Bulgaria, Croacia, Chipre, Dinamarca, Egipto, Emiratos Árabes Unidos Eslovaquia, Eslovenia, España, Estonia, Finlandia, Francia, Grecia, Hungría, Irlanda, Islandia, Israel, Italia, Jordania, Kazajistán, Kenia, Kuwait, Letonia, Líbano, Liechtenstein, Lituania, Luxemburgo, Macedonia, Malta, Marruecos, Montenegro, Nigeria, Noruega , Omán, Países Bajos, Pakistán, Polonia, Portugal, Qatar, Reino Unido, República Checa, Rumanía, Rusia, Serbia, Sudáfrica, Suecia, Suiza, Túnez, Turquía y Ucrania.
 
-Once Azure AD B2C announces general availability in above countries or regions, you can continue to use these production-scale tenants and go-live with your production apps without any data loss.
+Una vez que Azure AD B2C anuncie su disponibilidad general en anteriores países o regiones, puede seguir usando estos inquilinos a escala de producción y publicando las aplicaciones de producción sin ninguna pérdida de datos.
 
-## <a name="availability-of-b2c-tenants"></a>Availability of B2C tenants
+## Disponibilidad de los inquilinos de B2C
 
-B2C tenants are currently unavailable in the following countries or regions: Afghanistan, Argentina, Australia, Brazil, Chile, Colombia, Ecuador, Hong Kong SAR, India, Indonesia, Iraq, Japan, Korea, Malaysia, New Zealand, Paraguay, Peru, Philippines, Singapore, Sri Lanka, Taiwan, Thailand, Uruguay and Venezuela. We plan to include them in the future.
+Actualmente, los inquilinos de B2C no están disponibles en los siguientes países o regiones: Afganistán, Argentina, Australia, Brasil, Chile, Colombia, Corea, Ecuador, Filipinas, India, Indonesia, Iraq, Japón, Malasia, Nueva Zelanda, Paraguay, Perú, RAE de Hong Kong, Singapur, Sri Lanka, Taiwán, Tailandia, Uruguay y Venezuela. No obstante, está previsto incluirlos en el futuro.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

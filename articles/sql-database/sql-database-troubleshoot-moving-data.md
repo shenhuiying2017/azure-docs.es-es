@@ -1,39 +1,34 @@
 <properties
-    pageTitle="Move databases between servers, between subscriptions, and in and out of Azure."
-    description="Quick steps to copy, move, and migrate data and databases in Azure SQL Database."
-    services="sql-database"
-    documentationCenter=""
-    authors="v-shysun"
-    manager="felixwu"
-    editor=""/>
+	pageTitle="Movimiento de bases de datos de un servidor a otro, de una suscripción a otra, y dentro y fuera de Azure."
+	description="Pasos rápidos para copiar, mover y migrar datos y bases de datos en Base de datos SQL de Azure."
+	services="sql-database"
+	documentationCenter=""
+	authors="v-shysun"
+	manager="felixwu"
+	editor=""/>
 
 <tags
-    ms.service="sql-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/13/2016"
-    ms.author="v-shysun"/>
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/13/2016"
+	ms.author="v-shysun"/>
 
-
-# <a name="move-databases-between-servers,-between-subscriptions,-and-in-and-out-of-azure"></a>Move databases between servers, between subscriptions, and in and out of Azure
+# Movimiento de bases de datos de un servidor a otro, de una suscripción a otra, y dentro y fuera de Azure
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
-##<a name="to-move-a-database-to-a-different-server-in-the-same-subscription"></a>To move a database to a different server in the same subscription
-- In the [Azure Portal](https://portal.azure.com), click **SQL databases**, select a database from the list, and then click **Copy**. See [Copy an Azure SQL database](sql-database-copy.md) for more detail.
+##Para mover una base de datos a un servidor diferente en la misma suscripción
+- En el [Portal de Azure](https://portal.azure.com), haga clic en **Bases de datos SQL**, seleccione una base de datos de la lista y haga clic en **Copiar**. Para más información, consulte [Copia de una Base de datos SQL de Azure](sql-database-copy.md).
 
-## <a name="to-move-a-database-between-subscriptions"></a>To move a database between subscriptions
-- In the [Azure Portal](https://portal.azure.com), click **SQL servers** and then select the server that hosts your database from the list. Click **Move**, and then pick the resources to move and the subscription to move to.
+## Para mover una base de datos de una suscripción a otra
+- En el [Portal de Azure](https://portal.azure.com), haga clic en **Servidores SQL Server** y, en la lista, seleccione el servidor que hospeda la base de datos. Haga clic en **Mover** y seleccione los recursos que va a mover y la suscripción a la que los va a mover.
 
-## <a name="to-migrate-a-sql-database-into-azure"></a>To migrate a SQL database into Azure
-- Determine database compatibility and then pick the right migration method based on your needs. Follow the guidelines and options in [Migrating a SQL Server database](sql-database-cloud-migrate.md).
+## Para migrar una base de datos SQL a Azure
+- Determine la compatibilidad de la base de datos y seleccione el método de migración más adecuado según sus necesidades. Siga las instrucciones y las opciones que se describen en [Migración de una base de datos de SQL Server a una Base de datos SQL en la nube](sql-database-cloud-migrate.md).
 
-## <a name="to-create-a-copy-of-a-database-for-use-outside-of-azure"></a>To create a copy of a database for use outside of Azure
-- [Export a BACPAC file.](sql-database-export.md)
+## Para crear una copia de una base de datos para su uso fuera de Azure
+- [Exportación de un archivo BACPAC.](sql-database-export.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

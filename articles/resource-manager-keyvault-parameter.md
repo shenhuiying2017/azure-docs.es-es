@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Key Vault secret with Resource Manager template | Microsoft Azure"
-   description="Shows how to pass a secret from a key vault as a parameter during deployment."
+   pageTitle="Secreto del Almacén de claves con la plantilla de Resource Manager | Microsoft Azure"
+   description="Muestra cómo pasar un secreto de un almacén de claves como un parámetro durante la implementación."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,20 +16,19 @@
    ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
+# Paso de valores seguros durante la implementación
 
-# <a name="pass-secure-values-during-deployment"></a>Pass secure values during deployment
+Si necesita pasar un valor seguro (como una contraseña) como un parámetro durante la implementación, puede almacenar ese valor como un secreto en un [Almacén de claves de Azure](./key-vault/key-vault-whatis.md) y hacer referencia al valor en otras plantillas del Administrador de recursos. Incluya solo una referencia al secreto en la plantilla para que el secreto nunca se exponga. No es necesario especificar manualmente el valor para el secreto cada vez que implemente los recursos. Especifique qué usuarios o entidades de servicio pueden tener acceso al secreto.
 
-When you need to pass a secure value (like a password) as a parameter during deployment, you can store that value as a secret in an [Azure Key Vault](./key-vault/key-vault-whatis.md) and reference the value in other Resource Manager templates. You include only a reference to the secret in your template so the secret is never exposed, and you do not need to manually enter the value for the secret each time you deploy the resources. You specify which users or service principals can access the secret.  
+## Implementación de un almacén de claves y un secreto
 
-## <a name="deploy-a-key-vault-and-secret"></a>Deploy a key vault and secret
+Para crear un almacén de claves al que se pueda hacer referencia desde otras plantillas del Administrador de recursos, debe establecer la propiedad **enabledForTemplateDeployment** en **true**, y debe conceder acceso al usuario o entidad de servicio que ejecutará la implementación que hace referencia al secreto.
 
-To create key vault that can be referenced from other Resource Manager templates, you must set the **enabledForTemplateDeployment** property to **true**, and you must grant access to the user or service principal that will execute the deployment which references the secret.
+Para obtener información acerca de cómo implementar un almacén de claves y un secreto, consulte [Esquema del almacén de claves](resource-manager-template-keyvault.md) y [Esquema del secreto del almacén de claves](resource-manager-template-keyvault-secret.md).
 
-To learn about deploying a key vault and secret, see [Key vault schema](resource-manager-template-keyvault.md) and [Key vault secret schema](resource-manager-template-keyvault-secret.md).
+## Referencia a un secreto con identificador estático
 
-## <a name="reference-a-secret-with-static-id"></a>Reference a secret with static id
-
-You reference the secret from within a parameters file which passes values to your template. You reference the secret by passing the resource identifier of the key vault and the name of the secret. In this example, the key vault secret must already exist, and you are using a static value for it resource id.
+Se hace referencia al secreto desde dentro de un archivo de parámetros que pasa valores a la plantilla. Se hace referencia al secreto pasando el identificador de recurso de almacén de claves y el nombre del secreto. En este ejemplo, ya debe existir el secreto del Almacén de claves y se utiliza un valor estático para el mismo id. de recurso.
 
     "parameters": {
       "adminPassword": {
@@ -42,7 +41,7 @@ You reference the secret from within a parameters file which passes values to yo
       }
     }
 
-An entire parameter file might look like:
+Un archivo de parámetros completo podría tener el siguiente aspecto:
 
     {
       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -62,7 +61,7 @@ An entire parameter file might look like:
       }
     }
 
-The parameter that accepts the secret should be a **securestring**. The following example shows the relevant sections of a template that deploys a SQL server that requires an administrator password.
+El parámetro que acepta el secreto debe ser **securestring**. En el ejemplo siguiente se muestran las secciones pertinentes de una plantilla que implementa un SQL Server que requiere una contraseña de administrador.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -95,11 +94,11 @@ The parameter that accepts the secret should be a **securestring**. The followin
         "outputs": { }
     }
 
-## <a name="reference-a-secret-with-dynamic-id"></a>Reference a secret with dynamic id
+## Referencia a un secreto con identificador dinámico
 
-The previous section showed how to pass a static resource id for the key vault secret. However, in some scenarios, you need to reference a key vault secret that varies based on the current deployment. In that case, you cannot hard-code the resource id in the parameters file. Unfortunately, you cannot dynamically generate the resource id in the parameters file because template expressions are not permitted in the parameters file.
+En la sección anterior se mostró cómo pasar un identificador de recurso estático para el secreto del Almacén de claves. Sin embargo, en algunos escenarios, debe hacer referencia a un secreto del Almacén de claves que varía en función de la implementación actual. En ese caso, no se puede codificar el identificador de recurso en el archivo de parámetros. Desafortunadamente, no se puede generar dinámicamente el identificador de recurso en el archivo de parámetros, ya que no se permiten expresiones de plantilla en este tipo de archivos.
 
-To dynamically generate the resource id for a key vault secret, you must move the resource that needs the secret into a nested template. In your master template, you add the nested template and pass in a parameter that contains the dynamically generated resource id.
+Para generar dinámicamente el identificador de recurso de un secreto del Almacén de claves, debe mover los recursos que necesite el secreto a una plantilla anidada. En la plantilla principal, agregue la plantilla anidada y pase un parámetro que contenga el identificador de recurso generado dinámicamente.
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -140,15 +139,10 @@ To dynamically generate the resource id for a key vault secret, you must move th
     }
 
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-- For general information about key vaults, see [Get started with Azure Key Vault](./key-vault/key-vault-get-started.md).
-- For information about using a key vault with a Virtual Machine, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md).
-- For complete examples of referencing key secrets, see [Key Vault examples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+- Para obtener información general sobre almacenes de claves, consulte [Introducción al Almacén de claves de Azure](./key-vault/key-vault-get-started.md).
+- Para obtener información sobre cómo utilizar un Almacén de claves con una máquina virtual, consulte [Consideraciones de seguridad para Azure Resource Manager](best-practices-resource-manager-security.md).
+- Para obtener ejemplos completos de secretos de clave de referencia, consulte [Ejemplos del Almacén de claves](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

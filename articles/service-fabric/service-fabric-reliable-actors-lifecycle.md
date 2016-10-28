@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Actors lifecycle | Microsoft Azure"
-   description="Explains Service Fabric Reliable Actor lifecycle, garbage collection, and manually deleting actors and their state"
+   pageTitle="Ciclo de vida de Reliable Actors | Microsoft Azure"
+   description="Explica el ciclo de vida de Reliable Actors de Service Fabric, la recolección de elementos no utilizados y la eliminación manual de actores y su estado"
    services="service-fabric"
    documentationCenter=".net"
    authors="amanbha"
@@ -17,44 +17,43 @@
    ms.author="amanbha"/>
 
 
+# Ciclo de vida, recolección automática de elementos no utilizados y eliminación manual de actores
+Un actor se activa la primera vez que se realiza una llamada a cualquiera de sus métodos y se desactiva (el runtime de los actores recolecta los elementos no utilizados) si no se usa durante un periodo determinado. Un actor y su estado también se pueden eliminar manualmente en cualquier momento.
 
-# <a name="actor-lifecycle,-automatic-garbage-collection,-and-manual-delete"></a>Actor lifecycle, automatic garbage collection, and manual delete
-An actor is activated the first time a call is made to any of its methods. An actor is deactivated (garbage collected by the Actors runtime) if it is not used for a configurable period of time. An actor and its state can also be deleted manually at any time.
+## Activación de actores
 
-## <a name="actor-activation"></a>Actor activation
+Cuando se activa un actor, ocurre lo siguiente:
 
-When an actor is activated, the following occurs:
+- Cuando se recibe una llamada para un actor y no hay ninguno activo, se crea uno nuevo.
+- Se carga el estado del actor si es de mantenimiento.
+- Se llama al método `OnActivateAsync` (que se puede invalidar en la implementación del actor).
+- El actor ahora se considera activo.
 
-- When a call comes for an actor and one is not already active, a new actor is created.
-- The actor's state is loaded if it's maintaining state.
-- The `OnActivateAsync` method (which can be overridden in the actor implementation) is called.
-- The actor is now considered active.
+## Desactivación de actores
 
-## <a name="actor-deactivation"></a>Actor deactivation
+Cuando se desactiva un actor, ocurre lo siguiente:
 
-When an actor is deactivated, the following occurs:
+- Cuando un actor no se usa durante un período de tiempo, se quita de la tabla de actores activos.
+- Se llama al método `OnDeactivateAsync` (que se puede invalidar en la implementación del actor). y esto borra todos los temporizadores del actor. Las operaciones de actor como los cambios de estado no deben llamarse desde este método.
 
-- When an actor is not used for some period of time, it is removed from the Active Actors table.
-- The `OnDeactivateAsync` method (which can be overridden in the actor implementation) is called. This clears all the timers for the actor. Actor operations like state changes should not be called from this method.
+> [AZURE.TIP] El tiempo de ejecución de actores de Fabric emite algunos [eventos relacionados con la activación y desactivación de actores](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events). Son útiles para la supervisión del rendimiento y los diagnósticos.
 
-> [AZURE.TIP] The Fabric Actors runtime emits some [events related to actor activation and deactivation](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events). They are useful in diagnostics and performance monitoring.
+### Recolección de actores no utilizados
+Cuando un actor está desactivado, se liberan las referencias al objeto de actor y, normalmente, el recolector de elementos no utilizados de Common Language Runtime (CLR) puede recolectarlas. La recolección de elementos no utilizados solo limpia el objeto de actor; **no** quita el estado almacenado en el administrador de estados del actor. La próxima vez que se activa el actor, se crea un nuevo objeto de actor y se restaura su estado.
 
-### <a name="actor-garbage-collection"></a>Actor garbage collection
-When an actor is deactivated, references to the actor object are released and it can be garbage collected normally by the common language runtime (CLR) garbage collector. Garbage collection only cleans up the actor object; it does **not** remove state stored in the actor's State Manager. The next time the actor is activated, a new actor object is created and its state is restored.
+¿Qué se considera como "en uso" para fines de desactivación y recolección de elementos no utilizados?
 
-What counts as “being used” for the purpose of deactivation and garbage collection?
+- Se recibe una llamada.
+- Se invoca al método `IRemindable.ReceiveReminderAsync` (se aplica solo si el actor usa recordatorios).
 
-- Receiving a call
-- `IRemindable.ReceiveReminderAsync` method being invoked (applicable only if the actor uses reminders)
+> [AZURE.NOTE] Si el actor usa temporizadores y se invoca la devolución de llamada de su temporizador, **no** cuenta como "en uso".
 
-> [AZURE.NOTE] if the actor uses timers and its timer callback is invoked, it does **not** count as "being used".
+Antes de entrar en detalles sobre la recolección de elementos no utilizados, es importante definir los términos siguientes:
 
-Before we go into the details of deactivation, it is important to define the following terms:
+- *Intervalo de detección*. Es el intervalo durante el que el runtime de los actores examina la tabla de actores activos para encontrar los que pueden desactivarse y recolectarse como elementos no utilizados. El valor predeterminado es 1 minuto.
+- *Tiempo de espera de inactividad*. Es el tiempo que un actor debe permanecer sin usarse (inactivo) antes de poder recolectarlo como elemento no utilizado. El valor predeterminado es 60 minutos.
 
-- *Scan interval*. This is the interval at which the Actors runtime scans its Active Actors table for actors that can be deactivated and garbage collected. The default value for this is 1 minute.
-- *Idle timeout*. This is the amount of time that an actor needs to remain unused (idle) before it can be deactivated and garbage collected. The default value for this is 60 minutes.
-
-Typically, you do not need to change these defaults. However, if necessary, these intervals can be changed through `ActorServiceSettings` when registering your [Actor Service](service-fabric-reliable-actors-platform.md):
+Normalmente no es necesario cambiar estos valores Sin embargo, si es necesario, estos intervalos pueden cambiarse a través de `ActorServiceSettings` al registrar el [servicio de actor](service-fabric-reliable-actors-platform.md):
 
 ```csharp
 public class Program
@@ -75,30 +74,30 @@ public class Program
 }
 ```
 
-For each active actor, the actor runtime keeps track of the amount of time that it has been idle (i.e. not used). The actor runtime checks each of the actors every `ScanIntervalInSeconds` to see if it can be garbage collected and collects it if it has been idle for `IdleTimeoutInSeconds`.
+El runtime de cada actor activo realiza un seguimiento del tiempo que ha estado inactivo (es decir, sin usarse). Dicho runtime comprueba cada uno de los actores para ver si puede recolectarse como elemento no utilizado cada `ScanIntervalInSeconds` y, si ha estado inactivo durante `IdleTimeoutInSeconds`, lo recolecta.
 
-Anytime an actor is used, its idle time is reset to 0. After this, the actor can be garbage collected only if it again remains idle for `IdleTimeoutInSeconds`. Recall that an actor is considered to have been used if either an actor interface method an actor reminder callback is executed. An actor is **not** considered to have been used if its timer callback is executed.
+Cada vez que se usa un actor, su tiempo de inactividad se restablece a 0. Después de esto, el actor solo se puede recolectar como elemento no utilizado si permanece de nuevo inactivo durante `IdleTimeoutInSeconds`. Recuerde que se considera que se ha usado un actor si se usa un método de interfaz de actor o una devolución de llamada de recordatorio. **No** se considera que un actor se haya usado si se ejecuta la devolución de llamada del temporizador.
 
-The following diagram shows the lifecycle of a single actor to illustrate these concepts.
+Para ilustrar estos conceptos, en el siguiente diagrama se muestra el ciclo de vida de un solo actor.
 
-![Example of idle time][1]
+![Ejemplo de tiempo de inactividad][1]
 
-The example shows the impact of actor method calls, reminders, and timers on the lifetime of this actor. The following points about the example are worth mentioning:
+Además, se muestra el impacto de las llamadas a los métodos de actor, los recordatorios y los temporizadores en la duración de este actor. Los puntos siguientes sobre el ejemplo son relevantes:
 
-- ScanInterval and IdleTimeout are set to 5 and 10 respectively. (Units do not matter here, since our purpose is only to illustrate the concept.)
-- The scan for actors to be garbage collected happens at T=0,5,10,15,20,25, as defined by the scan interval of 5.
-- A periodic timer fires at T=4,8,12,16,20,24, and its callback executes. It does not impact the idle time of the actor.
-- An actor method call at T=7 resets the idle time to 0 and delays the garbage collection of the actor.
-- An actor reminder callback executes at T=14 and further delays the garbage collection of the actor.
-- During the garbage collection scan at T=25, the actor's idle time finally exceeds the idle timeout of 10, and the actor is garbage collected.
+- ScanInterval e IdleTimeout se establecen en 5 y 10, respectivamente. (Las unidades no importan en este caso, ya que el único propósito es ilustrar el concepto).
+- La detección de los actores para buscar los que se pueden recolectar como elementos no utilizados se produce en T=0,5,10,15,20,25, como se define al establecerse el elemento ScanInterval en 5.
+- Un temporizador periódico se activa en T=4,8,12,16,20,24 y se ejecuta su devolución de llamada. No afecta al tiempo de inactividad del actor.
+- Una llamada al método de actor en T=7 restablece el tiempo de inactividad a 0 y retrasa la recolección como elemento no utilizado del actor.
+- Una devolución de llamada de un recordatorio del actor se ejecuta en T=14 y retrasa aún más la recolección como elemento no utilizado del actor.
+- Durante la detección de la recolección de elementos no utilizados en T=25, el tiempo de inactividad del actor finalmente supera el IdleTimeout de 10 y se recolecta el actor como elemento no utilizado.
 
-An actor will never be garbage collected while it is executing one of its methods, no matter how much time is spent in executing that method. As mentioned earlier, the execution of actor interface methods and reminder callbacks prevents garbage collection by resetting the actor's idle time to 0. The execution of timer callbacks does not reset the idle time to 0. However, the garbage collection of the actor is deferred until the timer callback has completed execution.
+Un actor nunca se recolectará como elemento no utilizado mientras se ejecuta uno de sus métodos, independientemente del tiempo que se dedique a la ejecución de ese método. Como se mencionó anteriormente, la ejecución de los métodos de interfaz del actor y las devoluciones de llamada del recordatorio impide la recolección al restablecer el tiempo de inactividad del actor a 0. La ejecución de devoluciones de llamada del temporizador no restablece el tiempo de inactividad a 0. Sin embargo, la recolección del actor como elemento no utilizado se aplaza hasta que la devolución de llamada del temporizador ha finalizado su ejecución.
 
-## <a name="deleting-actors-and-their-state"></a>Deleting actors and their state
+## Eliminación de actores y su estado
 
-Gabrage collection of deactivated actors only cleans up the actor object, but it does not remove data that is stored in an actor's State Manager. When an actor is re-activated, its data is again made available to it through the State Manager. In cases where actors store data in State Manager and are deactivated but never re-activated, it may be necessary to clean up their data.
+La recolección de elementos no utilizados de actores desactivados solo elimina el objeto del actor, pero no los datos que se almacenan en el administrador de estados de un actor. Cuando se vuelve a activar un actor, sus datos se vuelven a poner disponibles mediante el administrador de estados. Es posible que, en los casos en que los actores almacenan datos en el administrador de estados y se desactivan, pero nunca se vuelven a activar, haya que limpiar los datos.
 
-The [Actor Service](service-fabric-reliable-actors-platform.md) provides a function for deleting actors from a remote caller:
+El [servicio de actor](service-fabric-reliable-actors-platform.md) proporciona una función para eliminar actores desde un llamador remoto:
 
 ```csharp
 ActorId actorToDelete = new ActorId(id);
@@ -109,29 +108,25 @@ IActorService myActorServiceProxy = ActorServiceProxy.Create(
 await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
 ```
 
-Deleting an actor has the following effects depending on whether or not the actor is currently active:
-- **Active Actor**
- - Actor is removed from active actors list and is deactivated.
- - Its state is deleted permanently.
-- **Inactive Actor**
- - Its state is deleted permanently.
+La eliminación de un actor tiene las siguientes consecuencias, con independencia de que esté activo o no en ese momento:
+- **Actor activo**
+ - El actor se quita de la lista de actores activos y se desactiva.
+ - Su estado se elimina permanentemente.
+- **Actor inactivo**
+ - Su estado se elimina permanentemente.
 
-Note that an actor cannot call delete on itself from one of its actor methods because the actor cannot be deleted while executing within an actor call context, in which the runtime has obtained a lock around the actor call to enforce single-threaded access.
+Tenga en cuenta que un actor no puede llamar a Delete por sí mismo desde uno de sus métodos de actor. Esto se debe a que el actor no se puede eliminar mientras se está ejecutando en un contexto de llamada de actor, en el que runtime ha obtenido un bloqueo en la llamada de actor para exigir el acceso uniproceso.
 
-## <a name="next-steps"></a>Next steps
- - [Actor timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
- - [Actor events](service-fabric-reliable-actors-events.md)
- - [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
- - [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
- - [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [Sample code](https://github.com/Azure/servicefabric-samples)
+## Pasos siguientes
+ - [Recordatorios y temporizadores de los actores](service-fabric-reliable-actors-timers-reminders.md)
+ - [Eventos de actor](service-fabric-reliable-actors-events.md)
+ - [Reentrada de actor](service-fabric-reliable-actors-reentrancy.md)
+ - [Supervisión del rendimiento y diagnósticos de los actores](service-fabric-reliable-actors-diagnostics.md)
+ - [Documentación de referencia de la API de actor](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [Código de ejemplo](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

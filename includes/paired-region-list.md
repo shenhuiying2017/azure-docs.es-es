@@ -1,27 +1,24 @@
-|Primary            |Secondary          |
+|Principal |Secundario |
 |:-----------------:|:-----------------:|
-|North Central US   |South Central US   |
-|South Central US   |North Central US   |
-|East US            |West US            |
-|West US            |East US            |
-|US East 2          |Central US         |
-|Central US         |US East 2          |
-|North Europe       |West Europe        |
-|West Europe        |North Europe       |
-|South East Asia    |East Asia          |
-|East Asia          |South East Asia    |
-|East China         |North China        |
-|North China        |East China         |
-|Japan East         |Japan West         |
-|Japan West         |Japan East         |
-|Brazil South       |South Central US   |
-|Australia East     |Australia Southeast|
-|Australia Southeast|Australia East     |
-|Canada East        |Canada Central     |
-|Canada Central     |Canada East        |
-|West US 2          |West Central US    |
+|Centro-Norte de EE. UU |Centro-Sur de EE. UU |
+|Centro-Sur de EE. UU |Centro-Norte de EE. UU |
+|Este de EE. UU. |Oeste de EE. UU. |
+|Oeste de EE. UU. |Este de EE. UU. |
+|Este de EE. UU. - 2 |Central EE. UU.: |
+|Central EE. UU.: |Este de EE. UU. - 2 |
+|Europa del Norte |Europa occidental |
+|Europa occidental |Europa del Norte |
+|Sudeste de Asia |Asia oriental |
+|Asia oriental |Sudeste de Asia |
+|Este de China |Norte de China |
+|Norte de China |Este de China |
+|Este de Japón |Oeste de Japón |
+|Oeste de Japón |Este de Japón |
+|Sur de Brasil |Centro-Sur de EE. UU |
+|Australia Oriental |Sudeste de Australia|
+|Sudeste de Australia|Australia Oriental |
+|Este de Canadá |Centro de Canadá |
+|Centro de Canadá |Este de Canadá |
+|Oeste de EE. UU. 2 |Centro occidental de EE.UU. |
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

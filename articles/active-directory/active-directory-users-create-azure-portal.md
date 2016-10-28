@@ -1,62 +1,57 @@
 <properties
-    pageTitle="Add new users to Azure Active Directory preview| Microsoft Azure"
-    description="Explains how to add new users or change user information in Azure Active Directory."
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+	pageTitle="Incorporación de nuevos usuarios a la versión preliminar de Azure Active Directory | Microsoft Azure"
+	description="Explica cómo agregar nuevos usuarios o cambiar la información del usuario en Azure Active Directory."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/12/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/12/2016"
+	ms.author="curtand"/>
 
 
-
-# <a name="add-new-users-to-azure-active-directory-preview"></a>Add new users to Azure Active Directory preview
+# Incorporación de nuevos usuarios a la versión preliminar de Azure Active Directory
 
 > [AZURE.SELECTOR]
-- [Azure portal](active-directory-users-create-azure-portal.md)
-- [Azure classic portal](active-directory-create-users.md)
+- [Portal de Azure](active-directory-users-create-azure-portal.md)
+- [Portal de Azure clásico](active-directory-create-users.md)
 
-This article explains how to add new users in your organization in teh Azure Active Direstory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md)
+En este artículo se explica cómo agregar nuevos usuarios de su organización en la versión preliminar de Azure Active Direstory (Azure AD). [¿Qué es la versión preliminar?](active-directory-preview-explainer.md)
 
-1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+1.  Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 
-2.  Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
+2.  Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y, después, presione **Intro**.
 
-    ![Opening user management](./media/active-directory-users-create-azure-portal/create-users-user-management.png)
+    ![Apertura de Administración de usuarios](./media/active-directory-users-create-azure-portal/create-users-user-management.png)
 
-3.  On the **Users and groups** blade, select **All users**, and then select **Add**.
+3.  En la hoja **Usuarios y grupos**, seleccione **Todos los grupos** y, luego, **Agregar**.
 
-    ![Selecting the Add command](./media/active-directory-users-create-azure-portal/create-users-add-command.png)
+    ![Selección del comando Agregar](./media/active-directory-users-create-azure-portal/create-users-add-command.png)
 
-4.  Enter details for the user, such as **Name** and **User name**. The domain name portion of the user name must either be the initial default domain name "foo.onmicrosoft.com" domain name, or a verified, non-federated domain name such as "contoso.com."
+4.  Especifique los detalles del usuario, como el **nombre** y el **nombre de usuario**. La parte del nombre de dominio del nombre de usuario debe ser el nombre de dominio del nombre de dominio predeterminado inicial foo.onmicrosoft.com o uno comprobado y no federado, como contoso.com.
 
-5. Copy or otherwise note the generated user password so that you can provide it to the user after this process is complete.
+5. Copie o anote la contraseña de usuario generada para poder proporcionársela al usuario cuando finalice este proceso.
 
-6. Optionally, you can open and fill out the information in the **Profile** blade, the **Groups** blade, or the **Directory role** blade for the user. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md).
+6. También puede abrir y rellenar la información de las hojas **Perfil**, **Grupos** o **Rol del directorio** del usuario. Para obtener más información acerca de los roles del usuario y el administrador, consulte [Asignación de roles de administrador en Azure AD](active-directory-assign-admin-roles.md).
 
-7.  On the **User** blade, select **Create**.
+7.  En la hoja **Usuario**, seleccione **Crear**.
 
-8. Securely distribute the generated password to the new user so that the user can sign in.
+8. Distribuya de manera segura la contraseña generada al nuevo usuario para que pueda iniciar sesión.
 
-## <a name="what's-next"></a>What's next
+## Pasos siguientes
 
-- [Add an external user](active-directory-users-create-external-azure-portal.md)
-- [Reset a user's password in the new Azure portal](active-directory-users-reset-password-azure-portal.md)
-- [Change a user's work information](active-directory-users-work-info-azure-portal.md)
-- [Manage user profiles](active-directory-users-profile-azure-portal.md)
-- [Delete a user in your Azure AD](active-directory-users-delete-user-azure-portal.md)
-- [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)
+- [Agregar un usuario externo](active-directory-users-create-external-azure-portal.md)
+- [Restablecer una contraseña de usuario en el nuevo Azure Portal](active-directory-users-reset-password-azure-portal.md)
+- [Cambiar la información de trabajo de un usuario](active-directory-users-work-info-azure-portal.md)
+- [Administrar perfiles de usuario](active-directory-users-profile-azure-portal.md)
+- [Eliminar un usuario de Azure AD](active-directory-users-delete-user-azure-portal.md)
+- [Asignar a un usuario a un rol de Azure AD](active-directory-users-assign-role-azure-portal.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

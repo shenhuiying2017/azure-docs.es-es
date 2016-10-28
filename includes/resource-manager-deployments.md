@@ -1,22 +1,19 @@
-## <a name="incremental-and-complete-deployments"></a>Incremental and complete deployments
+## Implementaciones de incrementales y completadas
 
-By default, Resource Manager handles deployments as incremental updates to the resource group. With incremental deployment, Resource Manager:
+De forma predeterminada, el Administrador de recursos controla las implementaciones como las actualizaciones incrementales al grupo de recursos. Con la implementación incremental, el Administrador de recursos:
 
-- **leaves unchanged** resources that exist in the resource group but are not specified in the template
-- **adds** resources that are specified in the template but do not exist in the resource group 
-- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
-- **re-provisions** existing resources that have updated settings in the template
+- **deja sin modificar** recursos que existen en el grupo de recursos, pero que no se especifican en la plantilla
+- **agrega** recursos que se especifican en la plantilla, pero que no existen en el grupo de recursos
+- **no vuelve a aprovisionar** recursos que existen en el grupo de recursos en la misma condición definida en la plantilla
+- **vuelve a aprovisionar** recursos existentes con la configuración actualizada de la plantilla
 
-With complete deployment, Resource Manager:
+Con la implementación completa, el Administrador de recursos:
 
-- **deletes** resources that exist in the resource group but are not specified in the template
-- **adds** resources that are specified in the template but do not exist in the resource group 
-- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
-- **re-provisions** existing resources that have updated settings in the template
+- **elimina** recursos que existen en el grupo de recursos, pero que no se especifican en la plantilla
+- **agrega** recursos que se especifican en la plantilla, pero que no existen en el grupo de recursos
+- **no vuelve a aprovisionar** recursos que existen en el grupo de recursos en la misma condición definida en la plantilla
+- **vuelve a aprovisionar** recursos existentes con la configuración actualizada de la plantilla
  
-You specify the type of deployment through the **Mode** property.
+El tipo de implementación se especifica a través de la propiedad **Mode**.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

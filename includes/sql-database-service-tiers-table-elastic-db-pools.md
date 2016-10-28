@@ -1,72 +1,69 @@
 
-### <a name="basic-elastic-pool-limits"></a>Basic elastic pool limits
+### Límites de grupo elástico básico
 
-|   |  |
+| | |
 |---|:---:|
-| Max eDTUs per pool | &nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
-| Max storage per pool (GB)*| &nbsp;&nbsp;&nbsp;&nbsp;10 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;39 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;73 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;117 |
-| Max number of databases per pool | &nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 |
-| Max in-memory OLTP storage (GB) per pool| N/A |
-| Max concurrent workers per pool | &nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp;&nbsp;2400 |
-| Max concurrent logins per pool | &nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp;&nbsp;2400 |
-| Max concurrent sessions per pool | 4800 &nbsp;9600 &nbsp; 19200 &nbsp; 28800 &nbsp; 28800 |
-| Max eDTUs per database* | 5 |
-| Min eDTUs per database* | 0,5 |
-| Max storage per database (GB)** | 2 |
-| Point-in-time-restore | Any point last 7 days |
-| Disaster recovery | Active Geo-Replication |
+| Número máximo de eDTU por grupo | &nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
+| Almacenamiento máximo por grupo (GB)*| &nbsp;&nbsp;&nbsp;&nbsp;10 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;39 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;73 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;117 |
+| Cantidad máxima de bases de datos por grupo | &nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 |
+| Almacenamiento máximo de OLTP en memoria (GB) por grupo| N/D |
+| Cantidad máxima de trabajos simultáneos por grupo | &nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp;&nbsp;2400 |
+| Cantidad máxima de inicios de sesión simultáneos por grupo | &nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp;&nbsp;2400 |
+| Cantidad máxima de sesiones simultáneas por grupo | 4800 &nbsp;9600 &nbsp; 19 200 &nbsp; 28 800 &nbsp; 28 800 |
+| Cantidad máxima de eDTU por base de datos* | 5 |
+| Cantidad mínima de eDTU por base de datos* | 0,5 |
+| Almacenamiento máximo por base de datos (GB)** | 2 |
+| Restauración a un momento dado | Cualquier momento en los 7 últimos días |
+| Recuperación ante desastres | Replicación geográfica activa |
 |||
 
-* Max and Min eDTU’s per database may be set to any of the listed values as long as the pool DTU size selected is at least as great as the max eDTUs per DB 
+* Se puede establecer el número máximo y mínimo de eDTU por base de datos en cualquiera de los valores que aparecen siempre que el tamaño seleccionado de DTU del grupo sea al menos tan grande como el número máximo de eDTU por base de datos
 
-** Elastic database share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database
+** Las bases de datos elásticas comparten almacenamiento de grupo, por lo que el almacenamiento de base de datos se limita al almacenamiento de grupo restante o al almacenamiento máximo por base de datos, si este es menor.
 
 
-### <a name="standard-elastic-pool-limits"></a>Standard elastic pool limits
+### Límites de grupo elástico estándar
 
-|   |  |
+| | |
 |---|:---:|
-| Max eDTUs per pool | &nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
-| Max storage per pool (GB)*| &nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
-| Max number of databases per pool | &nbsp;200 &nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 |
-| Max in-memory OLTP storage (GB) per pool| N/A |
-| Max concurrent workers per pool | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
-| Max concurrent logins per pool | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
-| Max concurrent sessions per pool | 4800 &nbsp; 9600 &nbsp;19200 &nbsp;28800 &nbsp;&nbsp; 28800 |
-| Max eDTUs per database* | 10, 20, 50, 100 |
-| Min eDTUs per database* | 0, 10, 20, 50, 100 |
-| Max storage per database (GB)** | 250 |
-| Point-in-time-restore | Any point last 35 days |
-| Disaster recovery | Active Geo-Replication |
+| Número máximo de eDTU por grupo | &nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
+| Almacenamiento máximo por grupo (GB)*| &nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
+| Cantidad máxima de bases de datos por grupo | &nbsp;200 &nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 |
+| Almacenamiento máximo de OLTP en memoria (GB) por grupo| N/D |
+| Cantidad máxima de trabajos simultáneos por grupo | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
+| Cantidad máxima de inicios de sesión simultáneos por grupo | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
+| Cantidad máxima de sesiones simultáneas por grupo | 4800 &nbsp; 9600 &nbsp;19 200 &nbsp;28 800 &nbsp;&nbsp; 28 800 |
+| Cantidad máxima de eDTU por base de datos* | 10, 20, 50, 100 |
+| Cantidad mínima de eDTU por base de datos* | 0, 10, 20, 50, 100 |
+| Almacenamiento máximo por base de datos (GB)** | 250 |
+| Restauración a un momento dado | Cualquier momento en los últimos 35 días |
+| Recuperación ante desastres | Replicación geográfica activa |
 |||
 
-* Max and Min eDTU’s per database may be set to any of the listed values as long as the pool DTU size selected is at least as great as the max eDTUs per DB 
+* Se puede establecer el número máximo y mínimo de eDTU por base de datos en cualquiera de los valores que aparecen siempre que el tamaño seleccionado de DTU del grupo sea al menos tan grande como el número máximo de eDTU por base de datos
 
-** Elastic database share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database
+** Las bases de datos elásticas comparten almacenamiento de grupo, por lo que el almacenamiento de base de datos se limita al almacenamiento de grupo restante o al almacenamiento máximo por base de datos, si este es menor.
 
-### <a name="premium-elastic-pool-limits"></a>Premium elastic pool limits
+### Límites de grupo elástico premium
 
-|   |  |
+| | |
 |---|:---:|
-| Max eDTUs per pool | 125 &nbsp;&nbsp;&nbsp; 250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; &nbsp;1500 |
-| Max storage per pool (GB)*| 250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 750 &nbsp;&nbsp;&nbsp;&nbsp; 750 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 750 |
-| Max number of databases per pool | 50 |
-| Max in-memory OLTP storage (GB) per pool| N/A |
-| Max concurrent workers per pool | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
-| Max concurrent logins per pool | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
-| Max concurrent sessions per pool | 4800 &nbsp; 9600 &nbsp;19200 &nbsp;28800 &nbsp;&nbsp; 28800 |
-| Max eDTUs per database* | 125, 250, 500, 1000 |
-| Min eDTUs per database* | 0, 125, 250, 500, 1000 |
-| Max storage per database (GB)** | 500 |
-| Point-in-time-restore | Any point last 35 days |
-| Disaster recovery | Active Geo-Replication |
+| Número máximo de eDTU por grupo | 125 &nbsp;&nbsp;&nbsp; 250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; &nbsp;1500 |
+| Almacenamiento máximo por grupo (GB)*| 250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 750 &nbsp;&nbsp;&nbsp;&nbsp; 750 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 750 |
+| Cantidad máxima de bases de datos por grupo | 50 |
+| Almacenamiento máximo de OLTP en memoria (GB) por grupo| N/D |
+| Cantidad máxima de trabajos simultáneos por grupo | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
+| Cantidad máxima de inicios de sesión simultáneos por grupo | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
+| Cantidad máxima de sesiones simultáneas por grupo | 4800 &nbsp; 9600 &nbsp;19 200 &nbsp;28 800 &nbsp;&nbsp; 28 800 |
+| Cantidad máxima de eDTU por base de datos* | 125, 250, 500, 1000 |
+| Cantidad mínima de eDTU por base de datos* | 0, 125, 250, 500, 1000 |
+| Almacenamiento máximo por base de datos (GB)** | 500 |
+| Restauración a un momento dado | Cualquier momento en los últimos 35 días |
+| Recuperación ante desastres | Replicación geográfica activa |
 |||
 
-* Max and Min eDTU’s per database may be set to any of the listed values as long as the pool DTU size selected is at least as great as the max eDTUs per DB 
+* Se puede establecer el número máximo y mínimo de eDTU por base de datos en cualquiera de los valores que aparecen siempre que el tamaño seleccionado de DTU del grupo sea al menos tan grande como el número máximo de eDTU por base de datos
 
-** Elastic database share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database
+** Las bases de datos elásticas comparten almacenamiento de grupo, por lo que el almacenamiento de base de datos se limita al almacenamiento de grupo restante o al almacenamiento máximo por base de datos, si este es menor.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

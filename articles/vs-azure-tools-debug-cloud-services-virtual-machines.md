@@ -1,199 +1,193 @@
 <properties 
-    pageTitle="Debugging an Azure cloud service or virtual machine in Visual Studio | Microsoft Azure"
-    description="Debugging a Cloud Service or Virtual Machine in Visual Studio"
-    services="visual-studio-online"
-    documentationCenter="na"
-    authors="TomArcher"
-    manager="douge"
-    editor="" />
+	pageTitle="Depuración de una máquina virtual o un servicio en la nube de Azure en Visual Studio | Microsoft Azure"
+	description="Depurar un servicio en la nube o una máquina virtual en Visual Studio"
+	services="visual-studio-online"
+	documentationCenter="na"
+	authors="TomArcher"
+	manager="douge"
+	editor="" />
 <tags 
-    ms.service="visual-studio-online"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="multiple"
-    ms.workload="na"
-    ms.date="08/15/2016"
-    ms.author="tarcher" />
+	ms.service="visual-studio-online"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/15/2016"
+	ms.author="tarcher" />
 
+# Depuración de una máquina virtual o un servicio en la nube de Azure en Visual Studio
 
-# <a name="debugging-an-azure-cloud-service-or-virtual-machine-in-visual-studio"></a>Debugging an Azure cloud service or virtual machine in Visual Studio
+Visual Studio proporciona distintas opciones para la depuración de servicios en la nube y máquinas virtuales de Azure.
 
-Visual Studio gives you different options for debugging Azure cloud services and virtual machines.
 
 
+## Depuración del servicio en la nube en el equipo local
 
-## <a name="debug-your-cloud-service-on-your-local-computer"></a>Debug your cloud service on your local computer
+Puede ahorrar tiempo y dinero si utiliza el emulador de proceso de Azure para depurar su servicio en la nube en un equipo local. La depuración de un servicio localmente antes de su implementación puede mejorar la fiabilidad y el rendimiento sin pagar por tiempo de proceso. No obstante, pueden producirse algunos errores solo al ejecutar un servicio en la nube en el propio Azure. Puede depurar estos errores si habilita la depuración remota al publicar el servicio y luego adjuntar el depurador a una instancia de rol.
 
-You can save time and money by using the Azure compute emulator to debug your cloud service on a local machine. By debugging a service locally before you deploy it, you can improve reliability and performance without paying for compute time. However, some errors might occur only when you run a cloud service in Azure itself. You can debug these errors if you enable remote debugging when you publish your service and then attach the debugger to a role instance.
+El emulador simula el servicio de proceso de Azure y se ejecuta en el entorno local para que pueda probar y depurar el servicio en la nube antes de implementarlo. El emulador administra el ciclo de vida de sus instancias de rol y proporciona acceso a recursos simulados, tales como el almacenamiento local. Al depurar o ejecutar el servicio desde Visual Studio, este entorno inicia automáticamente el emulador como una aplicación en segundo plano y después implementa el servicio en el emulador. Puede utilizar el emulador para ver su servicio cuando se ejecuta en el entorno local. Puede ejecutar la versión completa o la versión Express del emulador. (A partir de Azure 2.3, la versión Express del emulador es la opción predeterminada). Consulte [Uso de Emulator Express para ejecutar y depurar localmente un servicio en la nube](https://msdn.microsoft.com/library/dn339018.aspx).
 
-The emulator simulates the Azure Compute service and runs in your local environment so that you can test and debug your cloud service before you deploy it. The emulator handles the lifecycle of your role instances and provides access to simulated resources, such as local storage. When you debug or run your service from Visual Studio, it automatically starts the emulator as a background application and then deploys your service to the emulator. You can use the emulator to view your service when it runs in the local environment. You can run the full version or the express version of the emulator. (Starting with Azure 2.3, the express version of the emulator is the default.) See [Using Emulator Express to Run and Debug a Cloud Service Locally](https://msdn.microsoft.com/library/dn339018.aspx).
+### Para depurar el servicio en la nube en el equipo local
 
-### <a name="to-debug-your-cloud-service-on-your-local-computer"></a>To debug your cloud service on your local computer
+1. En la barra de menús, elija **Depurar**, **Iniciar depuración** para ejecutar el proyecto de servicio en la nube de Azure. Como alternativa, puede presionar F5. Verá un mensaje que indica que el emulador de proceso se está iniciando. Cuando se inicia el emulador, el icono de bandeja del sistema lo confirma.
 
-1. On the menu bar, choose **Debug**, **Start Debugging** to run your Azure cloud service project. As an alternative, you can press F5. You’ll see a message that the Compute Emulator is starting. When the emulator starts, the system tray icon confirms it.
+    ![Emulador de Azure en la bandeja del sistema](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC783828.png)
 
-    ![Azure emulator in the system tray](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC783828.png)
+1. Visualice la interfaz de usuario del emulador de proceso; para ello, abra el menú contextual del icono de Azure en el área de notificación y haga clic en **Show Compute Emulator UI** (Mostrar la UI del emulador de proceso).
 
-1. Display the user interface for the compute emulator by opening the shortcut menu for the Azure icon in the notification area, and then select **Show Compute Emulator UI**.
+    El panel izquierdo de la interfaz de usuario muestra los servicios implementados actualmente en el emulador de proceso y las instancias de rol que cada servicio ejecuta. Puede elegir el servicio o los roles para mostrar información sobre el ciclo de vida, el registro y el diagnóstico en el panel derecho. Si coloca el foco en el margen superior de una ventana incluida, se expande para rellenar el recuadro derecho.
 
-    The left pane of the UI shows the services that are currently deployed to the compute emulator and the role instances that each service is running. You can choose the service or roles to display lifecycle, logging, and diagnostic information in the right pane. If you put the focus in the top margin of an included window, it expands to fill the right pane.
+1. Recorra la aplicación: seleccione los comandos del menú **Depurar** y establezca puntos de interrupción en el código. A medida que recorre la aplicación en el depurador, los paneles se actualizan con el estado actual de la aplicación. Al detener la depuración, se elimina la implementación de la aplicación. Si su aplicación incluye un rol web y ha establecido la propiedad Acción de inicio para iniciar el explorador web, Visual Studio inicia la aplicación web en el explorador. Si cambia el número de instancias de un rol en la configuración del servicio, debe detener el servicio en la nube y después reiniciar la depuración para que pueda depurar estas nuevas instancias del rol.
 
-1. Step through the application by selecting commands on the **Debug** menu and setting breakpoints in your code. As you step through the application in the debugger, the panes are updated with the current status of the application. When you stop debugging, the application deployment is deleted.If your application includes a web role and you've set the Startup action property to start the web browser, Visual Studio starts your web application in the browser.If you change the number of instances of a role in the service configuration, you must stop your cloud service and then restart debugging so that you can debug these new instances of the role.
+    **Nota:** cuando se deja de ejecutar o depurar el servicio, el emulador de proceso y el emulador de almacenamiento locales no se detienen. Debe detenerlos explícitamente en el área de notificación.
 
-    **Note:** When you stop running or debugging your service, the local compute emulator and storage emulator aren't stopped. You must stop them explicitly from the notification area.
 
+## Depuración de un servicio en la nube en Azure
 
-## <a name="debug-a-cloud-service-in-azure"></a>Debug a cloud service in Azure
+Para depurar un servicio en la nube desde un equipo remoto, debe habilitar esta funcionalidad de forma explícita cuando implemente su servicio en la nube para que los servicios requeridos (como msvsmon.exe) se instalen en las máquinas virtuales que ejecutan sus instancias de rol. Si no habilitó la depuración remota al publicar el servicio, deberá volver a publicar el servicio con la depuración remota habilitada.
 
-To debug a cloud service from a remote machine, you must enable that functionality explicitly when you deploy your cloud service so that required services (msvsmon.exe, for example) are installed on the virtual machines that run your role instances. If you didn't enable remote debugging when you published the service, you have to republish the service with remote debugging enabled.
+Si habilita la depuración remota para un servicio en la nube, este no mostrará un rendimiento inferior ni incurrirá en cargos adicionales. No debe usar la depuración remota en un servicio de producción, porque podría perjudicar a los clientes que usan el servicio.
 
-If you enable remote debugging for a cloud service, it doesn't exhibit degraded performance or incur additional charges. You shouldn't use remote debugging on a production service, because clients who use the service might be adversely affected.
+>[AZURE.NOTE] Al publicar un servicio en la nube en Visual Studio, puede habilitar **IntelliTrace** para los roles de ese servicio cuyo destino sea .NET Framework 4 o .NET Framework 4.5. Con **IntelliTrace**, puede examinar eventos que se produjeron en una instancia de rol en el pasado y reproducir el contexto a partir de ese momento. Consulte [Depuración con IntelliTrace y Visual Studio de un servicio en la nube publicado](http://go.microsoft.com/fwlink/?LinkID=623016) y [Uso de IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx).
 
->[AZURE.NOTE] When you publish a cloud service from Visual Studio, you can enable **IntelliTrace** for any roles in that service that target the .NET Framework 4 or the .NET Framework 4.5. By using **IntelliTrace**, you can examine events that occurred in a role instance in the past and reproduce the context from that time. See [Debugging a published cloud service with IntelliTrace and Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016) and [Using IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx).
+### Para habilitar la depuración remota para un servicio en la nube
 
-### <a name="to-enable-remote-debugging-for-a-cloud-service"></a>To enable remote debugging for a cloud service
+1. Abra el menú contextual del proyecto de Azure y seleccione **Publicar**.
 
-1. Open the shortcut menu for the Azure project, and then select **Publish**.
+1. Seleccione el entorno de **ensayo** y la configuración de **depuración**.
 
-1. Select the **Staging** environment and the **Debug** configuration.
+    Esto es solo de referencia. Puede optar por ejecutar sus entornos de prueba en un entorno de producción. No obstante, puede perjudicar a los usuarios si habilita la depuración remota en el entorno de producción. Puede seleccionar la configuración Liberar, pero la configuración Depurar simplifica la depuración.
 
-    This is only a guideline. You can opt to run your test environments in a Production environment. However, you may adversely affect users if you enable remote debugging on the Production environment. You can choose the Release configuration, but the Debug configuration makes debugging easier.
+    ![Elegir la configuración Depurar](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746717.gif)
 
-    ![Choose the Debug configuration](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746717.gif)
+1. Siga los pasos habituales pero active la casilla **Habilitar depurador remoto para todos los roles** de la pestaña **Configuración avanzada**.
 
-1. Follow the usual steps, but select the **Enable Remote Debugger for all roles** check box on the **Advanced Settings** tab.
+    ![Configuración de depuración](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746718.gif)
 
-    ![Debug Configuration](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746718.gif)
+### Para asociar el depurador a un servicio en la nube en Azure
 
-### <a name="to-attach-the-debugger-to-a-cloud-service-in-azure"></a>To attach the debugger to a cloud service in Azure
+1. En el Explorador de servidores, expanda el nodo del servicio en la nube.
 
-1. In Server Explorer, expand the node for your cloud service.
+1. Abra el menú contextual del rol o la instancia de rol a los que quiera asociarlo y luego seleccione **Asociar depurador**.
 
-1. Open the shortcut menu for the role or role instance to which you want to attach, and then select **Attach Debugger**.
+    Si depura un rol, el depurador de Visual Studio se asociará a cada instancia de dicho rol. El depurador se interrumpirá en un punto de interrupción para la primera instancia de rol que ejecute esta línea de código y cumpla las condiciones de dicho punto de interrupción. Si depura una instancia, el depurador solo se asociará a dicha instancia y se interrumpirá en un punto de interrupción solamente cuando esa instancia específica ejecute esa línea de código y cumpla las condiciones del punto de interrupción.
 
-    If you debug a role, the Visual Studio debugger attaches to each instance of that role. The debugger will break on a breakpoint for the first role instance that runs that line of code and meets any conditions of that breakpoint. If you debug an instance, the debugger attaches to only that instance and breaks on a breakpoint only when that specific instance runs that line of code and meets the breakpoint's conditions.
+    ![Asociar depurador](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746719.gif)
 
-    ![Attach Debugger](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746719.gif)
+1. Después de que el depurador se asocie a una instancia, realice la depuración del modo habitual. El depurador se asocia automáticamente al proceso de host adecuado para el rol. En función del tipo de rol, el depurador se asocia a w3wp.exe, WaWorkerHost.exe o WaIISHost.exe. Para comprobar el proceso al que se ha asociado el depurador, expanda el nodo de la instancia en el Explorador de servidores. Consulte [Arquitectura de roles de Azure](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx) para obtener más información sobre los procesos de Azure.
 
-1. After the debugger attaches to an instance, debug as usual.The debugger automatically attaches to the appropriate host process for your role. Depending on what the role is, the debugger attaches to w3wp.exe, WaWorkerHost.exe, or WaIISHost.exe. To verify the process to which the debugger is attached, expand the instance node in Server Explorer. See [Azure Role Architecture](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx) for more information about Azure processes.
+    ![Seleccionar el cuadro de diálogo de tipo de código](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
 
-    ![Select code type dialog box](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
+1. Para identificar los procesos a los que se ha adjuntado el depurador, abra el cuadro de diálogo Procesos. Para ello, en la barra de menús, seleccione Depurar, Windows, Procesos. (Teclado: Ctrl + Alt + Z) Para desasociar un proceso específico, abra su menú contextual y, a continuación, seleccione **Desasociar proceso**. También puede localizar el nodo de la instancia en el Explorador de servidores, buscar el proceso, abrir su menú contextual y seleccione **Desasociar proceso**.
 
-1. To identify the processes to which the debugger is attached, open the Processes dialog box by, on the menu bar, choosing Debug, Windows, Processes. (Keyboard: Ctrl+Alt+Z)To detach a specific process, open its shortcut menu, and then select **Detach Process**. Or, locate the instance node in Server Explorer, find the process, open its shortcut menu, and then select **Detach Process**.
+    ![Depurar procesos](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC690787.gif)
 
-    ![Debug Processes](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC690787.gif)
+>[AZURE.WARNING] Evite detenciones prolongadas en los puntos de interrupción durante la depuración remota. Azure trata un proceso que se detiene durante algo más que unos minutos como si hubiese dejado de responder y detiene el envío de tráfico a dicha instancia. Si efectúa una detención demasiado prolongada, msvsmon.exe se separará del proceso.
 
->[AZURE.WARNING] Avoid long stops at breakpoints when remote debugging. Azure treats a process that's stopped for longer than a few minutes as unresponsive and stops sending traffic to that instance. If you stop for too long, msvsmon.exe detaches from the process.
+Para separar el depurador de todos los procesos de su instancia o rol, abra el menú contextual del rol o la instancia que está depurando y seleccione **Desasociar depurador**.
 
-To detach the debugger from all processes in your instance or role, open the shortcut menu for the role or instance that you're debugging, and then select **Detach Debugger**.
+## Limitaciones de la depuración remota en Azure
 
-## <a name="limitations-of-remote-debugging-in-azure"></a>Limitations of remote debugging in Azure
+Desde Azure SDK 2.3, la depuración remota presenta las siguientes limitaciones.
 
-From Azure SDK 2.3, remote debugging has the following limitations.
+- Con la depuración remota habilitada, no puede publicar un servicio en la nube que presente algún rol con más de 25 instancias.
 
-- With remote debugging enabled, you can't publish a cloud service in which any role has more than 25 instances.
+- El depurador usa los puertos de 30400 a 30424, de 31400 a 31424 y de 32400 a 32424. Si intenta usar alguno de estos puertos, no podrá publicar su servicio y aparecerá uno de los siguientes mensajes de error en el registro de actividad de Azure:
 
-- The debugger uses ports 30400 to 30424, 31400 to 31424 and 32400 to 32424. If you try to use any of these ports, you won't be able to publish your service, and one of the following error messages will appear in the activity log for Azure: 
+    - Error al validar el archivo .cscfg con el archivo .csdef. El intervalo de puertos reservado 'intervalo de puertos' para el extremo Microsoft.WindowsAzure.Plugins.RemoteDebugger.Connector del rol 'rol' se superpone con un intervalo o puerto ya definido.
+    - Error en la asignación. Vuelva a intentarlo más tarde, intente reducir el tamaño de VM o el número de instancias de rol, o intente implementar en una región distinta.
 
-    - Error validating the .cscfg file against the .csdef file. 
-    The reserved port range 'range' for endpoint Microsoft.WindowsAzure.Plugins.RemoteDebugger.Connector of role 'role' overlaps with an already defined port or range.
-    - Allocation failed. Please retry later, try reducing the VM size or number of role instances, or try deploying to a different region.
 
+## Depuración de máquinas virtuales de Azure
 
-## <a name="debugging-azure-virtual-machines"></a>Debugging Azure virtual machines
+Puede depurar programas que se ejecuten en máquinas virtuales de Azure usando el Explorador de servidores en Visual Studio. Si habilita la depuración remota en una máquina virtual de Azure, Azure instalará la extensión de depuración remota en la máquina virtual. A continuación, podrá asociarla a procesos en la máquina virtual y realizar la depuración como lo haría normalmente.
 
-You can debug programs that run on Azure virtual machines by using Server Explorer in Visual Studio. When you enable remote debugging on an Azure virtual machine, Azure installs the remote debugging extension on the virtual machine. Then, you can attach to processes on the virtual machine and debug as you normally would.
+>[AZURE.NOTE] Las máquinas virtuales creadas a través de la pila del Administrador de recursos de Azure se pueden depurar remotamente mediante Cloud Explorer en Visual Studio de 2015. Para obtener más información, consulte [Administración de recursos de Azure con Cloud Explorer](http://go.microsoft.com/fwlink/?LinkId=623031).
 
->[AZURE.NOTE] Virtual machines created through the Azure resource manager stack can be remotely debugged by using Cloud Explorer in Visual Studio 2015. For more information, see [Managing Azure Resources with Cloud Explorer](http://go.microsoft.com/fwlink/?LinkId=623031).
+### Para depurar una máquina virtual de Azure
 
-### <a name="to-debug-an-azure-virtual-machine"></a>To debug an Azure virtual machine
+1. En el Explorador de servidores, expanda el nodo Máquinas virtuales y seleccione el nodo de la máquina virtual que desea depurar.
 
-1. In Server Explorer, expand the Virtual Machines node and select the node of the virtual machine that you want to debug.
+1. Abra el menú contextual y seleccione **Habilitar depuración**. Cuando se le pida que confirme si quiere habilitar la depuración en la máquina virtual, seleccione **Sí**.
 
-1. Open the context menu and select **Enable Debugging**. When asked if you're sure if you want to enable debugging on the virtual machine, select **Yes**.
+    Azure instala la extensión de depuración remota en la máquina virtual para habilitar la depuración.
 
-    Azure installs the remote debugging extension on the virtual machine to enable debugging.
+    ![Comando para habilitar la depuración en máquina virtual](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746720.png)
 
-    ![Virtual machine enable debugging command](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746720.png)
+    ![Registro de actividades de Azure](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746721.png)
 
-    ![Azure activity log](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746721.png)
+1. Cuando la extensión de depuración remota finalice la instalación, abra el menú contextual de la máquina virtual y seleccione **Asociar depurador...**
 
-1. After the remote debugging extension finishes installing, open the virtual machine's context menu and select **Attach Debugger...**
+    Azure obtiene una lista de los procesos presentes en la máquina virtual y los muestra en el cuadro de diálogo Asociar al proceso.
 
-    Azure gets a list of the processes on the virtual machine and shows them in the Attach to Process dialog box.
+    ![Comando Asociar depurador](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746722.png)
 
-    ![Attach debugger command](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746722.png)
+1. En el cuadro de diálogo **Asociar al proceso**, elija **Seleccionar** para limitar la lista de resultados de forma que solo se muestren los tipos de código que quiere depurar. Puede depurar código administrado de 32 o 64 bits, código nativo o ambos.
 
-1. In the **Attach to Process** dialog box, select **Select** to limit the results list to show only the types of code you want to debug. You can debug 32- or 64-bit managed code, native code, or both.
+    ![Seleccionar el cuadro de diálogo de tipo de código](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
 
-    ![Select code type dialog box](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
+1. Haga clic en los procesos que quiere depurar en la máquina virtual y después seleccione **Asociar**. Por ejemplo, puede seleccionar el proceso w3wp.exe si desea depurar una aplicación web en la máquina virtual. Consulte [Depuración de uno o varios procesos en Visual Studio](https://msdn.microsoft.com/library/jj919165.aspx) y [Arquitectura de roles de Azure](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx) para obtener más información.
 
-1. Select the processes you want to debug on the virtual machine and then select **Attach**. For example, you might choose the w3wp.exe process if you wanted to debug a web app on the virtual machine. See [Debug One or More Processes in Visual Studio](https://msdn.microsoft.com/library/jj919165.aspx) and [Azure Role Architecture](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx) for more information.
+## Creación de un proyecto web y una máquina virtual para la depuración
 
-## <a name="create-a-web-project-and-a-virtual-machine-for-debugging"></a>Create a web project and a virtual machine for debugging
+Antes de publicar el proyecto de Azure, es posible que le resulte útil probarlo en un entorno contenido que sea compatible con los entornos de depuración y pruebas, y en el que pueda instalar programas de pruebas y supervisión. Una manera de hacerlo es depurar su aplicación de forma remota en una máquina virtual.
 
-Before publishing your Azure project, you might find it useful to test it in a contained environment that supports debugging and testing scenarios, and where you can install testing and monitoring programs. One way to do this is to remotely debug your app on a virtual machine.
+Los proyectos ASP.NET de Visual Studio ofrecen una opción para crear una práctica máquina virtual que se puede usar para probar aplicaciones. La máquina virtual incluye extremos requeridos habitualmente, como PowerShell, Escritorio remoto y WebDeploy.
 
-Visual Studio ASP.NET projects offer an option to create a handy virtual machine that you can use for app testing. The virtual machine includes commonly-needed endpoints such as PowerShell, remote desktop, and WebDeploy.
+### Para crear de un proyecto web y una máquina virtual para la depuración
 
-### <a name="to-create-a-web-project-and-a-virtual-machine-for-debugging"></a>To create a web project and a virtual machine for debugging
+1. En Visual Studio, cree una nueva aplicación web ASP.NET.
 
-1. In Visual Studio, create a new ASP.NET Web Application.
+1. En el cuadro de diálogo Nuevo proyecto ASP.NET, en la sección Azure, elija **Máquina virtual** del cuadro de lista desplegable. Deje la casilla **Crear recursos remotos** activada. Seleccione **Aceptar** para continuar.
 
-1. In the New ASP.NET Project dialog, in the Azure section, choose **Virtual Machine** in the dropdown list box. Leave the **Create remote resources** check box selected. Select **OK** to proceed.
+    Aparecerá el cuadro de diálogo **Crear máquina virtual en Azure**.
 
-    The **Create virtual machine on Azure** dialog box appears.
 
+    ![Cuadro de diálogo Crear nuevo proyecto ASP.NET](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746723.png)
 
-    ![Create ASP.NET web project dialog box](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746723.png)
+    **Nota:** se le pedirá que inicie sesión en la cuenta de Azure si todavía no lo ha hecho.
 
-    **Note:** You'll be asked to sign in to your Azure account if you're not already signed in.
+1. Seleccione los distintos valores de configuración de la máquina virtual y después seleccione **Aceptar**. Consulte [Máquinas virtuales](http://go.microsoft.com/fwlink/?LinkId=623033) para obtener más información.
 
-1. Select the various settings for the virtual machine and then select **OK**. See [Virtual Machines]( http://go.microsoft.com/fwlink/?LinkId=623033) for more information.
+    El nombre que escriba como nombre DNS será el nombre de la máquina virtual.
 
-    The name you enter for DNS name will be the name of the virtual machine. 
+    ![Cuadro de diálogo Crear máquina virtual en Azure](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746724.png)
 
-    ![Create virtual machine on Azure dialog box](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746724.png)
+    Azure crea la máquina virtual y, a continuación, aprovisiona y configura los extremos, como Escritorio remoto y Web Deploy.
 
-    Azure creates the virtual machine and then provisions and configures the endpoints, such as Remote Desktop and Web Deploy
 
 
+1. Cuando la máquina virtual esté completamente configurada, seleccione el nodo de la máquina virtual en el Explorador de servidores.
 
-1. After the virtual machine is fully configured, select the virtual machine’s node in Server Explorer.
+1. Abra el menú contextual y seleccione **Habilitar depuración**. Cuando se le pida que confirme si quiere habilitar la depuración en la máquina virtual, seleccione **Sí**.
 
-1. Open the context menu and select **Enable Debugging**. When asked if you're sure if you want to enable debugging on the virtual machine, select **Yes**. 
+    Azure instala la extensión de depuración remota en la máquina virtual para habilitar la depuración.
 
-    Azure installs the remote debugging extension to the virtual machine to enable debugging.
+    ![Comando para habilitar la depuración en máquina virtual](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746720.png)
 
-    ![Virtual machine enable debugging command](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746720.png)
+    ![Registro de actividades de Azure](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746721.png)
 
-    ![Azure activity log](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746721.png)
+1. Publique su proyecto tal y como se describe en [Implementación de un proyecto web utilizando publicación con un solo clic en Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx). Dado que desea realizar la depuración en la máquina virtual, en la página **Configuración** del asistente para **Publicación web**, seleccione **Depurar** como configuración. Esto garantiza la disponibilidad de los símbolos de código durante la depuración.
 
-1. Publish your project as outlined in [How to: Deploy a Web Project Using One-Click Publish in Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx). Because you want to debug on the virtual machine, on the **Settings** page of the **Publish Web** wizard, select **Debug** as the configuration. This makes sure that code symbols are available while debugging.
+    ![Configuración Publicar](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718349.png)
 
-    ![Publish settings](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718349.png)
+1. En **Opciones de publicación de archivos**, seleccione **Quitar archivos adicionales en destino** si el proyecto ya se implementó anteriormente.
 
-1. In the **File Publish Options**, select **Remove additional files at destination** if the project was already deployed at an earlier time.
+1. Después de publicar el proyecto, en el menú contextual de la máquina virtual en el Explorador de servidores, seleccione **Asociar depurador...**
 
-1. After the project publishes, on the virtual machine's context menu in Server Explorer, select **Attach Debugger...**
+    Azure obtiene una lista de los procesos presentes en la máquina virtual y los muestra en el cuadro de diálogo Asociar al proceso.
 
-    Azure gets a list of the processes on the virtual machine and shows them in the Attach to Process dialog box.
+    ![Comando Asociar depurador](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746722.png)
 
-    ![Attach debugger command](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746722.png)
+1. En el cuadro de diálogo **Asociar al proceso**, elija **Seleccionar** para limitar la lista de resultados de forma que solo se muestren los tipos de código que quiere depurar. Puede depurar código administrado de 32 o 64 bits, código nativo o ambos.
 
-1. In the **Attach to Process** dialog box, select **Select** to limit the results list to show only the types of code you want to debug. You can debug 32- or 64-bit managed code, native code, or both.
+    ![Seleccionar el cuadro de diálogo de tipo de código](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
 
-    ![Select code type dialog box](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
+1. Haga clic en los procesos que quiere depurar en la máquina virtual y después seleccione **Asociar**. Por ejemplo, puede seleccionar el proceso w3wp.exe si desea depurar una aplicación web en la máquina virtual. Consulte [Depuración de uno o varios procesos en Visual Studio](https://msdn.microsoft.com/library/jj919165.aspx) para obtener más información.
 
-1. Select the processes you want to debug on the virtual machine and then select **Attach**. For example, you might choose the w3wp.exe process if you wanted to debug a web app on the virtual machine. See [Debug One or More Processes in Visual Studio](https://msdn.microsoft.com/library/jj919165.aspx) for more information.
+## Pasos siguientes
 
-## <a name="next-steps"></a>Next steps
+- Use **Intellitrace** para recopilar un registro de llamadas y eventos de un servidor de versión. Consulte [Depuración con IntelliTrace y Visual Studio de un servicio en la nube publicado](http://go.microsoft.com/fwlink/?LinkID=623016).
+- Use **Diagnósticos de Azure** para registrar información detallada del código que se ejecuta en los roles, bien sea en el entorno de desarrollo o en Azure. Consulte [Recopilación de datos de registro mediante Diagnósticos de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
 
-- Use **Intellitrace** to collect a log of calls and events from a release server. See [Debugging a Published Cloud Service with IntelliTrace and Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016).
-- Use **Azure Diagnostics** to log detailed information from code running within roles, whether the roles are running in the development environment or in Azure. See [Collecting logging data by using Azure Diagnostics](http://go.microsoft.com/fwlink/p/?LinkId=400450).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,133 +1,126 @@
 <properties
-    pageTitle="Monitor your on-premises identity infrastructure in the cloud."
-    description="This is the Azure AD Connect Health page that describes what it is and why you would use it."
-    services="active-directory"
-    documentationCenter=""
-    authors="karavar"
-    manager="femila"
-    editor="karavar"/>
+	pageTitle="Monitorización de la infraestructura de identidad local en la nube"
+	description="En esta página se describe qué es Azure AD Connect Health y por qué debería usarlo."
+	services="active-directory"
+	documentationCenter=""
+	authors="karavar"
+	manager="femila"
+	editor="karavar"/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="07/14/2016"
-    ms.author="vakarand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="07/14/2016"
+	ms.author="vakarand"/>
 
+# Supervisión de la infraestructura de identidad local y los servicios de sincronización en la nube
 
-# <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>Monitor your on-premises identity infrastructure and synchronization services in the cloud
+Azure AD Connect Health le ayuda a supervisar y a comprender mejor su infraestructura de identidad local y los servicios de sincronización. Permite mantener una conexión confiable a Office 365 y Microsoft Online Services al proporcionar funcionalidades de supervisión para los componentes de identidad clave, como servidores de AD FS, servidores de Azure AD Connect (también conocido como motor de sincronización) y controladores de Dominio de Active Directory. También permite un fácil acceso a los puntos de datos clave acerca de estos componentes, lo que facilita el uso y otra información importante.
 
-Azure AD Connect Health helps you monitor and gain insight into your on-premises identity infrastructure and the synchronization services.  It enables you to maintain a reliable connection to Office 365 and Microsoft Online Services by providing monitoring capabilities for your key identity components such as AD FS Servers, Azure AD Connect servers (aka Sync Engine), Active Directory Domain Controllers etc. It also makes the key data points about these components easily accessible, making it easy to get usage and other important insights.
+Esta información se presenta en el [portal de Azure AD Connect Health](https://aka.ms/aadconnecthealth). Mediante el portal de Azure AD Connect Health puede ver alertas, supervisión del rendimiento, análisis de uso y mucho más. Azure AD Connect Health habilita la lente de mantenimiento única para los componentes de identidad clave, todo en un lugar único.
 
-The information is presented to you in the [Azure AD Connect Health Portal](https://aka.ms/aadconnecthealth). Using the Azure AD Connect Health portal you can view alerts, performance monitoring, usage analytics and much more. Azure AD Connect Health enables the single lens of health for your key identity components, all at one place.
+![Qué es Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnecthealth2.png)
 
-![What is Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnecthealth2.png)
-
-Future updates to Azure AD Connect Health will include additional monitoring and insight into additional identity components. Thus providing you a single dash board through the lens of identity, enabling you to have an even more robust, healthy, and integrated environment that your users can take advantage of to increase their ability to get things done.
+Las actualizaciones futuras de Azure AD Connect Health incluirán la supervisión adicional y la información sobre otros componentes de identidad. Por tanto, se proporciona un único panel mediante el modo de identidad, al permitir un entorno más sólido, mantenido e integrado que los usuarios pueden aprovechar para aumentar su capacidad de hacer su trabajo.
 
 <!-- <center>![What is Azure AD Connect Health](./media/active-directory-aadconnect-health/logo1.png)</center> -->
 
-## <a name="why-use-azure-ad-connect-health"></a>Why use Azure AD Connect Health
+## Por qué usar Azure AD Connect Health
 
-Integrating your on-premises directories with Azure AD makes your users more productive by providing a common identity for accessing both cloud and on-premises resources. However, with this integration comes the challenges of ensuring that this environment is healthy so that users can reliably access resources both on-premises and in cloud from any device. Azure AD Connect Health provides an easy cloud based approach to monitor and gain insights into your on-premises identity infrastructure that is used to access Office 365 or other Azure AD applications. It is as simple as installing an agent on each of your on-premises identity servers.
+La integración de directorios locales con Azure AD hace que los usuarios sean más productivos al proporcionar una identidad común para acceder tanto a los recursos en la nube como a los locales. Sin embargo, esta integración conlleva el desafío de garantizar que este entorno esté bien mantenido para que los usuarios puedan acceder de manera confiable a los recursos tanto a nivel local como en la nube desde cualquier dispositivo. Azure AD Connect Health proporciona un sencillo enfoque basado en la nube para supervisar y obtener información sobre la infraestructura de identidad local, que se utiliza para acceder a Office 365 o a otras aplicaciones de Azure AD. Es tan sencillo como instalar un agente en cada uno de los servidores de identidad locales.
 
-## <a name="[azure-ad-connect-health-for-ad-fs](active-directory-aadconnect-health-adfs.md)"></a>[Azure AD Connect Health for AD FS](active-directory-aadconnect-health-adfs.md)
+## [Azure AD Connect Health para AD FS](active-directory-aadconnect-health-adfs.md)
 
-Azure AD Connect Health for AD FS supports AD FS 2.0 on Windows Server 2008 R2, AD FS in Windows Server 2012 and Windows Server 2012R2. This also includes AD FS Proxy or Web Application Proxy servers that provide authentication support for extranet access. With a very easy and low cost installation of the health agent, Azure AD Connect Health for AD FS provides the following set of key capabilities:
+Azure AD Connect Health para AD FS es compatible con AD FS 2.0 en Windows Server 2008 R2, AD FS en Windows Server 2012 y Windows Server 2012R2. También incluye los servidores Proxy de AD FS o Proxy de Aplicación web que proporcionan compatibilidad de autenticación para el acceso a la extranet. Con una instalación muy sencilla y de bajo costo del agente de mantenimiento, Azure AD Connect Health para AD FS proporciona el siguiente conjunto de funcionalidades clave:
 
-- Monitoring with alerts to know when AD FS and AD FS Proxy servers are not healthy
-- Email notifications for critical alerts
-- View trends in performance data, useful for capacity planning of AD FS
-- Usage analytics for AD FS logins with different pivot (apps, users, network location etc), useful in understand how AD FS is getting utilized.
-- Reports for AD FS such as Top 50 users with bad Username/Password attempts
+- Supervisión con alertas para saber cuándo los servidores de AD FS y Proxy de AD FS no funcionan correctamente
+- Notificaciones de correo electrónico para alertas críticas
+- Visualización de tendencias de los datos de rendimiento, útil para planear la capacidad de AD FS
+- Análisis de uso de los inicios de sesión de AD FS con diferentes elementos dinámicos (aplicaciones, usuarios, ubicación de red, etc.), útil para comprender cómo se utiliza AD FS
+- Informes para AD FS, como los primeros 50 usuarios con intentos incorrectos de nombre de usuario o contraseña
 
-The following video will provide an overview of Azure AD Connect Health for AD FS
+El vídeo siguiente proporcionará información general de Azure AD Connect Health para AD FS
 
->[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
+> [AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
 
-## <a name="[azure-ad-connect-health-for-sync](active-directory-aadconnect-health-sync.md)"></a>[Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md)
+## [Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md)
 
-Azure AD Connect Health for Sync monitors and provides information on the synchronizations that occur between your on-premises Active Directory and Azure Active Directory. Azure AD Connect Health for Sync provides the following set of key capabilities:
+Azure AD Connect Health para sincronización supervisa y proporciona información sobre las sincronizaciones que tienen lugar entre Active Directory local y Azure Active Directory. Azure AD Connect Health para sincronización ofrece el siguiente conjunto de funiciones clave:
 
-- Monitoring with alerts to know when Azure AD Connect servers aka the Sync Engine is not healthy
-- Email notifications for critical alerts
-- Sync operational insights including latency charts for Sync Operations and trends in sync operations such as adds, updates, deletes.
-- Quick glance information about sync properties, last successful export to Azure AD
+- Supervisión con alertas para saber cuándo los servidores de Azure AD Connect (también conocidos como el motor de sincronización) no funcionan correctamente
+- Notificaciones de correo electrónico para alertas críticas
+- Sincronización de la visión operativa, incluidos gráficos de latencia para operaciones de sincronización y tendencias de operaciones de sincronización, como incorporaciones, actualizaciones y eliminaciones.
+- Vista rápida de la información sobre las propiedades de sincronización y la última exportación correcta a Azure AD
 
-The following video will provide an overview of Azure AD Connect Health for sync
+El vídeo siguiente proporcionará información general de Azure AD Connect Health para la sincronización
 
 >[AZURE.VIDEO azure-active-directory-connect-health-monitoring-the-sync-engine]
 
-## <a name="[azure-ad-connect-health-for-ad-ds-(preview)](active-directory-aadconnect-health-adds.md)"></a>[Azure AD Connect Health for AD DS (preview)](active-directory-aadconnect-health-adds.md)
+## [Azure AD Connect Health para AD DS (versión preliminar)](active-directory-aadconnect-health-adds.md)
 
-Azure AD Connect Health for AD DS provides monitoring for Domain Controllers installed on Windows Server 2008 R2, Windows Server 2012 and Windows Server 2012 R2. An easy and low cost health agent installation, enables you to monitor your on-premises AD DS environenment straight from the cloud. Azure AD Connect Health for AD DS provides the following set of key capabilities:
+Azure AD Connect Health para AD DS proporciona supervisión para los controladores de dominio instalados en Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2. La instalación de un agente de mantenimiento fácil y de bajo costo, le permite supervisar el entorno de AD DS local directamente desde la nube. Azure AD Connect Health para AD DS proporciona el siguiente conjunto de funcionalidades clave:
 
-- Monitoring alerts to detect when domain controllers are unhealthy, along with email notifications for critical alerts.
-- Domain Controllers dashboard which provides a quick view into the health and operational status of your domain controllers.
-- Replication Status dashboard with latest replication information, along with links to troubleshooting guides when errors are detected.
-- Quick anywhere access to performance data graphs of popular performance counters, necessary for troubleshooting and monitoring purposes.
+- Alertas de supervisión para detectar cuándo el estado de los controladores de dominio es incorrecto y notificaciones de correo electrónico para alertas críticas.
+- Panel de controladores de dominio que proporciona una vista rápida del estado de mantenimiento y el estado operativo de los controladores de dominio.
+- Panel de estado de replicación con la información más reciente de la replicación, con vínculos a guías de solución de problemas cuando se detectan errores.
+- Acceso rápido en cualquier lugar a los gráficos de datos de los contadores de rendimiento habituales, necesarios para la solución de problemas y la supervisión.
 
-The following video will provide an overview of Azure AD Connect Health for AD DS
+El vídeo siguiente proporcionará información general de Azure AD Connect Health para AD DS
 
 >[AZURE.VIDEO azure-ad-connect-health-monitors-on-premises-ad-domain-services]
 
-## <a name="get-started-with-azure-ad-connect-health"></a>Get started with Azure AD Connect Health
-It is very easy to get started with Azure AD Connect Health. Follow the steps below:
+## Introducción a Azure AD Connect Health
+Es muy fácil empezar a trabajar con Azure AD Connect Health. Siga estos pasos:
 
-1. [Get Azure AD Premium](active-directory-get-started-premium.md) or [start a trial](https://azure.microsoft.com/trial/get-started-active-directory/)
+1. [Obtenga Azure AD Premium](active-directory-get-started-premium.md) o [inicie una prueba](https://azure.microsoft.com/trial/get-started-active-directory/)
 
-2. [Download and Install Azure AD Connect Health agents](#download-and-install-azure-ad-connect-health-agent) on your identity servers.
+2. [Descargue e instale los agentes de Azure AD Connect Health](#download-and-install-azure-ad-connect-health-agent) en los servidores de identidad.
 
-3. View Azure AD Connect Health dashboard at [https://aka.ms/aadconnecthealth](https://aka.ms/aadconnecthealth)
+3. Consulte el panel de Azure AD Connect Health en [https://aka.ms/aadconnecthealth](https://aka.ms/aadconnecthealth)
 
->[AZURE.NOTE]Remember that before you see any data in your Azure AD Connect Health Dashboard, you will need to install the Azure AD Connect Health Agents on your targeted servers.
+>[AZURE.NOTE]Recuerde que para ver los datos de panel de Azure AD Connect Health, deberá instalar el agente de Azure AD Connect Health en los servidores de destino.
 
-## <a name="download-and-install-azure-ad-connect-health-agent"></a>Download and Install Azure AD Connect Health Agent
+## Descarga e instalación de un agente de Azure AD Connect Health
 
-- See the [Requirements](active-directory-aadconnect-health-agent-install.md#Requirements) for Azure AD Connect Health
+- Consulte los [requisitos](active-directory-aadconnect-health-agent-install.md#Requirements) de Azure AD Connect Health
 
-- To get started using Azure AD Connect Health for AD FS you can download the latest version of the agent here:  [Download Azure AD Connect Health Agent for AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
-[](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+- Para empezar a usar Azure AD Connect Health para AD FS, puede descargar la versión más reciente del agente aquí: [Descargar agente de Azure AD Connect Health para AD FS](http://go.microsoft.com/fwlink/?LinkID=518973). [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
 
-- To get started using Azure AD Connect Health for sync, download and install the [latest version of Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771).  The health agent will be installed as part of the Azure AD Connect installation (version 1.0.9125.0 or higher).  Azure AD Connect supports an in-place upgrade from previous versions.
+- Para comenzar a usar Azure AD Connect Health para la sincronización, descargue e instale la [versión más reciente de Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771). El agente de mantenimiento se instalará como parte de la instalación de Azure AD Connect (versión 1.0.9125.0 o superior). Azure AD Connect admite una actualización local desde versiones anteriores.
 
-- To get started using Azure AD Connect Health for AD DS you can download the latest version of the agent here:  [Download Azure AD Connect Health Agent for AD DS.](http://go.microsoft.com/fwlink/?LinkID=820540)
-[](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+- Para empezar a usar Azure AD Connect Health para AD DS, puede descargar la versión más reciente del agente aquí: [Descargar agente de Azure AD Connect Health para AD DS](http://go.microsoft.com/fwlink/?LinkID=820540). [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
 
-## <a name="azure-ad-connect-health-portal"></a>Azure AD Connect Health Portal
-The Azure AD Connect Health portal allows you to view alerts, performance monitoring, and usage analytics. https://aka.ms/aadconnecthealth takes you to the main blade of Azure AD Connect Health.  You can think of a blade as a window. On The main blade you see Quick Start, Services within Azure AD Connect Health and additional configuration options. Below the screenshot is a brief explanation of each of these.  After you've deployed the agents, the health service automatically identifies for the services Azure AD Connect Health is monitoring.
+## Portal de Azure AD Connect Health
+El portal de Azure AD Connect Health permite ver alertas, información de supervisión del rendimiento y análisis de uso. https://aka.ms/aadconnecthealth le lleva a la hoja principal de Azure AD Connect Health. Puede considerar una hoja como una ventana. En la hoja principal, verá Inicio rápido, los servicios en Azure AD Connect Health y otras opciones de configuración. Debajo de la captura de pantalla aparece una breve explicación de cada una de ellas. Después de implementar los agentes, el servicio de mantenimiento identifica automáticamente los servicios que Azure AD Connect Health supervisa.
 
-![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/portal4.png)
+![Portal de Azure AD Connect Health](./media/active-directory-aadconnect-health/portal4.png)
 
-- **Quick Start** – by selecting this you will open the Quick Start blade. Here you will be able to download the Azure AD Connect Health agent by choosing Get Tools, access documentation, and provide feedback.
+- **Inicio rápido**: al seleccionar esta opción, se abrirá la hoja Inicio rápido. Aquí podrá descargar el agente de Azure AD Connect Health; para ello, elija Obtener herramientas, obtenga acceso a la documentación y proporcione comentarios.
 
-- **Active Directory Federation Services** – this represents all of the AD FS services that Azure AD Connect Health is currently monitoring. By selecting one of the instances, a blade will open with information about that services instance.  This information includes an overview, properties, alerts, monitoring, and usage analytics. Read more about the capabilities [here.](active-directory-aadconnect-health-adfs.md)
+- **Servicios de federación de Active Directory**: representa todos los servicios de AD FS que actualmente supervisa Azure AD Connect Health. Si selecciona una de las instancias, se abre una hoja con información sobre esa instancia de servicios. Esta información incluye una descripción general, propiedades, alertas, supervisión y análisis de uso. Lea más acerca de las funcionalidades [aquí](active-directory-aadconnect-health-adfs.md).
 
-- **Azure Active Directory Connect (Sync)** – this represents your Azure AD Connect servers that Azure AD Connect Health is currently monitoring. By selecting the entry, a blade will open with information about your Azure AD Connect servers. Read more about the capabilities [here.](active-directory-aadconnect-health-sync.md)
+- **Azure Active Directory Connect (Sync)**: representa los servidores de Azure AD Connect que actualmente supervisa Azure AD Connect Health. Al seleccionar la entrada, se abrirá una hoja con información acerca de los servidores de Azure AD Connect. Lea más acerca de las funcionalidades [aquí](active-directory-aadconnect-health-sync.md).
  
-- **Active Directory Domain Services** – this represents all of the AD DS forests that Azure AD Connect Health is currently monitoring. By selecting one of the forests, a blade will open with information about that forest.  This information includes an overview of essential information, Domain Controllers dashboard, Replication Status dashboard, alerts and monitoring. Read more about the capabilities [here.](active-directory-aadconnect-health-adds.md)
+- **Servicios de dominio de Active Directory**: representa todos los bosques de AD DS que actualmente supervisa Azure AD Connect Health. Si selecciona uno de los bosques, se abrirá una hoja con información sobre ese bosque. Esta información incluye una visión general de los datos esenciales, del panel de controladores de dominio, del de estado de replicación y de las alertas y la información de supervisión. Lea más acerca de las funcionalidades [aquí](active-directory-aadconnect-health-adds.md).
 
-- **Configure** – this allows you to turn the following on or off:
+- **Configurar**: esta opción le permite activar o desactivar lo siguiente:
 
-    1. Auto update to automatically update the Azure AD Connect Health agent to the latest version - This means that you will be automatically updated to the latest version of the Azure AD Connect Health Agent when they become available. This is enabled by default.
+	1. La actualización automática, para actualizar automáticamente el agente de Azure AD Connect Health a la versión más reciente. Esto significa que actualizará automáticamente a la versión más reciente del agente de Azure AD Connect Health cuando esté disponible. Esta opción está habilitada de manera predeterminada.
 
-    2. Allow Microsoft access to your Azure AD directory’s health data for troubleshooting purposes only - This means that if this is enabled, Microsoft will be able to see the same data that you are seeing. This can help with troubleshooting and assistance with issues. This is disabled by default.
-
-
-## <a name="related-links"></a>Related links
-
-* [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md)
-* [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
-* [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
-* [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md)
-* [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)
-* [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
-* [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
+	2. Permitir el acceso de Microsoft a los datos de mantenimiento del directorio de Azure AD solo con fines de solución de problemas: esto significa que, si esta opción está habilitada, Microsoft podrá ver los mismos datos que usted está viendo. Esto puede ayudar a solucionar problemas. Esta opción está deshabilitada de manera predeterminada.
 
 
+## Vínculos relacionados
 
-<!--HONumber=Oct16_HO2-->
+* [Instalación del agente de Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
+* [Operaciones de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
+* [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
+* [Uso de Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md)
+* [Uso de Azure AD Connect Health con AD DS](active-directory-aadconnect-health-adds.md)
+* [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
+* [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-
+<!---HONumber=AcomDC_0928_2016-->

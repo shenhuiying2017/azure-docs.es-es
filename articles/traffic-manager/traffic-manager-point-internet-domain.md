@@ -1,43 +1,38 @@
 <properties
-    pageTitle="Point a company Internet domain to a Traffic Manager domain name | Microsoft Azure"
-    description="This article will help you point your company domain name to a Traffic Manager domain name."
-    services="traffic-manager"
-    documentationCenter=""
-    authors="sdwheeler"
-    manager="carmonm"
-    editor=""
-/>
+   pageTitle="Selección de un dominio de Internet de la compañía para un dominio del Administrador de tráfico | Microsoft Azure"
+   description="Este artículo le ayudará a que el nombre de dominio de la empresa indique un nombre de dominio del Administrador de tráfico."
+   services="traffic-manager"
+   documentationCenter=""
+   authors="sdwheeler"
+   manager="carmonm"
+   editor="tysonn" />
 <tags
-    ms.service="traffic-manager"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="10/11/2016"
-    ms.author="sewhee"
-/>
+   ms.service="traffic-manager"
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="03/17/2016"
+   ms.author="sewhee" />
 
+# Orientar un dominio de Internet de la compañía a un dominio del Administrador de tráfico de Azure
 
-# <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Point a company Internet domain to an Azure Traffic Manager domain
+Para que el nombre de dominio de la empresa apunte a un nombre de dominio del Administrador de tráfico, modifique el registro de recursos DNS del servidor DNS de Internet para que use el tipo de registro CNAME, que asigna el nombre de dominio de la empresa al nombre de dominio del perfil de Administrador de tráfico. Puede ver el nombre de dominio del Administrador de tráfico en la sección **General** de la página Configuración del perfil del Administrador de tráfico.
 
-When you create a Traffic Manager profile, Azure automatically assigns a DNS name for that profile. To use a name from your DNS zone, create a CNAME DNS record that maps to the domain name of your Traffic Manager profile. You can find the Traffic Manager domain name in the **General** section on the Configuration page of the Traffic Manager profile.
-
-For example, to point name www.contoso.com to the Traffic Manager DNS name contoso.trafficmanager.net, you would create the following DNS resource record:
+Por ejemplo, para que el nombre de dominio de la empresa www.contoso.com apunte al nombre de dominio del Administrador de tráfico contoso.trafficmanager.net, debe actualizar el registro de recursos DNS para que sea el siguiente:
 
     www.contoso.com IN CNAME contoso.trafficmanager.net
 
-All traffic requests to *www.contoso.com* get directed to *contoso.trafficmanager.net*.
+Todas las solicitudes de tráfico de *www.contoso.com* se redirigirán ahora a *contoso.trafficmanager.net*.
 
->[AZURE.IMPORTANT] You cannot point a second-level domain, such as *contoso.com*, to the Traffic Manager domain. DNS protocol standards do not allow CNAME records for second-level domain names.
+>[AZURE.IMPORTANT] No puede hacer que un dominio de segundo nivel como por ejemplo *contoso.com*, indique el dominio del Administrador de tráfico. Se trata de una limitación del protocolo DNS, que no permite registros CNAME para nombres de dominio de segundo nivel.
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-- [Traffic Manager routing methods](traffic-manager-routing-methods.md)
-- [Traffic Manager - Disable, enable or delete a profile](disable-enable-or-delete-a-profile.md)
-- [Traffic Manager - Disable or enable an endpoint](disable-or-enable-an-endpoint.md)
+[Métodos de enrutamiento del Administrador de tráfico](traffic-manager-routing-methods.md)
 
+[Administrador de tráfico: deshabilitación, habilitación o eliminación de un perfil](disable-enable-or-delete-a-profile.md)
 
+[Administrador de tráfico: deshabilitación o habilitación de un extremo](disable-or-enable-an-endpoint.md)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

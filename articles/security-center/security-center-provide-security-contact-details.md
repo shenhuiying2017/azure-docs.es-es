@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Provide security contact details in Azure Security Center | Microsoft Azure"
-   description="This document shows you how to provide security contact details in Azure Security Center."
+   pageTitle="Proporcionar detalles de contacto de seguridad en Azure Security Center | Microsoft Azure"
+   description="En este documento se muestra cómo proporcionar detalles de contacto de seguridad en Azure Security Center."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,52 +13,45 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/17/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
+# Proporcionar detalles de contacto de seguridad en Azure Security Center
 
-# <a name="provide-security-contact-details-in-azure-security-center"></a>Provide security contact details in Azure Security Center
+Azure Security Center recomendará que proporcione los detalles de contacto de seguridad para su suscripción de Azure si no lo ha hecho ya. Esta información la utilizará Microsoft para ponerse en contacto con usted si Microsoft Security Response Center (MSRC) detecta que un tercero no autorizado o ilegal ha accedido a los datos de clientes. MSRC lleva a cabo una selecta supervisión de seguridad de la red e infraestructura de Azure y recibe información sobre amenazas y quejas sobre abusos de terceros.
 
-Azure Security Center will recommend that you provide security contact details for your Azure subscription if you haven’t already. This information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your customer data has been accessed by an unlawful or unauthorized party. MSRC performs select security monitoring of the Azure network and infrastructure and receives threat intelligence and abuse complaints from third parties.
+Se envía una notificación de correo electrónico en la primera repetición diaria de una alerta y solo en aquellas con un nivel de gravedad elevado. Las preferencias de correo electrónico solo pueden configurarse para las directivas de suscripción. Los grupos de recursos de una suscripción heredan esta configuración.
 
-An email notification is sent on the first daily occurrence of an alert and only for high severity alerts. Email preferences can only be configured for subscription policies. Resource groups within a subscription will inherit these settings.
+> [AZURE.NOTE] En este documento se presenta el servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
 
-> [AZURE.NOTE] This document introduces the service by using an example deployment.  This is not a step-by-step guide.
+## Implementación de la recomendación
 
-## <a name="implement-the-recommendation"></a>Implement the recommendation
+1. En la hoja **Recomendaciones**, seleccione **Proporcionar detalles de contacto de seguridad**. ![Proporcionar contacto de seguridad][1]
 
-1. In the **Recommendations** blade, select **Provide security contact details**.
-![Provide security contact][1]
+2. Se abre la hoja **Proporcionar detalles de contacto de seguridad**. Seleccione la suscripción de Azure sobre la que desea proporcionar información de contacto. ![Proporcionar datos de los contactos de seguridad][2]
 
-2. This opens the blade **Provide security contact details**. Select the Azure subscription to provide contact information on.
-![Provide security contact details][2]
+3. Se abre una segunda hoja **Proporcionar datos de los contactos de seguridad**.
 
-3. A second **Provide security contact details** blade opens.
+  - Escriba la dirección de correo electrónico del contacto de seguridad o direcciones separadas por comas. No hay un límite en el número de direcciones de correo electrónico que se pueden escribir.
+  - Escriba un número de teléfono internacional de seguridad.
+  - Para recibir correos electrónicos de alertas de gravedad alta, active la opción **Send me emails about alert** (Enviar correos electrónicos de alertas).
+  - Más adelante, tendrá la opción de enviar notificaciones por correo electrónico a los propietarios de la suscripción. De momento, esta opción aparece atenuada.
+  - Seleccione **Aceptar** para aplicar la información de contacto de seguridad a su suscripción.
 
-  - Enter the security contact email address or addresses separated by commas. There is not a limit to the number of email addresses that you can enter.
-  - Enter one security contact international phone number.
-  - To receive emails about high severity alerts, turn on the option **Send me emails about alerts**.
-  - In the future, you will have the option to send email notifications to subscription owners. This option is currently grayed out.
-  - Select **OK** to apply the security contact information to your subscription.
+## Consulte también
 
-## <a name="see-also"></a>See also
+Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
-To learn more about Security Center, see the following:
-
-- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
-- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
-- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Get the latest Azure security news and information.
+- [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+- [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md): recomendaciones que lo ayudan a proteger los recursos de Azure.
+- [Supervisión del estado de seguridad en Centro de seguridad de Azure](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
+- [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
+- [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
+- [Preguntas más frecuentes acerca del Centro de seguridad de Azure](security-center-faq.md): busque las preguntas más frecuentes sobre cómo usar el servicio.
+- [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): obtenga las últimas noticias e información sobre la seguridad en Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-provide-security-contacts/provide-contacts.png
-[2]:./media/security-center-provide-security-contacts/provide-contact-details.png
+[2]: ./media/security-center-provide-security-contacts/provide-contact-details.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

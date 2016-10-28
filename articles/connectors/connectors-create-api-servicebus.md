@@ -1,8 +1,8 @@
 <properties
-pageTitle="Learn to use the Azure Service Bus connector in your logic apps | Microsoft Azure"
-description="Create logic apps with Azure App service. Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, and receive from subscription."
+pageTitle="Aprenda a utilizar el conector del Bus de servicio de Azure en las aplicaciones lógicas | Microsoft Azure"
+description="Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. Conéctese al Bus de servicio de Azure para enviar y recibir mensajes. Puede realizar acciones como enviar a la cola, enviar al tema, recibir de la cola, recibir de la suscripción, etc."
 services="logic-apps"
-documentationCenter=".net,nodejs,java"  
+documentationCenter=".net,nodejs,java" 	
 authors="msftman"
 manager="erikre"
 editor=""
@@ -17,173 +17,168 @@ ms.workload="integration"
 ms.date="08/02/2016"
 ms.author="deonhe"/>
 
+# Introducción al conector del Bus de servicio de Azure
 
-# <a name="get-started-with-the-azure-service-bus-connector"></a>Get started with the Azure Service Bus connector
+Conéctese al Bus de servicio de Azure para enviar y recibir mensajes. Puede realizar acciones como enviar a la cola, enviar al tema, recibir de la cola, recibir de la suscripción, etc.
 
-Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, and receive from subscription.
+Para poder usar [un conector](./apis-list.md), primero debe crear una aplicación lógica. Por tanto, puede comenzar [creando una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Conexión al Bus de servicio
 
-## <a name="connect-to-service-bus"></a>Connect to Service Bus
+Para que la aplicación lógica pueda acceder a un servicio, primero debe crear una conexión con dicho servicio. Una [conexión](./connectors-overview.md) proporciona conectividad entre una aplicación lógica y otro servicio.
 
-Before your logic app can access any service, you first need to create a connection to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service.  
+>[AZURE.INCLUDE [Pasos para crear una conexión al Bus de servicio de Azure](../../includes/connectors-create-api-servicebus.md)]
 
->[AZURE.INCLUDE [Steps to create a connection to Azure Service Bus](../../includes/connectors-create-api-servicebus.md)]
+## Uso de un desencadenador del Bus de servicio
 
-## <a name="use-a-service-bus-trigger"></a>Use a Service Bus trigger
+Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Obtenga más información sobre los desencadenadores](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+>[AZURE.INCLUDE [Pasos para crear un desencadenador del Bus de servicio](../../includes/connectors-create-api-servicebus-trigger.md)]
 
->[AZURE.INCLUDE [Steps to create a Service Bus trigger](../../includes/connectors-create-api-servicebus-trigger.md)]  
+## Uso de una acción del Bus de servicio
 
-## <a name="use-a-service-bus-action"></a>Use a Service Bus action
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Obtenga más información sobre las acciones](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+[AZURE.INCLUDE [Pasos para crear una acción del Bus de servicio](../../includes/connectors-create-api-servicebus-action.md)]
 
-[AZURE.INCLUDE [Steps to create a Service Bus action](../../includes/connectors-create-api-servicebus-action.md)]  
+## Detalles técnicos
 
-## <a name="technical-details"></a>Technical details
+Estos son los detalles sobre los desencadenadores, las acciones y las respuestas compatibles con esta conexión.
 
-Here are the details about the triggers, actions, and responses that this connection supports.
+### Desencadenadores del Bus de servicio
 
-### <a name="service-bus-triggers"></a>Service Bus triggers
+El Bus de servicio tiene los siguientes desencadenadores:
 
-Service Bus has the following triggers:  
-
-|Trigger | Description|
+|Desencadenador | Descripción|
 |--- | ---|
-|[When a message is received in a queue](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-queue)|This operation triggers a flow when a message is received in a queue.|
-|[When a message is received in a topic subscription](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-topic-subscription)|This operation triggers a flow when a message is received in a topic subscription.|
+|[Cuando se recibe un mensaje en una cola](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-queue)|Esta operación desencadena un flujo al recibir un mensaje en una cola.|
+|[Cuando se recibe un mensaje en una suscripción al tema](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-topic-subscription)|Esta operación desencadena un flujo al recibir un mensaje en una suscripción al tema.|
 
 
-### <a name="service-bus-actions"></a>Service Bus actions
+### Acciones del Bus de servicio
 
-Service Bus has the following actions:
+El Bus de servicio tiene las siguientes acciones:
 
 
-|Action|Description|
+|Acción|Descripción|
 |--- | ---|
-|[Send message](connectors-create-api-servicebus.md#send-message)|This operation sends a message to a queue or topic.|
-### <a name="action-and-trigger-details"></a>Action and trigger details
+|[Enviar mensaje](connectors-create-api-servicebus.md#send-message)|Esta operación envía un mensaje a una cola o un tema.|
+### Detalles de las acciones y los desencadenadores
 
-Here are the details for the actions and triggers for this connector, along with their responses.
+Estos son los detalles de las acciones y desencadenadores de este conector, junto con sus respuestas.
 
 
 
-#### <a name="send-message"></a>Send message
+#### Enviar mensaje
 
-|Property name| Display name|Description|
+|Nombre de propiedad| Nombre para mostrar|Descripción|
 | ---|---|---|
-|ContentData*|Content|Content of the message.|
-|ContentType|Content Type|Content type of the message content.|
-|Properties|Properties|Key-value pairs for each brokered property.|
-|entityName*|Queue/Topic name|Name of the queue or topic.|
+|ContentData*|Contenido|Contenido del mensaje|
+|ContentType|Tipo de contenido|Tipo de contenido del mensaje|
+|Propiedades|Propiedades|Pares de clave y valor para cada propiedad asincrónica|
+|entityName*|Nombre de la cola o el tema|Nombre de la cola o del tema|
 
-These advanced parameters are also available:
+Estos parámetros avanzados también están disponibles:
 
-|Property name| Display name|Description|
+|Nombre de propiedad| Nombre para mostrar|Descripción|
 | ---|---|---|
-|MessageId|Message Id|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
-|To|To|Address to send to.|
-|ReplyTo|Reply To|Address of the queue to reply to.|
-|ReplyToSessionId|Reply To Session Id|Identifier of the session to reply to.|
-|Label|Label|Application-specific label.|
-|ScheduledEnqueueTimeUtc|ScheduledEnqueueTimeUtc|Date and time, in UTC, when the message will be added to the queue.|
-|SessionId|Session Id|Identifier of the session.|
-|CorrelationId|Correlation Id|Identifier of the correlation.|
-|TimeToLive|Time To Live|The duration, in ticks, that a message is valid. The duration starts from when the message is sent to Service Bus.|
+|MessageId|Id. de mensaje|Se trata de un valor definido por el usuario que el Bus de servicio puede utilizar para identificar mensajes duplicados, si está habilitado.|
+|Para|Para|La dirección de envío|
+|ReplyTo|Responder a|Dirección de la cola a la que responder|
+|ReplyToSessionId|Responder al identificador de sesión|Identificador de la sesión a la que responder|
+|Etiqueta|Etiqueta|Etiqueta específica de aplicación|
+|ScheduledEnqueueTimeUtc|ScheduledEnqueueTimeUtc|Fecha y hora, en UTC, a las que el mensaje se agregará a la cola|
+|SessionId|Identificador de sesión|Identificador de la sesión|
+|CorrelationId|Identificador de correlación|Identificador de la correlación|
+|TimeToLive|Período de vida|Se trata de la duración, en tics, durante la cual el mensaje es válido. La duración se inicia a partir del envío del mensaje al Bus de servicio.|
 
 
 
-An * indicates that a property is required.
+El símbolo * indica que la propiedad es obligatoria.
 
 
-#### <a name="when-a-message-is-received-in-a-queue"></a>When a message is received in a queue
+#### Cuando se recibe un mensaje en una cola
 
-|Property name| Display name|Description|
+|Nombre de propiedad| Nombre para mostrar|Descripción|
 | ---|---|---|
-|queueName*|Queue name|Name of the queue.|
+|queueName*|Nombre de cola|Nombre de la cola.|
 
 
-An * indicates that a property is required.
+El símbolo * indica que la propiedad es obligatoria.
 
 
-##### <a name="output-details"></a>Output details
+##### Detalles de salida
 
-ServiceBusMessage: This object has the content and properties of a Service Bus message.
+ServiceBusMessage: este objeto tiene el contenido y las propiedades de un mensaje del Bus de servicio.
 
 
-| Property name | Data type | Description |
+| Nombre de propiedad | Tipo de datos | Description |
 |---|---|---|
-|ContentData|string|Content of the message.|
-|ContentType|string|Content type of the message content.|
-|Properties|object|Key-value pairs for each brokered property.|
-|MessageId|string|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
-|To|string|Send to address.|
-|ReplyTo|string|Address of the queue to reply to.|
-|ReplyToSessionId|string|Identifier of the session to reply to.|
-|Label|string|Application-specific label.|
-|ScheduledEnqueueTimeUtc|string|Date and time, in UTC, when the message will be added to the queue.|
-|SessionId|string|Identifier of the session.|
-|CorrelationId|string|Identifier of the correlation.|
-|TimeToLive|string|The duration, in ticks, that a message is valid. The duration starts from when the message is sent to Service Bus.|
+|ContentData|string|Contenido del mensaje|
+|ContentType|string|Tipo de contenido del mensaje|
+|Propiedades|objeto|Pares de clave y valor para cada propiedad asincrónica|
+|MessageId|string|Se trata de un valor definido por el usuario que el Bus de servicio puede utilizar para identificar mensajes duplicados, si está habilitado.|
+|Para|string|Dirección de envío|
+|ReplyTo|string|Dirección de la cola a la que responder|
+|ReplyToSessionId|string|Identificador de la sesión a la que responder|
+|Etiqueta|string|Etiqueta específica de aplicación|
+|ScheduledEnqueueTimeUtc|string|Fecha y hora, en UTC, a las que el mensaje se agregará a la cola|
+|SessionId|string|Identificador de la sesión|
+|CorrelationId|string|Identificador de la correlación|
+|TimeToLive|string|Se trata de la duración, en tics, durante la cual el mensaje es válido. La duración se inicia a partir del envío del mensaje al Bus de servicio.|
 
 
 
 
-#### <a name="when-a-message-is-received-in-a-topic-subscription"></a>When a message is received in a topic subscription
+#### Cuando se recibe un mensaje en una suscripción al tema
 
-|Property name| Display name|Description|
+|Nombre de propiedad| Nombre para mostrar|Descripción|
 | ---|---|---|
-|topicName*|Topic name|Name of the topic.|
-|subscriptionName*|Topic subscription name|Name of the topic subscription.|
+|topicName*|Nombre del tema|Nombre del tema.|
+|subscriptionName*|Nombre de la suscripción al tema|Nombre de la suscripción al tema.|
 
 
-An * indicates that a property is required.
+El símbolo * indica que la propiedad es obligatoria.
 
 
-##### <a name="output-details"></a>Output details
+##### Detalles de salida
 
-ServiceBusMessage: This object has the content and properties of a Service Bus message.
+ServiceBusMessage: este objeto tiene el contenido y las propiedades de un mensaje del Bus de servicio.
 
 
-| Property name | Data type | Description |
+| Nombre de propiedad | Tipo de datos | Description |
 |---|---|---|
-|ContentData|string|Content of the message.|
-|ContentType|string|Content type of the message content.|
-|Properties|object|Key-value pairs for each brokered property.|
-|MessageId|string|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
-|To|string|Send to address.|
-|ReplyTo|string|Address of the queue to reply to.|
-|ReplyToSessionId|string|Identifier of the session to reply to.|
-|Label|string|Application-specific label.|
-|ScheduledEnqueueTimeUtc|string|Date and time, in UTC, when the message will be added to the queue.|
-|SessionId|string|Identifier of the session.|
-|CorrelationId|string|Identifier of the correlation.|
-|TimeToLive|string|The duration, in ticks, that a message is valid. The duration starts from when the message is sent to Service Bus.|
+|ContentData|string|Contenido del mensaje|
+|ContentType|string|Tipo de contenido del mensaje|
+|Propiedades|objeto|Pares de clave y valor para cada propiedad asincrónica|
+|MessageId|string|Se trata de un valor definido por el usuario que el Bus de servicio puede utilizar para identificar mensajes duplicados, si está habilitado.|
+|Para|string|Dirección de envío|
+|ReplyTo|string|Dirección de la cola a la que responder|
+|ReplyToSessionId|string|Identificador de la sesión a la que responder|
+|Etiqueta|string|Etiqueta específica de aplicación|
+|ScheduledEnqueueTimeUtc|string|Fecha y hora, en UTC, a las que el mensaje se agregará a la cola|
+|SessionId|string|Identificador de la sesión|
+|CorrelationId|string|Identificador de la correlación|
+|TimeToLive|string|Se trata de la duración, en tics, durante la cual el mensaje es válido. La duración se inicia a partir del envío del mensaje al Bus de servicio.|
 
 
 
-### <a name="http-responses"></a>HTTP responses
+### Respuestas HTTP
 
-The preceding actions and triggers can return one or more of the following HTTP status codes:
+Las acciones y los desencadenadores anteriores pueden devolver uno o varios de los siguientes códigos de estado HTTP:
 
-|Name|Description|
+|Nombre|Descripción|
 |---|---|
 |200|OK|
 |202|Accepted|
-|400|Bad request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not found|
-|500|Internal server error. Unknown error occurred.|
-|default|Operation failed.|
+|400|Solicitud incorrecta|
+|401|No autorizado|
+|403|Prohibido|
+|404|No encontrado|
+|500|Error interno del servidor Error desconocido.|
+|default|Error en la operación|
 
-## <a name="next-steps"></a>Next steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Pasos siguientes
+[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!-----HONumber=AcomDC_0810_2016-->

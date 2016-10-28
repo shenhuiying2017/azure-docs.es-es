@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Manage your StorSimple backup policies | Microsoft Azure"
-   description="Explains how you can use the StorSimple Manager service to create and manage manual backups, backup schedules, and backup retention."
+   pageTitle="Administración de directivas de copia de seguridad de StorSimple | Microsoft Azure"
+   description="Explica cómo se puede usar el servicio Administrador de StorSimple para crear y administrar copias de seguridad manuales, programaciones de copia de seguridad y retención de copia de seguridad."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,90 +15,85 @@
    ms.date="05/10/2016"
    ms.author="v-sharos"/>
 
-
-# <a name="use-the-storsimple-manager-service-to-manage-backup-policies-(update-2)"></a>Use the StorSimple Manager service to manage backup policies (Update 2)
+# Usar el servicio de Administrador de StorSimple para administrar directivas de copia de seguridad (Update 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-backup-policies](../../includes/storsimple-version-selector-manage-backup-policies.md)]
 
-## <a name="overview"></a>Overview
+## Información general
 
-This tutorial explains how to use the StorSimple Manager service **Backup Policies** page to control backup processes and backup retention for your StorSimple volumes. It also describes how to complete a manual backup.
+Este tutorial explica cómo utilizar la página **Directivas de copia de seguridad** del Servicio de Administrador de StorSimple para controlar los procesos de copia de seguridad y la retención de copias de seguridad de los volúmenes de StorSimple. También describe cómo realizar copias de seguridad manuales.
 
-When you back up a volume, you can choose to create a local snapshot or a cloud snapshot. If you are backing up a locally pinned volume, we recommend that you specify a cloud snapshot. Taking a large number of local snapshots of a locally pinned volume coupled with a data set that has a lot of churn will result in a situation in which you could rapidly run out of local space. If you choose to take local snapshots, we recommend that you take fewer daily snapshots to back up the most recent state, retain them for a day, and then delete them.
+Cuando realice una copia de un volumen, puede elegir crear una instantánea local o una instantánea de nube. Si está realizando una copia de seguridad de un volumen anclado localmente, se recomienda que especifique una instantánea de nube. La realización de un gran número de instantáneas de un volumen anclado localmente junto con un conjunto de datos que tenga una gran cantidad actividad dará como resultado una situación en la que podría quedarse rápidamente sin espacio local. Si elige realizar instantáneas locales, se recomienda que realice menos instantáneas diarias para realizar una copia de seguridad del estado más reciente, conservarlas durante un día y eliminarlas.
 
-When you take a cloud snapshot of a locally pinned volume, you copy only the changed data to the cloud, where it is deduplicated and compressed. 
+Al realizar una instantánea en la nube de un volumen anclado localmente, se copian solo los datos modificados en la nube, donde se desduplican y se comprimen.
 
-## <a name="the-backup-policies-page"></a>The Backup Policies page
+## Página Directivas de copia de seguridad
 
-The **Backup Policies** page allows you to manage backup policies and schedule local and cloud snapshots. (Backup policies are used to configure backup schedules and backup retention for a collection of volumes.) Backup policies enable you to take a snapshot of multiple volumes simultaneously. This means that the backups created by a backup policy will be crash-consistent copies. The **Backup Policies** page lists the backup policies, their types, the associated volumes, the number of backups retained, and the option to enable these policies.
+La página **Directivas de copia de seguridad** permite administrar las directivas de copia de seguridad y programar instantáneas locales y en la nube. (Las directivas de copia de seguridad se usan para configurar las programaciones de copia de seguridad y la retención de copias de seguridad de una colección de volúmenes). Las directivas de copia de seguridad le permiten tomar una instantánea de varios volúmenes simultáneamente. Esto significa que las copias de seguridad creadas por una directiva de copia de seguridad serán copias preparadas para bloqueos. En la página **Directivas de copia de seguridad** se enumeran las directivas de copia de seguridad, sus tipos, los volúmenes asociados, el número de copias de seguridad retenidas y la opción para habilitar estas directivas.
 
-The **Backup Policies** page also allows you to filter the existing backup policies by one or more of the following fields:
+La página **Directivas de copia de seguridad** también permite filtrar las directivas de copia de seguridad existentes por uno, o varios, de los siguientes campos:
 
-- **Policy name** – The name associated with the policy. The different types of policies include:
+- **Nombre de directiva**: el nombre asociado con la directiva. Los distintos tipos de directivas incluyen:
 
-   - Scheduled policies, which are explicitly created by the user.
-   - Automatic policies, which are created when the default backup for this volume option was enabled at the time of volume creation. These policies are named as *VolumeName*_Default where *VolumeName* refers to the name of the StorSimple volume configured by the user in the Azure classic portal. The automatic policies result in daily cloud snapshots beginning at 22:30 device time.
-   - Imported policies, which were originally created in the StorSimple Snapshot Manager. These have a tag that describes the StorSimple Snapshot Manager host that the policies were imported from.
+   - Directivas programadas, que las crea explícitamente el usuario.
+   - Directivas automáticas, que se crean al habilitar la copia de seguridad predeterminada de esta opción de volumen en el momento en que se creó dicho volumen. Estas directivas se denominan *VolumeName*\_Default, donde *VolumeName* hace referencia al nombre del volumen de StorSimple que ha configurado el usuario en el Portal de Azure clásico. Las directivas automáticas generan instantáneas diarias en la nube a partir de las 22:30, hora del dispositivo.
+   - Directivas importadas, que se crearon originalmente en el Administrador de instantáneas de StorSimple. Dichas directivas tienen una etiqueta que describe el host de Administrador de instantáneas StorSimple del que se importaron las directivas.
 
-- **Volumes** – The volumes associated with the policy. All the volumes associated with a backup policy are grouped together when backups are created.
+- **Volúmenes** : los volúmenes asociados a la directiva. Cuando se crean copias de seguridad se agrupan todos los volúmenes asociados a una directiva de copia de seguridad.
 
-- **Last successful backup** – The date and time of the last successful backup that was taken with this policy.
+- **Última copia de seguridad correcta**: la fecha y hora de la última copia de seguridad correcta que se ha realizado con esta directiva.
 
-- **Next backup** – The date and time of the next scheduled backup that will be initiated by this policy.
+- **Siguiente copia de seguridad**: la fecha y hora de la siguiente copia de seguridad programada que iniciará esta directiva.
 
-- **Schedules** – The number of schedules associated with the backup policy.
+- **Programaciones** : el número de programaciones asociadas a la directiva de copia de seguridad.
 
-The frequently used operations that you can perform from this page are:
+Estas son las operaciones utilizadas con frecuencia que se pueden realizar desde esta página:
 
-- Add a backup policy 
-- Add or modify a schedule 
-- Delete a backup policy 
-- Take a manual backup 
-- Create a custom backup policy with multiple volumes and schedules 
+- Incorporación de una directiva de copia de seguridad 
+- Incorporación o modificación de una programación 
+- Eliminación de una directiva de copia de seguridad 
+- Creación de una copia de seguridad manual 
+- Creación de una directiva de copia de seguridad personalizada con varios volúmenes y programaciones 
 
-## <a name="add-a-backup-policy"></a>Add a backup policy
+## Incorporación de una directiva de copia de seguridad
 
-Add a backup policy to automatically schedule your backups. Perform the following steps in the Azure classic portal to add a backup policy for your StorSimple device. After you add the policy, you can define a schedule (see [Add or modify a schedule](#add-or-modify-a-schedule)).
+Agregue una directiva de copia de seguridad para programar automáticamente sus copias de seguridad. Realice los pasos siguientes en el Portal de Azure clásico para agregar una directiva de copia de seguridad para el dispositivo StorSimple. Después de agregar la directiva, puede definir una programación (vea [Incorporación o modificación de una programación](#add-or-modify-a-schedule)).
 
 [AZURE.INCLUDE [storsimple-add-backup-policy-u2](../../includes/storsimple-add-backup-policy-u2.md)]
 
-![Video available](./media/storsimple-manage-backup-policies-u2/Video_icon.png) **Video available**
+![Vídeo disponible](./media/storsimple-manage-backup-policies-u2/Video_icon.png) **Vídeo disponible**
 
-To watch a video that demonstrates how to create a local or cloud backup policy, click [here](https://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
+Para ver un vídeo en el que se muestra cómo crear una directiva de copia de seguridad local o en la nube, haga clic [aquí](https://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
 
 
-## <a name="add-or-modify-a-schedule"></a>Add or modify a schedule
+## Incorporación o modificación de una programación
 
-You can add or modify a schedule that is attached to an existing backup policy on your StorSimple device. Perform the following steps in the Azure classic portal to add or modify a schedule.
+Es posible agregar o modificar una programación adjunta a una directiva de copia de seguridad de un dispositivo StorSimple. Siga estos pasos en el Portal de Azure clásico para agregar o modificar una programación.
 
 [AZURE.INCLUDE [storsimple-add-modify-backup-schedule](../../includes/storsimple-add-modify-backup-schedule-u2.md)]
 
-## <a name="delete-a-backup-policy"></a>Delete a backup policy
+## Eliminación de una directiva de copia de seguridad
 
-Perform the following steps in the Azure classic portal to delete a backup policy on your StorSimple device.
+Realice los pasos siguientes en el Portal de Azure clásico para eliminar una directiva de copia de seguridad del dispositivo StorSimple.
 
 [AZURE.INCLUDE [storsimple-delete-backup-policy](../../includes/storsimple-delete-backup-policy.md)]
 
 
-## <a name="take-a-manual-backup"></a>Take a manual backup
+## Creación de una copia de seguridad manual
 
-Perform the following steps in the Azure classic portal to create an on-demand (manual) backup for a single volume.
+Siga estos pasos en el Portal de Azure clásico para crear una copia de seguridad a petición (manual) de un único volumen.
 
 [AZURE.INCLUDE [storsimple-create-manual-backup](../../includes/storsimple-create-manual-backup.md)]
 
-## <a name="create-a-custom-backup-policy-with-multiple-volumes-and-schedules"></a>Create a custom backup policy with multiple volumes and schedules
+## Creación de una directiva de copia de seguridad personalizada con varios volúmenes y programaciones
 
-Perform the following steps in the Azure classic portal to create a custom backup policy that has multiple volumes and schedules.
+Realice los pasos siguientes en el Portal de Azure clásico para crear una directiva de copia de seguridad personalizada que tenga varios volúmenes y programaciones.
 
 [AZURE.INCLUDE [storsimple-create-custom-backup-policy](../../includes/storsimple-create-custom-backup-policy-u2.md)]
 
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0511_2016-->

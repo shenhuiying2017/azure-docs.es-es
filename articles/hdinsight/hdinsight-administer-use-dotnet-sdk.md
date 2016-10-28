@@ -1,46 +1,45 @@
 <properties
-    pageTitle="Manage Hadoop clusters in HDInsight with .NET SDK | Microsoft Azure"
-    description="Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using HDInsight .NET SDK."
-    services="hdinsight"
-    editor="cgronlun"
-    manager="jhubbard"
-    tags="azure-portal"
-    authors="mumian"
-    documentationCenter=""/>
+	pageTitle="Administración de clústeres de Hadoop en HDInsight con el SDK de .NET | Microsoft Azure"
+	description="Aprenda a realizar tareas administrativas para clústeres de Hadoop en HDInsight mediante el SDK de .NET en HDInsight."
+	services="hdinsight"
+	editor="cgronlun"
+	manager="jhubbard"
+	tags="azure-portal"
+	authors="mumian"
+	documentationCenter=""/>
 
 <tags
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/02/2016"
-    ms.author="jgao"/>
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2016"
+	ms.author="jgao"/>
 
-
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-.net-sdk"></a>Manage Hadoop clusters in HDInsight by using .NET SDK
+# Administración de clústeres de Hadoop en HDInsight con el SDK de .NET
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Learn how to manage HDInsight clusters using [HDInsight.NET SDK](https://msdn.microsoft.com/library/mt271028.aspx).
+Más información sobre cómo administrar los clústeres de HDInsight con el [SDK de .NET de HDInsight](https://msdn.microsoft.com/library/mt271028.aspx).
 
 
-**Prerequisites**
+**Requisitos previos**
 
-Before you begin this article, you must have the following:
+Antes de empezar este artículo, debe tener lo siguiente:
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 
-##<a name="connect-to-azure-hdinsight"></a>Connect to Azure HDInsight
+##Conexión a HDInsight de Azure
 
-You will need the following Nuget packages:
+Necesitará los siguientes paquetes de Nuget:
 
-    Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
+	Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
     Install-Package Microsoft.Azure.Management.ResourceManager -Pre
-    Install-Package Microsoft.Azure.Management.HDInsight
+	Install-Package Microsoft.Azure.Management.HDInsight
 
-The following code sample shows you how to connect to Azure before you can administer HDInsight clusters under your Azure subscription.
+El ejemplo de código siguiente muestra cómo conectarse a Azure antes de poder administrar clústeres de HDInsight con su suscripción de Azure.
 
     using System;
     using Microsoft.Azure;
@@ -51,18 +50,18 @@ The following code sample shows you how to connect to Azure before you can admin
     using Microsoft.Rest;
     using Microsoft.Rest.Azure.Authentication;
 
-    namespace HDInsightManagement
-    {
-        class Program
-        {
-            private static HDInsightManagementClient _hdiManagementClient;
+	namespace HDInsightManagement
+	{
+		class Program
+		{
+			private static HDInsightManagementClient _hdiManagementClient;
             // Replace with your AAD tenant ID if necessary
             private const string TenantId = UserTokenProvider.CommonTenantId; 
-            private const string SubscriptionId = "<Your Azure Subscription ID>";
+			private const string SubscriptionId = "<Your Azure Subscription ID>";
             // This is the GUID for the PowerShell client. Used for interactive logins in this example.
             private const string ClientId = "1950a258-227b-4e31-a9cf-717495945fc2";
 
-            static void Main(string[] args)
+			static void Main(string[] args)
             {
                 // Authenticate and get a token
                 var authToken = Authenticate(TenantId, ClientId, SubscriptionId);
@@ -111,15 +110,15 @@ The following code sample shows you how to connect to Azure before you can admin
         }
     }
 
-You shall see a prompt when you run this program.  If you don't want to see the prompt, see [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
+Al ejecutar este programa, verá un mensaje. Si no desea ver el mensaje, consulte [Crear aplicaciones .NET para HDInsight de autenticación no interactiva](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
-##<a name="create-clusters"></a>Create clusters
+##Creación de clústeres
 
-See [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
+Consulte [Crear clústeres basados en Linux en HDInsight con el SDK de .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
 
-##<a name="list-clusters"></a>List clusters
+##Enumeración de clústeres
 
-The following code snippet lists clusters and some properties:
+El fragmento de código siguiente enumera los clústeres y algunas propiedades:
 
     var results = _hdiManagementClient.Clusters.List();
     foreach (var name in results.Clusters) {
@@ -129,66 +128,66 @@ The following code snippet lists clusters and some properties:
         Console.WriteLine("\t Cluster version: " + name.Properties.ClusterVersion);
     }
 
-##<a name="delete-clusters"></a>Delete clusters
+##Eliminación de clústeres
 
-Use the following code snippet to delete a cluster synchronously or asynchronously: 
+Use el siguiente fragmento de código para eliminar un clúster de forma sincrónica o asincrónica:
 
     _hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
     _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Name>");
             
-##<a name="scale-clusters"></a>Scale clusters
-The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
+##Escalado de clústeres
+La característica de escalado de clústeres permite cambiar la cantidad de nodos de trabajo que usa un clúster que se ejecuta en HDInsight de Azure sin necesidad de volver a crear el clúster.
 
->[AZURE.NOTE] Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+>[AZURE.NOTE] Solo son compatibles los clústeres con la versión 3.1.3 de HDInsight, o superior. Si no está seguro de la versión del clúster, puede comprobar la página de propiedades. Vea [Enumeración y visualización de clústeres](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 
-The impact of changing the number of data nodes for each type of cluster supported by HDInsight:
+A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de datos de cada tipo de clúster compatible con HDInsight:
 
 - Hadoop
 
-    You can seamlessly increase the number of worker nodes in a Hadoop cluster that is running without impacting any pending or running jobs. New jobs can also be submitted while the operation is in progress. Failures in a scaling operation are gracefully handled so that the cluster is always left in a functional state.
+	Puede aumentar sin ningún problema la cantidad de nodos de trabajo en un clúster de Hadoop que se encuentre en ejecución, sin que afecte a ningún trabajo pendiente o en ejecución. También se pueden enviar trabajos nuevos mientras la operación está en curso. Los errores que puedan surgir en una operación de escalado se enfrentan oportunamente, por lo que el clúster siempre queda en estado funcional.
 
-    When a Hadoop cluster is scaled down by reducing the number of data nodes, some of the services in the cluster are restarted. This causes all running and pending jobs to fail at the completion of the scaling operation. You can, however, resubmit the jobs once the operation is complete.
+	Cuando se realiza la reducción vertical de un clúster de Hadoop al disminuir la cantidad de nodos de datos, se reinician algunos de los servicios del clúster. Esto provoca que todos los trabajos pendientes y en ejecución fallen al completarse la operación de escalado. Sin embargo, puede volver a enviar los trabajos una vez finalizada la operación.
 
 - HBase
 
-    You can seamlessly add or remove nodes to your HBase cluster while it is running. Regional Servers are automatically balanced within a few minutes of completing the scaling operation. However, you can also manually balance the regional servers by logging into the headnode of cluster and running the following commands from a command prompt window:
+	Puede agregar nodos sin problemas al clúster de HBase mientras se encuentra en ejecución, así como eliminarlos. Los servidores regionales se equilibran automáticamente en unos pocos minutos tras completar la operación de escalado. Sin embargo, puede equilibrar manualmente los servidores regionales iniciando sesión en el nodo principal del clúster y ejecutando los comandos siguientes desde una ventana del símbolo del sistema:
 
-        >pushd %HBASE_HOME%\bin
-        >hbase shell
-        >balancer
+		>pushd %HBASE_HOME%\bin
+		>hbase shell
+		>balancer
 
 - Storm
 
-    You can seamlessly add or remove data nodes to your Storm cluster while it is running. But after a successful completion of the scaling operation, you will need to rebalance the topology.
+	Puede agregar o quitar sin problemas nodos de datos de su clúster de Storm mientras se encuentra en ejecución. Sin embargo, después de finalizar correctamente la operación de escalado, deberá volver a equilibrar la topología.
 
-    Rebalancing can be accomplished in two ways:
+	Esto se puede realizar de dos formas:
 
-    * Storm web UI
-    * Command-line interface (CLI) tool
+	* La interfaz de usuario web de Storm
+	* La herramienta de la interfaz de línea de comandos (CLI)
 
-    Please refer to the [Apache Storm documentation](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) for more details.
+	Consulte la [documentación de Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) para obtener más detalles.
 
-    The Storm web UI is available on the HDInsight cluster:
+	La interfaz de usuario web de Storm se encuentra disponible en el clúster de HDInsight:
 
-    ![hdinsight storm scale rebalance](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+	![reequilibrio de escalado de storm de hdinsight](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
 
-    Here is an example how to use the CLI command to rebalance the Storm topology:
+	El siguiente es un ejemplo de cómo usar el comando CLI para volver a equilibrar la topología de Storm:
 
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
+		## Reconfigure the topology "mytopology" to use 5 worker processes,
+		## the spout "blue-spout" to use 3 executors, and
+		## the bolt "yellow-bolt" to use 10 executors
 
-        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+		$ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
-The following code snippet shows how to resize a cluster synchronously or asynchronously:
+El fragmento de código siguiente muestra cómo cambiar el tamaño de un clúster de forma sincrónica o asincrónica:
 
     _hdiManagementClient.Clusters.Resize("<Resource Group Name>", "<Cluster Name>", <New Size>);   
     _hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Name>", <New Size>);   
-    
+	
 
-##<a name="grant/revoke-access"></a>Grant/revoke access
+##Concesión o revocación del acceso
 
-HDInsight clusters have the following HTTP web services (all of these services have RESTful endpoints):
+Los clústeres de HDInsight tienen los siguientes servicios web HTTP (todos estos servicios tienen extremos RESTful):
 
 - ODBC
 - JDBC
@@ -197,80 +196,80 @@ HDInsight clusters have the following HTTP web services (all of these services h
 - Templeton
 
 
-By default, these services are granted for access. You can revoke/grant the access. To revoke:
+De manera predeterminada, estos servicios se conceden para el acceso. Puede revocar/conceder el acceso. Para revocar:
 
-    var httpParams = new HttpSettingsParameters
-    {
-        HttpUserEnabled = false,
-        HttpUsername = "admin",
-        HttpPassword = "*******",
-    };
-    _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
+	var httpParams = new HttpSettingsParameters
+	{
+		HttpUserEnabled = false,
+		HttpUsername = "admin",
+		HttpPassword = "*******",
+	};
+	_hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
 
-To grant:
+Para conceder:
 
-    var httpParams = new HttpSettingsParameters
-    {
-        HttpUserEnabled = enable,
-        HttpUsername = "admin",
-        HttpPassword = "*******",
-    };
-    _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
-
-
->[AZURE.NOTE] By granting/revoking the access, you will reset the cluster user name and password.
-
-This can also be done via the Portal. See [Administer HDInsight by using the Azure Portal][hdinsight-admin-portal].
-
-##<a name="update-http-user-credentials"></a>Update HTTP user credentials
-
-It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access).If the cluster has been granted the HTTP access, you must first revoke it.  And then grant the access with new HTTP user credentials.
+	var httpParams = new HttpSettingsParameters
+	{
+		HttpUserEnabled = enable,
+		HttpUsername = "admin",
+		HttpPassword = "*******",
+	};
+	_hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
 
 
-##<a name="find-the-default-storage-account"></a>Find the default storage account
+>[AZURE.NOTE] Al conceder/revocar el acceso, restablecerá el nombre de usuario y la contraseña del clúster.
 
-The following code snippet demonstrates how to get the default storage account name and the default storage account key for a cluster.
+Esto también se puede hacer a través del Portal. Vea [Administración de HDInsight mediante el Portal de Azure][hdinsight-admin-portal].
 
-    var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
-    foreach (var key in results.Configuration.Keys)
-    {
-        Console.WriteLine(String.Format("{0} => {1}", key, results.Configuration[key]));
-    }
+##Actualización de las credenciales de usuario HTTP
+
+Es el mismo procedimiento que [Concesión o revocación del acceso HTTP](#grant/revoke-access). Si al clúster se le ha concedido el acceso HTTP, primero debe revocarlo. Y después conceda el acceso con nuevas credenciales de usuario HTTP.
 
 
-##<a name="submit-jobs"></a>Submit jobs
+##Búsqueda de la cuenta de almacenamiento predeterminada
 
-**To submit MapReduce jobs**
+El siguiente fragmento de código muestra cómo obtener el nombre y la clave de la cuenta de almacenamiento predeterminada para un clúster.
 
-See [Run Hadoop MapReduce samples in HDInsight](hdinsight-hadoop-run-samples-linux.md).
-
-**To submit Hive jobs** 
-
-See [Run Hive queries using .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md).
-
-**To submit Pig jobs**
-
-See [Run Pig jobs using .NET SDK](hdinsight-hadoop-use-pig-dotnet-sdk.md).
-
-**To submit Sqoop jobs**
-
-See [Use Sqoop with HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md).
-
-**To submit Oozie jobs**
-
-See [Use Oozie with Hadoop to define and run a workflow in HDInsight](hdinsight-use-oozie-linux-mac.md).
-
-##<a name="upload-data-to-azure-blob-storage"></a>Upload data to Azure Blob storage
-See [Upload data to HDInsight][hdinsight-upload-data].
+	var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
+	foreach (var key in results.Configuration.Keys)
+	{
+	    Console.WriteLine(String.Format("{0} => {1}", key, results.Configuration[key]));
+	}
 
 
-## <a name="see-also"></a>See Also
-* [HDInsight .NET SDK reference documentation](https://msdn.microsoft.com/library/mt271028.aspx)
-* [Administer HDInsight by using the Azure Portal][hdinsight-admin-portal]
-* [Administer HDInsight using a command-line interface][hdinsight-admin-cli]
-* [Create HDInsight clusters][hdinsight-provision]
-* [Upload data to HDInsight][hdinsight-upload-data]
-* [Get started with Azure HDInsight][hdinsight-get-started]
+##Envío de trabajos
+
+**Para enviar trabajos de MapReduce**
+
+Consulte [Ejecución de ejemplos de Hadoop en HDInsight](hdinsight-hadoop-run-samples-linux.md).
+
+**Para enviar trabajos de Hive**
+
+Consulte [Ejecución de consultas de Hive mediante el SDK de .NET de HDInsight](hdinsight-hadoop-use-hive-dotnet-sdk.md).
+
+**Para enviar trabajos de Pigs**
+
+Consulte [Ejecución de trabajos de Pig con el SDK de .NET para Hadoop en HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk.md).
+
+**Para enviar trabajos de Sqoop**
+
+Consulte [Uso de Sqoop con HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md).
+
+**Para enviar trabajos de Oozie**
+
+Vea [Uso de Oozie con Hadoop para definir y ejecutar un flujo de trabajo en HDInsight](hdinsight-use-oozie-linux-mac.md).
+
+##Carga de archivos de datos al almacenamiento de blobs de Azure
+Consulte [Carga de datos en HDInsight][hdinsight-upload-data].
+
+
+## Otras referencias
+* [Documentación de referencia del SDK de HDInsight](https://msdn.microsoft.com/library/mt271028.aspx)
+* [Administración de HDInsight mediante el Portal de Azure][hdinsight-admin-portal]
+* [Administración de HDInsight con la interfaz de línea de comandos][hdinsight-admin-cli]
+* [Creación de clústeres de HDInsight][hdinsight-provision]
+* [Carga de datos en HDInsight][hdinsight-upload-data]
+* [Introducción a HDInsight de Azure][hdinsight-get-started]
 
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -290,10 +289,4 @@ See [Upload data to HDInsight][hdinsight-upload-data].
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

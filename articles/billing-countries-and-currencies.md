@@ -1,179 +1,174 @@
 <properties
-    pageTitle="Lists the countries in which Azure is commercially available, along with the supported currencies | Microsoft Azure"
-    description="The countries and regions in which Microsoft Azure is commercially available, and the corresponding currencies which can be used to purchase Azure."
-    services=""
-    documentationCenter=""
-    authors="genlin"
-    manager="mbaldwin"
-    editor=""
-    tags="billing"/>
+	pageTitle="Enumera los países en los que Azure está disponible comercialmente, junto con las divisas admitidas | Microsoft Azure"
+	description="Los países y regiones en los que Microsoft Azure está comercialmente disponible y las monedas correspondientes que se pueden utilizar para comprar Azure?"
+	services=""
+	documentationCenter=""
+	authors="genlin"
+	manager="msmbaldwin"
+	editor=""
+	tags="billing"/>
 
 <tags
-    ms.service="billing"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/13/2016"
-    ms.author="genli"/>
+	ms.service="billing"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/13/2016"
+	ms.author="genli"/>
 
+# ¿En qué países y regiones está comercialmente disponible Microsoft Azure y qué monedas pueden usarse para comprar Azure?
 
-# <a name="in-which-countries-and-regions-is-microsoft-azure-commercially-available,-and-what-currencies-can-be-used-to-purchase-azure?"></a>In which countries and regions is Microsoft Azure commercially available, and what currencies can be used to purchase Azure?
+Puede adquirir Microsoft Azure en más de 140 países del mundo y se admiten muchas monedas diferentes. Aquí puede ver una lista de los países en los que puede adquirir Azure y las monedas que puede usar para pagar la factura de Azure.
 
-You can purchase Microsoft Azure in more than 140 countries around the world, and many different currencies are supported. Here’s a list of countries where you can purchase Azure and the currencies that you can use to pay your Azure bill.
-
-| Country                         | Currency Code |
+| País | Código de divisa |
 |---------------------------------|---------------|
-| Afghanistan                     | USD           |
-| Albania                         | USD           |
-| Algeria                         | USD           |
-| Angola                          | USD           |
-| Argentina                       | ARS           |
-| Armenia                         | USD           |
-| Australia                       | AUD           |
-| Austria                         | EUR           |
-| Azerbaijan                      | USD           |
-| Bahamas                         | USD           |
-| Bahrain                         | USD           |
-| Bangladesh                      | USD           |
-| Barbados                        | USD           |
-| Belarus                         | USD           |
-| Belgium                         | EUR           |
-| Belize                          | USD           |
-| Bermuda                         | USD           |
-| Bolivia                         | USD           |
-| Bosnia and Herzegovina          | USD           |
-| Botswana                        | USD           |
-| Brazil                          | BRL           |
-| Brazil                          | USD           |
-| Brunei Darussalam               | USD           |
-| Bulgaria                        | EUR           |
-| Cameroon                        | USD           |
-| Canada                          | CAD           |
-| Cape Verde                      | USD           |
-| Cayman Islands                  | USD           |
-| Chile                           | USD           |
-| Colombia                        | USD           |
-| Congo                           | USD           |
-| Costa Rica                      | USD           |
-| Côte D'ivoire                   | USD           |
-| Croatia                         | EUR           |
-| Croatia                         | USD           |
-| Curaçao                           | USD           |
-| Cyprus                          | EUR           |
-| Czech Republic                  | EUR           |
-| Denmark                         | DKK           |
-| Dominican Republic             | USD           |
-| Ecuador                         | USD           |
-| Egypt                           | USD           |
-| El Salvador                     | USD           |
-| Estonia                         | EUR           |
-| Ethiopia                        | USD           |
-| Faroe Islands                   | EUR           |
-| Fiji                            | USD           |
-| Finland                         | EUR           |
-| France                          | EUR           |
-| Georgia                         | USD           |
-| Germany                         | EUR           |
-| Ghana                           | USD           |
-| Greece                          | EUR           |
-| Guatemala                       | USD           |
-| Honduras                        | USD           |
-| Hong Kong                       | HKD           |
-| Hong Kong SAR                   | USD           |
-| Hungary                         | EUR           |
-| Iceland                         | EUR           |
-| India                           | INR           |
-| India                           | USD           |
-| Indonesia                       | IDR           |
-| Iraq                            | USD           |
-| Ireland                         | EUR           |
-| Israel                          | USD           |
-| Italy                           | EUR           |
-| Jamaica                         | USD           |
-| Japan                           | JPY           |
-| Jordan                          | USD           |
-| Kazakhstan                      | USD           |
-| Kenya                           | USD           |
-| Korea                           | KRW           |
-| Kuwait                          | USD           |
-| Kyrgyzstan                      | USD           |
-| Latvia                          | EUR           |
-| Lebanon                         | USD           |
-| Libya                           | USD           |
-| Liechtenstein                   | CHF           |
-| Lithuania                       | EUR           |
-| Luxembourg                      | EUR           |
-| Macao                           | USD           |
-| Macedonia                       | USD           |
-| Malaysia                        | MYR           |
-| Malaysia                        | USD           |
-| Malta                           | EUR           |
-| Mauritius                       | USD           |
-| Mexico                          | MXN           |
-| Mexico                          | USD           |
-| Moldova                         | USD           |
-| Monaco                          | EUR           |
-| Mongolia                        | USD           |
-| Montenegro                      | USD           |
-| Morocco                         | USD           |
-| Namibia                         | USD           |
-| Nepal                           | USD           |
-| Netherlands                     | EUR           |
-| New Zealand                     | NZD           |
-| Nicaragua                       | USD           |
-| Nigeria                         | USD           |
-| Norway                          | NOK           |
-| Oman                            | USD           |
-| Pakistan                        | USD           |
-| Palestinian Territory, Occupied | USD           |
-| Panama                          | USD           |
-| Paraguay                        | USD           |
-| Peru                            | USD           |
-| Philippines                     | USD           |
-| Poland                          | EUR           |
-| Portugal                        | EUR           |
-| Puerto Rico                     | USD           |
-| Qatar                           | USD           |
-| Romania                         | EUR           |
-| Russia                          | RUB           |
-| Rwanda                          | USD           |
-| Saint Kitts and Nevis           | USD           |
-| Saudi Arabia                    | SAR           |
-| Senegal                         | USD           |
-| Serbia                          | USD           |
-| Singapore                       | USD           |
-| Slovakia                        | EUR           |
-| Slovenia                        | EUR           |
-| South Africa                    | ZAR           |
-| Spain                           | EUR           |
-| Sri Lanka                       | USD           |
-| Sweden                          | SEK           |
-| Switzerland                     | CHF           |
-| Taiwan                          | TWD           |
-| Tajikistan                      | USD           |
-| Tanzania                        | USD           |
-| Thailand                        | USD           |
-| Trinidad and Tobago             | USD           |
-| Tunisia                         | USD           |
-| Turkey                          | TRY           |
-| Turkmenistan                    | USD           |
-| UAE                             | USD           |
-| Uganda                          | USD           |
-| Ukraine                         | USD           |
-| United Kingdom                  | GBP           |
-| United States              | USD           |
-| Uruguay                         | USD           |
-| Uzbekistan                      | USD           |
-| Venezuela                       | USD           |
-| Vietnam                        | USD           |
-| Virgin Islands, US              | USD           |
-| Yemen                           | USD           |
-| Zambia                          | USD           |
-| Zimbabwe                        | USD           |
+| Afganistán | USD |
+| Albania | USD |
+| Argelia | USD |
+| Angola | USD |
+| Argentina | ARS |
+| Armenia | USD |
+| Australia | AUD |
+| Austria | EUR |
+| Azerbaiyán | USD |
+| Bahamas | USD |
+| Bahréin | USD |
+| Bangladesh | USD |
+| Barbados | USD |
+| Bielorrusia | USD |
+| Bélgica | EUR |
+| Belice | USD |
+| Bermudas | USD |
+| Bolivia | USD |
+| Bosnia y Herzegovina | USD |
+| Botsuana | USD |
+| Brasil | BRL |
+| Brasil | USD |
+| Brunéi Darussalam | USD |
+| Bulgaria | EUR |
+| Camerún | USD |
+| Canadá | CAD |
+| Cabo Verde | USD |
+| Islas Caimán | USD |
+| Chile | USD |
+| Colombia | USD |
+| Congo | USD |
+| Costa Rica | USD |
+| Côte D'ivoire | USD |
+| Croacia | EUR |
+| Croacia | USD |
+| Curazao | USD |
+| Chipre | EUR |
+| República Checa | EUR |
+| Dinamarca | DKK |
+| República Dominicana | USD |
+| Ecuador | USD |
+| Egipto | USD |
+| El Salvador | USD |
+| Estonia | EUR |
+| Etiopía | USD |
+| Islas Feroe | EUR |
+| Islas Fiji | USD |
+| Finlandia | EUR |
+| Francia | EUR |
+| Georgia | USD |
+| Alemania | EUR |
+| Ghana | USD |
+| Grecia | EUR |
+| Guatemala | USD |
+| Honduras | USD |
+| Hong Kong | HKD |
+| RAE de Hong Kong | USD |
+| Hungría | EUR |
+| Islandia | EUR |
+| India | INR |
+| India | USD |
+| Indonesia | IDR |
+| Iraq | USD |
+| Irlanda | EUR |
+| Israel | USD |
+| Italia | EUR |
+| Jamaica | USD |
+| Japón | JPY |
+| Jordania | USD |
+| Kazajistán | USD |
+| Kenia | USD |
+| Corea | KRW |
+| Kuwait | USD |
+| Kirguistán | USD |
+| Letonia | EUR |
+| Líbano | USD |
+| Libia | USD |
+| Liechtenstein | CHF |
+| Lituania | EUR |
+| Luxemburgo | EUR |
+| Macao | USD |
+| Macedonia | USD |
+| Malasia | MYR |
+| Malasia | USD |
+| Malta | EUR |
+| Mauricio | USD |
+| México | MXN |
+| México | USD |
+| Moldova | USD |
+| Mónaco | EUR |
+| Mongolia | USD |
+| Montenegro | USD |
+| Marruecos | USD |
+| Namibia | USD |
+| Nepal | USD |
+| Países Bajos | EUR |
+| Nueva Zelanda | NZD |
+| Nicaragua | USD |
+| Nigeria | USD |
+| Noruega | NOK |
+| Omán | USD |
+| Pakistán | USD |
+| Territorio Palestino, Ocupado | USD |
+| Panamá | USD |
+| Paraguay | USD |
+| Perú | USD |
+| Filipinas | USD |
+| Polonia | EUR |
+| Portugal | EUR |
+| Puerto Rico | USD |
+| Qatar | USD |
+| Rumania | EUR |
+| Rusia | RUB |
+| Ruanda | USD |
+| San Cristóbal y Nieves | USD |
+| Arabia Saudí | SAR |
+| Senegal | USD |
+| Serbia | USD |
+| Singapur | USD |
+| Eslovaquia | EUR |
+| Eslovenia | EUR |
+| Sudáfrica | ZAR |
+| España | EUR |
+| Sri Lanka | USD |
+| Suecia | SEK |
+| Suiza | CHF |
+| Taiwán | TWD |
+| Tayikistán | USD |
+| Tanzania | USD |
+| Tailandia | USD |
+| Trinidad y Tobago | USD |
+| Túnez | USD |
+| Turquía | TRY |
+| Turkmenistán | USD |
+| Emiratos Árabes Unidos | USD |
+| Uganda | USD |
+| Ucrania | USD |
+| Reino Unido | GBP |
+| Estados Unidos | USD |
+| Uruguay | USD |
+| Uzbekistán | USD |
+| Venezuela | USD |
+| Vietnam | USD |
+| Islas Vírgenes (Estados Unidos) | USD |
+| Yemen | USD |
+| Zambia | USD |
+| Zimbabue | USD |
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

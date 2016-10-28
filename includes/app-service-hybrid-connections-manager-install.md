@@ -1,30 +1,28 @@
 
-1. In the **Hybrid connections** blade, click the hybrid connection you just created, then click **Listener Setup**.
-    
-    ![Click Listener Setup](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
-    
-4. The **Hybrid connection properties** blade opens. Under **On-premises Hybrid Connection Manager**, choose **download and configure manually**, save the downloaded HybridConnectionManager.msi package, and copy the gateway connection string.
-    
-    ![Click here to install](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
-    
-5. From an administrator command prompt, type the following command to start the installer:
+1. En la hoja **Conexiones híbridas**, haga clic en la conexión híbrida que acaba de crear y, a continuación, en **Configuración del agente de escucha**.
+	
+	![Click Listener Setup](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
+	
+4. Se abre la hoja **Propiedades de conexión híbrida**. En **Administrador de conexiones híbridas local**, seleccione **Descargar y configurar manualmente**, guarde el paquete HybridConnectionManager.msi descargado y copie la cadena de conexión de puerta de enlace.
+	
+	![Click here to install](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
+	
+5. Desde un símbolo del sistema de administrador, escriba el siguiente comando para iniciar el instalador:
 
-        start HybridConnectionManager.msi
+		start HybridConnectionManager.msi
  
-7. After the installer runs, click **Not now**, then browse to the %ProgramFiles%\Microsoft\HybridConnectionManager folder, run HCMConfigWizard.exe and click **Yes** in the **User Account Control** dialog.
-        
-7. Paste the hybrid connection string that you copied earlier and click **OK**. 
-    
-    ![Installing](./media/app-service-hybrid-connections-manager-install/D08aHCMInstallManual.png)
-    
-8. When the install completes, click **Close**.
-    
-    ![Click Close](./media/app-service-hybrid-connections-manager-install/D09HCMInstallComplete.png)
-    
-    On the **Hybrid connections** blade, the **Status** column now shows **Connected**. 
-    
-    ![Connected Status](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
+7. Después de ejecutarlo, haga clic en **Ahora no**; a continuación, busque la carpeta %Archivos de programa%\\Microsoft\\HybridConnectionManager, ejecute HCMConfigWizard.exe y haga clic en **Sí** en el cuadro de diálogo **Control de cuentas de usuario**.
+		
+7. Pegue la cadena de conexión híbrida que ha copiado anteriormente y haga clic en **Aceptar**.
+	
+	![Instalación](./media/app-service-hybrid-connections-manager-install/D08aHCMInstallManual.png)
+	
+8. Cuando finalice la instalación, haga clic en **Cerrar**.
+	
+	![Click Close](./media/app-service-hybrid-connections-manager-install/D09HCMInstallComplete.png)
+	
+	En la hoja **Conexiones híbridas**, la columna **Estado** ahora muestra **Conectado**.
+	
+	![Connected Status](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,23 +1,22 @@
-<properties
-    pageTitle="DocumentDB Java API & SDK | Microsoft Azure"
-    description="Learn all about the Java API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK."
-    services="documentdb"
-    documentationCenter="java"
-    authors="rnagpal"
-    manager="jhubbard"
-    editor="cgronlun"/>
+<properties 
+	pageTitle="SDK y API para Java de DocumentDB | Microsoft Azure" 
+	description="Obtenga toda la información sobre el SDK y la API para Java como, por ejemplo, fechas de lanzamiento, fechas de retirada y cambios de una versión a otra del SDK para Java de DocumentDB." 
+	services="documentdb" 
+	documentationCenter="java" 
+	authors="rnagpal" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
-<tags
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="java"
-    ms.topic="article"
-    ms.date="10/03/2016"
-    ms.author="rnagpal"/>
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="08/09/2016" 
+	ms.author="rnagpal"/>
 
-
-# <a name="documentdb-apis-and-sdks"></a>DocumentDB APIs and SDKs
+# SDK y API de DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-sdk-dotnet.md)
@@ -27,114 +26,99 @@
 - [REST](https://go.microsoft.com/fwlink/?LinkId=402413)
 - [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-## <a name="documentdb-java-api-and-sdk"></a>DocumentDB Java API and SDK
+## SDK y API para Java de DocumentDB
 
 <table>
-<tr><td>**SDK Download**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
-<tr><td>**API documentation**</td><td>[Java API reference documentation](http://azure.github.io/azure-documentdb-java/)</td></tr>
-<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
-<tr><td>**Get started**</td><td>[Get started with the Java SDK](documentdb-java-application.md)</td></tr>
-<tr><td>**Current supported runtime**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+<tr><td>**Descarga del SDK**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
+<tr><td>**Documentación de la API**</td><td>[Documentación de referencia de la API para Java](http://azure.github.io/azure-documentdb-java/)</td></tr>
+<tr><td>**Contribuya al SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
+<tr><td>**Introducción**</td><td>[Introducción al SDK de Java](documentdb-java-application.md)</td></tr>
+<tr><td>**Tiempo de ejecución admitido actualmente**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
-## <a name="release-notes"></a>Release Notes
+## Notas de la versión
 
-### <a name="<a-name="1.9.0"/>[1.9.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.0)"></a><a name="1.9.0"/>[1.9.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.0)
+### <a name="1.8.1"/>[1\.8.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.1)
+  - Se ha corregido un error en PartitionKeyDefinitionMap para almacenar en caché colecciones de partición única y no realizar solicitudes adicionales de clave de partición de búsqueda.
+  - Se ha corregido un error para no realizar un reintento cuando se proporcione un valor de clave de partición incorrecto.
 
-  - Added support for cross partition parallel queries.
-  - Added support for TOP/ORDER BY queries for partitioned collections.
-  - Added support for strong consistency.
-  - Added support for name based requests when using direct connectivity.
-  - Fixed to make ActivityId stay consistent across all request retries.
-  - Fixed a bug related to the session cache when recreating a collection with the same name.
-  - Fixed issues with Java Doc for Java 1.8.
+### <a name="1.8.0"/>[1\.8.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.0)
+  - Se ha agregado compatibilidad con cuentas de base de datos de varias regiones.
+  - Se ha agregado compatibilidad con el reintento automático en solicitudes limitadas, con opciones para personalizar el número máximo de reintentos y el tiempo de espera máximo de reintento. Consulte RetryOptions y ConnectionPolicy.getRetryOptions().
+  - Se ha dejado de utilizar el código de creación de particiones personalizado basado en IPartitionResolver. Utilice colecciones con particiones para conseguir un almacenamiento y un rendimiento más elevados.
 
-### <a name="<a-name="1.8.1"/>[1.8.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.1)"></a><a name="1.8.1"/>[1.8.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.1)
-  - Fixed a bug in PartitionKeyDefinitionMap to cache single partition collections and not make extra fetch partition key requests.
-  - Fixed a bug to not retry when an incorrect partition key value is provided.
+### <a name="1.7.1"/>[1\.7.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.1)
+- Se ha agregado compatibilidad con la directiva de reintentos de la limitación.
 
-### <a name="<a-name="1.8.0"/>[1.8.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.0)"></a><a name="1.8.0"/>[1.8.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.0)
-  - Added the support for multi-region database accounts.
-  - Added support for automatic retry on throttled requests with options to customize the max retry attempts and max retry wait time.  See RetryOptions and ConnectionPolicy.getRetryOptions().
-  - Deprecated IPartitionResolver based custom partitioning code. Please use partitioned collections for higher storage and throughput.
+### <a name="1.7.0"/>[1\.7.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.0)
+- Se ha agregado compatibilidad con período de vida (TTL) para los documentos.
 
-### <a name="<a-name="1.7.1"/>[1.7.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.1)"></a><a name="1.7.1"/>[1.7.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.1)
-- Added retry policy support for throttling.  
+### <a name="1.6.0"/>[1\.6.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.6.0)
+- Se han implementado [colecciones particionadas](documentdb-partition-data.md) y [niveles de rendimiento definidos por el usuario](documentdb-performance-levels.md).
 
-### <a name="<a-name="1.7.0"/>[1.7.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.0)"></a><a name="1.7.0"/>[1.7.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.0)
-- Added time to live (TTL) support for documents.
+### <a name="1.5.1"/>[1\.5.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.1)
+- Se ha corregido un error en HashPartitionResolver para generar valores hash en little endian que sean consistentes con otros SDK.
 
-### <a name="<a-name="1.6.0"/>[1.6.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.6.0)"></a><a name="1.6.0"/>[1.6.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.6.0)
-- Implemented [partitioned collections](documentdb-partition-data.md) and [user-defined performance levels](documentdb-performance-levels.md).
+### <a name="1.5.0"/>[1\.5.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.0)
+- Se han agregado solucionadores de particiones de hash e intervalo para ayudar con el particionamiento de las aplicaciones entre varias particiones.
 
-### <a name="<a-name="1.5.1"/>[1.5.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.1)"></a><a name="1.5.1"/>[1.5.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.1)
-- Fixed a bug in HashPartitionResolver to generate hash values in little-endian to be consistent with other SDKs.
+### <a name="1.4.0"/>[1\.4.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.4.0)
+- Implementación de Upsert. Se han agregado nuevos métodos upsertXXX para admitir la característica Upsert.
+- Se implementa el enrutamiento por identificador. Sin cambios en la API pública, todos los cambios son internos.
 
-### <a name="<a-name="1.5.0"/>[1.5.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.0)"></a><a name="1.5.0"/>[1.5.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.0)
-- Add Hash & Range partition resolvers to assist with sharding applications across multiple partitions.
+### <a name="1.3.0"/>1.3.0
+- Versión omitida para alinear el número de versión con otros SDK
 
-### <a name="<a-name="1.4.0"/>[1.4.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.4.0)"></a><a name="1.4.0"/>[1.4.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.4.0)
-- Implement Upsert. New upsertXXX methods added to support Upsert feature.
-- Implement ID Based Routing. No public API changes, all changes internal.
+### <a name="1.2.0"/>[1\.2.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.2.0)
+- Compatible con índice geoespacial.
+- Valida la propiedad id para todos los recursos. Los identificadores de recursos no pueden contener los caracteres ?, /, #, \\, ni terminar con un espacio.
+- Agrega el nuevo encabezado "progreso de transformación de índices" a ResourceResponse.
 
-### <a name="<a-name="1.3.0"/>1.3.0"></a><a name="1.3.0"/>1.3.0
-- Release skipped to bring version number in alignment with other SDKs
+### <a name="1.1.0"/>[1\.1.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.1.0)
+- Implementación de la directiva de indexación V2
 
-### <a name="<a-name="1.2.0"/>[1.2.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.2.0)"></a><a name="1.2.0"/>[1.2.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.2.0)
-- Supports GeoSpatial Index
-- Validates id property for all resources. Ids for resources cannot contain ?, /, #, \, characters or end with a space.
-- Adds new header "index transformation progress" to ResourceResponse.
+### <a name="1.0.0"/>[1\.0.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.0.0)
+- SDK de GA
 
-### <a name="<a-name="1.1.0"/>[1.1.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.1.0)"></a><a name="1.1.0"/>[1.1.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.1.0)
-- Implements V2 indexing policy
+## Fechas de lanzamiento y de retirada
+Microsoft notificará la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente.
 
-### <a name="<a-name="1.0.0"/>[1.0.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.0.0)"></a><a name="1.0.0"/>[1.0.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.0.0)
-- GA SDK
+Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK actual, por lo que se recomienda actualizar siempre a la última versión del SDK tan pronto como sea posible.
 
-## <a name="release-&-retirement-dates"></a>Release & Retirement Dates
-Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
-
-New features and functionality and optimizations are only added to the current SDK, as such it is  recommend that you always upgrade to the latest SDK version as early as possible.
-
-Any request to DocumentDB using a retired SDK will be rejected by the service.
+El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un SDK retirado.
 
 > [AZURE.WARNING]
-All versions of the Azure DocumentDB SDK for Java prior to version **1.0.0** will be retired on **February 29, 2016**.
+Todas las versiones del SDK de Azure DocumentDB para Java anteriores a la versión **1.0.0** se retirarán el **29 de febrero de 2016**.
 
 <br/>
 
-| Version | Release Date | Retirement Date
-| ---     | ---          | ---
-| [1.9.0](#1.9.0) | October 03, 2016 |---
-| [1.8.1](#1.8.1) | June 30, 2016 |---
-| [1.8.0](#1.8.0) | June 14, 2016 |---
-| [1.7.1](#1.7.1) | April 30, 2016 |---
-| [1.7.0](#1.7.0) | April 27, 2016 |---
-| [1.6.0](#1.6.0) | March 29, 2016 |---
-| [1.5.1](#1.5.1) | December 31, 2015 |---
-| [1.5.0](#1.5.0) | December 04, 2015 |---
-| [1.4.0](#1.4.0) | October 05, 2015 |---
-| [1.3.0](#1.3.0) | October 05, 2015 |---
-| [1.2.0](#1.2.0) | August 05, 2015 |---
-| [1.1.0](#1.1.0) | July 09, 2015 |---
-| [1.0.1](#1.0.1) | May 12, 2015 |---
-| [1.0.0](#1.0.0) | April 07, 2015 |---
-| 0.9.5-prelease | Mar 09, 2015 | February 29, 2016
-| 0.9.4-prelease | February 17, 2015 | February 29, 2016
-| 0.9.3-prelease | January 13, 2015 | February 29, 2016
-| 0.9.2-prelease | December 19, 2014 | February 29, 2016
-| 0.9.1-prelease | December 19, 2014 | February 29, 2016
-| 0.9.0-prelease | December 10, 2014 | February 29, 2016
+| Versión | Fecha de lanzamiento | Fecha de retirada 
+| ---	  | ---	         | ---
+| [1.8.1](#1.8.1) | 30 de junio de 2016 |---
+| [1.8.0](#1.8.0) | 14 de junio de 2016 |---
+| [1.7.1](#1.7.1) | 30 de abril de 2016 |---
+| [1.7.0](#1.7.0) | 27 de abril de 2016 |---
+| [1.6.0](#1.6.0) | 29 de marzo de 2016 |---
+| [1\.5.1](#1.5.1) | 31 de diciembre de 2015 |--- 
+| [1\.5.0](#1.5.0) | 04 de diciembre de 2015 |--- 
+| [1\.4.0](#1.4.0) | 05 de octubre de 2015 |--- 
+| [1\.3.0](#1.3.0) | 05 de octubre de 2015 |--- 
+| [1\.2.0](#1.2.0) | 05 de agosto de 2015 |--- 
+| [1\.1.0](#1.1.0) | 09 de julio de 2015 |--- 
+| [1\.0.1](#1.0.1) | 12 de mayo de 2015 |--- 
+| [1\.0.0](#1.0.0) | 07 de abril de 2015 |--- 
+| versión preliminar 0.9.5 | 09 de marzo de 2015 | 29 de febrero de 2016 
+| versión preliminar 0.9.4 | 17 de febrero de 2015 | 29 de febrero de 2016 
+| versión preliminar 0.9.3 | 13 de enero de 2015 | 29 de febrero de 2016 
+| versión preliminar 0.9.2 | 19 de diciembre de 2014 | 29 de febrero de 2016 
+| versión preliminar 0.9.1 | 19 de diciembre de 2014 | 29 de febrero de 2016 
+| versión preliminar 0.9.0 | 10 de diciembre de 2014 | 29 de febrero de 2016
 
-## <a name="faq"></a>FAQ
+## P+F
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
-## <a name="see-also"></a>See Also
+## Otras referencias
 
-To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page.
+Para más información sobre DocumentDB, vea la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

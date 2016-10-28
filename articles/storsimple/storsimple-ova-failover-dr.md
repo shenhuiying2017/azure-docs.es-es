@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Disaster recovery and device failover for your StorSimple Virtual Array"
-   description="Learn more about how to failover your StorSimple Virtual Array."
+   pageTitle="Recuperación ante desastres y conmutación por error de dispositivos para la matriz virtual de StorSimple"
+   description="Obtenga más información sobre cómo conmutar por error la matriz virtual de StorSimple."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -16,169 +16,163 @@
    ms.date="06/07/2016"
    ms.author="alkohli"/>
 
+# Recuperación ante desastres y conmutación por error de dispositivos para la matriz virtual de StorSimple
 
-# <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array"></a>Disaster recovery and device failover for your StorSimple Virtual Array
 
+## Información general
 
-## <a name="overview"></a>Overview
+En este artículo se describe la recuperación ante desastres para la matriz virtual de Microsoft Azure StorSimple (también conocido como dispositivo virtual local StorSimple), incluidos los pasos detallados necesarios para conmutar por error a otro dispositivo virtual en caso de desastre. La conmutación por error permite migrar los datos desde un dispositivo de *origen* en el centro de datos a otro dispositivo de *destino* situado en la misma ubicación geográfica o en otra diferente. La conmutación por error del dispositivo es para todo el dispositivo. Durante la conmutación por error, los datos de la nube para el dispositivo de origen cambian la propiedad a la del dispositivo de destino.
 
-This article describes the disaster recovery for your Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device) including the detailed steps required to fail over to another virtual device in the event of a disaster. A failover allows you to migrate your data from a *source* device in the datacenter to another *target* device located in the same or a different geographical location. The device failover is for the entire device. During failover, the cloud data for the source device changes ownership to that of the target device.
-
-Device failover is orchestrated via the disaster recovery (DR) feature and is initiated from the **Devices** page. This page tabulates all the StorSimple devices connected to your StorSimple Manager service. For each device, the friendly name, status, provisioned and maximum capacity, type, and model are displayed.
+La conmutación por error de un dispositivo se coordina a través de la característica de recuperación ante desastres y se inicia desde la página **Dispositivos**. Esta página recoge en formato de tabla todos los dispositivos de StorSimple conectados al servicio de Administrador de StorSimple. Para cada dispositivo, se muestran el nombre descriptivo, el estado, la capacidad aprovisionada y máxima, el tipo y el modelo.
 
 ![](./media/storsimple-ova-failover-dr/image15.png)
 
-This article is applicable to StorSimple Virtual Arrays only. To fail over an 8000 series device, go to [Failover and Disaster Recovery of your StorSimple device](storsimple-device-failover-disaster-recovery.md).
+Este artículo se aplica únicamente a matrices virtuales de StorSimple. Para conmutar por error un dispositivo de la serie 8000, vaya a [Conmutación por error y recuperación ante desastres para el dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md).
 
 
-## <a name="what-is-disaster-recovery?"></a>What is disaster recovery?
+## ¿Qué es la recuperación ante desastres?
 
-In a disaster recovery (DR) scenario, the primary device stops functioning. In this situation, you can move the cloud data associated with the failed device to another device by using the primary device as the *source* and specifying another device as the *target*. This process is referred to as the *failover*. During failover, all the volumes or the shares from the source device change ownership and are transferred to the target device. No filtering of the data is allowed.
+En un escenario de recuperación ante desastres, el dispositivo principal deja de funcionar. En esta situación, puede mover los datos en la nube asociados al dispositivo con error a otro dispositivo usando el dispositivo primario como *origen* y especificando otro dispositivo como *destino*. Este proceso se conoce como *conmutación por error*. Durante la conmutación por error, todos los volúmenes o los recursos compartidos del dispositivo de origen cambian la propiedad y se transfieren al dispositivo de destino. No se permite ningún filtrado de los datos.
 
-DR is modeled as a full device restore using the heat map–based tiering and tracking. A heat map is defined by assigning a heat value to the data based on read and write patterns. This heat map then tiers the lowest heat data chunks to the cloud first while keeping the high heat (most used) data chunks in the local tier. During a DR, the heat map is used to restore and rehydrate the data from the cloud. The device fetches all the volumes/shares in the last recent backup (as determined internally) and performs a restore from that backup. The entire DR process is orchestrated by the device.
-
-
-## <a name="prerequisites-for-device-failover"></a>Prerequisites for device failover
+La recuperación ante desastres se modela como una restauración total del dispositivo mediante la organización en capas basada en mapas térmico y el seguimiento. Un mapa térmico se define mediante la asignación de un valor término a los datos según los patrones de lectura y escritura. A continuación, este mapa térmico asigna los niveles de los fragmentos de datos de calor más bajo a la nube primero y mantiene los fragmentos de datos de mayor calor (más usados) en el nivel local. Durante una recuperación ante desastres, se utiliza el mapa térmico para restaurar y rehidratar los datos desde la nube. El dispositivo captura todos los volúmenes o recursos compartidos de la copia de seguridad más reciente (según se determine internamente) y realiza una restauración a partir de la copia de seguridad. El dispositivo organiza todo el proceso de recuperación ante desastres.
 
 
-### <a name="prerequisites"></a>Prerequisites
+## Requisitos previos para la conmutación por error de un dispositivo
 
-For any device failover, the following prerequisites should be satisfied:
 
-- The source device needs to be in a **Deactivated** state.
+### Requisitos previos
 
-- The target device needs to show up as **Active** in the Azure classic portal. You will need to provision a target virtual device of the same or higher capacity. You should then use the local web UI to configure and successfully register the virtual device.
+Para la conmutación por error de cualquier dispositivo, deben cumplirse los siguientes requisitos previos:
 
-    > [AZURE.IMPORTANT] Do not attempt to configure the registered virtual device through the service by clicking **complete device setup**. No device configuration should be performed through the service.
+- El dispositivo de origen debe estar en un estado **Desactivado**.
 
-- The source and target device have to be the same type. You can only fail over a virtual device configured as a file server to another file server. The same is true for an iSCSI server.
+- El dispositivo de destino debe aparecer como **Activo** en el Portal de Azure clásico. Debe aprovisionar un dispositivo virtual de destino con una capacidad igual o mayor. A continuación, debe usar la interfaz de usuario web local para configurar y registrar correctamente el dispositivo virtual.
 
-- For a file server DR, we recommend that you join the target device to the same domain as that of the source so that the share permissions are automatically resolved. Only the failover to a target device in the same domain is supported in this release.
+	> [AZURE.IMPORTANT] No intente configurar el dispositivo virtual registrado a través del servicio haciendo clic en **completar configuración del dispositivo**. No debe realizarse ninguna configuración del dispositivo a través del servicio.
 
-### <a name="other-considerations"></a>Other considerations
+- El dispositivo de origen y de destino deben ser del mismo tipo. Solo puede conmutar por error un dispositivo virtual configurado como servidor de archivos a otro servidor de archivos. Lo mismo es cierto para un servidor iSCSI.
 
-- We recommend that you take all the volumes or shares on the source device offline.
+- Para la recuperación ante desastres de un servidor de archivos, se recomienda unir el dispositivo de destino al mismo dominio que el del origen para que los permisos de uso compartido se resuelvan automáticamente. En esta versión, se admite solo la conmutación por error en un dispositivo de destino del mismo dominio.
 
-- If it is a planned failover, we recommend that you take a backup of the device and then proceed with the failover to minimize data loss. If it is an unplanned failover, the most recent backup will be used to restore the device.
+### Otras consideraciones
 
-- The available target devices for DR are devices that have the same or larger capacity compared to the source device. The devices that are connected to your service but do not meet the criteria of sufficient space will not be available as target devices.
+- Se recomienda que deje sin conexión todos los volúmenes o recursos compartidos en el dispositivo de origen.
 
-### <a name="dr-prechecks"></a>DR prechecks
+- Si se trata de una conmutación por error planeada, se recomienda que realice una copia de seguridad del dispositivo y, a continuación, continúe con la conmutación por error para minimizar la pérdida de datos. Si es una conmutación por error no planeada, se utilizará la copia de seguridad más reciente para restaurar el dispositivo.
 
-Before the DR begins, prechecks are performed on the device. These checks help ensure that no errors will occur when DR commences. The prechecks include:
+- Los dispositivos de destino disponibles para la recuperación ante desastres son dispositivos que tienen una capacidad igual o superior en comparación con el dispositivo de origen. Los dispositivos que están conectados al servicio pero que no cumplen los criterios de espacio suficiente no estarán disponibles como dispositivos de destino.
 
-- Validating the storage account
+### Comprobaciones previas para la recuperación ante desastres
 
-- Checking the cloud connectivity to Azure
+Antes de comenzar la recuperación ante desastres, se realizan comprobaciones previas en el dispositivo. Estas comprobaciones ayudan a garantizar que no se producirán errores cuando comience la recuperación ante desastres. Las comprobaciones previas incluyen:
 
-- Checking available space on the target device
+- Validar una cuenta de almacenamiento
 
-- Checking if an iSCSI server source device has valid ACR names, IQN (not exceeding 220 characters in length), and CHAP password (12 and 16 characters in length) associated with the volumes
+- Comprobar la conectividad de la nube en Azure
 
-If any of the above prechecks fail, you cannot proceed with the DR. You need to resolve those issues and then retry DR.
+- Comprobar el espacio disponible en el dispositivo de destino
 
-After the DR is successfully completed, the ownership of the cloud data on the source device is transferred to the target device. The source device is then no longer available in the portal. Access to all the volumes/shares on the source device is blocked and the target device becomes active.
+- Comprobar si un dispositivo de origen del servidor iSCSI tiene nombres de registro de control de acceso (ACR) válidos, nombres IQN (que no superen los 220 caracteres de longitud) y contraseña CHAP (12 y 16 caracteres de longitud) asociados con los volúmenes
 
-> [AZURE.IMPORTANT]
-> 
-> Though the device is no longer available, the virtual machine that you provisioned on the host system is still consuming resources. Once the DR is successfully complete, you can delete this virtual machine from your host system.
+Si se produce un error en cualquiera de las comprobaciones previas anteriores, no puede continuar con la recuperación ante desastres. Debe resolver esos problemas y luego volver a intentar la recuperación ante desastres.
 
-## <a name="fail-over-to-a-virtual-array"></a>Fail over to a virtual array
-
-We recommend that you have another StorSimple Virtual Array provisioned, configured via the local web UI, and registered with the StorSimple Manager service prior to running this procedure.
-
+Una vez que haya completado correctamente la recuperación ante desastres, la propiedad de los datos de la nube en el dispositivo de origen se transfiere al dispositivo de destino. A continuación, el dispositivo de origen ya no estará disponible en el portal. El acceso a todos los volúmenes o recursos compartidos en el dispositivo de origen se bloquea y se activa el dispositivo de destino.
 
 > [AZURE.IMPORTANT]
 > 
-> - You are not allowed to fail over from a StorSimple 8000 series device to a 1200 virtual device.
-> - You can fail over from a Federal Information Processing Standard (FIPS) enabled virtual device deployed in Government portal to a virtual device in Azure classic portal. The reverse is also true.
+> Aunque el dispositivo ya no está disponible, la máquina virtual que se ha aprovisionado en el sistema host sigue consumiendo recursos. Una vez que la recuperación ante desastres se haya completado correctamente, podrá eliminar esta máquina virtual del sistema host.
 
-Perform the following steps to restore the device to a target StorSimple virtual device.
+## Conmutación por error a una matriz virtual
 
-1. Take volumes/shares offline on the host. Refer to the operating system–specific instructions on the host to take the volumes/shares offline. If not already offline, you will need to take all the volumes/shares offline on the device by going to **Devices > Shares** (or **Device > Volumes**). Select a share/volume and click **Take offline** on the bottom of the page. When prompted for confirmation, click **Yes**. Repeat this process for all the shares/volumes on the device.
-
-2. On the **Devices** page, select the source device for failover and click **Deactivate**. 
-    ![](./media/storsimple-ova-failover-dr/image16.png)
-
-3. You will be prompted for confirmation. Device deactivation is a permanent process that cannot be undone. You will also be reminded to take your shares/volumes offline on the host.
-
-    ![](./media/storsimple-ova-failover-dr/image18.png)
-
-3. Upon confirmation, the deactivation will start. After the deactivation is successfully completed, you will be notified.
-
-    ![](./media/storsimple-ova-failover-dr/image19.png)
-
-4. On the **Devices** page, the device state will now change to **Deactivated**.
-
-    ![](./media/storsimple-ova-failover-dr/image20.png)
-
-5. Select the deactivated device and at the bottom of the page, click **Failover**.
-
-6. In the Confirm failover wizard that opens up, do the following:
-
-    1. From the dropdown list of available devices, choose a **Target device.** Only the devices that have sufficient capacity are displayed in the dropdown list.
-
-    2. Review the details associated with the source device such as device name, total capacity, and the names of the shares that will be failed over.
-
-        ![](./media/storsimple-ova-failover-dr/image21.png)
-
-7. Check **I agree that failover is a permanent operation and once the failover is successfully completed, the source device will be deleted**.
-
-8. Click the check icon ![](./media/storsimple-ova-failover-dr/image1.png).
+Se recomienda que tenga otra matriz virtual de StorSimple aprovisionada, configurada a través de la interfaz de usuario web local y registrada en el servicio StorSimple Manager antes de ejecutar este procedimiento.
 
 
-9. A failover job will be initiated and you will be notified. Click **View job** to monitor the failover.
+> [AZURE.IMPORTANT]
+> 
+> - No se permite conmutar por error de un dispositivo StorSimple de la serie 8000 a un dispositivo virtual 1200.
+> - Puede realizar la conmutación por error de un dispositivo virtual habilitado para FIPS (Estándar federal de procesamiento de información) implementado en el portal gubernamental a uno del Portal de Azure clásico. Lo mismo sucede al contrario.
 
-    ![](./media/storsimple-ova-failover-dr/image22.png)
+Siga estos pasos para restaurar el dispositivo a un dispositivo virtual de StorSimple de destino.
 
-10. In the **Jobs** page, you will see a failover job created for the source device. This job performs the DR prechecks.
+1. Desconecte los volúmenes o recursos compartidos en el host. Consulte las instrucciones específicas del sistema operativo en el host para desconectar los volúmenes o recursos compartidos. Si aún no está sin conexión, para desconectar todos los volúmenes o recursos compartidos en el dispositivo debe ir a **Dispositivos > Recursos compartidos** (o **Dispositivos > Volúmenes**). Seleccione un recurso compartido o volumen y haga clic en **Desconectar** en la parte inferior de la página. Cuando se le pida confirmación, haga clic en **Sí**. Repita este proceso para todos los recursos compartidos o volúmenes en el dispositivo.
 
-    ![](./media/storsimple-ova-failover-dr/image23.png)
+2. En la página **Dispositivos**, seleccione el dispositivo de origen para la conmutación por error y haga clic en **Desactivar**. ![](./media/storsimple-ova-failover-dr/image16.png)
 
-    After the DR prechecks are successful, the failover job will spawn restore jobs for each share/volume that exists on your source device.
+3. Se le pedirá confirmación. La desactivación de un dispositivo es un proceso permanente que no se puede deshacer. También se le recordará desconectar los recursos compartidos o volúmenes en el host.
 
-    ![](./media/storsimple-ova-failover-dr/image24.png)
+	![](./media/storsimple-ova-failover-dr/image18.png)
 
-11. After the failover is completed, go to the **Devices** page.
+3. Tras la confirmación, se iniciará la desactivación. Después de que la desactivación se haya completado correctamente, recibirá una notificación.
 
-    a. Select the StorSimple virtual device that was used as the target device for the failover process.
+	![](./media/storsimple-ova-failover-dr/image19.png)
 
-    b. Go to **Shares** page (or **Volumes** if iSCSI server). All the shares (volumes) from the old device should now be listed.
-    
-    ![](./media/storsimple-ova-failover-dr/image25.png)
+4. En la página **Dispositivos**, el estado del dispositivo cambiará a **Desactivado**.
 
-![](./media/storsimple-ova-failover-dr/video_icon.png) **Video available**
+	![](./media/storsimple-ova-failover-dr/image20.png)
 
-This video demonstrates how you can fail over a StorSimple on-premises virtual device to another virtual device.
+5. Seleccione el dispositivo desactivado y, en la parte inferior de la página, haga clic en **Conmutación por error**.
+
+6. En el Asistente de confirmación de conmutación por error que se abre, haga lo siguiente:
+
+    1. En la lista desplegable de dispositivos disponibles, elija un **dispositivo de destino**. En la lista desplegable solo se muestran los dispositivos con capacidad suficiente.
+
+    2. Revise los detalles asociados con el dispositivo de origen, como el nombre de dispositivo, la capacidad total y los nombres de los recursos compartidos que se conmutarán por error.
+
+		![](./media/storsimple-ova-failover-dr/image21.png)
+
+7. Marque **Acepto que la conmutación por error es una operación permanente y que una vez completada, el dispositivo de origen se eliminará**.
+
+8. Haga clic en el icono de marca de verificación ![](./media/storsimple-ova-failover-dr/image1.png).
+
+
+9. Se iniciará un trabajo de conmutación por error y se le notificará. Haga clic en **Ver trabajo** para supervisar la conmutación por error.
+
+	![](./media/storsimple-ova-failover-dr/image22.png)
+
+10. En la página **Trabajos**, verá un trabajo de conmutación por error creado para el dispositivo de origen. Este trabajo realiza las comprobaciones previas de recuperación ante desastres.
+
+	![](./media/storsimple-ova-failover-dr/image23.png)
+
+ 	Después de que las comprobaciones previas de recuperación ante desastres se realizan correctamente, el trabajo de conmutación por error generará los trabajos de restauración para cada recurso compartido o volumen que exista en el dispositivo de origen.
+
+	![](./media/storsimple-ova-failover-dr/image24.png)
+
+11. Una vez completada la conmutación por error, vaya a la página **Dispositivos**.
+
+	a. Seleccione el dispositivo virtual de StorSimple que se usó como dispositivo de destino para el proceso de conmutación por error.
+
+	b. Vaya a la página **Recursos compartidos** (o **Volúmenes** si se trata de un servidor iSCSI). Todos los recursos compartidos (volúmenes) del dispositivo antiguo deberían aparecer ahora.
+ 	
+	![](./media/storsimple-ova-failover-dr/image25.png)
+
+![](./media/storsimple-ova-failover-dr/video_icon.png) **Vídeo disponible**
+
+En este vídeo se muestra cómo puede conmutar por error un dispositivo virtual StorSimple local a otro dispositivo virtual.
 
 > [AZURE.VIDEO storsimple-virtual-array-disaster-recovery]
 
-## <a name="business-continuity-disaster-recovery-(bcdr)"></a>Business continuity disaster recovery (BCDR)
+## Recuperación ante desastres y continuidad empresarial (BCDR)
 
-A business continuity disaster recovery (BCDR) scenario occurs when the entire Azure datacenter stops functioning. This can affect your StorSimple Manager service and the associated StorSimple devices.
+Un escenario de recuperación ante desastres y continuidad empresarial (BCDR) se produce cuando todo el centro de datos de Azure deja de funcionar. Esto puede afectar al servicio de Administrador de StorSimple y a los dispositivos StorSimple asociados.
 
-If there are StorSimple devices that were registered just before a disaster occurred, then these StorSimple devices may need to be deleted. After the disaster, you can recreate and configure those devices.
+Si hay dispositivos StorSimple que se registraron justo antes de que ocurriera un desastre, es posible que estos dispositivos StorSimple deban eliminarse. Después del desastre, puede volver a crear y configurar esos dispositivos.
 
-## <a name="errors-during-dr"></a>Errors during DR
+## Errores durante la recuperación ante desastres
 
-**Cloud connectivity outage during DR**
+**Interrupción de la conectividad de la nube durante la recuperación ante desastres**
 
-If the cloud connectivity is disrupted after DR has started and before the device restore is complete, the DR will fail and you will be notified. The target device that was used for DR is then marked as *unusable.* The same target device cannot be then used for future DRs.
+Si se interrumpe la conectividad de la nube después de haberse iniciado la recuperación ante desastres y antes de completar la restauración del dispositivo, se producirá un error en la recuperación ante desastres y se le notificará. El dispositivo de destino que se utilizó para la recuperación ante desastres se marca entonces como *No usable*. El mismo dispositivo de destino no se puede utilizar luego para futuras recuperaciones ante desastres.
 
-**No compatible target devices**
+**No hay dispositivos de destino compatibles**
 
-If the available target devices do not have sufficient space, you will see an error to the effect that there are no compatible target devices.
+Si los dispositivos de destino disponibles no tienen espacio suficiente, verá un error que le indicará que no hay ningún dispositivo de destino compatible.
 
-**Precheck failures**
+**Errores de las comprobaciones previas**
 
-If one of the prechecks is not satisfied, then you will see precheck failures.
+Si no se cumple una de las comprobaciones previas, verá errores de las comprobaciones previas.
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-Learn more about how to [administer your StorSimple Virtual Array using the local web UI](storsimple-ova-web-ui-admin.md).
+Obtenga más información sobre cómo [administrar la matriz virtual de StorSimple mediante la interfaz de usuario web local](storsimple-ova-web-ui-admin.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

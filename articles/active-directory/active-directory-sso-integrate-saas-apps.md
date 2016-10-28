@@ -1,8 +1,8 @@
 <properties
-    pageTitle="Integrate Azure Active Directory single sign-on with SaaS apps |  Microsoft Azure"
-    description="Enable single sign-on authentication and user provisioning centralized access management of SaaS apps in Azure Active Directory. An overview of how to integrate Azure Active Directory to SaaS apps."
+    pageTitle="Integración del inicio de sesión único de Azure Active Directory con aplicaciones SaaS | Microsoft Azure"
+    description="Habilite la autenticación de inicio de sesión único y la administración del acceso centralizado para el aprovisionamiento de usuarios de las aplicaciones SaaS en Azure Active Directory. Información general sobre cómo integrar Azure Active Directory en las aplicaciones SaaS."
     services="active-directory"
-      keywords="integrate Azure AD with SaaS apps"
+	  keywords="integrar Azure AD con aplicaciones SaaS"
     documentationCenter=""
     authors="curtand"
     manager="femila"
@@ -14,71 +14,62 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="09/30/2016"
+    ms.date="07/20/2016"
     ms.author="curtand"/>
 
-
-# <a name="integrate-azure-active-directory-single-sign-on-with-saas-apps"></a>Integrate Azure Active Directory single sign-on with SaaS apps  
-
-> [AZURE.SELECTOR]
-- [Azure portal](active-directory-enterprise-apps-manage-sso.md)
-- [Azure classic portal](active-directory-sso-integrate-saas-apps.md)
+# Integración del inicio de sesión único de Azure Active Directory con aplicaciones SaaS  
 
 [AZURE.INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
-To get started setting up single sign-on for an app that you’re bringing into your organization, you will be using an existing directory in Azure Active Directory (Azure AD). You can use an Azure AD directory that you obtain through Microsoft Azure, Office 365, or Windows Intune. If you have two or more of these, see [Administer your Azure AD directory](active-directory-administer.md) to determine which one to use.
+Para empezar a configurar el inicio de sesión único para una aplicación que traiga a su organización, usará un directorio existente en Azure Active Directory (Azure AD). Puede usar un directorio de Azure AD que obtenga a través de Microsoft Azure, Office 365 o Windows Intune. Si dispone de dos o más de estas aplicaciones, vea [Administración del directorio de Azure AD](active-directory-administer.md) para determinar cuál de ellas usar.
 
-## <a name="authentication"></a>Authentication
+## Autenticación
 
-For applications that support the SAML 2.0, WS-Federation, or OpenID Connect protocols, Azure Active Directory uses signing certificates to establish trust relationships. For more information about this, see [Managing certificates for federated single sign-on](active-directory-sso-certs.md).
+Para las aplicaciones que admiten SAML 2.0, WS-Federation, o protocolos OpenID Connect, usa Azure Active Directory usa la firma de certificados para establecer relaciones de confianza. Para obtener más información, consulte [Administración de certificados para inicio de sesión único federado](active-directory-sso-certs.md).
 
-For applications that support only HTML forms-based sign-in, Azure Active Directory uses ‘password vaulting’ to establish trust relationships. This enables the users in your organization to be automatically signed in to a SaaS application by Azure AD using the user account information from the SaaS application. Azure AD collects and securely stores the user account information and the related password. For more information, see [Password-based single sign-on](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
+Para las aplicaciones que admiten únicamente el inicio de sesión basado en formularios HTML, Azure Active Directory utiliza el 'almacén de contraseñas' para establecer relaciones de confianza. Permite a los usuarios de su organización iniciar la sesión automáticamente en una aplicación SaaS de terceros en Azure AD, usando la información de la cuenta del usuario de la aplicación SaaS. Azure AD recopila y almacena de forma segura la información de la cuenta del usuario y la contraseña correspondiente. Para obtener más información, consulte [Inicio de sesión único con contraseña](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
 
-## <a name="authorization"></a>Authorization
+## Autorización
 
-A provisioned account enables a user to be authorized to use an application after they have authenticated through single sign-on. User provisioning can be done manually, or in some cases you can add and remove user information from the SaaS app based on changes made in Azure Active Directory. For more information on using existing Azure AD connectors for automated provisioning, see  [Automated user provisioning and de-provisioning for SaaS applications](active-directory-saas-app-provisioning.md).
+Una cuenta aprovisionada permite al usuario tener autorización para usar una aplicación, después de haberse autenticado a través de un inicio de sesión único. El aprovisionamiento de usuarios puede realizarse manualmente o, en algunos casos, puede agregar y quitar la información de usuario de la aplicación de SaaS basándose en los cambios realizados en Azure Active Directory. Para más información sobre el uso de conectores de Azure AD existentes para el aprovisionamiento automatizado, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md).
 
-Otherwise, you can manually add user information to an app, or use other provisioning solutions that are available in the marketplace.
+De lo contrario, puede agregar manualmente la información de usuario a una aplicación o usar otras soluciones de aprovisionamiento que están disponibles en Marketplace.
 
-## <a name="access"></a>Access
+## Access
 
-Azure AD provides several customizable ways to deploy applications to end users in your organization. You are not locked into any particular deployment or access solution. You can use [the solution that best suits your needs](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+Azure AD proporciona varias maneras personalizables para implementar aplicaciones para los usuarios finales de su organización. No se bloquea en cualquier implementación concreta o solución de acceso. Puede usar [la solución que mejor se adapte a sus necesidades](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
 
-## <a name="additional-considerations-for-applications-already-in-use"></a>Additional considerations for applications already in use
+## Consideraciones adicionales para las aplicaciones ya en uso
 
-Setting up single sign on for an application that your organization already uses is a different process from the process of creating new accounts for a new application. There are a couple of preliminary steps including: mapping user identities in the application to Azure AD identities, and understanding how users will experience logging in to an application after it is integrated.
+La configuración del inicio de sesión único para una aplicación que ya se usa en su organización es un proceso diferente al de crear nuevas cuentas para una nueva aplicación. Hay un par de pasos preliminares: asignar las identidades de usuario de la aplicación a las identidades de Azure AD y comprender cómo los usuarios experimentarán el inicio de sesión en una aplicación una vez que esté integrada.
 
-> [AZURE.NOTE] To set up SSO for an existing application, you need to have global administrator rights in both Azure AD and the SaaS application.
+> [AZURE.NOTE] Para configurar el inicio de sesión único para una aplicación existente, debe tener derechos de administrador global tanto en Azure AD como en la aplicación de SaaS.
 
-### <a name="mapping-user-accounts"></a>Mapping user accounts
+### Asignación de cuentas de usuario
 
-A user's identity typically has a unique identifier that could be an email address, or user principal name (UPN). You will need to link (map) each user's application identity to their respective Azure AD identity. There are a couple of ways to accomplish this depending on how the requirement of your application authentication.
+Normalmente, la identidad de un usuario tiene un identificador único que podría ser una dirección de correo electrónico o un nombre principal de usuario (UPN). Tendrá que vincular (asignar) la identidad de la aplicación de cada usuario a sus respectivas identidades de Azure AD. Hay dos maneras de lograrlo en función del requisito de autenticación de la aplicación.
 
-For more information about mapping application identities with Azure AD identities, see [Customizing claims issued in the SAML token](http://social.technet.microsoft.com/wiki/contents/articles/31257.azure-active-directory-customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps.aspx) and [Customizing attribute mappings for provisioning](active-directory-saas-customizing-attribute-mappings.md).
+Para obtener más información sobre la vinculación de identidades de la aplicación con identidades de Azure AD, consulte [Personalización de notificaciones emitidas en el token SAML](http://social.technet.microsoft.com/wiki/contents/articles/31257.azure-active-directory-customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps.aspx) y [Personalización de asignaciones de atributos para aprovisionamiento](active-directory-saas-customizing-attribute-mappings.md).
 
-### <a name="understanding-the-user's-log-in-experience"></a>Understanding the user's log in experience
+### Descripción de la experiencia de inicio de sesión del usuario
 
-When you integrate SSO for an application that’s already in use, it’s important to realize that the user experience will be affected. For all applications, users will start using their Azure AD credentials to sign in. It could also be that they must use a different portal to access the applications.
+Al integrar el inicio de sesión único para una aplicación que ya está en uso, es importante tener en cuenta que la experiencia del usuario se verá afectada. Para todas las aplicaciones, los usuarios comenzarán a usar sus credenciales de Azure AD para iniciar sesión. Además, pueden tener que usar otro portal para acceder a las aplicaciones.
 
-SSO for some applications can be done on the application's sign in interface, but for other applications, the user will have to go through a central portal such as ([My Apps](http://myapps.microsoft.com) or [Office365](http://portal.office.com/myapps)) to sign in. Learn more about the different types of SSO and their user experiences in [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+El inicio de sesión único para algunas aplicaciones puede realizarse en la interfaz de inicio de sesión de la aplicación, pero para otras aplicaciones el usuario tendrá que obtener acceso a un portal de la aplicación central ([Mis aplicaciones](http://myapps.microsoft.com) u [Office365](http://portal.office.com/myapps)) para iniciar sesión. Obtenga más información acerca de los diferentes tipos de inicio de sesión único y sus experiencias de usuario en [Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Another valuable resource is *Suppressing user consent* in the [Guiding developers](active-directory-applications-guiding-developers-for-lob-applications.md) article.
+Vea también *Supresión del consentimiento del usuario* en el artículo [Guiar a los desarrolladores](active-directory-applications-guiding-developers-for-lob-applications.md).
 
-## <a name="next-steps"></a>Next steps
-
-
-For SaaS apps that you find in the App Gallery, Azure AD provides a number of [tutorials on how to integrate SaaS apps](active-directory-saas-tutorial-list.md).
-
-If app is not in App Gallery, you can [add it to the Azure AD App Gallery as a custom application](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
-
-There is much more detail on all of these issues in the Azure.com library, beginning with [What is application access and single sign-on with Azure Active Directory.](active-directory-appssoaccess-whatis.md).
-
-## <a name="see-also"></a>See also
-
-- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+## Pasos siguientes
 
 
+Para las aplicaciones SaaS incluidas en la galería de aplicaciones, Azure AD ofrece una serie de [tutoriales sobre cómo integrarlas](active-directory-saas-tutorial-list.md).
 
-<!--HONumber=Oct16_HO2-->
+Si la aplicación no está en la galería de aplicaciones, puede [agregarla a la galería de aplicaciones de Azure AD como una aplicación personalizada](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
+Encontrará más información sobre todos estos problemas en la biblioteca de Azure.com, por ejemplo, [Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
+## Consulte también
+
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,6 +1,6 @@
 <properties
-  pageTitle="Load Balancer custom probes and monitoring health status | Microsoft Azure"
-  description="Learn how to use custom probes for Azure Load Balancer to monitor instances behind Load Balancer"
+  pageTitle="Sondeos personalizados del Equilibrador de carga y supervisión de estado de mantenimiento | Microsoft Azure"
+  description="Aprenda a usar sondeos personalizados para el Equilibrador de carga de Azure para supervisar las instancias detrás de dicho Equilibrador."
   services="load-balancer"
   documentationCenter="na"
   authors="sdwheeler"
@@ -17,82 +17,77 @@
   ms.date="08/25/2016"
   ms.author="sewhee" />
 
+# Sondeos del Equilibrador de carga
 
-# <a name="load-balancer-probes"></a>Load Balancer probes
+El Equilibrador de carga de Azure ofrece la capacidad de supervisar el estado de las instancias del servidor mediante sondeos. Cuando un sondeo no responde, el Equilibrador de carga deja de enviar nuevas conexiones a la instancia incorrecta. Las conexiones existentes no resultan afectadas y las nuevas conexiones se envían a instancias en buen estado.
 
-Azure Load Balancer offers the capability to monitor the health of server instances by using probes. When a probe fails to respond, Load Balancer stops sending new connections to the unhealthy instance. The existing connections are not affected, and new connections are sent to healthy instances.
+Los roles del servicio en la nube (los roles de trabajo y los roles web) usan un agente invitado con supervisión del sondeo del agente invitado. Deben configurarse sondeos TCP o HTTP personalizados al usar máquinas virtuales detrás del Equilibrador de carga.
 
-Cloud service roles (worker roles and web roles) use a guest agent for probe monitoring. TCP or HTTP custom probes must be configured when you use virtual machines behind Load Balancer.
+## Descripción del número y el tiempo de espera de los sondeos
 
-## <a name="understand-probe-count-and-timeout"></a>Understand probe count and timeout
+El comportamiento de los sondeos depende de:
 
-Probe behavior depends on:
+- El número de sondeos correctos que permiten que una instancia se etiquete como activa.
+- El número de sondeos erróneos que permiten que una instancia se etiquete como inactiva.
 
-- The number of successful probes that allow an instance to be labeled as up.
-- The number of failed probes that cause an instance to be labeled as down.
+El tiempo de espera dividido por el valor de la frecuencia de sondeo equivale a SuccessFailCount, que determina si se da por supuesto que una instancia está activa o inactiva. En el portal de Azure, el tiempo de espera se establece en dos veces el valor de la frecuencia.
 
-The timeout divided by the probe frequency value is equal to SuccessFailCount which determines whether an instance is assumed to be up or down. In the Azure portal, the timeout is set to two times the value of the frequency.
-
-The probe configuration of all load-balanced instances for an endpoint (that is, a load-balanced set) must be the same. This means you cannot have a different probe configuration for each role instance or virtual machine in the same hosted service for a particular endpoint combination. For example, each instance must have identical local ports and timeouts.
-
-
->[AZURE.IMPORTANT] A Load Balancer probe uses the IP address 168.63.129.16. This public IP address facilitates communication to internal platform resources for the bring-your-own-IP Azure Virtual Network scenario. The virtual public IP address 168.63.129.16 is used in all regions and will not change. We recommend that you allow this IP address in any local firewall policies. It should not be considered a security risk because only the internal Azure platform can source a message from that address. If you do not do this, there will be unexpected behavior in a variety of scenarios like configuring the same IP address range of 168.63.129.16 and having duplicated IP addresses.
-
-## <a name="learn-about-the-types-of-probes"></a>Learn about the types of probes
-
-### <a name="guest-agent-probe"></a>Guest agent probe
-
-This probe is available for Azure Cloud Services only. Load Balancer utilizes the guest agent inside the virtual machine, and then listens and responds with an HTTP 200 OK response only when the instance is in the Ready state (that is, not in another state such as Busy, Recycling, or Stopping).
-
-For more information, see [Configuring the service definition file (csdef) for health probes](https://msdn.microsoft.com/library/azure/jj151530.asp) or [Get started creating an Internet-facing load balancer for cloud services](load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services).
-
-### <a name="what-makes-a-guest-agent-probe-mark-an-instance-as-unhealthy?"></a>What makes a guest agent probe mark an instance as unhealthy?
-
-If the guest agent fails to respond with HTTP 200 OK, the Load Balancer marks the instance as unresponsive and stops sending traffic to that instance. Load Balancer continues to ping the instance. If the guest agent responds with an HTTP 200, Load Balancer sends traffic to that instance again.
-
-When you use a web role, the website code typically runs in w3wp.exe, which is not monitored by the Azure fabric or guest agent. This means that failures in w3wp.exe (for example, HTTP 500 responses) will not be reported to the guest agent, and Load Balancer will not take that instance out of rotation.
-
-### <a name="http-custom-probe"></a>HTTP custom probe
-
-The custom HTTP Load Balancer probe overrides the default guest agent probe, which means that you can create your own custom logic to determine the health of the role instance. Load Balancer probes your endpoint every 15 seconds, by default. The instance is considered to be in the Load Balancer rotation if it responds with an HTTP 200 within the timeout period (31 seconds by default).
-
-This can be useful if you want to implement your own logic to remove instances from Load Balancer rotation. For example, you could decide to remove an instance if it is above 90% CPU and returns a non-200 status. If you have web roles that use w3wp.exe, this also means you get automatic monitoring of your website, because failures in your website code will return a non-200 status to the Load Balancer probe.
-
->[AZURE.NOTE] The HTTP custom probe supports relative paths and HTTP protocol only. HTTPS is not supported.
-
-### <a name="what-makes-an-http-custom-probe-mark-an-instance-as-unhealthy?"></a>What makes an HTTP custom probe mark an instance as unhealthy?
-
-- The HTTP application returns an HTTP response code other than 200 (for example, 403, 404, or 500). This is a positive acknowledgment that the application instance should be taken out of service right away.
-
-. The HTTP server does not respond at all after the timeout period. Depending on the timeout value that is set, this might mean that multiple probe requests go unanswered before the probe gets marked as not running (that is, before SuccessFailCount probes are sent).
--   The server closes the connection via a TCP reset.
-
-### <a name="tcp-custom-probe"></a>TCP custom probe
-
-TCP probes initiate a connection by performing a three-way handshake with the defined port.
-
-### <a name="what-makes-a-tcp-custom-probe-mark-an-instance-as-unhealthy?"></a>What makes a TCP custom probe mark an instance as unhealthy?
-
-- The TCP server does not respond at all after the timeout period. When the probe is marked as not running depends on the number of failed probe requests that were configured to go unanswered before marking the probe as not running.
-- The probe receives a TCP reset from the role instance.
-
-For more information about configuring an HTTP health probe or a TCP probe, see [Get started creating an Internet-facing load balancer in Resource Manager using PowerShell](load-balancer-get-started-internet-arm-ps.md#create-lb-rules-nat-rules-a-probe-and-a-load-balancer).
-
-## <a name="add-healthy-instances-back-into-load-balancer-rotation"></a>Add healthy instances back into Load Balancer rotation
-
-TCP and HTTP probes are considered healthy and mark the role instance as healthy when:
-
-- Load Balancer gets a positive probe the first time the VM boots.
-- The number SuccessFailCount (described earlier) defines the value of successful probes that are required to mark the role instance as healthy. If a role instance was removed, the number of successful, successive probes must equal or exceed the value of SuccessFailCount to mark the role instance as running.
-
->[AZURE.NOTE] If the health of a role instance is fluctuating, Load Balancer waits longer before putting the role instance back in the healthy state. This is done via policy to protect the user and the infrastructure.
-
-## <a name="use-log-analytics-for-load-balancer"></a>Use log analytics for Load Balancer
-
-You can use [log analytics for Load Balancer](load-balancer-monitor-log.md) to check on the probe health status and probe count. Logging can be used with Power BI or Azure Operational Insights to provide statistics about Load Balancer health status.
+La configuración de los sondeos de todas las instancias con carga equilibrada para un punto de conexión (es decir, un conjunto de carga equilibrada) debe ser igual. Esto significa que no puede tener una configuración de sondeo distinta para cada instancia de rol o máquina virtual en el mismo servicio hospedado para una combinación determinada de puntos de conexión. Por ejemplo, cada instancia debe tener puertos locales y tiempos de espera idénticos.
 
 
+>[AZURE.IMPORTANT] Un sondeo del Equilibrador de carga utiliza la dirección IP 168.63.129.16. Esta dirección IP pública facilita un canal de comunicación a los recursos internos de plataforma para el escenario de Red virtual de Azure que permite especificar su propia IP. La dirección IP pública virtual 168.63.129.16 se utiliza en todas las regiones y no cambiará. Le recomendamos que permita esta dirección IP en cualquiera de las directivas de firewall local. No se debe considerar un riesgo de seguridad porque la plataforma interna de Azure es la única que puede originar un mensaje procedente de esa dirección. Si no hace esto, se producirá un comportamiento inesperado en varios escenarios, como la configuración del mismo intervalo de direcciones IP de 168.63.129.16 y el hecho de contar con direcciones IP duplicadas.
 
-<!--HONumber=Oct16_HO2-->
+## Obtención de información sobre el tipo de sondeo
 
+### Sondeo de agente invitado
 
+Este sondeo solo está disponible para Servicios en la nube de Azure. El Equilibrador de carga usa al agente invitado que hay dentro de la máquina virtual y después escucha y responde con una respuesta HTTP 200 OK solo cuando la instancia está en estado Preparada (es decir, no se encuentra en otro, como Ocupada, Reciclando, Deteniendo, etc.).
+
+Para más información, consulte [Configuring the service definition file (csdef) for health probes](https://msdn.microsoft.com/library/azure/jj151530.asp) (Configuración del archivo de definición de servicio (csdef) para los sondeos de estado) o [Introducción a la creación de un equilibrador de carga orientado a Internet para servicios en la nube](load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services).
+
+### ¿Qué hace que un sondeo de agente invitado marque una instancia como en mal estado?
+
+Si el agente invitado no responde con HTTP 200 OK, el Equilibrador de carga marca la instancia como sin respuesta y deja de enviar tráfico a esa instancia. El Equilibrador de carga continúa para hacer ping a la instancia. Si el agente invitado responde con un HTTP 200, el Equilibrador de carga envía de nuevo tráfico a esa instancia.
+
+Cuando se usa un rol web, el código de sitio web normalmente se ejecuta en w3wp.exe, que no está supervisado por el agente invitado o el tejido de Azure. Esto significa que los errores en w3wp.exe (por ejemplo, respuestas HTTP 500) no se notificarán al agente invitado y el Equilibrador de carga no sacará esa instancia de la rotación.
+
+### Sondeo HTTP personalizado
+
+El sondeo HTTP personalizado del Equilibrador de carga invalida el sondeo del agente invitado predeterminado, lo que significa que usted puede crear su propia lógica personalizada para determinar el estado de la instancia de rol. El Equilibrador de carga sondea el punto de conexión cada 15 segundos de forma predeterminada. Se considera que la instancia está en la rotación del Equilibrador de carga si responde con un HTTP 200 dentro del período de tiempo de espera (que, de forma predeterminada, es 31 segundos).
+
+Esto puede resultar útil si desea implementar su propia lógica para quitar instancias de rotación del Equilibrador de carga. Por ejemplo, podría decidir quitar una instancia si está por encima del 90 % de la CPU y devuelve un estado no 200. Si tiene roles web que usan w3wp.exe, esto también significa que dispone de supervisión automática de su sitio web, porque los errores en el código de su sitio web devolverán un estado diferente de no 200 al sondeo del Equilibrador de carga.
+
+>[AZURE.NOTE] El sondeo personalizado HTTP admite solo rutas de acceso relativas y protocolo HTTP. HTTPS no es compatible.
+
+### ¿Qué hace que un sondeo HTTP personalizado marque una instancia como en mal estado?
+
+- La aplicación HTTP devuelve un código HTTP de respuesta distinto de 200 (por ejemplo, 403, 404 o 500). Se trata de una confirmación positiva de que la instancia de la aplicación debe desconectarse del servicio inmediatamente.
+
+. El servidor HTTP no responde en absoluto después del período de tiempo de espera. Dependiendo del valor del tiempo de espera establecido, esto podría significar que varias solicitudes de sondeo van sin respuesta antes de que el sondeo se marque como no en ejecutando (es decir, antes de que se envíen sondeos SuccessFailCount).
+- 	El servidor cierra la conexión a través de un restablecimiento TCP.
+
+### Sondeo TCP personalizado
+
+Los sondeos TCP inician una conexión mediante la realización de un protocolo de enlace de tres vías con el puerto definido.
+
+### ¿Qué hace que un sondeo TCP personalizado marque una instancia como en mal estado?
+
+- El servidor TCP no responde en absoluto después del período de tiempo de espera. Cuando el sondeo se marca como no en ejecución depende del número de solicitudes de sondeo con error que se configuraron para ir sin respuesta antes de marcar el sondeo como no en ejecución.
+- El sondeo recibe un restablecimiento TCP de la instancia de rol.
+
+Para más información sobre cómo configurar un sondeo de estado HTTP o un sondeo TCP, consulte [Introducción a la creación de un equilibrador de carga orientado a Internet en el Administrador de recursos con PowerShell](load-balancer-get-started-internet-arm-ps.md#create-lb-rules-nat-rules-a-probe-and-a-load-balancer).
+
+## Incorporación de instancias en buen estado de nuevo en la rotación de Load Balancer
+
+Los sondeos TCP y HTTP se consideran en buen estado y marcan la instancia de rol como en buen estado en los casos siguientes:
+
+- El Equilibrador de carga obtiene un sondeo positivo la primera vez que se inicia la VM.
+- El número SuccessFailCount (descrito anteriormente) define el valor de los sondeos correctos que son necesarios para marcar la instancia de rol como en buen estado. Si se quitó una instancia de rol, el número de sondeos correctos y sucesivos debe ser igual o superior al valor de SuccessFailCount para marcar la instancia de rol como en ejecución.
+
+>[AZURE.NOTE] Si el estado de una instancia de rol fluctúa, el Equilibrador de carga espera más tiempo antes de devolver dicha instancia al estado correcto. Esto se hace mediante la directiva para proteger al usuario y a la infraestructura.
+
+## Uso del análisis de registros para el Equilibrador de carga
+
+Puede usar el [análisis de registros para el Equilibrador de carga](load-balancer-monitor-log.md) para comprobar el estado de mantenimiento de un sondeo y el número de sondeos. El registro se puede utilizar con Power BI o con Visión operativa de Azure para proporcionar estadísticas del estado de mantenimiento del Equilibrador de carga.
+
+<!---HONumber=AcomDC_0921_2016-->

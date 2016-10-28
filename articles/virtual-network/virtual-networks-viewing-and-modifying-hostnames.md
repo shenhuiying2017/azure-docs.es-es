@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Viewing and Modifying Hostnames | Microsoft Azure"
-   description="How to view and change hostnames for Azure virtual machines, web and worker roles for name resolution"
+   pageTitle="Ver y modificar los nombres de host | Microsoft Azure"
+   description="Cómo ver y cambiar los nombres de host para máquinas virtuales de Azure, roles de trabajo y web para la resolución de nombres"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -15,65 +15,60 @@
    ms.date="04/27/2016"
    ms.author="jdial" />
 
+# Ver y modificar los nombres de host
 
-# <a name="viewing-and-modifying-hostnames"></a>Viewing and modifying hostnames
+Para permitir que el nombre de host haga referencia a las instancias de rol, debe establecer el valor del nombre de host en el archivo de configuración de servicio de cada rol. Para hacer esto, agregue el nombre de host que quiera al atributo **vmName** del elemento **Rol**. El valor del atributo **vmName** se usa como base para el nombre de host de cada instancia de rol. Por ejemplo, si el atributo **vmName** es *webrole* y hay tres instancias de ese rol, los nombres de host de las instancias serán *webrole0*, *webrole1* y *webrole2*. No es necesario especificar un nombre de host para máquinas virtuales en el archivo de configuración, porque el nombre de host de una máquina virtual se rellena según el nombre de esa máquina virtual. Para obtener más información sobre cómo configurar un servicio de Microsoft Azure, consulte [Esquema de configuración del servicio de Azure (archivo de .cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx).
 
-To allow your role instances to be referenced by host name, you must set the value for the host name in the service configuration file for each role. You do that by adding the desired host name to the **vmName** attribute of the **Role** element. The value of the **vmName** attribute is used as a base for the host name of each role instance. For example, if **vmName** is *webrole* and there are three instances of that role, the host names of the instances will be *webrole0*, *webrole1*, and *webrole2*. You do not need to specify a host name for virtual machines in the configuration file, because the host name for a virtual machine is populated based on the virtual machine name. For more information about configuring a Microsoft Azure service, see [Azure Service Configuration Schema (.cscfg File)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
+## Ver nombres de host
 
-## <a name="viewing-hostnames"></a>Viewing hostnames
+Puede ver los nombres de host de máquinas virtuales e instancias de rol en un servicio en la nube mediante cualquiera de las herramientas siguientes.
 
-You can view the host names of virtual machines and role instances in a cloud service by using any of the tools below.
+### Portal de Azure
 
-### <a name="azure-portal"></a>Azure Portal
+Puede usar el [Portal de Azure](http://portal.azure.com) para ver los nombres de host de las máquinas virtuales en la hoja de información general para una máquina virtual. Tenga en cuenta que la hoja muestra un valor referente al **Nombre** y al **Nombre de host**. Aunque inicialmente son el mismo valor, si decide cambiar el nombre de host no cambiará el nombre de la máquina virtual o instancia de rol.
 
-You can use the [Azure portal](http://portal.azure.com) to view the host names for virtual machines on the overview blade for a virtual machine. Keep in mind that the blade shows a value for **Name** and **Host Name**. Although they are initially the same, changing the host name will not change the name of the virtual machine or role instance.
+Además, también puede ver las instancias de rol en el Portal de Azure, pero al enumerar las instancias de un servicio en la nube, el nombre de host no se mostrará. Verá el nombre de cada instancia, pero recuerde que ese nombre no representa al nombre de host.
 
-Role instances can also be viewed in the Azure portal, but when you list the instances in a cloud service, the host name is not displayed. You will see a name for each instance, but that name does not represent the host name.
+### Archivo de configuración de servicio
 
-### <a name="service-configuration-file"></a>Service configuration file
+Puede descargar en el Portal de Azure el archivo de configuración de servicio de un servicio implementado desde la hoja **Configurar** del servicio. A continuación, puede buscar el atributo **vmName** del elemento **Nombre de rol** para ver el nombre de host. Tenga en cuenta que ese nombre de host se usa como base para cada nombre de host de cada instancia de rol. Por ejemplo, si el atributo **vmName** es *webrole* y hay tres instancias de ese rol, los nombres de host de las instancias serán *webrole0*, *webrole1* y *webrole2*.
 
-You can download the service configuration file for a deployed service from the **Configure** blade of the service in the Azure portal. You can then look for the **vmName** attribute for the **Role name** element to see the host name. Keep in mind that this host name is used as a base for the host name of each role instance. For example, if **vmName** is *webrole* and there are three instances of that role, the host names of the instances will be *webrole0*, *webrole1*, and *webrole2*.
+### Escritorio remoto
 
-### <a name="remote-desktop"></a>Remote Desktop
+Una vez haya habilitado el Escritorio remoto (Windows), la comunicación remota de Windows PowerShell (Windows) o las conexiones SSH (Linux y Windows) en las máquinas virtuales o instancias de rol, podrá ver el nombre de host de una conexión del Escritorio remoto activa de varias maneras:
 
-After you enable Remote Desktop (Windows), Windows PowerShell remoting (Windows), or SSH (Linux and Windows) connections to your virtual machines or role instances, you can view the host name from an active Remote Desktop connection in various ways:
+- Escriba el nombre de host en el símbolo del sistema o en un terminal SSH.
 
-- Type hostname at the command prompt or SSH terminal.
+- Escriba ipconfig/all en el símbolo del sistema (sólo Windows).
 
-- Type ipconfig /all at the command prompt (Windows only).
+- Consulte el nombre del equipo en la configuración del sistema (sólo Windows).
 
-- View the computer name in the system settings (Windows only).
+### API de REST de Administración de servicios de Azure
 
-### <a name="azure-service-management-rest-api"></a>Azure Service Management REST API
+Desde un cliente REST, siga estas instrucciones:
 
-From a REST client, follow these instructions:
+1. Asegúrese de que tiene un certificado de cliente para conectarse al Portal de Azure. Para obtener un certificado de cliente, siga los pasos que se indican en [Descarga e importación de la configuración de publicación y la información de suscripción](https://msdn.microsoft.com/library/dn385850.aspx).
 
-1. Ensure that you have a client certificate to connect to the Azure portal. To obtain a client certificate, follow the steps presented in [How to: Download and Import Publish Settings and Subscription Information](https://msdn.microsoft.com/library/dn385850.aspx). 
+1. Establezca una entrada de encabezado denominada x-ms-version con un valor de 2013-11-01.
 
-1. Set a header entry named x-ms-version with a value of 2013-11-01.
+1. Envíe una solicitud con el siguiente formato: https://management.core.windows.net/\<subscrition-id>/services/hostedservices/<service-name>?embed-detail=true
 
-1. Send a request in the following format: https://management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
+1. Busque el elemento **HostName** de cada elemento **RoleInstance**.
 
-1. Look for the **HostName** element for each **RoleInstance** element.
+>[AZURE.WARNING] Asimismo, puede ver el sufijo de dominio interno del servicio en la nube desde la respuesta a la llamada REST comprobando el elemento **InternalDnsSuffix** o ejecutando ipconfig /all desde un símbolo del sistema en una sesión de Escritorio remoto (Windows) o cat /etc/resolv.conf desde un terminal SSH (Linux).
 
->[AZURE.WARNING] You can also view the internal domain suffix for your cloud service from the REST call response by checking the **InternalDnsSuffix** element, or by running ipconfig /all from a command prompt in a Remote Desktop session (Windows), or by running cat /etc/resolv.conf from an SSH terminal (Linux).
+## Modificar un nombre de host
 
-## <a name="modifying-a-hostname"></a>Modifying a hostname
+Puede modificar el nombre de host de cualquier máquina virtual o instancia de rol al cargar un archivo de configuración de servicio modificado o al cambiar el nombre del equipo desde una sesión de Escritorio remoto.
 
-You can modify the host name for any virtual machine or role instance by uploading a modified service configuration file, or by renaming the computer from a Remote Desktop session.
+## Pasos siguientes
 
-## <a name="next-steps"></a>Next steps
+[resolución de nombres DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
-[Name Resolution (DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+[Esquema de configuración del servicio de Azure (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
 
-[Azure Service Configuration Schema (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
+[Esquema de configuración de red virtual de Azure](http://go.microsoft.com/fwlink/?LinkId=248093)
 
-[Azure Virtual Network Configuration Schema](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Especificación de la configuración de DNS usando los archivos de configuración de red](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-[Specify DNS settings using network configuration files](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Creating a B2B process in Azure App Service | Microsoft Azure" 
-   description="Overview of how to create a Business-to-Business Process" 
+   pageTitle="Creación de un proceso B2B en el Servicio de aplicaciones de Azure | Microsoft Azure" 
+   description="Información general para crear un proceso negocio a negocio" 
    services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
@@ -16,54 +16,52 @@
    ms.date="04/20/2016"
    ms.author="rajram"/>
 
-
-# <a name="creating-a-b2b-process"></a>Creating a B2B process
+# Creación de un proceso B2B
 
 [AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 
-## <a name="business-scenario"></a>Business Scenario 
-Contoso and Northwind are two business partners. Contoso (the retailer) sends purchase orders to Northwind (the supplier) over an industry level transport such as AS2. Northwind stores all incoming orders in its Cloud storage. The purchase orders are XML messages between these two partners. Once the message is stored in Northwind's cloud storage then Northwind's internal processes handle the order from that point on.
+## Escenario empresarial 
+Contoso y Northwind son dos socios comerciales. Contoso (el minorista) envía los pedidos de compra a Northwind (proveedor) a través de un transporte industrial como AS2. Northwind almacena todos los pedidos entrantes en su almacenamiento en nube. Los pedidos de compra son mensajes XML entre estos dos socios. Una vez que el mensaje se almacena en el almacenamiento en la nube de Northwind, los procesos internos de Northwind controlan el pedido a partir de ese punto.
  
-The objective of this tutorial is to establish how Northwind can establish a business process via which it can receive messages (purchase orders in XML) from its partner Contoso over AS2 and then persist it in its Cloud storage.
+El objetivo de este tutorial consiste en determinar cómo Northwind puede establecer un proceso empresarial mediante el cual puede recibir mensajes (pedidos de compra en XML) de su socio Contoso a través de AS2 y, a continuación, conservarlo en su almacenamiento en la nube.
 
 
-## <a name="capabilities-demonstrated"></a>Capabilities demonstrated 
-This tutorial helps showcase the following capabilities: 
+## Funcionalidades mostradas 
+Este tutorial le ayuda a mostrar las siguientes funcionalidades:
 
-- **Message transportation**: The retailer and supplier can be on different platforms but they can still achieve communication between the two. In this tutorial they are communicating over AS2 (Applicability Statement 2). AS2 is a popular way to transport data between trading partners in business-to-business communications.
-- **Data persistence**: Once the message has been received over AS2 then Northwind wants to persist it before further processing. It can use a connector to persist messages in its Cloud storage. In this tutorial Azure Blobs is being leveraged as the cloud storage for Northwind.
-- **Creating a business process**: In a flow, multiple API apps can be stitched together to achieve a business outcome as demonstrated here.
-
-
-## <a name="before-you-begin"></a>Before you begin
-This tutorial assumes that you have a basic understanding of Azure App Services, know how to create API apps, and stitch a flow together.
+- **Transporte de mensajes**: el minorista y el proveedor pueden estar en distintas plataformas, lo que no les impide comunicarse entre sí. En este tutorial se comunican a través de AS2 (Applicability Statement 2). AS2 es una conocida forma de transportar datos entre socios comerciales en comunicaciones negocio a negocio.
+- **Persistencia de datos**: una vez que el mensaje se ha recibido a través de AS2, Northwind desea conservarlo antes de continuar con el procesamiento. Puede usar un conector para conservar mensajes en su almacenamiento en la nube. En este tutorial, se aprovechan los blobs de Azure como el almacenamiento en la nube para Northwind.
+- **Creación de un proceso empresarial**: en un flujo, varias aplicaciones de API se pueden unir para lograr un resultado empresarial, como se muestra aquí.
 
 
-## <a name="steps-to-achieve-the-business-scenario"></a>Steps to achieve the business scenario
-**Create and configure the required API apps**
-
-1. Create an instance of the **Azure Storage Blob Connector**. This requires the credentials to an Azure Storage account. Ensure that it is ready before you start creating this.
-2. Create an instance of the **BizTalk Trading Partner Management**. This requires a blank SQL Database to function. Make sure that it is ready before you start creating this.
-3. Create an instance of the **AS2 Connector**. This also requires a blank SQL Database to function. Make sure that it is ready before you start creating this. Additionally, if you want to archive messages as part of AS2 processing, you may provide credentials to an Azure Blob during its creation.
-4. Configure the TPM (Trading Partner Management) service that is created:  
-    1. Browse to the instance of the TPM service created as part of the above steps.
-    2. Use the **Partners** option under *Components* to **Add** a new partner named **Contoso** and in its profile add the required AS2 identity.
-    3. Use the **Partners** option under *Components* to **Add** a new partner named **Northwind** and in its profile add the required AS2 identity.
-    4. Use the **Agreements** option under *Components* to **Add** a new AS2 agreement between Northwind and Contoso. Northwind will be the hosted partner here, and Contoso will be the guest partner. As appropriate configure signing, encryption, compression, and acknowledgements during this agreement creation. In case certificates need to be used, they can be uploaded via the **Certificates** option when browsing the TPM service that is created.
+## Antes de empezar
+En este tutorial se supone que tiene conocimientos básicos de Servicios de aplicaciones de Azure, sabe cómo crear aplicaciones de API y unir un flujo.
 
 
-## <a name="create-a-flow-/-business-process"></a>Create a flow / business process
-1. Create a new flow in which the first step is AS2. Drag and drop the **AS2 Connector** and choose the instance already created. Choose trigger as the functionality:  
-    ![][1]  
-2. Next drag and drop **Azure Storage Blob Connector** and choose the instance already created. Choose action as the functionality and within that, select **Upload Blob** as the desired functionality. Configure as appropriate.
-3. Now create/deploy the flow.
+## Pasos para lograr el escenario empresarial
+**Creación y configuración de las aplicaciones de API necesarias**
+
+1. Cree una instancia del **conector Blob de almacenamiento de Azure**. Esto requiere las credenciales para una cuenta de almacenamiento de Azure. Asegúrese de que está listo antes de comenzar la creación.
+2. Cree una instancia de **Administración de socios comerciales de BizTalk**. Para que esto funcione, se necesita una base de datos SQL en blanco. Asegúrese de que está listo antes de comenzar la creación.
+3. Cree una instancia del **conector AS2**. Para que esto funcione, también se necesita una base de datos SQL en blanco. Asegúrese de que está listo antes de comenzar la creación. Además, si desea archivar mensajes como parte del procesamiento de AS2, puede proporcionar credenciales a un blob de Azure durante su creación.
+4. Configure el servicio TPM (Administración de socios comerciales) que se crea:
+	1. Vaya a la instancia del servicio TPM creada como parte de los pasos anteriores.
+	2. Use la opción **Socios** en *Componentes* para **agregar** un nuevo asociado denominado **Contoso** y, en su perfil, agregue la identidad AS2 necesaria.
+	3. Use la opción **Socios** en *Componentes* para **agregar** un nuevo asociado denominado **Northwind** y, en su perfil, agregue la identidad AS2 necesaria.
+	4. Use la opción **Acuerdos** en *Componentes* para **agregar** un nuevo acuerdo de AS2 entre Contoso y Northwind. Aquí, Northwind será el socio hospedado y Contoso el socio invitado. Según sea necesario, configure la firma, el cifrado, la compresión y las confirmaciones durante la creación de este acuerdo. En caso de que sea necesario usar certificados, se pueden cargar a través de la opción **Certificados** cuando se examine el servicio TPM que se crea.
 
 
-## <a name="message-processing-&-troubleshooting"></a>Message Processing & Troubleshooting
-1. It is time to test out the flow we have deployed. Send XML messages wrapped in AS2 (as per the AS2 agreement created above) to the AS2 endpoint surfaced by the AS2Connector instance that you created. You may need to configure the authentication for the endpoint so that it is publicly accessible.
-2. Execution information about the flow is surfaced by browsing to the flow and then stepping into the flow instance which got executed
-3. For AS2 processing information, browse to the AS2Connector instance involved, and then follow by stepping into the Tracking part. You can use the filters involved to restrict the view to the information that is desired.
+## Creación de un flujo o proceso empresarial
+1. Cree un nuevo flujo en el que el primer paso sea AS2. Arrastre y coloque el **conector AS2** y elija la instancia ya creada. Elección del desencadenador como la funcionalidad: ![][1]
+2. A continuación, arrastre y coloque el **conector de blobs de almacenamiento de Azure** y elija la instancia ya creada. Elija la acción como la funcionalidad y, dentro de ella, seleccione **Cargar blob** como la funcionalidad deseada. Realice la configuración según corresponda.
+3. Ahora, cree o implemente el flujo.
+
+
+## Procesamiento de mensajes y solución de problemas
+1. Es el momento de probar el flujo que hemos implementado. Envíe mensajes XML encapsulados en AS2 (según el acuerdo de AS2 creado anteriormente) al punto de conexión de AS2 obtenido por la instancia del conector AS2 que se creó. Puede que necesite configurar la autenticación para el extremo para que sea accesible públicamente.
+2. La información de ejecución sobre el flujo aparece examinando el flujo y, a continuación, entrando en la instancia de flujo que se ejecutó.
+3. Para obtener información de procesamiento de AS2, vaya a la instancia del conector AS2 implicada y, a continuación, continúe y entre en la parte de seguimiento. Puede usar los filtros necesarios para restringir la vista a la información que se desea.
 
 ![][2]
 
@@ -72,8 +70,4 @@ This tutorial assumes that you have a basic understanding of Azure App Services,
 [2]: ./media/app-service-logic-create-a-b2b-process/Tracking.png
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

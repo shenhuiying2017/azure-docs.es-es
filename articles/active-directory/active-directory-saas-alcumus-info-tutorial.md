@@ -1,259 +1,254 @@
 <properties
-    pageTitle="Tutorial: Azure Active Directory integration with Alcumus Info Exchange | Microsoft Azure"
-    description="Learn how to configure single sign-on between Azure Active Directory and Alcumus Info Exchange."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeevansd"
-    manager="femila"
-    editor=""/>
+	pageTitle="Tutorial: Integración de Azure Active Directory con Alcumus Info Exchange | Microsoft Azure"
+	description="Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Alcumus Info Exchange."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeevansd"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/01/2016"
-    ms.author="jeedes"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2016"
+	ms.author="jeedes"/>
 
 
+# Tutorial: Integración de Azure Active Directory con Alcumus Info Exchange
 
-# <a name="tutorial:-azure-active-directory-integration-with-alcumus-info-exchange"></a>Tutorial: Azure Active Directory integration with Alcumus Info Exchange
+El objetivo de este tutorial es mostrar cómo integrar Alcumus Info Exchange con Azure Active Directory (Azure AD). La integración de Alcumus Info Exchange con Azure AD proporciona las siguientes ventajas:
 
-The objective of this tutorial is to show you how to integrate Alcumus Info Exchange with Azure Active Directory (Azure AD).  
-Integrating Alcumus Info Exchange with Azure AD provides you with the following benefits: 
+- Puede controlar en Azure AD quién tiene acceso a Alcumus Info Exchange.
+- Puede permitir que los usuarios inicien sesión automáticamente en Alcumus Info Exchange (inicio de sesión único) con sus cuentas de Azure AD.
+- Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
 
-- You can control in Azure AD who has access to Alcumus Info Exchange 
-- You can enable your users to automatically get signed-on to Alcumus Info Exchange (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure classic portal
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+## Requisitos previos 
 
-## <a name="prerequisites"></a>Prerequisites 
+Para configurar la integración de Azure AD con Alcumus Info Exchange, necesita los siguientes elementos:
 
-To configure Azure AD integration with Alcumus Info Exchange, you need the following items:
-
-- An [Azure AD](https://azure.microsoft.com/) subscription
-- An [Alcumus Info Exchange](http://www.alcumusgroup.com/) single-sign on enabled subscription
+- Una suscripción de [Azure AD](https://azure.microsoft.com/)
+- Una suscripción habilitada para inicio de sesión único en [Alcumus Info Exchange](http://www.alcumusgroup.com/)
 
 
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+> [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
 
-To test the steps in this tutorial, you should follow these recommendations:
+Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/). 
+- No debe usar el entorno de producción, a menos que sea necesario.
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
  
-## <a name="scenario-description"></a>Scenario Description
-The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
-The scenario outlined in this tutorial consists of three main building blocks:
+## Descripción del escenario
+El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de tres bloques de creación principales:
 
-1. Adding Alcumus Info Exchange from the gallery 
-2. Configuring and testing Azure AD single sign-on
-
-
-## <a name="adding-alcumus-info-exchange-from-the-gallery"></a>Adding Alcumus Info Exchange from the gallery
-To configure the integration of Alcumus Info Exchange into Azure AD, you need to add Alcumus Info Exchange from the gallery to your list of managed SaaS apps.
-
-**To add Alcumus Info Exchange from the gallery, perform the following steps:**
-
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
-
-    ![Active Directory][1]
-
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Applications][2]
-
-4. Click **Add** at the bottom of the page.
-
-    ![Applications][3]
-
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-
-    ![Applications][4]
-
-6. In the search box, type **Alcumus Info Exchange**.
-
-    ![Applications][5]
-
-7. In the results pane, select **Alcumus Info Exchange**, and then click **Complete** to add the application.
-
-    ![Applications][400]
+1. Adición de Alcumus Info Exchange de la galería
+2. Configuración y comprobación del inicio de sesión único de Azure AD
 
 
+## Adición de Alcumus Info Exchange de la galería
+Para configurar la integración de Alcumus Info Exchange en Azure AD, deberá agregar Alcumus Info Exchange desde la galería a la lista de aplicaciones SaaS administradas.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-The objective of this section is to show you how to configure and test Azure AD single sign-on with Alcumus Info Exchange based on a test user called "Britta Simon".
+**Para agregar Alcumus Info Exchange desde la galería, realice los pasos siguientes:**
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Alcumus Info Exchange to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Alcumus Info Exchange needs to be established.  
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Alcumus Info Exchange.
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
+
+	![Active Directory][1]
+
+2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
+
+3. Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
+
+	![Aplicaciones][2]
+
+4. Haga clic en **Agregar** en la parte inferior de la página.
+
+	![Aplicaciones][3]
+
+5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
+
+	![Aplicaciones][4]
+
+6. En el cuadro de búsqueda, escriba **Alcumus Info Exchange**.
+
+	![Aplicaciones][5]
+
+7. En el panel de resultados, seleccione **Alcumus Info Exchange** y después haga clic en **Completar** para agregar la aplicación.
+
+	![Aplicaciones][400]
+
+
+
+##  Configuración y comprobación del inicio de sesión único de Azure AD
+El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con Alcumus Info Exchange con una usuaria de prueba llamada "Britta Simon".
+
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Alcumus Info Exchange para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Alcumus Info Exchange. Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en Alcumus Info Exchange.
  
-To configure and test Azure AD single sign-on with Alcumus Info Exchange, you need to complete the following building blocks:
+Para configurar y probar el inicio de sesión único de Azure AD con Alcumus Info Exchange, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a Alcumus Info Exchange test user](#creating-a-alcumus-info-exchange-test-user)** - to have a counterpart of Britta Simon in Alcumus Info Exchange that is linked to the Azure AD representation of her.
-5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Creación de un usuario de prueba de Alcumus Info Exchange](#creating-a-alcumus-info-exchange-test-user)**: para tener un homólogo de Britta Simon en Alcumus Info Exchange que esté vinculado a la representación de ella en Azure AD.
+5. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
+### Configuración del inicio de sesión único de Azure AD
 
-The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Alcumus Info Exchange application.
+El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación Alcumus Info Exchange.
 
-**To configure Azure AD single sign-on with Alcumus Info Exchange, perform the following steps:**
+**Para configurar el inicio de sesión único de Azure AD con Alcumus Info Exchange, realice los pasos siguientes:**
 
-1. In the Azure classic portal, on the **Alcumus Info Exchange** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Alcumus Info Exchange**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
-    ![Configure Single Sign-On][6]
+	![Configurar inicio de sesión único][6]
 
-2. On the **How would you like users to sign on to Alcumus Info Exchange** page, select **Azure AD Single Sign-On**, and then click **Next**.
+2. En la página **¿Cómo desea que los usuarios inicien sesión en Alcumus Info Exchange?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y después haga clic en **Siguiente**.
 
-    ![Azure AD Single Sign-On][7]
+	![Inicio de sesión único de Azure AD][7]
 
-3. On the **Configure App Settings** dialog page, perform the following steps: 
+3. En la página de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes:
 
-    ![Azure AD Single Sign-On][8]
+	![Inicio de sesión único de Azure AD][8]
  
-    a. in the **Reply URL** textbox, type the consumer URL that was setup for you by your Alcumus Info Exchange support team.
+	a. En el cuadro de texto **URL de respuesta**, escriba la dirección URL de consumidor que configuró el equipo de soporte técnico de Alcumus Info Exchange.
 
-    > [AZURE.NOTE] If you don't know what the right value is, contact the Alcumus Info Exchange support team via [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com).
+    > [AZURE.NOTE] Si desconoce el valor correcto, póngase en contacto con el equipo de soporte técnico de Alcumus Info Exchange en [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com).
 
-    b. Click **Next**.
+	b. Haga clic en **Siguiente**.
  
-4. On the **Configure single sign-on at Alcumus Info Exchange** page, click **Download metadata**, and then save the metadata file locally on your computer.
+4. En la página **Configuración de inicio de sesión único en Alcumus Info Exchange**, haga clic en **Descargar metadatos** y después guarde el archivo de metadatos localmente en el equipo.
 
-    ![What is Azure AD Connect][9]
+	![Qué es Azure AD Connect][9]
 
-5. Contact the Alcumus Info Exchange support team via [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com), provide them with the metadata file, and them let them know that they should enable SSO for you.
-
-
-6. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**. 
-
-    ![What is Azure AD Connect][10]
-
-7. On the **Single sign-on confirmation** page, click **Complete**.  
-
-    ![What is Azure AD Connect][11]
+5. Póngase en contacto con el equipo de soporte técnico de Alcumus Info Exchange en [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com), proporcióneles el archivo de metadatos y hágales saber que deberían habilitar el SSO.
 
 
+6. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
+
+	![Qué es Azure AD Connect][10]
+
+7. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.
+
+	![Qué es Azure AD Connect][11]
 
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure classic portal called Britta Simon.  
 
-![Create Azure AD User][20]
 
-**To create a test user in Azure AD, perform the following steps:**
+### Creación de un usuario de prueba de Azure AD
+El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure clásico llamado Britta Simon.
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+![Creación de un usuario de Azure AD][20]
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_02.png) 
+**Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
-3. To display the list of users, in the menu on the top, click **Users**.
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_02.png)
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_03.png) 
+2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
+
+3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.
+
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_03.png)
  
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**. 
+4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_04.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_04.png)
 
-5. On the **Tell us about this user** dialog page, perform the following steps: 
+5. En la página de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_05.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_05.png)
 
-    a. As Type Of User, select New user in your organization.
+	a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
   
-    b. In the User Name **textbox**, type **BrittaSimon**.
+	b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
   
-    c. Click Next.
+	c. Haga clic en Siguiente.
 
 
 
-6.  On the **User Profile** dialog page, perform the following steps: 
+6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_06.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_06.png)
   
 
-    a. In the **First Name** textbox, type **Britta**.  
+	a. En el cuadro de texto **Nombre**, escriba **Britta**.
   
-    b. In the **Last Name** txtbox, type, **Simon**.
+	b. En el cuadro de texto **Apellidos**, escriba **Simon**.
   
-    c. In the **Display Name** textbox, type **Britta Simon**.
+	c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
   
-    d. In the **Role** list, select **User**.
+	d. En la lista **Rol**, seleccione **Usuario**.
   
-    e. Click **Next**.
+	e. Haga clic en **Siguiente**.
 
 
-7. On the **Get temporary password** dialog page, click **create**.
+7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_07.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_07.png)
  
 
-8. On the **Get temporary password** dialog page, perform the following steps:
+8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_08.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_08.png)
 
-    a. Write down the value of the **New Password**.
+	a. Anote el valor del campo **Nueva contraseña**.
   
-    b. Click **Complete**.   
+	b. Haga clic en **Completo**.
 
   
  
-### <a name="creating-a-alcumus-info-exchange-test-user"></a>Creating a Alcumus Info Exchange test user
+### Creación de un usuario de prueba de Alcumus Info Exchange
 
-The objective of this section is to create a user called Britta Simon in Alcumus Info Exchange.
+El objetivo de esta sección es crear una usuaria de prueba llamada Britta Simon en Alcumus Info Exchange.
 
-**To create a user called Britta Simon in Alcumus Info Exchange, perform the following steps:**
+**Para crear una usuaria llamada Britta Simon en Alcumus Info Exchange, realice los pasos siguientes:**
 
-1. Contact the Alcumus Info Exchange support team via [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com),
-
-
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
-
-The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Alcumus Info Exchange.
-
-![Assign User][200]
-
-**To assign Britta Simon to Alcumus Info Exchange, perform the following steps:**
-
-1. On the Azure portal, to open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Assign User][201]
-
-2. In the applications list, select **Alcumus Info Exchange**.
-
-    ![Assign User][202]
-
-1. In the menu on the top, click **Users**.
-
-    ![Assign User][203]
-
-1. In the Users list, select **Britta Simon**.
-
-2. In the toolbar on the bottom, click **Assign**.
-
-    ![Assign User][205]
+1. Póngase en contacto con el equipo de soporte técnico de Alcumus Info Exchange en [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com).
 
 
+### Asignación del usuario de prueba de Azure AD
 
-### <a name="testing-single-sign-on"></a>Testing Single Sign-On
+El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a Alcumus Info Exchange.
 
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
-When you click the Alcumus Info Exchange tile in the Access Panel, you should get automatically signed-on to your Alcumus Info Exchange application.
+![Asignar usuario][200]
+
+**Para asignar a una usuaria llamada Britta Simon a Alcumus Info Exchange, realice los pasos siguientes:**
+
+1. En el Portal de Azure, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
+
+	![Asignar usuario][201]
+
+2. En la lista de aplicaciones, seleccione **Alcumus Info Exchange**.
+
+	![Asignar usuario][202]
+
+1. En el menú de la parte superior, haga clic en **Usuarios**.
+
+	![Asignar usuario][203]
+
+1. En la lista Usuarios, seleccione **Britta Simon**.
+
+2. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
+
+	![Asignar usuario][205]
 
 
-## <a name="additional-resources"></a>Additional Resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+### Prueba del inicio de sesión único
+
+El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso. Al hacer clic en el icono de Alcumus Info Exchange en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Alcumus Info Exchange.
+
+
+## Recursos adicionales
+
+* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_01.png
@@ -277,7 +272,4 @@ When you click the Alcumus Info Exchange tile in the Access Panel, you should ge
 [205]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_205.png
 [400]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_alcumus_402.png
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

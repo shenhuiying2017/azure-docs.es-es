@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Clone your StorSimple volume | Microsoft Azure"
-   description="Describes the different clone types and when to use them, and explains how you can use a backup set to clone an individual volume."
+   pageTitle="Clonación del volumen de StorSimple | Microsoft Azure"
+   description="Describe los diferentes tipos de clon y cuándo usarlos, y explica cómo se puede usar un conjunto de copia de seguridad para clonar un volumen individual."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,90 +15,85 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
-
-# <a name="use-the-storsimple-manager-service-to-clone-a-volume"></a>Use the StorSimple Manager service to clone a volume
+# Usar el servicio StorSimple Manager para clonar un volumen
 
 [AZURE.INCLUDE [storsimple-version-selector-clone-volume](../../includes/storsimple-version-selector-clone-volume.md)]
 
-## <a name="overview"></a>Overview
+## Información general
 
-The StorSimple Manager service **Backup Catalog** page displays all the backup sets that are created when manual or automated backups are taken. You can use this page to list all the backups for a backup policy or a volume, select or delete backups, or use a backup to restore or clone a volume.
+En la página **Catálogo de copias de seguridad** del servicio StorSimple Manager se muestran todos los conjuntos de copia de seguridad que se crean cuando se realizan copias de seguridad manuales o automatizadas. Puede usar esta página para enumerar todas las copias de seguridad para un volumen o una directiva de copia de seguridad, seleccionar o eliminar las copias de seguridad, o usar una copia de seguridad para restaurar o clonar un volumen.
 
-![Backup catalog page](./media/storsimple-clone-volume/HCS_BackupCatalog.png)  
+![Página del catálogo de copias de seguridad](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
 
-This tutorial describes how you can use a backup set to clone an individual volume. It also explains the difference between *transient* and *permanent* clones. 
+Este tutorial describe cómo puede usar una copia de seguridad para clonar un volumen individual. También explica la diferencia entre clones *transitorios* y *permanente*.
 
-## <a name="create-a-clone-of-a-volume"></a>Create a clone of a volume
+## Crear un clon de un volumen
 
-You can create a clone on the same device, another device, or even a virtual machine by using a local or a cloud snapshot.
+Puede crear un clon en el mismo dispositivo, en otro dispositivo o incluso en una máquina virtual mediante el uso de una instantánea local o en la nube.
 
-#### <a name="to-clone-a-volume"></a>To clone a volume
+#### Para clonar un volumen
 
-1. On the StorSimple Manager service page, click the **Backup catalog** tab and select a backup set.
+1. En la página del servicio de Administrador de StorSimple, haga clic en la pestaña **Catálogo de copia de seguridad** y seleccione un conjunto de copia de seguridad.
 
-2. Expand the backup set to view the associated volumes. Click and select a volume from the backup set.
+2. Expanda el conjunto de copias de seguridad para ver los volúmenes asociados. Haga clic y seleccione un volumen del conjunto de copia de seguridad.
 
-     ![Clone a volume](./media/storsimple-clone-volume/HCS_Clone.png) 
+     ![Clonar un volumen](./media/storsimple-clone-volume/HCS_Clone.png)
 
-3. Click **Clone** to begin cloning the selected volume.
+3. Haga clic en **Clonar** para empezar a clonar el volumen seleccionado.
 
-4. In the Clone Volume wizard, under **Specify name and location**:
+4. En el Asistente para clonar volúmenes, en **Especificar el nombre y la ubicación**:
 
-  1. Identify a target device. This is the location where the clone will be created. You can choose the same device or specify another device. If you choose a volume associated with other cloud service providers (not Azure), the drop-down list for the target device will only show physical devices. You cannot clone a volume associated with other cloud service providers on a virtual device.
+  1. Identifique un dispositivo de destino. Esta es la ubicación donde se creará el clon. Puede elegir el mismo dispositivo o especificar otro dispositivo. Si elige un volumen asociado a otros proveedores de servicios en la nube (no Azure), la lista desplegable del dispositivo de destino solo mostrará dispositivos físicos. No se puede clonar un volumen asociado a otros proveedores de servicios en la nube en un dispositivo virtual.
 
-        >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
-  2. Specify a unique volume name for your clone. The name must contain between 3 and 127 characters.
-  3. Click the arrow icon ![arrow-icon](./media/storsimple-clone-volume/HCS_ArrowIcon.png) to proceed to the next page.
+        >  [AZURE.NOTE] Asegúrese de que la capacidad necesaria para el clon es inferior a la capacidad disponible en el dispositivo de destino. 
+  2. Especifique un nombre de volumen único para el clon. El nombre debe tener entre 3 y 127 caracteres.
+  3. Haga clic en el icono con forma de flecha ![icono de flecha](./media/storsimple-clone-volume/HCS_ArrowIcon.png) para ir a la página siguiente.
 
-5. Under **Specify hosts that can use this volume**:
+5. En **Especificar los hosts que pueden usar este volumen**:
 
-  1. Specify an access control record (ACR) for the clone. You can add a new ACR or choose from the existing list.
-  2. Click the check icon ![check-icon](./media/storsimple-clone-volume/HCS_CheckIcon.png)to complete the operation.
+  1. Especifique un registro de control de acceso (ACR) para el clon. Puede agregar un ACR nuevo o elegir uno de la lista.
+  2. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-clone-volume/HCS_CheckIcon.png) para completar la operación.
 
-6. A clone job will be initiated and you will be notified when the clone is successfully created. Click **View Job** to monitor the clone job on the **Jobs** page.
+6. Se iniciará un trabajo de clonación y se le notificará cuando se haya creado correctamente el clon. Haga clic en **Ver trabajo** para supervisar el trabajo de clonación en la página **Trabajos**.
 
-7. After the clone job is completed:
+7. Una vez completado el trabajo de clonación:
 
-  1. Go to the **Devices** page, and select the **Volume Containers** tab. 
-  2. Select the volume container that is associated with the source volume that you cloned. In the list of volumes, you should see the clone that was just created.
+  1. Vaya a la página **Dispositivos** y seleccione la pestaña **Contenedores de volúmenes**.
+  2. Seleccione el contenedor de volúmenes que está asociado con el volumen de origen que clonó. En la lista de volúmenes, debería ver el clon recién creado.
 
->[AZURE.NOTE] Monitoring and default backup are automatically disabled on a cloned volume.
+>[AZURE.NOTE] La copia de seguridad predeterminada y la supervisión se deshabilitan automáticamente en un volumen clonado.
 
-A clone that is created this way is a transient clone. For more information about clone types, see [Transient vs. permanent clones](#transient-vs.-permanent-clones).
+Los clones que se creen de esta forma son clones transitorios. Para obtener más información acerca de los tipos de clon, consulte [Clones transitorios frente a clones permanentes](#transient-vs.-permanent-clones).
 
-This clone is now a regular volume, and any operation that is possible on a volume will be available for the clone. You will need to configure this volume for any backups.
+Este clon es ahora un volumen normal, y todas las operaciones que sean posibles en un volumen estarán disponibles para el clon. Deberá configurar el volumen para las copias de seguridad.
 
-## <a name="transient-vs.-permanent-clones"></a>Transient vs. permanent clones
+## Clones transitorios frente a clones permanentes
 
-Transient and permanent clones are created only when you are cloning on to a different device. You can clone a specific volume from a backup set to a different device. A clone created in this way is a *transient* clone. The transient clone will have references to the original volume and will use that volume to read while writing locally. 
+Los clones transitorios y permanentes solo se crean al clonarse en un dispositivo diferente. Se puede clonar un volumen específico de un conjunto de copia de seguridad a un dispositivo diferente. Los clones que se creen de esta forma son clones *transitorios*. El clon transitorio tendrá referencias al volumen original y usará ese volumen para leer mientras escribe de forma local.
 
-After you take a cloud snapshot of a transient clone, the resulting clone will be a *permanent* clone. The permanent clone is independent and doesn’t have any references to the original volume that it was cloned from.  
+Después de tomar una instantánea en la nube de un clon transitorio, el clon resultante será un clon *permanente*. El clon permanente es independiente y no tiene ninguna referencia al volumen original desde el que se clonó.
 
-## <a name="scenarios-for-transient-and-permanent-clones"></a>Scenarios for transient and permanent clones
+## Escenarios para clones transitorios y permanentes
 
-The following sections describe example situations in which transient and permanent clones can be used.
+Las secciones siguientes describen situaciones de ejemplo en las que pueden usarse clones transitorios y permanentes.
 
-### <a name="item-level-recovery-with-a-transient-clone"></a>Item-level recovery with a transient clone
+### Recuperación de nivel de elemento con un clon transitorio
 
-You need to recover a one-year-old Microsoft PowerPoint presentation file. Your IT administrator identifies the specific backup from that time frame, and then filters the volume. The administrator then clones the volume, locates the file that you are looking for, and provides it to you. In this scenario, a transient clone is used. 
+Necesita recuperar un archivo de presentación de Microsoft PowerPoint de un año de antigüedad. El administrador de TI identifica la copia de seguridad específica de ese período de tiempo y, a continuación, filtra el volumen. El administrador clona el volumen, busca el archivo que necesita y se lo proporciona. En este escenario, se usa un clon transitorio.
  
-![Video available](./media/storsimple-clone-volume/Video_icon.png) **Video available**
+![Vídeo disponible](./media/storsimple-clone-volume/Video_icon.png) **Vídeo disponible**
 
-To watch a video that demonstrates how you can use the clone and restore features in StorSimple to recover deleted files, click [here](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+Para ver un vídeo en el que se muestra cómo puede usar el clon y restaurar las características de StorSimple para recuperar archivos eliminados, haga clic [aquí](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
-### <a name="testing-in-the-production-environment-with-a-permanent-clone"></a>Testing in the production environment with a permanent clone
+### Pruebas en el entorno de producción con un clon permanente
 
-You need to verify a testing bug in the production environment. You create a clone of the volume in the production environment by taking a cloud snapshot of this clone. The cloned volume is now independent. In this scenario, a permanent clone is used.
+Necesita comprobar un error de prueba en el entorno de producción. Puede crear un clon del volumen en el entorno de producción haciendo una instantánea en la nube de este clon. El volumen clonado es ahora independiente. En este escenario, se usa un clon permanente.
 
-## <a name="next-steps"></a>Next steps
-- Learn how to [restore a StorSimple volume from a backup set](storsimple-restore-from-backup-set.md).
+## Pasos siguientes
+- Obtenga información sobre cómo [restaurar un volumen de StorSimple de un conjunto de copia de seguridad](storsimple-restore-from-backup-set.md).
 
-- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

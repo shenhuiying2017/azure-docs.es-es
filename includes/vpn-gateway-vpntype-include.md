@@ -1,11 +1,9 @@
-- **PolicyBased:** PolicyBased VPNs were previously called static routing gateways in the classic deployment model. Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the IPsec policies configured with the combinations of address prefixes between your on-premises network and the Azure VNet. The policy (or traffic selector) is usually defined as an access list in the VPN device configuration. The value for a PolicyBased VPN type is *PolicyBased*. When using a PolicyBased VPN, keep in mind the following limitations:
+- **PolicyBased:** las VPN basadas en directivas se denominaban anteriormente puertas de enlace de enrutamiento estático en el modelo de implementación clásica. Las VPN basadas en directivas cifran y dirigen los paquetes a través de túneles de IPsec basados en las directivas de IPsec configuradas con las combinaciones de prefijos de dirección entre su red local y la red virtual de Azure. La directiva (o selector de tráfico) se define normalmente como una lista de acceso en la configuración del dispositivo VPN. El valor de un tipo de VPN basada en directivas es *PolicyBased*. Cuando se utiliza una VPN PolicyBased, tenga en cuenta las siguientes limitaciones:
 
-    - PolicyBased VPNs can **only** be used on the Basic gateway SKU. This VPN type is not compatible with other gateway SKUs.
-    - You can have only 1 tunnel when using a PolicyBased VPN.
-    - You can only use PolicyBased VPNs for S2S connections, and only for certain configurations. Most VPN Gateway configurations require a RouteBased VPN.
+	- Las VPN PolicyBased **solo** se utilizan en la SKU de puerta de enlace Basic. Este tipo VPN no es compatible con otras SKU de puerta de enlace.
+	- Solo puede tener 1 túnel al usar una VPN PolicyBased.
+	- Solo puede utilizar las VPN de PolicyBase para las conexiones S2S (solo para determinadas configuraciones). La mayoría de las configuraciones de VPN Gateway requieren una VPN basada en enrutamientos.
 
-- **RouteBased**: RouteBased VPNs were previously called dynamic routing gateways in the classic deployment model. RouteBased VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy (or traffic selector) for RouteBased VPNs are configured as any-to-any (or wild cards). The value for a RouteBased VPN type is *RouteBased*.
+- **RouteBased:** las VPN basadas en enrutamiento se denominaban anteriormente puertas de enlace de enrutamiento dinámico en el modelo de implementación clásica. Las VPN basadas en enrutamiento utilizan "rutas" en la dirección IP de reenvío o en la tabla de enrutamiento para dirigir los paquetes a sus correspondientes interfaces de túnel. A continuación, las interfaces de túnel cifran o descifran los paquetes dentro y fuera de los túneles. La directiva o selector de tráfico para las VPN basadas en enrutamiento se configura como conectividad de tipo any-to-any (o caracteres comodín). El valor de un tipo de VPN basado en enrutamiento es *RouteBased*.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

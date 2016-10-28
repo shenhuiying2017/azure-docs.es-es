@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Modify the StorSimple device configuration | Microsoft Azure" 
-   description="Describes how to use the StorSimple Manager service to reconfigure a StorSimple device that has already been deployed." 
+   pageTitle="Modificar la configuración del dispositivo StorSimple | Microsoft Azure" 
+   description="Describe cómo usar el servicio StorSimple Manager para volver a configurar un dispositivo StorSimple que ya se ha implementado." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
@@ -13,125 +13,120 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="09/29/2016"
+   ms.date="05/16/2016"
    ms.author="v-sharos"/>
 
+# Uso del servicio StorSimple Manager para modificar la configuración del dispositivo StorSimple
 
-# <a name="use-the-storsimple-manager-service-to-modify-your-storsimple-device-configuration"></a>Use the StorSimple Manager service to modify your StorSimple device configuration
+## Información general 
 
-## <a name="overview"></a>Overview 
+La página **Configurar** del Portal de Azure clásico contiene todos los parámetros de dispositivo que puede volver a configurar en un dispositivo de StorSimple administrado mediante un servicio de Administrador de StorSimple. En este tutorial se explica cómo usar la página **Configurar** para realizar las siguientes tareas de nivel de dispositivo:
 
-The Azure classic portal **Configure** page contains all the device parameters that you can reconfigure on a StorSimple device that is managed by a StorSimple Manager service. This tutorial explains how you can use the **Configure** page to perform the following device-level tasks:
+- Modificar la configuración del dispositivo 
+- Modificar la configuración del tiempo 
+- Modificar la configuración de DNS 
+- Modificar las interfaces de red
+- Intercambiar o volver a asignar direcciones IP
 
-- Modify device settings 
-- Modify time settings 
-- Modify DNS settings 
-- Modify network interfaces
-- Swap or reassign IPs
+## Modificar la configuración del dispositivo
 
-## <a name="modify-device-settings"></a>Modify device settings
+La configuración de dispositivos incluye el nombre descriptivo del dispositivo y la descripción de este.
 
-The device settings include the friendly name of the device and the device description.
+A un dispositivo StorSimple que está conectado al servicio StorSimple Manager se le asigna un nombre predeterminado. El nombre predeterminado normalmente refleja el número de serie del dispositivo. Por ejemplo, un nombre de dispositivo predeterminado que tiene 15 caracteres, como 8600-SHX0991003G44HT indica lo siguiente:
 
-A StorSimple device that is connected to the StorSimple Manager service is assigned a default name. The default name typically reflects the serial number of the device. For example, a default device name that is 15 characters long, such as 8600-SHX0991003G44HT, indicates the following:
+- **8600**: indica el modelo del dispositivo.
+- **SHX**: indica el centro de producción.
+- **0991003**: indica un producto específico.
+- **G44HT**: los últimos 5 dígitos se incrementan para crear números de serie únicos. Es posible que esto no sea un conjunto secuencial.
 
-- **8600**  – Indicates the device model.
-- **SHX** – Indicates the manufacturing site.
-- **0991003** - Indicates a specific product.
-- **G44HT**- The last 5 digits are incremented to create unique serial numbers. This might not be a sequential set.
+Puede usar el Portal de Azure clásico para cambiar el nombre del dispositivo y asignarle un nombre descriptivo único de su elección. El nombre descriptivo puede contener cualquier carácter y tener un máximo de 64 caracteres.
 
-You can use the Azure classic portal to change the device name and assign it a unique friendly name of your choice. The friendly name can contain any characters and can be a maximum of 64 characters long.
-
-You can also specify a device description. A device description usually helps identify the owner and the physical location of the device. The description field must contain fewer than 256 characters.
+También puede especificar una descripción del dispositivo. La descripción del dispositivo suele ayudar a identificar el propietario y la ubicación física del dispositivo. El campo de descripción debe contener menos de 256 caracteres.
  
-## <a name="modify-time-settings"></a>Modify time settings
+## Modificar la configuración del tiempo
 
-Your device must synchronize time in order to authenticate with your cloud storage service provider. Select your time zone from the drop-down list, and specify up to two Network Time Protocol (NTP) servers. The primary NTP server is required and is specified when you use Windows PowerShell for StorSimple to configure your device. You can specify the default Windows Server **time.windows.com** as your NTP server. You can view the primary NTP server configuration through the Azure classic portal, but you must use the Windows PowerShell interface to change it.
+El dispositivo debe sincronizar la hora para autenticarse con su proveedor de servicios de almacenamiento en la nube. Seleccione la zona horaria en la lista desplegable y especifique un máximo de dos servidores de Protocolo de tiempo de redes (NTP). El servidor NTP principal es necesario y se especifica cuando usa Windows PowerShell para StorSimple para configurar el dispositivo. Puede especificar el Windows Server predeterminado **time.windows.com** como el servidor NTP. Puede ver la configuración del servidor NTP principal a través del Portal de Azure clásico, pero debe usar la interfaz de Windows PowerShell para cambiarla.
 
-The secondary NTP server configuration is optional. You can use the classic portal to configure a secondary NTP server. 
+La configuración del servidor NTP secundario es opcional. Puede usar el Portal clásico para configurar un servidor NTP secundario.
 
-When configuring the NTP server, ensure that your network allows the NTP traffic to pass from your datacenter to the Internet. When specifying a public NTP server, you must make sure that your network firewalls and other security devices are configured to allow NTP traffic to travel to and from the outside network. If bidirectional NTP traffic is not permitted, you must use an internal NTP server (a Windows domain controller provides this function). If your device cannot synchronize time, it may not be able to communicate with your cloud storage provider.
+Al configurar el servidor NTP, asegúrese de que su red permite el paso del tráfico NTP del centro de datos a Internet. Al especificar un servidor NTP público, debe asegurarse de que los firewalls de red y otros dispositivos de seguridad estén configurados para permitir que el tráfico NTP viaje hacia y desde la red externa. Si no se permite el tráfico NTP bidireccional, debe usar un servidor NTP interno (esta función la proporciona un controlador de dominio de Windows). Si el dispositivo no puede sincronizar la hora, es posible que no sea capaz de comunicarse con el proveedor de almacenamiento en la nube.
 
-To see a list of public NTP servers, go to the [NTP Servers Web](http://support.ntp.org/bin/view/Servers/WebHome). 
+Para ver una lista de servidores NTP públicos, vaya a la [Web de servidores NTP](http://support.ntp.org/bin/view/Servers/WebHome).
 
-### <a name="what-happens-if-the-device-is-deployed-in-a-different-time-zone?"></a>What happens if the device is deployed in a different time zone?
+### ¿Qué sucede si el dispositivo se implementa en una zona horaria diferente?
 
-If the device is deployed in a different time zone, the device time zone will change. Given that all the backup policies use the device time zone, the backup policies will automatically adjust in accordance with the new time zone. No user intervention is required.
+Si el dispositivo se implementa en una zona horaria distinta, cambiará la zona horaria del dispositivo. Dado que todas las directivas de copia de seguridad usan la zona horaria del dispositivo, las directivas de copia de seguridad se ajustarán automáticamente según la nueva zona horaria. No se requiere ninguna intervención del usuario.
 
-## <a name="modify-dns-settings"></a>Modify DNS settings
+## Modificar la configuración de DNS
 
-A DNS server is used when your device attempts to communicate with your cloud storage service provider. For high availability, you are required to configure both the primary and the secondary DNS servers during the initial device deployment. To reconfigure the primary DNS server, you will need to use the Windows PowerShell interface on your StorSimple device.
+Cuando el dispositivo intenta comunicarse con el proveedor de servicios de almacenamiento en la nube, se usa un servidor DNS. Para lograr alta disponibilidad, se debe configurar el servidor DNS principal y el secundario durante la implementación inicial del dispositivo. Para volver a configurar el servidor DNS principal, deberá usar la interfaz de Windows PowerShell en el dispositivo StorSimple.
 
-To modify the secondary DNS server, you can use the Azure classic portal.
+Para modificar el servidor DNS secundario, puede usar el Portal de Azure clásico.
 
+<!-- If a secondary DNS server is not configured, you will not be able to create volume containers or provision volumes on the device.-->
 
+## Modificar las interfaces de red
 
-## <a name="modify-network-interfaces"></a>Modify network interfaces
+El dispositivo tiene seis interfaces de red de dispositivo, cuatro de las cuales son de 1 GbE y dos de 10 GbE. Estas interfaces están etiquetadas mediante DATA 0 – DATA 5. DATA 0, DATA 1, DATA 4 y DATA 5 son de 1 GbE, mientras que DATA 2 y DATA 3 son interfaces de red de 10 GbE.
 
-Your device has six device network interfaces, four of which are 1 GbE and two of which are 10 GbE. These interfaces are labeled as DATA 0 – DATA 5. DATA 0, DATA 1, DATA 4, and DATA 5 are 1 GbE, whereas DATA 2 and DATA 3 are 10 GbE network interfaces.
+Establezca la **Configuración de la interfaz de red** para cada una de las interfaces que se usarán. Para garantizar una alta disponibilidad, se recomienda tener al menos dos interfaces de iSCSI y dos interfaces compatibles con la nube en el dispositivo. Es recomendable, pero no obligatorio, deshabilitar las interfaces no usadas.
 
-Configure **Network Interface Settings** for each of the interfaces to be used. To ensure high availability, we recommend that you have at least two iSCSI interfaces and two cloud-enabled interfaces on your device. We recommend but do not require that unused interfaces be disabled.
+Al configurar cualquiera de las interfaces de red, debe configurar una dirección IP virtual (VIP).
 
-When you configure any of the network interfaces, you must configure a virtual IP (VIP).
+DATA 0 es compatible con la nube de manera predeterminada. Al configurar DATA 0, también se deben configurar dos direcciones IP fijas, una para cada controlador. Estas direcciones IP fijas pueden usarse para tener acceso directamente a los controladores de dispositivos y son útiles cuando se instalan actualizaciones en el dispositivo o al obtener acceso a los controladores con el fin de solucionar problemas.
 
-DATA 0 is cloud-enabled by default. When configuring DATA 0, you are also required to configure two fixed IP addresses, one for each controller. These fixed IP addresses can be used to access the device controllers directly and are useful when you install updates on the device or when you access the controllers for the purpose of troubleshooting.
+En StorSimple 8000 Series Update 1, se establece la métrica de enrutamiento de DATA 0 en el nivel mínimo; por lo tanto, si el dispositivo está ejecutando StorSimple 8000 Series Update 1, todo el tráfico en la nube se enrutará a través de DATA 0. Tome nota de esto si hay más de una interfaz de red compatible con la nube en el dispositivo StorSimple.
 
-In StorSimple 8000 Series Update 1, the routing metric of DATA 0 is set to the lowest; therefore, if your device is running StorSimple 8000 Series Update 1, all the cloud traffic will be routed through DATA 0. Make a note of this if you have more than one cloud-enabled network interface on your StorSimple device.
+>[AZURE.NOTE] Las direcciones IP fijas del controlador se usan para el mantenimiento de las actualizaciones del dispositivo. Por lo tanto, las direcciones IP fijas deben ser enrutables y disponer de capacidad de conexión a Internet.
 
->[AZURE.NOTE] The fixed IP addresses for the controller are used for servicing the updates to the device. Therefore, the fixed IPs must be routable and able to connect to the Internet.
+Para cada interfaz de red, se muestran los parámetros siguientes:
 
-For each network interface, the following parameters are displayed:
+- **Velocidad**: no es un parámetro configurable por el usuario. DATA 0, DATA 1, DATA 4 y DATA 5 son siempre de 1 GbE, mientras que DATA 2 y DATA 3 son interfaces de 10 GbE.
 
-- **Speed** – Not a user-configurable parameter. DATA 0, DATA 1, DATA 4, and DATA 5 are always 1 GbE, whereas DATA 2 and DATA 3 are 10 GbE interfaces.
-
-     >[AZURE.NOTE] Speed and duplex are always auto-negotiated. Jumbo frames are not supported.
+     >[AZURE.NOTE] La velocidad y el dúplex siempre se negocian automáticamente. Las tramas gigantes no son compatibles.
  
-- **Interface state** – An interface can be enabled or disabled. If enabled, the device will attempt to use the interface. We recommend that only those interfaces that are connected to the network and used be enabled. Disable any interfaces that you are not using.
+- **Estado de interfaz**: una interfaz se puede habilitar o deshabilitar. Si está habilitada, el dispositivo intentará usar la interfaz. Es recomendable habilitar tan solo las interfaces que están conectadas a la red y que se usan. Deshabilite las interfaces que no esté usando.
 
-- **Interface type** – This parameter allows you to isolate iSCSI traffic from cloud storage traffic. This parameter can be one of the following:
+- **Tipo de interfaz**: este parámetro permite aislar el tráfico iSCSI del tráfico de almacenamiento de la nube. Este parámetro puede ser uno de los siguientes:
 
-    - **Cloud enabled** – when enabled, the device will use this interface to communicate with the cloud.
-    - **iSCSI enabled** – when enabled, the device will use this interface to communicate with the iSCSI host.
+    - **Compatible con la nube**: si está habilitado, el dispositivo usará esta interfaz para comunicarse con la nube.
+    - **Compatible con iSCSI**: si está habilitado, el dispositivo usará esta interfaz para comunicarse con el host iSCSI.
 
-    We recommend that you isolate iSCSI traffic from cloud storage traffic. Also note if your host is within the same subnet as your device, you do not need to assign a gateway; however, if your host is in a different subnet than your device, you will need to assign a gateway.
+    Es recomendable aislar el tráfico iSCSI del tráfico de almacenamiento en la nube. Tenga también en cuenta que si el host se encuentra dentro de la misma subred que el dispositivo, no es necesario asignar una puerta de enlace; sin embargo, si el host está en una subred diferente a la de su dispositivo, deberá asignar una puerta de enlace.
 
-- **IP address** – This can be IPv4 or IPv6 or both. Both the IPv4 and IPv6 address families are supported for the device network interfaces. When using IPv4, specify a 32-bit IP address (*xxx.xxx.xxx.xxx*) in dot-decimal notation. When using IPv6, simply supply a 4-digit prefix, and a 128-bit address will be generated automatically for your device network interface based on that prefix.
+- **Dirección IP**: esta puede ser IPv4, IPv6 o ambas. Las familias de direcciones IPv4 e IPv6 son compatibles con las interfaces de red del dispositivo. Si usa IPv4, especifique una dirección IP de 32 bits (*xxx.xxx.xxx.xxx*) en notación punto-decimal. Cuando use IPv6, solo tiene que proporcionar un prefijo de 4 dígitos y se generará automáticamente una dirección de 128 bits para la interfaz de red del dispositivo en función de ese prefijo.
 
-- **Subnet** – This refers to the subnet mask and is configured via the Windows PowerShell interface.
+- **Subred**: esto hace referencia a la máscara de subred y se configura mediante la interfaz de Windows PowerShell.
 
-- **Gateway** – This is the default gateway that should be used by this interface when it attempts to communicate with nodes that are not within the same IP address space (subnet). The default gateway must be in the same address space (subnet) as the interface IP address, as determined by the subnet mask.
+- **Puerta de enlace**: se trata de la puerta de enlace predeterminada que debe usar esta interfaz cuando intenta comunicarse con nodos que no están en el mismo espacio de direcciones IP (subred). La puerta de enlace predeterminada debe estar en el mismo espacio de direcciones (subred) que la dirección IP de la interfaz, según lo determinado por la máscara de subred.
 
-- **Fixed IP address** – This field is available only while you configure the DATA 0 interface. For operations such as updates or troubleshooting the device, you may need to connect directly to the device controller. The fixed IP address can be used to access both the active and the passive controller on your device.
+- **Dirección IP fija**: este campo solo está disponible mientras se configura la interfaz DATA 0. Para efectuar operaciones como las actualizaciones o la solución de problemas del dispositivo, es posible que necesite conectarse directamente con el controlador del dispositivo. La dirección IP fija puede usarse para tener acceso al controlador activo y el pasivo en el dispositivo.
 
-You can reconfigure Controller 0 and Controller 1 through the Azure classic portal.
+Puede volver a configurar el Controlador 0 y el Controlador 1 a través del Portal de Azure clásico.
 
 >[AZURE.NOTE] 
 >
->- To ensure proper operation, verify the interface speed and duplex on the switch that each device interface is connected to. Switch interfaces should either negotiate with or be configured for Gigabit Ethernet (1000 Mbps) and be full-duplex. Interfaces operating at slower speeds or in half-duplex will result in performance issues.
+>- Para garantizar un funcionamiento correcto, compruebe la velocidad de la interfaz y dúplex en el conmutador al que está conectado la interfaz de cada dispositivo. Las interfaces de conmutador deben negociar con o configurarse para Gigabit Ethernet (1000 Mbps) y ser de dúplex completo. Las interfaces que funcionan a velocidades menores o en un semidúplex darán como resultado problemas de rendimiento.
 >
->- To minimize disruptions and downtime, we recommend that you enable portfast on each of the switch ports that the iSCSI network interface of your device will be connecting to. This will ensure that network connectivity can be established quickly in the event of a failover.
+>- Para minimizar las interrupciones y el tiempo de inactividad, es recomendable habilitar portfast en cada uno de los puertos de conmutador a los que se va a conectar la interfaz de red iSCSI del dispositivo. Esto garantizará que la conectividad de red se pueda establecer rápidamente si se produce una conmutación por error.
  
-## <a name="swap-or-reassign-ips"></a>Swap or reassign IPs
+## Intercambiar o volver a asignar direcciones IP
 
-Currently, if any network interface on the controller is assigned a VIP that is in use (by the same device or another device in the network), then the controller will fail over. Therefore, you have to follow the proper procedure if you are swapping VIPs for the device network interface, because you will create a duplicate IP situation.
+Actualmente, si se le asigna una VIP que esté siendo usado (por el mismo dispositivo u otro de la red) a cualquier interfaz de red del controlador, a continuación, el controlador conmutará por error. Por lo tanto, debe seguir el procedimiento correcto si está intercambiando VIP para la interfaz de red del dispositivo, puesto que creará una situación de IP duplicada.
 
-Perform the following steps to swap or reassign the VIPs for any of the network interfaces:
+Realice los pasos siguientes para intercambiar o volver a asignar las VIP para cualquiera de las interfaces de red:
 
-#### <a name="to-reassign-ips"></a>To reassign IPs
+#### Para volver a asignar direcciones IP
 
-1. Clear the IP address for both interfaces.
+1. Borre la dirección IP de ambas interfaces.
 
-2. After the IP addresses are cleared, assign the new IP addresses to the respective interfaces.
+2. Una vez borradas las direcciones IP, asigne las nuevas direcciones IP a las interfaces correspondientes.
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-- Learn how to [configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server.md).
+- Obtenga información sobre cómo [configurar MPIO para el dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
 
-- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
      
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Troubleshooting: 'Active Directory' item is missing or not available | Microsoft Azure "
-   description="What to do when Active Directory menu item doesn't appear in the Azure Management Portal."
+   pageTitle="Solución de problemas: El elemento ";Active Directory"; falta o no está disponible | Microsoft Azure "
+   description="Qué hacer cuando el elemento de menú Active Directory no aparece en el Portal de administración de Azure."
    services="active-directory"
    documentationCenter="na"
-   authors="bryanla"
+   authors="msmbaldwin"
    manager="mbaldwin"
    editor=""/>
 
@@ -16,47 +16,42 @@
    ms.date="09/16/2016"
    ms.author="mbaldwin"/>
 
+# Solución de problemas: El elemento "Active Directory" falta o no está disponible
 
-# <a name="troubleshooting:-'active-directory'-item-is-missing-or-not-available"></a>Troubleshooting: 'Active Directory' item is missing or not available
+Muchas de las instrucciones para usar las características y los servicios de Azure Active Directory comienzan con "Vaya al Portal de administración de Azure y haga clic en **Active Directory**". Pero ¿qué hacer si el elemento de menú o la extensión Active Directory no aparecen o están marcados como **No disponible**? Este tema está diseñado para ayudarle en este caso. Describe las condiciones en que **Active Directory** no aparece o no está disponible y explica cómo proceder.
 
-Many of the instructions for using Azure Active Directory features and services begin with "Go to the Azure Management Portal and click **Active Directory**." But what do you do if the Active Directory extension or menu item does not appear or if it is marked **Not Available**? This topic is designed to help. It describes the conditions under which **Active Directory** does not appear or is unavailable and explains how to proceed.
+## Falta Active Directory
 
-## <a name="active-directory-is-missing"></a>Active Directory is missing
+Normalmente, aparece un elemento **Active Directory** en el menú de navegación izquierdo. En las instrucciones de procedimientos de Azure Active Directory, se da por supuesto que este elemento aparece en la vista.
 
-Typically, an **Active Directory** item appears in the left navigation menu. The instructions in Azure Active Directory procedures assume that this item is in your view.
+![Captura de pantalla: Active Directory en Azure](./media/active-directory-troubleshooting/typical-view.png)
 
-![Screen shot: Active Directory in Azure](./media/active-directory-troubleshooting/typical-view.png)
+El elemento Active Directory se muestra en el menú de navegación izquierdo cuando se dé cualquiera de las siguientes condiciones. De lo contrario, el elemento no aparece.
 
-The Active Directory item appears in the left navigation menu when any of the following conditions is true. Otherwise, the item does not appear.
-
-* The current user signed on with a Microsoft account (formerly known as a Windows Live ID).
-
-    OR
-
-* The Azure tenant has a directory and the current account is a directory administrator.
+* El usuario actual ha iniciado sesión con una cuenta Microsoft (antes conocida como Windows Live ID).
 
     OR
 
-* The Azure tenant has at least one Azure AD Access Control (ACS) namespace. For more information, see [Access Control Namespace](https://msdn.microsoft.com/library/azure/gg185908.aspx).
+* El inquilino de Azure tiene un directorio y la cuenta actual es un administrador de directorio.
 
     OR
 
-* The Azure tenant has at least one Azure Multi-Factor Authentication provider. For more information, see [Administering Azure Multi-Factor Authentication Providers](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+* El inquilino de Azure tiene al menos un espacio de nombres de Control de acceso de Azure AD (ACS). Para obtener más información, consulte [Espacio de nombres de Control de acceso](https://msdn.microsoft.com/library/azure/gg185908.aspx).
 
-To create an Access Control namespace or a Multi-Factor Authentication provider, click **+New** > **App Services** > **Active Directory**.
+    OR
 
-To get administrative rights to a directory, have an administrator assign an administrator role to your account. For details, see [Assigning administrator roles](active-directory-assign-admin-roles.md).
+* El inquilino de Azure tiene al menos un proveedor de Multi-Factor Authentication. Para obtener más información, consulte [Administración de proveedores de Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
-## <a name="active-directory-is-not-available"></a>Active Directory is not available
+Para crear un espacio de nombres de Control de acceso o un proveedor de Multi-Factor Authentication, haga clic en **+Nuevo** > **Servicios de aplicaciones** > **Active Directory**.
 
-When you click **+New** > **App Services**, an **Active Directory** item appears. Specifically, the Active Directory item appears when any of the Active Directory features, such as Directory, Access Control, or Multi-Factor Auth Provider, are available to the current user.
+Para obtener derechos administrativos a un directorio, pida a un administrador que asigne un rol de administrador a su cuenta. Para obtener detalles, consulte [Asignación de roles de administrador en Azure AD](active-directory-assign-admin-roles.md).
 
-However, while the page is loading, the item is dimmed and is marked **Not Available**. This is a temporary state. If you wait a few seconds, the item becomes available. If the delay is prolonged, refreshing the web page often resolves the problem.
+## Active Directory no está disponible
 
-![Screen shot: Active Directory is not available](./media/active-directory-troubleshooting/not-available.png)
+Cuando se hace clic en **+Nuevo** > **Servicios de aplicaciones**, aparece el elemento **Active Directory**. En concreto, el elemento Active Directory aparece cuando cualquiera de las características de Active Directory, como Directorio, Control de acceso o el proveedor de Multi-Factor Authentication, están disponibles para el usuario actual.
 
+Sin embargo, mientras se carga la página, el elemento aparece atenuado y marcado como **No disponible**. Se trata de un estado temporal. Si espera unos segundos, el elemento estará disponible. Si el retraso se prolonga, el problema se suele resolver cuando se actualiza la página web.
 
+![Captura de pantalla: Active Directory no está disponible](./media/active-directory-troubleshooting/not-available.png)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Operating Query Store in Azure SQL Database"
-   description="Learn how to operate the Query Store in Azure SQL Database"
+   pageTitle="Funcionamiento del Almacén de consultas de Base de datos SQL de Azure"
+   description="Aprenda a utilizar el Almacén de consultas de Base de datos SQL de Azure."
    keywords=""
    services="sql-database"
    documentationCenter=""
@@ -17,51 +17,46 @@
    ms.date="08/16/2016"
    ms.author="carlrab"/>
 
+# Funcionamiento del almacén de consultas de Base de datos SQL de Azure 
 
-# <a name="operating-the-query-store-in-azure-sql-database"></a>Operating the Query Store in Azure SQL Database 
+El Almacén de consultas en Azure es una característica de base de datos completamente administrada que recopila y presenta constantemente información histórica detallada sobre todas las consultas. Es parecido a la caja negra de un avión y simplifica considerablemente la solución de problemas de rendimiento de las consultas tanto para los clientes locales como de nube. En este artículo se explican los aspectos específicos del funcionamiento del Almacén de consultas de Azure. Con estos datos de consulta previamente recopilados, puede diagnosticar y resolver rápidamente los problemas de rendimiento y así dedicar más tiempo a centrarse en sus negocios.
 
-Query Store in Azure is a fully managed database feature that continuously collects and presents detailed historic information about all queries. You can think about Query Store as similar to an airplane's flight data recorder that significantly simplifies query performance troubleshooting both for cloud and on-premises customers. This article explains specific aspects of operating Query Store in Azure. Using this pre-collected query data, you can quickly diagnose and resolve performance problems and thus spend more time focusing on their business. 
+El Almacén de consultas está [disponible globalmente](https://azure.microsoft.com/updates/general-availability-azure-sql-database-query-store/) en Base de datos SQL de Azure desde noviembre de 2015. Es la base de las características de análisis y ajuste del rendimiento, como el [Asesor de Base de datos SQL y el Panel de rendimiento](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). En el momento de publicar este artículo, el Almacén de consultas se ejecuta en más de 200 000 bases de datos de usuario de Azure y recopila información relativa a las consultas durante varios meses, sin interrupción.
 
-Query Store has been [globally available](https://azure.microsoft.com/updates/general-availability-azure-sql-database-query-store/) in Azure SQL Database since November, 2015. Query Store is the foundation for performance analysis and tuning features, such as [SQL Database Advisor and Performance Dashboard](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). At the moment of publishing this article, Query Store is running in more than 200,000 user databases in Azure, collecting query-related information for several months, without interruption.
+> [AZURE.IMPORTANT] Microsoft está en proceso de activar el Almacén de consultas para todas las bases de datos SQL de Azure (nuevas y existentes).
 
-> [AZURE.IMPORTANT] Microsoft is in the process of activating Query Store for all Azure SQL databases (existing and new). 
+## Configuración óptima del Almacén de consultas
 
-## <a name="optimal-query-store-configuration"></a>Optimal Query Store Configuration
+En esta sección se describen los valores predeterminados de una configuración óptima que están diseñados para garantizar el funcionamiento confiable del Almacén de consultas y de las características que de él dependen, como el [Asesor de Base de datos SQL y el Panel de rendimiento](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). La configuración predeterminada está optimizada para una recopilación continua de los datos, es decir, un tiempo mínimo en los estados OFF y READ\_ONLY.
 
-This section describes optimal configuration defaults that are designed to ensure reliable operation of the Query Store and dependent features, such as [SQL Database Advisor and Performance Dashboard](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Default configuration is optimized for continuous data collection, that is minimal time spent in OFF/READ_ONLY states.
-
-| Configuration | Description | Default | Comment |
+| Configuración | Description | Valor predeterminado | Comentario |
 | ------------- | ----------- | ------- | ------- |
-| MAX_STORAGE_SIZE_MB | Specifies the limit for the data space that Query Store can take inside z customer database | 100 | Enforced for new databases |
-| INTERVAL_LENGTH_MINUTES | Defines size of time window during which collected runtime statistics for query plans are aggregated and persisted. Every active query plan has at most one row for a period of time defined with this configuration | 60   | Enforced for new databases |
-| STALE_QUERY_THRESHOLD_DAYS | Time-based cleanup policy that controls the retention period of persisted runtime statistics and inactive queries | 30 | Enforced for new databases and databases with previous default (367) |
-| SIZE_BASED_CLEANUP_MODE | Specifies whether automatic data cleanup takes place when Query Store data size approaches the limit | AUTO | Enforced for all databases |
-| QUERY_CAPTURE_MODE | Specifies whether all queries or only a subset of queries are tracked | AUTO | Enforced for all databases |
-| FLUSH_INTERVAL_SECONDS | Specifies maximum period during which captured runtime statistics are kept in memory, before flushing to disk | 900 | Enforced for new databases |
+| MAX\_STORAGE\_SIZE\_MB | Especifica el límite del espacio de datos que puede tomar el Almacén de consultas dentro de la base de datos de cliente z. | 100 | Se aplica a nuevas bases de datos. |
+| INTERVAL\_LENGTH\_MINUTES | Define el tamaño de la ventana de tiempo durante la que se agregan y conservan las estadísticas recopiladas en tiempo de ejecución para los planes de consulta. Todos los planes de consulta activa tienen al menos una fila durante un período de tiempo definido con esta configuración. | 60 | Se aplica a nuevas bases de datos. |
+| STALE\_QUERY\_THRESHOLD\_DAYS | Directiva de limpieza basada en el tiempo que controla el período de retención de las estadísticas en tiempo de ejecución guardadas y las consultas inactivas. | 30 | Se aplica a nuevas bases de datos y bases de datos con la configuración predeterminada anterior (367). |
+| SIZE\_BASED\_CLEANUP\_MODE | Especifica si limpieza automática de los datos se lleva a cabo cuando el tamaño de los datos del Almacén de consultas se aproxima al límite. | AUTO | Se aplica a todas las bases de datos. |
+| QUERY\_CAPTURE\_MODE | Especifica si se realiza el seguimiento de todas las consultas o solo de un subconjunto de estas. | AUTO | Se aplica a todas las bases de datos. |
+| FLUSH\_INTERVAL\_SECONDS | Especifica el período máximo durante el que las estadísticas en tiempo de ejecución capturadas se conservan en memoria, antes de vaciarlas en el disco. | 900 | Se aplica a nuevas bases de datos. |
 ||||||
 
-> [AZURE.IMPORTANT] These defaults are automatically applied in the final stage of Query Store activation in all Azure SQL databases (see preceding important note). After this light up, Azure SQL Database won’t be changing configuration values set by customers, unless they negatively impact primary workload or reliable operations of the Query Store.
+> [AZURE.IMPORTANT] Estos valores predeterminados se aplican automáticamente en la fase final de la activación del Almacén de consultas en todas las bases de datos SQL de Azure (consulte la nota importante anterior). Después de esta optimización, Base de datos SQL de Azure no cambiará los valores de configuración establecidos por los clientes, a no ser que influyan negativamente en la carga de trabajo principal o en las operaciones confiables del Almacén de consultas.
 
-If you want to stay with your custom settings, use [ALTER DATABASE with Query Store options](https://msdn.microsoft.com/library/bb522682.aspx) to revert configuration to the previous state. Check out [Best Practices with the Query Store](https://msdn.microsoft.com/library/mt604821.aspx) in order to learn how top chose optimal configuration parameters.
+Si quiere permanecer con su configuración personalizada, utilice [ALTER DATABASE con las opciones del Almacén de consultas](https://msdn.microsoft.com/library/bb522682.aspx) para revertir la configuración al estado anterior. Consulte [Best Practices with the Query Store](https://msdn.microsoft.com/library/mt604821.aspx) (Procedimientos recomendados con el Almacén de consultas) para aprender a elegir los parámetros de configuración óptima.
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-[SQL Database Performance Insight](sql-database-performance.md)
+[SQL Database Performance Insight (Información de rendimiento de Base de datos SQL)](sql-database-performance.md)
 
-## <a name="additional-resources"></a>Additional resources
+## Recursos adicionales
 
-For more information check out the following articles:
+Para más información, consulte los siguientes artículos:
 
-- [A flight data recorder for your database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
+- [A flight data recorder for your database (Una caja negra para la base de datos)](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database)
 
-- [Monitoring Performance By Using the Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
+- [Supervisar el rendimiento mediante el Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx)
 
-- [Query Store Usage Scenarios](https://msdn.microsoft.com/library/mt614796.aspx)
+- [Query Store Usage Scenarios (Escenarios de uso del Almacén de consultas)](https://msdn.microsoft.com/library/mt614796.aspx)
 
-- [Monitoring Performance By Using the Query Store](https://msdn.microsoft.com/library/dn817826.aspx) 
+- [Supervisar el rendimiento mediante el Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

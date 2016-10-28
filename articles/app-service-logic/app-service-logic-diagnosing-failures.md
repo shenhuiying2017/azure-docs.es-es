@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Diagnosing logic apps failures | Microsoft Azure"
-   description="Common approaches to understanding where logic apps are failing"
+   pageTitle="Diagnóstico de errores de aplicaciones lógicas | Microsoft Azure"
+   description="Métodos comunes para detectar dónde se producen los errores de las aplicaciones lógicas"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -13,68 +13,67 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/18/2016"
+   ms.date="05/18/2016"
    ms.author="jehollan"/>
 
+# Diagnóstico de errores de aplicaciones lógicas
 
-# <a name="diagnosing-logic-app-failures"></a>Diagnosing logic app failures
+Si surgen problemas o errores con la característica Aplicaciones lógicas del Servicio de aplicaciones de Azure, puede adoptar varios enfoques para conocer mejor de dónde proceden dichos errores.
 
-If you experience issues or failures with the Logic Apps feature of Azure App Service, a few approaches can help you better understand where the failures are coming from.  
+## Herramientas del Portal de Azure
 
-## <a name="azure-portal-tools"></a>Azure portal tools
+El Portal de Azure proporciona muchas herramientas para diagnosticar todas las aplicaciones lógicas en cada paso.
 
-The Azure portal provides many tools to diagnose each logic app at each step.
+### Historial de desencadenamiento
 
-### <a name="trigger-history"></a>Trigger history
+Cada aplicación lógica tiene al menos un desencadenador. Si observa que las aplicaciones no se activan, debe empezar por mirar el historial de desencadenamiento. A dicho historial se puede acceder desde la hoja principal de la aplicación lógica.
 
-Each logic app has at least one trigger. If you notice that apps aren't firing, the first place to look for additional information is the trigger history. You can access the trigger history on the logic app main blade.
+![Ubicación del historial de desencadenamiento][1]
 
-![Locating the trigger history][1]
+Aquí se enumeran todos los intentos de desencadenamiento que ha realizado la aplicación lógica. Puede hacer clic en cada uno de ellos para obtener el siguiente nivel de detalle (en concreto, las entradas o salidas generadas por el intento de desencadenamiento). Si ve desencadenadores con error, haga clic en el intento de desencadenamiento y aumente el detalle del vínculo **Salidas** para conocer los mensajes de error que pueden haberse generado (por ejemplo: credenciales de FTP no válidas).
 
-This lists all of the trigger attempts that your logic app has made. You can click each trigger attempt to get the next level of detail (specifically, any inputs or outputs that the trigger attempt generated). If you see any failed triggers, click the trigger attempt and drill into the **Outputs** link to see any error messages that might have been generated (for example, for invalid FTP credentials).
+Estos son los diferentes estados que puede ver:
 
-The different statuses you might see are:
+* **Omitido**. El desencadenador sondeó el punto de conexión para buscar datos y recibió como respuesta que los datos no estaban disponibles.
+* **Correcto**. El desencadenador recibió como respuesta que los datos estaban disponibles. Esta podría proceder de un desencadenador manual, un desencadenador de periodicidad o un desencadenador de sondeo. Es probable que vaya acompañado de un estado **Fired**, pero puede que no sea así si tiene una condición o un comando SplitOn en la vista de código que no se haya satisfecho.
+* **Error**. Se generó un error.
 
-* **Skipped**. It polled the endpoint to check for data and received a response that no data was available.
-* **Succeeded**. The trigger received a response that data was available. This could be from a manual trigger, a recurrence trigger, or a polling trigger. This likely will be accompanied with a status of **Fired**, but it might not if you have a condition or SplitOn command in code view that wasn't satisfied.
-* **Failed**. An error was generated.
+#### Inicio manual de un desencadenador
 
-#### <a name="starting-a-trigger-manually"></a>Starting a trigger manually
+Si desea que la aplicación lógica compruebe si hay algún desencadenador disponible de inmediato (sin que haya que esperar a la siguiente repetición), puede hacer clic el botón **Select Trigger** (Seleccionar desencadenador) en la hoja principal para forzar una comprobación. Por ejemplo, si hace clic en este vínculo con un desencadenador de Dropbox, provocará que el flujo de trabajo sondee Dropbox inmediatamente en busca de archivos nuevos.
 
-If you want the logic app to check for an available trigger immediately (without waiting for the next recurrence), you can click **Select Trigger** on the main blade to force a check. For example, clicking this link with a Dropbox trigger will cause the workflow to immediately poll Dropbox for new files.
+### Historial de ejecuciones
 
-### <a name="run-history"></a>Run history
+Cada desencadenador que se activa da como resultado una ejecución. Puede tener acceso a información de la ejecución desde la hoja principal, que contiene una gran cantidad de datos que pueden ser útiles para comprender qué ha sucedido durante el flujo de trabajo.
 
-Every trigger that is fired results in a run. You can access run information from the main blade, which contains a lot of information that can be helpful in understanding what happened during the workflow.
+![Ubicación del historial de ejecuciones][2]
 
-![Locating the run history][2]
+Una ejecución muestra uno de los siguientes estados:
 
-A run displays one of the following statuses:
+* **Correcto**. Todas las acciones se realizaron correctamente o, si se produjo un error, este se controló mediante una acción que se produjo más adelante en el flujo de trabajo. Es decir, se controló con una acción que se configuró para ejecutarse después de una acción con error.
+* **Error**. Se produjo un error en al menos una acción que no se controló mediante una acción posteriormente en el flujo de trabajo.
+* **Cancelado**. El flujo de trabajo se estaba ejecutando pero recibió una solicitud de cancelación.
+* **En ejecución**. El flujo de trabajo se ejecuta actualmente. Esto puede darse en los flujos que se limitan o debido al plan del Servicio de aplicaciones actual. Consulte los límites de las acciones acción en la [página de precios](https://azure.microsoft.com/pricing/details/app-service/plans/). La configuración de diagnósticos (los gráficos que figuran a continuación el historial de ejecución) también pueden proporcionar información sobre los eventos de limitación que se están produciendo.
 
-* **Succeeded**. All actions succeeded, or, if there was a failure, it was handled by an action that occurred later in the workflow. That is, it was handled by an action that was set to run after a failed action.
-* **Failed**. At least one action had a failure that was not handled by an action later in the workflow.
-* **Cancelled**. The workflow was running but received a cancel request.
-* **Running**. The workflow is currently running. This may occur for workflows that are being throttled, or because of the current App Service plan. Please see action limits on the [pricing page](https://azure.microsoft.com/pricing/details/app-service/plans/) for details. Configuring diagnostics (the charts listed below the run history) also can provide information about any throttle events that are occurring.
+Cuando se encuentre ante un historial de ejecución, puede profundizar en él para obtener más detalles.
 
-When you are looking at a run history, you can drill in for more details.  
+#### Salidas del desencadenador
 
-#### <a name="trigger-outputs"></a>Trigger outputs
+Las salidas del desencadenador mostrarán los datos que se han recibido del desencadenador. Esto puede ayudarle a determinar si se devolvieron todas las propiedades del modo esperado.
 
-Trigger outputs show the data that was received from the trigger. This can help you determine whether all properties returned as expected.
+>[AZURE.NOTE] Puede resultar de gran ayuda saber la forma en que la característica Aplicaciones lógicas [controla los diferentes tipos de contenido](app-service-logic-content-type.md) si se ve cualquier contenido que no conoce.
 
->[AZURE.NOTE] It might be helpful to understand how the Logic Apps feature [handles different content types](app-service-logic-content-type.md) if you see any content that you don't understand.
+![Ejemplos de salidas del desencadenador][3]
 
-![Trigger output examples][3]
+#### Entradas y salidas de acciones
 
-#### <a name="action-inputs-and-outputs"></a>Action inputs and outputs
+Puede profundizar en las entradas y salidas que recibió una acción. Esto resulta útil para conocer el tamaño y la forma de las salidas, así como para ver los mensajes de error que se han generado.
 
-You can drill into the inputs and outputs that an action received. This is useful for understanding the size and shape of the outputs, as well as to see any error messages that may have been generated.
+![Entradas y salidas de acciones][4]
 
-![Action inputs and outputs][4]
+## Depuración de tiempo de ejecución de flujo de trabajo
 
-## <a name="debugging-workflow-runtime"></a>Debugging workflow runtime
-
-In addition to monitoring the inputs, outputs, and triggers of a run, it could be useful to add some steps within a workflow to help with debugging. [RequestBin](http://requestb.in) is a powerful tool that you can add as a step in a workflow. By using RequestBin, you can set up an HTTP request inspector to determine the exact size, shape, and format of an HTTP request. You can create a new RequestBin and paste the URL in a logic app HTTP POST action along with body content you want to test (for example, an expression or another step output). After you run the logic app, you can refresh your RequestBin to see how the request was formed as it was generated from the Logic Apps engine.
+Además de supervisar las entradas, las salidas y los desencadenadores de una ejecución, puede resultar útil agregar algunos pasos a un flujo de trabajo para facilitar su depuración. Una herramienta eficaz que se puede agregar en forma de paso de un flujo de trabajo es [RequestBin](http://requestb.in). Mediante el uso de RequestBin, puede configurar un inspector de la solicitud HTTP para determinar el tamaño exacto, la forma y el formato de una solicitud HTTP. Puede crear un nuevo RequestBin y pegar la dirección URL de una acción HTTP POST de la aplicación lógica junto con el contenido del cuerpo que se desee probar (una expresión, la salida de otro paso, etc.). Después de ejecutar la aplicación lógica puede actualizar RequestBin para ver cómo se formó la solicitud cuando se generó desde el motor de Aplicaciones lógicas.
 
 
 
@@ -85,8 +84,4 @@ In addition to monitoring the inputs, outputs, and triggers of a run, it could b
 [3]: ./media/app-service-logic-diagnosing-failures/triggerOutputsLink.PNG
 [4]: ./media/app-service-logic-diagnosing-failures/ActionOutputs.PNG
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

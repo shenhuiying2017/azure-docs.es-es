@@ -1,175 +1,170 @@
 
 <properties
-    pageTitle="Restore virtual machines from backup using Azure portal | Microsoft Azure"
-    description="Restore an Azure virtual machine from a recovery point using Azure portal"
-    services="backup"
-    documentationCenter=""
-    authors="markgalioto"
-    manager="cfreeman"
-    editor=""
-    keywords="restore backup; how to restore; recovery point;"/>
+	pageTitle="Uso del Portal de Azure para restaurar máquinas virtuales | Microsoft Azure"
+	description="Restauración de una máquina virtual de Azure desde un punto de recuperación con el Portal de Azure"
+	services="backup"
+	documentationCenter=""
+	authors="markgalioto"
+	manager="cfreeman"
+	editor=""
+	keywords="restaurar copias de seguridad; cómo restaurar; punto de recuperación;"/>
 
 <tags
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/10/2016"
-    ms.author="trinadhk; jimpark;"/>
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/10/2016"
+	ms.author="trinadhk; jimpark;"/>
 
 
-
-# <a name="use-azure-portal-to-restore-virtual-machines"></a>Use Azure portal to restore virtual machines
+# Uso del Portal de Azure para restaurar máquinas virtuales
 
 > [AZURE.SELECTOR]
-- [Restore VMs in Classic portal](backup-azure-restore-vms.md)
-- [Restore VMs in Azure portal](backup-azure-arm-restore-vms.md)
+- [Restauración de máquinas virtuales en el portal clásico](backup-azure-restore-vms.md)
+- [Restauración de máquinas virtuales en el Portal de Azure](backup-azure-arm-restore-vms.md)
 
 
-Protect your data by taking snapshots of your data at defined intervals. These snapshots are known as recovery points, and they are stored in recovery services vaults. If or when it is necessary to repair or rebuild a VM, you can restore the VM from any of the saved recovery points. When you restore a recovery point, you return or revert the VM to the state when the recovery point was taken. This article explains how to restore a VM.
+Proteja sus datos tomando instantáneas de sus datos a intervalos definidos. Estas instantáneas se denominan puntos de recuperación y se almacenan en almacenes de Servicios de recuperación. Cuando es necesario reparar o volver a generar una máquina virtual, puede restaurar la máquina virtual desde cualquiera de los puntos de recuperación guardados. Cuando se restaura un punto de recuperación, se devuelve o se revierte la máquina virtual al estado cuando se tomó el punto de recuperación. En este artículo se explica cómo restaurar una máquina virtual.
 
-> [AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
+> [AZURE.NOTE] Azure tiene dos modelos de implementación para crear y trabajar con recursos: [Administrador de recursos e implementación clásica](../resource-manager-deployment-model.md). En este artículo se proporcionan información y procedimientos para restaurar las máquinas virtuales implementadas mediante el modelo de Resource Manager.
 
 
 
-## <a name="restore-a-recovery-point"></a>Restore a recovery point
+## Restauración de un punto de recuperación
 
-1. Sign in to the [Azure portal](http://portal.azure.com/)
+1. Inicie sesión en el [Portal de Azure](http://portal.azure.com/).
 
-2. On the Azure menu, click **Browse** and in the list of services, type **Recovery Services**. The list of services adjusts to what you type. When you see **Recovery Services vaults**, select it.
+2. En el menú de Azure, haga clic en **Examinar** y, en la lista de servicios, escriba **Servicios de recuperación**. La lista de servicios se ajusta a lo que escribe. Cuando vea la opción **Almacenes de Servicios de recuperación**, haga clic en ella.
 
-    ![Open Recovery Services vault](./media/backup-azure-arm-restore-vms/open-recovery-services-vault.png)
+    ![Abrir el almacén de Servicios de recuperación](./media/backup-azure-arm-restore-vms/open-recovery-services-vault.png)
 
-    The list of vaults in the subscription is displayed.
+    Se muestra la lista de almacenes de la suscripción.
 
-    ![List of Recovery Services vaults](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
+    ![Lista de almacenes de Servicios de recuperación](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
 
-3. From the list, select the vault associated with the VM you want to restore. When you click the vault, its dashboard opens.
+3. En la lista, seleccione el almacén asociado a la máquina virtual que desea restaurar. Al hacer clic en el almacén, se abre su panel.
 
-    ![List of Recovery Services vaults](./media/backup-azure-arm-restore-vms/select-vault-open-vault-blade.png)
+    ![Lista de almacenes de Servicios de recuperación](./media/backup-azure-arm-restore-vms/select-vault-open-vault-blade.png)
 
-4. Now that you're in the vault dashboard. On the **Backup Items** tile, click **Azure Virtual Machines** to display the VMs associated with the vault.
+4. Ahora que está en el panel del almacén. En el icono **Elementos de copia de seguridad**, haga clic en **Máquinas virtuales de Azure** para mostrar las máquinas virtuales asociadas al almacén.
 
-    ![vault dashboard](./media/backup-azure-arm-restore-vms/vault-dashboard.png)
+    ![panel del almacén](./media/backup-azure-arm-restore-vms/vault-dashboard.png)
 
-    The **Backup Items** blade opens and displays the list of Azure virtual machines.
+    Se abre la hoja **Elementos de copia de seguridad** y se muestra la lista de máquinas virtuales de Azure.
 
-    ![list of VMs in vault](./media/backup-azure-arm-restore-vms/list-of-vms-in-vault.png)
+    ![lista de máquinas virtuales en el almacén](./media/backup-azure-arm-restore-vms/list-of-vms-in-vault.png)
 
-5. From the list, select a VM to open the dashboard. The VM dashboard opens to the Monitoring area, which contains the Restore points tile.
+5. En la lista, seleccione una máquina virtual para abrir el panel. Se abre el panel de máquinas virtuales en el área Supervisión que contiene el icono de puntos de recuperación.
 
-    ![list of VMs in vault](./media/backup-azure-arm-restore-vms/vm-blade.png)
+    ![lista de máquinas virtuales en el almacén](./media/backup-azure-arm-restore-vms/vm-blade.png)
 
-6. On the VM dashboard menu, click **Restore**
+6. En el menú del panel de máquina virtual, haga clic en **Restaurar**.
 
-    ![list of VMs in vault](./media/backup-azure-arm-restore-vms/vm-blade-menu-restore.png)
+    ![lista de máquinas virtuales en el almacén](./media/backup-azure-arm-restore-vms/vm-blade-menu-restore.png)
 
-    The Restore blade opens.
+    Se abre la hoja Restaurar.
 
-    ![restore blade](./media/backup-azure-arm-restore-vms/restore-blade.png)
+    ![hoja de restauración](./media/backup-azure-arm-restore-vms/restore-blade.png)
 
-7. On the **Restore** blade, click **Restore point** to open the **Select Restore point** blade.
+7. En la hoja **Restaurar**, haga clic en **Punto de restauración** para abrir la hoja **Select Restore point** (Seleccionar punto de restauración).
 
-    ![restore blade](./media/backup-azure-arm-restore-vms/recovery-point-selector.png)
+    ![hoja de restauración](./media/backup-azure-arm-restore-vms/recovery-point-selector.png)
 
-    By default, the dialog displays all restore points from the last 30 days. Use the **Filter** to alter the time range of the restore points displayed. By default, restore points of all consistency are displayed. Modify **All Restore points** filter to select a specific consistency of restore points. For more information about each type of restoration point, see the explanation of [Data consistency](./backup-azure-vms-introduction.md#data-consistency).  
-    - **Restore point consistency** from this list choose:
-        - Crash consistent restore points,
-        - Application consistent restore points,
-        - File system consistent restore points
-        - All restore points.  
+    De forma predeterminada, el cuadro de diálogo muestra todos los puntos de restauración de los últimos 30 días. Utilice el **filtro** para modificar el intervalo de tiempo de los puntos de restauración mostrados. De forma predeterminada, se muestran los puntos de restauración de toda la coherencia. Modifique el filtro **Todos los puntos de restauración** para seleccionar una coherencia específica de puntos de restauración. Para más información sobre cada tipo de punto de restauración, consulte la explicación de [Coherencia de datos](./backup-azure-vms-introduction.md#data-consistency).
+    - En la lista **Coherencia del punto de restauración**, elija:
+        - Puntos de restauración coherentes frente a bloqueos
+        - Puntos de restauración coherentes con la aplicación
+        - Puntos de restauración coherentes con el sistema de archivos
+        - Todos los puntos de restauración.
 
-8. Choose a Restore point and click **OK**.
+8. Elija un punto de restauración y haga clic en **Aceptar**.
 
-    ![choose restore point](./media/backup-azure-arm-restore-vms/select-recovery-point.png)
+    ![elegir punto de restauración](./media/backup-azure-arm-restore-vms/select-recovery-point.png)
 
-    The **Restore** blade shows the Restore point is set.
+    La hoja **Restaurar** muestra que el punto de restauración está establecido.
 
-    ![restore point is set](./media/backup-azure-arm-restore-vms/recovery-point-set.png)
+    ![se establece el punto de restauración](./media/backup-azure-arm-restore-vms/recovery-point-set.png)
 
-9. On the **Restore** blade, **Restore configuration** opens automatically after restore point is set.
+9. En la hoja **Restaurar**, se abre automáticamente la **configuración de restauración** después de establecer el punto de restauración.
 
-    ![restore configuration wizard is set](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
+    ![el asistente para configuración de restauración está establecido](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
 
-## <a name="choosing-a-vm-restore-configuration"></a>Choosing a VM restore configuration
+## Elección de una configuración de restauración para una máquina virtual
 
-Now that you have selected the restore point, choose a configuration for your restore VM. Your choices for configuring the restored VM are to use: Azure portal or PowerShell.
+Ahora que ha seleccionado el punto de restauración, elija una configuración para la restauración de la máquina virtual. Las opciones para configurar la máquina virtual restaurada son usar el Portal de Azure o PowerShell.
 
-> [AZURE.NOTE] Portal provides a Quick Create option for restored VM. If you want to customize the VM configuration of the to-be restored VM, use PowerShell to restore backed up disks and attach them to choice of VM configuration. See [Restoring a VM with special network configurations](#restoring-vms-with-special-network-configurations).
+> [AZURE.NOTE] El Portal proporciona una opción de creación rápida para la máquina virtual restaurada. Si quiere personalizar la configuración de la máquina virtual restaurada, use PowerShell para restaurar los discos en copia de seguridad y adjuntarlos a la opción de configuración de máquina virtual. Consulte [Restauración de máquinas virtuales con configuraciones de red especiales](#restoring-vms-with-special-network-configurations).
 
-1. If you are not already there, go to the **Restore** blade. Ensure a **Restore point** has been selected, and click **Restore configuration** to open the **Recovery configuration** blade.
+1. Si aún no está allí, vaya a la hoja **Restaurar**. Asegúrese de que se ha seleccionado un **punto de restauración** y haga clic en **Restore configuration** (Configuración de restauración) para abrir la hoja **Configuración de recuperación**.
 
-    ![recovery configuration wizard is set](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
+    ![el asistente para configuración de recuperación está establecido](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
 
-2. On the **Restore configuration** blade, enter or select values for each of the following fields:
-    - **Virtual machine name** - Provide a name for the VM. The name must be unique to the resource group (for a Resource Manager-deployed VM) or cloud service (for a Classic VM). You cannot replace the virtual machine if it already exists in the subscription.
-    - **Resource group** - Use an existing resource group, or create a new one. If you are restoring a Classic VM, use this field to specify the name of a new cloud service. If you are create a new resource group/cloud service, the name must be globally unique. Typically, the cloud service name is associated with a public-facing URL - for example: [cloudservice].cloudapp.net. If you attempt to use a name for the cloud resource group/cloud service that has already been used, Azure assigns the resource group/cloud service the same name as the VM. Azure displays resource groups/cloud services and VMs not associated with any affinity groups. For more information, see [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-    - **Virtual Network** - Select the virtual network (VNET) when creating the VM. The field provides all VNETs associated with the subscription. Resource group of the VM is displayed in parentheses.
-    - **Subnet** - If the VNET has subnets, the first subnet is selected by default. If there are additional subnets, select the desired subnet.
-    - **Storage account** - This menu lists the storage accounts in the same location as the Recovery Services vault. When choosing a storage account, select an account that shares the same location as the Recovery Services vault. Storage accounts that are Zone redundant are not supported. If there are no storage accounts with the same location as the Recovery Services vault, you must create one before starting the restore operation. The storage account's replication type is mentioned in parentheses.
+2. En la hoja **Restore configuration** (Configuración de restauración), escriba o seleccione valores para cada uno de los siguientes campos:
+    - **Nombre de la máquina virtual**: especifique un nombre para la máquina virtual. El nombre debe ser único para el grupo de recursos (para una máquina virtual implementada mediante Resource Manager) o para el servicio en la nube (para una máquina virtual clásica). No puede reemplazar la máquina virtual si ya existe en la suscripción.
+    - **Grupo de recursos**: use un grupo de recursos existente o cree uno. Si va a restaurar una máquina virtual clásica, utilice este campo para especificar el nombre de un nuevo servicio en la nube. Al crear un nuevo servicio en la nube o grupo de recursos, el nombre debe ser globalmente único. Por lo general, el nombre del servicio en la nube está asociado a una dirección URL pública; por ejemplo, [cloudservice].cloudapp.net. Si intenta utilizar un nombre para el servicio en la nube o grupo de recursos de nube que ya se ha utilizado, Azure asigna el servicio en la nube o grupo de recursos al mismo nombre que la máquina virtual. Azure muestra servicios en la nube o grupos de recursos y máquinas virtuales no asociados a ningún grupo de afinidad. Para más información, consulte [Migración de grupos de afinidad a una red virtual regional](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+    - **Red virtual**: seleccione la red virtual (VNET) al crear la máquina virtual. El campo proporciona todas las redes virtuales asociadas a la suscripción. El grupo de recursos de la máquina virtual se muestra entre paréntesis.
+    - **Subred**: si la red virtual tiene subredes, la primera subred se selecciona de forma predeterminada. Si hay subredes adicionales, seleccione la subred deseada.
+    - **Cuenta de almacenamiento**: este menú muestra la lista de cuentas de almacenamiento de la misma ubicación que el almacén de Servicios de recuperación. Al elegir una cuenta de almacenamiento, seleccione una cuenta que comparta la misma ubicación que el almacén de Servicios de recuperación. No se admiten cuentas de almacenamiento con redundancia de zona. Si no hay ninguna cuenta de almacenamiento con la misma ubicación que el almacén de Servicios de recuperación, debe crear uno antes de iniciar la operación de restauración. El tipo de replicación de la cuenta de almacenamiento se menciona entre paréntesis.
 
-    > [AZURE.NOTE] If you are restoring a Resource Manager-deployed VM, you must identify a virtual network (VNET). A virtual network (VNET) is optional for a Classic VM.
+    > [AZURE.NOTE] Si va a restaurar una máquina virtual implementada mediante Resource Manager, debe identificar una red virtual (VNET). Una red virtual es opcional para una máquina virtual clásica.
 
-3. On the **Restore configuration** blade, click **OK** to finalize the restore configuration.
+3. En la hoja **Restore configuration** (Configuración de restauración), haga clic en **Aceptar** para finalizar la configuración de restauración.
 
-4. On the **Restore** blade, click **Restore** to trigger the restore operation.
+4. En la hoja **Restaurar**, haga clic en **Restaurar** para desencadenar la operación de restauración.
 
-    ![Recovery configuration completed](./media/backup-azure-arm-restore-vms/trigger-restore-operation.png)
+    ![Configuración de recuperación completa](./media/backup-azure-arm-restore-vms/trigger-restore-operation.png)
 
-## <a name="track-the-restore-operation"></a>Track the restore operation
+## Seguimiento de la operación de restauración
 
-Once you trigger the restore operation, the Backup service creates a job for tracking the restore operation. The Backup service also creates and temporarily displays the notification in Notifications area of portal. If you do not see the notification, you can always click the Notifications icon to view your notifications.
+Una vez que se desencadene la operación de restauración, el servicio Copia de seguridad crea un trabajo para realizar el seguimiento de la operación de restauración. El servicio Copia de seguridad también crea y muestra temporalmente la notificación en el área de notificaciones del portal. Si no ve la notificación, siempre puede hacer clic en el icono de notificaciones para ver las notificaciones.
 
-![Restore triggered](./media/backup-azure-arm-restore-vms/restore-notification.png)
+![Restauración desencadenada](./media/backup-azure-arm-restore-vms/restore-notification.png)
 
-To view the operation while it is processing, or to view when it completed, open the Backup jobs list.
+Para ver la operación mientras se está procesando, o para verla cuando se ha completado, abra la lista de trabajos de Copia de seguridad.
 
-1. On the Azure menu, click **Browse** and in the list of services, type **Recovery Services**. The list of services adjusts to what you type. When you see **Recovery Services vaults**, select it.
+1. En el menú de Azure, haga clic en **Examinar** y, en la lista de servicios, escriba **Servicios de recuperación**. La lista de servicios se ajusta a lo que escribe. Cuando vea la opción **Almacenes de servicios de recuperación**, haga clic en ella.
 
-    ![Open Recovery Services vault](./media/backup-azure-arm-restore-vms/open-recovery-services-vault.png)
+    ![Abrir el almacén de Servicios de recuperación](./media/backup-azure-arm-restore-vms/open-recovery-services-vault.png)
 
-    The list of vaults in the subscription is displayed.
+    Se muestra la lista de almacenes de la suscripción.
 
-    ![List of Recovery Services vaults](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
+    ![Lista de almacenes de Servicios de recuperación](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
 
-2. From the list, select the vault associated with the VM you restored. When you click the vault, its dashboard opens.
+2. En la lista, seleccione el almacén asociado a la máquina virtual ha restaurado. Al hacer clic en el almacén, se abre su panel.
 
-3. In the vault dashboard on the **Backup Jobs** tile, click **Azure Virtual Machines** to display the jobs associated with the vault.
+3. En el panel del almacén en el icono **Trabajos de copia de seguridad**, haga clic en **Máquinas virtuales de Azure** para mostrar los trabajos asociados al almacén.
 
-    ![vault dashboard](./media/backup-azure-arm-restore-vms/vault-dashboard-jobs.png)
+    ![panel del almacén](./media/backup-azure-arm-restore-vms/vault-dashboard-jobs.png)
 
-    The **Backup Jobs** blade opens and displays the list of jobs.
+    Se abre la hoja **Trabajos de copia de seguridad** y muestra la lista de trabajos.
 
-    ![list of VMs in vault](./media/backup-azure-arm-restore-vms/restore-job-in-progress.png)
+    ![lista de máquinas virtuales en el almacén](./media/backup-azure-arm-restore-vms/restore-job-in-progress.png)
 
-## <a name="restoring-vms-with-special-network-configurations"></a>Restoring VMs with special network configurations
-It is possible to backup and restore VMs with the following special network configurations. However, these configurations require some special consideration while going through the restore process.
+## Restauración de máquinas virtuales con configuraciones de red especiales
+Es posible hacer una copia de seguridad y restaurar las máquinas virtuales con las siguientes configuraciones de red especiales. Sin embargo, estas configuraciones requieren consideraciones especiales al pasar por el proceso de restauración.
 
-- VMs under load balancer (internal and external)
-- VMs with multiple reserved IPs
-- VMs with multiple NICs
+- Máquinas virtuales en el equilibrador de carga (interno y externo)
+- Máquinas virtuales con varias direcciones IP reservadas
+- Paso 3: Creación de máquinas virtuales con varias NIC
 
->[AZURE.IMPORTANT] When creating the special network configuration for VMs, you must use PowerShell to create VMs from the disks restored.
+>[AZURE.IMPORTANT] Al crear la configuración especial de red para las máquinas virtuales, debe usar PowerShell para crear máquinas virtuales a partir de los discos restaurados.
 
-To fully recreate the virtual machines after restoring to disk, follow these steps:
+Con el fin de volver a crear completamente las máquinas virtuales después de restaurarlas en el disco, siga estos pasos:
 
-1. Restore the disks from a recovery services vault using [PowerShell](../backup-azure-vms-automation.md#restore-an-azure-vm)
+1. Restaure los discos desde un almacén de Servicios de recuperación mediante [PowerShell](../backup-azure-vms-automation.md#restore-an-azure-vm).
 
-2. Create the VM configuration required for load balancer/multiple NIC/multiple reserved IP using the PowerShell cmdlets and use it to create the VM of desired configuration.
-    - Create VM in cloud service with [Internal Load balancer ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
-    - Create VM to connect to [Internet facing load balancer] (https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internet-getstarted/)
-    - Create VM with [multiple NICs](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)
-    - Create VM with [multiple reserved IPs](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)
+2. Cree la configuración de máquina virtual necesaria para el equilibrador de carga/varias NIC/varias IP reservadas mediante los cmdlets de PowerShell y úsela para crear la máquina virtual de la configuración que quiera.
+	- Creación de una máquina virtual en el servicio en la nube con el [equilibrador de carga interno ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
+	- Creación de una máquina virtual para conectarse al [equilibrador de carga accesible desde Internet](https://azure.microsoft.com/es-ES/documentation/articles/load-balancer-internet-getstarted/)
+	- Creación de una máquina virtual con [varias NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)
+	- Creación de una máquina virtual con [varias direcciones IP reservadas](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)
 
-## <a name="next-steps"></a>Next steps
-Now that you can restore your VMs, see the troubleshooting article for information on common errors with VMs. Also, check out the article on managing tasks with your VMs.
+## Pasos siguientes
+Ahora que se pueden restaurar las máquinas virtuales, consulte el artículo de solución de problemas para más información sobre los errores comunes con las máquinas virtuales. Asimismo, consulte el artículo sobre la administración de las tareas con las máquinas virtuales.
 
-- [Troubleshooting errors](backup-azure-vms-troubleshoot.md#restore)
-- [Manage virtual machines](backup-azure-manage-vms.md)
+- [Solución de errores](backup-azure-vms-troubleshoot.md#restore)
+- [Administración de máquinas virtuales](backup-azure-manage-vms.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

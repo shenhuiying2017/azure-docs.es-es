@@ -1,68 +1,63 @@
 <properties
-    pageTitle="Create an access change history report | Microsoft Azure"
-    description="Generate a report that lists all changes in access to your Azure subscriptions with Role-Based Access Control over the past 90 days."
-    services="active-directory"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor=""/>
+	pageTitle="Creación de un informe del historial de cambios de acceso | Microsoft Azure"
+	description="Utilice Control de acceso basado en rol para generar un informe con todos los cambios en el acceso a las suscripciones de Azure en los últimos 90 días."
+	services="active-directory"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="08/03/2016"
-    ms.author="kgremban"/>
+	ms.service="active-directory"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/03/2016"
+	ms.author="kgremban"/>
 
+# Creación de un informe del historial de cambios de acceso
 
-# <a name="create-an-access-change-history-report"></a>Create an access change history report
+Cada vez que alguien concede o revoca el acceso dentro de sus suscripciones, los cambios se registran en los eventos de Azure. Puede crear informes de historial de cambios de acceso para ver todos los cambios de los últimos 90 días.
 
-Any time someone grants or revokes access within your subscriptions, the changes get logged in Azure events. You can create access change history reports to see all changes for the past 90 days.
+## Creación de un informe con Azure PowerShell
+Para crear un informe de historial de cambios de acceso en PowerShell, utilice el siguiente comando `Get-AzureRMAuthorizationChangeLog`. Puede encontrar más información sobre este cmdlet en la [galería de PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/1.0.6/Content/ResourceManagerStartup.ps1).
 
-## <a name="create-a-report-with-azure-powershell"></a>Create a report with Azure PowerShell
-To create an access change history report in PowerShell, use the `Get-AzureRMAuthorizationChangeLog` command. More details about this cmdlet are available in the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM.Storage/1.0.6/Content/ResourceManagerStartup.ps1).
+Al llamar a este comando, puede especificar qué propiedad de las asignaciones desea mostrar, incluidas las siguientes:
 
-When you call this command, you can specify which property of the assignments you want listed, including the following:
-
-| Property | Description |
+| Propiedad | Description |
 | -------- | ----------- |
-| **Action** | Whether access was granted or revoked |
-| **Caller** | The owner responsible for the access change |
-| **Date** | The date and time that access was changed |
-| **DirectoryName** | The Azure Active Directory directory |
-| **PrincipalName** | The name of the user, group, or application |
-| **PrincipalType** | Whether the assignment was for a user, group, or application |
-| **RoleId** | The GUID of the role that was granted or revoked |
-| **RoleName** | The role that was granted or revoked |
-| **ScopeName** | The name of the subscription, resource group, or resource |
-| **ScopeType** | Whether the assignment was at the subscription, resource group, or resource scope |
-| **SubscriptionId** | The GUID of the Azure subscription |
-| **SubscriptionName** | The name of the Azure subscription |
+| **Acción** | Si se ha concedido o revocado el acceso. |
+| **Autor de llamada** | El propietario responsable del cambio de acceso. |
+| **Date** | La fecha y la hora en que se modificó el acceso. |
+| **DirectoryName** | El directorio de Azure Active Directory. |
+| **PrincipalName** | El nombre del usuario, el grupo o la aplicación. |
+| **PrincipalType** | Si la asignación ha sido para un usuario, un grupo o una aplicación. |
+| **RoleId** | El GUID del rol que se ha concedido o revocado. |
+| **RoleName** | El rol que se ha concedido o revocado. |
+| **ScopeName** | El nombre de la suscripción, el grupo de recursos o el recurso. |
+| **ScopeType** | Si la asignación era en el ámbito de la suscripción, el grupo de recursos o el recurso. |
+| **SubscriptionId** | El GUID de la suscripción de Azure. |
+| **SubscriptionName** | El nombre de la suscripción de Azure. |
 
-This example command lists all access changes in the subscription for the past seven days:
+En el siguiente comando de ejemplo se muestran todos los cambios de acceso de la suscripción que tuvieron lugar en los últimos 7 días:
 
 ```
 Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::FromDays(7)) | FT Caller,Action,RoleName,PrincipalType,PrincipalName,ScopeType,ScopeName
 ```
 
-![PowerShell Get-AzureRMAuthorizationChangeLog - screenshot](./media/role-based-access-control-configure/access-change-history.png)
+![PowerShell Get:AzureRMAuthorizationChangeLog (captura de pantalla)](./media/role-based-access-control-configure/access-change-history.png)
 
-## <a name="create-a-report-with-azure-cli"></a>Create a report with Azure CLI
-To create an access change history report in the Azure command-line interface (CLI), use the `azure role assignment changelog list` command.
+## Creación de un informe con la CLI de Azure
+Para crear un informe de historial de cambios de acceso en la interfaz de la línea de comandos (CLI) de Azure, use el comando siguiente `azure role assignment changelog list`.
 
-## <a name="export-to-a-spreadsheet"></a>Export to a spreadsheet
-To save the report, or manipulate the data, export the access changes into a .csv file. You can then view the report in a spreadsheet for review.
+## Exportación a una hoja de cálculo
+Para guardar el informe o manipular los datos, exporte los cambios de acceso a un archivo .csv. Así podrá ver el informe en una hoja de cálculo para revisarlo.
 
-![Changelog viewed as spreadsheet - screenshot](./media/role-based-access-control-configure/change-history-spreadsheet.png)
+![Changelog visto como una hoja de cálculo ( captura de pantalla)](./media/role-based-access-control-configure/change-history-spreadsheet.png)
 
-## <a name="see-also"></a>See also
-- Get started with [Azure Role-Based Access Control](role-based-access-control-configure.md)
-- Work with [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md)
+## Otras referencias
+- Introducción al [control de acceso basado en roles de Azure](role-based-access-control-configure.md)
+- Uso de [roles personalizados en RBAC de Azure](role-based-access-control-custom-roles.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

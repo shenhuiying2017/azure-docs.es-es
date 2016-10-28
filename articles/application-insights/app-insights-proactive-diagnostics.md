@@ -1,74 +1,67 @@
 <properties 
-    pageTitle="Proactive diagnostics in Application Insights | Microsoft Azure" 
-    description="Application Insights performs automatic deep analysis of your app telemetry and warns you of potential problems." 
-    services="application-insights" 
+	pageTitle="Diagnóstico proactivo en Application Insights | Microsoft Azure" 
+	description="Application Insights realiza un análisis profundo automático de la telemetría de la aplicación y le advierte de los posibles problemas." 
+	services="application-insights" 
     documentationCenter="windows"
-    authors="rakefetj" 
-    manager="douge"/>
+	authors="rakefetj" 
+	manager="douge"/>
 
 <tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/15/2016" 
-    ms.author="awills"/>
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/15/2016" 
+	ms.author="awills"/>
 
+#  Diagnóstico proactivo en Application Insights
 
-#  <a name="proactive-diagnostics-in-application-insights"></a>Proactive Diagnostics in Application Insights
+ Los diagnósticos proactivos le avisan automáticamente de posibles problemas de rendimiento en su aplicación web. Realizar un análisis inteligente de la telemetría que su aplicación envía a [Visual Studio Application Insights](app-insights-overview.md). Si hay un aumento repentino de las tasas de error o patrones de rendimiento anormales en el cliente o el servidor, recibirá una alerta. Esta característica no necesita ninguna configuración. Funciona si la aplicación envía suficiente telemetría.
 
- Proactive Diagnostics automatically warns you of potential performance problems in your web application. It performs smart analysis of the telemetry that your app sends to [Visual Studio Application Insights](app-insights-overview.md). If there is a sudden rise in failure rates, or abnormal patterns in client or server performance, you get an alert. This feature needs no configuration. It operates if your application sends enough telemetry.
-
-You can access Proactive Detection alerts both from the emails you receive, and from the Proactive Detection blade.
-
-
-
-## <a name="review-your-proactive-detections"></a>Review your Proactive Detections
-
-You can discover detections in two ways:
-
-* **You receive an email** from Application Insights. Here's a typical example:
-
-    ![Email alert](./media/app-insights-proactive-diagnostics/03.png)
-
-    Click the big button to open more detail in the portal.
-
-* **The Proactive Detection tile** on your app's overview blade shows a count of recent alerts. Click the tile to see a list of recent alerts.
-
-![View recent detections](./media/app-insights-proactive-diagnostics/04.png)
-
-Select an alert to see its details.
-
-
-## <a name="what-problems-are-detected?"></a>What problems are detected?
-
-There are three kinds of detection:
-
-* [Near-real time failure alerts](app-insights-proactive-failure-diagnostics.md). We use machine learning to set the expected rate of failed requests for your app, correlating with load and other factors. If the failure rate goes outside the expected envelope, we send an alert.
-* [Anomaly diagnostics](app-insights-proactive-anomaly-diagnostics.md). We search for anomalous patterns in response times and failure rates every day. We correlate these issues with properties such as location, browser, client OS, server instance, and time of day.
-* [Azure Cloud Services](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). You get alerts if your app is hosted in Azure Cloud Services and a role instance has startup failures, frequent recycling, or runtime crashes.
-
-(The help links in each notification take you to the relevant articles.)
-
-
-## <a name="next-steps"></a>Next steps
-
-These diagnostic tools help you inspect the telemetry from your app:
-
-* [Metric explorer](app-insights-metrics-explorer.md)
-* [Search explorer](app-insights-diagnostic-search.md)
-* [Analytics - powerful query language](app-insights-analytics-tour.md)
-
-Proactive detections are completely automatic. But maybe you'd like to set up some more alerts?
-
-* [Manually configured metric alerts](app-insights-alerts.md)
-* [Availability web tests](app-insights-monitor-web-app-availability.md) 
+Puede tener acceso a las alertas de detección proactiva desde los correos electrónicos que recibe y desde la hoja Detección proactiva.
 
 
 
+## Revisión de las detecciones proactivas
+
+Puede detectar las detecciones de dos maneras:
+
+* **Recibirá un correo electrónico** de Application Insights. Este es un ejemplo típico:
+
+    ![Alerta de correo electrónico](./media/app-insights-proactive-diagnostics/03.png)
+
+    Haga clic en el botón grande para abrir más detalles en el portal.
+
+* **El icono Detección proactiva** en la hoja de información general de la aplicación muestra un recuento de las alertas recientes. Haga clic en el icono para ver una lista de las alertas recientes.
+
+![Visualización de detecciones recientes](./media/app-insights-proactive-diagnostics/04.png)
+
+Seleccione una alerta para ver sus detalles.
 
 
-<!--HONumber=Oct16_HO2-->
+## ¿Qué problemas se detectan?
+
+Hay tres tipos de detección:
+
+* [Alertas de error en tiempo casi real](app-insights-proactive-failure-diagnostics.md). Usamos el aprendizaje automático para establecer la tasa esperada de solicitudes con error para su aplicación, correlacionando la carga y otros factores. Si la tasa de error queda fuera del rango esperado, se enviará una alerta.
+* [Diagnósticos de anomalías](app-insights-proactive-anomaly-diagnostics.md). Buscamos patrones anómalos en los tiempos de respuesta y las tasas de error cada día. Correlacionamos estos problemas con propiedades como la ubicación, el explorador, el sistema operativo del cliente, la instancia del servidor y la hora del día.
+* [Servicios en la nube de Azure](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). Recibe alertas si la aplicación se hospeda en Servicios en la nube de Azure y una instancia de rol tiene errores de inicio, repetición de ciclos frecuentes o bloqueos en tiempo de ejecución.
+
+(Los vínculos a la Ayuda de cada notificación llevan a los artículos pertinentes).
 
 
+## Pasos siguientes
+
+Estas herramientas de diagnóstico lo ayudarán a inspeccionar los datos de telemetría de su aplicación:
+
+* [Explorador de métricas](app-insights-metrics-explorer.md)
+* [Explorador de búsqueda](app-insights-diagnostic-search.md)
+* [Analytics: Lenguaje de consulta eficaz](app-insights-analytics-tour.md)
+
+Las detecciones proactivas son completamente automáticas. Pero ¿quizás le gustaría configurar algunas alertas más?
+
+* [Alertas de métricas configuradas manualmente](app-insights-alerts.md)
+* [Pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md)
+
+<!---HONumber=AcomDC_0907_2016-->

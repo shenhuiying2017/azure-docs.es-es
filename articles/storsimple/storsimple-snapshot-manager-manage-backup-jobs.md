@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple Snapshot Manager backup jobs | Microsoft Azure"
-   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage scheduled, currently running, and completed backup jobs."
+   pageTitle="Trabajos de copia de seguridad de Administrador de instantáneas StorSimple | Microsoft Azure"
+   description="Describe cómo usar el complemento MMC de Administrador de instantáneas StorSimple para ver y administrar trabajos de copia de seguridad programados, actualmente en ejecución y completados."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -16,101 +16,100 @@
    ms.author="v-sharos" />
 
 
+# Uso de Administrador de instantáneas StorSimple para ver y administrar trabajos de copia de seguridad
 
-# <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Use StorSimple Snapshot Manager to view and manage backup jobs
+## Información general
 
-## <a name="overview"></a>Overview
+El nodo **Trabajos** en el panel **Ámbito** muestra las tareas de copia de seguridad **Programada**, **Últimas 24 horas** y **En ejecución** que se han iniciado de forma interactiva o mediante una directiva configurada.
 
-The **Jobs** node in the **Scope** pane shows the **Scheduled**, **Last 24 hours**, and **Running** backup tasks that you initiated interactively or by a configured policy. 
+Este tutorial explica cómo se puede usar el nodo **trabajos** para mostrar información acerca de los trabajos de copia de seguridad programados, recientes y actualmente en ejecución. (La lista de trabajos y la información correspondiente aparece en el panel **Resultados**.) Además, puede es posible hacer clic en un trabajo de la lista y ver un menú contextual que enumera las acciones disponibles.
 
-This tutorial explains how you can use the **Jobs** node to display information about scheduled, recent, and currently running backup jobs. (The list of jobs and corresponding information appears in the **Results** pane.) Additionally, you can right-click a listed job and see a context menu that lists available actions.
+## Visualización de los trabajos programados
 
-## <a name="view-scheduled-jobs"></a>View scheduled jobs
+Use el procedimiento siguiente para ver los trabajos de copia de seguridad programados.
 
-Use the following procedure to view scheduled backup jobs.
+#### Para ver los trabajos programados
 
-#### <a name="to-view-scheduled-jobs"></a>To view scheduled jobs
+1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple. 
 
-1. Click the desktop icon to start StorSimple Snapshot Manager. 
+2. En el panel **Ámbito**, expanda el nodo **Trabajos** y, a continuación, haga clic en **Programado**. La siguiente información aparece en el panel **Resultados**:
 
-2. In the **Scope** pane, expand the **Jobs** node, and click **Scheduled**. The following information appears in the **Results** pane:
+    - **Nombre**: el nombre de la instantánea programada
 
-    - **Name** – the name of the scheduled snapshot
+    - **Siguiente ejecución**: la fecha y hora de la siguiente instantánea programada
 
-    - **Next Run** – the date and time of the next scheduled snapshot
+    - **Última ejecución**: la fecha y hora de la instantánea programada más reciente
 
-    - **Last Run** – the date and time of the most recent scheduled snapshot
-
-    >[AZURE.NOTE] For one-time only snapshots, the **Next Run** and **Last Run** will be the same. 
+    >[AZURE.NOTE] En las instantáneas que se realizan una sola vez, los valores de **Siguiente ejecución** y **Última ejecución** serán iguales.
  
-    ![Scheduled backup jobs](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_scheduled.png) 
+    ![Trabajos de copia de seguridad programados](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_scheduled.png)
  
-3. To perform additional actions on a specific job, right-click the job name in the **Results** pane and select from the menu options.
+3. Para realizar acciones adicionales en un trabajo específico, haga clic con el botón derecho en el nombre del trabajo en el panel **Resultados** y realice su selección entre las opciones de menú.
 
-## <a name="view-recent-jobs"></a>View recent jobs
+## Visualización de los trabajos recientes
 
-Use the following procedure to view backup and restore jobs that were completed in the last 24 hours.
+Utilice el procedimiento siguiente para ver la copia de seguridad y restaurar trabajos que se completaron en las últimas 24 horas.
 
-#### <a name="to-view-recent-jobs"></a>To view recent jobs
+#### Para ver los trabajos recientes
 
-1. Click the desktop icon to start StorSimple Snapshot Manager.
+1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple.
 
-2. In the **Scope** pane, expand the **Jobs** node, and click **Last 24 hours**. The **Results** pane shows backup jobs for the last 24 hours (to a maximum of 64 jobs). The following information appears in the **Results** pane, depending on the **View** options you specify:
+2. En el panel **Ámbito**, expanda el nodo **Trabajos** y, a continuación, haga clic en **Últimas 24 horas**. El panel **Resultados** muestra los trabajos de copia de seguridad de las últimas 24 horas (hasta un máximo de 64 trabajos). La siguiente información aparece en el panel **Resultados**, según las opciones de **Vista** que se haya especificado:
 
-    - **Name** – the name of the scheduled snapshot.
+    - **Nombre**: el nombre de la instantánea programada.
  
-    - **Started** – the date and time when the snapshot began.
+    - **Iniciado**: fecha y hora del comienzo de la instantánea.
 
-    - **Stopped** – the date and time when the snapshot finished or was terminated.
+    - **Detenido**: fecha y hora de la finalización o la interrupción de la instantánea.
 
-    - **Elapsed** – the amount of time between the **Started** and **Stopped** times.
+    - **Transcurrido**: la cantidad de tiempo entre los horarios de **Iniciado** y **Detenido**.
 
-    - **Status** – the state of the recently completed job. **Success** indicates that the backup was created successfully. **Failed** indicates that the job did not run successfully.
+    - **Estado**: el estado del trabajo completado recientemente. **Éxito** indica que la copia de seguridad se creó correctamente. **Error** indica que el trabajo no se ejecutó correctamente.
 
-    - **Information** – the reason for the failure.
+    - **Información**: el motivo del error.
 
-    - **Bytes processed (MB)** – the amount of data from the volume group that was processed (in MBs). 
+    - **Bytes procesados (MB)**: la cantidad de datos del grupo de volúmenes que se procesó (en MB).
 
-    ![Jobs that ran in the last 24 hours](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_Last_24_hours.png) 
+    ![Trabajos ejecutados en las últimas 24 horas](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_Last_24_hours.png)
 
-3. To perform additional actions on a specific job, right-click the job name in the **Results** pane and select from the menu options.
+3. Para realizar acciones adicionales en un trabajo específico, haga clic con el botón derecho en el nombre del trabajo en el panel **Resultados** y realice su selección entre las opciones de menú.
 
-    ![Delete a job](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Delete_backup.png) 
+    ![Eliminación de un trabajo](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Delete_backup.png)
      
-## <a name="view-currently-running-jobs"></a>View currently running jobs
+## Visualización de los trabajos en ejecución
 
-Use the following procedure to view jobs that are currently running.
+Utilice el procedimiento siguiente para ver los trabajos que se están ejecutando en el momento presente.
 
-#### <a name="to-view-currently-running-jobs"></a>To view currently running jobs
+#### Para ver los trabajos en ejecución
 
-1. Click the desktop icon to start StorSimple Snapshot Manager.
+1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple.
 
-2. In the **Scope** pane, expand the **Jobs** node, and click **Running**. Depending on the **View** options you specify, the following information appears in the **Results** pane: 
+2. En el panel **Ámbito**, expanda el nodo **Trabajos** y haga clic en **En ejecución**. Dependiendo de las opciones de **Vista** que se especifiquen, la siguiente información aparece en el panel **Resultados**:
 
-    - **Name** – the name of the scheduled snapshot.
+    - **Nombre**: el nombre de la instantánea programada.
 
-    - **Started** – the date and time when the snapshot began.
+    - **Iniciado**: fecha y hora del comienzo de la instantánea.
 
-    - **Checkpoint** – the current action of the backup.
+    - **Punto de control**: la acción actual de la copia de seguridad.
 
-    - **Status** – the percentage of completion.
+    - **Estado**: el porcentaje de finalización.
     
-    - **Elapsed** – the amount of time that has passed since the backup began. 
+    - **Transcurrido**: la cantidad de tiempo que ha transcurrido desde que comenzó la copia de seguridad.
 
-    - **Average throughput (MB)** – ratio of total bytes of data processed to that of total time taken for processing (MBs).
+    - **Rendimiento medio (MB)**: la relación del total de bytes de datos procesados con el tiempo total necesario para realizar el procesamiento (MB).
 
-    - **Bytes processed (MB)** – total bytes of data processed (in MBs).
+    - **Bytes procesados (MB)**: total de bytes de los datos procesados (en MB).
 
-    - **Bytes written (MB)** – total bytes of data written (in MBs). It includes the data as well as the metadata and hence is typically greater than the Bytes Processed.
+    - **Bytes escritos (MB)**: total de bytes de los datos escritos (en MB). Incluye los datos, así como los metadatos y, por tanto, es normalmente mayor que los bytes procesados.
 
-    ![Jobs currently running](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_running.png)
+    ![Trabajos en ejecución](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_running.png)
 
-3. To perform additional actions on a specific job, right-click the job name in the **Results** pane and select from the menu options.
+3. Para realizar acciones adicionales en un trabajo específico, haga clic con el botón derecho en el nombre del trabajo en el panel **Resultados** y realice su selección entre las opciones de menú.
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
-- Learn how to [use StorSimple Snapshot Manager to manage the backup catalog](storsimple-snapshot-manager-manage-backup-catalog.md).
+- Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
+- Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar el catálogo de copias de seguridad](storsimple-snapshot-manager-manage-backup-catalog.md).
 
 
 
@@ -131,9 +130,4 @@ Use the following procedure to view jobs that are currently running.
 
  
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0511_2016-->

@@ -1,18 +1,15 @@
 <!--author=SharS last changed: 03/17/2016-->
 
-#### <a name="to-install-update-1.2-from-the-azure-classic-portal"></a>To install Update 1.2 from the Azure classic portal
+#### Para instalar la actualización 1.2 desde el Portal de Azure clásico
 
-1. In the Azure classic portal, go to the **Devices** page and select your device.
+1. En el Portal de Azure clásico, vaya a la página **Dispositivos** y seleccione un dispositivo.
 
-2. Navigate to **Devices** > **Configure**.
+2. Vaya a **Dispositivos** > **Configurar**.
 
-3. Under **Network Interfaces**, first verify that you have at least one network interface that is iSCSI-enabled. Then locate the network interface (other than DATA 0) that has a gateway assigned.
+3. En **Interfaces de red**, compruebe primero que tiene al menos una interfaz de red que está habilitada para iSCSI. A continuación busque la interfaz de red (que no sea DATA 0) que tiene asignada una puerta de enlace.
 
-4. Disable the network interface that has an assigned gateway and save the modified configuration. Note the network interface settings are retained and so when you re-enable this network interface later, the portal will revert to the original settings.
+4. Deshabilite la interfaz de red que tenga asignada una puerta de enlace y guarde la configuración modificada. Observe que se conserva la configuración de la interfaz de red, por lo que, cuando se vuelva a habilitar esta interfaz más adelante, el portal se revertirá a la configuración original.
 
-7. You can now [use the Azure classic portal to install Update 1.2](#install-update-12-via-the-azure-classic-portal). Follow the instructions starting from step 3 of this procedure. After you have installed all the updates, you can re-enable the network interface that you disabled.
+7. Ya puede [usar el Portal de Azure clásico para instalar la Actualización 1.2](#install-update-12-via-the-azure-classic-portal). Siga las instrucciones a partir del paso 3 de este procedimiento. Después de haber instalado todas las actualizaciones, puede volver a habilitar la interfaz de red que deshabilitó.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0323_2016-->

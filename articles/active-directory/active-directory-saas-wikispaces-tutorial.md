@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with Wikispaces | Microsoft Azure" 
-    description="Learn how to use Wikispaces with Azure Active Directory to enable single sign-on, automated provisioning, and more!." 
+    pageTitle="Tutorial: Integración de Azure Active Directory con Wikispaces | Microsoft Azure" 
+    description="Aprenda cómo usar Wikispaces con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,135 +14,129 @@
     ms.date="09/11/2016" 
     ms.author="jeedes" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-wikispaces"></a>Tutorial: Azure Active Directory integration with Wikispaces
+#Tutorial: Integración de Azure Active Directory con Wikispaces
   
-The objective of this tutorial is to show the integration of Azure and Wikispaces.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+El objetivo de este tutorial es mostrar la integración de Azure y Wikispaces. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
--   A valid Azure subscription
--   A Wikispaces single sign-on enabled subscription
+-   Una suscripción de Azure válida
+-   Una suscripción habilitada para el inicio de sesión único en Wikispaces
   
-After completing this tutorial, the Azure AD users you have assigned to Wikispaces will be able to single sign into the application at your Wikispaces company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Después de completar este tutorial, los usuarios de Azure AD que ha asignado a Wikispaces podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Wikispaces (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
   
-The scenario outlined in this tutorial consists of the following building blocks:
+La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
-1.  Enabling the application integration for Wikispaces
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+1.  Habilitación de la integración de aplicaciones para Wikispaces
+2.  Configuración del inicio de sesión único
+3.  Configuración del aprovisionamiento de usuario
+4.  Asignación de usuarios
 
-![Sceanrio](./media/active-directory-saas-wikispaces-tutorial/IC787182.png "Sceanrio")
+![Escenario](./media/active-directory-saas-wikispaces-tutorial/IC787182.png "Escenario")
 
-##<a name="enabling-the-application-integration-for-wikispaces"></a>Enabling the application integration for Wikispaces
+##Habilitación de la integración de aplicaciones para Wikispaces
   
-The objective of this section is to outline how to enable the application integration for Wikispaces.
+El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para Wikispaces.
 
-###<a name="to-enable-the-application-integration-for-wikispaces,-perform-the-following-steps:"></a>To enable the application integration for Wikispaces, perform the following steps:
+###Siga estos pasos para habilitar la integración de aplicaciones para Wikispaces:
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-wikispaces-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
 
-    ![Applications](./media/active-directory-saas-wikispaces-tutorial/IC700994.png "Applications")
+    ![Aplicaciones](./media/active-directory-saas-wikispaces-tutorial/IC700994.png "Aplicaciones")
 
-4.  Click **Add** at the bottom of the page.
+4.  Haga clic en **Agregar** en la parte inferior de la página.
 
-    ![Add application](./media/active-directory-saas-wikispaces-tutorial/IC749321.png "Add application")
+    ![Agregar aplicación](./media/active-directory-saas-wikispaces-tutorial/IC749321.png "Agregar aplicación")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-wikispaces-tutorial/IC749322.png "Add an application from gallerry")
+    ![Agregar una aplicación de la galería](./media/active-directory-saas-wikispaces-tutorial/IC749322.png "Agregar una aplicación de la galería")
 
-6.  In the **search box**, type **Wikispaces**.
+6.  En el **cuadro de búsqueda**, escriba **Wikispaces**.
 
-    ![Application Gallery](./media/active-directory-saas-wikispaces-tutorial/IC787186.png "Application Gallery")
+    ![Galería de aplicaciones](./media/active-directory-saas-wikispaces-tutorial/IC787186.png "Galería de aplicaciones")
 
-7.  In the results pane, select **Wikispaces**, and then click **Complete** to add the application.
+7.  En el panel de resultados, seleccione **Wikispaces** y luego, haga clic en **Completar** para agregar la aplicación.
 
     ![Wikispaces](./media/active-directory-saas-wikispaces-tutorial/IC787187.png "Wikispaces")
 
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Configuración del inicio de sesión único
   
-The objective of this section is to outline how to enable users to authenticate to Wikispaces with their account in Azure AD using federation based on the SAML protocol.
+El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Wikispaces con su cuenta de Azure AD usando el protocolo SAML basado en la federación.
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  In the Azure classic portal, on the **Wikispaces** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Wikispaces**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787188.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-wikispaces-tutorial/IC787188.png "Configurar inicio de sesión único")
 
-2.  On the **How would you like users to sign on to Wikispaces** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  En la página **¿Cómo desea que los usuarios inicien sesión en Wikispaces?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, luego , haga clic en **Siguiente**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787189.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-wikispaces-tutorial/IC787189.png "Configurar inicio de sesión único")
 
-3.  On the **Configure App URL** page, in the **Wikispaces Sign On URL** textbox, type your URL using the following pattern "*http://company.wikispaces.net*", and then click **Next**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **dirección URL de inicio de sesión de Wikispaces**, escriba su dirección URL con el siguiente patrón "*http://company.wikispaces.net*" y luego haga clic en **Siguiente**.
 
-    ![Configure App URL](./media/active-directory-saas-wikispaces-tutorial/IC787190.png "Configure App URL")
+    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-wikispaces-tutorial/IC787190.png "Configurar dirección URL de la aplicación")
 
-4.  On the **Configure single sign-on at Wikispaces** page, click **Download metadata**, and then save the metadata file on your computer.
+4.  En la página **Configuración de inicio de sesión único en Wikispaces**, haga clic en **Descargar metadatos** y, luego, guarde el archivo de metadatos en el equipo.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787191.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-wikispaces-tutorial/IC787191.png "Configurar inicio de sesión único")
 
-5.  Send the metadatafile to the Wikispaces support team.
+5.  Envíe el archivo de metadatos al equipo de soporte técnico de Wikispaces.
 
-    >[AZURE.NOTE] The single sign-on configuration has to be performed by the Wikispaces support team. You will get a notification as soon as the configuration has been completed.
+    >[AZURE.NOTE] La configuración del inicio de sesión único la debe realizar el equipo de soporte técnico de Wikispaces. Tan pronto como se complete la configuración, recibirá una notificación.
 
-6.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+6.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787192.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-wikispaces-tutorial/IC787192.png "Configurar inicio de sesión único")
 
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+##Configuración del aprovisionamiento de usuario
   
-In order to enable Azure AD users to log into Wikispaces, they must be provisioned into Wikispaces.  
-In the case of Wikispaces, provisioning is a manual task.
+Para permitir que los usuarios de Azure AD inicien sesión en Wikispaces, deben aprovisionarse en Wikispaces. En el caso de Wikispaces, el aprovisionamiento es una tarea manual.
 
-###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
+###Para aprovisionar cuentas de usuario, realice estos pasos:
 
-1.  Log in to your **Wikispaces** company site as an administrator.
+1.  Inicie sesión en su sitio de la compañía de **Wikispaces** como administrador.
 
-2.  Go to **Members**.
+2.  Vaya a **Miembros**.
 
-    ![Members](./media/active-directory-saas-wikispaces-tutorial/IC787193.png "Members")
+    ![Miembros](./media/active-directory-saas-wikispaces-tutorial/IC787193.png "Miembros")
 
-3.  Click the **Invite People**.
+3.  Haga clic en **Invitar asistentes**.
 
-    ![Invite People](./media/active-directory-saas-wikispaces-tutorial/IC787194.png "Invite People")
+    ![Invitar a contactos](./media/active-directory-saas-wikispaces-tutorial/IC787194.png "Invitar asistentes")
 
-4.  In the **Invite People** section, perform the following steps:
+4.  En la sección **Invitar asistentes**, siga estos pasos:
 
-    ![Invite People](./media/active-directory-saas-wikispaces-tutorial/IC787208.png "Invite People")
+    ![Invitar asistentes](./media/active-directory-saas-wikispaces-tutorial/IC787208.png "Invitar a contactos")
 
-    1.  Type the **Usernames or Email Address** of a valid AAD account you want to provision into the related textboxes.
-    2.  Click **Send**.  
+    1.  Escriba los **nombres de usuario o dirección de correo electrónico** de una cuenta válida de AAD que quiera aprovisionar en los cuadros de texto relacionados.
+    2.  Haga clic en **Send** (Enviar).
 
-        >[AZURE.NOTE] The Azure Active Directory account holder receives an email including a link to confirm the account before it becomes active.
+        >[AZURE.NOTE] El titular de la cuenta de Azure Active Directory recibe un mensaje de correo electrónico con un vínculo para confirmar la cuenta antes de que se active.
 
->[AZURE.NOTE] You can use any other Wikispaces user account creation tools or APIs provided by Wikispaces to provision AAD user accounts.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Wikispaces ofrecida por Wikispaces para aprovisionar cuentas de usuario de AAD.
 
-##<a name="assigning-users"></a>Assigning users
+##Asignación de usuarios
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
-###<a name="to-assign-users-to-wikispaces,-perform-the-following-steps:"></a>To assign users to Wikispaces, perform the following steps:
+###Para asignar usuarios a Wikispaces, lleve a cabo los siguientes pasos:
 
-1.  In the Azure classic portal, create a test account.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
-2.  On the **Wikispaces **application integration page, click **Assign users**.
+2.  En la página de integración de la aplicación **Wikispaces**, haga clic en **Asignar usuarios**.
 
-    ![Assign Users](./media/active-directory-saas-wikispaces-tutorial/IC787195.png "Assign Users")
+    ![Asignar usuarios](./media/active-directory-saas-wikispaces-tutorial/IC787195.png "Asignar usuarios")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
-    ![Yes](./media/active-directory-saas-wikispaces-tutorial/IC767830.png "Yes")
+    ![Sí](./media/active-directory-saas-wikispaces-tutorial/IC767830.png "Sí")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

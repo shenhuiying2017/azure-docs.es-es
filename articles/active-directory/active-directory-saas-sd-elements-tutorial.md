@@ -1,339 +1,334 @@
 <properties
-    pageTitle="Tutorial: Azure Active Directory integration with SD Elements | Microsoft Azure"
-    description="Learn how to configure single sign-on between Azure Active Directory and SD Elements."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeevansd"
-    manager="femila"
-    editor=""/>
+	pageTitle="Tutorial: Integración de Azure Active Directory con SD Elements | Microsoft Azure"
+	description="Aprenda a configurar el inicio de sesión único entre Azure Active Directory y SD Elements."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeevansd"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/01/2016"
-    ms.author="jeedes"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2016"
+	ms.author="jeedes"/>
 
 
+# Tutorial: Integración de Azure Active Directory con SD Elements
 
-# <a name="tutorial:-azure-active-directory-integration-with-sd-elements"></a>Tutorial: Azure Active Directory integration with SD Elements
+El objetivo de este tutorial es mostrar cómo integrar SD Elements con Azure Active Directory (Azure AD). La integración de SD Elements con Azure AD proporciona las siguientes ventajas:
 
-The objective of this tutorial is to show you how to integrate SD Elements with Azure Active Directory (Azure AD).  
-Integrating SD Elements with Azure AD provides you with the following benefits:
-
-- You can control in Azure AD who has access to SD Elements
-- You can enable your users to automatically get signed-on to SD Elements (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active Directory 
+- Puede controlar en Azure AD quién tiene acceso a SD Elements.
+- Puede permitir que los usuarios inicien sesión automáticamente en SD Elements (inicio de sesión único) con sus cuentas de Azure AD.
+- Puede administrar sus cuentas en una ubicación central, Azure Active Directory.
 
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## Requisitos previos
 
-To configure Azure AD integration with SD Elements, you need the following items:
+Para configurar la integración de Azure AD con SD Elements, necesita los siguientes elementos:
 
-- An Azure AD subscription
-- A SD Elements single-sign on enabled subscription
-
-
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+- Una suscripción de Azure AD
+- Una suscripción habilitada para el inicio de sesión único en SD Elements
 
 
-To test the steps in this tutorial, you should follow these recommendations:
-
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
 
-## <a name="scenario-description"></a>Scenario Description
-The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
-The scenario outlined in this tutorial consists of two main building blocks:
+Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
-1. Adding SD Elements from the gallery
-2. Configuring and testing Azure AD single sign-on
+- No debe usar el entorno de producción, a menos que sea necesario.
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## <a name="adding-sd-elements-from-the-gallery"></a>Adding SD Elements from the gallery
-To configure the integration of SD Elements into Azure AD, you need to add SD Elements from the gallery to your list of managed SaaS apps.
+## Descripción del escenario
+El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
 
-**To add SD Elements from the gallery, perform the following steps:**
+1. Incorporación de SD Elements desde la galería
+2. Configuración y comprobación del inicio de sesión único de Azure AD
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
 
-    ![Active Directory][1]
+## Incorporación de SD Elements desde la galería
+Para configurar la integración de SD Elements en Azure AD, deberá agregar SD Elements desde la galería a la lista de aplicaciones SaaS administradas.
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+**Para agregar SD Elements desde la galería, realice los pasos siguientes:**
 
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
-    ![Applications][2]
+	![Active Directory][1]
 
-4. Click **Add** at the bottom of the page.
+2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
-    ![Applications][3]
+3. Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
 
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+	![Aplicaciones][2]
 
-    ![Applications][4]
+4. Haga clic en **Agregar** en la parte inferior de la página.
 
-6. In the search box, type **SD Elements**.
+	![Aplicaciones][3]
+
+5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
+
+	![Aplicaciones][4]
+
+6. En el cuadro Buscar, escriba **SD Elements**.
  
-    ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_01.png)
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_01.png)
 
-7. In the results pane, select **SD Elements**, and then click **Complete** to add the application.
+7. En el panel de resultados, seleccione **SD Elements** y luego haga clic en **Completar** para agregar la aplicación.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_02.png)
-
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-The objective of this section is to show you how to configure and test Azure AD single sign-on with SD Elements based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in SD Elements to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in SD Elements needs to be established.  
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in SD Elements.
-
-To configure and test Azure AD single sign-on with SD Elements, you need to complete the following building blocks:
-
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a SD Elements test user](#creating-a-sd-elements-test-user)** - to have a counterpart of Britta Simon in SD Elements that is linked to the Azure AD representation of her.
-5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
-
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
-
-The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your SD Elements application.
-
-Your SD Elements application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration. The following screenshot shows an example for this:
-
-![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_14.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_02.png)
 
 
+##  Configuración y comprobación del inicio de sesión único de Azure AD
+El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con SD Elements con un usuario de prueba llamado "Britta Simon".
 
-**To configure Azure AD single sign-on with SD Elements, perform the following steps:**
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de SD Elements para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de SD Elements. Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en SD Elements.
 
-1. In the Azure classic portal, on the **SD Elements** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+Para configurar y probar el inicio de sesión único de Azure AD con SD Elements, es preciso completar los siguientes bloques de creación:
 
-    ![Configure Single Sign-On][6] 
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Creación de un usuario de prueba de SD Elements](#creating-a-sd-elements-test-user)**: para tener un homólogo de Britta Simon en SD Elements que esté vinculado a la representación de ella en Azure AD.
+5. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
-2. On the **How would you like users to sign on to SD Elements** page, select **Azure AD Single Sign-On**, and then click **Next**.
+### Configuración del inicio de sesión único de Azure AD
 
-    ![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_03.png) 
+El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación SD Elements.
 
-3. On the **Configure App Settings** dialog page, perform the following steps:.
+La aplicación SD Elements espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los **atributos del token de SAML**. La siguiente captura de pantalla le muestra un ejemplo:
+
+![Configurar inicio de sesión único](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_14.png)
+
+
+
+**Para configurar el inicio de sesión único de Azure AD con SD Elements, realice los pasos siguientes:**
+
+1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **SD Elements**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+
+	![Configurar inicio de sesión único][6]
+
+2. En la página **¿Cómo desea que los usuarios inicien sesión en SD Elements?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y haga clic en **Siguiente**.
+
+	![Configurar inicio de sesión único](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_03.png)
+
+3. En la página del cuadro de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes:
     
-    ![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_04.png) 
+	![Configurar inicio de sesión único](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_04.png)
 
 
-    a. In the **Issuer** textbox, type your tenant's issuer URL using the following pattern: *https://\<your tenant name\>.sdelements.com/sso/saml2/metadata*
+    a. En el cuadro de texto **Emisor**, escriba la dirección URL del emisor del inquilino con el siguiente patrón: *https://\<your tenant name>.sdelements.com/sso/saml2/metadata*
    
-    b. In the **Reply URL** textbox, type your tenant's reply URL using the following pattern: *https://\<your tenant name\>.sdelements.com/sso/saml2/acs/*       
+    b. En el cuadro de texto **URL de respuesta**, escriba la dirección URL de respuesta del inquilino con el siguiente patrón: *https://\<your tenant name>.sdelements.com/sso/saml2/acs/*
 
-    > [AZURE.NOTE] If you need the actual Issuer URL and Reply URL for your tenant, contact your [SD Elements support team](mailto:support@sdelements.com).
+    > [AZURE.NOTE] Si necesita la dirección URL del emisor y la dirección URL de respuesta reales del inquilino, póngase en contacto con su [equipo de soporte técnico de SD Elements](mailto:support@sdelements.com).
       
-    c. Click **Next**.
+    c. Haga clic en **Next**.
 
 
-4. On the **Configure single sign-on at SD Elements** page, perform the following steps:
+4. En la página **Configurar inicio de sesión único en SD Elements**, siga estos pasos:
    
-    ![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_05.png) 
+	![Configurar inicio de sesión único](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_05.png)
 
-    a. Click **Download certificate**, and then save the file on your computer.
+    a. Haga clic en **Descargar certificado** y después guarde el archivo en el equipo.
 
-    b. Click **Next**.
-
-
-1. To get single sign-on enabled, contact your [SD Elements support team](mailto:support@sdelements.com) and provide them with the downloaded certificate file.
+    b. Haga clic en **Siguiente**.
 
 
-5. In a different browser window, singn-on to your SD Elements tenant as an administrator.
-
-6. In the menu on the top, click System, and then Single Sign-on. 
-
-    ![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_09.png) 
+1. Para que le habiliten el inicio de sesión único, póngase en contacto con su [equipo de soporte técnico de SD Elements](mailto:support@sdelements.com) y proporcióneles el archivo de certificado descargado.
 
 
-7. On the **Single Sign-On Settings** dialog, perform the following steps:
+5. En una ventana de explorador diferente, inicie sesión en su inquilino de SD Elements como administrador.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_10.png) 
+6. En el menú de la parte superior, haga clic en Sistema y luego en Inicio de sesión único.
 
-    a. As **SSO Type**, select **SAML**.
+	![Configurar inicio de sesión único](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_09.png)
 
-    b. In the Azure classic portal, on the **Configure single sign-on at SD Elements** dialog page, copy the **Issuer URL** value, and then paste it into the **Identity Provider Entity ID** textbox.
 
-    c. In the Azure classic portal, on the **Configure single sign-on at SD Elements** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **Identity Provider Single Sign-On Service** textbox.
+7. En el cuadro de diálogo **Configuración de inicio de sesión único**, siga estos pasos:
 
-    d. Click **Save**.
+	![Configurar inicio de sesión único](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_10.png)
 
-6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+    a. Como **Tipo de inicio de sesión único**, seleccione **SAML**.
 
-    ![Azure AD Single Sign-On][10]
+    b. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en SD Elements**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **Id. de entidad del proveedor de identidades**.
 
-7. On the **Single sign-on confirmation** page, click **Complete**.  
+    c. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en SD Elements**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Servicio de inicio de sesión único del proveedor de identidades**.
 
-    ![Azure AD Single Sign-On][11]
+    d. Haga clic en **Guardar**.
 
-1. In the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog. 
+6. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
+
+	![Inicio de sesión único de Azure AD][10]
+
+7. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.
+
+	![Inicio de sesión único de Azure AD][11]
+
+1. En el menú de la parte superior, haga clic en **Atributos** para abrir el cuadro de diálogo **Atributos de token de SAML**.
     
-    ![Configure Single Sign-On][21]
+	![Configurar inicio de sesión único][21]
 
 
-2. For each row in the following table, perform the following steps:
+2. Para cada fila de la siguiente tabla, realice los pasos siguientes:
 
-  	| Attribute Name | Attribute Value |
-  	| ---            | ---             |
-  	| email          | user.mail       |
-  	| firstname      | user.givenname  |
-  	| lastname       | user.surname    |
+    | Nombre del atributo | Valor de atributo |
+    | ---            | ---             |
+    | email | user.mail |
+    | firstname | user.givenname |
+    | lastname | user.surname |
 
 
-    a. Click **add user attribute**. 
+    a. Haga clic en **agregar atributo de usuario**.
     
-    ![Configure Single Sign-On][23]
+	![Configurar inicio de sesión único][23]
 
-    b. In the **Attribute Name** textbox, type the **Attribute Name** and as **Attribute Value**, select the Attribute Value shown for that row.
+    b. En el cuadro de texto **Nombre de atributo**, escriba el valor de **Nombre de atributo** y, en **Valor de atributo**, seleccione el valor del atributo que se muestra para esa fila.
     
-    ![Configure Single Sign-On][22]
+	![Configurar inicio de sesión único][22]
 
-    c. Click **add user attribute**. 
+    c. Haga clic en **agregar atributo de usuario**.
     
-    ![Configure Single Sign-On][23]
+	![Configurar inicio de sesión único][23]
 
-1. Click **Apply Changes**. 
+1. Haga clic en **Aplicar cambios**.
     
-    ![Configure Single Sign-On][24]
+	![Configurar inicio de sesión único][24]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure classic portal called Britta Simon.  
+### Creación de un usuario de prueba de Azure AD
+El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure clásico llamado Britta Simon.
 
-![Create Azure AD User][20]
+![Creación de un usuario de Azure AD][20]
 
-**To create a test user in Azure AD, perform the following steps:**
+**Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_09.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_09.png)
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
-3. To display the list of users, in the menu on the top, click **Users**.
+3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_03.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_03.png)
 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_04.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_04.png)
 
-5. On the **Tell us about this user** dialog page, perform the following steps:
+5. En la página de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_05.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_05.png)
 
-    a. As Type Of User, select New user in your organization.
+    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    c. Click **Next**.
+    c. Haga clic en **Next**.
 
-6.  On the **User Profile** dialog page, perform the following steps:
+6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_06.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_06.png)
 
-    a. In the **First Name** textbox, type **Britta**.  
+    a. En el cuadro de texto **Nombre**, escriba **Britta**.
 
-    b. In the **Last Name** textbox, type, **Simon**.
+    b. En el cuadro de texto **Apellidos**, escriba **Simon**.
 
-    c. In the **Display Name** textbox, type **Britta Simon**.
+    c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
 
-    d. In the **Role** list, select **User**.
+    d. En la lista **Rol**, seleccione **Usuario**.
 
-    e. Click **Next**.
+    e. Haga clic en **Siguiente**.
 
-7. On the **Get temporary password** dialog page, click **create**.
+7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_07.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_07.png)
 
-8. On the **Get temporary password** dialog page, perform the following steps:
+8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_08.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_08.png)
 
-    a. Write down the value of the **New Password**.
+    a. Anote el valor del campo **Nueva contraseña**.
 
-    b. Click **Complete**.   
+    b. Haga clic en **Complete**.
 
 
 
-### <a name="creating-a-sd-elements-test-user"></a>Creating a SD Elements test user
+### Creación de un usuario de prueba de SD Elements
 
-The objective of this section is to create a user called Britta Simon in SD Elements. In the case of SD Elements, creating SD Elements users is a manual task.
+El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en SD Elements. En el caso de SD Elements, la creación de usuarios de SD Elements es una tarea manual.
 
-**To create Britta Simon in SD Elements, perform the following steps:**
+**Para crear a Britta Simon en SD Elements, realice los pasos siguientes:**
 
-1.  In a web browser window, sign-on to your SD Elements company site as an administrator.
+1.	En una ventana de explorador web, inicie sesión como administrador en el sitio de la empresa de SD Elements.
 
-2.  In the menu on the top, click User Management, and then Users.
+2.	En el menú de la parte superior, haga clic en User Management (Administración de usuarios) y luego en Users (Usuarios).
  
-    ![Creating a SD Elements test user](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_11.png) 
+	![Creación de un usuario de prueba de SD Elements](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_11.png)
 
-3.  Click Add New User.
+3.	Haga clic en Add New User (Agregar nuevo usuario).
  
-    ![Creating a SD Elements test user](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_12.png) 
+    ![Creación de un usuario de prueba de SD Elements](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_12.png)
 
-4.  On the Add New User dialog, perform the following steps:
+4.	En el cuadro de diálogo Add New User (Agregar nuevo usuario), realice los pasos siguientes:
 
-    ![Creating a SD Elements test user](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_13.png) 
+    ![Creación de un usuario de prueba de SD Elements](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_13.png)
 
-    a. In the **E-mail** textbox, type Britta's email address in Azure AD.
+    a. En el cuadro de texto **E-mail** (Correo electrónico), escriba la dirección de correo electrónico de Britta en Azure AD.
 
-    b. In the **First Name** textbox, type **Britta**.
+    b. En el cuadro de texto **First Name** (Nombre), escriba **Britta**.
 
-    c. In the **Last Name** textbox, type **Simon**.
+    c. En el cuadro de texto **Last Name** (Apellidos), escriba **Simon**.
 
-    d. As **Role**, select **User**. 
+    d. Como **Role** (Rol), seleccione **User** (Usuario).
 
-    e. Click **Create User**.
-
-
-
-
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
-
-The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to SD Elements.
-
-![Assign User][200] 
-
-**To assign Britta Simon to SD Elements, perform the following steps:**
-
-1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Assign User][201] 
-
-2. In the applications list, select **SD Elements**.
-
-    ![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_50.png) 
-
-1. In the menu on the top, click **Users**.
-
-    ![Assign User][203] 
-
-1. In the **Users** list, select **Britta Simon**.
-
-2. In the toolbar on the bottom, click **Assign**.
-
-    ![Assign User][205]
+    e. Haga clic en **Create User** (Crear usuario).
 
 
 
-### <a name="testing-single-sign-on"></a>Testing Single Sign-On
 
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
-When you click the SD Elements tile in the Access Panel, you should get automatically signed-on to your SD Elements application.
+### Asignación del usuario de prueba de Azure AD
+
+El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure, para lo que se le concederá acceso a SD Elements.
+
+![Asignar usuario][200]
+
+**Para asignar a Britta Simon a SD Elements, realice los pasos siguientes:**
+
+1. En el Portal de Azure clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
+
+	![Asignar usuario][201]
+
+2. En la lista de aplicaciones, seleccione **SD Elements**.
+
+	![Configurar inicio de sesión único](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_50.png)
+
+1. En el menú de la parte superior, haga clic en **Usuarios**.
+
+	![Asignar usuario][203]
+
+1. En la lista **Usuarios**, seleccione **Britta Simon**.
+
+2. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
+
+	![Asignar usuario][205]
 
 
-## <a name="additional-resources"></a>Additional Resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+### Prueba del inicio de sesión único
+
+El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso. Al hacer clic en el icono de SD Elements en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación SD Elements.
+
+
+## Recursos adicionales
+
+* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -360,8 +355,4 @@ When you click the SD Elements tile in the Access Panel, you should get automati
 [204]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_205.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

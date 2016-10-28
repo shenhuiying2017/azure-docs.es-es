@@ -1,68 +1,67 @@
 <properties
-    pageTitle="Optimizing your Linux VM on Azure | Microsoft Azure"
-    description="Learn some optimization tips to make sure you have set up your Linux VM for optimal performance on Azure"
-    keywords="linux virtual machine,virtual machine linux,ubuntu virtual machine" 
-    services="virtual-machines-linux"
-    documentationCenter=""
-    authors="rickstercdn"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-resource-manager" />
+	pageTitle="Optimización de la máquina virtual Linux en Azure | Microsoft Azure"
+	description="Aprenda algunas sugerencias de optimización para asegurarse de que ha configurado la máquina virtual Linux para obtener un rendimiento óptimo en Azure."
+	keywords="máquina virtual con linux,máquina virtual linux,máquina virtual con ubuntu" 
+	services="virtual-machines-linux"
+	documentationCenter=""
+	authors="rickstercdn"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager" />
 
 <tags
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/06/2016"
-    ms.author="rclaus"/>
+	ms.service="virtual-machines-linux"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/06/2016"
+	ms.author="rclaus"/>
 
+# Optimización de la máquina virtual Linux en Azure
 
-# <a name="optimize-your-linux-vm-on-azure"></a>Optimize your Linux VM on Azure
+Crear una máquina virtual con Linux es muy sencillo desde la línea de comandos o desde el Portal. Este tutorial muestra cómo asegurarse de que está configurada para optimizar su rendimiento en la Plataforma Microsoft Azure. Este tema usa una VM de servidor Ubuntu, pero también puede crear máquinas virtuales Linux mediante [sus propias imágenes como plantillas](virtual-machines-linux-create-upload-generic.md).
 
-Creating a Linux virtual machine (VM) is easy to do from the command line or from the portal. This tutorial shows you how to ensure you have set it up to optimize its performance on the Microsoft Azure platform. This topic uses an Ubuntu Server VM, but you can also create Linux virtual machine using [your own images as templates](virtual-machines-linux-create-upload-generic.md).  
+## Requisitos previos
 
-## <a name="prerequisites"></a>Prerequisites
+En este tema se da por supuesto que ya tiene una suscripción de Azure activa ([suscripción de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)), ya ha [instalado la CLI de Azure](../xplat-cli-install.md) y ya ha aprovisionado una VM en su suscripción de Azure. Antes de hacer cualquier cosa con Azure, tendrá que autenticarse en su suscripción. Para hacerlo con CLI de Azure, solo tiene que escribir `azure login` para iniciar el proceso interactivo.
 
-This topic assumes you already have a working Azure Subscription ([free trial signup](https://azure.microsoft.com/pricing/free-trial/)), [installed the Azure CLI](../xplat-cli-install.md) and have already provisioned a VM into your Azure Subscription. Before doing anything with Azure - you have to authenticate to your subscription. To do this with Azure CLI, simply type `azure login` to start the interactive process. 
+## Disco de sistema operativo de Azure
 
-## <a name="azure-os-disk"></a>Azure OS Disk
+Al crear la máquina virtual Linux en Azure, tiene dos discos asociados a ella. /dev/sda es el disco del sistema operativo, /dev/sdb es el disco temporal. No utilice el disco del sistema operativo principal (/dev/sda) salvo para el mismo sistema operativo, ya que se ha optimizado para un tiempo de arranque rápido de la VM y no proporcionará un buen rendimiento para sus cargas de trabajo. Querrá conectar uno o más discos a la VM con el fin de obtener un almacenamiento optimizado y persistente para sus datos.
 
-Once you create a Linux Vm in Azure, it has two disks associated with it. /dev/sda is your OS disk, /dev/sdb is your temporary disk.  Do not use the main OS disk (/dev/sda) for anything except the operating system as it is optimized for fast VM boot time and does not provide good performance for your workloads. You want to attach one or more disks to your VM to get persistent and optimized storage for your data. 
+## Adición de discos para objetivos de rendimiento y tamaño 
 
-## <a name="adding-disks-for-size-and-performance-targets"></a>Adding Disks for Size and Performance targets 
+En función del tamaño de la VM, puede conectar hasta 16 discos adicionales en una máquina de serie A, 32 discos en una de serie D y 64 discos en una máquina de serie G, cada una de ellas con hasta 1 TB de tamaño. Agregue discos adicionales según sea necesario en función del espacio y los requisitos de IOPS. Cada disco tiene un objetivo de rendimiento de 500 IOPS para el Almacenamiento estándar y de hasta 5000 IOPS por disco para el Almacenamiento Premium. Para obtener más información sobre los discos de Premium Storage, consulte [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de VM de Azure](../storage/storage-premium-storage.md).
 
-Based on the VM size, you can attach up to 16 additional disks on an A-Series, 32 disks on a D-Series and 64 disks on a G-Series machine - each up to 1 TB in size. You add extra disks as needed per your space and IOps requirements. Each disk has a performance target of 500 IOps for Standard Storage and up to 5000 IOps per disk for Premium Storage.  For more information about Premium Storage disks, refer to [Premium Storage: High-Performance Storage for Azure VMs](../storage/storage-premium-storage.md)
+Para alcanzar el máximo valor de IOPS en los discos de Premium Storage con la configuración de caché como "ReadOnly" o "None", debe deshabilitar las "barreras" al montar el sistema de archivos en Linux. No necesita las barreras porque las escrituras en los discos de Almacenamiento premium de copia de seguridad son duraderas para esta configuración de caché.
 
-To achieve the highest IOps on Premium Storage disks where their cache settings have been set to either "ReadOnly" or "None", you must disable "barriers" while mounting the file system in Linux. You do not need barriers because the writes to Premium Storage backed disks are durable for these cache settings.
+- Si utiliza **reiserFS**, deshabilite las barreras mediante la opción de montaje “barrier=none” (para habilitar las barreras, use “barrier=flush”)
+- Si utiliza **ext3/ext4**, deshabilite las barreras mediante la opción de montaje “barrier=0” (para habilitar las barreras, use “barrier=1”)
+- Si utiliza **XFS**, deshabilite las barreras mediante la opción de montaje “nobarrier” (para habilitar las barreras, use la opción “barrier”)
 
-- If you use **reiserFS**, disable barriers using the mount option “barrier=none” (For enabling barriers, use “barrier=flush”)
-- If you use **ext3/ext4**, disable barriers using the mount option “barrier=0” (For enabling barriers, use “barrier=1”)
-- If you use **XFS**, disable barriers using the mount option “nobarrier” (For enabling barriers, use the option “barrier”)
+## Consideraciones de la cuenta de almacenamiento
 
-## <a name="storage-account-considerations"></a>Storage Account Considerations
+Cuando cree la máquina virtual Linux en Azure, asegúrese de que conecta los discos desde las cuentas de almacenamiento que residen en la misma región que la máquina virtual para garantizar la proximidad y minimizar la latencia de red. Cada cuenta de almacenamiento estándar tiene un máximo de IOPS de 20 k y una capacidad de tamaño de 500 TB. Esto nos da aproximadamente 40 discos muy utilizados, incluido el disco del sistema operativo y cualquier disco de datos que haya creado. Para las cuentas de Almacenamiento premium, no hay ningún límite máximo de IOPS, pero hay un límite de tamaño de 32 TB.
 
-When you create your Linux VM in Azure, you should make sure you attach disks from storage accounts residing in the same region as your VM to ensure close proximity and minimize network latency.  Each Standard storage account has a maximum of 20k IOps and a 500 TB size capacity.  This works out to approximately 40 heavily used disks including both the OS disk and any data disks you create. For Premium Storage accounts, there is no Maximum IOps limit but there is a 32 TB size limit. 
+Al tratar con cargas de trabajo de IOPS elevadas y de haber elegido el almacenamiento estándar para los discos, debe dividir los discos entre varias cuentas de almacenamiento para asegurarse de no alcanzar el límite de 20 000 IOPS para las cuentas de Almacenamiento estándar. La máquina virtual puede contener una combinación de discos de las diferentes cuentas de almacenamiento y de los tipos de cuentas de almacenamiento para alcanzar la configuración óptima.
 
-When dealing with high IOps workloads and you have chosen Standard Storage for your disks, you might need to split the disks across multiple storage accounts to make sure you have not hit the 20,000 IOps limit for Standard Storage accounts. Your VM can contain a mix of disks from across different storage accounts and storage account types to achieve your optimal configuration. 
+## Su unidad temporal de máquina virtual
 
-## <a name="your-vm-temporary-drive"></a>Your VM Temporary drive
+De forma predeterminada, cuando se crea una VM, Azure proporciona un disco de sistema operativo (/dev/sda) y un disco temporal (/dev/sdb). Todos los discos adicionales que se agreguen se mostrarán como /dev/sdc, /dev/sdd, /dev/sde, etc. Todos los datos del disco temporal (/dev/sdb) no son duraderos y se pueden perder si eventos específicos, como el cambio de tamaño de la VM, la reimplementación o el mantenimiento, fuerzan un reinicio de la VM. El tamaño y el tipo de disco temporal está relacionado con el tamaño de memoria virtual que seleccionó en el momento de la implementación. En cualquiera de las VM de la serie premium (serie DS, G y DS\_V2) se realizará una copia de seguridad de la unidad temporal en una unidad SSD local para obtener un rendimiento adicional de hasta 48 000 IOPS.
 
-By default when you create a VM, Azure provides you with an OS disk (/dev/sda) and a temporary disk (/dev/sdb).  All additional disks you add show up as /dev/sdc, /dev/sdd, /dev/sde and so on. All data on your temporary disk (/dev/sdb) is not durable, and can be lost if specific events like VM Resizing, redeployment, or maintenance forces a restart of your VM.  The size and type of your temporary disk is related to the VM size you chose at deployment time. In the case of any of the premium size VMs (DS, G, and DS_V2 series) the temporary drive is backed by a local SSD for additional performance of up to 48k IOps. 
+## Archivo de intercambio de Linux
 
-## <a name="linux-swap-file"></a>Linux Swap File
+Las imágenes de VM implementadas en Azure Marketplace tienen un agente de Linux de VM integrado con el sistema operativo, que permite que la VM interactúe con varios servicios de Azure. Suponiendo que ha implementado una imagen estándar desde Azure Marketplace, deberá hacer lo siguiente para configurar correctamente los valores del archivo de intercambio de Linux:
 
-VM images deployed from the Azure Marketplace have a VM Linux Agent integrated with the OS, which allows the VM to interact with various Azure services. Assuming you have deployed a standard image from the Azure Marketplace, you would need to do the following to correctly configure your Linux swap file settings:
+Busque y modifique dos entradas en el archivo **/etc/waagent.conf**. Estas entradas controlan la existencia de un archivo de intercambio dedicado y el tamaño del archivo de intercambio. Los parámetros que desea modificar son `ResourceDisk.EnableSwap=N` y `ResourceDisk.SwapSizeMB=0`.
 
-Locate and modify two entries in the **/etc/waagent.conf** file. They control the existence of a dedicated swap file and size of the swap file. The parameters you are looking to modify are `ResourceDisk.EnableSwap=N` and `ResourceDisk.SwapSizeMB=0` 
-
-You need to change them to the following:
+Tendrá que cambiarlos a los siguientes:
 
 * ResourceDisk.EnableSwap=Y
-* ResourceDisk.SwapSizeMB={size in MB to meet your needs} 
+* ResourceDisk.SwapSizeMB={tamaño en MB que satisfaga sus requisitos}
 
-Once you have made the change, you will need to restart the waagent or restart your Linux VM to reflect those changes.  You know the changes have been implemented and a swap file has been created when you use the `free` command to view free space. The example below has a 512MB swap file created as a result of modifying the waagent.conf file.
+Una vez haya realizado el cambio, debe reiniciar waagent o la VM Linux con el fin de reflejar dichos cambios. Sabrá que se han implementado los cambios y que se ha creado un archivo de intercambio cuando use el comando `free` para ver el espacio libre. En el ejemplo siguiente tiene un archivo de intercambio de 512 MB creado como resultado de modificar el archivo waagent.conf.
 
     admin@mylinuxvm:~$ free
                 total       used       free     shared    buffers     cached
@@ -71,64 +70,60 @@ Once you have made the change, you will need to restart the waagent or restart y
     Swap:       524284          0     524284
     admin@mylinuxvm:~$
  
-## <a name="i/o-scheduling-algorithm-for-premium-storage"></a>I/O scheduling algorithm for Premium Storage
+## Algoritmo de programación de E/S para Almacenamiento premium
 
-With the 2.6.18 Linux kernel, the default I/O scheduling algorithm was changed from Deadline to CFQ (Completely fair queuing algorithm). For random access I/O patterns, there is negligible difference in performance differences between CFQ and Deadline.  For SSD-based disks where the disk I/O pattern is predominantly sequential, switching back to the NOOP or Deadline algorithm can achieve better I/O performance.
+Con el kernel de Linux 2.6.18, el algoritmo de programación de E/S predeterminado se cambió de Deadline (Fecha límite) a CFQ (Algoritmo de cola completamente razonable). Para patrones de E/S de acceso aleatorio, hay una diferencia insignificante en diferencias de rendimiento entre CFQ y Deadline. En el caso de los discos SSD donde el patrón de E/S del disco es principalmente secuencial, el cambio al algoritmo NOOP o al de Deadline puede lograr un mejor rendimiento de E/S.
 
-### <a name="view-the-current-i/o-scheduler"></a>View the current I/O scheduler
+### Visualización del programador de E/S actual
 
-Use the following command:  
+Use el comando siguiente:
 
-    admin@mylinuxvm:~# cat /sys/block/sda/queue/scheduler
+	admin@mylinuxvm:~# cat /sys/block/sda/queue/scheduler
 
-You will see following output, which indicates the current scheduler.  
+Se mostrará el la salida siguiente, que indica cuál es el programador actual.
 
-    noop [deadline] cfq
+	noop [deadline] cfq
 
-###<a name="change-the-current-device-(/dev/sda)-of-i/o-scheduling-algorithm"></a>Change the current device (/dev/sda) of I/O scheduling algorithm
+###Cambiar el dispositivo actual (/dev/sda) del algoritmo de programación de E/S
 
-Use the following commands:  
+Use los comandos siguientes:
 
-    azureuser@mylinuxvm:~$ sudo su -
-    root@mylinuxvm:~# echo "noop" >/sys/block/sda/queue/scheduler
-    root@mylinuxvm:~# sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash elevator=noop"/g' /etc/default/grub
-    root@mylinuxvm:~# update-grub
+	azureuser@mylinuxvm:~$ sudo su -
+	root@mylinuxvm:~# echo "noop" >/sys/block/sda/queue/scheduler
+	root@mylinuxvm:~# sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash elevator=noop"/g' /etc/default/grub
+	root@mylinuxvm:~# update-grub
 
->[AZURE.NOTE] Setting this for /dev/sda alone is not useful. It needs to be set on all data disks where sequential I/O dominates the I/O pattern.  
+>[AZURE.NOTE] Establecer este valor solo para /dev/sda no es útil. Debe establecerse en todos los discos de datos donde la E/S secuencial domina el patrón de E/S.
 
-You should see the following output, indicating that grub.cfg has been rebuilt successfully and that the default scheduler has been updated to NOOP.  
+Debería mostrarse el resultado siguiente, que indica que grub.cfg se ha vuelto a compilar correctamente y que se ha actualizado el programador predeterminado a NOOP.
 
-    Generating grub configuration file ...
-    Found linux image: /boot/vmlinuz-3.13.0-34-generic
-    Found initrd image: /boot/initrd.img-3.13.0-34-generic
-    Found linux image: /boot/vmlinuz-3.13.0-32-generic
-    Found initrd image: /boot/initrd.img-3.13.0-32-generic
-    Found memtest86+ image: /memtest86+.elf
-    Found memtest86+ image: /memtest86+.bin
-    done
+	Generating grub configuration file ...
+	Found linux image: /boot/vmlinuz-3.13.0-34-generic
+	Found initrd image: /boot/initrd.img-3.13.0-34-generic
+	Found linux image: /boot/vmlinuz-3.13.0-32-generic
+	Found initrd image: /boot/initrd.img-3.13.0-32-generic
+	Found memtest86+ image: /memtest86+.elf
+	Found memtest86+ image: /memtest86+.bin
+	done
 
-For the Redhat distribution family, you only need the following command:   
+Para la familia de distribución Redhat, solo necesita el siguiente comando:
 
-    echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
+	echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 
-## <a name="using-software-raid-to-achieve-higher-i/ops"></a>Using Software RAID to achieve higher I/Ops
+## Uso del software RAID para alcanzar mayores IOPS
 
-If your workloads require more IOps than a single disk can provide, you need to use a software RAID configuration of multiple disks. Because Azure already performs disk resiliency at the local fabric layer, you achieve the highest level of performance from a RAID-0 striping configuration.  You need to provision and create new disks in the Azure environment and attach them to your Linux VM prior to partitioning, formatting and mounting the drives.  More details on configuring a software RAID setup on your Linux VM in azure can be found in the **[Configuring Software RAID on Linux](virtual-machines-linux-configure-raid.md)** document.
-
-
-## <a name="next-steps"></a>Next Steps
-
-Remember, as with all optimization discussions, you need to perform tests before and after each change to measure the impact the change will have.  Optimization is a step by step process that will have different results across different machines in your environment.  What works for one configuration may not work for others.
-
-Some useful links to additional resources: 
-
-- [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md)
-- [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md)
-- [Optimizing MySQL Performance on Azure Linux VMs](virtual-machines-linux-classic-optimize-mysql.md)
-- [Configure Software RAID on Linux](virtual-machines-linux-configure-raid.md)
+Si las cargas de trabajo necesitan más IOPS de lo que puede proporcionar un único disco, debe utilizar una configuración de software RAID de varios discos. Como Azure ya realiza la resistencia de disco en el nivel de tejido local, obtendrá el máximo nivel de rendimiento en una configuración de creación de bandas RAID-0. Deberá aprovisionar y crear nuevos discos en el entorno de Azure y conectarlos a la VM Linux antes de la creación de particiones, del formato y del montaje de las unidades. Para obtener más información sobre cómo configurar el software RAID en la máquina virtual Linux en Azure, consulte el documento **[Configuración del software RAID en Linux](virtual-machines-linux-configure-raid.md)**.
 
 
+## Pasos siguientes
 
-<!--HONumber=Oct16_HO2-->
+Recuerde que, como en todos los debates sobre optimización, debe realizar pruebas antes y después de cada cambio para cuantificar el impacto que tendrá el cambio. La optimización es un proceso paso a paso que tendrá resultados diferentes en las distintas máquinas en su entorno. Lo que funciona para una configuración puede no funcionar para otras.
 
+Algunos vínculos útiles a recursos adicionales:
 
+- [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage.md)
+- [Guía de usuario del Agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md)
+- [Optimización del rendimiento de MySQL en máquinas virtuales de Azure con Linux](virtual-machines-linux-classic-optimize-mysql.md)
+- [Configuración del software RAID en Linux](virtual-machines-linux-configure-raid.md)
+
+<!---HONumber=AcomDC_0914_2016-->

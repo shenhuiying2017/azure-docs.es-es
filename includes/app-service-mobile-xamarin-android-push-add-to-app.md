@@ -1,56 +1,56 @@
 
-4. Create a new class in the project called `ToDoBroadcastReceiver`.
+4. Cree una nueva clase en el proyecto denominado `ToDoBroadcastReceiver`.
 
-5. Add the following using statements to **ToDoBroadcastReceiver** class:
+5. Agregue las siguientes instrucciones using a **ToDoBroadcastReceiver**:
 
-        using Gcm.Client;
-        using Microsoft.WindowsAzure.MobileServices;
-        using Newtonsoft.Json.Linq;
+		using Gcm.Client;
+		using Microsoft.WindowsAzure.MobileServices;
+		using Newtonsoft.Json.Linq;
 
-6. Add the following permission requests between the **using** statements and the **namespace** declaration:
+6. Agregue las siguientes solicitudes de permisos entre las instrucciones **using** y la declaración **namespace**:
 
-        [assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
-        [assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
-        [assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")]
+		[assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
+		[assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
+		[assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")]
 
-        //GET_ACCOUNTS is only needed for android versions 4.0.3 and below
-        [assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
-        [assembly: UsesPermission(Name = "android.permission.INTERNET")]
-        [assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
+		//GET_ACCOUNTS is only needed for android versions 4.0.3 and below
+		[assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
+		[assembly: UsesPermission(Name = "android.permission.INTERNET")]
+		[assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
 
-7. Replace the existing **ToDoBroadcastReceiver** class definition with the following:
+7. Sustituya la definición de la clase **ToDoBroadcastReceiver** por lo siguiente:
  
-        [BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, 
-            Categories = new string[] { "@PACKAGE_NAME@" })]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, 
-            Categories = new string[] { "@PACKAGE_NAME@" })]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, 
+	    [BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
+	    [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, 
+	        Categories = new string[] { "@PACKAGE_NAME@" })]
+	    [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, 
+	        Categories = new string[] { "@PACKAGE_NAME@" })]
+	    [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, 
         Categories = new string[] { "@PACKAGE_NAME@" })]
         public class ToDoBroadcastReceiver : GcmBroadcastReceiverBase<PushHandlerService>
         {
-            // Set the Google app ID.
-            public static string[] senderIDs = new string[] { "<PROJECT_NUMBER>" };
+	        // Set the Google app ID.
+	        public static string[] senderIDs = new string[] { "<PROJECT_NUMBER>" };
         }
 
-    In the above code, you must replace _`<PROJECT_NUMBER>`_ with the project number assigned by Google when you provisioned your app in the Google developer portal. 
+	En el código anterior, debe reemplazar _`<PROJECT_NUMBER>`_ por el número de proyecto asignado por Google al aprovisionar la aplicación en el portal para desarrolladores de Google.
 
-8. In the ToDoBroadcastReceiver.cs project file, add the following code that defines the **PushHandlerService** class:
+8. En el archivo de proyecto ToDoBroadcastReceiver.cs, agregue el código siguiente que define la clase **PushHandlerService**:
  
-        // The ServiceAttribute must be applied to the class.
-        [Service] 
-        public class PushHandlerService : GcmServiceBase
-        {
-            public static string RegistrationID { get; private set; }
+		// The ServiceAttribute must be applied to the class.
+    	[Service] 
+    	public class PushHandlerService : GcmServiceBase
+    	{
+        	public static string RegistrationID { get; private set; }
  
-            public PushHandlerService() : base(ToDoBroadcastReceiver.senderIDs) { }
-        }
+        	public PushHandlerService() : base(ToDoBroadcastReceiver.senderIDs) { }
+    	}
 
-    Note that this class derives from **GcmServiceBase** and that the **Service** attribute must be applied to this class.
+	Tenga en cuenta que esta clase se deriva de **GcmServiceBase** y que el atributo **Service** se debe aplicar a esta clase.
 
-    >[AZURE.NOTE]The **GcmServiceBase** class implements the **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** and **OnError()** methods. You must override these methods in the **PushHandlerService** class.
+	>[AZURE.NOTE]La clase **GcmServiceBase** implementa los métodos **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** y **OnError()**. Debe invalidar estos métodos en la clase **PushHandlerService**.
 
-5. Add the following code to the **PushHandlerService** class that overrides the **OnRegistered** event handler. 
+5. Agregue el código siguiente a la clase **PushHandlerService** que reemplaza al controlador de eventos **OnRegistered**.
 
         protected override void OnRegistered(Context context, string registrationId)
         {
@@ -61,7 +61,7 @@
             var push = client.GetPush();
 
             // Define a message body for GCM.
-            const string templateBodyGCM = "{\"data\":{\"message\":\"$(messageParam)\"}}";
+            const string templateBodyGCM = "{"data":{"message":"$(messageParam)"}}";
 
             // Define the template registration as JSON.
             JObject templates = new JObject();
@@ -89,9 +89,9 @@
             }
         }
 
-    This method uses the returned GCM registration ID to register with Azure for push notifications. Tags can only be added to the registration after it is created. For more information, see [How to: Add tags to a device installation to enable push-to-tags](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
+	Este método usa el identificador de registro GCM devuelto para registrarse con Azure para las notificaciones de inserción. Las etiquetas solo pueden agregarse al registro después de haberlo creado. Para obtener más información, consulte [Procedimientos: Incorporación de etiquetas a la instalación de un dispositivo para habilitar la inserción de etiquetas](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
 
-10. Override the **OnMessage** method in **PushHandlerService** with the following code:
+10. Reemplace el método** OnMessage** en **PushHandlerService** por el código siguiente:
 
         protected override void OnMessage(Context context, Intent intent)
         {          
@@ -109,8 +109,8 @@
 
                 // Create a new intent to show the notification in the UI. 
                 PendingIntent contentIntent = 
-                    PendingIntent.GetActivity(context, 0, 
-                    new Intent(this, typeof(ToDoActivity)), 0);           
+					PendingIntent.GetActivity(context, 0, 
+					new Intent(this, typeof(ToDoActivity)), 0);	          
 
                 // Create the notification using the builder.
                 var builder = new Notification.Builder(context);
@@ -127,7 +127,7 @@
             }
         }
 
-12. Override the **OnUnRegistered()** and **OnError()** methods with the following code.
+12. Reemplace los métodos **OnUnRegistered()** y **OnError()** por el código siguiente.
 
         protected override void OnUnRegistered(Context context, string registrationId)
         {
@@ -140,6 +140,4 @@
                 string.Format("Error occurred in the notification: {0}.", errorId));
         }
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1203_2015-->

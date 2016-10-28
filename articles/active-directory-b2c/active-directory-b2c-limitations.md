@@ -1,117 +1,112 @@
 <properties
-    pageTitle="Azure Active Directory B2C: Limitations and restrictions | Microsoft Azure"
-    description="A list of limitations and restrictions with Azure Active Directory B2C"
-    services="active-directory-b2c"
-    documentationCenter=""
-    authors="swkrish"
-    manager="mbaldwin"
-    editor="bryanla"/>
+	pageTitle="Azure Active Directory B2C: limitaciones y restricciones | Microsoft Azure"
+	description="Lista de limitaciones y restricciones de Azure Active Directory B2C"
+	services="active-directory-b2c"
+	documentationCenter=""
+	authors="swkrish"
+	manager="msmbaldwin"
+	editor="bryanla"/>
 
 <tags
-    ms.service="active-directory-b2c"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/24/2016"
-    ms.author="swkrish"/>
+	ms.service="active-directory-b2c"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/24/2016"
+	ms.author="swkrish"/>
 
+# Azure Active Directory B2C: limitaciones y restricciones
 
-# <a name="azure-active-directory-b2c:-limitations-and-restrictions"></a>Azure Active Directory B2C: Limitations and restrictions
+Hay varias características y funcionalidades de Azure Active Directory (Azure AD) B2C que no se admiten aún. Muchos de estos problemas conocidos y limitaciones se resolverán más adelante, pero se recomienda tenerlos en cuenta si está compilando aplicaciones para consumidor con Azure AD B2C.
 
-There are several features and functionalities of Azure Active Directory (Azure AD) B2C that are not yet supported. Many of these known issues & limitations will be addressed going forward, but you should be aware of them if you are building consumer-facing applications using Azure AD B2C.
+## Problemas durante la creación de inquilinos de Azure AD B2C
 
-## <a name="issues-during-the-creation-of-azure-ad-b2c-tenants"></a>Issues during the creation of Azure AD B2C tenants
+Si surgen problemas durante la [creación de un inquilino de Azure AD B2C](active-directory-b2c-get-started.md), consulte [Creación de un inquilino de Azure AD o de Azure AD B2C: problemas y soluciones](active-directory-b2c-support-create-directory.md) para saber qué hacer.
 
-If you encounter issues during the [creation of an Azure AD B2C tenant](active-directory-b2c-get-started.md), see [Create an Azure AD tenant or an Azure AD B2C tenant--issues and resolutions](active-directory-b2c-support-create-directory.md) for guidance.
+Tenga en cuenta que existen problemas conocidos al eliminar un inquilino de B2C existente y volver a crearlo con el mismo nombre de dominio. Es necesario crear un inquilino de B2C con otro nombre de dominio.
 
-Note that there are known issues when you delete an existing B2C tenant and re-create it with the same domain name. You have to create a B2C tenant with a different domain name.
+## Nota sobre las cuotas de inquilinos B2C
 
-## <a name="note-about-b2c-tenant-quotas"></a>Note about B2C tenant quotas
+De forma predeterminada, el número de usuarios de un inquilino B2C está limitado a 50 000 usuarios. Si necesita aumentar la cuota del inquilino B2C, póngase en contacto con el soporte técnico.
 
-By default, the number of users in a B2C tenant is limited to 50,000 users. If you need to raise the quota of your B2C tenant, you should contact Support.
+## Problemas de personalización de marca en el mensaje de confirmación
 
-## <a name="branding-issues-on-verification-email"></a>Branding issues on verification email
+El correo electrónico de comprobación predeterminado contiene información de personalización de marca de Microsoft. Lo quitaremos en el futuro. Por ahora, puede quitarla mediante la [característica de personalización de marca corporativa](../active-directory/active-directory-add-company-branding.md).
 
-The default verification email contains Microsoft branding. We will remove it in the future. For now, you can remove it by using the [company branding feature](../active-directory/active-directory-add-company-branding.md).
+## Restricciones en las aplicaciones
 
-## <a name="restrictions-on-applications"></a>Restrictions on applications
+Los siguientes tipos de aplicaciones no se admiten actualmente en Azure AD B2C. Para ver una descripción de los tipos de aplicaciones compatibles, consulte [Azure AD B2C: tipos de aplicaciones](active-directory-b2c-apps.md).
 
-The following types of applications are not currently supported in Azure AD B2C. For a description of the supported types of applications, refer to [Azure AD B2C: Types of applications](active-directory-b2c-apps.md).
+### Aplicación de una sola página (Javascript)
 
-### <a name="single-page-applications-(javascript)"></a>Single Page Applications (JavaScript)
+Muchas aplicaciones modernas tienen un front-end del tipo Aplicación de una sola página (SPA) escrito principalmente en Javascript y que usa a menudo marcos SPA como AngularJS, Ember.js, Durandal, etc. Este flujo no está disponible todavía en Azure AD B2C.
 
-Many modern applications have a Single Page Application (SPA) front-end that is written primarily in JavaScript and often uses an SPA framework such as AngularJS, Ember.js, Durandal, etc. This flow is not yet available in Azure AD B2C.
+### Aplicaciones de servidor o de demonio
 
-### <a name="daemons-/-server-side-applications"></a>Daemons / server-side applications
+Las aplicaciones que contienen procesos de larga duración o que funcionan sin la presencia de un usuario también necesitan un modo de acceder a los recursos protegidos, como las API web. Estas aplicaciones pueden autenticar y obtener tokens con la identidad de la aplicación (en lugar de una identidad delegada del consumidor) mediante el [flujo de credenciales de cliente de OAuth 2.0](active-directory-b2c-reference-protocols.md#oauth2-client-credentials-grant-flow). Este flujo aún no está disponible en Azure AD B2C; así pues, por ahora, las aplicaciones solo pueden obtener tokens después de que se produzca un flujo de inicio de sesión de consumidor interactivo.
 
-Applications that contain long-running processes or that operate without the presence of a user also need a way to access secured resources, such as Web APIs. These applications can authenticate and get tokens by using the application's identity (rather than a consumer's delegated identity) in the [OAuth 2.0 client credentials flow](active-directory-b2c-reference-protocols.md#oauth2-client-credentials-grant-flow). This flow is not yet available in Azure AD B2C, so for now, applications can get tokens only after an interactive consumer sign-in flow has occurred.
+### API web independiente
 
-### <a name="standalone-web-apis"></a>Standalone Web APIs
+En Azure AD B2C, tiene la posibilidad de [crear una API web que se protege mediante tokens OAuth 2.0](active-directory-b2c-apps.md#web-apis). Sin embargo, esa API web sólo podrá recibir tokens de un cliente que comparta el mismo id. de aplicación. No se admite la creación de una API web a la que se obtiene acceso desde varios clientes diferentes.
 
-In the Azure AD B2C, you have the ability to [build a Web API that is secured by using OAuth 2.0 tokens](active-directory-b2c-apps.md#web-apis). However, that Web API will only be able to receive tokens from a client that shares the same Application ID. Building a Web API that is accessed from several different clients is not supported.
+### Cadenas de la API web (en nombre de)
 
-### <a name="web-api-chains-(on-behalf-of)"></a>Web API chains (On-Behalf-Of)
+Muchas arquitecturas incluyen una API web que necesita llamar a otra API web de nivel inferior, ambas protegidas mediante Azure AD B2C. Este escenario es común en los clientes nativos que tienen un back-end de API web que, a su vez, llama a un servicio de Microsoft Online, como la API Graph de Azure AD.
 
-Many architectures include a Web API that needs to call another downstream Web API, both secured by Azure AD B2C. This scenario is common in native clients that have a Web API back end, which in turn calls a Microsoft online service such as the Azure AD Graph API.
+Este escenario de API web encadenadas puede admitirse mediante la concesión de credenciales de portador Jwt de OAuth 2.0, también conocido como flujo "en nombre de". Sin embargo, el flujo "en nombre de" no está implementado actualmente en Azure AD B2C.
 
-This chained Web API scenario can be supported by using the OAuth 2.0 Jwt Bearer Credential grant, otherwise known as the On-Behalf-Of flow. However, the On-Behalf-Of flow is not currently implemented in the Azure AD B2C.
+## Restricción en bibliotecas y SDK
 
-## <a name="restriction-on-libraries-and-sdks"></a>Restriction on libraries and SDKs
+El conjunto de bibliotecas compatibles de Microsoft que funcionan con Azure AD B2C es muy limitado en este momento. Contamos con compatibilidad para aplicaciones web y servicios basados en .NET, así como aplicaciones web y servicios de NodeJS. También tenemos una biblioteca de cliente .NET en versión preliminar conocida como MSAL que puede usarse con Azure AD B2C en Windows y otras aplicaciones .NET.
 
-The set of Microsoft supported libraries that work Azure AD B2C is very limited at this time. We have support for .NET based web apps and services, as well as NodeJS web apps and services.  We also have a preview .NET client library known as MSAL that can be used with Azure AD B2C in Windows & other .NET apps.
+Actualmente ninguna biblioteca admite otros lenguajes o plataformas, como iOS y Android. Si desea compilar en una plataforma diferente a las mencionadas anteriormente, se recomienda usar un SDK de código abierto y consultar nuestra [referencia de protocolos OAuth 2.0 y OpenID Connect](active-directory-b2c-reference-protocols.md) según sea necesario. Azure AD B2C implementa OAuth y OpenID Connect, lo que permite usar una biblioteca OAuth u OpenID Connect genérica para la integración.
 
-We do not currently have library support any other languages or platforms, including iOS & Android.  If you wish to build on a different platform than those mentioned above, we recommend using an open-source SDK, referring to our [OAuth 2.0 and OpenID Connect Protocol Reference](active-directory-b2c-reference-protocols.md) as necessary.  Azure AD B2C implements OAuth & OpenID Connect, which makes it possible to use a generic OAuth or OpenID Connect library for integration.
+Nuestros tutoriales de inicio rápido de iOS y Android utilizan bibliotecas de código abierto que hemos probado para ofrecer compatibilidad con Azure AD B2C. Todos nuestros tutoriales de inicio rápido están disponibles en nuestra sección [Introducción](active-directory-b2c-overview.md#getting-started).
 
-Our iOS & Android quick start tutorials use open-source libraries that we have tested for compatibility with Azure AD B2C.  All of our quick-start tutorials are available in our [Getting started](active-directory-b2c-overview.md#getting-started) section.
+## Restricción en los protocolos
 
-## <a name="restriction-on-protocols"></a>Restriction on protocols
+Azure AD B2C admite OpenID Connect y OAuth 2.0. Sin embargo, no se han implementado todas las características y capacidades de cada protocolo. Para comprender mejor el alcance de la funcionalidad del protocolo compatible con Azure AD B2C, lea nuestra [referencia de protocolos OAuth 2.0 y OpenID Connect](active-directory-b2c-reference-protocols.md). Ahora existe compatibilidad con los protocolos SAML y WS-Fed.
 
-Azure AD B2C supports OpenID Connect and OAuth 2.0. However, not all features and capabilities of each protocol have been implemented. To better understand the scope of supported protocol functionality in Azure AD B2C, read through our [OpenID Connect and OAuth 2.0 protocol reference](active-directory-b2c-reference-protocols.md). SAML and WS-Fed protocol support is not available.
+## Restricción en los tokens
 
-## <a name="restriction-on-tokens"></a>Restriction on tokens
+Muchos de los tokens emitidos por Azure AD B2C se implementan como JSON Web Token o JWT. Sin embargo, no toda la información incluida en JWT (conocida como "notificaciones") es como debería ser o falta. Entre los ejemplos se incluyen las notificaciones "sub" y "preferred\_username". Como los valores, el formato o el significado de las notificaciones cambian con el tiempo, los tokens para las directivas existentes no se ven afectados, por lo que puede confiar en sus valores de las aplicaciones de producción. Cuando valores cambian, se le dará la oportunidad de configurar esos cambios para cada una de las directivas. Para comprender mejor los tokens emitidos actualmente por el servicio de Azure AD B2C, lea nuestra [referencia de token](active-directory-b2c-reference-tokens.md).
 
-Many of the tokens issued by Azure AD B2C are implemented as JSON Web Tokens, or JWTs. However, not all information contained in JWTs (known as "claims") is quite as it should be or is missing. Some examples include the "sub" and the "preferred_username" claims.  As the values, format, or meaning of claims change over time, tokens for your existing policies will remain unaffected - you can rely on their values in production apps.  As values change, we will give you the opportunity to configure those changes for each of your policies.  To better understand the tokens emitted currently by the Azure AD B2C service, read through our [token reference](active-directory-b2c-reference-tokens.md).
+## Restricción en grupos anidados
 
-## <a name="restriction-on-nested-groups"></a>Restriction on nested groups
+No se admiten pertenencias a grupos anidados en inquilinos de Azure AD B2C. No está previsto agregar esta funcionalidad.
 
-Nested group memberships aren't supported in Azure AD B2C tenants. We don't plan to add this capability.
+## Restricción de la característica de consulta diferencial en API de Azure AD Graph.
 
-## <a name="restriction-on-differential-query-feature-on-azure-ad-graph-api"></a>Restriction on differential query feature on Azure AD Graph API
+La [característica de consulta diferencial en la API Azure AD Graph](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-differential-query) no es compatible con los inquilinos de Azure AD B2C. Es nuestro plan a largo plazo.
 
-The [differential query feature on Azure AD Graph API](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-differential-query) isn't supported in Azure AD B2C tenants. This is on our long-term roadmap.
+## Problemas con Administración de usuarios en el Portal de Azure clásico
 
-## <a name="issues-with-user-management-on-the-azure-classic-portal"></a>Issues with user management on the Azure classic portal
+Se puede acceder a las características B2C desde el Portal de Azure. Sin embargo, puede usar el Portal de Azure clásico para obtener acceso a otras características de inquilino, como la administración de usuarios. Actualmente hay un par de problemas conocidos con la administración de usuarios (la pestaña **Usuarios**) en el Portal de Azure clásico.
 
-B2C features are accessible on the Azure portal. However, you can use the Azure classic portal to access other tenant features, including user management. Currently there are a couple of known issues with user management (the **Users** tab) on the Azure classic portal:
+- Para un usuario de cuenta local (es decir, un consumidor que se registra con una dirección de correo electrónico y una contraseña o un nombre de usuario y una contraseña), el campo **Nombre de usuario** no se corresponde con el identificador de inicio de sesión (dirección de correo electrónico o nombre de usuario) usado durante el registro. El motivo es que el campo que se muestra en el Portal de Azure clásico es en realidad el nombre principal de usuario (UPN), que no se usa en escenarios B2C. Para ver el identificador de inicio de sesión de la cuenta local, busque el objeto de usuario en el [Explorador de gráficos](https://graphexplorer.cloudapp.net/). Encontrará el mismo problema con un usuario de cuenta social (es decir, un consumidor que se registre a Facebook, Google +, etc.), pero en ese caso, no hay ningún identificador de inicio de sesión del que hablar.
 
-- For a local account user (i.e., a consumer who signs up with an email address and password, or a username and password), the **User Name** field doesn't correspond to the sign-in identifier (email address or username) that was used during sign-up. This is because the field displayed on the Azure classic portal is actually the User Principal Name (UPN), which is not used in B2C scenarios. To view the sign-in identifier of the local account, find the user object in [Graph Explorer](https://graphexplorer.cloudapp.net/). You will find the same issue with a social account user (i.e., a consumer who signs up with Facebook, Google+, etc.), but in that case, there is no sign-in identifier to speak of.
+    ![Cuenta local: UPN](./media/active-directory-b2c-limitations/limitations-user-mgmt.png)
 
-    ![Local account - UPN](./media/active-directory-b2c-limitations/limitations-user-mgmt.png)
+- Para un usuario de cuenta local, no podrá editar ninguno de los campos y guardará los cambios en la pestaña **Perfiles**.
 
-- For a local account user, you will not able to edit any of the fields and save changes on the **Profile** tab.
+## Problemas con el restablecimiento de contraseña iniciado por el administrador en el Portal de Azure clásico
 
-## <a name="issues-with-admin-initiated-password-reset-on-the-azure-classic-portal"></a>Issues with admin-initiated password reset on the Azure classic portal
+Si restablece la contraseña para un consumidor basado en una cuenta local en el Portal de Azure clásico (el comando **Restablecer contraseña** de la pestaña **Usuarios**), ese consumidor no podrá cambiar su contraseña en el siguiente inicio de sesión (si utiliza una directiva de registro o inicio de sesión), y será bloqueado en sus aplicaciones. Como alternativa, utilice la [API Azure AD Graph](active-directory-b2c-devquickstarts-graph-dotnet.md) para restablecer la contraseña del consumidor (sin caducidad de contraseña) o use una directiva de inicio de sesión en lugar de una de registro o inicio de sesión.
 
-If you reset the password for a local account-based consumer on the Azure classic portal (the **Reset Password** command on the **Users** tab), that consumer will not be able to change his or her password on the next sign in, if you use a Sign up or Sign in policy, and will be locked out of your applications. As a workaround, use the [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) to reset the consumer's password (without password expiration) or use a Sign in policy instead of a Sign up or Sign in policy.
+## Problemas con la creación de un atributo personalizado
 
-## <a name="issues-with-creating-a-custom-attribute"></a>Issues with creating a custom attribute
+Un [atributo personalizado agregado en el Portal de Azure](active-directory-b2c-reference-custom-attr.md) no se crea inmediatamente en el inquilino B2C. Tendrá que utilizar el atributo personalizado en al menos una de las directivas antes de crearlo en el inquilino B2C y permitir que esté disponible a través de la API Graph.
 
-A [custom attribute added on the Azure portal](active-directory-b2c-reference-custom-attr.md) is not immediately created in your B2C tenant. You'll have to use the custom attribute in at least one of your policies for it to get created in your B2C tenant and to become available via Graph API.
+## Problemas con la comprobación de un dominio en el Portal de Azure clásico
 
-## <a name="issues-with-verifying-a-domain-on-the-azure-classic-portal"></a>Issues with verifying a domain on the Azure classic portal
+Actualmente no se puede verificar un dominio correctamente en el [Portal de Azure clásico](https://manage.windowsazure.com/).
 
-Currently you can't verify a domain successfully on the [Azure classic portal](https://manage.windowsazure.com/).
+## Problemas con el inicio de sesión con la directiva MFA en los exploradores Safari
 
-## <a name="issues-with-sign-in-with-mfa-policy-on-safari-browsers"></a>Issues with Sign-in with MFA policy on Safari browsers
+Solicitudes de las directivas de inicio de sesión (con MFA activado) errores intermitentes en los exploradores Safari con errores de HTTP 400 (solicitud incorrecta). Esto se debe a los bajos límites de tamaño de cookies de Safari. Hay un par de soluciones para este problema:
 
-Requests to sign-in policies (with MFA turned ON) fail intermittently on Safari browsers with HTTP 400 (Bad Request) errors. This is due Safari's low cookie size limits. There are a couple of workarounds for this issue:
+- Utilizar la "directiva de registro o de inicio de sesión" en lugar de la "directiva de inicio de sesión".
+- Reducir el número de **notificaciones de la aplicación** que se solicita en la directiva.
 
-- Use the "Sign-up or sign-in policy" instead of the "sign-in policy".
-- Reduce the number of **Application claims** being requested in your policy.
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

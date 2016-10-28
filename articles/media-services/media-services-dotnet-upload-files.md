@@ -1,74 +1,72 @@
 <properties 
-    pageTitle="Upload files into a Media Services account using .NET  | Microsoft Azure" 
-    description="Learn how to get media content into Media Services by creating and uploading assets." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="juliako" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="Carga de archivos en una cuenta de Media Services mediante .NET | Microsoft Azure" 
+	description="Aprenda a obtener contenido multimedia en Servicios multimedia mediante la creación y carga de recursos." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/19/2016" 
-    ms.author="juliako"/>
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+ 	ms.date="09/19/2016" 
+	ms.author="juliako"/>
 
 
 
-
-# <a name="upload-files-into-a-media-services-account-using-.net"></a>Upload files into a Media Services account using .NET
+# Cargar archivos en una cuenta de Servicios multimedia mediante .NET
 
  > [AZURE.SELECTOR]
  - [.NET](media-services-dotnet-upload-files.md)
  - [REST](media-services-rest-upload-files.md)
  - [Portal](media-services-portal-upload-files.md)
 
-In Media Services, you upload (or ingest) your digital files into an asset. The **Asset** entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)  Once the files are uploaded, your content is stored securely in the cloud for further processing and streaming.
+En Servicios multimedia, cargará (o introducirá) los archivos digitales en un recurso. La entidad **Recurso** puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos acerca de estos archivos). Una vez cargados los archivos, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming.
 
-The files in the asset are called **Asset Files**. The **AssetFile** instance and the actual media file are two distinct objects. The AssetFile instance contains metadata about the media file, while the media file contains the actual media content.
+Los archivos del recurso se denominan **archivos de recursos**. La instancia de **AssetFile** y el archivo multimedia real son dos objetos distintos. La instancia de AssetFile contiene metadatos sobre el archivo multimedia, mientras que el archivo multimedia contiene el contenido multimedia real.
 
->[AZURE.NOTE]The following considerations apply when choosing an asset file name:
+>[AZURE.NOTE]Al elegir un nombre de archivo de recurso, se aplican las consideraciones siguientes:
 >
->- Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one '.' for the file name extension.
+>- Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por este motivo, no se permite la codificación porcentual. El valor de la propiedad **Name** no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Además, solo puede haber un '.' para la extensión del nombre de archivo.
 >
->- The length of the name should not be greater than 260 characters.
+>- La longitud del nombre no debe ser superior a 260 caracteres.
 
-When you create assets, you can specify the following encryption options. 
+Al crear recursos, puede especificar las siguientes opciones de cifrado.
 
-- **None** - No encryption is used. This is the default value. Note that when using this option your content is not protected in transit or at rest in storage.
-If you plan to deliver an MP4 using progressive download, use this option. 
-- **CommonEncryption** - Use this option if you are uploading content that has already been encrypted and protected with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).
-- **EnvelopeEncrypted** – Use this option if you are uploading HLS encrypted with AES. Note that the files must have been encoded and encrypted by Transform Manager.
-- **StorageEncrypted** - Encrypts your clear content locally using AES-256 bit encryption and then uploads it to Azure Storage where it is stored encrypted at rest. Assets protected with Storage Encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for Storage Encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.
+- **Ninguno**: no se utiliza cifrado. Este es el valor predeterminado. Tenga en cuenta que al utilizar esta opción el contenido no está protegido en tránsito o en reposo en el almacenamiento. Si tiene previsto entregar un MP4 mediante una descarga progresiva, utilice esta opción.
+- **CommonEncryption**: utilice esta opción si va a cargar contenido que ya se ha cifrado y protegido con cifrado común o DRM de PlayReady (por ejemplo, Smooth Streaming protegido con DRM de PlayReady).
+- **EnvelopeEncrypted**: utilice esta opción si va a cargar HLS cifrado con AES. Tenga en cuenta que los archivos deben haberse codificado y cifrado con Transform Manager.
+- **StorageEncrypted**: cifra el contenido no cifrado localmente mediante el cifrado AES de 256 bits y, a continuación, lo carga en el almacenamiento de Azure donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
 
-    Media Services provides on-disk storage encryption for your assets, not over-the-wire like Digital Rights Manager (DRM).
+	Los Servicios multimedia proporcionan cifrado de almacenamiento en disco para sus recursos, no por cable como el administrador de derechos digitales (DRM).
 
-    If your asset is storage encrypted, you must configure asset delivery policy. For more information see [Configuring asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md).
+	Si el recurso tiene el almacenamiento cifrado, asegúrese de configurar la directiva de entrega de recursos. Para más información, consulte [Configuración de la directiva de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md).
 
-If you specify for your asset to be encrypted with a **CommonEncrypted** option, or an **EnvelopeEncypted** option, you will need to associate your asset with a **ContentKey**. For more information, see [How to create a ContentKey](media-services-dotnet-create-contentkey.md). 
+Si se especifica que el recurso se cifre con una opción **CommonEncrypted** o una opción **EnvelopeEncypted**, deberá asociar el recurso con una **ContentKey**. Para obtener más información, consulte [Creación de una ContentKey](media-services-dotnet-create-contentkey.md).
 
-If you specify for your asset to be encrypted with a **StorageEncrypted** option, the Media Services SDK for .NET will create a **StorateEncrypted** **ContentKey** for your asset.
+Si especifica que el recurso se cifre con una opción **StorageEncrypted**, el SDK de Servicios multimedia para .NET creará una **StorateEncrypted** **ContentKey** para el recurso.
 
 
-This topic shows how to use Media Services .NET SDK as well as Media Services .NET SDK extensions to upload files into a Media Services asset.
+En este tema se muestra cómo usar el SDK de Servicios multimedia para .NET, así como las extensiones del SDK de Servicios multimedia para .NET para cargar archivos en un recurso de Servicios multimedia.
 
  
-## <a name="upload-a-single-file-with-media-services-.net-sdk"></a>Upload a single file with Media Services .NET SDK 
+## Carga de un solo archivo con el SDK .NET de Servicios multimedia 
 
-The sample code below uses .NET SDK to perform the following tasks: 
+El código de ejemplo siguiente usa el SDK de .NET para realizar las tareas siguientes:
 
-- Creates an empty Asset.
-- Creates an AssetFile instance that we want to associate with the asset.
-- Creates an AccessPolicy instance that defines the permissions and duration of access to the asset.
-- Creates a Locator instance that provides access to the asset.
-- Uploads a single media file into Media Services. 
+- Crea un activo vacío.
+- Crea una instancia de AssetFile que necesitamos asociar con el recurso.
+- Crea una instancia de AccessPolicy que define los permisos y la duración del acceso al recurso.
+- Crea una instancia de Locator que proporciona acceso al recurso.
+- Carga un solo archivo multimedia en los Servicios multimedia.
 
-        
-        static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
-        {
+		
+		static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
+		{
             if (!File.Exists(singleFilePath))
             {
                 Console.WriteLine("File does not exist.");
@@ -98,29 +96,29 @@ The sample code below uses .NET SDK to perform the following tasks:
             policy.Delete();
 
             return inputAsset;
-        }
+		}
 
-##<a name="upload-multiple-files-with-media-services-.net-sdk"></a>Upload multiple files with Media Services .NET SDK 
+##Carga de varios archivos con el SDK .NET de Servicios multimedia 
 
-The following code shows how to create an asset and upload multiple files.
+El código siguiente muestra cómo crear un recurso y cargar varios archivos.
 
-The code does the following:
-    
--   Creates an empty asset using the CreateEmptyAsset method defined in the previous step.
-    
--   Creates an **AccessPolicy** instance that defines the permissions and duration of access to the asset.
-    
--   Creates a **Locator** instance that provides access to the asset.
-    
--   Creates a **BlobTransferClient** instance. This type represents a client that operates on the Azure blobs. In this example we use the client to monitor the upload progress. 
-    
--   Enumerates through files in the specified directory and creates an **AssetFile** instance for each file.
-    
--   Uploads the files into Media Services using the **UploadAsync** method. 
-    
->[AZURE.NOTE] Use the UploadAsync method to ensure that the calls are not blocking and the files are uploaded in parallel.
-    
-    
+El código hace lo siguiente:
+	
+- 	Crea un recurso vacío mediante el método CreateEmptyAsset definido en el paso anterior.
+ 	
+- 	Crea una instancia de **AccessPolicy** que define los permisos y la duración del acceso al recurso.
+ 	
+- 	Crea una instancia de **Locator** que proporciona acceso al recurso.
+ 	
+- 	Crea una instancia de **BlobTransferClient**. Este tipo representa a un cliente que funciona en los blobs de Azure. En este ejemplo, usamos al cliente para supervisar el progreso de carga.
+ 	
+- 	Enumera los archivos en el directorio especificado y crea una instancia de **AssetFile** para cada archivo.
+ 	
+- 	Carga los archivos en los Servicios multimedia con el método **UploadAsync**.
+ 	
+>[AZURE.NOTE] Use el método UploadAsync para asegurarse de que las llamadas no provocan un bloqueo y los archivos se cargan en paralelo.
+ 	
+ 	
         static public IAsset CreateAssetAndUploadMultipleFiles(AssetCreationOptions assetCreationOptions, string folderPath)
         {
             var assetName = "UploadMultipleFiles_" + DateTime.UtcNow.ToString();
@@ -168,165 +166,161 @@ The code does the following:
 
             return asset;
         }
-    
-    static void  blobTransferClient_TransferProgressChanged(object sender, BlobTransferProgressChangedEventArgs e)
-    {
-        if (e.ProgressPercentage > 4) // Avoid startup jitter, as the upload tasks are added.
-        {
-            Console.WriteLine("{0}% upload competed for {1}.", e.ProgressPercentage, e.LocalFile);
-        }
-    }
+	
+	static void  blobTransferClient_TransferProgressChanged(object sender, BlobTransferProgressChangedEventArgs e)
+	{
+	    if (e.ProgressPercentage > 4) // Avoid startup jitter, as the upload tasks are added.
+	    {
+	        Console.WriteLine("{0}% upload competed for {1}.", e.ProgressPercentage, e.LocalFile);
+	    }
+	}
 
 
 
-When uploading a large number of assets, consider the following.
+Al cargar un número elevado de recursos, tenga en cuenta lo siguiente.
 
-- Create a new **CloudMediaContext** object per thread. The **CloudMediaContext** class is not thread safe.
+- Cree un nuevo objeto **CloudMediaContext** por subproceso. La clase **CloudMediaContext** no es segura para subprocesos.
  
-- Increase NumberOfConcurrentTransfers from the default value of 2 to a higher value like 5. Setting this property affects all instances of **CloudMediaContext**. 
+- Aumente NumberOfConcurrentTransfers desde el valor predeterminado de 2 a un valor superior como 5. La configuración de esta propiedad afecta a todas las instancias de **CloudMediaContext**.
  
-- Keep ParallelTransferThreadCount at the default value of 10.
+- Mantenga ParallelTransferThreadCount en el valor predeterminado de 10.
  
-##<a name="<a-id="ingest_in_bulk"></a>ingesting-assets-in-bulk-using-media-services-.net-sdk"></a><a id="ingest_in_bulk"></a>Ingesting Assets in Bulk using Media Services .NET SDK 
+##<a id="ingest_in_bulk"></a>Ingesta de activos en bloque con SDK .NET de Servicios multimedia 
 
-Uploading large asset files can be a bottleneck during asset creation. Ingesting Assets in Bulk or “Bulk Ingesting”, involves decoupling asset creation from the upload process. To use a bulk ingesting approach, create a manifest (IngestManifest) that describes the asset and its associated files. Then use the upload method of your choice to upload the associated files to the manifest’s blob container. Microsoft Azure Media Services watches the blob container associated with the manifest. Once a file is uploaded to the blob container, Microsoft Azure Media Services completes the asset creation based on the configuration of the asset in the manifest (IngestManifestAsset).
-
-
-To create a new IngestManifest call the Create method exposed by the IngestManifests collection on the CloudMediaContext. This method will create a new IngestManifest with the manifest name you provide.
-
-    IIngestManifest manifest = context.IngestManifests.Create(name);
-
-Create the assets that will be associated with the bulk IngestManifest. Configure the desired encryption options on the asset for bulk ingesting.
-
-    // Create the assets that will be associated with this bulk ingest manifest
-    IAsset destAsset1 = _context.Assets.Create(name + "_asset_1", AssetCreationOptions.None);
-    IAsset destAsset2 = _context.Assets.Create(name + "_asset_2", AssetCreationOptions.None);
-
-An IngestManifestAsset associates an Asset with a bulk IngestManifest for bulk ingesting. It also associates the AssetFiles that will make up each Asset. To create an IngestManifestAsset, use the Create method on the server context.
-
-The following example demonstrates adding two new IngestManifestAssets that associate the two assets previously created to the bulk ingest manifest. Each IngestManifestAsset also associates a set of files that will be uploaded for each asset during bulk ingesting.  
-
-    string filename1 = _singleInputMp4Path;
-    string filename2 = _primaryFilePath;
-    string filename3 = _singleInputFilePath;
-    
-    IIngestManifestAsset bulkAsset1 =  manifest.IngestManifestAssets.Create(destAsset1, new[] { filename1 });
-    IIngestManifestAsset bulkAsset2 =  manifest.IngestManifestAssets.Create(destAsset2, new[] { filename2, filename3 });
-    
-You can use any high speed client application capable of uploading the asset files to the blob storage container URI provided by the **IIngestManifest.BlobStorageUriForUpload** property of the IngestManifest. One notable high speed upload service is [Aspera On Demand for Azure Application](https://datamarket.azure.com/application/2cdbc511-cb12-4715-9871-c7e7fbbb82a6). You can also write code to upload the assets files as shown in the following code example.
-    
-    static void UploadBlobFile(string destBlobURI, string filename)
-    {
-        Task copytask = new Task(() =>
-        {
-            var storageaccount = new CloudStorageAccount(new StorageCredentials(_storageAccountName, _storageAccountKey), true);
-            CloudBlobClient blobClient = storageaccount.CreateCloudBlobClient();
-            CloudBlobContainer blobContainer = blobClient.GetContainerReference(destBlobURI);
-    
-            string[] splitfilename = filename.Split('\\');
-            var blob = blobContainer.GetBlockBlobReference(splitfilename[splitfilename.Length - 1]);
-    
-            using (var stream = System.IO.File.OpenRead(filename))
-                blob.UploadFromStream(stream);
-    
-            lock (consoleWriteLock)
-            {
-                Console.WriteLine("Upload for {0} completed.", filename);
-            }
-        });
-    
-        copytask.Start();
-    }
-
-The code for uploading the asset files for the sample used in this topic is shown in the following code example.
-    
-    UploadBlobFile(manifest.BlobStorageUriForUpload, filename1);
-    UploadBlobFile(manifest.BlobStorageUriForUpload, filename2);
-    UploadBlobFile(manifest.BlobStorageUriForUpload, filename3);
-    
-
-You can determine the progress of the bulk ingesting for all assets associated with an **IngestManifest** by polling the Statistics property of the **IngestManifest**. In order to update progress information, you must use a new **CloudMediaContext** each time you poll the Statistics property.
-
-The following example demonstrates polling an IngestManifest by its **Id**.
-    
-    static void MonitorBulkManifest(string manifestID)
-    {
-       bool bContinue = true;
-       while (bContinue)
-       {
-          CloudMediaContext context = GetContext();
-          IIngestManifest manifest = context.IngestManifests.Where(m => m.Id == manifestID).FirstOrDefault();
-    
-          if (manifest != null)
-          {
-             lock(consoleWriteLock)
-             {
-                Console.WriteLine("\nWaiting on all file uploads.");
-                Console.WriteLine("PendingFilesCount  : {0}", manifest.Statistics.PendingFilesCount);
-                Console.WriteLine("FinishedFilesCount : {0}", manifest.Statistics.FinishedFilesCount);
-                Console.WriteLine("{0}% complete.\n", (float)manifest.Statistics.FinishedFilesCount / (float)(manifest.Statistics.FinishedFilesCount + manifest.Statistics.PendingFilesCount) * 100);
-    
-                if (manifest.Statistics.PendingFilesCount == 0)
-                {
-                   Console.WriteLine("Completed\n");
-                   bContinue = false;
-                }
-             }
-    
-             if (manifest.Statistics.FinishedFilesCount < manifest.Statistics.PendingFilesCount)
-                Thread.Sleep(60000);
-          }
-          else // Manifest is null
-             bContinue = false;
-       }
-    }
-    
+La carga de archivos de recursos de gran tamaño puede ser un obstáculo durante la creación de recursos. La ingesta de recursos en masa o "Ingesta en masa" implica la separación de la creación de recursos del proceso de carga. Para adoptar un enfoque de ingesta en masa, cree un manifiesto (IngestManifest) que describa el recurso y sus archivos asociados. A continuación, use el método de carga que prefiera para cargar los archivos asociados al contenedor de blobs del manifiesto. Los Servicios multimedia de Microsoft Azure ven el contenedor de blobs asociado al manifesto. Una vez que se carga un archivo en el contenedor de blobs, los Servicios multimedia de Microsoft Azure completan la creación de recursos según la configuración del recurso en el manifiesto (IngestManifestAsset).
 
 
-##<a name="upload-files-using-.net-sdk-extensions"></a>Upload files using .NET SDK Extensions 
+Para crear un nuevo IngestManifest, llame al método Create expuesto por la colección de IngestManifests en CloudMediaContext. Este método creará un nuevo IngestManifest con el nombre de manifesto proporcionado.
 
-The example below shows how to upload a single file using .NET SDK Extensions. In this case the **CreateFromFile** method is used, but the asynchronous version is also available (**CreateFromFileAsync**). The **CreateFromFile** method lets you specify the file name, encryption option, and a callback in order to report the upload progress of the file.
+	IIngestManifest manifest = context.IngestManifests.Create(name);
+
+Cree los recursos que se asociarán con el IngestManifest en masa. Configure las opciones de cifrado deseadas en el recurso para la ingesta en masa.
+
+	// Create the assets that will be associated with this bulk ingest manifest
+	IAsset destAsset1 = _context.Assets.Create(name + "_asset_1", AssetCreationOptions.None);
+	IAsset destAsset2 = _context.Assets.Create(name + "_asset_2", AssetCreationOptions.None);
+
+Un IngestManifestAsset permite asociar un recurso con un IngestManifest en masa para la ingesta en masa. También asocia los AssetFiles que conformarán cada recurso. Para crear un IngestManifestAsset, use el método Create en el contexto del servidor.
+
+En el ejemplo siguiente se agregan dos nuevos IngestManifestAssets que asocian los dos recursos creados anteriormente al manifesto de ingesta en masa. Además, cada IngestManifestAsset asociad un conjunto de archivos que se cargarán para cada recurso durante la ingesta en masa.
+
+	string filename1 = _singleInputMp4Path;
+	string filename2 = _primaryFilePath;
+	string filename3 = _singleInputFilePath;
+	
+	IIngestManifestAsset bulkAsset1 =  manifest.IngestManifestAssets.Create(destAsset1, new[] { filename1 });
+	IIngestManifestAsset bulkAsset2 =  manifest.IngestManifestAssets.Create(destAsset2, new[] { filename2, filename3 });
+	
+Puede usar cualquier aplicación cliente de alta velocidad capaz de cargar los archivos de recursos en el URI del contenedor de almacenamiento de blobs proporcionado por la propiedad **IIngestManifest.BlobStorageUriForUpload** de IngestManifest. Un servicio de carga de alta velocidad destacado es [Aspera On Demand para la aplicación de Azure](https://datamarket.azure.com/application/2cdbc511-cb12-4715-9871-c7e7fbbb82a6). También puede escribir código para cargar los archivos de recursos como se muestra en el ejemplo de código siguiente.
+	
+	static void UploadBlobFile(string destBlobURI, string filename)
+	{
+	    Task copytask = new Task(() =>
+	    {
+	        var storageaccount = new CloudStorageAccount(new StorageCredentials(_storageAccountName, _storageAccountKey), true);
+	        CloudBlobClient blobClient = storageaccount.CreateCloudBlobClient();
+	        CloudBlobContainer blobContainer = blobClient.GetContainerReference(destBlobURI);
+	
+	        string[] splitfilename = filename.Split('\\');
+	        var blob = blobContainer.GetBlockBlobReference(splitfilename[splitfilename.Length - 1]);
+	
+	        using (var stream = System.IO.File.OpenRead(filename))
+	            blob.UploadFromStream(stream);
+	
+	        lock (consoleWriteLock)
+	        {
+	            Console.WriteLine("Upload for {0} completed.", filename);
+	        }
+	    });
+	
+	    copytask.Start();
+	}
+
+El código para cargar los archivos de recursos para el ejemplo usado en este tema se muestra en el ejemplo de código siguiente.
+	
+	UploadBlobFile(manifest.BlobStorageUriForUpload, filename1);
+	UploadBlobFile(manifest.BlobStorageUriForUpload, filename2);
+	UploadBlobFile(manifest.BlobStorageUriForUpload, filename3);
+	
+
+Puede determinar el progreso del proceso de ingesta en masa de todos los recursos asociados con un **IngestManifest** mediante el sondeo de la propiedad Statistics de **IngestManifest**. Para actualizar la información de progreso, debe usar un **CloudMediaContext** nuevo cada vez que sondee la propiedad Statistics.
+
+En el ejemplo siguiente se muestra cómo sondear un **IngestManifest** por su Id.
+	
+	static void MonitorBulkManifest(string manifestID)
+	{
+	   bool bContinue = true;
+	   while (bContinue)
+	   {
+	      CloudMediaContext context = GetContext();
+	      IIngestManifest manifest = context.IngestManifests.Where(m => m.Id == manifestID).FirstOrDefault();
+	
+	      if (manifest != null)
+	      {
+	         lock(consoleWriteLock)
+	         {
+	            Console.WriteLine("\nWaiting on all file uploads.");
+	            Console.WriteLine("PendingFilesCount  : {0}", manifest.Statistics.PendingFilesCount);
+	            Console.WriteLine("FinishedFilesCount : {0}", manifest.Statistics.FinishedFilesCount);
+	            Console.WriteLine("{0}% complete.\n", (float)manifest.Statistics.FinishedFilesCount / (float)(manifest.Statistics.FinishedFilesCount + manifest.Statistics.PendingFilesCount) * 100);
+	
+	            if (manifest.Statistics.PendingFilesCount == 0)
+	            {
+	               Console.WriteLine("Completed\n");
+	               bContinue = false;
+	            }
+	         }
+	
+	         if (manifest.Statistics.FinishedFilesCount < manifest.Statistics.PendingFilesCount)
+	            Thread.Sleep(60000);
+	      }
+	      else // Manifest is null
+	         bContinue = false;
+	   }
+	}
+	
 
 
-    static public IAsset UploadFile(string fileName, AssetCreationOptions options)
-    {
-        IAsset inputAsset = _context.Assets.CreateFromFile(
-            fileName,
-            options,
-            (af, p) =>
-            {
-                Console.WriteLine("Uploading '{0}' - Progress: {1:0.##}%", af.Name, p.Progress);
-            });
-    
-        Console.WriteLine("Asset {0} created.", inputAsset.Id);
-    
-        return inputAsset;
-    }
+##Cargar archivos con extensiones del SDK de .NET 
 
-The following example calls UploadFile function and specifies storage encryption as the asset creation option.  
+En el ejemplo siguiente se muestra cómo cargar un solo archivo con extensiones del SDK de .NET. En este caso, se usa el método **CreateFromFile**, pero también está disponible la versión asincrónica (**CreateFromFileAsync**). El método **CreateFromFile** le permite especificar el nombre de archivo, la opción de cifrado y una devolución de llamada para notificar el progreso de carga del archivo.
 
 
-    var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
+	static public IAsset UploadFile(string fileName, AssetCreationOptions options)
+	{
+	    IAsset inputAsset = _context.Assets.CreateFromFile(
+	        fileName,
+	        options,
+	        (af, p) =>
+	        {
+	            Console.WriteLine("Uploading '{0}' - Progress: {1:0.##}%", af.Name, p.Progress);
+	        });
+	
+	    Console.WriteLine("Asset {0} created.", inputAsset.Id);
+	
+	    return inputAsset;
+	}
+
+En el ejemplo siguiente se llama a la función UploadFile y se especifica el cifrado de almacenamiento como la opción de creación de recursos.
 
 
-##<a name="media-services-learning-paths"></a>Media Services learning paths
+	var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
+
+
+##Rutas de aprendizaje de Servicios multimedia
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Provide feedback
+##Envío de comentarios
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-##<a name="next-step"></a>Next step
+##Paso siguiente
 
-Now that you have uploaded an asset to Media Services, go to the [How to Get a Media Processor][] topic.
+Ahora que ha cargado un recurso en los Servicios multimedia, vaya al tema [Obtención de un procesador multimedia][].
 
-[How to Get a Media Processor]: media-services-get-media-processor.md
+[Obtención de un procesador multimedia]: media-services-get-media-processor.md
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

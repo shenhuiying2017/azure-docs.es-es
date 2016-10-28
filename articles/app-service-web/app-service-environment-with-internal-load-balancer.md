@@ -1,163 +1,162 @@
 <properties
-    pageTitle="Creating and using an Internal Load Balancer with an App Service Environment | Microsoft Azure"
-    description="Creating and using an ASE with an ILB"
-    services="app-service"
-    documentationCenter=""
-    authors="ccompy"
-    manager="stefsch"
-    editor=""/>
+	pageTitle="Creación y uso de un equilibrador de carga interno con un entorno del Servicio de aplicaciones | Microsoft Azure"
+	description="Creación y uso de ASE con un ILB"
+	services="app-service"
+	documentationCenter=""
+	authors="ccompy"
+	manager="stefsch"
+	editor=""/>
 
 <tags
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/12/2016"
-    ms.author="ccompy"/>
+	ms.service="app-service"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
+	ms.author="ccompy"/>
+
+# Uso de un equilibrador de carga interno con un entorno del Servicio de aplicaciones #
+
+La característica de Entornos del Servicio de aplicaciones (ASE) es una opción del nivel Premium del Servicio de aplicaciones de Azure que ofrece una mejor funcionalidad de configuración que no está disponible en las marcas de varios inquilinos. Básicamente, la característica de ASE implementa el Servicio de aplicaciones de Azure en la red virtual de esta plataforma. Para comprender mejor las capacidades ofrecidas por los entornos del Servicio de aplicaciones lea la [¿Qué es un entorno del Servicio de aplicaciones][WhatisASE]. Si no conoce las ventajas de utilizar una red virtual, consulte las [preguntas más frecuentes sobre la red virtual de Azure][virtualnetwork].
 
 
-# <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Using an Internal Load Balancer with an App Service Environment #
-
-The App Service Environments(ASE) feature is a Premium service option of Azure App Service that delivers an enhanced configuration capability that is not available in the multi-tenant stamps.  The ASE feature essentially deploys the Azure App Service in your Azure Virtual Network(VNet).  To gain a greater understanding of the capabilities offered by App Service Environments read the [What is an App Service Environment][WhatisASE] documentation.  If you don't know the benefits of operating in a VNet read the [Azure Virtual Network FAQ][virtualnetwork].  
+## Información general ##
 
 
-## <a name="overview"></a>Overview ##
+Un ASE puede implementarse con un punto de conexión accesible por Internet o con una dirección IP en la red virtual. Para establecer la dirección IP en una dirección de red virtual, tiene que implementar el ASE con un equilibrador de carga interno (ILB). Cuando el ASE se configura con un ILB, tiene que proporcionar lo siguiente:
+
+- Su propio dominio o subdominio. Para que sea más sencillo, en este documento se da por hecho que utilizará un subdominio, pero también puede configurarse con un dominio.
+- El certificado usado para las conexiones HTTPS.
+- La administración de DNS del subdominio.
 
 
-An ASE can be deployed with an internet accessible endpoint or with an IP address in your VNet.  In order to set the IP address to a VNet address you need to deploy your ASE with an Internal Load Balancer(ILB).  When your ASE is configured with an ILB you provide:
+A cambio, podrá realizar todo esto:
 
-- your own domain or subdomain.  To make it easy, this document assumes subdomain but you can configure it either way.  
-- the certificate used for HTTPS
-- DNS management for your subdomain.  
-
-
-In return, you can do things such as:
-
-- host intranet applications, like line of business applications, securely in the cloud which you access through a Site to Site or ExpressRoute VPN
-- host apps in the cloud that are not listed in public DNS servers
-- create internet isolated backend apps which your front end apps can securely integrate with
+- Hospedar aplicaciones de intranet (por ejemplo, aplicaciones de línea de negocio) de forma segura en la nube a las que se accede a través de una VPN de ExpressRoute o de sitio a sitio.
+- Hospedar aplicaciones en la nube que no se muestran en los servidores DNS públicos
+- Crear aplicaciones de back-end sin conexión a Internet con las que puedan integrarse de forma segura sus aplicaciones de front-end.
 
 
-#### <a name="disabled-functionality"></a>Disabled functionality ####
+#### Funcionalidad deshabilitada ####
 
-There are some things that you cannot do when using an ILB ASE.  Those things include:
+Sin embargo, cuando utilice un ASE con un ILB, no podrá realizar algunas operaciones; estas son algunas de ellas:
 
-- using IPSSL
-- assigning IP addresses to specific apps
-- buying and using a certificate with an app through the portal.  You can of course still obtain certificates directly with a Certificate Authority and use it with your apps, just not through the Azure portal.
+- Utilizar una SSL de IP.
+- Asignar direcciones IP a aplicaciones específicas.
+- Comprar y usar un certificado con una aplicación a través del Portal. Evidentemente, puede seguir obteniendo los certificados directamente de una entidad de certificación y utilizarlos con sus aplicaciones.
 
 
-## <a name="creating-an-ilb-ase"></a>Creating an ILB ASE ##
+## Creación de un ASE con un ILB ##
 
-Creating an ILB ASE is not much different from creating an ASE normally.  For a deeper discussion on creating an ASE read [How to Create an App Service Environment][HowtoCreateASE].  The process to create an ILB ASE is the same between creating a VNet during ASE creation or selecting a pre-existing VNet.  To create an ILB ASE: 
+Apenas hay diferencias entre crear un ASE con un ILB y del modo habitual. Para ver una explicación exhaustiva sobre cómo crear un ASE, consulte [Creación de un entorno del Servicio de aplicaciones][HowtoCreateASE]. Con independencia de que se genere una red virtual durante la creación del ASE con un ILB o de que se seleccione una que ya exista, el proceso será el mismo. Pasos para crear un ASE con un ILB:
 
-1.  In the Azure portal select **New -> Web + Mobile -> App Service Environment**
-2.  Select your subscription
-3.  Select or create a resource group
-4.  Select or create a VNet
-5.  Select or create a subnet if selecting a VNet
-6.  Select **Virtual Network/Location -> VNet Configuration** and set the VIP Type to Internal
-7.  Provide subdomain name (this will be the subdomain used for apps created in this ASE)
-8.  Select Ok and then Create
+1.	En el Portal de Azure, elija **Nuevo -> Web y móvil -> Entorno del Servicio de aplicaciones**.
+2.	Seleccione su suscripción.
+3.	Elija un grupo de recursos o cree uno.
+4.	Cree una red virtual o seleccione una.
+5.	En caso de que decida elegir una red virtual, cree una subred o seleccione una.
+6.	Elija **Ubicación / red virtual -> VNet Configuration (Configuración de red virtual)** y establezca el valor de VIP Type (Tipo de dirección VIP) en Interna.
+7.	Proporcione el nombre del subdominio (será el que utilice para las aplicaciones creadas en este ASE).
+8.	Seleccione Aceptar y, después, Crear.
 
 
 ![][1]
 
 
-Within the Virtual Network blade there is a VNet Configuration option.  This lets you select between an External VIP or Internal VIP.  The default is External.  If you have it set to External then your ASE will use an internet accessible VIP.  If you select Internal, your ASE will be configured with an ILB on an IP address within your VNet.  
+En la hoja Red virtual, verá una opción llamada "VNet Configuration" (Configuración de red virtual). Aquí podrá seleccionar una dirección VIP externa o interna. El valor predeterminado es Externa. En este caso, el ASE utilizará una dirección VIP accesible por Internet. Si selecciona Interna, el ASE se configurará con un ILB en una dirección IP de su red virtual.
 
 
-After selecting Internal, the ability to add more IP addresses to your ASE is removed and instead you need to provide the subdomain of the ASE.  In an ASE with an External VIP the name of the ASE is used in the subdomain for apps created in that ASE.  
-If your ASE was called ***contosotest*** and your app in that ASE was called ***mytest*** then the subdomain would be of the format ***contosotest.p.azurewebsites.net*** and the URL for that app would be ***mytest.contosotest.p.azurewebsites.net***.  
-If you set the VIP Type to Internal, your ASE name is not used in the subdomain for the ASE.  You specify the subdomain explicitly.  If your subdomain was ***contoso.corp.net*** and you made an app in that ASE named ***timereporting*** then the URL for that app would be ***timereporting.contoso.corp.net***.
+Después de elegir este valor, no podrá agregar más direcciones IP al ASE y, en su lugar, tendrá que proporcionar el subdominio del ASE. En un ASE con una dirección VIP externa, se usa el nombre del ASE en el subdominio para las aplicaciones creadas en dicho ASE. Si denomina al ASE "***contosoprueba***" y a la aplicación en ese ASE, "***miprueba***", el subdominio tendría el formato ***contosoprueba.p.azurewebsites.net*** y la dirección URL de dicha aplicación sería ***miprueba.contosotest.p.azurewebsites.net***. Si establece el valor de VIP Type (Tipo de dirección VIP) en Interna, el nombre del ASE no se utilizará en el subdominio de dicho ASE. En este caso, especifique expresamente el subdominio. Si el subdominio fuera ***contoso.corp.net*** y creara una aplicación en dicho ASE denominada "***informeshorarios***", la dirección URL de dicha aplicación sería ***informeshorarios.contoso.corp.net***.
 
 
-## <a name="apps-in-an-ilb-ase"></a>Apps in an ILB ASE ##
+## Aplicaciones en un ASE con un ILB ##
 
-Creating an app in an ILB ASE is the same as creating an app in an ASE normally.  
+En un ASE con un ILB, las aplicaciones se crean de la misma forma que en un ASE sin equilibrador de carga.
 
-1. In the Azure portal select **New -> Web + Mobile -> Web** or **Mobile** or **API App**
-2. Enter name of app
-2. Select subscription
-3. Select or create resource group
-4. Select or create App Service Plan(ASP).  If creating a new ASP then select your ASE as the location and select the worker pool you want your ASP to be created in.  When you create the ASP you select your ASE as the location and the worker pool.  When you specify the name of the app you will see that the subdomain under your app name is replaced by the subdomain for your ASE.   
-5. Select Create.  You should select the **Pin to dashboard** checkbox if you want the app to show up on your dashboard.  
+1. En el Portal de Azure, seleccione **Nuevo -> Web y móvil -> Web**, o bien **Móvil** o **Aplicación de API**.
+2. Escriba el nombre de la aplicación.
+2. Seleccione la suscripción.
+3. Elija un grupo de recursos o cree uno.
+4. Seleccione o cree un plan del Servicio de aplicaciones (ASP). Si va a crear un nuevo ASP, seleccione el ASE como la ubicación y elija el grupo de trabajo en el que quiera que se cree. Cuando cree el ASP, seleccione el ASE como la ubicación y el grupo de trabajo. Al especificar el nombre de la aplicación, verá que el subdominio que se encuentra bajo el nombre de la aplicación se reemplazará por el subdominio del ASE.
+5. Seleccione Crear. Debe activar la casilla **Anclar a panel** si quiere que la aplicación se muestre en el panel.
 
 ![][2]
 
 
-Under the app name the subdomain name gets updated to reflect the subdomain of your ASE.  
+Debajo del nombre de la aplicación, el nombre del subdominio se actualiza para reflejar el subdominio del ASE.
 
 
-## <a name="post-ilb-ase-creation-validation"></a>Post ILB ASE creation validation ##
+## Validación posterior a la creación del ASE con un ILB ##
 
-An ILB ASE is slightly different than the non-ILB ASE.  As already noted you need to manage your own DNS and you also have to provide your own certificate for HTTPS connections.  
+Un ASE con un ILB es ligeramente diferente a un ASE sin ILB. Como ya se ha indicado antes, tiene que administrar su propio DNS y proporcionar también su propio certificado para las conexiones HTTPS.
 
 
-After you create your ASE you will notice that the subdomain shows the subdomain you specified and there is a new item in the **Setting** menu called **ILB Certificate**.  Until you set a certificate for your ASE you will not be able to reach the apps in your ASE over HTTPS.  
+Cuando cree el ASE, observará que el subdominio muestra el subdominio que especificó y que hay un nuevo elemento en el menú **Configuración** llamado "**Certificado de ILB**". Hasta que no establezca un certificado para el ASE, no podrá acceder a las aplicaciones del ASE a través de HTTPS.
 
 ![][3]
 
 
-If you are simply trying things out and don't know how to create a certificate, you can use the IIS MMC console application to create a self signed certificate.  Once it is created you can export it as a .pfx file and then upload it in the ILB Certificate UI. When you access a site secured with a self-signed certificate, your browser will give you a warning that the site you are accessing is not secure due to the inability to validate the certificate.  If you want to avoid that warning you need a properly signed certificate that matches your subdomain and has a chain of trust that is recognized by your browser.
+Si solo está probando las características y no sabe cómo crear un certificado, puede utilizar la aplicación de consola de MMC en IIS para crear un certificado autofirmado. Cuando se crea, puede exportarlo como archivo .pfx y, luego, cargarlo en la interfaz de usuario del certificado de ILB. Al acceder a un sitio protegido con un certificado autofirmado, el explorador le mostrará una advertencia que indica que el sitio al que está accediendo no es seguro debido a que no se puede validar el certificado. Si quiere evitar que aparezca esa advertencia, necesita un certificado firmado correctamente que coincida con el subdominio y que tenga una cadena de confianza que reconozca el explorador.
 
 ![][6]
 
-If you want to test both HTTP and HTTPS access to your ASE:
+Si desea probar el acceso HTTP y HTTPS al ASE, siga estos pasos:
 
-1.  Go to ASE UI after ASE is created **ASE -> Settings -> ILB Certificates**
-2.  Set ILB certificate by selecting certificate pfx file and provide password.  This step takes a little while to process and the message that a scaling operation is in progress will be shown.
-3.  Get the ILB address for your ASE (**ASE -> Properties -> Virtual IP Address**)
-4.  Create a web app in ASE after creation 
-5.  Create a VM if you don't have one in that VNET (Not in the same subnet as the ASE or things break)
-6.  Set DNS for your subdomain.  You can use a wildcard with your subdomain in your DNS or if you want to do some simple tests, edit the hosts file on your VM to set web app name to VIP IP address.  If your ASE had the subdomain name .ilbase.com and you made the web app mytestapp so that it would be addressed at mytestapp.ilbase.com then set that in your hosts file.  (On Windows the hosts file is at C:\Windows\System32\drivers\etc\ )
-7.  Use a browser on that VM and go to http://mytestapp.ilbase.com (or whatever your web app name is with your subdomain)
-8.  Use a browser on that VM and go to https://mytestapp.ilbase.com   You will have to accept the lack of security if using a self-signed certificate.  
+1.	Cuando cree el ASE, vaya a su interfaz de usuario: **ASE -> Configuración -> Certificados de ILB**.
+2.	Establezca el certificado de ILB seleccionando el archivo de certificado .pfx y proporcione la contraseña. Este paso tarda unos minutos en completarse. Luego, se mostrará un mensaje que indica que se está realizando una operación de escalado.
+3.	Obtenga la dirección del ILB del ASE (**ASE -> Propiedades -> Dirección IP virtual**).
+4.	Genere una aplicación web en ASE cuando lo haya creado.
+5.	Cree una máquina virtual (en caso de que no tenga ninguna) en esa red virtual (no en la misma subred que el ASE, ya que se producirían errores).
+6.	Establezca el DNS del subdominio. Puede utilizar un carácter comodín con el subdominio en el DNS o, si quiere realizar algunas pruebas sencillas, editar el archivo de hosts de la máquina virtual para establecer el nombre de la aplicación web en la dirección IP virtual. Si el nombre de subdominio del ASE era .ilbase.com y el de la aplicación web, miaplicaciónprueba, y la dirección, en consecuencia, miaplicaciónprueba.ilbase.com, establezca dicha dirección en el archivo de hosts (en Windows, el archivo de hosts se encuentra en C:\\Windows\\System32\\drivers\\etc\\).
+7.	Utilice un explorador en esa máquina virtual y acceda a http://mytestapp.ilbase.com (o a la dirección que corresponda según el nombre de su aplicación web en el subdominio).
+8.	Utilice un explorador en esa máquina virtual y acceda a https://mytestapp.ilbase.com. Si utiliza un certificado autofirmado, tendrá que aceptar que la seguridad será deficiente.
 
 
-The IP address for your ILB is listed in your Properties as the Virtual IP Address
+La dirección IP del ILB aparece en la sección Propiedades como la dirección IP virtual.
 
 ![][4]
 
 
-## <a name="using-an-ilb-ase"></a>Using an ILB ASE ##
+## Uso de un ASE con un ILB ##
 
-#### <a name="network-security-groups"></a>Network Security Groups ####
+#### Grupos de seguridad de red ####
 
-An ILB ASE enables network isolation for your apps as the apps are not accessible or even known by the internet.  This is excellent for hosting intranet sites such as line of business applications.  When you need to restrict access even further you can still use Network Security Groups(NSGs) to control access at the network level. 
-
-
-If you wish to use NSGs to further restrict access then you need to make sure you do not break the communication that the ASE needs in order to operate.  Even though the HTTP/HTTPS access is only through the ILB used by the ASE the ASE still depends on resource outside of the VNet.  To see what network access is still required look at the information in the document on [Controlling Inbound Traffic to an App Service Environment][ControlInbound] and the document on [Network Configuration Details for App Service Environments with ExpressRoute][ExpressRoute].  
+Un ASE con un ILB permite aislar a las aplicaciones de la red; es decir, permanecerán ocultas y no se podrá acceder a ellas desde Internet. Esta posibilidad es perfecta para hospedar sitios de intranet como aplicaciones de línea de negocio. Cuando tenga que restringir más aún el acceso, puede seguir utilizando los grupos de seguridad de red (NSG) para controlar el acceso en la red.
 
 
-To configure your NSGs you need to know the IP address that is used by Azure to manage your ASE.  That IP address is also the outbound IP address from your ASE if it makes internet requests.  To find this IP address go to **Settings -> Properties** and find the **Outbound IP Address**.  
+Si quiere usar los NSG con este fin, tendrá que asegurarse de no interrumpir la comunicación que necesita el ASE para poder funcionar. Aunque el acceso HTTP y HTTPS solo se realiza a través del ILB que utiliza el ASE, este sigue dependiendo de recursos externos a la red virtual. Para consultar qué acceso de red sigue siendo necesario, busque la información en los documentos [Cómo controlar el tráfico de entrada a un entorno del Servicio de aplicaciones][ControlInbound] y [Detalles de configuración de red para entornos del Servicio de aplicaciones con ExpressRoute][ExpressRoute].
+
+
+Para configurar los NSG, debe conocer la dirección IP que usa Azure para administrar el ASE. Esa dirección IP también es la dirección IP saliente del ASE en caso de que realice solicitudes de Internet. Para encontrar esta dirección IP, vaya a **Configuración -> Propiedades** y busque **Dirección IP saliente**.
 
 ![][5]
 
 
-#### <a name="general-ilb-ase-management"></a>General ILB ASE management ####
+#### Administración general de ASE con un ILB ####
 
-Managing an ILB ASE is largely the same as managing an ASE normally.  You need to scale up your worker pools to host more ASP instances and scale up your Front End servers to handle increased amounts of HTTP/HTTPS traffic.  For general information on managing the configuration of an ASE, read the document on [Configuring an App Service Environment][ASEConfig].  
-
-
-The additional management items are certificate management and DNS management.  You need to obtain and upload the certificate used for HTTPS after ILB ASE creation and replace it before it expires.  Because Azure owns the base domain we can provide certificates for ASEs with an External VIP.  Since the subdomain used by an ILB ASE can be anything, you need to provide your own certificate for HTTPS. 
+Apenas hay diferencias entre administrar un ASE con un ILB y del modo habitual. Debe escalar verticalmente los grupos de trabajo para hospedar varias instancias de ASP, además de los servidores de front-end para administrar una mayor cantidad de tráfico HTTP y HTTPS. Para obtener información general sobre cómo administrar la configuración de un ASE, lea el documento [Configuración de un entorno del Servicio de aplicaciones][ASEConfig].
 
 
-#### <a name="dns-configuration"></a>DNS Configuration ####
-
-When using an External VIP the DNS is managed by Azure.  Any app created in your ASE is automatically added to Azure DNS which is a public DNS.  In an ILB ASE you have to manage your own DNS.  For a given subdomain such as contoso.corp.net you need to create DNS A records that point to your ILB address for:
-
-    * 
-    *.scm ftp publish 
+Los certificados y los DNS son los otros recursos de ASE con un ILB que se administran. Tendrá que obtener y cargar el certificado utilizado para las conexiones HTTPS después de crear el ASE con un ILB y, luego, reemplazarlo antes de que expire. Dado que Azure posee el dominio base, podemos proporcionar certificados para ASE con una dirección VIP externa. Como el subdominio que utiliza un ASE con un ILB no es fijo, debe proporcionar su propio certificado para las conexiones HTTPS.
 
 
-## <a name="getting-started"></a>Getting started
-All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
+#### Configuración de DNS ####
 
-To get started with App Service Environments, see [Introduction to App Service Environments][WhatisASE]
+Cuando se utiliza una dirección VIP externa, Azure se encarga de administrar el DNS. Todas las aplicaciones que cree en el ASE se agregan automáticamente a DNS de Azure, que es un DNS público. En los ASE con un ILB tiene que administrar su propio DNS. Para un subdominio concreto como contoso.corp.net, debe crear registros A de DNS que apunten a la dirección del ILB de:
 
-For more information about the Azure App Service platform, see [Azure App Service][AzureAppService].
+	* 
+	*.scm 
+	ftp 
+	publish 
+
+
+## Introducción
+Todos los artículos y procedimientos correspondientes a los entornos del Servicio de aplicaciones están disponibles en el archivo [Léame para entornos del Servicio de aplicaciones](../app-service/app-service-app-service-environments-readme.md).
+
+Para empezar a trabajar con entornos del Servicio de aplicaciones, vea [Introducción a los entornos del Servicio de aplicaciones][WhatisASE].
+
+Para obtener más información acerca de la plataforma de Servicio de aplicaciones de Azure, consulte [Servicio de aplicaciones de Azure][AzureAppService].
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -184,8 +183,4 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [vnetnsgs]: http://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [ASEConfig]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

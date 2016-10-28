@@ -5,8 +5,3 @@
 - [PHP](sql-database-develop-php-simple.md)
 - [Python](sql-database-develop-python-simple.md)
 - [Ruby](sql-database-develop-ruby-simple.md)
-
-
-<!--HONumber=Oct16_HO2-->
-
-

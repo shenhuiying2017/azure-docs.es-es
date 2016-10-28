@@ -1,27 +1,24 @@
 
 
-Ever since its launch, the Custom Script extension has been used widely to configure workloads on both Windows and Linux VMs. With the introduction of Azure Resource Manager templates, users can now create a single template that not only provisions the VM but also configures the workloads on it.
+Desde su lanzamiento, la extensión de scripts personalizados se ha usado ampliamente para configurar cargas de trabajo en máquinas virtuales de Windows y Linux. Con la introducción de las plantillas del Administrador de recursos de Azure, los usuarios ahora pueden crear una única plantilla que no solo aprovisiona la máquina virtual sino que también configura sus cargas de trabajo.
 
-## <a name="about-azure-resource-manager-templates"></a>About Azure Resource manager templates
+## Acerca de las plantillas del Administrador de recursos de Azure
 
-Azure Resource Manager templates allow you to declaratively specify the Azure IaaS infrastructure in Json language by defining the dependencies between resources. For a detailed overview of Azure Resource Manager templates, see the following articles:
+Las plantillas del Administrador de recursos de Azure le permiten especificar mediante declaración la infraestructura IaaS de Azure en el lenguaje Json definiendo las dependencias entre recursos. Para obtener información más detallada de las plantillas del Administrador de recursos de Azure, consulte los siguientes artículos:
 
-- [Resource Group Overview](../articles/resource-group-overview.md)
-- [Deploying Templates with Azure Powershell](../articles/virtual-machines/virtual-machines-windows-ps-manage.md)
+- [Información general del grupo de recursos](../articles/resource-group-overview.md)
+- [Implementación de plantillas con Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-ps-manage.md)
 
-### <a name="prerequisites"></a>Prerequisites
+### Requisitos previos
 
-1. Download the Azure command line tools for your operating system from [here](https://azure.microsoft.com/downloads/).
-2. If the scripts will be run on an existing VM, make sure VM Agent is enabled on the VM, if not follow [the Linux](../articles/virtual-machines/virtual-machines-linux-classic-manage-extensions.md) or [Windows](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md) guidance to install one.
-3. Upload the scripts that you want to run on the VM to Azure Storage. The scripts can come from a single or multiple storage containers.
-4. Alternatively the scripts can also be uploaded to a GitHub account.
-5. The script should be authored in such a way that the entry script which is launched by the extension in turn launches other scripts.
+1. Descargue las herramientas de la línea de comandos de Azure para su sistema operativo [aquí](https://azure.microsoft.com/downloads/).
+2. Si los scrips se ejecutan en una máquina virtual existente, asegúrese de que el agente de máquina virtual esté habilitado en dicha VM; en caso contrario, siga las instrucciones para [Linux](../articles/virtual-machines/virtual-machines-linux-classic-manage extensions.md) o [Windows](../articles/virtual-machines/virtual-machines-windows-classic-manage extensions.md) para instalar una.
+3. Cargue las secuencias de comandos que desea ejecutar en la máquina virtual para el almacenamiento de Azure. Las secuencias de comandos pueden proceder de un único contenedor de almacenamiento o de varios.
+4. También pueden cargarse los scripts en una cuenta de GitHub.
+5. La secuencia de comandos debe crearse de forma tal que la secuencia de comandos de entrada que inicia la extensión inicie, a su vez, otras secuencias de comandos.
 
-## <a name="using-the-custom-script-extension"></a>Using the custom script extension
+## Uso de la extensión de script personalizada
 
-For deploying with templates we use the same version of Custom Script extension that's available for Azure Service Management APIs. The extension supports the same parameters and scenarios like uploading files to Azure Storage account or Github location. The key difference while using with templates is the exact version of the extension should be specified, as opposed to specifying the version in majorversion.* format.
+Para realizar la implementación con plantillas, usamos la misma versión de la extensión de scripts personalizados que está disponible para las API de administración de servicios de Azure. La extensión es compatible con los mismos parámetros y escenarios que la carga de archivos en la cuenta de Almacenamiento de Azure o la ubicación de Github. La diferencia clave cuando usa plantillas es que debe especificarse la versión exacta de la extensión, al contrario de la especificación de la versión en el formato majorversion.*.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0420_2016-->

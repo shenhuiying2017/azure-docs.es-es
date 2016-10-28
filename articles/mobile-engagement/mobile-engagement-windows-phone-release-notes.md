@@ -1,57 +1,52 @@
 <properties 
-    pageTitle="Windows Phone Silverlight SDK Release Notes" 
-    description="Azure Mobile Engagement - Windows Phone Silverlight SDK Release Notes"                     
-    services="mobile-engagement" 
-    documentationCenter="mobile" 
-    authors="piyushjo" 
-    manager="dwrede" 
-    editor="" />
+	pageTitle="Notas de la versión del SDK de Windows Phone Silverlight" 
+	description="Azure Mobile Engagement - Notas de la versión del SDK de Windows Phone Silverlight" 					
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="piyushjo" 
+	manager="dwrede" 
+	editor="" />
 
 <tags 
-    ms.service="mobile-engagement" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="mobile-windows-phone" 
-    ms.devlang="na"
-    ms.topic="article" 
-    ms.date="08/19/2016" 
-    ms.author="piyushjo" />
+	ms.service="mobile-engagement" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="na"
+	ms.topic="article" 
+	ms.date="08/19/2016" 
+	ms.author="piyushjo" />
+
+#Notas de la versión del SDK de Windows Phone Silverlight
 
 
-#<a name="windows-phone-silverlight-sdk-release-notes"></a>Windows Phone Silverlight SDK Release Notes
+##3\.3.0 (04/19/2016)
+Parte del paquete NuGet *MicrosoftAzure.MobileEngagement* **v3.4.0**
 
+-   API "TestLogLevel" agregada para habilitar, deshabilitar y filtrar registros de consola emitidos por el SDK.
 
-##<a name="3.3.0-(04/19/2016)"></a>3.3.0 (04/19/2016)
-Part of the *MicrosoftAzure.MobileEngagement* Nuget package **v3.4.0**
+##3\.2.0 (01/22/2016)
+Parte del paquete NuGet *MicrosoftAzure.MobileEngagement* **v3.3.0**
 
--   Added "TestLogLevel" API to enable/disable/filter console logs emitted by the SDK.
-
-##<a name="3.2.0-(01/22/2016)"></a>3.2.0 (01/22/2016)
-Part of the *MicrosoftAzure.MobileEngagement* Nuget package **v3.3.0**
-
--   Custom schemes, ms-appx and ms-appdata available on action urls.
--   Stability improvements.
+-   Esquemas personalizados, ms appx y ms-appdata disponibles en direcciones URL de acción.
+-   Mejoras de estabilidad.
   
-##<a name="3.1.0-(11/20/2015)"></a>3.1.0 (11/20/2015)
-Part of the *MicrosoftAzure.MobileEngagement* Nuget package **v3.2.0**
+##3\.1.0 (20/11/2015)
+Parte del paquete NuGet *MicrosoftAzure.MobileEngagement* **v3.2.0**
 
--   Fixed crash while requesting the device id just after the initialization.
--   Console logs improvements.
+-   Bloqueo fijo al solicitar el identificador del dispositivo justo después de la inicialización.
+-   Mejoras de los registros de consola.
 
-##<a name="3.0.0-(04/03/2015)"></a>3.0.0 (04/03/2015)
+##3\.0.0 (03/04/2015)
 
--   Default notification icon updated.
--   Send back system notification action feedback when a notification is clicked.
--   Fixed a race condition on system notification.
+-   Icono de notificación predeterminado actualizado.
+-   Envíe comentarios de acción de notificación del sistema al hacer clic en una notificación.
+-   Se ha fijado una condición de carrera en la notificación del sistema.
 
-##<a name="2.0.0-(02/17/2015)"></a>2.0.0 (02/17/2015)
+##2\.0.0 (02/17/2015)
 
--   Initial Release of Azure Mobile Engagement.
--   appId/sdkKey configuration is replaced by a connection string configuration.
--   Security improvements.
+-   Versión inicial de Azure Mobile Engagement.
+-   La configuración de appId o sdkKey se sustituye por una configuración de la cadena de conexión.
+-   Mejoras de seguridad.
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

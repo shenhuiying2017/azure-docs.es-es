@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Deploy a Node.js application to Linux Virtual Machines in Azure"
-   description="Learn how to deploy a Node.js application to Linux virtual machines in Azure."
+   pageTitle="Implementación de una aplicación Node.js para máquinas virtuales de Linux en Azure"
+   description="Aprenda a implementar una aplicación Node.js en las máquinas virtuales Linux en Azure."
    services=""
    documentationCenter="nodejs"
    authors="stepro"
@@ -16,176 +16,175 @@
    ms.date="02/02/2016"
    ms.author="stephpr"/>
 
+# Implementación de una aplicación Node.js para máquinas virtuales de Linux en Azure
 
-# <a name="deploy-a-node.js-application-to-linux-virtual-machines-in-azure"></a>Deploy a Node.js application to Linux Virtual Machines in Azure
+Este tutorial muestra cómo implementar una aplicación Node.js en máquinas virtuales Linux que se ejecutan en Azure. Las instrucciones de este tutorial se pueden seguir en cualquier sistema operativo que sea capaz de ejecutar Node.js.
 
-This tutorial shows how to take a Node.js application and deploy it to Linux virtual machines running in Azure. The instructions in this tutorial can be followed on any operating system that is capable of running Node.js.
+Aprenderá a:
 
-You'll learn how to:
-
-- Fork and clone a GitHub repository containing a simple TODO application;
-- Create and configure two Linux virtual machines in Azure to run the application;
-- Iterate on the application by pushing updates to the web frontend virtual machine.
+- Bifurcar y clonar un repositorio de GitHub con una aplicación simple de tarea pendiente
+- Crear y configurar dos máquinas virtuales Linux en Azure para ejecutar la aplicación
+- Efectuar iteraciones en la aplicación enviando actualizaciones a la máquina virtual front-end web
 
 > [AZURE.NOTE]
-> To complete this tutorial, you need a GitHub account and a Microsoft Azure account, and the ability to use Git from a development machine.
+Para realizar este tutorial, necesita una cuenta de GitHub y una de Microsoft Azure, además de la posibilidad de usar Git desde una máquina de desarrollo.
 
-> If you don't have a GitHub account, you can sign up [here](https://github.com/join).
+> Si no tiene cuenta de GitHub, puede suscribirse para obtener una gratis [aquí](https://github.com/join).
 
-> If you don't have a [Microsoft Azure](https://azure.microsoft.com/) account, you can sign up for a FREE trial [here](https://azure.microsoft.com/pricing/free-trial/). This will also lead you through the sign up process for a [Microsoft Account](http://account.microsoft.com) if you do not already have one. Alternatively, if you are a Visual Studio subscriber, you can [activate your MSDN benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+> Si no tiene una cuenta de [Microsoft Azure](https://azure.microsoft.com/), puede registrarse para obtener una evaluación gratuita [aquí](https://azure.microsoft.com/pricing/free-trial/). Esto le llevará también a través del proceso de inicio de sesión una [cuenta de Microsoft](http://account.microsoft.com), en caso de que no disponga de una. Como alternativa, si tiene una suscripción de Visual Studio, puede [activar los beneficios de MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
-> If you do not have git on your development machine, then if you are using a Macintosh or Windows machine, install git from [here](http://www.git-scm.com). If you are using Linux, install git using the mechanism most appropriate for you, such as `sudo apt-get install git`.
+> Si no tiene Git en la máquina de desarrollo y está utilizando un equipo Macintosh o Windows, instale Git desde [aquí](http://www.git-scm.com). Si usa Linux, instale Git mediante el mecanismo más adecuado para usted, como `sudo apt-get install git`.
 
-## <a name="forking-and-cloning-the-todo-application"></a>Forking and Cloning the TODO Application
+## Bifurcación y clonación de la aplicación de tareas pendientes
 
-The TODO application used by this tutorial implements a simple web frontend over a MongoDB instance that keeps track of a TODO list. After signing in to GitHub, go [here](https://github.com/stepro/node-todo) to find the application and fork it using the link in the top right. This should create a repository in your account named *accountname*/node-todo.
+La aplicación de tareas pendientes que se usa en este tutorial permite implementar un front-end web sencillo en una instancia de MongoDB que realiza un seguimiento de una lista de tareas. Después de iniciar sesión en GitHub, vaya [aquí](https://github.com/stepro/node-todo) para buscar la aplicación y bifurcarla mediante el vínculo en la parte superior derecha. Esto debería crear un repositorio en la cuenta con el nombre *accountname*/node-todo.
 
-Now on your development machine, clone this repository:
+Ahora en la máquina de desarrollo, clone este repositorio:
 
     git clone https://github.com/accountname/node-todo.git
 
-We'll use this local clone of the repository a little later when making changes to the source code.
+Usaremos este clon local del repositorio un poco más adelante al realizar cambios en el código fuente.
 
-## <a name="creating-and-configuring-the-linux-virtual-machines"></a>Creating and Configuring the Linux Virtual Machines
+## Creación y configuración de las máquinas virtuales Linux
 
-Azure has great support for raw compute using Linux virtual machines. This part of the tutorial shows how you can easily spin up two Linux virtual machines and deploy the TODO application to them, running the web frontend on one and the MongoDB instance on the other.
+Azure ofrece un buen soporte para los procesos sin formato con las máquinas virtuales Linux. Esta parte del tutorial muestra la forma de establecer fácilmente dos máquinas virtuales de Linux e implementar la aplicación de tareas pendientes, ejecutando el front-end web en una de ellas y la instancia de MongoDB en la otra.
 
-### <a name="creating-virtual-machines"></a>Creating Virtual Machines
+### Creación de máquinas virtuales
 
-The easiest way to create a new virtual machine in Azure is to use the Azure Portal. Click [here](https://portal.azure.com) to sign in and launch the Azure Portal in your web browser. Once the Azure Portal has loaded, complete the following steps:
+Para crear una nueva máquina virtual en Azure, lo más sencillo es usar el Portal de Azure. Haga clic en [aquí](https://portal.azure.com) para conectarse e iniciar el Portal de Azure en el explorador web. Cuando se haya cargado el Portal de Azure, realice los pasos siguientes:
 
-- Click the "+ New" link;
-- Pick the "Compute" category and choose "Ubuntu Server 14.04 LTS";
-- Select the "Resource Manager" deployment model and click "Create";
-- Fill in the basics following these guidelines:
-  - Specify a name you can easily identify later;
-  - For this tutorial, choose Password authentication;
-  - Create a new resource group with an identifiable name.
-- For the Virtual Machine size, "A1 Standard" is a reasonable choice for this tutorial.
-- For additional settings, ensure the disk type is "Standard" and accept all the remaining defaults.
-- Kick off the creation on the summary page.
+- Haga clic en el vínculo "+ Nuevo".
+- Elija la categoría "Proceso" y la opción "Ubuntu Server 14.04 LTS".
+- Elija el modelo de implementación "Administrador de recursos" y haga clic en "Crear".
+- Para rellenar los aspectos básicos, siga estas instrucciones:
+  - Especifique un nombre que pueda identificar fácilmente más tarde.
+  - Para este tutorial, elija la autenticación mediante contraseña.
+  - Cree un nuevo grupo de recursos con un nombre identificable.
+- Para el tamaño de la máquina virtual, "A1 estándar" es una buena opción para este tutorial.
+- Para ver otras opciones, asegúrese de que el tipo de disco sea "Estándar" y acepte todos los valores predeterminados restantes.
+- Ponga en marcha la creación en la página de resumen.
 
-Perform the above process twice to create two Linux virtual machines, one for the web frontend and one for the MongoDB instance. Creation of the virtual machines will take about 5-10 minutes.
+Realice el proceso anterior dos veces para crear dos máquinas virtuales Linux: una para el front-end web y otra para la instancia de MongoDB. La creación de las máquinas virtuales tardará entre 5 y 10 minutos.
 
-### <a name="assigning-a-dns-entry-for-virtual-machines"></a>Assigning a DNS entry for Virtual Machines
+### Asignación de una entrada DNS para las máquinas virtuales
 
-Virtual machines created in Azure are by default only accessible through a public IP address like 1.2.3.4. Let's make the machines more easily identifiable by assigning them DNS entries.
+De manera predeterminada, a las máquinas virtuales creadas en Azure se puede acceder solo a través de una dirección IP pública, como 1.2.3.4. Vamos a hacer que las máquinas se puedan identificar más fácilmente mediante la asignación de entradas de DNS.
 
-Once the portal indicates that the virtual machines have been created, click on the "Virtual machines" link in the left navbar and locate your machines. For each machine:
+Una vez que el portal indique que se han creado las máquinas virtuales, haga clic en el vínculo "Máquinas virtuales" en la barra de exploración izquierda y busque las máquinas. Para cada máquina:
 
-- Locate the Essentials tab and click on the Public IP Address;
-- In the public IP address configuration, assign a DNS name label and save.
+- Busque la pestaña Essentials y haga clic en la dirección IP pública.
+- En la configuración de la dirección IP pública, asigne una etiqueta de nombre DNS y guárdela.
 
-The portal will ensure that the name you specify is available. After saving the configuration, your virtual machines will have host names similar to `machinename.region.cloudapp.azure.com`.
+El portal comprobará que el nombre especificado esté disponible. Después de guardar la configuración, las máquinas virtuales tendrán nombres de host similares a `machinename.region.cloudapp.azure.com`.
 
-### <a name="connecting-to-the-virtual-machines"></a>Connecting to the Virtual Machines
+### Conexión a las máquinas virtuales
 
-When your virtual machines were provisioned, they were pre-configured to allow remote connections over SSH. This is the mechanism we will use to configure the virtual machines. If you are using Windows for your development, you will need to get an SSH client if you do not already have one. A common choice here is PuTTY, which can be downloaded from [here](http://www.chiark.greenend.org.uk/~sgtatham/putty/). Macintosh and Linux OSes come with a version of SSH pre-installed.
+Al aprovisionar las máquinas virtuales, estas se configuraron para permitir las conexiones remotas a través de SSH. Este es el mecanismo que se utilizará para configurar las máquinas virtuales. Si está utilizando Windows para el desarrollo, debe obtener un cliente SSH en caso de que no disponga de uno. Una opción común es PuTTY, que puede descargar desde [aquí](http://www.chiark.greenend.org.uk/~sgtatham/putty/). Los sistemas operativos Macintosh y Linux vienen con una versión de SSH preinstalada.
 
-### <a name="configuring-the-web-frontend-virtual-machine"></a>Configuring the Web Frontend Virtual Machine
+### Configuración de la máquina virtual front-end web
 
-SSH to the web frontend machine you created using PuTTY, ssh command line or your other favorite SSH tool. You should see a welcome message followed by a command prompt.
+Inicie sesión con SSH en la máquina front-end web que creó mediante PuTTY, la línea de comandos ssh u otra herramienta SSH que desee. Debería ver un mensaje de bienvenida seguido de un símbolo del sistema.
 
-First, let's make sure that git and node are both installed:
+En primer lugar, debe asegurarse de que Git y el nodo estén instalados:
 
     sudo apt-get install -y git
     curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
     sudo apt-get install -y nodejs
     
-Since the application's web frontend relies on some native Node.js modules, we also need to install the essential set of build tools:
+Puesto que el front-end web de la aplicación depende de algunos módulos Node.js nativos, también hay que instalar el conjunto esencial de herramientas de compilación:
 
     sudo apt-get install -y build-essential
 
-Finally, let's install a Node.js application called *forever*, which helps to run Node.js server applications:
+Por último, vamos a instalar una aplicación Node.js denominada *forever*, que facilita la ejecución de aplicaciones del servidor Node.js:
 
     sudo npm install -g forever
     
-These are all the dependencies needed on this virtual machine to be able to run the application's web frontend, so let's get that running. To do this, we will first create a bare clone of the GitHub repository you previously forked so that you can easily publish updates to the virtual machine (we'll cover this update scenario later), and then clone the bare clone to provide a version of the repository that can actually be executed.
+Estas son todas las dependencias que se necesitan en esta máquina virtual para poder ejecutar el front-end web de la aplicación, así que vamos a proceder con la ejecución. Para ello, primero crearemos un clon básico del repositorio de GitHub que bifurcó previamente para que pueda publicar fácilmente las actualizaciones para la máquina virtual (explicaremos este escenario de actualización más adelante) y, a continuación, tendrá que clonar el clon básico para proporcionar una versión del repositorio que se pueda ejecutar realmente.
 
-Starting from the home (~) directory, run the following commands (replacing *accountname* with your GitHub user account name):
+Desde el directorio particular (~), ejecute los siguientes comandos (reemplace *accountname* con su nombre de cuenta de usuario de GitHub):
 
     git clone --bare https://github.com/accountname/node-todo.git
     git clone node-todo.git
 
-Now enter the node-todo directory and run these commands:
+Ahora acceda al directorio node-todo y ejecute estos comandos:
 
     npm install
     forever start server.js
     
-The application's web frontend is now running, however there is one more step before you can access the application from a web browser. The virtual machine you created is protected by an Azure resource called a *network security group*, which was created for you when you provisioned the virtual machine. Currently, this resource only allows external requests to port 22 to be routed to the virtual machine, which enables SSH communication with the machine but nothing else. So in order to view the TODO application, which is configured to run on port 8080, this port also needs to be opened up.
+El front-end web de la aplicación se está ejecutando ahora, sin embargo hay que realizar un paso más antes de que se pueda acceder a la aplicación desde un explorador web. La máquina virtual que creó está protegida por un recurso de Azure denominado *grupo de seguridad de red*, que se creó al aprovisionar la máquina virtual. Actualmente, este recurso solo permite que las solicitudes externas al puerto 22 se enruten a la máquina virtual, lo que permite la comunicación SSH con la máquina, pero nada más. Por tanto, para poder ver la aplicación de tareas pendientes, que está configurada para ejecutarse en el puerto 8080, este puerto también debe estar abierto.
 
-Return to the Azure Portal and complete the following steps:
+Vuelva al Portal de Azure y siga estos pasos:
 
-- Click on "Resource groups" in the left navbar;
-- Select the resource group that contains your virtual machine;
-- In the resulting list of resources, select the network security group (the one with a shield icon);
-- In the properties, choose "Inbound security rules";
-- In the toolbar, click "Add";
-- Provide a name like "default-allow-todo";
-- Set the protocol to "TCP";
-- Set the destination port range to "8080";
-- Click OK and wait for the security rule to be created.
+- Haga clic en "Grupos de recursos", en la barra de navegación izquierda.
+- Elija el grupo de recursos que contiene la máquina virtual.
+- En la lista resultante de recursos, elija el grupo de seguridad de red (el que tiene un icono de escudo).
+- En las propiedades, elija "Reglas de seguridad de entrada".
+- En la barra de herramientas, haga clic en "Agregar".
+- Especifique un nombre como "default-allow-todo".
+- Configure el protocolo como "TCP".
+- Defina el intervalo de puertos de destino en "8080".
+- Haga clic en Aceptar y espere a que se cree la regla de seguridad.
 
-After creating this security rule, the TODO application is publically visible on the internet and you can browse to it, for instance using a URL such as:
+Después de crear esta regla de seguridad, la aplicación de lista de tareas estará visible públicamente en Internet y podrá acceder a ella, por ejemplo, mediante una dirección URL como:
 
     http://machinename.region.cloudapp.azure.com:8080
 
-You will notice that even though we have not yet configured the MongoDB virtual machine, the TODO application appears to be quite functional. This is because the source repository is hardcoded to use a pre-deployed MongoDB instance. Once we have configured the MongoDB virtual machine, we will go back and change the source code to utilize our private MongoDB instance instead.
+Observará que, aunque todavía no hemos configurado la máquina virtual de MongoDB, la aplicación de tarea pendiente parece ser bastante funcional. Esto es porque el repositorio de origen está codificado para usar una instancia de MongoDB implementada previamente. Una vez que hemos configurado la máquina virtual de MongoDB, volvemos y cambiamos el código fuente para nuestra instancia de MongoDB privada en su lugar.
 
-### <a name="configuring-the-mongodb-virtual-machine"></a>Configuring the MongoDB Virtual Machine
+### Configuración de la máquina virtual de MongoDB
 
-SSH to the second machine you created using PuTTY, ssh command line or your other favorite SSH tool. After seeing the welcome message and command prompt, install MongoDB (these instructions were taken from [here](https://docs.mongodb.org/master/tutorial/install-mongodb-on-ubuntu/)):
+Inicie sesión con SSH en la segunda máquina que creó mediante PuTTY, la línea de comandos ssh u otra herramienta SSH que desee. Después de ver el mensaje de bienvenida y el símbolo del sistema, instale MongoDB (estas instrucciones proceden de [aquí](https://docs.mongodb.org/master/tutorial/install-mongodb-on-ubuntu/)):
 
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
     echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
     sudo apt-get update
     sudo apt-get install -y mongodb-org
 
-By default, MongoDB is configured so it can only be accessed locally. For this tutorial, we will configure MongoDB so it can be accessed from the application's virtual machine. In a sudo context, open the /etc/mongod.conf file and locate the `# network interfaces` section. Change the `net.bindIp` configuration value to `0.0.0.0`.
+De forma predeterminada, MongoDB está configurado para que solo se pueda acceder localmente. Para este tutorial, configuraremos MongoDB para que se pueda acceder desde la máquina virtual de la aplicación. En un contexto sudo, abra el archivo /etc/mongod.conf y busque la sección `# network interfaces`. Cambie el valor de la configuración `net.bindIp` por `0.0.0.0`.
 
 > [AZURE.NOTE]
-> This configuration is for the purposes of this tutorial only. It is **NOT** a recommended security practice and should not be used in production environments.
+Esta configuración atiende solo a los fines de este tutorial. **NO** constituye una práctica de seguridad recomendada y no se debe usar en entornos de producción.
 
-Now ensure the MongoDB service has been started:
+Ahora, asegúrese de que el servicio MongoDB se haya iniciado:
 
     sudo service mongod restart
 
-MongoDB operates over port 27017 by default. So, in the same way that we needed to open port 8080 on the web frontend virtual machine, we need to open port 27017 on the MongoDB virtual machine.
+MongoDB funciona a través del puerto 27017 de manera predeterminada. Por lo tanto, de la misma manera que había que abrir el puerto 8080 en la máquina virtual front-end web, ahora hay que abrir el puerto 27017 en la máquina virtual de MongoDB.
 
-Return to the Azure Portal and complete the following steps:
+Vuelva al Portal de Azure y siga estos pasos:
 
-* Click on "Resource groups" in the left navbar;
-* Select the resource group that contains the MongoDB virtual machine;
-* In the resulting list of resources, select the network security group (the one with a shield icon) with the same name that you gave to the MongoDB virtual machine;
-* In the properties, choose "Inbound security rules";
-* In the toolbar, click "Add";
-* Provide a name like "default-allow-mongo";
-* Set the protocol to "TCP";
-* Set the destination port range to "27017";
-* Click OK and wait for the security rule to be created.
+* Haga clic en "Grupos de recursos", en la barra de navegación izquierda.
+* Elija el grupo de recursos que contiene la máquina virtual MongoDB.
+* En la lista resultante de recursos, elija el grupo de seguridad de red (el que tiene un icono de escudo) con el mismo nombre que asignó a la máquina virtual MongoDB.
+* En las propiedades, elija "Reglas de seguridad de entrada".
+* En la barra de herramientas, haga clic en "Agregar".
+* Especifique un nombre como "default-allow-mongo".
+* Configure el protocolo como "TCP".
+* Defina el intervalo de puertos de destino en "27017".
+* Haga clic en Aceptar y espere a que se cree la regla de seguridad.
 
-## <a name="iterating-on-the-todo-application"></a>Iterating on the TODO application
-So far, we have provisioned two Linux virtual machines: one that is running the application's web frontend and one that is running a MongoDB instance. But there is a problem - the web frontend isn't actually using the provisioned MongoDB instance yet. Let's fix that by updating the web frontend code to use an environment variable instead of a hard-coded instance.
+## Iteración en la aplicación de tareas pendientes
+Hasta ahora, hemos aprovisionado dos máquinas virtuales Linux: una que ejecuta el front-end web de la aplicación y otra que ejecuta una instancia de MongoDB. Pero hay un problema: el front-end web no está utilizando realmente la instancia de MongoDB aprovisionada todavía. Para solucionar esto, vamos a actualizar el código de front-end web para utilizar una variable de entorno en lugar de una instancia codificada de forma rígida.
 
-### <a name="changing-the-todo-application"></a>Changing the TODO application
+### Cambio de la aplicación de tareas pendientes
 
-On your development machine where you first cloned the node-todo repository, open the `node-todo/config/database.js` file in your favorite editor and change the url value from the hard-coded value like `mongodb://...` to `process.env.MONGODB`.
+En la máquina de desarrollo donde clonó primero el repositorio node-todo, abra el archivo `node-todo/config/database.js` en el editor que desee y cambie el valor de la dirección URL del valor codificado de forma rígida como `mongodb://...` a `process.env.MONGODB`.
 
-Commit your changes and push to the GitHub master:
+Confirme los cambios y distribúyalos al patrón de GitHub:
 
     git commit -am "Get MongoDB instance from env"
     git push origin master
 
-Unfortunately, this doesn't publish the change to the web frontend virtual machine. Let's make a few more changes to that virtual machine to enable a simple but effective mechanism for publishing updates so you can quickly observe the effect of the changes in the live environment.
+Desafortunadamente, con esta acción no se publica el cambio en la máquina virtual front-end web. Vamos a hacer algunos cambios más en esa máquina virtual para habilitar un mecanismo sencillo pero eficaz con el que publicar las actualizaciones, de forma que pueda observar rápidamente el efecto de los cambios en el entorno de producción.
 
-### <a name="configuring-the-web-frontend-virtual-machine"></a>Configuring the Web Frontend Virtual Machine
-Recall that we previously created a bare clone of the node-todo repository on the web frontend virtual machine. It turns out that this action created a new Git remote to which changes can be pushed. However, simply pushing to this remote doesn't quite give the rapid iteration model that developers are looking for when working on their code.
+### Configuración de la máquina virtual front-end web
+Recuerde que hemos creado previamente un clon básico del repositorio node-todo en la máquina virtual front-end web. Resulta que esta acción crea un nuevo Git remoto en el que se pueden insertar los cambios. Sin embargo, el hecho de realizar inserciones en este elemento remoto no ofrece el modelo de iteración rápido que necesitan los desarrolladores al trabajar con el código.
 
-What we would like to be able to do is ensure that when a push to the remote repository on the virtual machine occurs, the running TODO application is automatically updated. Fortunately, this is easy to achieve with git.
+Lo que nos gustaría es que, al realizar una inserción en el repositorio remoto en la máquina virtual, la aplicación de tareas pendientes en ejecución se actualizara automáticamente. Por suerte, esto es fácil de conseguir con Git.
 
-Git exposes a number of hooks that are called at particular times to react to actions taken on the repository. These are specified using shell scripts in the repository's `hooks` folder. The hook that is most applicable for the auto-update scenario is the `post-update` event.
+Git ofrece una serie de enlaces que se ejecutan en momentos concretos para reaccionar ante las acciones realizadas en el repositorio. Estas acciones se ejecutan mediante scripts de shell en la carpeta `hooks` del repositorio. El enlace que es más aplicable para el escenario de actualización automática es el evento `post-update`.
 
-In a SSH session to the web frontend virtual machine, change to the `~/node-todo.git/hooks` directory and add the following content to a file named `post-update` (replacing `machinename` and `region` with your MongoDB virtual machine information):
+En una sesión SSH para la máquina virtual front-end web, cambie al directorio `~/node-todo.git/hooks` y agregue el siguiente contenido a un archivo denominado `post-update` (sustituya `machinename` y `region` con la información de la máquina virtual de MongoDB):
 
     #!/bin/bash
     
@@ -195,26 +194,26 @@ In a SSH session to the web frontend virtual machine, change to the `~/node-todo
     cd ~/node-todo && git fetch origin && git pull origin master && npm install && forever start ~/node-todo/server.js
     exec git update-server-info
     
-Ensure this file is executable by running the following command:
+Asegúrese de que este archivo sea ejecutable mediante el comando siguiente:
 
     chmod 755 post-update
 
-This script ensures that the current server application is stopped, the code in the cloned repository is updated to the latest, any updated dependencies are satisfied, and the server is restarted. It also ensures that the environment has been configured in preparation for receiving our first application update to get the MongoDB instance from an environment variable.
+Este script garantiza que la aplicación de servidor actual se haya detenido, que el código del repositorio clonado se haya actualizado a la versión más reciente, que se cumplan las dependencias actualizadas y que se reinicie el servidor. También garantiza que se haya configurado el entorno para recibir nuestra primera actualización de la aplicación para obtener la instancia de MongoDB desde una variable de entorno.
 
-### <a name="configuring-your-development-machine"></a>Configuring your Development Machine
-Now let's get your development machine hooked up to the web frontend virtual machine. This is as simple as adding the bare repository on the virtual machine as a remote. Run the following command to do this (replacing *user* with your web frontend virtual machine login name and *machinename* and *region* as appropriate):
+### Configuración de la máquina de desarrollo
+Ahora vamos a obtener el equipo de desarrollo con un enlace a la máquina virtual front-end web. Esto es tan sencillo como agregar el repositorio básico a la máquina virtual como un equipo remoto. Para ello, ejecute el siguiente comando (sustituya *user* con el nombre de inicio de sesión de la máquina virtual front-end web y especifique lo que proceda en *machinename* y *region*):
 
     git remote add azure user@machinename.region.cloudapp.azure.com:node-todo.git
 
-This is all that is needed to enable pushing, or in effect publishing, changes to the web frontend virtual machine.
+Esto es todo lo que se necesita para habilitar la inserción (o, en realidad, la publicación) de cambios en la máquina virtual front-end web.
 
-### <a name="publishing-updates"></a>Publishing Updates
+### Publicación de actualizaciones
 
-Let's publish the one change that has been made so far so that the application will use our own MongoDB instance:
+Vamos a publicar el único cambio que se ha hecho hasta el momento, de forma que la aplicación usará nuestra instancia MongoDB:
 
     git push azure master
 
-You should see output similar to this:
+Debería mostrarse una salida similar a esta:
 
     Counting objects: 4, done.
     Delta compression using up to 4 threads.
@@ -240,29 +239,25 @@ You should see output similar to this:
     To username@machinename.region.cloudapp.azure.com:node-todo.git
     5f31fd7..5bc7be5  master -> master
 
-After this command completes, try refreshing the application in a web browser. You should be able to see that the TODO list presented here is empty and no longer tied to the shared deployed MongoDB instance.
+Una vez finalizado este comando, actualice la aplicación en un explorador web. Podrá ver que la lista de tareas pendientes que se muestra aquí está vacía y ya no está enlazada a la instancia de MongoDB implementada compartida.
 
-To complete the tutorial, let's make another, more visible change. On your development machine, open the node-todo/public/index.html file using your favorite editor. Locate the jumbotron header and change  the title from "I'm a Todo-aholic" to "I'm a Todo-aholic on Azure!".
+Para completar el tutorial, vamos a hacer otro cambio más visible. En la máquina de desarrollo, abra el archivo node-todo/public/index.html con el editor que desee. Busque el encabezado jumbotron y cambie el título de "I'm a Todo-aholic" a "I'm a Todo-aholic on Azure!".
 
-Now let's commit:
+Ahora vamos a confirmarlo:
 
     git commit -am "Azurify the title"
 
-This time, let's publish the change to Azure before pushing it to back to the GitHub repo:
+Esta vez, vamos a publicar el cambio en Azure antes de insertarlo en el repositorio de GitHub:
 
     git push azure master
 
-Once this command completes, refresh the web page and you will see the changes. Since they look good, push the change back to the origin remote: 
+Una vez finalizado este comando, actualice la página web y verá los cambios. Como el resultado es satisfactorio, inserte el cambio en el origen remoto:
 
     git push origin master
 
-## <a name="next-steps"></a>Next Steps
-This article showed how to take a Node.js application and deploy it to Linux virtual machines running in Azure. To learn more about Linux virtual machines in Azure, see [Introduction to Linux on Azure](/documentation/articles/virtual-machines-linux-introduction/).
+## Pasos siguientes
+En este artículo, hemos explicado cómo implementar una aplicación Node.js en máquinas virtuales Linux que se ejecutan en Azure. Para obtener más información acerca de las máquinas virtuales de Linux en Azure, consulte [Introducción a Linux en Azure](/documentation/articles/virtual-machines-linux-introduction/).
     
-For more information about how to develop Node.js applications on Azure, see the [Node.js Developer Center](/develop/nodejs/).
+Para más información sobre cómo desarrollar aplicaciones de Node.js en Azure, consulte el [Centro para desarrolladores de Node.js](/develop/nodejs/).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0211_2016-->

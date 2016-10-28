@@ -1,291 +1,286 @@
 <properties
-    pageTitle="How to Use the Engagement API on iOS"
-    description="Latest iOS SDK - How to Use the Engagement API on iOS"
-    services="mobile-engagement"
-    documentationCenter="mobile"
-    authors="piyushjo"
-    manager="dwrede"
-    editor="" />
+	pageTitle="Cómo usar la API de Engagement en iOS"
+	description="Último SDK de iOS: cómo usar la API de Engagement en iOS"
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
+	editor="" />
 
 <tags
-    ms.service="mobile-engagement"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-ios"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/19/2016"
-    ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/19/2016"
+	ms.author="piyushjo" />
 
 
+#Cómo usar la API de Engagement en iOS
 
-#<a name="how-to-use-the-engagement-api-on-ios"></a>How to Use the Engagement API on iOS
+Este documento es un complemento al documento Cómo integrar Engagement en iOS: en él se proporciona información detallada acerca de cómo usar la API de Engagement para informar de las estadísticas de la aplicación.
 
-This document is an add-on to the document How to Integrate Engagement on iOS: it provides in depth details about how to use the Engagement API to report your application statistics.
+Tenga en cuenta que si solo desea que Engagement informe de las sesiones, las actividades, bloqueos e información técnica de la aplicación, a continuación, la manera más sencilla es hacer que todos los objetos `UIViewController` personalizados hereden de la clase `EngagementViewController` correspondiente.
 
-Keep in mind that if you only want Engagement to report your application's sessions, activities, crashes and technical information, then the simplest way is to make all your custom `UIViewController` objects inherit from the corresponding `EngagementViewController` class.
+Si desea hacer más, por ejemplo, si necesita informar de eventos, errores y trabajos específicos de la aplicación, o si debe informar de las actividades de la aplicación de manera diferente de la que se implementa en las clases `EngagementViewController`, deberá usar la API de Engagement.
 
-If you want to do more, for example if you need to report application specific events, errors and jobs, or if you have to report your application's activities in a different way than the one implemented in the `EngagementViewController` classes, then you need to use the Engagement API.
+La API de Engagement la proporciona la clase `EngagementAgent`. Para recuperar una instancia de esta clase puede llamarse al método estático `[EngagementAgent shared]` (tenga en cuenta que el objeto `EngagementAgent` que se devuelve es un singleton).
 
-The Engagement API is provided by the `EngagementAgent` class. An instance of this class can be retrieved by calling the `[EngagementAgent shared]` static method (note that the `EngagementAgent` object returned is a singleton).
+Antes de las llamadas a una API, el objeto `EngagementAgent` debe inicializarse llamando al método `[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];`
 
-Before any API calls, the `EngagementAgent` object must be initialized by calling the method `[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];`
+##Conceptos de Engagement
 
-##<a name="engagement-concepts"></a>Engagement concepts
+En las siguientes secciones se detallan los [conceptos de Mobile Engagement](mobile-engagement-concepts.md) para la plataforma iOS.
 
-The following parts refine the common [Mobile Engagement Concepts](mobile-engagement-concepts.md) for the iOS platform.
+### `Session` y `Activity`
 
-### <a name="`session`-and-`activity`"></a>`Session` and `Activity`
+Una *actividad* normalmente se asocia con una pantalla de la aplicación, es decir, la *actividad* se inicia cuando la pantalla se muestra y se detiene cuando se cierra la pantalla: este es el caso cuando se integra el SDK de Engagement utilizando las clases `EngagementViewController`.
 
-An *activity* is usually associated with one screen of the application, that is to say the *activity* starts when the screen is displayed and stops when the screen is closed: this is the case when the Engagement SDK is integrated by using the `EngagementViewController` classes.
+Sin embargo, las *actividades* también se pueden controlar manualmente mediante la API de Engagement. Esto permite dividir una pantalla dada en varias subpartes para obtener más detalles sobre el uso de esta pantalla (por ejemplo, para saber con qué frecuencia y durante cuánto tiempo se utilizan los cuadros de diálogo dentro de esta pantalla).
 
-But *activities* can also be controlled manually by using the Engagement API. This allows to split a given screen in several sub parts to get more details about the usage of this screen (for example to known how often and how long dialogs are used inside this screen).
+##Informes sobre actividades
 
-##<a name="reporting-activities"></a>Reporting Activities
+### El usuario inicia una nueva actividad
 
-### <a name="user-starts-a-new-activity"></a>User starts a new Activity
+			[[EngagementAgent shared] startActivity:@"MyUserActivity" extras:nil];
 
-            [[EngagementAgent shared] startActivity:@"MyUserActivity" extras:nil];
+Debe llamar a `startActivity()` cada vez que cambie la actividad de usuario. La primera llamada a esta función inicia una nueva sesión de usuario.
 
-You need to call `startActivity()` each time the user activity changes. The first call to this function starts a new user session.
+### El usuario finaliza su actividad actual
 
-### <a name="user-ends-his-current-activity"></a>User ends his current Activity
+			[[EngagementAgent shared] endActivity];
 
-            [[EngagementAgent shared] endActivity];
+> [AZURE.WARNING] **NUNCA** debe llamar a esta función por sí mismo, excepto si desea dividir un uso de la aplicación en varias sesiones: una llamada a esta función terminaría la sesión actual inmediatamente, por lo tanto, una llamada posterior a `startActivity()` podría iniciar una nueva sesión. Esta función es invocada automáticamente por el SDK cuando se cierra la aplicación.
 
-> [AZURE.WARNING] You should **NEVER** call this function by yourself, except if you want to split one use of your application into several sessions: a call to this function would end the current session immediately, so, a subsequent call to `startActivity()` would start a new session. This function is automatically called by the SDK when your application is closed.
+##Informes de eventos
 
-##<a name="reporting-events"></a>Reporting Events
+### Eventos de sesión
 
-### <a name="session-events"></a>Session events
+Los eventos de sesión se suelen usar para notificar las acciones que realiza el usuario durante su sesión.
 
-Session events are usually used to report the actions performed by a user during his session.
+**Ejemplo sin datos adicionales:**
 
-**Example without extra data:**
+	@implementation MyViewController {
+	   [...]
+	   - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+	   {
+	    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+	        ...
+	    [[EngagementAgent shared] sendSessionEvent:@"will_rotate" extras:nil];
+	        ...
+	   }
+	   [...]
+	}
 
-    @implementation MyViewController {
-       [...]
-       - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-       {
-        [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-            ...
-        [[EngagementAgent shared] sendSessionEvent:@"will_rotate" extras:nil];
-            ...
-       }
-       [...]
-    }
+**Ejemplo con datos adicionales:**
 
-**Example with extra data:**
+	@implementation MyViewController {
+	   [...]
+	   - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+	   {
+	    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+	        ...
+	    NSMutableDictionary* extras = [NSMutableDictionary dictionary];
+	    [extras setObject:[NSNumber numberWithInt:toInterfaceOrientation] forKey:@"to_orientation_id"];
+	    [extras setObject:[NSNumber numberWithDouble:duration] forKey:@"duration"];
+	    [[EngagementAgent shared] sendSessionEvent:@"will_rotate" extras:extras];
+	        ...
+	   }
+	   [...]
+	}
 
-    @implementation MyViewController {
-       [...]
-       - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-       {
-        [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-            ...
-        NSMutableDictionary* extras = [NSMutableDictionary dictionary];
-        [extras setObject:[NSNumber numberWithInt:toInterfaceOrientation] forKey:@"to_orientation_id"];
-        [extras setObject:[NSNumber numberWithDouble:duration] forKey:@"duration"];
-        [[EngagementAgent shared] sendSessionEvent:@"will_rotate" extras:extras];
-            ...
-       }
-       [...]
-    }
+### Eventos independientes
 
-### <a name="standalone-events"></a>Standalone events
+Al contrario de los eventos de sesión, los eventos independientes pueden utilizarse fuera del contexto de una sesión.
 
-Contrary to session events, standalone events can be used outside of the context of a session.
+**Ejemplo:**
 
-**Example:**
+	[[EngagementAgent shared] sendEvent:@"received_notification" extras:nil];
 
-    [[EngagementAgent shared] sendEvent:@"received_notification" extras:nil];
+##Informes de errores
 
-##<a name="reporting-errors"></a>Reporting Errors
+### Errores de sesión
 
-### <a name="session-errors"></a>Session errors
+Los errores de sesión suelen usarse para notificar los errores que afectan al usuario durante su sesión.
 
-Session errors are usually used to report the errors impacting the user during his session.
+**Ejemplo:**
 
-**Example:**
+	/** The user has entered invalid data in a form */
+	@implementation MyViewController {
+	  [...]
+	  -(void)onMyFormSubmitted:(MyForm*)form {
+	    [...]
+	    /* The user has entered an invalid email address */
+	    [[EngagementAgent shared] sendSessionError:@"sign_up_email" extras:nil]
+	    [...]
+	  }
+	  [...]
+	}
 
-    /** The user has entered invalid data in a form */
-    @implementation MyViewController {
-      [...]
-      -(void)onMyFormSubmitted:(MyForm*)form {
-        [...]
-        /* The user has entered an invalid email address */
-        [[EngagementAgent shared] sendSessionError:@"sign_up_email" extras:nil]
-        [...]
-      }
-      [...]
-    }
+### Errores independientes
 
-### <a name="standalone-errors"></a>Standalone errors
+Al contrario de los errores de la sesión, los errores independientes pueden utilizarse fuera del contexto de una sesión.
 
-Contrary to session errors, standalone errors can be used outside of the context of a session.
+**Ejemplo:**
 
-**Example:**
+	[[EngagementAgent shared] sendError:@"something_failed" extras:nil];
 
-    [[EngagementAgent shared] sendError:@"something_failed" extras:nil];
+##Informes de trabajos
 
-##<a name="reporting-jobs"></a>Reporting Jobs
+**Ejemplo:**
 
-**Example:**
+Supongamos que desea notificar la duración del proceso de inicio de sesión:
 
-Suppose you want to report the duration of your login process:
+	[...]
+	-(void)signIn
+	{
+	  /* Start job */
+	  [[EngagementAgent shared] startJob:@"sign_in" extras:nil];
 
-    [...]
-    -(void)signIn
-    {
-      /* Start job */
-      [[EngagementAgent shared] startJob:@"sign_in" extras:nil];
+	  [... sign in ...]
 
-      [... sign in ...]
+	  /* End job */
+	  [[EngagementAgent shared] endJob:@"sign_in"];
+	}
+	[...]
 
-      /* End job */
-      [[EngagementAgent shared] endJob:@"sign_in"];
-    }
-    [...]
+### Informe de errores durante un trabajo
 
-### <a name="report-errors-during-a-job"></a>Report Errors during a Job
+Los errores pueden estar relacionados con un trabajo en ejecución en lugar de la sesión del usuario actual.
 
-Errors can be related to a running job instead of being related to the current user session.
+**Ejemplo:**
 
-**Example:**
+Suponga que desea notificar un error durante el proceso de inicio de sesión:
 
-Suppose you want to report an error during your login process:
+	[...]
+	-(void)signin
+	{
+	  /* Start job */
+	  [[EngagementAgent shared] startJob:@"sign_in" extras:nil];
 
-    [...]
-    -(void)signin
-    {
-      /* Start job */
-      [[EngagementAgent shared] startJob:@"sign_in" extras:nil];
+	  BOOL success = NO;
+	  while (!success) {
+	    /* Try to sign in */
+	    NSError* error = nil;
+	    [self trySigin:&error];
+	    success = error == nil;
 
-      BOOL success = NO;
-      while (!success) {
-        /* Try to sign in */
-        NSError* error = nil;
-        [self trySigin:&error];
-        success = error == nil;
+	    /* If an error occured report it */
+	    if(!success)
+	    {
+	      [[EngagementAgent shared] sendJobError:@"sign_in_error"
+	                     jobName:@"sign_in"
+	                      extras:[NSDictionary dictionaryWithObject:[error localizedDescription] forKey:@"error"]];
 
-        /* If an error occured report it */
-        if(!success)
-        {
-          [[EngagementAgent shared] sendJobError:@"sign_in_error"
-                         jobName:@"sign_in"
-                          extras:[NSDictionary dictionaryWithObject:[error localizedDescription] forKey:@"error"]];
+	      /* Retry after a moment */
+	      [NSThread sleepForTimeInterval:20];
+	    }
+	  }
 
-          /* Retry after a moment */
-          [NSThread sleepForTimeInterval:20];
-        }
-      }
+	  /* End job */
+	  [[EngagementAgent shared] endJob:@"sign_in"];
+	};
+	[...]
 
-      /* End job */
-      [[EngagementAgent shared] endJob:@"sign_in"];
-    };
-    [...]
+### Eventos durante un trabajo
 
-### <a name="events-during-a-job"></a>Events during a job
+Los errores pueden estar relacionados con un trabajo en ejecución en lugar de la sesión del usuario actual.
 
-Events can be related to a running job instead of being related to the current user session.
+**Ejemplo:**
 
-**Example:**
+Supongamos que tenemos una red social y utilizamos un trabajo de informe del tiempo total durante el cual el usuario está conectado al servidor. El usuario puede recibir mensajes de sus amigos, este es un evento de trabajo.
 
-Suppose we have a social network, and we use a job to report the total time during which the user is connected to the server. The user can receive messages from his friends, this is a job event.
+	[...]
+	- (void) signin
+	{
+	  [...Sign in code...]
+	  [[EngagementAgent shared] startJob:@"connection" extras:nil];
+	}
+	[...]
+	- (void) signout
+	{
+	  [...Sign out code...]
+	  [[EngagementAgent shared] endJob:@"connection"];
+	}
+	[...]
+	- (void) onMessageReceived
+	{
+	  [...Notify user...]
+	  [[EngagementAgent shared] sendJobEvent:@"connection" jobName:@"message_received" extras:nil];
+	}
+	[...]
 
-    [...]
-    - (void) signin
-    {
-      [...Sign in code...]
-      [[EngagementAgent shared] startJob:@"connection" extras:nil];
-    }
-    [...]
-    - (void) signout
-    {
-      [...Sign out code...]
-      [[EngagementAgent shared] endJob:@"connection"];
-    }
-    [...]
-    - (void) onMessageReceived
-    {
-      [...Notify user...]
-      [[EngagementAgent shared] sendJobEvent:@"connection" jobName:@"message_received" extras:nil];
-    }
-    [...]
+##Parámetros adicionales
 
-##<a name="extra-parameters"></a>Extra parameters
+Se pueden adjuntar datos arbitrarios en eventos, errores, actividades y trabajos.
 
-Arbitrary data can be attached to events, errors, activities and jobs.
+Estos datos pueden estructurarse, utilizan la clase de NSDictionary de iOS.
 
-This data can be structured, it uses iOS's NSDictionary class.
+Tenga en cuenta que los extras pueden contener `arrays(NSArray, NSMutableArray)`, `numbers(NSNumber class)`, `strings(NSString, NSMutableString)`, `urls(NSURL)`, `data(NSData, NSMutableData)` u otras `NSDictionary` instancias.
 
-Note that extras can contain `arrays(NSArray, NSMutableArray)`, `numbers(NSNumber class)`, `strings(NSString, NSMutableString)`, `urls(NSURL)`, `data(NSData, NSMutableData)` or other `NSDictionary` instances.
-
-> [AZURE.NOTE] The extra parameter is serialized in JSON. If you want to pass different objects than the ones described above, you must implement the following method in your class:
+> [AZURE.NOTE] El parámetro adicional se serializa en JSON. Si desea pasar objetos distintos de los descritos anteriormente, debe implementar el método siguiente en la clase:
 >
-             -(NSString*)JSONRepresentation;
+			 -(NSString*)JSONRepresentation;
 >
-> The method should return a JSON representation of your object.
+> El método debe devolver una representación JSON del objeto.
 
-### <a name="example"></a>Example
+### Ejemplo
 
-    NSMutableDictionary* extras = [NSMutableDictionary dictionaryWithCapacity:2];
-    [extras setObject:[NSNumber numberWithInt:123] forKey:@"video_id"];
-    [extras setObject:@"http://foobar.com/blog" forKey:@"ref_click"];
-    [[EngagementAgent shared] sendEvent:@"video_clicked" extras:extras];
+	NSMutableDictionary* extras = [NSMutableDictionary dictionaryWithCapacity:2];
+	[extras setObject:[NSNumber numberWithInt:123] forKey:@"video_id"];
+	[extras setObject:@"http://foobar.com/blog" forKey:@"ref_click"];
+	[[EngagementAgent shared] sendEvent:@"video_clicked" extras:extras];
 
-### <a name="limits"></a>Limits
+### Límites
 
-#### <a name="keys"></a>Keys
+#### simétricas
 
-Each key in the `NSDictionary` must match the following regular expression:
+Cada clave de la `NSDictionary` debe coincidir con la siguiente expresión regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-It means that keys must start with at least one letter, followed by letters, digits or underscores (\_).
+Esto significa que las claves deben empezar con al menos una letra, seguida de letras, dígitos o caracteres de subrayado (\_).
 
-#### <a name="size"></a>Size
+#### Tamaño
 
-Extras are limited to **1024** characters per call (once encoded in JSON by the Engagement agent).
+Los extras están limitados a **1024** caracteres por llamada (una vez codificados en JSON por el agente de Engagement).
 
-In the previous example, the JSON sent to the server is 58 characters long:
+En el ejemplo anterior, el JSON que se envía al servidor tiene una longitud de 58 caracteres:
 
-    {"ref_click":"http:\/\/foobar.com\/blog","video_id":"123"}
+	{"ref_click":"http:\/\/foobar.com\/blog","video_id":"123"}
 
-##<a name="reporting-application-information"></a>Reporting Application Information
+##Información de la aplicación de informes
 
-You can manually report tracking information (or any other application specific information) using the `sendAppInfo:` function.
+Puede notificar manualmente la información de seguimiento (o cualquier otro tipo de información específica de la aplicación) mediante la función `sendAppInfo:`.
 
-Note that these information can be sent incrementally: only the latest value for a given key will be kept for a given device.
+Tenga en cuenta que esta información se puede enviar de forma incremental: para un dispositivo dado solo se conservará el último valor de una clave determinada.
 
-Like event extras, the `NSDictionary` class is used to abstract application information, note that arrays or sub-dictionaries will be treated as flat strings (using JSON serialization).
+Al igual que los extras de evento, la clase `NSDictionary` se usa para resumir la información de la aplicación. Tenga en cuenta que las matrices o diccionarios secundarios se tratarán como cadenas sin formato (con la serialización de JSON).
 
-**Example:**
+**Ejemplo:**
 
-    NSMutableDictionary* appInfo = [NSMutableDictionary dictionaryWithCapacity:2];
-    [appInfo setObject:@"female" forKey:@"gender"];
-    [appInfo setObject:@"1983-12-07" forKey:@"birthdate"]; // December 7th 1983
-    [[EngagementAgent shared] sendAppInfo:appInfo];
+	NSMutableDictionary* appInfo = [NSMutableDictionary dictionaryWithCapacity:2];
+	[appInfo setObject:@"female" forKey:@"gender"];
+	[appInfo setObject:@"1983-12-07" forKey:@"birthdate"]; // December 7th 1983
+	[[EngagementAgent shared] sendAppInfo:appInfo];
 
-### <a name="limits"></a>Limits
+### Límites
 
-#### <a name="keys"></a>Keys
+#### simétricas
 
-Each key in the `NSDictionary` must match the following regular expression:
+Cada clave de la `NSDictionary` debe coincidir con la siguiente expresión regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-It means that keys must start with at least one letter, followed by letters, digits or underscores (\_).
+Esto significa que las claves deben empezar con al menos una letra, seguida de letras, dígitos o caracteres de subrayado (\_).
 
-#### <a name="size"></a>Size
+#### Tamaño
 
-Application information are limited to **1024** characters per call (once encoded in JSON by the Engagement agent).
+La información de la aplicación está limitada a **1024** caracteres por llamada (una vez codificados en JSON por el agente de Engagement).
 
-In the previous example, the JSON sent to the server is 44 characters long:
+En el ejemplo anterior, el JSON que se envía al servidor tiene una longitud de 44 caracteres:
 
-    {"birthdate":"1983-12-07","gender":"female"}
+	{"birthdate":"1983-12-07","gender":"female"}
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

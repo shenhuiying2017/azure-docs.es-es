@@ -1,51 +1,45 @@
 <properties
-    pageTitle="App Registration Portal Help Topics | Microsoft Azure"
-    description="A description of various features in the Microsoft app registration portal."
-    services="active-directory"
-    documentationCenter=""
-    authors="dstrockis"
-    manager="mbaldwin"
-    editor=""/>
+	pageTitle="Temas de ayuda del portal de registro de aplicaciones | Microsoft Azure"
+	description="Descripción de las distintas características del portal de registro de aplicaciones de Microsoft."
+	services="active-directory"
+	documentationCenter=""
+	authors="dstrockis"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/16/2016"
-    ms.author="dastrock"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/16/2016"
+	ms.author="dastrock"/>
 
+# Referencia del registro de aplicaciones
+Este documento proporciona el contexto y las descripciones de las distintas características que se encuentran en el portal de registro de aplicaciones de Microsoft [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com).
 
-# <a name="app-registration-reference"></a>App registration reference
-This document provides context and descriptions of various features found in the Microsoft App Registration Portal [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com).
+## Mis aplicaciones
+Esta lista contiene todas las aplicaciones que se registran para su uso con el punto de conexión v2.0 de Azure AD. Estas aplicaciones tienen la capacidad de permitir el inicio de sesión de los usuarios tanto con cuentas personales de Microsoft como con cuentas profesionales/educativas de Azure Active Directory. Para obtener más información sobre el punto de conexión v2.0 de Azure AD, consulte nuestra [información general sobre v2.0](active-directory-appmodel-v2-overview.md). Estas aplicaciones también se pueden usar para la integración con el punto de conexión de autenticación de la cuenta Microsoft, `https://login.live.com`.
 
-## <a name="my-applications"></a>My Applications
-This list contains all of your applications registered for use with the Azure AD v2.0 endpoint.  These applications have the ability to sign in users with both personal accounts from Microsoft account and work/school accounts from Azure Active Directory.  To learn more about the Azure AD v2.0 endpoint, see our [v2.0 overview](active-directory-appmodel-v2-overview.md).  These applications can also be used to integrate with the Microsoft account authentication endpoint, `https://login.live.com`.
+## Aplicaciones de SDK de Live
+Esta lista contiene todas las aplicaciones registradas para su uso únicamente con la cuenta Microsoft. No están habilitadas en absoluto para su uso con Azure Active Directory. Aquí es donde encontrará todas las aplicaciones que se registraron previamente en el portal de desarrolladores de MSA en `https://account.live.com/developers/applications`. Todas las funciones que realizaba anteriormente en `https://account.live.com/developers/applications` ahora se pueden realizar en este nuevo portal, `https://apps.dev.microsoft.com`. Si tiene alguna pregunta acerca de las aplicaciones de la cuenta Microsoft, póngase en contacto con nosotros.
 
-## <a name="live-sdk-applications"></a>Live SDK Applications
-This list contains all of your applications registered for use solely with Microsoft account.  They are not enabled for use with Azure Active Directory whatsoever.  This is where you will find any applications that had previously been registered with the MSA developer portal at `https://account.live.com/developers/applications`.  All functions that you previously performed at `https://account.live.com/developers/applications` can now be performed in this new portal, `https://apps.dev.microsoft.com`.  If you have any further questions about your Microsoft account applications, please contact us.
+## Secretos de aplicación
+Los secretos de aplicación son credenciales que permiten que la aplicación realice una [autenticación de cliente](http://tools.ietf.org/html/rfc6749#section-2.3) confiable con Azure AD. En OAuth y OpenID Connect, los secretos de aplicación se conocen comúnmente como `client_secret`. En el protocolo v2.0, cualquier aplicación que reciba un token de seguridad en una ubicación direccionable web (mediante un esquema `https`) debe usar un secreto de aplicación para identificarse en Azure AD en el momento del canje de ese token de seguridad. Además, se prohibirá a cualquier cliente nativo que reciba tokens en un dispositivo el uso de un secreto de aplicación para realizar la autenticación de cliente, a fin de evitar el almacenamiento de secretos en entornos no seguros.
 
-## <a name="application-secrets"></a>Application Secrets
-Application secrets are credentials that allow your application to perform reliable [client authentication](http://tools.ietf.org/html/rfc6749#section-2.3) with Azure AD.  In OAuth & OpenID Connect, an application secrets is commonly referred to as a `client_secret`.  In the v2.0 protocol, any application that receives a security token at a web addressable location (using an `https` scheme) must use an application secret to identify itself to Azure AD upon redemption of that security token.  Furthermore, any native client that recieves tokens on a device will be forbidden from using an application secret to perform client authentication, to discourage the storage of secrets in insecure environments.
+Cada aplicación puede contener dos secretos de aplicación válidos en un momento determinado. Al mantener dos secretos, tiene la posibilidad de realizar una sustitución de claves periódica en todo el entorno de la aplicación. Una vez que haya migrado la totalidad de la aplicación a un nuevo secreto, podrá eliminar el antiguo secreto y aprovisionar uno nuevo.
 
-Each app can contain two valid application secrets at any given point in time.  By maintaining two secrets, you have the ablilty to perform periodic key rollover across your application's entire environment.  Once you have migrated the entirety of your application to a new secret, you may delete the old secret and provision a new one.
+En este momento, solo se permiten dos tipos de secretos de aplicación en el portal de registro de aplicaciones. Al elegir **Generar nueva contraseña** se generará y almacenará un secreto compartido en el almacén de datos correspondiente, que podrá utilizar en su aplicación. Al elegir **Generar nuevo par de claves** se creará un nuevo par de claves pública y privada que puede descargar y usar para la autenticación de cliente en Azure AD.
 
-At this time, only two types of application secrets are permitted in the app registration portal.  Choosing **Generate New Password** will generate and store a shared secret in the respective data store, which you can use in your application.  Choosing **Generate New Key Pair** will create a new public/private key pair that can be downloaded and used for client authentication to Azure AD.
+## Perfil
+La sección de perfil del portal de registro de aplicaciones se puede utilizar para personalizar la página de inicio de sesión de la aplicación. En este momento puede modificar el logotipo de la aplicación de la página de inicio, la dirección URL de los términos de servicio y la declaración de privacidad. El logotipo debe ser una imagen transparente de 48 x 48 o 50 x 50 píxeles en un archivo de formato GIF, PNG o JPEG que tenga un tamaño máximo de 15 KB. ¡Pruebe a cambiar los valores y ver la página de inicio de sesión que resulta!
 
-## <a name="profile"></a>Profile
-The profile section of the app registration portal can be used to customize the sign in page for your application.  At this time you can alter the sign in page's application logo, terms of service URL, and privacy statement.  The logo must be a transparent 48 x 48 or 50 x 50 pixel image in a GIF, PNG or JPEG file that is 15 KB or smaller.  Try changing the values and viewing the resulting sign in page!
+## Compatibilidad con SDK de Live
+Cuando habilita la "Compatibilidad con SDK de Live", los secretos de la aplicación que cree se aprovisionarán en los almacenes de datos tanto de Azure AD como de la cuenta Microsoft. Esto permitirá a la aplicación integrarse directamente con el servicio de la cuenta Microsoft (login.live.com). Si desea compilar una aplicación usando directamente la cuenta Microsoft (en lugar de usar el punto de conexión v2.0 de Azure AD), debe asegurarse de que esté habilitada la compatibilidad con SDK de Live.
 
-## <a name="live-sdk-support"></a>Live SDK Support
-When you enable "Live SDK Support", any application secrets you create will be provisioned into both the Azure AD and Microsoft Account data stores.  This will allow your application to integrate directly with the Microsoft Account service (login.live.com).  If you wish to build an app using Microsoft Account directly (as opposed to using the Azure AD v2.0 endpoint), you should make sure that Live SDK Support is enabled.
+Si deshabilita la compatibilidad con SDK de Live, se asegurará de que el secreto de la aplicación solo se escriba en el almacén de datos de Azure AD. El almacén de datos de Azure AD incorpora las normas empresariales que le que permiten satisfacer ciertas regulaciones, como el cumplimiento de FISMA. Si habilita la compatibilidad con el SDK de Live, es posible que la aplicación no pueda lograr el cumplimiento con algunas de estos regulaciones.
 
-Disabling Live SDK support will ensure that the application secret is only written into the Azure AD data store.  The Azure AD data store incorporates enterprise-grade regulations that allow it to meet certain standards, such as FISMA compliance.  If you enable Live SDK support, your application may not achieve compliance with some of these standards.
+Si solo piensa usar el punto de conexión v2.0 de Azure AD, puede deshabilitar sin riesgos la compatibilidad del SDK de Live.
 
-If you only ever plan to use the Azure AD v2.0 endpoint, you can safely disable Live SDK support.
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

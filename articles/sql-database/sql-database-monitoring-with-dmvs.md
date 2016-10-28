@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Monitoring Azure SQL Database Using Dynamic Management Views | Microsoft Azure"
-   description="Learn how to detect and diagnose common performance problems by using dynamic management views to monitor Microsoft Azure SQL Database."
+   pageTitle="Supervisión de Base de datos SQL de Azure con vistas de administración dinámica | Microsoft Azure"
+   description="Obtenga información sobre cómo detectar y diagnosticar problemas comunes de rendimiento con vistas de administración dinámica para supervisar Base de datos SQL de Microsoft Azure."
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -17,31 +17,29 @@
    ms.date="09/20/2016"
    ms.author="carlrab"/>
 
+# Supervisión de Base de datos SQL de Azure con vistas de administración dinámica
 
-# <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Monitoring Azure SQL Database using dynamic management views
+Base de datos de SQL de Microsoft Azure habilita un subconjunto de vistas de administración dinámica para diagnosticar problemas de rendimiento, que pueden deberse a consultas bloqueadas o de ejecución prolongada, cuellos de botella de recursos, planes de consulta deficientes, etc. En este tema se ofrece información sobre cómo encontrar problemas comunes de rendimiento con vistas de administración dinámica.
 
-Microsoft Azure SQL Database enables a subset of dynamic management views to diagnose performance problems, which might be caused by blocked or long-running queries, resource bottlenecks, poor query plans, and so on. This topic provides information on how to detect common performance problems by using dynamic management views.
+Base de datos SQL admite parcialmente tres categorías de vistas de administración dinámica:
 
-SQL Database partially supports three categories of dynamic management views:
+- Vistas de administración dinámica relacionadas con bases de datos.
+- Vistas de administración dinámica relacionadas con ejecuciones.
+- Vistas de administración dinámica relacionadas con transacciones.
 
-- Database-related dynamic management views.
-- Execution-related dynamic management views.
-- Transaction-related dynamic management views.
+Para obtener información detallada sobre las vistas de administración dinámica, vea [Vistas y funciones de administración dinámica (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) en los libros en pantalla de SQL Server.
 
-For detailed information on dynamic management views, see [Dynamic Management Views and Functions (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) in SQL Server Books Online.
+## Permisos
 
-## <a name="permissions"></a>Permissions
+En Base de datos SQL, para realizar consultas en una vista de administración dinámica se requiere disponer de permisos **VIEW DATABASE STATE**. El permiso **VIEW DATABASE STATE** devuelve información sobre todos los objetos de la base de datos actual. Para conceder el permiso **VIEW DATABASE STATE** a un usuario de base de datos en concreto, ejecute la consulta siguiente:
 
-In SQL Database, querying a dynamic management view requires **VIEW DATABASE STATE** permissions. The **VIEW DATABASE STATE** permission returns information about all objects within the current database.
-To grant the **VIEW DATABASE STATE** permission to a specific database user, run the following query:
+```GRANT VIEW DATABASE STATE TO database_user;```
 
-```GRANT VIEW DATABASE STATE TO database_user; ```
+En una instancia de SQL Server local, las vistas de administración dinámica devuelven la información de estado del servidor. En Base de datos SQL, devuelven información relativa únicamente a la base de datos lógica actual.
 
-In an instance of on-premises SQL Server, dynamic management views return server state information. In SQL Database, they return information regarding your current logical database only.
+## Calculando tamaño de la base de datos
 
-## <a name="calculating-database-size"></a>Calculating database size
-
-The following query returns the size of your database (in megabytes):
+La siguiente consulta devuelve el tamaño de la base de datos en megabytes:
 
 ```
 -- Calculates the size of the database.
@@ -50,7 +48,7 @@ FROM sys.dm_db_partition_stats;
 GO
 ```
 
-The following query returns the size of individual objects (in megabytes) in your database:
+La consulta siguiente devuelve el tamaño de objetos individuales (en megabytes) de la base de datos:
 
 ```
 -- Calculates the size of individual database objects.
@@ -61,10 +59,9 @@ GROUP BY sys.objects.name;
 GO
 ```
 
-## <a name="monitoring-connections"></a>Monitoring connections
+## Supervisión de conexiones
 
-You can use the [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) view to retrieve information about the connections established to a specific Azure SQL Database server and the details of each connection. In addition, the [sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) view is helpful when retrieving information about all active user connections and internal tasks.
-The following query retrieves information on the current connection:
+Puede usar la vista [sys.dm\_exec\_connections](https://msdn.microsoft.com/library/ms181509.aspx) para recuperar información sobre las conexiones establecidas con un servidor concreto de Base de datos SQL de Azure y los detalles de cada conexión. Además, la vista [sys.dm\_exec\_sessions](https://msdn.microsoft.com/library/ms176013.aspx) resulta útil para recuperar información sobre todas las conexiones de usuario activas y las tareas internas. La siguiente consulta recupera información sobre la conexión actual:
 
 ```
 SELECT
@@ -79,15 +76,15 @@ JOIN sys.dm_exec_sessions AS s
 WHERE c.session_id = @@SPID;
 ```
 
-> [AZURE.NOTE] When executing the **sys.dm_exec_requests** and **sys.dm_exec_sessions views**, if you have **VIEW DATABASE STATE** permission on the database, you see all executing sessions on the database; otherwise, you see only the current session.
+> [AZURE.NOTE] Al ejecutar las vistas **sys.dm\_exec\_requests** y **sys.dm\_exec\_sessions**, si el usuario tiene permiso **VIEW DATABASE STATE** en la base de datos, verá todas las sesiones en ejecución en la base de datos; en caso contrario, el usuario solo verá la sesión actual.
 
-## <a name="monitoring-query-performance"></a>Monitoring query performance
+## Supervisión del rendimiento de las consultas
 
-Slow or long running queries can consume significant system resources. This section demonstrates how to use dynamic management views to detect a few common query performance problems. An older but still helpful reference for troubleshooting, is the [Troubleshooting Performance Problems in SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) article on Microsoft TechNet.
+Las consultas de ejecución lenta o prolongada pueden consumir una cantidad significativa de recursos del sistema. En esta sección se muestra cómo usar vistas de administración dinámica para detectar algunos problemas comunes de rendimiento de las consultas. Una referencia anterior pero todavía útil para solucionar problemas, es el artículo de Microsoft TechNet, [Solución de problemas de rendimiento en SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx).
 
-### <a name="finding-top-n-queries"></a>Finding top N queries
+### Búsqueda de las N mejores consultas
 
-The following example returns information about the top five queries ranked by average CPU time. This example aggregates the queries according to their query hash, so that logically equivalent queries are grouped by their cumulative resource consumption.
+El siguiente ejemplo devuelve información acerca de las cinco consultas principales clasificadas en función del tiempo promedio de CPU. Este ejemplo agrega las consultas conforme a sus hash de consulta, por lo que las consultas lógicamente equivalentes se agrupan por sus consumos de recursos acumulativos.
 
 ```
 SELECT TOP 5 query_stats.query_hash AS "Query Hash",
@@ -106,13 +103,13 @@ GROUP BY query_stats.query_hash
 ORDER BY 2 DESC;
 ```
 
-### <a name="monitoring-blocked-queries"></a>Monitoring blocked queries
+### Supervisión de consultas bloqueadas
 
-Slow or long-running queries can contribute to excessive resource consumption and be the consequence of blocked queries. The cause of the blocking can be poor application design, bad query plans, the lack of useful indexes, and so on. You can use the sys.dm_tran_locks view to get information about the current locking activity in your Azure SQL Database. For example code, see [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) in SQL Server Books Online.
+Las consultas lentas o de larga ejecución pueden contribuir al consumo excesivo de recursos y ser la consecuencia de consultas bloqueadas. La causa del bloqueo puede ser un diseño deficiente de las aplicaciones, los planes de consulta incorrectos, la falta de índices útiles, etc. Puede usar la vista sys.dm\_tran\_locks para obtener información sobre la actividad de bloqueo actual en el servidor de Base de datos SQL de Azure. Para obtener un ejemplo de código, consulte [sys.dm\_tran\_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) en los Libros en pantalla de SQL Server.
 
-### <a name="monitoring-query-plans"></a>Monitoring query plans
+### Supervisión de planes de consulta
 
-An inefficient query plan also may increase CPU consumption. The following example uses the [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) view to determine which query uses the most cumulative CPU.
+Un plan de consulta ineficaz también puede aumentar el consumo de CPU. En el ejemplo siguiente, se usa la vista [sys.dm\_exec\_query\_stats](https://msdn.microsoft.com/library/ms189741.aspx) para determinar qué consulta emplea la mayor cantidad acumulativa de CPU.
 
 ```
 SELECT
@@ -134,12 +131,8 @@ FROM
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## <a name="see-also"></a>See also
+## Otras referencias
 
-[Introduction to SQL Database](sql-database-technical-overview.md)
+[Introducción a Base de datos SQL](sql-database-technical-overview.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

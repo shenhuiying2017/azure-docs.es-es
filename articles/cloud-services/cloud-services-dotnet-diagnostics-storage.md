@@ -1,102 +1,97 @@
 <properties
-    pageTitle="Store and View Diagnostic Data in Azure Storage | Microsoft Azure"
-    description="Get Azure diagnostics data into Azure Storage and view it"
-    services="cloud-services"
-    documentationCenter=".net"
-    authors="rboucher"
-    manager="jwhit"
-    editor="tysonn" />
+	pageTitle="Almacenamiento y visualización de los datos de diagnóstico en Almacenamiento de Azure | Microsoft Azure"
+	description="Obtención de datos de diagnóstico de Azure en Almacenamiento de Azure y su visualización"
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="rboucher"
+	manager="jwhit"
+	editor="tysonn" />
 <tags
-    ms.service="cloud-services"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="08/01/2016"
-    ms.author="robb" />
+	ms.service="cloud-services"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/01/2016"
+	ms.author="robb" />
 
+# Almacenamiento y visualización de los datos de diagnóstico en Almacenamiento de Azure
 
-# <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Store and view diagnostic data in Azure Storage
+Los datos de diagnóstico no se almacenan de forma permanente a menos que se transfieran al emulador de almacenamiento de Microsoft Azure o a Almacenamiento de Azure. Una vez que se encuentren almacenados, los datos se pueden ver con una de las diversas herramientas disponibles.
 
-Diagnostic data is not permanently stored unless you transfer it to the Microsoft Azure storage emulator or to Azure storage. Once in storage, it can be viewed with one of several available tools.
+## Especificación de una cuenta de almacenamiento
 
-## <a name="specify-a-storage-account"></a>Specify a storage account
-
-You specify the storage account that you want to use in the ServiceConfiguration.cscfg file. The account information is defined as a connection string in a configuration setting. The following example shows the default connection string created for a new Cloud Service project in  Visual Studio:
+Especifique la cuenta de almacenamiento que desea usar en el archivo ServiceConfiguration.cscfg. La información de cuenta se define como una cadena de conexión en un valor de configuración. En el ejemplo siguiente se muestra la cadena de conexión predeterminada creada para un nuevo proyecto de servicio en la nube en Visual Studio:
 
 
 ```
-    <ConfigurationSettings>
-       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
-    </ConfigurationSettings>
+	<ConfigurationSettings>
+	   <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+	</ConfigurationSettings>
 ```
 
-You can change this connection string to provide account information for an Azure storage account.
+Puede cambiar esta cadena de conexión para proporcionar información de cuenta para una cuenta de Almacenamiento de Azure.
 
-Depending on the type of diagnostic data that is being collected, Azure Diagnostics uses either the Blob service or the Table service. The following table shows the data sources that are persisted and their format.
+Dependiendo del tipo de datos de diagnóstico que se recopila, Diagnósticos de Azure usa el servicio BLOB o el servicio Tabla. La tabla siguiente muestra los orígenes de datos que se conservan y su formato.
 
-|Data source|Storage format|
+|Origen de datos|Formato de almacenamiento|
 |---|---|
-|Azure logs|Table|
-|IIS 7.0 logs|Blob|
-|Azure Diagnostics infrastructure logs|Table|
-|Failed Request Trace logs|Blob|
-|Windows Event logs|Table|
-|Performance counters|Table|
-|Crash dumps|Blob|
-|Custom error logs|Blob|
+|Registros de Azure|Tabla|
+|Registros de IIS 7.0|Blob|
+|Registros de infraestructura de diagnóstico de Azure|Tabla|
+|Registros de seguimiento de solicitudes con error|Blob|
+|Registros de eventos de Windows|Tabla|
+|Contadores de rendimiento|Tabla|
+|Volcados de memoria|Blob|
+|Registros de errores personalizados|Blob|
 
-## <a name="transfer-diagnostic-data"></a>Transfer diagnostic data
+## Transferencia de datos de diagnóstico
 
-For SDK 2.5 and later, the request to transfer diagnostic data can occur through the configuration file. You can transfer diagnostic data at scheduled intervals as specified in the configuration.
+Para la versión 2.5 y posteriores de SDK, la solicitud de transferencia de datos de diagnóstico puede producirse a través del archivo de configuración. Puede transferir datos de diagnóstico a intervalos programados como se especifica en la configuración.
 
-For SDK 2.4 and previous you can request to transfer the diagnostic data through the configuration file as well as programmatically. The programmatic approach also allows you to do on-demand transfers.
+Para la versión 2.4 y anteriores de SDK, se puede solicitar la transferencia de los datos de diagnóstico a través del archivo de configuración y mediante programación. El método mediante programación también permite realizar transferencias a petición.
 
 
->[AZURE.IMPORTANT] When you transfer diagnostic data to an Azure storage account, you incur costs for the storage resources that your diagnostic data uses.
+>[AZURE.IMPORTANT] Cuando se realiza una transferencia de datos de diagnóstico a una cuenta de Almacenamiento de Azure, se incurre en costos por los recursos de almacenamiento que usan los datos de diagnóstico.
 
-## <a name="store-diagnostic-data"></a>Store diagnostic data
+## Almacenamiento de datos de diagnóstico
 
-Log data is stored in either Blob or Table storage with the following names:
+Los datos de registro se almacenan en almacenamiento BLOB o Tabla con los nombres siguientes:
 
-**Tables**
+**Tablas**
 
-- **WadLogsTable** - Logs written in code using the trace listener.
+- **WadLogsTable**: registros escritos en código mediante la escucha de seguimiento.
 
-- **WADDiagnosticInfrastructureLogsTable** - Diagnostic monitor and configuration changes.
+- **WADDiagnosticInfrastructureLogsTable**: monitor de diagnóstico y cambios de configuración.
 
-- **WADDirectoriesTable** – Directories that the diagnostic monitor is monitoring.  This includes IIS logs, IIS failed request logs, and custom directories.  The location of the blob log file is specified in the Container field and the name of the blob is in the RelativePath field.  The AbsolutePath field indicates the location and name of the file as it existed on the Azure virtual machine.
+- **WADDirectoriesTable**: directorios que el monitor de diagnóstico está supervisando. Esto incluye los registros de IIS, los registros de solicitudes con error de IIS y los directorios personalizados. La ubicación del archivo de registro de blob se especifica en el campo de contenedor y el nombre del blob está en el campo RelativePath. El campo AbsolutePath indica la ubicación y el nombre del archivo tal como existía en la máquina virtual de Azure.
 
-- **WADPerformanceCountersTable** – Performance counters.
+- **WADPerformanceCountersTable**: contadores de rendimiento.
 
-- **WADWindowsEventLogsTable** – Windows Event logs.
+- **WADWindowsEventLogsTable**: registros de eventos de Windows.
 
 **Blobs**
 
-- **wad-control-container** – (Only for SDK 2.4 and previous) Contains the XML configuration files that controls the Azure diagnostics .
+- **wad-control-container**: (solo para SDK 2.4 y anteriores) contiene los archivos de configuración XML que controlan el diagnóstico de Azure.
 
-- **wad-iis-failedreqlogfiles** – Contains information from IIS Failed Request logs.
+- **wad-iis-failedreqlogfiles**: contiene información de registros de solicitudes con error de IIS.
 
-- **wad-iis-logfiles** – Contains information about IIS logs.
+- **wad-iis-logfiles **: contiene información acerca de los registros de IIS.
 
-- **"custom"** – A custom container based on configuring directories that are monitored by the diagnostic monitor.  The name of this blob container will be specified in WADDirectoriesTable.
+- **"custom"**: un contenedor personalizado basado en la configuración de directorios supervisados por el monitor de diagnóstico. El nombre de este contenedor de blob se especificará en WADDirectoriesTable.
 
-## <a name="tools-to-view-diagnostic-data"></a>Tools to view diagnostic data
-Several tools are available to view the data after it is transferred to storage. For example:
+## Herramientas para ver los datos de diagnóstico
+Existen varias herramientas para ver los datos una vez que se transfieren al almacenamiento. Por ejemplo:
 
-- Server Explorer in Visual Studio - If you have installed the Azure Tools for Microsoft Visual Studio, you can use the Azure Storage node in Server Explorer to view read-only blob and table data from your Azure storage accounts. You can display data from your local storage emulator account and also from storage accounts you have created for Azure. For more information, see [Browsing and Managing Storage Resources with Server Explorer](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md).
+- El Explorador de servidores en Visual Studio: si instaló Azure Tools para Microsoft Visual Studio, puede usar el nodo de Almacenamiento de Azure en el Explorador de servidores para ver los datos de tabla y blob de solo lectura de las cuentas de Almacenamiento de Azure. Puede mostrar datos de la cuenta del emulador de almacenamiento local y también desde cuentas de almacenamiento que haya creado para Azure. Para obtener más información, consulte [Exploración y administración de recursos de almacenamiento con el Explorador de servidores](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md).
 
-- [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, OSX, and Linux.
+- [Explorador de almacenamiento de Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente que permite trabajar fácilmente con los datos de Almacenamiento de Azure en Windows, OSX y Linux.
 
-- [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) includes Azure Diagnostics Manager which allows you to view, download and manage the diagnostics data collected by the applications running on Azure.
-
-
-## <a name="next-steps"></a>Next Steps
-
-[Trace the flow in a Cloud Services application with Azure Diagnostics](cloud-services-dotnet-diagnostics-trace-flow.md)
+- [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) incluye Azure Diagnostics Manager, que permite ver, descargar y administrar los datos de diagnóstico recopilados por las aplicaciones que se ejecutan en Azure.
 
 
+## Pasos siguientes
 
-<!--HONumber=Oct16_HO2-->
+[Seguimiento del flujo en una aplicación de servicios en la nube con Diagnósticos de Azure](cloud-services-dotnet-diagnostics-trace-flow.md)
 
-
+<!---HONumber=AcomDC_0803_2016-->

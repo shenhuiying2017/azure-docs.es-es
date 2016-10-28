@@ -1,11 +1,11 @@
 <properties
-    pageTitle="Create an IoT Hub using a Resource Manager template and PowerShell | Microsoft Azure"
-    description="Follow this tutorial to get started using Resource Manager templates to create an IoT Hub with PowerShell."
-    services="iot-hub"
-    documentationCenter=".net"
-    authors="dominicbetts"
-    manager="timlt"
-    editor=""/>
+	pageTitle="Creación de un centro de IoT con una plantilla de Resource Manager y PowerShell | Microsoft Azure"
+	description="Siga este tutorial para empezar a usar las plantillas del Administrador de recursos para crear un Centro de IoT con PowerShell."
+	services="iot-hub"
+	documentationCenter=".net"
+	authors="dominicbetts"
+	manager="timlt"
+	editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -16,50 +16,49 @@
      ms.date="09/07/2016"
      ms.author="dobett"/>
 
-
-# <a name="create-an-iot-hub-using-powershell"></a>Create an IoT hub using PowerShell
+# Creación de un Centro de IoT con Powershell
 
 [AZURE.INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-## <a name="introduction"></a>Introduction
+## Introducción
 
-You can use Azure Resource Manager to create and manage Azure IoT hubs programmatically. This tutorial shows you how to use a Resource Manager template to create an IoT hub with PowerShell.
+Puede usar el Administrador de recursos de Azure para crear y administrar los centros de IoT de Azure mediante programación. En este tutorial se muestra cómo usar una plantilla de Resource Manager para crear un centro de IoT con PowerShell.
 
-> [AZURE.NOTE] Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model.
+> [AZURE.NOTE] Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../resource-manager-deployment-model.md). Este artículo trata sobre el uso del modelo de implementación del Administrador de recursos.
 
-To complete this tutorial you need the following:
+Para completar este tutorial, necesitará lo siguiente:
 
-- An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
-- [Microsoft Azure PowerShell 1.0][lnk-powershell-install] or later.
+- Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][lnk-free-trial].
+- [Microsoft Azure PowerShell 1.0][lnk-powershell-install] o versiones posteriores.
 
-> [AZURE.TIP] The article [Using Azure PowerShell with Azure Resource Manager][lnk-powershell-arm] provides more information about how to use PowerShell scripts and Resource Manager templates to create Azure resources. 
+> [AZURE.TIP] El artículo [Uso de Azure PowerShell con Azure Resource Manager][lnk-powershell-arm] proporciona más información acerca de cómo usar scripts de PowerShell y plantillas de Resource Manager para crear recursos de Azure.
 
-## <a name="connect-to-your-azure-subscription"></a>Connect to your Azure subscription
+## Conexión a su suscripción de Azure
 
-In a PowerShell command prompt, enter the following command to sign in to your Azure subscription:
+En un símbolo del sistema de PowerShell, escriba el siguiente comando para iniciar sesión en su suscripción de Azure:
 
 ```
 Login-AzureRmAccount
 ```
 
-You can use the following commands to discover where you can deploy an IoT hub and the currently supported API versions:
+Puede usar los comandos siguientes para conocer donde puede implementar un Centro de IoT y las versiones de API admitidas actualmente:
 
 ```
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Devices).ResourceTypes | Where-Object ResourceTypeName -eq IoTHubs).Locations
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Devices).ResourceTypes | Where-Object ResourceTypeName -eq IoTHubs).ApiVersions
 ```
 
-Create a resource group to contain your IoT hub using the following command in one of the supported locations for IoT Hub. This example creates a resource group called **MyIoTRG1**:
+Cree un grupo de recursos para que contenga su Centro de IoT mediante el siguiente comando en una de las ubicaciones compatibles para el Centro de IoT. En este ejemplo se crea un grupo de recursos denominado **MyIoTRG1**:
 
 ```
 New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 ```
 
-## <a name="submit-a-template-to-create-an-iot-hub"></a>Submit a template to create an IoT hub
+## Enviar una plantilla para crear un centro de IoT
 
-Use a JSON template to create an IoT hub in your resource group. You can also use a template to make changes to an existing IoT hub.
+Use una plantilla de JSON para crear un nuevo centro de IoT en el grupo de recursos. También puede usar la plantilla para realizar cambios en un centro de IoT existente.
 
-1. Use a text editor to create a Resource Manager template called **template.json** with the following resource definition to create a new standard IoT hub. This example adds the IoT Hub in the **East US** region, creates two consumer groups (**cg1** and **cg2**) on the Event Hub-compatible endpoint, and uses the **2016-02-03** API version. This template also expects you to pass in the IoT hub name as a parameter called **hubName**. For the current list of locations that support IoT Hub see [Azure Status][lnk-status].
+1. Use un editor de texto para crear una plantilla de Resource Manager llamada **template.json**, con la siguiente definición de recursos, para crear un nuevo centro de IoT estándar. Este ejemplo agrega el Centro de IoT e la región **Este de EE. UU.**, crea dos grupos de consumidores (**cg1** y **cg2**) en el punto de conexión compatible con Centro de eventos y usa la versión de API **2016-02-03**. En esta plantilla se espera también que pase el nombre del centro de IoT como un parámetro denominado **hubName**. Para obtener la lista actualizada de ubicaciones que admiten IoT Hub, consulte [Estado de Azure][lnk-status].
 
     ```
     {
@@ -111,35 +110,38 @@ Use a JSON template to create an IoT hub in your resource group. You can also us
     }
     ```
 
-2. Save the template file on your local machine. This example assumes you save it in a folder called **c:\templates**.
+2. Guarde el archivo de plantilla en el equipo local. En este ejemplo, se da por supuesto que lo guarda en una carpeta llamada **c:\\templates**.
 
-3. Run the following command to deploy your new IoT hub, passing the name of your IoT hub as a parameter. In this example, the name of the IoT hub is **abcmyiothub** (note that this name must be globally unique so it should include your name or initials):
+3. Ejecute el comando siguiente para implementar el nuevo Centro de IoT, pasando el nombre de su Centro de IoT como un parámetro. En este ejemplo, el nombre del centro de IoT es **abcmyiothub** (tenga en cuenta que debe ser un nombre único global, por lo que debe incluir su nombre o sus iniciales):
 
     ```
     New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName abcmyiothub
     ```
 
-4. The output displays the keys for the IoT hub you created.
+4. El resultado muestra las claves para el Centro de IoT que ha creado.
 
-5. You can verify that your application added the new IoT hub by visiting the [portal][lnk-azure-portal] and viewing your list of resources, or by using the **Get-AzureRmResource** PowerShell cmdlet.
+5. Para comprobar que su aplicación ha agregado el nuevo centro de IoT, visite el [portal][lnk-azure-portal] y vea la lista de recursos o use el cmdlet de PowerShell **Get-AzureRmResource**.
 
-> [AZURE.NOTE] This example application adds an S1 Standard IoT Hub for which you are billed. You can delete the IoT hub through the [portal][lnk-azure-portal] or by using the **Remove-AzureRmResource** PowerShell cmdlet when you are finished.
+> [AZURE.NOTE] Esta aplicación de ejemplo agrega un Centro de IoT estándar S1 por el que se le cobrará. Puede eliminar el centro de IoT a través del [portal][lnk-azure-portal] o mediante el cmdlet **Remove-AzureRmResource** de PowerShell cuando haya terminado.
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-Now you have deployed an IoT hub using a Resource Manager template with PowerShell, you may want to explore further:
+Ahora que ha implementado un centro de IoT mediante una plantilla de Resource Manager con PowerShell, quizá desee seguir explorando:
 
-- Read about the capabilities of the [IoT Hub Resource Provider REST API][lnk-rest-api].
-- Read [Azure Resource Manager overview][lnk-azure-rm-overview] to learn more about the capabilities of Azure Resource Manager.
+- Lea sobre las funcionalidades de la API de REST en [IoT Hub Resource Provider REST API][lnk-rest-api] \(API de REST del proveedor de recursos del centro de IoT).
+- Lea la [Información general de Administrador de recursos de Azure][lnk-azure-rm-overview] para más información sobre las capacidades del Administrador de recursos de Azure.
 
-To learn more about developing for IoT Hub, see the following:
+Para más información acerca del desarrollo para el Centro de IoT, consulte lo siguiente:
 
-- [Introduction to C SDK][lnk-c-sdk]
-- [IoT Hub SDKs][lnk-sdks]
+- [Introducción a C SDK][lnk-c-sdk]
+- [SDK de Centro de IoT][lnk-sdks]
 
-To further explore the capabilities of IoT Hub, see:
+Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
-- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Diseño de la solución][lnk-design]
+- [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
+- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
+- [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -151,12 +153,11 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-powershell-arm]: ../powershell-azure-resource-manager.md
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
+[lnk-sdks]: iot-hub-sdks-summary.md
 
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

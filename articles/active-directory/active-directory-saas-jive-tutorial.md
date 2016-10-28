@@ -1,307 +1,302 @@
 <properties
-    pageTitle="Tutorial: Azure Active Directory integration with Jive | Microsoft Azure"
-    description="Learn how to configure single sign-on between Azure Active Directory and Jive."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeevansd"
-    manager="femila"
-    editor=""/>
+	pageTitle="Tutorial: Integración de Azure Active Directory con Jive | Microsoft Azure"
+	description="Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Jive."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeevansd"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/01/2016"
-    ms.author="jeedes"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2016"
+	ms.author="jeedes"/>
 
 
+# Tutorial: Integración de Azure Active Directory con Jive
 
-# <a name="tutorial:-azure-active-directory-integration-with-jive"></a>Tutorial: Azure Active Directory integration with Jive
+En este tutorial, obtendrá información sobre cómo integrar Jive con Azure Active Directory (Azure AD).
 
-In this tutorial, you learn how to integrate Jive with Azure Active Directory (Azure AD).
+Integrar Jive con Azure AD le proporciona las siguientes ventajas:
 
-Integrating Jive with Azure AD provides you with the following benefits:
+- Puede controlar en Azure AD quién tiene acceso a Jive.
+- Puede permitir que los usuarios inicien sesión automáticamente en Jive (inicio de sesión único) con sus cuentas de Azure AD.
+- Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
 
-- You can control in Azure AD who has access to Jive
-- You can enable your users to automatically get signed-on to Jive (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure classic portal
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+## Requisitos previos
 
-## <a name="prerequisites"></a>Prerequisites
+Para configurar la integración de Azure AD con Jive, necesita los siguientes elementos:
 
-To configure Azure AD integration with Jive, you need the following items:
-
-- An Azure AD subscription
-- A Jive single-sign on enabled subscription
-
-
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+- Una suscripción de Azure AD
+- Una suscripción habilitada para inicio de sesión único en Jive
 
 
-To test the steps in this tutorial, you should follow these recommendations:
-
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
 
-## <a name="scenario-description"></a>Scenario Description
-In this tutorial, you test Azure AD single sign-on in a test environment.
+Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
-The scenario outlined in this tutorial consists of two main building blocks:
-
-1. Adding Jive from the gallery
-2. Configuring and testing Azure AD single sign-on
+- No debe usar el entorno de producción, a menos que sea necesario.
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## <a name="adding-jive-from-the-gallery"></a>Adding Jive from the gallery
-To configure the integration of Jive into Azure AD, you need to add Jive from the gallery to your list of managed SaaS apps.
+## Descripción del escenario
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-**To add Jive from the gallery, perform the following steps:**
+La situación descrita en este tutorial consta de dos bloques de creación principales:
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
-
-    ![Active Directory][1]
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Applications][2]
-
-4. Click **Add** at the bottom of the page.
-
-    ![Applications][3]
-
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-
-    ![Applications][4]
-
-6. In the search box, type **Jive**.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-jive-tutorial/tutorial_jive_01.png)
-7. In the results pane, select **Jive**, and then click **Complete** to add the application.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-jive-tutorial/tutorial_jive_02.png)
+1. Adición de Jive desde la galería
+2. Configuración y comprobación del inicio de sesión único de Azure AD
 
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Jive based on a test user called "Britta Simon".
+## Adición de Jive desde la galería
+Para configurar la integración de Jive en Azure AD, deberá agregar Jive desde la galería a la lista de aplicaciones SaaS administradas.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Jive is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Jive needs to be established.
+**Para agregar Jive desde la galería, realice los pasos siguientes:**
 
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Jive.
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
-To configure and test Azure AD single sign-on with Jive, you need to complete the following building blocks:
+	![Active Directory][1]
+2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Jive test user](#creating-a-jive-test-user)** - to have a counterpart of Britta Simon in Jive that is linked to the Azure AD representation of her.
-4. **[Configuring user provisioning](#configuring-user-provisioning)** - to outline how to enable user provisioning of Active Directory user accounts to Jive.
-5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-6. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+3. Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
+	![Aplicaciones][2]
 
-The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Jive application.
+4. Haga clic en **Agregar** en la parte inferior de la página.
 
-**To configure Azure AD single sign-on with Jive, perform the following steps:**
+	![Aplicaciones][3]
 
-1. In the classic portal, on the **Jive** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
-     
-    ![Configure Single Sign-On][6] 
+5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
 
-2. On the **How would you like users to sign on to Jive** page, select **Azure AD Single Sign-On**, and then click **Next**.
+	![Aplicaciones][4]
 
-    ![Configure Single Sign-On](./media/active-directory-saas-jive-tutorial/tutorial_jive_03.png) 
+6. En el cuadro de búsqueda, escriba **Jive**.
 
-3. On the **Configure App Settings** dialog page, perform the following steps:
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-jive-tutorial/tutorial_jive_01.png)
+7. En el panel de resultados, seleccione **Jive** y luego haga clic en **Completar** para agregar la aplicación.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-jive-tutorial/tutorial_jive_04.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-jive-tutorial/tutorial_jive_02.png)
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Jive application using the following pattern: **https://\<customer name\>.jivecustom.com**.
-    
-    b. click **Next**
+
+##  Configuración y comprobación del inicio de sesión único de Azure AD
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Jive con un usuario de prueba llamado "Britta Simon".
+
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Jive para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Jive.
+
+Esta relación de vínculo se establece asignando el valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en Jive.
+
+Para configurar y probar el inicio de sesión único de Azure AD con Jive, es preciso completar los siguientes bloques de creación:
+
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)**: para permitir a los usuarios usar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba de Jive](#creating-a-jive-test-user)**: para tener un homólogo de Britta Simon en Jive que esté vinculado a la representación de ella en Azure AD.
+4. **[Configuración el aprovisionamiento del usuario](#configuring-user-provisioning)**: para describir cómo habilitar el aprovisionamiento de cuentas de usuario de Active Directory para Jive.
+5. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+6. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
+
+### Configuración del inicio de sesión único de Azure AD
+
+El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación Jive.
+
+**Para configurar el inicio de sesión único de Azure AD con Jive, realice los pasos siguientes:**
+
+1. En el Portal clásico, en la página de integración de aplicaciones de **Jive**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+	 
+	![Configurar inicio de sesión único][6]
+
+2. En la página **¿Cómo desea que los usuarios inicien sesión en Jive?**, seleccione **Inicio de sesión único de Azure AD** y después haga clic en **Siguiente**.
+
+	![Configurar inicio de sesión único](./media/active-directory-saas-jive-tutorial/tutorial_jive_03.png)
+
+3. En la página de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes:
+
+	![Configurar inicio de sesión único](./media/active-directory-saas-jive-tutorial/tutorial_jive_04.png)
+
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación de Jive con el siguiente patrón: **https://\<nombreDeCliente>.jivecustom.com**.
+	
+	b. Haga clic en **Siguiente**.
  
-4. On the **Configure single sign-on at Jive** page, perform the following steps:
+4. En la página **Configurar inicio de sesión único en Jive**, realice los pasos siguientes:
 
-    ![Configure Single Sign-On](./media/active-directory-saas-jive-tutorial/tutorial_jive_05.png)
+	![Configurar inicio de sesión único](./media/active-directory-saas-jive-tutorial/tutorial_jive_05.png)
 
-    a. Click **Download certificate**, and then save the file on your computer.
+    a. Haga clic en **Descargar certificado** y después guarde el archivo en el equipo.
 
-    b. Click **Next**.
-
-
-5. Sign-on to your Jive tenant as an administrator.
-
-6. In the menu on the top, Click "**Saml**".
-
-    ![Configure Single Sign-On On App Side](./media/active-directory-saas-jive-tutorial/tutorial_jive_002.png)
-
-    a. Select **Enabled** under the **Genaral** tab.
-
-    b. Click the "**Save all saml settings**" button.
-
-7. Navigate to the "**Idp Metadata**" tab.
-
-    ![Configure Single Sign-On On App Side](./media/active-directory-saas-jive-tutorial/tutorial_jive_003.png)
-
-    a. Copy the content of the downloaded metadata XML file, and then paste it into the **Identity Provider (IDP) Metadata** textbox.
-
-    b. Click the "**Save all saml settings**" button. 
-
-8. Go to the "**User Attribute Mapping**" tab.
-
-    ![Configure Single Sign-On On App Side](./media/active-directory-saas-jive-tutorial/tutorial_jive_004.png)
-
-    a. In the **Email** textbox, copy and paste the attribute name of **mail** value.
-
-    b. In the **First Name** textbox, copy and paste the attribute name of **givenname** value.
-
-    c. In the **Last Name** textbox, copy and paste the attribute name of **surname** value.
-    
-9. In the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
-![Azure AD Single Sign-On][10]
-
-10. On the **Single sign-on confirmation** page, click **Complete**.  
-  ![Azure AD Single Sign-On][11]
+    b. Haga clic en **Next**.
 
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-In this section, you create a test user in the classic portal called Britta Simon.
+5. Inicie la sesión en el inquilino de Jive como administrador.
+
+6. En el menú de la parte superior, haga clic en "**Saml**".
+
+	![Configuración del inicio de sesión único en la aplicación](./media/active-directory-saas-jive-tutorial/tutorial_jive_002.png)
+
+	a. Seleccione **Habilitado** en la pestaña **General**.
+
+	b. Haga clic en el botón "**Guardar toda la configuración de saml**".
+
+7. Vaya a la pestaña "**Metadatos de IdP**".
+
+	![Configuración del inicio de sesión único en la aplicación](./media/active-directory-saas-jive-tutorial/tutorial_jive_003.png)
+
+	a. Copie el contenido del archivo XML de metadatos descargado y, después, péguelo en el cuadro de texto **Identity Provider (IDP) Metadata** (Metadatos del proveedor de identidades [IDP]).
+
+	b. Haga clic en el botón "**Guardar toda la configuración de saml**".
+
+8. Vaya a la pestaña "**User Attribute Mapping**" (Asignación de atributos de usuario).
+
+	![Configuración del inicio de sesión único en la aplicación](./media/active-directory-saas-jive-tutorial/tutorial_jive_004.png)
+
+	a. En el cuadro de texto **Correo electrónico**, copie y pegue el nombre del atributo de valor **mail**.
+
+	b. En el cuadro de texto **Nombre**, copie y pegue el nombre del atributo de valor **givenname**.
+
+	c. En el cuadro de texto **Apellidos**, copie y pegue el nombre del atributo de valor **surname**.
+	
+9. En el Portal de Azure AD, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**. ![Inicio de sesión único de Azure AD][10]
+
+10. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**. ![Inicio de sesión único de Azure AD][11]
 
 
-![Create Azure AD User][20]
+### Creación de un usuario de prueba de Azure AD
+En esta sección, creará un usuario de prueba llamado Britta Simon en el portal clásico.
 
-**To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+![Creación de un usuario de Azure AD][20]
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-jive-tutorial/create_aaduser_09.png) 
+**Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
-3. To display the list of users, in the menu on the top, click **Users**.
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-jive-tutorial/create_aaduser_09.png)
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-jive-tutorial/create_aaduser_03.png) 
+2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-jive-tutorial/create_aaduser_04.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-jive-tutorial/create_aaduser_03.png)
 
-5. On the **Tell us about this user** dialog page, perform the following steps:  ![Creating an Azure AD test user](./media/active-directory-saas-jive-tutorial/create_aaduser_05.png) 
+4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
-    a. As Type Of User, select New user in your organization.
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-jive-tutorial/create_aaduser_04.png)
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+5. En la página de diálogo **Proporcione información sobre este usuario**, siga estos pasos: ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-jive-tutorial/create_aaduser_05.png)
 
-    c. Click **Next**.
+    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
 
-6.  On the **User Profile** dialog page, perform the following steps: ![Creating an Azure AD test user](./media/active-directory-saas-jive-tutorial/create_aaduser_06.png) 
+    b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    a. In the **First Name** textbox, type **Britta**.  
+    c. Haga clic en **Siguiente**.
 
-    b. In the **Last Name** textbox, type, **Simon**.
+6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos: ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-jive-tutorial/create_aaduser_06.png)
 
-    c. In the **Display Name** textbox, type **Britta Simon**.
+    a. En el cuadro de texto **Nombre**, escriba **Britta**.
 
-    d. In the **Role** list, select **User**.
+    b. En el cuadro de texto **Apellidos**, escriba **Simon**.
 
-    e. Click **Next**.
+    c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
 
-7. On the **Get temporary password** dialog page, click **create**.
+    d. En la lista **Rol**, seleccione **Usuario**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-jive-tutorial/create_aaduser_07.png) 
+    e. Haga clic en **Siguiente**.
 
-8. On the **Get temporary password** dialog page, perform the following steps:
+7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-jive-tutorial/create_aaduser_08.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-jive-tutorial/create_aaduser_07.png)
 
-    a. Write down the value of the **New Password**.
+8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
 
-    b. Click **Complete**.   
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-jive-tutorial/create_aaduser_08.png)
+
+    a. Anote el valor del campo **Nueva contraseña**.
+
+    b. Haga clic en **Complete**.
 
 
 
-###<a name="creating-a-jive-test-user"></a>Creating a Jive test user
+###Creación de un usuario de prueba de Jive
 
-In this section, you create a user called Britta Simon in Jive. Please work with Jive support team to add the users in the Jive platform.
+En esta sección, creará un usuario llamado Britta Simon en Jive. Trabaje con el equipo de soporte técnico de Jive para agregar los usuarios a la plataforma de Jive.
 
 
-###<a name="configuring-user-provisioning"></a>Configuring user provisioning
+###Configuración del aprovisionamiento de usuario
   
-The objective of this section is to outline how to enable user provisioning of Active Directory user accounts to Jive.  
-As part of this procedure, you are required to provide a user security token you need to request from Jive.com.
+El objetivo de esta sección es describir cómo habilitar el aprovisionamiento de cuentas de usuario de Active Directory para Jive. Como parte de este procedimiento, es necesario proporcionar un token de seguridad de usuario que deberá solicitar a Jive.com.
   
-The following screenshot shows an example of the related dialog in Azure AD:
+La captura de pantalla siguiente muestra un ejemplo del cuadro de diálogo relacionado en Azure AD:
 
-![Configure User Provisioning](./media/active-directory-saas-jive-tutorial/IC698794.png "Configure User Provisioning")
+![Configuración del aprovisionamiento de usuarios](./media/active-directory-saas-jive-tutorial/IC698794.png "Configuración del aprovisionamiento de usuarios")
 
-####<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
+####Siga estos pasos para configurar el aprovisionamiento de usuario:
 
-1.  In the Azure Management Portal, on the **Jive** application integration page, click **Configure user provisioning** to open the **Configure User Provisioning** dialog.
+1.  En el Portal de administración de Azure, en la página de integración de aplicaciones de **Jive**, haga clic en **Configurar aprovisionamiento de usuarios** para abrir el cuadro de diálogo de **Configurar aprovisionamiento de usuarios**.
 
-2.  On the **Enter your Jive credentials to enable automatic user provisioning** page, provide the following configuration settings:
+2.  En la página **Especifique sus credenciales de Jive para habilitar el aprovisionamiento automático de usuarios**, proporcione los valores de configuración siguientes:
 
-    1.  In the **Jive Admin User Name** textbox, type a Jive account name that has the **System Administrator** profile in Jive.com assigned.
+    1.  En el cuadro de texto **Nombre de usuario del administrador de Jive**, escriba un nombre de cuenta de Jive que tenga asignado el perfil **Administrador del sistema** en Jive.com.
 
-    2.  In the **Jive Admin Password** textbox, type the password for this account.
+    2.  En el cuadro de texto **Contraseña de administrador de Jive**, escriba la contraseña para esta cuenta.
 
-    3.  In the **Jive Tenant URL** textbox, type the Jive tenant URL.
+    3.  En el cuadro de texto **Dirección URL de inquilino de Jive**, escriba la dirección URL del inquilino de Jive.
 
-        >[AZURE.NOTE] The Jive tenant URL is URL that is used by your organization to log into Jive.  
-        Typically, the URL has the following format: **www.\<organization\>.jive.com**.
+        >[AZURE.NOTE] La dirección URL del inquilino de Jive es la que se usa en su organización para iniciar sesión en Jive. Normalmente, la dirección URL tiene el formato siguiente: **www.<organización>.jive.com**.
 
-    4.  Click **validate** to verify your configuration.
+    4.  Haga clic en **Validar** para comprobar la configuración.
 
-    5.  Click the **Next** button to open the **Confirmation** page.
+    5.  Haga clic en el botón **Siguiente** para abrir la página **Confirmación**.
 
-3.  On the **Confirmation** page, click the checkmark to save your configuration.
+3.  En la página **Confirmación**, haga clic en la marca de verificación para guardar la configuración.
   
-You can now create a test account, wait for 10 minutes and verify that the account has been synchronized to Jive.com.
+Ahora ya puede crear una cuenta de prueba, espere 10 minutos y compruebe si la cuenta se ha sincronizado en Jive.com.
 
 
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
+### Asignación del usuario de prueba de Azure AD
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Jive.
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Jive.
 
-![Assign User][200] 
+![Asignar usuario][200]
 
-**To assign Britta Simon to Jive, perform the following steps:**
+**Para asignar a Britta Simon a Jive, realice los pasos siguientes:**
 
-1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+1. En el portal clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
 
-    ![Assign User][201] 
+	![Asignar usuario][201]
 
-2. In the applications list, select **Jive**.
+2. En la lista de aplicaciones, seleccione **Jive**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-jive-tutorial/tutorial_jive_50.png) 
+	![Configurar inicio de sesión único](./media/active-directory-saas-jive-tutorial/tutorial_jive_50.png)
 
-3. In the menu on the top, click **Users**.
+3. En el menú de la parte superior, haga clic en **Usuarios**.
 
-    ![Assign User][203]
+	![Asignar usuario][203]
 
-4. In the Users list, select **Britta Simon**.
+4. En la lista Usuarios, seleccione **Britta Simon**.
 
-5. In the toolbar on the bottom, click **Assign**.
+5. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
 
-    ![Assign User][205]
-
-
-### <a name="testing-single-sign-on"></a>Testing Single Sign-On
-
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the Jive tile in the Access Panel, you should get automatically signed-on to your Jive application.
+	![Asignar usuario][205]
 
 
-## <a name="additional-resources"></a>Additional Resources
+### Prueba del inicio de sesión único
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+
+Al hacer clic en el icono de Jive en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Jive.
+
+
+## Recursos adicionales
+
+* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -322,8 +317,4 @@ When you click the Jive tile in the Access Panel, you should get automatically s
 [204]: ./media/active-directory-saas-jive-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-jive-tutorial/tutorial_general_205.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

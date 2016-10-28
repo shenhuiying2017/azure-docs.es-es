@@ -1,7 +1,7 @@
 <properties 
-    pageTitle="Manage an elastic database pool (PowerShell) | Microsoft Azure" 
-    description="Learn how to use PowerShell to manage an elastic database pool."  
-    services="sql-database" 
+    pageTitle="Administración de un grupo de bases de datos elásticas (PowerShell) | Microsoft Azure" 
+    description="Obtenga más información sobre cómo usar PowerShell para administrar un grupo de bases de datos elásticas."  
+	services="sql-database" 
     documentationCenter="" 
     authors="srinia" 
     manager="jhubbard" 
@@ -16,101 +16,100 @@
     ms.date="06/22/2016"
     ms.author="srinia"/>
 
-
-# <a name="monitor-and-manage-an-elastic-database-pool-with-powershell"></a>Monitor and manage an elastic database pool with PowerShell 
+# Supervisión, administración y ajuste de tamaño de un grupo de bases de datos elásticas con PowerShell 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-manage-portal.md)
+- [Portal de Azure](sql-database-elastic-pool-manage-portal.md)
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 - [C#](sql-database-elastic-pool-manage-csharp.md)
 - [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 
-Manage an [elastic database pool](sql-database-elastic-pool.md) using PowerShell cmdlets. 
+Administre un [grupo de bases de datos elásticas](sql-database-elastic-pool.md) mediante cmdlets de PowerShell.
 
-For common error codes, see [SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md).
+Para ver los códigos de error comunes, consulte [Códigos de error para las aplicaciones cliente de la Base de datos SQL: error de conexión de base de datos y otros problemas](sql-database-develop-error-messages.md).
 
-Values for pools can be found in [eDTU and storage limits](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases). 
+Los valores de los grupos se pueden encontrar en el artículo de [límites de almacenamiento y de eDTU](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
-## <a name="prerequisites"></a>Prerequisites
+## Requisitos previos
 
-* Azure PowerShell 1.0 or higher. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
-* Elastic database pools are only available with SQL Database V12 servers. If you have a SQL Database V11 server, [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-portal.md) in one step.
+* Azure PowerShell 1.0 o posterior. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+* Los grupos de bases de datos elásticas solo están disponibles en los servidores de la versión 12 de Base de datos SQL de Azure. Si tiene un servidor de la versión 11 de Base de datos SQL, [use PowerShell para actualizarlo a la versión 12 y crear un grupo](sql-database-upgrade-server-portal.md) en un solo paso.
 
 
-## <a name="move-a-database-into-an-elastic-pool"></a>Move a database into an elastic pool
+## Movimiento de una base de datos a un grupo elástico
 
-You can move a database into or out of a pool with the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx). 
+Puede mover una base de datos dentro o fuera de un grupo con el cmdlet [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx).
 
-    Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+	Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
-## <a name="change-performance-settings-of-a-pool"></a>Change performance settings of a pool
+## Cambio de la configuración de rendimiento de un grupo
 
-When performance suffers, you can change the settings of the pool to accommodate growth. Use the [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx) cmdlet. Set the -Dtu parameter to the eDTUs per pool. See [eDTU and storage limits](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases) for possible values.  
+Cuando el rendimiento se ve afectado, puede cambiar la configuración del grupo para adaptarse al crecimiento. Utilice el cmdlet [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx). Establezca el parámetro -Dtu en las eDTU por grupo. Consulte los posibles valores en el artículo de [límites de almacenamiento y de eDTU](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
     Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
 
 
-## <a name="get-the-status-of-pool-operations"></a>Get the status of pool operations
+## Obtención del estado de las operaciones de los grupos
 
-Creating a pool can take time. To track the status of pool operations including creation and updates, use the [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx) cmdlet.
+El proceso de crear grupos puede llevar tiempo. Puede realizar un seguimiento del estado de las operaciones del grupo, como la creación y las actualizaciones, mediante el cmdlet [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx).
 
-    Get-AzureRmSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
-
-
-## <a name="get-the-status-of-moving-an-elastic-database-into-and-out-of-a-pool"></a>Get the status of moving an elastic database into and out of a pool
-
-Moving a database can take time. Track a move status using the [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/azure/mt603687.aspx) cmdlet.
-
-    Get-AzureRmSqlDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
-
-## <a name="get-resource-usage-data-for-a-pool"></a>Get resource usage data for a pool
-
-Metrics that can be retrieved as a percentage of the resource pool limit:   
+	Get-AzureRmSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
 
 
-| Metric name | Description |
+## Obtención del estado entrada o salida de un grupo de una base de datos elástica
+
+El proceso de mover bases de datos puede llevar tiempo. Realice un seguimiento del estado de movimiento mediante el cmdlet [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/azure/mt603687.aspx).
+
+	Get-AzureRmSqlDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+
+## Obtención de datos de uso de recursos para un grupo
+
+Métricas que se pueden recuperar como porcentaje del límite del grupo de recursos:
+
+
+| Nombre de métrica | Descripción |
 | :-- | :-- |
-| cpu\_percent | Average compute utilization in percentage of the limit of the pool. |
-| physical\_data\_read\_percent | Average I/O utilization in percentage based on the limit of the pool. |
-| log\_write\_percent | Average write resource utilization in percentage of the limit of the pool. | 
-| DTU\_consumption\_percent | Average eDTU utilization in percentage of eDTU limit for the pool | 
-| storage\_percent | Average storage utilization in percentage of the storage limit of the pool. |  
-| workers\_percent | Maximum concurrent workers (requests) in percentage based on the limit of the pool. |  
-| sessions\_percent | Maximum concurrent sessions in percentage based on the limit of the pool. | 
-| eDTU_limit | Current max elastic pool DTU setting for this elastic pool during this interval. |
-| storage\_limit | Current max elastic pool storage limit setting for this elastic pool in megabytes during this interval. |
-| eDTU\_used | Average eDTUs used by the pool in this interval. |
-| storage\_used | Average storage used by the pool in this interval in bytes |
+| cpu\_percent | Uso de proceso medio en porcentaje del límite del grupo. |
+| physical\_data\_read\_percent | Uso de E/S medio en porcentaje basado en el límite del grupo. |
+| log\_write\_percent | Uso de recursos de escritura medio en porcentaje del límite del grupo. | 
+| DTU\_consumption\_percent | Uso de eDTU medio en porcentaje del límite de eDTU del grupo. | 
+| storage\_percent | Uso de almacenamiento medio en porcentaje del límite de almacenamiento del grupo. |  
+| workers\_percent | Cantidad máxima de trabajos simultáneos (solicitudes) en porcentaje basado en el límite del grupo. |  
+| sessions\_percent | Cantidad máxima de sesiones simultáneas en porcentaje basado en el límite del grupo. | 
+| eDTU\_limit | Configuración de cantidad máxima de DTU de grupos elásticos actual para este grupo elástico durante este intervalo. |
+| storage\_limit | Configuración de límite máximo de almacenamiento de grupos elásticos actual para este grupo elástico en megabytes durante este intervalo. |
+| eDTU\_used | Cantidad media de eDTU que usa el grupo en este intervalo. |
+| storage\_used | Cantidad media de almacenamiento en bytes que usa el grupo en este intervalo. |
 
-**Metrics granularity/retention periods:**
+**Métricas de períodos de retención y granularidad:**
 
-* Data will be returned at 5 minute granularity.  
-* Data retention is 35 days.  
+* Los datos se devolverán con una granularidad de 5 minutos.
+* La retención de datos es de 35 días.
 
-This cmdlet and API limits the number of rows that can be retrieved in one call to 1000 rows (about 3 days of data at 5 minute granularity). But this command can be called multiple times with different start/end time intervals to retrieve more data 
+Este cmdlet y la API limita el número de filas que se pueden recuperar en una llamada a 1000 filas (aproximadamente 3 días de datos con una granularidad de 5 minutos). Sin embargo, este comando se puede llamar varias veces con distintos intervalos de tiempo de inicio y fin para recuperar más datos.
 
-To retrieve the metrics:
+Para recuperar las métricas, siga estos pasos:
 
-    $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")  
+	$metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")  
 
 
-## <a name="get-resource-usage-data-for-an-elastic-database"></a>Get resource usage data for an elastic database
+## Obtención de datos de uso de recursos de una base de datos elástica
 
-These APIs are the same as the current (V12) APIs used for monitoring the resource utilization of a standalone database, except for the following semantic difference. 
+Estas API son las mismas que las actuales (versión 12) que se usan para supervisar el uso de recursos de una base de datos independiente, excepto por la diferencia semántica siguiente.
 
-For this API, metrics retrieved are expressed as a percentage of the per max eDTUs (or equivalent cap for the underlying metric like CPU, IO etc) set for that pool. For example, 50% utilization of any of these metrics indicates that the specific resource consumption is at 50% of the per database cap limit for that resource in the parent pool. 
+Para esta API, las métricas recuperadas se expresan como un porcentaje de la capacidad por cantidad máxima de eDTU (o una equivalente a la métrica subyacente como CPU, E/S etc.) establecido para ese grupo. Por ejemplo, el 50 % de uso de cualquiera de estas métricas indica que el consumo de recursos específicos es del 50 % del límite de capacidad por cada base de datos de dicho recurso del grupo principal.
 
-To retrieve the metrics:
+Para recuperar las métricas, siga estos pasos:
 
     $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
 
-## <a name="add-an-alert-to-a-pool-resource"></a>Add an alert to a pool resource
+## Adición de una alerta a un grupo de recursos
 
-You can add alert rules to resources to send email notifications or alert strings to [URL endpoints](https://msdn.microsoft.com/library/mt718036.aspx) when the resource hits a utilization threshold that you set up. Use the Add-AzureRmMetricAlertRule cmdlet. 
+Puede agregar reglas de alerta a recursos para enviar notificaciones por correo electrónico o cadenas de alertas a [puntos de conexión de URL](https://msdn.microsoft.com/library/mt718036.aspx) cuando un recurso alcanza el umbral de utilización establecido. Use el cmdlet Add-AzureRmMetricAlertRule.
 
-> [AZURE.IMPORTANT]Resource utilization monitoring for Elastic Pools has a lag of at least 20 minutes. Setting alerts of less than 30 minutes for Elastic Pools is not currently supported. Any alerts set for Elastic Pools with a period (parameter called “-WindowSize” in PowerShell API) of less than 30 minutes may not be triggered. Please make sure that any alerts you define for Elastic Pools use a period (WindowSize) of 30 minutes or more.
+> [AZURE.IMPORTANT]La supervisión del uso de recursos de grupos elásticos tiene un retraso de, al menos, 20 minutos. En estos momentos, no se pueden establecer alertas de menos de 30 minutos para grupos elásticos. Es posible que no se desencadenen las alertas establecidas para grupos elásticos con un periodo inferior a 30 minutos (parámetro denominado "WindowSize" en la API de PowerShell). Asegúrese de que las alertas que defina para grupos elásticos utilicen un periodo (WindowSize) de 30 minutos o más.
 
-This example adds an alert for getting notified when a pool’s eDTU consumption goes above certain threshold.
+En este ejemplo se agrega una alerta para recibir una notificación cuando el consumo de eDTU de un grupo supere un umbral determinado.
 
     # Set up your resource ID configurations
     $subscriptionId = '<Azure subscription id>'      # Azure subscription ID
@@ -131,13 +130,13 @@ This example adds an alert for getting notified when a pool’s eDTU consumption
     # Create an alert rule for DTU_consumption_percent
     Add-AzureRMMetricAlertRule -Name $alertName -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $ResourceID -MetricName "DTU_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:60:00 -Actions $actionEmail 
 
-## <a name="add-alerts-to-all-databases-in-a-pool"></a>Add alerts to all databases in a pool
+## Adición de alertas a todas las bases de datos de un grupo
 
-You can add alert rules to all database in an elastic pool to send email notifications or alert strings to [URL endpoints](https://msdn.microsoft.com/library/mt718036.aspx) when a resource hits a utilization threshold set up by the alert. 
+Puede agregar reglas de alerta a todas las bases de datos de un grupo elástico para enviar notificaciones por correo electrónico o cadenas de alerta a [puntos de conexión de URL](https://msdn.microsoft.com/library/mt718036.aspx) cuando un recurso alcanza el umbral de utilización establecido por la alerta.
 
-> [AZURE.IMPORTANT] Resource utilization monitoring for Elastic Pools has a lag of at least 20 minutes. Setting alerts of less than 30 minutes for Elastic Pools is not currently supported. Any alerts set for Elastic Pools with a period (parameter called “-WindowSize” in PowerShell API) of less than 30 minutes may not be triggered. Please make sure that any alerts you define for Elastic Pools use a period (WindowSize) of 30 minutes or more.
+> [AZURE.IMPORTANT] La supervisión del uso de recursos de grupos elásticos tiene un retraso de, al menos, 20 minutos. En estos momentos, no se pueden establecer alertas de menos de 30 minutos para grupos elásticos. Es posible que no se desencadenen las alertas establecidas para grupos elásticos con un periodo inferior a 30 minutos (parámetro denominado "WindowSize" en la API de PowerShell). Asegúrese de que las alertas que defina para grupos elásticos utilicen un periodo (WindowSize) de 30 minutos o más.
 
-This example adds an alert to each of the databases in a pool for getting notified when that database’s DTU consumption goes above certain threshold.
+En este ejemplo se agrega una alerta a cada una de las bases de datos de un grupo para recibir una notificación cuando el consumo de DTU de esas bases de datos supere un umbral determinado.
 
     # Set up your resource ID configurations
     $subscriptionId = '<Azure subscription id>'      # Azure subscription ID
@@ -169,60 +168,60 @@ This example adds an alert to each of the databases in a pool for getting notifi
 
 
 
-## <a name="collect-and-monitor-resource-usage-data-across-multiple-pools-in-a-subscription"></a>Collect and monitor resource usage data across multiple pools in a subscription
+## Recopilación y supervisión de los datos de uso de recursos entre varios grupos de una suscripción
 
-When you have a large number of databases in a subscription, it is cumbersome to monitor each elastic pool separately. Instead, SQL database PowerShell cmdlets and T-SQL queries can be combined to collect resource usage data from multiple pools and their databases for monitoring and analysis of resource usage. A [sample implementation](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) of such a set of powershell scripts can be found in the GitHub SQL Server samples repository along with documentation on what it does and how to use it.
+Si hay un gran número de bases de datos en una suscripción, es complicado supervisar cada grupo elástico por separado. En su lugar, se pueden combinar las consultas de T-SQL y los cmdlets de PowerShell de Base de datos SQL para recopilar datos de uso de recursos de varios grupos y sus bases de datos para la supervisión y el análisis del uso de recursos. Puede encontrar una [implementación de ejemplo](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) de un conjunto similar de scripts de PowerShell en el repositorio de ejemplos de SQL Server de GitHub junto con documentación sobre lo que hace y cómo se utiliza.
 
-To use this sample implementation follow these steps listed below.
+Para utilizar esta implementación de ejemplo siga los pasos enumerados a continuación.
 
 
-1. Download the [scripts and documentation](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools):
-2. Modify the scripts for your environment. Specify one or more servers on which elastic pools are hosted.
-3. Specify a telemetry database where the collected metrics are to be stored. 
-4. Customize the script to specify the duration of the scripts' execution.
+1. Descargue los [scripts y la documentación](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools):
+2. Modifique los scripts para su entorno. Especifique uno o más servidores en los que se alojan los grupos elásticos.
+3. Especifique una base de datos de telemetría donde se puedan almacenar las métricas recopiladas.
+4. Personalice el script para especificar el tiempo de ejecución de los scripts.
 
-At a high level, the scripts do the following:
+En un nivel alto, los scripts realizan lo siguiente:
 
-*   Enumerates all servers in a given Azure subscription (or a specified list of servers).
-*   Runs a background job for each server. The job runs in a loop at regular intervals and collects telemetry data for all the pools in the server. It then loads the collected data into the specified telemetry database.
-*   Enumerates a list of databases in each pool to collect the database resource usage data. It then loads the collected data into the telemetry database.
+*	Enumera todos los servidores de una determinada suscripción de Azure (o una lista de servidores especificada).
+*	Ejecuta un trabajo en segundo plano para cada servidor. El trabajo se ejecuta en un bucle a intervalos regulares y recopila los datos de telemetría de todos los grupos en el servidor. A continuación, carga los datos recopilados en la base de datos de telemetría especificada.
+*	Enumera una lista de bases de datos en cada grupo para recopilar los datos de uso de recursos de base de datos. A continuación, carga los datos recopilados en la base de datos de telemetría.
 
-The collected metrics in the telemetry database can be analyzed to monitor the health of elastic pools and the databases in it. The script also installs a pre-defined Table-Value function (TVF) in the telemetry database to help aggregate the metrics for a specified time window. For example, results of the TVF can be used to show “top N elastic pools with the maximum eDTU utilization in a given time window.” Optionally, use analytic tools like Excel or Power BI to query and analyze the collected data.
+Para supervisar el estado de los grupos elásticos y de las bases de datos en tales grupos, se pueden analizar las métricas recopiladas en la base de datos de telemetría. El script también instala una función de valores de tabla (TVF) predefinida en la base de datos de telemetría para ayudar a agregar las métricas para un período de tiempo especificado. Por ejemplo, los resultados de la función TVF pueden utilizarse para mostrar "los N grupos elásticos que presentan el máximo uso de eDTU en un período de tiempo determinado". Opcionalmente, puede utilizar herramientas de análisis como Excel o Power BI para consultar y analizar los datos recopilados.
 
-## <a name="example:-retrieve-resource-consumption-metrics-for-a-pool-and-its-databases"></a>Example: retrieve resource consumption metrics for a pool and its databases
+## Ejemplo: recuperación de métricas de consumo de recursos de un grupo y de sus bases de datos
 
-This example retrieves the consumption metrics for a given elastic pool and all its databases. Collected data is formatted and written to a .csv formatted file. The file can be browsed with Excel.
+En este ejemplo se recuperan las métricas de consumo de un grupo elástico determinado y de todas sus bases de datos. Se da formato a los datos recopilados y se escriben en un archivo .csv. El archivo puede consultarse con Excel.
 
-    $subscriptionId = '<Azure subscription id>'       # Azure subscription ID
-    $resourceGroupName = '<resource group name>'             # Resource Group
-    $serverName = <server name>                              # server name
-    $poolName = <elastic pool name>                          # pool name
-        
-    # Login to Azure account and select the subscription.
-    Login-AzureRmAccount
-    Set-AzureRmContext -SubscriptionId $subscriptionId
-    
-    # Get resource usage metrics for an elastic pool for the specified time interval.
-    $startTime = '4/27/2016 00:00:00'  # start time in UTC
-    $endTime = '4/27/2016 01:00:00'    # end time in UTC
-    
-    # Construct the pool resource ID and retrive pool metrics at 5 minute granularity.
-    $poolResourceId = '/subscriptions/' + $subscriptionId + '/resourceGroups/' + $resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/elasticPools/' + $poolName
-    $poolMetrics = (Get-AzureRmMetric -ResourceId $poolResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime -EndTime $endTime) 
-    
-    # Get the list of databases in this pool.
-    $dbList = Get-AzureRmSqlElasticPoolDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -ElasticPoolName $poolName
-    
-    # Get resource usage metrics for a database in an elastic database for the specified time interval.
-    $dbMetrics = @()
-    foreach ($db in $dbList)
-    {
-        $dbResourceId = '/subscriptions/' + $subscriptionId + '/resourceGroups/' + $resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/databases/' + $db.DatabaseName
-        $dbMetrics = $dbMetrics + (Get-AzureRmMetric -ResourceId $dbResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime -EndTime $endTime)
-    }
-    
-    #Optionally you can format the metrics and output as .csv file using the following script block.
-    $command = {
+	$subscriptionId = '<Azure subscription id>'	      # Azure subscription ID
+	$resourceGroupName = '<resource group name>'             # Resource Group
+	$serverName = <server name>                              # server name
+	$poolName = <elastic pool name>                          # pool name
+		
+	# Login to Azure account and select the subscription.
+	Login-AzureRmAccount
+	Set-AzureRmContext -SubscriptionId $subscriptionId
+	
+	# Get resource usage metrics for an elastic pool for the specified time interval.
+	$startTime = '4/27/2016 00:00:00'  # start time in UTC
+	$endTime = '4/27/2016 01:00:00'    # end time in UTC
+	
+	# Construct the pool resource ID and retrive pool metrics at 5 minute granularity.
+	$poolResourceId = '/subscriptions/' + $subscriptionId + '/resourceGroups/' + $resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/elasticPools/' + $poolName
+	$poolMetrics = (Get-AzureRmMetric -ResourceId $poolResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime -EndTime $endTime) 
+	
+	# Get the list of databases in this pool.
+	$dbList = Get-AzureRmSqlElasticPoolDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -ElasticPoolName $poolName
+	
+	# Get resource usage metrics for a database in an elastic database for the specified time interval.
+	$dbMetrics = @()
+	foreach ($db in $dbList)
+	{
+	    $dbResourceId = '/subscriptions/' + $subscriptionId + '/resourceGroups/' + $resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/databases/' + $db.DatabaseName
+	    $dbMetrics = $dbMetrics + (Get-AzureRmMetric -ResourceId $dbResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime -EndTime $endTime)
+	}
+	
+	#Optionally you can format the metrics and output as .csv file using the following script block.
+	$command = {
     param($metricList, $outputFile)
 
     # Format metrics into a table.
@@ -241,28 +240,28 @@ This example retrieves the consumption metrics for a given elastic pool and all 
     
     # Output the metrics into a .csv file.
     write-output $table | Export-csv -Path $outputFile -Append -NoTypeInformation
-    }
-    
-    # Format and output pool metrics
-    Invoke-Command -ScriptBlock $command -ArgumentList $poolMetrics,c:\temp\poolmetrics.csv
-    
-    # Format and output database metrics
-    Invoke-Command -ScriptBlock $command -ArgumentList $dbMetrics,c:\temp\dbmetrics.csv
+	}
+	
+	# Format and output pool metrics
+	Invoke-Command -ScriptBlock $command -ArgumentList $poolMetrics,c:\temp\poolmetrics.csv
+	
+	# Format and output database metrics
+	Invoke-Command -ScriptBlock $command -ArgumentList $dbMetrics,c:\temp\dbmetrics.csv
 
 
 
-## <a name="latency-of-elastic-pool-operations"></a>Latency of elastic pool operations
+## Latencia de las operaciones de grupos elásticos
 
-- Changing the min eDTUs per database or max eDTUs per database typically completes in 5 minutes or less.
-- Changing the eDTUs per pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
+- El cambio del número mínimo de eDTU por base de datos o del máximo de eDTU por base de datos suele completarse en cinco minutos o menos.
+- El cambio de eDTU por grupo depende de la cantidad total de espacio que usen todas las bases de datos del grupo. Los cambios tienen un duración media de 90 minutos o menos por cada 100 GB. Por ejemplo, si el espacio total que usan todas las bases de datos del grupo es de 200 GB, la latencia esperada para cambiar las eDTU de grupo por grupo es de 3 horas o menos.
 
-## <a name="migrate-from-v11-to-v12-servers"></a>Migrate from V11 to V12 servers
+## Migración de la versión 11 de los servidores a la 12
 
-PowerShell cmdlets are available to start, stop, or monitor an upgrade to Azure SQL Database V12 from V11 or any other pre-V12 version.
+Los cmdlets de PowerShell se pueden usar para iniciar, detener o supervisar una actualización de la Base de datos SQL de Azure V12 a partir de la versión V11, o desde cualquier otra versión anterior a la V12.
 
-- [Upgrade to SQL Database V12 using PowerShell](sql-database-upgrade-server-powershell.md)
+- [Actualización a la base de datos SQL V12 con PowerShell](sql-database-upgrade-server-powershell.md)
 
-For reference documentation about these PowerShell cmdlets, see:
+Para obtener documentación de referencia acerca de estos cmdlets de Powershell, consulte:
 
 
 - [Get-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603582.aspx)
@@ -270,15 +269,11 @@ For reference documentation about these PowerShell cmdlets, see:
 - [Stop-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
 
-The Stop- cmdlet means cancel, not pause. There is no way to resume an upgrade, other than starting again from the beginning. The Stop- cmdlet cleans up and releases all appropriate resources.
+El cmdlet Stop- significa cancelar, no pausar. La única forma de reanudar una actualización es volver a iniciarla desde el principio. El cmdlet Stop- limpia y libera todos los recursos adecuados.
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-- [Create elastic jobs](sql-database-elastic-jobs-overview.md) Elastic jobs let you run T-SQL scripts against any number of databases in the pool.
-- See [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md): use elastic database tools to scale-out, move data, query, or create transactions.
+- [Creación de trabajos elásticos](sql-database-elastic-jobs-overview.md): los trabajos elásticos le permiten ejecutar scripts de T-SQL en cualquier cantidad de bases de datos del grupo.
+- Consulte [Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md): use herramientas de bases de datos elásticas para realizar un escalado horizontal, mover los datos, realizar consultas o crear transacciones.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0706_2016-->

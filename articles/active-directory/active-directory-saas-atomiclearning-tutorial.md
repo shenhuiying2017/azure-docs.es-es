@@ -1,248 +1,246 @@
 <properties
-    pageTitle="Tutorial: Azure Active Directory integration with Atomic Learning | Microsoft Azure"
-    description="Learn how to configure single sign-on between Azure Active Directory and Atomic Learning."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeevansd"
-    manager="femila"
-    editor=""/>
+	pageTitle="Tutorial: integración de Azure Active Directory con Atomic Learning | Microsoft Azure"
+	description="Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Atomic Learning."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeevansd"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/31/2016"
-    ms.author="jeedes"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2016"
+	ms.author="jeedes"/>
 
 
+# Tutorial: integración de Azure Active Directory con Atomic Learning
 
-# <a name="tutorial:-azure-active-directory-integration-with-atomic-learning"></a>Tutorial: Azure Active Directory integration with Atomic Learning
+En este tutorial, obtendrá información sobre cómo integrar Atomic Learning con Azure Active Directory (Azure AD).
 
-In this tutorial, you learn how to integrate Atomic Learning with Azure Active Directory (Azure AD).
+Integrar Atomic Learning con Azure AD le proporciona las siguientes ventajas:
 
-Integrating Atomic Learning with Azure AD provides you with the following benefits:
+- Puede controlar en Azure AD quién tiene acceso a Atomic Learning.
+- Puede permitir que los usuarios inicien sesión automáticamente en Atomic Learning (inicio de sesión único) con sus cuentas de Azure AD.
+- Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
 
-- You can control in Azure AD who has access to Atomic Learning
-- You can enable your users to automatically get signed-on to Atomic Learning (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure classic portal
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+## Requisitos previos
 
-## <a name="prerequisites"></a>Prerequisites
+Para configurar la integración de Azure AD con Atomic Learning, necesita los siguientes elementos:
 
-To configure Azure AD integration with Atomic Learning, you need the following items:
+- Una suscripción de Azure AD
+- Una suscripción habilitada para el inicio de sesión único en **Atomic Learning**
 
-- An Azure AD subscription
-- A **Atomic Learning** single-sign on enabled subscription
 
+> [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
+Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
-To test the steps in this tutorial, you should follow these recommendations:
+- No debe usar el entorno de producción, a menos que sea necesario.
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
+## Descripción del escenario
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
 
-## <a name="scenario-description"></a>Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. The scenario outlined in this tutorial consists of two main building blocks:
+1. Adición de Atomic Learning desde la galería
+2. Configuración y comprobación del inicio de sesión único de Azure AD
 
-1. Adding Atomic Learning from the gallery
-2. Configuring and testing Azure AD single sign-on
 
+## Adición de Atomic Learning desde la galería
+Para configurar la integración de Atomic Learning en Azure AD, deberá agregar esta solución desde la galería a la lista de aplicaciones SaaS administradas.
 
-## <a name="adding-atomic-learning-from-the-gallery"></a>Adding Atomic Learning from the gallery
-To configure the integration of Atomic Learning into Azure AD, you need to add Atomic Learning from the gallery to your list of managed SaaS apps.
+**Para agregar Atomic Learning desde la galería, realice los pasos siguientes:**
 
-**To add Atomic Learning from the gallery, perform the following steps:**
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
+	![Active Directory][1]
 
-    ![Active Directory][1]
+2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+3. Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
 
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
+	![Aplicaciones][2]
 
-    ![Applications][2]
+4. Haga clic en **Agregar** en la parte inferior de la página.
 
-4. Click **Add** at the bottom of the page.
+	![Aplicaciones][3]
 
-    ![Applications][3]
+5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
 
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+	![Aplicaciones][4]
 
-    ![Applications][4]
+6. En el cuadro de búsqueda, escriba **Atomic Learning**.
 
-6. In the search box, type **Atomic Learning**.
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-atomiclearning-tutorial/tutorial_atomiclearning_01.png)
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-atomiclearning-tutorial/tutorial_atomiclearning_01.png)
+7. En el panel de resultados, seleccione **Atomic Learning** y, luego, haga clic en **Completar** para agregar la aplicación.
 
-7. In the results pane, select **Atomic Learning**, and then click **Complete** to add the application.
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-atomiclearning-tutorial/tutorial_atomiclearning_02.png)
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-atomiclearning-tutorial/tutorial_atomiclearning_02.png)
+##  Configuración y comprobación del inicio de sesión único de Azure AD
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con Atomic Learning utilizando usuario de prueba llamado "Britta Simon".
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Atomic Learning based on a test user called "Britta Simon".
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Atomic Learning para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Atomic Learning. Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en Atomic Learning.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Atomic Learning is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Atomic Learning needs to be established.
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Atomic Learning.
+Para configurar y probar el inicio de sesión único de Azure AD con Atomic Learning, es preciso completar los siguientes bloques de creación:
 
-To configure and test Azure AD single sign-on with Atomic Learning, you need to complete the following building blocks:
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Creación de un usuario de prueba de Atomic Learning](#creating-an-atomic-learning-test-user)**: para tener un homólogo de Britta Simon en Atomic Learning que esté vinculado a la representación de ella en Azure AD.
+5. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating an Atomic Learning test user](#creating-an-atomic-learning-test-user)** - to have a counterpart of Britta Simon in Atomic Learning that is linked to the Azure AD representation of her.
-5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+### Configuración del inicio de sesión único de Azure AD
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
+El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación Atomic Learning.
 
-The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Atomic Learning application.
 
+**Para configurar el inicio de sesión único de Azure AD con Atomic Learning, realice los pasos siguientes:**
 
-**To configure Azure AD single sign-on with Atomic Learning, perform the following steps:**
+1. En el menú de la parte superior, haga clic en **Inicio rápido**.
 
-1. In the menu on the top, click **Quick Start**.
+	![Configurar inicio de sesión único][6]
 
-    ![Configure Single Sign-On][6]
+2. En el Portal clásico, en la página de integración de la aplicación **Atomic Learning**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
-2. In the classic portal, on the **Atomic Learning** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+	![Configurar inicio de sesión único][7]
 
-    ![Configure Single Sign-On][7] 
+3. En la página **¿Cómo desea que los usuarios inicien sesión en Atomic Learning?**, seleccione **Inicio de sesión único de Azure AD** y después haga clic en **Siguiente**.
+ 	
+	![Configurar inicio de sesión único](./media/active-directory-saas-atomiclearning-tutorial/tutorial_atomiclearning_06.png)
 
-3. On the **How would you like users to sign on to Atomic Learning** page, select **Azure AD Single Sign-On**, and then click **Next**.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-atomiclearning-tutorial/tutorial_atomiclearning_06.png)
+4. En la página de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes:
 
-4. On the **Configure App Settings** dialog page, perform the following steps: 
+	![Configurar inicio de sesión único](./media/active-directory-saas-atomiclearning-tutorial/tutorial_atomiclearning_07.png)
 
-    ![Configure Single Sign-On](./media/active-directory-saas-atomiclearning-tutorial/tutorial_atomiclearning_07.png)
 
+    a. En el cuadro de texto URL de inicio de sesión, escriba una dirección URL con el siguiente patrón: `https://secure2.atomiclearning.com/sso/shibboleth/<companyname>`.
 
-    a. In the Sign On URL text box, type a URL using the following pattern: `https://secure2.atomiclearning.com/sso/shibboleth/<companyname>`.
+	b. Haga clic en **Siguiente**.
 
-    b. Click **Next**.
+5. En la página **Configuración de inicio de sesión único en Atomic Learning**, haga clic en **Descargar metadatos** y, luego, guarde el archivo en el equipo.
 
-5. On the **Configure single sign-on at Atomic Learning** page, Click **Download metadata**, and then save the file on your computer.
+	![Configurar inicio de sesión único](./media/active-directory-saas-atomiclearning-tutorial/tutorial_atomiclearning_08.png)
 
-    ![Configure Single Sign-On](./media/active-directory-saas-atomiclearning-tutorial/tutorial_atomiclearning_08.png)
+6. Para configurar el inicio de sesión único para la aplicación, póngase en contacto con el equipo de soporte técnico de Atomic Learning. Ellos le ayudarán con el modo adecuado de configurar el inicio de sesión único. Tenga en cuenta que tendrá que enviar un correo electrónico y adjuntar el archivo de metadatos descargado a <cs@atomiclearning.com>.
 
-6. To get SSO configured for your application, contact Atomic Learning support. They will assist with the proper channel to configure SSO. Please note that you have to send email and attach downloaded metadata file to <cs@atomiclearning.com>
+7. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
+	
+	![Inicio de sesión único de Azure AD][10]
 
-7. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
-    
-    ![Azure AD Single Sign-On][10]
+8. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.
+  	
+	![Inicio de sesión único de Azure AD][11]
 
-8. On the **Single sign-on confirmation** page, click **Complete**.  
-    
-    ![Azure AD Single Sign-On][11]
+### Creación de un usuario de prueba de Azure AD
+En esta sección, creará un usuario de prueba llamado Britta Simon en el portal clásico.
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-In this section, you create a test user in the classic portal called Britta Simon.
+![Creación de un usuario de Azure AD][20]
 
-![Create Azure AD User][20]
+**Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-**To create a test user in Azure AD, perform the following steps:**
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
+	
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-atomiclearning-tutorial/create_aaduser_09.png)
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
-    
-    ![Creating an Azure AD test user](./media/active-directory-saas-atomiclearning-tutorial/create_aaduser_09.png) 
+2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.
+	
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-atomiclearning-tutorial/create_aaduser_03.png)
 
-3. To display the list of users, in the menu on the top, click **Users**.
-    
-    ![Creating an Azure AD test user](./media/active-directory-saas-atomiclearning-tutorial/create_aaduser_03.png) 
+4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-atomiclearning-tutorial/create_aaduser_04.png)
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-atomiclearning-tutorial/create_aaduser_04.png) 
-
-5. On the **Tell us about this user** dialog page, perform the following steps:
+5. En la página de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
  
-    ![Creating an Azure AD test user](./media/active-directory-saas-atomiclearning-tutorial/create_aaduser_05.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-atomiclearning-tutorial/create_aaduser_05.png)
 
-    a. As Type Of User, select New user in your organization.
+    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
-    c. Click **Next**.
+    c. Haga clic en **Next**.
 
-6.  On the **User Profile** dialog page, perform the following steps:
+6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-atomiclearning-tutorial/create_aaduser_06.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-atomiclearning-tutorial/create_aaduser_06.png)
 
-    a. In the **First Name** textbox, type **Britta**.  
+    a. En el cuadro de texto **Nombre**, escriba **Britta**.
 
-    b. In the **Last Name** textbox, type, **Simon**.
+    b. En el cuadro de texto **Apellidos**, escriba **Simon**.
 
-    c. In the **Display Name** textbox, type **Britta Simon**.
+    c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
 
-    d. In the **Role** list, select **User**.
+    d. En la lista **Rol**, seleccione **Usuario**.
 
-    e. Click **Next**.
+    e. Haga clic en **Siguiente**.
 
-7. On the **Get temporary password** dialog page, click **create**.
+7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-atomiclearning-tutorial/create_aaduser_07.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-atomiclearning-tutorial/create_aaduser_07.png)
 
-8. On the **Get temporary password** dialog page, perform the following steps:
+8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-atomiclearning-tutorial/create_aaduser_08.png) 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-atomiclearning-tutorial/create_aaduser_08.png)
 
-    a. Write down the value of the **New Password**.
+    a. Anote el valor del campo **Nueva contraseña**.
 
-    b. Click **Complete**.   
-
-
-
-### <a name="creating-a-atomic-learning-test-user"></a>Creating a Atomic Learning test user
-
-In this section, you create a user called Britta Simon in Atomic Learning. Atomic Learning supports just-in-time provisioning, which is by default enabled. 
-
-There is no action item for you in this section. A new user will be created during an attempt to access Atomic Learning if it doesn't exist yet using the email address for the user.
-
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Atomic Learning.
-
-![Assign User][200] 
-
-**To assign Britta Simon to Atomic Learning, perform the following steps:**
-
-1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Assign User][201] 
-
-2. In the applications list, select **Atomic Learning**.
-
-    ![Configure Single Sign-On](./media/active-directory-saas-atomiclearning-tutorial/tutorial_atomiclearning_09.png) 
-
-1. In the menu on the top, click **Users**.
-
-    ![Assign User][203] 
-
-1. In the All Users list, select **Britta Simon**.
-
-2. In the toolbar on the bottom, click **Assign**.
-
-    ![Assign User][205]
+    b. Haga clic en **Completo**.
 
 
-### <a name="testing-single-sign-on"></a>Testing single sign-on
 
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
+### Creación de un usuario de prueba de Atomic Learning
 
-When you click the Atomic Learning tile in the Access Panel, you should get automatically signed-on to your Atomic Learning application.
+En esta sección, creará un usuario llamado Britta Simon en Atomic Learning. Atomic Learning admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada.
 
-## <a name="additional-resources"></a>Additional resources
+No hay ningún elemento de acción para usted en esta sección. Durante un intento de acceder a Atomic Learning se creará un nuevo usuario, si aún no existe, utilizando la dirección de correo electrónico de dicho usuario.
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+### Asignación del usuario de prueba de Azure AD
+
+En esta sección, permitirá que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a Atomic Learning.
+
+![Asignar usuario][200]
+
+**Para asignar Britta Simon a Atomic Learning, realice los pasos siguientes:**
+
+1. En el portal clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
+
+	![Asignar usuario][201]
+
+2. En la lista de aplicaciones, seleccione **Atomic Learning**.
+
+	![Configurar inicio de sesión único](./media/active-directory-saas-atomiclearning-tutorial/tutorial_atomiclearning_09.png)
+
+1. En el menú de la parte superior, haga clic en **Usuarios**.
+
+	![Asignar usuario][203]
+
+1. En la lista Todos los usuarios, seleccione **Britta Simon**.
+
+2. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
+
+	![Asignar usuario][205]
+
+
+### Prueba del inicio de sesión único
+
+El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
+
+Al hacer clic en el icono de Atomic Learning del panel de acceso, debería iniciar sesión automáticamente en la aplicación Atomic Learning.
+
+## Recursos adicionales
+
+* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 
@@ -256,7 +254,7 @@ When you click the Atomic Learning tile in the Access Panel, you should get auto
 
 [5]: ./media/active-directory-saas-atomiclearning-tutorial/tutorial_general_05.png
 [6]: ./media/active-directory-saas-atomiclearning-tutorial/tutorial_general_06.png
-[7]:  ./media/active-directory-saas-atomiclearning-tutorial/tutorial_general_050.png
+[7]: ./media/active-directory-saas-atomiclearning-tutorial/tutorial_general_050.png
 [10]: ./media/active-directory-saas-atomiclearning-tutorial/tutorial_general_060.png
 [11]: ./media/active-directory-saas-atomiclearning-tutorial/tutorial_general_070.png
 [20]: ./media/active-directory-saas-atomiclearning-tutorial/tutorial_general_100.png
@@ -267,8 +265,4 @@ When you click the Atomic Learning tile in the Access Panel, you should get auto
 [204]: ./media/active-directory-saas-atomiclearning-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-atomiclearning-tutorial/tutorial_general_205.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

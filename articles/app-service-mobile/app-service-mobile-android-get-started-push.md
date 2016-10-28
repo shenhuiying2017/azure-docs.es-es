@@ -1,94 +1,83 @@
 <properties
-    pageTitle="Add Push Notifications to Android App with Azure  Mobile Apps"
-    description="Learn how to use Azure Mobile Apps to send push notifications to your Android app."
-    services="app-service\mobile"
-    documentationCenter="android"
-    manager="erikre"
-    editor=""
-    authors="yuaxu"/>
+	pageTitle="Incorporación de notificaciones push a la aplicación de Android con las Aplicaciones móviles de Azure"
+	description="Obtenga información acerca de cómo usar las Aplicaciones móviles de Azure para enviar notificaciones push a su aplicación de Android."
+	services="app-service\mobile"
+	documentationCenter="android"
+	manager="erikre"
+	editor=""
+	authors="RickSaling"/>
 
 <tags
-    ms.service="app-service-mobile"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-android"
-    ms.devlang="java"
-    ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="yuaxu"/>
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="07/21/2016"
+	ms.author="ricksal"/>
 
-
-# <a name="add-push-notifications-to-your-android-app"></a>Add Push Notifications to your Android App
+# Incorporación de notificaciones push a la aplicación de Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-## <a name="overview"></a>Overview
-This tutorial shows you how to add push notifications to the [Android quick start] project so that every time a record is inserted, a push notification is sent. This tutorial is based on the [Android quick start] tutorial, which you must complete first. If you do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+## Información general
+En este tutorial, agregará notificaciones push al proyecto de [inicio rápido de Android] para que cada vez que se inserte un registro, se envíe una notificación push. Este tutorial está basado en el tutorial de [inicio rápido de Android], que debe completar primero. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar el paquete de extensión de notificaciones push al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="prerequisites"></a>Prerequisites
+##Requisitos previos
 
-The following items are needed to complete this tutorial:
+Para completar este tutorial, necesitará lo siguiente:
 
-* [Google account](http://go.microsoft.com/fwlink/p/?LinkId=268302) with a verified email address.
+* Una [cuenta de Google](http://go.microsoft.com/fwlink/p/?LinkId=268302) con una dirección de correo electrónico verificada
+* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934); no es necesario para un proyecto de back-end de Node.js.
+* Complete el [tutorial de inicio rápido](app-service-mobile-android-get-started.md).
 
-* An IDE depending on your project's backend:
-
-    * [Android Studio](https://developer.android.com/sdk/index.html) if this app has a Node.js backend.
-
-    * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) or later if this app has a .Net backend.
-
-* Complete the [quickstart tutorial](app-service-mobile-android-get-started.md).
-
-## <a name="create-a-project-that-supports-firebase-cloud-messaging"></a>Create a project that supports Firebase Cloud Messaging
-
-[AZURE.INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
-
-## <a name="create-a-notification-hub"></a>Create a Notification Hub
+##<a name="create-hub"></a>Creación de un centro de notificaciones
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
-## <a name="configure-the-mobile-app-backend-for-sending-push-requests"></a>Configure the Mobile App backend for sending push requests
+## Habilitación del servicio de mensajería en la nube de Google
 
-[AZURE.INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
+[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
-## <a name="enable-push-notifications-for-the-server-project"></a>Enable push notifications for the server project
+##Configuración del back-end de aplicaciones de móvil para enviar solicitudes push
+
+[AZURE.INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
+
+##<a id="update-service"></a>Actualización del proyecto de servidor para enviar notificaciones push
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
-## <a name="add-push-notifications-to-your-app"></a>Add push notifications to your app
+## Incorporación de notificaciones de inserción a la aplicación
 
-In this section, you enable your Android app project to handle push notifications.
+Debe asegurarse de que su proyecto de aplicación Android está listo para controlar las notificaciones de inserción.
 
-### <a name="verify-android-sdk-version"></a>Verify Android SDK Version
+###Comprobación de la versión del SDK de Android
 
 [AZURE.INCLUDE [app-service-mobile-verify-android-sdk-version](../../includes/app-service-mobile-verify-android-sdk-version.md)]
 
-Your next step is to install Google Play services. Google Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the Manifest must conform to.
+El siguiente paso es instalar los servicios de Google Play. El servicio de mensajería en la nube de Google tiene algunos requisitos mínimos en el nivel de API para desarrollo y prueba, que debe cumplir la propiedad **minSdkVersion** del manifiesto.
 
-If you are testing with an older device, then consult [Set Up Google Play Services SDK] to determine how low you can set this value, and set it appropriately.
+Si va a realizar pruebas con un dispositivo antiguo, consulte [Configuración del SDK de Google Play Services] para determinar el valor mínimo que puede configurar, y cómo configurarlo de forma adecuada.
 
-### <a name="add-google-play-services-to-the-project"></a>Add Google Play Services to the project
+###Incorporación de Google Play Services al proyecto
 
-[AZURE.INCLUDE [Add Play Services](../../includes/app-service-mobile-add-google-play-services.md)]
+[AZURE.INCLUDE [Incorporación de Play Services](../../includes/app-service-mobile-add-google-play-services.md)]
 
-### <a name="add-code"></a>Add code
+###Incorporación de código
 
 [AZURE.INCLUDE [app-service-mobile-android-getting-started-with-push](../../includes/app-service-mobile-android-getting-started-with-push.md)]
 
-## <a name="test-the-app-against-the-published-mobile-service"></a>Test the app against the published mobile service
+## Prueba de la aplicación con el servicio móvil publicado
 
-You can test the app by directly attaching an Android phone with a USB cable, or by using a virtual device in the emulator.
+Puede probar la aplicación conectando directamente un teléfono Android con un cable USB o utilizando un dispositivo virtual en el emulador.
 
-## <a name="more"></a>More
+##<a id="more"></a>Más
 
-* Tags allow you to target segmented customers with pushes. [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) shows you how to add tags to a device installation.
+* Las etiquetas permiten dirigirse a clientes segmentados con inserciones. [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) muestra cómo agregar etiquetas a la instalación de un dispositivo.
 
 <!-- URLs -->
-[Android quick start]: app-service-mobile-android-get-started.md
+[inicio rápido de Android]: app-service-mobile-android-get-started.md
 
-[Set Up Google Play Services SDK]:https://developers.google.com/android/guides/setup
+[Configuración del SDK de Google Play Services]: https://developers.google.com/android/guides/setup
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

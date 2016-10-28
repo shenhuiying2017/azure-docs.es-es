@@ -1,79 +1,70 @@
 <properties
-    pageTitle="Cloud Services FAQ | Microsoft Azure"
-    description="Frequently asked questions about Cloud Services."
-    services="cloud-services"
-    documentationCenter=""
-    authors="Thraka"
-    manager="timlt"
-    editor=""/>
+	pageTitle="P+F de Servicios en la nube | Microsoft Azure"
+	description="Preguntas más frecuentes acerca de los Servicios en la nube."
+	services="cloud-services"
+	documentationCenter=""
+	authors="Thraka"
+	manager="timlt"
+	editor=""/>
 
 <tags
-    ms.service="cloud-services"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/19/2016"
-    ms.author="adegeo"/>
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/19/2016"
+	ms.author="adegeo"/>
 
+# P+F de Servicios en la nube
+En este artículo se responden algunas preguntas frecuentes sobre Servicios en la nube de Microsoft Azure. También puede visitar [Preguntas más frecuentes de soporte técnico de Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para información general sobre los precios y el soporte técnico de Azure. También puede consultar la [página Tamaños de los servicios en la nube](cloud-services-sizes-specs.md) para obtener información de tamaño.
 
-# <a name="cloud-services-faq"></a>Cloud Services FAQ
-This article answers some frequently asked questions about Microsoft Azure Cloud Services. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing and support information. You can also consult the [Cloud Services VM Size page](cloud-services-sizes-specs.md) for size information.
+## Certificados
 
-## <a name="certificates"></a>Certificates
+### ¿Dónde debo instalar mi certificado?
 
-### <a name="where-should-i-install-my-certificate?"></a>Where should I install my certificate?
+- **My** Certificado de aplicación con clave privada (*.pfx, *.p12).
 
-- **My**  
-Application Certificate with private key (\*.pfx, \*.p12).
+- **CA** Todos los certificados intermedios van a este almacén (entidades de certificación de directivas y secundarias).
 
-- **CA**  
-All your intermediate certificates go in this store (Policy and Sub CAs).
+- **ROOT** El almacén de entidades de certificación raíz, por lo que la mayoría de certificados de entidades de certificación raíz van aquí.
 
-- **ROOT**  
-The root CA store, so your main root CA cert should go here.
+### No se puede quitar el certificado expirado
 
-### <a name="i-can't-remove-expired-certificate"></a>I can't remove expired certificate
+Azure impide quitar un certificado mientras está en uso. Debe eliminar la implementación que utiliza el certificado o actualizar la implementación con un certificado diferente o renovado.
 
-Azure prevents you from removing a certificate while it is in use. You need to either delete the deployment that uses the certificate, or update the deployment with a different or renewed certificate.
+### Eliminar un certificado expirado
 
-### <a name="delete-an-expired-certificate"></a>Delete an expired certificate
+Siempre que el certificado no esté en uso, podrá usar el cmdlet de PowerShell [Remove-AzureCertificate](https://msdn.microsoft.com/library/azure/mt589145.aspx) para quitar un certificado.
 
-As long as the certificate is not in use, you can use the [Remove-AzureCertificate](https://msdn.microsoft.com/library/azure/mt589145.aspx) PowerShell cmdlet to remove a certificate.
+### Tengo certificados expirados denominados Administración de servicios de Microsoft Azure para Extensiones
 
-### <a name="i-have-expired-certificates-named-windows-azure-service-management-for-extensions"></a>I have expired certificates named Windows Azure Service Management for Extensions
+Estos certificados se crean siempre que se agrega una extensión al servicio en la nube, como la extensión de Escritorio remoto. Estos certificados solo se utilizan para cifrar y descifrar la configuración privada de la extensión. No importa si estos certificados expiran. La fecha de expiración no se comprueba.
 
-These certificates are created whenever an extension is added to the cloud service such as the Remote Desktop extension. These certificates are only used for encrypting and decrypting the private configuration of the extension. It does not matter if these certificates expire. The expiration date is not checked.
+### Siguen apareciendo certificados que he eliminado
 
-### <a name="certificates-i-have-deleted-keep-reappearing"></a>Certificates I have deleted keep reappearing
+Estos siguen reapareciendo muy probablemente a causa de una herramienta que esté utilizando, como Visual Studio. Cada vez que vuelva a conectar con una herramienta que esté utilizando un certificado, este se volverá a cargar en Azure.
 
-These keep reappearing most likely because of a tool you're using, such as Visual Studio. Whenever you reconnect with a tool that is using a certificate, it will again be uploaded to Azure.
+### Mis certificados siguen desapareciendo
 
-### <a name="my-certificates-keep-disappearing"></a>My certificates keep disappearing
+Cuando se recicla la instancia de máquina virtual, se pierden todos los cambios locales. Use una [tarea de inicio](cloud-services-startup-tasks.md) para instalar certificados en la máquina virtual cada vez que se inicie el rol.
 
-When the virtual machine instance recycles, all local changes are lost. Use a [startup task](cloud-services-startup-tasks.md) to install certificates to the virtual machine each time the role starts.
+### No encuentro mis certificados de administración en el portal
 
-### <a name="i-cannot-find-my-management-certificates-in-the-portal"></a>I cannot find my management certificates in the portal
+Los [certificados de administración](..\azure-api-management-certs.md) solo están disponibles en el Portal de Azure clásico. La versión actual de Azure Portal no utiliza certificados de administración.
 
-[Management certificates](..\azure-api-management-certs.md) are only avialable in the Azure Classic Portal. The current Azure portal does not use management certificates. 
+### ¿Cómo puedo deshabilitar un certificado de administración?
 
-### <a name="how-can-i-disable-a-management-certificate?"></a>How can I disable a management certificate?
+No se pueden deshabilitar [certificados de administración](..\azure-api-management-certs.md). Se eliminan en el Portal de Azure clásico cuando ya no quiera utilizarlos más.
 
-[Management certificates](..\azure-api-management-certs.md) cannot be disabled. You delete them through the Azure Classic Portal when you do not want them to be used anymore.
+### ¿Cómo puedo crear un certificado SSL para una dirección IP específica?
 
-### <a name="how-do-i-create-an-ssl-certificate-for-a-specific-ip-address?"></a>How do I create an SSL certificate for a specific IP address?
+Siga las instrucciones del [tutorial de creación de un tutorial](cloud-services-certs-create.md). Utilice la dirección IP como el nombre DNS.
 
-Follow the directions in the [create a certificate tutorial](cloud-services-certs-create.md). Use the IP address as the DNS Name.
+## Solución de problemas
 
-## <a name="troubleshooting"></a>Troubleshooting
+### No se puede reservar una dirección IP en un servicio en la nube con varias direcciones IP virtuales
 
-### <a name="i-can't-reserve-an-ip-in-a-multi-vip-cloud-service"></a>I can't reserve an IP in a multi-VIP cloud service
+En primer lugar, asegúrese de que la instancia de máquina virtual para la que está intentando reservar la dirección IP está activada. En segundo lugar, asegúrese de que utiliza direcciones IP reservadas para las implementaciones de ensayo y de producción. **No** cambie la configuración mientras se está actualizando la implementación.
 
-First, make sure that the virtual machine instance that you're trying to reserve the IP for is turned on. Second, make sure that you're using Reserved IPs for bother the staging and production deployments. **Do not** change the settings while the deployment is upgrading.
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

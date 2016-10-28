@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Cloud disaster recovery solutions - SQL Database Active Geo-Replication | Microsoft Azure"
-   description="Learn how to use Azure SQL Database geo-replication to support online upgrades of your cloud application."
+   pageTitle="Soluciones de recuperación ante desastres en la nube: replicación geográfica activa de Base de datos SQL | Microsoft Azure"
+   description="Aprenda a usar la replicación geográfica en Base de datos SQL para admitir las actualizaciones en línea de la aplicación en la nube."
    services="sql-database"
    documentationCenter=""
    authors="anosov1960"
@@ -16,135 +16,129 @@
    ms.date="07/16/2016"
    ms.author="sashan"/>
 
-
-# <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Managing rolling upgrades of cloud applications using SQL Database Active Geo-Replication
-
-
-> [AZURE.NOTE] [Active Geo-Replication](sql-database-geo-replication-overview.md) is now available for all databases in all tiers.
+# Administración de actualizaciones graduales de aplicaciones en la nube mediante la replicación geográfica activa de Base de datos SQL
 
 
-Learn how to use [Geo-Replication](sql-database-geo-replication-overview.md) in SQL Database to enable rolling upgrades of your cloud application. Because upgrade is a disruptive operation, it should be part of your business continuity planning and design. In this article we look at two different methods of orchestrating the upgrade process, and discuss the benefits and trade-offs of each option. For the purposes of this article we will use a simple application that consists of a web site connected to a single database as its data tier. Our goal is to upgrade version 1 of the application to version 2 without any significant impact on the end user experience. 
-
-When evaluating the upgrade options you should consider the following factors:
-
-+ Impact on application availability during upgrades. How long the application function may be limited or degraded.
-+ Ability to roll back in case of an upgrade failure.
-+ Vulnerability of the application if an unrelated catastrophic failure occurs during the upgrade.
-+ Total dollar cost.  This includes additional redundancy and incremental costs of the temporary components  used by the upgrade process. 
-
-## <a name="upgrading-applications-that-rely-on-database-backups-for-disaster-recovery"></a>Upgrading applications that rely on database backups for disaster recovery 
-
-If your application relies on automatic database backups and uses geo-restore for disaster recovery, it is usually deployed to a single Azure region. In this case the upgrade process involves creating a backup deployment of all application components involved in the upgrade. To minimize the end-user disruption you will leverage Azure Traffic Manager (WATM) with the failover profile.  The following diagram illustrates the operational environment prior to the upgrade process. The endpoint <i>contoso-1.azurewebsites.net</i> represents a production slot of the application that needs to be upgraded. To enable the ability to rollback the upgrade, you need create a stage slot with a fully synchronized copy of the application. The following steps are required to prepare the application for the upgrade:
-
-1.  Create a stage slot for the upgrade. To do that create a secondary database (1) and deploy a identical web site in the same Azure region. Monitor the secondary to see if the seeding process is completed.
-3.  Create a failover profile in WATM with <i>contoso-1.azurewebsites.net</i> as online endpoint and <i>contoso-2.azurewebsites.net</i> as offline. 
-
-> [AZURE.NOTE] Note the preparation steps will not impact the application in the production slot and it can function in full access mode.
-
-![SQL Database Go-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
-
-Once the preparation steps are completed the application is ready for the actual upgrade. The following diagram illustrates the steps involved in the upgrade process. 
-
-1. Set the primary database in the production slot to read-only mode (3). This will guarantee that the production instance of the application (V1) will remain read-only during the upgrade thus preventing the data divergence between the V1 and V2 database instances.  
-2. Disconnect the secondary database using the planned termination mode (4). It will create a fully synchronized independent copy of the primary database. This database will be upgraded.
-3. Turn the primary database to read-write mode and run the upgrade script in the stage slot  (5).     
-
-![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-2.png)
-
-If the upgrade completed successfully you are now ready to switch the end users to the staged copy the application. It will now become the production slot of the application.  This involves a few more steps as illustrated on the following diagram.
-
-1. Switch the online endpoint in the WATM profile to <i>contoso-2.azurewebsites.net</i>, which points to the V2 version of the web site (6). It now becomes the production slot with the V2 application and the end user traffic is directed to it.  
-2. If you no longer need the V1 application components so you can safely remove them (7).   
-
-![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
-
-If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the stage slot should be considered compromised. To rollback the application to the pre-upgrade state you simply revert the application in the production slot to full access. The steps involved are shown on the next diagram.    
-
-1. Set the database copy to read-write mode (8). This will restore the full V1 functionally in the production slot.
-2. Perform the root cause analysis and remove the compromised components in the stage slot (9). 
-
-At this point the application is fully functional and the upgrade steps can be repeated.
-
-> [AZURE.NOTE] The rollback does not require changes in WATM profile as it already points to <i>contoso-1.azurewebsites.net</i> as the active endpoint.
-
-![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-4.png)
-
-The key **advantage** of this option is that you can upgrade a application in a single region using a set of simple steps. The dollar cost of the upgrade is relatively low. The main **tradeoff** is that if a catastrophic failure occurs during the upgrade the recovery to the pre-upgrade state will involve re-deployment of the application in a different region and restoring the database from backup using geo-restore. This process will result in significant downtime.   
-
-## <a name="upgrading-applications-that-rely-on-database-geo-replication-for-disaster-recovery"></a>Upgrading applications that rely on database Geo-Replication for disaster recovery
-
-If your application leverages Geo-Replication for business continuity, it is deployed  to at least two different regions with an active deployment in Primary region and a standby deployment in Backup region. In addition to the factors mentioned earlier, the upgrade process must guarantee that:
-
-+ The application remains protected from catastrophic failures at all times during the upgrade process
-+ The geo-redundant components of the application are upgraded in parallel with the active components
-
-To achieve these goals you will leverage Azure Traffic Manager (WATM) using the failover profile with one active and three backup endpoints.  The following diagram illustrates the operational environment prior to the upgrade process. The web sites <i>contoso-1.azurewebsites.net</i> and <i>contoso-dr.azurewebsites.net</i> represent a production slot of the application with full geographic redundancy. To enable the ability to rollback the upgrade, you need create a stage slot with a fully synchronized copy of the application. Because you you need to ensure that the application can quickly recover in case a catastrophic failure occurs during the upgrade process the stage slot needs to be geo-redundant as well. The following steps are required to prepare the application for the upgrade:
-
-1.  Create a stage slot for the upgrade. To do that create a secondary database (1) and deploy a identical copy of the web site in the same Azure region . Monitor the secondary to see if the seeding process is completed.
-2.  Create a geo-redundant secondary database in the stage slot by geo-replicating the secondary database to the backup region (this is called "chained geo-replication"). Monitor the backup secondary to see if the seeding process is completed (3).
-3.  Create a standby copy of the web site in the backup region and link it to the geo-redundant secondary (4).  
-4.  Add the additional endpoints <i>contoso-2.azurewebsites.net</i> and <i>contoso-3.azurewebsites.net</i> to the failover profile in WATM as offline endpoints (5). 
-
-> [AZURE.NOTE] Note the preparation steps will not impact the application in the production slot and it can function in full access mode.
-
-![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-1.png)
-
-Once the preparation steps are completed, the stage slot is ready for the upgrade. The following diagram illustrates the upgrade steps.
-
-1. Set the primary database in the production slot to read-only mode (6). This will guarantee that the production instance of the application (V1) will remain read-only during the upgrade thus preventing the data divergence between the V1 and V2 database instances.  
-2. Disconnect the secondary database in the same region using the planned termination mode (7). It will create a fully synchronized independent copy of the primary database, which will automatically become a primary after the termination. This database will be upgraded.
-3. Turn the primary database in the stage slot to read-write mode and run the upgrade script (8).    
-
-![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-2.png)
-
-If the upgrade completed successfully you are now ready to switch the end users to the V2 version of the application. The following diagram illustrates the steps involved.
-
-1. Switch the active endpoint in the WATM profile to <i>contoso-2.azurewebsites.net</i>, which now points to the V2 version of the web site (9). It now becomes a production slot with the V2 application and end user traffic is directed to it. 
-2. If you no longer need the V1 application so you can safely remove it (10 and 11).  
-
-![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
-
-If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the stage slot should be considered compromised. To rollback the application to the pre-upgrade state you simply revert to using the application in the production slot with full access. The steps involved are shown on the next diagram.    
-
-1. Set the primary database copy in the production slot to read-write mode (12). This will restore the full V1 functionally in the production slot.
-2. Perform the root cause analysis and remove the compromised components in the stage slot (13 and 14). 
-
-At this point the application is fully functional and the upgrade steps can be repeated.
-
-> [AZURE.NOTE] The rollback does not require changes in WATM profile as it already points to  <i>contoso-1.azurewebsites.net</i> as the active endpoint.
-
-![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-4.png)
-
-The key **advantage** of this option is that you can upgrade both the application and its geo-redundant copy in parallel without compromising your business continuity during the upgrade. The main **tradeoff** is that it requires double redundancy of each application component and therefore incurs higher dollar cost. It also involves a more complicated workflow. 
-
-## <a name="summary"></a>Summary
-
-The two upgrade methods described in the article differ in complexity and the dollar cost but they both focus on minimizing the time when the end user is limited to read-only operations. That time is directly defined by the duration of the upgrade script. It does not depend on the database size, the service tier you chose, the web site configuration and other factors that you cannot easily control. This is because all the preparation steps are decoupled from the upgrade steps and can be done without impacting the production application. The efficiency of the upgrade script is the key factor that determines the end-user experience during upgrades. So the best way you can improve it is by focusing your efforts on making the upgrade script as efficient as possible.  
+> [AZURE.NOTE] [Active Geo-Replication](sql-database-geo-replication-overview.md) está disponible ahora para todas las bases de datos en todos los niveles.
 
 
-## <a name="next-steps"></a>Next steps
+Aprenda a usar la [replicación geográfica](sql-database-geo-replication-overview.md) en Base de datos SQL para permitir actualizaciones graduales de la aplicación en la nube. Como la actualización es una operación problemática, pues debe ser parte del diseño y planeamiento de continuidad. En este artículo veremos dos métodos diferentes de organizar el proceso de actualización y comentaremos las ventajas y desventajas de cada opción. Para este artículo, usaremos una aplicación simple que consta de un sitio web conectado a una base de datos única como su capa de datos. Nuestro objetivo consiste en actualizar la versión 1 de la aplicación a la versión 2 sin que se observe ningún impacto importante en la experiencia del usuario final.
 
-- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
-- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
-- To learn about using automated backups for recovery, see [restore a database from automated backups](sql-database-recovery-using-backups.md)
-- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
-- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)
+Al evaluar las opciones de actualización, se deben considerar los factores siguientes:
 
-## <a name="additionale-resources"></a>Additionale Resources
++ El impacto sobre la disponibilidad de las aplicaciones durante las actualizaciones. Durante cuánto tiempo la función de aplicación debe estar limitada o degradada.
++ La capacidad para deshacer el proceso en caso de errores durante la actualización.
++ La vulnerabilidad de la aplicación si se produce un error grave no relacionado durante la actualización.
++ El costo total en dólares. Esto incluye una redundancia adicional y costos incrementales de los componentes temporales utilizados por el proceso de actualización.
 
-The following pages will help you learn about the specific operations required to implement the upgrade workflow:
+## La actualización de las aplicaciones que dependen de las copias de seguridad de base de datos para recuperación ante desastres. 
 
-- [Add secondary database](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
-- [Failover database to secondary](https://msdn.microsoft.com/library/azure/mt619393.aspx)
-- [Disconnect Geo-Replication secondary](https://msdn.microsoft.com/library/azure/mt603457.aspx)
-- [Geo-restore database](https://msdn.microsoft.com/library/azure/mt693390.aspx) 
-- [Drop database](https://msdn.microsoft.com/library/azure/mt619368.aspx)
-- [Copy database](https://msdn.microsoft.com/library/azure/mt603644.aspx)
-- [Set database to read-only or read-write mode](https://msdn.microsoft.com/library/bb522682.aspx)
+Si la aplicación se basa en copias de seguridad automáticas y utiliza la restauración geográfica para la recuperación ante desastres, normalmente se implementa en una única región de Azure. En este caso el proceso de actualización implica la creación de una implementación de copia de seguridad de todos los componentes de la aplicación implicados en la actualización. Para minimizar la interrupción para el usuario final, se aprovechará del Administrador de tráfico de Azure (WATM) con el perfil de conmutación por error. En el siguiente diagrama se ilustra el entorno operativo antes del proceso de actualización. El punto de conexión <i>contoso-1.azurewebsites.net</i> representa una ranura de producción de la aplicación que debe actualizarse. Para habilitar la capacidad de revertir la actualización, necesita crear una ranura de almacenamiento provisional con una copia totalmente sincronizada de la aplicación. Los siguientes pasos son necesarios para preparar la aplicación para la actualización:
+
+1.  Cree una ranura de almacenamiento provisional para la actualización. Para ello, cree una base de datos secundaria (1) e implemente un sitio web idéntico en la misma región de Azure. Supervise la base de datos secundaria para ver si se completa el proceso de propagación.
+3.  Cree un perfil de conmutación por error de WATM con <i>contoso-1.azurewebsites.net</i> como punto de conexión en línea y <i>contoso 2.azurewebsites.net</i> como punto de conexión desconectado.
+
+> [AZURE.NOTE] Tenga en cuenta los pasos preparatorios no afectarán a la aplicación de la ranura de producción y puede funcionar en modo de acceso completo.
+
+![Configuración de la replicación geográfica de la Base de datos SQL. Recuperación ante desastres en la nube.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
+
+Una vez completados los pasos preparatorios, la aplicación está preparada para la actualización real. En el siguiente diagrama se ilustran los pasos implicados en el proceso de actualización.
+
+1. Establezca la base de datos principal en la ranura de producción en modo de solo lectura (3). Esto garantizará que la instancia de producción de la aplicación (V1) seguirá siendo de solo lectura durante la actualización, con lo que se impide la divergencia de datos entre las instancias de base de datos de V1 y V2.
+2. Desconecte la base de datos secundaria con el modo de finalización planeada (4). Se creará una copia independiente totalmente sincronizada de la base de datos principal. Esta base de datos se actualizará.
+3. Cambie la base de datos principal al modo de lectura y escritura, y ejecute el script de actualización en la ranura de almacenamiento provisional (5).
+
+![Configuración de replicación geográfica de Base de datos SQL. Recuperación ante desastres en la nube.](media/sql-database-manage-application-rolling-upgrade/Option1-2.png)
+
+Si la actualización se completó correctamente, ya está listo para cambiar los usuarios finales a la copia almacenada provisionalmente. Ahora se convertirá en la ranura de producción de la aplicación. Esto implica unos pocos pasos más, tal como se muestra en el diagrama siguiente.
+
+1. Cambie el punto de conexión en línea en el perfil de WATM a <i>contoso-2.azurewebsites.net</i>, que señala a la versión V2 del sitio web (6). Ahora se convierte en la ranura de producción con la aplicación V2 y el tráfico de usuarios finales se dirige a él.
+2. Si ya no necesita los componentes de la aplicación V1, puede quitarlos (7).
+
+![Configuración de replicación geográfica de Base de datos SQL. Recuperación ante desastres en la nube.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
+
+Si el proceso de actualización es incorrecto, por ejemplo debido a un error en el script de actualización, la ranura de almacenamiento provisional debe considerarse en peligro. Para revertir la aplicación al estado previo a la actualización, simplemente revierta la aplicación en la ranura de producción al acceso completo. En el diagrama siguiente se muestran los pasos implicados.
+
+1. Establezca la copia de la base de datos en modo de lectura y escritura (8). Esto restaurará la funcionalidad de V1 completa en la ranura de producción.
+2. Realice el análisis de causa raíz y quite los componentes en peligro de la ranura de almacenamiento provisional (9).
+
+En este punto, la aplicación es totalmente funcional y se pueden repetir los pasos de actualización.
+
+> [AZURE.NOTE] La reversión no requiere cambios en el perfil de WATM, ya que apunta a <i>contoso-1.azurewebsites.net</i> como el punto de conexión activo.
+
+![Configuración de replicación geográfica de Base de datos SQL. Recuperación ante desastres en la nube.](media/sql-database-manage-application-rolling-upgrade/Option1-4.png)
+
+La principal **ventaja** de esta opción es que se puede actualizar una aplicación en una sola región mediante un conjunto de pasos sencillos. El costo de la actualización es relativamente bajo. La principal **contrapartida** es que si se produce un error grave durante la actualización, la recuperación al estado previo a la actualización implicará que haya que volver a implementar la aplicación en una región distinta y restaurar la base de datos desde la copia de seguridad mediante la restauración geográfica. Este proceso dará como resultado un tiempo de inactividad considerable.
+
+## Actualización de aplicaciones que dependen de la replicación geográfica para la recuperación ante desastres
+
+Si la aplicación aprovecha la replicación geográfica para la continuidad empresarial, se implementa en al menos dos regiones diferentes con una implementación activa en la región primaria y una implementación en espera en la región de copia de seguridad. Además de los factores mencionados anteriormente, el proceso de actualización debe garantizar que:
+
++ La aplicación permanece protegida frente a errores catastróficos en todo momento durante el proceso de actualización.
++ Los componentes con redundancia geográfica de la aplicación se actualizan en paralelo con los componentes activos.
+
+Para lograr estos objetivos, aprovechará el Administrador de tráfico de Azure (WATM) con el perfil de conmutación por error con un punto de conexión activo y tres de copia de seguridad. En el siguiente diagrama se ilustra el entorno operativo antes del proceso de actualización. Los sitios web <i>contoso-1.azurewebsites.net</i> y <i>contoso-dr.azurewebsites.net</i> representan una ranura de producción de la aplicación con redundancia geográfica completa. Para habilitar la capacidad de revertir la actualización, necesita crear una ranura de almacenamiento provisional con una copia totalmente sincronizada de la aplicación. Dado que debe asegurarse de que la aplicación puede recuperarse rápidamente en caso de que se produzca un error grave durante el proceso de actualización, la ranura de almacenamiento provisional tiene que tener también redundancia geográfica. Los siguientes pasos son necesarios para preparar la aplicación para la actualización:
+
+1.  Cree una ranura de almacenamiento provisional para la actualización. Para ello, cree una base de datos secundaria (1) e implemente una copia idéntica del sitio web en la misma región de Azure. Supervise la base de datos secundaria para ver si se completa el proceso de propagación.
+2.  Cree una base de datos secundaria con redundancia geográfica en la ranura de almacenamiento provisional mediante la replicación geográfica de la base de datos secundaria a la región de copia de seguridad (esto se denomina "replicación geográfica encadenada"). Supervise la copia de seguridad secundaria para ver si se completa el proceso de propagación (3).
+3.  Cree una copia en espera del sitio web de la región de copia de seguridad y vincúlela a la base de datos secundaria con redundancia geográfica (4).
+4.  Agregue los puntos de conexión adicionales <i>contoso-2.azurewebsites.net</i> y <i>contoso-3.azurewebsites.net</i> al perfil de conmutación por error de WATM como puntos de conexión desconectado (5).
+
+> [AZURE.NOTE] Tenga en cuenta los pasos preparatorios no afectarán a la aplicación de la ranura de producción y puede funcionar en modo de acceso completo.
+
+![Configuración de replicación geográfica de Base de datos SQL. Recuperación ante desastres en la nube.](media/sql-database-manage-application-rolling-upgrade/Option2-1.png)
+
+Una vez completados los pasos preparatorios, la ranura de almacenamiento provisional estará preparada para la actualización. En el siguiente diagrama se ilustran los pasos de actualización:
+
+1. Establezca la base de datos principal en la ranura de producción en modo de solo lectura (6). Esto garantizará que la instancia de producción de la aplicación (V1) seguirá siendo de solo lectura durante la actualización, con lo que se impide la divergencia de datos entre las instancias de base de datos de V1 y V2.
+2. Desconecte la base de datos secundaria de la misma región con el modo de finalización planeada (7). Se creará una copia independiente totalmente sincronizada de la base de datos principal, que se convertirá automáticamente en principal después de la finalización. Esta base de datos se actualizará.
+3. Cambie la base de datos principal de la ranura de almacenamiento provisional en modo de lectura y escritura, y ejecute el script de actualización (8).
+
+![Configuración de replicación geográfica de Base de datos SQL. Recuperación ante desastres en la nube.](media/sql-database-manage-application-rolling-upgrade/Option2-2.png)
+
+Si la actualización se completó correctamente, ya está listo para cambiar los usuarios finales a la versión V2 de la aplicación. En el siguiente diagrama se ilustran los pasos implicados.
+
+1. Cambie el punto de conexión activo en el perfil de WATM a <i>contoso-2.azurewebsites.net</i>, que ahora señala a la versión V2 del sitio web (9). Ahora se convierte en una ranura de producción con la aplicación V2 y el tráfico de usuarios finales se dirige a ella.
+2. Si ya no necesita la aplicación V1, puede quitarla con seguridad (10 y 11).
+
+![Configuración de replicación geográfica de Base de datos SQL. Recuperación ante desastres en la nube.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
+
+Si el proceso de actualización es incorrecto, por ejemplo debido a un error en el script de actualización, la ranura de almacenamiento provisional debe considerarse en peligro. Para revertir la aplicación al estado previo a la actualización, simplemente reviértala para usar la aplicación en la ranura de producción con acceso completo. En el diagrama siguiente se muestran los pasos implicados.
+
+1. Establezca la base de datos principal en la ranura de producción en modo de lectura y escritura (12). Esto restaurará la funcionalidad de V1 completa en la ranura de producción.
+2. Realice el análisis de causa raíz y quite los componentes en peligro de la ranura de almacenamiento provisional (13 y 14).
+
+En este punto, la aplicación es totalmente funcional y se pueden repetir los pasos de actualización.
+
+> [AZURE.NOTE] La reversión no requiere cambios en el perfil de WATM, ya que apunta a <i>contoso-1.azurewebsites.net</i> como el punto de conexión activo.
+
+![Configuración de replicación geográfica de Base de datos SQL. Recuperación ante desastres en la nube.](media/sql-database-manage-application-rolling-upgrade/Option2-4.png)
+
+La principal **ventaja** de esta opción es que puede actualizar tanto la aplicación como su copia con redundancia geográfica en paralelo, sin poner en peligro la continuidad del negocio durante la actualización. La principal **contrapartida** es que requiere redundancia doble de cada componente de aplicación y, por tanto, implica un mayor costo. También implica un flujo de trabajo más complicado.
+
+## Resumen
+
+Los dos métodos de actualización que se describen en el artículo difieren en complejidad y en costo, pero ambos se centran en minimizar el tiempo en que el usuario final está limitado a las operaciones de solo lectura. La duración del script de actualización define directamente ese tiempo. No depende del tamaño de la base de datos, del nivel de servicio que haya seleccionado, de la configuración del sitio web y de otros factores que no se pueden controlar fácilmente. Esto es porque todos los pasos preparatorios se desacoplan de los pasos de actualización y pueden realizarse sin que afecten a la aplicación de producción. La eficacia del script de actualización es el factor clave que determina la experiencia del usuario final durante las actualizaciones. Por tanto, la mejor manera de que pueda mejorarlo es centrar sus esfuerzos en hacer que el script de actualización sea lo más eficiente posible.
 
 
+## Pasos siguientes
 
+- Para obtener una descripción general y los escenarios de la continuidad empresarial, consulte [Información general sobre la continuidad empresarial](sql-database-business-continuity.md).
+- Para obtener información sobre las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md).
+- Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte cómo [restaurar una base de datos a partir de las copias de seguridad automatizadas](sql-database-recovery-using-backups.md).
+- Para conocer las opciones de recuperación más rápidas, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
+- Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el artículo de [copia de bases de datos](sql-database-copy.md).
 
-<!--HONumber=Oct16_HO2-->
+## Recursos adicionales
 
+Las páginas siguientes le ayudarán a comprender las operaciones específicas necesarias para implementar el flujo de trabajo de actualización:
 
+- [Agregar una base de datos secundaria](https://msdn.microsoft.com/library/azure/mt603689.aspx)
+- [Conmutar por error la base de datos en la secundaria](https://msdn.microsoft.com/library/azure/mt619393.aspx)
+- [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/azure/mt603457.aspx)
+- [Restaurar geográficamente la base de datos](https://msdn.microsoft.com/library/azure/mt693390.aspx)
+- [Quitar la base de datos](https://msdn.microsoft.com/library/azure/mt619368.aspx)
+- [Copiar la base de datos](https://msdn.microsoft.com/library/azure/mt603644.aspx)
+- [Establecer la base de datos en modo de solo lectura o de lectura y escritura](https://msdn.microsoft.com/library/bb522682.aspx)
+
+<!---HONumber=AcomDC_0727_2016-->

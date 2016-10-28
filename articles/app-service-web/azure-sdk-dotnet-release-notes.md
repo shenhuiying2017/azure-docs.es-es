@@ -1,82 +1,77 @@
 <properties 
-    pageTitle="Azure SDK for .NET Release Notes" 
-    description="Azure SDK for .NET Release Notes" 
-    services="app-service/web" 
-    documentationCenter="" 
-    authors="Juliako" 
-    manager="dwrede" 
-    editor=""/>
+	pageTitle="Notas de la versión de SDK de Azure par .NET" 
+	description="Notas de la versión de SDK de Azure para .NET" 
+	services="app-service/web" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags
-   ms.service="app-service"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="10/17/2016"
-   ms.author="juliako"/>
-
-
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/25/2016" 
+	ms.author="juliako"/>
 
 
-#<a name="azure-sdk-for-.net-release-notes"></a>Azure SDK for .NET Release Notes
 
-This topic contains links to Azure SDK for .NET Release Notes. 
+#Notas de la versión de SDK de Azure para .NET
+
+Este tema contiene vínculos a las notas de la versión de SDK de Azure para .NET.
 
 
-##<a name="azure-sdk-for-.net-2.9-release-notes"></a>Azure SDK for .NET 2.9 Release Notes
+##Notas de la versión de SDK de Azure para .NET 2.9
 
-[Azure SDK for .NET 2.9 Release Notes](azure-sdk-dotnet-release-notes-2-9.md)
+[Notas de la versión de SDK de Azure para .NET 2.9](azure-sdk-dotnet-release-notes-2-9.md)
 
-##<a name="azure-sdk-for-.net-2.8-release-notes"></a>Azure SDK for .NET 2.8 Release Notes
+##Notas de la versión de SDK de Azure para .NET 2.8.
 
-[Azure SDK for .NET 2.8 Release Notes](azure-sdk-dotnet-release-notes-2-8.md)
+[Notas de la versión de SDK de Azure para .NET 2.8](azure-sdk-dotnet-release-notes-2-8.md)
 
-##<a name="azure-sdk-for-.net-2.7-release-notes"></a>Azure SDK for .NET 2.7 Release Notes
+##Notas de la versión de SDK de Azure para .NET 2.7
 
-[Azure SDK for .NET 2.7 Release Notes](azure-sdk-dotnet-release-notes-2-7.md)
+[Notas de la versión de SDK de Azure para .NET 2.7](azure-sdk-dotnet-release-notes-2-7.md)
 
-##<a name="azure-sdk-for-.net-2.6-release-notes"></a>Azure SDK for .NET 2.6 Release Notes
+##Notas de la versión de SDK de Azure para .NET 2.6
 
-[Azure SDK for .NET 2.6 Release Notes](azure-sdk-dotnet-release-notes-2-6.md)
+[Notas de la versión de SDK de Azure para .NET 2.6](azure-sdk-dotnet-release-notes-2-6.md)
 
-##<a name="azure-sdk-for-.net-2.5.1-release-notes"></a>Azure SDK for .NET 2.5.1 Release Notes
+##Notas de la versión de SDK de Azure para .NET 2.5.1.
 
-[Azure SDK for .NET 2.5.1 Release Notes](../app-service/app-service-release-notes.md)
+[Notas de la versión de SDK de Azure para .NET 2.5.1](../app-service/app-service-release-notes.md)
 
-##<a name="azure-sdk-for-.net-2.5-release-notes"></a>Azure SDK for .NET 2.5 Release Notes
+##Notas de la versión de SDK de Azure para .NET 2.5
 
-[Azure SDK for .NET 2.5 Release Notes](https://msdn.microsoft.com/library/azure/dn873976.aspx)
+[Notas de la versión de SDK de Azure para .NET 2.5](https://msdn.microsoft.com/library/azure/dn873976.aspx)
 
-##<a name="azure-sdk-for-.net-2.4-release-notes"></a>Azure SDK for .NET 2.4 Release Notes
+##Notas de la versión de SDK de Azure para .NET 2.4
 
-[Azure SDK for .NET 2.4 Release Notes](https://msdn.microsoft.com/library/azure/dn794167.aspx)
+[Notas de la versión de SDK de Azure para .NET 2.4](https://msdn.microsoft.com/library/azure/dn794167.aspx)
 
-##<a name="azure-sdk-for-.net-2.3-release-notes"></a>Azure SDK for .NET 2.3 Release Notes
+##Notas de la versión de SDK de Azure para .NET 2.3
 
-[Azure SDK for .NET 2.3 Release Notes](https://msdn.microsoft.com/library/azure/dn655054.aspx)
+[Notas de la versión de SDK de Azure para .NET 2.3](https://msdn.microsoft.com/library/azure/dn655054.aspx)
 
-##<a name="azure-sdk-for-.net-2.2-release-notes"></a>Azure SDK for .NET 2.2 Release Notes
+##Notas de la versión de SDK de Azure para .NET 2.2
 
-[Azure SDK for .NET 2.2 Release Notes](https://msdn.microsoft.com/library/azure/dn459835.aspx)
+[Notas de la versión de SDK de Azure para .NET 2.2](https://msdn.microsoft.com/library/azure/dn459835.aspx)
 
-##<a name="azure-sdk-for-.net-2.1-release-notes"></a>Azure SDK for .NET 2.1 Release Notes
+##Notas de la versión de SDK de Azure para .NET 2.1
 
-[Azure SDK for .NET 2.1 Release Notes](https://msdn.microsoft.com/library/azure/dn407359.aspx)
+[Notas de la versión de SDK de Azure para .NET 2.1](https://msdn.microsoft.com/library/azure/dn407359.aspx)
 
-##<a name="azure-sdk-for-.net-2.0-release-notes"></a>Azure SDK for .NET 2.0 Release Notes
+##Notas de la versión de SDK de Azure para .NET 2.0
 
-[Azure SDK for .NET 2.0 Release Notes](https://msdn.microsoft.com/library/azure/dn169556.aspx)
+[Notas de la versión de SDK de Azure para .NET 2.0](https://msdn.microsoft.com/library/azure/dn169556.aspx)
 
-##<a name="related-topics"></a>Related topics
+##Temas relacionados
 
-[Azure SDK for .NET](https://azure.microsoft.com/downloads/archive-net-downloads/)
+[SDK de Azure para .NET](https://azure.microsoft.com/downloads/archive-net-downloads/)
 
-[Azure SDK Release Notes on MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx)
+[Notas de la versión del SDK de Azure en MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

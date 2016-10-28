@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with LogicMonitor | Microsoft Azure" 
-    description="Learn how to use LogicMonitor with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Tutorial: Integración de Azure Active Directory con LogicMonitor | Microsoft Azure" 
+    description="Aprenda a usar LogicMonitor con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,149 +11,139 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="09/29/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-logicmonitor"></a>Tutorial: Azure Active Directory integration with LogicMonitor
+#Tutorial: Integración de Azure Active Directory con LogicMonitor
   
-The objective of this tutorial is to show the integration of Azure and LogicMonitor.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+El objetivo de este tutorial es mostrar la integración de Azure y LogicMonitor. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
--   A valid Azure subscription
--   A LogicMonitor tenant
+-   Una suscripción de Azure válida
+-   Un inquilino de LogicMonitor
   
-The scenario outlined in this tutorial consists of the following building blocks:
+La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
-1.  Enabling the application integration for LogicMonitor
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+1.  Habilitación de la integración de aplicaciones para LogicMonitor
+2.  Configuración del inicio de sesión único
+3.  Configuración del aprovisionamiento de usuario
+4.  Asignación de usuarios
 
-![Scenario](./media/active-directory-saas-logicmonitor-tutorial/IC790045.png "Scenario")
-##<a name="enabling-the-application-integration-for-logicmonitor"></a>Enabling the application integration for LogicMonitor
+![Escenario](./media/active-directory-saas-logicmonitor-tutorial/IC790045.png "Escenario")
+##Habilitación de la integración de aplicaciones para LogicMonitor
   
-The objective of this section is to outline how to enable the application integration for LogicMonitor.
+El objetivo de esta sección es describir cómo habilitar la integración de aplicaciones para LogicMonitor.
 
-###<a name="to-enable-the-application-integration-for-logicmonitor,-perform-the-following-steps:"></a>To enable the application integration for LogicMonitor, perform the following steps:
+###Siga estos pasos para habilitar la integración de aplicaciones para LogicMonitor:
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-logicmonitor-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
 
-    ![Applications](./media/active-directory-saas-logicmonitor-tutorial/IC700994.png "Applications")
+    ![Aplicaciones](./media/active-directory-saas-logicmonitor-tutorial/IC700994.png "Aplicaciones")
 
-4.  Click **Add** at the bottom of the page.
+4.  Haga clic en **Agregar** en la parte inferior de la página.
 
-    ![Add application](./media/active-directory-saas-logicmonitor-tutorial/IC749321.png "Add application")
+    ![Agregar aplicación](./media/active-directory-saas-logicmonitor-tutorial/IC749321.png "Agregar aplicación")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-logicmonitor-tutorial/IC749322.png "Add an application from gallerry")
+    ![Agregar una aplicación de la galería](./media/active-directory-saas-logicmonitor-tutorial/IC749322.png "Agregar una aplicación de la galería")
 
-6.  In the **search box**, type **logicmonitor**.
+6.  En el **cuadro de búsqueda**, escriba **logicmonitor**.
 
-    ![Application Gallery](./media/active-directory-saas-logicmonitor-tutorial/IC790046.png "Application Gallery")
+    ![Galería de aplicaciones](./media/active-directory-saas-logicmonitor-tutorial/IC790046.png "Galería de aplicaciones")
 
-7.  In the results pane, select **LogicMonitor**, and then click **Complete** to add the application.
+7.  En el panel de resultados, seleccione **LogicMonitor** y luego haga clic en **Completar** para agregar la aplicación.
 
     ![LogicMonitor](./media/active-directory-saas-logicmonitor-tutorial/IC790047.png "LogicMonitor")
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Configuración del inicio de sesión único
   
-The objective of this section is to outline how to enable users to authenticate to LogicMonitor with their account in Azure AD using federation based on the SAML protocol.
+El objetivo de esta sección es describir cómo habilitar la autenticación de usuarios en LogicMonitor con su cuenta de Azure AD mediante federación basada en el protocolo SAML.
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  In the Azure classic portal, on the **LogicMonitor **application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  En el Portal de Azure clásico, en la página de **integración de aplicaciones de LogicMonitor**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790048.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-logicmonitor-tutorial/IC790048.png "Configurar inicio de sesión único")
 
-2.  On the **How would you like users to sign on to LogicMonitor** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  En la página **¿Cómo desea que los usuarios inicien sesión en LogicMonitor?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790049.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-logicmonitor-tutorial/IC790049.png "Configurar inicio de sesión único")
 
-3.  On the **Configure App URL** page, in the **Sign On URL** textbox, type your URL used by your users to sign on to LogicMonitor \(e,g,: "*http://company.logicmonitor.com*"\), and then click **Next**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que los usuarios utilizan para iniciar sesión en LogicMonitor (por ejemplo: "*http://company.logicmonitor.com*"\) y haga clic en **Siguiente**.
 
-    ![Configure App URL](./media/active-directory-saas-logicmonitor-tutorial/IC790050.png "Configure App URL")
+    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-logicmonitor-tutorial/IC790050.png "Configurar dirección URL de la aplicación")
 
-4.  On the **Configure single sign-on at LogicMonitor** page, click **Download metadata**, and then save it on your computer.
+4.  En la página **Configuración de inicio de sesión único en LogicMonitor**, haga clic en **Descargar metadatos** y luego guarde el archivo en el equipo.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790051.png "Configure Single Sign-On")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-logicmonitor-tutorial/IC790051.png "Configurar inicio de sesión único")
 
-5.  Log in to your **LogicMonitor** company site as an administrator.
+5.  Inicie sesión como administrador en el sitio de la compañía de **LogicMonitor**.
 
-6.  In the menu on the top, click **Settings**.
+6.  En el menú de la parte superior, haga clic en **Configuración**.
 
     ![Settings](./media/active-directory-saas-logicmonitor-tutorial/IC790052.png "Settings")
 
-7.  In the navigation bat on the left side, click **Single Sign On**
+7.  En la barra de navegación del lado izquierdo, haga clic en **Inicio de sesión único**.
 
-    ![Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790053.png "Single Sign-On")
+    ![Inicio de sesión único](./media/active-directory-saas-logicmonitor-tutorial/IC790053.png "Inicio de sesión único")
 
-8.  In the **Single Sign-on (SSO) settings** section, perform the following steps:
+8.  En la sección **Configuración del inicio de sesión único**, siga estos pasos:
 
-    ![Single Sign-On Settings](./media/active-directory-saas-logicmonitor-tutorial/IC790054.png "Single Sign-On Settings")
+    ![Configuración de inicio de sesión único](./media/active-directory-saas-logicmonitor-tutorial/IC790054.png "Configuración de inicio de sesión único")
 
-    1.  Select **Enable Single Sign-on**.
-    2.  As **Default Role Assignment**, select **readonly**.
-    3.  Open the downloaded metadata file in notepad, and then paste content of the file into the **Identity Provider Metadata** textbox.
-    4.  Click **Save Changes**.
+    1.  Seleccione **Habilitar inicio de sesión único**.
+    2.  Como **Asignación de rol predeterminado**, seleccione **readonly**.
+    3.  Abra el archivo de metadatos descargado en el Bloc de notas y luego pegue el contenido del archivo en el cuadro de texto **Metadatos del proveedor de identidades**.
+    4.  Haga clic en **Guardar cambios**.
 
-9.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+9.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790055.png "Configure Single Sign-On")
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+    ![Configurar inicio de sesión único](./media/active-directory-saas-logicmonitor-tutorial/IC790055.png "Configurar inicio de sesión único")
+##Configuración del aprovisionamiento de usuario
   
-For AAD users to be able to sign in, they must be provisioned to the LogicMonitor application using their Azure Active Directory user names.
+Para que los usuarios de AAD puedan inician sesión, deben aprovisionarse para la aplicación LogicMonitor con sus nombres de usuario de Azure Active Directory.
 
-###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
+###Siga estos pasos para configurar el aprovisionamiento de usuario:
 
-1.  Log in to your LogicMonitor company site as an administrator.
+1.  Inicie sesión como administrador en el sitio de la compañía de LogicMonitor.
 
-2.  In the menu on the top, click **Settings**, and then click **Roles and Users**.
+2.  En el menú de la parte superior, haga clic en **Configuración** y, luego, en **Roles y usuarios**.
 
-    ![Roles and Users](./media/active-directory-saas-logicmonitor-tutorial/IC790056.png "Roles and Users")
+    ![Roles y usuarios](./media/active-directory-saas-logicmonitor-tutorial/IC790056.png "Roles y usuarios")
 
-3.  Click **Add**.
+3.  Haga clic en **Agregar**.
 
-4.  In the **Add an account** section, perform the following steps:
+4.  En la sección **Agregar una cuenta**, realice estos pasos:
 
-    ![Add an account](./media/active-directory-saas-logicmonitor-tutorial/IC790057.png "Add an account")
+    ![Agregar una cuenta](./media/active-directory-saas-logicmonitor-tutorial/IC790057.png "Agregar una cuenta")
 
-    1.  Type the **Username**, **Email**, **Password** and **Retype password** values of the Azure Active Directory user you want to provision into the related textboxes.
-    2.  Select **Roles**, **View Permissions** and the **Status**.
-    3.  Click **Submit**.
+    1.  En los cuadros de texto correspondientes, escriba los valores de **Nombre de usuario**, **Correo electrónico**, **Contraseña** y **Vuelva a escribir contraseña** del usuario de Azure Active Directory que quiera aprovisionar.
+    2.  Seleccione **Roles**, **Ver permisos** y **Estado**.
+    3.  Haga clic en **Enviar**.
 
->[AZURE.NOTE]You can use any other LogicMonitor user account creation tools or APIs provided by LogicMonitor to provision Azure Active Directory user accounts.
+>[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de LogicMonitor que proporcione LogicMonitor para aprovisionar cuentas de usuario de Azure Active Directory.
 
-##<a name="assigning-users"></a>Assigning users
+##Asignación de usuarios
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Para probar la configuración, debe asignar los usuarios de Azure AD que quiera que usen su aplicación para concederles acceso a ella.
 
-###<a name="to-assign-users-to-logicmonitor,-perform-the-following-steps:"></a>To assign users to LogicMonitor, perform the following steps:
+###Para asignar usuarios a LogicMonitor, siga estos pasos:
 
-1.  In the Azure classic portal, create a test account.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
-2.  On the **LogicMonitor** application integration page, click **Assign users**.
+2.  En la página de integración de aplicaciones de **LogicMonitor**, haga clic en **Asignar usuarios**.
 
-    ![Assign Users](./media/active-directory-saas-logicmonitor-tutorial/IC790058.png "Assign Users")
+    ![Asignar usuarios](./media/active-directory-saas-logicmonitor-tutorial/IC790058.png "Asignar usuarios")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
-    ![Yes](./media/active-directory-saas-logicmonitor-tutorial/IC767830.png "Yes")
+    ![Sí](./media/active-directory-saas-logicmonitor-tutorial/IC767830.png "Sí")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

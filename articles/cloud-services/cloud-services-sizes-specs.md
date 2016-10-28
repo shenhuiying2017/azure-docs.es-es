@@ -1,6 +1,6 @@
 <properties
- pageTitle="Sizes for cloud services"
- description="Lists the different virtual machine sizes for Azure cloud service web and worker roles."
+ pageTitle="Tamaños de los servicios en la nube"
+ description="Enumera los diferentes tamaños de máquina virtual para los roles web y de trabajo del servicio en la nube de Azure."
  services="cloud-services"
  documentationCenter=""
  authors="Thraka"
@@ -15,142 +15,141 @@
  ms.date="08/10/2016"
  ms.author="adegeo"/>
 
+# Tamaños de los servicios en la nube
 
-# <a name="sizes-for-cloud-services"></a>Sizes for Cloud Services
+En este tema se describen las opciones y los tamaños disponibles para las instancias de rol de servicio en la nube (roles web y roles de trabajo). También ofrece consideraciones de implementación que hay que tener en cuenta a la hora de planear usar estos recursos.
 
-This topic describes the available sizes and options for Cloud Service role instances (web roles and worker roles). It also provides deployment considerations to be aware of when planning to use these resources.
+Servicios en la nube es uno de los distintos tipos de recursos de proceso que ofrece Azure. Para obtener más información sobre Servicios en la nube, haga clic [aquí](cloud-services-choose-me.md).
 
-Cloud Services is one of several types of compute resources offered by Azure. Click [here](cloud-services-choose-me.md) for more information about Cloud Services.
+> [AZURE.NOTE]Para ver límites relacionados de Azure, consulte [Suscripción de Azure y límites de servicio, cuotas y restricciones](../azure-subscription-service-limits.md)
 
-> [AZURE.NOTE]To see related Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
+## Tamaños de instancias de roles web y de trabajo
 
-## <a name="sizes-for-web-and-worker-role-instances"></a>Sizes for web and worker role instances
+Las consideraciones siguientes pueden ayudarle a decidirse por un tamaño:
 
-The following considerations might help you decide on a size:
+* Las instancias de máquinas virtuales de la serie D están diseñadas para ejecutar aplicaciones que exigen mayor capacidad de proceso y rendimiento de disco temporal. Las máquinas virtuales de la serie D proporcionan procesadores más rápidos, una mayor proporción de memoria a núcleo y una unidad de estado sólido (SSD) para el disco temporal. Para obtener más información, consulte el anuncio en el blog de Azure, [Nuevos tamaños de máquinas virtuales de la serie D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
-* D-series VM instances are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).  
+* Serie de Dv2, una evolución de la serie D original, presenta una CPU más eficaz. La CPU de la serie Dv2 es un 35 % aproximadamente más rápida que la CPU de la serie D. Se basa en el procesador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz de la última generación; y con Intel Turbo Boost Technology 2.0, puede alcanzar los 3,1 GHz. La serie Dv2 tiene las mismas configuraciones de disco y memoria que la serie D.
 
-* Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
+* Los roles web y los roles de trabajo requieren más espacio en el disco temporal que las máquinas virtuales de Azure debido a los requisitos del sistema. Los archivos del sistema reservan 4 GB de espacio para el archivo de paginación de Windows y 2 GB de espacio para el archivo de volcado de memoria de Windows.
 
-* Web roles and worker roles require more temporary disk space than Azure Virtual Machines because of system requirements. The system files reserve 4 GB of space for the Windows page file, and 2 GB of space for the Windows dump file.  
+* El disco del sistema operativo contiene el sistema operativo invitado de Windows e incluye la carpeta Archivos de programa (incluidas las instalaciones realizadas a través de tareas de inicio a menos que especifique otro disco), cambios del Registro, la carpeta System32 y .NET Framework.
 
-* The OS disk contains the Windows guest OS and includes the Program Files folder (including installations done via startup tasks unless you specify another disk), registry changes, the System32 folder, and the .NET framework.  
+* El **disco de almacenamiento temporal** contiene registros de Azure y archivos de configuración, Diagnósticos de Azure (que incluye sus registros de IIS) y cualquier recurso de almacenamiento local que defina.
 
-* The **temporary storage disk** contains Azure logs and configuration files, Azure Diagnostics (which includes your IIS logs), and any local storage resources you define.  
+* El **disco de aplicaciones** es donde se extrae su .cspkg e incluye su sitio web, los archivos binarios, el proceso de host de rol, las tareas de inicio, web.config, etc.
 
-* The **application disk** is where your .cspkg is extracted and includes your website, binaries, role host process, startup tasks, web.config, and so on.  
+* Los tamaños de máquina virtual A8/A10 y A9/A11 tienen las mismas capacidades. Las instancias de máquina virtual A8 y A9 incluyen otro adaptador de red que se conecta a una red de acceso de memoria directa remota (RDMA) para una rápida comunicación entre máquinas virtuales. Las instancias A8 y A9 están diseñadas para aplicaciones informáticas de alto rendimiento que requieren una comunicación constante y de baja latencia entre nodos durante la ejecución, por ejemplo, aplicaciones que utilizan la interfaz de paso de mensajes (MPI). Las instancias de máquina virtual A10 y A11 no incluyen el adaptador de red adicional. Las instancias A10 y A11 están diseñadas para aplicaciones informáticas de alto rendimiento que no requieren la comunicación constante y de baja latencia entre nodos, también conocidas como aplicaciones paramétricas o embarazosamente paralelas.
 
-* The A8/A10 and A9/A11 virtual machine sizes have the same capacities. The A8 and A9 virtual machine instances include an additional network adapter that is connected to a remote direct memory access (RDMA) network for fast communication between virtual machines. The A8 and A9 instances are designed for high-performance computing applications that require constant and low-latency communication between nodes during execution, for example, applications that use the Message Passing Interface (MPI). The A10 and A11 virtual machine instances do not include the additional network adapter. A10 and A11 instances are designed for high-performance computing applications that do not require constant and low-latency communication between nodes, also known as parametric or embarrassingly parallel applications.
+    >[AZURE.NOTE] Si está considerando la posibilidad de usar tamaños de A8 a A11, lea [esta información](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
-    >[AZURE.NOTE] If you're considering sizes A8 through A11, please read [this](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) information.
+>[AZURE.NOTE] Todos los tamaños de máquina proporcionan un **disco de aplicaciones** que almacena todos los archivos del paquete de servicio de la nube. Tiene aproximadamente 1,5 GB de tamaño.
 
->[AZURE.NOTE] All machine sizes provide an **application disk** that stores all the files from your cloud service package; it is around 1.5 GB in size. 
+Asegúrese de consultar los [precios](https://azure.microsoft.com/pricing/details/cloud-services/) de cada tamaño de servicio en la nube.
 
-Please make sure you review the [pricing](https://azure.microsoft.com/pricing/details/cloud-services/) of each Cloud Service size.
+## Uso general
 
-## <a name="general-purpose"></a>General purpose
+Para sitios web, bases de datos pequeñas y medianas y otras aplicaciones habituales.
 
-For websites, small-to-medium databases, and other everyday applications.
+>[AZURE.NOTE] La capacidad de almacenamiento se representa mediante 1024^3 bytes como unidad de medida para GB. En ocasiones, esto se conoce como gibibyte o definición de base 2 Al comparar los tamaños que utilizan distintos sistemas de base, tenga en cuenta que los tamaños de base 2 podrían parecer más pequeños que los de base 10. No obstante, para cualquier tamaño específico (como 1 GB), un sistema de base 2 ofrece más capacidad que un sistema de base 10, ya que 1024^3 es mayor que 1000^3.
 
->[AZURE.NOTE] Storage capacity is represented by using 1024^3 bytes as the unit of measurement for GB. This is sometimes referred to as gibibyte, or base 2 definition. When comparing sizes that use different base systems, remember that base 2 sizes may appear smaller than base 10 but for any specific size (such as 1 GB) a base 2 system provides more capacity than a base 10 system, because 1024^3 is greater than 1000^3. 
-
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| Tamaño (id.) | Núcleos | RAM | Ancho de banda neto | Tamaño total del disco |
 | --------------- | :-------: | ------: | :-----------: | -------: |
-| ExtraSmall      | 1         | 0.75 GB | Low           | 19 GB    |
-| Small           | 1         | 1.75 GB | Moderate      | 224 GB   |
-| Medium          | 2         | 3.5 GB  | Moderate      | 489 GB   |
-| Large           | 4         | 7 GB    | High          | 999 GB   |
-| ExtraLarge      | 8         | 14 GB   | High          | 2,039 GB |
+| ExtraSmall | 1 | 0,75 GB | Bajo | 19 GB |
+| Pequeña | 1 | 1,75 GB | Moderado | 224 GB |
+| Mediano | 2 | 3,5 GB | Moderado | 489 GB |
+| Grande | 4 | 7 GB | Alto | 999 GB |
+| ExtraLarge | 8 | 14 GB | Alto | 2039 GB |
 
->[AZURE.NOTE] **ExtraSmall** through **ExtraLarge** can also be named **A0-A4** respectively.
+>[AZURE.NOTE] Los tamaños **ExtraSmall** a **ExtraLarge** también se pueden denominar **A0 a A4**, respectivamente.
 
-## <a name="memory-intensive"></a>Memory intensive
+## Memoria intensiva
 
-For large databases, SharePoint server farms, and high-throughput applications.
+Para bases de datos grandes, granjas de servidores de SharePoint y aplicaciones de alto rendimiento.
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| Tamaño (id.) | Núcleos | RAM | Ancho de banda neto | Tamaño total del disco |
 | --------------- | :-------: | ------: | :-----------: | ------:  |
-| A5              | 2         | 14 GB   | Moderate      | 489 GB   |
-| A6              | 4         | 28 GB   | High          | 999 GB   |
-| A7              | 8         | 56 GB   | High          | 2,039 GB |
+| A5 | 2 | 14 GB | Moderado | 489 GB |
+| A6 | 4 | 28 GB | Alto | 999 GB |
+| A7 | 8 | 56 GB | Alto | 2039 GB |
 
-## <a name="network-optimized-with-infiniband-support"></a>Network optimized with InfiniBand support
+## Red optimizada con soporte para InfiniBand
 
-Available in select data centers. A8 and A9 virtual machines feature [Intel® Xeon® E5 processors](http://www.intel.com/content/www/us/en/processors/xeon/xeon-processor-e5-family.html). Adds a 32 Gbit/s **InfiniBand** network with remote direct memory access (RDMA) technology. Ideal for Message Passing Interface (MPI) applications, high-performance clusters, modeling and simulations, video encoding, and other compute or network intensive scenarios.
+Disponible en ciertos centros de datos. Las máquinas virtuales A8 y A9 tienen [procesadores Intel® Xeon® E5](http://www.intel.com/content/www/us/en/processors/xeon/xeon-processor-e5-family.html). Incluye una red **InfiniBand** de 32 Gbit/s con tecnología de acceso directo a memoria remota (RDMA). Ideal para aplicaciones de interfaz de paso de mensajes (MPI), clústeres de alto rendimiento, modelado y simulación, codificación de vídeo y otros escenarios con un uso intensivo de recursos de proceso y de red.
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| Tamaño (id.) | Núcleos | RAM | Ancho de banda neto | Tamaño total del disco |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| A8              | 8         | 56 GB   | High          | 382 GB  |
-| A9              | 16        | 112 GB  | Very High     | 382 GB  |
+| A8 | 8 | 56 GB | Alto | 382 GB |
+| A9 | 16 | 112 GB | Muy alto | 382 GB |
 
-## <a name="compute-intensive"></a>Compute intensive
+## Proceso intensivo
 
-Available in select data centers. A10 and A11 virtual machines feature [Intel® Xeon® E5 processors](http://www.intel.com/content/www/us/en/processors/xeon/xeon-processor-e5-family.html). For high-performance clusters, modeling and simulations, video encoding, and other compute or network intensive scenarios. Similar to A8 and A9 instance configuration without the InfiniBand network and RDMA technology.
+Disponible en ciertos centros de datos. Las máquinas virtuales A10 y A11 tienen [procesadores Intel® Xeon® E5](http://www.intel.com/content/www/us/en/processors/xeon/xeon-processor-e5-family.html). Para clústeres de alto rendimiento, modelado y simulación, codificación de vídeo y otros escenarios con un uso intensivo de recursos de proceso o de red. Similar a la configuración de instancias A8 y A9 sin la red InifiniBand y tecnología RDMA.
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| Tamaño (id.) | Núcleos | RAM | Ancho de banda neto | Tamaño total del disco |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| A10             | 8         | 56 GB   | High          | 382 GB  |
-| A11             | 16        | 112 GB  | Very High     | 382 GB  |
+| A10 | 8 | 56 GB | Alto | 382 GB |
+| A11 | 16 | 112 GB | Muy alto | 382 GB |
 
-## <a name="d-series:-optimized-compute"></a>D-series: Optimized compute
+## Serie D: proceso optimizado
 
-D-series virtual machines feature solid state drives (SSDs) and faster processors than the A-series (60% faster) and is also available for web or worker roles in Azure Cloud Services. This series is ideal for applications that demand faster CPUs, better local disk performance, or higher memory.
+Las máquinas virtuales de la serie D incluyen unidades de estado sólido (SSD) y procesadores más rápidos que los de la serie A (un 60 % más rápidos) y también están disponibles para roles web o de trabajo en Servicios en la nube de Azure. Esta serie resulta ideal para las aplicaciones que exigen CPU más rápidas, un mejor rendimiento del disco local o mayor capacidad de memoria.
 
-## <a name="general-purpose-(d)"></a>General purpose (D)
+## Uso general (D)
 
-For websites, small-to-medium databases, and other everyday applications.
+Para sitios web, bases de datos pequeñas y medianas y otras aplicaciones habituales.
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| Tamaño (id.) | Núcleos | RAM | Ancho de banda neto | Tamaño total del disco |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| Standard_D1     | 1         | 3.5 GB  | Moderate      | 50 GB   |
-| Standard_D2     | 2         | 7 GB    | High          | 100 GB  |
-| Standard_D3     | 4         | 14 GB   | High          | 200 GB  |
-| Standard_D4     | 8         | 28 GB   | High          | 400 GB  |
+| Standard\_D1 | 1 | 3,5 GB | Moderado | 50 GB |
+| Standard\_D2 | 2 | 7 GB | Alto | 100 GB* |
+| Standard\_D3 | 4 | 14 GB | Alto | 200 GB |
+| Standard\_D4 | 8 | 28 GB | Alto | 400 GB |
 
-## <a name="memory-intensive-(d)"></a>Memory intensive (D)
+## Memoria intensiva (D)
 
-For large databases, SharePoint server farms, and high-throughput applications.
+Para bases de datos grandes, granjas de servidores de SharePoint y aplicaciones de alto rendimiento.
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| Tamaño (id.) | Núcleos | RAM | Ancho de banda neto | Tamaño total del disco |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| Standard_D11    | 2         | 14 GB   | High          | 100 GB  |
-| Standard_D12    | 4         | 28 GB   | High          | 200 GB  |
-| Standard_D13    | 8         | 56 GB   | High          | 400 GB  |
-| Standard_D14    | 16        | 112 GB  | Very High     | 800 GB  |
+| Standard\_D11 | 2 | 14 GB | Alto | 100 GB* |
+| Standard\_D12 | 4 | 28 GB | Alto | 200 GB |
+| Standard\_D13 | 8 | 56 GB | Alto | 400 GB |
+| Standard\_D14 | 16 | 112 GB | Muy alto | 800 GB |
 
-## <a name="dv2-series:-optimized-compute"></a>Dv2-series: Optimized compute
+## Serie Dv2: proceso optimizado
 
-Dv2-series instances are the next generation of D-series instances that can be used as Virtual Machines or Cloud Services. Dv2-series instances will carry more powerful CPUs which are on average about 35% faster than D-series instances, and carry the same memory and disk configurations as the D-series. Dv2-series instances are based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with Intel Turbo Boost Technology 2.0 can go to 3.1 GHz. Dv2-series and D-series are ideal for applications that demand faster CPUs, better local disk performance, or higher memories and offer a powerful combination for many enterprise-grade applications.
+Las instancias de la serie Dv2 son la próxima generación de la serie D, que se pueden usar como máquinas virtuales o como servicios en la nube. Las instancias de la serie Dv2 disponen de CPU con mayor capacidad que son un 35 % más rápidas por término medio que en las instancias de la serie D, y cuentan con la misma configuración de memoria y discos que la de la serie D. Las instancias de la serie Dv2 se basan un procesador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz de última generación y, con Intel Turbo Boost Technology 2.0, pueden llegar a 3,1 GHz. Tanto la serie Dv2 como la serie D son ideales para aplicaciones que requieren CPU más rápidas, mejor rendimiento de los discos locales o memorias superiores, y ofrecen una eficaz combinación para muchas aplicaciones de nivel empresarial.
 
-## <a name="general-purpose-(dv2)"></a>General purpose (Dv2)
+## Uso general (Dv2)
 
-For websites, small-to-medium databases, and other everyday applications.
+Para sitios web, bases de datos pequeñas y medianas y otras aplicaciones habituales.
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| Tamaño (id.) | Núcleos | RAM | Ancho de banda neto | Tamaño total del disco |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| Standard_D1_v2  | 1         | 3.5 GB  | Moderate      | 50 GB   |
-| Standard_D2_v2  | 2         | 7 GB    | High          | 100 GB  |
-| Standard_D3_v2  | 4         | 14 GB   | High          | 200 GB  |
-| Standard_D4_v2  | 8         | 28 GB   | High          | 400 GB  |
-| Standard_D5_v2  | 16        | 56 GB   | Very High     | 800 GB  |
+| Standard\_D1\_v2 | 1 | 3,5 GB | Moderado | 50 GB |
+| Standard\_D2\_v2 | 2 | 7 GB | Alto | 100 GB* |
+| Standard\_D3\_v2 | 4 | 14 GB | Alto | 200 GB |
+| Standard\_D4\_v2 | 8 | 28 GB | Alto | 400 GB |
+| Standard\_D5\_v2 | 16 | 56 GB | Muy alto | 800 GB |
 
-## <a name="memory-intensive-(dv2)"></a>Memory intensive (Dv2)
+## Memoria intensiva (Dv2)
 
-For large databases, SharePoint server farms, and high-throughput applications
+Para bases de datos grandes, granjas de servidores de SharePoint y aplicaciones de alto rendimiento.
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| Tamaño (id.) | Núcleos | RAM | Ancho de banda neto | Tamaño total del disco |
 | --------------- | :-------: | ------: | :-----------: | -------: |
-| Standard_D11_v2 | 2         | 14 GB   | High          | 100 GB   |
-| Standard_D12_v2 | 4         | 28 GB   | High          | 200 GB   |
-| Standard_D13_v2 | 8         | 56 GB   | High          | 400 GB   |
-| Standard_D14_v2 | 16        | 112 GB  | Very High     | 800 GB   |
-| Standard_D15_v2 | 20        | 140 GB  | Very High     | 1,000 GB |
+| Standard\_D11\_v2 | 2 | 14 GB | Alto | 100 GB* |
+| Standard\_D12\_v2 | 4 | 28 GB | Alto | 200 GB |
+| Standard\_D13\_v2 | 8 | 56 GB | Alto | 400 GB |
+| Standard\_D14\_v2 | 16 | 112 GB | Muy alto | 800 GB |
+| Standard\_D15\_v2 | 20 | 140 GB | Muy alto | 1000 GB |
 
-## <a name="configure-sizes-for-cloud-services"></a>Configure sizes for Cloud Services
+## Configuración de tamaños para los Servicios en la nube
 
-You can specify the Virtual Machine size of a role instance as part of the service model described by the [service definition file](cloud-services-model-and-package.md#csdef). The size of the role determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to a running instance. Choose the role size based on your application's resource requirement.
+Puede especificar el tamaño de la máquina virtual de una instancia de rol como parte del modelo de servicio descrito por el [archivo de definición de servicio](cloud-services-model-and-package.md#csdef). El tamaño del rol determina la cantidad de núcleos de CPU, la capacidad de memoria y el tamaño del sistema de archivos local que se asigna a una instancia en ejecución. Elija el tamaño del rol en función del requisito de recursos de la aplicación.
 
-Here is an example for setting the role size to be [Standard_D2](#general-purpose-d) for a Web Role instance:
+Este es un ejemplo de cómo establecer el tamaño del rol como [Standard\_D2](#general-purpose-d) para una instancia de rol web:
 
 ```xml
 <WebRole name="WebRole1" vmsize="<mark>Standard_D2</mark>">
@@ -158,8 +157,4 @@ Here is an example for setting the role size to be [Standard_D2](#general-purpos
 </WebRole>
 ```
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

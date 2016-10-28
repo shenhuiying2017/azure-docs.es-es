@@ -1,72 +1,67 @@
 <properties
-    pageTitle="Working with Azure AD Application Proxy connectors | Microsoft Azure"
-    description="Covers how to create and manage groups of connectors in Azure AD Application Proxy."
-    services="active-directory"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor=""/>
+	pageTitle="Conectores del proxy de aplicación de Azure AD | Microsoft Azure"
+	description="Se explica cómo crear y administrar grupos de conectores en el proxy de aplicación de Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/09/2016"
-    ms.author="kgremban"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/09/2016"
+	ms.author="kgremban"/>
 
 
-
-# <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups---public-preview"></a>Publish applications on separate networks and locations using connector groups - Public Preview
+# Publicación de aplicaciones en redes y ubicaciones independientes mediante grupos de conectores (versión preliminar pública)
 
 > [AZURE.SELECTOR]
-- [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
-- [Azure classic portal](active-directory-application-proxy-connectors.md)
+- [Portal de Azure](active-directory-application-proxy-connectors-azure-portal.md)
+- [Portal de Azure clásico](active-directory-application-proxy-connectors.md)
 
 
-Connector groups are useful for various scenarios, including:
+Los grupos de conectores son útiles para diversos escenarios, por ejemplo:
 
-- Sites with multiple interconnected datacenters. In this case, you want to keep as much traffic within the datacenter as possible because cross-datacenter links are expensive and slow. You can deploy connectors in each datacenter to serve only the applications that reside within the datacenter. This approach minimizes cross-datacenter links and provides an entirely transparent experience to your users.
-- Managing applications installed on isolated networks that are not part of the main corporate network. You can use connector groups to install dedicated connectors on isolated networks to also isolate applications to the network.
-- For applications installed on IaaS for cloud access, connector groups provide a common service to secure the access to all the apps. Connector groups don't create additional dependency on your corporate network, or fragment the app experience. Connectors can be installed on every cloud datacenter and serve only applications that reside in this network. You can install several connectors to achieve high availability.
-- Support for multi-forest environments in which specific connectors can be deployed per forest and set to serve specific applications.
-- Connector groups can be used in Disaster Recovery sites to either detect failover or as backup for the main site.
-- Connector groups can also be used to serve multiple companies from a single tenant.
+- Sitios con varios centros de datos interconectados. En este caso, desea mantener el mayor tráfico posible dentro del centro de datos, ya que los vínculos entre centros de datos son costosos y lentos. Puede implementar conectores en cada centro de datos para atender solamente las aplicaciones que se encuentran en él. Con este enfoque se minimizan los vínculos entre centros de datos y se proporciona una experiencia totalmente transparente a los usuarios.
+- Administración de aplicaciones instaladas en redes aisladas que no forman parte de la red corporativa principal. Puede usar grupos de conectores para instalar conectores dedicados en redes aisladas y así permitir también el aislamiento de aplicaciones en la red.
+- En lo que respecta a las aplicaciones instaladas en IaaS para el acceso a la nube, los grupos de conectores proporcionan un servicio común para proteger el acceso a todas las aplicaciones. Los grupos de conectores no crean dependencia adicional en la red corporativa ni fragmentan la experiencia de la aplicación. Los conectores se pueden instalarse en cada centro de datos en la nube y servir solo las aplicaciones que residen en esta red. Puede instalar varios conectores para lograr alta disponibilidad.
+- Se puede implementar compatibilidad con varios bosques en la que se pueden implementar conectores específicos por bosque y establecerse para atender aplicaciones específicas.
+- Los grupos de conectores se pueden utilizar en sitios de recuperación ante desastres para detectar la conmutación por error o como copia de seguridad para el sitio principal.
+- Los grupos de conectores también se pueden utilizar para dar servicio a varias compañías desde un solo inquilino.
 
-## <a name="prerequisite:-create-your-connectors"></a>Prerequisite: Create your connectors
-To group your connectors, you have to make sure you [installed multiple connectors](active-directory-application-proxy-enable.md). When you install a new connector, it automatically joins the **Default** connector group.
+## Requisito previo: Creación de los conectores
+Para agrupar los conectores, debe asegurarse de [tener instalados varios conectores](active-directory-application-proxy-enable.md). Cuando se instala un nuevo conector, se une automáticamente al grupo de conectores **predeterminado**.
 
-## <a name="step-1:-create-connector-groups"></a>Step 1: Create connector groups
-You can create as many connector groups as you want. Connector group creation is accomplished in the [Azure portal](https://portal.azure.com).
+## Paso 1: Creación de grupos de conectores
+Puede crear tantos grupos de conectores como quiera. La creación de grupos de conectores se lleva a cabo en [Azure Portal](https://portal.azure.com).
 
-1. Select **Azure Active Directory** to go to the management dashboard for your directory. From there, select **Enterprise applications** > **Application proxy**.
+1. Seleccione **Azure Active Directory** para ir al panel de administración de su directorio. Ahí, seleccione **Enterprise applications** (Aplicaciones empresariales) > **Proxy de la aplicación**.
 
-2. Select the **Connector Groups** button. The New Connector Group blade appears.
+2. Seleccione el botón **Connector Groups** (Grupos de conectores). Aparece la hoja New Connector Group (Nuevo grupo de conectores).
 
-3. Give your new connector group a name, then use the dropdown menu to select which connectors belong in this group.
+3. Asigne un nombre al nuevo grupo de conectores y use luego el menú deplegable para seleccionar qué conectores pertenecen a este grupo.
 
-4. Select **Save** when your connector Group is complete.
+4. Cuando el grupo de conectores esté completo, seleccione **Guardar**.
 
-## <a name="step-2:-assign-applications-to-your-connector-groups"></a>Step 2: Assign applications to your connector groups
-The last step is to set each application to the connector group that will serve it.
+## Paso 2: Asignación de aplicaciones a los grupos de conectores
+El último paso es establecer cada aplicación en el grupo de conectores que la atenderá.
 
-1. From the management dashboard for your directory, select **Enterprise applications** > **All applications** > the application you want to assign to a connector group > **Application Proxy**.
-2. Under **Connector group**, use the dropdown menu to select the group you want the application to use.
-3. Select **Save** to apply the change.
-
-
-## <a name="see-also"></a>See also
-
-- [Enable Application Proxy](active-directory-application-proxy-enable.md)
-- [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
-- [Enable conditional access](active-directory-application-proxy-conditional-access.md)
-- [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
-
-For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+1. En el panel de administración del directorio, seleccione **Enterprise applications** (Aplicaciones empresariales) > **All applications** (Todas las aplicaciones) > la aplicación que quiere asignar a un grupo de conectores > **Application Proxy** (Proxy de la aplicación).
+2. En **Grupo de conectores**, use el menú desplegable para seleccionar el grupo que quiere que use la aplicación.
+3. Seleccione **Guardar** para aplicar el cambio.
 
 
+## Otras referencias
 
-<!--HONumber=Oct16_HO2-->
+- [Habilitación del proxy de la aplicación](active-directory-application-proxy-enable.md)
+- [Habilitar el inicio de sesión único](active-directory-application-proxy-sso-using-kcd.md)
+- [Habilitar el acceso condicional](active-directory-application-proxy-conditional-access.md)
+- [Solucionar los problemas que tiene con el Proxy de aplicación](active-directory-application-proxy-troubleshoot.md)
 
+Para ver las últimas noticias y actualizaciones, consulte el [blog de Proxy de la aplicación](http://blogs.technet.com/b/applicationproxyblog/).
 
+<!---HONumber=AcomDC_0914_2016-->

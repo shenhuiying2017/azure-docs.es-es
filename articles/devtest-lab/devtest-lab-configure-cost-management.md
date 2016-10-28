@@ -1,78 +1,73 @@
 <properties
-    pageTitle="View the monthly estimated lab cost trend in Azure DevTest Labs | Microsoft Azure"
-    description="Learn about the Azure DevTest Labs monthly estimated cost trend chart."
-    services="devtest-lab,virtual-machines"
-    documentationCenter="na"
-    authors="tomarcher"
-    manager="douge"
-    editor=""/>
+	pageTitle="Visualización de las tendencias de costos mensuales estimados de laboratorio en Azure DevTest Labs | Microsoft Azure"
+	description="Aprenda sobre el gráfico de tendencias de costos mensuales estimados de Azure DevTest Labs."
+	services="devtest-lab,virtual-machines"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-    ms.service="devtest-lab"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/06/2016"
-    ms.author="tarcher"/>
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/06/2016"
+	ms.author="tarcher"/>
 
+# Visualización de las tendencias de costos mensuales estimados de laboratorio en Azure DevTest Labs
 
-# <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>View the monthly estimated lab cost trend in Azure DevTest Labs
+La característica de administración de costos de Laboratorios de desarrollo y pruebas le ayuda a controlar el costo del laboratorio. En este artículo se muestra el uso del gráfico **Monthly Estimated Cost Trend** (Tendencia de costos estimados mensuales) para ver el costo estimado hasta la fecha del mes de calendario actual, así como el costo a fin de mes previsto para el mes de calendario actual. En él aprenderá a ver el gráfico de tendencias de costos mensuales estimados en Azure Portal.
 
-The Cost Management feature of DevTest Labs helps you track the cost of your lab. This article illustrates how to use the **Monthly Estimated Cost Trend** chart to view the current calendar month's estimated cost-to-date and the projected end-of-month cost for the current calendar month. In this article, you learn how to view the monthly estimated cost trend chart in the Azure portal.
+## Visualización del gráfico de tendencias de costo estimado mensual
 
-## <a name="viewing-the-monthly-estimated-cost-trend-chart"></a>Viewing the Monthly Estimated Cost Trend chart
+Para ver el gráfico de tendencias de costos mensuales estimados, siga estos pasos:
 
-To view the Monthly Estimated Cost Trend chart, follow these steps: 
+1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Seleccione **Más servicios** y luego seleccione **DevTest Labs** en la lista.
 
-1. Select **More Services**, and then select **DevTest Labs** from the list.
+1. En la lista de laboratorios, seleccione el laboratorio que desee.
 
-1. From the list of labs, select the desired lab.   
+1. En la hoja del laboratorio, seleccione **Cost settings** (Configuración de costos).
 
-1. On the lab's blade, select **Cost settings**.
+1. En la hoja **Cost settings** (Configuración de costos) del laboratorio, seleccione **Lab cost trend** (Tendencia de costo mensual).
 
-1. On the lab's **Cost settings** blade, select **Lab cost trend**.
+1. La siguiente captura de pantalla muestra un ejemplo de gráfico de costos.
 
-1. The following screen shot shows an example of a cost chart. 
+    ![Gráfico de costos](./media/devtest-lab-configure-cost-management/graph.png)
 
-    ![Cost chart](./media/devtest-lab-configure-cost-management/graph.png)
-
-The **Estimated cost** value is the current calendar month's estimated cost-to-date. The **Projected cost** is the estimated cost for the entire current calendar month, calculated using the lab cost for the previous five days.
+El valor **Costo estimado** es el costo estimado hasta la fecha del mes de calendario actual. El valor de **Projected cost** (Costo previsto) es el costo estimado para el mes de calendario actual completo, calculado con el costo de laboratorio para los cinco días anteriores.
  
-The cost amounts are rounded up to the next whole number. For example: 
+Los importes de los costos se redondean al siguiente número entero. Por ejemplo:
 
-- 5.01 rounds up to 6 
-- 5.50 rounds up to 6
-- 5.99 rounds up to 6
+- 5,01 se redondea a 6.
+- 5,50 se redondea a 6.
+- 5,99 se redondea a 6.
 
-As it states above the chart, the costs you see in the chart are *estimated* costs using [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) offer rates.
-Additionally, the following are *not* included in the cost calculation:
+Como indica anteriormente el gráfico, los costos que se ven en el gráfico son costos *estimados* con tarifas de oferta de [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/). Además, en el cálculo de costos *no* se incluye lo siguiente:
 
-- CSP and Dreamspark subscriptions are currently not supported as Azure DevTest Labs uses the [Azure billing APIs](../billing-usage-rate-card-overview.md) to calculate the lab cost, which does not support CSP or Dreamspark subscriptions.
-- Your offer rates. Currently, we are not able to use your offer rates (shown under your subscription) that you have negotiated with Microsoft or Microsoft partners. We are using Pay-As-You-Go rates.
-- Your taxes
-- Your discounts
-- Your billing currency. Currently, the lab cost is displayed only in USD currency.
+- Actualmente no se admiten suscripciones de DreamSpark y CSP, puesto que Azure DevTest Labs emplea las [API de facturación de Azure](../billing-usage-rate-card-overview.md) para calcular el costo de laboratorio, y estas suscripciones no las admiten.
+- Las tarifas de su oferta. Actualmente, no es posible usar las tarifas de su oferta (que aparecen en su suscripción) negociadas con Microsoft o con asociados de Microsoft. Se usan tarifas de pago por uso.
+- Los impuestos
+- Los descuentos
+- La divisa de facturación. Actualmente, el costo de laboratorio solo se muestra en divisa USD.
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="related-blog-posts"></a>Related blog posts
+## Entradas blogs relacionadas
 
-- [Two more things to keep your cost on track in DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2016/06/21/keep-your-cost-on-track/)
-- [Why Cost Thresholds?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/11/why-cost-thresholds/)
+- [Two more things to keep your cost on track in DevTest Labs (Dos cosas para mantener el costo por el buen camino en DevTest Labs)](https://blogs.msdn.microsoft.com/devtestlab/2016/06/21/keep-your-cost-on-track/)
+- [Why Cost Thresholds? (¿Por qué los umbrales de costo?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/11/why-cost-thresholds/)
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-Here are some things to try next:
+Vea algunas acciones que puede probar a continuación:
 
-- [Define lab policies](./devtest-lab-set-lab-policy.md) - Learn how to set the various policies used to govern how your lab and its VMs are used. 
-- [Create custom image](./devtest-lab-create-template.md) - When you create a VM, you specify a base, which can be either a custom image or a Marketplace image. This article illustrates how to create a custom image from a VHD file.
-- [Configure Marketplace images](./devtest-lab-configure-marketplace-images.md) - DevTest Labs supports creating VMs based on Azure Marketplace images. This article illustrates how to specify which, if any, Azure Marketplace images can be used when creating VMs in a lab.
-- [Create a VM in a lab](./devtest-lab-add-vm-with-artifacts.md) - Illustrates how to create a VM from a base image (either custom or Marketplace), and how to work with artifacts in your VM.
+- [Definición de directivas de laboratorio](./devtest-lab-set-lab-policy.md): descubra cómo establecer las distintas directivas que se emplean para controlar el uso del laboratorio y sus máquinas virtuales.
+- [Creación de una imagen personalizada](./devtest-lab-create-template.md): cuando cree una máquina virtual, deberá especificar una base, que puede ser una imagen personalizada o una imagen de Marketplace. Este artículo muestra cómo crear una imagen personalizada desde un archivo VHD.
+- [Configuración de imágenes de Marketplace](./devtest-lab-configure-marketplace-images.md): DevTest Labs admite la creación de máquinas virtuales basadas en imágenes de Azure Marketplace. En este artículo se muestra cómo especificar las imágenes de Azure Marketplace, si corresponde, que se pueden usar en el momento de crear máquinas virtuales en un laboratorio.
+- [Creación de una máquina virtual en un laboratorio](./devtest-lab-add-vm-with-artifacts.md): se muestra cómo crear una máquina virtual desde una imagen base (ya sea personalizada o de Marketplace) y cómo trabajar con artefactos en la máquina virtual.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

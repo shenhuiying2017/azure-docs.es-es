@@ -1,77 +1,72 @@
 <properties
-    pageTitle="Azure AD Domain Services: Create or select a virtual network | Microsoft Azure"
-    description="Getting started with Azure Active Directory Domain Services"
-    services="active-directory-ds"
-    documentationCenter=""
-    authors="mahesh-unnikrishnan"
-    manager="stevenpo"
-    editor="curtand"/>
+	pageTitle="Servicios de dominio de Azure AD: creación o selección de una red virtual | Microsoft Azure"
+	description="Introducción a los Servicios de dominio de Azure Active Directory"
+	services="active-directory-ds"
+	documentationCenter=""
+	authors="mahesh-unnikrishnan"
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
-    ms.service="active-directory-ds"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="10/03/2016"
-    ms.author="maheshu"/>
+	ms.service="active-directory-ds"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="10/03/2016"
+	ms.author="maheshu"/>
+
+# Creación o selección de una red virtual para Azure Active Directory Domain Services
+
+## Directrices para seleccionar una red virtual de Azure
+> [AZURE.NOTE] **Antes de comenzar**: consulte [Networking considerations for Azure AD Domain Services](active-directory-ds-networking.md) (Consideraciones de redes para Azure Active Directory Domain Services).
 
 
-# <a name="create-or-select-a-virtual-network-for-azure-ad-domain-services"></a>Create or select a virtual network for Azure AD Domain Services
+## Tarea 2: Creación de una red virtual de Azure
+La siguiente tarea de configuración es crear una red virtual de Azure y una subred dentro de ella. Puede habilitar Azure AD Domain Services en esta subred dentro de la red virtual. Si ya tiene una red virtual que quiere usar, puede omitir este paso.
 
-## <a name="guidelines-to-select-an-azure-virtual-network"></a>Guidelines to select an Azure virtual network
-> [AZURE.NOTE] **Before you begin**: Refer to [Networking considerations for Azure AD Domain Services](active-directory-ds-networking.md).
+> [AZURE.NOTE] Asegúrese de que la red virtual de Azure que cree o elija usar con los Servicios de dominio de Azure AD pertenezca a una región de Azure que sea compatible con dichos servicios. Consulte la página de [servicios de Azure por región](https://azure.microsoft.com/regions/#services/) para saber en qué regiones de Azure está disponible Azure Active Directory Domain Services.
 
+Anote el nombre de la red virtual para seleccionar la red virtual adecuada al habilitar Azure Active Directory Domain Services en un paso posterior de la configuración.
 
-## <a name="task-2:-create-an-azure-virtual-network"></a>Task 2: Create an Azure virtual network
-The next configuration task is to create an Azure virtual network and a subnet within it. You enable Azure AD Domain Services in this subnet within your virtual network. If you already have an existing virtual network you’d prefer to use, you can skip this step.
+Realice los siguientes pasos de la configuración para crear una red virtual de Azure en la que desee habilitar Azure Active Directory Domain Services.
 
-> [AZURE.NOTE] Ensure that the Azure virtual network you create or choose to use with Azure AD Domain Services belongs to an Azure region that is supported by Azure AD Domain Services. See the [Azure services by region](https://azure.microsoft.com/regions/#services/) page to know the Azure regions in which Azure AD Domain Services is available.
+1. Navegue hasta el **Portal de Azure clásico** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
 
-Note down the name of the virtual network so you select the right virtual network when enabling Azure AD Domain Services in a subsequent configuration step.
+2. Seleccione el nodo **Redes** en el panel izquierdo.
 
-Perform the following configuration steps to create an Azure virtual network in which you’d like to enable Azure AD Domain Services.
+    ![Nodo Redes](./media/active-directory-domain-services-getting-started/networks-node.png)
 
-1. Navigate to the **Azure classic portal** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
+3. En la parte inferior de la página, haga clic en **NUEVO** en el panel de tareas.
 
-2. Select the **Networks** node on the left pane.
+    ![Nodo Redes virtuales](./media/active-directory-domain-services-getting-started/virtual-networks.png)
 
-    ![Networks node](./media/active-directory-domain-services-getting-started/networks-node.png)
+4. En el nodo **Servicios de red**, seleccione **Red virtual**.
 
-3. Click **NEW** on the task pane at the bottom of the page.
+5. Haga clic en **Creación rápida** para crear una red virtual.
 
-    ![Virtual networks node](./media/active-directory-domain-services-getting-started/virtual-networks.png)
+    ![Red virtual: creación rápida](./media/active-directory-domain-services-getting-started/virtual-network-quickcreate.png)
 
-4. In the **Network Services** node, select **Virtual Network**.
+6. Escriba un **Nombre** para la red virtual. También puede elegir configurar el **Espacio de direcciones** o el **Número máximo de VM** para esta red. Por ahora, puede dejar la configuración del **servidor DNS** establecida en 'Ninguna'. Puede actualizar el servidor DNS después de habilitar Azure AD Domain Services.
 
-5. Click **Quick Create** to create a virtual network.
+7. Asegúrese de seleccionar una región de Azure compatible en la lista desplegable **Ubicación**. Consulte la página de [servicios de Azure por región](https://azure.microsoft.com/regions/#services/) para saber en qué regiones de Azure está disponible Azure Active Directory Domain Services.
 
-    ![Virtual network - quick create](./media/active-directory-domain-services-getting-started/virtual-network-quickcreate.png)
+8. Para crear la red virtual, haga clic en el botón **Crear una red virtual**.
 
-6. Specify a **Name** for your virtual network. You may also choose to configure the **Address space** or **Maximum VM count** for this network. You can leave the **DNS server** setting set to 'None' for now. You can update the DNS server setting after your enable Azure AD Domain Services.
+    ![Creación de una red virtual para los Servicios de dominio de Azure AD.](./media/active-directory-domain-services-getting-started/create-vnet.png)
 
-7. Ensure that you select a supported Azure region in the **Location** dropdown. See the [Azure services by region](https://azure.microsoft.com/regions/#services/) page to know the Azure regions in which Azure AD Domain Services is available.
+9. Después de crear la red virtual, selecciónela y haga clic en la pestaña **CONFIGURAR**.
 
-8. To create your virtual network, click the **Create a Virtual Network** button.
+    ![Creación de una subred](./media/active-directory-domain-services-getting-started/create-vnet-properties.png)
 
-    ![Create a virtual network for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/create-vnet.png)
+10. Navegue hasta la sección **Espacios de direcciones de la red virtual**. Haga clic en **agregar subred** y especifique una subred con el nombre de **AaddsSubnet**. Haga clic en **Guardar** para crear la subred.
 
-9. After the virtual network is created, select the virtual network and click the **CONFIGURE** tab.
-
-    ![Create a subnet](./media/active-directory-domain-services-getting-started/create-vnet-properties.png)
-
-10. Navigate to the **virtual network address spaces** section. Click **add subnet** and specify a subnet with the name **AaddsSubnet**. Click **Save** to create the subnet.
-
-    ![Create a subnet for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/create-vnet-add-subnet.png)
+    ![Cree una subred para Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/create-vnet-add-subnet.png)
 
 
 <br>
 
-## <a name="task-3---enable-azure-ad-domain-services"></a>Task 3 - Enable Azure AD Domain Services
-The next configuration task is to [enable Azure AD Domain Services](active-directory-ds-getting-started-enableaadds.md).
+## Tarea 3: Habilitación de los Servicios de dominio de Azure AD
+La siguiente tarea de configuración consiste en [habilitar Azure Active Directory Domain Services](active-directory-ds-getting-started-enableaadds.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

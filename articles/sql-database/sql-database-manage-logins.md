@@ -1,7 +1,7 @@
 <properties
-   pageTitle="SQL Database Authentication and Authorization: Granting Accessing | Microsoft Azure"
-   description="Learn about SQL Database security management, specifically how to manage database access and login security through the server-level principal account."
-   keywords="sql database security,database security management,login security,database security,database access"
+   pageTitle="Autorización y autenticación de Base de datos SQL: concesión de acceso | Microsoft Azure"
+   description="Obtenga información acerca de la administración de seguridad de la Base de datos SQL, específicamente el modo de administrar la seguridad del inicio de sesión y el acceso a la base de datos con la cuenta de entidad de seguridad a nivel de servidor."
+   keywords="seguridad de la Base de datos SQL, administración de seguridad de la base de datos, seguridad de inicio de sesión, seguridad de la base de datos, acceso a la base de datos"
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
@@ -18,63 +18,61 @@
    ms.date="09/14/2016"
    ms.author="rickbyh"/>
 
-
-# <a name="sql-database-authentication-and-authorization:-granting-access"></a>SQL Database Authentication and Authorization: Granting Access 
+# Autorización y autenticación de Base de datos SQL: concesión de acceso 
 
 
 > [AZURE.SELECTOR]
-- [Get started tutorial](sql-database-get-started-security.md)
-- [Grant access](sql-database-manage-logins.md)
+- [Tutorial introductorio](sql-database-get-started-security.md)
+- [Conceder acceso](sql-database-manage-logins.md)
 
 
-Start here for an overview of SQL Database access concepts for administrators, non-administrators, and roles.
+Comience aquí si desea información general sobre los conceptos de acceso a Base de datos SQL para administradores, no administradores y roles.
 
-## <a name="unrestricted-administrative-accounts"></a>Unrestricted administrative accounts
+## Cuentas administrativas sin restricciones
 
-There are two possible administrative accounts with unrestricted permissions for access to the virtual master database and all user databases. These accounts are called server-level principal accounts.
+Hay dos posibles cuentas administrativas con permisos sin restricciones para acceder a la base de datos maestra virtual y a todas las bases de datos de usuario. Estas cuentas se denominan cuentas de entidades de nivel de servidor.
 
-### <a name="azure-sql-database-subscriber-account"></a>Azure SQL Database subscriber account 
+### Cuenta de suscriptor de Base de datos SQL de Azure 
 
-A single login account is created when a logical SQL instance is created, called the SQL Database Subscriber Account. This account connects using SQL Server authentication (user name and password). This account is an administrator on the logical server instance and on all user databases attached to that instance. The permissions of the Subscriber Account cannot be restricted. Only one of these accounts can exist.
+Cuando se crea una instancia lógica de SQL, se crea también una cuenta de inicio de sesión único, que se denomina Cuenta de suscriptor de Base de datos SQL. Esta cuenta se conecta mediante la autenticación de SQL Server (nombre de usuario y contraseña). Esta cuenta es un administrador en la instancia del servidor lógico y en todas las bases de datos de usuario asociadas a dicha instancia. Los permisos de la cuenta del suscriptor no se pueden restringir. Solo puede existir una de estas cuentas.
 
-### <a name="azure-active-directory-administrator"></a>Azure Active Directory administrator
-One Azure Active Directory account can also be configured as an administrator. This account can be an individual Azure AD User, or can be an Azure AD Group containing several Azure AD Users. It is optional to configure an Azure AD administrator, but an Azure AD administrator must be configured if you want to use Windows Authentication for Azure AD accounts to connect to SQL Database. For more information about configuring Azure Active Directory access, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) and [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
+### Administrador de Azure Active Directory
+Una cuenta de Azure Active Directory también se puede configurar como administrador. Esta cuenta puede ser un usuario individual de Azure AD, o bien puede ser un grupo de Azure AD con varios usuarios individuales de Azure AD. Opcionalmente, se puede configurar un administrador de Azure AD, pero es obligatorio configurarlo si desea utilizar la autenticación de Windows para que las cuentas de Azure AD se conecten a Base de datos SQL. Para más información acerca de cómo configurar el acceso a Azure Active Directory, consulte [Conexión a Base de datos SQL o a Almacenamiento de datos SQL mediante autenticación de Azure Active Directory](sql-database-aad-authentication.md) y [Compatibilidad de SSMS con Azure AD MFA con Base de datos SQL y Almacenamiento de datos SQL](sql-database-ssms-mfa-authentication.md).
 
-### <a name="configuring-the-firewall"></a>Configuring the firewall
-When the server-level firewall is configured, the Azure SQL Database Subscriber Account and the Azure Active Directory account can connect to the master database and all the user databases. The server-level firewall can be configured through the portal. Once a connection is made, additional server-level firewall rules can also be configured by using the [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) Transact-SQL statement. For more information about configuring the firewall see [How to: Configure an Azure SQL Database firewall using the Azure portal](sql-database-configure-firewall-settings.md).
+### Configuración del firewall
+Cuando el firewall de nivel de servidor está configurado, tanto la cuenta de suscriptor de Azure SQL Database como la cuenta de Azure Active Directory pueden conectarse a la base de datos maestra y a todas las bases de datos de usuario. El firewall de nivel de servidor se puede configurar a través del portal. Una vez que se establece una conexión, también se pueden configurar reglas de firewall de nivel de servidor adicionales, para lo que se debe usar la instrucción [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx) de Transact-SQL. Para más información acerca de cómo configurar el firewall, consulte [Configuración del firewall en la Base de datos SQL de Azure mediante el Portal de Azure](sql-database-configure-firewall-settings.md).
 
-### <a name="administrator-access-path"></a>Administrator access path
+### Ruta de acceso de administrador
 
-When the server-level firewall is properly configured, the SQL Database Subscriber Account and the Azure Active Directory SQL Server Administrators can connect using client tools such as SQL Server Management Studio or SQL Server Data Tools. Only the latest tools provide all the features and capabilities. The following diagram shows a typical configuration for the two administrator accounts.
-    ![Administrator access path](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
+Cuando el firewall de nivel de servidor está configurado correctamente, los administradores de la cuenta del suscriptor de Base de datos SQL y SQL Server de Azure Active Directory pueden conectarse mediante herramientas de cliente como SQL Server Management Studio o SQL Server Data Tools. Solo las herramientas más recientes proporcionan todas las características y funcionalidades. El diagrama siguiente muestra una configuración típica para las dos cuentas de administrador. ![Ruta de acceso de administrador](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
 
-When using an open port in the server-level firewall, administrators can connect to any SQL Database.
+Si se usa un puerto abierto en el firewall de nivel de servidor, los administradores pueden conectarse a cualquier Base de datos SQL.
 
-### <a name="connecting-to-a-database-by-using-sql-server-management-studio"></a>Connecting to a database by using SQL Server Management Studio
-For a walk-through of connecting by using SQL Server Management Studio, see [Connect to SQL Database with SQL Server Management Studio and execute a sample T-SQL query](sql-database-connect-query-ssms.md).
-
-
-> [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+### Conexión a una base de datos mediante SQL Server Management Studio
+Para obtener un tutorial de la conexión mediante SQL Server Management Studio, consulte [Conexión a Base de datos SQL con SQL Server Management Studio y ejecución de una consulta T-SQL de ejemplo](sql-database-connect-query-ssms.md).
 
 
-## <a name="additional-special-accounts"></a>Additional special accounts
-SQL Database provide two restricted administrative roles in the virtual master database to which user accounts can be added.
+> [AZURE.IMPORTANT] Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
-### <a name="database-creators"></a>Database creators
-The administrative accounts can create new databases. To create an additional account that can create databases you must create a user in master, and add the user to the special **dbmanager** database role. The user can be a contained database user, or a user based on a SQL Server login in the virtual master database.
 
-1.  Using an administrator account, connect to the virtual master database.
-2.  Optional step: Create a SQL Server authentication login, using the [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) statement. Sample statement:
+## Cuentas especiales adicionales
+Base de datos SQL proporciona dos roles administrativos restringidas en la base de datos maestra virtual a la que se pueden agregar cuentas de usuario.
+
+### Creadores de bases de datos
+Las cuentas administrativas pueden crear nuevas bases de datos. Para crear una cuenta adicional que pueda crear bases de datos, es preciso crear un usuario en la base de datos maestra y agregar el usuario al rol de base de datos **dbmanager** especial. El usuario puede ser un usuario de una base de datos independiente o un usuario basado en un inicio de sesión de SQL Server en la base de datos maestra virtual.
+
+1.	Con una cuenta de administrador, conéctese a la base de datos maestra virtual.
+2.	Paso opcional: crear un inicio de sesión de autenticación de SQL Server mediante la instrucción [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Instrucción de ejemplo:
 
      ```
      CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
      ```
 
-     > [AZURE.NOTE] Use a strong password when creating a login or contained database user. For more information, see [Strong Passwords](https://msdn.microsoft.com/library/ms161962.aspx).
+     > [AZURE.NOTE] Al crear un inicio de sesión o un usuario de una base de datos independiente, use una contraseña segura. Para obtener más información, consulte [Contraseñas seguras](https://msdn.microsoft.com/library/ms161962.aspx).
 
-    To improve performance, logins (server-level principals) are temporarily cached at the database level. To refresh the authentication cache, see [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
+    Para mejorar el rendimiento, los inicios de sesión (entidades de nivel de servidor) se almacenan temporalmente en caché en el nivel de base de datos. Para actualizar la caché de autenticación, consulte [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
-3.  In the virtual master database, create a user by using the [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) statement. The user can be an Azure Active Directory authentication contained database user (if you have configured your environment for Azure AD authentication), or a SQL Server authentication contained database user, or a SQL Server authentication user based on a SQL Server authentication login (created in the previous step.) Sample statements:
+3.	En la base de datos maestra virtual, cree un usuario mediante la instrucción [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). El usuario puede ser un usuario de base de datos independiente de Azure Active Directory (si ha configurado el entorno para la autenticación de Azure AD), o un usuario de base de datos independiente de autenticación de SQL Server o un usuario de autenticación de SQL Server basándose en un inicio de sesión de autenticación de SQL Server (creado en el paso anterior). Instrucciones de ejemplo:
 
      ```
      CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
@@ -82,93 +80,87 @@ The administrative accounts can create new databases. To create an additional ac
      CREATE USER Mary FROM LOGIN Mary; 
      ```
 
-4.  Add the new user, to the **dbmanager** database role by using the [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) statement. Sample statements:
+4.	Agregue el nuevo usuario al rol de base de datos **dbmanager** mediante el uso de la instrucción [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx). Instrucciones de ejemplo:
 
      ```
      ALTER ROLE dbmanager ADD MEMBER Mary; 
      ALTER ROLE dbmanager ADD MEMBER [mike@contoso.com];
      ```
 
-     > [AZURE.NOTE] The dbmanager is a database role in virtual master database so you can only add a user to the dbmanager role. You cannot add a server-level login to database-level role.
+     > [AZURE.NOTE] dbmanager es un rol de base de datos de la base de datos maestra virtual, por lo que solo puede agregar un usuario al rol dbmanager. No puede agregar un inicio de sesión de nivel de servidor al rol de nivel de base de datos.
 
-5.  If necessary, configure the server-level firewall to allow the new user to connect.
+5.	Si es necesario, configure el firewall de nivel de servidor para permitir que el nuevo usuario se conecte.
 
-Now the user can connect to the virtual master database and can create new databases. The account creating the database becomes the owner of the database.
+Ahora el usuario puede conectarse a la base de datos maestra virtual y puede crear nuevas bases de datos. La cuenta que crea la base de datos se convierte en la propietaria de la base de datos.
 
-### <a name="login-managers"></a>Login managers
+### Administradores de inicio de sesión
 
-If you wish, you can complete the same steps (create a login and user, and add a user to the **loginmanager** role) to enable a user to create new logins in the virtual master. Usually this is not necessary as Microsoft recommends using contained database users, which authenticate at the database-level instead of using users based on logins. For more information, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
+Si lo desea, puede realizar los mismos pasos (crear un inicio de sesión y un usuario, y agregar un usuario al rol **loginmanager**) para que los usuarios puedan crear nuevos inicios de sesión en la base de datos maestra virtual. Normalmente no es necesario, ya que Microsoft recomienda utilizar los usuarios de la base de datos independiente que se autenticarán en el nivel de base de datos, en lugar de utilizar los usuarios basándose en los inicios de sesión. Para obtener más información, consulte [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 
-## <a name="non-administrator-users"></a>Non-administrator users
+## Usuarios no administradores
 
-Generally, non-administrator accounts do not need access to the virtual master database. Create contained database users at the database level using the [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) statement. The user can be an Azure Active Directory authentication contained database user (if you have configured your environment for Azure AD authentication), or a SQL Server authentication contained database user, or a SQL Server authentication user based on a SQL Server authentication login (created in the previous step.) For more information, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx). 
+Por lo general, las cuentas que no sean de administrador no necesitan acceso a la base de datos maestra virtual. Cree usuarios de una base de datos independiente en el nivel de base de datos con la instrucción [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx). El usuario puede ser un usuario de base de datos independiente de Azure Active Directory (si ha configurado el entorno para la autenticación de Azure AD), o un usuario de base de datos independiente de autenticación de SQL Server o un usuario de autenticación de SQL Server basándose en un inicio de sesión de autenticación de SQL Server (creado en el paso anterior). Para obtener más información, consulte [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 
-To create users, connect to the database, and execute statements similar to the following examples:
+Para crear usuarios, conectarse a la base de datos y ejecutar instrucciones similares a los siguientes ejemplos:
 
 ```
 CREATE USER Mary FROM LOGIN Mary; 
 CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 ```
 
-Initially, only one of the administrators or the owner of the database can create users. To authorize additional users to create new users, grant that selected user the `ALTER ANY USER` permission, by using a statement such as:
+Inicialmente, solo pueden crear usuarios uno de los administradores o el propietario de la base de datos. Para autorizar que usuarios adicionales creen nuevos usuarios, conceda al usuario seleccionado el permiso `ALTER ANY USER`, para lo que debe emplear una instrucción como:
 
 ```
 GRANT ALTER ANY USER TO Mary;
 ```
 
-To give additional users full control of the database, make them a member of the **db_owner** fixed database role using the `ALTER ROLE` statement.
+Para dar control total de la base de datos a usuarios adicionales, conviértalos en miembros del rol fijo de base de datos **db\_owner** con la instrucción `ALTER ROLE`.
 
-> [AZURE.NOTE] The principal reason to create database users based on logins, is when you have SQL Server authentication users that need access to multiple databases. Users based on logins are tied to the login, and only one password that is maintained for that login. Contained database users in individual databases are each individual entities and each maintains its own password. This can confuse contained database users if they do not maintain their passwords as identical.
+> [AZURE.NOTE] La razón principal para crear usuarios de base de datos basados en inicios de sesión es tener usuarios de autenticación de SQL Server que necesitan acceder a varias bases de datos. Los usuarios basados en inicios de sesión están vinculados al inicio de sesión y solo se mantiene una contraseña para dicho inicio de sesión. Los usuarios de base de datos independiente en bases de datos individuales son entidades individuales y cada uno mantiene su propia contraseña. Esto puede confundir a los usuarios de base de datos independiente si no mantienen sus contraseñas idénticas.
 
-### <a name="configuring-the-database-level-firewall"></a>Configuring the database-level firewall
+### Configuración del firewall de nivel de base de datos
 
-As a best practice, non-administrator users should only have access through the firewall to the databases that they use. Instead of authorizing their IP addresses through the server-level firewall and giving them access to all databases, use the [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) statement to configure the database-level firewall. The database-level firewall cannot be configured by using the portal.
+Como procedimiento recomendado, los usuarios no administradores solo deben tener acceso a través del firewall a las bases de datos que utilizan. En lugar de autorizar sus direcciones IP a través del firewall de nivel de servidor y proporcionarles acceso a todas las bases de datos, utilice la instrucción [sp\_set\_database\_firewall\_rule](https://msdn.microsoft.com/library/dn270010.aspx) para configurar el firewall de nivel de base de datos. El firewall de nivel de base de datos no se puede configurar a través del portal.
 
-### <a name="non-administrator-access-path"></a>Non-administrator access path
+### Ruta de acceso de no administrador
 
-When the database-level firewall is properly configured, the database users can connect using client tools such as SQL Server Management Studio or SQL Server Data Tools. Only the latest tools provide all the features and capabilities. The following diagram shows a typical non-administrator access path.
-![Non-administrator access path](./media/sql-database-manage-logins/2sql-db-nonadmin-access.png)
+Si el firewall de nivel de base de datos está configurado correctamente, los usuarios de la base de datos pueden conectarse mediante herramientas de cliente como SQL Server Management Studio o SQL Server Data Tools. Solo las herramientas más recientes proporcionan todas las características y funcionalidades. El siguiente diagrama muestra una ruta de acceso típica de no administrador. ![Ruta de acceso de no administrador](./media/sql-database-manage-logins/2sql-db-nonadmin-access.png)
  
-## <a name="groups-and-roles"></a>Groups and roles
-Efficient access management uses permissions assigned to groups and roles instead of individual users. For example, when using Azure Active Directory authentication:
+## Grupos y roles
+La administración de acceso eficiente utiliza los permisos asignados a grupos y roles, en lugar de a usuarios individuales. Por ejemplo, si se utiliza la autenticación de Azure Active Directory:
 
-- Put Azure Active Directory users into an Azure Active Directory group. Create a contained database user for the group. Place one or more database users into a database role. And then assign permissions to the database role.
+- Coloque los usuarios de Azure Active Directory en un grupo de Azure Active Directory. Cree un usuario de base de datos independiente para el grupo. Coloque uno o varios usuarios de base de datos en un rol de base de datos. Y, a continuación, asigne permisos al rol de base de datos.
 
-When using SQL Server authentication:
+Si se utiliza la autenticación de SQL Server:
 
-- Create contained database users in the database. Place one or more database users into a database role. And then assign permissions to the database role.
+- Cree usuarios de bases de datos independientes en la base de datos. Coloque uno o varios usuarios de base de datos en un rol de base de datos. Y, a continuación, asigne permisos al rol de base de datos.
 
-The database roles can be the built-in roles such as **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter**, and **db_denydatareader**. **db_owner** is commonly used to grant full permission to only a few users. The other fixed database roles are useful for getting a simple database in development quickly, but are not recommended for most production databases. For example, the **db_datareader** fixed database role grants read access to every table in the database, which is usually more than is strictly necessary. It is far better to use the [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) statement to create your own user-defined database roles and carefully grant each role the least permissions necessary for the business need. When a user is a member of multiple roles, they aggregate the permissions of them all.
+Los roles de base de datos pueden ser roles integrados como **db\_owner**, **db\_ddladmin**, **db\_datawriter**, **db\_datareader**, **db\_denydatawriter**, y **db\_denydatareader**. **db\_owner** se suele utilizar para conceder permiso total a solo unos pocos usuarios. Los restantes roles fijos de base de datos son útiles para obtener rápidamente una base de datos simple en la fase de desarrollo, pero no se recomiendan para la mayoría de las bases de datos de producción. Por ejemplo, el rol fijo de base de datos **db\_datareader** concede acceso de lectura a todas las tablas de la base de datos, algo que normalmente es más de lo estrictamente necesario. Es mucho mejor usar la instrucción [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) para crear sus propios roles de base de datos definidos por el usuario y otorgar cuidadosamente a cada rol los permisos mínimos necesarios para la necesidad empresarial. Cuando un usuario es miembro de varios roles, realiza la agregación de los permisos de todos ellos.
 
-## <a name="permissions"></a>Permissions
+## Permisos
 
-There are over 100 permissions that can be individually granted or denied in SQL Database. Many of these permissions are nested. For example, the `UPDATE` permission on a schema includes the `UPDATE` permission on each table within that schema. As in most permission systems, the denial of a permission overrides a grant. Because of the nested nature and the number of permissions, it can take careful study to design an appropriate permission system to properly protect your database. Start with the list of permissions at [Permissions (Database Engine)](https://msdn.microsoft.com/library/ms191291.aspx) and review the [poster size graphic](http://go.microsoft.com/fwlink/?LinkId=229142) of the permissions.
-
-
-## <a name="next-steps"></a>Next steps
-
-[Securing your SQL Database](sql-database-security.md)
-
-[Creating a Table \(Tutorial\)](https://msdn.microsoft.com/library/ms365315.aspx)
-
-[Inserting and Updating Data in a Table \(Tutorial\)](https://msdn.microsoft.com/library/ms365309.aspx)
-
-[Reading the Data in a Table \(Tutorial\)](https://msdn.microsoft.com/library/ms365310.aspx)
-
-[Creating views and stored procedures](https://msdn.microsoft.com/library/ms365311.aspx)
-
-[Granting Access to a Database Object](https://msdn.microsoft.com/library/ms365327.aspx)
+En Base de datos SQL, hay más de 100 permisos que pueden conceder o denegar individualmente. Muchos de estos permisos están anidados. Por ejemplo, el permiso `UPDATE` de un esquema incluye el permiso `UPDATE` en cada tabla dentro de dicho esquema. Al igual que en la mayoría de los sistemas de permisos, la denegación de un permiso anula su concesión. Dada la naturaleza anidada y el número de permisos, es preciso realizar un estudio meticuloso para diseñar un sistema de permisos apropiado para proteger adecuadamente la base de datos. Comience con la lista de permisos de [Permisos (motor de base de datos)](https://msdn.microsoft.com/library/ms191291.aspx) y revise la [imagen a tamaño de póster](http://go.microsoft.com/fwlink/?LinkId=229142) de los permisos.
 
 
-## <a name="additional-resources"></a>Additional resources
+## Pasos siguientes
 
-[Securing your SQL Database](sql-database-security.md)
+[Protección de bases de datos SQL](sql-database-security.md)
 
-[Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589.aspx) 
+[Crear una tabla (Tutorial)](https://msdn.microsoft.com/library/ms365315.aspx)
+
+[Insertar y actualizar datos en una tabla (Tutorial)](https://msdn.microsoft.com/library/ms365309.aspx)
+
+[Leer datos de una tabla (Tutorial)](https://msdn.microsoft.com/library/ms365310.aspx)
+
+[Crear vistas y procedimientos almacenados](https://msdn.microsoft.com/library/ms365311.aspx)
+
+[Conceder acceso a un objeto de base de datos](https://msdn.microsoft.com/library/ms365327.aspx)
 
 
+## Recursos adicionales
 
+[Protección de bases de datos SQL](sql-database-security.md)
 
-<!--HONumber=Oct16_HO2-->
+[Centro de seguridad para el Motor de base de datos de SQL Server y Base de datos SQL Azure](https://msdn.microsoft.com/library/bb510589.aspx)
 
-
+<!---HONumber=AcomDC_0914_2016-->

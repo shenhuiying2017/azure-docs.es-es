@@ -1,42 +1,42 @@
 
-This section shows how to send breaking news as tagged template notifications from a .NET console app.
+En esta sección se muestra cómo enviar noticias de última hora como notificaciones de plantillas con etiquetas desde una aplicación de consola .NET.
 
-If you are using Mobile Apps please refer to the [Add push notifications for Mobile Apps](../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) tutorial and select your platform at the top. 
+Si usa aplicaciones Móviles, consulte el tutorial [Incorporación de notificaciones push a la aplicación universal Windows en tiempo de ejecución 8.1](../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
 
-If you want to use Java or PHP refer to [How to use Notification Hubs from Java/PHP](../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md). You can send notifications from any backend using the [Notification Hub REST interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+Si desea utilizar Java o PHP, consulte [Uso de Centro de notificaciones desde Java/PHP](../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md). Puede enviar notificaciones desde cualquier back-end mediante la [Interfaz de REST de Centros de notificaciones](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 
-Skip steps 1-3 if you created the console app for sending notifications when you completed [Get started with Notification Hubs][get-started].
+Omita los pasos 1-3 si creó la aplicación de consola para enviar notificaciones cuando completó [Introducción a los Centros de notificaciones][get-started].
 
-1. In Visual Studio create a new Visual C# console application: 
+1. En Visual Studio, cree una aplicación de consola en Visual C#: 
 
-    ![][13]
+   	![][13]
 
-2. In the Visual Studio main menu, click **Tools**, **Library Package Manager**, and **Package Manager Console**, then in the console window type the following and press **Enter**:
+2. En el menú principal de Visual Studio, haga clic sucesivamente en **Herramientas**, **Administrador de paquetes de la biblioteca** y **Consola del administrador de paquetes**, y luego, en la ventana de la consola, escriba lo siguiente y presione **Entrar**:
 
         Install-Package Microsoft.Azure.NotificationHubs
-    
-    This adds a reference to the Azure Notification Hubs SDK using the <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet package</a>. 
+ 	
+	Así se agrega una referencia al SDK de Centros de notificaciones de Azure mediante el <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">paquete NuGet Microsoft.Azure.Notification Hubs</a>.
 
-3. Open the file Program.cs and add the following `using` statement:
+3. Abra el archivo Program.cs y agregue la siguiente instrucción `using`:
 
         using Microsoft.Azure.NotificationHubs;
 
-4. In the `Program` class, add the following method, or replace it if it already exists:
+4. En la clase `Program`, agregue el siguiente método o reemplácelo si ya existe:
 
         private static async void SendTemplateNotificationAsync()
         {
-            // Define the notification hub.
-            NotificationHubClient hub = 
-                NotificationHubClient.CreateClientFromConnectionString(
-                    "<connection string with full access>", "<hub name>");
+			// Define the notification hub.
+		    NotificationHubClient hub = 
+				NotificationHubClient.CreateClientFromConnectionString(
+					"<connection string with full access>", "<hub name>");
 
             // Create an array of breaking news categories.
             var categories = new string[] { "World", "Politics", "Business", 
-                                            "Technology", "Science", "Sports"};
+											"Technology", "Science", "Sports"};
 
             // Sending the notification as a template notification. All template registrations that contain 
-            // "messageParam" and the proper tags will receive the notifications. 
-            // This includes APNS, GCM, WNS, and MPNS template registrations.
+			// "messageParam" and the proper tags will receive the notifications. 
+			// This includes APNS, GCM, WNS, and MPNS template registrations.
 
             Dictionary<string, string> templateParams = new Dictionary<string, string>();
 
@@ -45,18 +45,18 @@ Skip steps 1-3 if you created the console app for sending notifications when you
                 templateParams["messageParam"] = "Breaking " + category + " News!";            
                 await hub.SendTemplateNotificationAsync(templateParams, category);
             }
-         }
+		 }
 
-    This code sends a template notification for each of the six tags in the string array. The use of tags makes sure that devices receive notifications only for the registered categories. 
+	Este código envía una notificación de plantilla para cada una de las seis etiquetas en la matriz de cadenas. El uso de etiquetas ofrece la seguridad de que los dispositivos reciben notificaciones solo de las categorías registradas.
 
-6. In the above code, replace the `<hub name>` and `<connection string with full access>` placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* from the dashboard of your notification hub.
+6. En el código anterior, reemplace los marcadores de posición `<hub name>` y `<connection string with full access>` por su nombre del centro de notificaciones y la cadena de conexión para *DefaultFullSharedAccessSignature* del panel de su centro de notificaciones.
 
-7. Add the following lines in the **Main** method:
+7. Agregue las siguientes líneas al método **Main**:
 
          SendTemplateNotificationAsync();
-         Console.ReadLine();
+		 Console.ReadLine();
 
-8. Build the console app.
+8. Compile la aplicación de consola.
 
 <!-- Anchors -->
 [From a console app]: #console
@@ -78,7 +78,4 @@ Skip steps 1-3 if you created the console app for sending notifications when you
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create service principal in portal | Microsoft Azure"
-   description="Describes how to create a new Active Directory application and service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources."
+   pageTitle="Creación de entidad de servicio en el portal | Microsoft Azure"
+   description="Describe cómo crear una nueva aplicación de Active Directory y una entidad de servicio que puede utilizarse con el control de acceso basado en roles en el Administrador de recursos de Azure para administrar el acceso a los recursos."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,218 +16,210 @@
    ms.date="09/07/2016"
    ms.author="tomfitz"/>
 
-
-# <a name="use-portal-to-create-active-directory-application-and-service-principal-that-can-access-resources"></a>Use portal to create Active Directory application and service principal that can access resources
+# Uso del portal para crear una aplicación de Active Directory y una entidad de servicio con acceso a los recursos
 
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-authenticate-service-principal.md)
-- [Azure CLI](resource-group-authenticate-service-principal-cli.md)
+- [CLI de Azure](resource-group-authenticate-service-principal-cli.md)
 - [Portal](resource-group-create-service-principal-portal.md)
 
 
-When you have an application that needs to access or modify resources, you must set up an Active Directory (AD) application and assign the required permissions to it. This topic shows you how to perform those steps through the portal. Currently, you must use the classic portal to create a new Active Directory application, and then switch to the Azure portal to assign a role to the application. 
+Si tiene una aplicación que necesita tener acceso a ciertos recursos o modificarlos, puede configurar una aplicación de Active Directory (AD) y asignarle los permisos requeridos. En este tema se muestra cómo realizar tales pasos a través del portal. Actualmente, debe usar el portal clásico para crear una nueva aplicación de Active Directory y, después, cambiar al Portal de Azure para asignar un rol a dicha aplicación.
 
-> [AZURE.NOTE] The steps in this topic only apply when using the **classic portal** to create the AD application. **If you use the Azure portal for creating the AD application, these steps will not succeed.** 
->
-> You may find it easier to set up your AD application and service principal through [PowerShell](resource-group-authenticate-service-principal.md) or [Azure CLI](resource-group-authenticate-service-principal-cli.md), especially if you want to use a certificate for authentication. This topic does not show how to use a certificate.
+> [AZURE.NOTE] Quizá le resulte más fácil configurar la aplicación de AD y la entidad de servicio mediante [PowerShell](resource-group-authenticate-service-principal.md) o la [CLI de Azure](resource-group-authenticate-service-principal-cli.md), especialmente si desea utilizar un certificado para la autenticación. En este tema se describe cómo utilizar un certificado.
 
-For an explanation of Active Directory concepts, see [Application Objects and Service Principal Objects](./active-directory/active-directory-application-objects.md). For more information about Active Directory authentication, see [Authentication Scenarios for Azure AD](./active-directory/active-directory-authentication-scenarios.md).
+Para ver una explicación de los conceptos de Active Directory, consulte [Objetos Application y objetos ServicePrincipal](./active-directory/active-directory-application-objects.md). Para obtener más información acerca de la autenticación de Active Directory, vea [Escenarios de autenticación en Azure AD](./active-directory/active-directory-authentication-scenarios.md).
 
-For detailed steps on integrating an application into Azure for managing resources, see [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md).
+Si desea conocer los pasos detallados de la integración de una aplicación en Azure para administrar recursos, consulte [Guía del desarrollador para la autorización con la API de Azure Resource Manager](resource-manager-api-authentication.md).
 
-## <a name="create-an-active-directory-application"></a>Create an Active Directory application
+## Creación de una aplicación de Active Directory
 
-1. Log in to your Azure Account through the [classic portal](https://manage.windowsazure.com/). 
+1. Inicie sesión en su cuenta de Azure a través del [portal clásico](https://manage.windowsazure.com/).
 
-2. Make sure you know the default Active Directory for your subscription. You can only grant access for applications in the same directory as your subscription. Select **Settings** and look for the directory name associated with your subscription.  For more information, see [How Azure subscriptions are associated with Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
+2. Asegúrese de que conoce la instancia predeterminada de Active Directory para la suscripción. Solo puede conceder acceso a aplicaciones que se encuentren en el mismo directorio que su suscripción. Seleccione **Configuración** y busque el nombre de directorio asociado a la suscripción. Para más información, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
    
-     ![find default directory](./media/resource-group-create-service-principal-portal/show-default-directory.png)
+     ![buscar directorio predeterminado](./media/resource-group-create-service-principal-portal/show-default-directory.png)
 
-2. Select **Active Directory** from the left pane.
+2. Seleccione **Active Directory** en el panel izquierdo.
 
-     ![select Active Directory](./media/resource-group-create-service-principal-portal/active-directory.png)
+     ![seleccionar Active Directory](./media/resource-group-create-service-principal-portal/active-directory.png)
      
-3. Select the Active Directory that you want to use for creating the application. If you have more than one Active Directory, create the application in the default directory for your subscription.   
+3. Seleccione el directorio de Active Directory que desea usar para crear la aplicación. Si tiene más de uno, cree la aplicación en el directorio predeterminado de la suscripción.
 
-     ![choose directory](./media/resource-group-create-service-principal-portal/active-directory-details.png)
+     ![elegir directorio](./media/resource-group-create-service-principal-portal/active-directory-details.png)
      
-3. To view the applications in your directory, select **Applications**.
+3. Para ver las aplicaciones en el directorio, seleccione **Aplicaciones**.
 
-     ![view applications](./media/resource-group-create-service-principal-portal/view-applications.png)
+     ![ver aplicaciones](./media/resource-group-create-service-principal-portal/view-applications.png)
 
-4. If you haven't created an application in that directory before, you should see something similar to following image. Select **ADD AN APPLICATION**
+4. Si no ha creado una aplicación en ese directorio previamente, debería ver algo similar a la siguiente imagen. Seleccione **AGREGAR UNA APLICACIÓN**
 
-     ![add application](./media/resource-group-create-service-principal-portal/create-application.png)
+     ![agregar aplicación](./media/resource-group-create-service-principal-portal/create-application.png)
 
-     Or, click **Add** in the bottom pane.
+     O bien, haga clic en **Agregar** en el panel inferior.
 
-     ![add](./media/resource-group-create-service-principal-portal/add-icon.png)
+     ![agregar](./media/resource-group-create-service-principal-portal/add-icon.png)
 
-5. Select the type of application you would like to create. For this tutorial, select **Add an application my organization is developing**. 
+5. Seleccione el tipo de aplicación que desea crear. Para este tutorial, seleccione **Agregar una aplicación que mi organización está desarrollando**.
 
-     ![new application](./media/resource-group-create-service-principal-portal/what-do-you-want-to-do.png)
+     ![nueva aplicación](./media/resource-group-create-service-principal-portal/what-do-you-want-to-do.png)
 
-6. Provide a name for the application and select the type of application you want to create. For this tutorial, create a **WEB APPLICATION AND/OR WEB API** and click the next button. If you select **NATIVE CLIENT APPLICATION**, the remaining steps of this article will not match your experience.
+6. Dé un nombre a la aplicación y seleccione el tipo al que esta pertenece. Para este tutorial, cree una **APLICACIÓN WEB Y/O API WEB** y haga clic en el botón Siguiente. Si selecciona **APLICACIÓN DE CLIENTE NATIVO**, los pasos restantes de este artículo no coincidirán con las opciones que verá.
 
-     ![name application](./media/resource-group-create-service-principal-portal/tell-us-about-your-application.png)
+     ![aplicación de nombre](./media/resource-group-create-service-principal-portal/tell-us-about-your-application.png)
 
-7. Fill in the properties for your app. For **SIGN-ON URL**, provide the URI to a web site that describes your application. The existence of the web site is not validated. For **APP ID URI**, provide the URI that identifies your application.
+7. Rellene las propiedades de la aplicación. Para **DIRECCIÓN URL DE INICIO DE SESIÓN**, proporcione el identificador URI para un sitio web que describe la aplicación. No se valida la existencia del sitio web. Para **URI DE ID. DE APLICACIÓN**, proporcione el URI que identifica la aplicación.
 
-     ![application properties](./media/resource-group-create-service-principal-portal/app-properties.png)
+     ![propiedades de la aplicación](./media/resource-group-create-service-principal-portal/app-properties.png)
 
-You have created your application.
+Ha creado la aplicación.
 
-## <a name="get-client-id-and-authentication-key"></a>Get client id and authentication key
+## Obtención del identificador del cliente y la clave de autenticación
 
-When programmatically logging in, you need the id for your application. If the application runs under its own credentials, you also need an authentication key.
+Al iniciar sesión mediante programación, necesitará el identificador de la aplicación. Si esta se ejecuta con sus propias credenciales, también necesitará una clave de autenticación.
 
-1. Select the **Configure** tab to configure your application's password.
+1. Seleccione la pestaña **Configurar** para configurar la contraseña de la aplicación.
 
-     ![configure application](./media/resource-group-create-service-principal-portal/application-configure.png)
+     ![configurar aplicación](./media/resource-group-create-service-principal-portal/application-configure.png)
 
-2. Copy the **CLIENT ID**.
+2. Copie el valor de **ID. DE CLIENTE**.
   
-     ![client id](./media/resource-group-create-service-principal-portal/client-id.png)
+     ![id. de cliente](./media/resource-group-create-service-principal-portal/client-id.png)
 
-3. If the application runs under its own credentials, scroll down to the **Keys** section and select how long you would like your password to be valid.
+3. Si la aplicación se ejecuta con sus propias credenciales, desplácese hacia abajo, hasta la sección **Claves**, y seleccione cuánto tiempo desea que la contraseña sea válida.
 
-     ![keys](./media/resource-group-create-service-principal-portal/create-key.png)
+     ![claves](./media/resource-group-create-service-principal-portal/create-key.png)
 
-4. Select **Save** to create your key.
+4. Seleccione **Guardar** para crear la clave.
 
-     ![save](./media/resource-group-create-service-principal-portal/save-icon.png)
+     ![guardar](./media/resource-group-create-service-principal-portal/save-icon.png)
 
-     The saved key is displayed and you can copy it. You are not able to retrieve the key later so copy it now.
+     Se muestra la clave guardada, y tiene la posibilidad de copiarla. No es posible recuperar la clave posteriormente, así que cópiela ahora.
 
-     ![saved key](./media/resource-group-create-service-principal-portal/save-key.png)
+     ![clave guardada](./media/resource-group-create-service-principal-portal/save-key.png)
 
-## <a name="get-tenant-id"></a>Get tenant id
+## Obtención del identificador de inquilino
 
-When programmatically logging in, you need to pass the tenant id with your authentication request. For Web Apps and Web API Apps, you can retrieve the tenant id by selecting **View endpoints** at the bottom of the screen and retrieving the id as shown in the following image.  
+Al iniciar sesión mediante programación, tiene que transferir el identificador de inquilino con la solicitud de autenticación. En el caso de las aplicaciones web y las de API web, para recuperar el identificador de inquilino, seleccione **Ver extremos** en la parte inferior de la pantalla y recupere el identificador, tal y como se muestra en la imagen siguiente.
 
-   ![tenant id](./media/resource-group-create-service-principal-portal/save-tenant.png)
+   ![id. de inquilino](./media/resource-group-create-service-principal-portal/save-tenant.png)
 
-You can also retrieve the tenant id through PowerShell:
+También puede recuperar el identificador de inquilino mediante PowerShell:
 
     Get-AzureRmSubscription
 
-Or, Azure CLI:
+O de la CLI de Azure:
 
     azure account show --json
 
-## <a name="set-delegated-permissions"></a>Set delegated permissions
+## Establecimiento de permisos delegados
 
-If your application accesses resources on behalf of a signed-in user, you must grant your application the delegated permission to access other applications. You grant this access in the **permissions to other applications** section of the **Configure** tab. By default, a delegated permission is already enabled for the Azure Active Directory. Leave this delegated permission unchanged.
+Si la aplicación tiene acceso a recursos en nombre del usuario que ha iniciado sesión, debe conceder a la aplicación el permiso delegado para tener acceso a otras aplicaciones. Puede conceder este acceso en la sección de **permisos para otras aplicaciones** de la pestaña **Configurar**. De forma predeterminada, ya hay habilitado un permiso delegado para Azure Active Directory. Deje este permiso delegado sin cambios.
 
-1. Select **Add application**.
+1. Seleccione **Agregar una aplicación**.
 
-2. From the list, select the **Windows Azure Service Management API**. Then, select the complete icon.
+2. En la lista, seleccione **API de administración de servicios de Windows Azure**. Seguidamente, seleccione el icono de proceso terminado.
 
-      ![select app](./media/resource-group-create-service-principal-portal/select-app.png)
+      ![seleccionar aplicación](./media/resource-group-create-service-principal-portal/select-app.png)
 
-3. In the dropdown list for delegated permissions, select **Access Azure Service Management as organization**.
+3. En la lista desplegable de permisos delegados, seleccione **Access Azure Service Management as organization** (Acceder a la administración de servicios de Azure como organización).
 
-      ![select permission](./media/resource-group-create-service-principal-portal/select-permissions.png)
+      ![seleccionar permiso](./media/resource-group-create-service-principal-portal/select-permissions.png)
 
-4. Save the change.
+4. Guarde el cambio.
 
-## <a name="assign-application-to-role"></a>Assign application to role
+## Asignación de aplicación a un rol
 
-If your application is running under its own credentials, you must assign the application to a role. Decide which role represents the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](./active-directory/role-based-access-built-in-roles.md). 
+Si la aplicación se ejecuta con sus propias credenciales, debe asignarla a un rol. Decida qué rol representa los permisos adecuados para la aplicación. Para obtener más información acerca de los roles disponibles, vea [RBAC: Roles integrados](./active-directory/role-based-access-built-in-roles.md).
 
-To assign a role to an application, you must have the correct permissions. Specifically, you must have `Microsoft.Authorization/*/Write` access that is granted through the [Owner](./active-directory/role-based-access-built-in-roles.md#owner) role or [User Access Administrator](./active-directory/role-based-access-built-in-roles.md#user-access-administrator) role. The Contributor role does not have the correct access.
+Para asignar un rol a una aplicación, debe tener los permisos correctos. Concretamente, debe tener acceso `Microsoft.Authorization/*/Write` que se concede a través del rol [Propietario](./active-directory/role-based-access-built-in-roles.md#owner) o del rol [Administrador de acceso de usuario](./active-directory/role-based-access-built-in-roles.md#user-access-administrator). El rol Colaborador no tiene el acceso correcto.
 
-You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope. For example, adding an application to the Reader role for a resource group means it can read the resource group and any resources it contains.
+Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o recurso. Los permisos se heredan en los niveles inferiores del ámbito. Por ejemplo, el hecho de agregar una aplicación al rol Lector para un grupo de recursos significa que esta puede leer el grupo de recursos y los recursos que contenga.
 
-1. To assign the application to a role, switch from the classic portal to the [Azure portal](https://portal.azure.com).
+1. Para asignar la aplicación a un rol, cambie desde el portal clásico al [Portal de Azure](https://portal.azure.com).
 
-1. Check your permissions to make sure you can assign the service principal to a role. Select **My permissions** for your account.
+1. Compruebe sus permisos para asegurarse de que puede asignar la entidad de servicio a un rol. Seleccione **Mis permisos** en su cuenta.
 
-    ![select my permissions](./media/resource-group-create-service-principal-portal/my-permissions.png)
+    ![seleccionar mis permisos](./media/resource-group-create-service-principal-portal/my-permissions.png)
 
-1. View the assigned permissions for your account. As noted previously, you must belong to the Owner or User Access Administrator roles, or have a customized role that grants write access for Microsoft.Authorization. The following image shows an account that is assigned to the Contributor role for the subscription, which is not adequate permissions to assign an application to a role.
+1. Vea los permisos asignados a su cuenta. Como se indicó anteriormente, debe pertenecer a los roles Propietario o Administrador de acceso de usuario, o tener un rol personalizado que permita conceder acceso de escritura a Microsoft.Authorization. La siguiente imagen muestra una cuenta que está asignada al rol Colaborador de la suscripción, el cual no tiene los permisos adecuados para asignar una aplicación a un rol.
 
-    ![show my permissions](./media/resource-group-create-service-principal-portal/show-permissions.png)
+    ![mostrar mis permisos](./media/resource-group-create-service-principal-portal/show-permissions.png)
 
-     If you do not have the correct permissions to grant access to an application, you must either request that your subscription administrator adds you to the User Access Administrator role, or request that an administrator grants access to the application.
+     Si no tiene los permisos correctos para conceder acceso a una aplicación, debe solicitar al Administrador de la suscripción que le agregue al rol Administrador de acceso de usuario o solicitar a un administrador que conceda este acceso a la aplicación.
 
-1. Navigate to the level of scope you wish to assign the application to. To assign a role at the subscription scope, select **Subscriptions**.
+1. Desplácese hasta el nivel de ámbito al que desea asignar la aplicación. Para asignar un rol a un grupo en el ámbito de la suscripción, seleccione **Suscripciones**.
 
-     ![select subscription](./media/resource-group-create-service-principal-portal/select-subscription.png)
+     ![seleccionar suscripción](./media/resource-group-create-service-principal-portal/select-subscription.png)
 
-     Select the particular subscription to assign the application to.
+     Seleccione la suscripción concreta que se asignará a la aplicación.
 
-     ![select subscription for assignment](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
+     ![seleccionar suscripción para la asignación](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
 
-     Select the **Access** icon in the upper-right corner.
+     Seleccione el icono de **Acceder** que se encuentra en la esquina superior derecha.
 
-     ![select access](./media/resource-group-create-service-principal-portal/select-access.png)
+     ![seleccionar acceso](./media/resource-group-create-service-principal-portal/select-access.png)
      
-     Or, to assign a role at resource group scope, navigate to a resource group. From the resource group blade, select **Access control**.
+     También, para asignar un rol en el ámbito del grupo de recursos, desplácese a un grupo de recursos. En la hoja Grupo de recursos, seleccione **Access Control**.
 
-     ![select users](./media/resource-group-create-service-principal-portal/select-users.png)
+     ![seleccionar usuarios](./media/resource-group-create-service-principal-portal/select-users.png)
 
-     The following steps are the same for any scope.
+     Los siguientes pasos son los mismos para cualquier ámbito.
 
-2. Select **Add**.
+2. Seleccione **Agregar**.
 
-     ![select add](./media/resource-group-create-service-principal-portal/select-add.png)
+     ![seleccionar agregar](./media/resource-group-create-service-principal-portal/select-add.png)
 
-3. Select the **Reader** role (or whatever role you wish to assign the application to).
+3. Seleccione el rol **lector** (o el rol que desea asignar a la aplicación).
 
-     ![select role](./media/resource-group-create-service-principal-portal/select-role.png)
+     ![seleccionar rol](./media/resource-group-create-service-principal-portal/select-role.png)
 
-4. When you first see the list of users you can add to the role, you will not see applications. You will only see group and users.
+4. En primer lugar, verá la lista de usuarios que puede agregar al rol, no verá las aplicaciones. Solo verá el grupo y los usuarios.
 
-     ![show users](./media/resource-group-create-service-principal-portal/show-users.png)
+     ![mostrar usuarios](./media/resource-group-create-service-principal-portal/show-users.png)
 
-5. To find your application, you must search for it. Start typing the name of your application, and the list of available options will change. Select your application when you see it in the list.
+5. Para que la aplicación aparezca, debe buscarla. Comience a escribir el nombre de la aplicación y cambiará la lista de opciones disponibles. Seleccione la aplicación cuando la vea en la lista.
 
-     ![assign to role](./media/resource-group-create-service-principal-portal/assign-to-role.png)
+     ![asignar a rol](./media/resource-group-create-service-principal-portal/assign-to-role.png)
 
-6. Select **Okay** to finish assigning the role. You should now see your application in the list of uses assigned to a role for the resource group.
+6. Seleccione **Aceptar** para finalizar la asignación de un rol. Ahora debería ver la aplicación en la lista de usos asignados a un rol para el grupo de recursos.
 
 
-For more information about assigning users and applications to roles through the portal, see [Use role assignments to manage access to your Azure subscription resources](role-based-access-control-configure.md#manage-access-using-the-azure-management-portal).
+Para más información acerca de cómo asignar usuarios y aplicaciones a los roles a través del portal, consulte [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](role-based-access-control-configure.md#manage-access-using-the-azure-management-portal).
 
-## <a name="sample-applications"></a>Sample applications
+## Aplicaciones de ejemplo
 
-The following sample applications show how to log in as the service principal.
+Las aplicaciones de ejemplo siguientes muestran cómo iniciar sesión como entidad de servicio.
 
 **.NET**
 
-- [Deploy an SSH Enabled VM with a Template with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-- [Manage Azure resources and resource groups with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
+- [Implementación de una máquina virtual habilitada para SSH con una plantilla con .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
+- [Administración de recursos y grupos de recursos de Azure con .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 
 **Java**
 
-- [Getting Started with Resources - Deploy Using Azure Resource Manager Template - in Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-- [Getting Started with Resources - Manage Resource Group - in Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group//)
+- [Introducción a recursos - Implementación mediante la plantilla de Azure Resource Manager - en Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+- [Introducción a recursos - Administración de grupo de recursos - en Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group//)
 
 **Python**
 
-- [Deploy an SSH Enabled VM with a Template in Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-- [Managing Azure Resource and Resource Groups with Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Implementación de una máquina virtual habilitada para SSH con una plantilla en Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+- [Administración de recursos y grupos de recursos de Azure con Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
 
 **Node.js**
 
-- [Deploy an SSH Enabled VM with a Template in Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-- [Manage Azure resources and resource groups with Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Implementación de una máquina virtual habilitada para SSH con una plantilla en Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+- [Administración de recursos y grupos de recursos de Azure con Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
 
 **Ruby**
 
-- [Deploy an SSH Enabled VM with a Template in Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-- [Managing Azure Resource and Resource Groups with Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+- [Implementación de una máquina virtual habilitada para SSH con una plantilla en Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
+- [Administración de recursos y grupos de recursos de Azure con Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 
-## <a name="next-steps"></a>Next Steps
+## Pasos siguientes
 
-- To learn about specifying security policies, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).  
-- For a video demonstration of these steps, see [Enabling Programmatic Management of an Azure Resource with Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
+- Para obtener información sobre cómo especificar directivas de seguridad, consulte [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).
+- Para ver una demostración en vídeo de estos pasos, consulte [Enabling Programmatic Management of an Azure Resource with Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

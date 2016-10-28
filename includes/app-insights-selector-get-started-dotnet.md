@@ -1,11 +1,11 @@
 
-*Application Insights is in preview.*
+*Application Insights se encuentra en su versión de vista previa.*
 
 <a name="selector1"></a>
 
-[Visual Studio Application Insights](../articles/application-insights/app-insights-overview.md) monitors your live application to help you [detect and diagnose performance issues and exceptions](../articles/application-insights/app-insights-detect-triage-diagnose.md), and [discover how your app is used](../articles/application-insights/app-insights-overview-usage.md). 
+[Application Insights de Visual Studio](../articles/application-insights/app-insights-overview.md) supervisa su aplicación activa para ayudarle a [detectar y diagnosticar problemas y excepciones de rendimiento](../articles/application-insights/app-insights-detect-triage-diagnose.md), y [descubrir cómo se usa la aplicación](../articles/application-insights/app-insights-overview-usage.md).
 
-Install the SDK and then add monitoring for other data:
+Instale el SDK y luego agregue la supervisión para otros datos:
 
 > [AZURE.SELECTOR]
 - [Install the SDK](../articles/application-insights/app-insights-asp-net.md#selector1)
@@ -14,8 +14,4 @@ Install the SDK and then add monitoring for other data:
 - [Dependencies](../articles/application-insights/app-insights-asp-net-dependencies.md#selector1)
 - [Availability](../articles/application-insights/app-insights-monitor-web-app-availability.md#selector1)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0211_2016-->

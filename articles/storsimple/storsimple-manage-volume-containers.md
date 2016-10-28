@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Manage your StorSimple volume containers | Microsoft Azure"
-   description="Explains how you can use the StorSimple Manager service volume containers page to add, modify, or delete a volume container."
+   pageTitle="Administración de contenedores de volúmenes de StorSimple| Microsoft Azure"
+   description="Explica cómo se puede usar la página de contenedores de volúmenes del Servicio de Administrador de StorSimple para agregar, modificar o eliminar contenedores de volúmenes."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,60 +15,55 @@
    ms.date="05/24/2016"
    ms.author="v-sharos" />
 
+# Usar el servicio de Administrador de StorSimple para administrar contenedores de volúmenes de StorSimple
 
-# <a name="use-the-storsimple-manager-service-to-manage-storsimple-volume-containers"></a>Use the StorSimple Manager service to manage StorSimple volume containers
+## Información general
 
-## <a name="overview"></a>Overview
+Este tutorial explica cómo usar el Servicio Administrador de StorSimple para crear y administrar contenedores de volúmenes StorSimple.
 
-This tutorial explains how to use the StorSimple Manager service to create and manage StorSimple volume containers.
+En un dispositivo Microsoft Azure StorSimple, los contenedores de volúmenes contienen uno o varios volúmenes que comparten la configuración de cuentas de almacenamiento, cifrado y consumo de ancho de banda. Un dispositivo puede tener varios contenedores de volúmenes para todos sus volúmenes.
 
-A volume container in a Microsoft Azure StorSimple device contains one or more volumes that share storage account, encryption, and bandwidth consumption settings. A device can have multiple volume containers for all its volumes. 
+Los contenedores de volúmenes tienen los siguientes atributos:
 
-A volume container has the following attributes:
+- **Volúmenes**: Los volúmenes de StorSimple en niveles o anclados localmente que se encuentran dentro del contenedor de volúmenes. Un contenedor de volúmenes puede contener hasta 256 volúmenes de StorSimple.
 
-- **Volumes** – The tiered or locally pinned StorSimple volumes that are contained within the volume container. A volume container may contain up to 256 StorSimple volumes.
+- **Cifrado**: una clave de cifrado que se puede definir para cada contenedor de volúmenes. Esta clave se utiliza para cifrar los datos que se envían desde un dispositivo de StorSimple a la nube. Se utiliza una clave de grado militar AES de 256 bits con la clave especificada por el usuario. Para proteger los datos, se recomienda habilitar siempre el cifrado de almacenamiento en la nube.
 
-- **Encryption** – An encryption key that can be defined for each volume container. This key is used for encrypting the data that is sent from your StorSimple device to the cloud. A military-grade AES-256 bit key is used with the user-entered key. To secure your data, we recommend that you always enable cloud storage encryption.
+- **Cuenta de almacenamiento**: la cuenta de almacenamiento vinculada a su proveedor de servicios de almacenamiento en la nube. Todos los volúmenes que se encuentran en un contenedor de volúmenes comparten esta cuenta de almacenamiento. Al crear el contenedor de volúmenes puede elegir una cuenta de almacenamiento de una lista existente, o bien crear una cuenta nueva y, a continuación, especificar las credenciales de acceso de dicha cuenta.
 
-- **Storage account** – The storage account that is linked to your cloud storage service provider. All the volumes residing in a volume container share this storage account. You can choose a storage account from an existing list, or create a new account when you create the volume container and then specify the access credentials for that account.
+- **Ancho de banda en la nube**: el ancho de banda que consume el dispositivo cuando sus datos se envían a la nube. Puede aplicar un control del ancho de banda especificando un valor entre 1 y 1000 Mbps al definir este contenedor. Si desea que el dispositivo consuma todo el ancho de banda disponible, elija la opción Sin límites en este campo. También puede crear y aplicar una plantilla de ancho de banda para asignar el ancho de banda según la programación.
 
-- **Cloud bandwidth** – The bandwidth consumed by the device when the data from the device is being sent to the cloud. You can enforce a bandwidth control by specifying a value between 1 and 1000 Mbps when you define this container. If you want the device to consume all available bandwidth, set this field to Unlimited. You can also create and apply a bandwidth template to allocate bandwidth based on schedule.
+![Página Contenedores de volúmenes](./media/storsimple-manage-volume-containers/HCS_VolumeContainersPage.png)
 
-![Volume containers page](./media/storsimple-manage-volume-containers/HCS_VolumeContainersPage.png)
+Los siguientes procedimientos explican cómo utilizar la página **Contenedores de volúmenes** de StorSimple para realizar las siguientes operaciones comunes:
 
-This following procedures explain how to use the StorSimple **Volume containers** page to complete the following common operations:
+- Agregar un contenedor de volúmenes 
+- Modificar un contenedor de volúmenes 
+- Eliminar un contenedor de volúmenes 
 
-- Add a volume container 
-- Modify a volume container 
-- Delete a volume container 
+## Agregar un contenedor de volúmenes
 
-## <a name="add-a-volume-container"></a>Add a volume container
-
-Perform the following steps to add a volume container.
+Realice los siguientes pasos para agregar un contenedor de volúmenes.
 
 [AZURE.INCLUDE [storsimple-add-volume-container](../../includes/storsimple-add-volume-container.md)]
 
 
-## <a name="modify-a-volume-container"></a>Modify a volume container
+## Modificar un contenedor de volúmenes
 
-Perform the following steps to modify a volume container.
+Realice los siguientes pasos para modificar una contenedor de volúmenes.
 
 [AZURE.INCLUDE [storsimple-modify-volume-container](../../includes/storsimple-modify-volume-container.md)]
 
 
-## <a name="delete-a-volume-container"></a>Delete a volume container
+## Eliminar un contenedor de volúmenes
 
-A volume container has volumes within it. It can be deleted only if all the volumes contained in it are first deleted. Perform the following steps to delete a volume container.
+Los contenedores de volúmenes contienen volúmenes. Solo se puede eliminar si primero se eliminan todos los volúmenes que contiene. Realice los siguientes pasos para eliminar una contenedor de volúmenes.
 
 [AZURE.INCLUDE [storsimple-delete-volume-container](../../includes/storsimple-delete-volume-container.md)]
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-- Learn more about [managing StorSimple volumes](storsimple-manage-volumes.md). 
-- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- Obtenga más información sobre la [administración de volúmenes de StorSimple](storsimple-manage-volumes.md). 
+- Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0525_2016-->

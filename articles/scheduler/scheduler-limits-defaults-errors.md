@@ -1,10 +1,10 @@
 <properties
- pageTitle="Scheduler Limits and Defaults"
- description="Scheduler Limits and Defaults"
+ pageTitle="Límites del programador y valores predeterminados"
+ description="Límites del programador y valores predeterminados"
  services="scheduler"
  documentationCenter=".NET"
- authors="derek1ee"
- manager="kevinlam1"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,42 +13,37 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="08/18/2016"
- ms.author="deli"/>
+ ms.author="krisragh"/>
 
+# Límites del programador y valores predeterminados
 
-# <a name="scheduler-limits-and-defaults"></a>Scheduler Limits and Defaults
-
-## <a name="scheduler-quotas,-limits,-defaults,-and-throttles"></a>Scheduler Quotas, Limits, Defaults, and Throttles
+## Aceleradores, valores predeterminados, límites y cuotas de Programador
 
 [AZURE.INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
-## <a name="the-x-ms-request-id-header"></a>The x-ms-request-id Header
+## Encabezado x-ms-request-id
 
-Every request made against the Scheduler service returns a response header named**x-ms-request-id**. This header contains an opaque value that uniquely identifies the request.
+Cada solicitud realizada en el servicio Programador devuelve un encabezado de respuesta denominado **x-ms-request-id**. Este encabezado contiene un valor opaco que identifica de forma única la solicitud.
 
-If a request is consistently failing and you have verified that the request is properly formulated, you may use this value to report the error to Microsoft. In your report, include the value of x-ms-request-id, the approximate time that the request was made, the identifier of the subscription, job collection, and/or job, and the type of operation that the request attempted.
+Si una solicitud genera error sistemáticamente y se ha comprobado que la solicitud está formulada correctamente, se puede usar este valor para notificar el error a Microsoft. En el informe, incluya el valor de x-ms-request-id, la hora aproximada en que se realizó la solicitud, el identificador de la suscripción, la colección de trabajos o el trabajo, así como el tipo de operación que intenta realizar la solicitud.
 
-## <a name="see-also"></a>See Also
-
-
- [What is Scheduler?](scheduler-intro.md)
-
- [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
-
- [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
-
- [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
-
- [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
-
- [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
-
- [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
-
- [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
+## Otras referencias
 
 
+ [¿Qué es Programador?](scheduler-intro.md)
 
-<!--HONumber=Oct16_HO2-->
+ [Conceptos, terminología y jerarquía de entidades de Programador de Azure](scheduler-concepts-terms.md)
 
+ [Introducción al Programador de Azure en el Portal de Azure](scheduler-get-started-portal.md)
 
+ [Planes y facturación en Programador de Azure](scheduler-plans-billing.md)
+
+ [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/mt629143)
+
+ [Referencia de cmdlets de PowerShell de Programador de Azure](scheduler-powershell-reference.md)
+
+ [Alta disponibilidad y confiabilidad de Programador de Azure](scheduler-high-availability-reliability.md)
+
+ [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
+
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,51 +1,49 @@
-## <a name="create-an-event-hub"></a>Create an Event Hub
+## Creación de un Centro de eventos
 
-1. Log on to the [Azure portal][], and click **New** at the top left of the screen.
+1. Inicie sesión en el [portal de Azure][] y, luego, haga clic en **Nuevo** en la parte superior izquierda de la pantalla.
 
-2. Click **Data + Analytics**, then click **Event Hubs**.
+2. Haga clic en **Datos y análisis** y, a continuación, en **Centros de eventos**.
 
-    ![](./media/event-hubs-create-event-hub/create-event-hub9.png)
+	![](./media/event-hubs-create-event-hub/create-event-hub9.png)
 
-3. In the **Create namespace** blade, enter a namespace name. The system immediately checks to see if the name is available.
+3. En la hoja **Crear espacio de nombres**, especifique el nombre del espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
 
-    ![](./media/event-hubs-create-event-hub/create-event-hub1.png)
+	![](./media/event-hubs-create-event-hub/create-event-hub1.png)
 
-4. After making sure the namespace name is available, choose the pricing tier (Basic or Standard). Also, choose an Azure subscription, resource group, and location in which to create the resource. 
+4. Después de asegurarse de que el nombre del espacio de nombres está disponible, elija el plan de tarifa (Básico o Estándar). Elija también una suscripción de Azure, un grupo de recursos y la ubicación en la que se va a crear el recurso.
 
-2. Click **Create** to create the namespace.
+2. Haga clic en **Crear** para crear el espacio de nombres.
 
-6. In the Event Hubs namespace list, click the newly-created namespace.      
+6. En la lista de espacios de nombres de los Centros de eventos, haga clic en el espacio de nombres recién creado.
 
-    ![](./media/event-hubs-create-event-hub/create-event-hub2.png)
+	![](./media/event-hubs-create-event-hub/create-event-hub2.png)
 
-7. In the namespace blade, click **Event Hubs**.
+7. En la hoja del espacio de nombres, haga clic en **Centros de eventos**.
 
-    ![](./media/event-hubs-create-event-hub/create-event-hub3.png)
+	![](./media/event-hubs-create-event-hub/create-event-hub3.png)
 
-8. At the top of the blade, click **Add Event Hub**.
+8. En la parte superior de la hoja, haga clic en **Agregar Centro de eventos**.
 
-    ![](./media/event-hubs-create-event-hub/create-event-hub4.png)
+	![](./media/event-hubs-create-event-hub/create-event-hub4.png)
 
-3. Type a name for your Event Hub, then click **Create**.
+3. Escriba el nombre del Centro de eventos y, a continuación, haga clic en **Crear**.
 
-    ![](./media/event-hubs-create-event-hub/create-event-hub5.png)
+	![](./media/event-hubs-create-event-hub/create-event-hub5.png)
 
-4. In the list of Event Hubs, click the newly created Event Hub name. 
+4. En la lista de Centros de eventos, haga clic en el nombre del Centro de eventos recién creado.
 
-    ![](./media/event-hubs-create-event-hub/create-event-hub6.png)
+	![](./media/event-hubs-create-event-hub/create-event-hub6.png)
 
-5. Back in the namespace blade (not the specific Event Hub blade), click **Shared access policies**, and then click **RootManageSharedAccessKey**.
+5. En la hoja del espacio de nombres (no en la hoja del Centro de eventos específico), haga clic en **Directivas de acceso compartido** y, luego, en **RootManageSharedAccessKey**.
 
-    ![](./media/event-hubs-create-event-hub/create-event-hub7.png)
+	![](./media/event-hubs-create-event-hub/create-event-hub7.png)
 
-5. Click the copy button to copy the **RootManageSharedAccessKey** connection string to the clipboard. Save this connection string to use later in the tutorial.
+5. Haga clic en el botón Copiar para copiar la cadena de conexión **RootManageSharedAccessKey** al Portapapeles. Guarde esta cadena de conexión para usarla más adelante en el tutorial.
 
-    ![](./media/event-hubs-create-event-hub/create-event-hub8.png)
+	![](./media/event-hubs-create-event-hub/create-event-hub8.png)
 
-Your Event Hub is now created, and you have the connection strings you need to send and receive events.
+Ya se ha creado Centro de eventos y cuenta con las cadenas de conexión que necesita para enviar y recibir eventos. 
 
-[Azure portal]: https://portal.azure.com/
+[portal de Azure]: https://portal.azure.com/
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

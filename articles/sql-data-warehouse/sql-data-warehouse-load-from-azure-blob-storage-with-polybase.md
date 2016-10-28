@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Load data from Azure blob storage into SQL Data Warehouse (PolyBase) | Microsoft Azure"
-   description="Learn how to use PolyBase to load data from Azure blob storage into SQL Data Warehouse. Load a few tables from public data into the Contoso Retail Data Warehouse schema."
+   pageTitle="Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase) | Microsoft Azure"
+   description="Aprenda a usar PolyBase para cargar datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL. Cargue algunas tablas de datos públicos en el esquema Contoso Retail Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="ckarst"
@@ -17,36 +17,35 @@
    ms.author="cakarst;barbkess;sonyama"/>
 
 
-
-# <a name="load-data-from-azure-blob-storage-into-sql-data-warehouse-(polybase)"></a>Load data from Azure blob storage into SQL Data Warehouse (PolyBase)
+# Load data from Azure blob storage into SQL Data Warehouse (PolyBase) [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase)]
 
 > [AZURE.SELECTOR]
-- [Data Factory](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
+- [Factoría de datos](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
 - [PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 
-Use PolyBase and T-SQL commands to load data from Azure blob storage into Azure SQL Data Warehouse. 
+Use PolyBase y comandos de T-SQL para cargar datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL.
 
-To keep it simple, this tutorial loads two tables from a public Azure Storage Blob into the Contoso Retail Data Warehouse schema. To load the full data set, run the example [Load the full Contoso Retail Data Warehouse][] from the Microsoft SQL Server Samples repository.
+Para no complicarlo, este tutorial carga dos tablas de un Blob de almacenamiento de Azure público en el esquema Contoso Retail Data Warehouse. Para cargar el conjunto de datos completo, ejecute el ejemplo [Load the full Contoso Retail Data Warehouse][] \(Carga del esquema Contoso Retail Data Warehouse completo) desde el repositorio de ejemplos de Microsoft SQL Server.
 
-In this tutorial you will:
+En este tutorial, aprenderá lo siguiente:
 
-1. Configure PolyBase to load from Azure blob storage
-2. Load public data into your database
-3. Perform optimizations after the load is finished.
+1. Configuración de PolyBase para realizar la carga desde Almacenamiento de blobs de Azure
+2. Carga de datos públicos en su base de datos
+3. Realización de optimizaciones una vez finalizada la carga
 
 
-## <a name="before-you-begin"></a>Before you begin
-To run this tutorial, you need an Azure account that already has a SQL Data Warehouse database. If you don't already have this, see [Create a SQL Data Warehouse][].
+## Antes de empezar
+Para ejecutar este tutorial, necesita una cuenta de Azure que cuente ya con una base de datos de Almacenamiento de datos SQL. Si todavía no la tiene, consulte [Creación de Almacenamiento de datos SQL][].
 
-## <a name="1.-configure-the-data-source"></a>1. Configure the data source
+## 1\. Configuración del origen de datos
 
-PolyBase uses T-SQL external objects to define the location and attributes of the external data. The external object definitions are stored in SQL Data Warehouse. The data itself is stored externally.
+PolyBase usa objetos externos T-SQL para definir la ubicación y los atributos de los datos externos. Las definiciones de objeto externo se almacenan en Almacenamiento de datos SQL. Los propios datos se almacenan externamente.
 
-### <a name="1.1.-create-a-credential"></a>1.1. Create a credential
+### 1\.1. Creación de una credencial
 
-**Skip this step** if you are loading the Contoso public data. You don't need secure access to the public data since it is already accessible to anyone.
+**Omita este paso** si va a cargar los datos públicos de Contoso. No es necesario un acceso seguro a los datos públicos, pues ya son accesibles para cualquier persona.
 
-**Don't skip this step** if you are using this tutorial as a template for loading your own data. To access data through a credential, use the following script to create a database-scoped credential, and then use it when defining the location of the data source.
+**No omita este paso** si va a usar este tutorial como plantilla para cargar sus propios datos. Para tener acceso a los datos a través de una credencial, use el siguiente script para crear una credencial con ámbito de base de datos y utilizarla al definir la ubicación del origen de datos.
 
 
 ```sql
@@ -82,11 +81,11 @@ WITH (
 );
 ```
 
-Skip to step 2.
+Vaya al paso 2.
 
-### <a name="1.2.-create-the-external-data-source"></a>1.2. Create the external data source
+### 1\.2. Creación del origen de datos externo
 
-Use this [CREATE EXTERNAL DATA SOURCE][] command to store the location of the data, and the type of data. 
+Utilice este comando [CREATE EXTERNAL DATA SOURCE][] para almacenar la ubicación de los datos y el tipo de datos.
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -97,80 +96,80 @@ WITH
 ); 
 ```
 
-> [AZURE.IMPORTANT] If you choose to make your azure blob storage containers public, remember that as the data owner you will be charged for data egress charges when data leaves the data center. 
+> [AZURE.IMPORTANT] Si decide que sus contenedores de Almacenamiento de blobs de Azure serán públicos, recuerde que, como propietario de los datos, se le aplicarán cargos de salida de datos cuando los datos dejen el centro de datos.
 
-## <a name="2.-configure-data-format"></a>2. Configure data format
+## 2\. Configuración del formato de datos
 
-The data is stored in text files in Azure blob storage, and each field is separated with a delimiter. Run this [CREATE EXTERNAL FILE FORMAT][] command to specify the format of the data in the text files. The Contoso data is uncompressed and pipe delimited.
+Los datos se almacenan en archivos de texto en Almacenamiento de blobs de Azure y un delimitador separa cada campo. Ejecute este comando [CREATE EXTERNAL FILE FORMAT][] para especificar el formato de los datos en los archivos de texto. Los datos de Contoso no están comprimidos y están delimitados por canalización.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
 WITH 
 (   FORMAT_TYPE = DELIMITEDTEXT
-,   FORMAT_OPTIONS  (   FIELD_TERMINATOR = '|'
-                    ,   STRING_DELIMITER = ''
-                    ,   DATE_FORMAT      = 'yyyy-MM-dd HH:mm:ss.fff'
-                    ,   USE_TYPE_DEFAULT = FALSE 
-                    )
+,	FORMAT_OPTIONS	(   FIELD_TERMINATOR = '|'
+					,	STRING_DELIMITER = ''
+					,	DATE_FORMAT		 = 'yyyy-MM-dd HH:mm:ss.fff'
+					,	USE_TYPE_DEFAULT = FALSE 
+					)
 );
 ``` 
 
-## <a name="3.-create-the-external-tables"></a>3. Create the external tables
+## 3\. Creación de la tablas externas
 
-Now that you have specified the data source and file format, you are ready to create the external tables. 
+Ahora que ha especificado el origen de datos y el formato de archivo, está listo para crear las tablas externas.
 
-### <a name="3.1.-create-a-schema-for-the-data."></a>3.1. Create a schema for the data. 
+### 3\.1. Creación de un esquema de los datos 
 
-To create a place to store the Contoso data in your database, create a schema.
+A fin de crear un lugar para almacenar los datos de Contoso en su base de datos, cree un esquema.
 
 ```sql
 CREATE SCHEMA [asb]
 GO
 ```
 
-### <a name="3.2.-create-the-external-tables."></a>3.2. Create the external tables. 
+### 3\.2. Creación de la tablas externas 
 
-Run this script to create the DimProduct and FactOnlineSales external tables. All we are doing here is defining column names and data types, and binding them to the location and format of the Azure blob storage files. The definition is stored in SQL Data Warehouse and the data is still in the Azure Storage Blob.
+Ejecute este script para crear las tablas externas DimProduct y FactOnlineSales. Todo lo que hacemos aquí es definir nombres de columna y tipos de datos, que enlazamos a la ubicación y formato de los archivos de Almacenamiento de blobs de Azure. La definición se almacena en Almacenamiento de datos SQL y los datos siguen en el Blob de almacenamiento de Azure.
 
-The  **LOCATION** parameter is the folder under the root folder in the Azure Storage Blob. Each table is in a different folder.
+El parámetro **LOCATION** es la carpeta situada bajo la carpeta raíz en el Blob de almacenamiento de Azure. Cada tabla está en una carpeta diferente.
 
 
 ```sql
 
 --DimProduct
 CREATE EXTERNAL TABLE [asb].DimProduct (
-    [ProductKey] [int] NOT NULL,
-    [ProductLabel] [nvarchar](255) NULL,
-    [ProductName] [nvarchar](500) NULL,
-    [ProductDescription] [nvarchar](400) NULL,
-    [ProductSubcategoryKey] [int] NULL,
-    [Manufacturer] [nvarchar](50) NULL,
-    [BrandName] [nvarchar](50) NULL,
-    [ClassID] [nvarchar](10) NULL,
-    [ClassName] [nvarchar](20) NULL,
-    [StyleID] [nvarchar](10) NULL,
-    [StyleName] [nvarchar](20) NULL,
-    [ColorID] [nvarchar](10) NULL,
-    [ColorName] [nvarchar](20) NOT NULL,
-    [Size] [nvarchar](50) NULL,
-    [SizeRange] [nvarchar](50) NULL,
-    [SizeUnitMeasureID] [nvarchar](20) NULL,
-    [Weight] [float] NULL,
-    [WeightUnitMeasureID] [nvarchar](20) NULL,
-    [UnitOfMeasureID] [nvarchar](10) NULL,
-    [UnitOfMeasureName] [nvarchar](40) NULL,
-    [StockTypeID] [nvarchar](10) NULL,
-    [StockTypeName] [nvarchar](40) NULL,
-    [UnitCost] [money] NULL,
-    [UnitPrice] [money] NULL,
-    [AvailableForSaleDate] [datetime] NULL,
-    [StopSaleDate] [datetime] NULL,
-    [Status] [nvarchar](7) NULL,
-    [ImageURL] [nvarchar](150) NULL,
-    [ProductURL] [nvarchar](150) NULL,
-    [ETLLoadID] [int] NULL,
-    [LoadDate] [datetime] NULL,
-    [UpdateDate] [datetime] NULL
+	[ProductKey] [int] NOT NULL,
+	[ProductLabel] [nvarchar](255) NULL,
+	[ProductName] [nvarchar](500) NULL,
+	[ProductDescription] [nvarchar](400) NULL,
+	[ProductSubcategoryKey] [int] NULL,
+	[Manufacturer] [nvarchar](50) NULL,
+	[BrandName] [nvarchar](50) NULL,
+	[ClassID] [nvarchar](10) NULL,
+	[ClassName] [nvarchar](20) NULL,
+	[StyleID] [nvarchar](10) NULL,
+	[StyleName] [nvarchar](20) NULL,
+	[ColorID] [nvarchar](10) NULL,
+	[ColorName] [nvarchar](20) NOT NULL,
+	[Size] [nvarchar](50) NULL,
+	[SizeRange] [nvarchar](50) NULL,
+	[SizeUnitMeasureID] [nvarchar](20) NULL,
+	[Weight] [float] NULL,
+	[WeightUnitMeasureID] [nvarchar](20) NULL,
+	[UnitOfMeasureID] [nvarchar](10) NULL,
+	[UnitOfMeasureName] [nvarchar](40) NULL,
+	[StockTypeID] [nvarchar](10) NULL,
+	[StockTypeName] [nvarchar](40) NULL,
+	[UnitCost] [money] NULL,
+	[UnitPrice] [money] NULL,
+	[AvailableForSaleDate] [datetime] NULL,
+	[StopSaleDate] [datetime] NULL,
+	[Status] [nvarchar](7) NULL,
+	[ImageURL] [nvarchar](150) NULL,
+	[ProductURL] [nvarchar](150) NULL,
+	[ETLLoadID] [int] NULL,
+	[LoadDate] [datetime] NULL,
+	[UpdateDate] [datetime] NULL
 )
 WITH
 (
@@ -185,27 +184,27 @@ WITH
 --FactOnlineSales
 CREATE EXTERNAL TABLE [asb].FactOnlineSales 
 (
-    [OnlineSalesKey] [int]  NOT NULL,
-    [DateKey] [datetime] NOT NULL,
-    [StoreKey] [int] NOT NULL,
-    [ProductKey] [int] NOT NULL,
-    [PromotionKey] [int] NOT NULL,
-    [CurrencyKey] [int] NOT NULL,
-    [CustomerKey] [int] NOT NULL,
-    [SalesOrderNumber] [nvarchar](20) NOT NULL,
-    [SalesOrderLineNumber] [int] NULL,
-    [SalesQuantity] [int] NOT NULL,
-    [SalesAmount] [money] NOT NULL,
-    [ReturnQuantity] [int] NOT NULL,
-    [ReturnAmount] [money] NULL,
-    [DiscountQuantity] [int] NULL,
-    [DiscountAmount] [money] NULL,
-    [TotalCost] [money] NOT NULL,
-    [UnitCost] [money] NULL,
-    [UnitPrice] [money] NULL,
-    [ETLLoadID] [int] NULL,
-    [LoadDate] [datetime] NULL,
-    [UpdateDate] [datetime] NULL
+	[OnlineSalesKey] [int]  NOT NULL,
+	[DateKey] [datetime] NOT NULL,
+	[StoreKey] [int] NOT NULL,
+	[ProductKey] [int] NOT NULL,
+	[PromotionKey] [int] NOT NULL,
+	[CurrencyKey] [int] NOT NULL,
+	[CustomerKey] [int] NOT NULL,
+	[SalesOrderNumber] [nvarchar](20) NOT NULL,
+	[SalesOrderLineNumber] [int] NULL,
+	[SalesQuantity] [int] NOT NULL,
+	[SalesAmount] [money] NOT NULL,
+	[ReturnQuantity] [int] NOT NULL,
+	[ReturnAmount] [money] NULL,
+	[DiscountQuantity] [int] NULL,
+	[DiscountAmount] [money] NULL,
+	[TotalCost] [money] NOT NULL,
+	[UnitCost] [money] NULL,
+	[UnitPrice] [money] NULL,
+	[ETLLoadID] [int] NULL,
+	[LoadDate] [datetime] NULL,
+	[UpdateDate] [datetime] NULL
 )
 WITH
 (
@@ -218,26 +217,26 @@ WITH
 ;
 ```
 
-## <a name="4.-load-the-data"></a>4. Load the data
-There's different ways to access external data.  You can query data directly from the external table, load the data into new database tables, or add external data to existing database tables.  
+## 4\. Carga de los datos
+Hay diferentes maneras de obtener acceso a datos externos. Puede consultar datos directamente en la tabla externa, cargar los datos en nuevas tablas de base de datos o agregar datos externos a tablas de base de datos existentes.
 
 
-### <a name="4.1.-create-a-new-schema"></a>4.1. Create a new schema
+### 4\.1. Creación de un nuevo esquema
 
-CTAS creates a new table that contains data.  First, create a schema for the contoso data.
+CTAS crea una nueva tabla que contiene datos. En primer lugar, cree un esquema de los datos de Contoso.
 
 ```sql
 CREATE SCHEMA [cso]
 GO
 ```
 
-### <a name="4.2.-load-the-data-into-new-tables"></a>4.2. Load the data into new tables
+### 4\.2. Carga de los datos en nuevas tablas
 
-To load data from Azure blob storage and save it in a table inside of your database, use the [CREATE TABLE AS SELECT (Transact-SQL)][] statement. Loading with CTAS leverages the strongly typed external tables you have just created.To load the data into new tables, use one [CTAS][] statement per table. 
+Para cargar datos de Almacenamiento de blobs de Azure y guardarlos en una tabla dentro de su base de datos, use la instrucción [CREATE TABLE AS SELECT (Transact-SQL)][]. Al realizarse la carga con CTAS, se aprovechan las tablas externas fuertemente tipadas que acaba de crear. Para cargar los datos en nuevas tablas, use una instrucción [CTAS][] por tabla.
 
-CTAS creates a new table and populates it with the results of a select statement. CTAS defines the new table to have the same columns and data types as the results of the select statement. If you select all the columns from an external table, the new table will be a replica of the columns and data types in the external table.
+CTAS crea una nueva tabla y la rellena con los resultados de una instrucción SELECT. CTAS define la nueva tabla para tener las mismas columnas y tipos de datos que los resultados de la instrucción SELECT. Si selecciona todas las columnas de una tabla externa, la nueva tabla será una réplica de las columnas y los tipos de datos de la tabla externa.
 
-In this example, we create both the dimension and the fact table as hash distributed tables. 
+En este ejemplo, creamos la tabla de dimensiones y la de hechos como tablas hash distribuidas.
 
 
 ```sql
@@ -248,9 +247,9 @@ CREATE TABLE [cso].[DimProduct]            WITH (DISTRIBUTION = HASH([ProductKey
 CREATE TABLE [cso].[FactOnlineSales]       WITH (DISTRIBUTION = HASH([ProductKey]  ) ) AS SELECT * FROM [asb].[FactOnlineSales]        OPTION (LABEL = 'CTAS : Load [cso].[FactOnlineSales]        ');
 ```
 
-### <a name="4.3-track-the-load-progress"></a>4.3 Track the load progress
+### 4\.3. Seguimiento del progreso de carga
 
-You can track the progress of your load using dynamic management views (DMVs). 
+Puede seguir el progreso de la carga con las vistas de administración dinámica (DMV).
 
 ```sql
 -- To see all requests
@@ -285,11 +284,11 @@ ORDER BY
     gb_processed desc;
 ```
 
-## <a name="5.-optimize-columnstore-compression"></a>5. Optimize columnstore compression
+## 5\. Optimización de compresión de almacén de columnas
 
-By default, SQL Data Warehouse stores the table as a clustered columnstore index. After a load completes, some of the data rows might not be compressed into the columnstore.  There's a variety of reasons why this can happen. To learn more, see [manage columnstore indexes][].
+De forma predeterminada, Almacenamiento de datos SQL almacena la tabla como índice de almacén de columnas agrupado. Una vez completada una carga, puede que algunas de las filas de datos no se compriman en el almacén de columnas. Existen varios motivos por los que esto puede ocurrir. Para más información, consulte la sección sobre [administración de índices de almacén de columnas][].
 
-To optimize query performance and columnstore compression after a load, rebuild the table to force the columnstore index to compress all the rows. 
+Para optimizar el rendimiento de las consultas y la compresión de almacén de columnas después de una carga, vuelva a crear la tabla para obligar al índice de almacén de columnas a comprimir todas las filas.
 
 ```sql
 SELECT GETDATE();
@@ -299,15 +298,15 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-For more information on maintaining columnstore indexes, see the [manage columnstore indexes][] article.
+Para más información sobre el mantenimiento de los índices de almacén de columnas, consulte la sección sobre [administración de índices de almacén de columnas][].
 
-## <a name="6.-optimize-statistics"></a>6. Optimize statistics
+## 6\. Optimización de estadísticas
 
-It is best to create single-column statistics immediately after a load. There are some choices for statistics. For example, if you create single-column statistics on every column it might take a long time to rebuild all the statistics. If you know certain columns are not going to be in query predicates, you can skip creating statistics on those columns.
+Es mejor crear estadísticas de columna única inmediatamente después de una carga. Hay algunas opciones para las estadísticas. Por ejemplo, si crea estadísticas de columna única en cada columna, la recompilación de todas las estadísticas puede llevar mucho tiempo. Si sabe que algunas columnas no van a estar en predicados de consulta, puede omitir la creación de estadísticas en dichas columnas.
 
-If you decide to create single-column statistics on every column of every table, you can use the stored procedure code sample `prc_sqldw_create_stats` in the [statistics][] article.
+Si decide crear estadísticas de columna única en todas las columnas de cada una de las tablas, puede usar el ejemplo de código de procedimiento almacenado `prc_sqldw_create_stats` en el artículo sobre [estadísticas][].
 
-The following example is a good starting point for creating statistics. It creates single-column statistics on each column in the dimension table, and on each joining column in the fact tables. You can always add single or multi-column statistics to other fact table columns later on.
+El ejemplo siguiente es un buen punto de partida para la creación de estadísticas. Crea estadísticas de columna única en cada una de las columnas de la tabla de dimensiones y en cada una de las columnas de combinación de las tablas de hechos. Siempre puede agregar estadísticas de columna única o de varias columnas a otras columnas de la tabla de hechos más adelante.
 
 
 ```sql
@@ -352,11 +351,11 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_PromotionKey] ON [cso].[FactOnlineSa
 CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]([StoreKey]);
 ```
 
-## <a name="achievement-unlocked!"></a>Achievement unlocked!
+## Logro conseguido.
 
-You have successfully loaded public data into Azure SQL Data Warehouse. Great job!
+Ha cargado correctamente datos públicos en Almacenamiento de datos SQL de Azure. Buen trabajo.
 
-You can now start querying the tables using queries like the following:
+Ya puede empezar a consultar las tablas mediante consultas como las siguientes:
 
 ```sql
 SELECT  SUM(f.[SalesAmount]) AS [sales_by_brand_amount]
@@ -366,23 +365,23 @@ JOIN    [cso].[DimProduct]      AS p ON f.[ProductKey] = p.[ProductKey]
 GROUP BY p.[BrandName]
 ```
 
-## <a name="next-steps"></a>Next steps
-To load the full Contoso Retail Data Warehouse data, use the script in For more development tips, see [SQL Data Warehouse development overview][].
+## Pasos siguientes
+Para cargar todos los datos de Contoso Retail Data Warehouse, use el script que aparece en. Para más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Creación de Almacenamiento de datos SQL]: sql-data-warehouse-get-started-provision.md
 [Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
-[manage columnstore indexes]: sql-data-warehouse-tables-index.md
-[Statistics]: sql-data-warehouse-tables-statistics.md
+[información general sobre desarrollo de Almacenamiento de datos SQL]: sql-data-warehouse-overview-develop.md
+[administración de índices de almacén de columnas]: sql-data-warehouse-tables-index.md
+[estadísticas]: sql-data-warehouse-tables-statistics.md
 [CTAS]: sql-data-warehouse-develop-ctas.md
 [label]: sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
-[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/en-us/library/dn935022.aspx
-[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/en-us/library/dn935026.aspx
+[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/es-ES/library/dn935022.aspx
+[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/es-ES/library/dn935026.aspx
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 [sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
 [REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
@@ -391,8 +390,4 @@ To load the full Contoso Retail Data Warehouse data, use the script in For more 
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

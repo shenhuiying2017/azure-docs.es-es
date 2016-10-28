@@ -1,13 +1,10 @@
 
-* In Xcode, press **Run** and start the app on an iOS device (not the simulator.) Click **OK** to accept push notifications; this request occurs the first time the app runs.
+* En Xcode, presione **Ejecutar** e inicie la aplicación en un dispositivo iOS (no el simulador). Haga clic en **Aceptar** para aceptar notificaciones push; esta solicitud se produce la primera vez que se ejecuta la aplicación.
 
-* In the app, add a new item and click **+**.
+* En la aplicación, agregue un nuevo elemento y haga clic en **+**.
 
-* Verify that a notification is received, then click **OK** to dismiss the notification. You have now successfully completed this tutorial.
+* Compruebe que se ha recibido la notificación y, a continuación, haga clic en **Aceptar** para descartarla. Ya ha completado correctamente este tutorial.
 
-    ![](../articles/media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png)
+  	![](../articles/media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

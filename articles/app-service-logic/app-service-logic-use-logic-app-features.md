@@ -1,120 +1,115 @@
 <properties 
-    pageTitle="Use Logic App features | Microsoft Azure" 
-    description="Learn how to use the advanced features of logic apps." 
-    authors="stepsic-microsoft-com" 
-    manager="erikre" 
-    editor="" 
-    services="logic-apps" 
-    documentationCenter=""/>
+	pageTitle="Uso de las características de aplicaciones lógicas | Microsoft Azure" 
+	description="Obtenga información acerca de cómo usar las características avanzadas de las aplicaciones lógicas." 
+	authors="stepsic-microsoft-com" 
+	manager="erikre" 
+	editor="" 
+	services="logic-apps" 
+	documentationCenter=""/>
 
 <tags
-    ms.service="logic-apps"
-    ms.workload="integration"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/28/2016"
-    ms.author="stepsic"/> 
-    
+	ms.service="logic-apps"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/28/2016"
+	ms.author="stepsic"/>
+	
+# Uso de las características de aplicaciones lógicas
 
-# <a name="use-logic-apps-features"></a>Use Logic Apps features
+En el [tema anterior](app-service-logic-create-a-logic-app.md), creó su primera aplicación lógica. Ahora le mostraremos cómo crear un proceso más completo mediante las aplicaciones lógicas de Servicios de aplicaciones. En este tema se presentan los siguientes conceptos de las nuevas aplicaciones lógicas:
 
-In the [previous topic](app-service-logic-create-a-logic-app.md), you created your first logic app. Now we will show you how to build a more complete process using App Services Logic Apps. This topic introduces the following new Logic Apps concepts:
+- La lógica condicional, que ejecuta una acción solo cuando se cumple una determinada condición.
+- Vista de código para editar una aplicación lógica existente.
+- Opciones para iniciar un flujo de trabajo.
 
-- Conditional logic, which executes an action only when a certain condition is met.
-- Code view to edit an existing logic app.
-- Options for starting a workflow.
+Antes de completar este tema, debe completar los pasos de [Creación de una nueva aplicación lógica](app-service-logic-create-a-logic-app.md). En el [Portal de Azure], vaya a su aplicación lógica y haga clic en **Acciones y desencadenadores** en el resumen para editar la definición de la aplicación lógica.
 
-Before you complete this topic, you should complete the steps in [Create a new logic app](app-service-logic-create-a-logic-app.md). In the [Azure portal], browse to your logic app and click **Triggers and Actions** in the summary to edit the logic app definition.
+## Material de referencia
 
-## <a name="reference-material"></a>Reference material
+Estos documentos pueden serle útiles:
 
-You may find the following documents useful:
+- [API de REST de administración y tiempo de ejecución](https://msdn.microsoft.com/library/azure/mt643787.aspx): incluyen los métodos para invocar las aplicaciones lógicas directamente.
+- [Referencia del lenguaje](https://msdn.microsoft.com/library/azure/mt643789.aspx): una lista completa de todas las funciones y expresiones compatibles.
+- [Tipos de desencadenadores y acciones](https://msdn.microsoft.com/library/azure/mt643939.aspx): los diferentes tipos de acciones y las entradas que toman.
+- [Información general sobre el Servicio de aplicaciones](../app-service/app-service-value-prop-what-is.md): descripción de los componentes que se deben elegir al crear una solución.
 
-- [Management and runtime REST APIs](https://msdn.microsoft.com/library/azure/mt643787.aspx) - including how to invoke Logic apps directly
-- [Language reference](https://msdn.microsoft.com/library/azure/mt643789.aspx) - a comprehensive list of all supported functions/expressions
-- [Trigger and action types](https://msdn.microsoft.com/library/azure/mt643939.aspx) - the different types of actions and the inputs they take
-- [Overview of App Service](../app-service/app-service-value-prop-what-is.md) - description of what components to choose when to build a solution
+## Agregar lógica condicional
 
-## <a name="adding-conditional-logic"></a>Adding conditional logic
-
-Although the original flow works, there are some areas that could be improved. 
+Aunque el flujo original funciona, hay algunas áreas que se podrían mejorar.
 
 
-### <a name="conditional"></a>Conditional
-This logic app may result in you getting a lot of emails. The following steps add logic to make sure that you only receive an email when the tweet comes from someone with a certain number of followers. 
+### Condicional
+Esta aplicación lógica puede provocar que reciba muchos correos electrónicos. Los siguientes pasos agregan lógica adicional para asegurarse de que solo reciba un correo electrónico cuando el tweet proceda de una persona con un determinado número de seguidores.
 
-1. Click the plus and find the action *Get User* for Twitter.
+1. Haga clic en el signo más y busque la acción *Get User* (Obtener usuario) de Twitter.
 
-2. Pass in the **Tweeted by** field from the trigger to get the information about the Twitter user.
+2. Pase el campo **Twitteado por** desde el desencadenador para obtener la información sobre el usuario de Twitter.
 
-    ![Get user](./media/app-service-logic-use-logic-app-features/getuser.png)
+	![Obtener usuario](./media/app-service-logic-use-logic-app-features/getuser.png)
 
-3. Click the plus again, but this time select **Add Condition**
+3. Haga clic en el signo más de nuevo, pero esta vez seleccione **Agregar condición**.
 
-4. In the first box, click the **...** underneath **Get User** to find the **Followers count** field.
+4. En el primer cuadro, haga clic en **...** debajo de **Obtener usuario** para encontrar el campo **Número de seguidores**.
 
-5. In the dropdown, select **Greater than**
+5. En la lista desplegable, seleccione **Superior a**.
 
-6. In the second box type the number of followers you want users to have.
+6. En el segundo cuadro, escriba el número de seguidores que desea que tengan los usuarios.
 
-    ![Conditional](./media/app-service-logic-use-logic-app-features/conditional.png)
+	![Condicional](./media/app-service-logic-use-logic-app-features/conditional.png)
 
-7.  Finally, drag-and-drop the email box into the **If Yes** box. This will mean you'll only get emails when the follower count is met.
+7.  Por último, arrastre y coloque el cuadro de correo electrónico en el cuadro **Si procede**. Esto significa que solo obtendrá correos electrónicos cuando se alcance el número de seguidores.
 
-## <a name="repeating-over-a-list-with-foreach"></a>Repeating over a list with forEach
+## Repetición de una lista con forEach
 
-The forEach loop specifies an array to repeat an action over. If it is not an array the flow fails. As an example, if you have action1 that outputs an array of messages, and you want to send each message, you can include this forEach statement in the properties of your action: forEach : "@action('action1').outputs.messages"
+El bucle forEach especifica una matriz para repetir una acción varias veces. Si no es una matriz se produce un error en el flujo. Por ejemplo, si tiene action1 que genera una matriz de mensajes y desea enviar cada mensaje, puede incluir esta instrucción forEach en las propiedades de la acción: forEach: "@action('action1').outputs.messages"
  
 
-## <a name="using-the-code-view-to-edit-a-logic-app"></a>Using the code view to edit a Logic App
+## Uso de la vista código para modificar una aplicación lógica
 
-In addition to the designer, you can directly edit the code that defines a logic app, as follows. 
+Además del diseñador, puede editar directamente el código que define una aplicación lógica, como sigue.
 
-1. Click on the **Code view** button in the command bar. 
+1. Haga clic en el botón **vista Código** en la barra de comandos.
 
-    This opens a full editor that shows the definition you just edited.
+	Se abrirá un editor completo que muestra la definición que acaba de modificar.
 
-    ![Code view](./media/app-service-logic-use-logic-app-features/codeview.png)
+	![Vista de código](./media/app-service-logic-use-logic-app-features/codeview.png)
 
-    By using the text editor, you can copy and paste any number of actions within the same logic app or between logic apps. You can also easily add or remove entire sections from the definition, and you can also share definitions with others.
+    Mediante el editor de texto, puede copiar y pegar cualquier cantidad de acciones dentro de la misma aplicación lógica o entre aplicaciones lógicas. También puede agregar o quitar secciones completas de la definición, así como compartir definiciones con otros.
 
-2. After you make your changes in code view, simply click **Save**. 
+2. Después de realizar los cambios en la vista Código, simplemente haga clic en **Guardar**.
 
-### <a name="parameters"></a>Parameters
-There are some capabilities of Logic Apps that can only be used in the code view. One example of these is parameters. Parameters make it easy to re-use values throughout your logic app. For example, if you have an email address that you want use in several actions, you should define it as a parameter.
+### Parámetros
+Hay algunas capacidades de las aplicaciones lógicas que solo puede utilizarse en la vista Código. Un ejemplo son los parámetros. Los parámetros facilitan volver a usar los valores a lo largo de la aplicación lógica. Por ejemplo, si tiene una dirección de correo electrónico que desea utilizar en varias acciones, debe definirla como un parámetro.
 
-The following updates your existing logic app to use parameters for the query term.
+Lo siguiente actualiza la aplicación lógica existente para que use parámetros para el término de la consulta.
 
-1. In the code view, locate the `parameters : {}` object and insert the following topic object:
+1. En la vista Código, busque el objeto `parameters : {}` e inserte el siguiente objeto de tema:
 
-        "topic" : {
-            "type" : "string",
-            "defaultValue" : "MicrosoftAzure"
-        }
+	    "topic" : {
+		    "type" : "string",
+		    "defaultValue" : "MicrosoftAzure"
+	    }
     
-2. Scroll to the `twitterconnector` action, locate the query value, and replace it with `#@{parameters('topic')}`.
-    You could also use the  **concat** function to join together two or more strings, for example: `@concat('#',parameters('topic'))` is identical to the above. 
+2. Desplácese a la acción `twitterconnector`, busque el valor de consulta y reemplácelo por `#@{parameters('topic')}`. También podría usar la función **concat** para unir dos o más cadenas, por ejemplo: `@concat('#',parameters('topic'))` es idéntica a la anterior.
  
-Parameters are a good way to pull out values that you are likely to change a lot. They are especially useful when you need to override parameters in different environments. For more information on how to override parameters based on environment, see our [REST API documentation](https://msdn.microsoft.com/library/mt643787.aspx).
+Los parámetros son una buena forma de extraer valores que probablemente cambie mucho. Son especialmente útiles cuando necesite reemplazar parámetros en entornos diferentes. Para obtener más información sobre cómo invalidar los parámetros basados en el entorno, consulte nuestra [documentación de API de REST](https://msdn.microsoft.com/library/mt643787.aspx).
 
-Now, when you click **Save**, every hour you get any new tweets that have more than 5 retweets delivered to a folder called **tweets** in your Dropbox.
+Ahora, al hacer clic en **Guardar**, cada hora recibirá en su Dropbox los nuevos tweets que tengan más de 5 retweets en una carpeta llamada **tweets**.
 
-To learn more about Logic App definitions, see [author Logic App definitions](app-service-logic-author-definitions.md).
+Para obtener más información acerca de las definiciones de aplicación lógica, consulte [Creación de definiciones de aplicación lógica](app-service-logic-author-definitions.md).
 
-## <a name="starting-a-logic-app-workflow"></a>Starting a logic app workflow
-There are several different options for starting the workflow defined in you logic app. A workflow can always be started on-demand in the [Azure portal].
+## Inicio de un flujo de trabajo de aplicación lógica
+Hay varias opciones para iniciar el flujo de trabajo definido en la aplicación lógica. Un flujo de trabajo siempre se puede iniciar a petición en el [Portal de Azure].
 
-### <a name="recurrence-triggers"></a>Recurrence triggers
-A recurrence trigger runs at an interval that you specify. When the trigger has conditional logic, the trigger determines whether or not the workflow needs to run. A trigger indicates it should run by returning a `200` status code. When it does not need to run, it returns a `202` status code.
+### Desencadenadores periódicos
+Un desencadenador periódico se ejecuta en un intervalo que especifique. Cuando el desencadenador tiene lógica condicional, el desencadenador determina si necesita ejecutar el flujo de trabajo. Un desencadenador indica si se debe ejecutar; para ello, devuelve un código de estado de `200`. Cuando no es necesario ejecutarlo, devuelve un código de estado `202`.
 
-### <a name="callback-using-rest-apis"></a>Callback using REST APIs
-Services can call a logic app endpoint to start a workflow. See [Logic apps as callable endpoints](app-service-logic-connector-http.md) for more information. To start that kind of logic app on-demand, click the **Run now** button on the command bar. 
+### Devolución de llamada mediante las API de REST
+Los servicios pueden llamar a un extremo de aplicación lógica para iniciar un flujo de trabajo. Consulte [Aplicaciones lógicas como puntos de conexión invocables](app-service-logic-connector-http.md) para más información. Para iniciar ese tipo de aplicación lógica a petición, haga clic en el botón **Ejecutar ahora** de la barra de comandos.
 
 <!-- Shared links -->
-[Azure portal]: https://portal.azure.com 
+[Portal de Azure]: https://portal.azure.com
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

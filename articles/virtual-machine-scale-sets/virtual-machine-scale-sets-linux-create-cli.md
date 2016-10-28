@@ -1,29 +1,24 @@
 <properties
-    pageTitle="Create a Virtual Machine Scale Set | Microsoft Azure"
-    description="Create a Virtual Machine Scale Set using the Azure CLI"
+    pageTitle="Conjunto de escalas de máquina virtual| Microsoft Azure"
+    description="Creación de un conjunto de escalas de máquina virtual con la CLI de Azure"
     services="virtual-machine-scale-sets"
     documentationCenter=""
-    authors="gatneil"
-    manager="madhana"
-    editor="tysonn"
-    tags="azure-resource-manager" />
+	authors="gatneil"
+	manager="madhana"
+	editor="tysonn"
+	tags="azure-resource-manager" />
 
 <tags
     ms.service="virtual-machine-scale-sets"
     ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="get-started-article"
+    ms.topic="article"
     ms.date="03/22/2016"
-    ms.author="gatneil"/>
+	ms.author="gatneil"/>
 
-
-# <a name="create-a-linux-virtual-machine-scale-set-using-azure-cli"></a>Create a Linux Virtual Machine Scale Set using Azure CLI
+# Creación de un conjunto de escalas de máquina virtual Linux con la CLI de Azure
 
 [AZURE.INCLUDE [virtual-machines-linux-cli-vmss-quick-create-include](../../includes/virtual-machines-linux-cli-vmss-quick-create-include.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0420_2016-->

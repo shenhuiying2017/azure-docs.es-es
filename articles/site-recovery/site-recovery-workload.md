@@ -1,158 +1,152 @@
 <properties
-    pageTitle="What workloads can you protect with Azure Site Recovery?"
-    description="Azure Site Recovery protects your workloads and applications by coordinating the replication, failover and recovery of on-premises virtual machines and physical servers to Azure or to a secondary on-premises site"
-    services="site-recovery"
-    documentationCenter=""
-    authors="rayne-wiselman"
-    manager="cfreeman"
-    editor=""/>
+	pageTitle="¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?" 
+	description="Azure Site Recovery protege sus cargas de trabajo y aplicaciones mediante la coordinación de la replicación, la conmutación por error y la recuperación de máquinas virtuales locales y servidores físicos en Azure o en un sitio local secundario." 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="rayne-wiselman" 
+	manager="jwhit" 
+	editor=""/>
 
-<tags
-    ms.service="site-recovery"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="storage-backup-recovery"
-    ms.date="10/10/2016"
-    ms.author="raynew"/>
+<tags 
+	ms.service="site-recovery" 
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="storage-backup-recovery" 
+	ms.date="07/06/2016" 
+	ms.author="raynew"/>
 
-
-# <a name="what-workloads-can-you-protect-with-azure-site-recovery?"></a>What workloads can you protect with Azure Site Recovery?
-
-
-This article describes workloads and applications you can replicate with the Azure Site Recovery service.
-
-Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-## <a name="overview"></a>Overview
-
-Organizations need a business continuity and disaster recovery (BCDR) strategy to keep workloads and data safe and available during planned and unplanned downtime, and recover to regular working conditions as soon as possible.
-
-Site Recovery is an Azure service that contributes to your BCDR strategy. Using Site Recovery, you can deploy application-aware replication to the cloud, or to a secondary site. Whether your apps are Windows or Linux-based, running on physical servers, VMware or Hyper-V, you can use Site Recovery to orchestrate replication, perform disaster recovery testing, and run failovers and failback.
+# ¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?
 
 
-Site Recovery integrates with Microsoft applications, including SharePoint, Exchange, Dynamics, SQL Server and Active Directory. Microsoft also works closely with leading vendors including Oracle, SAP, IBM and Red Hat. You can customize replication solutions on an app-by-app basis.
+Este artículo describe qué aplicaciones y cargas de trabajo se pueden proteger con Azure Site Recovery.
 
-## <a name="why-use-site-recovery-for-application-replication?"></a>Why use Site Recovery for application replication?
+Publique cualquier comentario o pregunta que tenga en la parte inferior de este artículo, o bien en el [foro de Servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-Site Recovery contributes to application-level protection and recovery as follows:
+## Información general
 
-- App-agnostic, providing replication for any workloads running on a supported machine.
-- Near-synchronous replication, with RPOs as low as 30 seconds to meet the needs of most critical business apps.
-- App-consistent snapshots, for single or multi-tier applications.
-- Integration with SQL Server AlwaysOn, and partnership with other application-level replication technologies, including AD replication, SQL AlwaysOn, Exchange Database Availability Groups (DAGs) and Oracle Data Guard.
-- Flexible recovery plans, that enable you to recover an entire application stack with a single click, and include to include external scripts and manual actions in the plan.
-- Advanced network management in Site Recovery and Azure to simplify app network requirements, including the ability to reserve IP addresses, configure load-balancing, and integration with Azure Traffic Manager, for low RTO network switchovers.
--  A rich automation library that provides production-ready, application-specific scripts that can be downloaded and integrated with recovery plans.
+Las organizaciones necesitan una estrategia de continuidad empresarial y recuperación ante desastres (BCDR) que determine la forma en que las aplicaciones, las cargas de trabajo y los datos van a seguir estando disponibles durante los tiempos de inactividad planeados y no planeados, y cómo recuperar las condiciones de trabajo normales lo antes posible.
+
+Site Recovery es un servicio de Azure que contribuye a su estrategia de BCDR, ya que permite implementar soluciones de resistencia que reconocen aplicaciones mediante la coordinación de la replicación de servidores físicos locales y máquinas virtuales en la nube (Azure) o en un sitio secundario. Si las aplicaciones se basan en Windows o Linux, y se ejecutan en servidores físicos, VMware o máquinas virtuales de Hyper-V, puede usar Site Recovery para organizar la replicación, realizar pruebas de recuperación ante desastres y ejecutar conmutaciones por error y conmutación por recuperación.
+
+
+Site Recovery se integra con aplicaciones de Microsoft, incluidas SharePoint, Exchange, Dynamics, SQL Server y Active Directory. Microsoft también trabaja en estrecha colaboración con los proveedores más importantes a nivel mundial, como Oracle, SAP, IBM y Red Hat para asegurarse de que sus aplicaciones y servicios funcionan bien en plataformas de Microsoft, entre las que se incluye Azure. Las soluciones pueden personalizarse aplicación a aplicación.
+
+## ¿Por qué es aconsejable usar Site Recovery para la protección de aplicaciones?
+
+Site Recovery contribuye a la recuperación y protección de nivel de aplicación como se indica a continuación:
+
+- Replicación casi sincrónica con los RPO en solo 30 segundos, con el fin de cubrir las necesidades de las aplicaciones empresariales más críticas.
+- Instantáneas coherente con las aplicaciones para aplicaciones de uno o varios niveles.
+- Integración con SQL Server AlwaysOn y asociación con otras tecnologías de replicación de nivel de aplicación, incluida la replicación de AD, SQL AlwaysOn, Grupos de disponibilidad de base de datos (DAG) de Exchange y Oracle Data Guard.
+- Planes de recuperación flexibles que permiten recuperar toda una pila de aplicaciones con un solo clic e incluyen scripts externos y acciones manuales en el plan.
+- Administración de red avanzada en Site Recovery y Azure para simplificar los requisitos de red de las aplicaciones, incluidas la reserva de direcciones IP, la configuración del equilibrio de carga y la integración con el Administrador de tráfico de Azure, lo que reduce los cambios de red de RTO.
+-  Una biblioteca de automatización enriquecida que proporciona scripts específicos de la aplicación y preparados para la producción que pueden descargarse e integrarse con los planes de recuperación.
 
 
 
-## <a name="workload-summary"></a>Workload summary
+##Resumen de cargas de trabajo
 
-Site Recovery can replicate any app running on a supported machine. In addition we've partnered with product teams to carry out additional app-specific testing.
+Site Recovery puede replicar cualquier aplicación que se ejecute en una máquina virtual compatible. Además, nos hemos asociado con los equipos de producto para llevar a cabo pruebas de adicionales específicas de la aplicación.
 
-**Workload** | **Replicate Hyper-V VMs to a secondary site** | **Replicate Hyper-V VMs to Azure** | **Replicate VMware VMs to a secondary site** | **Replicate VMware VMs to Azure**
+**Carga de trabajo** | **Replicación de máquinas virtuales de Hyper-V a un sitio secundario** | **Replicación de máquinas virtuales de Hyper-V en Azure** | **Replicación de máquinas virtuales VMware en un sitio secundario** | **Replicación de máquinas virtuales VMware en Azure**
 ---|---|---|---|---
-Active Directory, DNS | Y | Y | Y | Y
-Web apps (IIS, SQL) | Y | Y | Y | Y
-System Center Operations Manager | Y | Y | Y | Y
-Sharepoint | Y | Y | Y | Y
-SAP<br/><br/>Replicate SAP site to Azure for non-cluster | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft)
-Exchange (non-DAG) | Y | Coming soon | Y | Y
-Remote Desktop/VDI | Y | Y | Y | N/A
-Linux (operating system and apps) | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft)
+Active Directory, DNS | Y | Y | Y | Y 
+Aplicaciones web (IIS, SQL) | Y | Y | Y | Y
+SCOM | Y | Y | Y | Y
+SharePoint | Y | Y | Y | Y
+SAP<br/><br/>Replicación de un sitio de SAP en Azure para no clúster | S (probado por Microsoft) | S (probado por Microsoft) | S (probado por Microsoft) | S (probado por Microsoft)
+Exchange (no DAG) | Y | Próximamente | Y | Y
+Escritorio remoto/VDI | Y | Y | Y | N/D 
+Linux (sistema operativo y aplicaciones) | S (probado por Microsoft) | S (probado por Microsoft) | S (probado por Microsoft) | S (probado por Microsoft) 
 Dynamics AX | Y | Y | Y | Y
-Dynamics CRM | Y | Coming soon | Y | Coming soon
-Oracle | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft)
-Windows File Server | Y | Y | Y | Y
+Dynamics CRM | Y | Próximamente | Y | Próximamente
+Oracle | S (probado por Microsoft) | S (probado por Microsoft) | S (probado por Microsoft) | S (probado por Microsoft)
+Servidor de archivos de Windows | Y | Y | Y | Y
 
 
-## <a name="replicate-active-directory-and-dns"></a>Replicate Active Directory and DNS
+## Replicación de Active Directory y DNS
 
-An Active Directory and DNS infrastructure are essential to most enterprise apps. During disaster recovery, you'll need to protect and recover these infrastructure components, before recovering your workloads and apps.
+Las infraestructuras de DNS y Active Directory son esenciales para la mayoría de las aplicaciones empresariales. Durante la recuperación ante desastres será preciso que proteja y recupere estos componentes de la infraestructura antes de recuperar las aplicaciones y las cargas de trabajo.
 
-You can use Site Recovery to create a complete automated disaster recovery plan for Active Directory and DNS. For example, if you want to fail over SharePoint and SAP from a primary to a secondary site, you can set up a recovery plan that fails over Active Directory first, and then an additional app-specific recovery plan to fail over the other apps that rely on Active Directory.
+Puede usar Site Recovery para crear un plan de recuperación ante desastres automatizada completa para Active Directory y DNS. Por ejemplo, si desea conmutar por error SharePoint y SAP de un servidor principal a un sitio secundario, puede configurar un plan de recuperación que conmute Active Directory primero y, después, un plan de recuperación adicional específico de la aplicación para conmutar por error las demás aplicaciones que usan Active Directory.
 
-[Learn more](site-recovery-active-directory.md) about protecting Active Directory and DNS.
+[Más información](site-recovery-active-directory.md) sobre la protección de Active Directory y DNS.
 
-## <a name="protect-sql-server"></a>Protect SQL Server
+## Protección de SQL Server
 
-SQL Server provides a data services foundation for data services for many business apps in an on-premises data center.  Site Recovery can be used together with SQL Server HA/DR technologies, to protect multi-tiered enterprise apps that use SQL Server. Site Recovery provides:
+SQL Server proporciona una base de servicios de datos para los servicios de datos de muchas aplicaciones empresariales de un centro de datos local. Site Recovery se puede utilizar junto con las tecnologías de HA/DR de SQL Server para proteger las aplicaciones empresariales de niveles que utilizan SQL Server. Site Recovery proporciona:
 
-- A simple and cost-effective disaster recovery solution for SQL Server. Replicate multiple versions and editions of SQL Server standalone servers and clusters, to Azure or to a secondary site.  
-- Integration with SQL AlwaysOn Availability Groups, to manage failover and failback with Azure Site Recovery recovery plans.
-- End-to-end recovery plans for the all tiers in an application, including the SQL Server databases.
-- Scaling of SQL Server for peak loads with Site Recovery, by “bursting” them into larger IaaS virtual machine sizes in Azure.
-- Easy testing of SQL Server disaster recovery. You can run test failovers to analyze data and run compliance checks, without impacting your production environment.
+- Una solución de recuperación ante desastres simple y rentable para SQL Server. Replique varias versiones y ediciones de servidores independientes y clústeres de SQL Server en Azure o en un sitio secundario.
+- Integración con grupos de disponibilidad AlwaysOn de SQL para administrar la conmutación por error y la conmutación por recuperación con planes de recuperación de Azure Site Recovery.
+- Planes de recuperación de un extremo a otro para todos los niveles de una aplicación, incluidas las bases de datos de SQL Server.
+- Escalado de SQL Server para cargas máximas con Site Recovery "protegiéndolos" en tamaños de máquina virtual de IaaS más grandes en Azure.
+- Pruebas fáciles de recuperación ante desastres de SQL Server. Puede ejecutar conmutaciones por error de prueba para analizar datos y realizar comprobaciones de cumplimento sin que ello afecte al entorno de producción.
 
-[Learn more](site-recovery-sql.md) about protecting SQL server.
+[Más información](site-recovery-sql.md) sobre cómo proteger SQL Server.
 
-##<a name="protect-sharepoint"></a>Protect SharePoint
+##Protección de SharePoint
 
-Azure Site Recovery helps protect SharePoint deployments, as follows:
+Azure Site Recovery ayuda a proteger las implementaciones de SharePoint como se indica a continuación:
 
-- Eliminates the need and associated infrastructure costs for a stand-by farm for disaster recovery. Use Site Recovery to replicate an entire farm (Web, app and database tiers) to Azure or to a secondary site.
-- Simplifies application deployment and management. Updates deployed to the primary site are automatically replicated, and are thus available after failover and recovery of a farm in a secondary site. Also lowers the management complexity and costs associated with keeping a stand-by farm up-to-date.
-- Simplifies SharePoint application development and testing by creating a production-like copy on-demand replica environment for testing and debugging.
-- Simplifies transition to the cloud by using Site Recovery to migrate SharePoint deployments to Azure.
+- Elimina la necesidad y los costos de infraestructura asociados a la recuperación ante desastres en una granja en espera. Use Site Recovery para replicar toda la granja (niveles de base de datos, aplicación y web) en Azure o en un sitio secundario.
+- Simplifica la administración e implementación de las aplicaciones. Las actualizaciones implementadas en el sitio principal se replican automáticamente y, por consiguiente, están disponibles después de la conmutación por error y recuperación de una granja en un sitio secundario. También reduce la complejidad de la administración y los costes asociados con el hecho de mantener actualizada una granja en espera.
+- Simplifica el desarrollo y las pruebas de aplicaciones de SharePoint mediante la creación de un entorno de réplica de copia de producción a petición para realizar pruebas y depuraciones.
+- Simplifica la transición a la nube mediante el uso de Site Recovery para migrar las implementaciones de SharePoint a Azure.
 
-[Learn more](https://gallery.technet.microsoft.com/SharePoint-DR-Solution-f6b4aeae) about protecting SharePoint.
+[Más información](https://gallery.technet.microsoft.com/SharePoint-DR-Solution-f6b4aeae) sobre cómo proteger SharePoint.
 
 
-## <a name="protect-dynamics-ax"></a>Protect Dynamics AX
+## Protección de Dynamics AX
 
-Azure Site Recovery helps protect your Dynamics AX ERP solution, by:
+Azure Site Recovery le ayuda a proteger soluciones ERP de Dynamics AX mediante:
 
-- Orchestrating replication of your entire Dynamics AX environment (Web and AOS tiers, database tiers, SharePoint) to Azure, or to a secondary site.
-- Simplifying migration of Dynamics AX deployments to the cloud (Azure).
-- Simplifying Dynamics AX application development and testing by creating a production-like copy on-demand, for testing and debugging.
+- La organización de la replicación de todo el entorno de Dynamics AX (niveles web y de AOS, niveles de base de datos y SharePoint) en Azure o en un sitio secundario.
+- La simplificación de la migración de las implementaciones de Dynamics AX a la nube (Azure).
+- La simplificación del desarrollo y de las pruebas de aplicaciones de Dynamics AX mediante la creación de una copia de producción a petición para realizar pruebas y depuraciones.
 
-[Learn more](https://gallery.technet.microsoft.com/Dynamics-AX-DR-Solution-b2a76281) about protecting Dynamic AX.
+[Más información](https://gallery.technet.microsoft.com/Dynamics-AX-DR-Solution-b2a76281) sobre cómo proteger Dynamic AX.
 
-## <a name="protect-rds"></a>Protect RDS
+## Protección de RDS 
 
-Remote Desktop Services (RDS) enables virtual desktop infrastructure (VDI), session-based desktops, and applications, allowing users to work anywhere. With Azure Site Recovery you can:
+Servicios de Escritorio remoto (RDS) habilita Infraestructura de escritorio virtual (VDI), escritorios basados en sesión y aplicaciones, lo que permite a los usuarios trabajar desde cualquier lugar. Con Azure Site Recovery, puede:
 
-- Replicate managed or unmanaged pooled virtual desktops to a secondary site, and remote applications and sessions to a secondary site or Azure.
-- Here's what you can replicate:
+- Replicar escritorios virtuales agrupados administrados o no administrados en un sitio secundario y aplicaciones remotas y sesiones en un sitio secundario o Azure.
+- Esto es lo que se puede replicar:
 
-**RDS** | **Replicate Hyper-V VMs to a secondary site** | **Replicate Hyper-V VMs to Azure** | **Replicate VMware VMs to a secondary site** | **Replicate VMware VMs to Azure** | **Replicate physical servers to a secondary site** | **Replicate physical servers to Azure**
+**RDS** | **Replicación de máquinas virtuales de Hyper-V a un sitio secundario** | **Replicación de máquinas virtuales de Hyper-V en Azure** | **Replicación de máquinas virtuales VMware en un sitio secundario** | **Replicación de máquinas virtuales VMware en Azure** | **Replicación de servidores físicos en un sitio secundario** | **Replicación de servidores físicos a Azure**
 ---|---|---|---|---|---|---
-**Pooled Virtual Desktop (unmanaged)** | Yes | No | Yes | No | Yes | No
-**Pooled Virtual Desktop (managed and without UPD)** | Yes | No | Yes | No | Yes | No
-**Remote applications and Desktop sessions (without UPD)** | Yes | Yes | Yes | Yes | Yes | Yes
+**Escritorio virtual agrupado (no administrado)** | Sí | No | Sí | No | Sí | No
+**Escritorio virtual agrupado (administrado y sin UPD)** | Sí | No | Sí | No | Sí | No
+**Aplicaciones remotas y sesiones de escritorio (sin UPD)** | Sí | Sí | Sí | Sí | Sí | Sí
 
 
-[Learn more](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) about protecting RDS.
+[Más información](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) sobre cómo proteger RDS.
 
 
-## <a name="protect-exchange"></a>Protect Exchange
+## Protección de Exchange
 
-Site Recovery helps protect Exchange, as follows:
+Site Recovery ayuda a proteger Exchange como se indica a continuación:
 
-- For small Exchange deployments, such as a single or standalone servers, Site Recovery can replicate and fail over to Azure or to a secondary site.
-- For larger deployments, Site Recovery integrates with Exchange DAGS.
-- Exchange DAGs are the recommended solution for Exchange disaster recovery in an enterprise.  Site Recovery recovery plans can include DAGs, to orchestrate DAG failover across sites.
-
-
-[Learn more](https://gallery.technet.microsoft.com/Exchange-DR-Solution-using-11a7dcb6) about protecting Exchange.
-
-## <a name="protect-sap"></a>Protect SAP
-
-Use Site Recovery to protect your SAP deployment, as follows:
-
-- Enable protection of the entire SAP deployment, by replicating different deployment layers to Azure, or to a secondary site.
-- Simplify cloud migration, by using Site Recovery to migrate your SAP deployment to Azure.
-- Simplify SAP development and testing, by creating a production-like copy on-demand for testing and debugging applications.
-
-[Learn more](http://aka.ms/asr-sap) about protecting SAP.
-
-## <a name="next-steps"></a>Next steps
-
-[Prepare for Site Recovery deployment](site-recovery-best-practices.md) 
+- En implementaciones de Exchange pequeñas, como servidores individuales o que no están en clúster, Site Recovery puede realizar la replicación y la conmutación por error en Azure o en un sitio secundario.
+- En implementaciones mayores Site Recovery se integra con los DAG de Exchange.
+- Los DAG de Exchange son la solución recomendada para la recuperación ante desastres de Exchange en una empresa. Los planes de recuperación de Site Recovery puede incluir varios DAG para organizar la conmutación por error de DAG entre sitios.
 
 
+[Más información](https://gallery.technet.microsoft.com/Exchange-DR-Solution-using-11a7dcb6) sobre cómo proteger Exchange.
 
-<!--HONumber=Oct16_HO2-->
+## Protección de SAP
 
+Use Site Recovery para proteger una implementación de SAP como se indica a continuación:
 
+- Habilite la protección de toda la implementación de SAP mediante la replicación de diferentes niveles de implementación en Azure o en un sitio secundario.
+- Simplifique la migración a la nube con Site Recovery para migrar la implementación de SAP en Azure.
+- Simplifique el desarrollo y las pruebas de SAP mediante la creación de una copia de producción a petición para probar y depurar aplicaciones.
+
+[Más información](http://aka.ms/asr-sap) sobre cómo proteger SAP.
+
+## Pasos siguientes
+
+[Preparación](site-recovery-best-practices.md) para la implementación de Azure Site Recovery
+
+<!---HONumber=AcomDC_0706_2016-->

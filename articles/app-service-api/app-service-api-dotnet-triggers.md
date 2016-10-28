@@ -1,66 +1,65 @@
 <properties 
-    pageTitle="App Service API app triggers | Microsoft Azure" 
-    description="How to implement triggers in an API App in Azure App Service" 
-    services="logic-apps" 
-    documentationCenter=".net" 
-    authors="guangyang"
-    manager="wpickett" 
-    editor="jimbe"/>
+	pageTitle="Desencadenadores de aplicaciones de API del Servicio de aplicaciones API | Microsoft Azure" 
+	description="Cómo implementar desencadenadores en una aplicación de API del Servicio de aplicaciones de Azure" 
+	services="logic-apps" 
+	documentationCenter=".net" 
+	authors="guangyang"
+	manager="wpickett" 
+	editor="jimbe"/>
 
 <tags 
-    ms.service="logic-apps" 
-    ms.workload="na" 
-    ms.tgt_pltfrm="dotnet" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/25/2016" 
-    ms.author="rachelap"/>
+	ms.service="logic-apps" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="dotnet" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2016" 
+	ms.author="rachelap"/>
+
+# Desencadenadores de aplicación de API del Servicio de aplicaciones de Azure
+
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones de API.
 
 
-# <a name="azure-app-service-api-app-triggers"></a>Azure App Service API app triggers
+## Información general
 
->[AZURE.NOTE] This version of the article applies to API apps 2014-12-01-preview schema version.
+En este artículo, se explica cómo implementar desencadenadores de aplicación de API y consumirlos desde una aplicación lógica.
 
+Todos los fragmentos de código de este tema proceden del [ejemplo de código de la aplicación de API FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
 
-## <a name="overview"></a>Overview
+Tenga en cuenta que tendrá que descargar el siguiente paquete de NuGet para el código en este artículo para realizar la compilación y ejecución: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
 
-This article explains how to implement API app triggers and consume them from a Logic app.
+## ¿Qué son los desencadenadores de aplicación de API?
 
-All of the code snippets in this topic are copied from the [FileWatcher API App code sample](http://go.microsoft.com/fwlink/?LinkId=534802). 
+Es frecuente que una aplicación de API deba desencadenar un evento de forma que los clientes de la aplicación de API realicen la acción apropiada como respuesta al evento. El mecanismo basado en la API de REST que hace posible este escenario se denomina "desencadenador de aplicación de API".
 
-Note that you'll need to download the following nuget package for the code in this article to build and run: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
+Por ejemplo, supongamos que el código de su cliente utiliza la [aplicación API de conector de Twitter](../app-service-logic/app-service-logic-connector-twitter.md), y el código necesita realizar una acción basada en nuevos tweets que contengan palabras específicas. En este caso, puede configurar un desencadenador de inserción o de extracción para facilitar esta tarea.
 
-## <a name="what-are-api-app-triggers?"></a>What are API app triggers?
+## Desencadenador de sondeo frente a desencadenador de inserción
 
-It's a common scenario for an API app to fire an event so that clients of the API app can take the appropriate action in response to the event. The REST API based mechanism that supports this scenario is called an API app trigger. 
+Actualmente, se admiten dos tipos de desencadenadores:
 
-For example, let's say your client code is using the [Twitter Connector API app](../app-service-logic/app-service-logic-connector-twitter.md) and your code needs to perform an action based on new tweets that contain specific words. In this case, you might set up a poll or push trigger to facilitate this need.
+- Desencadenador de sondeo: el cliente sondea la aplicación de API para la notificación de un evento que se ha activado.
+- Desencadenador de inserción: se notifica al cliente mediante la aplicación de API cuando se activa un evento.
 
-## <a name="poll-trigger-versus-push-trigger"></a>Poll trigger versus push trigger
+### Desencadenador de sondeo
 
-Currently, two types of triggers are supported:
+Un desencadenador de sondeo se implementa como una API de REST normal y espera que sus clientes (por ejemplo, una aplicación lógica) efectúen un sondeo para obtener notificaciones. El cliente puede conservar el estado, pero desencadenador de sondeo en sí no tiene estado.
 
-- Poll trigger - Client polls the API app for notification of an event having been fired 
-- Push trigger - Client is notified by the API app when an event fires 
+En la información siguiente sobre los paquetes de solicitud y respuesta, se ilustran algunos aspectos claves del contrato del desencadenador de sondeo:
 
-### <a name="poll-trigger"></a>Poll trigger
-
-A poll trigger is implemented as a regular REST API and expects its clients (such as a Logic app) to poll it in order to get notification. While the client may maintain state, the poll trigger itself is stateless. 
-
-The following information regarding the request and response packets illustrate some key aspects of the poll trigger contract:
-
-- Request
-    - HTTP method: GET
-    - Parameters
-        - triggerState - This optional parameter allows clients to specify their state so that the poll trigger can properly decide whether to return notification or not based on the specified state.
-        - API-specific parameters
+- Solicitud
+    - Método HTTP: GET
+    - Parámetros
+        - triggerState: este parámetro opcional permite a los clientes especificar su estado para que el desencadenador de sondeo pueda decidir correctamente si debe devolver la notificación o no según el estado especificado.
+        - Parámetros específicos de la API
 - Response
-    - Status code **200** - Request is valid and there is a notification from the trigger. The content of the notification will be the response body. A "Retry-After" header in the response indicates that additional notification data must be retrieved with a subsequent request call.
-    - Status code **202** - Request is valid, but there is no new notification from the trigger.
-    - Status code **4xx** - Request is not valid. The client should not retry the request.
-    - Status code **5xx** - Request has resulted in an internal server error and/or temporary issue. The client should retry the request.
+    - Código de estado **200**: la solicitud es válida y hay una notificación desde el desencadenador. El contenido de la notificación será el cuerpo de la respuesta. El encabezado "Retry-After" en la respuesta indica que hay que recuperar datos de notificación adicionales con una llamada de solicitud posterior.
+    - Código de estado **202**: la solicitud es válida, pero no hay una notificación nueva desde el desencadenador.
+    - Código de estado **4xx**: la solicitud no es válida. El cliente no debe intentar efectuar la solicitud de nuevo.
+    - Código de estado **5xx**: la solicitud ha producido un error interno en el servidor o un problema temporal. El cliente debe intentar efectuar la solicitud de nuevo.
 
-The following code snippet is an example of how to implement a poll trigger.
+El siguiente fragmento de código es un ejemplo de cómo se debe implementar un desencadenador de sondeo.
 
     // Implement a poll trigger.
     [HttpGet]
@@ -91,35 +90,33 @@ The following code snippet is an example of how to implement a poll trigger.
         }
     }
 
-To test this poll trigger, follow these steps:
+Para probar este desencadenador de sondeo, siga estos pasos:
 
-1. Deploy the API App with an authentication setting of **public anonymous**.
-2. Call the **touch** operation to touch a file. The following image shows a sample request via Postman.
-   ![Call Touch Operation via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
-3. Call the poll trigger with the **triggerState** parameter set to a time stamp prior to Step #2. The following image shows the sample request via Postman.
-   ![Call Poll Trigger via Postman](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
+1. Implemente la aplicación de API con una configuración de autenticación de **anónimo público**.
+2. Ejecute la operación **touch** para tocar un archivo. La siguiente imagen muestra una solicitud de ejemplo a través de Postman. ![Llamada a la operación Touch mediante Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
+3. Efectúe una llamada al desencadenador de sondeo con el parámetro **triggerState** establecido en una marca de tiempo anterior al paso 2. La siguiente imagen muestra la solicitud de ejemplo a través de Postman. ![Llamada al desencadenador de sondeo mediante Postman](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
 
-### <a name="push-trigger"></a>Push trigger
+### Desencadenador de inserción
 
-A push trigger is implemented as a regular REST API that pushes notifications to clients who have registered to be notified when specific events fire.
+Un desencadenador de inserción se implementa como una API de REST normal que envía notificaciones a los clientes que se han registrado para recibir notificaciones cuando se activan determinados eventos.
 
-The following information regarding the request and response packets illustrate some key aspects of the push trigger contract.
+En la información siguiente sobre los paquetes de solicitud y respuesta, se ilustran algunos aspectos claves del contrato del desencadenador de inserción.
 
-- Request
-    - HTTP method: PUT
-    - Parameters
-        - triggerId: required - Opaque string (such as a GUID) that represents the registration of a push trigger.
-        - callbackUrl: required - URL of the callback to invoke when the event fires. The invocation is a simple POST HTTP call.
-        - API-specific parameters
+- Solicitud
+    - Método HTTP: PUT
+    - Parámetros
+        - triggerId: (obligatorio) cadena opaca (por ejemplo, un GUID) que representa el registro de un desencadenador de inserción.
+        - callbackUrl: (obligatorio) dirección URL de la devolución de llamada que se ejecuta al activarse el evento. La ejecución es una llamada HTTP POST simple.
+        - Parámetros específicos de la API
 - Response
-    - Status code **200** - Request to register client successful.
-    - Status code **4xx** - Request is not valid. The client should not retry the request.
-    - Status code **5xx** - Request has resulted in an internal server error and/or temporary issue. The client should retry the request.
-- Callback
-    - HTTP method: POST
-    - Request body: Notification content.
+    - Código de estado **200**: solicitud de registro de cliente correcta.
+    - Código de estado **4xx**: la solicitud no es válida. El cliente no debe intentar efectuar la solicitud de nuevo.
+    - Código de estado **5xx**: la solicitud ha producido un error interno en el servidor o un problema temporal. El cliente debe intentar efectuar la solicitud de nuevo.
+- Devolución de llamada
+    - Método HTTP: POST
+    - Cuerpo de la solicitud: contenido de la notificación.
 
-The following code snippet is an example of how to implement a push trigger:
+El siguiente fragmento de código es un ejemplo de cómo se debe implementar un desencadenador de inserción.
 
     // Implement a push trigger.
     [HttpPut]
@@ -196,24 +193,21 @@ The following code snippet is an example of how to implement a push trigger:
         }
     }
 
-To test this poll trigger, follow these steps:
+Para probar este desencadenador de sondeo, siga estos pasos:
 
-1. Deploy the API App with an authentication setting of **public anonymous**.
-2. Browse to [http://requestb.in/](http://requestb.in/) to create a RequestBin which will serve as your callback URL.
-3. Call the push trigger with a GUID as **triggerId** and the RequestBin URL as **callbackUrl**.
-   ![Call Push Trigger via Postman](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
-4. Call the **touch** operation to touch a file. The following image shows a sample request via Postman.
-   ![Call Touch Operation via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
-5. Check the RequestBin to confirm that the push trigger callback is invoked with property output.
-   ![Call Poll Trigger via Postman](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.PNG)
+1. Implemente la aplicación de API con una configuración de autenticación de **anónimo público**.
+2. Vaya a [http://requestb.in/](http://requestb.in/) para crear un RequestBin que servirá como dirección URL de devolución de llamada.
+3. Ejecute una llamada al desencadenador de inserción con un GUID como **triggerId** y la dirección URL de RequestBin como **callbackUrl**. ![Llamada al desencadenador de inserción mediante Postman](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
+4. Ejecute la operación **touch** para tocar un archivo. La siguiente imagen muestra una solicitud de ejemplo a través de Postman. ![Llamada a la operación Touch mediante Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
+5. Compruebe el RequestBin para confirmar que la devolución de llamada del desencadenador de inserción se realiza con una salida de propiedad. ![Llamada al desencadenador de sondeo mediante Postman](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.PNG)
 
-### <a name="describe-triggers-in-api-definition"></a>Describe triggers in API definition
+### Descripción de los desencadenadores en la definición de la API
 
-After implementing the triggers and deploying your API app to Azure, navigate to the **API Definition** blade in the Azure preview portal and you'll see that triggers are automatically recognized in the UI, which is driven by the Swagger 2.0 API definition of the API app.
+Después de implementar los desencadenadores e implementar la aplicación de API en Azure, navegue hasta la hoja de la **definición de la API** en el portal de vista previa de Azure. Verá que los desencadenadores se reconocen automáticamente en la interfaz de usuario, que se controla mediante la definición de la API Swagger 2.0 de la aplicación de API.
 
-![API Definition Blade](./media/app-service-api-dotnet-triggers/apidefinitionblade.PNG)
+![Hoja de definición de la API](./media/app-service-api-dotnet-triggers/apidefinitionblade.PNG)
 
-If you click the **Download Swagger** button and open the JSON file, you'll see results similar to the following:
+Si hace clic en el botón para **descargar Swagger** y abra el archivo JSONj. Verá resultados similares a los siguientes:
 
     "/api/files/poll/TouchedFiles": {
       "get": {
@@ -230,44 +224,44 @@ If you click the **Download Swagger** button and open the JSON file, you'll see 
       }
     }
 
-The extension property **x-ms-schedular-trigger** is how triggers are described in API definition, and is automatically added by the API app gateway when you request the API definition via the gateway if the request to one of the following criteria. (You can also add this property manually.)
+La propiedad de extensión **x-ms-schedular-trigger** representa la forma en que los desencadenadores se han descrito en la definición de la API. Esta propiedad la agrega automáticamente la puerta de enlace de la aplicación de API cuando se solicita la definición de la API a través de la puerta de enlace, si la solicitud se ajusta a uno de los siguientes criterios. (También puede agregar esta propiedad manualmente).
 
-- Poll trigger
-    - If the HTTP method is **GET**.
-    - If the **operationId** property contains the string **trigger**.
-    - If the **parameters** property includes a parameter with a **name** property set to **triggerState**.
-- Push trigger
-    - If the HTTP method is **PUT**.
-    - If the **operationId** property contains the string **trigger**.
-    - If the **parameters** property includes a parameter with a **name** property set to **triggerId**.
+- Desencadenador de sondeo
+    - Si el método HTTP es **GET**.
+    - Si la propiedad **operationId** contiene la cadena **trigger**.
+    - Si la propiedad **parameter** incluye un parámetro con una propiedad **name** establecida en **triggerState**.
+- Desencadenador de inserción
+    - Si el método HTTP es **PUT**.
+    - Si la propiedad **operationId** contiene la cadena **trigger**.
+    - Si la propiedad **parameter** incluye un parámetro con una propiedad **name** establecida en **triggerId**.
 
-## <a name="use-api-app-triggers-in-logic-apps"></a>Use API app triggers in Logic apps
+## Uso de desencadenadores de la aplicación de API en aplicaciones lógicas
 
-### <a name="list-and-configure-api-app-triggers-in-the-logic-apps-designer"></a>List and configure API app triggers in the Logic apps designer
+### Muestre y configure desencadenadores de la aplicación de API en el Diseñador de aplicaciones lógicas
 
-If you create a Logic app in the same resource group as the API app, you will be able to add it to the designer canvas simply by clicking it. The following images illustrate this:
+Si crea una aplicación lógica en el mismo grupo de recursos que la aplicación de API, podrá agregarla al lienzo del diseñador simplemente haciendo clic en ella. Las imágenes siguientes ilustran este proceso:
 
-![Triggers in Logic App Designer](./media/app-service-api-dotnet-triggers/triggersinlogicappdesigner.PNG)
+![Desencadenadores en el Diseñador de aplicaciones lógicas](./media/app-service-api-dotnet-triggers/triggersinlogicappdesigner.PNG)
 
-![Configure Poll Trigger in Logic App Designer](./media/app-service-api-dotnet-triggers/configurepolltriggerinlogicappdesigner.PNG)
+![Configuración del desencadenador de sondeo en el Diseñador de aplicaciones lógicas](./media/app-service-api-dotnet-triggers/configurepolltriggerinlogicappdesigner.PNG)
 
-![Configure Push Trigger in Logic App Designer](./media/app-service-api-dotnet-triggers/configurepushtriggerinlogicappdesigner.PNG)
+![Configuración del desencadenador de inserción en el Diseñador de aplicaciones lógicas](./media/app-service-api-dotnet-triggers/configurepushtriggerinlogicappdesigner.PNG)
 
-## <a name="optimize-api-app-triggers-for-logic-apps"></a>Optimize API app triggers for Logic apps
+## Optimización de los desencadenadores de la aplicación de API para aplicaciones de lógicas
 
-After you add triggers to an API app, there are a few things you can do to improve the experience when using the API app in a Logic app.
+Después de agregar desencadenadores a una aplicación de API, hay algunas cosas que puede hacer para mejorar la experiencia al usar la aplicación de API en una aplicación lógica.
 
-For instance, the **triggerState** parameter for poll triggers should be set to the following expression in the Logic app. This expression should evaluate the last invocation of the trigger from the Logic app, and return that value.  
+Por ejemplo, el parámetro **triggerState** para los desencadenadores de sondeo se debe configurar con la siguiente expresión en la aplicación lógica. Esta expresión debe evaluar la última invocación del desencadenador desde la aplicación lógica y devolver ese valor.
 
-    @coalesce(triggers()?.outputs?.body?['triggerState'], '')
+	@coalesce(triggers()?.outputs?.body?['triggerState'], '')
 
-NOTE: For an explanation of the functions used in the expression above, refer to the documentation on [Logic App Workflow Definition Language](https://msdn.microsoft.com/library/azure/dn948512.aspx).
+NOTA: para obtener una explicación de las funciones utilizadas en la expresión anterior, consulte la documentación sobre el [lenguaje de definición del flujo de trabajo de la aplicación lógica](https://msdn.microsoft.com/library/azure/dn948512.aspx).
 
-Logic app users would need to provide the expression above for the **triggerState** parameter while using the trigger. It is possible to have this value preset by the Logic app designer through the extension property **x-ms-scheduler-recommendation**.  The **x-ms-visibility** extension property can be set to a value of *internal* so that the parameter itself is not shown on the designer.  The following snippet illustrates that.
+Los usuarios de la aplicación lógica deben proporcionar la expresión anterior para el parámetro **triggerState** mientras usan el desencadenador. Este valor se puede preconfigurar en el diseñador de aplicaciones lógicas mediante la propiedad de extensión **x-ms-scheduler\_recommendation**. La propiedad de extensión **x-ms-visibility** se puede establecer en el valor *internal*, de modo que el propio parámetro no se muestre en el diseñador. El siguiente fragmento de código ilustra este hecho.
 
     "/api/Messages/poll": {
       "get": {
-        "operationId": "Messages_NewMessageTrigger",
+	    "operationId": "Messages_NewMessageTrigger",
         "parameters": [
           {
             "name": "triggerState",
@@ -283,11 +277,11 @@ Logic app users would need to provide the expression above for the **triggerStat
       }
     }
 
-For push triggers, the **triggerId** parameter must uniquely identify the Logic app. A recommended best practice is to set this property to the name of the workflow by using the following expression:
+Para los desencadenadores de inserción, el parámetro **triggerId** debe identificar de forma exclusiva la aplicación lógica. Una práctica recomendada consiste en establecer esta propiedad en el nombre del flujo de trabajo mediante la expresión siguiente:
 
     @workflow().name
 
-Using the **x-ms-scheduler-recommendation** and **x-ms-visibility** extension properties in its API definiton, the API app can convey to the Logic app designer to automatically set this expression for the user.
+Mediante las propiedades de extensión **x-ms-scheduler-recommendation** y **x-ms-visibility** de la definición de la API, la aplicación de API puede indicar al diseñador de aplicaciones lógicas que configure automáticamente esta expresión para el usuario.
 
         "parameters":[  
           {  
@@ -300,13 +294,13 @@ Using the **x-ms-scheduler-recommendation** and **x-ms-visibility** extension pr
           },
 
 
-### <a name="add-extension-properties-in-api-defintion"></a>Add extension properties in API defintion
+### Adición de propiedades de extensión en la definición de la API
 
-Additional metadata information - such as the extension properties **x-ms-scheduler-recommendation** and **x-ms-visibility** - can be added in the API defintion in one of two ways: static or dynamic.
+La información de metadatos adicionales (por ejemplo, las propiedades de extensión **x-ms-scheduler-recommendation** y **x-ms-visibility**) puede agregarse en la definición de la API de dos maneras: estática o dinámica.
 
-For static metadata, you can directly edit the */metadata/apiDefinition.swagger.json* file in your project and add the properties manually.
+En el caso de los metadatos estáticos, puede editar directamente el archivo */metadata/apiDefinition.swagger.json* en el proyecto y agregar manualmente las propiedades.
 
-For API apps using dynamic metadata, you can edit the SwaggerConfig.cs file to add an operation filter which can add these extensions.
+Para las aplicaciones de API con metadatos dinámicos, puede editar el archivo SwaggerConfig.cs para agregar un filtro de operación que pueda agregar estas extensiones.
 
     GlobalConfiguration.Configuration 
         .EnableSwagger(c =>
@@ -317,7 +311,7 @@ For API apps using dynamic metadata, you can edit the SwaggerConfig.cs file to a
             }
 
 
-The following is an example of how this class can be implemented to facilitate the dynamic metadata scenario.
+El siguiente es un ejemplo de cómo esta clase se puede implementar para facilitar el escenario de metadatos dinámicos.
 
     // Add extension properties on the triggerState parameter
     public class TriggerStateFilter : IOperationFilter
@@ -348,8 +342,4 @@ The following is an example of how this class can be implemented to facilitate t
     }
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

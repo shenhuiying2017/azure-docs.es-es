@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple 8000 Series Update 2 release notes | Microsoft Azure"
-   description="Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 2."
+   pageTitle="Notas de la versión de la actualización 2 de la serie StorSimple 8000 | Microsoft Azure"
+   description="Describe las nuevas características, problemas y soluciones alternativas de la actualización 2 de la serie StorSimple 8000."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,110 +15,104 @@
    ms.date="05/24/2016"
    ms.author="v-sharos" />
 
+# Notas de la versión de la actualización 2 de la serie StorSimple 8000  
 
-# <a name="storsimple-8000-series-update-2-release-notes"></a>StorSimple 8000 Series Update 2 release notes  
+## Información general
 
-## <a name="overview"></a>Overview
+Las siguientes notas de la versión describen las características nuevas e identifican los problemas críticos abiertos de la actualización 2 de la serie StorSimple 8000. También contienen una lista de las actualizaciones de software, controlador y firmware de StorSimple incluidas en esta versión.
 
-The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 2. They also contain a list of the StorSimple software, driver, and disk firmware updates included in this release. 
+La actualización 2 puede aplicarse a cualquier dispositivo de StorSimple que ejecute software de versión (GA) o las actualizaciones de la 0.1 a la 1.2. La versión de dispositivo asociada a la actualización 2 es 6.3.9600.17673.
 
-Update 2 can be applied to any StorSimple device running Release (GA) or Update 0.1 through Update 1.2. The device version associated with Update 2 is 6.3.9600.17673.
-
-Please review the information contained in the release notes before you deploy the update in your StorSimple solution.
+Revise la información contenida en las notas de la versión antes de implementar la actualización de la solución de StorSimple.
 
 >[AZURE.IMPORTANT]
 > 
-- It takes approximately 4-7 hours to install this update (including the Windows updates). 
-- Update 2 has software, LSI driver, and SSD firmware updates.
-- For new releases, you may not see updates immediately because we do a phased rollout of the updates. Wait a few days, and then scan for updates again as these will become available soon.
+- Esta actualización tarda aproximadamente 4-7 horas en instalarse (incluidas las actualizaciones de Windows). 
+- La actualización 2 tiene actualizaciones de software, controlador LSI y firmware de SSD.
+- Para las nuevas versiones, no podrán ver las actualizaciones de inmediato porque hacemos una implementación por fases de las actualizaciones. Espere unos días y luego busque actualizaciones de nuevo ya que estas estarán disponibles pronto.
 
 
-## <a name="what's-new-in-update-2"></a>What's new in Update 2
+## Novedades de la actualización 2
 
-Update 2 introduces the following new features.
+La actualización 2 presenta las siguientes características nuevas.
 
-- **Locally pinned volumes** – In previous releases of the StorSimple 8000 series, blocks of data were tiered to the cloud based on usage. There was no way to guarantee that blocks would stay on local. In Update 2, when you create a volume, you can designate a volume as locally pinned, and primary data from that volume will not be tiered to the cloud. Snapshots of locally pinned volumes will still be copied to the cloud for backup so that the cloud can be used for data mobility and disaster recovery purposes. Additionally, you can change the volume type (that is, convert tiered volumes to locally pinned volumes and convert locally pinned volumes to tiered). 
+- **Volúmenes anclados localmente**: en las versiones anteriores de la serie StorSimple 8000, los bloques de datos se almacenan en capas en la nube en función de su uso. No había ninguna forma de garantizar que los bloques permanecerían en el equipo local. En la actualización 2, cuando se crea un volumen, puede designar un volumen como anclado localmente, y los datos principales de dicho volumen no se almacenarán en capas en la nube. Las instantáneas de los volúmenes anclados localmente aún se copiarán en la nube para las copias de seguridad, a fin de que la nube pueda utilizarse a efectos de movilidad de datos y de recuperación ante desastres. Además, puede cambiar el tipo de volumen (es decir, convertir los volúmenes en capas en volúmenes anclados localmente, y viceversa). 
 
-- **StorSimple virtual device improvements** – Previously, the StorSimple 8000 series positioned the virtual device as a disaster recovery or development/test solution. There was only one model of virtual device (model 1100). Update 2 introduces two virtual device models: 
+- **Mejoras del dispositivo virtual de StorSimple**: anteriormente, la serie StorSimple 8000 colocaba el dispositivo virtual como una solución de desarrollo y pruebas o de recuperación ante desastres. Solo había un modelo de dispositivo virtual (modelo 1100). La actualización 2 presenta dos modelos de dispositivo virtual:
 
-     - 8010 (formerly called the 1100) – No change; has a capacity of 30 TB and uses Azure standard storage.
-     - 8020 – Has a capacity of 64 TB and uses Azure Premium storage for improved performance.
+     - 8010 (anteriormente denominado 1100): sin cambios; tiene una capacidad de 30 TB y usa el almacenamiento estándar de Azure.
+     - 8020: tiene una capacidad de 64 TB y usa el almacenamiento premium de Azure para mejorar el rendimiento.
 
-    There is a single VHD for both virtual device models (8010/8020). When you first start the virtual device, it detects the platform parameters and applies the correct model version.
+    Hay un solo VHD para ambos modelos de dispositivo virtual (8010/8020). Cuando se inicia por primera vez el dispositivo virtual, detecta los parámetros de la plataforma y se aplica a la versión correcta del modelo.
 
-- **Networking Improvements** – Update 2 contains the following networking improvements:
+- **Mejoras de red**: la actualización 2 contiene las siguientes mejoras de red:
 
-     - Multiple NICs can be enabled for the cloud so that failover can occur if a NIC fails.
-     - Routing improvements, with fixed metrics for cloud enabled blocks.
-     - Online retry of failed resources before a failover.
-     - New alerts for service failures.
+     - Varias NIC pueden habilitarse para la nube para que la conmutación por error pueda realizarse si se produce un error en una tarjeta NIC.
+     - Mejoras de enrutamiento con métricas fijas para bloques habilitados para la nube.
+     - Reintento en línea de recursos con errores antes de una conmutación por error.
+     - Nuevas alertas para errores de servicio.
 
-- **Updating Improvements** – In Update 1.2 and earlier, the StorSimple 8000 series was updated via two channels: Windows Update for clustering, iSCSI, and so on, and Microsoft Update for binaries and firmware.
-    Update 2 uses Microsoft Update for all update packages. This should lead to less time patching or doing failovers. 
+- **Mejoras en las actualizaciones**: en la actualización 1.2 y en las versiones anteriores, la serie StorSimple 8000 se ha actualizado a través de dos canales: Windows Update para la agrupación en clústeres, iSCSI, y así sucesivamente, y Microsoft Update para los archivos binarios y el firmware. La actualización 2 usa Microsoft Update para todos los paquetes de actualizaciones. Esto debería reducir el tiempo de la aplicación de revisiones o de la realización de conmutaciones por error.
 
-- **Firmware updates** – The following firmware updates are included:
-    - LSI: lsi_sas2.sys Product Version 2.00.72.10
-    - SSD only (no HDD updates): XMGG, XGEG, KZ50, F6C2, and VR08
+- **Actualizaciones de firmware**: se incluyen las siguientes actualizaciones del firmware:
+    - LSI: versión del producto 2.00.72.10 lsi\_sas2.sys
+    - SSD solo (ninguna actualización de la unidad de disco duro): XMGG, XGEG, KZ50, F6C2 y VR08
 
-- **Proactive Support** – Update 2 enables Microsoft to pull additional diagnostic information from the device. When our operations team identifies devices that are having problems, we are better equipped to collect information from the device and diagnose issues. **By accepting Update 2, you allow us to provide this proactive support**.    
+- **Soporte técnico proactivo**: la actualización 2 permite a Microsoft extraer información de diagnóstico adicional del dispositivo. Cuando nuestro equipo de operaciones identifica dispositivos que están teniendo problemas, estamos mejor equipados para recopilar información del dispositivo y diagnosticar problemas. **Al aceptar la actualización 2, nos permite proporcionar este soporte técnico proactivo**.
  
 
-## <a name="issues-fixed-in-update-2"></a>Issues fixed in Update 2
+## Problemas corregidos en la actualización 2
 
-The following tables provides a summary of issues that were fixed in Updates 2.    
+En las tablas siguientes se ofrece un resumen de los problemas corregidos en la actualización 2.
 
-| No. | Feature | Issue | Applies to physical device | Applies to virtual device |
+| Nº | Característica | Problema | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 |-----|---------|-------|--------------------------------|--------------------------------|
-| 1 | Network interfaces | After an upgrade to Update 1, the StorSimple Manager service reported that the Data2 and Data3 ports failed on one controller. This issue has been fixed. | Yes | No |
-| 2 | Updates | After an upgrade to Update 1, audible alarm alerts occurred in the Azure classic portal on multiple devices. This issue has been fixed. | Yes | No |
-| 3 | Openstack authentication | When using Openstack as your cloud service provider, you could receive an error that your cloud authentication string was too long. This has been fixed. | Yes | No |
+| 1 | Interfaces de red | Después de actualizar a la actualización 1, el servicio del administrador de StorSimple informó que se habían producido errores en los puertos Data2 y Data3 de un controlador. Ahora se ha corregido. | Sí | No |
+| 2 | Actualizaciones | Una vez realizada la actualización 1, se generaron alertas audibles en el Portal de Azure clásico en varios dispositivos. Ahora se ha corregido. | Sí | No |
+| 3 | Autenticación de Openstack | Al utilizar Openstack como proveedor de servicios en la nube, podría recibir un error que indica que la cadena de autenticación de la nube es demasiado larga. Esto se ha solucionado. | Sí | No |
 
 
-## <a name="known-issues-in-update-2"></a>Known issues in Update 2
+## Problemas conocidos de la actualización 2
 
-The following table provides a summary of known issues in this release.
+En la tabla siguiente se proporciona un resumen de los problemas conocidos de esta versión.
 
-| No. | Feature | Issue | Comments / workaround | Applies to physical device | Applies to virtual device |
+| N.º | Característica | Problema | Comentarios / solución alternativa | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 |-----|---------|-------|----------------------------|----------------------------|---------------------------|
-| 1 | Disk quorum | In rare instances, if the majority of disks in the EBOD enclosure of an 8600 device are disconnected resulting in no disk quorum, then the storage pool will go offline. It will stay offline even if the disks are reconnected. | You will need to reboot the device. If the issue persists, please contact Microsoft Support for next steps. | Yes | No |
-| 2 | Incorrect controller ID | When a controller replacement is performed, controller 0 may show up as controller 1. During controller replacement, when the image is loaded from the peer node, the controller ID can show up initially as the peer controller’s ID. In rare instances, this behavior may also be seen after a system reboot. | No user action is required. This situation will resolve itself after the controller replacement is complete. | Yes | No |
-| 3 | Storage accounts | Using the Storage service to delete the storage account is an unsupported scenario. This will lead to a situation in which user data cannot be retrieved.|  | Yes | Yes |
-| 4 | Device failover | Multiple failovers of a volume container from the same source device to different target devices is not supported. Failover from a single dead device to multiple devices will make the volume containers on the first failed over device lose data ownership. After such a failover, these volume containers will appear or behave differently when you view them in the Azure classic portal. | | Yes | No |
-| 5 | Installation | During StorSimple Adapter for SharePoint installation, you need to provide a device IP in order for the install to finish successfully.    | | Yes | No |
-| 6 | Web proxy | If your web proxy configuration has HTTPS as the specified protocol, then your device-to-service communication will be affected and the device will go offline. Support packages will also be generated in the process, consuming significant resources on your device. | Make sure that the web proxy URL has HTTP as the specified protocol. For more information, go to [Configure web proxy for your device](storsimple-configure-web-proxy.md). | Yes | No |
-| 7 | Web proxy | If you configure and enable web proxy on a registered device, then you will need to restart the active controller on your device. | | Yes | No |
-| 8 | High cloud latency and high I/O workload | When your StorSimple device encounters a combination of very high cloud latencies (order of seconds) and high I/O workload, the device volumes go into a degraded state and the I/Os may fail with a "device not ready" error. | You will need to manually reboot the device controllers or perform a device failover to recover from this situation. | Yes | No |
-| 9 | Azure PowerShell | When you use the StorSimple cmdlet **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** to select the first object so that you can create a new **VolumeContainer** object, the cmdlet returns all the objects. | Wrap the cmdlet in parentheses as follows: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** | Yes | Yes |
-| 10| Migration | When multiple volume containers are passed for migration, the ETA for latest backup is accurate only for the first volume container. Additionally, parallel migration will start after the first 4 backups in the first volume container are migrated. | We recommend that you migrate one volume container at a time. | Yes | No |
-| 11| Migration | After the restore, volumes are not added to the backup policy or the virtual disk group. | You will need to add these volumes to a backup policy in order to create backups. | Yes | Yes |
-| 12| Migration | After the migration is complete, the 5000/7000 series device must not access the migrated data containers. | We recommend that you delete the migrated data containers after the migration is complete and committed. | Yes | No |
-| 13| Clone and DR | A StorSimple device running Update 1 cannot clone or perform disaster recovery to a device running pre-update 1 software. | You will need to update the target device to Update 1 to allow these operations | Yes | Yes |
-| 14 | Migration | Configuration backup for migration may fail on a 5000-7000 series device when there are volume groups with no associated volumes. | Delete all the empty volume groups with no associated volumes and then retry the configuration backup.| Yes | No |
-| 15 | Azure PowerShell cmdlets and locally pinned volumes | You cannot create a locally pinned volume via Azure PowerShell cmdlets. (Any volume you create via Azure PowerShell will be tiered.) |Always use the StorSimple Manager service to configure locally pinned volumes.| Yes | No |
-| 16 |Space available for locally pinned volumes | If you delete a locally pinned volume, the space available for new volumes may not be updated immediately. The StorSimple Manager service updates the local space available approximately every hour.| Wait for an hour before you try to create the new volume. | Yes | No |
-| 17 | Locally pinned volumes | Your restore job exposes the temporary snapshot backup in the Backup Catalog, but only for the duration of the restore job. Additionally, it exposes a virtual disk group with prefix **tmpCollection** on the **Backup Policies** page, but only for the duration of the restore job. | This behavior can occur if your restore job has only locally pinned volumes or a mix of locally pinned and tiered volumes. If the restore job includes only tiered volumes, then this behavior will not occur. No user intervention is required. | Yes | No |
-| 18 | Locally pinned volumes | If you cancel a restore job and a controller failover occurs immediately afterwards, the restore job will show **Failed** instead of **Canceled**. If a restore job fails and a controller failover occurs immediately afterwards, the restore job will show **Canceled** instead of **Failed**. | This behavior can occur if your restore job has only locally pinned volumes or a mix of locally pinned and tiered volumes. If the restore job includes only tiered volumes, then this behavior will not occur. No user intervention is required. | Yes | No |
-| 19 |Locally pinned volumes | If you cancel a restore job or if a restore fails and then a controller failover occurs, an additional restore job appears on the **Jobs** page. | This behavior can occur if your restore job has only locally pinned volumes or a mix of locally pinned and tiered volumes. If the restore job includes only tiered volumes, then this behavior will not occur. No user intervention is required. | Yes | No |
-| 20 |Locally pinned volumes | If you try to convert a tiered volume (created and cloned with Update 1.2 or earlier) to a locally pinned volume and your device is running out of space or there is a cloud outage, then the clone(s) can be corrupted.| This problem occurs only with volumes that were created and cloned with pre-Update 2 software. This should be an infrequent scenario.|
-| 21 | Volume conversion | Do not update the ACRs attached to a volume while a volume conversion is in progress (tiered to locally pinned or vice versa). Updating the ACRs could result in data corruption. | If needed, update the ACRs prior to the volume conversion and do not make any further ACR updates while the conversion is in progress. |
+| 1 | Cuórum de disco | En raras ocasiones, si se desconecta la mayoría de los discos en el revestimiento de EBOD de un dispositivo 8600 y no se produce un cuórum de disco, el grupo de almacenamiento se desconectará. Seguirá desconectado incluso si se vuelven a conectar los discos. | Necesitará reiniciar el dispositivo. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft para conocer los pasos siguientes. | Sí | No |
+| 2 | Identificador de controlador incorrecto | Cuando se realiza un reemplazo de controlador, el controlador 0 puede aparecer como controlador 1. Durante el reemplazo de controlador, cuando se carga la imagen desde el nodo del mismo nivel, el identificador de controlador puede mostrarse inicialmente como el identificador del controlador del mismo nivel. En raras ocasiones, este comportamiento también puede aparecer después del reinicio del sistema. | No se requiere ninguna acción del usuario. La situación se solucionará una vez completado el reemplazo del controlador. | Sí | No |
+| 3 | Cuentas de almacenamiento | El uso del servicio de almacenamiento para eliminar la cuenta de almacenamiento es un escenario no admitido. Esto provocará una situación en la que no se pueden recuperar los datos de usuario.| | Sí | Sí |
+| 4 | Conmutación por error del dispositivo | No se admiten varias conmutaciones por error de un contenedor de volúmenes del mismo dispositivo de origen a diferentes dispositivos de destino. La conmutación por error de un único dispositivo inactivo a varios dispositivos hará que los contenedores de volúmenes del primer dispositivo conmutado por error pierdan la propiedad de los datos. Después de este tipo de conmutación por error, estos contenedores de volúmenes aparecerán o se comportarán de forma diferente cuando se visualicen en el Portal de Azure clásico. | | Sí | No |
+| 5 | Instalación | Durante la instalación del adaptador de StorSimple para SharePoint, deberá proporcionar una dirección IP de dispositivo para que la instalación finalice correctamente. | | Sí | No |
+| 6 | Proxy web | Si la configuración de proxy web tiene HTTPS como protocolo especificado, la comunicación de dispositivo a servicio se verá afectada y el dispositivo se desconectará. También se generarán paquetes de compatibilidad en el proceso, que consumen muchos recursos en el dispositivo. | Asegúrese de que la dirección URL del proxy web tiene HTTP como protocolo especificado. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](storsimple-configure-web-proxy.md). | Sí | No |
+| 7 | Proxy web | Si configura y habilita el proxy web en un dispositivo registrado, será necesario reiniciar el controlador activo en el dispositivo. | | Sí | No |
+| 8 | Latencia alta de la nube y alta carga de trabajo de E/S | Cuando el dispositivo StorSimple encuentra una combinación de latencias muy altas de la nube (del orden de segundos) y alta carga de trabajo de E/S, los volúmenes del dispositivo pasan a un estado degradado y las operaciones de E/S pueden fallar con el error «el dispositivo no está listo». | Necesitará reiniciar los controladores de dispositivo de forma manual o realizar una conmutación por error del dispositivo para recuperarse de esta situación. | Sí | No |
+| 9 | Azure PowerShell | Cuando se usa el cmdlet de StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** para seleccionar el primer objeto y crear un nuevo objeto **VolumeContainer**, el cmdlet devuelve todos los objetos. | Escriba el cmdlet entre paréntesis, como se indica a continuación: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** | Sí | Sí |
+| 10| Migración | Cuando se pasan varios contenedores de volúmenes para la migración, el ETA de la copia de seguridad más reciente solo es preciso en el primer contenedor de volúmenes. Además, la migración paralela se iniciará después de que se hayan migrado las cuatro primeras copias de seguridad del primer contenedor de volúmenes. | Se recomienda migrar los contenedores de volúmenes de uno en uno. | Sí | No |
+| 11| Migración | Después de la restauración, los volúmenes no se agregan a la directiva de copia de seguridad ni al grupo de discos virtuales. | Para crear copias de seguridad, será preciso agregar estos volúmenes a una directiva de copia de seguridad. | Sí | Sí |
+| 12| Migración | Una vez completada la migración, el dispositivo de las series 5000/7000 no debe tener acceso a los contenedores de datos migrados. | Cuando la migración finaliza y se envía, se recomienda eliminar los contenedores de datos migrados. | Sí | No |
+| 13| Clonación y recuperación ante desastres | Los dispositivos StorSimple con la actualización 1 no se pueden clonar. Tampoco se puede realizar la recuperación ante desastres en un dispositivo que ejecute el software anterior a la actualización 1. | Para que se puedan realizar estas operaciones, tendrá que implementar la actualización 1 en el dispositivo de destino | Sí | Sí |
+| 14 | Migración | En los dispositivos de las series 5000-7000, se puede producir un error en la copia de seguridad de la configuración para la migración cuando haya grupos de volúmenes sin volúmenes asociados. | Elimine todos los grupos de volúmenes vacíos sin volúmenes asociados y vuelva a intentar realizar la copia de seguridad de la configuración.| Sí | No |
+| 15 | Cmdlets de Azure PowerShell y volúmenes anclados localmente | No se puede crear un volumen anclado localmente mediante los cmdlets de Azure PowerShell. (Se puede almacenar en capas cualquier volumen creado con Azure PowerShell). |Utilice siempre el servicio del administrador de StorSimple para configurar volúmenes anclados localmente.| Sí | No |
+| 16 |Espacio disponible para los volúmenes anclados localmente | Si elimina un volumen anclado localmente, puede que el espacio disponible para los volúmenes nuevos no se actualice inmediatamente. El servicio del administrador de StorSimple actualiza el espacio local disponible aproximadamente cada hora.| Espere una hora antes de intentar crear el nuevo volumen. | Sí | No |
+| 17 | Volúmenes anclados localmente | El trabajo de restauración expone la copia de seguridad de instantánea temporal en el catálogo de copia de seguridad, pero solo para la duración de la tarea de restauración. Además, expone un grupo de discos virtuales con el prefijo **tmpCollection** en la página **Directivas de copia de seguridad**, pero solo para la duración del trabajo de restauración. | Este comportamiento puede producirse si el trabajo de restauración ha anclado solo localmente volúmenes o una mezcla de volúmenes nivelados y anclados localmente. Si el trabajo de restauración incluye solo volúmenes nivelados, este comportamiento no se producirá. No se requiere ninguna intervención del usuario. | Sí | No |
+| 18 | Volúmenes anclados localmente | Si cancela un trabajo de restauración y se produce una conmutación por error de controlador inmediatamente después, el trabajo de restauración mostrará **Cancelado** en lugar de **Erróneo**. Si se produce un error en un trabajo de restauración y se produce una conmutación por error de controlador inmediatamente después, el trabajo de restauración mostrará **Cancelado** en lugar de **Erróneo**. | Este comportamiento puede producirse si el trabajo de restauración ha anclado solo localmente volúmenes o una mezcla de volúmenes nivelados y anclados localmente. Si el trabajo de restauración incluye solo volúmenes nivelados, este comportamiento no se producirá. No se requiere ninguna intervención del usuario. | Sí | No |
+| 19 |Volúmenes anclados localmente | Si se cancela un trabajo de restauración o si se produce un error en una restauración y, a continuación, se produce una conmutación por error de controlador, aparece un trabajo de restauración adicional en la página **Trabajos**. | Este comportamiento puede producirse si el trabajo de restauración ha anclado solo localmente volúmenes o una mezcla de volúmenes nivelados y anclados localmente. Si el trabajo de restauración incluye solo volúmenes nivelados, este comportamiento no se producirá. No se requiere ninguna intervención del usuario. | Sí | No |
+| 20 | |Volúmenes anclados localmente | Si intenta convertir un volumen en niveles (creado y clonado con la actualización 1.2 o anterior) a un volumen anclado localmente y el dispositivo ya no tiene espacio o si hay una interrupción en la nube, es posible que los clones resulten dañados.| Este problema solo se produce con los volúmenes que se crearon y clonaron con software anterior a la actualización 2. Este debería ser un escenario poco frecuente.|
+| 21 | Conversión de volumen | No actualice los ACR anexados a un volumen mientras se realiza una conversión de volumen (de un volumen en niveles a un volumen anclado localmente o viceversa). Actualizar los ACR podría dañar los datos. | En caso de ser necesario, actualice los ACR antes de realizar la conversión de volumen y no realice ninguna actualización ACR adicional mientras la conversión esté en progreso. |
 
-## <a name="controller-and-firmware-updates-in-update-2"></a>Controller and firmware updates in Update 2
+## Actualizaciones del firmware y del controlador en la actualización 2
 
-This release updates the driver and the disk firmware on your device.
+Esta versión actualiza el controlador y el firmware del disco en el dispositivo.
  
-- For more information about the LSI firmware update, see Microsoft Knowledge base article 3121900. 
-- For more information about the disk firmware update, see Microsoft Knowledge base article 3121899.
+- Para obtener más información sobre la actualización del firmware de LSI, consulte el artículo 3121900 de Microsoft Knowledge Base. 
+- Para obtener más información sobre la actualización del firmware del disco, consulte el artículo 3121899 de Microsoft Knowledge Base.
  
-## <a name="virtual-device-updates-in-update-2"></a>Virtual device updates in Update 2
+## Actualizaciones del dispositivo virtual en la actualización 2
 
-This update cannot be applied to the virtual device. New virtual devices will need to be created. 
+No se puede aplicar esta actualización al dispositivo virtual. Deben crearse nuevos dispositivos virtuales.
 
-## <a name="next-step"></a>Next step
+## Paso siguiente
 
-Learn how to [install Update 2](storsimple-install-update-2.md) on your StorSimple device.
+Obtenga información sobre cómo [instalar la actualización 2](storsimple-install-update-2.md) en el dispositivo de StorSimple.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0525_2016-->

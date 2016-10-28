@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure Mobile Engagement User Interface - Reach How To"
-   description="User Interface Overview for Azure Mobile Engagement" 
+   pageTitle="Interfaz de usuario de Azure Mobile Engagement - Guía práctica de Cobertura"
+   description="Introducción de la interfaz de usuario de Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -16,229 +16,216 @@
    ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
+# Cómo empezar a usar y administrar inserciones para llegar a los usuarios finales
 
-# <a name="how-to-get-started-using-and-managing-pushes-to-reach-out-to-your-end-users"></a>How to get started using and managing pushes to reach out to your end users
+Una vez que el SDK está totalmente integrado en la aplicación, puede empezar a usar la sección Cobertura de la interfaz de usuario para enviar notificaciones a los usuarios de la aplicación.
 
-Once the SDK is fully integrated into your app, you can get started using the the Reach section of the UI to Push notifications to the users of your app.  
-
-## <a name="do-your-first-push-notification-campaign"></a>Do Your First Push Notification Campaign
--    Confirm that your Reach is integrated into your app with the SDK. 
--    Select your application
+## Creación de la primera campaña de notificación de inserción
+-    Confirme que tiene integrado Reach en la aplicación con el SDK.
+-    Seleccione la aplicación.
  
 ![First1][1]
 
--    Go to the "Reach" Section and Click "New announcement"
+-    Vaya a la sección "Reach" y haga clic en "Nuevo anuncio".
  
 ![First2][2]
 
--    Create a new campaign and name it
+-    Cree una campaña nueva y asígnele un nombre.
  
  ![First3][3]
 
--    Select how the notification should be delivered, as In-app only
+-    Seleccione cómo se debe entregar la notificación, por ejemplo, si es solo en la aplicación.
  
 ![First4][4]
 
--    Create the message you want to push
+-    Cree el mensaje que desea insertar.
  
 ![First5][5]
 
--    You may write a title on the notification (Optional).
--    Write push message content.
--    You can upload an image. Be aware that the size of the file cannot exceed 32,768 bytes.
--    You also have the ability to select further options, but for the focus of this tutorial, we will see that later.
+-    Puede escribir un título en la notificación (opcional).
+-    Escriba el contenido del mensaje de inserción.
+-    Puede cargar una imagen. Tenga en cuenta que el tamaño del archivo no puede superar 32.768 bytes.
+-    También tiene la posibilidad de seleccionar más opciones, pero para el objetivo de este tutorial, las veremos más adelante.
 
--    Select the content type as Notification only
+-    Seleccionar tipo de contenido como Solo notificación
  
 ![First6][6]
 
--    Create your push campaign and it will appear in your campaign list.
+-    Cree la campaña de inserción, que aparecerá en la lista de campañas.
  
 ![First7][7]
 
-## <a name="test-your-push-notification-campaign"></a>Test Your Push Notification Campaign
+## Prueba de la campaña de notificación de inserción
 ![Test1][8]
 
--    Register your device.
--    Click on the checkbox of the device you want to push.
--    Click on the "Test" button to send the push to the device.
+-    Registre el dispositivo.
+-    Haga clic en la casilla del dispositivo donde desea realizar la inserción.
+-    Haga clic en el botón "Probar" para enviar la inserción al dispositivo.
  
 ![Test2][9]
 
--    Activate the campaign
+-    Activar la campaña
  
 ![Test3][10]
 
--    Now that you have created your campaign you just need to activate it for the notification to be pushed to your users.
+-    Ahora que ha creado la campaña, basta con activarla para insertar la notificación para los usuarios.
  
-## <a name="send-personalized-pushes"></a>Send Personalized Pushes
--    This example creates a push where a custom rebate code is entered into the push notification.
+## Envío de inserciones personalizadas
+-    En este ejemplo se crea una inserción donde se introduce un código de descuento personalizado en la notificación de inserción.
  
 ![Personalize1][11]
 
-Personalization works by replacing a marker by from an app info tag so, you'll have to make sure the user has the proper app-info defined first. In this example the targeted users will have an app info tag named rebate_code defined.
-As you see above the push notification content includes the marker ${rebate_code} which will indicate that it is to be replaced by the actual content of the app info tag.
+La personalización funciona mediante la sustitución del marcador de una etiqueta de información de la aplicación, por lo que antes tendrá que asegúrese de que el usuario tiene definida la información de la aplicación adecuada. En este ejemplo, los usuarios de destino tienen una etiqueta definida de información de la aplicación que se denomina rebate\_code. Como puede ver, el contenido de la notificación de inserción incluye el marcador ${rebate\_code}, que indica que se tiene que reemplazar por el contenido real de la etiqueta de información de la aplicación.
 
-> Warning: If the app info tag is not defined for the user, the user will not receive the push.
+> Advertencia: si el usuario no define la etiqueta de información de la aplicación, no recibirá la inserción.
 
--    Result
+-    Resultado
  
 ![Personalize2][12]
 
-### <a name="you-can-further-personalize-the-text-your-notification"></a>You can further personalize the text your notification
+### Puede personalizar aún más el texto de la notificación,
 ![Personalize3][13]
 
--    Including the title of the notification,
--    And the content of the message.
--    Choose the type of announcement (Text view or Web view)
+-    incluido el título dela notificación
+-    y el contenido del mensaje.
+-    Elija el tipo de anuncio (vista de texto o vista web).
  
 ![Personalize4][14]
 
-### <a name="the-body-of-an-announcement-may-also-be-personalized-with:"></a>The body of an announcement may also be personalized with:
--    The action URL, should you want to customize the landing page
--    The title,
--    The body of the message.
+### También se puede personalizar el cuerpo de un anuncio con:
+-    la URL de acción, en caso de que quiera personalizar la página de inicio;
+-    el título y
+-    el cuerpo del mensaje.
  
  
-## <a name="differentiate-your-push-notification-(in-or-out-of-app)"></a>Differentiate Your Push Notification (in or out of app)
--    Choose the type of notification you will push, select your application, go to the "Reach" section, select or create a push campaign and go to the "Notification" section.
+## Diferenciación de la notificación de inserción (en la aplicación o fuera de ella)
+-    Elija el tipo de notificación que insertará, seleccione la aplicación, vaya a la sección "Reach", seleccione o cree una campaña de inserción y vaya a la sección "Notificación".
  
--    Click on the "delivery mode" you want.
--    Click on the "Restrict Activities" checkbox when you want the notification occurs on specific activities (screens).
+-    Haga clic en el "modo de entrega" que desee.
+-    Haga clic en la casilla "Restringir actividades" cuando quiera que la notificación se produzca en actividades concretas (pantallas).
 
 ![Differentiate1][15]
 
-### <a name=""out-of-app-only"-delivery-mode"></a>"Out of App Only" delivery mode
+### Modo de entrega "Solo fuera de la aplicación"
 ![Differentiate2][16]
 
-"Out of App Only" delivery mode provides push notification when the application is closed. This is the standard push notification.
-When you select "out of app only" ,you must have already provided the certificates from the platform that your application is building on (APNS or GCM).
+El modo de entrega "Solo fuera de la aplicación sólo" proporciona una notificación de inserción cuando se cierra la aplicación. Se trata de la notificación de inserción estándar. Al seleccionar "Solo fuera de la aplicación", debe haber proporcionado antes los certificados de la plataforma en la que se basa la aplicación (APN o GCM).
 
-### <a name="see-also"></a>See also
--  [Apple Push Notification Service – Certificates](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging – Certificate](http://developer.android.com/google/gcm/index.html) 
+### Otras referencias
+-  [Servicio de notificaciones de inserción de Apple: certificados](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Servicio de mensajería en la nube de Google: certificado](http://developer.android.com/google/gcm/index.html)
 
-### <a name=""in-app-only"-delivery-mode"></a>"in-App Only" delivery mode
+### Modo de entrega "Solo en la aplicación"
 ![Differentiate3][17]
 
-"In-App Only" delivery mode provides push notification when the application is running.
-For this notification, you do not need to go through the APNS and GCM system.
-You can use the in-app delivery system to reach your end-users.
-You can fully customize the notification and decide in which activity (screen) the notification will appear.
+El modo de entrega "Solo en la aplicación" proporciona notificaciones de inserción cuando la aplicación se está ejecutando. En el caso de esta notificación, es necesario pasar por el sistema de APNS y GCM. Puede usar el sistema de entrega en la aplicación para llegar a los usuarios finales. Puede personalizar totalmente la notificación y decidir en que actividad (pantalla) aparecerá la notificación.
 
-### <a name=""anytime"-delivery-mode"></a>"Anytime" delivery mode
-You can choose an "Anytime" delivery mode, ensures you to reach your end-user whether the application is running or not.
-When you select "Anytime" , you must have already provided the certificates from the platform that your application is building upon (APNS or GCM). 
+### Modo de entrega "En cualquier momento"
+Si elige el modo de entrega "En cualquier momento", se asegurará de llegar a los usuarios finales tanto si la aplicación se está ejecutando como si no. Al seleccionar "En cualquier momento", deben haber proporcionado antes los certificados de la plataforma en la que se basa la aplicación (APN o GCM).
  
-## <a name="schedule-a-push-campaign"></a>Schedule a Push Campaign
-### <a name="plan-to-start-a-campaign"></a>Plan to Start a campaign
+## Programación una campaña de inserción
+### Planeación del inicio de una campaña
 ![Shedule1][18]
 
-It is the 21st of March and you have an announcement to make and planed for the 22nd of March at midnight. You don’t have to stay in front of the interface to do a push! You can plan in advance the exact minute notifications will be sent.
--    Un-check the "None" checkbox and select a start time 
--    Choose the date and the time you want to start the push campaign.
+Es 21 de marzo y tiene un anuncio que hacer, planeado para el 22 de marzo a medianoche. No es necesario que esté delante de la interfaz para realizar una inserción. Puede planear de antemano el minuto exacto en que se enviarán las notificaciones.
+-    Desactive la casilla "Ninguna" y seleccione una hora de inicio.
+-    Elija la fecha y la hora en que desea iniciar la campaña de inserción.
 
-### <a name="plan-to-end-a-campaign"></a>Plan to end a campaign
+### Planeación del fin de una campaña
 ![Shedule2][19]
 
-You want your campaign to stop on the 25th of March at 3.00 pm but you know you won't be there to do it.
-You don’t have to stay in front of the interface to push! You can plan in advance the exact minute your campaign will stop.
--    Click on the "None" checkbox or select a end time
--    Choose the date and the time you want to finish the push campaign.
+Desea que la campaña finalice el 25 de marzo a las 15:00 h pero sabe que no estará presente para hacerlo. No es necesario que esté delante de la interfaz para realizar la inserción. Puede planear de antemano el minuto exacto en que se detendrá la campaña.
+-    Haga clic en la casilla "Ninguna" o seleccione una hora de finalización.
+-    Elija la fecha y la hora en que desea finalizar la campaña de inserción.
 
-### <a name="end-a-campaign-manually"></a>End a campaign manually
+### Finalización de una campaña manualmente
 ![Shedule3][20]
 
-By default, the "None" check-boxes are selected.
-This means that the campaign will start as soon as you activate it in the reach section and will end when you will stop it on the reach section.
+De forma predeterminada, las casillas "Ninguna" están seleccionadas. Esto significa que la campaña comenzará en cuanto la active en la sección "Reach" y finalizará cuando la detenga en dicha sección.
  
-> Note: Campaigns created without an end date store the push locally on the device and show it the next time the app is opened even if the campaign is manually ended.
+> Nota: Las campañas creadas sin una fecha de finalización almacenan la inserción de forma local en el dispositivo y la muestran la próxima vez que se abre la aplicación incluso si la campaña ha finalizado manualmente.
 
-## <a name="enhance-a-push-notification-with-a-text-view"></a>Enhance a Push Notification with a Text View
-### <a name="what-is-a-text-view?"></a>What is a Text View?
+## Mejora de una notificación de inserción con una vista de texto
+### ¿Qué es una vista de texto?
 ![TextView1][21]
 
-A text view is a pop-up with text content. This pop-up appears after the end-user has clicked on the push notification.
-A text view allows you to present more content to your end-user. This is also the opportunity to present a call to action such as jumping to a page of your app, redirecting to a Store, opening a web page, sending an e-mail, starting a geo-localized search, etc...
+Una vista de texto es un elemento emergente con contenido de texto. Este elemento emergente aparece cuando el usuario final hace clic en la notificación de inserción. Una vista de texto permite presentar más contenido al usuario final. Esto también es una oportunidad de presentar una llamada a la acción, como saltar a una página de la aplicación, redirigir a una Tienda, abrir una página web, enviar un correo electrónico, iniciar una búsqueda localizada geográficamente, etc.
 
-### <a name="example:-text-view"></a>Example: Text View
--    Create your Push notification campaign in the "Reach" section and give your campaign a name
+### Ejemplo: vista de texto
+-    Cree la campaña de notificación de inserción en la sección "Reach" y asígnele un nombre.
  
 ![TextView2][22]
 
--    Write the message that will appear on the notification.
--    Select the Announcement Content Type of “text”
+-    Escriba el mensaje que aparecerá en la notificación.
+-    Seleccione el tipo de contenido del anuncio de "texto".
  
 ![TextView3][23]
 
-> Note: when you push a text view, it always comes with a notification first. 
+> Nota: cuando inserta una vista de texto, siempre va acompañada de una notificación en primer lugar.
 
-- Define the text (After having selected the text announcement content, the sub-section will appear, allowing you to define the text you want to be displayed.)
+- Defina el texto (después de seleccionar el contenido del anuncio de texto, aparecerá la subsección, que le permite definir el texto que desea que se muestre).
  
 ![TextView4][24]
 
--    Write the title that will appear at the top of the message.
--    Write the main content of the text view.
--    Write the content that will appear on the action button (an action button enables the application to make a specific action such as opening a page of the application, redirecting to an App store or any kind of sources you can provide).
--    Write the content that will appear on the exit button (by clicking on the exit button, the text view will disappear.)
+-    Escriba el título que aparecerá en la parte superior del mensaje.
+-    Escriba el contenido principal de la vista de texto.
+-    Escriba el contenido que aparecerá en el botón de acción (un botón de acción permite a la aplicación realizar una acción concreta, como abrir una página de la aplicación, redirigir a una tienda de aplicaciones o cualquier tipo de orígenes que proporcione).
+-    Escriba el contenido que aparecerá en el botón Salir (haciendo clic en el botón Salir, la vista de texto desaparecerá).
  
--    Create your push notification campaign and it will appear on the campaign list.
+-    Cree la campaña de notificación de inserción, que aparecerá en la lista de campañas.
  
 ![TextView5][25]
 
--    Activate your push notification campaign to send the text view to your users.
+-    Active la campaña de notificación de inserción para enviar la vista de texto a los usuarios.
  
 ![TextView6][26]
 
--    Result
+-    Resultado
  
 ![TextView7][27]
 
--    The user receives the notification and click on it.
--    The text view appears as a pop-up allowing the user to interact with it.
+-    El usuario recibe la notificación y hace clic en ella.
+-    La vista de texto aparece como un elemento emergente que permite al usuario interactuar con él.
 
-## <a name="enhance-a-push-notification-with-a-web-view"></a>Enhance a Push Notification with a Web View
-### <a name="what-is-a-web-view?"></a>What is a Web View?
+## Mejora de una notificación de inserción con una vista web
+### ¿Qué es una vista web?
 ![WebView1][28]
 
-A web view is a pop-up with web content. This pop-up appears when the end-user has clicked on the push notification.
-A web view allows you to have more interaction with the end-user.
-This is also the opportunity to present a call to action such as redirection to App Store, opening a web page, sending an e-mail, starting a geo-localized search, etc...
+Una vista web es un elemento emergente con contenido web. Este elemento emergente aparece cuando el usuario final hace clic en la notificación de inserción. Una vista web le permite interactuar más con el usuario final. Esto también es una oportunidad de presentar una llamada a la acción, como redirigir a una tienda de aplicaciones, abrir una página web, enviar un correo electrónico, iniciar una búsqueda localizada geográficamente, etc.
 
-### <a name="example:-web-view"></a>Example: Web View
--    Create your Push campaign in the "Reach" section and give your campaign a name.
+### Ejemplo: vista web
+-    Cree la campaña de inserción en la sección "Reach" y asígnele un nombre.
  
 ![WebView2][29]
 
--    Write the message that will appear on the notification.
--    Select the Announcement Content Type as “web”
+-    Escriba el mensaje que aparecerá en la notificación.
+-    Seleccione el tipo de contenido del anuncio como "web".
  
 ![WebView3][30]
 
-### <a name="about-announcement-types:"></a>About Announcement types:
-- Notification only: It is a simple standard notification. Meaning that if a user clicks on it, no additional view will appear, but only the action associated to it will occur.
-- Text announcement: It is a notification that engages the user to have a look at a text view.
-- Web announcement: It is a notification that engages the user to have a look at a web view.
-Select the "Web announcement" content.
+### Acerca de los tipos de anuncio:
+- Solo notificación: es una notificación estándar simple. Lo que significa que si un usuario hace clic en él, no aparecerá ninguna vista adicional, pero se producirá solo la acción asociada a él.
+- Anuncio de texto: es una notificación que compromete al usuario a echar un vistazo a una vista de texto.
+- Anuncio web: es una notificación que compromete al usuario a echar un vistazo a una vista de texto. Seleccione el contenido de "Anuncio web".
 
-> Note: When you push a web view, it always comes with a notification first.
+> Nota: Cuando inserta una vista de web, siempre va acompañada de una notificación en primer lugar.
 
-- Define the web content (After having selected the web announcement content, the subsection will appear, allowing you to define the web view content you want to be displayed.)
+- Defina el contenido web (después de seleccionar el contenido del anuncio de web, aparecerá la subsección, que le permite definir el contenido de la vista web que desea que se muestre).
 
  
 ![WebView4][31]
 
--    Write the title that will appear at the top of the message (optional).
--    Write your HTML code here.
--    Click on the source editing mode button to switch edition and see how it looks like.
--    Write the content that will appear on the action button (an action button enables the application to make a specific action such as opening a page of the application, redirecting to a Store or any kind of sources you can provide).
--    Write the content that will appear on the exit button (by clicking on the exit button, the web view will disappear).
+-    Escribir el título que aparecerá en la parte superior del mensaje (opcional).
+-    Escriba el código HTML aquí.
+-    Haga clic en el botón de modo de edición de origen para cambiar la edición y ver su aspecto.
+-    Escriba el contenido que aparecerá en el botón de acción (un botón de acción permite a la aplicación realizar una acción concreta, como abrir una página de la aplicación, redirigir a una tienda o cualquier tipo de orígenes que proporcione).
+-    Escriba el contenido que aparecerá en el botón Salir (haciendo clic en el botón Salir, la vista de web desaparecerá).
  
--    Result
+-    Resultado
  
 ![WebView5][32]
 
--    The user receive the notification and click on it.
--    The text view appears as a pop-up allowing the user to interact with it.
+-    El usuario recibe la notificación y hace clic en ella.
+-    La vista de texto aparece como un elemento emergente que permite al usuario interactuar con él.
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-how-tos/First1.png
@@ -310,8 +297,4 @@ Select the "Web announcement" content.
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,19 +1,16 @@
-Resource|Default Limit|Maximum Limit
+Recurso|Límite predeterminado|Límite máximo
 ---|---|---
-Max number of Trusted IP addresses/ranges</a> per subscription<sup>1</sup>|0|12
-Remember my devices - number of days|14|60
-Max number of app passwords?|0|No Limit
-Allow **X** attempts during MFA call|1|99
-Two-way Text message Timeout Seconds|60|600
-Default one-time bypass seconds|300|1800
-Lock user account after **X** consecutive MFA denials|Not Set|99
-Reset account lockout counter after **X** minutes|Not Set|9999
-Unlock account after **X** minutes|Not Set|9999
+Número máximo de intervalos/direcciones IP de confianza</a> por suscripción<sup>1</sup>|0|12
+Recordar mis dispositivos: número de días|14|60
+¿Número máximo de contraseñas de aplicación?|0|Ilimitado
+Permitir **X** intentos durante una llamada de MFA|1|99
+Segundos de espera de mensajes de texto bidireccionales|60|600
+Segundos de omisión por única vez predeterminados|300|1\.800
+Bloquear la cuenta de usuario tras **X** denegaciones consecutivas de MFA|No establecido|99
+Restablecer el recuento de bloqueos de cuenta tras **X** minutos|No establecido|9\.999
+Desbloquear cuenta tras **X** minutos|No establecido|9\.999
 
 
-<sup>1</sup>This is expected to increase in the future.
+<sup>1</sup>Se espera que aumente en el futuro.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

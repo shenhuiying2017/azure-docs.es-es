@@ -1,6 +1,6 @@
 <properties
-pageTitle="Add Hive libraries during HDInsight cluster creation | Azure"
-description="Learn how to add Hive libraries (jar files,) to an HDInsight cluster during cluster creation."
+pageTitle="Incorporación de bibliotecas de Hive durante la creación de clústeres de HDInsight | Azure"
+description="Aprenda a agregar bibliotecas de Hive (archivos JAR) a un clúster de HDInsight durante la creación del clúster."
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
@@ -16,81 +16,76 @@ ms.workload="big-data"
 ms.date="09/20/2016"
 ms.author="larryfr"/>
 
+#Incorporación de bibliotecas de Hive durante la creación de clústeres de HDInsight
 
-#<a name="add-hive-libraries-during-hdinsight-cluster-creation"></a>Add Hive libraries during HDInsight cluster creation
+Este documento contiene información sobre el uso de una acción de script para cargar previamente bibliotecas durante la creación de un clúster, por lo que puede resultarle interesante si dispone de bibliotecas que utiliza con frecuencia con Hive en HDInsight. Con ello se posibilita que las bibliotecas estén disponibles globalmente en Hive (sin necesidad de usar [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) para cargarlas).
 
-If you have libraries that you use frequently with Hive on HDInsight, this document contains information on using a Script Action to pre-load the libraries during cluster creation. This makes the libraries globally available in Hive (no need to use [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) to load them.)
+##Cómo funciona
 
-##<a name="how-it-works"></a>How it works
+Cuando cree un clúster, también tiene la posibilidad de especificar opcionalmente una acción de script que ejecute un script en los nodos del clúster mientras estos se crean. El script de este documento acepta un único parámetro, que es una ubicación de WASB que contiene las bibliotecas (almacenadas como archivos JAR) que se cargarán previamente.
 
-When creating a cluster, you can optionally specify a Script Action that runs a script on the cluster nodes while they are being created. The script in this document accepts a single parameter, which is a WASB location that contains the libraries (stored as jar files,) that will be pre-loaded.
+Durante la creación del clúster, el script enumera los archivos, los copia en el directorio `/usr/lib/customhivelibs/` de los nodos principal y de trabajo y luego los agrega a la propiedad `hive.aux.jars.path` en el archivo `core-site.xml`. En los clústeres basados en Linux, también actualiza el archivo `hive-env.sh` con la ubicación de los archivos.
 
-During cluster creation, the script enumerates the files, copies them to the `/usr/lib/customhivelibs/` directory on head and worker nodes, then adds them to the `hive.aux.jars.path` property in the `core-site.xml` file. On Linux-based clusters, it also updates the `hive-env.sh` file with the location of the files.
-
-> [AZURE.NOTE] Using the script actions in this article makes the libraries available in the following scenarios:
+> [AZURE.NOTE] El uso de las acciones de script de este artículo permite que las bibliotecas estén disponibles en las situaciones siguientes:
 >
-> * __Linux-based HDInsight__ - when using the __Hive command-line__, __WebHCat__ (Templeton,) and __HiveServer2__.
-> * __Windows-based HDInsight__ - when using the __Hive command-line__ and __WebHCat__ (Templeton).
+> * __HDInsight basado en Linux__: cuando se usa la __línea de comandos de Hive__, __WebHCat__ (Templeton) y __HiveServer2__.
+> * __HDInsight basado en Windows__: cuando se usa la __línea de comandos de Hive__ y __WebHCat__ (Templeton).
 
-##<a name="the-script"></a>The script
+##La secuencia de comandos
 
-__Script location__
+__Ubicación del script__
 
-For __Linux-based clusters__: [https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh)
+En los __clústeres basados en Linux__: [https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh)
 
-For __Windows-based clusters__: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
+En los __clústeres basados en Windows__: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
-__Requirements__
+__Requisitos__
 
-* The scripts must be applied to both the __Head nodes__ and __Worker nodes__.
+* Las scripts deben aplicarse tanto a los __nodos principales__ como a los __nodos de trabajo__.
 
-* The jars you wish to install must be stored in Azure Blob Storage in a __single container__. 
+* Los archivos JAR que se van a instalar deben almacenarse en el Almacenamiento de blobs de Azure en un __único contenedor__.
 
-* The storage account containing the library of jar files __must__ be linked to the HDInsight cluster during creation. This can be accomplished in one of two ways:
+* La cuenta de almacenamiento que contiene la biblioteca de archivos JAR __debe__ vincularse al clúster de HDInsight durante la creación. Esto puede realizarse de dos maneras:
 
-    * By being in a container on the default storage account for the cluster.
+    * Mediante su ubicación en un contenedor de la cuenta de almacenamiento predeterminada para el clúster.
     
-    * By being in a container on an linked storage container. For example, in the portal you can use __Optional Configuration__, __Linked storage accounts__ to add additional storage.
+    * Mediante su ubicación en un contenedor de almacenamiento vinculado. Por ejemplo, en el Portal puede agregar almacenamiento adicional mediante __Configuración opcional__, __Cuentas de almacenamiento vinculadas__.
 
-* The WASB path to the container must be specified as a parameter to the Script Action. For example, if the jars are stored in a container named __libs__ on a storage account named __mystorage__, the parameter would be __wasbs://libs@mystorage.blob.core.windows.net/__.
+* La ruta de acceso de WASB al contenedor debe especificarse como un parámetro para la acción de script. Por ejemplo, si los archivos JAR se almacenan en un contenedor denominado __libs__ en una cuenta de almacenamiento denominada __mystorage__, el parámetro sería \_\_wasbs://libs@mystorage.blob.core.windows.net/__.
 
-    > [AZURE.NOTE] This document assumes that you have already create a storage account, blob container, and uploaded the files to it. 
+    > [AZURE.NOTE] En este documento se supone que ha creado ya una cuenta de almacenamiento, contenedora de blobs, y ha cargado los archivos en ella.
     >
-    > If you have not created a storage account, you can do this through the [Azure portal](https://portal.azure.com). You can then use a utility such as [Azure Storage Explorer](http://storageexplorer.com/) to create a new container in the account and upload files to it.
+    > Si no ha creado una cuenta de almacenamiento, puede hacerlo a través del [Portal de Azure](https://portal.azure.com). A continuación, puede usar una utilidad como el [Explorador de almacenamiento de Azure](http://storageexplorer.com/) para crear un nuevo contenedor en la cuenta y cargar archivos en él.
 
-##<a name="create-a-cluster-using-the-script"></a>Create a cluster using the script
+##Creación de un clúster mediante el script
 
-> [AZURE.NOTE] The following steps create a new Linux-based HDInsight cluster. To create a new Windows-based cluster, select __Windows__ as the cluster OS when creating the cluster, and use the Windows (PowerShell) script instead of the bash script.
+> [AZURE.NOTE] Al seguir estos pasos, se crea un nuevo clúster de HDInsight basado en Linux. Para crear un nuevo clúster basado en Windows, seleccione __Windows__ como sistema operativo del clúster en el momento de su creación y use el script de Windows (PowerShell) en lugar del script de Bash.
 > 
-> You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script. For more information on using these methods, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
+> También puede usar Azure PowerShell o el SDK de .NET para HDInsight para crear un clúster mediante este script. Para obtener más información sobre el uso de estos métodos, consulte [Personalización de clústeres de HDInsight mediante acciones de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Start provisioning a cluster by using the steps in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md#portal), but do not complete provisioning.
+1. Inicie el aprovisionamiento de un clúster siguiendo los pasos que se describen en [Aprovisionamiento de clústeres de HDInsight en Linux](hdinsight-hadoop-provision-linux-clusters.md#portal), pero no complete la operación.
 
-2. On the **Optional Configuration** blade, select **Script Actions**, and provide the information as shown below:
+2. En la hoja **Configuración opcional**, seleccione **Acciones de script** y proporcione la información tal y como se muestra a continuación:
 
-    * __NAME__: Enter a friendly name for the script action.
-    * __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
-    * __HEAD__: Check this option
-    * __WORKER__: Check this option.
-    * __ZOOKEEPER__: Leave this blank.
-    * __PARAMETERS__: Enter the WASB address to the container and storage account that contains the jars. For example, __wasbs://libs@mystorage.blob.core.windows.net/__.
+    * __NOMBRE__: escriba un nombre descriptivo para la acción de script.
+    * __URI DE SCRIPT__: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
+    * __PRINCIPAL__: active esta opción.
+    * __TRABAJO__: active esta opción.
+    * __ZOOKEEPER__: déjelo en blanco.
+    * __PARÁMETROS__: escriba la dirección WASB que dirige al contenedor y la cuenta de almacenamiento que contiene los archivos JAR. Por ejemplo, \_\_wasbs://libs@mystorage.blob.core.windows.net/__.
 
-3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration.
+3. En la parte inferior de **Acciones de script**, use el botón **Seleccionar** para guardar la configuración.
 
-4. On the **Optional Configuration** blade, select __Linked Storage Accounts__ and select the __Add a storage key__ link. Select the storage account that contains the jars, and then use the __select__ buttons to save settings and return the __Optional Configuration__ blade.
+4. En la hoja **Configuración opcional**, seleccione __Cuentas de almacenamiento vinculadas__ y luego el vínculo __Agregar una clave de almacenamiento__. Seleccione la cuenta de almacenamiento que contiene los archivos JAR y, a continuación, utilice los botones de __selección__ para guardar la configuración y volver a la hoja __Configuración opcional__.
 
-5. Use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
+5. Use el botón **Seleccionar** situado en la parte inferior de la hoja **Configuración opcional** para guardar la información de configuración opcional.
 
-6. Continue provisioning the cluster as described in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md#portal).
+6. Continúe aprovisionando el clúster tal como se describe en [Aprovisionamiento de clústeres de HDInsight n Linux](hdinsight-hadoop-provision-linux-clusters.md#portal).
 
-Once cluster creation finishes, you will be able to use the jars added through this script from Hive without having to use the `ADD JAR` statement.
+Una vez finalizada la creación del clúster, podrá utilizar los archivos JAR agregados a través de este script desde Hive sin tener que utilizar la instrucción `ADD JAR`.
 
-##<a name="next-steps"></a>Next steps
+##Pasos siguientes
 
-In this document you have learned how to add Hive libraries contained in jar files to a HDInsight cluster during cluster creation. For more information on working with Hive, see [Use Hive with HDInsight](hdinsight-use-hive.md)
+En este documento ha aprendido a agregar bibliotecas de Hive contenidas en archivos JAR a un clúster de HDInsight durante la creación del clúster. Para obtener más información acerca del trabajo con Hive, consulte [Use Hive with HDInsight](hdinsight-use-hive.md) (Uso de Hive con HDInsight).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

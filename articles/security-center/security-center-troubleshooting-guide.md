@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Security Center Troubleshooting Guide | Microsoft Azure"
-   description="This document helps to troubleshoot issues in Azure Security Center."
+   pageTitle="Guía de solución de problemas de Azure Security Center | Microsoft Azure"
+   description="Este documento ayuda a solucionar problemas en Azure Security Center."
    services="security-center"
    documentationCenter="na"
    authors="YuriDio"
@@ -13,76 +13,71 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/18/2016"
+   ms.date="07/21/2016"
    ms.author="yurid"/>
 
+# Guía de solución de problemas de Azure Security Center
+Esta guía está destinada a profesionales de tecnologías de la información (TI), analistas de seguridad de la información y administradores de la nube cuyas organizaciones utilizan Azure Security Center y necesitan solucionar problemas relacionados con Security Center.
 
-# <a name="azure-security-center-troubleshooting-guide"></a>Azure Security Center Troubleshooting Guide
-This guide is for information technology (IT) professionals, information security analysts and cloud administrators whose organizations are using Azure Security Center and need to troubleshoot Security Center related issues.
+## Guía de solución de problemas
+Esta guía explica cómo solucionar problemas relacionados con Security Center. La mayoría de las soluciones de problemas en Security Center se realizan examinando primero el [registro de auditoría](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) del componente afectado. A través de los registros de auditoría puede determinar:
 
-## <a name="troubleshooting-guide"></a>Troubleshooting guide
-This guide explains how to troubleshoot Security Center related issues. Most of the troubleshooting done in Security Center will take place by first looking at the [Audit Log](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) records for the failed component. Through audit logs, you can determine:
+- Qué operaciones se han llevado a cabo
+- Quién inició la operación
+- Cuándo tuvo lugar la operación
+- El estado de la operación
+- Los valores de otras propiedades que podrían ayudarle en la investigación de la operación
 
-- Which operations were taken place
-- Who initiated the operation
-- When the operation occurred
-- The status of the operation
-- The values of other properties that might help you research the operation
+El registro de auditoría contiene todas las operaciones de escritura (PUT, POST, DELETE) realizadas en los recursos, pero no incluye las operaciones de lectura (GET).
 
-The audit log contains all write operations (PUT, POST, DELETE) performed on your resources, however it does not include read operations (GET).
+## Solución de problemas de instalación del agente de supervisión en Windows
 
-## <a name="troubleshooting-monitoring-agent-installation-in-windows"></a>Troubleshooting monitoring agent installation in Windows
+El agente de supervisión de Security Center se utiliza para realizar la recopilación de datos. Una vez habilitada la recopilación de datos e instalado correctamente el agente en el equipo de destino, los siguientes procesos deben estar en ejecución:
 
-The Security Center monitoring agent is used to perform data collection. After data collection is enabled and the agent is correctly installed in the target machine, these processes should be in execution:
+- ASMAgentLauncher.exe: agente de supervisión de Azure
+- ASMMonitoringAgent.exe: extensión Supervisión de seguridad de Azure
+- ASMSoftwareScanner.exe: administrador de análisis de Azure
 
-- ASMAgentLauncher.exe - Azure Monitoring Agent 
-- ASMMonitoringAgent.exe - Azure Security Monitoring extension
-- ASMSoftwareScanner.exe – Azure Scan Manager
+La extensión Supervisión de seguridad de Azure busca diversas configuraciones relevantes para la seguridad y recopila registros de seguridad de la máquina virtual. El administrador de análisis se utilizará como un detector de revisiones.
 
-The Azure Security Monitoring extension scans for various security relevant configuration and collects security logs from the virtual machine. The scan manager will be used as a patch scanner.
+Si la instalación se realizó correctamente, debería ver una entrada similar a la siguiente en los Registros de auditoría para la máquina virtual de destino:
 
-If the installation is successfully performed you should see an entry similar to the one below in the Audit Logs for the target VM:
+![Registros de auditoría](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig1.png)
 
-![Audit Logs](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig1.png)
+También puede obtener más información sobre el proceso de instalación leyendo los registros del agente, que se encuentran en *%systemdrive%\\windowsazure\\logs* (ejemplo: C:\\WindowsAzure\\Logs).
 
-You can also obtain more information about the installation process by reading the agent logs, located at *%systemdrive%\windowsazure\logs* (example: C:\WindowsAzure\Logs).
+> [AZURE.NOTE] Si el comportamiento del agente de Azure Security Center no es correcto, debe reiniciar la máquina virtual de destino, ya que no hay ningún comando para detener e iniciar al agente.
 
-> [AZURE.NOTE] If the Azure Security Center Agent is misbehaving, you will need to restart the target VM since there is no command to stop and start the agent.
+## Solución de problemas de instalación del agente de supervisión en Linux
+Al solucionar problemas de instalación del agente de máquina virtual en un sistema Linux, debe asegurarse de que la extensión se descargó en /var/lib/waagent/. Puede ejecutar el comando siguiente para comprobar si se ha instalado:
 
-## <a name="troubleshooting-monitoring-agent-installation-in-linux"></a>Troubleshooting monitoring agent installation in Linux
-When troubleshooting VM Agent installation in a Linux system you should ensure that the extension was downloaded to /var/lib/waagent/. You can run the command below to verify if it was installed:
+`cat /var/log/waagent.log`
 
-`cat /var/log/waagent.log` 
-
-The other log files that you can review for troubleshooting purpose are: 
+Los otros archivos de registro que puede consultar para la solución de problemas son:
 
 - /var/log/mdsd.err
 - /var/log/azure/
 
-In a working system you should see a connection to the mdsd process on TCP 29130. This is the syslog communicating with the mdsd process. You can validate this behavior by running the command below:
+En un sistema de trabajo debería ver una conexión con el proceso mdsd en TCP 29130. Se trata del registro syslog comunicándose con el proceso de mdsd. Para validar este comportamiento, ejecute el comando siguiente:
 
 `netstat -plantu | grep 29130`
 
-## <a name="contacting-microsoft-support"></a>Contacting Microsoft Support
+## Contacto con el soporte técnico de Microsoft
 
-Some issues can be identified using the guidelines provided in this article, others you can also find documented at the Security Center public [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter). However if you need further troubleshooting, you can open a new support request using Azure Portal as shown below: 
+Algunos problemas pueden identificarse mediante las instrucciones proporcionadas en este artículo; también puede encontrar otros en el [foro](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureSecurityCenter) público de Security Center. Sin embargo, si necesita más información para solucionar el problema, puede abrir una nueva solicitud de soporte técnico mediante el Portal de Azure, como se indica a continuación:
 
-![Microsoft Support](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
-
-
-## <a name="see-also"></a>See also
-
-In this document, you learned how to configure security policies in Azure Security Center. To learn more about Azure Security Center, see the following:
-
-- [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) — Learn how to plan and understand the design considerations to adopt Azure Security Center.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service
-- [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance
+![Soporte técnico de Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
 
+## Consulte también
 
-<!--HONumber=Oct16_HO2-->
+En este documento ha aprendido a configurar directivas de seguridad en el Centro de seguridad de Azure. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:
 
+- [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md): aprenda a planear y conozca las consideraciones de diseño necesarias para usar Azure Security Center.
+- [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
+- [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
+- [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
+- [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
+- [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
 
+<!---HONumber=AcomDC_0803_2016-->

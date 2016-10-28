@@ -1,57 +1,56 @@
 <properties
-    pageTitle="Set up Key Vault for virtual machines in Azure Resource Manager | Microsoft Azure"
-    description="How to set up Key Vault for use with an Azure Resource Manager virtual machine."
-    services="virtual-machines-windows"
-    documentationCenter=""
-    authors="singhkays"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+	pageTitle="Configuración de un Almacén de claves para máquinas virtuales en Azure Resource Manager | Microsoft Azure"
+	description="Cómo configurar un Almacén de claves para usarlo con una máquina virtual de Azure Resource Manager."
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="singhkays"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="05/31/2016"
-    ms.author="singhkay"/>
+	ms.service="virtual-machines-windows"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/31/2016"
+	ms.author="singhkay"/>
 
+# Configuración de un Almacén de claves para máquinas virtuales en Azure Resource Manager
 
-# <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Set up Key Vault for virtual machines in Azure Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model
-
-In Azure Resource Manager stack, secrets/certificates are modeled as resources that are provided by the resource provider of Key Vault. To learn more about Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-whatis.md)
+En la pila de Azure Resource Manager, los certificados o secretos se modelan como recursos que se proporcionan mediante el proveedor de recursos del Almacén de claves. Para más información sobre el Almacén de claves, consulte [¿Qué es el Almacén de claves de Azure?](../key-vault/key-vault-whatis.md)
 
 >[AZURE.NOTE] 
 >
->1. In order for Key Vault to be used with Azure Resource Manager virtual machines, the **EnabledForDeployment** property on Key Vault must be set to true. You can do this in various clients.
+>1. Para que un Almacén de claves se utilice con máquinas virtuales de Azure Resource Manager, la propiedad **EnabledForDeployment** del Almacén de claves se debe establecer en true. Puede hacer esto en varios clientes.
 >
->2. The Key Vault needs to be created in the same subscription and location as the Virtual Machine.
+>2. El Almacén de claves debe crearse en la misma ubicación y suscripción que la máquina virtual.
 
-## <a name="use-powershell-to-set-up-key-vault"></a>Use PowerShell to set up Key Vault
-To create a key vault by using PowerShell, see [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md#vault).
+## Uso de PowerShell para configurar el Almacén de claves
+Para crear un almacén de claves usando PowerShell, consulte [Introducción al Almacén de claves de Azure](../key-vault/key-vault-get-started.md#vault).
 
-For new key vaults, you can use this PowerShell cmdlet:
+Para almacenes de claves nuevos, puede usar este cmdlet de PowerShell:
 
-    New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -EnabledForDeployment
+	New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -EnabledForDeployment
 
-For existing key vaults, you can use this PowerShell cmdlet:
+Para almacenes de claves existentes, puede usar este cmdlet de PowerShell:
 
-    Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
+	Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
-## <a name="us-cli-to-set-up-key-vault"></a>Us CLI to set up Key Vault
-To create a key vault by using the command-line interface (CLI), see [Manage Key Vault using CLI](../key-vault/key-vault-manage-with-cli.md#create-a-key-vault).
+## Uso de la CLI para configurar el Almacén de claves
+Para crear un almacén de claves mediante la interfaz de la línea de comandos (CLI), consulte [Administración del Almacén de claves mediante CLI](../key-vault/key-vault-manage-with-cli.md#create-a-key-vault).
 
-For CLI, you have to create the key vault before you assign the deployment policy. You can do this by using the following command:
+Para la CLI, primero debe crear el almacén de claves y luego asignar la directiva de implementación. Para ello, puede usar el siguiente comando:
 
-    azure keyvault set-policy ContosoKeyVault –enabled-for-deployment true
+	azure keyvault set-policy ContosoKeyVault –enabled-for-deployment true
 
-## <a name="use-templates-to-set-up-key-vault"></a>Use templates to set up Key Vault
-While you use a template, you need to set the `enabledForDeployment` property to `true` for the Key Vault resource.
+## Uso de plantillas para configurar el Almacén de claves
+Al utilizar plantillas, deberá establecer la propiedad `enabledForDeployment` en `true` para el recurso de Almacén de claves.
 
-    {
+	{
       "type": "Microsoft.KeyVault/vaults",
       "name": "ContosoKeyVault",
       "apiVersion": "2015-06-01",
@@ -63,10 +62,6 @@ While you use a template, you need to set the `enabledForDeployment` property to
       }
     }
 
-For other options that you can configure when you create a key vault by using templates, see [Create a key vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
+Para otras opciones que puede configurar al crear un almacén de claves mediante plantillas, consulte [Create a key vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/) (Creación de un almacén de claves).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

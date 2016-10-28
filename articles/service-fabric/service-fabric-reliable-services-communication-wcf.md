@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Services WCF communication stack | Microsoft Azure"
-   description="The built-in WCF communication stack in Service Fabric provides client-service WCF communication for Reliable Services."
+   pageTitle="Pila comunicación de WCF de Reliable Services | Microsoft Azure"
+   description="La pila de comunicación de WCF integrada en Service Fabric ofrece comunicación de WCF del servicio de cliente para Reliable Services."
    services="service-fabric"
    documentationCenter=".net"
    authors="BharatNarasimman"
@@ -16,14 +16,13 @@
    ms.date="07/26/2016"
    ms.author="bharatn"/>
 
+# Pila de comunicación basada en WCF de Reliable Services
+El marco de Reliable Services permite a los autores de servicio elegir la pila de comunicación que desean usar para su servicio. Pueden conectar la pila de comunicaciones que deseen mediante la clase **ICommunicationListener** devuelta desde los métodos [CreateServiceReplicaListeners o CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md). El marco proporciona una implementación de la pila de comunicación basada en Windows Communication Foundation (WCF) para los autores de servicio que desean usar la comunicación basada en WCF.
 
-# <a name="wcf-based-communication-stack-for-reliable-services"></a>WCF-based communication stack for Reliable Services
-The Reliable Services framework allows service authors to choose the communication stack that they want to use for their service. They can plug in the communication stack of their choice via the **ICommunicationListener** returned from the [CreateServiceReplicaListeners or CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) methods. The framework provides an implementation of the communication stack based on the Windows Communication Foundation (WCF) for service authors who want to use WCF-based communication.
+## Agente de escucha de comunicación WCF
+La implementación específica de WCF de **ICommunicationListener** la proporciona la clase **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener**.
 
-## <a name="wcf-communication-listener"></a>WCF Communication Listener
-The WCF-specific implementation of **ICommunicationListener** is provided by the **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** class.
-
-Lest say we have a service contract of type `ICalculator`
+Pongamos que tenemos un contrato de servicio del tipo `ICalculator`
 
 ```csharp
 [ServiceContract]
@@ -34,7 +33,7 @@ public interface ICalculator
 }
 ```
 
-We can create a WCF communication listener in the service the following manner.
+Podemos crear un agente de escucha de comunicación de WCF en el servicio de la siguiente manera.
 
 ```csharp
 
@@ -60,8 +59,8 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 ```
 
-## <a name="writing-clients-for-the-wcf-communication-stack"></a>Writing clients for the WCF communication stack
-For writing clients to communicate with services by using WCF, the framework provides **WcfClientCommunicationFactory**, which is the WCF-specific implementation of [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).
+## Escritura de clientes para la pila de comunicación de WCF
+Para que los clientes de escritura se comuniquen con los servicios mediante WCF, el marco proporciona la clase **WcfClientCommunicationFactory**, que es la implementación específica de WCF de la clase [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).
 
 ```csharp
 
@@ -73,7 +72,7 @@ public WcfCommunicationClientFactory(
     object callback = null);
 ```
 
-The WCF communication channel can be accessed from the **WcfCommunicationClient** created by the **WcfCommunicationClientFactory**.
+Se puede acceder al canal de comunicación de WCF desde la clase **WcfCommunicationClient** creada por la clase **WcfCommunicationClientFactory**.
 
 ```csharp
 
@@ -87,7 +86,7 @@ public class WcfCommunicationClient : ServicePartitionClient<WcfCommunicationCli
 
 ```
 
-Client code can use the **WcfCommunicationClientFactory** along with the **WcfCommunicationClient** which implements **ServicePartitionClient** to determine the service endpoint and communicate with the service.
+El código de cliente puede usar la clase **WcfCommunicationClientFactory** junto con **ServicePartitionClient** que implementa **ServicePartitionClient** para determinar el punto de conexión de servicio y comunicarse con el servicio.
 
 ```csharp
 // Create binding
@@ -114,17 +113,13 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
                 client => client.Channel.Add(2, 3)).Result;
 
 ```
->[AZURE.NOTE] The default ServicePartitionResolver assumes that the client is running in same cluster as the service. If that is not the case, create a ServicePartitionResolver object and pass in the cluster connection endpoints.
+>[AZURE.NOTE] ServicePartitionResolver asume que el cliente se ejecuta en el mismo clúster que el servicio. Si no es así, cree un objeto ServicePartitionResolver y transfiera los puntos de conexión del clúster.
 
-## <a name="next-steps"></a>Next steps
-* [Remote procedure call with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
+## Pasos siguientes
+* [Llamada a procedimiento remoto con la comunicación remota de Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 
-* [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+* [Web API con OWIN en Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-* [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication.md)
+* [Protección de la comunicación para Reliable Services](service-fabric-reliable-services-secure-communication.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

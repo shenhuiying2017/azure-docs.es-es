@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Leveraging Azure Security Center for Incident Response | Microsoft Azure"
-   description="This document explains how to leverage Azure Security Center for an Incident Response scenario."
+   pageTitle="Uso de Azure Security Center para responder a incidentes | Microsoft Azure"
+   description="Este documento explica cómo usar Azure Security Center en un escenario de respuesta a incidentes."
    services="security-center"
    documentationCenter="na"
    authors="YuriDio"
@@ -16,97 +16,89 @@
    ms.date="09/20/2016"
    ms.author="yurid"/>
 
+# Uso de Azure Security Center para responder a incidentes
+Muchas organizaciones aprenden a responder a incidentes de seguridad solo después de sufrir un ataque. Para reducir los costos y los daños, es importante tener un plan de respuesta a incidentes implantado antes de que se produzca un ataque. Azure Security Center puede usarse en distintas fases de una respuesta a incidentes.
 
-# <a name="leveraging-azure-security-center-for-incident-response"></a>Leveraging Azure Security Center for Incident Response
-Many organizations learn how to respond to security incidents only after suffering an attack. In order to reduce costs and damage, it’s important to have an incident response plan in place before an attack takes place. Azure Security Center can be leveraged in different stages of an incident response.
+## Respuesta a incidentes
 
-## <a name="incident-response"></a>Incident response
+Un plan eficaz depende de tres funciones básicas: las funcionalidades de proteger, detectar y responder a las amenazas. La protección consiste en prevenir incidentes, la detección consiste en identificar las amenazas pronto y la respuesta consiste en expulsar el atacante y restaurar los sistemas para mitigar los efectos de una infracción.
 
-An effective plan depends on three core capabilities: the abilities to protect, detect and respond to threats. Protection is about preventing incidents, detection is about identifying threats early and response is about evicting the attacker and restoring systems to mitigate the impacts of a breach. 
+Este artículo usará las fases de la respuesta a incidentes de seguridad del artículo [Microsoft Azure Security Response in the Cloud](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678) (Respuesta de seguridad de Microsoft Azure en la nube) tal como se muestra en el diagrama siguiente:
 
-This article will use the security incident response stages from the  [Microsoft Azure Security Response in the Cloud](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678) article as shown in the following diagram:
+![Ciclo de vida de respuesta a incidentes](./media/security-center-incident-response/security-center-incident-response-fig1.png)
 
-![Incident response lifecycle](./media/security-center-incident-response/security-center-incident-response-fig1.png)
+Security Center se puede usar durante las fases de detección, evaluación y diagnóstico. Puede aprender más acerca de cada una de estas fases. A continuación se proporciona un ejemplo de cómo Security Center puede ser útil durante las tres fases iniciales de respuesta a incidentes:
 
-Security Center can be leveraged during the Detection, Assessment and Diagnose stages. To learn more about each of these stages. Here an example of how Security Center can be useful during the three initial incident response stages:
+- **Detectar**: primera indicación de una investigación de eventos.
+	- Ejemplo: comprobación inicial de que se ha generado una alerta de seguridad de alta prioridad en el panel de Security Center.
+- **Evaluar**: realice la evaluación inicial para más información acerca de la actividad sospechosa.
+	- Ejemplo: obtener más información acerca de la alerta de seguridad.
+- **Diagnosticar**: realizar una investigación técnica e identificar las estrategias de contención, mitigación y solución.
+	- Ejemplo: siga los pasos de corrección descritos por Security Center para esa alerta de seguridad.
 
-- **Detect**: first indication of an event investigation
-    - Example: initial verification that a high priority security alert was raised in the Security Center dashboard.
-- **Assess**: perform the initial assessment to obtain more information about the suspicious activity.
-    - Example: obtaining more information about the security alert.
-- **Diagnose**: conduct a technical investigation, identify containment, mitigation, and workaround strategies
-    - Example: follow the remediation steps described by Security Center in that particular security alert.
+El siguiente escenario muestra cómo usar Security Center durante las fases de detección, evaluación y diagnóstico y respuesta a un incidente de seguridad. En Security Center, un [incidente de seguridad](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) es la suma de todas las alertas de un recurso que se alinean con patrones de [cadenas de eliminación](security-center-incident.md). Los incidentes aparecen en el icono y en la hoja [Alertas de seguridad](security-center-managing-and-responding-alerts.md). El incidente mostrará la lista de alertas relacionadas, lo que permite obtener más información sobre cada repetición. Security Center también presenta alertas de seguridad independientes que pueden utilizarse para realizar un seguimiento de una actividad sospechosa.
 
-The scenario that follows shows you how to leverage Security Center during the detection, assessment, and diagnose/respond stages of a security incident.  In Security Center, a [security incident](security-center-incident.md) is an aggregation of all alerts for a resource that align with [kill chain](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) patterns. Incidents appear in the [Security Alerts](security-center-managing-and-responding-alerts.md) tile and blade. An Incident will reveal the list of related alerts, which enables you to obtain more information about each occurrence. Security Center also present standalone security alerts that can also be used to track down a suspicious activity.
+## Escenario
 
-## <a name="scenario"></a>Scenario
+Contoso migró recientemente algunos de sus recursos locales a Azure, incluidas algunas cargas de trabajo empresariales basadas en máquinas virtuales y SQL Database. Actualmente el equipo de respuesta a incidentes de seguridad informática central de Contoso (CSIRT) tiene un problema para investigar problemas de seguridad, debido a la falta de inteligencia de seguridad integrada en sus herramientas actuales de respuesta a incidentes. Esta falta de integración presenta un problema durante las fases de detección (demasiados falsos positivos), evaluación y diagnóstico. Como parte de esta migración, decidió participar en Security Center para ayudar a solucionar el problema.
 
-Contoso recently migrated some of their on-premises resources to Azure, including some virtual machine-based line of business workloads and SQL databases. Currently Contoso's Core Computer Security Incident Response Team (CSIRT) has a problem to investigate security issues, due the lack of security intelligence integrated with their current incident response tools. This lack of integration introduces a problem during the detection (too many false positives) and during the assessment and diagnose stages. As part of this migration, they decided to opt in for Security Center to help them address this problem. 
+La primera fase de migración terminó después de incorporar todos los recursos y abordar todas las recomendaciones de seguridad de Security Center. El equipo CSIRT de Contoso es crucial para tratar los incidentes de seguridad informática. El equipo está formado por un grupo de personas encargadas de manejar los incidentes de seguridad. Los miembros del equipo tienen tareas claramente definidas para asegurarse de que no quede sin cubrir ninguna área de respuesta.
 
-The first phase of this migration finished after onboarding all resources, and addressing all security recommendations from Security Center. Contoso CSIRT is the focal point for dealing with computer security incidents. The team consists of a group of people with responsibilities for dealing with any security incident. The team members have clearly defined duties to ensure that no area of response is left uncovered. 
+En este escenario, nos vamos a centrar en los roles de las siguientes personas que forman parte del equipo CSIRT de Contoso:
 
-For the purpose of this scenario, we are going to focus on the roles of the following personas that are part of Contoso CSIRT:
+![Ciclo de vida de respuesta a incidentes](./media/security-center-incident-response/security-center-incident-response-fig2.png)
 
-![Incident response lifecycle](./media/security-center-incident-response/security-center-incident-response-fig2.png)
+Judy está en operaciones de seguridad y sus responsabilidades incluyen:
+- Supervisar y responder a amenazas de seguridad durante las 24 horas.
+- Remitirlas al propietario de la carga de trabajo en la nube o al analista de seguridad según sea necesario.
 
-Judy is in security operations and her responsibilities include:
-- Monitoring and responding to security threats around-the-clock
-- Escalating to the cloud workloads owner or security analyst as needed
+Sam es un analista de seguridad y sus responsabilidades incluyen:
+- Investigar ataques.
+- Solucionar alertas.
+- Trabajar con los propietarios de la carga de trabajo para determinar y aplicar mitigaciones.
 
-Sam is a security analyst and his responsibilities include:
-- Investigating attacks
-- Remediating alerts 
-- Working with workload owners to determine and apply mitigations
+Como puede ver, Judy y Sam tienen responsabilidades diferentes, y deben trabajar juntos y compartir la información obtenida de Security Center.
 
-As you can see, Judy and Sam have different responsibilities, and they must work together sharing information obtained from Security Center. 
+## Solución recomendada
 
-## <a name="recommended-solution"></a>Recommended solution
+Puesto que Judy y Sam tienen diferentes roles, usarán diferentes áreas de Security Center para obtener la información pertinente para sus actividades diarias. Judy usará las alertas de seguridad como parte de su supervisión diaria.
 
-Since Judy and Sam have different roles, they will be using different areas of Security Center to obtain relevant information for their daily activities. Judy will use Security Alerts as part of her daily monitoring. 
+![Alerta de seguridad](./media/security-center-incident-response/security-center-incident-response-fig3.png)
 
-![Security Alert](./media/security-center-incident-response/security-center-incident-response-fig3.png)
-
-Judy will use Security Alerts during the Detection and Assessment stages. Once Judy finishes the initial assessment she may escalate the issue to Sam if additional investigation is required. At this point Sam will have use the information provided by Security Center, sometimes in conjunction with other data sources, to move on to the Diagnose stage.
-
-
-## <a name="how-to-implement-this-solution"></a>How to implement this solution 
-
-To see how you would use Azure Security Center in an incident response scenario, we’ll follow Judy’s steps in the Detect and Assess stages, and then see what Sam does to diagnose the issue. 
-
-### <a name="detection-and-assessment-incident-response-stages"></a>Detection and assessment incident response stages 
-
-Judy signed in to Azure portal and is in the Security Center console. As part of her daily monitoring activities she started reviewing high priority security alerts by performing the following steps:
-
-1. Click the **Security Alerts** tile and access **Security Alerts** blade.
-    ![Security Alert blade](./media/security-center-incident-response/security-center-incident-response-fig4.png)
-
-    > [AZURE.NOTE] For the purpose of this scenario, Judy is going to perform an assessment on the Malicious SQL activity alert, as seen in the figure above. 
-2. Click **Malicious SQL activity** alert and review the attacked resources in the **Malicious SQL Activity** blade:  ![Incident details](./media/security-center-incident-response/security-center-incident-response-fig5.png)
-    
-    In this blade Judy can take notes regarding the attacked resources, how many times did this attack happen and when it was detected.
-3. Click the **attacked resource** to obtain more information about this attack. 
-
-After reading the description, Judy is convinced that this is not a false positive and that she should escalate this case to Sam.
-
-### <a name="diagnose-incident-response-stage"></a>Diagnose incident response stage 
-
-Sam receives the case from Judy and started reviewing the remediation steps suggested by Security Center.
-
-![Incident response lifecycle](./media/security-center-incident-response/security-center-incident-response-fig6.png)
-
-### <a name="additional-resources"></a>Additional resources
-
-The incident response team can also take advantage of [Security Center Power BI](security-center-powerbi.md) capability to see different types of reports that can help them during further investigation to visualize, analyze, and filter recommendations and security alerts. For companies that use their Security Information and Event Management (SIEM) solution during the investigation process, they can also [integrate Security Center with their solution](security-center-integrating-alerts-with-log-integration.md). Azure audit logs and VM security events can also be integrated using the [Azure log integration tool](https://blogs.msdn.microsoft.com/azuresecurity/2016/07/21/microsoft-azure-log-integration-preview/). This info can be used in conjunction with the information provided by Security Center to investigate an attack.
+Judy utilizará las alertas de seguridad durante las fases de evaluación y detección. Una vez que Judy finalice la evaluación inicial, puede remitir el problema a Sam si requiere una investigación adicional. En este punto, Sam tendrá la información proporcionada por Security Center, a veces junto con otros orígenes de datos, para pasar a la fase de diagnóstico.
 
 
-## <a name="conclusion"></a>Conclusion
+## Implemento de esta solución 
 
-Assembling a team before an incident occurs is very important to your organization and will positively influence how incidents are handle. Having the right tools to monitor resources can help this team to take accurate steps to remediate a security incident. Security Center [detection capabilities](security-center-detection-capabilities.md) will assist IT to quickly respond to security incidents and remediate security issues.
+Para ver cómo se utilizaría Azure Security Center en un escenario de respuesta a incidentes, seguiremos los pasos de Judy en las fases de detección y evaluación y, a continuación, veremos lo que hace Sam para diagnosticar el problema.
+
+### Fases de detección y evaluación de la respuesta a incidentes 
+
+Judy inicia sesión en Azure Portal y está en la consola de Security Center. Como parte de sus actividades de supervisión diarias comienza a revisar las alertas de seguridad con alta prioridad mediante los pasos siguientes:
+
+1. Hace clic en el icono **Alertas de seguridad** y accede a la hoja **Alertas de seguridad**. ![Hoja Alerta de seguridad](./media/security-center-incident-response/security-center-incident-response-fig4.png)
+
+	> [AZURE.NOTE] En este escenario, Judy va a realizar una evaluación de la alerta de actividad SQL malintencionada, como se muestra en la ilustración anterior.
+2. Hace clic en la alerta **Actividad SQL malintencionada** y revisa los recursos atacados en la hoja **Actividad SQL malintencionada**: ![Detalles del incidente](./media/security-center-incident-response/security-center-incident-response-fig5.png)
+	
+	En esta hoja, Judy puede tomar notas relativas a los recursos atacados, cuántas veces ocurrió este ataque y cuándo se detectó.
+3. Hace clic en el **recurso atacado** para más información acerca de este ataque.
+
+Después de leer la descripción, Judy está convencida de que no es un falso positivo y que debe remitir este caso a Sam.
+
+### Fases de diagnóstico de la respuesta a incidentes 
+
+Sam recibe el caso de Judy y empieza revisando los pasos de corrección sugeridos por Security Center.
+
+![Ciclo de vida de respuesta a incidentes](./media/security-center-incident-response/security-center-incident-response-fig6.png)
+
+### Recursos adicionales
+
+El equipo de respuesta a incidentes también puede aprovechar la funcionalidad [Security Center Power BI](security-center-powerbi.md) para ver distintos tipos de informes que pueden ayudarle durante una investigación más detallada para ver, analizar y filtrar las recomendaciones y las alertas de seguridad. Las empresas que usan su solución de información de seguridad y administración de eventos (SIEM) durante el proceso de investigación, también pueden [integrar Security Center en su solución](security-center-integrating-alerts-with-log-integration.md). Los registros de auditoría de Azure y los eventos de seguridad de las máquinas virtuales también se pueden integrar con la [herramienta de integración de registros de Azure](https://blogs.msdn.microsoft.com/azuresecurity/2016/07/21/microsoft-azure-log-integration-preview/). Esta información puede utilizarse junto con la información proporcionada por Security Center para investigar un ataque.
 
 
+## Conclusión
 
+Es muy importante para su organización reunir un equipo antes de que se produzca un incidente, e influirá positivamente en cómo se manejan los incidentes. Tener las herramientas adecuadas para supervisar los recursos puede ayudar a este equipo a adoptar los pasos exactos para solucionar un incidente de seguridad. Las [funcionalidades de detección](security-center-detection-capabilities.md) de Security Center ayudarán a TI a responder a los incidentes de seguridad y corregir los problemas de seguridad rápidamente.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

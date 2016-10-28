@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Manage compute power in Azure SQL Data Warehouse (Azure portal) | Microsoft Azure"
-   description="Azure portal tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs."
+   pageTitle="Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (Portal de Azure) | Microsoft Azure"
+   description="Tareas del Portal de Azure para administrar la potencia de proceso. Escalado de los recursos de proceso ajustando DWU. Pausar y reanudar recursos de proceso para ahorrar costos."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -16,92 +16,90 @@
    ms.date="08/22/2016"
    ms.author="barbkess;sonyama"/>
 
-
-# <a name="manage-compute-power-in-azure-sql-data-warehouse-(azure-portal)"></a>Manage compute power in Azure SQL Data Warehouse (Azure portal)
+# Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (Portal de Azure)
 
 > [AZURE.SELECTOR]
-- [Overview](sql-data-warehouse-manage-compute-overview.md)
+- [Información general](sql-data-warehouse-manage-compute-overview.md)
 - [Portal](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
 - [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 
 
-Scale performance by scaling out compute resources and memory to meet the changing demands of your workload. Save costs by scaling back resources during non-peak times or pausing compute altogether. 
+Escale el rendimiento mediante el escalado horizontal de los recursos de proceso y la memoria para satisfacer las necesidades cambiantes de la carga de trabajo. Ahorre costes reduciendo el escalado de los recursos fuera de horas punta o pausando el proceso por completo.
 
-This collection of tasks uses the Azure portal to:
+Esta colección de tareas usa el Portal de Azure para:
 
-- Scale compute
-- Pause compute
-- Resume compute
+- Escalado de proceso
+- Pausa del proceso
+- Reanudación del proceso
 
-For more information, see [Manage compute overview][].
+Para obtener más información, consulte [Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (información general)][].
 
-<a name="scale-performance-bk"></a>
-<a name="scale-compute-bk"></a>
+<a name="scale-performance-bk"></a> <a name="scale-compute-bk"></a>
 
-## <a name="scale-compute-power"></a>Scale compute power
+## Escalado de la potencia de proceso
 
-[AZURE.INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
+[AZURE.INCLUDE [SQL Data Warehouse scale DWUs description (Descripción de escalado de DWU de Almacenamiento de datos SQL)](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
-To change compute resources:
+Para cambiar los recursos de proceso:
 
-1. Open the [Azure portal][], open your database, and click **Scale**.
+1. Abra el [Portal de Azure][], abra la base de datos y haga clic en **Escalar**.
 
-    ![Click Scale][1]
+    ![Haga clic en Escala][1]
 
-1. In the Scale blade, move the slider left or right to change the DWU setting.
+1. En la hoja Escalar, mueva el control deslizante izquierdo o derecho para cambiar el valor de DWU.
 
-    ![Move Slider][2]
+    ![Mueva el control deslizante][2]
 
-1. Click **Save**. A confirmation message appears. Click **yes** to confirm or **no** to cancel.
+1. Haga clic en **Save**. Aparece un mensaje de confirmación. Haga clic en **Sí** para confirmar o **No** para cancelar.
 
-    ![Click Save][3]
+    ![Haga clic en Guardar][3]
 
 <a name="pause-compute-bk"></a>
 
-## <a name="pause-compute"></a>Pause compute
+## Pausa del proceso
 
-[AZURE.INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
+[AZURE.INCLUDE [SQL Data Warehouse pause description (Descripción de pausa de Almacenamiento de datos SQL)](../../includes/sql-data-warehouse-pause-description.md)]
 
-To pause a database:
+Para pausar una base de datos:
 
-1. Open the [Azure portal][] and open your database. Notice that the Status is **Online**. 
+1. Abra el [Portal de Azure][] y abra la base de datos. Tenga en cuenta que el estado sea **En línea**.
 
-    ![Online status][6]
+    ![Estado En línea][6]
 
-1. To suspend compute and memory resources, click **Pause**, and then a confirmation message appears. Click **yes** to confirm or **no** to cancel.
+1. Para suspender los recursos de proceso y memoria, haga clic en **Pausar**. Aparece un mensaje de confirmación. Haga clic en **Sí** para confirmar o **No** para cancelar.
 
-    ![Confirm pause][7]
+    ![Confirme la pausa][7]
 
-1. While SQL Data Warehouse is starting the database, the status is **Pausing**.
-2. When the status is **Paused**, the pause operation is done and you are no longer being charged for DWUs.
+1. Mientras Almacenamiento de datos SQL está iniciando la base de datos, el estado será **En pausa**.
+2. Cuando el estado sea **En pausa**, se realizará la operación de pausa y ya no se le cobrará por DWU.
 
-    ![Pause status][4]
+    ![Estado de pausa][4]
 
 <a name="resume-compute-bk"></a>
 
-## <a name="resume-compute"></a>Resume compute
+## Reanudación del proceso
 
-[AZURE.INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)] To resume a database:
+[AZURE.INCLUDE [SQL Data Warehouse resume description (Descripción de reanudación de Almacenamiento de datos SQL)](../../includes/sql-data-warehouse-resume-description.md)] Para reanudar una base de datos:
 
-1. Open the [Azure portal][] and open your database. Notice that the Status is **Paused**. 
+1. Abra el [Portal de Azure][] y la base de datos. Tenga en cuenta que el estado es **En pausa**.
 
-    ![Pause database][4]
+    ![Base de datos de pausa][4]
 
-1. To resume the database click **Start**, and then a confirmation message appears. Click **yes** to confirm or **no** to cancel.
+1. Para reanudar la base de datos, haga clic en **Iniciar**. Aparece un mensaje de confirmación. Haga clic en **Sí** para confirmar o en **No** para cancelar.
 
-    ![Confirm resume][5]
+    ![Confirme la reanudación][5]
 
-1. While SQL Data Warehouse is starting the database, the status is "Resuming".
-2. When the status is **online**, the database is ready.
+1. Mientras Almacenamiento de datos SQL está iniciando la base de datos, el estado será "Reanudando".
+2. Cuando el estado sea **En línea**, la base de datos estará lista.
 
-    ![Online status][6]
+    ![Estado En línea][6]
 
 <a name="next-steps-bk"></a>
 
-## <a name="next-steps"></a>Next steps
-For more information, see [Management overview][].
+## Pasos siguientes
+Para obtener más información, consulte [Administración de base datos en Almacenamiento de datos SQL de Azure][].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-manage-compute-portal/click-scale.png
@@ -113,18 +111,14 @@ For more information, see [Management overview][].
 [7]: ./media/sql-data-warehouse-manage-compute-portal/pause-confirm.png
 
 <!--Article references-->
-[Management overview]: ./sql-data-warehouse-overview-manage.md
-[Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
+[Administración de base datos en Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-overview-manage.md
+[Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (información general)]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-[Azure portal]: http://portal.azure.com/
+[Portal de Azure]: http://portal.azure.com/
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

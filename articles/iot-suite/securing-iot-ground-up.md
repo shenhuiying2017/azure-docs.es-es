@@ -1,6 +1,6 @@
 <properties
- pageTitle="Securing your Internet of Things from the ground up | Microsoft Azure"
- description="This article describes the built-in security features of the Microsoft Azure IoT Suite"
+ pageTitle="Protección de Internet de las cosas desde el principio | Microsoft Azure"
+ description="En este artículo se describen las características de seguridad integradas del conjunto de aplicaciones de IoT de Microsoft Azure"
  services=""
  suite="iot-suite"
  documentationCenter=""
@@ -17,31 +17,26 @@
  ms.date="08/16/2016"
  ms.author="yurid"/>
 
-
 [AZURE.INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-To learn more about securing your IoT solution, see:
+Para obtener más información sobre cómo proteger la solución de IoT, consulte:
 
-- [IoT Security Best Practices][lnk-security-best-practices]
-- [IoT Security Architecture][lnk-security-architecture]
-- [Secure your IoT deployment][lnk-security-deployment]
+- [Procedimientos de seguridad de IoT recomendados][lnk-security-best-practices]
+- [Arquitectura de seguridad de IoT][lnk-security-architecture]
+- [Proteger su implementación de IoT][lnk-security-deployment]
 
 [lnk-security-best-practices]: iot-security-best-practices.md
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md
 
-You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
+También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del conjunto de aplicaciones de IoT:
 
-- [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]
-- [Frequently asked questions for IoT Suite][lnk-faq]
+- [Información general de la solución preconfigurada de mantenimiento predictivo][lnk-predictive-overview]
+- [Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT][lnk-faq]
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

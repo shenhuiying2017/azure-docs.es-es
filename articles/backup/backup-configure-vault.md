@@ -1,260 +1,255 @@
 <properties
-    pageTitle="Back up a Windows Server or client to Azure with Azure Backup using the Resource Manager deployment model | Microsoft Azure"
-    description="Backup Windows servers or clients to Azure by creating a backup vault, downloading credentials, installing the backup agent, and completing an initial backup of your files and folders."
-    services="backup"
-    documentationCenter=""
-    authors="markgalioto"
-    manager="cfreeman"
-    editor=""
-    keywords="backup vault; back up a Windows server; backup windows;"/>
+	pageTitle="Copia de seguridad desde Windows Server o un cliente de Windows en Azure con Copia de seguridad de Azure mediante el modelo de implementación de Resource Manager | Microsoft Azure"
+	description="Cree una copia de seguridad de los servidores o clientes de Windows en Azure mediante la creación de un almacén de copia de seguridad, la descarga de credenciales, la instalación del agente de copia de seguridad y la realización de una copia de seguridad inicial de sus archivos y carpetas."
+	services="backup"
+	documentationCenter=""
+	authors="markgalioto"
+	manager="cfreeman"
+	editor=""
+	keywords="almacén de copia de seguridad; copia de seguridad de un equipo de Windows Server; ventanas de copia de seguridad;"/>
 
 <tags
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/10/2016"
-    ms.author="jimpark; trinadhk; markgal"/>
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/10/2016"
+	ms.author="jimpark; trinadhk; markgal"/>
 
-
-# <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Back up a Windows Server or client to Azure using the Resource Manager deployment model
+# Copia de seguridad desde Windows Server o un cliente de Windows en Azure mediante el modelo de implementación de Resource Manager
 
 > [AZURE.SELECTOR]
-- [Azure portal](backup-configure-vault.md)
-- [Classic portal](backup-configure-vault-classic.md)
+- [Portal de Azure](backup-configure-vault.md)
+- [Portal clásico](backup-configure-vault-classic.md)
 
-This article explains how to back up your Windows Server (or Windows client) files and folders to Azure with Azure Backup using the Resource Manager deployment model.
+En este artículo se explica cómo realizar una copia de seguridad de los archivos y carpetas de Windows Server (o del cliente de Windows) en Azure con Copia de seguridad de Azure usando el modelo de implementación de Resource Manager.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/backup-deployment-models.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica.
 
-![Backup process steps](./media/backup-configure-vault/initial-backup-process.png)
+![Pasos del proceso de copia de seguridad](./media/backup-configure-vault/initial-backup-process.png)
 
 
-## <a name="before-you-start"></a>Before you start
-To back up a server or client to Azure, you need an Azure account. If you don't have one, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
+## Antes de comenzar
+Si desea crear una copia de seguridad de un servidor o cliente en Azure, necesita una cuenta de Azure. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/) en tan solo unos minutos.
 
-## <a name="step-1:-create-a-recovery-services-vault"></a>Step 1: Create a Recovery Services vault
+## Paso 1: Creación de un almacén de Servicios de recuperación
 
-A Recovery Services vault is an entity that stores all the backups and recovery points you create over time. The Recovery Services vault also contains the backup policy applied to the protected files and folders. When you create a Recovery Services vault, you should also select the appropriate storage redundancy option.
+Un almacén de Servicios de recuperación es una entidad que almacena todas las copias de seguridad y todos los puntos de recuperación creados con el tiempo. El almacén de Servicios de recuperación contiene también la directiva de copia de seguridad que se aplica a los archivos y las carpetas protegidos. Cuando se crea un almacén de Servicios de recuperación, también se debe seleccionar la opción de redundancia de almacenamiento adecuada.
 
-### <a name="to-create-a-recovery-services-vault"></a>To create a Recovery Services vault
+### Creación de un almacén de Servicios de recuperación
 
-1. If you haven't already done so, sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
+1. Si aún no lo ha hecho, inicie sesión en el [Portal de Azure](https://portal.azure.com/) mediante su suscripción.
 
-2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list will filter based on your input. Click **Recovery Services vaults**.
+2. En el menú del centro, haga clic en **Examinar** y, en la lista de recursos, escriba **Servicios de recuperación**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacenes de Servicios de recuperación**.
 
-    ![Create Recovery Services Vault step 1](./media/backup-configure-vault/browse-to-rs-vaults.png) <br/>
+    ![Creación del almacén de Servicios de recuperación, paso 1](./media/backup-configure-vault/browse-to-rs-vaults.png) <br/>
 
-    The list of Recovery Services vaults is displayed.
+    Se muestra la lista de almacenes de Servicios de recuperación.
 
-3. On the **Recovery Services vaults** menu, click **Add**.
+3. En el menú **Almacenes de Servicios de recuperación**, haga clic en **Agregar**.
 
-    ![Create Recovery Services Vault step 2](./media/backup-configure-vault/rs-vault-menu.png)
+    ![Creación del almacén de Servicios de recuperación, paso 2](./media/backup-configure-vault/rs-vault-menu.png)
 
-    The Recovery Services vault blade opens, prompting you to provide a **Name**, **Subscription**, **Resource group**, and **Location**.
+    Se abre la hoja del almacén de Servicios de recuperación, donde se le pide que proporcione los valores de **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**.
 
-    ![Create Recovery Services vault step 5](./media/backup-configure-vault/rs-vault-attributes.png)
+    ![Creación del almacén de Servicios de recuperación, paso 5](./media/backup-configure-vault/rs-vault-attributes.png)
 
-4. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
+4. En **Nombre**, escriba un nombre descriptivo que identifique el almacén. El nombre debe ser único para la suscripción de Azure. Escriba un nombre que tenga entre 2 y 50 caracteres. Debe comenzar por una letra y solo puede contener letras, números y guiones.
 
-5. Click **Subscription** to see the available list of subscriptions. If you are not sure which subscription to use, use the default (or suggested) subscription. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
+5. Haga clic en **Suscripción** para ver la lista de suscripciones disponibles. Si no está seguro de la suscripción que desea utilizar, use la suscripción predeterminada (o sugerida). Solo habrá varias opciones si la cuenta de su organización está asociada a varias suscripciones de Azure.
 
-6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Azure Resource Manager overview](../resource-group-overview.md)
+6. Haga clic en **Grupo de recursos** para ver la lista de grupos de recursos disponibles o haga clic en **Nuevo** para crear uno. Para una información completa sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../resource-group-overview.md).
 
-7. Click **Location** to select the geographic region for the vault. This choice determines the geographic region where your backup data is sent. By choosing a geographic region that's close to your location, you can reduce network latency when backing up to Azure.
+7. Haga clic en **Ubicación** para seleccionar la región geográfica del almacén. Esta elección determina la región geográfica a la que se envían los datos de copia de seguridad. Si elige una región geográfica cercana a su ubicación, puede reducir la latencia de red al crear una copia de seguridad en Azure.
 
-8. Click **Create**. It can take a while for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area in the portal. Once your vault is created, it should open in the portal. If you don't see your vault listed after it has been completed, click **Refresh**. When the list refreshes, click the name of the vault.
+8. Haga clic en **Crear**. La creación del almacén de Servicios de recuperación puede tardar unos minutos. Supervise las notificaciones de estado en la parte superior derecha del portal. Una vez creado el almacén, se debería abrir en el portal. Si cuando ha terminado no ve el almacén, haga clic en **Actualizar**. Cuando se actualiza la lista, haga clic en el nombre del almacén.
 
-### <a name="to-determine-storage-redundancy"></a>To determine storage redundancy
-When you first create a Recovery Services vault you determine how storage is replicated.
+### Determinación de la redundancia de almacenamiento
+Al crear un almacén de Servicios de recuperación se determina cómo se replica el almacenamiento.
 
-1. In the **Settings** blade, which opens automatically with your vault dashboard, click **Backup Infrastructure**.
+1. En la hoja **Configuración**, que se abre automáticamente con el panel del almacén, haga clic en **Backup Infrastructure** (Infraestructura de copia de seguridad).
 
-2. In the Backup Infrastructure blade, click **Backup Configuration** to view the **Storage replication type**.
+2. En la hoja Backup Infrastructure (Infraestructura de copia de seguridad), haga clic en **Configuración de copia de seguridad** para ver el **tipo de replicación de almacenamiento**.
 
-    ![Create Recovery Services vault step 5](./media/backup-configure-vault/backup-infrastructure.png)
+    ![Creación del almacén de Servicios de recuperación, paso 5](./media/backup-configure-vault/backup-infrastructure.png)
 
-3. Choose the storage replication option for your vault.
+3. Elija la opción de replicación del almacenamiento para su almacén.
 
-    ![List of recovery services vaults](./media/backup-configure-vault/choose-storage-configuration.png)
+    ![Lista de almacenes de Servicios de recuperación](./media/backup-configure-vault/choose-storage-configuration.png)
 
-    By default, your vault has geo-redundant storage. If you are using Azure as a primary backup storage endpoint, continue using geo-redundant storage. If you are using Azure as a non-primary backup storage endpoint, then choose locally redundant storage, which will reduce the cost of storing data in Azure. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in this [overview](../storage/storage-redundancy.md).
+    De forma predeterminada, el almacén tiene almacenamiento con redundancia geográfica. Si usa Azure como punto de conexión del almacenamiento de copia de seguridad principal, siga utilizando el almacenamiento con redundancia geográfica. Si usa Azure como punto de conexión del almacenamiento de copia de seguridad no principal, elija un almacenamiento con redundancia local, ya que ello reducirá el costo de almacenamiento de datos en Azure. En esta página de [información general](../storage/storage-redundancy.md), encontrará más información sobre las opciones de almacenamiento con [redundancia geográfica](../storage/storage-redundancy.md#geo-redundant-storage) y con [redundancia local](../storage/storage-redundancy.md#locally-redundant-storage).
 
-    After choosing the storage option for your vault, you are ready to associate your files and folders with the vault.
+    Tras elegir la opción de almacenamiento del almacén, está listo para asociar los archivos y las carpetas con el almacén.
 
-Now that you've created a vault, you prepare your infrastructure to back up files and folders by downloading and installing the Microsoft Azure Recovery Services agent, downloading vault credentials, and then using those credentials to register the agent with the vault.
+Ahora que ha creado un almacén, prepare su infraestructura para realizar una copia de seguridad de los archivos y las carpetas; para ello, descargue e instale el Agente de Servicios de recuperación de Microsoft Azure, descargue las credenciales del almacén y luego use esas credenciales para registrar el agente en el almacén.
 
-## <a name="step-2---download-files"></a>Step 2 - Download files
+## Paso 2: Descarga de los archivos
 
->[AZURE.NOTE] Enabling backup through the Azure portal is coming soon. At this time, you use the Microsoft Azure Recovery Services Agent on-premises to back up your files and folders.
+>[AZURE.NOTE] La habilitación de la copia de seguridad a través del portal de Azure estará pronto disponible. En este momento, se usa el agente de Servicios de recuperación de Microsoft Azure local para hacer copia de seguridad de archivos y carpetas.
 
-1. Click **Settings** on the Recovery Services vault dashboard.
+1. Haga clic en **Configuración** en el panel del almacén de Servicios de recuperación.
 
-    ![Open backup goal blade](./media/backup-configure-vault/settings-button.png)
+    ![Abrir hoja de objetivo de copia de seguridad](./media/backup-configure-vault/settings-button.png)
 
-2. Click **Getting Started > Backup** on the Settings blade.
+2. Haga clic en **Introducción > Copia de seguridad** en la hoja Configuración.
 
-    ![Open backup goal blade](./media/backup-configure-vault/getting-started-backup.png)
+    ![Abrir hoja de objetivo de copia de seguridad](./media/backup-configure-vault/getting-started-backup.png)
 
-3. Click **Backup goal** on the Backup blade.
+3. Haga clic en **Backup goal** (Objetivo de la copia de seguridad) en la hoja Copia de seguridad.
 
-    ![Open backup goal blade](./media/backup-configure-vault/backup-goal.png)
+    ![Abrir hoja de objetivo de copia de seguridad](./media/backup-configure-vault/backup-goal.png)
 
-4. Select **On-premises** from the Where is your workload running? menu.
+4. Seleccione **Local** desde el menú Where is your workload running? (¿Desde dónde se ejecuta la carga de trabajo?).
 
-5. Select **Files and folders** from the What do you want to backup? menu, and click **OK**.
+5. Seleccione **Archivos y carpetas** en el menú What do you want to backup? (¿De qué desea realizar copias de seguridad?) y haga clic en **Aceptar**.
 
-#### <a name="download-the-recovery-services-agent"></a>Download the Recovery Services agent
+#### Descarga del agente de Servicios de recuperación
 
-1. Click **Download Agent for Windows Server or Windows Client** in the **Prepare infrastructure** blade.
+1. Haga clic en **Download Agent for Windows Server or Windows Client** (Descargar el agente para Windows Server o cliente de Windows) en la hoja **Prepare infrastructure** (Preparar la infraestructura).
 
-    ![prepare infrastructure](./media/backup-configure-vault/prepare-infrastructure-short.png)
+    ![Preparar infraestructura](./media/backup-configure-vault/prepare-infrastructure-short.png)
 
-2. Click **Save** in the download pop-up. By default, the **MARSagentinstaller.exe** file is saved to your Downloads folder.
+2. Haga clic en **Guardar** en la ventana emergente de descarga. De forma predeterminada, se guarda el archivo **MARSagentinstaller.exe** en la carpeta de descargas.
 
-#### <a name="download-vault-credentials"></a>Download vault credentials
+#### Descarga de las credenciales de almacén
 
-1. Click **Download > Save** on the Prepare infrastructure blade.
+1. Haga clic en **Descargar > Guardar** en la hoja Prepare infrastructure(Preparar la infraestructura).
 
-    ![prepare infrastructure](./media/backup-configure-vault/prepare-infrastructure-download.png)
+    ![Preparar infraestructura](./media/backup-configure-vault/prepare-infrastructure-download.png)
 
-## <a name="step-3--install-and-register-the-agent"></a>Step 3 -Install and register the agent
+## Paso 3: Instalación y registro del agente
 
-1. Locate and double click the **MARSagentinstaller.exe** from the Downloads folder (or other saved location).
+1. Busque y haga doble clic en **MARSagentinstaller.exe** en la carpeta de descargas (u otra ubicación guardada).
 
-2. Complete the Microsoft Azure Recovery Services Agent Setup Wizard. To complete the wizard, you need to:
+2. Complete el asistente para la instalación del agente de Servicios de recuperación de Microsoft Azure. Para completar al asistente, tendrá que hacer lo siguiente:
 
-    - Choose a location for the installation and cache folder.
-    - Provide your proxy server info if you use a proxy server to connect to the internet.
-    - Provide your user name and password details if you use an authenticated proxy.
-    - Provide the downloaded vault credentials
-    - Save the encryption passphrase in a secure location.
+    - Elija una ubicación para la instalación y la carpeta de caché.
+    - Proporcione la información del servidor proxy si usa un servidor proxy para conectarse a Internet.
+    - Si usa un servidor proxy autenticado, escriba los detalles de nombre y contraseña del usuario.
+    - Proporcione las credenciales del almacén descargado
+    - Guarde la frase de contraseña en una ubicación segura.
 
-    >[AZURE.NOTE] If you lose or forget the passphrase, Microsoft cannot help recover the backup data. Please save the file in a secure location. It is required to restore a backup.
+    >[AZURE.NOTE] Si pierde u olvida la frase de contraseña, Microsoft no puede ayudarle a recuperar los datos de copia de seguridad. Guarde el archivo en una ubicación segura. Es necesario restaurar una copia de seguridad.
 
-The agent is now installed and your machine is registered to the vault. You're ready to configure and schedule your backup.
+Ahora está instalado el agente y el equipo está registrado en el almacén. Está listo para configurar y programar la copia de seguridad.
 
-### <a name="confirm-the-installation"></a>Confirm the installation
+### Confirmación de la instalación
 
-To confirm that the agent was installed and registered correctly, you can check for the items you backed up in the **Production Server** section of the management portal. To do this:
+Para confirmar que el agente se ha instalado y registrado correctamente, puede buscar los elementos de los que ha realizado copia de seguridad en la sección **Servidor de producción** del Portal de administración. Para ello, siga estos pasos:
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/) mediante la suscripción de Azure.
 
-2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list will filter based on your input. Click **Recovery Services vaults**.
+2. En el menú del centro, haga clic en **Examinar** y, en la lista de recursos, escriba **Servicios de recuperación**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacenes de Servicios de recuperación**.
 
-    ![Create Recovery Services Vault step 1](./media/backup-configure-vault/browse-to-rs-vaults.png) <br/>
+    ![Creación del almacén de Servicios de recuperación, paso 1](./media/backup-configure-vault/browse-to-rs-vaults.png) <br/>
 
-    The list of Recovery Services vaults is displayed.
+    Se muestra la lista de almacenes de Servicios de recuperación.
 
-2. Select the name of the vault you created.
+2. Seleccione el nombre del almacén que ha creado.
 
-    The Recovery Services vault dashboard blade opens.
+    Se abre la hoja del panel del almacén de Servicios de recuperación.
 
-    ![recovery services vault dashboard](./media/backup-configure-vault/rs-vault-dashboard.png) <br/>
+    ![panel del almacén de Servicios de recuperación](./media/backup-configure-vault/rs-vault-dashboard.png) <br/>
 
-3. Click the **Settings** button at the top of the page.
+3. Haga clic en el botón **Configuración** situado en la parte superior de la página.
 
-4. Click **Backup Infrastructure > Production Servers**.
+4. Haga clic en **Infraestructura de copia de seguridad > Servidores de producción**.
 
-    ![Production servers](./media/backup-configure-vault/production-server-verification.png)
+    ![Servidores de producción](./media/backup-configure-vault/production-server-verification.png)
 
-If you see your servers in the list, you have confirmation that the agent has been installed and registered correctly.
+Si puede ver los servidores en la lista, tiene la confirmación de que el agente se ha instalado y registrado correctamente.
 
-## <a name="step-4:-complete-the-initial-backup"></a>Step 4: Complete the initial backup
+## Paso 4: Realización de la copia de seguridad inicial
 
-The initial backup includes two key tasks:
+La copia de seguridad inicial incluye dos tareas clave:
 
-- Schedule the backup
-- Back up files and folders for the first time
+- Programación de la copia de seguridad
+- Creación de copias de seguridad de archivos y carpetas por primera vez
 
-To complete the initial backup, you use the Microsoft Azure backup agent.
+Para realizar la copia de seguridad inicial, use el agente de Copia de seguridad de Microsoft Azure.
 
-### <a name="to-schedule-the-backup"></a>To schedule the backup
+### Para programar la copia de seguridad
 
-1. Open the Microsoft Azure Backup agent. You can find it by searching your machine for **Microsoft Azure Backup**.
+1. Abra el agente de Copia de seguridad de Microsoft Azure. Para encontrarlo, busque **Copia de seguridad de Microsoft Azure** en la máquina.
 
-    ![Launch the Azure Backup agent](./media/backup-configure-vault/snap-in-search.png)
+    ![Lanzamiento del agente de Copia de seguridad de Azure](./media/backup-configure-vault/snap-in-search.png)
 
-2. In the Backup agent, click **Schedule Backup**.
+2. En el Agente de Copia de seguridad, haga clic en **Programar copia de seguridad**.
 
-    ![Schedule a Windows Server backup](./media/backup-configure-vault/schedule-first-backup.png)
+    ![Programar una copia de seguridad de Windows Server](./media/backup-configure-vault/schedule-first-backup.png)
 
-3. On the Getting started page of the Schedule Backup Wizard, click **Next**.
+3. En la página de introducción del Asistente para programar copias de seguridad, haga clic en **Siguiente**.
 
-4. On the Select Items to Backup page, click **Add Items**.
+4. En la página Seleccionar elementos de los que realizar copia de seguridad, haga clic en **Agregar elementos**.
 
-5. Select the files and folders that you want to back up, and then click **Okay**.
+5. Seleccione los archivos y las carpetas de los que desea crear la copia de seguridad y, luego, haga clic en **Aceptar**.
 
-6. Click **Next**.
+6. Haga clic en **Siguiente**.
 
-7. On the **Specify Backup Schedule** page, specify the **backup schedule** and click **Next**.
+7. En la página **Especifique la programación de copia de seguridad**, indique la **programación de copia de seguridad** y haga clic en **Siguiente**.
 
-    You can schedule daily (at a maximum rate of three times per day) or weekly backups.
+    Puede programar copias de seguridad diarias (con una frecuencia máxima de tres veces al día) o semanales.
 
-    ![Items for Windows Server Backup](./media/backup-configure-vault/specify-backup-schedule-close.png)
+    ![Elementos para la copia de seguridad de Windows Server](./media/backup-configure-vault/specify-backup-schedule-close.png)
 
-    >[AZURE.NOTE] For more information about how to specify the backup schedule, see the article [Use Azure Backup to replace your tape infrastructure](backup-azure-backup-cloud-as-tape.md).
+    >[AZURE.NOTE] Si desea más información sobre cómo especificar la programación de las copias de seguridad, consulte el artículo [Usar la copia de seguridad de Azure para cambiar su infraestructura de cintas](backup-azure-backup-cloud-as-tape.md).
 
-8. On the **Select Retention Policy** page, select the **Retention Policy** for the backup copy.
+8. En la página **Seleccione la directiva de retención**, elija la **directiva de retención** para la copia de seguridad.
 
-    The retention policy specifies the duration for which the backup will be stored. Rather than just specifying a “flat policy” for all backup points, you can specify different retention policies based on when the backup occurs. You can modify the daily, weekly, monthly, and yearly retention policies to meet your needs.
+    La directiva de retención especifica el tiempo durante el que se almacenará la copia de seguridad. En vez de especificar solo una directiva para todos los puntos de copia de seguridad, puede especificar directivas de retención distintas en función de cuándo se realice la copia de seguridad. Puede modificar las directivas de retención diarias, semanales, mensuales y anuales según sus necesidades.
 
-9. On the Choose Initial Backup Type page, choose the initial backup type. Leave the option **Automatically over the network** selected, and then click **Next**.
+9. En la página Elija el tipo de copia de seguridad inicial, elija el tipo de copia de seguridad inicial. Deje activada la opción **Automáticamente a través de la red** y, luego, haga clic en **Siguiente**.
 
-    You can back up automatically over the network, or you can back up offline. The remainder of this article describes the process for backing up automatically. If you prefer to do an offline backup, review the article [Offline backup workflow in Azure Backup](backup-azure-backup-import-export.md) for additional information.
+    Puede hacer una copia de seguridad automáticamente en la red, o puede realizar una copia sin conexión. En el resto de este artículo, se describe el proceso para crear automáticamente una copia de seguridad. Si prefiere crear una copia de seguridad sin conexión, consulte el artículo [Flujo de trabajo de copia de seguridad sin conexión en Copia de seguridad de Azure](backup-azure-backup-import-export.md) para más información.
 
-10. On the Confirmation page, review the information, and then click **Finish**.
+10. En la página Confirmación, revise la información y, luego, haga clic en **Finalizar**.
 
-11. After the wizard finishes creating the backup schedule, click **Close**.
+11. Cuando el asistente termine de crear la programación de copia de seguridad, haga clic en **Cerrar**.
 
-### <a name="enable-network-throttling-(optional)"></a>Enable network throttling (optional)
+### Habilitación de la velocidad moderada de la red (opcional)
 
-The backup agent provides network throttling. Throttling controls how network bandwidth is used during data transfer. This control can be helpful if you need to back up data during work hours but do not want the backup process to interfere with other Internet traffic. Throttling applies to back up and restore activities.
+El agente de copia de seguridad ofrece limitación de la red. Esta limitación controla cómo se utiliza el ancho de banda de red durante la transferencia de datos. Este control puede resultar útil si necesita realizar una copia de seguridad durante las horas de trabajo, pero no quiere que el proceso interfiera con otro tráfico de Internet. La limitación se aplica a las actividades de copia de seguridad y restauración.
 
->[AZURE.NOTE] Network throttling is not available on Windows Server 2008 R2 SP1, Windows Server 2008 SP2, or Windows 7 (with service packs). The Azure Backup network throttling feature engages Quality of Service (QoS) on the local operating system. Though Azure Backup can protect these operating systems, the version of QoS available on these platforms doesn't work with Azure Backup network throttling. Network throttling can be used on all other [supported operating systems](backup-azure-backup-faq.md#installation-amp-configuration).
+>[AZURE.NOTE] La limitación de la red no está disponible en Windows Server 2008 R2 SP1, Windows Server 2008 SP2 ni en Windows 7 (con Service Packs). La característica de limitación de la red de copia de seguridad de Azure participa en la Calidad del servicio (QoS) del sistema operativo local. Aunque la copia de seguridad de Azure puede proteger estos sistemas operativos, la versión de QoS disponible en estas plataformas no funciona con la limitación de la red de copia de seguridad de Azure. La limitación de la red puede usarse en todos los demás [sistemas operativos admitidos](backup-azure-backup-faq.md#installation-amp-configuration).
 
-**To enable network throttling**
+**Para habilitar la limitación de red**
 
-1. In the backup agent, click **Change Properties**.
+1. En el agente de Copia de seguridad, haga clic en **Cambiar propiedades**.
 
-    ![Change properties](./media/backup-configure-vault/change-properties.png)
+    ![Cambiar propiedades](./media/backup-configure-vault/change-properties.png)
 
-2. On the **Throttling** tab, select the **Enable internet bandwidth usage throttling for backup operations** check box.
+2. En la pestaña **Limitación**, active la casilla **Habilitar el límite de uso del ancho de banda de Internet para operaciones de copia de seguridad**.
 
-    ![Network throttling](./media/backup-configure-vault/throttling-dialog.png)
+    ![Limitación de la red](./media/backup-configure-vault/throttling-dialog.png)
 
-3. After you have enabled throttling, specify the allowed bandwidth for backup data transfer during **Work hours** and **Non-work hours**.
+3. Una vez que se ha habilitado la limitación, especifique el ancho de banda permitido para la transferencia de datos de copia de seguridad durante la **jornada laboral** y las **horas de descanso**.
 
-    The bandwidth values begin at 512 kilobits per second (Kbps) and can go up to 1,023 megabytes per second (MBps). You can also designate the start and finish for **Work hours**, and which days of the week are considered work days. Hours outside of designated work hours are considered non-work hours.
+    Los valores de ancho de banda comienzan en 512 kilobytes por segundo (Kbps) y pueden subir hasta 1023 megabytes por segundo (Mbps). También puede designar el inicio y el final de la **jornada laboral**, así como qué días de la semana se consideran laborables. Las horas que se encuentran fuera de las horas laborables designadas se consideran como no laborables.
 
-4. Click **OK**.
+4. Haga clic en **Aceptar**.
 
-### <a name="to-back-up-files-and-folders-for-the-first-time"></a>To back up files and folders for the first time
+### Creación de copias de seguridad de archivos y carpetas por primera vez
 
-1. In the backup agent, click **Back Up Now** to complete the initial seeding over the network.
+1. En el agente de Copia de seguridad, haga clic en **Iniciar copia de seguridad** para completar la propagación inicial a través de la red.
 
-    ![Windows Server backup now](./media/backup-configure-vault/backup-now.png)
+    ![Realizar copia de seguridad de Windows Server ahora](./media/backup-configure-vault/backup-now.png)
 
-2. On the Confirmation page, review the settings that the Back Up Now Wizard will use to back up the machine. Then click **Back Up**.
+2. En la página Confirmación, revise la configuración que el asistente para iniciar copia de seguridad usará para crear la copia de seguridad de la máquina. Luego, haga clic en **Crear copia de seguridad**.
 
-3. Click **Close** to close the wizard. If you do this before the backup process finishes, the wizard continues to run in the background.
+3. Haga clic en **Cerrar** para cerrar el asistente. Si lo hace antes de que finalice el proceso de copia de seguridad, el asistente se sigue ejecutando en segundo plano.
 
-After the initial backup is completed, the **Job completed** status appears in the Backup console.
+Una vez que finalice la copia de seguridad inicial, el estado **Trabajo completado** se refleja en la consola de Copia de seguridad.
 
-![IR complete](./media/backup-configure-vault/ircomplete.png)
+![IR completado](./media/backup-configure-vault/ircomplete.png)
 
-## <a name="questions?"></a>Questions?
-If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
+## ¿Tiene preguntas?
+Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
 
-## <a name="next-steps"></a>Next steps
-For additional information about backing up VMs or other workloads, see:
+## Pasos siguientes
+Para más información sobre la copia de seguridad de máquinas virtuales u otras cargas de trabajo, consulte:
 
-- Now that you've backed up your files and folders, you can [manage your vaults and servers](backup-azure-manage-windows-server.md).
-- If you need to restore a backup, use this article to [restore files to a Windows machine](backup-azure-restore-windows-server.md).
+- Ahora que ha realizado una copia de seguridad de los archivos y las carpetas, puede [administrar los almacenes y servidores](backup-azure-manage-windows-server.md).
+- Si necesita restaurar una copia de seguridad, use este artículo: [Restaurar archivos en una máquina de Windows Server o del Cliente de Windows](backup-azure-restore-windows-server.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

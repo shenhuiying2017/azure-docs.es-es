@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Verify a gateway connection | Microsoft Azure"
-   description="This article shows you how to verify a gateway connection in the Resource Manager deployment model"
+   pageTitle="Comprobación de una conexión de puerta de enlace | Microsoft Azure"
+   description="En este artículo se muestra cómo comprobar una conexión de puerta de enlace mediante el modelo de implementación de Resource Manager."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -17,41 +17,35 @@
    ms.date="08/03/2016"
    ms.author="cherylmc"/>
 
+# Comprobación de una conexión de puerta de enlace
 
-# <a name="verify-a-gateway-connection"></a>Verify a gateway connection
-
-You can verify your gateway connection in a few different ways. This article will show you how to verify the status of a Resource Manager gateway connection by using the Azure portal and by using PowerShell.
+Puede comprobar la conexión de la puerta de enlace de varias maneras diferentes. En este artículo se explica cómo comprobar el estado de una conexión de puerta de enlace de Resource Manager mediante el Portal de Azure y PowerShell.
 
 
-## <a name="before-you-begin"></a>Before you begin
+## Antes de empezar
 
-If you plan to use PowerShell, you'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets. For more information about using Resource Manager cmdlets, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
+Si planea usar PowerShell, necesitará instalar la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager. Consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para obtener más información sobre cómo instalar los cmdlets de PowerShell. Para obtener más información sobre los cmdlets de Resource Manager, consulte [Uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-1. Open your PowerShell console and connect to your account.
+1. Abre la consola de PowerShell y conéctate a tu cuenta.
 
-        Login-AzureRmAccount
+		Login-AzureRmAccount
 
-2. Check the subscriptions for the account.
+2. Compruebe las suscripciones para la cuenta.
 
-        Get-AzureRmSubscription 
+		Get-AzureRmSubscription 
 
-3. Specify the subscription that you want to use.
+3. Especifique la suscripción que desea usar.
 
-        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+		Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
-## <a name="verifying-your-connection"></a>Verifying your connection
+## Comprobación de la conexión
 
 
 [AZURE.INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-- You can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md) for steps.
+- Puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para ver los pasos.
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

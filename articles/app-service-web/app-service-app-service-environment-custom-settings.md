@@ -1,32 +1,31 @@
 <properties
-    pageTitle="Custom settings for App Service Environments"
-    description="Custom configuration settings for App Service Environments"
-    services="app-service"
-    documentationCenter=""
-    authors="stefsch"
-    manager="nirma"
-    editor=""/>
+	pageTitle="Configuración personalizada de entornos del Servicio de aplicaciones"
+	description="Opciones de configuración personalizada para Entornos del Servicio de aplicaciones"
+	services="app-service"
+	documentationCenter=""
+	authors="stefsch"
+	manager="nirma"
+	editor=""/>
 
 <tags
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/22/2016"
-    ms.author="stefsch"/>
+	ms.service="app-service"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="stefsch"/>
 
+# Opciones de configuración personalizada para Entornos del Servicio de aplicaciones
 
-# <a name="custom-configuration-settings-for-app-service-environments"></a>Custom configuration settings for App Service Environments
+## Información general ##
+Puesto que los entornos del Servicio de aplicaciones están aislados en un solo cliente, hay ciertas opciones de configuración que se pueden aplicar exclusivamente a ellos. En este artículo se documentan las distintas personalizaciones específicas disponibles para los entornos del Servicio de aplicaciones.
 
-## <a name="overview"></a>Overview ##
-Because App Service Environments are isolated to a single customer, there are certain configuration settings that can be applied exclusively to App Service Environments. This article documents the various specific customizations that are available for App Service Environments.
+Si no cuenta con un entorno de Servicio de aplicaciones, consulte [Creación de un entorno del Servicio de aplicaciones](app-service-web-how-to-create-an-app-service-environment.md).
 
-If you do not have an App Service Environment, see [How to Create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md).
+Puede almacenar las personalizaciones del entorno del Servicio de aplicaciones mediante el uso de una matriz en el nuevo atributo **clusterSettings**. Este atributo se encuentra en el diccionario de "Propiedades" de la entidad *hostingEnvironments* de Azure Resource Manager.
 
-You can store App Service Environment customizations by using an array in the new **clusterSettings** attribute. This attribute is found in the "Properties" dictionary of the *hostingEnvironments* Azure Resource Manager entity.
-
-The following abbreviated Resource Manager template snippet shows the **clusterSettings** attribute:
+La siguiente plantilla abreviada de Resource Manager muestra el atributo **clusterSettings**:
 
 
     "resources": [
@@ -47,30 +46,29 @@ The following abbreviated Resource Manager template snippet shows the **clusterS
        }
     }
 
-The **clusterSettings** attribute can be included in a Resource Manager template to update the App Service Environment.
+El atributo **clusterSettings** se puede incluir en una plantilla de Resource Manager para actualizar el entorno del Servicio de aplicaciones.
 
-## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>Use Azure Resource Explorer to update an App Service Environment
-Alternatively, you can update the App Service Environment by using [Azure Resource Explorer](https://resources.azure.com).  
+## Uso del Explorador de recursos de Azure para actualizar un entorno del Servicio de aplicaciones
+Como alternativa, puede actualizar el entorno del Servicio de aplicaciones mediante el [Explorador de recursos de Azure](https://resources.azure.com).
 
-1. In Resource Explorer, go to the node for the App Service Environment (**subscriptions** > **resourceGroups** > **providers** > **Micrososft.Web** > **hostingEnvironments**). Then click the specific App Service Environment that you want to update.
+1. En el Explorador de recursos, vaya al nodo del entorno del Servicio de aplicaciones (**suscripciones** > **resourceGroups** > **proveedores** > **Micrososft.Web** > **hostingEnvironments**). A continuación, haga clic en el entorno del Servicio de aplicaciones específico que quiere actualizar.
 
-2. In the right pane, click **Read/Write** in the upper toolbar to allow interactive editing in Resource Explorer.  
+2. En el panel derecho, haga clic en **Lectura/escritura** en la barra de herramientas superior para permitir la edición interactiva en el Explorador de recursos.
 
-3. Click the blue **Edit** button to make the Resource Manager template editable.
+3. Haga clic en el botón azul **Editar** para que la plantilla de Resource Manager se pueda editar.
 
-4. Scroll to the bottom of the right pane. The **clusterSettings** attribute is at the very bottom, where you can enter or update its value.
+4. Desplácese hasta la parte inferior del panel derecho. El atributo **clusterSettings** se encuentra abajo del todo, donde puede especificar o actualizar su valor.
 
-5. Type (or copy and paste) the array of configuration values you want in the **clusterSettings** attribute.  
+5. Escriba (o copie y pegue) la matriz de valores de configuración que quiera en el atributo **clusterSettings**.
 
-6. Click the green **PUT** button that's located at the top of the right pane to commit the change to the App Service Environment.
+6. Haga clic en el botón verde **PUT** situado en la parte superior del panel derecho para confirmar el cambio en el entorno del Servicio de aplicaciones.
 
-However you submit the change, it takes roughly 30 minutes multiplied by the number of front ends in the App Service Environment for the change to take effect.
-For example, if an App Service Environment has four front ends, it will take roughly two hours for the configuration update to finish. While the configuration change is being rolled out, no other scaling operations or configuration change operations can take place in the App Service Environment.
+Una vez enviado el cambio, tarda en aplicarse aproximadamente 30 minutos multiplicado por el número de front-ends en el entorno del Servicio de aplicaciones. Por ejemplo, si un entorno del Servicio de aplicaciones tiene cuatro front-ends, tardará aproximadamente dos horas en finalizar la actualización de la configuración. Mientras se implementa el cambio de configuración, no será posible realizar otras operaciones de escalado o de cambio de configuración en el entorno del Servicio de aplicaciones.
 
-## <a name="disable-tls-1.0"></a>Disable TLS 1.0 ##
-A recurring question from customers, especially customers who are dealing with PCI compliance audits, is how to explicitly disable TLS 1.0 for their apps.
+## Deshabilitación de TLS 1.0 ##
+Una pregunta recurrente de los clientes, especialmente de aquellos con auditorías de cumplimiento de PCI, es cómo deshabilitar explícitamente TLS 1.0 en sus aplicaciones.
 
-TLS 1.0 can be disabled through the following **clusterSettings** entry:
+TLS 1.0 se puede deshabilitar mediante la siguiente entrada de **clusterSettings**:
 
         "clusterSettings": [
             {
@@ -79,8 +77,8 @@ TLS 1.0 can be disabled through the following **clusterSettings** entry:
             }
         ],
 
-## <a name="change-tls-cipher-suite-order"></a>Change TLS cipher suite order ##
-Another question from customers is if they can modify the list of ciphers negotiated by their server and this can be achieved by modifying the **clusterSettings** as shown below. The list of cipher suites available can be retrieved from [this MSDN article](https://msdn.microsoft.com/library/windows/desktop/aa374757(v=vs.85\).aspx).
+## Cambio del orden del conjunto de aplicaciones de cifrado TLS ##
+Otra pregunta de los clientes es si pueden modificar la lista de cifrados negociados por su servidor, y si esto puede lograrse mediante la modificación del atributo **clusterSettings**, como se muestra a continuación. La lista de conjuntos de aplicaciones de cifrado disponibles se puede recuperar [en este artículo de MSDN](https://msdn.microsoft.com/library/windows/desktop/aa374757(v=vs.85).aspx).
 
         "clusterSettings": [
             {
@@ -89,18 +87,14 @@ Another question from customers is if they can modify the list of ciphers negoti
             }
         ],
 
-> [AZURE.WARNING]  If incorrect values are set for the cipher suite that SChannel cannot understand, all TLS communication to your server might stop functioning. In such a case, you will need to remove the *FrontEndSSLCipherSuiteOrder* entry from **clusterSettings** and submit the updated Resource Manager template to revert back to the default cipher suite settings.  Please use this functionality with caution.
+> [AZURE.WARNING]  Nota: Si se establecen valores incorrectos para el conjunto de aplicaciones de cifrado que SChannel no entiende, toda la comunicación TLS en el servidor podría dejar de funcionar. En tal caso, debe quitar la entrada *FrontEndSSLCipherSuiteOrder* de **clusterSettings** y enviar la plantilla de Resource Manager actualizada para volver a la configuración de conjunto de cifrado predeterminada. Utilice esta funcionalidad con precaución.
 
-## <a name="get-started"></a>Get started
-The Azure Quickstart Resource Manager template site includes a template with the base definition for [creating an App Service Environment](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
+## Primeros pasos
+El sitio de inicio rápido de plantillas de Azure Resource Manager incluye una plantilla con la definición base para [crear un entorno del Servicio de aplicaciones](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
 
 
 <!-- LINKS -->
 
 <!-- IMAGES -->
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

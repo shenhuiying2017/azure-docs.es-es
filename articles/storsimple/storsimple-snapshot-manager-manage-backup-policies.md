@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple Snapshot Manager backup policies | Microsoft Azure"
-   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to create and manage the backup policies that control scheduled backups."
+   pageTitle="Directivas de copia de seguridad de Administrador de instantáneas StorSimple | Microsoft Azure"
+   description="Describe cómo usar el complemento MMC de Administrador de instantáneas StorSimple para crear y administrar las directivas de copia de seguridad que controlan las copias de seguridad programadas."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,114 +15,109 @@
    ms.date="05/12/2016"
    ms.author="v-sharos" />
 
+# Use Administrador de instantáneas StorSimple para crear y administrar directivas de copia de seguridad
 
-# <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Use StorSimple Snapshot Manager to create and manage backup policies
+## Información general
 
-## <a name="overview"></a>Overview
+Una directiva de copia de seguridad crea una programación para realizar una copia de seguridad de los datos del volumen localmente o en la nube. Cuando crea una directiva de copia de seguridad, también puede especificar una directiva de retención. (Puede retener un máximo de 64 instantáneas). Para obtener más información sobre las directivas de copia de seguridad, consulte [Tipos de copia de seguridad](storsimple-what-is-snapshot-manager.md#backup-type) en [Serie 8000 de StorSimple: una solución de nube híbrida](storsimple-overview.md).
 
-A backup policy creates a schedule for backing up volume data locally or in the cloud. When you create a backup policy, you can also specify a retention policy. (You can retain a maximum of 64 snapshots.) For more information about backup policies, see [Backup types](storsimple-what-is-snapshot-manager.md#backup-type) in [StorSimple 8000 series: a hybrid cloud solution](storsimple-overview.md).
+Este tutorial explica cómo realizar lo siguiente:
 
-This tutorial explains how to:
+- Creación de una directiva de copia de seguridad 
+- Edición de una directiva de copia de seguridad 
+- Eliminación de una directiva de copia de seguridad 
 
-- Create a backup policy 
-- Edit a backup policy 
-- Delete a backup policy 
+## Creación de una directiva de copia de seguridad
 
-## <a name="create-a-backup-policy"></a>Create a backup policy
+Use el procedimiento siguiente para crear una nueva directiva de copia de seguridad.
 
-Use the following procedure to create a new backup policy.
+#### Para crear una directiva de copia de seguridad
 
-#### <a name="to-create-a-backup-policy"></a>To create a backup policy
+1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple.
 
-1. Click the desktop icon to start StorSimple Snapshot Manager.
+2. En el panel **Ámbito**, haga clic con el botón derecho en **Directivas de copia de seguridad** y haga clic en **Crear directiva de copia de seguridad**.
 
-2. In the **Scope** pane, right-click **Backup Policies**, and click **Create Backup Policy**.
+    ![Creación de una directiva de copia de seguridad](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_BU_policy.png)
 
-    ![Create a backup policy](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_BU_policy.png)
+    Aparecerá el cuadro de diálogo **Crear una directiva**.
 
-    The **Create a Policy** dialog box appears. 
+    ![Creación de una directiva - pestaña General](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_general.png)
 
-    ![Create a Policy - General tab](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_general.png)
+3. En la pestaña **General**, complete la siguiente información:
 
-3. On the **General** tab, complete the following information:
+   1. En el cuadro de texto **Nombre**, escriba un nombre para la directiva.
 
-   1. In the **Name** text box, type a name for the policy.
+   2. En el cuadro de texto **Grupo de volúmenes**, escriba el nombre del grupo de volúmenes asociado con la directiva.
 
-   2. In the **Volume group** text box, type the name of the volume group associated with the policy.
+   3. Seleccione **Instantánea local** o **Instantánea de nube**.
 
-   3. Select either **Local Snapshot** or **Cloud Snapshot**.
+   4. Seleccione el número de instantáneas que desea retener. Si selecciona **Todas**, se retendrán 64 instantáneas (el número máximo).
 
-   4. Select the number of snapshots to retain. If you select **All**, 64 snapshots will be retained (the maximum). 
+4. Haga clic en la pestaña **Programar**.
 
-4. Click the **Schedule** tab.
+    ![Creación de una directiva - pestaña Programación](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_schedule.png)
 
-    ![Create a Policy - Schedule tab](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_schedule.png)
+5. En la pestaña **Programación**, complete la siguiente información:
 
-5. On the **Schedule** tab, complete the following information: 
+   1. Haga clic en la casilla **Habilitar** para programar la siguiente copia de seguridad.
 
-   1. Click the **Enable** check box to schedule the next backup.
+   2. En **Configuración**, seleccione **Una vez**, **Diario**, **Semanal** o **Mensual**.
 
-   2. Under **Settings**, select **One time**, **Daily**, **Weekly**, or **Monthly**. 
+   3. En el cuadro de texto **Inicio**, haga clic en el icono de calendario y seleccione una fecha de inicio.
 
-   3. In the **Start** text box, click the calendar icon and select a start date.
+   4. En **Configuración avanzada**, puede establecer programaciones de repetición opcionales y una fecha de finalización.
 
-   4. Under **Advanced Settings**, you can set optional repeat schedules and an end date.
+   5. Haga clic en **Aceptar**.
 
-   5. Click **OK**.
+Después de crear una directiva de copia de seguridad, aparece la siguiente información en el panel **Resultados**:
 
-After you create a backup policy, the following information appears in the **Results** pane:
+- **Nombre**: nombre de la directiva de copia de seguridad.
 
-- **Name** – the name of backup policy.
+- **Tipo**: instantánea local o instantánea de nube.
 
-- **Type** – local snapshot or cloud snapshot.
+- **Grupo de volúmenes**: grupo de volúmenes asociado a la directiva.
 
-- **Volume Group** – the volume group associated with the policy.
+- **Retención**: número de instantáneas retenidas; el número máximo es 64.
 
-- **Retention** – the number of snapshots retained; the maximum is 64.
+- **Creado**: fecha en que se creó esta directiva.
 
-- **Created** – the date that this policy was created.
+- **Habilitado**: si la directiva está actualmente en vigor: **True** indica que está en vigor; **False** indica que no está en vigor.
 
-- **Enabled** – whether the policy is currently in effect: **True** indicates that it is in effect; **False** indicates that it is not in effect. 
+## Edición de una directiva de copia de seguridad
 
-## <a name="edit-a-backup-policy"></a>Edit a backup policy
+Use el procedimiento siguiente para editar una directiva de copia de seguridad existente.
 
-Use the following procedure to edit an existing backup policy.
+#### Para editar una directiva de copia de seguridad
 
-#### <a name="to-edit-a-backup-policy"></a>To edit a backup policy
+1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple. 
 
-1. Click the desktop icon to start StorSimple Snapshot Manager. 
+2. En el panel **Ámbito**, haga clic en el nodo **Directivas de copia de seguridad**. Todas las directivas de copia de seguridad aparecen en el panel **Resultados**.
 
-2. In the **Scope** pane, click the **Backup Policies** node. All the backup policies appear in the **Results** pane. 
+3. Haga clic con el botón derecho en la directiva que desee editar y después haga clic en **Editar**.
 
-3. Right-click the policy that you want to edit, and then click **Edit**. 
+    ![Edición de una directiva de copia de seguridad](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Edit_BU_policy.png)
 
-    ![Edit a backup policy](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Edit_BU_policy.png) 
+4. Cuando aparezca la ventana **Crear una directiva**, escriba los cambios y después haga clic en **Aceptar**.
 
-4. When the **Create a Policy** window appears, enter your changes, and then click **OK**. 
+## Eliminación de una directiva de copia de seguridad
 
-## <a name="delete-a-backup-policy"></a>Delete a backup policy
+Use el procedimiento siguiente para eliminar una directiva de copia de seguridad.
 
-Use the following procedure to delete a backup policy.
+#### Para eliminar una directiva de copia de seguridad
 
-#### <a name="to-delete-a-backup-policy"></a>To delete a backup policy
+1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple. 
 
-1. Click the desktop icon to start StorSimple Snapshot Manager. 
+2. En el panel **Ámbito**, haga clic en el nodo **Directivas de copia de seguridad**. Todas las directivas de copia de seguridad aparecen en el panel **Resultados**.
 
-2. In the **Scope** pane, click the **Backup Policies** node. All the backup policies appear in the **Results** pane. 
+3. Haga clic con el botón derecho en la directiva de copia de seguridad que desee eliminar y después haga clic en **Eliminar**.
 
-3. Right-click the backup policy that you want to delete, and then click **Delete**.
+4. Cuando aparezca el mensaje de confirmación, haga clic en **Sí**.
 
-4. When the confirmation message appears, click **Yes**.
+    ![Eliminación de la confirmación de una directiva de copia de seguridad](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
 
-    ![Delete backup policy confirmation](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
+## Pasos siguientes
 
-## <a name="next-steps"></a>Next steps
+- Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
+- Obtenga más información acerca de [uso de Snapshot Manager de StorSimple para ver y administrar trabajos de copia de seguridad](storsimple-snapshot-manager-manage-backup-jobs.md).
 
-- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
-- Learn how to [use StorSimple Snapshot Manager to view and manage backup jobs](storsimple-snapshot-manager-manage-backup-jobs.md).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0518_2016-->

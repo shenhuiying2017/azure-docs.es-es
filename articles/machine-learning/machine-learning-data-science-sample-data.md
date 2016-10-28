@@ -1,45 +1,37 @@
 <properties 
-    pageTitle="Sample data in Azure blob containers, SQL Server, and Hive tables | Microsoft Azure" 
-    description="How to explore data stored in various Azure enviromnents." 
-    services="machine-learning" 
-    documentationCenter="" 
-    authors="bradsev" 
-    manager="jhubbard" 
-    editor="cgronlun" />
+	pageTitle="Muestra de datos en contenedores de blob de Azure, SQL Server y tablas de Hive | Microsoft Azure" 
+	description="Exploración de datos almacenados en diversos entornos de Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="jhubbard" 
+	editor="cgronlun" />
 
 <tags 
-    ms.service="machine-learning" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/19/2016" 
-    ms.author="fashah;garye;bradsev" /> 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/19/2016" 
+	ms.author="fashah;garye;bradsev" />
 
+#<a name="heading"></a>Muestra de datos en contenedores de blob de Azure, SQL Server y tablas de Hive
 
-#<a name="<a-name="heading"></a>sample-data-in-azure-blob-containers,-sql-server,-and-hive-tables"></a><a name="heading"></a>Sample data in Azure blob containers, SQL Server, and Hive tables
+Este documento incluye vínculos a temas que trata cómo muestrear los datos que se almacenan en una de las tres diferentes ubicaciones de Azure:
 
-This document links to topics that covers how to sample data that is stored in one of three different Azure locations:
+- Se realiza la muestra de los **datos del contenedor de blobs de Azure** descargándolos mediante programación y, a continuación, realizando un muestreo de ellos con el código Python de ejemplo.
+- Se realiza el muestreo de los **datos de SQL Server** con SQL y el lenguaje de programación Python.
+- Se realiza el muestreo de los **datos de las tablas de Hive** mediante consultas de Hive.
 
-- **Azure blob container data** is sampled by downloading it programmatically and then sampling it with sample Python code.
-- **SQL Server data** is sampled using both SQL and the Python Programming Language. 
-- **Hive table data** is sampled using Hive queries.
-
-The **menu** below links to the topics that describe how to sample data from each of these Azure storage environments. 
+El **menú** siguiente vincula a temas que describen cómo se realiza el muestreo de datos desde cada uno de estos entornos de Azure Storage.
 
 [AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
-This sampling task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-## <a name="why-sample-data?"></a>Why sample data?
+## ¿Por qué realizar un muestreo de datos?
 
-If the dataset you plan to analyze is large, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.
+Si el conjunto de datos que pretende analizar es grande, suele ser una buena idea reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. Esto facilita la comprensión y exploración de los datos, y el diseño de características. Su rol en el proceso de análisis de Cortana es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
 
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

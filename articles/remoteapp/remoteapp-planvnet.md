@@ -1,6 +1,6 @@
 <properties
-    pageTitle="How to plan your virtual network for an Azure RemoteApp collection | Microsoft Azure"
-    description="Learn how to plan your virtual network for an Azure RemoteApp collection."
+    pageTitle="Cómo planificar la red virtual para una colección de Azure RemoteApp | Microsoft Azure"
+    description="Información sobre cómo planificar la red virtual para una colección de Azure RemoteApp."
     services="remoteapp"
     documentationCenter="" 
     authors="mghosh1616"
@@ -15,53 +15,47 @@
     ms.date="08/15/2016"
     ms.author="elizapo" />
 
-
-# <a name="how-to-plan-your-virtual-network-for-azure-remoteapp"></a>How to plan your virtual network for Azure RemoteApp
+# Cómo planificar la red virtual para Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
-This document describes how to set up your Azure virtual network (VNET) and the subnet for Azure RemoteApp. If you are unfamiliar with Azure virtual networks, this is a capability that helps you to virtualize your network infrastructure to the cloud and to create hybrid solutions with Azure and your on-premises resources. You can read more about it [here](../virtual-network/virtual-networks-overview.md).
+En este documento se describe cómo configurar la red virtual (VNET) de Azure y la subred para Azure RemoteApp. Si no estás familiarizado con las redes virtuales de Azure, esta es una capacidad que te ayuda a virtualizar tu infraestructura de red en la nube y a crear soluciones híbridas con Azure y con tus recursos locales. Puede leer más sobre este tema [aquí](../virtual-network/virtual-networks-overview.md).
 
-If you want to define security policies for traffic (both incoming and outgoing) in your virtual network where you are deploying Azure RemoteApp, we strongly recommend creating a separate subnet for Azure RemoteApp from the rest of your deployments in the Azure virtual network. For more information on how to define security policies on your Azure virtual network subnet, please read [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md).
+Si quieres definir directivas de seguridad para el tráfico (entrante y saliente) en la red virtual donde vas a implementar Azure RemoteApp, te recomendamos que crees una subred de Azure RemoteApp independiente del resto de las implementaciones de la red virtual de Azure. Para obtener más información sobre cómo definir las directivas de seguridad de la subred de red virtual de Azure, lee [¿Qué es un grupo de seguridad de red (NSG)?](../virtual-network/virtual-networks-nsg.md).
 
-## <a name="types-of-azure-remoteapp-collections-with-azure-virtual-networks"></a>Types of Azure RemoteApp collections with Azure virtual networks
+## Tipos de colecciones de RemoteApp de Azure con redes virtuales de Azure
 
-The following graphics show the two different collection options when you want to use a virtual network.
+Los gráficos siguientes muestran las dos opciones de colección diferentes para cuando quieres usar una red virtual.
 
-### <a name="azure-remoteapp-cloud-collection-with-vnet"></a>Azure RemoteApp cloud collection with VNET
+### Colección en la nube de Azure RemoteApp con VNET
 
- ![Azure RemoteApp - Cloud collection with a VNET](./media/remoteapp-planvpn/ra-cloudvpn.png)
+ ![Colección en la nube de Azure RemoteApp con una VNET](./media/remoteapp-planvpn/ra-cloudvpn.png)
 
-This represents an Azure RemoteApp collection where all the resources that the RemoteApp session hosts need to access are deployed in Azure. They can be in the same VNET as the RemoteApp VNET or a different VNET in Azure.
+Esto representa una colección de Azure RemoteApp donde se implementan en Azure todos los recursos a los que necesitan acceder los hosts de sesión de RemoteApp. Pueden estar en la misma VNET que la VNET de RemoteApp o en una VNET de Azure diferente.
 
-### <a name="azure-remoteapp-hybrid-collection-with-vnet"></a>Azure RemoteApp hybrid collection with VNET
+### Colección híbrida de Azure RemoteApp con VNET
 
-![Azure RemoteApp - Hybrid collection with a VNET](./media/remoteapp-planvpn/ra-hybridvpn.png)
+![Colección híbrida de Azure RemoteApp con una VNET](./media/remoteapp-planvpn/ra-hybridvpn.png)
 
-This represents an Azure RemoteApp collection where some of the resources that the RemoteApp session hosts need to access are deployed on-premises. The RemoteApp VNET is linked to the on-premises network using Azure hybrid technologies like site-to-site VPN or Express Route.
-
-
-## <a name="how-the-system-works"></a>How the system works
-
-Under the covers Azure RemoteApp deploys Azure virtual machines (with your uploaded image) to the virtual network subnet that you chose during provisioning. If you opted for a hybrid collection, we try to resolve the FQDN of the domain controller you entered in the provisioning workflow with the DNS server provided in the virtual network.  
-If you are connecting to an existing virtual network, make sure to expose the necessary ports in your network security groups in your Azure RemoteApp subnet. 
-
-We recommend you use a [large enough  subnet for Azure RemoteApp](remoteapp-vnetsizing.md). The largest supported by Azure Virtual network is /8 (using CIDR subnet definitions). Your subnet should be large enough to accommodate all the Azure RemoteApp VMs during scale-up when more users are accessing the apps. 
-
-Following are the things you will need to enable on your virtual network subnet: 
-
-2.  Outbound traffic from the subnet should be allowed on port range 10101-10175 to communicate with one of the internal Azure RemoteApp services.
-3.  Outbound traffic should be allowed from your subnet to connect to Azure Storage on port 443
-4.  If you have Active Directory hosted in Azure, make sure any VM within the virtual network subnet for Azure RemoteApp is able to connect to that domain controller. The DNS in the virtual network should be able to resolve the FQDN of this domain controller.
+Esto representa una colección de Azure RemoteApp donde se implementan localmente algunos de los recursos a los que necesitan acceder los hosts de sesión de RemoteApp. La RemoteApp de VNET está vinculada a la red local mediante tecnologías híbridas de Azure como las VPN de sitio a sitio o Express Route.
 
 
-## <a name="virtual-network-with-forced-tunneling"></a>Virtual network with forced tunneling
+## Funcionamiento del sistema
 
-[Forced tunneling](../vpn-gateway/vpn-gateway-about-forced-tunneling.md) is now supported for all new Azure RemoteApp collections. We currently do not support the migration of an existing collection to support forced tunneling.  You will have to delete all your existing collections using the VNET that you are linking to Azure RemoteApp and create a new one to get forced tunneling enabled on your collections. 
+En un segundo plano, Azure RemoteApp implementa máquinas virtuales de Azure (con tu imagen cargada) a la subred de red virtual que elegiste durante el aprovisionamiento. Si optaste por una colección híbrida, se intenta resolver el FQDN del controlador de dominio que escribiste en el flujo de trabajo de aprovisionamiento con el servidor DNS proporcionado en la red virtual. Si te conectas a una red virtual existente, asegúrate de exponer los puertos necesarios en los grupos de seguridad de red en la subred de Azure RemoteApp.
+
+Se recomienda usar una [subred lo suficientemente grande como para Azure RemoteApp](remoteapp-vnetsizing.md). La más grande compatible con la Red virtual de Azure es de /8 (usando las definiciones de subred CIDR). La subred tiene que ser lo suficientemente grande como para dar cabida a todas las VM de Azure RemoteApp durante la escala vertical cuando hay más usuarios accediendo a las aplicaciones.
+
+Esto es lo que tienes que habilitar en la subred de red virtual:
+
+2.	Se debe permitir el tráfico saliente de la subred en el intervalo de puertos 10101-10175 para que se pueda comunicar con uno de los servicios internos de Azure RemoteApp.
+3.	Se debe permitir el tráfico saliente desde tu subred para que se pueda conectar al almacenamiento de Azure en el puerto 443
+4.	Si dispones de Active Directory hospedado en Azure, asegúrate de que todas las VM de la subred de red virtual de RemoteApp de Azure se pueden conxtar a ese controlador de dominio. El DNS de la red virtual tiene que poder resolver el FQDN de este controlador de dominio.
 
 
+## Red virtual con tunelización forzada
 
-<!--HONumber=Oct16_HO2-->
+Ahora, la [Tunelización forzada](../vpn-gateway/vpn-gateway-about-forced-tunneling.md) es compatible con todas las colecciones nuevas de Azure RemoteApp. Actualmente no se admite que la migración de una colección existente admita la tunelización forzada. Tendrás que eliminar todas las colecciones existentes mediante la VNET que quieres vincular a Azure RemoteApp y crear una nueva para tener habilitada la tunelización forzada en las colecciones.
 
-
+<!---HONumber=AcomDC_0817_2016-->

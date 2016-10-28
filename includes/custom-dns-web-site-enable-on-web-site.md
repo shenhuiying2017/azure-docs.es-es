@@ -1,28 +1,25 @@
-After the records for your domain name have propagated, you must associate them with your Web App. Use the following steps to enable the domain names using your web browser.
+Después de que los registros del nombre de dominio se hayan propagado, es preciso asociarlos a la aplicación web. Utilice los pasos siguientes para habilitar los nombres de dominio mediante el explorador web.
 
-> [AZURE.NOTE] It can take some time for TXT records created in the previous steps to propagate through the DNS system. You cannot add the domain name of to your web app until the TXT record has propagated. If you are using an A record, you cannot add the A record domain name to your web app until the TXT record created in the previous step has propagated.
+> [AZURE.NOTE] Puede que pase un tiempo antes de que los registros TXT que se crearon en los pasos anteriores se propaguen por el sistema DNS. El nombre de dominio de la aplicación web no se puede agregar hasta que se haya propagado el registro TXT. Si usa un registro D, no puede agregar el nombre de dominio de dicho registro a la aplicación web hasta que se haya propagado el registro TXT creado en el paso anterior.
 >
-> You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the TXT record is available.
+> Puede usar un servicio como <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> para comprobar que el registro TXT está disponible.
 
-1. In your browser, open the [Azure Portal](https://portal.azure.com).
+1. En el explorador, abra el [Portal de Azure](https://portal.azure.com).
 
-2. In the **Web Apps** tab, click the name of your web app, and then select **Custom domains**
+2. En la pestaña **Aplicaciones web**, haga clic en el nombre de la aplicación web y seleccione **Dominios personalizados**.
 
-    ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
+	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-3. In the **Custom domains** blade, click **Add hostname**.
-    
-4. Use the **Hostname** text boxes to enter the domain names to associate with this web app.
+3. En la hoja **Dominios personalizados**, haga clic en **Agregar nombre de host**.
+	
+4. Utilice los cuadros de texto **Nombre de host** para escribir los nombres de dominio que se van a asociar a esta aplicación web.
 
-    ![](./media/custom-dns-web-site/add-custom-domain.png)
+	![](./media/custom-dns-web-site/add-custom-domain.png)
 
-6.  Click **Validate**.
+6.  Haga clic en **Validar**.
 
-7.  Upon clicking **Validate** Azure will kick off Domain Verification workflow. This will check for Domain ownership as well as Hostname availability and report success or detailed error with prescriptive guidence on how to fix the error.    
+7.  Al hacer clic en **Validar**, Azure iniciará el flujo de trabajo Verificación de dominio. Este flujo de trabajo comprobará la propiedad del dominio y la disponibilidad del nombre de host, e informará del éxito o del error de forma detallada y con instrucciones para solucionar el error.
 
-At this point, you should be able to enter the custom domain name in your browser and see that it successfully takes you to your web app.
+En este punto, debería poder escribir el nombre de dominio personalizado en el explorador y ver que le lleva sin problemas a la aplicación web.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

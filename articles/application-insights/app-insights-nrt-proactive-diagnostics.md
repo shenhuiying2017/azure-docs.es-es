@@ -1,182 +1,175 @@
 <properties 
-    pageTitle="Near Real Time Proactive Diagnostics in Application Insights | Microsoft Azure" 
-    description="Alerts you to unusual failure patterns in your app, and provides diagnostic analysis. No configuration is needed." 
-    services="application-insights" 
+	pageTitle="Diagnóstico proactivo en tiempo casi real de Application Insights | Microsoft Azure" 
+	description="Le alerta de patrones de error poco comunes en la aplicación y proporciona un análisis de diagnóstico. No necesita ninguna configuración." 
+	services="application-insights" 
     documentationCenter=""
-    authors="yorac" 
-    manager="douge"/>
+	authors="yorac" 
+	manager="douge"/>
 
 <tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="05/05/2016" 
-    ms.author="awills"/>
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/05/2016" 
+	ms.author="awills"/>
  
+# Diagnóstico proactivo en tiempo casi real
 
-# <a name="near-real-time-proactive-diagnostics"></a>Near Real Time Proactive Diagnostics
+[Application Insights para Visual Studio](app-insights-overview.md) notifica automáticamente al usuario en tiempo casi real si se detecta un aumento anómalo de la tasa de solicitudes con errores. Para ayudarle a evaluar y diagnosticar el problema, en la notificación se proporciona un análisis de las características de las solicitudes con errores y la telemetría relacionada. También hay vínculos en el portal de Application Insights para obtener un diagnóstico más amplio. La característica no necesita ninguna instalación o configuración, ya que usa algoritmos de aprendizaje automático para predecir la tasa normal de errores.
 
-[Visual Studio Application Insights](app-insights-overview.md) automatically notifies you in near real time if an abnormal rise in failed requests rate is detected. To help you triage and diagnose the problem, an analysis of the characteristics of failed requests and related telemetry is provided in the notification. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up or configuration, as it uses machine learning algorithms to predict the normal failure rate.
+Esta característica funciona para aplicaciones web ASP.NET y de Java, hospedadas en la nube o en sus propios servidores. También funciona para cualquier aplicación que genere telemetría de solicitudes, por ejemplo, si tiene un rol de trabajo que llama a [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request).
 
-This feature works for Java and ASP.NET web apps, hosted in the cloud or on your own servers. It also works for any app that generates request telemetry - for example, if you have a worker role that calls [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request). 
+Después de configurar [Application Insights para su proyecto](app-insights-overview.md), y siempre que la aplicación genere una cantidad mínima determinada de datos de telemetría, el diagnóstico proactivo en tiempo casi real tarda 24 horas en familiarizarse con el comportamiento normal de la aplicación. Después, se activará y podrá enviar alertas.
 
-After setting up [Application Insights for your project](app-insights-overview.md), and provided your app generates a certain minimum amount of telemetry, NRT Proactive Diagnostics takes 24 hours to learn the normal behavior of your app, before it is switched on and can send alerts.
+Esta es una alerta de ejemplo.
 
-Here's a sample alert. 
+![El ejemplo de alerta inteligente muestra el análisis del clúster sobre el error](./media/app-insights-nrt-proactive-diagnostics/010.png)
 
-![Sample Intelligent Alert showing cluster analysis around failure](./media/app-insights-nrt-proactive-diagnostics/010.png)
+> [AZURE.NOTE] De forma predeterminada, obtendrá un correo de formato más corto que este ejemplo. Pero puede [cambiar a este formato detallado](#configure-alerts).
 
-> [AZURE.NOTE] By default, you get a shorter format mail than this example. But you can [switch to this detailed format](#configure-alerts).
+Observe que le indica:
 
-Notice that it tells you:
+* La tasa de errores en comparación con el comportamiento normal de la aplicación.
+* Cuántos usuarios se ven afectados (para darle una idea de la gravedad).
+* Un patrón característico relacionado con los errores. En este ejemplo encontrará un código de respuesta, un nombre de solicitud (operación) y una versión de aplicación concretos. Esto le indica inmediatamente por dónde empezar a buscar en el código. Otras posibilidades pueden ser un sistema operativo cliente o explorador específicos.
+* Las excepciones, seguimientos de registros y errores de dependencias (bases de datos u otros componentes externos) que parecen estar asociados con las solicitudes erróneas caracterizadas.
+* Los vínculos directos a búsquedas significativas en los datos de telemetría en Application Insights.
 
-* The failure rate compared to normal app behavior.
-* How many users are affected – so you know how much to worry.
-* A characteristic pattern associated with the failures. In this example, there’s a particular response code, request name (operation) and app version. That immediately tells you where to start looking in your code. Other possibilities could be a specific browser or client operating system.
-* The exception, log traces, and dependency failure (databases or other external components) that appear to be associated with the characterized failed requests.
-* Links directly to relevant searches on the telemetry in Application Insights.
+## Ventajas de alertas proactivas
 
-## <a name="benefits-of-proactive-alerts"></a>Benefits of proactive alerts
+Las [alertas de métricas](app-insights-alerts.md) normales le comunican que puede haber un problema. Pero el diagnóstico proactivo en tiempo casi real, empieza el trabajo de diagnóstico, realizando muchos de los análisis que, de otra forma, tendría que hacer usted mismo. Los resultados se le presentan claramente organizados, lo que le ayuda a llegar rápidamente a la raíz del problema.
 
-Ordinary [metric alerts](app-insights-alerts.md) tell you there might be a problem. But NRT Proactive Diagnostics starts the diagnostic work for you, performing a lot of the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
+## Cómo funciona
 
-## <a name="how-it-works"></a>How it works
+El diagnóstico proactivo en tiempo casi real supervisa la telemetría recibida de su aplicación y, en particular, la tasa de solicitudes con errores. Esta métrica cuenta el número de solicitudes para las que la propiedad `Successful request` es False. De manera predeterminada, `Successful request== (resultCode < 400)` (a no ser que haya escrito código personalizado para [filtrar](app-insights-api-filtering-sampling.md#filtering) o generar sus propias llamadas [TrackRequest](app-insights-api-custom-events-metrics.md#track-request)).
 
-Near Real Time Proactive Diagnostics monitors the telemetry received from your app, and in particular the failed request rate. This metric counts the number of requests for which the `Successful request` property is false. By default, `Successful request== (resultCode < 400)` (unless you have written custom code to [filter](app-insights-api-filtering-sampling.md#filtering) or generate your own [TrackRequest](app-insights-api-custom-events-metrics.md#track-request) calls). 
+El rendimiento de una aplicación tiene un patrón típico de comportamiento. Algunas solicitudes son más propensas a errores que otras; y la tasa de error general puede aumentar a medida que aumenta la carga. El diagnóstico proactivo en tiempo casi real utiliza el aprendizaje automático para buscar estas anomalías.
 
-Your app’s performance has a typical pattern of behavior. Some requests will be more prone to failure than others; and the overall failure rate may go up as load increases. NRT Proactive Diagnostics uses machine learning to find these anomalies. 
+A medida que Application Insights recibe telemetría de su aplicación web, el diagnósticos proactivo compara el comportamiento actual con los patrones vistos a lo largo de los últimos días. Si se observa un incremento anómalo de la tasa de errores en comparación con el rendimiento previo, se desencadena un análisis.
 
-As telemetry comes into Application Insights from your web app, NRT Proactive Diagnostics compares the current behavior with the patterns seen over the past few days. If an abnormal rise in failure rate is observed by comparison with previous performance, an analysis is triggered.
+Cuando se desencadena un análisis, el servicio realiza un análisis del clúster en la solicitud errónea, para tratar de identificar un patrón de valores que caracterice los errores. En el ejemplo anterior, el análisis ha detectado que la mayoría de los errores giran en torno a un código de resultado, nombre de solicitud, host de URL de servidor e instancia de rol específicos. Por el contrario, el análisis ha descubierto que la propiedad del sistema operativo de cliente se distribuye en varios valores y, por lo tanto, no se muestra.
 
-When an analysis is triggered, the service performs a cluster analysis on the failed request, to try to identify a pattern of values that characterize the failures. In the example above, the analysis has discovered that most failures are about a specific result code, request name, Server URL host, and role instance. By contrast, the analysis has discovered that the client operating system property is distributed over multiple values, and so it is not listed.
+Si se instrumenta el servicio con estos datos de telemetría, el analizador busca una excepción y un error de dependencia que estén asociados a solicitudes del clúster que identificó, junto con un ejemplo de cualquier registro de seguimiento asociado a estas solicitudes.
 
-When your service is instrumented with these telemetry, the analyser finds an exception and a dependency failure that are associated with requests in the cluster it has identified, together with an example of any trace logs associated with those requests.
+El análisis resultante se le envía como una alerta, a no ser que configurara lo contrario.
 
-The resulting analysis is sent to you as alert, unless you have configured it not to.
+Al igual que sucede con las [alertas que establece manualmente](app-insights-alerts.md), puede inspeccionar el estado de la alerta y configurarla en la hoja Alertas del recurso de Application Insights. No obstante, a diferencia de otras alertas, no tiene que instalar ni configurar un diagnóstico proactivo en tiempo casi real. Si lo desea, puede deshabilitarla o cambiar sus direcciones de correo electrónico de destino.
 
-Like the [alerts you set manually](app-insights-alerts.md), you can inspect the state of the alert and configure it in the Alerts blade of your Application Insights resource. But unlike other alerts, you don't need to set up or configure NRT Proactive Diagnostics. If you want, you can disable it or change its target email addresses.
 
+## Configurar alertas 
 
-## <a name="configure-alerts"></a>Configure alerts 
+Puede deshabilitar los diagnósticos proactivos, cambiar los destinatarios de correo electrónico, crear un proyecto de Webhook u optar por recibir mensajes de alerta más detallados.
 
-You can disable proactive diagnostics, change the email recipients, create a webhook, or opt in to more detailed alert messages.
+Abra la página Alertas. Se incluye el diagnóstico proactivo en cualquier alerta configurada manualmente, y puede ver si se encuentra actualmente en el estado de alerta.
 
-Open the Alerts page. Proactive Diagnostics is included along with any alerts that you have set manually, and you can see whether it is currently in the alert state.
+![En la página de información general, haga clic en el icono Alertas. O bien, en cualquier página de métricas, haga clic en el botón Alertas.](./media/app-insights-nrt-proactive-diagnostics/021.png)
 
-![On the Overview page, click Alerts tile. Or on any Metrics page, click Alerts button.](./media/app-insights-nrt-proactive-diagnostics/021.png)
+Haga clic en la alerta para configurarla.
 
-Click the alert to configure it.
+![Configuración](./media/app-insights-nrt-proactive-diagnostics/031.png)
 
-![Configuration](./media/app-insights-nrt-proactive-diagnostics/031.png)
 
+Observe que puede deshabilitar el diagnóstico proactivo, pero no puede eliminarlo (ni crear otro).
 
-Notice that you can disable Proactive Diagnostics, but you can't delete it (or create another one).
+#### Alertas detalladas
 
-#### <a name="detailed-alerts"></a>Detailed alerts
+Si selecciona "Recibir análisis detallado", el correo electrónico contendrá más información de diagnóstico. A veces podrá diagnosticar el problema simplemente con los datos del correo electrónico.
 
-If you select "Receive detailed analysis" then the email will contain more diagnostic information. Sometimes you'll be able to diagnose the problem just from the data in the email. 
+Existe un pequeño riesgo de que la alerta más detallada contenga información confidencial, ya que incluye mensajes de excepciones y seguimientos. Sin embargo, esto solo podría ocurrir si el código permitiera información confidencial en esos mensajes.
 
-There's a slight risk that the more detailed alert could contain sensitive information, because it includes exception and trace messages. However, this would only happen if your code could allow sensitive information into those messages. 
 
+## Clasificación y diagnóstico de una alerta
 
-## <a name="triaging-and-diagnosing-an-alert"></a>Triaging and diagnosing an alert
+Una alerta indica que se detectó un aumento anómalo de la tasa de solicitudes con errores. Es probable que haya algún problema con la aplicación o con su entorno.
 
-An alert indicates that an abnormal rise in the failed request rate was detected. It's likely that there is some problem with your app or its environment.
+Puede determinar la urgencia del problema a partir del porcentaje de solicitudes y del número de usuarios afectados. En el ejemplo anterior, la tasa de error del 22.5 % se compara con una tasa normal del 1 %, lo que indica que hay algo que no va bien. Por otro lado, solo 11 usuarios se vieron afectados. Si se tratara de su aplicación, podría evaluar la importancia que tiene el problema.
 
-From the percentage of requests and number of users affected, you can decide how urgent the issue is. In the example above, the failure rate of 22.5% compares with a normal rate of 1%, indicates that something bad is going on. On the other hand, only 11 users were affected. If it were your app, you'd be able to assess how serious that is.
+En muchos casos, podrá diagnosticar el problema rápidamente a partir del nombre de la solicitud, las excepciones, los errores de dependencias y otros datos de seguimiento proporcionados.
 
-In many cases, you will be able to diagnose the problem quickly from the request name, exception, dependency failure and trace data provided. 
+Hay algunas otras pistas. Por ejemplo, la tasa de error de dependencia en este ejemplo es la misma que la tasa de excepción (89,3 %). Esto sugiere que la excepción se produce directamente desde el error de dependencia, lo que le da una idea clara de dónde puede empezar a buscar en el código.
 
-There are some other clues. For example, the dependency failure rate in this example is the same as the exception rate (89.3%). This suggests that the exception arises directly from the dependency failure - giving you a clear idea of where to start looking in your code.
+Pero si necesita investigar más, los vínculos de cada sección le llevarán directamente a una [página de búsqueda](app-insights-diagnostic-search.md) filtrada por las solicitudes, la excepción, la dependencia o el seguimiento correspondientes. O puede abrir el [Portal de Azure](https://portal.azure.com), navegar hasta el recurso de Application Insights de su aplicación y abrir la hoja Errores.
 
-To investigate further, the links in each section will take you straight to a [search page](app-insights-diagnostic-search.md) filtered to the relevant requests, exception, dependency or traces. Or you can open the [Azure portal](https://portal.azure.com), navigate to the Application Insights resource for your app, and open the Failures blade.
+En este ejemplo, al hacer clic en el vínculo 'Ver detalles de errores de dependencias' se abre la hoja de búsqueda de Application Insights en la instrucción SQL con la causa principal: se proporcionaron valores NULL en campos obligatorios y, por ello, no se superó la validación durante la operación de guardado.
 
-In this example, clicking the 'View dependency failures details' link opens Application Insights search blade on the SQL statement with the root cause: NULLs where provided at mandatory fields and did not pass validation during the save operation.
 
+![Búsqueda de diagnóstico](./media/app-insights-nrt-proactive-diagnostics/051.png)
 
-![Diagnostic search](./media/app-insights-nrt-proactive-diagnostics/051.png)
+## Revisar las alertas recientes
 
-## <a name="review-recent-alerts"></a>Review recent alerts
+Para consultar las alertas en el portal, abra **Configuración, Registros de auditoría**.
 
-To review alerts in the portal, open **Settings, Audit logs**.
+![Resumen de alertas](./media/app-insights-nrt-proactive-diagnostics/041.png)
 
-![Alerts summary](./media/app-insights-nrt-proactive-diagnostics/041.png)
 
+Haga clic en cualquier alerta para ver sus detalles completos.
 
-Click any alert to see its full detail.
+O haga clic en **Detección proactiva** para ir directamente a la alerta más reciente:
 
-Or click **Proactive detection** to get straight to the most recent alert:
+![Resumen de alertas](./media/app-insights-nrt-proactive-diagnostics/070.png)
 
-![Alerts summary](./media/app-insights-nrt-proactive-diagnostics/070.png)
 
 
 
+## ¿Cuál es la diferencia ...
 
-## <a name="what's-the-difference-..."></a>What's the difference ...
+El diagnóstico proactivo NRT complementa a otras características diferentes pero similares de Application Insights.
 
-NRT Proactive Diagnostics complements other similar but distinct features of Application Insights. 
+* Las [alertas de métricas](app-insights-alerts.md) las configura el usuario y pueden supervisar una amplia variedad de métricas, como el uso de la CPU, las tasas de solicitudes y los tiempos de carga de las páginas, entre otras. Puede usarlas para avisarle, por ejemplo, de si necesita agregar más recursos. Por el contrario, el diagnóstico proactivo NRT abarca un pequeño conjunto de métricas críticas (actualmente solo la tasa de solicitudes con errores), diseñadas para notificarle en tiempo casi real el momento en el que la tasa de solicitudes con errores de la aplicación web aumenta significativamente en comparación con el comportamiento normal de esta.
 
-* [Metric Alerts](app-insights-alerts.md) are set by you and can monitor a wide range of metrics such as CPU occupancy, request rates,  page load times, and so on. You can use them to warn you, for example, if you need to add more resources. By contrast, NRT Proactive Diagnostics cover a small range of critical metrics (currently only failed request rate), designed to notify you in near real time manner once your web app's failed request rate increases significantly compared to web app's normal behavior.
+    El diagnóstico proactivo en tiempo casi real ajusta automáticamente su umbral en respuesta a condiciones existentes.
 
-    NRT Proactive Diagnostics automatically adjusts its threshold in response to prevailing conditions.
+    El diagnóstico proactivo en tiempo casi real inicia el trabajo de diagnóstico por usted.
+* La [detección proactiva](app-insights-proactive-detection.md) también usa la inteligencia automática para descubrir patrones inusuales en las métricas, y no requiere ninguna configuración por su parte. Pero, a diferencia del diagnóstico proactivo NRT, la finalidad de la detección proactiva es encontrar segmentos del colector de uso que pudieran haberse servido incorrectamente, por ejemplo, por páginas concretas de un tipo específico de explorador. El análisis se realiza diariamente y, si se encuentra algún resultado, probablemente sea mucho menos urgente que una alerta. Por el contrario, el análisis del diagnóstico proactivo NRT se realiza continuamente en la telemetría entrante, y se le notificará en unos minutos si las tasas de errores del servidor son mayores de lo esperado.
 
-    NRT Proactive Diagnostics start the diagnostic work for you. 
-* [Proactive Detection](app-insights-proactive-detection.md) also uses machine intelligence to discover unusual patterns in your metrics, and no configuration by you is required. But unlike NRT Proactive Diagnostics, the purpose of Proactive Detection is to find segments of your usage manifold that might be badly served - for example, by specific pages on a specific type of browser. The analysis is performed daily, and if any result is found, it's likely to be much less urgent than an alert. By contrast, the analysis for NRT Proactive Diagnostics is performed continuously on incoming telemetry, and you will be notified within minutes if server failure rates are greater than expected.
+## Si recibe una alerta del diagnóstico proactivo en tiempo casi real
 
-## <a name="if-you-receive-an-nrt-proactive-diagnostics-alert"></a>If you receive an NRT Proactive Diagnostics alert
+*¿Por qué he recibido esta alerta?*
 
-*Why have I received this alert?*
+*	Hemos detectado un aumento anómalo en la tasa de solicitudes con errores en comparación con la línea de base normal del período anterior. Después de analizar los errores y la telemetría asociada, creemos que hay un problema que debe examinar.
 
-*   We detected an abnormal rise in failed requests rate compared to the normal baseline of the preceding period. After analysis of the failures and associated telemetry, we think that there is a problem that you should look into. 
+*¿La notificación significa que tengo definitivamente un problema?*
 
-*Does the notification mean I definitely have a problem?*
+*	Intentamos alertarle sobre las interrupciones o la degradación de la aplicación, aunque solo usted puede entender totalmente la semántica y el impacto en la aplicación o los usuarios.
 
-*   We try to alert on app disruption, or degradation, although only you can fully understand the semantics and the impact on the app or users.
+*¿Entonces están mirando mis datos?*
 
-*So, you guys look at my data?*
+*	No, el servicio es completamente automático. Solo obtendrá las notificaciones. Sus datos son [privados](app-insights-data-retention-privacy.md).
 
-*   No. The service is entirely automatic. Only you get the notifications. Your data is [private](app-insights-data-retention-privacy.md).
+*¿Es necesario suscribirse a esta alerta?*
 
-*Do I have to subscribe to this alert?* 
+*	No. Cada aplicación que envía telemetría de solicitudes tiene esta regla de alerta.
 
-*   No. Every application sending request telemetry has this alert rule.
+*¿Puedo cancelar la suscripción u hacer que mis colegas reciban las notificaciones?*
 
-*Can I unsubscribe or get the notifications sent to my colleagues instead?*
+*	Sí, en Reglas de alerta, haga clic en la regla Diagnóstico proactivo para configurarla. Puede deshabilitar la alerta o cambiar a los destinatarios de la misma.
 
-*   Yes, In Alert rules, click Proactive Diagnostics rule to configure it. You can disable the alert, or change recipients for the alert. 
+*Perdí el mensaje de correo electrónico. ¿Dónde puedo encontrar las notificaciones en el portal?*
 
-*I lost the email. Where can I find the notifications in the portal?*
+*	En los registros de auditoría Haga clic en Configuración, Registros de auditoría y, después, en cualquier alerta para ver su aparición, pero con una vista limitada en cuanto a los detalles.
 
-*   In the Audit logs. Click Settings, Audit logs, then any alert to see its occurrence, but with limited detailed view.
+*Algunas de las alertas se refieren a problemas conocidos y no deseo recibirlas.*
 
-*Some of the alerts are of known issues and I do not want to receive them.*
+*	Tenemos pendiente la incorporación de la supresión de alertas.
 
-*   We have alert suppression on our backlog.
 
+## Queremos sus comentarios
 
-## <a name="feedback-please"></a>Feedback please
+*Estamos muy interesados en saber lo que piensa sobre esto. Envíe sus comentarios a* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
 
-*We are very interested to know what you think about this. Please send feedback to:* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
+## Pasos siguientes
 
-## <a name="next-steps"></a>Next steps
+Estas herramientas de diagnóstico lo ayudarán a inspeccionar los datos de telemetría de su aplicación:
 
-These diagnostic tools help you inspect the telemetry from your app:
+* [Explorador de métricas](app-insights-metrics-explorer.md)
+* [Explorador de búsqueda](app-insights-diagnostic-search.md)
+* [Analytics: Lenguaje de consulta eficaz](app-insights-analytics-tour.md)
 
-* [Metric explorer](app-insights-metrics-explorer.md)
-* [Search explorer](app-insights-diagnostic-search.md)
-* [Analytics - powerful query language](app-insights-analytics-tour.md)
+Las detecciones proactivas son completamente automáticas. Pero ¿quizás le gustaría configurar algunas alertas más?
 
-Proactive detections are completely automatic. But maybe you'd like to set up some more alerts?
+* [Alertas de métricas configuradas manualmente](app-insights-alerts.md)
+* [Pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md)
 
-* [Manually configured metric alerts](app-insights-alerts.md)
-* [Availability web tests](app-insights-monitor-web-app-availability.md) 
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

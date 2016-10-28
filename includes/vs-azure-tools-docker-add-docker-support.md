@@ -1,18 +1,15 @@
-1. In the Visual Studio **Solution Explorer**, right-click the project and select **Add > Docker Support** from the context menu.
+1. En el **Explorador de soluciones** de Visual Studio, haga clic con el botón derecho en el proyecto y seleccione **Agregar > Compatibilidad con Docker** en el menú contextual.
 
-    ![Add Docker Support context menu](media/vs-azure-tools-docker-add-docker-support/docker-support-context-menu.png)
+    ![Incorporación del menú contextual de compatibilidad con Docker](media/vs-azure-tools-docker-add-docker-support/docker-support-context-menu.png)
 
-1. Adding Docker support to an ASP.NET Core web project results in the addition of several Docker-related files being added to the project, including Docker-Compose files, deployment Windows PowerShell scripts, and Docker property files. 
+1. La incorporación de compatibilidad con Docker a un proyecto web de ASP.NET 5 Core da como resultado la adición de varios archivos relacionados con Docker que se agregan al proyecto, incluidos los archivos de Docker Compose, los scripts de implementación de Windows PowerShell y los archivos de propiedades de Docker.
 
-    ![Docker files added to project](media/vs-azure-tools-docker-add-docker-support/docker-files-added.png)
+    ![Archivos de Docker agregados al proyecto](media/vs-azure-tools-docker-add-docker-support/docker-files-added.png)
     
-> [AZURE.NOTE] If using the [Docker for Windows Beta](https://beta.docker.com), open Properties\Docker.props, remove the default value and restart Visual Studio for the value to take effect.
+> [AZURE.NOTE] Si utiliza la [versión beta de Docker para Windows](https://beta.docker.com), abra Properties\\Docker.props, elimine el valor predeterminado y reinicie Visual Studio para que el valor surta efecto.
 > 
 > ```
 > <DockerMachineName Condition="'$(DockerMachineName)'=='' "></DockerMachineName>
 > ```
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

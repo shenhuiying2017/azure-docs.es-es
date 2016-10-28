@@ -1,242 +1,241 @@
 <properties
-    pageTitle="How to use the Azure slave plug-in with Jenkins Continuous Integration | Microsoft Azure"
-    description="Describes how to use the Azure slave plug-in with Jenkins Continuous Integration."
-    services="virtual-machines-linux"
-    documentationCenter=""
-    authors="rmcmurray"
-    manager="wpickett"
-    editor="" />
+	pageTitle="Uso del complemento subordinado de Azure con Jenkins Continuous Integration | Microsoft Azure"
+	description="Describe el uso del complemento subordinado de Azure con Jenkins Continuous Integration"
+	services="virtual-machines-linux"
+	documentationCenter=""
+	authors="rmcmurray"
+	manager="wpickett"
+	editor="" />
 
 <tags
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-multiple"
-    ms.devlang="java"
-    ms.topic="article"
-    ms.date="09/20/2016"
-    ms.author="robmcm"/>
+	ms.service="virtual-machines-linux"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="09/20/2016"
+	ms.author="robmcm"/>
 
+# Uso del complemento subordinado de Azure con Jenkins Continuous Integration
 
-# <a name="how-to-use-the-azure-slave-plug-in-with-jenkins-continuous-integration"></a>How to use the Azure slave plug-in with Jenkins Continuous Integration
+Puede usar el complemento subordinado de Azure para Jenkins para aprovisionar los nodos subordinados en Azure cuando se ejecutan compilaciones distribuidas.
 
-You can use the Azure slave plug-in for Jenkins to provision slave nodes on Azure when running distributed builds.
+## Instalación del complemento subordinado de Azure
 
-## <a name="install-the-azure-slave-plug-in"></a>Install the Azure slave plug-in
+1. En el panel de Jenkins, haga clic en **Manage Jenkins** (Administrar Jenkins).
 
-1. In the Jenkins dashboard, click **Manage Jenkins**.
+1. En la página **Manage Jenkins** (Administrar Jenkins), haga clic en **Manage Plugins** (Administrar complementos).
 
-1. On the **Manage Jenkins** page, click **Manage Plugins**.
+1. Haga clic en la pestaña **Available** (Disponible).
 
-1. Click the **Available** tab.
+1. En el campo de filtro situado encima de la lista de complementos disponibles, escriba **Azure** para limitar la lista de complementos relevantes.
 
-1. In the filter field above the list of available plug-ins, type **Azure** to limit the list to relevant plug-ins.
+    Si opta por desplazarse por la lista de complementos disponibles, encontrará el complemento subordinado de Azure en la sección **Cluster Management and Distributed Build** (Administración de clústeres y compilación distribuida).
 
-    If you opt to scroll through the list of available plug-ins, you will find the Azure slave plug-in under the **Cluster Management and Distributed Build** section.
+1. Active la casilla **Azure Slave Plugin** (Complemento esclavo de Azure).
 
-1. Select the **Azure Slave Plugin** check box.
+1. Haga clic en **Install without restart** (Instalar sin reiniciar) o **Download now and install after restart** (Descargar ahora e instalar después de reiniciar).
 
-1. Click **Install without restart** or **Download now and install after restart**.
+Ahora que está instalado el complemento, los siguientes pasos son configurarlo con el perfil de suscripción de Azure y crear una plantilla que se usará en la creación de la máquina virtual para el nodo subordinado.
 
-Now that the plug-in is installed, the next steps are to configure the plug-in with your Azure subscription profile and to create a template that will be used in creating the virtual machine for the slave node.
 
+## Configuración del complemento esclavo de Azure con el perfil de suscripción
 
-## <a name="configure-the-azure-slave-plug-in-with-your-subscription-profile"></a>Configure the Azure slave plug-in with your subscription profile
+Un perfil de suscripción, también conocido como configuración de publicación, es un archivo XML que contiene credenciales seguras y alguna información adicional que necesitará para trabajar con Azure en el entorno de desarrollo. Para configurar el complemento esclavo de Azure, necesitará:
 
-A subscription profile, also referred to as publish settings, is an XML file that contains secure credentials and some additional information you'll need to work with Azure in your development environment. To configure the Azure slave plug-in, you need:
+* Su id. de suscripción
+* Un certificado de administración para la suscripción
 
-* Your subscription id
-* A management certificate for your subscription
+Estos se pueden encontrar en su [perfil de suscripción]. A continuación se muestra un ejemplo de un perfil de suscripción.
 
-These can be found in your [subscription profile]. Below is an example of a subscription profile.
+	<?xml version="1.0" encoding="utf-8"?>
 
-    <?xml version="1.0" encoding="utf-8"?>
+		<PublishData>
 
-        <PublishData>
+  		<PublishProfile SchemaVersion="2.0" PublishMethod="AzureServiceManagementAPI">
 
-        <PublishProfile SchemaVersion="2.0" PublishMethod="AzureServiceManagementAPI">
+    	<Subscription
 
-        <Subscription
+      		ServiceManagementUrl="https://management.core.windows.net"
 
-            ServiceManagementUrl="https://management.core.windows.net"
+      		Id="<Subscription ID value>"
 
-            Id="<Subscription ID value>"
+      		Name="Pay-As-You-Go"
+			ManagementCertificate="<Management certificate value>" />
 
-            Name="Pay-As-You-Go"
-            ManagementCertificate="<Management certificate value>" />
+  		</PublishProfile>
 
-        </PublishProfile>
+	</PublishData>
 
-    </PublishData>
+Una vez que tiene el perfil de suscripción, siga estos pasos para configurar el complemento esclavo de Azure:
 
-After you have your subscription profile, follow these steps to configure the Azure slave plug-in:
+1. En el panel de Jenkins, haga clic en **Manage Jenkins** (Administrar Jenkins).
 
-1. In the Jenkins dashboard, click **Manage Jenkins**.
+1. Haga clic en **Configure System** (Configurar sistema).
 
-1. Click **Configure System**.
+1. Desplácese hacia abajo en la página para encontrar la sección **Cloud** (Nube).
 
-1. Scroll down the page to find the **Cloud** section.
+1. Haga clic en **Add new cloud > Microsoft Azure** (Agregar nueva nube > Microsoft Azure).
 
-1. Click **Add new cloud > Microsoft Azure**.
+    ![sección de nube][cloud section]
 
-    ![cloud section][cloud section]
+    Se mostrarán los campos donde debe especificar los detalles de suscripción.
 
-    This will show the fields where you need to enter your subscription details.
+    ![configuración de la suscripción][subscription configuration]
 
-    ![subscription configuration][subscription configuration]
+1. Copie los valores de certificado de administración e id. de suscripción del perfil de suscripción y péguelos en los campos correspondientes.
 
-1. Copy the subscription id and management certificate values from your subscription profile and paste them in the appropriate fields.
+    Al copiar el certificado de administración y el id. de suscripción, no incluya las comillas que delimitan los valores.
 
-    When copying the subscription id and management certificate, do not include the quotes that enclose the values.
+1. Haga clic en **Verify configuration** (Comprobar configuración).
 
-1. Click **Verify Configuration**.
+1. Cuando se verifique que la configuración es correcta, haga clic en **Save** (Guardar).
 
-1. When the configuration is verified to be correct, click **Save**.
+## Configuración de una plantilla de máquina virtual para el complemento esclavo de Azure
 
-## <a name="set-up-a-virtual-machine-template-for-the-azure-slave-plug-in"></a>Set up a virtual machine template for the Azure slave plug-in
+Una plantilla de máquina virtual define los parámetros que usará el complemento para crear un nodo esclavo en Azure. En los pasos siguientes crearemos plantilla para una máquina virtual de Ubuntu.
 
-A virtual machine template defines the parameters that the plug-in will use to create a slave node on Azure. In the following steps, we'll create a template for an Ubuntu virtual machine.
+1. En el panel de Jenkins, haga clic en **Manage Jenkins** (Administrar Jenkins).
 
-1. In the Jenkins dashboard, click **Manage Jenkins**.
+1. Haga clic en **Configure System** (Configurar sistema).
 
-1. Click **Configure System**.
+1. Desplácese hacia abajo en la página para encontrar la sección **Cloud** (Nube).
 
-1. Scroll down the page to find the **Cloud** section.
+1. Dentro de la sección **Cloud** (Nube), busque **Add Azure Virtual Machine Template** (Agregar plantilla de máquina virtual de Azure) y haga clic en **Add** (Agregar).
 
-1. In the **Cloud** section, find **Add Azure Virtual Machine Template**, and then click **Add**.
+    ![agregar plantilla de vm][add vm template]
 
-    ![add vm template][add vm template]
+    Esta acción mostrará los campos donde se especifican los detalles de la plantilla que está creando.
 
-    This will show the fields where you enter details about the template you are creating.
+    ![configuración general en blanco][blank general configuration]
 
-    ![blank general configuration][blank general configuration]
+1. Especifique un nombre de servicio en la nube de Azure en el campo **Name** (Nombre). Si el nombre que especifique se refiere a un servicio en la nube existente, la máquina virtual se aprovisionará en dicho servicio. De lo contrario, Azure creará uno nuevo.
 
-1. In the **Name** box, enter an Azure cloud service name. If the name you entered refers to an existing cloud service, the virtual machine will be provisioned in that service. Otherwise, Azure will create a new one.
+1. En el cuadro **Description** (Descripción), escriba el texto que describe la plantilla que está creando. Esta información es solo para registros y no se usa en el aprovisionamiento de una máquina virtual.
 
-1. In the **Description** box, enter text that describes the template you are creating. This is only for your records and is not used in provisioning a virtual machine.
+1. El campo **Labels** (Etiquetas) se usa para identificar la plantilla que está creando y posteriormente para hacer referencia a la plantilla al crear un trabajo de Jenkins. Para nuestro propósito, escriba **linux** en este cuadro.
 
-1. The **Labels** box is used to identify the template you are creating and is subsequently used to reference the template when creating a Jenkins job. For our purpose, enter **linux** in this box.
+1. En el lista **Region** (Región), haga clic en la región donde se creará la máquina virtual.
 
-1. In the **Region** list, click the region where the virtual machine will be created.
+1. En el lista **Virtual Machine Size** (Tamaño de máquina virtual), haga clic en el tamaño adecuado.
 
-1. In the **Virtual Machine Size** list, click the appropriate size.
+1. En el cuadro **Storage Account Name** (Nombre de cuenta de almacenamiento), especifique una cuenta de almacenamiento donde se creará la máquina virtual. Asegúrese de que se encuentra en la misma región que el servicio en la nube que se va a usar. Si desea crear un nuevo almacenamiento, puede dejar este cuadro en blanco.
 
-1. In the **Storage Account Name** box, specify a storage account where the virtual machine will be created. Make sure that it is in the same region as the cloud service you'll be using. If you want new storage to be created, you can leave this box blank.
+1. El tiempo de retención especifica el número de minutos antes de que Jenkins elimine un subordinado inactivo. Deje el valor predeterminado de 60. También puede optar por apagar el subordinado en lugar de eliminarlo cuando está inactivo. Para ello, seleccione la casilla **Shutdown Only (Do Not Delete) After Retention Time** (Solo apagar [no eliminar] después del tiempo de retención).
 
-1. Retention time specifies the number of minutes before Jenkins deletes an idle slave. Leave this at the default value of 60. You can also choose to shut down the slave instead of deleting it when it's idle. To do that, select the **Shutdown Only (Do Not Delete) After Retention Time** check box.
+1. En la lista **Usage** (Uso), haga clic en la condición adecuada de uso de este nodo subordinado. Por ahora, haga clic en **Utilize this node as much as possible** (Usar este nodo tanto como sea posible).
 
-1. In the **Usage** list, click the appropriate condition when this slave node will be used. For now, click **Utilize this node as much as possible**.
+    En este punto, su formulario sería parecido al siguiente:
 
-    At this point, your form should look somewhat similar to this:
+    ![configuración de la plantilla general de punto de comprobación][checkpoint general template config]
 
-    ![checkpoint general template config][checkpoint general template config]
+    El siguiente paso sería proporcionar detalles sobre la imagen de sistema operativo en la que desea crear su subordinado.
 
-    The next step is to provide details about the operating system image that you want your slave to be created in.
+1. En el cuadro **Image Family or Id** (Familia o identificador de imagen), debe especificar la imagen del sistema que se instalará en la máquina virtual. Puede seleccionar de una lista de familias de imagen o especificar una imagen personalizada.
 
-1. In the **Image Family or Id** box, you have to specify what system image will be installed on your virtual machine. You can either select from a list of image families or specify a custom image.
+    Si desea seleccionar de una lista de familias de imagen, escriba el primer carácter (distingue mayúsculas de minúsculas) del nombre de familia de imagen. Por ejemplo, al escribir **U** aparecerá una lista de familias de Ubuntu Server. Una vez que seleccione de la lista, Jenkins usará la versión más reciente de esa imagen del sistema de esa familia al aprovisionar la máquina virtual.
 
-    If you want to select from a list of image families, enter the first character (case-sensitive) of the image family name. For instance, typing **U** will bring up a list of Ubuntu Server families. After you select from the list, Jenkins will use the latest version of that system image from that family when provisioning your virtual machine.
+    ![ejemplo de lista de imágenes de sistema operativo][OS Image list sample]
 
-    ![OS Image list sample][OS Image list sample]
+    Si tiene una imagen personalizada que desea usar en su lugar, escriba su nombre. Los nombres de imagen personalizada no se muestran en una lista, por lo que debe asegurarse de escribir el nombre correctamente.
 
-    If you have a custom image that you want to use instead, enter the name of that custom image. Custom image names are not shown in a list, so you have to ensure that the name is entered correctly.
+    Para este tutorial, escriba **U** para mostrar una lista de imágenes de Ubuntu y haga clic en **Ubuntu Server 14.04 LTS**.
 
-    For this tutorial, type **U** to bring up a list of Ubuntu images, and then click **Ubuntu Server 14.04 LTS**.
+1. En la lista **Launch Method** (Método de inicio), haga clic en **SSH**.
 
-1. In the **Launch Method** list, click **SSH**.
+1. Copie el siguiente script y péguelo en el cuadro **Init script** (Script de inicialización).
 
-1. Copy the script below and paste it in the **Init Script** box.
+		# Install Java
 
-        # Install Java
+		sudo apt-get -y update
 
-        sudo apt-get -y update
+		sudo apt-get install -y openjdk-7-jdk
 
-        sudo apt-get install -y openjdk-7-jdk
+		sudo apt-get -y update --fix-missing
 
-        sudo apt-get -y update --fix-missing
+		sudo apt-get install -y openjdk-7-jdk
 
-        sudo apt-get install -y openjdk-7-jdk
+		# Install git
 
-        # Install git
+		sudo apt-get install -y git
 
-        sudo apt-get install -y git
+		#Install ant
 
-        #Install ant
+		sudo apt-get install -y ant
 
-        sudo apt-get install -y ant
+		sudo apt-get -y update --fix-missing
 
-        sudo apt-get -y update --fix-missing
+		sudo apt-get install -y ant
 
-        sudo apt-get install -y ant
+    El script de inicialización se ejecutará después de crearse la máquina virtual. En este ejemplo, el script instala Java, git y ant.
 
-    The init script will be executed after the virtual machine is created. In this example, the script installs Java, Git, and ant.
+1. En los cuadros **Username** (Nombre de usuario) y **Password** (Contraseña), escriba los valores preferidos para la cuenta de administrador que se creará en la máquina virtual.
 
-1. In the **Username** and **Password** boxes, enter your preferred values for the administrator account that will be created on your virtual machine.
+1. Haga clic en **Verify Template** (Comprobar plantilla) para comprobar si los parámetros especificados son válidos.
 
-1. Click **Verify Template** to check if the parameters you specified are valid.
+1. Haga clic en **Save**.
 
-1. Click **Save**.
 
+## Creación de un trabajo de Jenkins que se ejecuta en un nodo subordinado en Azure
 
-## <a name="create-a-jenkins-job-that-runs-on-a-slave-node-on-azure"></a>Create a Jenkins job that runs on a slave node on Azure
+En esta sección, creará una tarea de Jenkins que se ejecutará en un nodo subordinado en Azure. Deberá tener su propio proyecto activo en GitHub para continuar.
 
-In this section, you'll be creating a Jenkins task that will run on a slave node on Azure. You'll need to have your own project up on GitHub to follow along.
+1. En el panel de Jenkins, haga clic en **New Item** (Nuevo elemento).
 
-1. In the Jenkins dashboard, click **New Item**.
+1. Escriba un nombre para la tarea que se va a crear.
 
-1. Enter a name for the task you are creating.
+1. Para el tipo de proyecto, haga clic en **Freestyle project** (Proyecto estilo libre).
 
-1. For the project type, click **Freestyle project**.
+1. Haga clic en **Aceptar**.
 
-1. Click **Ok**.
+1. En la página de configuración de la tarea, seleccione **Restrict where this project can be run** (Restringir dónde se puede ejecutar este proyecto).
 
-1. In the task configuration page, select **Restrict where this project can be run**.
+1. En el cuadro **Label Expression** (Expresión de etiqueta), escriba **linux**. En la sección anterior, creamos una plantilla subordinada que llamamos **linux** y que es la que vamos a especificar aquí.
 
-1. In the **Label Expression** box, enter **linux**. In the previous section, we created a slave template that we named **linux**, which is what we're specifying here.
+1. En la sección **Build** (Compilar), haga clic en **Add build step** (Agregar paso de compilación) y seleccione **Execute shell** (Ejecutar shell).
 
-1. In the **Build** section, click **Add build step** and select **Execute shell**.
+1. Edite el siguiente script; para ello, sustituya **(el nombre de la cuenta de github)**, **(el nombre del proyecto)** y **(el directorio del proyecto)** por los valores adecuados y pegue el script editado en el área de texto que aparece.
 
-1. Edit the following script, replacing **(your GitHub account name)**, **(your project name)**, and **(your project directory)** with appropriate values, and paste the edited script in the text area that appears.
+		# Clone from git repo
 
-        # Clone from git repo
+		currentDir="$PWD"
 
-        currentDir="$PWD"
+		if [ -e (your project directory) ]; then
 
-        if [ -e (your project directory) ]; then
+  			cd (your project directory)
 
-            cd (your project directory)
+  			git pull origin master
 
-            git pull origin master
+		else
 
-        else
+  			git clone https://github.com/(your GitHub account name)/(your project name).git
 
-            git clone https://github.com/(your GitHub account name)/(your project name).git
+		fi
 
-        fi
+		# change directory to project
 
-        # change directory to project
+		cd $currentDir/(your project directory)
 
-        cd $currentDir/(your project directory)
+		#Execute build task
 
-        #Execute build task
+		ant
 
-        ant
+1. Haga clic en **Save**.
 
-1. Click **Save**.
+1. En el panel de Jenkins, mantenga el mouse sobre la tarea que acaba de crear y haga clic en la flecha hacia abajo para mostrar las opciones de la tarea.
 
-1. In the Jenkins dashboard, hover over the task you just created and click the drop-down arrow to display task options.
+1. Haga clic en **Build now** (Compilar ahora).
 
-1. Click **Build now**.
+Jenkins creará luego un nodo subordinado con la plantilla que creó en la sección anterior y ejecutará el script especificado en el paso de compilación de esta tarea.
 
-Jenkins will then create a slave node by using the template created in the previous section and execute the script you specified in the build step for this task.
+## Pasos siguientes
 
-## <a name="next-steps"></a>Next Steps
-
-For more information about using Azure with Java, see the [Azure Java Developer Center].
+Para obtener más información sobre el uso de Azure con Java, vea el [Centro para desarrolladores de Java de Azure].
 
 <!-- URL List -->
 
-[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
-[subscription profile]: http://go.microsoft.com/fwlink/?LinkID=396395
+[Centro para desarrolladores de Java de Azure]: https://azure.microsoft.com/develop/java/
+[perfil de suscripción]: http://go.microsoft.com/fwlink/?LinkID=396395
 
 <!-- IMG List -->
 
@@ -247,7 +246,4 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [checkpoint general template config]: ./media/virtual-machines-azure-slave-plugin-for-jenkins/jenkins-slave-template-general-configuration.png
 [OS Image list sample]: ./media/virtual-machines-azure-slave-plugin-for-jenkins/jenkins-os-family-list-sample.png
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,63 +1,58 @@
 <properties
-    pageTitle="PowerShell module for Machine Learning | Microsoft Azure"
-    description="The PowerShell module for Azure Machine Learning is available in public preview mode. Use PowerShell to create and manage workspaces, experiments, web serivces, and more."
-    keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques,data science experiment"
-    services="machine-learning"
-    documentationCenter=""
-    authors="hning86"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="Módulo de PowerShell para Aprendizaje automático | Microsoft Azure"
+	description="El módulo de PowerShell para Aprendizaje automático de Azure está disponible en versión preliminar pública. Use PowerShell para crear y administrar áreas de trabajo, experimentos, servicios web y mucho más."
+	keywords="experimento,regresión lineal,algoritmos de aprendizaje automático,tutorial de aprendizaje automático,técnicas de modelado predictivo,experimento de ciencia de datos"
+	services="machine-learning"
+	documentationCenter=""
+	authors="hning86"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="08/05/2016"
-    ms.author="garye;haining"/>
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="08/05/2016"
+	ms.author="garye;haining"/>
 
+# Módulo de PowerShell para Aprendizaje automático de Microsoft Azure
 
-# <a name="powershell-module-for-microsoft-azure-machine-learning"></a>PowerShell module for Microsoft Azure Machine Learning
+El módulo de PowerShell para Aprendizaje automático de Azure es una herramienta eficaz que permite usar Windows PowerShell para administrar áreas de trabajo, experimentos, conjuntos de datos, servicios web y mucho más.
 
-The PowerShell module for Azure Machine Learning is a powerful tool that allows you to use Windows PowerShell to manage workspaces, experiments, datasets, web serivces, and more.
+Puede ver la documentación y descargar el módulo, junto con el código fuente completo, en [https://aka.ms/amlps](https://aka.ms/amlps).
 
-You can view the documentation and download the module, along with the full source code, at [https://aka.ms/amlps](https://aka.ms/amlps). 
+## ¿Qué es el módulo de PowerShell de Aprendizaje automático?
 
-## <a name="what-is-the-machine-learning-powershell-module?"></a>What is the Machine Learning PowerShell module?
+El módulo de PowerShell de Aprendizaje automático es un módulo DLL basado en .NET que permite administrar totalmente áreas de trabajo de Aprendizaje automático de Azure, experimentos, conjuntos de datos, servicios web y puntos de conexión de servicio web desde Windows PowerShell. Junto con el módulo, puede descargar el código fuente completo que incluye un [nivel de API de C#](https://github.com/hning86/azuremlps/blob/master/code/AzureMLSDK.cs) claramente delimitado. Esto significa que puede hacer referencia a este archivo DLL desde su propio proyecto .NET y administrar Aprendizaje automático de Azure por medio de código. NET. Además, el archivo DLL depende de las API de REST subyacentes que puede aprovechar directamente desde su cliente favorito.
 
-The Machine Learning PowerShell module is a .NET-based DLL module that allows you to fully manage Azure Machine Learning workspaces, experiments, datasets, web services, and web service endpoints from Windows PowerShell. Along with the module, you can download the full source code which includes a cleanly-separated [C# API layer](https://github.com/hning86/azuremlps/blob/master/code/AzureMLSDK.cs). This means you can reference this DLL from your own .NET project and manage Azure Machine Learning through .NET code. In addition, the DLL depends on underlying REST APIs that you can leverage directly from your favorite client.
+## ¿Qué puedo hacer con el módulo de PowerShell?
 
-## <a name="what-can-i-do-with-the-powershell-module?"></a>What can I do with the PowerShell module?
+Estas son algunas de las tareas que puede realizar con este módulo de PowerShell. Consulte la [documentación completa](https://aka.ms/amlps) sobre estas funciones y muchas otras.
 
-Here are some of the tasks you can perform with this PowerShell module. Check out the [full documentation](https://aka.ms/amlps) for these and many more functions.
+- Aprovisionar una nueva área de trabajo mediante un certificado de administración ([New-AmlWorkspace](https://github.com/hning86/azuremlps#new-amlworkspace))
+- Exportar e importar un archivo JSON que representa un gráfico de experimento ([Export-AmlExperimentGraph](https://github.com/hning86/azuremlps#export-amlexperimentgraph) e [Import-AmlExperimentGraph](https://github.com/hning86/azuremlps#import-amlexperimentgraph))
+- Ejecutar un experimento ([Start-AmlExperiment](https://github.com/hning86/azuremlps#start-amlexperiment))
+- Crear un servicio web a partir de un experimento de predicción ([New-AmlWebService](https://github.com/hning86/azuremlps#new-amlwebservice))
+- Crear un punto de conexión en un servicio web publicado ([Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint))
+- Invocar un punto de conexión de servicio web RRS o BES ([Invoke-AmlWebServiceRRSEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) e [Invoke-AmlWebServicBESEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint))
 
-- Provision a new workspace using a management certificate ([New-AmlWorkspace](https://github.com/hning86/azuremlps#new-amlworkspace))
-- Export and import a JSON file representing an experiment graph ([Export-AmlExperimentGraph](https://github.com/hning86/azuremlps#export-amlexperimentgraph) and [Import-AmlExperimentGraph](https://github.com/hning86/azuremlps#import-amlexperimentgraph))
-- Run an experiment ([Start-AmlExperiment](https://github.com/hning86/azuremlps#start-amlexperiment))
-- Create a web service out of a predictive experiment ([New-AmlWebService](https://github.com/hning86/azuremlps#new-amlwebservice))
-- Create a new endpoint on a published web service ([Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint))
-- Invoke an RRS and/or BES web service endpoint ([Invoke-AmlWebServiceRRSEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) and [Invoke-AmlWebServicBESEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint))
+A continuación, se ofrece un ejemplo rápido de cómo usar PowerShell para ejecutar un experimento existente:
 
-Here's a quick example of using PowerShell to run an existing experiment:
+		#Find the first Experiment named “xyz”
+		$exp = (Get-AmlExperiment | where Description -eq ‘xyz’)[0]
+		#Run the Experiment
+		Start-AmlExperiment -ExperimentId $exp.ExperimentId 
 
-        #Find the first Experiment named “xyz”
-        $exp = (Get-AmlExperiment | where Description -eq ‘xyz’)[0]
-        #Run the Experiment
-        Start-AmlExperiment -ExperimentId $exp.ExperimentId 
+Para ver un caso de uso más detallado, consulte este artículo sobre cómo usar el módulo de PowerShell para automatizar una tarea muy solicitada: [Creación de varios modelos de aprendizaje automático y puntos de conexión de servicio web a partir de un experimento mediante PowerShell](machine-learning-create-models-and-endpoints-with-powershell.md).
 
-For a more in-depth use case, see this article on using the PowerShell module to automate a very commonly-requested task: [Create many Machine Learning models and web service endpoints from one experiment using PowerShell](machine-learning-create-models-and-endpoints-with-powershell.md).
+## ¿Cómo empiezo?
 
-## <a name="how-do-i-get-started?"></a>How do I get started?
+Para empezar a usar PowerShell para Aprendizaje automático, descargue el [paquete de versión](https://github.com/hning86/azuremlps/releases) en GitHub y siga las [instrucciones de instalación](https://github.com/hning86/azuremlps/blob/master/README.md). Debe desbloquear el archivo DLL descargado y descomprimido, y después importarlo en el entorno de PowerShell. La mayoría de los cmdlets requieren que se proporcione el identificador de área de trabajo, el token de autorización del área de trabajo y la región de Azure donde se encuentra el área de trabajo. La manera más sencilla de proporcionar estos datos es mediante un archivo config.json predeterminado, lo que se explica con detalle en las instrucciones de instalación. Por supuesto, también puede clonar el árbol git y proceder a modificar y compilar el código localmente con Visual Studio.
 
-To get started with Machine Learning PowerShell, download the [release package](https://github.com/hning86/azuremlps/releases) from GitHub and follow the [instructions for installation](https://github.com/hning86/azuremlps/blob/master/README.md). You'll need to unblock the downloaded/unzipped DLL and then import it into your PowerShell environment. Most of the cmdlets require that you supply the workspace ID, the workspace authorization token, and the Azure region that the workspace is in. The simplest way to provide these is through a default config.json file, which is covered in detail in the installation instructions. Of course, you can also clone the git tree and modify/compile the code locally using Visual Studio.
+## Pasos siguientes
 
-## <a name="next-steps"></a>Next steps
+Se seguirá mejorando y ampliando el módulo de PowerShell durante este período de versión preliminar. Esté al tanto de más información y noticias en [Cortana Intelligence and Machine Learning Blog](https://blogs.technet.microsoft.com/machinelearning/) (Blog sobre Cortana Intelligence y Aprendizaje automático).
 
-The PowerShell module will continue to be improved and expanded during this preview period. Keep an eye on the [Cortana Intelligence and Machine Learning Blog](https://blogs.technet.microsoft.com/machinelearning/) for more news and information.
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

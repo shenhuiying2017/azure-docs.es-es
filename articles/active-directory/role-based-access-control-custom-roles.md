@@ -1,29 +1,28 @@
 <properties
-    pageTitle="Custom Roles in Azure RBAC | Microsoft Azure"
-    description="Learn how to define custom roles with Azure Role-Based Access Control for more precise identity management in your Azure subscription."
-    services="active-directory"
-    documentationCenter=""
-    authors="kgremban"
-    manager="kgremban"
-    editor=""/>
+	pageTitle="Roles personalizados en RBAC de Azure | Microsoft Azure"
+	description="Aprenda a definir roles personalizados con Control de acceso basado en roles de Azure para administrar las identidades de manera más precisa en la suscripción de Azure."
+	services="active-directory"
+	documentationCenter=""
+	authors="kgremban"
+	manager="kgremban"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="07/25/2016"
-    ms.author="kgremban"/>
+	ms.service="active-directory"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="07/25/2016"
+	ms.author="kgremban"/>
 
 
+# Roles personalizados en RBAC de Azure
 
-# <a name="custom-roles-in-azure-rbac"></a>Custom Roles in Azure RBAC
 
+Cree un rol personalizado en Control de acceso basado en rol (RBAC) de Azure si ninguno de los roles integrados satisface sus necesidades de acceso específicas. Se pueden crear roles personalizados mediante [Azure PowerShell](role-based-access-control-manage-access-powershell.md), la [interfaz de la línea de comandos de Azure](role-based-access-control-manage-access-azure-cli.md) (CLI) y la [API de REST](role-based-access-control-manage-access-rest.md). Igual que los roles integrados, los roles personalizados pueden asignarse a usuarios, grupos y aplicaciones en ámbitos de suscripciones, grupos de recursos y recursos. Los roles personalizados se almacenan en un inquilino de Azure AD y se pueden compartir entre todas las suscripciones que utilizan dicho inquilino como directorio de Azure AD para la suscripción.
 
-Create a custom role in Azure Role-Based Access Control (RBAC) if none of the built-in roles meet your specific access needs. Custom roles can be created using [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure Command-Line Interface](role-based-access-control-manage-access-azure-cli.md) (CLI), and the [REST API](role-based-access-control-manage-access-rest.md). Just like built-in roles, custom roles can be assigned to users, groups, and applications at subscription, resource group, and resource scopes. Custom roles are stored in an Azure AD tenant and can be shared across all subscriptions that use that tenant as the Azure AD directory for the subsciption.
-
-The following is an example of a custom role for monitoring and restarting virtual machines:
+A continuación se muestra un ejemplo de un rol personalizado para supervisar y reiniciar máquinas virtuales:
 
 ```
 {
@@ -53,15 +52,15 @@ The following is an example of a custom role for monitoring and restarting virtu
   ]
 }
 ```
-## <a name="actions"></a>Actions
-The **Actions** property of a custom role specifies the Azure operations to which the role grants access. It is a collection of operation strings that identify securable operations of Azure resource providers. Operation strings that contain wildcards (\*) grant access to all operations that match the operation string. For instance:
+## Acciones
+La propiedad **Actions** de un rol personalizado especifica las operaciones de Azure a las que el rol concede acceso. Se trata de una colección de cadenas de operación que identifican a las operaciones protegibles de proveedores de recursos de Azure. Las cadenas de operación que contienen caracteres comodín (*) conceden acceso a todas las operaciones que coinciden con la cadena de la operación. Por ejemplo:
 
--   `*/read` grants access to read operations for all resource types of all Azure resource providers.
--   `Microsoft.Network/*/read` grants access to read operations for all resource types in the Microsoft.Network resource provider of Azure.
--   `Microsoft.Compute/virtualMachines/*` grants access to all operations of virtual machines and its child resource types.
--   `Microsoft.Web/sites/restart/Action` grants access to restart websites.
+-	`*/read` concede acceso a las operaciones de lectura a todos los tipos de recursos de todos los proveedores de recursos de Azure.
+-	`Microsoft.Network/*/read` concede acceso a las operaciones de lectura a todos los tipos de recursos del proveedor de recursos Microsoft.Network de Azure.
+-	`Microsoft.Compute/virtualMachines/*` concede acceso a todas las operaciones de las máquinas virtuales y a sus tipos de recursos secundarios.
+-	`Microsoft.Web/sites/restart/Action` concede acceso para reiniciar sitios web.
 
-Use `Get-AzureRmProviderOperation` (in PowerShell) or `azure provider operations show` (in Azure CLI) to list operations of Azure resource providers. You may also use these commands to verify that an operation string is valid, and to expand wildcard operation strings.
+Use `Get-AzureRmProviderOperation` (en PowerShell) o `azure provider operations show` (en la CLI de Azure) para mostrar las operaciones de proveedores de recursos de Azure. También puede usar estos comandos para comprobar que una cadena de operación es válida y para expandir las cadenas de operación con comodín.
 
 ```
 Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName
@@ -69,7 +68,7 @@ Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Ope
 Get-AzureRMProviderOperation Microsoft.Network/*
 ```
 
-![PowerShell screnshot - Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
+![Captura de pantalla de PowerShell: Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
 
 ```
 azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
@@ -77,47 +76,39 @@ azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js
 azure provider operations show "Microsoft.Network/*"
 ```
 
-![Azure CLI screenshot - azure provider operations show "Microsoft.Compute/virtualMachines/\*/action" ](./media/role-based-access-control-configure/1-azure-provider-operations-show.png)
+![Captura de pantalla de la CLI de Azure: azure provider operations show "Microsoft.Compute/virtualMachines/*/action"](./media/role-based-access-control-configure/1-azure-provider-operations-show.png)
 
-## <a name="notactions"></a>NotActions
-Use the **NotActions** property if the set of operations that you wish to allow is more easily defined by excluding restricted operations. The access granted by a custom role is computed by subtracting the **NotActions** operations from the **Actions** operations.
+## NotActions
+Use la propiedad **NotActions** si el conjunto de operaciones que quiere permitir se define más fácilmente mediante la exclusión de las operaciones restringidas. El acceso concedido por un rol personalizado se calcula restando las operaciones **NotActions** de las operaciones **Actions**.
 
-> [AZURE.NOTE] If a user is assigned a role that excludes an operation in **NotActions**, and is assigned a second role that grants access to the same operation, the user will be allowed to perform that operation. **NotActions** is not a deny rule – it is simply a convenient way to create a set of allowed operations when specific operations need to be excluded.
+> [AZURE.NOTE] Si un usuario tiene asignado un rol que excluye una operación en **NotActions** y se le asigna un segundo rol que sí concede acceso a la misma operación, el usuario podrá realizar dicha operación. **NotActions** no es una regla de denegación, es simplemente una manera cómoda de crear un conjunto de operaciones permitidas cuando es necesario excluir operaciones específicas.
 
-## <a name="assignablescopes"></a>AssignableScopes
-The **AssignableScopes** property of the custom role specifies the scopes (subscriptions, resource groups, or resources) within which the custom role is available for assignment. You can make the custom role available for assignment in only the subscriptions or resource groups that require it, and not clutter user experience for the rest of the subscriptions or resource groups.
+## Ámbitos asignables
+La propiedad **AssignableScopes** del rol personalizado especifica los ámbitos (suscripciones, grupos de recursos o recursos) dentro de los que dicho rol personalizado está disponible para su asignación. Puede permitir que el rol personalizado esté disponible para su asignación solamente en las suscripciones o los grupos de recursos que lo requieran, sin necesidad de abarrotar la experiencia de usuario con el resto de las suscripciones o grupos de recursos.
 
-Examples of valid assignable scopes include:
+Ejemplos de ámbitos asignables válidos son:
 
--   “/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e”, “/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624” - makes the role available for assignment in two subscriptions.
--   “/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e” - makes the role available for assignment in a single subscription.
--  “/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network” - makes the role available for assignment only in the Network resource group.
+-	“/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e”, “/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624”: permite la disponibilidad del rol para su asignación en dos suscripciones.
+-	“/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e”: permite la disponibilidad del rol para su asignación en una sola suscripción.
+-  “/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network”: permite la disponibilidad del rol para su asignación solamente en el grupo de recursos de red.
 
-> [AZURE.NOTE] You must use at least one subscription, resource group, or resource ID.
+> [AZURE.NOTE] Tiene que utilizar al menos una suscripción, grupo de recursos o identificador de recurso.
 
-## <a name="custom-roles-access-control"></a>Custom roles access control
-The **AssignableScopes** property of the custom role also controls who can view, modify, and delete the role.
+## Control de acceso de roles personalizados
+La propiedad **AssignableScopes** del rol personalizado también controla quién puede ver, modificar y eliminar el rol.
 
-- Who can create a custom role?
-    Owners (and User Access Administrators) of subscriptions, resource groups, and resources can create custom roles for use in those scopes.
-    The user creating the role needs to be able to perform `Microsoft.Authorization/roleDefinition/write` operation on all the **AssignableScopes** of the role.
+- ¿Quién puede crear un rol personalizado? Los propietarios (y administradores del acceso de los usuarios) de las suscripciones, los grupos de recursos y los recursos pueden crear roles personalizados para su uso en esos ámbitos. El usuario que crea el rol debe ser capaz de realizar la operación `Microsoft.Authorization/roleDefinition/write` en todos los elementos **AssignableScopes** del rol.
 
-- Who can modify a custom role?
-    Owners (and User Access Administrators) of subscriptions, resource groups, and resources can modify custom roles in those scopes. Users need to be able to perform the `Microsoft.Authorization/roleDefinition/write` operation on all the **AssignableScopes** of a custom role.
+- ¿Quién puede modificar un rol personalizado? Los propietarios (y administradores del acceso de los usuarios) de las suscripciones, los grupos de recursos y los recursos pueden modificar roles personalizados en esos ámbitos. Los usuarios deben poder realizar la operación `Microsoft.Authorization/roleDefinition/write` en todos los elementos **AssignableScopes** de un rol personalizado.
 
-- Who can view custom roles?
-    All built-in roles in Azure RBAC allow viewing of roles that are available for assignment. Users who can perform the `Microsoft.Authorization/roleDefinition/read` operation at a scope can view the RBAC roles that are available for assignment at that scope.
+- ¿Quién puede ver los roles personalizados? Todos los roles integrados de RBAC de Azure permiten ver los roles que están disponibles para la asignación. Los usuarios que pueden realizar la operación `Microsoft.Authorization/roleDefinition/read` en un ámbito, pueden ver los roles RBAC que están disponibles para su asignación en ese ámbito.
 
-## <a name="see-also"></a>See also
-- [Role Based Access Control](role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
-- Learn how to manage access with:
-    - [PowerShell](role-based-access-control-manage-access-powershell.md)
-    - [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-    - [REST API](role-based-access-control-manage-access-rest.md)
-- [Built-in roles](role-based-access-built-in-roles.md): Get details about the roles that come standard in RBAC.
+## Otras referencias
+- [Control de acceso basado en roles de Azure](role-based-access-control-configure.md): introducción a RBAC en el Portal de Azure.
+- Aprenda a administrar el acceso con:
+	- [PowerShell](role-based-access-control-manage-access-powershell.md)
+	- [CLI de Azure](role-based-access-control-manage-access-azure-cli.md)
+	- [API DE REST](role-based-access-control-manage-access-rest.md)
+- [Roles integrados](role-based-access-built-in-roles.md): obtenga información sobre los roles incluidos de forma predeterminada en RBAC.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

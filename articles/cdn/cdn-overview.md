@@ -1,95 +1,90 @@
 <properties
-    pageTitle="Azure CDN Overview | Microsoft Azure"
-    description="Learn what the Azure Content Delivery Network (CDN) is and how to use it to deliver high-bandwidth content by caching blobs and static content."
-    services="cdn"
-    documentationCenter=""
-    authors="camsoper"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Información general de CDN de Azure | Microsoft Azure"
+	description="Obtenga información acerca de la Red de entrega de contenido (CDN) de Azure y de cómo usarla para ofrecer contenido con alto ancho de banda mediante el almacenamiento en caché de blobs y contenidos estáticos."
+	services="cdn"
+	documentationCenter=""
+	authors="camsoper"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="cdn"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="09/30/2016"
-    ms.author="casoper"/>
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="09/30/2016"
+	ms.author="casoper"/>
+
+# Información general de la red de entrega de contenido (CDN) de Azure
+
+> [AZURE.NOTE] En este documento se describe qué es la red de entrega de contenido (CDN) de Azure, cómo funciona y las características de cada producto CDN de Azure. Si desea omitir esta información y pasar directamente a un tutorial sobre cómo crear un punto de conexión de CDN, consulte [Uso de CDN de Azure](cdn-create-new-endpoint.md). Para ver una lista de ubicaciones actuales de nodos de CDN, consulte [Ubicaciones POP de la Red de entrega de contenido (CDN) de Azure](cdn-pop-locations.md).
+
+La Red de entrega de contenido (CDN) de Azure almacena en caché contenido de web estático en ubicaciones colocadas estratégicamente para proporcionar el máximo rendimiento a la hora de proporcionar contenido a los usuarios. CDN ofrece a los desarrolladores una solución global para entregar contenido de alto ancho de banda almacenando en caché el contenido en nodos físicos en todo el mundo.
+
+Entre las ventajas de utilizar la red CDN para almacenar en memoria caché los recursos de sitios web se incluyen:
+
+- Mejor rendimiento y experiencia del usuario para los usuarios finales sobre todo a la hora de utilizar aplicaciones donde son necesarios varios recorridos de ida y vuelta para cargar el contenido
+- Gran escalado para mejorar la administración de cargas instantáneas pesadas, por ejemplo, al comienzo de un evento de lanzamiento de un producto.
+- Al distribuir solicitudes de usuarios y ofrecer contenido desde servidores perimetrales, se envía menos tráfico al origen.
 
 
-# <a name="overview-of-the-azure-content-delivery-network-(cdn)"></a>Overview of the Azure Content Delivery Network (CDN)
+## Cómo funciona
 
-> [AZURE.NOTE] This document describes what the Azure Content Delivery Network (CDN) is, how it works, and the features of each Azure CDN product.  If you want to skip this information and go straight to a tutorial on how to create a CDN endpoint, see [Using Azure CDN](cdn-create-new-endpoint.md).  If you want to see a list of current CDN node locations, see [Azure CDN POP Locations](cdn-pop-locations.md).
+![Información general de la red CDN](./media/cdn-overview/cdn-overview.png)
 
-The Azure Content Delivery Network (CDN) caches static web content at strategically placed locations to provide maximum throughput for delivering content to users.  The CDN offers developers a global solution for delivering high-bandwidth content by caching the content at physical nodes across the world. 
+1. Un usuario (Alice) solicita un archivo (también denominado un recurso) mediante una dirección URL con un nombre de dominio especial, como `<endpointname>.azureedge.net`. DNS enruta la solicitud hacia la ubicación del punto de presencia (POP) con mejor rendimiento. Este es normalmente el POP geográficamente más cercano al usuario.
 
-The benefits of using the CDN to cache web site assets include:
+2. Si los servidores perimetrales del POP no tienen el archivo en la memoria caché, el servidor perimetral solicitará el archivo desde el origen. El origen puede ser una aplicación web, servicio en la nube o cuenta de Almacenamiento de Azure, o cualquier servidor web accesible públicamente.
 
-- Better performance and user experience for end users, especially when using applications where multiple round-trips are required to load content.
-- Large scaling to better handle instantaneous high load, like at the start of a product launch event.
-- By distributing user requests and serving content from edge servers, less traffic is sent to the origin.
+3. El origen devuelve el archivo al servidor perimetral, incluidos los encabezados HTTP opcionales que describen el período de vida (TTL) del archivo.
 
+4. El servidor perimetral almacena el archivo en caché y devuelve el archivo al solicitante original (Alice). El archivo permanece en caché en el servidor perimetral hasta que expire el TTL. Si el origen no ha especificado ningún TTL, el valor predeterminado será de siete días.
 
-## <a name="how-it-works"></a>How it works
+5. Después, los usuarios adicionales pueden solicitar el mismo archivo mediante la misma dirección URL y también se les puede dirigir al mismo POP.
 
-![CDN Overview](./media/cdn-overview/cdn-overview.png)
-
-1. A user (Alice) requests a file (also called an asset) using a URL with a special domain name, such as `<endpointname>.azureedge.net`.  DNS routes the request to the best performing Point-of-Presence (POP) location.  Usually this is the POP that is geographically closest to the user.
-
-2. If the edge servers in the POP do not have the file in their cache, the edge server requests the file from the origin.  The origin can be an Azure Web App, Azure Cloud Service, Azure Storage account, or any publicly accessible web server.
-
-3. The origin returns the file to the edge server, including optional HTTP headers describing the file's Time-to-Live (TTL).
-
-4. The edge server caches the file and returns the file to the original requestor (Alice).  The file remains cached on the edge server until the TTL expires.  If the origin didn't specify a TTL, the default TTL is seven days.
-
-5. Additional users may then request the same file using that same URL, and may also be directed to that same POP.
-
-6. If the TTL for the file hasn't expired, the edge server returns the file from the cache.  This results in a faster, more responsive user experience.
+6. Si no ha expirado el TTL para el archivo, el servidor perimetral devolverá el archivo desde la memoria caché. Esto genera una experiencia de usuario más rápida y una mayor capacidad de respuesta.
 
 
-## <a name="azure-cdn-features"></a>Azure CDN Features
+## Características de la red CDN de Azure
 
-There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon**.  The following table lists the features available with each product.
+Hay tres productos de red CDN de Azure: **Red CDN estándar de Azure de Akamai**, **Red CDN estándar de Azure de Verizon** y **Red CDN premium de Azure de Verizon**. En la tabla siguiente se enumeran las características disponibles con cada producto.
 
-|       | Standard Akamai | Standard Verizon | Premium Verizon |
+| | Estándar de Akamai | Estándar de Verizon | Premium de Verizone |
 |-------|-----------------|------------------|-----------------|
-| Easy integration with Azure services such as [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md), and [Media Services](../media-services/media-services-manage-origins.md#enable-cdn) | **&#x2713;** | **&#x2713;** | **&#x2713;**|
-| Management via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md), or [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| HTTPS support | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| Load balancing | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) protection | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| IPv4/IPv6 dual-stack | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [Custom domain name support](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [Query string caching](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [Country filtering](cdn-restrict-access-by-country.md) |  | **&#x2713;** | **&#x2713;** |
-| [Fast purge](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [Asset pre-loading](cdn-preload-endpoint.md) |  | **&#x2713;** | **&#x2713;** |
-| [Core analytics](cdn-analyze-usage-patterns.md) |  | **&#x2713;** | **&#x2713;** |
-| [HTTP/2 support](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;**  |  |  |
-| [Advanced HTTP reports](cdn-advanced-http-reports.md) | | | **&#x2713;** |
-| [Real-time stats](cdn-real-time-stats.md) | | | **&#x2713;** |
-| [Real-time alerts](cdn-real-time-alerts.md) | | | **&#x2713;** |
-| [Customizable, rule-based content delivery engine](cdn-rules-engine.md) | | | **&#x2713;** |
-| Cache/header settings (using [rules engine](cdn-rules-engine.md))  | | | **&#x2713;** |
-| URL redirect/rewrite  (using [rules engine](cdn-rules-engine.md)) | | | **&#x2713;** |
-| Mobile device rules (using [rules engine](cdn-rules-engine.md))  | | | **&#x2713;** |
+| Fácil integración con servicios de Azure como [Almacenamiento](cdn-create-a-storage-account-with-cdn.md), [Servicios en la nube](cdn-cloud-service-with-cdn.md), [Aplicaciones web](../app-service-web/cdn-websites-with-cdn.md) y [Servicios multimedia](../media-services/media-services-manage-origins.md#enable-cdn) | **&#x2713;** | **&#x2713;** | **&#x2713;**|
+| Administración a través de [API de REST](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md) o [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Compatibilidad con HTTPS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Equilibrio de carga | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Protección de [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Pila dual IPv4/IPv6 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Compatibilidad con nombre de dominio personalizado](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Almacenamiento en caché de cadena de consulta](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Filtrado por país](cdn-restrict-access-by-country.md) | | **&#x2713;** | **&#x2713;** |
+| [Purga rápida](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Carga previa de activos](cdn-preload-endpoint.md) | | **&#x2713;** | **&#x2713;** |
+| [Análisis esencial](cdn-analyze-usage-patterns.md) | | **&#x2713;** | **&#x2713;** |
+| [Compatibilidad con HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;** | | |
+| [Informes de HTTP avanzados](cdn-advanced-http-reports.md) | | | **&#x2713;** |
+| [Estadísticas en tiempo real](cdn-real-time-stats.md) | | | **&#x2713;** |
+| [Alertas en tiempo real](cdn-real-time-alerts.md) | | | **&#x2713;** |
+| [Motor de entrega de contenido personalizable, basado en reglas](cdn-rules-engine.md) | | | **&#x2713;** |
+| Configuración de la memoria caché o del encabezado (mediante un [motor de reglas](cdn-rules-engine.md)) | | | **&#x2713;** |
+| Redirección/reescritura de dirección URL (mediante un [motor de reglas](cdn-rules-engine.md)) | | | **&#x2713;** |
+| Reglas de dispositivos móviles (mediante un [motor de reglas](cdn-rules-engine.md)) | | | **&#x2713;** |
 
->[AZURE.TIP] Is there a feature you'd like to see in Azure CDN?  [Give us feedback](https://feedback.azure.com/forums/169397-cdn)! 
+>[AZURE.TIP] ¿Hay una característica que le gustaría ver en CDN de Azure? [Envíenos sus comentarios](https://feedback.azure.com/forums/169397-cdn).
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-To get started with CDN, see [Using Azure CDN](./cdn-create-new-endpoint.md).
+Para empezar a trabajar con la red CDN, consulte [Uso de CDN de Azure](./cdn-create-new-endpoint.md).
 
-If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure portal](https://portal.azure.com) or with [PowerShell](cdn-manage-powershell.md).
+Si es un cliente de red de entrega de contenido existente, ahora puede administrar sus puntos de conexión de red de entrega de contenido a través del [Portal de Microsoft Azure](https://portal.azure.com) o con [PowerShell](cdn-manage-powershell.md).
 
-To see the CDN in action, check out the [video of our Build 2016 session](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+Para ver la red CDN en acción, consulte el [vídeo sobre nuestra sesión de Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
-Learn how to automate Azure CDN with [.NET](./cdn-app-dev-net.md) or [Node.js](./cdn-app-dev-node.md).
+Aprenda a automatizar la red CDN de Azure con [.NET](./cdn-app-dev-net.md) o [Node.js](./cdn-app-dev-node.md).
 
-For pricing information, see [CDN Pricing](https://azure.microsoft.com/pricing/details/cdn/).
+Para más información sobre los precios, consulte [Precios de Red de entrega de contenido (CDN)](https://azure.microsoft.com/pricing/details/cdn/).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

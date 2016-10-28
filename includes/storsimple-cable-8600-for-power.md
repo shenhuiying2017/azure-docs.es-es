@@ -1,49 +1,46 @@
 <!--author=alkohli last changed: 9/16/15-->
 
 
-#### <a name="to-cable-your-device-for-power"></a>To cable your device for power
+#### Cableado del dispositivo para tener alimentación
 
->[AZURE.NOTE] Both enclosures on your StorSimple device include redundant PCMs. For each enclosure, the PCMs must be installed and connected to different power sources to ensure high availability.
+>[AZURE.NOTE]Los dos alojamientos del dispositivo StorSimple incluyen PCM redundantes. Para los dos alojamientos, los PCM tienen que estar instalados y conectados a diferentes fuentes de alimentación para garantizar una alta disponibilidad.
 
-1. Make sure that the power switches on all the PCMs are in the OFF position.
+1. Asegúrese de que el interruptor de alimentación de cada uno de los PCM se encuentran en la posición OFF.
 
-2. On the primary enclosure, connect the power cords to both PCMs. The power cords are identified in red in the power cabling diagram, below.
+2. Para el alojamiento principal, conecta los cables de alimentación a ambos PCM. Los cables de alimentación se identifican en rojo en el diagrama de cables de alimentación siguiente.
 
-3. Make sure that the two PCMs on the primary enclosure use separate power sources.
+3. Asegúrate de que los dos PCM del receptáculo principal usan fuentes de alimentación independientes.
 
-4. Attach the power cords to the power on the rack distribution units as shown in the power cabling diagram.
+4. Adjunta los cables de alimentación a las unidades de distribución de energía del bastidor tal y como se muestra en el diagrama de cables de alimentación.
 
-5. Repeat steps 2 through 4 for the EBOD enclosure.
+5. Repita los pasos del 2 al 4 para el receptáculo EBOD.
 
-6. Turn on the EBOD enclosure by flipping the power switch on each PCM to the ON position.
+6. Enciende el alojamiento de EBOD colocando cada interruptor de alimentación de PCM en la posición de encendido.
 
-7. Verify that the EBOD enclosure is turned on by checking that the green LEDs on the back of the EBOD controller are turned ON.
+7. Verifica que el alojamiento de EBOD está activado comprobando que los LED verdes de la parte posterior del EBOD están encendidos.
 
-8. Turn on the primary enclosure by flipping each PCM switch to the ON position.
+8. Después enciende el alojamiento principal colocando todos los interruptores de PCM en la posición de encendido.
 
-9. Verify that the system is on by ensuring the device controller LEDs have turned ON.
+9. Comprueba que el sistema está operativo asegurándote de que los LED del controlador de dispositivo están encendidos.
 
-10. Make sure that the connection between the EBOD controller and the device controller is active by verifying that the four LEDs next to the SAS port on the EBOD controller are green.
+10. Verifica que la conexión entre el controlador EBOD y el controlador del dispositivo esté activa comprobando que los cuatro LED situados junto al puerto SAS del controlador EBOD están en verde.
 
-    >[AZURE.IMPORTANT] To ensure high availability for your system, we recommend that you strictly adhere to the power cabling scheme shown in the following diagram.
+    >[AZURE.IMPORTANT]Para garantizar una alta disponibilidad del sistema, se recomienda cumplir estrictamente el esquema de cableado de potencia que se muestra en el siguiente diagrama de cableado.
 
-    ![Cable your 4U device for power](./media/storsimple-cable-8600-for-power/HCSCableYour4UDeviceforPower.png)
+    ![Cableado del dispositivo 4U para alimentación](./media/storsimple-cable-8600-for-power/HCSCableYour4UDeviceforPower.png)
 
-    **Power cabling**
+    **Cables de alimentación**
 
-    |Label|Description|
+    |Etiqueta|Descripción|
     |:----|:----------|
-    |1|Primary enclosure|
+    |1|Receptáculo principal|
     |2|PCM 0|
     |3|PCM 1|
-    |4|Controller 0|
-    |5|Controller 1|
-    |6|EBOD controller 0|
-    |7|EBOD controller 1|
-    |8|EBOD enclosure|
-    |9|PDUs|
+    |4|Controlador 0|
+    |5|Controlador 1|
+    |6|Controlador EBOD 0|
+    |7|Controlador EBOD 1|
+    |8|Receptáculo EBOD|
+    |9|PDU|
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

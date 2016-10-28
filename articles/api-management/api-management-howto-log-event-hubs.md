@@ -1,70 +1,69 @@
 <properties 
-    pageTitle="How to log events to Azure Event Hubs in Azure API Management | Microsoft Azure" 
-    description="Learn how to log events to Azure Event Hubs in Azure API Management." 
-    services="api-management" 
-    documentationCenter="" 
-    authors="steved0x" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="Registro de eventos en los Centros de eventos de Azure en Administración de API de Azure" 
+	description="Aprenda a registrar eventos en los centros de eventos de Azure en la administración de API de Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="api-management" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/25/2016" 
-    ms.author="sdanie"/>
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/09/2016" 
+	ms.author="sdanie"/>
 
+# Cómo registrar eventos en los centros de eventos de Azure en la administración de API de Azure
 
-# <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>How to log events to Azure Event Hubs in Azure API Management
+Centros de eventos de Azure es un servicio de introducción de datos altamente escalable que permite la introducción de millones de eventos por segundo para que pueda procesar y analizar grandes cantidades de datos generados por los dispositivos y aplicaciones conectados. Centros de eventos actúa como la "puerta principal" de una canalización de eventos y, una vez que los datos se recopilan en un centro de eventos, se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes/almacenamiento. Centros de eventos desacopla la producción de un flujo de eventos desde el consumo de los eventos, para que los consumidores de eventos pueden tener acceso a los eventos según su propia programación.
 
-Azure Event Hubs is a highly scalable data ingress service that can ingest millions of events per second so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an event hub, it can be transformed and stored using any real-time analytics provider or batching/storage adapters. Event Hubs decouples the production of a stream of events from the consumption of those events, so that event consumers can access the events on their own schedule.
+Este artículo es un complemento del vídeo [Integración de Administración de API de Azure con centros de eventos](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) y describe cómo registrar eventos de Administración de API mediante centros de eventos de Azure.
 
-This article is a companion to the [Integrate Azure API Management with Event Hubs](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) video and describes how to log API Management events using Azure Event Hubs.
+## Crear un centro de eventos de Azure
 
-## <a name="create-an-azure-event-hub"></a>Create an Azure Event Hub
+Para crear un nuevo centro de eventos, inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com) y haga clic en **Nuevo**->**Servicios de aplicaciones**->**Bus de servicios**->**Centro de eventos**->**Creación rápida**. Escriba un nombre para el centro de eventos y la región. Seleccione una suscripción y elija un espacio de nombres. Si no ha creado previamente un espacio de nombres, puede crear uno escribiendo un nombre en el cuadro de texto **Espacio de nombres**. Una vez configuradas todas las propiedades, haga clic en **Crear un centro de eventos** para crear el centro de eventos.
 
-To create a new Event Hub, sign-in to the [Azure classic portal](https://manage.windowsazure.com) and click **New**->**App Services**->**Service Bus**->**Event Hub**->**Quick Create**. Enter an Event Hub name, region, select a subscription, and select a namespace. If you haven't previously created a namespace you can create one by typing a name in the **Namespace** textbox. Once all properties are configured, click **Create a new Event Hub** to create the Event Hub.
+![Creación de un centro de eventos][create-event-hub]
 
-![Create event hub][create-event-hub]
+Luego navegue a la pestaña **Configurar** para el nuevo centro de eventos y cree dos **directivas de acceso compartido**. La primera de ellas se debe llamar **Envío**. Asígnele permisos de **envío**.
 
-Next, navigate to the **Configure** tab for your new Event Hub and create two **shared access policies**. Name the first one **Sending** and give it **Send** permissions.
+![Directiva de envío][sending-policy]
 
-![Sending policy][sending-policy]
+La segunda de ellas se debe llamar **Recepción**. Asígnele permisos de **escucha** y haga clic en **Guardar**.
 
-Name the second one **Receiving**, give it **Listen** permissions, and click **Save**.
+![Directiva de recepción][receiving-policy]
 
-![Receiving policy][receiving-policy]
+Cada directiva de acceso compartido permite a las aplicaciones enviar y recibir eventos desde y hacia el centro de eventos. Para obtener acceso a las cadenas de conexión de estas directivas, navegue a la pestaña **Panel** del centro de eventos y haga clic en **Información de conexión**.
 
-Each shared access policy allows applications to send and receive events to and from the Event Hub. To access the connection strings for these policies, navigate to the **Dashboard** tab of the Event Hub and click **Connection information**.
+![Cadena de conexión][event-hub-dashboard]
 
-![Connection string][event-hub-dashboard]
+La cadena de conexión **Envío** se usa para registrar eventos, mientras que la cadena de conexión **Recepción** se usa para descargar eventos desde el centro de eventos.
 
-The **Sending** connection string is used when logging events, and the **Receiving** connection string is used when downloading events from the Event Hub.
+![Cadena de conexión][event-hub-connection-string]
 
-![Connection string][event-hub-connection-string]
+## Creación de un registrador de administración de API
 
-## <a name="create-an-api-management-logger"></a>Create an API Management logger
+Ahora que tiene un centro de eventos, el siguiente paso es configurar un [registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx) en el servicio Administración de API para que se puedan registrar eventos en el centro de eventos.
 
-Now that you have an Event Hub, the next step is to configure a [Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx) in your API Management service so that it can log events to the Event Hub.
+Los registradores de Administración de API se configuran mediante la [API de REST de Administración de API](http://aka.ms/smapi). Antes de usar la API de REST por primera vez, revise los [requisitos previos](https://msdn.microsoft.com/library/azure/dn776326.aspx#Prerequisites) y asegúrese de tener [habilitado el acceso a la API de REST](https://msdn.microsoft.com/library/azure/dn776326.aspx#EnableRESTAPI).
 
-API Management loggers are configured using the [API Management REST API](http://aka.ms/smapi). Before using the REST API for the first time, review the [prerequisites](https://msdn.microsoft.com/library/azure/dn776326.aspx#Prerequisites) and ensure that you have [enabled access to the REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx#EnableRESTAPI).
-
-To create a logger, make an HTTP PUT request using the following URL template.
+Para crear un registrador, efectúe una solicitud HTTP PUT con la siguiente plantilla de dirección URL.
 
     https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview
 
--   Replace `{your service}` with the name of your API Management service instance.
--   Replace `{new logger name}` with the desired name for your new logger. You will reference this name when you configure the [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) policy
+-	Sustituya `{your service}` por el nombre de la instancia de servicio de administración de API.
+-	Sustituya `{new logger name}` por el nombre deseado del nuevo registrador. A este nombre se hará referencia al configurar la directiva [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub).
 
-Add the following headers to the request.
+Agregue los siguientes encabezados a la solicitud.
 
--   Content-Type : application/json
--   Authorization : SharedAccessSignature uid=...
-    -   For instructions on generating the `SharedAccessSignature` see [Azure API Management REST API Authentication](https://msdn.microsoft.com/library/azure/dn798668.aspx).
+-	Content-Type : application/json
+-	Authorization : SharedAccessSignature uid=...
+	-	Para instrucciones sobre cómo generar `SharedAccessSignature`, vea [Autenticación de la API de REST de administración de API de Azure](https://msdn.microsoft.com/library/azure/dn798668.aspx).
 
-Specify the request body using the following template.
+Especifique el cuerpo de la solicitud utilizando la siguiente plantilla.
 
     {
       "type" : "AzureEventHub",
@@ -75,27 +74,27 @@ Specify the request body using the following template.
         }
     }
 
--   `type` must be set to `AzureEventHub`.
--   `description` provides an optional description of the logger and can be a zero length string if desired.
--   `credentials` contains the `name` and `connectionString` of your Azure Event Hub.
+-	`type` se debe establecer en `AzureEventHub`.
+-	`description` ofrece una descripción opcional del registrador y puede ser una cadena de longitud cero si lo desea.
+-	`credentials` contiene el `name` y `connectionString` del centro de eventos de Azure.
 
-When you make the request, if the logger is created a status code of `201 Created` is returned. 
+Al realizar la solicitud, si se crea el registrador, se devuelve un código de estado de `201 Created`.
 
->[AZURE.NOTE] For other possible return codes and their reasons, see [Create a Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). To see how perform other operations such as list, update, and delete, see the [Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx) entity documentation.
+>[AZURE.NOTE] Para conocer otros posibles códigos de retorno y sus razones, vea [Creación de un registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Para conocer la forma de realizar otras operaciones como crear listas, actualizar y eliminar, vea la documentación de la entidad del [registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx).
 
-## <a name="configure-log-to-eventhubs-policies"></a>Configure log-to-eventhubs policies
+## Configuración de directivas log-to-eventhubs
 
-Once your logger is configured in API Management, you can configure your log-to-eventhubs policies to log the desired events. The log-to-eventhubs policy can be used in either the inbound policy section or the outbound policy section.
+Una vez que el registrador está configurado en la administración de API, puede configurar las directivas de log-to-eventhubs para registrar los eventos oportunos. La directiva log-to-eventhubs puede utilizarse en la sección de las directivas de entrada o de salida.
 
-To configure policies, sign-in to the [Azure classic portal](https://manage.windowsazure.com), navigate your API Management service, and click either **publisher portal** or **Manage** to access the publisher portal.
+Para configurar las directivas, inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com), navegue hasta el servicio de administración de API y haga clic en el **portal para editores** o en **Administrar** para obtener acceso al portal para editores.
 
-![Publisher portal][publisher-portal]
+![Portal del publicador][publisher-portal]
 
-Click **Policies** in the API Management menu on the left, select the desired product and API, and click **Add policy**. In this example we're adding a policy to the **Echo API** in the **Unlimited** product.
+Haga clic en **Directivas** en el menú de Administración de API situado a la izquierda. Seleccione el producto que quiera y la API. Por último, haga clic en **Agregar directiva**. En este ejemplo, vamos a agregar una directiva para la **API Echo** en el producto **Sin límites**.
 
 ![Add policy][add-policy]
 
-Position your cursor in the `inbound` policy section and click the **Log to EventHub** policy to insert the `log-to-eventhub` policy statement template.
+Sitúe el cursor en la sección de la directiva de `inbound` y haga clic en la directiva **Registrar en el Centro de eventos** para insertar la plantilla de declaración de directivas `log-to-eventhub`.
 
 ![Policy editor][event-hub-policy]
 
@@ -103,24 +102,24 @@ Position your cursor in the `inbound` policy section and click the **Log to Even
       @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
     </log-to-eventhub>
 
-Replace `logger-id` with the name of the API Management logger you configured in the previous step.
+Sustituya `logger-id` por el nombre del registrador de administración de API que configuró en el paso anterior.
 
-You can use any expression that returns a string as the value for the `log-to-eventhub` element. In this example a string containing the date and time, service name, request id, request ip address, and operation name is logged.
+Puede usar cualquier expresión que devuelva una cadena como valor para el elemento `log-to-eventhub`. En este ejemplo, se registra una cadena que contiene la fecha y la hora, el nombre de servicio, el Id. de la solicitud, la dirección IP de la solicitud y el nombre de la operación.
 
-Click **Save** to save the updated policy configuration. As soon as it is saved the policy is active and events are logged to the designated Event Hub.
+Haga clic en **Guardar** para guardar la configuración de la directiva actualizada. En el momento de guardarla, la directiva se activa y los eventos se registran en el centro de eventos designado.
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
--   Learn more about Azure Event Hubs
-    -   [Get started with Azure Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-    -   [Receive messages with EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
-    -   [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
--   Learn more about API Management and Event Hubs integration
-    -   [Logger entity reference](https://msdn.microsoft.com/library/azure/mt592020.aspx)
-    -   [log-to-eventhub policy reference](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
-    -   [Monitor your APIs with Azure API Management, Event Hubs and Runscope](api-management-log-to-eventhub-sample.md)    
+-	Obtenga más información acerca de los centros de eventos de Azure
+	-	[Introducción a los centros de eventos de Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+	-	[Recepción de mensajes con EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+	-	[Guía de programación de Centros de eventos](../event-hubs/event-hubs-programming-guide.md)
+-	Obtener más información acerca de la integración de Administración de API y centros de eventos
+	-	[Referencia de entidad del registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx)
+	-	[referencia de la directiva log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+	-	[Supervisión de API con Administración de API de Azure, Centros de eventos y Runscope](api-management-log-to-eventhub-sample.md)
 
-## <a name="watch-a-video-walkthrough"></a>Watch a video walkthrough
+## Ver un tutorial en vídeo
 
 > [AZURE.VIDEO integrate-azure-api-management-with-event-hubs]
 
@@ -134,14 +133,4 @@ Click **Save** to save the updated policy configuration. As soon as it is saved 
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-
-
-
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

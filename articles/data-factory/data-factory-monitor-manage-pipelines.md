@@ -1,607 +1,601 @@
 <properties 
-    pageTitle="Monitor and manage Azure Data Factory pipelines" 
-    description="Learn how to use Azure Portal and Azure PowerShell to monitor and manage Azure data factories and pipelines you have created." 
-    services="data-factory" 
-    documentationCenter="" 
-    authors="spelluru" 
-    manager="jhubbard" 
-    editor="monicar"/>
+	pageTitle="Supervisión y administración de canalizaciones de la Factoría de datos de Azure" 
+	description="Obtenga información sobre el uso del Portal de Azure y Azure PowerShell para supervisar y administrar las factorías de datos y las canalizaciones de Azure que haya creado." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
 <tags 
-    ms.service="data-factory" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/06/2016" 
-    ms.author="spelluru"/>
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/06/2016" 
+	ms.author="spelluru"/>
 
 
-
-# <a name="monitor-and-manage-azure-data-factory-pipelines"></a>Monitor and manage Azure Data Factory pipelines
+# Supervisión y administración de canalizaciones de la Factoría de datos de Azure
 > [AZURE.SELECTOR]
-- [Using Azure portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
-- [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
+- [Uso de Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+- [Uso de la Aplicación de supervisión y administración](data-factory-monitor-manage-app.md)
 
-The Data Factory service provides reliable and complete view of your storage, processing, and data movement services. The service provides you a monitoring dashboard helps that you can use to perform the following: 
+El servicio Factoría de datos proporciona una vista completa y confiable de los servicios de movimiento de datos, procesamiento y almacenamiento. El servicio pone a su disposición un panel de supervisión con el que puede realizar las acciones siguientes:
 
-- Quickly assess end-to-end data pipeline health.
-- Identify issues, and take corrective action if needed. 
-- Track data lineage. 
-- Track relationships between your data across any of your sources.
-- View full historical accounting of job execution, system health, and dependencies.
+- Evaluar rápidamente el estado de la canalización de datos de extremo a extremo.
+- Identificar los problemas y tomar medidas correctivas si es necesario.
+- Realizar un seguimiento del linaje de datos.
+- Realizar un seguimiento de las relaciones entre los datos a través de cualquiera de los orígenes.
+- Ver un historial completo de las ejecuciones de los trabajos, el estado del sistema y las dependencias.
 
-This article describes how to monitor, manage, and debug your pipelines. It also provides information on how to create alerts and get notified on failures.
+En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones. También se ofrece información sobre cómo crear alertas y recibir notificaciones cuando se produzcan errores.
 
-## <a name="understand-pipelines-and-activity-states"></a>Understand pipelines and activity states
-Using the Azure portal, you can do the following: 
+## Descripción de las canalizaciones y los estados de actividad
+Mediante Azure Portal, puede hacer lo siguiente:
 
-- View your data factory as a diagram
-- View activities in a pipeline
-- View input and output datasets
-- and more. 
+- Ver la factoría de datos como un diagrama.
+- Ver las actividades en una canalización.
+- Crear conjuntos de datos de entrada y salida.
+- Y mucho más...
 
-This section also provides how a slice transitions from one state to another state.   
+En esta sección se indica también cómo pasa un segmento de un estado a otro.
 
-### <a name="navigate-to-your-data-factory"></a>Navigate to your data factory
-1.  Sign in to the [Azure portal](https://portal.azure.com).
-2.  Click **Browse All** and select **Data Factories**.
-    
-    ![Browse All -> Data factories](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
+### Navegación hasta la factoría de datos
+1.	Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+2.	Haga clic en **Examinar todo** y seleccione **Factorías de datos**.
+	
+	![Examinar todo -> Factorías de datos](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 
-    You should see all the data factories in the **Data factories** blade. 
-4. In the Data factories blade, select the data factory you are interested in and you should see the home page (**Data factory** blade) for the data factory.
+	Debería ver todas las factorías de datos en la hoja **Factorías de datos**.
+4. En la hoja Factorías de datos, seleccione la factoría de datos que le interesa y debería ver la página principal (hoja **Factoría de datos**) de la factoría de datos.
 
-    ![Data factory blade](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
+	![Hoja Factoría de datos](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
-#### <a name="diagram-view-of-your-data-factory"></a>Diagram view of your data factory
-The Diagram View of a data factory provides a single pane of glass to monitor and manage the data factory and its assets.
+#### Vista de diagrama de la factoría de datos
+La Vista de diagrama de una factoría de datos ofrece un panel único para supervisar y administrar la factoría de datos y sus recursos.
 
-To see the diagram view of your data factory, click **Diagram** on the data factory home page.
+Haga clic en **Diagrama** en la página de inicio de la factoría de datos para ver la vista de diagrama.
 
-![Diagram view](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
+![Vista de diagrama](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
-You can zoom in, zoom out, zoom to fit, zoom to 100%, lock the layout of the diagram, and automatically position pipelines and tables. You can also see the data lineage information (show upstream and downstream items of selected items).
+Puede acercar, alejar, hacer zoom para ajustar, hacer zoom al 100%, bloquear el diseño del diagrama y colocar automáticamente canalizaciones y tablas. También puede ver la información de linaje de datos (mostrar elementos ascendentes y descendentes de los elementos seleccionados).
  
 
-### <a name="activities-inside-a-pipeline"></a>Activities inside a pipeline 
-1. Right-click the pipeline and click **Open pipeline** to see all activities in the pipeline along with input and output datasets for the activities. This feature is useful when your pipeline comprises of more than one Activity and you want to understand the operational lineage of a single pipeline.
+### Actividades en una canalización 
+1. Haga clic con el botón derecho en la canalización y haga clic en **Abrir canalización** para ver todas las actividades de la canalización junto con los conjuntos de datos de entrada y salida para las actividades. Esta característica resulta útil cuando la canalización consta de más de una actividad y se quiere entender el linaje operativo de una sola canalización.
 
-    ![Open pipeline menu](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)  
-2. In the following example, you see two activities in the pipeline with their inputs and outputs. The activity titled **JoinData** of type HDInsight Hive Activity and **EgressDataAzure** of type Copy Activity are in this sample pipeline. 
-    
-    ![Activities inside a pipeline](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png) 
-3. You can navigate back to Data Factory home page by clicking Data factory link in the breadcrumb at the top-left corner.
+	![Menú Abrir canalización](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)
+2. En el ejemplo siguiente, verá dos actividades en la canalización con sus entradas y salidas. En esta canalización de ejemplo se encuentran la actividad titulada **JoinData** del tipo de actividad de Hive de HDInsight y **EgressDataAzure** del tipo de actividad de copia.
+	
+	![Actividades en una canalización](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)
+3. Puede navegar de nuevo a la página de inicio de Data Factory haciendo clic en el vínculo de Data Factory situado en la ruta de navegación de la esquina superior izquierda.
 
-    ![Navigate back to data factory](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)
+	![Navegación hacia atrás a la factoría de datos](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)
 
-### <a name="view-state-of-each-activity-inside-a-pipeline"></a>View state of each activity inside a pipeline
-You can view the current state of an activity by viewing the status of any of the datasets produced by the activity. 
+### Estado de vista de cada actividad dentro de una canalización
+Puede ver el estado actual de una actividad viendo el estado de cualquiera de los conjuntos de datos generados por la actividad.
 
-For example: in the following example, the **BlobPartitionHiveActivity** ran successfully and produced a dataset named **PartitionedProductsUsageTable**, which is in **Ready** state.
+Por ejemplo, en el siguiente caso, **BlobPartitionHiveActivity** se ejecutó correctamente y generó un conjunto de datos denominado **PartitionedProductsUsageTable** que tiene el estado **Listo**.
 
-![State of pipeline](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
+![Estado de canalización](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
 
-Double-clicking the **PartitionedProductsUsageTable** in the diagram view showcases all the slices produced by different activity runs inside a pipeline. You can see that the **BlobPartitionHiveActivity** ran successfully every month for last eight months and produced the slices in **Ready** state.
+Al hacer doble clic en **PartitionedProductsUsageTable** en la vista de diagrama se presentan todos los segmentos generados por distintas ejecuciones de actividades dentro de una canalización. Puede ver que **BlobPartitionHiveActivity** se ejecutó correctamente cada mes durante los últimos ocho meses y generó los segmentos con el estado **Listo**.
 
-The dataset slices in data factory can have one of the following statuses:
+Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de los siguientes estados:
 
 <table>
 <tr>
-    <th align="left">State</th><th align="left">Substate</th><th align="left">Description</th>
+	<th align="left">Estado</th><th align="left">Subestado</th><th align="left">Description</th>
 </tr>
 <tr>
-    <td rowspan="8">Waiting</td><td>ScheduleTime</td><td>The time has not come for the slice to run.</td>
+	<td rowspan="8">En espera</td><td>ScheduleTime</td><td>No ha llegado la hora para que se ejecute el sector.</td>
 </tr>
 <tr>
-<td>DatasetDependencies</td><td>The upstream dependencies are not ready.</td>
+<td>DatasetDependencies</td><td>Las dependencias de nivel superior no están listas.</td>
 </tr>
 <tr>
-<td>ComputeResources</td><td>The compute resources are not available.</td>
+<td>ComputeResources</td><td>No están disponibles los recursos de proceso.</td>
 </tr>
 <tr>
-<td>ConcurrencyLimit</td> <td>All the activity instances are busy running other slices.</td>
+<td>ConcurrencyLimit</td> <td>Todas las instancias de actividad están ocupadas con la ejecución de otros sectores.</td>
 </tr>
 <tr>
-<td>ActivityResume</td><td>Activity is paused and cannot run the slices until it is resumed.</td>
+<td>ActivityResume</td><td>La actividad está en pausa y no puede ejecutar los sectores hasta que se reanude.</td>
 </tr>
 <tr>
-<td>Retry</td><td>Activity execution is retried.</td>
+<td>Retry</td><td>Se vuelve a intentar la ejecución de la actividad.</td>
 </tr>
 <tr>
-<td>Validation</td><td>Validation has not started yet.</td>
+<td>Validación</td><td>Aún no ha iniciado la validación.</td>
 </tr>
 <tr>
-<td>ValidationRetry</td><td>Waiting for the validation to be retried.</td>
+<td>ValidationRetry</td><td>En espera de que se vuelva a intentar la validación.</td>
 </tr>
 <tr>
-<tr
-<td rowspan="2">InProgress</td><td>Validating</td><td>Validation in progress.</td>
+&lt;tr
+<td rowspan="2">InProgress</td><td>Validating</td><td>Validación en curso.</td>
 </tr>
 <td></td>
-<td>The slice is being processed.</td>
+<td>El segmento se está procesando.</td>
 </tr>
 <tr>
-<td rowspan="4">Failed</td><td>TimedOut</td><td>Execution took longer than that is allowed by the activity.</td>
+<td rowspan="4">Con error</td><td>TimedOut</td><td>La ejecución tardó más tiempo del permitido por la actividad.</td>
 </tr>
 <tr>
-<td>Canceled</td><td>Canceled by user action.</td>
+<td>Canceled</td><td>Cancelado por acción del usuario.</td>
 </tr>
 <tr>
-<td>Validation</td><td>Validation has failed.</td>
+<td>Validación</td><td>Error de validación.</td>
 </tr>
 <tr>
-<td></td><td>Failed to generate and/or validate the slice.</td>
+<td></td><td>No se pudo generar o validar el segmento.</td>
 </tr>
-<td>Ready</td><td></td><td>The slice is ready for consumption.</td>
-</tr>
-<tr>
-<td>Skipped</td><td></td><td>The slice is not processed.</td>
+<td>Ready</td><td></td><td>El segmento está listo para su uso.</td>
 </tr>
 <tr>
-<td>None</td><td></td><td>A slice that used to exist with a different status, but has been reset.</td>
+<td>Skipped</td><td></td><td>El segmento no se procesa.</td>
+</tr>
+<tr>
+<td>None</td><td></td><td>Un segmento que existía con un estado distinto, pero se ha restablecido.</td>
 </tr>
 </table>
 
 
 
-You can view the details about a slice by clicking a slice entry in the **Recently Updated Slices** blade.
+Puede ver los detalles sobre un segmento haciendo clic en la hoja **Segmentos actualizados recientemente**.
 
-![Slice details](./media/data-factory-monitor-manage-pipelines/slice-details.png)
+![Detalles de segmento](./media/data-factory-monitor-manage-pipelines/slice-details.png)
  
-If the slice has been executed multiple times, you see multiple rows in the **Activity runs** list.
+Si el segmento se ejecutó varias veces, aparecen varias filas en la lista **Ejecuciones de actividad**.
 
-![Activity runs for a slice](./media/data-factory-monitor-manage-pipelines/activity-runs-for-a-slice.png)
+![Ejecuciones de actividad en un segmento](./media/data-factory-monitor-manage-pipelines/activity-runs-for-a-slice.png)
 
-You can view details about an activity run by clicking the run entry in the **Activity runs** list. The list shows all the log files along with an error message if any. This feature is useful to view and debug logs without having to leave your data factory.
+Para ver detalles sobre una ejecución de actividad, haga clic en la entrada de la ejecución en la lista **Ejecuciones de actividades**. La lista muestra todos los archivos de registro junto con los posibles mensajes de error que pudiera haber. Esta característica resulta muy útil para ver y depurar registros sin tener que salir de la factoría de datos.
 
-![Activity run details](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
+![Detalles de ejecución de actividad](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-If the slice is not in the **Ready** state, you can see the upstream slices that are not ready and are blocking the current slice from executing in the **Upstream slices that are not ready** list. This feature is useful when your slice is in **Waiting** state and you want to understand the upstream dependencies on which the slice is waiting.
+Si el segmento no está en el estado **Listo**, puede ver los segmentos ascendentes que no están en estado Listo y bloquean la ejecución del segmento actual en la lista **Segmentos ascendentes que no están listos**. Esta característica resulta muy útil cuando el segmento tiene el estado **En espera** y se quiere saber cuáles son las dependencias ascendentes en las que el segmento está en espera.
 
-![Upstream slices not ready](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
+![Segmentos ascendentes no listos](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
-### <a name="dataset-state-diagram"></a>Dataset State Diagram
-Once you deploy a data factory and the pipelines have a valid active period, the dataset slices transition from one state to another. Currently the slice status follows the following state diagram:
+### Diagrama de estado del conjunto de datos
+Cuando se implementa una factoría de datos y las canalizaciones tienen un período activo válido, los segmentos del conjunto de datos pasan de un estado a otro. Actualmente, el estado del segmento se ajusta al siguiente diagrama de estado:
 
-![State diagram](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
+![Diagrama de estado](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-The dataset state transition flow in data factory involves the following: Waiting-> In-Progress/In-Progress (Validating) -> Ready/Failed
+El flujo de transición de estado del conjunto de datos de la factoría de datos implica los siguientes estados: En espera -> En curso /En curso (Validando) -> Listo/En error.
 
-The slices start in a **Waiting** state for pre-conditions to be met before executing. Then, the activity starts executing and the slice goes in **In-Progress** state. The activity execution may succeed or fail. The slice is marked as **Ready**’ or **Failed** based on the result of the execution. 
+Los segmentos se inician con el estado **En espera** de las condiciones previas que deben cumplirse antes de la ejecución. Luego, la actividad comienza a ejecutarse y el segmento pasa al estado **En curso**. La ejecución de esta actividad se completará correctamente o dará error. El segmento se marca como **Listo**' o **Con error** según el resultado de la ejecución.
 
-You can reset the slice to go back from **Ready** or **Failed** state to **Waiting** state. You can also mark the slice state to **Skip**, which prevents the activity from executing and not process the slice.
+El usuario puede restablecer el segmento para que vuelva del estado **Listo** o **Con error** al estado **En espera**. El usuario también puede marcar el estado del segmento como **Omitir**, lo que impide que la actividad se ejecute, y no se procesa el segmento.
 
 
-## <a name="manage-pipelines"></a>Manage pipelines
-You can manage your pipelines using Azure PowerShell. For example, you can pause and resume pipelines by running Azure PowerShell cmdlets. 
+## Administración de canalizaciones
+Puede administrar las canalizaciones mediante Azure PowerShell. Por ejemplo, puede pausar y reanudar canalizaciones ejecutando cmdlets de Azure PowerShell.
 
-### <a name="pause-and-resume-pipelines"></a>Pause and resume pipelines
-You can pause/suspend pipelines using the **Suspend-AzureRmDataFactoryPipeline** Powershell cmdlet. This cmdlet is useful when you don’t want to run your pipelines until an issue is fixed.
+### Pausa y reanudación de canalizaciones
+Puede pausar o suspender canalizaciones con el cmdlet **Suspend-AzureRmDataFactoryPipeline** de Powershell. Este cmdlet es útil cuando no desea ejecutar canalizaciones hasta que se solucione un problema.
 
-For example: in the following screen shot, an issue has been identified with the **PartitionProductsUsagePipeline** in **productrecgamalbox1dev** data factory and we want to suspend the pipeline.
+Por ejemplo: en la siguiente captura de pantalla, se identificó un problema con la canalización **PartitionProductsUsagePipeline** en la factoría de datos **productrecgamalbox1dev** y queremos suspender la canalización.
 
-![Pipeline to be suspended](./media/data-factory-monitor-manage-pipelines/pipeline-to-be-suspended.png)
+![Canalización que se suspende](./media/data-factory-monitor-manage-pipelines/pipeline-to-be-suspended.png)
 
-To suspend a pipeline, run the following PowerShell command.
+Para suspender una canalización, ejecute el siguiente comando de PowerShell.
 
-    Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
+	Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
-For example:
+Por ejemplo:
 
-    Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
+	Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
 
-Once the issue has been fixed with the **PartitionProductsUsagePipeline**, the suspended pipeline can be resumed by running the following PowerShell command.
+Tras solucionar el problema con **PartitionProductsUsagePipeline**, se puede reanudar la canalización suspendida mediante el siguiente comando de PowerShell.
 
-    Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
+	Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
-For example:
+Por ejemplo:
 
-    Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
+	Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
 
 
-## <a name="debug-pipelines"></a>Debug pipelines
-Azure Data Factory provides rich capabilities via Azure portal and Azure PowerShell to debug and troubleshoot pipelines.
+## Depuración de canalizaciones
+Factoría de datos de Azure ofrece amplias capacidades a través del Portal de Azure y Azure PowerShell para depurar y solucionar problemas de las canalizaciones.
 
-### <a name="find-errors-in-a-pipeline"></a>Find errors in a pipeline
-If the activity run fails in a pipeline, the dataset produced by the pipeline is in an error state due to the failure. You can debug and troubleshoot errors in Azure Data Factory using the following mechanisms.
+### Búsqueda de errores en una canalización
+Si falla la ejecución de actividad en una canalización, el conjunto de datos generado por la canalización tiene un estado de error debido al error. Puede depurar y solucionar los errores en la Factoría de datos de Azure con los mecanismos siguientes.
 
-#### <a name="use-azure-portal-to-debug-an-error:"></a>Use Azure portal to debug an error:
+#### Uso de Azure Portal para depurar un error:
 
-1.  Click **With errors** on **Datasets** tile on the data factory home page.
-    
-    ![Datasets tile with error](./media/data-factory-monitor-manage-pipelines/datasets-tile-with-errors.png)
-2.  In the **Datasets with errors** blade, click the table that you are interested in.
+1.	Haga clic en **Con errores** en el icono **Conjuntos de datos** en la página principal de la factoría de datos.
+	
+	![Icono Conjuntos de datos con errores](./media/data-factory-monitor-manage-pipelines/datasets-tile-with-errors.png)
+2.	En la hoja **Conjuntos de datos con errores**, haga clic en la tabla en la que está interesado.
 
-    ![Datasets with errors blade](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)
-3.  In the **TABLE** blade, click the problem slice with **STATUS** set to **Failed**.
+	![Hoja Conjuntos de datos con errores](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)
+3.	En la hoja **TABLA**, haga clic en el segmento problemático con el **ESTADO** establecido en **Con error**.
 
-    ![Table blade with problem slice](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
-4.  In the **DATA SLICE** blade, click the activity run that failed.
-    
-    ![Dataslice with an error](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
-5.  In the **ACTIVITY RUN DETAILS** blade, you can download the files associated with the HDInsight processing. Click Download for Status/stderr to download the error log file that contains details about the error.
+	![Hoja Tabla con segmentos con problemas](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
+4.	En la hoja **SEGMENTO DE DATOS**, haga clic en la ejecución de actividad que produjo el error.
+	
+	![Segmento de datos con un error](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
+5.	En la hoja **DETALLES DE EJECUCIÓN DE ACTIVIDAD**, puede descargar los archivos asociados al procesamiento de HDInsight. Haga clic en Descargar correspondiente a Status/stderr para descargar el archivo de registro de errores que contiene detalles sobre el error.
 
-    ![Activity run details blade with error](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)  
+	![Hoja Detalles de ejecución de actividad con errores](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)
 
-#### <a name="use-the-powershell-to-debug-an-error"></a>Use the PowerShell to debug an error
-1.  Launch **Azure PowerShell**.
-3.  Run **Get-AzureRmDataFactorySlice** command to see the slices and their statuses. You should see a slice with the status: **Failed**.
+#### Uso de PowerShell para depurar un error
+1.	Inicie **Azure PowerShell**.
+3.	Ejecute el comando **Get-AzureRmDataFactorySlice** para ver los segmentos y sus estados. Debería ver un segmento con el estado: **En error**.
 
-        Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
-    
-    For example:
+		Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+	
+	Por ejemplo:
 
 
-        Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 
-    Replace **StartDateTime** with the StartDateTime value you specified for the Set-AzureRmDataFactoryPipelineActivePeriod.
-4. Now, run the **Get-AzureRmDataFactoryRun** cmdlet to get details about activity run for the slice.
+	Reemplace **StartDateTime** por el valor de StartDateTime especificado para Set-AzureDataFactoryPipelineActivePeriod.
+4. Ahora, ejecute el cmdlet **Get-AzureRmDataFactoryRun** para obtener detalles sobre la ejecución de actividad para el segmento.
 
-        Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-
-        DataFactoryName] <String> [-TableName] <String> [-StartDateTime] 
-        <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
-    
-    For example:
+		Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-
+		DataFactoryName] <String> [-TableName] <String> [-StartDateTime] 
+		<DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
+	
+	Por ejemplo:
 
 
-        Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
 
-    The value of StartDateTime is the start time for the error/problem slice you noted from the previous step. The date-time should be enclosed in double quotes.
-5.  You should see the output with details about the error (similar to the following):
+	El valor de StartDateTime es la hora de inicio del segmento con error o con problemas que anotó en el paso anterior. La fecha y hora debe ir encerrada entre comillas dobles.
+5. 	Debería ver la salida con detalles sobre el error (similar a la siguiente):
 
-        Id                      : 841b77c9-d56c-48d1-99a3-8c16c3e77d39
-        ResourceGroupName       : ADF
-        DataFactoryName         : LogProcessingFactory3
-        TableName               : EnrichedGameEventsTable
-        ProcessingStartTime     : 10/10/2014 3:04:52 AM
-        ProcessingEndTime       : 10/10/2014 3:06:49 AM
-        PercentComplete         : 0
-        DataSliceStart          : 5/5/2014 12:00:00 AM
-        DataSliceEnd            : 5/6/2014 12:00:00 AM
-        Status                  : FailedExecution
-        Timestamp               : 10/10/2014 3:04:52 AM
-        RetryAttempt            : 0
-        Properties              : {}
-        ErrorMessage            : Pig script failed with exit code '5'. See wasb://     adfjobs@spestore.blob.core.windows.net/PigQuery
-                                        Jobs/841b77c9-d56c-48d1-99a3-
-                    8c16c3e77d39/10_10_2014_03_04_53_277/Status/stderr' for
-                    more details.
-        ActivityName            : PigEnrichLogs
-        PipelineName            : EnrichGameLogsPipeline
-        Type                    :
-    
-    
-6.  You can run **Save-AzureRmDataFactoryLog** cmdlet with Id value you see from the output and download the log files using the **-DownloadLogsoption** for the cmdlet.
-
-    Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
-
-
-## <a name="rerun-failures-in-a-pipeline"></a>Rerun failures in a pipeline
-
-### <a name="using-azure-portal"></a>Using Azure portal
-
-Once you troubleshoot and debug failures in a pipeline, you can rerun failures by navigating to the error slice and clicking the **Run** button on the command bar.
-
-![Rerun a failed slice](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
-
-In case the slice has failed validation due to a policy failure (for ex: data not available), you can fix the failure and validate again by clicking the **Validate** button on the command bar.
-![Fix errors and validate](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
-
-### <a name="using-azure-powershell"></a>Using Azure PowerShell
-
-You can rerun failures by using the Set-AzureRmDataFactorySliceStatus cmdlet. See [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) topic for syntax and other details about the cmdlet. 
-
-**Example:** The following example sets the status of all slices for the table 'DAWikiAggregatedData' to 'Waiting' in the Azure data factory 'WikiADF'.
-
-The UpdateType is set to UpstreamInPipeline, which means that statuses of each slice for the table and all the dependent (upstream) tables are set to "Waiting." Other possible value for this parameter is "Individual."
-
-    Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
-
-
-## <a name="create-alerts"></a>Create alerts
-Azure logs user events when an Azure resource (for example, a data factory) is created, updated, or deleted. You can create alerts on these events. Data Factory allows you to capture various metrics and create alerts on metrics. We recommend that you use events for real-time monitoring and metrics for historical purposes. 
-
-### <a name="alerts-on-events"></a>Alerts on events
-Azure events provide useful insights into what is happening in your Azure resources. Azure logs user events when an Azure resource (for example, a data factory) is created, updated, or deleted. When using the Azure Data Factory, events are generated when:
-
-- Azure Data Factory is created/updated/deleted.
-- Data processing (called as Runs) has started/completed.
-- An on-demand HDInsight cluster is created and removed.
-
-You can create alerts on these user events and configure them to send email notifications to the administrator and co-administrators of the subscription. In addition, you can specify additional email addresses of users who need to receive email notifications when the conditions are met. This feature is useful when you want to get notified on failures and don’t want to continuously monitor your data factory.
-
-> [AZURE.NOTE] Currently, the portal does not show alerts on events. Use the [Monitoring and Management App](data-factory-monitor-manage-app.md) to see all alerts.
-
-#### <a name="specifying-an-alert-definition:"></a>Specifying an alert definition:
-To specify an alert definition, you create a JSON file describing the operations that you want to be alerted on. In the following example, the alert sends an email notification for the RunFinished operation. To be specific, an email notification is sent when a run in the data factory has completed and the run has failed (Status = FailedExecution).
-
-    {
-        "contentVersion": "1.0.0.0",
-         "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-        "parameters": {},
-        "resources": 
-        [
-            {
-                "name": "ADFAlertsSlice",
-                "type": "microsoft.insights/alertrules",
-                "apiVersion": "2014-04-01",
-                "location": "East US",
-                "properties": 
-                {
-                    "name": "ADFAlertsSlice",
-                    "description": "One or more of the data slices for the Azure Data Factory has failed processing.",
-                    "isEnabled": true,
-                    "condition": 
-                    {
-                        "odata.type": "Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition",
-                        "dataSource": 
-                        {
-                            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
-                            "operationName": "RunFinished",
-                            "status": "Failed",
-                            "subStatus": "FailedExecution"   
-                        }
-                    },
-                    "action": 
-                    {
-                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
-                        "customEmails": [ "<your alias>@contoso.com" ]
-                    }
-                }
-            }
-        ]
-    }
-
-From the JSON definition, **subStatus** can be removed if you don’t want to be alerted on a specific failure.
-
-This example sets up the alert for all data factories in your subscription. If you want the alert to be set up for a particular data factory, you can specify data factory **resourceUri** in the **dataSource**:
-
-    "resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>"
-
-The following table provides the list of available operations and statuses (and sub-statuses).
-
-Operation name | Status | Sub status
+		Id                  	: 841b77c9-d56c-48d1-99a3-8c16c3e77d39
+		ResourceGroupName   	: ADF
+		DataFactoryName     	: LogProcessingFactory3
+		TableName           	: EnrichedGameEventsTable
+		ProcessingStartTime 	: 10/10/2014 3:04:52 AM
+		ProcessingEndTime   	: 10/10/2014 3:06:49 AM
+		PercentComplete     	: 0
+		DataSliceStart      	: 5/5/2014 12:00:00 AM
+		DataSliceEnd        	: 5/6/2014 12:00:00 AM
+		Status              	: FailedExecution
+		Timestamp           	: 10/10/2014 3:04:52 AM
+		RetryAttempt        	: 0
+		Properties          	: {}
+		ErrorMessage        	: Pig script failed with exit code '5'. See wasb://		adfjobs@spestore.blob.core.windows.net/PigQuery
+		                        		Jobs/841b77c9-d56c-48d1-99a3-
+					8c16c3e77d39/10_10_2014_03_04_53_277/Status/stderr' for
+					more details.
+		ActivityName        	: PigEnrichLogs
+		PipelineName        	: EnrichGameLogsPipeline
+		Type                	:
+	
+	
+6. 	Puede ejecutar el cmdlet **Save-AzureRmDataFactoryLog** con el valor de identificador que ve en la salida y descargar los archivos de registro mediante la opción **-DownloadLogsoption** para el cmdlet.
+
+	Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\\Test"
+
+
+## Repetición de la ejecución de errores en una canalización
+
+### Uso de Azure Portal
+
+Tras solucionar los problemas y depurar los errores de una canalización, puede volver a ejecutar los errores; para ello, vaya al segmento de error y haga clic en el botón **Ejecutar** de la barra de comandos.
+
+![Repetición de ejecución de un segmento con errores](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
+
+En caso de que el segmento no se valide debido a un error de directiva (por ejemplo: datos no disponibles), puede corregir el error y volver a validarlo haciendo clic en el botón **Validar** de la barra de comandos. ![Corrección de errores y validación](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
+
+### Uso de Azure PowerShell
+
+Puede volver a ejecutar errores mediante el cmdlet Set-AzureRmDataFactorySliceStatus. Consulte el tema [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) para obtener información sobre la sintaxis y otros detalles del cmdlet.
+
+**Ejemplo:** en el caso siguiente, el estado de todos los segmentos de la tabla "DAWikiAggregatedData" se establece en "En espera" en la factoría de datos de Azure "WikiADF".
+
+El valor UpdateType se establece en UpstreamInPipeline, lo que significa que los estados de cada segmento de la tabla y todas las tablas dependientes (ascendentes) se establecen en "En espera". Otro valor posible para este parámetro es "Individual".
+
+	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
+
+
+## Creación de alertas
+Azure registra eventos del usuario cuando se crea, actualiza o elimina un recurso de Azure (por ejemplo, una factoría de datos). Puede crear alertas en estos eventos. Factoría de datos permite capturar diversas métricas y crear alertas en las métricas. Se recomienda que use los eventos con fines de supervisión en tiempo real y las métricas con fines históricos.
+
+### Alertas en eventos
+Los eventos de Azure proporcionan información útil sobre lo que sucede en los recursos de Azure. Azure registra eventos del usuario cuando se crea, actualiza o elimina un recurso de Azure (por ejemplo, una factoría de datos). Al usar la Factoría de datos de Azure, se generan eventos cuando:
+
+- La Factoría de datos de Azure se crea/actualiza/elimina.
+- Se inicia o finaliza el procesamiento de datos (denominado ejecución).
+- Se crea o se elimina un clúster de HDInsight a petición.
+
+Puede crear alertas sobre estos eventos del usuario y configurarlas para enviar notificaciones por correo electrónico al administrador y a los coadministradores de la suscripción. Además, puede especificar direcciones de correo electrónico adicionales de los usuarios que necesiten recibir notificaciones por correo electrónico cuando se cumplan las condiciones. Esta característica resulta muy útil si se quiere recibir una notificación cuando se produzcan errores y no se desea supervisar continuamente la factoría de datos.
+
+> [AZURE.NOTE] Actualmente, el portal no muestra alertas sobre eventos. Use la [aplicación de administración y supervisión](data-factory-monitor-manage-app.md) para ver todas las alertas.
+
+#### Especificación de una definición de alerta:
+Para especificar una definición de alerta, cree un archivo JSON que describa las operaciones sobre las que desea recibir alertas. En el ejemplo siguiente, la alerta envía una notificación de correo electrónico para la operación RunFinished. Para ser más específicos, se envía una notificación por correo electrónico cuando se ha completado una ejecución en la Factoría de datos y se ha producido un error (estado = FailedExecution).
+
+	{
+	    "contentVersion": "1.0.0.0",
+	     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+	    "parameters": {},
+	    "resources": 
+	    [
+	        {
+	            "name": "ADFAlertsSlice",
+	            "type": "microsoft.insights/alertrules",
+	            "apiVersion": "2014-04-01",
+	            "location": "East US",
+	            "properties": 
+	            {
+	                "name": "ADFAlertsSlice",
+	                "description": "One or more of the data slices for the Azure Data Factory has failed processing.",
+	                "isEnabled": true,
+	                "condition": 
+	                {
+	                    "odata.type": "Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition",
+	                    "dataSource": 
+	                    {
+	                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
+	                        "operationName": "RunFinished",
+	                        "status": "Failed",
+	                        "subStatus": "FailedExecution"   
+	                    }
+	                },
+	                "action": 
+	                {
+	                    "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
+	                    "customEmails": [ "<your alias>@contoso.com" ]
+	                }
+	            }
+	        }
+	    ]
+	}
+
+En la definición de JSON, **subStatus** se puede quitar si no desea recibir alertas sobre un error específico.
+
+Este ejemplo configura la alerta para todas las factorías de datos de la suscripción. Si quiere que la alerta esté configurada para una factoría de datos concreta, puede especificar la factoría de datos **resourceUri** en **dataSource**:
+
+	"resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>"
+
+En la tabla siguiente se ofrece una lista de las operaciones y los estados (y subestados) disponibles.
+
+Nombre de la operación | Estado | Subestado
 -------------- | ------ | ----------
-RunStarted | Started | Starting
+RunStarted | Started | Iniciando
 RunFinished | Failed / Succeeded | FailedResourceAllocation<br/><br/>Succeeded<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Canceled<br/><br/>FailedValidation<br/><br/>Abandoned
 OnDemandClusterCreateStarted | Started
-OnDemandClusterCreateSuccessful | Succeeded
-OnDemandClusterDeleted | Succeeded
+OnDemandClusterCreateSuccessful | Correcto
+OnDemandClusterDeleted | Correcto
 
-See [Create Alert Rule](https://msdn.microsoft.com/library/azure/dn510366.aspx) for details about JSON elements used in the example. 
+Vea [Crear regla de alerta](https://msdn.microsoft.com/library/azure/dn510366.aspx) para obtener más información sobre los elementos JSON usados en el ejemplo.
 
-#### <a name="deploying-the-alert"></a>Deploying the Alert 
-To deploy the alert, use the Azure PowerShell cmdlet: **New-AzureRmResourceGroupDeployment**, as shown in the following example:
+#### Implementación de alertas 
+Para implementar la alerta, use el cmdlet de Azure PowerShell **New-AzureRmResourceGroupDeployment**, como se muestra en el ejemplo siguiente:
 
-    New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
+	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 
-Once the resource group deployment has completed successfully, you see the following messages:
+Una vez completada correctamente la implementación del grupo de recursos, aparecen los siguientes mensajes:
 
-    VERBOSE: 7:00:48 PM - Template is valid.
-    WARNING: 7:00:48 PM - The StorageAccountName parameter is no longer used and will be removed in a future release.
-    Please update scripts to remove this parameter.
-    VERBOSE: 7:00:49 PM - Create template deployment 'ADFAlertFailedSlice'.
-    VERBOSE: 7:00:57 PM - Resource microsoft.insights/alertrules 'ADFAlertsSlice' provisioning status is succeeded
-    
-    DeploymentName    : ADFAlertFailedSlice
-    ResourceGroupName : adf
-    ProvisioningState : Succeeded
-    Timestamp         : 10/11/2014 2:01:00 AM
-    Mode              : Incremental
-    TemplateLink      :
-    Parameters        :
-    Outputs           :
+	VERBOSE: 7:00:48 PM - Template is valid.
+	WARNING: 7:00:48 PM - The StorageAccountName parameter is no longer used and will be removed in a future release.
+	Please update scripts to remove this parameter.
+	VERBOSE: 7:00:49 PM - Create template deployment 'ADFAlertFailedSlice'.
+	VERBOSE: 7:00:57 PM - Resource microsoft.insights/alertrules 'ADFAlertsSlice' provisioning status is succeeded
+	
+	DeploymentName    : ADFAlertFailedSlice
+	ResourceGroupName : adf
+	ProvisioningState : Succeeded
+	Timestamp         : 10/11/2014 2:01:00 AM
+	Mode              : Incremental
+	TemplateLink      :
+	Parameters        :
+	Outputs           :
 
-> [AZURE.NOTE] You can use the [Create Alert Rule](https://msdn.microsoft.com/library/azure/dn510366.aspx) REST API to create an alert rule. The JSON payload is similar to the JSON example.  
+> [AZURE.NOTE] Puede usar la API de REST [Crear regla de alerta](https://msdn.microsoft.com/library/azure/dn510366.aspx) para crear una regla de alerta. La carga útil de JSON es similar al ejemplo de JSON.
 
-#### <a name="retrieving-the-list-of-azure-resource-group-deployments"></a>Retrieving the list of Azure Resource Group Deployments
-To retrieve the list of deployed Azure Resource Group deployments, use the cmdlet: **Get-AzureRmResourceGroupDeployment**, as shown in the following example:
+#### Recuperación de la lista de implementaciones del grupo de recursos de Azure
+Para recuperar la lista de implementaciones del grupo de recursos de Azure implementado, use el cmdlet **Get-AzureRmResourceGroupDeployment**, como se muestra en el ejemplo siguiente:
 
-    Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
-    
-    DeploymentName    : ADFAlertFailedSlice
-    ResourceGroupName : adf
-    ProvisioningState : Succeeded
-    Timestamp         : 10/11/2014 2:01:00 AM
-    Mode              : Incremental
-    TemplateLink      :
-    Parameters        :
-    Outputs           :
-
-
-#### <a name="troubleshooting-user-events"></a>Troubleshooting User Events
+	Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
+	
+	DeploymentName    : ADFAlertFailedSlice
+	ResourceGroupName : adf
+	ProvisioningState : Succeeded
+	Timestamp         : 10/11/2014 2:01:00 AM
+	Mode              : Incremental
+	TemplateLink      :
+	Parameters        :
+	Outputs           :
 
 
-- You can see all the events generated after clicking the **Operations** tile, and alerts can be set up on any of these operations visible on the **Events** blade:
-
-    ![Operations](./media/data-factory-monitor-manage-pipelines/operations.png)
+#### Solución de problemas con eventos del usuario
 
 
-- See [Azure Insight Cmdlets](https://msdn.microsoft.com/library/mt282452.aspx) article for PowerShell cmdlets that you can use to add/get/remove alerts. Here are a few examples of using the **Get-AlertRule** cmdlet: 
+- Aparecerán todos los eventos generados después de hacer clic en el icono **Operaciones** y se pueden configurar alertas en cualquiera de estas operaciones visibles en la hoja **Eventos**:
+
+	![Operaciones](./media/data-factory-monitor-manage-pipelines/operations.png)
 
 
-        PS C:\> get-alertrule -res $resourceGroup -n ADFAlertsSlice -det
-            
-                Properties :
-                Action      : Microsoft.Azure.Management.Insights.Models.RuleEmailAction
-                Condition   :
-                DataSource :
-                EventName             :
-                Category              :
-                Level                 :
-                OperationName         : RunFinished
-                ResourceGroupName     :
-                ResourceProviderName  :
-                ResourceId            :
-                Status                : Failed
-                SubStatus             : FailedExecution
-                Claims                : Microsoft.Azure.Management.Insights.Models.RuleManagementEventClaimsDataSource
-                Condition   :
-                Description : One or more of the data slices for the Azure Data Factory has failed processing.
-                Status      : Enabled
-                Name:       : ADFAlertsSlice
-                Tags       :
-                $type          : Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage
-                Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/ADFAlertsSlice
-                Location   : West US
-                Name       : ADFAlertsSlice
-        
-        PS C:\> Get-AlertRule -res $resourceGroup
-    
-                Properties : Microsoft.Azure.Management.Insights.Models.Rule
-                Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
-                Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
-                Location   : West US
-                Name       : FailedExecutionRunsWest0
-        
-                Properties : Microsoft.Azure.Management.Insights.Models.Rule
-                Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
-                Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest3
-                Location   : West US
-                Name       : FailedExecutionRunsWest3
-    
-        PS C:\> Get-AlertRule -res $resourceGroup -Name FailedExecutionRunsWest0
-        
-                Properties : Microsoft.Azure.Management.Insights.Models.Rule
-                Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
-                Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
-                Location   : West US
-                Name       : FailedExecutionRunsWest0
-
-    Run the following get-help commands to see details and examples for the Get-AlertRule cmdlet. 
-
-        get-help Get-AlertRule -detailed 
-        get-help Get-AlertRule -examples
+- Vea el artículo [Azure Insight Cmdlets](https://msdn.microsoft.com/library/mt282452.aspx) para ver los cmdlets de PowerShell que puede usar para agregar, obtener o quitar alertas. Estos son algunos ejemplos del uso del cmdlet **Get-AlertRule**:
 
 
-- If you see the alert generation events on the portal blade but you don't receive email notifications, check whether e-mail address specified is set to receive emails from external senders. The alert e-mails may have been blocked by your e-mail settings.
+		PS C:\> get-alertrule -res $resourceGroup -n ADFAlertsSlice -det
+			
+				Properties :
+		        Action      : Microsoft.Azure.Management.Insights.Models.RuleEmailAction
+		        Condition   :
+				DataSource :
+				EventName             :
+				Category              :
+				Level                 :
+				OperationName         : RunFinished
+				ResourceGroupName     :
+				ResourceProviderName  :
+				ResourceId            :
+				Status                : Failed
+				SubStatus             : FailedExecution
+				Claims                : Microsoft.Azure.Management.Insights.Models.RuleManagementEventClaimsDataSource
+		        Condition  	:
+				Description : One or more of the data slices for the Azure Data Factory has failed processing.
+				Status      : Enabled
+				Name:       : ADFAlertsSlice
+				Tags       :
+				$type          : Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage
+				Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/ADFAlertsSlice
+				Location   : West US
+				Name       : ADFAlertsSlice
+		
+		PS C:\> Get-AlertRule -res $resourceGroup
+	
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+				Location   : West US
+				Name       : FailedExecutionRunsWest0
+		
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest3
+				Location   : West US
+				Name       : FailedExecutionRunsWest3
+	
+		PS C:\> Get-AlertRule -res $resourceGroup -Name FailedExecutionRunsWest0
+		
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+				Location   : West US
+				Name       : FailedExecutionRunsWest0
 
-### <a name="alerts-on-metrics"></a>Alerts on Metrics
-Data Factory allows you to capture various metrics and create alerts on metrics. You can monitor and create alerts on the following metrics for the slices in your data factory.
+	Ejecute los siguientes comandos get-help para ver detalles y ejemplos para el cmdlet Get-AlertRule.
+
+		get-help Get-AlertRule -detailed 
+		get-help Get-AlertRule -examples
+
+
+- Si ve los eventos de generación de alertas en la hoja del portal, pero no recibe notificaciones de correo electrónico, compruebe si la dirección de correo electrónico especificada se estableció para recibir correos electrónicos de remitentes externos. Puede que la configuración de correo electrónico bloquease los mensajes de alertas.
+
+### Alertas en métricas
+Factoría de datos permite capturar diversas métricas y crear alertas en las métricas. Puede supervisar y crear alertas en las siguientes métricas para los segmentos de la factoría de datos.
  
-- Failed Runs
-- Successful Runs
+- Ejecuciones con error
+- Ejecuciones correctas
 
-These metrics are useful and allow you to get an overview of overall failed and successful runs in their data factory. Metrics are emitted every time there is a slice run. On top of the hour, these metrics are aggregated and pushed to your storage account. Therefore, to enable metrics, set up a storage account.
+Estas métricas resultan útiles y permiten a los usuarios obtener información general de todas las ejecuciones correctas y con error en su factoría de datos. Las métricas se emiten cada vez que hay una ejecución del segmento. A la hora en punto, estas métricas se agregan y se insertan en la cuenta de almacenamiento. Por lo tanto, para habilitar las métricas, configure una cuenta de almacenamiento.
 
-#### <a name="enabling-metrics:"></a>Enabling Metrics:
-To enable metrics, click the following from Data Factory blade:
+#### Habilitación de métricas:
+Para habilitar las métricas, haga clic en la secuencia siguiente desde la hoja de Data Factory:
 
-**Monitoring** -> **Metric** -> **Diagnostic settings** -> **Diagnostic**
+**Supervisión** -> **Métrica** -> **Configuración de diagnóstico** -> **Diagnóstico**
 
-On the **Diagnostic** blade, click **On** and select the storage account and save.
+En la hoja **Diagnóstico**, haga clic en **Activada**, seleccione la cuenta de almacenamiento y guarde los cambios.
 
-![Enable metrics](./media/data-factory-monitor-manage-pipelines/enable-metrics.png)
+![Habilitación de métricas](./media/data-factory-monitor-manage-pipelines/enable-metrics.png)
 
-Once saved, it may take up to one hour for the metrics to be visible on the monitoring blade, because metrics aggregation happens hourly.
-
-
-### <a name="setting-up-alert-on-metrics:"></a>Setting up alert on Metrics:
-
-To set up alerting on Metrics, click the following from Data factory blade: **Monitoring** -> **Metric** -> **Add alert** -> **Add an alert rule**.
-
-Fill in the details for alert rule, specify emails, and click **OK**.
+Una vez guardadas, las métricas pueden tardar hasta una hora en estar visibles en la hoja de supervisión, porque la agregación de métricas se realiza cada hora.
 
 
-![Setting up alerts on metrics](./media/data-factory-monitor-manage-pipelines/setting-up-alerts-on-metrics.png)
+### Configuración de alerta en métricas:
 
-Once done, you should see a new alert rule enabled on Alert rules tile as following:
+Para configurar alertas sobre métricas, haga clic en la secuencia siguiente de la hoja Data Factory: **Supervisión** -> **Métrica** -> **Agregar alerta** -> **Agregar una regla de alerta**.
 
-![Alert rules enabled](./media/data-factory-monitor-manage-pipelines/alert-rule-enabled.png)
+Rellene los detalles de la regla de alerta, especifique los mensajes de correo electrónico y haga clic en **Aceptar**.
 
-Congratulations! You have set up your first alert on Metrics. Now you should get notifications every time alert rule matches in the given time window.
 
-### <a name="alert-notifications:"></a>Alert notifications:
-Once the alert rule matches the condition, you should get an alert activated email. Once the issue is resolved and the alert condition doesn’t match any more, you get an alert resolved email.
+![Configuración de alerta en métricas](./media/data-factory-monitor-manage-pipelines/setting-up-alerts-on-metrics.png)
 
-This behavior is different than events where a notification is sent on every failure for which alert rule qualifies.
+Al terminar, debería ver una nueva regla de alerta habilitada en el icono Reglas de alertas de la manera siguiente:
 
-### <a name="deploying-alerts-using-powershell"></a>Deploying alerts using PowerShell
-You can deploy alerts for metrics in the same way as you do for events. 
+![Reglas de alerta habilitadas](./media/data-factory-monitor-manage-pipelines/alert-rule-enabled.png)
 
-**Alert definition:**
+¡Enhorabuena! Ya configuró la primera alerta en métricas. Ahora debe recibir notificaciones cada vez que la regla de alerta coincida en la ventana de tiempo especificada.
 
-    {
-        "contentVersion" : "1.0.0.0",
-        "$schema" : "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-        "parameters" : {},
-        "resources" : [
-        {
-                "name" : "FailedRunsGreaterThan5",
-                "type" : "microsoft.insights/alertrules",
-                "apiVersion" : "2014-04-01",
-                "location" : "East US",
-                "properties" : {
-                    "name" : "FailedRunsGreaterThan5",
-                    "description" : "Failed Runs greater than 5",
-                    "isEnabled" : true,
-                    "condition" : {
-                        "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.ThresholdRuleCondition, Microsoft.WindowsAzure.Management.Mon.Client",
-                        "odata.type" : "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
-                        "dataSource" : {
-                            "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource, Microsoft.WindowsAzure.Management.Mon.Client",
-                            "odata.type" : "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
-                            "resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName
-    >/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>",
-                            "metricName" : "FailedRuns"
-                        },
-                        "threshold" : 5.0,
-                        "windowSize" : "PT3H",
-                        "timeAggregation" : "Total"
-                    },
-                    "action" : {
-                        "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction, Microsoft.WindowsAzure.Management.Mon.Client",
-                        "odata.type" : "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
-                        "customEmails" : ["abhinav.gpt@live.com"]
-                    }
-                }
-            }
-        ]
-    }
+### Notificaciones de alerta:
+Cuando la regla de alerta coincida con la condición, recibirá un correo electrónico de alerta activada. Cuando resuelva el problema y la condición de alerta ya no coincida, recibirá un mensaje de correo de alerta resuelta.
+
+Este comportamiento es diferente al de eventos en los que se envía una notificación en todos los errores en los que la regla de alerta se cumple.
+
+### Implementación de alertas con PowerShell
+Puede implementar alertas para las métricas de la misma manera que lo hace para los eventos.
+
+**Definición de alertas:**
+
+	{
+	    "contentVersion" : "1.0.0.0",
+	    "$schema" : "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+	    "parameters" : {},
+	    "resources" : [
+		{
+	            "name" : "FailedRunsGreaterThan5",
+	            "type" : "microsoft.insights/alertrules",
+	            "apiVersion" : "2014-04-01",
+	            "location" : "East US",
+	            "properties" : {
+	                "name" : "FailedRunsGreaterThan5",
+	                "description" : "Failed Runs greater than 5",
+	                "isEnabled" : true,
+	                "condition" : {
+	                    "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.ThresholdRuleCondition, Microsoft.WindowsAzure.Management.Mon.Client",
+	                    "odata.type" : "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+	                    "dataSource" : {
+	                        "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource, Microsoft.WindowsAzure.Management.Mon.Client",
+	                        "odata.type" : "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+	                        "resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName
+	>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>",
+	                        "metricName" : "FailedRuns"
+	                    },
+	                    "threshold" : 5.0,
+	                    "windowSize" : "PT3H",
+	                    "timeAggregation" : "Total"
+	                },
+	                "action" : {
+	                    "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction, Microsoft.WindowsAzure.Management.Mon.Client",
+	                    "odata.type" : "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
+	                    "customEmails" : ["abhinav.gpt@live.com"]
+	                }
+	            }
+	        }
+	    ]
+	}
  
-Replace subscriptionId, resourceGroupName, and dataFactoryName in the sample with appropriate values.
+Reemplace subscriptionId, resourceGroupName y dataFactoryName en el ejemplo anterior por los valores adecuados.
 
-*metricName* as of now supports two values:
+*metricName* admite a partir de ahora dos valores:
 - FailedRuns
 - SuccessfulRuns
 
-**Deploying the alert:**
+**Implementación de alertas:**
 
-To deploy the alert, use the Azure PowerShell cmdlet: **New-AzureRmResourceGroupDeployment**, as shown in the following example:
+Para implementar la alerta, use el cmdlet de Azure PowerShell **New-AzureRmResourceGroupDeployment**, como se muestra en el ejemplo siguiente:
 
-    New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
+	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
 
-You should see following message after successful deployment:
+Debería ver el siguiente mensaje después de la implementación correcta:
 
-    VERBOSE: 12:52:47 PM - Template is valid.
-    VERBOSE: 12:52:48 PM - Create template deployment 'FailedRunsGreaterThan5'.
-    VERBOSE: 12:52:55 PM - Resource microsoft.insights/alertrules 'FailedRunsGreaterThan5' provisioning status is succeeded
-    
-    
-    DeploymentName    : FailedRunsGreaterThan5
-    ResourceGroupName : adf
-    ProvisioningState : Succeeded
-    Timestamp         : 7/27/2015 7:52:56 PM
-    Mode              : Incremental
-    TemplateLink      :
-    Parameters        :
-    Outputs           
-
-
-You can also use the **Add-AlertRule** cmdlet to deploy an alert rule. See [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) topic for details and examples.  
-
-## <a name="move-data-factory-to-a-different-resource-group-or-subscription"></a>Move data factory to a different resource group or subscription
-You can move a data factory to a different resource group or a different subscription by using the **Move** command bar button on the home page of your data factory. 
-
-![Move data factory](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
-
-You can also move any related resources (such as alerts associated with the data factory) along with the data factory.
-
-![Move Resources dialog box](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
+	VERBOSE: 12:52:47 PM - Template is valid.
+	VERBOSE: 12:52:48 PM - Create template deployment 'FailedRunsGreaterThan5'.
+	VERBOSE: 12:52:55 PM - Resource microsoft.insights/alertrules 'FailedRunsGreaterThan5' provisioning status is succeeded
+	
+	
+	DeploymentName    : FailedRunsGreaterThan5
+	ResourceGroupName : adf
+	ProvisioningState : Succeeded
+	Timestamp         : 7/27/2015 7:52:56 PM
+	Mode              : Incremental
+	TemplateLink      :
+	Parameters        :
+	Outputs           
 
 
+También puede usar el cmdlet **Add-AlertRule** para implementar una regla de alertas. Consulte el tema [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) para obtener información detallada y ejemplos.
 
-<!--HONumber=Oct16_HO2-->
+## Desplazamiento de una factoría de datos a una suscripción o un grupo de recursos diferentes
+Puede mover una factoría de datos a un grupo de recursos o una suscripción diferentes con el botón **Mover** de la barra de comandos que aparece en la página principal de su factoría de datos.
 
+![Mover factoría de datos](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
 
+Junto con la factoría de datos, también puede mover todos los recursos relacionados (como alertas asociadas a la factoría de datos).
+
+![Cuadro de diálogo Mover recursos](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
+
+<!---HONumber=AcomDC_0907_2016-->

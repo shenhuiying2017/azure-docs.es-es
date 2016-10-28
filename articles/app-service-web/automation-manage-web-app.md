@@ -1,51 +1,46 @@
 <properties
-    pageTitle="Manage Azure Web App using Azure Automation | Microsoft Azure"
-    description="Learn about how the Azure Automation service can be used to manage Azure Web App."
-    services="app-service\web, automation"
-    documentationCenter=""
-    authors="mgoedtel"
-    manager="jwhit"
-    editor=""/>
+	pageTitle="Administración de Aplicaciones web de Azure mediante Automatización de Azure | Microsoft Azure"
+	description="Obtenga información acerca de cómo puede usarse el servicio para administrar Aplicaciones web de Azure."
+	services="app-service\web, automation"
+	documentationCenter=""
+	authors="mgoedtel"
+	manager="jwhit"
+	editor=""/>
 
 <tags
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/29/2016"
-    ms.author="magoedte;csand"/>
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/29/2016"
+	ms.author="magoedte;csand"/>
+
+#Administración de aplicaciones web de Azure mediante Automatización de Azure
+
+Esta guía le ofrece el servicio Automatización de Azure y cómo se puede usar para simplificar la administración de Aplicaciones web de Azure.
+
+## ¿Qué es Automatización de Azure?
+
+[Automatización de Azure](../automation/automation-intro.md) es un servicio de Azure para simplificar la administración en la nube mediante la automatización de procesos. Mediante Automatización de Azure, se pueden automatizar las tareas de ejecución prolongada, manuales, propensas a errores y que se repiten para aumentar la confiabilidad, la eficiencia y el valioso tiempo para su organización.
+
+Automatización de Azure proporciona un motor de ejecución de flujo de trabajo altamente confiable y de alta disponibilidad que realiza la escalación para satisfacer sus necesidades. En Automatización de Azure, los sistemas de terceros pueden interrumpir los procesos manualmente o en intervalos programados para que las tareas se realicen justo cuando sea necesario.
+
+Reduzca la sobrecarga operativa y libere al personal de TI/DevOps para concentrarse en el trabajo que proporciona valor al negocio trasladando las tareas de administración en la nube para que se ejecuten automáticamente mediante Automatización de Azure.
 
 
-#<a name="managing-azure-web-app-using-azure-automation"></a>Managing Azure Web App using Azure Automation
+## ¿Cómo puede ayudar Automatización de Azure a administrar Aplicaciones web de Azure?
 
-This guide will introduce you to the Azure Automation service, and how it can be used to simplify management of Azure Web App.
+Las aplicaciones web se pueden administrar en Automatización de Azure mediante los cmdlets de PowerShell que están disponibles en los [módulos de Azure PowerShell](../powershell-install-configure.md). Puede [instalar estos cmdlets de Aplicaciones web de PowerShell en Automatización de Azure](https://azure.microsoft.com/blog/announcing-azure-resource-manager-support-azure-automation-runbooks/) para que pueda realizar todas las tareas de administración de Aplicaciones web dentro del servicio. También puede emparejar estos cmdlets en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas a través de los servicios de Azure y sistemas de terceros.
 
-## <a name="what-is-azure-automation?"></a>What is Azure Automation?
+Estos son algunos ejemplos de administración de Servicios de aplicaciones con Automatización:
 
-[Azure Automation](../automation/automation-intro.md) is an Azure service for simplifying cloud management through process automation. Using Azure Automation, manual, repeated, long-running, and error-prone tasks can be automated to increase reliability, efficiency, and time to value for your organization.
+* [Scripts para administrar Aplicaciones web](https://azure.microsoft.com/documentation/scripts/)
 
-Azure Automation provides a highly-reliable, highly-available workflow execution engine that scales to meet your needs. In Azure Automation, processes can be kicked off manually, by 3rd-party systems, or at scheduled intervals so that tasks happen exactly when needed.
+## Pasos siguientes
 
-Reduce operational overhead and free up IT and DevOps staff to focus on work that adds business value by moving your cloud management tasks to be run automatically by Azure Automation.
+Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo se puede usar para administrar Aplicaciones web de Azure, siga estos vínculos para obtener más información acerca de Automatización de Azure.
 
+* Consulte el [Tutorial de introducción](../automation/automation-first-runbook-graphical.md) de Automatización de Azure.
 
-## <a name="how-can-azure-automation-help-manage-azure-web-app?"></a>How can Azure Automation help manage Azure Web App?
-
-Web App can be managed in Azure Automation by using the PowerShell cmdlets that are available in the [Azure PowerShell modules](../powershell-install-configure.md). You can [install these Web App PowerShell cmdlets in Azure Automation](https://azure.microsoft.com/blog/announcing-azure-resource-manager-support-azure-automation-runbooks/), so that you can perform all of your Web App management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services to automate complex tasks across Azure services and 3rd party systems.
-
-Here are some examples of managing App Services with Automation:
-
-* [Scripts for managing Web Apps](https://azure.microsoft.com/documentation/scripts/)
-
-## <a name="next-steps"></a>Next steps
-
-Now that you've learned the basics of Azure Automation and how it can be used to manage Azure Web App, follow these links to learn more about Azure Automation.
-
-* See the Azure Automation [Getting Started Tutorial](../automation/automation-first-runbook-graphical.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

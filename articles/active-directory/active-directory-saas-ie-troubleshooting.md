@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Troubleshooting the Access Panel Extension for Internet Explorer | Microsoft Azure"
-    description="How to use group policy to deploy the Internet Explorer add-on for the My Apps portal."
+    pageTitle="Solución de problemas de la extensión del Panel de acceso para Internet Explorer | Microsoft Azure"
+    description="Cómo usar la directiva de grupo para implementar el complemento de Internet Explorer para el portal de Mis aplicaciones."
     services="active-directory"
     documentationCenter=""
     authors="MarkusVi"
@@ -16,102 +16,97 @@
     ms.date="08/16/2016"
     ms.author="markvi"/>
 
+#Solución de problemas de la extensión del Panel de acceso para Internet Explorer
 
-#<a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Troubleshooting the Access Panel Extension for Internet Explorer
+Este artículo le ayudará a solucionar los siguientes problemas:
 
-This article will help you troubleshoot the following problems:
+- No puede tener acceso a sus aplicaciones a través del portal de Mis aplicaciones con Internet Explorer.
+- Verá el mensaje "Instalar software" aunque ya haya instalado el software.
 
-- You're unable to access your apps through the My Apps portal while using Internet Explorer.
-- You see the "Install Software" message even though you've already installed the software.
+Si es administrador, vea también: [Cómo implementar la extensión del Panel de acceso para Internet Explorer con la Directiva de grupo](active-directory-saas-ie-group-policy.md).
 
-If you are an admin, see also: [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](active-directory-saas-ie-group-policy.md)
+##Ejecutar la herramienta de diagnóstico
 
-##<a name="run-the-diagnostic-tool"></a>Run the Diagnostic Tool
+Puede diagnosticar problemas de instalación con la extensión del Panel de acceso descargando y ejecutando la herramienta de diagnóstico del Panel de acceso:
 
-You can diagnose installation problems with the Access Panel Extension by downloading and running the Access Panel diagnostic tool:
+1. [Haga clic aquí para descargar la herramienta de diagnóstico.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
 
-1. [Click here to download the diagnostic tool.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
+2. Abra el archivo y presione el botón **Extraer todo**.
 
-2. Open the file, and press **Extract all** button.
+	![Presionar Extraer todo](./media/active-directory-saas-ie-troubleshooting/extract1.png)
 
-    ![Press Extract All](./media/active-directory-saas-ie-troubleshooting/extract1.png)
+3. A continuación, presione el botón **Extraer** para continuar.
 
-3. Then press the **Extract** button to continue.
+	![Presionar Extraer](./media/active-directory-saas-ie-troubleshooting/extract2.png)
 
-    ![Press Extract](./media/active-directory-saas-ie-troubleshooting/extract2.png)
+4. Para ejecutar la herramienta, haga clic con el botón secundario en el archivo denominado **AccessPanelExtensionDiagnosticTool** y luego seleccione **Abrir con > Host de script basado en Microsoft Windows**.
 
-4. To run the tool, right-click the file named **AccessPanelExtensionDiagnosticTool**, then select **Open with > Microsoft Windows Based Script Host**.
+	![Abrir con > Host de script basado en Microsoft Windows](./media/active-directory-saas-ie-troubleshooting/open_tool.png)
 
-    ![Open with > Microsoft Windows Based Script Host](./media/active-directory-saas-ie-troubleshooting/open_tool.png)
+5. A continuación verá la siguiente ventana de diagnóstico, en la que se describe qué puede haber incorrecto con la instalación.
 
-5. You will then see the following diagnostic window, which describes what might be wrong with your installation.
+	![Un ejemplo de la ventana de diagnóstico](./media/active-directory-saas-ie-troubleshooting/tool_preview.png)
 
-    ![A sample of the diagnostic window](./media/active-directory-saas-ie-troubleshooting/tool_preview.png)
+6. Haga clic en "**SÍ**" para permitir que el programa corrija los problemas que se han encontrado.
 
-6. Click "**YES**" to let the program fix the issues that have been found.
+7. Para guardar estos cambios, cierre cada ventana de Internet Explorer y luego vuelva a abrir Internet Explorer.<br />Si todavía no puede tener acceso a sus aplicaciones, pruebe los pasos siguientes.
 
-7. To save these changes, close every Internet Explorer window, and then open Internet Explorer again.<br />If you still can't access your apps, try the steps below.
+##Comprobar que la extensión del Panel de acceso está activada
 
-##<a name="check-that-the-access-panel-extension-is-enabled"></a>Check that the Access Panel Extension is enabled
+Para comprobar que la extensión del Panel de acceso está habilitada en Internet Explorer:
 
-To verify that the Access Panel Extension is enabled in Internet Explorer:
+1. En Internet Explorer, haga clic en el **icono de engranaje** de la esquina superior derecha de la ventana. Luego seleccione **Opciones de Internet**.<br />(En versiones anteriores de Internet Explorer puede encontrar esta opción en **Herramientas > Opciones de Internet**.
 
-1. In Internet Explorer, click on the **Gear icon** on the top right corner of the window. Then select **Internet options**.<br />(In older versions of Internet Explorer you can find this under **Tools > Internet options**.
+	![Ir a Herramientas > Opciones de Internet](./media/active-directory-saas-ie-troubleshooting/internetoptions.png)
 
-    ![Go to Tools > Internet Options](./media/active-directory-saas-ie-troubleshooting/internetoptions.png)
+2. Haga clic en la pestaña **Programas** y luego en el botón **Administrar complementos**.
 
-2. Click on the **Programs** tab, then click on the **Manage add-ons** button.
+	![Hacer clic en Administrar complementos](./media/active-directory-saas-ie-troubleshooting/internetoptions_programs.png)
 
-    ![Click Manage Add-Ons](./media/active-directory-saas-ie-troubleshooting/internetoptions_programs.png)
+3. En este cuadro de diálogo, seleccione **Extensión del Panel de acceso** y luego haga clic en el botón **Habilitar**.
 
-3. In this dialog, select **Access Panel Extension** and then click the **Enable** button.
+	![Hacer clic en Habilitar](./media/active-directory-saas-ie-troubleshooting/enableaddon.png)
 
-    ![Click Enable](./media/active-directory-saas-ie-troubleshooting/enableaddon.png)
+4. Para guardar estos cambios, cierre cada ventana de Internet Explorer y luego vuelva a abrir Internet Explorer.
 
-4. To save these changes, close every Internet Explorer window and then open Internet Explorer again.
+##Habilitar extensiones para la exploración de InPrivate
 
-##<a name="enable-extensions-for-inprivate-browsing"></a>Enable Extensions for InPrivate Browsing
+Si usa el modo de exploración de InPrivate:
 
-If you are using the InPrivate Browsing mode:
+1. En Internet Explorer, haga clic en el **icono de engranaje** de la esquina superior derecha de la ventana. Luego seleccione **Opciones de Internet**.<br />(En versiones anteriores de Internet Explorer puede encontrar esta opción en **Herramientas > Opciones de Internet**.
 
-1. In Internet Explorer, click on the **Gear icon** on the top right corner of the window. Then select **Internet options**.<br />(In older versions of Internet Explorer you can find this under **Tools > Internet options**.
+	![Un ejemplo de la ventana de diagnóstico](./media/active-directory-saas-ie-troubleshooting/inprivateoptions.png)
 
-    ![A sample of the diagnostic window](./media/active-directory-saas-ie-troubleshooting/inprivateoptions.png)
+2. Vaya a la pestaña **Privacidad** y **desactive** la casilla **Deshabilitar barras de herramientas y extensiones cuando se inicie la exploración de InPrivate**</p>.
 
-2. Go to the **Privacy** tab, then **uncheck** the checkbox labeled **Disable toolbars and extensions when InPrivate Browsing starts**</p>
+	![Desactivar Deshabilitar barras de herramientas y extensiones cuando se inicie la exploración de InPrivate](./media/active-directory-saas-ie-troubleshooting/enabletoolbars.png)
 
-    ![Uncheck Disable toolbars and extensions when InPrivate Browsing starts](./media/active-directory-saas-ie-troubleshooting/enabletoolbars.png)
+3. Para guardar estos cambios, cierre cada ventana de Internet Explorer y luego vuelva a abrir Internet Explorer.
 
-3. To save these changes, close every Internet Explorer window and then open Internet Explorer again.
+##Desinstalar la extensión del Panel de acceso
 
-##<a name="uninstall-the-access-panel-extension"></a>Uninstall the Access Panel Extension
+Para desinstalar la extensión del Panel de acceso desde el equipo:
 
-To uninstall the Access Panel extension from your computer:
+1. En el teclado, presione la **clave de Windows** para abrir el menú Inicio. Cuando se abre el menú, puede escribir cualquier cosa para realizar una búsqueda. Escriba "Panel de Control" y luego abra el **Panel de Control** cuando aparezca en los resultados de la búsqueda.
 
-1. On your keyboard, press the **Windows key** to open the Start menu. When the menu is open, you can type anything to do a search. Type "Control Panel" and then open the **Control Panel** when it appears in the search results.
+	![Buscar el Panel de Control](./media/active-directory-saas-ie-troubleshooting/search_sm.png)
 
-    ![Search for Control Panel](./media/active-directory-saas-ie-troubleshooting/search_sm.png)
+2. En la esquina superior derecha del Panel de Control, cambie la opción **Ver** a **Iconos grandes**. Luego busque y haga clic en el botón **Programas y características**.
 
-2. In the top right corner of the Control Panel, change the **View by** option to **Large icons**. Then find and click on the **Programs and Features** button.
+	![Cambiar la vista para mostrar iconos grandes](./media/active-directory-saas-ie-troubleshooting/control_panel.png)
 
-    ![Chang the view to show Large Icons](./media/active-directory-saas-ie-troubleshooting/control_panel.png)
+3. En la lista, seleccione **Extensión del Panel de acceso** y luego haga clic en el botón **Desinstalar**.
 
-3. From the list, select **Access Panel Extension**, and the click on the **Uninstall** button.
+	![Hacer clic en Desinstalar](./media/active-directory-saas-ie-troubleshooting/uninstall.png)
 
-    ![Click Uninstall](./media/active-directory-saas-ie-troubleshooting/uninstall.png)
+4. Después, puede intentar instalar la extensión de nuevo para ver si se ha resuelto el problema.
 
-4. You can then try to install the extension again to see if the problem has been resolved.
+Si encuentra problemas al desinstalar la extensión, también puede quitarla usando la herramienta [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673).
 
-If you encounter issues uninstalling the extension, you can also remove it using the [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673) tool.
+## Artículos relacionados
 
-## <a name="related-articles"></a>Related Articles
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+- [Implementación de la extensión del Panel de acceso para Internet Explorer mediante la directiva de grupo](active-directory-saas-ie-group-policy.md)
 
-- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-- [Application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md)
-- [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](active-directory-saas-ie-group-policy.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

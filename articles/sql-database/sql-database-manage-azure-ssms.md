@@ -1,126 +1,125 @@
 <properties 
-    pageTitle="Manage a SQL Database with SSMS | Microsoft Azure" 
-    description="Learn how to use SQL Server Management Studio to manage SQL Database servers and databases." 
-    services="sql-database" 
-    documentationCenter=".net" 
-    authors="stevestein" 
-    manager="jhubbard" 
-    editor="tysonn"/>
+	pageTitle="Administración de una Base de datos SQL con SSMS | Microsoft Azure" 
+	description="Obtenga información acerca de cómo usar SQL Server Management Studio para administrar bases de datos y servidores de bases de datos SQL." 
+	services="sql-database" 
+	documentationCenter=".net" 
+	authors="stevestein" 
+	manager="jhubbard" 
+	editor="tysonn"/>
 
 <tags 
-    ms.service="sql-database" 
-    ms.workload="data-management" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/29/2016" 
-    ms.author="sstein"/>
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/09/2016" 
+	ms.author="sstein"/>
 
 
-
-# <a name="managing-azure-sql-database-using-sql-server-management-studio"></a>Managing Azure SQL Database using SQL Server Management Studio 
+# Administración de Base de datos SQL de Azure con el uso de SQL Server Management Studio 
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-manage-portal.md)
+- [Portal de Azure](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
-- [PowerShell](sql-database-manage-powershell.md)
+- [PowerShell](sql-database-command-line-tools.md)
 
-You can use SQL Server Management Studio (SSMS) to administer Azure SQL Database servers and databases. This topic walks you through common tasks with SSMS. You should already have a server and database created in Azure SQL Database before you begin. See [Create your first Azure SQL Database](sql-database-get-started.md) and [Connect and Query using SSMS](sql-database-connect-query-ssms.md) for more information.
+Puede usar SQL Server Management Studio (SSMS) para administrar las bases de datos y los servidores de Base de datos SQL de Azure. Este tema le guía a través de las tareas comunes con SSMS. Ya debería tener una base de datos y un servidor creados en la Base de datos SQL de Azure antes de comenzar. Vea [Crear la primera base de datos SQL de Azure](sql-database-get-started.md) y [Conectarse y consultar mediante SSMS](sql-database-connect-query-ssms.md) para obtener más información.
 
-It's recommended that you use the latest version of SSMS whenever you work with Azure SQL Database. 
+Se recomienda usar la versión más reciente de SSMS siempre que trabaje con la Base de datos SQL de Azure.
 
-> [AZURE.IMPORTANT] Always use the latest version of SSMS because it is continually improved to work with the latest updates to Azure and SQL Database. To get the latest version, see [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> [AZURE.IMPORTANT] Utilice siempre la versión más reciente de SSMS porque se mejora continuamente para trabajar con las últimas actualizaciones de Azure y Base de datos SQL. Para obtener la versión más reciente, consulte [Descarga de SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
 
 
-## <a name="create-and-manage-azure-sql-databases"></a>Create and manage Azure SQL databases
+## Crear y administrar bases de datos SQL de Azure
 
-While connected to the **master** database, you can create databases on the server and modify or drop existing databases. The following steps describe how to accomplish several common database management tasks through Management Studio. To perform these tasks, make sure you are connected to the **master** database with the server-level principal login that you created when you set up your server.
+Mientras está conectado a la base de datos **maestra**, puede crear bases de datos en el servidor y modificar o anular las existentes. En los pasos siguientes se describe cómo realizar varias tareas comunes de administración de bases de datos con Management Studio. Para realizar estas tareas, asegúrese de que está conectado a la base de datos **maestra** con el inicio de sesión principal a nivel de servidor que creó cuando creó el servidor.
 
-To open a query window in Management Studio, open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
+Para abrir una ventana de consulta en Management Studio, abra la carpeta Bases de datos, expanda la carpeta **Bases de datos del sistema**, haga clic con el botón derecho en **maestra** y, a continuación, en **Nueva consulta**.
 
--   Use the **CREATE DATABASE** statement to create a database. For more information, see [CREATE DATABASE (SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx). The following statement creates a database named **myTestDB** and specifies that it is a Standard S0 Edition database with a default maximum size of 250 GB.
+-   Use la instrucción **CREATE DATABASE** para crear una base de datos. Para obtener más información, consulte [CREATE DATABASE (Base de datos SQL)](https://msdn.microsoft.com/library/dn268335.aspx). La siguiente instrucción crea una base de datos con el nombre **myTestDB** y especifica que se trata de una base de datos Standard S0 Edition con un tamaño máximo de 250 GB.
 
         CREATE DATABASE myTestDB
         (EDITION='Standard',
          SERVICE_OBJECTIVE='S0');
 
-Click **Execute** to run the query.
+Haga clic en **Ejecutar** para ejecutar la consulta.
 
--   Use the **ALTER DATABASE** statement to modify an existing database, for example if you want to change the name and edition of the database. For more information, see [ALTER DATABASE (SQL Database)](https://msdn.microsoft.com/library/ms174269.aspx). The following statement modifies the database you created in the previous step to change edition to Standard S1.
+-   Use la instrucción **ALTER DATABASE** para modificar una base de datos existente, por ejemplo, si desea cambiar el nombre y la edición de la base de datos. Para obtener más información, consulte [ALTER DATABASE (Base de datos SQL)](https://msdn.microsoft.com/library/ms174269.aspx). La instrucción siguiente modifica la base de datos creada en el paso anterior para cambiar a la edición Standard S1.
 
         ALTER DATABASE myTestDB
         MODIFY
         (SERVICE_OBJECTIVE='S1');
 
--   Use **the DROP DATABASE** Statement to delete an existing database. For more information, see [DROP DATABASE (SQL Database)](https://msdn.microsoft.com/library/ms178613.aspx). The following statement deletes the **myTestDB** database, but don't drop it now because you will use it to create logins in the next step.
+-   Use la instrucción **DROP DATABASE** para eliminar una base de datos existente. Para obtener más información, consulte [DROP DATABASE (Base de datos SQL)](https://msdn.microsoft.com/library/ms178613.aspx). La instrucción siguiente elimina la base de datos **myTestDB**, pero no la anula ahora porque la usará para crear inicios de sesión en el paso siguiente.
 
         DROP DATABASE myTestBase;
 
--   The master database has the **sys.databases** view that you can use to view details about all databases. To view all existing databases, execute the following statement:
+-   La base de datos maestra tiene la vista **sys.databases**, que puede usar para ver los detalles acerca de todas las bases de datos. Para ver todas las bases de datos existentes, ejecute la siguiente instrucción:
 
         SELECT * FROM sys.databases;
 
--   In SQL Database, the **USE** statement is not supported for switching between databases. Instead, you need to establish a connection directly to the target database.
+-   En Base de datos SQL, no se admite la instrucción **USE** para cambiar entre bases de datos. En su lugar, necesita establecer una conexión directa con la base de datos de destino.
 
->[AZURE.NOTE] Many of the Transact-SQL statements that create or modify a database must be run within their own batch and cannot be grouped with other Transact-SQL statements. For more information, see the statement-specific information.
+>[AZURE.NOTE] Muchas de las instrucciones de Transact-SQL que crean o modifican una base de datos deben ejecutarse en su propio lote y no se pueden agrupar con otras instrucciones de Transact-SQL. Para obtener más información, vea la información específica de las instrucciones.
 
-## <a name="create-and-manage-logins"></a>Create and manage logins
+## Crear y administrar los inicios de sesión
 
-The **master** database contains logins and which logins have permission to create databases or other logins. Manage logins by connecting to the **master** database with the server-level principal login that you created when you set up your server. You can use the **CREATE LOGIN**, **ALTER LOGIN**, or **DROP LOGIN** statements to execute queries against the master database that manages logins across the entire server. For more information, see [Managing Databases and Logins in SQL Database](http://msdn.microsoft.com/library/azure/ee336235.aspx). 
+La base de datos **maestra** contiene los inicios de sesión y de cuáles tienen permiso para crear bases de datos u otros inicios de sesión. Para administrar inicios de sesión, conéctese a la base de datos **maestra** con el inicio de sesión principal del nivel del servidor creado cuando configuró el servidor. Puede usar las instrucciones **CREATE LOGIN**, **ALTER LOGIN** o **DROP LOGIN** para ejecutar consultas en la base de datos maestra que administra los inicios de sesión en todo el servidor. Para obtener más información, consulte [Administración de bases de datos e inicios de sesión en Base de datos SQL](http://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 
--   Use the **CREATE LOGIN** statement to create a server-level login. For more information, see [CREATE LOGIN (SQL Database)](https://msdn.microsoft.com/library/ms189751.aspx). The following statement creates a login called **login1**. Replace **password1** with the password of your choice.
+-   Use la instrucción **CREATE LOGIN** para crear un inicio de sesión a nivel de servidor. Para obtener más información, consulte [CREATE LOGIN (Base de datos SQL)](https://msdn.microsoft.com/library/ms189751.aspx). La siguiente instrucción crea un inicio de sesión denominado **login1**. Reemplace **password1** por la contraseña que desee.
 
         CREATE LOGIN login1 WITH password='password1';
 
--   Use the **CREATE USER** statement to grant database-level permissions. All logins must be created in the **master** database. For a login to connect to a different database, you must grant it database-level permissions using the **CREATE USER** statement on that database. For more information, see [CREATE USER (SQL Database)](https://msdn.microsoft.com/library/ms173463.aspx). 
+-   Use la instrucción **CREATE USER** para conceder permisos a nivel de base de datos. Todos los inicios de sesión deben crearse en la base de datos **maestra**. Para que un inicio de sesión se conecte a otra base de datos, debe concederle permisos a nivel de base de datos con el uso de la instrucción **CREATE USER** en dicha base de datos. Para obtener más información, consulte [CREATE USER (Base de datos SQL)](https://msdn.microsoft.com/library/ms173463.aspx).
 
--   To give login1 permissions to a database called **myTestDB**, complete the following steps:
+-   Para conceder permisos a login1 para una base de datos llamada **myTestDB**, siga estos pasos:
 
- 1.  To refresh Object Explorer to view the **myTestDB** database that you created, right-click the server name in Object Explorer and then click **Refresh**.  
+ 1.  Para actualizar el Explorador de objetos y ver la base de datos **myTestDB** que ha creado, haga clic con el botón derecho en el nombre del servidor en el Explorador de objetos y, a continuación, haga clic en **Actualizar**.
 
-     If you closed the connection, you can reconnect by selecting **Connect Object Explorer** on the File menu.
+     Si cerró la conexión, puede seleccionar **Conectar Explorador de objetos** para volver a establecerla en el menú Archivo.
 
- 2. Right-click **myTestDB** database and select **New Query**.
+ 2. Haga clic con el botón derecho en la base de datos **myTestDB** y seleccione **Nueva consulta**.
 
-    3.  Execute the following statement against the myTestDB database to create a database user named **login1User** that corresponds to the server-level login **login1**.
+    3.  Ejecute la instrucción siguiente en la base de datos myTestDB para crear un usuario de base de datos con el nombre **login1User** que se corresponda con el inicio de sesión de nivel de servidor **login1**.
 
             CREATE USER login1User FROM LOGIN login1;
 
--   Use the **sp\_addrolemember** stored procedure to give the user account the appropriate level of permissions on the database. For more information, see [sp_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). The following statement gives **login1User** read-only permissions to the database by adding **login1User** to the **db\_datareader** role.
+-   Use el procedimiento almacenado **sp\_addrolemember** para conceder a la cuenta de usuario el nivel apropiado de permisos para la base de datos. Para obtener más información, consulte[ sp\_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). La instrucción siguiente concede a **login1User** permisos de solo lectura a la base de datos mediante la adición de **login1User** al rol **db\\_datareader**.
 
         exec sp_addrolemember 'db_datareader', 'login1User';    
 
--   Use the **ALTER LOGIN** statement to modify an existing login, for example if you want to change the password for the login. For more information, see [ALTER LOGIN (SQL Database)](https://msdn.microsoft.com/library/ms189828.aspx). The **ALTER LOGIN** statement should be run against the **master** database. Switch back to the query window that is connected to that database. The following statement modifies the **login1** login to reset the password. Replace **newPassword** with the password of your choice, and **oldPassword** with the current password for the login.
+-   Use la instrucción **ALTER LOGIN** para modificar un inicio de sesión existente, por ejemplo, si desea cambiar la contraseña de inicio de sesión. Para obtener más información, consulte [ALTER LOGIN (Base de datos SQL)](https://msdn.microsoft.com/library/ms189828.aspx). La instrucción **ALTER LOGIN** debe ejecutarse en la base de datos **maestra**. Vuelva a la ventana de consulta conectada a la base de datos. La instrucción siguiente modifica el inicio de sesión **login1** para restablecer la contraseña. Reemplace **newPassword** por la contraseña que desee y **oldPassword** por la contraseña actual de inicio de sesión.
 
         ALTER LOGIN login1
         WITH PASSWORD = 'newPassword'
         OLD_PASSWORD = 'oldPassword';
 
--   Use **the DROP LOGIN** statement to delete an existing login. Deleting a login at the server level also deletes any associated database user accounts. For more information, see [DROP DATABASE (SQL Database)](https://msdn.microsoft.com/library/ms178613.aspx). The **DROP LOGIN** statement should be run against the **master** database. The statement deletes the **login1** login.
+-   Use la instrucción **DROP LOGIN** para eliminar un inicio de sesión existente. Al eliminar un inicio de sesión a nivel de servidor también se eliminan todas las cuentas de usuario de la base de datos asociadas. Para obtener más información, consulte [DROP DATABASE (Base de datos SQL)](https://msdn.microsoft.com/library/ms178613.aspx). La instrucción **DROP LOGIN** debe ejecutarse en la base de datos **maestra**. La instrucción elimina el inicio de sesión **login1**.
 
         DROP LOGIN login1;
 
--   The master database has the **sys.sql\_logins** view that you can use to view logins. To view all existing logins, execute the following statement:
+-   La base de datos maestra tiene la vista **sys.sql\\_logins**, que puede usar para ver los inicios de sesión. Para ver todos los inicios de sesión existentes, ejecute la siguiente instrucción:
 
         SELECT * FROM sys.sql_logins;
 
-## <a name="monitor-sql-database-using-dynamic-management-views"></a>Monitor SQL Database using Dynamic Management Views
+## Supervisar Base de datos SQL mediante las vistas de administración dinámica
 
-SQL Database supports several dynamic management views that you can use to monitor an individual database. A few examples of the type of monitor data you can retrieve through these views are following. For complete details and more usage examples, see [Monitoring SQL Database using Dynamic Management Views](https://msdn.microsoft.com/library/azure/ff394114.aspx).
+Base de datos SQL admite varias vistas de administración dinámica que puede usar para supervisar una base de datos individual. A continuación, se facilitan algunos ejemplos del tipo de datos de supervisión que puede recuperar en estas vistas. Para obtener todos los detalles y más ejemplos de uso, consulte [Supervisión de Base de datos SQL de Azure mediante vistas de administración dinámica](https://msdn.microsoft.com/library/azure/ff394114.aspx).
 
--   Querying a dynamic management view requires **VIEW DATABASE STATE** permissions. To grant the **VIEW DATABASE STATE** permission to a specific database user, connect to the database and execute the following statement against the database:
+-   Para consultar una vista de administración dinámica, es necesario disponer de los permisos **VER ESTADO DE BASE DE DATOS**. Para conceder el permiso **VER ESTADO DE BASE DE DATOS** a un usuario específico de la base de datos, conéctese a la base de datos y ejecute la siguiente instrucción en la base de datos:
 
         GRANT VIEW DATABASE STATE TO login1User;
 
--   Calculate database size using the **sys.dm\_db\_partition\_stats** view. The **sys.dm\_db\_partition\_stats** view returns page and row-count information for every partition in the database, which you can use to calculate the database size. The following query returns the size of your database in megabytes:
+-   Calcule el tamaño de la base de datos; para ello, use la vista **sys.dm\_db\_partition\_stats**. La vista **sys.dm\_db\_partition\_stats** devuelve información sobre la página y el recuento de filas para cada partición de la base de datos, que puede usar para calcular el tamaño de la base de datos. La siguiente consulta devuelve el tamaño de la base de datos en megabytes:
 
         SELECT SUM(reserved_page_count)*8.0/1024
         FROM sys.dm_db_partition_stats;   
 
--   Use the **sys.dm\_exec\_connections** and **sys.dm\_exec\_sessions** views to retrieve information about current user connections and internal tasks associated with the database. The following query returns information about the current connection:
+-   Use las vistas **sys.dm\_exec\_connections** y **sys.dm\_exec\_sessions** para recuperar información sobre las conexiones de usuario actuales y las tareas internas asociadas con la base de datos. La consulta siguiente devuelve información sobre la conexión actual:
 
         SELECT
             e.connection_id,
@@ -133,7 +132,7 @@ SQL Database supports several dynamic management views that you can use to monit
             INNER JOIN sys.dm_exec_connections e
               ON s.session_id = e.session_id;
 
--   Use the **sys.dm\_exec\_query\_stats** view to retrieve aggregate performance statistics for cached query plans. The following query returns information about the top five queries ranked by average CPU time.
+-   Use la vista **sys.dm\_exec\_query\_stats** para recuperar estadísticas de agregado acerca del rendimiento para los planes de consulta en caché. La siguiente consulta devuelve información acerca de las cinco consultas principales clasificadas en función del tiempo de CPU promedio.
 
         SELECT TOP 5 query_stats.query_hash AS "Query Hash",
             SUM(query_stats.total_worker_time), SUM(query_stats.execution_count) AS "Avg CPU Time",
@@ -152,8 +151,4 @@ SQL Database supports several dynamic management views that you can use to monit
  
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

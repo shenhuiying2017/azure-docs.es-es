@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Connect to an Azure Container Service cluster | Microsoft Azure"
-   description="Connect to an Azure Container Service cluster by using an SSH tunnel."
+   pageTitle="Conexión a un clúster del servicio Contenedor de Azure | Microsoft Azure"
+   description="Conexión a un clúster del servicio Contenedor de Azure mediante un túnel de SSH."
    services="container-service"
    documentationCenter=""
    authors="rgardler"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, DC/OS, Azure"/>
+   keywords="Docker, contenedores, microservicios, DC/OS, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -19,108 +19,99 @@
    ms.author="rogardle"/>
 
 
+# Conexión a un clúster del servicio Contenedor de Azure
 
-# <a name="connect-to-an-azure-container-service-cluster"></a>Connect to an Azure Container Service cluster
+Los clústeres de DC/OS y Docker Swarm que implementa el servicio Contenedor de Azure exponen los puntos de conexión REST. Sin embargo, estos puntos de conexión no están abiertos al mundo exterior. Para administrar dichos puntos de conexión, es preciso crear un túnel de Secure Shell (SSH). Después de que se haya establecido un túnel SSH, puede ejecutar comandos contra los puntos de conexión y ver la interfaz de usuario del clúster a través de un explorador en su propio sistema. Este documento le guía en la creación de un túnel de SSH en Linux, OSX y Windows.
 
-The DC/OS and Docker Swarm clusters that are deployed by Azure Container Service expose REST endpoints. However, these endpoints are not open to the outside world. In order to manage these endpoints, you must create a Secure Shell (SSH) tunnel. After an SSH tunnel has been established, you can run commands against the cluster endpoints and view the cluster UI through a browser on your own system. This document walks you through creating an SSH tunnel from Linux, OS X, and Windows.
+>[AZURE.NOTE] Puede crear una sesión de SSH con un sistema de administración de clústeres. Sin embargo, no es aconsejable. Si se trabaja directamente en un sistema de administración, es preciso asumir el riesgo de que se produzcan cambios involuntarios en la configuración.
 
->[AZURE.NOTE] You can create an SSH session with a cluster management system. However, we don't recommend this. Working directly on a management system exposes the risk for inadvertent configuration changes.   
+## Creación de un túnel de SSH en Linux u OS X
 
-## <a name="create-an-ssh-tunnel-on-linux-or-os-x"></a>Create an SSH tunnel on Linux or OS X
-
-The first thing that you do when you create an SSH tunnel on Linux or OS X is to locate the public DNS name of load-balanced masters. To do this, expand the resource group so that each resource is being displayed. Locate and select the public IP address of the master. This will open up a blade that contains information about the public IP address, which includes the DNS name. Save this name for later use. <br />
+Lo primero que se hace al crear un túnel de SSH en Linux u OS X es buscar el nombre DNS público de los patrones de carga equilibrada. Para ello, expanda el grupo de recursos de forma que se muestren todos los recursos. Busque y seleccione la dirección IP pública del patrón. Se abrirá una hoja que contiene información acerca de la dirección IP pública, que incluye el nombre DNS. Guarde este nombre para usarlo más adelante. <br />
 
 
-![Public DNS name](media/pubdns.png)
+![Nombre DNS público](media/pubdns.png)
 
-Now open a shell and run the following command where:
+Ahora, abra un shell y ejecute el siguiente comando, donde:
 
-**PORT** is the port of the endpoint that you want to expose. For Swarm, this is 2375. For DC/OS, use port 80.  
-**USERNAME** is the user name that was provided when you deployed the cluster.  
-**DNSPREFIX** is the DNS prefix that you provided when you deployed the cluster.  
-**REGION** is the region in which your resource group is located.  
-**PATH_TO_PRIVATE_KEY** [OPTIONAL] is the path to the private key that corresponds to the public key you provided when you created the Container Service cluster. Use this option with the -i flag.
+**PORT** es el puerto del punto de conexión que desea exponer. En el caso de Swarm, es el 2375. En el de DC/OS, utilice el puerto 80. **USERNAME** es el nombre de usuario que se especificó cuando se implementó el clúster. **DNSPREFIX** es el prefijo DNS que proporcionó al implementar el clúster. **REGION** es la región en la que está ubicado el grupo de recursos. **PATH\_TO\_PRIVATE\_KEY** [OPCIONAL] es la ruta de acceso a la clave privada correspondiente a la clave pública que proporcionó al crear el clúster del servicio Contenedor. Utilice esta opción con la marca -i.
 
 ```bash
 ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
-> The SSH connection port is 2200--not the standard port 22.
+> El puerto de conexión SSH es el 2200 y no el puerto 22 estándar.
 
-## <a name="dc/os-tunnel"></a>DC/OS tunnel
+## Túnel de DC/OS
 
-To open a tunnel to the DC/OS-related endpoints, execute a command that is similar to the following:
+Para abrir un túnel a los puntos de conexión relacionados con DC/OS, ejecute un comando similar al siguiente:
 
 ```bash
 sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
-You can now access the DC/OS-related endpoints at:
+Ya puede acceder a los puntos de conexión relacionados con DC/OS en:
 
 - DC/OS: `http://localhost/`
 - Marathon: `http://localhost/marathon`
 - Mesos: `http://localhost/mesos`
 
-Similarly, you can reach the rest APIs for each application through this tunnel.
+De igual forma, se puede acceder a las API de REST de cada aplicación a través de este túnel.
 
-## <a name="swarm-tunnel"></a>Swarm tunnel
+## Túnel de Swarm
 
-To open a tunnel to the Swarm endpoint, execute a command that looks similar to the following:
+Para abrir un túnel al punto de conexión de Swarm, ejecute un comando parecido al siguiente:
 
 ```bash
 ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
-Now you can set your DOCKER_HOST environment variable as follows. You can continue to use your Docker command-line interface (CLI) as normal.
+Ahora puede establecer la variable de entorno DOCKER\_HOST de la forma siguiente. Puede usar la interfaz de la línea de comandos (CLI) de Docker de la forma habitual.
 
 ```bash
 export DOCKER_HOST=:2375
 ```
 
-## <a name="create-an-ssh-tunnel-on-windows"></a>Create an SSH tunnel on Windows
+## Creación de un túnel de SSH en Windows
 
-There are multiple options for creating SSH tunnels on Windows. This document will describe how to use PuTTY to do this.
+Existen varias opciones para crear túneles de SSH en Windows. En este documento se describirá cómo usar PuTTY para hacerlo.
 
-Download PuTTY to your Windows system and run the application.
+Descargue PuTTY en el sistema Windows y ejecute la aplicación.
 
-Enter a host name that is comprised of the cluster admin user name and the public DNS name of the first master in the cluster. The **Host Name** will look like this: `adminuser@PublicDNS`. Enter 2200 for the **Port**.
+Escriba un nombre de host que conste del nombre de usuario de administrador de clústeres y el nombre DNS público del primer patrón del clúster. El valor de **Nombre de host** se parecerá a este: `adminuser@PublicDNS`. Escriba 2200 en el campo **Puerto**.
 
-![PuTTY configuration 1](media/putty1.png)
+![Configuración 1 de PuTTY](media/putty1.png)
 
-Select **SSH** and **Authentication**. Add your private key file for authentication.
+Seleccione **SSH** y **Autenticación**. Agregue el archivo de clave privada para la autenticación.
 
-![PuTTY configuration 2](media/putty2.png)
+![Configuración 2 de PuTTY](media/putty2.png)
 
-Select **Tunnels** and configure the following forwarded ports:
-- **Source Port:** Your preference--use 80 for DC/OS or 2375 for Swarm.
-- **Destination:** Use localhost:80 for DC/OS or localhost:2375 for Swarm.
+Seleccione **Túneles** y configure los siguientes puertos reenviados:
+- **Puerto de origen:** su preferencia (use 80 para DC/OS o 2375 para Swarm).
+- **Destino:** use localhost:80 para DC/OS o localhost:2375 para Swarm.
 
-The following example is configured for DC/OS, but will look similar for Docker Swarm.
+En el siguiente ejemplo se configura para DC/OS, pero su aspecto sería similar para Docker Swarm.
 
->[AZURE.NOTE] Port 80 must not be in use when you create this tunnel.
+>[AZURE.NOTE] El puerto 80 no debe estar en uso cuando se cree este túnel.
 
-![PuTTY configuration 3](media/putty3.png)
+![Configuración 3 de PuTTY](media/putty3.png)
 
-When you're finished, save the connection configuration, and connect the PuTTY session. When you connect, you can see the port configuration in the PuTTY event log.
+Cuando haya terminado, guarde la configuración de conexión y conecte la sesión de PuTTY. Cuando se conecte, podrá ver la configuración del puerto en el registro de eventos de PuTTY.
 
-![PuTTY event log](media/putty4.png)
+![Registro de eventos de PuTTY](media/putty4.png)
 
-When you've configured the tunnel for DC/OS, you can access the related endpoint at:
+Cuando haya configurado el túnel para DC/OS, podrá acceder al punto de conexión relacionado en:
 
 - DC/OS: `http://localhost/`
 - Marathon: `http://localhost/marathon`
 - Mesos: `http://localhost/mesos`
 
-When you've configured the tunnel for Docker Swarm, you can access the Swarm cluster through the Docker CLI. You will first need to configure a Windows environment variable named `DOCKER_HOST` with a value of ` :2375`.
+Cuando haya configurado el túnel para Docker Swarm, podrá acceder al clúster de Swarm a través de la CLI de Docker. Primero será preciso que configure una variable de entorno de Windows denominada `DOCKER_HOST` cuyo valor será ` :2375`.
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-Deploy and manage containers with DC/OS or Swarm:
+Implemente y administre contenedores con DC/OS o Swarm:
 
-- [Work with Azure Container Service and DC/OS](container-service-mesos-marathon-rest.md)
-- [Work with the Azure Container Service and Docker Swarm](container-service-docker-swarm.md)
+- [Administración de contenedores con la API de REST](container-service-mesos-marathon-rest.md)
+- [Administración de contenedores con Docker Swarm](container-service-docker-swarm.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

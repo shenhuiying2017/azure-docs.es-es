@@ -1,80 +1,64 @@
 <properties 
-    pageTitle="Overview of maps Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
-    description="Learn how to use maps with the Enterprise Integration Pack and Logic apps" 
-    services="logic-apps" 
-    documentationCenter=".net,nodejs,java"
-    authors="msftman" 
-    manager="erikre" 
-    editor="cgronlun"/>
+	pageTitle="Información general sobre las asignaciones y Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure | Microsoft Azure" 
+	description="Sepa cómo usar las asignaciones con las Aplicaciones lógicas y Enterprise Integration Pack." 
+	services="logic-apps" 
+	documentationCenter=".net,nodejs,java"
+	authors="msftman" 
+	manager="erikre" 
+	editor="cgronlun"/>
 
 <tags 
-    ms.service="logic-apps" 
-    ms.workload="integration" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/08/2016" 
-    ms.author="deonhe"/>
+	ms.service="logic-apps" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/08/2016" 
+	ms.author="deonhe"/>
 
+# Información sobre las asignaciones y Enterprise Integration Pack
 
-# <a name="learn-about-maps-and-the-enterprise-integration-pack"></a>Learn about maps and the Enterprise Integration Pack
+## Información general
+Enterprise Integration Pack utiliza las asignaciones para transformar datos XML de un formato a otro.
 
-## <a name="overview"></a>Overview
-Enterprise integration uses maps to transform XML data from one format to another format. 
+## ¿Qué son las asignaciones?
+Una asignación es un documento XML que define qué datos de un documento deben transformarse en otro formato.
 
-## <a name="what-is-a-map?"></a>What is a map?
-A map is an XML document that defines which data in a document should be transformed into another format. 
+## ¿Por qué se utilizan las asignaciones?
+Supongamos que recibe periódicamente pedidos o facturas B2B de clientes que usen el formato de fecha AAAMMDD. Sin embargo, en su organización, las fechas se almacenan en el formato MMDDAAA. Puede usar una asignación para *transformar* el formato de fecha AAAMMDD en MMDDAAA antes de almacenar los detalles de los pedidos o las facturas en la base de datos de actividades de clientes.
 
-## <a name="why-use-maps?"></a>Why use maps?
-Let's assume you regularly receive B2B orders or invoices from a customers who uses the YYYMMDD format for dates. However, in your organization, you store dates in the MMDDYYY format. You can use a map to *transform* the YYYMMDD date format into the MMDDYYY before storing the order or invoice details in your customer activity database.
+## ¿Cómo se crea una asignación?
+[Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack") for Visual Studio 2015 permite crear proyectos de integración de Biztalk. Al crear un archivo de asignación de integración, podrá asignar visualmente elementos entre dos archivos de esquema XML. Después de compilar este proyecto, se genera un documento XSLT.
 
-## <a name="how-do-i-create-a-map?"></a>How do i create a map?
-The [Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about the enterprise integration pack") for Visual Studio 2015 allows Biztalk Integration projects to be created.  Creating an Integration Map file will allow you to visually map items between two XML schema files.  After building this project, an XSLT document is output.
+## ¿Cómo se cargan asignaciones?
+En el Portal de Azure:
+1. Seleccione **Examinar**. ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
+2. Escriba **integration** en el cuadro de búsqueda del filtro y seleccione **Integration Accounts** (Cuentas de integración) en la lista de resultados. ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
+3. Seleccione la **cuenta integración** en la que vaya a agregar la asignación. ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
+4.  Seleccione el icono de **Asignaciones** ![](./media/app-service-logic-enterprise-integration-maps/map-1.png).
+5. Haga clic en el botón **Agregar** de la hoja Asignaciones que se abre. ![](./media/app-service-logic-enterprise-integration-maps/map-2.png)
+6. Escriba un **nombre** para la asignación. Después, cargue el archivo de asignación y seleccione el icono de carpeta en el lado derecho del cuadro de texto **Asignación**. Cuando termine el proceso de carga, haga clic en el botón **Aceptar**. ![](./media/app-service-logic-enterprise-integration-maps/map-3.png)
+7. Ahora, la asignación se agrega a la cuenta de integración. Recibirá una notificación en la pantalla que indica que el proceso de agregar el archivo de asignación se ha realizado correctamente o con errores. Cuando reciba la notificación, seleccione el icono de **Asignaciones** y verá la asignación que acaba de agregar en la hoja Asignaciones: ![](./media/app-service-logic-enterprise-integration-maps/map-4.png)
 
-## <a name="how-to-upload-a-map?"></a>How to upload a map?
-From the Azure portal:  
-1. Select **Browse**  
-![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
-2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
- ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)  
-3. Select the **integration account** into which you will add the map  
-![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)  
-4.  Select the **Maps** tile  
-![](./media/app-service-logic-enterprise-integration-maps/map-1.png)  
-5. Select the **Add** button in the Maps blade that opens  
-![](./media/app-service-logic-enterprise-integration-maps/map-2.png)  
-6. Enter a **Name** for your map then, to upload the map file, select the folder icon on the right side of the **Map** text box. After the upload process is completed, select the **OK** button.  
-![](./media/app-service-logic-enterprise-integration-maps/map-3.png)  
-7. The map is now being added into your integration account. You will receive an onscreen notification that indicates the success or failure of adding the map file. After you receive the notification, select the **Maps** tile, you will then see your newly added map in the Maps blade:    
-![](./media/app-service-logic-enterprise-integration-maps/map-4.png)  
+## ¿Cómo se editan asignaciones?
+Para editar una asignación, debe cargar un nuevo archivo de asignación con los cambios que desee. En primer lugar, puede descargar la asignación y editarla.
 
-## <a name="how-to-edit-a-map?"></a>How to edit a map?
-To edit a map, you must upload a new map file with the changes you desire. You can first download the map and edit it. 
+Siga estos pasos para cargar una nueva asignación que reemplace una que ya exista:
+1. Seleccione el icono de **Asignaciones**.
+2. Elija la asignación que quiera editar cuando se abra la hoja Asignaciones.
+3. En la hoja **Asignaciones**, haga clic en el vínculo **Actualizar**. ![](./media/app-service-logic-enterprise-integration-maps/edit-1.png)
+4. Seleccione el archivo de asignación que quiera cargar mediante el cuadro de diálogo selector de archivos que se abre. Después, haga clic en la opción **Abrir** del selector de archivos ![](./media/app-service-logic-enterprise-integration-maps/edit-2.png)
+5. Recibirá una notificación emergente cuando se cargue la asignación.
 
-Follow these steps to upload a new map that replaces an existing map:  
-1. Select the **Maps** tile  
-2. Select the map you wish to edit when the Maps blade opens up  
-3. On the **Maps** blade, select the **Update** link  
-![](./media/app-service-logic-enterprise-integration-maps/edit-1.png)   
-4. Select the map file you wish to upload by using the file picker dialog that opens up then select **Open** in the file picker   
-![](./media/app-service-logic-enterprise-integration-maps/edit-2.png)   
-5. You will receive a notification popup after the map is uploaded.    
+## ¿Cómo se eliminan asignaciones?
+1. Seleccione el icono de **Asignaciones**.
+2. Elija la asignación que quiera eliminar cuando se abra la hoja Asignaciones.
+3. Haga clic en el vínculo **Eliminar**. ![](./media/app-service-logic-enterprise-integration-maps/delete.png)
+4. Confirme que quiere eliminar realmente la asignación. ![](./media/app-service-logic-enterprise-integration-maps/delete-confirmation-1.png)
 
-## <a name="how-to-delete-a-map?"></a>How to delete a map?
-1. Select the **Maps** tile  
-2. Select the map you wish to delete when the Maps blade opens up  
-3. Select the **Delete** link    
-![](./media/app-service-logic-enterprise-integration-maps/delete.png)   
-4. Confirm you that you really intend to delete the map.  
-![](./media/app-service-logic-enterprise-integration-maps/delete-confirmation-1.png)   
+## Pasos siguientes
+- [Más información sobre Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")
+- [Más información sobre los contratos](./app-service-logic-enterprise-integration-agreements.md "Información sobre los contratos de integración de empresas")
+- [Más información sobre las transformaciones](./app-service-logic-enterprise-integration-transform.md "Información sobre las transformaciones de integración de empresas")
 
-## <a name="next-steps"></a>Next Steps
-- [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
-- [Learn more about agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
-- [Learn more about transforms](./app-service-logic-enterprise-integration-transform.md "Learn about enterprise integration transforms")  
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

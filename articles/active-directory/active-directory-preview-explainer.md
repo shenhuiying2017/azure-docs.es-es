@@ -1,48 +1,43 @@
 <properties
-    pageTitle="Azure Active Directory preview explainer | Microsoft Azure"
-    description="A topic that explains the differences between Azure Active Directory in the classic portal and the Azure Active Directory preview in the Azure portal."
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+	pageTitle="Explicación de la versión preliminar de Azure Active Directory | Microsoft Azure"
+	description="En este tema se explican las diferencias entre Azure Active Directory en el portal clásico y la versión preliminar de Azure Active Directory en Azure Portal."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/12/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/12/2016"
+	ms.author="curtand"/>
 
 
+# Versión preliminar de la experiencia de administración de Azure Active Directory en Azure Portal
 
-# <a name="preview-of-the-azure-active-directory-management-experience-in-the-azure-portal"></a>Preview of the Azure Active Directory management experience in the Azure portal
-
-The Azure Active Directory (Azure AD) management experience is in preview in the Azure portal. You can try it out by signing in to [the Azure portal](https://portal.azure.com) as a global administrator of your directory. Then, select Azure Active Directory in the services list if it is visible, or select **More services** to view the list of all services. You do not need an Azure subscription to use the Azure AD management experience in the Azure portal.
+La experiencia de administración de Azure Active Directory (Azure AD) está en versión preliminar en Azure Portal. Para probarla, inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global de su directorio. A continuación, seleccione Azure Active Directory en la lista de servicios, si está visible, o seleccione **Más servicios** para ver la lista de todos los servicios. No necesita una suscripción de Azure para usar la experiencia de administración de AD en Azure Portal.
 
 
-## <a name="capabilities-of-the-preview-experience"></a>Capabilities of the preview experience
+## Funcionalidades de la experiencia de versión preliminar
 
-The preview experience enables you to manage many directory resources such as users, groups, and applications, as well as directory settings, in the Azure portal. We are improving this experience to include all the capabilities that exist in the Azure AD management experience in the [Azure classic portal](https://manage.windowsazure.com). Until then, there are some directory management tasks that you must still complete in the classic portal.
+La experiencia de versión preliminar le permite administrar muchos recursos de directorio diferentes, como usuarios, grupos y aplicaciones, así como configuraciones de directorio, en Azure Portal. Estamos mejorando esta experiencia para incluir todas las funcionalidades que existen en la experiencia de administración de Azure AD en el [Portal de Azure clásico](https://manage.windowsazure.com). Hasta entonces, hay algunas tareas de administración de directorios que debe seguir realizando en el portal clásico.
 
-## <a name="manage-the-same-azure-ad-tenants"></a>Manage the same Azure AD tenants
+## Administración de los mismos inquilinos de Azure AD
 
-The preview experience reads and writes to the same Azure Active Directory tenant as the classic portal, and the Office 365 Admin center. Changes made in any of these portals are reflected in all of the others.
+En la experiencia de versión preliminar se lee y escribe en el mismo inquilino de Azure Active Directory que el portal clásico y el Centro de administración de Office 365. Los cambios realizados en cualquiera de estos portales se reflejan en todos los demás.
 
-## <a name="use-the-same-authorization-logic"></a>Use the same authorization logic
+## Uso de la misma lógica de autorización
 
-The preview experience uses the same authorization logic as existing Active Directory clients. Users are authorized to make changes to directory resources based on their directory role, such as global administrator, user administrator, password administrator. Having a role on Azure resources or an Azure subscription does not authorize a user to manage directory resources. For more information Azure AD management roles, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md). 
+En la experiencia de versión preliminar se usa la misma lógica de autorización que en los clientes de Active Directory existentes. Los usuarios tienen autorización para realizar cambios en los recursos de directorio según su rol de directorio, como administrador global, administrador de usuarios o administrador de contraseñas. El hecho de tener un rol en recursos de Azure o en una suscripción de Azure no autoriza a un usuario a administrar recursos de directorio. Para más información sobre los roles de administración de Azure AD, consulte [Asignación de roles de administrador en Azure Active Directory](active-directory-assign-admin-roles.md).
 
-The preview experience is optimized for global administrators. If you use the preview experience while signed in as a user that is not a global administrator, you may have a degraded experience. For example, you might be able to select a button that lets you begin a task that you can't complete in the directory. We are improving this experience soon.
+La experiencia de versión preliminar está optimizada para los administradores globales. Si usa la experiencia de versión preliminar con una sesión iniciada como usuario que no es administrador global, su experiencia se verá limitada. Por ejemplo, podría seleccionar un botón que le permite iniciar una tarea que no se puede completar en el directorio. Pronto mejoraremos esta experiencia.
  
-## <a name="tell-us-what-you-think"></a>Tell us what you think
+## Díganos lo que opina.
 
-You can provide feedback on the preview experience in the admin portal section of the [Azure AD feedback forum](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD&filter=alltypes&sort=lastpostdesc).
+Puede proporcionar comentarios sobre la experiencia de versión preliminar en la sección del portal de administración del [foro de comentarios de Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD&filter=alltypes&sort=lastpostdesc).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

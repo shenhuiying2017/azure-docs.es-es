@@ -1,23 +1,22 @@
 <properties
-   pageTitle="How to use Azure Redis Cache with Java | Microsoft Azure"
-    description="Get started with Azure Redis Cache using Java"
-    services="redis-cache"
-    documentationCenter=""
-    authors="steved0x"
-    manager="douge"
-    editor=""/>
+   pageTitle="Uso de Caché en Redis de Azure con Java | Microsoft Azure"
+	description="Introducción a Caché en Redis de Azure usando Java"
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="douge"
+	editor=""/>
 
 <tags
-    ms.service="cache"
-    ms.devlang="java"
-    ms.topic="hero-article"
-    ms.tgt_pltfrm="cache-redis"
-    ms.workload="tbd"
-    ms.date="08/24/2016"
-    ms.author="sdanie"/>
+	ms.service="cache"
+	ms.devlang="java"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="08/24/2016"
+	ms.author="sdanie"/>
 
-
-# <a name="how-to-use-azure-redis-cache-with-java"></a>How to use Azure Redis Cache with Java
+# Uso de Caché en Redis de Azure con Java
 
 > [AZURE.SELECTOR]
 - [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
@@ -26,63 +25,58 @@
 - [Java](cache-java-get-started.md)
 - [Python](cache-python-get-started.md)
 
-Azure Redis Cache gives you access to a dedicated Redis cache, managed by Microsoft. Your cache is accessible from any application within Microsoft Azure.
+Caché en Redis de Azure le proporciona acceso a una caché en Redis dedicada, administrada por Microsoft. Se puede obtener acceso a su caché desde cualquier aplicación dentro de Microsoft Azure.
 
-This topic shows you how to get started with Azure Redis Cache using Java.
+En este tema se explica cómo comenzar a usar Caché en Redis de Azure mediante Java.
 
-## <a name="prerequisites"></a>Prerequisites
+## Requisitos previos
 
-[Jedis](https://github.com/xetorthio/jedis) - Java client for Redis
+[Jedis](https://github.com/xetorthio/jedis) - Cliente de Java para Redis
 
-This tutorial uses Jedis, but you can use any Java client listed at [http://redis.io/clients](http://redis.io/clients).
+Este tutorial usa Jedis, pero puede usar cualquier cliente de Java enumerado en [http://redis.io/clients](http://redis.io/clients).
 
-## <a name="create-a-redis-cache-on-azure"></a>Create a Redis cache on Azure
+## Crear una caché de Redis en Azure
 
 [AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## <a name="retrieve-the-host-name-and-access-keys"></a>Retrieve the host name and access keys
+## Recuperación del nombre de host y las claves de acceso
 
 [AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 
-## <a name="enable-the-non-ssl-endpoint"></a>Enable the non-SSL endpoint
+## Habilitar el extremo no SSL
 
-Some Redis clients don't support SSL, and by default the [non-SSL port is disabled for new Azure Redis Cache instances](cache-configure.md#access-ports). At the time of this writing, the [Jedis](https://github.com/xetorthio/jedis) client doesn't support SSL. 
+Algunos clientes de Redis no son compatibles con SSL y, de forma predeterminada, el [puerto no SSL está deshabilitado para las nuevas instancias de Caché en Redis de Azure](cache-configure.md#access-ports). En el momento de redactar este artículo, el cliente de [Jedis](https://github.com/xetorthio/jedis) no es compatible con SSL.
 
 [AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
 
 
 
 
-## <a name="add-something-to-the-cache-and-retrieve-it"></a>Add something to the cache and retrieve it
+## Agregar algo a la memoria caché y recuperarlo
 
-    package com.mycompany.app;
-    import redis.clients.jedis.Jedis;
-    import redis.clients.jedis.JedisShardInfo;
+	package com.mycompany.app;
+	import redis.clients.jedis.Jedis;
+	import redis.clients.jedis.JedisShardInfo;
 
-    /* Make sure you turn on non-SSL port in Azure Redis using the Configuration section in the Azure Portal */
-    public class App
-    {
-      public static void main( String[] args )
-      {
+	/* Make sure you turn on non-SSL port in Azure Redis using the Configuration section in the Azure Portal */
+	public class App
+	{
+	  public static void main( String[] args )
+	  {
         /* In this line, replace <name> with your cache name: */
-        JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6379);
-        shardInfo.setPassword("<key>"); /* Use your access key. */
-        Jedis jedis = new Jedis(shardInfo);
-        jedis.set("foo", "bar");
-        String value = jedis.get("foo");
-      }
-    }
+	    JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6379);
+	    shardInfo.setPassword("<key>"); /* Use your access key. */
+	    Jedis jedis = new Jedis(shardInfo);
+     	jedis.set("foo", "bar");
+     	String value = jedis.get("foo");
+	  }
+	}
 
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-- [Enable cache diagnostics](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) so you can [monitor](https://msdn.microsoft.com/library/azure/dn763945.aspx) the health of your cache.
-- Read the official [Redis documentation](http://redis.io/documentation).
+- [Habilite los diagnósticos de caché](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) para que pueda [supervisar](https://msdn.microsoft.com/library/azure/dn763945.aspx) el estado de la memoria caché.
+- Lea la [documentación de Redis](http://redis.io/documentation) oficial.
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

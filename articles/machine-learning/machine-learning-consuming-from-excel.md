@@ -1,88 +1,83 @@
 <properties
-    pageTitle="Consume a Machine Learning Web Service from Excel | Microsoft Azure"
-    description="Consume an Azure Machine Learning Web Service from Excel"
-    services="machine-learning"
-    documentationCenter=""
-    authors="tedway"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="Consumo de un servicio web de Aprendizaje automático de Excel |Microsoft Azure"
+	description="Consumir un servicio web de Aprendizaje automático de Azure de Excel"
+	services="machine-learning"
+	documentationCenter=""
+	authors="tedway"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/30/2016"
-    ms.author="tedway"/>
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/06/2016"
+	ms.author="tedway"/>
 
+# Consumo de un servicio web de Aprendizaje automático de Azure de Excel
 
-# <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Consuming an Azure Machine Learning Web Service from Excel
+ Estudio de aprendizaje automático de Azure facilita la llamada a servicios web directamente desde Excel sin necesidad de escribir ningún código.
 
- Azure Machine Learning Studio makes it easy to call web services directly from Excel without the need to write any code.
-
-If you are using Excel 2013 (or later) or Excel Online, then we recommend that you use the Excel [Excel add-in](machine-learning-excel-add-in-for-web-services.md).
+Si utiliza Excel 2013 (o posterior) o Excel Online, le recomendamos que use el [complemento de Excel](machine-learning-excel-add-in-for-web-services.md).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## <a name="steps"></a>Steps
+## Pasos
 
-Publish a web service. [This page](machine-learning-walkthrough-5-publish-web-service.md) explains how to do it. Currently the Excel workbook feature is only supported for Request/Response services that have a single output (that is, a single scoring label). 
+Publicar un servicio web. En [esta página](machine-learning-walkthrough-5-publish-web-service.md) se explica cómo hacerlo. Actualmente, la función de libro de Excel solo se admite para los servicios de solicitud/respuesta que tienen una salida única (es decir, una etiqueta de puntuación única).
 
-Once you have a web service, click on the **WEB SERVICES** section on the left of the studio, and then select the web service to consume from Excel.
+Una vez que tenga un servicio web, haga clic en la sección **SERVICIOS WEB** que se encuentra a la izquierda del estudio y, luego, seleccione el servicio web que se va a usar desde Excel.
 
-**Classic Web Service**
+**Servicio web clásico**
 
-1. On the **DASHBOARD** tab for the web service is a row for the **REQUEST/RESPONSE** service. If this service had a single output, you should see the **Download Excel Workbook** link in that row.
+1. En la pestaña **PANEL** del servicio web se encuentra una fila para el servicio **SOLICITUD/RESPUESTA**. Si este servicio tenía una salida única, deberá consultar el vínculo **Descargar el libro de Excel** de esa fila.
 
-    ![][1]
+	![][1]
 
-2. Click on **Download Excel Workbook**.
+2. Haga clic en **Descargar el libro de Excel**.
 
-**New Web Service**
+**Servicio web nuevo**
 
-1. In the Azure Machine Learning Web Service portal, select **Consume**.
-2. On the Consume page, in the **Web service consumption options** section, click the Excel icon.
+1. En el portal de servicios web de Aprendizaje automático de Azure, seleccione **Consume** (Consumo).
+2. En la página de consumo, en la sección **Web service consumption options** (Opciones de consumo del servicio web), haga clic en el icono de Excel.
 
-**Using the workbook**
+**Uso del libro**
 
-1. Open the workbook.
+1. Abra el libro.
 
-2. A Security Warning appears; click on the **Enable Editing** button.
+2. Aparecerá una advertencia de seguridad; haga clic en el botón **Habilitar edición**.
 
-    ![][2]
+	![][2]
 
-3. A Security Warning appears. Click on the **Enable Content** button to run macros on your spreadsheet.
+3. Aparecerá una advertencia de seguridad. Haga clic en el botón **Habilitar contenido** para ejecutar macros en la hoja de cálculo.
 
-    ![][3]
-4. Once macros are enabled, a table is generated. Columns in blue are required as input into the RRS web service, or **PARAMETERS**. Note the output of the RRS service, **PREDICTED VALUES** in green. When all columns for a given row are filled, the workbook automatically calls the scoring API, and displays the scored results.
+	![][3]
+4. Una vez que las macros están habilitadas, se generará una tabla. Las columnas en azul son necesarias como entrada al servicio web RRS, o como **PARÁMETROS**. Tenga en cuenta la salida del servicio RRS, los **VALORES PREDICHOS** en verde. Cuando se llenan todas las columnas de una fila determinada, el libro llama a la API de puntuación automáticamente y muestra los resultados con puntuación.
 
-    ![][4]
+	![][4]
 
-5. To score more than one row, fill the second row with data and the predicted values are produced. You can even paste several rows at once.
+5. Para puntuar más de una fila, rellene la segunda fila con datos y se generarán los valores predichos. Incluso puede pegar varias filas a la vez.
 
-You can use any of the Excel features (graphs, power map, conditional formatting, etc.) with the predicted values to help visualize the data.    
+Puede utilizar cualquiera de las funciones de Excel (gráficos, asignación de energía, formato condicional, etc.) con los valores de predicción como ayuda para visualizar los datos.
 
 
-## <a name="sharing-your-workbook"></a>Sharing your workbook
+## Compartir el libro
 
-For the macros to work, your API Key must be part of the spreadsheet. That means that you should share the workbook only with entities/individuals you trust.
+Para que las macros funcionen, la clave de API debe formar parte de la hoja de cálculo. Esto significa que debe compartir el libro con las entidades e individuos de su confianza.
 
-## <a name="automatic-updates"></a>Automatic updates
+## Actualizaciones automáticas
 
-An RRS call is made in these two situations:
+En las siguientes dos situaciones se realiza una llamada a RRS:
 
-1. The first time a row has content in all of its **PARAMETERS**
+1. La primera vez que una fila tiene contenido en todos sus **PARÁMETROS**
 
-2. Any time any of the **PARAMETERS** changes in a row that had all of its **PARAMETERS** entered.
+2. Cada vez que cualquiera de los **PARÁMETROS** cambia en una fila en la que se habían especificado todos sus **PARÁMETROS**.
 
 [1]: ./media/machine-learning-consuming-from-excel/excellink.png
 [2]: ./media/machine-learning-consuming-from-excel/enableeditting.png
 [3]: ./media/machine-learning-consuming-from-excel/enablecontent.png
 [4]: ./media/machine-learning-consuming-from-excel/sampletable.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

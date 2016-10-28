@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Script action development with Linux-based HDInsight | Microsoft Azure"
-    description="Learn how to customize Linux-based HDInsight clusters with Script Action."
+    pageTitle="Desarrollo de acciones de script con HDInsight basado en Linux | Microsoft Azure"
+    description="Obtenga información sobre cómo personalizar clústeres de HDInsight basados en Linux mediante la acción de script."
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
@@ -13,158 +13,115 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/05/2016"
+    ms.date="09/13/2016"
     ms.author="larryfr"/>
 
+# Desarrollo de la acción de script con HDInsight
 
-# <a name="script-action-development-with-hdinsight"></a>Script action development with HDInsight
+Las acciones de script son una manera de personalizar los clústeres de HDInsight de Azure especificando opciones de configuración de clúster, o instalando servicios adicionales, herramientas u otro software en el clúster. Puede usar las acciones de script durante la creación del clúster o en un clúster en ejecución.
 
-Script actions are a way to customize Azure HDInsight clusters by specifying cluster configuration settings or installing additional services, tools, or other software on the cluster. You can use script actions during cluster creation or on a running cluster.
+> [AZURE.NOTE] La información contenida en este documento es específica de los clústeres de HDInsight basados en Linux. Para obtener información sobre el uso de las acciones de script con clústeres basados en Windows, consulte [Desarrollo de la acción de script con HDInsight (Windows)](hdinsight-hadoop-script-actions.md).
 
-> [AZURE.NOTE] The information in this document is specific to Linux-based HDInsight clusters. For information on using script actions with Windows-based clusters, see [Script action development with HDInsight (Windows)](hdinsight-hadoop-script-actions.md).
+## ¿Qué son las acciones de script?
 
-## <a name="what-are-script-actions?"></a>What are script actions?
+Las acciones de script son scripts de Bash que Azure ejecuta en los nodos del clúster para realizar cambios de configuración o instalar software. Una acción de script se ejecuta como raíz y proporciona derechos de acceso completo a los nodos del clúster.
 
-Script actions are Bash scripts that Azure runs on the cluster nodes to make configuration changes or install software. A script action is executed as root, and provides full access rights to the cluster nodes.
+Se puede aplicar una acción de script a través de los métodos siguientes:
 
-Script actions can be applied through the following methods:
-
-| Use this to apply a script... | During cluster creation... | On a running cluster... |
+| Use esto para aplicar un script... | Durante la creación del clúster... | En un clúster en ejecución... |
 | ----- |:-----:|:-----:|
-| Azure Portal | ✓ | ✓ |
+| Portal de Azure | ✓ | ✓ |
 | Azure PowerShell | ✓ | ✓ |
 | Azure CLI | &nbsp; | ✓ |
-| HDInsight .NET SDK | ✓ | ✓ |
-| Azure Resource Manager Template | ✓ | &nbsp; |
+| SDK .NET de HDInsight | ✓ | ✓ |
+| Plantilla de Azure Resource Manager | ✓ | &nbsp; |
 
-For more information on using these methods to apply script actions, see [Customize HDInsight clusters using script actions](hdinsight-hadoop-customize-cluster-linux.md).
+Para más información sobre el uso de estos métodos para aplicar acciones de script, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
-## <a name="<a-name="bestpracticescripting"></a>best-practices-for-script-development"></a><a name="bestPracticeScripting"></a>Best practices for script development
+## <a name="bestPracticeScripting"></a>Prácticas recomendadas para el desarrollo de scripts
 
-When you develop a custom script for an HDInsight cluster, there are several best practices to keep in mind:
+Al desarrollar un script personalizado para un clúster de HDInsight, hay varios procedimientos recomendados que hay que tener en cuenta:
 
-- [Target the Hadoop version](#bPS1)
-- [Target the OS Version](#bps10)
-- [Provide stable links to script resources](#bPS2)
-- [Use pre-compiled resources](#bPS4)
-- [Ensure that the cluster customization script is idempotent](#bPS3)
-- [Ensure high availability of the cluster architecture](#bPS5)
-- [Configure the custom components to use Azure Blob storage](#bPS6)
-- [Write information to STDOUT and STDERR](#bPS7)
-- [Save files as ASCII with LF line endings](#bps8)
-- [Use retry logic to recover from transient errors](#bps9)
+- [Concentrarse en la versión de Hadoop](#bPS1)
+- [Proporcionar vínculos estables a los recursos de script](#bPS2)
+- [Usar recursos compilados previamente](#bPS4)
+- [Asegurarse de que el script de personalización del clúster es idempotente](#bPS3)
+- [Asegurar una alta disponibilidad de la arquitectura de clúster](#bPS5)
+- [Configurar los componentes personalizados para usar el almacenamiento de blobs de Azure](#bPS6)
+- [Escribir información en STDOUT y STDERR](#bPS7)
+- [Guardar los archivos como ASCII con el fin de línea LF](#bps8)
+- [Utilizar la lógica de reintento para recuperarse de errores transitorios](#bps9)
 
-> [AZURE.IMPORTANT] Script actions must complete within 60 minutes, or they will timeout. During node provisioning, the script is ran concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
+> [AZURE.IMPORTANT] Las acciones de script se tienen que completar dentro de un periodo de 60 minutos o superarán el tiempo de espera. Durante el aprovisionamiento del nodo, el script se ejecuta a la vez con otros procesos de instalación y de configuración. La competición por los recursos, como el ancho de banda de red o el tiempo de CPU puede ocasionar que el script tarde más en terminar que en el entorno de desarrollo.
 
-### <a name="<a-name="bps1"></a>target-the-hadoop-version"></a><a name="bPS1"></a>Target the Hadoop version
+### <a name="bPS1"></a>Concentrarse en la versión de Hadoop
 
-Different versions of HDInsight have different versions of Hadoop services and components installed. If your script expects a specific version of a service or component, you should only use the script with the version of HDInsight that includes the required components. You can find information on component versions included with HDInsight using the [HDInsight component versioning](hdinsight-component-versioning.md) document.
+Las distintas versiones de HDInsight tienen distintas versiones de componentes y servicios de Hadoop instalados. Si su script espera una versión específica de un servicio o componente, debe usar solamente el script con la versión de HDInsight que incluye los componentes necesarios. Puede encontrar información sobre las versiones de los componentes incluidos con HDInsight mediante el documento [Versiones de HDInsight y componentes](hdinsight-component-versioning.md).
 
-###<a name="<a-name="bps10"></a>-target-the-os-version"></a><a name="bps10"></a> Target the OS version
+### <a name="bPS2"></a>Proporcionar vínculos estables a los recursos de script
 
-Linux-based HDInsight is based on the Ubuntu Linux distribution. Different versions of HDInsight rely on different versions of Ubuntu, which may effect how your script behaves. For example, HDInsight 3.4 and earlier are based on Ubuntu versions that use Upstart. Version 3.5 is based on Ubuntu 16.04, which uses Systemd. Systemd and Upstart rely on different commands, so your script should be written to work with both.
+Debe asegurarse de que los scripts y los recursos que usan los scripts permanecen disponibles durante la vigencia del clúster, y de que las versiones de estos archivos no cambian durante ese tiempo. Estos recursos son necesarios si se agregan nodos nuevos al clúster durante operaciones de escalado.
 
-Another important difference between HDInsight 3.4 and 3.5 is that `JAVA_HOME` now points to Java 8.
+La práctica recomendada es descargar y archivar todo el contenido de una cuenta de Azure Storage en su suscripción.
 
-You can check the OS version by using `lsb_release`. The following code snippets from the Hue install script demonstrates how to determine if the script is running on Ubuntu 14 or 16:
+> [AZURE.IMPORTANT] La cuenta de almacenamiento usada tiene que ser la cuenta de almacenamiento predeterminada del clúster o un contenedor público de solo lectura en cualquier otra cuenta de almacenamiento.
 
-    OS_VERSION=$(lsb_release -sr)
-    if [[ $OS_VERSION == 14* ]]; then
-        echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
-        HUE_TARFILE=hue-binaries-14-04.tgz
-    elif [[ $OS_VERSION == 16* ]]; then
-        echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
-        HUE_TARFILE=hue-binaries-16-04.tgz
-    fi
-    ...
-    if [[ $OS_VERSION == 16* ]]; then
-        echo "Using systemd configuration"  
-        systemctl daemon-reload
-        systemctl stop webwasb.service    
-        systemctl start webwasb.service
-    else
-        echo "Using upstart configuration"
-        initctl reload-configuration
-        stop webwasb
-        start webwasb
-    fi
-    ...
-    if [[ $OS_VERSION == 14* ]]; then
-        export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
-    elif [[ $OS_VERSION == 16* ]]; then
-        export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-    fi
+Por ejemplo, los ejemplos proporcionados por Microsoft se almacenan en la cuenta de almacenamiento [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/), que es un contenedor público, de solo lectura mantenido por el equipo de HDInsight.
 
-You can find the full script that contains these snippets at https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
+### <a name="bPS4"></a>Uso de recursos compilados previamente
 
-For the version of Ubuntu that is used by HDInsight, see the [HDInsight component version](hdinsight-component-versioning.md) document.
+Para minimizar el tiempo necesario para ejecutar el script, evite las operaciones que compilan recursos a partir del código fuente. En su lugar, compile previamente los recursos y almacene la versión binaria en el almacenamiento de blobs de Azure para que se pueda descargar rápidamente en el clúster desde el script.
 
-To understand the differences between Systemd and Upstart, see [Systemd for Upstart users](https://wiki.ubuntu.com/SystemdForUpstartUsers).
+### <a name="bPS3"></a>Asegurarse de que el script de personalización del clúster es idempotente
 
-### <a name="<a-name="bps2"></a>provide-stable-links-to-script-resources"></a><a name="bPS2"></a>Provide stable links to script resources
+Los scripts tienen que estar diseñados para ser idempotentes, en el sentido de que, si un script se ejecuta varias veces, debe garantizar que el clúster se devuelve al mismo estado cada vez que se ejecuta.
 
-You should make sure that the scripts and resources used by the script remain available throughout the lifetime of the cluster, and that the versions of these files do not change for the duration. These resources are required if new nodes are added to the cluster during scaling operations.
+Por ejemplo, si un script personalizado instaló una aplicación en /usr/local/bin en su primera ejecución, en cada ejecución posterior el script debe comprobar si la aplicación ya existe en la ubicación /usr/local/bin antes de continuar con otros pasos del script.
 
-The best practice is to download and archive everything in an Azure Storage account on your subscription.
+### <a name="bPS5"></a>Asegurar una alta disponibilidad de la arquitectura de clúster
 
-> [AZURE.IMPORTANT] The storage account used must be the default storage account for the cluster or a public, read-only container on any other storage account.
+Los clústeres de HDInsight basados en Linux proporcionan dos nodos principales que están activos dentro del clúster, las acciones de script se ejecutan para ambos nodos. Si los componentes que instala esperan un único nodo principal, tiene que diseñar un script que instale el componente en uno de los dos nodos principales del clúster.
 
-For example, the samples provided by Microsoft are stored in the [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) storage account, which is a public, read-only container maintained by the HDInsight team.
+> [AZURE.IMPORTANT] Los servicios predeterminados instalados como parte de HDInsight están diseñados para conmutar por error entre los dos nodos principales según sea necesario, pero esta funcionalidad no se extiende a componentes personalizados instalados a través de las acciones de script. Si necesita que los componentes instalados a través de una acción de script tengan una alta disponibilidad, tiene que implementar su propio mecanismo de conmutación por error que use los dos nodos principales disponibles.
 
-### <a name="<a-name="bps4"></a>use-pre-compiled-resources"></a><a name="bPS4"></a>Use pre-compiled resources
+### <a name="bPS6"></a>Configurar los componentes personalizados para usar el almacenamiento de blobs de Azure
 
-To reduce the time it takes to run the script, avoid operations that compile resources from source code. Instead, pre-compile the resources and store the binary version in Azure Blob storage so that it can quickly be downloaded to the cluster from your script.
+Los componentes que instaló en el clúster podrían tener una configuración predeterminada que usa el almacenamiento Sistema de archivos distribuido de Hadoop (HDFS). HDInsight usa el almacenamiento de blobs de Azure (WASB) como almacenamiento predeterminado. Esto proporciona un sistema de archivos compatible con HDFS que conserva los datos incluso si se elimina el clúster. Debe configurar los componentes que instale para que usen WASB en lugar de HDFS.
 
-### <a name="<a-name="bps3"></a>ensure-that-the-cluster-customization-script-is-idempotent"></a><a name="bPS3"></a>Ensure that the cluster customization script is idempotent
-
-Scripts must be designed to be idempotent in the sense that if the script is ran multiple times, it should ensure that the cluster is returned to the same state every time it is ran.
-
-For example, if a custom script installs an application at /usr/local/bin on its first run, then on each subsequent run the script should check whether the application already exists at the /usr/local/bin location before proceeding with other steps in the script.
-
-### <a name="<a-name="bps5"></a>ensure-high-availability-of-the-cluster-architecture"></a><a name="bPS5"></a>Ensure high availability of the cluster architecture
-
-Linux-based HDInsight clusters provides two head nodes that are active within the cluster, and script actions are ran for both nodes. If the components you install expect only one head node, you must design a script that will only install the component on one of the two head nodes in the cluster.
-
-> [AZURE.IMPORTANT] Default services installed as part of HDInsight are designed to fail over between the two head nodes as needed, however this functionality is not extended to custom components installed through script ctions. If you need the components installed through a script action to be highly available, you must implement your own failover mechanism that uses the two available head nodes.
-
-### <a name="<a-name="bps6"></a>configure-the-custom-components-to-use-azure-blob-storage"></a><a name="bPS6"></a>Configure the custom components to use Azure Blob storage
-
-Components that you install on the cluster might have a default configuration that uses Hadoop Distributed File System (HDFS) storage. HDInsight uses Azure Blob Storage (WASB) as the default storage. This provides an HDFS compatible file system that persists data even if the cluster is deleted. You should configure components you install to use WASB instead of HDFS.
-
-For example, the following copies the giraph-examples.jar file from the local file system to WASB:
+Por ejemplo, lo siguiente copia el archivo giraph-examples.jar del sistema de archivos local a WASB:
 
     hadoop fs -copyFromLocal /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 
-### <a name="<a-name="bps7"></a>write-information-to-stdout-and-stderr"></a><a name="bPS7"></a>Write information to STDOUT and STDERR
+### <a name="bPS7"></a>Escribir información en STDOUT y STDERR
 
-Information written to STDOUT and STDERR during script execution is logged, and can be viewed using the Ambari web UI.
+La información escrita en STDOUT y STDERR durante la ejecución del script se registra, y se puede ver mediante la interfaz de usuario web de Ambari.
 
-> [AZURE.NOTE] Ambari will only be available if the cluster is successfully created. If you use a script action during cluster creation, and creation fails, see the troubleshooting section [Customize HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) for other ways of accessing logged information.
+> [AZURE.NOTE] Ambari solo estará disponible si el clúster se creó correctamente. Si usa una acción de script durante la creación del clúster y se produce un error, consulte la sección de solución de problemas [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) para conocer otras formas de acceder a la información registrada.
 
-Most utilities and installation packages will already write information to STDOUT and STDERR, however you may want to add additional logging. To send text to STDOUT use `echo`. For example:
+La mayoría de utilidades y paquetes de instalación ya escriben la información en STDOUT y STDERR, pero puede que desee agregar un registro adicional. Para enviar texto a STDOUT use `echo`. Por ejemplo:
 
         echo "Getting ready to install Foo"
 
-By default, `echo` will send the string to STDOUT. To direct it to STDERR, add `>&2` before `echo`. For example:
+De forma predeterminada, `echo` enviará la cadena a STDOUT. Para dirigirla a STDERR, agregue `>&2` antes de `echo`. Por ejemplo:
 
         >&2 echo "An error occurred installing Foo"
 
-This redirects information sent to STDOUT (1, which is default so not listed here,) to STDERR (2). For more information on IO redirection, see [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
+Esto redirige la información que se envía a STDOUT (1, que es el predeterminado, por lo que no se muestran aquí,) a STDERR (2). Para obtener más información sobre la redirección de E/S, consulte [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
-For more information on viewing information logged by script actions, see [Customize HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
+Para obtener más información sobre la visualización de información registrada por las acciones de script, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 
-###<a name="<a-name="bps8"></a>-save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a> Save files as ASCII with LF line endings
+###<a name="bps8"></a>Guardar los archivos como ASCII con el fin de línea LF
 
-Bash scripts should be stored as ASCII format, with lines terminated by LF. If files are stored as UTF-8, which may include a Byte Order Mark at the beginning of the file, or with line endings of CRLF, which is common for Windows editors, then the script will fail with errors similar to the following:
+Los scripts de Bash deben almacenarse con formato ASCII, con líneas terminadas con LF. Si los archivos se almacenan como UTF-8, que puede incluir una marca BOM al principio del archivo, o con fin de línea de CRLF, que es común para los editores de Windows, a continuación el script dará errores similares al siguiente:
 
     $'\r': command not found
     line 1: #!/usr/bin/env: No such file or directory
 
-###<a name="<a-name="bps9"></a>-use-retry-logic-to-recover-from-transient-errors"></a><a name="bps9"></a> Use retry logic to recover from transient errors
+###<a name="bps9"></a> Utilizar la lógica de reintento para recuperarse de errores transitorios
 
-When downloading files, installing packages using apt-get, or other actions that transmit data over the internet, the action may fail due to transient networking errors. For example, the remote resource you are communicating with may be in the process of failing over to a backup node.
+Al descargar archivos, instalar paquetes mediante apt-get o realizar otras acciones que transmiten datos por Internet, se puede producir un error en la acción debido a errores de red transitorios. Por ejemplo, puede suceder que el recurso remoto con el que se está comunicando esté a punto de conmutar por error a un nodo de copia de seguridad.
 
-To make your script resilient to transient errors, you can implement retry logic. The following is an example of a function that will run any command passed to it and (if the command fails,) retry up to three times. It will wait two seconds between each retry.
+Para que el script sea resistente a los errores transitorios, puede implementar la lógica de reintento. A continuación se muestra ejemplo de una función que ejecutará cualquier comando que se pase a este y, si dicho comando no se ejecuta correctamente, volverá a intentarlo hasta tres veces. Esperará dos segundos entre cada reintento.
 
     #retry
     MAXATTEMPTS=3
@@ -188,151 +145,132 @@ To make your script resilient to transient errors, you can implement retry logic
         done
     }
 
-The following are examples of using this function.
+Abajo verá ejemplos de uso de esta función.
 
     retry ls -ltr foo
 
     retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
 
-## <a name="<a-name="helpermethods"></a>helper-methods-for-custom-scripts"></a><a name="helpermethods"></a>Helper methods for custom scripts
+## <a name="helpermethods"></a>Métodos auxiliares para scripts personalizados
 
-script action helper methods are utilities that you can use while writing custom scripts. These are defined in [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh), and can be included in your scripts using the following:
+Los métodos auxiliares de la acción de script son utilidades que puede usar al escribir scripts personalizados. Se definen en [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh), y se pueden incluir en los scripts mediante:
 
     # Import the helper method module.
     wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
 
-This makes the following helpers available for use in your script:
+Esto hace que las siguientes aplicaciones auxiliares estén disponibles para su uso en el script:
 
-| Helper usage | Description |
+| Uso de la aplicación auxiliar | Description |
 | ------------ | ----------- |
-| `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` | Downloads a file from the source URL to the specified file path. By default, it will not overwrite an existing file. |
-| `untar_file TARFILE DESTDIR` | Extracts a tar file (using `-xf`,) to the destination directory. |
-| `test_is_headnode` | If ran on a cluster head node, returns 1; otherwise, 0. |
-| `test_is_datanode` | If the current node is a data (worker) node, returns a 1; otherwise, 0. |
-| `test_is_first_datanode` | If the current node is the first data (worker) node (named workernode0,) returns a 1; otherwise, 0. |
-| `get_headnodes` | Returns the fully qualified domain name of the headnodes in the cluster. Names are comma delimited. An empty string is returned on error. |
-| `get_primary_headnode` | Gets the fully qualified domain name of the primary headnode. An empty string is returned on error. |
-| `get_secondary_headnode` | Gets the fully qualified domain name of the secondary headnode. An empty string is returned on error. |
-| `get_primary_headnode_number` | Gets the numeric suffix of the primary headnode. An empty string is returned on error. |
-| `get_secondary_headnode_number` | Gets the numeric suffix of the secondary headnode. An empty string is returned on error. |
+| `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` | Descarga un archivo de la dirección URL de origen en la ruta de acceso de archivo especificada. De forma predeterminada, no sobrescribirá un archivo existente. |
+| `untar_file TARFILE DESTDIR` | Extrae un archivo tar (mediante `-xf`,) en el directorio de destino. |
+| `test_is_headnode` | Si se ejecutaba en un nodo principal del clúster, devuelve 1; en caso contrario, es 0. |
+| `test_is_datanode` | Si el nodo actual es un nodo de datos (trabajo), devuelve un 1; en caso contrario, es 0. |
+| `test_is_first_datanode` | Si el nodo actual es el primer nodo de datos (trabajo), (llamado workernode0), devuelve un 1; en caso contrario, es 0. |
+| `get_headnodes` | Devuelve el nombre de dominio completo de los nodos principales del clúster. Los nombres están delimitados por comas. En caso de error, se devuelve una cadena vacía. |
+| `get_primary_headnode` | Obtiene el nombre de dominio completo del nodo principal primario. En caso de error, se devuelve una cadena vacía. |
+| `get_secondary_headnode` | Obtiene el nombre de dominio completo del nodo principal secundario. En caso de error, se devuelve una cadena vacía. |
+| `get_primary_headnode_number` | Obtiene el sufijo numérico del nodo principal primario. En caso de error, se devuelve una cadena vacía. |
+| `get_secondary_headnode_number` | Obtiene el sufijo numérico del nodo principal secundario. En caso de error, se devuelve una cadena vacía. |
 
-## <a name="<a-name="commonusage"></a>common-usage-patterns"></a><a name="commonusage"></a>Common usage patterns
+## <a name="commonusage"></a>Patrones de uso común
 
-This section provides guidance on implementing some of the common usage patterns that you might run into while writing your own custom script.
+Esta sección proporciona instrucciones sobre cómo implementar algunos de los patrones de uso común que podría encontrar mientras escribe su propio script personalizado.
 
-### <a name="passing-parameters-to-a-script"></a>Passing parameters to a script
+### Paso de parámetros a un script
 
-In some cases, your script may require parameters. For example, you may need the admin password for the cluster in order to retrieve information from the Ambari REST API.
+En algunos casos, un script puede requerir parámetros. Por ejemplo, puede que necesite la contraseña de administrador para el clúster con el fin de recuperar información de la API de REST de Ambari.
 
-Parameters passed to the script are known as _positional parameters_, and are assigned to `$1` for the first parameter, `$2` for the second, and so-on. `$0` contains the name of the script itself.
+Los parámetros que se pasan al script se conocen como _parámetros posicionales_, y se asignan a `$1` para el primer parámetro, `$2` para el segundo y así sucesivamente. `$0` contiene el nombre del script.
 
-Values passed to the script as parameters should be enclosed by single quotes (') so that the passed value is treated as a literal, and special treatment isn't given to included characters such as '!'.
+Los valores que se pasan a un script como parámetros se deben encerrar entre comillas simples (') para que el valor pasado se trate como un valor literal y no se un tratamiento especial para incluir caracteres como '!'.
 
-### <a name="setting-environment-variables"></a>Setting environment variables
+### Establecimiento de variables de entorno
 
-Setting an environment variable is performed by the following:
+Establecer una variable de entorno se realiza de la forma siguiente:
 
     VARIABLENAME=value
 
-Where VARIABLENAME is the name of the variable. To access the variable after this, use `$VARIABLENAME`. For example, to assign a value provided by a positional parameter as an environment variable named PASSWORD, you would use the following:
+Donde VARIABLENAME es el nombre de la variable. Para obtener acceso a la variable una vez hecho esto, use `$VARIABLENAME`. Por ejemplo, para asignar un valor proporcionado por un parámetro posicional como una variable de entorno denominada PASSWORD, use lo siguiente:
 
     PASSWORD=$1
 
-Subsequent access to the information could then use `$PASSWORD`.
+Para el acceso posterior a la información puede usar `$PASSWORD`.
 
-Environment variables set within the script only exist within the scope of the script. In some cases, you may need to add system wide environment variables that will persist after the script has finished. Usually this is so that users connecting to the cluster via SSH can use the components installed by your script. You can accomplish this by adding the environment variable to `/etc/environment`. For example, the following adds __HADOOP\_CONF\_DIR__:
+Las variables de entorno establecidas dentro del script solo existen en el ámbito del script. En algunos casos, puede que necesite agregar variables de entorno de todo el sistema que se conservarán una vez finalizado el script. Normalmente, esto es para que los usuarios que se conectan al clúster a través de SSH puedan usar los componentes instalados por el script. Para ello agregue la variable de entorno a `/etc/environment`. Por ejemplo, lo siguiente agrega __HADOOP\_CONF\_DIR__:
 
     echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
-### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>Access to locations where the custom scripts are stored
+### Acceso a ubicaciones donde se almacenan los scripts personalizados
 
-Scripts used to customize a cluster needs to either be in the default storage account for the cluster or, if on another storage account, in a public read-only container. If your script accesses resources located elsewhere these also need to be in a publicly accessible (at least public read-only). For instance you might want to download a file to the cluster using `download_file`.
+Los scripts usados para personalizar un clúster tienen que encontrarse en la cuenta de almacenamiento predeterminada del clúster o, si se encuentran en otra cuenta de almacenamiento, en un contenedor público de solo lectura. Si el script obtiene acceso a recursos ubicados en cualquier otra parte, estos recursos deben encontrarse también en una ubicación a la que se pueda tener acceso de manera pública (al menos, con acceso público de solo lectura). Por ejemplo puede querer descargar un archivo en el clúster con `download_file`.
 
-Storing the file in an Azure storage account accessible by the cluster (such as the default storage account,) will provide fast access, as this storage is within the Azure network.
+Almacenar el archivo en una cuenta de Almacenamiento de Azure que sea accesible al clúster (por ejemplo, la cuenta de almacenamiento predeterminada), proporcionará un acceso rápido, ya que este almacenamiento está dentro de la red de Azure.
 
-### <a name="checking-the-operating-system-version"></a>Checking the operating system version
+## <a name="deployScript"></a>Lista de comprobación para implementar una acción de script
 
-Different versions of HDInsight rely on specific versions of Ubuntu. There may be differences between OS versions that you must check for in your script. For example, you may need to install a binary that is tied to the version of Ubuntu.
+Estos son los pasos que se llevaron a cabo al prepararse para implementar estos scripts:
 
-To check the OS version, use `lsb_release`. For example, the following demonstrates how to reference a different tar file depending on the OS version:
+- Coloque los archivos que contengan los scripts personalizados en un lugar que sea accesible por los nodos del clúster durante la implementación. Este puede ser la cuenta de almacenamiento predeterminada o alguna de las cuentas de almacenamiento adicionales especificadas en el momento de la implementación del clúster, o bien, cualquier otro contenedor de almacenamiento con acceso público.
 
-    OS_VERSION=$(lsb_release -sr)
-    if [[ $OS_VERSION == 14* ]]; then
-        echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
-        HUE_TARFILE=hue-binaries-14-04.tgz
-    elif [[ $OS_VERSION == 16* ]]; then
-        echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
-        HUE_TARFILE=hue-binaries-16-04.tgz
-    fi
+- Agregue comprobaciones en los scripts para asegurarse de que se ejecutan de manera idempotente, para que el script se pueda ejecutar varias veces en el mismo nodo.
 
-## <a name="<a-name="deployscript"></a>checklist-for-deploying-a-script-action"></a><a name="deployScript"></a>Checklist for deploying a script action
+- Use un directorio de archivo temporal /tmp para conservar los archivos descargados que usan los scripts y, a continuación, y realice una limpieza una vez que se ejecuten los scripts.
 
-Here are the steps we took when preparing to deploy these scripts:
+- En el caso de que los archivos de configuración de servicio de Hadoop o la configuración en el nivel de SO hayan cambiado, es posible que desee reiniciar los servicios de HDInsight para que puedan escoger cualquier configuración en el nivel de SO, tal como las variables de entorno definidas en los scripts.
 
-- Put the files that contain the custom scripts in a place that is accessible by the cluster nodes during deployment. This can be any of the default or additional Storage accounts specified at the time of cluster deployment, or any other publicly accessible storage container.
+## <a name="runScriptAction"></a>Ejecución de una acción de script
 
-- Add checks into scripts to make sure that they execute impotently, so that the script can be executed multiple times on the same node.
+Puede usar las acciones de script para personalizar clústeres de HDInsight mediante el Portal de Azure, Azure PowerShell, plantillas de Azure Resource Manager (ARM) o el SDK de .NET para HDInsight. Para obtener instrucciones, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
-- Use a temporary file directory /tmp to keep the downloaded files used by the scripts and then clean them up after scripts have executed.
+## <a name="sampleScripts"></a>Ejemplos de scripts personalizados
 
-- In the event that OS-level settings or Hadoop service configuration files were changed, you may want to restart HDInsight services so that they can pick up any OS-level settings, such as the environment variables set in the scripts.
+Microsoft proporciona scripts de ejemplo para instalar los componentes en un clúster de HDInsight. Los scripts de muestra e instrucciones sobre cómo utilizarlos están disponibles en los vínculos siguientes:
 
-## <a name="<a-name="runscriptaction"></a>how-to-run-a-script-action"></a><a name="runScriptAction"></a>How to run a script action
+- [Instalación y uso de Hue en clústeres de HDInsight](hdinsight-hadoop-hue-linux.md)
+- [Instalación y uso de R en clústeres de Hadoop para HDInsight](hdinsight-hadoop-r-scripts-linux.md)
+- [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install-linux.md)
+- [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 
-You can use script actions to customize HDInsight clusters by using the Azure portal, Azure PowerShell, Azure Resource Manager (ARM) templates or the HDInsight .NET SDK. For instructions, see [How to use script action](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] Los documentos con enlaces anteriores son específicos de los clústeres de HDInsight basados en Linux. Para un script que funcione con HDInsight basado en Windows, consulte [Desarrollo de la acción de script con HDInsight (Windows)](hdinsight-hadoop-script-actions.md) o use los vínculos disponibles en la parte superior de cada artículo.
 
-## <a name="<a-name="samplescripts"></a>custom-script-samples"></a><a name="sampleScripts"></a>Custom script samples
+##Solución de problemas
 
-Microsoft provides sample scripts to install components on an HDInsight cluster. The sample scripts and instructions on how to use them are available at the links below:
+Estos son errores que pueden producirse al usar los scripts desarrollados:
 
-- [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md)
-- [Install and use R on HDInsight Hadoop clusters](hdinsight-hadoop-r-scripts-linux.md)
-- [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md)
-- [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md)  
+__Error__: `$'\r': command not found`. A veces seguido de `syntax error: unexpected end of file`.
 
-> [AZURE.NOTE] The documents linked above are specific to Linux-based HDInsight clusters. For a scripts that work with Windows-based HDInsight, see [Script action development with HDInsight (Windows)](hdinsight-hadoop-script-actions.md) or use the links available at the top of each article.
+_Causa_: este error se produce si las líneas en un script terminan con CRLF. Los sistemas UNIX esperan solo LF como final de la línea.
 
-##<a name="troubleshooting"></a>Troubleshooting
+Este problema suele producirse cuando se crea el script en un entorno Windows, ya que CRLF es una línea común final para muchos editores de texto en Windows.
 
-The following are errors you may encounter when using scripts you have developed:
+_Resolución_: si es una opción en el editor de texto, seleccione formato UNIX o LF para el final de la línea. También puede usar los siguientes comandos en un sistema UNIX para cambiar un CRLF por un LF:
 
-__Error__: `$'\r': command not found`. Sometimes followed by `syntax error: unexpected end of file`.
+> [AZURE.NOTE] Los siguientes comandos son aproximadamente equivalentes en que deben cambiar los finales de línea CRLF a LF. Seleccione uno en función de las utilidades disponibles en el sistema.
 
-_Cause_: This error is caused when the lines in a script end with CRLF. Unix systems expect only LF as the line ending.
-
-This problem most often occurs when the script is authored on a Windows environment, as CRLF is a common line ending for many text editors on Windows.
-
-_Resolution_: If it is an option in your text editor, select Unix format or LF for the line ending. You may also use the following commands on a Unix system to change the CRLF to an LF:
-
-> [AZURE.NOTE] The following commands are roughly equivalent in that they should change the CRLF line endings to LF. Select one based on the utilities available on your system.
-
-| Command | Notes |
+| Comando | Notas |
 | ------- | ----- |
-| `unix2dos -b INFILE` | The original file will be backed up with a .BAK extension |
-| `tr -d '\r' < INFILE > OUTFILE` | OUTFILE will contain a version with only LF endings |
-| `perl -pi -e 's/\r\n/\n/g' INFILE` | This will modify the file directly without creating a new file |
-| ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` | OUTFILE will contain a version with only LF endings.
+| `unix2dos -b INFILE` | Se realizará una copia de seguridad del archivo original con una extensión .BAK |
+| `tr -d '\r' < INFILE > OUTFILE` | OUTFILE contendrá una versión con finales solo LF |
+| `perl -pi -e 's/\r\n/\n/g' INFILE` | Esto modificará el archivo directamente sin crear un nuevo archivo |
+| ```sed 's/$'"/`echo \\r`/" INFILE > OUTFILE``` | OUTFILE contendrá una versión con finales solo LF.
 
 __Error__: `line 1: #!/usr/bin/env: No such file or directory`.
 
-_Cause_: This error occurs when the script was saved as UTF-8 with a Byte Order Mark (BOM).
+_Causa_: este error se produce cuando el script se guarda como UTF-8 con una marca de orden de bytes (BOM).
 
-_Resolution_: Save the file either as ASCII, or as UTF-8 without a BOM. You may also use the following command on a Linux or Unix system to create a new file without the BOM:
+_Resolución_: guarde el archivo como ASCII o UTF-8 sin una marca BOM. También puede usar el siguiente comando en un sistema Linux o UNIX para crear un archivo nuevo sin marca BOM:
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 
-For the above command, replace __INFILE__ with the file containing the BOM. __OUTFILE__ should be a new file name, which will contain the script without the BOM.
+Para el comando anterior, reemplace __INFILE__ por el archivo que contiene la marca BOM. __OUTFILE__ tiene que ser un nombre de archivo nuevo, que contendrá el script sin la marca BOM.
 
-## <a name="<a-name="seealso"></a>next-steps"></a><a name="seeAlso"></a>Next steps
+## <a name="seeAlso"></a>Pasos siguientes
 
-* Learn how to [Customize HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md)
+* Obtenga información sobre cómo [personalizar clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-* Use the [HDInsight .NET SDK reference](https://msdn.microsoft.com/library/mt271028.aspx) to learn more about creating .NET applications that manage HDInsight
+* Use la [referencia del SDK de .NET de HDInsight](https://msdn.microsoft.com/library/mt271028.aspx) para obtener más información sobre la creación de aplicaciones .NET que administran HDInsight.
 
-* Use the [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) to learn how to use REST to perform management actions on HDInsight clusters.
+* Use la [API de REST de HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) para obtener información sobre cómo usar REST para realizar acciones de administración en clústeres de HDInsight.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

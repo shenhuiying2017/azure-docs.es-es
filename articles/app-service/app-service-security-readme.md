@@ -1,32 +1,27 @@
 <properties
-    pageTitle="Azure App Service Security"
-    description="Learn how to secure Web, Mobile, API and Logic apps in Azure App Service."
-    services="app-service"
-    documentationCenter=""
-    authors="naziml"
-    manager="yochayk"
-    editor="wpickett"/>
+	pageTitle="Seguridad de Servicio de aplicaciones de Azure"
+	description="Aprenda a proteger aplicaciones web, móviles, de API y lógicas en Servicio de aplicaciones de Azure."
+	services="app-service"
+	documentationCenter=""
+	authors="naziml"
+	manager="yochayk"
+	editor="wpickett"/>
 
 <tags
-    ms.service="app-service"
-    ms.workload="web"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/16/2015"
-    ms.author="naziml"/>
+	ms.service="app-service"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/16/2015"
+	ms.author="naziml"/>
 
+# Seguridad de Servicio de aplicaciones de Azure
 
-# <a name="azure-app-service-security"></a>Azure App Service Security
-
-Azure App Services complies with the key industry standards for security and reliability to provide our customers a secure platform. We have several easy-to-use features to help secure both inbound and outbound traffic for your app. We also help customers secure their application code by providing externally provided functionality to scan your web application for vulnerabilities.
+Servicios de aplicaciones de Azure cumple con los estándares esenciales de seguridad y confiabilidad del sector para proporcionar una plataforma segura a nuestros clientes. Disponemos de varias características fáciles de usar que contribuyen a proteger el tráfico entrante y saliente de la aplicación. También ayudamos a los clientes a proteger el código de su aplicación con funcionalidad externa para detectar vulnerabilidades en la aplicación web.
 
 [AZURE.INCLUDE [app-service-blueprint-security](../../includes/app-service-blueprint-security.md)]
 
-Azure App Service uses the same Antimalware solution used by Azure Cloud Services and Virtual Machines. To learn more about this refer to our [Antimalware documentation](../security/azure-security-antimalware.md) 
+El Servicio de aplicaciones de Azure usa la misma solución antimalware que usan los Servicios en la nube de Azure y Máquinas virtuales. Para más información al respecto, consulte nuestra [documentación sobre antimalware](../security/azure-security-antimalware.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Manage the directory for your Office 365 subscription in Azure | Microsoft Azure"
-   description="Managing an Office 365 subscription directory using Azure Active Directory and the Azure classic portal"
+   pageTitle="Administración del directorio para una suscripción a Office 365 en Azure | Microsoft Azure"
+   description="Administración de un directorio de la suscripción a Office 365 con Azure Active Directory y el Portal de Azure clásico"
    services="active-directory"
    documentationCenter=""
    authors="curtand"
@@ -16,54 +16,49 @@
    ms.date="08/23/2016"
    ms.author="curtand"/>
 
+# Administración del directorio para la suscripción de Office 365 en Azure
 
-# <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Manage the directory for your Office 365 subscription in Azure
+En este artículo se describe cómo administrar un directorio que se creó para una suscripción de Office 365 mediante el Portal de Azure clásico. Para iniciar sesión en el Portal de Azure clásico, es preciso ser administrador de servicios o coadministrador de una suscripción de Azure. Si aún no dispone de una suscripción de Azure, desde este vínculo puede registrarse ahora mismo para disfrutar de una [evaluación gratuita durante 30 días](https://azure.microsoft.com/trial/get-started-active-directory/) e implementar su primera solución en la nube en menos de 5 minutos. Asegúrese de que utiliza la misma cuenta profesional o educativa que utilizó para iniciar sesión en Office 365.
 
-This article describes how to manage a directory that was created for an Office 365 subscription, using the Azure classic portal. You must be either the Service Administrator or a co-administrator of an Azure subscription to sign in to the Azure classic portal. If you don’t yet have an Azure subscription, you can sign up for a [free 30-day trial](https://azure.microsoft.com/trial/get-started-active-directory/) today and deploy your first cloud solution in under 5 minutes, using this link. Be sure to use the work or school account that you use to sign in to Office 365.
+Después de completar la suscripción a Azure, puede iniciar sesión en el Portal de Azure clásico y acceder a los servicios de Azure. Haga clic en la extensión de Active Directory para administrar el mismo directorio que autentica a los usuarios de Office 365.
 
-After you complete the Azure subscription, you can sign in to the Azure classic portal and access Azure services. Click the Active Directory extension to manage the same directory that authenticates your Office 365 users.
+Si ya tiene una suscripción a Azure, el proceso para administrar un directorio adicional también es sencillo y directo. Por ejemplo, suponga que Michael Smith tiene una suscripción a Office 365 para Contoso.com. También tiene una suscripción a Azure, que realizó con su cuenta Microsoft, msmith@hotmail.com. En este caso, administra dos directorios.
 
-If you do already have an Azure subscription, the process to manage an additional directory is also straightforward. For example, Michael Smith might have an Office 365 subscription for Contoso.com. He also has an Azure subscription that he signed up for by using his Microsoft account, msmith@hotmail.com. In this case, he manages two directories.
-
-  Subscription |  Office 365  |  Azure
+ Subscription | Office 365 | Las tablas de Azure
   -------------- | ------------- | -------------------------------
-  Display name |  Contoso  |     Default Azure Active Directory (Azure AD) directory
-  Domain name  |  contoso.com  | msmithhotmail.onmicrosoft.com
+ Nombre para mostrar | Contoso | Directorio de Azure Active Directory (Azure AD) predeterminado
+ Nombre de dominio | contoso.com | msmithhotmail.onmicrosoft.com
 
-He wants to manage the user identities in the Contoso directory while he is signed in to Azure using his Microsoft account, so that he can enable Azure AD features such as multifactor authentication. The following diagram may help to illustrate the process.
+Michael Smith desea administrar las identidades de usuario en el directorio Contoso, ya que ha iniciado sesión en Azure con su cuenta de Microsoft. Quiere habilitar características de Azure AD, como la autenticación multifactor. El diagrama siguiente puede ayudarle a ilustrar el proceso.
 
-![Diagram to manage two independent directories](./media/active-directory-manage-o365-subscription/AAD_O365_03.png)
+![Diagrama para administrar dos directorios independientes](./media/active-directory-manage-o365-subscription/AAD_O365_03.png)
 
-In this case, the two directories are independent of each other.
+En este caso, ambos directorios son independientes entre sí.
 
-## <a name="to-manage-two-independent-directories"></a>To manage two independent directories
-In order for Michael Smith to manage both directories while he is signed in to Azure as msmith@hotmail.com, he must complete the following steps:
+## Para administrar dos directorios independientes
+Para que Michael Smith pueda administrar ambos directorios mientras tenga una sesión iniciada en Azure como msmith@hotmail.com, debe llevar a cabo los siguientes pasos:
 
 > [AZURE.NOTE]
-> These steps can be completed only when a user is signed in with a Microsoft account. If the user is signed in with a work or school account, the option to **Use existing directory** isn't available. A work or school account can be authenticated only by its home directory (that is, the directory where the work or school account is stored, and that the business or school owns).
+Estos pasos solo se pueden realizar cuando un usuario ha iniciado sesión con una cuenta Microsoft. Si el usuario ha iniciado sesión con una cuenta profesional o educativa, la opción **Usar directorio existente** no está disponible. Las cuentas profesionales o educativas solo se pueden autenticar por su directorio particular (es decir, el directorio donde se almacena la cuenta profesional o educativa, y que posee el negocio o la escuela).
 
-1.  Sign in to the [Azure classic portal](https://manage.windowsazure.com) as msmith@hotmail.com.
-2.  Click **New** > **App services** > **Active Directory** > **Directory** > **Custom Create**.
-3.  Click Use existing directory and select the **I am ready to be signed out now** checkbox.
-4.  Sign in to the Azure classic portal as global admin of Contoso.onmicrosoft.com (for example, msmith@contoso.com).
-5.  When prompted to **Use the Contoso directory with Azure?**, click **Continue**.
-6.  Click **Sign out now**.
-7.  Sign in to the Azure classic portal as msmith@hotmail.com. The Contoso directory and the Default directory appear in the Active Directory extension.
+1.	Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com) como msmith@hotmail.com.
+2.	Haga clic en **Nuevo** > **Servicios de aplicaciones** > **Active Directory** > **Directorio** > **Creación personalizada**.
+3.	Haga clic en Usar directorio existente y active la casilla **Estoy listo para cerrar la sesión ahora**.
+4.	Inicie sesión en el Portal de Azure clásico como administrador global de Contoso.onmicrosoft.com (por ejemplo, msmith@contoso.com).
+5.	Cuando se le pregunte **¿Usar el directorio Contoso con Azure?**, haga clic en **Continuar**.
+6.	Haga clic en **Cerrar sesión ahora**.
+7.	Inicie sesión en el Portal de Azure clásico como msmith@hotmail.com. El directorio Contoso y el directorio predeterminado aparecen en la extensión de Active Directory.
 
-After completing these steps, msmith@hotmail.com is a global administrator in the Contoso directory.
+Después de realizar estos pasos, msmith@hotmail.com es un administrador global en el directorio Contoso.
 
-## <a name="to-administer-resources-as-the-global-admin"></a>To administer resources as the global admin
-Now let’s suppose that Jane Doe needs administer websites and database resources that are associated with the Azure subscription for msmith@hotmail.com. Before she can do that, Michael Smith needs to complete these additional steps:
+## Para administrar recursos como administrador global
+Ahora supongamos que Jane Doe necesita administrar sitios web y recursos de la base de datos asociados con la suscripción de Azure de msmith@hotmail.com. Antes de que pueda hacerlo, Michael Smith debe realizar estos pasos adicionales:
 
-1.  Sign in to the [Azure classic portal](https://manage.windowsazure.com) using the Service Administrator account for the Azure subscription (in this example, msmith@hotmail.com).
-2.  Transfer the subscription to the Contoso directory: click **Settings** > **Subscriptions** > select the subscription > **Edit Directory** > select **Contoso (Contoso.com)**. As part of the transfer, any work or school accounts that are co-administrators of the subscription are removed.
-3.  Add Jane Doe as co-administrator of the subscription: click **Settings** > **Administrators** > select the subscription > **Add** > type **JohnDoe@Contoso.com**.
+1.	Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com) mediante la cuenta de administrador de servicios de la suscripción de Azure (en este ejemplo, msmith@hotmail.com).
+2.	Transfiera la suscripción al directorio Contoso: haga clic en **Configuración** > **Suscripciones** > seleccione la suscripción > **Editar directorio** > y seleccione **Contoso (Contoso.com)**. Como parte de la transferencia, se eliminan todas las cuentas profesionales o educativas que sean coadministradores de la suscripción.
+3.	Agregue a Jane Doe como coadministradora de la suscripción: haga clic en **Configuración** > **Administradores** > seleccione la suscripción > **Agregar**> y escriba **JohnDoe@Contoso.com**.
 
-## <a name="next-steps"></a>Next steps
-For more information about the relationship between subscriptions and directories, see [How a subscription is associated with a directory](active-directory-how-subscriptions-associated-directory.md).
+## Pasos siguientes
+Para más información sobre la relación entre suscripciones y directorios, consulte [Asociación de una suscripción con un directorio](active-directory-how-subscriptions-associated-directory.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

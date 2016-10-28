@@ -1,64 +1,60 @@
-## <a name="prerequisites"></a>Prerequisites
+## Requisitos previos
 
-Before we can write CDN management code, we need to do some preparation to enable our code to interact with the Azure Resource Manager.  To do this, you'll need to:
+Antes de escribir el código de administración de la red CDN, tenemos que realizar algunos preparativos para habilitar el código para que interactúe con Azure Resource Manager. Para ello, necesitará lo siguiente:
 
-* Create a resource group to contain the CDN profile we create in this tutorial
-* Configure Azure Active Directory to provide authentication for our application
-* Apply permissions to the resource group so that only authorized users from our Azure AD tenant can interact with our CDN profile
+* Crear un grupo de recursos que contendrá el perfil de CDN que crearemos en este tutorial
+* Configurar Azure Active Directory para que proporcione autenticación para la aplicación
+* Aplicar permisos al grupo de recursos para que solo los usuarios autorizados de nuestro inquilino de Azure AD puedan interactuar con el perfil de CDN
 
-### <a name="creating-the-resource-group"></a>Creating the resource group
+### Creación del grupo de recursos
 
-1. Log into the [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
-2. Click the **New** button in the upper left, and then **Management**, and **Resource Group**.
-    
-    ![Creating a new resource group](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
+2. Haga clic sucesivamente en el botón **Nuevo** de la parte superior izquierda, en **Administración** y en **Grupo de recursos**.
+	
+	![Crear un grupo de recursos](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
 
-3. Call your resource group *CdnConsoleTutorial*.  Select your subscription and choose a location near you.  If you wish, you may click the **Pin to dashboard** checkbox to pin the resource group to the dashboard in the portal.  This will make it easier to find later.  After you've made your selections, click **Create**.
+3. Llame a su grupo de recursos *CdnConsoleTutorial*. Seleccione la suscripción y elija una ubicación cercana. Si lo desea, puede hacer clic en la casilla **Anclar al panel** para anclar el grupo de recursos al panel en el portal. Así resultará más fácil encontrarlo. Cuando termine las selecciones, haga clic en **Crear**.
 
-    ![Naming the resource group](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
+	![Asignar un nombre al grupo de recursos](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
 
-4. After the resource group is created, if you didn't pin it to your dashboard, you can find it by clicking **Browse**, then **Resource Groups**.  Click the resource group to open it.  Make a note of your **Subscription ID**.  We'll need it later.
+4. Una vez creado el grupo de recursos, si no lo ancló al panel, para buscarlo, haga clic en **Examinar** y en **Grupos de recursos**. Haga clic en el grupo de recursos para abrirlo. Tome nota del valor en **Id. de suscripción**. lo necesitará más adelante.
 
-    ![Naming the resource group](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
+	![Asignar un nombre al grupo de recursos](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
-### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Creating the Azure AD application and applying permissions
+### Creación de la aplicación de Azure AD y aplicación de los permisos
 
-There are two approaches to app authentication with Azure Active Directory: Individual users or a service principal. A service principal is similar to a service account in Windows.  Instead of granting a particular user permissions to interact with the CDN profiles, we instead grant the permissions to the service principal.  Service principals are generally used for automated, non-interactive processes.  Even though this tutorial is writing an interactive console app, we'll focus on the service principal approach.
+Existen dos enfoques para la autenticación de la aplicación con Azure Active Directory: usuarios individuales o una entidad de servicio. Una entidad de servicio se parece a una cuenta de servicio en Windows. En lugar de conceder a usuarios concretos permisos para interactuar con los perfiles de CDN, concedemos los permisos a la entidad de servicio. Las entidades de servicio se suelen utilizar para procesos automatizados no interactivos. Aunque en este tutorial escribimos una aplicación de consola interactiva, nos centraremos en el enfoque de entidad de servicio.
 
-Creating a service principal consists of several steps, including creating an Azure Active Directory application.  To do this, we're going to [follow this tutorial](../articles/resource-group-create-service-principal-portal.md).
+Para crear una entidad de servicio, se siguen varios pasos, incluida la creación de una aplicación de Azure Active Directory. Para ello, vamos a [completar este tutorial](../articles/resource-group-create-service-principal-portal.md).
 
-> [AZURE.IMPORTANT] Be sure to follow all the steps in the [linked tutorial](../articles/resource-group-create-service-principal-portal.md).  It is *extremely important* that you complete it exactly as described.  Make sure to note your **tenant ID**, **tenant domain name** (commonly a *.onmicrosoft.com* domain unless you've specified a custom domain), **client ID**, and **client authentication key**, as we will need these later.  Be very careful to guard your **client ID** and **client authentication key**, as these credentials can be used by anyone to execute operations as the service principal. 
->   
-> When you get to the step named [Configure multi-tenant application](../articles/resource-group-create-service-principal-portal.md#configure-multi-tenant-application), select **No**.
+> [AZURE.IMPORTANT] Asegúrese de seguir los pasos descritos en el [tutorial vinculado](../articles/resource-group-create-service-principal-portal.md). Es *muy importante* que lo complete exactamente como se describe. No se olvide de tomar nota del **identificador de inquilino**, el **nombre de dominio del inquilino** (por lo general, un dominio *.onmicrosoft.com*, a menos que haya especificado uno personalizado), el **identificador de cliente** y la **clave de autenticación de cliente**, ya que los necesitaremos más adelante. Tenga cuidado de proteger el **identificador de cliente** y la **clave de autenticación de cliente**, ya que cualquiera puede usar estas credenciales para ejecutar operaciones como la entidad de servicio.
+> 	
+> Cuando llegue al paso denominado [Configuración de aplicación multiinquilino](../articles/resource-group-create-service-principal-portal.md#configure-multi-tenant-application), seleccione **No**.
 > 
-> When you get to the step [Assign application to role](../articles/resource-group-create-service-principal-portal.md#assign-application-to-role), use the resource group we created earlier,  *CdnConsoleTutorial*, but instead of the **Reader** role, assign the **CDN Profile Contributor** role.  After you assign the application the **CDN Profile Contributor** role on your resource group, return to this tutorial. 
+> Cuando llegue al paso [Asignación de aplicación a un rol](../articles/resource-group-create-service-principal-portal.md#assign-application-to-role), use el grupo de recursos que creamos antes, *CdnConsoleTutorial*, pero en lugar del rol **Lector**, asigne el rol **CDN Profile Contributor** (Colaborador de perfil de CDN). Después de asignar la aplicación al rol **CDN Profile Contributor** (Colaborador de perfil de CDN) en el grupo de recursos, vuelva a este tutorial.
 
-Once you've created your service principal and assigned the **CDN Profile Contributor** role, the **Users** blade for your resource group should look similar to this.
+Una vez creada la entidad de servicio y asignado el rol **CDN Profile Contributor** (Colaborador de perfil de CDN), la hoja **Usuarios** del grupo de recursos debería parecerse a la siguiente.
 
-![Users blade](./media/cdn-app-dev-prep/cdn-service-principal-include.png)
-
-
-### <a name="interactive-user-authentication"></a>Interactive user authentication
-
-If, instead of a service principal, you'd rather have interactive individual user authentication, the process is very similar to that for a service principal.  In fact, you will need to follow the same procedure, but make a few minor changes.
-
-> [AZURE.IMPORTANT] Only follow these next steps if you are choosing to use individual user authentication instead of a service principal.
-
-1. When creating your application, instead of **Web Application**, choose **Native application**. 
-    
-    ![Native application](./media/cdn-app-dev-prep/cdn-native-application-include.png)
-    
-2. On the next page, you will be prompted for a **redirect URI**.  The URI won't be validated, but remember what you entered.  You'll need it later. 
-
-3. There is no need to create a **client authentication key**.
-
-4. Instead of assigning a service principal to the **CDN Profile Contributor** role, we're going to assign individual users or groups.  In this example, you can see that I've assigned  *CDN Demo User* to the **CDN Profile Contributor** role.  
-    
-    ![Individual user access](./media/cdn-app-dev-prep/cdn-aad-user-include.png)
+![Hoja Usuarios](./media/cdn-app-dev-prep/cdn-service-principal-include.png)
 
 
+### Autenticación interactiva de usuarios
 
-<!--HONumber=Oct16_HO2-->
+Si, en lugar de una entidad de servicio, prefiere la autenticación interactiva de usuario individual, el proceso se parece mucho al usado con una entidad de servicio. De hecho, debe seguir el mismo procedimiento, con algunos cambios menores.
 
+> [AZURE.IMPORTANT] Siga estos pasos únicamente si opta por usar la autenticación de usuario individual en lugar de una entidad de servicio.
 
+1. Al crear la aplicación, en lugar de **Aplicación web**, elija **Aplicación nativa**.
+	
+	![Aplicación nativa](./media/cdn-app-dev-prep/cdn-native-application-include.png)
+	
+2. En la página siguiente, se le pedirá un **URI de redirección**. No se validará el URI, pero debe recordarlo. Lo necesitará más adelante.
+
+3. No hay necesidad de crear una **clave de autenticación de cliente**.
+
+4. En lugar de asignar una entidad de servicio al rol **CDN Profile Contributor** (Colaborador de perfil de CDN), vamos a asignar usuarios individuales o grupos. En este ejemplo, puede ver que hemos asignado *Usuario de demostración de CDN* al rol **CDN Profile Contributor** (Colaborador de perfil de CDN).
+	
+	![Acceso de usuario individual](./media/cdn-app-dev-prep/cdn-aad-user-include.png)
+
+<!---HONumber=AcomDC_0706_2016-->

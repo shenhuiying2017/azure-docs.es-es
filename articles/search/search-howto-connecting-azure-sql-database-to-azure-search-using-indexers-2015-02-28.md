@@ -1,286 +1,281 @@
 <properties 
-    pageTitle="Connecting Azure SQL Database to Azure Search Using Indexers | Microsoft Azure | Indexers" 
-    description="Learn how to pull data from Azure SQL Database to an Azure Search index using indexers." 
-    services="search" 
-    documentationCenter="" 
-    authors="chaosrealm" 
-    manager="pablocas" 
-    editor=""/>
+	pageTitle="Conexión de Base de datos SQL de Azure a Búsqueda de Azure con indexadores | Microsoft Azure | Indexadores" 
+	description="Obtenga información sobre cómo extraer datos de la base de datos SQL de Azure en un índice de Búsqueda de Azure mediante el uso de indizadores." 
+	services="search" 
+	documentationCenter="" 
+	authors="chaosrealm" 
+	manager="pablocas" 
+	editor=""/>
 
 <tags 
-    ms.service="search" 
-    ms.devlang="rest-api" 
-    ms.workload="search" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.date="05/26/2016" 
-    ms.author="eugenesh"/>
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="05/26/2016" 
+	ms.author="eugenesh"/>
 
+#Conexión de Base de datos SQL de Azure a Búsqueda de Azure con indexadores
 
-#<a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Connecting Azure SQL Database to Azure Search using indexers
+El servicio Búsqueda de Azure es un servicio de búsqueda hospedado en la nube que facilita ofrecer una excelente experiencia de búsqueda. Antes de buscar, deberá rellenar un índice de Búsqueda de Azure con los datos. Si los datos residen en una Base de datos SQL de Azure, el nuevo **indexador de Búsqueda de Azure para la Base de datos SQL de Azure** (o **indexador SQL de Azure**, para abreviar) de Búsqueda de Azure puede automatizar el proceso de indexación. Esto significa que tendrá que escribir menos código y tendrá menos infraestructura para mantener.
 
-Azure Search service is a hosted cloud search service that makes it easy to provide a great search experience. Before you can search, you need to populate an Azure Search index with your data. If the data lives in an Azure SQL database, the new **Azure Search indexer for Azure SQL Database** (or **Azure SQL indexer** for short) in Azure Search can automate the indexing process. This means you have less code to write and less infrastructure to care about.
+Actualmente, los indexadores solo funcionan con la Base de datos SQL de Azure, SQL Server en máquinas virtuales de Azure y [Azure DocumentDB](../documentdb/documentdb-search-indexer.md). En este artículo, nos centraremos en los indizadores que funcionan con la Base de datos SQL de Azure. Si le gustaría consultar soporte técnico para orígenes de datos adicionales, envíe sus comentarios a través del [foro de comentarios de Búsqueda de Azure](https://feedback.azure.com/forums/263029-azure-search/).
 
-Currently, indexers only work with Azure SQL Database, SQL Server on Azure VMs, and [Azure DocumentDB](../documentdb/documentdb-search-indexer.md). In this article, we’ll focus on indexers that work with Azure SQL Database. If you would like to see support for additional data sources, please provide your feedback on the [Azure Search feedback forum](https://feedback.azure.com/forums/263029-azure-search/).
+Este artículo aborda la forma de usar los indizadores, pero también detalla las características y los comportamientos que solo están disponibles con Bases de datos SQL (por ejemplo, seguimiento de cambios integrado).
 
-This article will cover the mechanics of using indexers, but we’ll also drill down into features and behaviors that are only available with SQL databases (for example, integrated change tracking).
+## Indexadores y orígenes de datos
 
-## <a name="indexers-and-data-sources"></a>Indexers and data sources
+Para instalar y configurar un indizador de SQL Azure, puede llamar a la [API de REST de Búsqueda de Azure](http://go.microsoft.com/fwlink/p/?LinkID=528173) para crear y administrar **indizadores** y **orígenes de datos**.
 
-To set up and configure an Azure SQL indexer, you can call the [Azure Search REST API](http://go.microsoft.com/fwlink/p/?LinkID=528173) to create and manage **indexers** and **data sources**. 
+También puede utilizar la [clase Indexer](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) en el [SDK de .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx), o el Asistente para la importación de datos en el [Portal de Azure](https://portal.azure.com), para crear y programar un indexador.
 
-You can also use the [Indexer class](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) in the [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx), or Import Data wizard in the [Azure portal](https://portal.azure.com) to create and schedule an indexer.
+Un **origen de datos** especifica los datos que se deben indizar, las credenciales necesarias para obtener acceso a estos y las directivas que posibilitan que Búsqueda de Azure identifique cambios en los datos de forma eficaz (filas nuevas, modificadas o eliminadas). Se define como un recurso independiente para que puedan usarlo múltiples indizadores.
 
-A **data source** specifies which data to index, credentials needed to access the data, and policies that enable Azure Search to efficiently identify changes in the data (new, modified or deleted rows). It's defined as an independent resource so that it can be used by multiple indexers.
-
-An **indexer** is a resource that connects data sources with target search indexes. An indexer is used in the following ways:
+Un **indizador** es un recurso que conecta los orígenes de datos con los índices de búsqueda de destino. Un indexador se usa de las maneras siguientes:
  
-- Perform a one-time copy of the data to populate an index.
-- Update an index with changes in the data source on a schedule.
-- Run on-demand to update an index as needed. 
+- Realizar una copia única de los datos para rellenar un índice.
+- Actualizar un índice con los cambios del origen de datos en una programación.
+- Ejecutar a petición para actualizar un índice según sea necesario.
 
-## <a name="when-to-use-azure-sql-indexer"></a>When to Use Azure SQL Indexer
+## Cuándo usar un indizador de SQL Azure
 
-Depending on several factors relating to your data, the use of Azure SQL indexer may or may not be appropriate. If your data fits the following requirements, you can use Azure SQL indexer: 
+Según varios factores relacionados con los datos, el uso del indizador de SQL Azure puede ser o no ser adecuado. Si los datos cumplen los requisitos siguientes, puede usar el indizador de SQL Azure:
 
-- All the data comes from a single table or view
-    - If the data is scattered across multiple tables, you can create a view and use that view with the indexer. However, be aware that if you use a view, you won’t be able to use SQL Server integrated change detection. See this section for more details. 
-- The data types used in the data source are supported by the indexer. Most but not all of the SQL types are supported. For details, see [Mapping data types in Azure Search](http://go.microsoft.com/fwlink/p/?LinkID=528105). 
-- You don’t need near real-time updates to the index when a row changes. 
-    - The indexer can re-index your table at most every 5 minutes. If your data changes frequently and the changes need to be reflected in the index within seconds or single minutes, we recommend using [Azure Search Index API](https://msdn.microsoft.com/library/azure/dn798930.aspx) directly. 
-- If you have a large data set and plan to run the indexer on a schedule, your schema allows us to efficiently identify changed (and deleted, if applicable) rows. For more details, see "Capturing Changed and Deleted Rows" below. 
-- The size of the indexed fields in a row doesn’t exceed the maximum size of an Azure Search indexing request, which is 16 MB. 
+- Todos los datos proceden de una sola tabla o vista.
+	- Si los datos están distribuidos en varias tablas, puede crear una vista y usarla con el indizador. Sin embargo, tenga en cuenta que si usa una vista, no podrá usar la detección de cambios integrada de SQL Server. Consulte esta sección para obtener más detalles.
+- El indizador admite los tipos de datos usados en el origen de datos. Se admite la mayoría de los tipos de SQL, aunque no todos. Para obtener más información, consulte [Asignar tipos de datos en Búsqueda de Azure](http://go.microsoft.com/fwlink/p/?LinkID=528105).
+- No necesita actualizaciones del índice casi en tiempo real cuando una fila cambia.
+	- El indizador puede volver a indizar la tabla cada 5 minutos como máximo. Si los datos cambian con frecuencia y los cambios deben reflejarse en el índice en cuestión de segundos o minutos, se recomienda usar directamente la [API de índice de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798930.aspx).
+- Si tiene un conjunto de datos grande y prevé ejecutar el indexador en una programación, su esquema nos permite identificar de forma eficaz las filas que se cambiaron (y eliminaron, si corresponde). Para obtener más información, vea a continuación «Capturar filas cambiadas y eliminadas».
+- El tamaño de los campos indizados en una fila no supera el tamaño máximo de una solicitud de indización de Búsqueda de Azure, que es de 16 MB.
 
-## <a name="create-and-use-an-azure-sql-indexer"></a>Create and Use an Azure SQL Indexer
+## Crear y usar un indizador de SQL Azure
 
-First, create the data source: 
+En primer lugar, cree el origen de datos:
 
-    POST https://myservice.search.windows.net/datasources?api-version=2015-02-28 
-    Content-Type: application/json
-    api-key: admin-key
-    
-    { 
-        "name" : "myazuresqldatasource",
-        "type" : "azuresql",
-        "credentials" : { "connectionString" : "Server=tcp:<your server>.database.windows.net,1433;Database=<your database>;User ID=<your user name>;Password=<your password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" },
-        "container" : { "name" : "name of the table or view that you want to index" }
-    }
+	POST https://myservice.search.windows.net/datasources?api-version=2015-02-28 
+	Content-Type: application/json
+	api-key: admin-key
+	
+	{ 
+	    "name" : "myazuresqldatasource",
+	    "type" : "azuresql",
+	    "credentials" : { "connectionString" : "Server=tcp:<your server>.database.windows.net,1433;Database=<your database>;User ID=<your user name>;Password=<your password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" },
+	    "container" : { "name" : "name of the table or view that you want to index" }
+	}
 
 
-You can get the connection string from the [Azure Classic Portal](https://portal.azure.com); use the `ADO.NET connection string` option.
+Puede obtener la cadena de conexión del [Portal de Azure clásico](https://portal.azure.com); use la opción `ADO.NET connection string`.
 
-Then, create the target Azure Search index if you don’t have one already. You can do this from the [portal UI](https://portal.azure.com) or by using the [Create Index API](https://msdn.microsoft.com/library/azure/dn798941.aspx).  Ensure that the schema of your target index is compatible with the schema of the source table - see [mapping between SQL and Azure search data types](#TypeMapping) for details.
+Si aún no tiene un índice de Búsqueda de Azure de destino, créelo. Puede hacerlo desde la [interfaz de usuario del Portal](https://portal.azure.com) o mediante la [API de creación de índices](https://msdn.microsoft.com/library/azure/dn798941.aspx). Asegúrese de que el esquema del índice de destino sea compatible con el de la tabla de origen; consulte [Asignación entre tipos de datos de SQL y tipos de datos de Búsqueda de Azure](#TypeMapping) para más información.
 
-Finally, create the indexer by giving it a name and referencing the data source and target index:
+Por último, cree el indizador asignándole un nombre y haciendo referencia al índice de origen y destino de datos:
 
-    POST https://myservice.search.windows.net/indexers?api-version=2015-02-28 
-    Content-Type: application/json
-    api-key: admin-key
-    
-    { 
-        "name" : "myindexer",
-        "dataSourceName" : "myazuresqldatasource",
-        "targetIndexName" : "target index name"
-    }
+	POST https://myservice.search.windows.net/indexers?api-version=2015-02-28 
+	Content-Type: application/json
+	api-key: admin-key
+	
+	{ 
+	    "name" : "myindexer",
+	    "dataSourceName" : "myazuresqldatasource",
+	    "targetIndexName" : "target index name"
+	}
 
-An indexer created in this way doesn’t have a schedule. It automatically runs once as soon as it’s created. You can run it again at any time using a **run indexer** request:
+Un indizador creado de esta forma no tiene una programación. Se ejecuta automáticamente una vez en cuanto se crea. Puede volver a ejecutarlo en cualquier momento mediante una solicitud **ejecutar indizador**:
 
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2015-02-28 
-    api-key: admin-key
+	POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2015-02-28 
+	api-key: admin-key
 
-You can customize several aspects of indexer behavior, such as batch size and how many documents can be skipped before an indexer execution will be failed. For more details, see [Create Indexer API](https://msdn.microsoft.com/library/azure/dn946899.aspx).
+Puede personalizar varios aspectos del comportamiento del indexador, como el tamaño de lote y el número de documentos que se puede omitir antes de que la ejecución de un indexador produzca un error. Para más detalles, consulte [Create Indexer (Azure Search Service REST API)](https://msdn.microsoft.com/library/azure/dn946899.aspx) (Create Indexer [API de REST del servicio Búsqueda de Azure]).
  
-You may need to allow Azure services to connect to your database. See [Connecting From Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) for instructions on how to do that.
+Puede que necesite permitir que los servicios de Azure se conecten a la base de datos. Consulte [Conectarse desde Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) para obtener instrucciones sobre cómo hacerlo.
 
-To monitor the indexer status and execution history (number of items indexed, failures, etc.), use an **indexer status** request: 
+Para supervisar el estado del indizador y el historial de ejecución (número de elementos indizados, errores, etc.), use una solicitud **estado del indizador**:
 
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2015-02-28 
-    api-key: admin-key
+	GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2015-02-28 
+	api-key: admin-key
 
-The response should look similar to the following: 
+La respuesta debe ser similar a la siguiente:
 
-    {
-        "@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
-        "status":"running",
-        "lastResult": {
-            "status":"success",
-            "errorMessage":null,
-            "startTime":"2015-02-21T00:23:24.957Z",
-            "endTime":"2015-02-21T00:36:47.752Z",
-            "errors":[],
-            "itemsProcessed":1599501,
-            "itemsFailed":0,
-            "initialTrackingState":null,
-            "finalTrackingState":null 
+	{
+		"@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
+		"status":"running",
+		"lastResult": {
+			"status":"success",
+			"errorMessage":null,
+			"startTime":"2015-02-21T00:23:24.957Z",
+			"endTime":"2015-02-21T00:36:47.752Z",
+			"errors":[],
+			"itemsProcessed":1599501,
+			"itemsFailed":0,
+			"initialTrackingState":null,
+			"finalTrackingState":null 
         },
-        "executionHistory":
-        [
-            {
-                "status":"success",
-                "errorMessage":null,
-                "startTime":"2015-02-21T00:23:24.957Z",
-                "endTime":"2015-02-21T00:36:47.752Z",
-                "errors":[],
-                "itemsProcessed":1599501,
-                "itemsFailed":0,
-                "initialTrackingState":null,
-                "finalTrackingState":null 
-            },
-            ... earlier history items 
-        ]
-    }
+		"executionHistory":
+		[
+			{
+				"status":"success",
+				"errorMessage":null,
+				"startTime":"2015-02-21T00:23:24.957Z",
+				"endTime":"2015-02-21T00:36:47.752Z",
+				"errors":[],
+				"itemsProcessed":1599501,
+				"itemsFailed":0,
+				"initialTrackingState":null,
+				"finalTrackingState":null 
+			},
+			... earlier history items 
+		]
+	}
 
-Execution history contains up to 50 of the most recently completed executions, which are sorted in the reverse chronological order (so that the latest execution comes first in the response). Additional information about the response can be found in [Get Indexer Status](http://go.microsoft.com/fwlink/p/?LinkId=528198)
+El historial de ejecución contiene como máximo las 50 ejecuciones completadas más recientemente en orden cronológico inverso (la ejecución más reciente aparece en primer lugar). Puede encontrar información adicional sobre la respuesta en [Obtener el estado del indizador](http://go.microsoft.com/fwlink/p/?LinkId=528198).
 
-## <a name="run-indexers-on-a-schedule"></a>Run indexers on a schedule
+## Ejecutar indexadores según una programación
 
-You can also arrange the indexer to run periodically on a schedule. To do this, just add the **schedule** property when creating or updating the indexer. The example below shows a PUT request to update the indexer:
+También puede disponer que el indizador se ejecute periódicamente según una programación. Para ello, basta con agregar la propiedad **schedule** al crear o actualizar el indizador. El ejemplo siguiente muestra una solicitud PUT para actualizar el indizador:
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2015-02-28 
-    Content-Type: application/json
-    api-key: admin-key 
+	PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2015-02-28 
+	Content-Type: application/json
+	api-key: admin-key 
 
-    { 
-        "dataSourceName" : "myazuresqldatasource",
-        "targetIndexName" : "target index name",
-        "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
-    }
+	{ 
+	    "dataSourceName" : "myazuresqldatasource",
+	    "targetIndexName" : "target index name",
+	    "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
+	}
 
-The **interval** parameter is required. The interval refers to the time between the start of two consecutive indexer executions. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P(nD)(T(nH)(nM))`. Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours.
+El parámetro **interval** es obligatorio. El intervalo se refiere al tiempo entre el inicio de dos ejecuciones consecutivas de indizador. El intervalo mínimo permitido es de 5 minutos y el máximo de un día. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). El patrón de este es: `P(nD)(T(nH)(nM))`. Ejemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
 
-The optional **startTime** indicates when the scheduled executions should commence; if it is omitted, the current UTC time will be used. This time can be in the past – in which case the first execution will be scheduled as if the indexer has been running continuously since the startTime.  
+El valor **startTime** opcional indica cuándo deben comenzar las ejecuciones programadas; si se omite, se usará la hora UTC actual. Este tiempo puede estar en el pasado, en cuyo caso la primera ejecución se programará como si el indizador se hubiera ejecutado continuamente desde la hora de inicio.
 
-Only one execution of a given indexer can run at a time. If an indexer is already executing when the next one is supposed to start, the execution is skipped and resumes at the next interval, assuming no other indexer job is running.
+Solo se puede ejecutar a la vez una ejecución de un indizador determinado. Si ya se está ejecutando un indizador cuando se supone que debe comenzar el siguiente, se omite la ejecución y se reanuda en el intervalo siguiente, suponiendo que no se esté ejecutando ningún otro trabajo de indizador.
 
-Let’s consider an example to make this more concrete. Suppose we the following hourly schedule configured: 
+Veamos un ejemplo entenderlo concretamente. Supongamos que está configurada la siguiente programación por hora:
 
-    "schedule" : { "interval" : "PT1H", "startTime" : "2015-03-01T00:00:00Z" }
+	"schedule" : { "interval" : "PT1H", "startTime" : "2015-03-01T00:00:00Z" }
 
-Here’s what happens: 
+Esto es lo que sucede:
 
-1. The first indexer execution starts at or around March 1, 2015 12:00 a.m. UTC.
-1. Assume this execution takes 20 minutes (or any time less than 1 hour).
-1. The second execution starts at or around March 1, 2015 1:00 a.m. 
-1. Now suppose that this execution takes more than an hour (this would require a huge number of documents for this to actually occur, but it’s a useful illustration) – for example, 70 minutes – so that it completes around 2:10 a.m.
-1. It’s now 2:00 a.m., time for the third execution to start. However, because the second execution from 1 a.m. is still running, the third execution is skipped. The third execution starts at 3 a.m.
+1. La primera ejecución del indizador se inicia exactamente o en torno al 1 de marzo de 2015, 12:00 a. m. hora UTC.
+1. Suponga que esta ejecución tarda 20 minutos (o un período inferior a 1 hora).
+1. La segunda ejecución se inicia exactamente o en torno al 1 de marzo de 2015, 1:00 a. m.
+1. Suponga que esta ejecución tarda más de una hora (haría falta un gran número de documentos para que esto sucediera en la realidad, pero es una ilustración útil), por ejemplo, 70 minutos, de modo que finaliza en torno a las 2:10 a. m.
+1. Ahora son las 2:00 a. m., momento en que debe comenzar la tercera ejecución. Sin embargo, dado que la segunda ejecución de la 1 a. m. todavía se está ejecutando, se omite la tercera ejecución. La tercera ejecución empieza a las 3 a. m.
 
-You can add, change, or delete a schedule for an existing indexer by using a **PUT indexer** request. 
+Puede agregar, cambiar o eliminar la programación de un indizador existente mediante una solicitud **PUT de indizador**.
 
-## <a name="capturing-new,-changed-and-deleted-rows"></a>Capturing new, changed and deleted rows
+## Capturar filas nuevas, cambiadas y eliminadas
 
-If you’re using a schedule and your table contains a non-trivial number of rows, you should use a data change detection policy, so that the indexer can efficiently retrieve only the new or changed rows without having to re-index the entire table.
+Si está usando una programación y la tabla contiene un número de filas no trivial, debe usar una directiva de detección de cambios de datos, de modo que el indizador pueda recuperar eficazmente solo las filas nuevas o cambiadas sin tener que volver a indizar toda la tabla.
 
-### <a name="sql-integrated-change-tracking-policy"></a>SQL Integrated Change Tracking Policy
+### Directiva de seguimiento de cambios integrada de SQL
 
-If your SQL database supports [change tracking](https://msdn.microsoft.com/library/bb933875.aspx), we recommend using **SQL Integrated Change Tracking Policy**. This policy enables the most efficient change tracking, and it also allows Azure Search to identify deleted rows without you having to add an explicit "soft delete" column to your table.
+Si la base de datos SQL admite el [seguimiento de cambios](https://msdn.microsoft.com/library/bb933875.aspx), se recomienda usar la **directiva de seguimiento de cambios integrada de SQL**. Esta directiva habilita el seguimiento de cambios más eficaz y también permite que la Búsqueda de Azure identifique las filas eliminadas sin tener que agregar a la tabla una columna de «eliminación temporal» explícita.
 
-Integrated change tracking is supported starting with the following SQL Server database versions:
+El seguimiento de cambios integrado se admite a partir de las siguientes versiones de la base de datos de SQL Server:
  
-- SQL Server 2008 R2 and later, if you're using SQL Server on Azure VMs. 
-- Azure SQL Database V12, if you're using Azure SQL Database.
+- SQL Server 2008 R2 y versiones posteriores, si usa SQL Server en máquinas virtuales de Azure.
+- Base de datos SQL de Azure V12, si está usando la Base de datos SQL de Azure.
 
-When using SQL integrated change tracking policy, do not specify a separate data deletion detection policy - this policy has built-in support for identifying deleted rows.
+Al usar la directiva de seguimiento de cambios integrada de SQL, no especifique una directiva de detección de eliminación de datos independiente, ya que esta directiva tiene compatibilidad integrada para identificar las filas eliminadas.
 
-This policy can only be used with tables; it cannot be used with views. You need to enable change tracking for the table you're using before you can use this policy. See [Enable and disable change tracking](https://msdn.microsoft.com/library/bb964713.aspx) for instructions. 
+Esta directiva solo se puede usar con tablas; no se puede usar con vistas. Deberá habilitar el seguimiento de cambios para la tabla que está usando para poder emplear esta directiva. Consulte [Habilitar y deshabilitar el seguimiento de cambios](https://msdn.microsoft.com/library/bb964713.aspx) para obtener instrucciones.
 
-To use this policy, create or update your data source like this:
+Para usar esta directiva, cree o actualice el origen de datos de la siguiente manera:
  
-    { 
-        "name" : "myazuresqldatasource",
-        "type" : "azuresql",
-        "credentials" : { "connectionString" : "connection string" },
-        "container" : { "name" : "table or view name" }, 
-        "dataChangeDetectionPolicy" : {
-           "@odata.type" : "#Microsoft.Azure.Search.SqlIntegratedChangeTrackingPolicy" 
-      }
-    }
+	{ 
+	    "name" : "myazuresqldatasource",
+	    "type" : "azuresql",
+	    "credentials" : { "connectionString" : "connection string" },
+	    "container" : { "name" : "table or view name" }, 
+	    "dataChangeDetectionPolicy" : {
+	       "@odata.type" : "#Microsoft.Azure.Search.SqlIntegratedChangeTrackingPolicy" 
+	  }
+	}
 
-### <a name="high-water-mark-change-detection-policy"></a>High Water Mark Change Detection policy
+### Directiva de detección de cambios de límite superior
 
-While the SQL Integrated Change Tracking policy is recommended, you won’t be able to use it if your data is in a view, or if you’re using an older version of Azure SQL database. In such a case, consider using the high water mark policy. This policy can be used if your table contains a column that meets the following criteria:
+Aunque se recomienda la directiva de seguimiento de cambios integrada de SQL, no podrá usarla si los datos están en una vista, o si usa una versión anterior de la base de datos SQL de Azure. En tal caso, considere el uso de la directiva de marca de límite superior. Puede usar esta directiva si la tabla contiene una columna que cumple los criterios siguientes:
 
-- All inserts specify a value for the column. 
-- All updates to an item also change the value of the column. 
-- The value of this column increases with each change.
-- Queries that use a `WHERE` clause similar to `WHERE [High Water Mark Column] > [Current High Water Mark Value]` can be executed efficiently.
+- Todas las inserciones especifican un valor para la columna.
+- Todas las actualizaciones de un elemento también cambian el valor de la columna.
+- El valor de esta columna aumenta con cada cambio.
+- Las consultas que usan una cláusula `WHERE` similar a `WHERE [High Water Mark Column] > [Current High Water Mark Value]` pueden ejecutarse de manera eficiente.
 
-For example, an indexed **rowversion** column is an ideal candidate for the high water mark column. To use this policy, create or update your data source like this: 
+Por ejemplo, una columna **rowversion** indizada es un candidato ideal para la columna de marca de límite superior. Para usar esta directiva, cree o actualice el origen de datos de la siguiente manera:
 
-    { 
-        "name" : "myazuresqldatasource",
-        "type" : "azuresql",
-        "credentials" : { "connectionString" : "connection string" },
-        "container" : { "name" : "table or view name" }, 
-        "dataChangeDetectionPolicy" : {
-           "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-           "highWaterMarkColumnName" : "[a row version or last_updated column name]" 
-      }
-    }
+	{ 
+	    "name" : "myazuresqldatasource",
+	    "type" : "azuresql",
+	    "credentials" : { "connectionString" : "connection string" },
+	    "container" : { "name" : "table or view name" }, 
+	    "dataChangeDetectionPolicy" : {
+	       "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
+	       "highWaterMarkColumnName" : "[a row version or last_updated column name]" 
+	  }
+	}
 
-### <a name="soft-delete-column-deletion-detection-policy"></a>Soft Delete Column Deletion Detection policy
+### Directiva de detección de eliminación de columna de eliminación temporal
 
-When rows are deleted from the source table, you probably want to delete those rows from the search index as well. If you use the SQL integrated change tracking policy, this is taken care of for you. However, the high water mark change tracking policy doesn’t help you with deleted rows. What to do? 
+Cuando se eliminan filas de la tabla de origen, probablemente le interesará eliminar dichas filas del índice de búsqueda. Si usa la directiva de seguimiento de cambios integrada de SQL, esto se lleva a cabo automáticamente. Sin embargo, la directiva el seguimiento de cambios de marca de límite superior no le ayuda con las filas eliminadas. ¿Qué debe hacer?
 
-If the rows are physically removed from the table, you’re out of luck – there’s no way to infer the presence of records that no longer exist.  However, you can use the “soft-delete” technique to mark rows as logically deleted without removing them from the table by adding a column and marking rows as deleted using a marker value in that column.
+Si las filas se quitaron físicamente de la tabla, no está de suerte: no hay manera de deducir la presencia de registros que ya no existen. Sin embargo, puede usar la técnica de la «eliminación temporal» para marcar filas como eliminadas lógicamente sin quitarlas de la tabla, para lo que debe agregar una columna y marcar las filas como eliminadas mediante un valor de marcador en esa columna.
 
-When using the soft-delete technique, you can specify the soft delete policy as follows when creating or updating the data source: 
+Cuando use la técnica de la eliminación temporal, puede especificar la directiva de eliminación temporal de la manera que se indica a continuación al crear o actualizar el origen de datos:
 
-    { 
-        …, 
-        "dataDeletionDetectionPolicy" : { 
-           "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
-           "softDeleteColumnName" : "[a column name]", 
-           "softDeleteMarkerValue" : "[the value that indicates that a row is deleted]" 
-        }
-    }
+	{ 
+	    …, 
+	    "dataDeletionDetectionPolicy" : { 
+	       "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
+	       "softDeleteColumnName" : "[a column name]", 
+	       "softDeleteMarkerValue" : "[the value that indicates that a row is deleted]" 
+	    }
+	}
 
-Note that the **softDeleteMarkerValue** must be a string – use the string representation of your actual value. For example, if you have an integer column where deleted rows are marked with the value 1, use `"1"`; if you have a BIT column where deleted rows are marked with the Boolean true value, use `"True"`. 
+Tenga en cuenta que **softDeleteMarkerValue** debe ser una cadena. Use la representación de cadena del valor real. Por ejemplo, si tiene una columna de enteros donde las filas eliminadas se marcan con el valor 1, use `"1"`; si tiene una columna de tipo BIT donde las filas eliminadas se marcan con el valor booleano true, use `"True"`.
 
 <a name="TypeMapping"></a>
-## <a name="mapping-between-sql-data-types-and-azure-search-data-types"></a>Mapping between SQL Data Types and Azure Search data types
+## Asignación entre tipos de datos de SQL y tipos de datos de Búsqueda de Azure
 
-|SQL data type | Allowed target index field types |Notes 
+|Tipo de datos de SQL | Tipos de campos de índice de destino permitidos |Notas 
 |------|-----|----|
 |bit|Edm.Boolean, Edm.String| |
 |int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String| |
 | bigint | Edm.Int64, Edm.String | |
 | real, float |Edm.Double, Edm.String | |
-| smallmoney, money decimal numeric | Edm.String| Azure Search does not support converting decimal types into Edm.Double because this would lose precision |
-| char, nchar, varchar, nvarchar | Edm.String<br/>Collection(Edm.String)|Transforming a string column into Collection(Edm.String) requires using a preview API version 2015-02-28-Preview. See [this article](search-api-indexers-2015-02-28-Preview.md#CreateIndexer) for details| 
+| smallmoney, numérico decimal de dinero | Edm.String| Búsqueda de Azure no admite la conversión de tipos decimales en Edm.Double porque esto podría provocar la pérdida de precisión |
+| char, nchar, varchar, nvarchar | Edm.String<br/>Collection(Edm.String)|Transformar una columna de cadenas en Collection(Edm.String) requiere el uso de una API de vista previa versión 2015-02-28. Consulte [este artículo](search-api-indexers-2015-02-28-Preview.md#create-indexer) para obtener más información| 
 |smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String| |
 |uniqueidentifer | Edm.String | |
-|geography | Edm.GeographyPoint | Only geography instances of type POINT with SRID 4326 (which is the default) are supported | | 
-|rowversion| N/A |Row-version columns cannot be stored in the search index, but they can be used for change tracking | |
-| time, timespan, binary, varbinary, image, xml, geometry, CLR types | N/A |Not supported |
+|geography | Edm.GeographyPoint | Solo se admiten instancias de geography de tipo POINT con SRID 4326 (que es el valor predeterminado) | | 
+|rowversion| N/D |Las columnas de versión de la fila no se pueden almacenar en el índice de búsqueda, pero pueden usarse para el seguimiento de cambios | |
+| time, timespan, binary, varbinary, image, xml, geometry, tipos CLR | N/D |No compatible |
 
 
-## <a name="frequently-asked-questions"></a>Frequently asked questions
+## Preguntas más frecuentes
 
-**Q:** Can I use Azure SQL indexer with SQL databases running on IaaS VMs in Azure?
+**P:** ¿Puedo usar un indizador de SQL Azure con Bases de datos SQL que se ejecutan en máquinas virtuales de IaaS en Azure?
 
-A: Yes. However, you need to allow your search service to connect to your database by doing the following two things. Please see article [Configure a connection from an Azure Search indexer to SQL Server on an Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md) for more information.
+R: Sí. Sin embargo, debe permitir que el servicio de búsqueda se conecte a su base de datos haciendo las dos cosas siguientes. Consulte el artículo [Configuración de una conexión desde un indexador de Azure Search a SQL Server en una máquina virtual de Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md) para más información.
 
-1. You may need to configure your database with a trusted certificate so that the search service can open SSL connections to the database.
-2. Configure the firewall to allow access to the IP address of your search service.
+1. Quizá deba también configurar la base de datos con un certificado de confianza para que el servicio de búsqueda pueda abrir conexiones SSL con ella.
+2. Configure el firewall para permitir el acceso a la dirección IP del servicio de búsqueda.
 
-**Q:** Can I use Azure SQL indexer with SQL databases running on-premises? 
+**P:** ¿Puedo usar un indizador de SQL Azure con Bases de datos SQL que se ejecutan localmente?
 
-A: We do not recommend or support this, as doing this would require you to open your databases to Internet traffic. 
+R: No se recomienda ni se admite esta posibilidad, ya que requeriría abrir las bases de datos al tráfico de Internet.
 
-**Q:** Can I use Azure SQL indexer with databases other than SQL Server running in IaaS on Azure? 
+**P:** ¿Puedo usar un indizador de SQL Azure con bases de datos que no son de SQL Server que se ejecutan en IaaS en Azure?
 
-A: We don’t support this scenario, because we haven’t tested the indexer with any databases other than SQL Server.  
+R: No admitimos esta posibilidad, ya que no hemos probado el indizador con bases de datos que no son de SQL Server.
 
-**Q:** Can I create multiple indexers running on a schedule? 
+**P:** ¿Puedo crear varios indizadores que se ejecuten según una programación?
 
-A: Yes. However, only one indexer can be running on one node at one time. If you need multiple indexers running concurrently, consider scaling up your search service to more than one search unit. 
+R: Sí. Sin embargo, solo puede ejecutarse un indizador en un nodo de cada vez. Si necesita varios indizadores que se ejecuten simultáneamente, considere la posibilidad de escalar verticalmente el servicio de búsqueda a más de una unidad de búsqueda.
 
-**Q:** Does running an indexer affect my query workload? 
+**P:** ¿Afecta la ejecución de un indizador a la carga de trabajo de consulta?
 
-A: Yes. Indexer runs on one of the nodes in your search service, and that node’s resources are shared between indexing and serving query traffic and other API requests. If you run intensive indexing and query workloads and encounter a high rate of 503 errors or increasing response times, consider scaling up your search service.
+R: Sí. El indizador se ejecuta en uno de los nodos del servicio de búsqueda, y los recursos de dicho nodo se reparten entre la indización y la prestación de servicios al tráfico de consultas y otras solicitudes de API. Si al ejecutar cargas de trabajo intensivas de indización y consulta detecta la alta tasa de 503 errores o el aumento de los tiempos de respuesta, considere la posibilidad de escalar verticalmente el servicio de búsqueda.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure Mobile Engagement User Interface - Dashboard" 
-   description="Learn how to view and manage charts of data about your application using Azure Mobile Engagement" 
+   pageTitle="Interfaz de usuario de Azure Mobile Engagement: panel" 
+   description="Obtenga información acerca de cómo ver y administrar gráficos de datos acerca de su aplicación mediante Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -16,21 +16,20 @@
    ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
+# Cómo ver y administrar los gráficos de datos de la aplicación
+La sección del panel de la interfaz de usuario permite a los clientes crear gráficos personalizados para maximizar su tiempo al proporcionar la información exacta que desean en lugar de buscar en la sección de análisis. Un panel muestra las tendencias de la aplicación y los recuentos de usuarios activos para las distintas versiones de la aplicación durante un momento dado (hora/día/semana/mes/personalizado). Las tendencias mostradas se basan en los últimos 7 días.
 
-# <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>How to view and manage charts of data about your application
-The Dashboard section of the UI allows customers to create customized charts to maximize their time by providing the exact information they want instead of searching for it in the analytics section. A dashboard shows the trends of your application and the Active User Counts for the different versions of your application during a given time (hour/day/week/month/customized). The trends shown are based on the last 7 days.
+### Otras referencias
+-  [Guía de resolución de problemas - Análisis][Link 21]
 
-### <a name="see-also"></a>See also
--  [Troubleshooting Guide - Analytics][Link 21]
-
-## <a name="dashboard"></a>Dashboard
-- You can add charts to an empty dashboard by choosing the "Send to dashboard" action from the gear menu of any chart in the Analytics section of the UI that you'd like to see on a dashboard.
+## Panel
+- Puede agregar gráficos a un panel vacía seleccionando la acción "Enviar al panel" en el menú de engranaje de cualquier gráfico de la sección de análisis de la interfaz de usuario que le gustaría ver en un panel.
  
-## <a name="+-(add-a-dashboard)"></a>+ (Add a Dashboard)
-- You can use the "+" ribbon menu item to create a new dashboard that will show on the ribbon menu.
+## + (Agregar un panel)
+- Puede utilizar el elemento de menú de la cinta de opciones "+" para crear un nuevo panel que se mostrará en el menú de la cinta de opciones.
  
-## <a name="gear-menu"></a>Gear Menu
-- You can use the gear menu of a dashboard to Delete, Rename, Share, or Schedule (E-mail Reception) of your dashboard. You can use the Schedule option to define the schedule at which you would like to receive your custom dashboard by email. You can schedule to receive it daily, weekly, or monthly. You can choose the time of the day, and the day of the week, or day of the month when you would like to receive the e-mail. Your e-mail address and time zone are based on the settings you have configured in the My Account section of the UI.
+## Menú de engranaje
+- Puede utilizar el menú de engranaje de un panel para eliminar, cambiar el nombre, compartir o programar (recepción por correo electrónico) de su panel. Puede utilizar la opción de programación para definir la programación en la que le gustaría recibir su panel personalizado por correo electrónico. Puede programar recibirlo diaria, semanal o mensualmente. Puede elegir la hora del día y el día de la semana o el día del mes en el que le gustaría recibir el correo electrónico. Su dirección de correo electrónico y la zona horaria se basan en los valores configurados en la sección Mi cuenta de la interfaz de usuario.
  
  ![dashboard1][34]
 
@@ -130,8 +129,4 @@ The Dashboard section of the UI allows customers to create customized charts to 
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

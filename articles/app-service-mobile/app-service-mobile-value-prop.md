@@ -1,111 +1,105 @@
 <properties
-    pageTitle="What are Mobile Apps"
-    description="Learn what advantages does App Service bring to your enterprise mobile apps."
-    services="app-service\mobile"
-    documentationCenter=""
-    authors="adrianhall"
-    manager="yochayk"
-    editor=""/>
+	pageTitle="¿Qué son las aplicaciones móviles?"
+	description="Obtenga información acerca de qué ventajas aporta Servicios de aplicaciones a las aplicaciones móviles de la empresa."
+	services="app-service\mobile"
+	documentationCenter=""
+	authors="adrianhall"
+	manager="yochayk"
+	editor=""/>
 
 <tags
-    ms.service="app-service-mobile"
-    ms.workload="na"
-    ms.tgt_pltfrm="mobile-multiple"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="10/01/2016"
-    ms.author="adrianha"/>
+	ms.service="app-service-mobile"
+	ms.workload="na"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
+# <a name="getting-started"></a>¿Qué es Mobile Apps?
 
-# <a name="<a-name="getting-started">-</a>what-is-mobile-apps?"></a><a name="getting-started"> </a>What is Mobile Apps?
+El Servicio de aplicaciones de Azure es una [plataforma como servicio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) totalmente administrada para desarrolladores profesionales que ofrece un amplio conjunto de funcionalidades para escenarios de integración, web y móviles. Las *aplicaciones móviles* del *Servicio de aplicaciones de Azure* ofrecen una plataforma de desarrollo de aplicaciones móviles altamente escalable y disponible globalmente para desarrolladores empresariales e integradores de sistemas que proporciona un amplio conjunto de funcionalidades a desarrolladores móviles.
 
-Azure App Service is a fully managed [Platform as a Service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) offering for professional developers that brings a rich set of capabilities to web, mobile and integration scenarios. *Mobile Apps* in *Azure App Service* offer a highly scalable, globally available mobile application development platform for Enterprise Developers and System Integrators that brings a rich set of capabilities to mobile developers.
+![Aplicaciones móviles](./media/app-service-mobile-value-prop/overview.png)
 
-![Mobile Apps](./media/app-service-mobile-value-prop/overview.png)
+##¿Por qué aplicaciones móviles?
+Las *aplicaciones móviles* del *Servicio de aplicaciones de Azure* ofrecen una plataforma de desarrollo de aplicaciones móviles altamente escalable y disponible globalmente para desarrolladores empresariales e integradores de sistemas que proporciona un amplio conjunto de funcionalidades a desarrolladores móviles. Con las aplicaciones móviles, puede:
 
-##<a name="why-mobile-apps?"></a>Why Mobile Apps?
-*Mobile Apps* in *Azure App Service* offers a highly scalable, globally available mobile application development platform for Enterprise Developers and System Integrators that brings a rich set of capabilities to mobile developers. With Mobile Apps you can:
+- **Crear aplicaciones nativas y multiplataforma**: si va a crear aplicaciones iOS, Android y Windows nativas o aplicaciones Xamarin o Cordova (Phonegap) multiplataforma, puede aprovechar el Servicio de aplicaciones usando SDK nativos.
+- **Conectarse a sus sistemas empresariales**: con aplicaciones móviles, puede agregar el inicio de sesión corporativo en cuestión de minutos y conectarse a sus recursos locales o en la nube empresariales.
+- **Crear aplicaciones de uso sin conexión con sincronización de datos**: haga que su plantilla móvil sea productiva mediante la creación de aplicaciones que funcionen sin conexión y utilice las aplicaciones móviles para sincronizar datos en segundo plano cuando exista conectividad con cualquiera de los orígenes de datos empresariales o API de SaaS.
+- **Notificaciones push a millones de personas en cuestión de segundos**: atraer a los clientes con notificaciones push instantáneas en cualquier dispositivo, que se personalizan según sus necesidades y que se envían en el momento oportuno.
 
-- **Build native and cross platform apps** - whether you're building native iOS, Android, and Windows apps or cross-platform Xamarin or Cordova (Phonegap) apps, you can take advantage of App Service using native SDKs.
-- **Connect to your enterprise systems** - with Mobile Apps you can add corporate sign on in minutes, and connect to your enterprise on-premises or cloud resources.
-- **Build offline-ready apps with data sync** - make your mobile workforce productive by building apps that work offline and use Mobile Apps to sync data in the background when connectivity is present with any of your enterprise data sources or SaaS APIs.
-- **Push Notifications to millions in seconds** - engage your customers with instant push notifications on any device, personalized to their needs, sent when the time is right.
+## Características de las aplicaciones móviles
+Las siguientes características son importantes para el desarrollo móvil habilitado para la nube:
 
-## <a name="mobile-app-features"></a>Mobile App Features
-The following features are important to cloud-enabled mobile development:
+- **Autenticación y autorización**: seleccione de entre una lista creciente de proveedores de identidades, incluidos Azure Active Directory, para la autenticación empresarial, proveedores de redes sociales como Facebook, Google, Twitter y cuentas de Microsoft. Aplicaciones móviles de Azure proporciona un servicio de OAuth 2.0 para cada proveedor. También puede integrar el SDK para el proveedor de identidades para la funcionalidad específica del proveedor.
 
-- **Authentication and Authorization** - Select from an ever-growing list of identity providers, including Azure Active Directory for enterprise authentication, plus social providers like Facebook, Google, Twitter and Microsoft Account.  Azure Mobile Apps provides an OAuth 2.0  service for each provider.  You can also integrate the SDK for the identity provider for provider specific functionality.
+  Descubra más acerca de nuestras [características de autenticación].
 
-  Discover more about our [authentication features].
+- **Acceso a datos**: Azure Mobile Apps proporciona un origen de datos OData v3 adecuado para dispositivos móviles vinculado a SQL Azure o un servidor SQL Server local. Este servicio se puede basar en Entity Framework, lo que permite una integración fácil con otros proveedores de datos NoSQL y SQL, incluidos [Almacenamiento de tablas de Azure], MongoDB, [DocumentDB] y proveedores de API de SaaS, como Office 365 y Salesforce.com.
+- **Sincronización sin conexión**: nuestros SDK de cliente facilitan la tarea de compilar aplicaciones móviles sólidas y dinámicas que funcionan con un conjunto de datos sin conexión que se puede sincronizar automáticamente con los datos de back-end, incluida la resolución de conflictos.
 
-- **Data Access** - Azure Mobile Apps provides a mobile-friendly OData v3 data source linked to SQL Azure or an on-premises SQL Server.  This service can be based on Entity Framework, allowing you to easily integrate with other NoSQL and SQL data providers, including [Azure Table Storage], MongoDB, [DocumentDB] and SaaS API providers like Office 365 and Salesforce.com.
-- **Offline Sync** - Our Client SDKs make it easy for you to build robust and responsive mobile applications that operate with an offline data set that can be automatically synchronized with the backend data, including conflict resolution support.
+  Descubra más acerca de nuestras [características de datos].
 
-  Discover more about our [data features].
+- **Notificaciones push**: nuestros SDK de cliente se integran perfectamente con las funcionalidades de registro de los Centros de notificaciones de Azure, lo que le permite enviar notificaciones push a millones de usuarios simultáneamente.
 
-- **Push Notifications** - Our Client SDKS seamlessly integrate with the registration capabilities of Azure Notification Hubs, allowing you to send push notifications to millions of users simultaneously.
+  Más información acerca de las [características de notificaciones push].
 
-  Discover more about our [push notification features].
+- **SDK de cliente**: proporcionamos un completo conjunto de SDK de cliente que cubren el desarrollo nativo ([iOS], [Android] y [Windows]), el desarrollo multiplataforma ([Xamarin para iOS y Android], [Xamarin Forms]) y el desarrollo de aplicaciones híbridas ([Apache Cordova]). Cada SDK de cliente está disponible con una licencia MIT y es de código abierto.
 
-- **Client SDKs** - We provide a complete set of Client SDKs that cover native development ([iOS], [Android] and [Windows]), cross-platform development ([Xamarin for iOS and Android], [Xamarin Forms]) and hybrid application development ([Apache Cordova]).  Each client SDK is available with an MIT license and is open-source.
+## Características del Servicio de aplicaciones de Azure
+Las siguientes características de plataforma suelen ser útiles para los sitios de producción móvil.
 
-## <a name="azure-app-service-features."></a>Azure App Service Features.
-The following platform features are generally useful for mobile production sites.
+- **Ajuste de escala automático**: Servicio de aplicaciones le permite escalar vertical u horizontalmente de forma rápida para administrar cualquier carga entrante del cliente. Seleccione manualmente el número y tamaño de las máquinas virtuales o configure la escala automática para escalar el back-end de aplicación móvil basado en la carga o en la programación.
 
-- **Auto Scaling** - App Service enables you to quickly scale-up or out to handle any incoming customer load. Manually select the number and size of VMs or set up auto-scaling to scale your mobile app backend based on load or schedule.
+  Descubra más acerca del [escalado automático].
 
-  Discover more about [auto scaling].
+- **Entornos de ensayo**: el Servicio de aplicaciones puede ejecutar varias versiones de su sitio, lo que permite realizar pruebas A/B, pruebas en producción como parte de un plan DevOps más amplio y ensayos in situ de un nuevo back-end.
 
-- **Staging Environments** - App Service can run multiple versions of your site, allowing you to perform A/B testing, test in production as part of a larger DevOps plan and do in-place staging of a new backend.
+  Descubra más acerca de los [entornos de ensayo].
 
-  Discover more about [staging environments].
+- **Implementación continua**: el Servicio de aplicaciones puede integrarse con sistemas SCM comunes, lo que permite implementar automáticamente una nueva versión de su back-end mediante la inserción de una rama de su sistema SCM.
 
-- **Continuous Deployment** - App Service can integrate with common SCM systems, allowing you to automatically deploy a new version of your backend by pushing to a branch of your SCM system.
+  Descubra más acerca de las [opciones de implementación].
 
-  Discover more about [deployment options].
+- **Red virtual**: App Service puede conectarse a recursos locales mediante redes virtuales, ExpressRoute o conexiones híbridas.
 
-- **Virtual Networking** - App Service can connect to on-premises resources using virtual network, ExpressRoute or hybrid connections.
+  Descubra más acerca de las [conexiones híbridas], las [redes virtuales] y [ExpressRoute].
 
-  Discover more about [hybrid connections], [virtual networks], and [ExpressRoute].
+- **Entornos aislado y dedicado**: el Servicio de aplicaciones se puede ejecutar en un entorno plenamente aislado y dedicado para ejecutar aplicaciones del Servicio de aplicaciones de Azure de forma segura a gran escala. Esto es ideal para cargas de trabajo de aplicaciones que requieren acceso de red a gran escala, con aislamiento o seguro.
 
-- **Isolated / Dedicated Environments** - App Service can be run in a fully isolated and dedicated enviroment for securely running Azure App Service apps at high scale.  This is ideal for application workloads requiring very high scale, isolation or secure network access.
+  Descubra más acerca de los [entornos del Servicio de aplicaciones].
 
-  Discover more about [App Service Environments].
+## Introducción ##
+Para empezar a trabajar con aplicaciones móviles, siga el tutorial [Introducción]. Esto abarca los conceptos básicos de generar un back-end móvil y el cliente de su elección y a continuación, integrar la autenticación, la sincronización sin conexión y las notificaciones push. Puede realizar el tutorial [Introducción] varias veces: una vez para cada aplicación cliente.
 
-## <a name="getting-started"></a>Getting Started ##
-To get started with Mobile Apps, follow the [Get Started] tutorial.  This will cover the basics of producing a mobile backend and client of your choice, then integrating authentication, offline sync and push notifications.  You can follow the [Get Started] tutorial several times - once for each client application.
+Para más información sobre Aplicaciones móviles de Azure, revise nuestro [mapa de aprendizaje]. Para más información sobre la plataforma Servicio de aplicaciones de Azure, consulte [Servicio de aplicaciones de Azure].
 
-For more information on Azure Mobile Apps, please review our [learning map].
-For more information on the Azure App Service platform, see [Azure App Service].
-
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://tryappservice.azure.com/?appServiceName=mobile), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[Azure App Service]: ../app-service/app-service-value-prop-what-is.md
-[Get Started]: app-service-mobile-ios-get-started.md
-[Azure Table Storage]: ../storage/storage-getting-started-guide.md
+[Servicio de aplicaciones de Azure]: ../app-service/app-service-value-prop-what-is.md
+[Introducción]: app-service-mobile-ios-get-started.md
+[Almacenamiento de tablas de Azure]: ../storage/storage-getting-started-guide.md
 [DocumentDB]: ../documentdb/documentdb-get-started.md
-[authentication features]: ./app-service-mobile-auth.md
-[data features]: ./app-service-mobile-offline-data-sync.md
-[push notification features]: ../notification-hubs/notification-hubs-push-notification-overview.md
+[características de autenticación]: ./app-service-mobile-auth.md
+[características de datos]: ./app-service-mobile-offline-data-sync.md
+[características de notificaciones push]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [iOS]: ./app-service-mobile-ios-how-to-use-client-library.md
 [Android]: ./app-service-mobile-android-how-to-use-client-library.md
 [Windows]: ./app-service-mobile-dotnet-how-to-use-client-library.md
-[Xamarin for iOS and Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
+[Xamarin para iOS y Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[auto scaling]: ../app-service-web/web-sites-scale.md
-[staging environments]: ../app-service-web/web-sites-staged-publishing.md
-[deployment options]: ../app-service-web/web-sites-deploy.md
-[hybrid connections]: ../app-service-web/web-sites-hybrid-connection-get-started.md
-[virtual networks]: ../app-service-web/web-sites-integrate-with-vnet.md
+[escalado automático]: ../app-service-web/web-sites-scale.md
+[entornos de ensayo]: ../app-service-web/web-sites-staged-publishing.md
+[opciones de implementación]: ../app-service-web/web-sites-deploy.md
+[conexiones híbridas]: ../app-service-web/web-sites-hybrid-connection-get-started.md
+[redes virtuales]: ../app-service-web/web-sites-integrate-with-vnet.md
 [ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
-[App Service Environments]: ../app-service-web/app-service-app-service-environment-intro.md
-[learning map]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
+[entornos del Servicio de aplicaciones]: ../app-service-web/app-service-app-service-environment-intro.md
+[mapa de aprendizaje]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

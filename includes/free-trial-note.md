@@ -1,10 +1,7 @@
-> [AZURE.NOTE] <a name="note"></a>You need an Azure account to complete this tutorial:
+> [AZURE.NOTE] <a name="note"></a>Necesita una cuenta de Azure para completar este tutorial:
   >
-  > + You can [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
+  > + Puede [abrir una cuenta de Azure gratis](/pricing/free-trial/?WT.mc_id=A261C142F): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Sitios web. No se realizará ningún cargo en su tarjeta de crédito a menos que cambie explícitamente la configuración y solicite que se efectúe el cobro.
   >
-  > + You can [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services.
+  > + Puede [activar los beneficios de suscriptor de MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): su suscripción de MSDN le proporciona créditos cada mes que puede usar para servicios de pago de Azure.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!------HONumber=Oct15_HO3-->

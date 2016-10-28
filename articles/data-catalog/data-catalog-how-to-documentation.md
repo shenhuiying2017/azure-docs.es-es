@@ -1,56 +1,51 @@
 <properties
-    pageTitle="How to document data sources | Microsoft Azure"
-    description="How-to article highlighting how to document data assets in Azure Data Catalog."
-    services="data-catalog"
-    documentationCenter=""
-    authors="spelluru"
-    manager="NA"
-    editor=""
-    tags=""/>
+	pageTitle="Documentación de los orígenes de datos | Microsoft Azure"
+	description="En este artículo de procedimientos se resalta cómo documentar recursos de datos en el Catálogo de datos de Azure."
+	services="data-catalog"
+	documentationCenter=""
+	authors="spelluru"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
-    ms.service="data-catalog"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-catalog"
-    ms.date="09/13/2016"
-    ms.author="spelluru"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="09/13/2016"
+	ms.author="spelluru"/>
 
+# Orígenes de datos de documentos
 
-# <a name="document-data-sources"></a>Document data sources
+## Introducción
 
-## <a name="introduction"></a>Introduction
+El **Catálogo de datos de Microsoft Azure** es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección de orígenes de datos empresariales. En otras palabras, el **Catálogo de datos de Azure** ayuda a las personas a detectar, *comprender* y usar orígenes de datos, así como ayudar a las organizaciones a obtener un mayor valor de sus datos.
 
-**Microsoft Azure Data Catalog** is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources. In other words, **Azure Data Catalog** is all about helping people discover, *understand*, and use data sources, and helping organizations to get more value from their existing data.
+Cuando un origen de datos se registra en el **Catálogo de datos de Azure**, el servicio copia e indexa sus metadatos, pero eso no es todo. El **Catálogo de datos de Azure** también permite a los usuarios proporcionar su propia documentación completa, que puede describir el uso y los escenarios comunes para el origen de datos.
 
-When a data source is registered with **Azure Data Catalog**, its metadata is copied and indexed by the service, but the story doesn’t end there. **Azure Data Catalog** also allows users to provide their own complete documentation that can describe the usage and common scenarios for the data source.
+En [Anotación de orígenes de datos](data-catalog-how-to-annotate.md), sabrá que los expertos que conocen el origen de datos pueden anotarlo con etiquetas y una descripción. El portal del **Catálogo de datos de Azure** incluye un editor de texto enriquecido para que los usuarios puedan documentar completamente contenedores y recursos de datos. El editor incluye el formato de párrafo, como los títulos, formato de texto, listas con viñetas, listas numeradas y tablas.
 
-In [How to annotate data sources](data-catalog-how-to-annotate.md), you learn that experts who know the data source can annotate it with tags and a description. The **Azure Data Catalog** portal includes a rich text editor so that users can fully document data assets and containers. The editor includes paragraph formatting, such as headings, text formatting, bulleted lists, numbered lists, and tables.
-
-Tags and descriptions are great for simple annotations. However, to help data consumers better understand the use of a data source, and business scenarios for a data source, an expert can provide complete, detailed documentation. It's easy to document a data source. Select a data asset or container, and choose **Documentation**.
+Las etiquetas y descripciones son excelentes para anotaciones simples. Sin embargo, para ayudar a los consumidores de datos a comprender mejor el uso de un origen de datos y los escenarios empresariales para un origen de datos, un experto puede proporcionar documentación completa y detallada. Es fácil documentar un origen de datos. Simplemente, seleccione un recurso de datos o un contenedor y elija **Documentación**.
 
 ![](media\data-catalog-documentation\data-catalog-documentation.png)
 
-## <a name="documenting-data-assets"></a>Documenting data assets
+## Documentación de los recursos de datos
 
-The benefit of **Azure Data Catalog** documentation allows you to use your Data Catalog as a content repository to create a complete narrative of your data assets. You can explore detailed content that describes containers and tables. If you already have content in another content repository, such as SharePoint or a file share, you can add to the asset documentation links to reference this existing content. This feature makes your existing documents more discoverable.
+La ventaja del **Catálogo de datos de Azure** es que la documentación le permite usar el Catálogo de datos como un repositorio de contenido para crear una descripción completa de los recursos de datos. Puede explorar el contenido detallado que describe los contenedores y las tablas. Si ya tiene contenido en otro repositorio de contenido, como SharePoint o un recurso compartido de archivos, puede agregar los vínculos de documentación de recursos para hacer referencia a este contenido existente. Esta característica hace que los documentos existentes sean más detectables.
 
-> [AZURE.NOTE] Documentation is not included in search index.
+> [AZURE.NOTE] La documentación no se incluye en el índice de búsqueda.
 
 ![](media\data-catalog-documentation\data-catalog-documentation2.png)
 
-The level of documentation can range from describing the characteristics and value of a data asset container to a detailed description of table schema within a container. The level of documentation provided should be driven by your business needs. But in general, here are a few pros and cons of documenting data assets:
+El nivel de documentación puede oscilar desde describir las características y el valor de un contenedor de recursos de datos para una descripción detallada del esquema de tabla dentro de un contenedor. El nivel de documentación proporcionado debe basarse en las necesidades del negocio. En general, hay algunas ventajas y desventajas de documentar los recursos de datos:
 
--   Document just a container: All the content is in one place, but might lack necessary details for users to make an informed decision.
--   Document just the tables: Content is specific to that object, but your users have multiple places for documents.
--   Document containers and tables: Most comprehensive approach, but might introduce more maintenance of the documents.
+-	Documentar solo un contenedor: todo el contenido está en un solo lugar, pero puede faltar información necesaria para que los usuarios tomen una decisión informada.
+-	Documentar solo las tablas: el contenido es específico de ese objeto, pero los usuarios tienen varios lugares para los documentos.
+-	Documentar contenedores y tablas: el enfoque más completo, pero puede incluir un mayor mantenimiento de los documentos.
 
-## <a name="summary"></a>Summary
+## Resumen
 
-Documenting data sources with **Azure Data Catalog** can create a narrative about your data assets in as much detail as you need.  By using links, you can link to content stored in an existing content repository, which brings your existing docs and data assets together. Once your users discover appropriate data assets, they can have a complete set of documentation.
+La documentación de orígenes de datos con el **Catálogo de datos de Azure** puede crear una descripción de los recursos de datos con el detalle que sea necesario. Mediante el uso de vínculos, puede vincular al contenido almacenado en un repositorio de contenido existente, lo que reúne los recursos de datos y los documentos existentes. Una vez que los usuarios descubran los recursos de datos adecuados, pueden tener un completo conjunto de documentación.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

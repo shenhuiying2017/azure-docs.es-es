@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Resource Manager template for key vault | Microsoft Azure"
-   description="Shows the Resource Manager schema for deploying key vaults through a template."
+   pageTitle="Plantilla del Administrador de recursos para almacén de claves | Microsoft Azure"
+   description="Muestra el esquema del Administrador de recursos para implementar los almacenes de claves mediante una plantilla."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,14 +16,13 @@
    ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
+# Esquema de la plantilla del Almacén de claves
 
-# <a name="key-vault-template-schema"></a>Key vault template schema
+Crea un almacén de claves.
 
-Creates a key vault.
+## Formato de esquema
 
-## <a name="schema-format"></a>Schema format
-
-To create a key vault, add the following schema to the resources section of your template.
+Para crear un almacén de claves, agregue el siguiente esquema a la sección de recursos de la plantilla.
 
     {
         "type": "Microsoft.KeyVault/vaults",
@@ -55,60 +54,60 @@ To create a key vault, add the following schema to the resources section of your
         ]
     }
 
-## <a name="values"></a>Values
+## Valores
 
-The following tables describe the values you need to set in the schema.
+Las tablas siguientes describen los valores que debe establecer en el esquema.
 
-| Name | Value |
+| Nombre | Valor |
 | ---- | ---- | 
-| type | Enum<br />Required<br />**Microsoft.KeyVault/vaults**<br /><br />The resource type to create. |
-| apiVersion | Enum<br />Required<br />**2015-06-01** or **2014-12-19-preview**<br /><br />The API version to use for creating the resource. | 
-| name | String<br />Required<br />A name that is unique across Azure.<br /><br />The name of the key vault to create. Consider using the [uniqueString](resource-group-template-functions.md#uniquestring) function with your naming convention to create a unique name, as shown in the example below. |
-| location | String<br />Required<br />A valid region for key vaults. To determine valid regions, see [supported regions](resource-manager-supported-services.md#supported-regions).<br /><br />The region to host the key vault. |
-| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that specifies the type of key vault to create. |
-| resources | Array<br />Optional<br />Permitted values: [Key vault secret resources](resource-manager-template-keyvault-secret.md)<br /><br />Child resources for the key vault. |
+| type | Enum<br />Obligatorio<br />**Microsoft.KeyVault/vaults**<br /><br />Tipo de recurso que se creará. |
+| apiVersion | Enum<br />Obligatorio<br />**2015-06-01** o **2014-12-19-preview**<br /><br />Versión de la API que se usará para crear el recurso. | 
+| name | Cadena<br />Obligatorio<br />Nombre que es único en Azure.<br /><br />Nombre del almacén de claves que se creará. Considere la posibilidad de usar la función [uniqueString](resource-group-template-functions.md#uniquestring) junto con su convención de nomenclatura para crear un nombre único, tal y como se muestra en el ejemplo siguiente. |
+| location | Cadena<br />Obligatorio<br />Región válida para almacenes de claves. Para determinar las regiones válidas, consulte las [regiones admitidas](resource-manager-supported-services.md#supported-regions).<br /><br />Región donde se hospedará el almacén de claves. |
+| propiedades | Objeto<br />Obligatorio<br />[properties object](#properties)<br /><br />Objeto que especifica el tipo de almacén de claves que se creará. |
+| resources | Matriz<br />Opcional<br />Valores permitidos: [Recursos secretos del almacén de clave](resource-manager-template-keyvault-secret.md)<br /><br />Recursos secundarios para el almacén de claves. |
 
 <a id="properties" />
-### <a name="properties-object"></a>properties object
+### properties object
 
-| Name | Value |
+| Nombre | Valor |
 | ---- | ---- | 
-| enabledForDeployment | Boolean<br />Optional<br />**true** or **false**<br /><br />Specifies if the vault is enabled for Virtual Machine or Service Fabric deployment. |
-| enabledForTemplateDeployment | Boolean<br />Optional<br />**true** or **false**<br /><br />Specifies if the vault is enabled for use in Resource Manager template deployments. For more information, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md) |
-| enabledForVolumeEncryption | Boolean<br />Optional<br />**true** or **false**<br /><br />Specifies if the vault is enabled for volume encryption. |
-| tenantId | String<br />Required<br />**Globally-unique identifier**<br /><br />The tenant identifier for the subscription. You can retrieve it with the [Get-AzureRmSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) PowerShell cmdlet or the **azure account show** Azure CLI command. |
-| accessPolicies | Array<br />Required<br />[accessPolicies object](#accesspolicies)<br /><br />An array of up to 16 objects that specify the permissions for the user or service principal. |
-| sku | Object<br />Required<br />[sku object](#sku)<br /><br />The SKU for the key vault. |
+| enabledForDeployment | Booleano<br />Opcional<br />**true** o **false**<br /><br />Especifica si el almacén está habilitado para la implementación de Service Fabric o máquinas virtuales. |
+| enabledForTemplateDeployment | Booleano<br />Opcional<br />**true** o **false**<br /><br />Especifica si el almacén está habilitado para usarse en implementaciones de plantilla de Azure Resource Manager. Para obtener más información, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md). |
+| enabledForVolumeEncryption | Booleano<br />Opcional<br />**true** o **false**<br /><br />Especifica si el almacén está habilitado para el cifrado de volúmenes. |
+| tenantId | Cadena<br />Obligatorio<br />**Globally-unique identifier**<br /><br />Identificador del inquilino para la suscripción. Puede recuperarlo con el cmdlet de PowerShell [Get-AzureRmSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) o el comando de la CLI de Azure ** azure account show**. |
+| accessPolicies | Matriz<br />Obligatorio<br />[accessPolicies object](#accesspolicies)<br /><br />Matriz de hasta 16 objetos que especifican los permisos para el usuario o la entidad de servicio. |
+| sku | Objeto<br />Obligatorio<br />[sku object](#sku)<br /><br />SKU para el almacén de claves. |
 
 <a id="accesspolicies" />
-### <a name="properties.accesspolicies-object"></a>properties.accessPolicies object
+### properties.accessPolicies object
 
-| Name | Value |
+| Nombre | Valor |
 | ---- | ---- | 
-| tenantId | String<br />Required<br />**Globally-unique identifier**<br /><br />The tenant identifier of the Azure Active Directory tenant containing the **objectId** in this access policy |
-| objectId | String<br />Required<br />**Globally-unique identifier**<br /><br />The object identifier of the Azure Active Directory user or service principal that will have access to the vault. You can retrieve the value from either the [Get-AzureRmADUser](https://msdn.microsoft.com/library/azure/mt679001.aspx) or the [Get-AzureRmADServicePrincipal](https://msdn.microsoft.com/library/azure/mt678992.aspx) PowerShell cmdlets, or the **azure ad user** or **azure ad sp** Azure CLI commands. |
-| permissions | Object<br />Required<br />[permissions object](#permissions)<br /><br />The permissions granted on this vault to the Active Directory object. |
+| tenantId | Cadena<br />Obligatorio<br />**Globally-unique identifier**<br /><br />Identificador del inquilino de Azure Active Directory que contiene el **objectId** en esta directiva de acceso. |
+| objectId | Cadena<br />Obligatorio<br />**Globally-unique identifier**<br /><br />Identificador de objeto del usuario de Azure Active Directory o de la entidad de servicio que tendrá acceso al almacén. Puede recuperar el valor de los cmdlets de PowerShel l[Get-AzureRMADUser](https://msdn.microsoft.com/library/azure/mt679001.aspx) o [Get-AzureRMADServicePrincipal](https://msdn.microsoft.com/library/azure/mt678992.aspx) o de los comandos de la CLI de Azure **azure ad user** o **azure ad sp**. |
+| permisos | Objeto<br />Obligatorio<br />[permissions object](#permissions)<br /><br />Permisos concedidos en este almacén al objeto de Active Directory. |
 
 <a id="permissions" />
-### <a name="properties.accesspolicies.permissions-object"></a>properties.accessPolicies.permissions object
+### properties.accessPolicies.permissions object
 
-| Name | Value |
+| Nombre | Valor |
 | ---- | ---- | 
-| keys | Array<br />Required<br />**all**, **backup**, **create**, **decrypt**, **delete**, **encrypt**, **get**, **import**, **list**, **restore**, **sign**, **unwrapkey**, **update**, **verify**, **wrapkey**<br /><br />The permissions granted on keys in this vault to this Active Directory object. This value must be specified as an array of one or more permitted values. |
-| secrets | Array<br />Required<br />**all**, **delete**, **get**, **list**, **set**<br /><br />The permissions granted on secrets in this vault to this Active Directory object. This value must be specified as an array of one or more permitted values. |
+| claves | Matriz<br />Obligatorio<br />**all**, **backup**, **create**, **decrypt**, **delete**, **encrypt**, **get**, **import**, **list**, **restore**, **sign**, **unwrapkey**, **update**, **verify**, **wrapkey**<br /><br />Permisos concedidos en las claves de este almacén a este objeto de Active Directory. Este valor debe especificarse como una matriz de uno o más valores permitidos. |
+| secrets | Matriz<br />Obligatorio<br />**all**, **delete**, **get**, **list**, **set**<br /><br />Permisos concedidos en los secretos de este almacén a este objeto de Active Directory. Este valor debe especificarse como una matriz de uno o más valores permitidos. |
 
 <a id="sku" />
-### <a name="properties.sku-object"></a>properties.sku object
+### properties.sku object
 
-| Name | Value |
+| Nombre | Valor |
 | ---- | ---- | 
-| name | Enum<br />Required<br />**standard**, or **premium** <br /><br />The service tier of KeyVault to use.  Standard supports secrets and software-protected keys.  Premium adds support for HSM-protected keys. |
-| family | Enum<br />Required<br />**A** <br /><br />The sku family to use. |
+| name | Enum<br />Obligatorio<br />**standard** o **premium** <br /><br />Nivel de servicio del almacén de claves que se usará. Standard admite secretos y claves protegidas mediante software. Premium incorpora compatibilidad para claves protegidas con HSM. |
+| family | Enum<br />Obligatorio<br />**A** <br /><br />Familia de SKU que se usará. |
  
-    
-## <a name="examples"></a>Examples
+	
+## Ejemplos
 
-The following example deploys a key vault and secret.
+En el ejemplo siguiente se implementa un almacén de claves y un secreto.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -234,21 +233,16 @@ The following example deploys a key vault and secret.
         }]
     }
 
-## <a name="quickstart-templates"></a>Quickstart templates
+## Plantillas de inicio rápido
 
-The following quickstart template deploys a key vault.
+La siguiente plantilla de inicio rápido implementa un almacén de claves.
 
 - [Create Key Vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)
 
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-- For general information about key vaults, see [Get started with Azure Key Vault](./key-vault/key-vault-get-started.md).
-- For an example of referencing a key vault secret when deploying templates, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
+- Para obtener información general sobre almacenes de claves, consulte [Introducción al Almacén de claves de Azure](./key-vault/key-vault-get-started.md).
+- Para obtener un ejemplo de referencia de un secreto de almacén de claves al implementar plantillas, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md).
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

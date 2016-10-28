@@ -1,31 +1,29 @@
-#### <a name="to-install-mpio-on-the-host"></a>To install MPIO on the host
+#### Para instalar MPIO en el host
 
-1. Open Server Manager on your Windows Server host. By default, Server Manager starts when a member of the Administrators group logs on to a computer that is running Windows Server 2012 R2 or Windows Server 2012. If the Server Manager is not already open, click **Start > Server Manager**.
+1. Abra el Administrador del servidor en el host de Windows Server. El Administrador del servidor se inicia de forma predeterminada cuando un miembro del grupo Administradores inicia sesión en un equipo que ejecuta Windows Server 2012 R2 o Windows Server 2012. Si el Administrador del servidor no está abierto aún, haga clic en **Inicio > Administrador del servidor**.
 
-    ![Server Manager](./media/storsimple-install-mpio-windows-server/IC740997.png)
+	![Administrador del servidor](./media/storsimple-install-mpio-windows-server/IC740997.png)
 
-2. Click **Server Manager > Dashboard > Add roles and features**. This starts the **Add Roles and Features** wizard.
+2. Haga clic en **Administrador del servidor > Panel > Agregar roles y características**. De esta forma, se abre el **Asistente para agregar roles y características**.
 
-    ![Add Roles And Features Wizard 1](./media/storsimple-install-mpio-windows-server/IC740998.png)
+	![Asistente para agregar roles y características 1](./media/storsimple-install-mpio-windows-server/IC740998.png)
 
-3. In the **Add Roles and Features** wizard, do the following:
+3. En el **Asistente para agregar roles y características**, haga lo siguiente:
 
-    - On the **Before you begin** page, click **Next**.
-    - On the **Select installation type** page, accept the default setting of **Role-based or feature-based** installation. Click **Next**.
-    
-        ![Add Roles And Features Wizard 2](./media/storsimple-install-mpio-windows-server/IC740999.png)
-    - On the **Select destination server** page, choose **Select a server from the server pool**. Your host server should be discovered automatically. Click **Next**.
-    - On the **Select server roles** page, click **Next**.
-    - On the **Select features** page, select **Multipath I/O**, and click **Next**.
-    
-        ![Add Roles And Features Wizard 5](./media/storsimple-install-mpio-windows-server/IC741000.png)
-    - On the **Confirm installation selections** page, confirm the selection and then select **Restart the destination server automatically if required**, as shown below. Click **Install**.
-    
-        ![Add Roles And Features Wizard 8](./media/storsimple-install-mpio-windows-server/IC741001.png)
-    - You will be notified when the installation is complete. Click **Close** to close the wizard.
-    
-        ![Add Roles And Features Wizard 9](./media/storsimple-install-mpio-windows-server/IC741002.png)
+	- En la página **Antes de comenzar**, haga clic en **Siguiente**.
+	- En la página **Seleccionar el tipo de instalación**, acepte la configuración predeterminada de **Instalación basada en características o en roles**. Haga clic en **Siguiente**.
+	
+		![Asistente para agregar roles y características 2](./media/storsimple-install-mpio-windows-server/IC740999.png)
+	- En la página **Seleccionar servidor de destino**, elija **Seleccionar un servidor del grupo de servidores**. El servidor host debería detectarse automáticamente. Haga clic en **Siguiente**.
+	- En la página **Seleccionar roles de servidor**, haga clic en **Siguiente**.
+	- En la página **Seleccionar características**, seleccione **E/S de múltiples rutas** y, luego, haga clic en **Siguiente**.
+	
+		![Asistente para agregar roles y características 5](./media/storsimple-install-mpio-windows-server/IC741000.png)
+	- En la página **Confirmar selecciones de instalación**, confirme la selección y, después, seleccione **Reiniciar automáticamente el servidor de destino en caso necesario**, tal y como se muestra aquí. Haga clic en **Instalar**.
+	
+		![Asistente para agregar roles y características 8](./media/storsimple-install-mpio-windows-server/IC741001.png)
+	- Se le notificará cuando la instalación finalice. Haga clic en **Cerrar** para cerrar el asistente.
+	
+		![Asistente para agregar roles y características 9](./media/storsimple-install-mpio-windows-server/IC741002.png)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0323_2016-->

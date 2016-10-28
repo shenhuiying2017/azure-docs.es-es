@@ -1,6 +1,6 @@
 <properties
-   pageTitle="How to resize a Linux VM | Microsoft Azure"
-   description="How to scale up or scale down a Linux virtual machine, by changing the VM size."
+   pageTitle="Cambio de tamaño de una máquina virtual de Linux | Microsoft Azure"
+   description="Escalado o reducción en vertical de una máquina virtual de Linux cambiando el tamaño de la VM."
    services="virtual-machines-linux"
    documentationCenter="na"
    authors="mikewasson"
@@ -18,29 +18,28 @@
    ms.author="mikewasson"/>
 
 
+# Cambio de tamaño de una máquina virtual de Linux
 
-# <a name="how-to-resize-a-linux-vm"></a>How to resize a Linux VM
+## Información general 
 
-## <a name="overview"></a>Overview 
+Después de aprovisionar una máquina virtual (VM), puede escalarla o reducirla verticalmente cambiando su [tamaño][vm-sizes]. En algunos casos, hay que desasignarla antes. Esto puede suceder si el nuevo tamaño no está disponible en el clúster de hardware que hospeda la VM.
 
-After you provision a virtual machine (VM), you can scale the VM up or down by changing the [VM size][vm-sizes]. In some cases, you must deallocate the VM first. This can happen if the new size is not available on the hardware cluster that is hosting the VM.
+Este artículo muestra cómo cambiar el tamaño de una VM de Linux mediante la [CLI de Azure][azure-cli].
 
-This article shows how to resize a Linux VM using the [Azure CLI][azure-cli].
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica.
 
 
-## <a name="resize-a-linux-vm"></a>Resize a Linux VM 
+## Cambio de tamaño de una VM de Linux 
 
-To resize a VM, perform the following steps.
+Para cambiar el tamaño de una máquina virtual, realice los pasos siguientes.
 
-1. Run the following CLI command. This command lists the VM sizes that are available on the hardware cluster where the VM is hosted.
+1. Ejecute el siguiente comando de la CLI: Este comando muestra los tamaños de máquina virtual que están disponibles en el clúster de hardware donde se hospeda la VM.
 
     ```
     azure vm sizes -g <resource-group> --vm-name <vm-name>
     ```
 
-2. If the desired size is listed, run the following command to resize the VM.
+2. Si se muestra el tamaño deseado, ejecute el comando siguiente para cambiar el tamaño de la VM.
 
     ```
     azure vm set -g <resource-group> --vm-size <new-vm-size> -n <vm-name>  
@@ -48,11 +47,11 @@ To resize a VM, perform the following steps.
         https://<storage-account-name>.blob.core.windows.net/ 
     ```
 
-    The VM will restart during this process. After the restart, your existing OS and data disks will be remapped. Anything on the temporary disk will be lost.
+    La máquina virtual se reiniciará durante este proceso. Tras reiniciar, se reasignarán los discos del SO y de datos. Se perderá todo lo que haya en el disco temporal.
 
-    Use the `--enable-boot-diagnostics` option enables [boot diagnostics][boot-diagnostics], to log any errors related to startup.
+    Al usar la opción `--enable-boot-diagnostics`, se habilita el [diagnóstico de arranque][boot-diagnostics], que permite registrar cualquier error relacionado con el inicio.
 
-3. Otherwise, if the desired size is not listed, run the following commands to deallocate the VM, resize it, and then restart the VM.
+3. Si, por el contrario, no aparece el tamaño deseado, ejecute los siguientes comandos para desasignar la máquina virtual, cambiar su tamaño y reiniciarla.
 
     ```
     azure vm deallocate -g <resource-group> <vm-name>
@@ -62,20 +61,17 @@ To resize a VM, perform the following steps.
     azure vm start -g <resource-group> <vm-name>
     ```
 
-   > [AZURE.WARNING] Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
+   > [AZURE.WARNING] Al desasignar la máquina virtual, también se liberan todas las direcciones IP dinámicas asignadas a ella. Esto no afecta a los discos del SO y de datos.
    
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-For additional scalability, run multiple VM instances and scale out. For more information, see [Automatically scale Linux machines in a Virtual Machine Scale Set][scale-set]. 
+Para obtener una mayor escalabilidad, ejecute varias instancias de VM y escálelas horizontalmente. Para obtener más información, consulte [Escalado automático de máquinas de Linux en un conjunto de escalado de máquinas virtuales][scale-set].
 
 <!-- links -->
    
 [azure-cli]: ../xplat-cli-install.md
-[boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
-[scale-set]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md 
+[boot-diagnostics]: https://azure.microsoft.com/es-ES/blog/boot-diagnostics-for-virtual-machines-v2/
+[scale-set]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md
 [vm-sizes]: virtual-machines-linux-sizes.md
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

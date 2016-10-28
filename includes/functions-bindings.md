@@ -1,17 +1,15 @@
-Type | Service | Trigger | Input | Output 
+Tipo | Servicio | Desencadenador | Entrada | Salida 
 -----|---------|---------|-------|--------
-Schedule | Azure Functions | &#10004; |  | 
-HTTP (REST or webhook) | Azure Functions | &#10004; |  | &#10004;\*
-Blob Storage | Azure Storage | &#10004; | &#10004; | &#10004; 
-Events | Azure Event Hubs | &#10004; | | &#10004;
-Queues | Azure Storage | &#10004; |  | &#10004;
-Tables | Azure Storage |  | &#10004; | &#10004;
-Tables | Azure Mobile Apps |  | &#10004; | &#10004;
-No-SQL DB | Azure DocumentDB |  | &#10004; | &#10004;
-Push Notifications | Azure Notification Hubs | | | &#10004;
+Schedule | Funciones de Azure | &#10004; | | 
+HTTP (REST o Webhook) | Funciones de Azure | &#10004; | | &#10004;*
+Almacenamiento de blobs | Almacenamiento de Azure | &#10004; | &#10004; | &#10004; 
+Eventos | Centros de eventos de Azure | &#10004; | | &#10004;
+Colas | Almacenamiento de Azure | &#10004; | | &#10004;
+Tablas | Almacenamiento de Azure | | &#10004; | &#10004;
+Tablas | Aplicaciones móviles de Azure | | &#10004; | &#10004;
+Base de datos no SQL | DocumentDB de Azure | | &#10004; | &#10004;
+Notificaciones de inserción | Centros de notificaciones de Azure | | | &#10004;
 
-(\* - The http out binding requires an http trigger)
+(*- El enlace de salida http requiere un desencadenador de http)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0608_2016-->

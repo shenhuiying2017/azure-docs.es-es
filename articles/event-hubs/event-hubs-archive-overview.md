@@ -1,81 +1,80 @@
 <properties
-    pageTitle="Azure Event Hubs Archive | Microsoft Azure"
-    description="Overview of the Azure Event Hubs Archive feature."
-    services="event-hubs"
-    documentationCenter=""
-    authors="djrosanova"
-    manager="timlt"
-    editor=""/>
+	pageTitle="Azure Event Hubs Archive | Microsoft Azure"
+	description="Información general de la característica Azure Event Hubs Archive | Microsoft Azure."
+	services="event-hubs"
+	documentationCenter=""
+	authors="djrosanova"
+	manager="timlt"
+	editor=""/>
 
 <tags
-    ms.service="event-hubs"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/13/2016"
-    ms.author="darosa;sethm"/>
+	ms.service="event-hubs"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/13/2016"
+	ms.author="darosa;sethm"/>
 
+# Azure Event Hubs Archive
 
-# <a name="azure-event-hubs-archive"></a>Azure Event Hubs Archive
+Azure Event Hubs Archive permite entregar automáticamente los datos de transmisión por secuencias de Event Hubs a la cuenta de Blob Storage que elija con mayor flexibilidad para especificar el intervalo de tiempo o de espacio que prefiera. La configuración de Archive es rápida, su ejecución no tiene costos administrativos y se escala automáticamente con las [unidades de procesamiento](event-hubs-overview.md#capacity-and-security) de tus Event Hubs. Event Hubs Archive es la forma más sencilla de cargar datos de transmisión por secuencias en Azure y permite centrarse en el procesamiento de datos, en lugar de en su captura.
 
-Azure Event Hubs Archive enables you to automatically deliver the streaming data in your Event Hubs to a Blob storage account of your choice with added flexibility to specify a time or size interval of your choosing. Setting up Archive is quick, there are no administrative costs to run it, and it scales automatically with your Event Hubs [throughput units](event-hubs-overview.md#capacity-and-security). Event Hubs Archive is the easiest way to load streaming data into Azure and allows you to focus on data processing rather than data capture.
+Azure Event Hubs Archive permite procesar las canalizaciones en tiempo real y las basadas en lotes en la misma transmisión, lo que permite crear soluciones que pueden crecer a la par que sus necesidades. Si ya está creando sistemas basados en lotes pensando en un futuro procesamiento en tiempo real o desea agregar una ruta de acceso inactiva eficaz a una solución en tiempo real existente, Event Hubs Archive facilita el trabajo con la transmisión de datos.
 
-Azure Event Hubs Archive enables you to process real-time and batch-based pipelines on the same stream. This enables you to build solutions that can grow with your needs over time. Whether you're building batch-based systems today with an eye towards future real-time processing, or you want to add an efficient cold path to an existing real-time solution, Event Hubs Archive makes working with streaming data easier.
+## Funcionamiento de Event Hubs Archive
 
-## <a name="how-event-hubs-archive-works"></a>How Event Hubs Archive works
+Event Hubs es un búfer duradero de retención temporal para la entrada de datos de telemetría, es similar a un registro distribuido. La clave para reducir horizontalmente Event Hubs es el [modelo de consumidor con particiones](event-hubs-overview.md#partition-key). Cada partición es un segmento de datos independiente y se consume de forma independiente. Con el tiempo estos datos envejecen basándose en el período de retención configurable. Como consecuencia, un Centro de eventos determinado nunca llega a estar "demasiado lleno".
 
-Event Hubs is a time-retention durable buffer for telemetry ingress, similar to a distributed log. The key to scale in Event Hubs is the [partitioned consumer model](event-hubs-overview.md#partition-key). Each partition is an independent segment of data and is consumed independently. Over time this data ages off, based on the configurable retention period. As a result, a given Event Hub never gets "too full."
+Event Hubs Archive le permite especificar su propia cuenta de Azure Blob Storage y el contenedor que se utilizará para almacenar los datos archivados. Esta cuenta puede estar en la misma región que su Centro de eventos o en otra región, algo que se agrega a la flexibilidad de la característica Event Hubs Archive.
 
-Event Hubs Archive enables you to specify your own Azure Blob Storage account and Container which will be used to store the archived data. This account can be in the same region as your Event Hub or in another region, adding to the flexibility of the Event Hubs Archive feature.
+Los datos archivados se escriben en el formato de [Apache Avro][], que es un formato compacto, rápido y binario que proporciona estructuras de datos enriquecidos con un esquema insertado. Este formato se usa ampliamente en el ecosistema de Hadoop, pero también lo usan Stream Analytics y Azure Data Factory. En este mismo artículo encontrará más información acerca de cómo trabajar con Avro.
 
-Archived data is written in [Apache Avro][] format; a compact, fast, binary format that provides rich data structures with inline schema. This format is widely used in the Hadoop ecosystem, as well as by Stream Analytics and Azure Data Factory. More information about working with Avro is available later in this article.
+### Almacenamiento basado en ventanas
 
-### <a name="archive-windowing"></a>Archive Windowing
-
-Event Hubs Archive allows you to set up a window to control archiving. This window is a minimum size and time configuration with a "first wins policy," meaning that the first trigger encountered will cause an archive operation. If you have a fifteen-minute/100 MB archive window and send 1 MB/s, the size window will trigger before the time window. Each partition archives independently and writes a completed block blob at the time of archive, named for the time when the archive interval was encountered. The naming convention is as follows:
+Event Hubs Archive permite configurar una ventana para controlar el almacenamiento. Esta ventana tiene una configuración mínima de tamaño y tiempo con una "directiva de que el primero gana", lo que significa que el primer desencadenador que se encuentre provocará una operación de almacenamiento. Si tiene una ventana de almacenamiento de 100 MB cada quince minutos y envía 1 MB/s, la ventana de tamaño se desencadenará antes que la ventana de tiempo. Cada partición se archiva de forma independiente y escribe un blob en bloques completado en el momento del almacenamiento, denominado como la hora en que se encontró el intervalo de almacenamiento. Esta es la convención de nomenclatura:
 
 ```
 <Namespace>/<EventHub>/<Partition>/<YYYY>/<MM>/<DD>/<HH>/<mm>/<ss>
 ```
 
-### <a name="scaling-to-throughput-units"></a>Scaling to throughput units
+### Escalado a unidades de procesamiento
 
-Event Hubs traffic is controlled by [throughput units](event-hubs-overview.md#capacity-and-security). A single throughput unit allows 1 MB/s or 1000 events per second of ingress and twice that amount of egress. Standard Event Hubs can be configured with 1-20 throughput units, and more can be purchased via a quota increase [support request][]. Usage beyond purchased throughput units is throttled. Event Hubs Archive copies data directly from the internal Event Hubs storage, bypassing throughput unit egress quotas and saving your egress for other processing readers such as Stream Analytics or Spark.
+El tráfico de los Event Hubs lo controlan las [unidades de procesamiento](event-hubs-overview.md#capacity-and-security). Una sola unidad de procesamiento permite una entrada de 1 MB/s o 1000 eventos por segundo y una salida que duplica esas cifras. Los Event Hubs estándar se pueden configurar con 1-20 unidades de procesamiento, y se pueden adquirir más a través de una solicitud de aumento de cuota al [equipo de soporte técnico][]. El uso más allá de las unidades de procesamiento adquiridas está limitado. Event Hubs Archive copia los datos directamente del almacenamiento interno de Event Hubs, omite las cuotas de salida de unidades de procesamiento y guarda la salida para otros lectores de procesamiento como Stream Analytics o Spark.
 
-Once configured, Event Hubs Archive runs automatically as soon as you send your first event. It continues running at all times. To make it easier to for your downstream processing to know that the process is working, Event Hubs writes empty files when there is no data. This provides a predictable cadence and marker that can feed your batch processors.
+Una vez configurado, Event Hubs Archive se ejecuta automáticamente en cuanto se envía el primer evento. Y no deja de ejecutarse en ningún momento. Para facilitar que el procesamiento de bajada sepa que el proceso funciona, Events Hubs escribe archivos vacíos cuando no hay datos. Esto proporciona un marcador y una cadencia predecibles que puede alimentar sus procesadores de lotes.
 
-## <a name="setting-up-event-hubs-archive"></a>Setting up Event Hubs Archive
+## Configuración de Event Hubs Archive
 
-Event Hubs Archive can be configured at Event Hub creation time via the portal or Azure Resource Manager. You simply enable Archive by clicking the **On** button. You configure a Storage Account and container by clicking the **Container** section of the blade. Because Event Hubs Archive uses service-to-service authentication with storage, you do not need to specify a storage connection string. The resource picker selects the resource URI for your storage account automatically. If you use Azure Resource Manager, you must supply this URI explicitly as a string.
+Event Hubs Archive se puede configurar en el momento de creación de un Centro de eventos a través del portal o de Azure Resource Manager. Simplemente habilite Archive, para lo que debe hacer clic en el botón **Activado**. Configure una cuenta de almacenamiento y un contenedor, para lo que debe hacer clic en la sección **Contenedor** de la hoja. Dado que Event Hubs Archive utiliza la autenticación de servicio a servicio con el almacenamiento, no es necesario especificar una cadena de conexión de almacenamiento. El selector de recursos selecciona automáticamente el identificador URI del recurso para la cuenta de almacenamiento. Si se usa Azure Resource Manager, es preciso suministrar explícitamente dicho identificador URI como una cadena.
 
-The default time window is five minutes. The minimum value is 1, the maximum 15. The **Size** window has a range of 10-500 MB.
+La ventana de tiempo predeterminada es cinco minutos. El valor mínimo es 1 y el máximo 15. La ventana **Tamaño** tiene un intervalo de 10-500 MB.
 
 ![][1]
 
-## <a name="adding-archive-to-an-existing-event-hub"></a>Adding Archive to an existing Event Hub
+## Incorporación de Archive a un Centro de eventos existente
 
-Archives can be configured on existing Event Hubs that are in an Event Hubs namespace. The feature is not available on older Messaging or Mixed type namespaces. To enable Archive on an existing Event Hub, or to change your Archive settings, click your namespace to load the **Essentials** blade, then click on the Event Hub for which you want to enable or change the Archive setting. Finally, click on the **Properties** section of the open blade as shown in the following figure.
+Se pueden configurar Archivos en los Event Hubs existentes que se encuentran en un espacio de nombres de Event Hubs. La característica no está disponible en los anteriores espacios de nombres del tipo Mixto o Mensajería. Para habilitar Archive en un Centro de eventos existente o para cambiar la configuración de Archive, haga clic en su espacio de nombres para cargar la hoja **Essentials** y, después, haga clic en el Centro de eventos para el que desea habilitar o cambiar la configuración de Archive. Por último, haga clic en la sección **Propiedades** de la hoja abierta, tal como se muestra en la ilustración siguiente.
 
 ![][2]
 
-You can also configure Event Hubs Archive via Azure Resource Manager templates. For more information see [this article](event-hubs-resource-manager-namespace-event-hub-enable-archive.md).
+Event Hubs Archive también se puede configurar a través de las plantillas de Azure Resource Manager. Para más información, consulte [este artículo](event-hubs-resource-manager-namespace-event-hub-enable-archive.md).
 
-## <a name="exploring-the-archive-and-working-with-avro"></a>Exploring the archive and working with Avro
+## Exploración del almacenamiento y trabajo con Avro
 
-Once configured, Event Hubs Archive creates files in the Azure Storage account and container provided on the configured time window. You can view these files in any tool such as [Azure Storage Explorer][]. You can download the files locally to work on them.
+Una vez configurado, Event Hubs Archive crea archivos en la cuenta de Azure Storage y en el contenedor proporcionado en la ventana de tiempo configurada. Dichos archivos se pueden ver en cualquier herramienta, como el [Explorador de Azure Storage][]. Los archivos se pueden descargar de forma local para trabajar con ellos.
 
-The files produced by Event Hubs Archive have the following Avro schema:
+Los archivos que genera Event Hubs Archive tienen el siguiente esquema de Avro:
 
 ![][3]
 
-An easy way to explore Avro files is by using the [Avro Tools][] jar from Apache. After downloading this jar, you can see the schema of a specific Avro file by running the following command:
+Para explorar los archivos de Avro fácilmente, utilice el archivo jar [Avro Tools][] desde Apache. Tras descargar este archivo, para ver el esquema de un archivo específico de Avro, ejecute el comando siguiente:
 
 ```
-java -jar avro-tools-1.8.1.jar getschema \<name of archive file\>
+java -jar avro-tools-1.8.1.jar getschema <name of archive file>
 ```
 
-This command returns
+Este comando devuelve
 
 ```
 {
@@ -94,40 +93,37 @@ This command returns
 }
 ```
 
-You can also use Avro Tools to convert the file to JSON format and perform other processing.
+Avro Tools también puede utilizarse para convertir el archivo al formato JSON y realizar otro procesamiento.
 
-To perform more advanced processing, download and install Avro for your choice of platform. At the time of this writing, there are implementations available for C, C++, C\#, Java, NodeJS, Perl, PHP, Python, and Ruby.
+Para realizar un procesamiento más avanzado, descargue e instale Avro para la plataforma que desee. En el momento de redactar este artículo, existen implementaciones para C, C++, C#, Java, NodeJS, Perl, PHP, Python y Ruby.
 
-Apache Avro has complete Getting Started guides for [Java][] and [Python][]. You can also read the [Getting Started with Event Hubs Archive](event-hubs-archive-python.md) article.
+Apache Avro tiene guías de introducción para [Java][] y [Python][] muy completas. También puede leer el artículo de [introducción a Event Hubs Archive](event-hubs-archive-python.md).
 
-## <a name="how-event-hubs-archive-is-charged"></a>How Event Hubs Archive is charged
+## Cobro de Event Hubs Archive
 
-Event Hubs Archive is metered similarly to throughput units, as an hourly charge. The charge is directly proportional to the number of throughput units purchased for the namespace. As throughput units are increased and decreased, Event Hubs Archive increases and decreases to provide matching performance. The meters happen in tandem. The charge for Event Hubs Archive is $0.10 per hour per throughput unit, offered at a 50% discount during the preview period.
+Event Hubs Archive se mide de forma similar a las unidades de procesamiento, por hora. El cargo es directamente proporcional al número de unidades de procesamiento que se adquirieron para el espacio de nombres. A medida que las unidades de procesamiento se incrementan y reducen, Event Hubs Archive aumenta y disminuye, con el fin de proporcionar un rendimiento coincidente. Los medidores se producen en tándem. El costo de Event Hubs Archive es $0,10 por hora por unidad de procesamiento, que se ofrece con un descuento del 50 % durante el período de versión preliminar.
 
-Event Hubs Archive truly is the easiest way to get data into Azure. Using Azure Data Lake, Azure Data Factory, and Azure HDInsight, you can perform batch processing and other analytics of your choosing using familiar tools and platforms at any scale you need.
+Sin duda alguna, Event Hubs Archive es la manera más fácil de introducir datos en Azure. Con Azure Data Lake, Azure Data Factory y Azure HDInsight, se pueden realizar el procesamiento por lotes y cualquier otro análisis que desee con las plataformas y herramientas conocidas a la escala que necesite.
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-You can learn more about Event Hubs by visiting the following links:
+Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
-- A complete [sample application that uses Event Hubs][].
-- The [Scale out Event Processing with Event Hubs][] sample.
-- [Event Hubs overview][]
+- Una [aplicación de ejemplo completa que usa Centros de eventos][].
+- El ejemplo [Escala horizontal del procesamiento de eventos con Centros de eventos][].
+- [Información general de los Centros de eventos][]
 
 [Apache Avro]: http://avro.apache.org/
-[support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
+[equipo de soporte técnico]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [1]: ./media/event-hubs-archive-overview/event-hubs-archive1.png
 [2]: media/event-hubs-archive-overview/event-hubs-archive2.png
-[Azure Storage Explorer]: http://azurestorageexplorer.codeplex.com/
+[Explorador de Azure Storage]: http://azurestorageexplorer.codeplex.com/
 [3]: ./media/event-hubs-archive-overview/event-hubs-archive3.png
 [Avro Tools]: http://www-us.apache.org/dist/avro/avro-1.8.1/java/avro-tools-1.8.1.jar
 [Java]: http://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: http://avro.apache.org/docs/current/gettingstartedpython.html
-[Event Hubs overview]: event-hubs-overview.md
-[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Información general de los Centros de eventos]: event-hubs-overview.md
+[aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Escala horizontal del procesamiento de eventos con Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

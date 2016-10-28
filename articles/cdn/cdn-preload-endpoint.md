@@ -1,68 +1,63 @@
 <properties
-    pageTitle="Pre-load assets on an Azure CDN endpoint | Microsoft Azure"
-    description="Learn how to pre-load cached content on a CDN endpoint."
-    services="cdn"
-    documentationCenter=""
-    authors="camsoper"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Carga previa de recursos en un punto de conexión de CDN de Azure | Microsoft Azure"
+	description="Obtenga información sobre cómo precargar el contenido almacenado en caché en un punto de conexión de CDN."
+	services="cdn"
+	documentationCenter=""
+	authors="camsoper"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="cdn"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/28/2016"
-    ms.author="casoper"/>
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2016"
+	ms.author="casoper"/>
 
-
-# <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Pre-load assets on an Azure CDN endpoint
+# Carga previa de activos en un punto de conexión de CDN de Azure
 
 [AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-By default, assets are first cached as they are requested. This means that the first request from each region may take longer, since the edge servers will not have the content cached and will need to forward the request to the origin server. Pre-loading content avoids this first hit latency.
+De forma predeterminada, los recursos primero se almacenan en caché conforme se solicitan. Esto significa que la primera solicitud de cada región puede tardar más tiempo, ya que los servidores perimetrales no tendrán el contenido almacenado en caché y deberán reenviar la solicitud al servidor de origen. La precarga del contenido evita esta latencia de primera visita.
 
-In addition to providing a better customer experience, pre-loading your cached assets can also reduce network traffic on the origin server.
+Además de proporcionar una mejor experiencia de cliente, la precarga de los recursos almacenados en caché puede reducir el tráfico de red en el servidor de origen.
 
-> [AZURE.NOTE] Pre-loading assets is useful for  large events or content that becomes simultaneously available to a large number of users, such as a new movie release or a software update.
+> [AZURE.NOTE] La precarga de recursos es útil para grandes eventos o contenido que se pone a disposición de un gran número de usuarios simultáneamente, como el lanzamiento de una nueva película o una actualización de software.
 
-This tutorial walks you through pre-loading cached content on all Azure CDN edge nodes.
+Este tutorial le guiará a través de la precarga de contenido almacenado en la caché en todos los nodos perimetrales de CDN de Azure.
 
-## <a name="walkthrough"></a>Walkthrough
+## Tutorial
 
-1. In the [Azure Portal](https://portal.azure.com), browse to the CDN profile containing the endpoint you wish to pre-load.  The profile blade opens.
+1. En el [Portal de Azure](https://portal.azure.com), examine el perfil de CDN que contiene el punto de conexión que quiere precargar. Se abre la hoja del perfil.
 
-2. Click the endpoint in the list.  The endpoint blade opens.
+2. Haga clic en el punto de conexión de la lista. Se abre la hoja del punto de conexión.
 
-3. From the CDN endpoint blade, click the load button.
+3. En la hoja del punto de conexión de CDN, haga clic en el botón Cargar.
 
-    ![CDN endpoint blade](./media/cdn-preload-endpoint/cdn-endpoint-blade.png)
+	![Hoja Punto de conexión de CDN](./media/cdn-preload-endpoint/cdn-endpoint-blade.png)
 
-    The Load blade opens.
+	Se abre la hoja Cargar.
 
-    ![CDN load blade](./media/cdn-preload-endpoint/cdn-load-blade.png)
+	![Hoja Carga de CDN](./media/cdn-preload-endpoint/cdn-load-blade.png)
 
-4. Enter the full path of each asset you wish to load (e.g., `/pictures/kitten.png`) in the **Path** textbox.
+4. Escriba la ruta de acceso completa de cada recurso que quiera cargar (por ejemplo, `/pictures/kitten.png`) en el cuadro de texto **Ruta de acceso**.
 
-    > [AZURE.TIP] More **Path** textboxes will appear after you enter text to allow you to build a list of multiple assets.  You can delete assets from the list by clicking the ellipsis (...) button.
-    >
-    > Paths must be a relative URL that fits the following [regular expression](https://msdn.microsoft.com/library/az24scfc.aspx):  `^(?:\/[a-zA-Z0-9-_.\u0020]+)+$`.  Each asset must have its own path.  There is no wildcard functionality for pre-loading assets.
+	> [AZURE.TIP] Aparecerán más cuadros de texto de **Ruta de acceso** después de escribir texto para permitirle crear una lista de varios activos. Puede eliminar activos en la lista haciendo clic en el botón de puntos suspensivos (...).
+	>
+	> Las rutas de acceso deben ser una dirección URL relativa que se ajuste a la siguiente [expresión regular](https://msdn.microsoft.com/library/az24scfc.aspx): `^(?:\/[a-zA-Z0-9-_.\u0020]+)+$`. Cada recurso debe tener su propia ruta de acceso. No hay ninguna funcionalidad comodín para la carga previa de recursos.
 
-    ![Load button](./media/cdn-preload-endpoint/cdn-load-paths.png)
+    ![Botón Cargar](./media/cdn-preload-endpoint/cdn-load-paths.png)
 
-5. Click the **Load** button.
+5. Haga clic en el botón **Cargar**.
 
-    ![Load button](./media/cdn-preload-endpoint/cdn-load-button.png)
+	![Botón Cargar](./media/cdn-preload-endpoint/cdn-load-button.png)
 
-> [AZURE.NOTE] There is a limitation of 10 load requests per minute per CDN profile.
+> [AZURE.NOTE] Hay una limitación de 10 solicitudes de carga por minuto por perfil de red CDN.
 
-## <a name="see-also"></a>See also
-- [Purge an Azure CDN endpoint](cdn-purge-endpoint.md)
-- [Azure CDN REST API reference - Purge or Pre-Load an Endpoint](https://msdn.microsoft.com/library/mt634451.aspx)
+## Consulte también
+- [Purgar un punto de conexión de red CDN de Azure](cdn-purge-endpoint.md)
+- [Referencia de la API de REST de red de CDN de Azure - purgar o cargar previamente un punto de conexión](https://msdn.microsoft.com/library/mt634451.aspx)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="How to move a VM or role instance to a different subnet"
-   description="Learn how to move VMs and role instances to a different subnet"
+   pageTitle="Traslado de una máquina virtual o una instancia de rol a una subred diferente"
+   description="Obtenga información sobre cómo mover las máquinas virtuales y las instancias de rol a una subred diferente"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -15,47 +15,42 @@
    ms.date="03/22/2016"
    ms.author="jdial" />
 
+# Traslado de una máquina virtual o una instancia de rol a una subred diferente
 
-# <a name="how-to-move-a-vm-or-role-instance-to-a-different-subnet"></a>How to move a VM or role instance to a different subnet
+Puede usar PowerShell para mover las máquinas virtuales de un subred a otra en la misma red virtual. Para mover instancias de rol, puede editar el archivo CSCFG en lugar de usar PowerShell.
 
-You can use PowerShell to move your VMs from one subnet to another in the same virtual network (VNet). Role instances can be moved by editing the CSCFG, rather than using PowerShell.
+>[AZURE.NOTE] Este artículo contiene información relativa a implementaciones clásicas de Azure únicamente.
 
->[AZURE.NOTE] This article contains information that is relative to Azure classic deployments only.
+¿Por qué mover máquinas virtuales a otra subred? La migración de subred es útil cuando la antigua subred se queda demasiado pequeña y no se puede expandir debido a que existen máquinas virtuales en ejecución en esa subred. En ese caso, puede crear una subred más grande y migrar las máquinas virtuales a esa nueva subred; a continuación, una vez finalizada la migración, puede eliminar la subred antigua vacía.
 
-Why move VMs to another subnet? Subnet migration is useful when the older subnet is too small and cannot be expanded due to existing running VMs in that subnet. In that case, you can create a new, larger subnet and migrate the VMs to the new subnet, then after migration is complete, you can delete the old empty subnet.
+## Cómo mover una máquina virtual a otra subred
 
-## <a name="how-to-move-a-vm-to-another-subnet"></a>How to move a VM to another subnet
+Para mover una máquina virtual, ejecute el cmdlet de PowerShell Set-AzureSubnet, utilizando el ejemplo siguiente como plantilla. En este ejemplo, movemos TestVM (máquina virtual de prueba) desde la subred actual a Subnet-2 (subred 2). Asegúrese de editar el ejemplo para reflejar su entorno. Tenga en cuenta que siempre que ejecute el cmdlet Update-AzureVM como parte de un procedimiento, se reiniciará la máquina virtual como parte del proceso de actualización.
 
-To move a VM, run the Set-AzureSubnet PowerShell cmdlet, using the example below as a template. In the example below, we are moving TestVM from its present subnet, to Subnet-2. Be sure to edit the example to reflect your environment. Note that whenever you run the Update-AzureVM cmdlet as part of a procedure, it will restart your VM as part of the update process.
+	Get-AzureVM –ServiceName TestVMCloud –Name TestVM `
+	| Set-AzureSubnet –SubnetNames Subnet-2 `
+	| Update-AzureVM
 
-    Get-AzureVM –ServiceName TestVMCloud –Name TestVM `
-  	| Set-AzureSubnet –SubnetNames Subnet-2 `
-  	| Update-AzureVM
+Si especificó una dirección IP privada interna estática para la máquina virtual, tendrá que borrar esa configuración para poder mover la máquina virtual a una nueva subred. En ese caso, utilice lo siguiente:
 
-If you specified a static internal private IP for your VM, you'll have to clear that setting before you can move the VM to a new subnet. In that case, use the following:
+	Get-AzureVM -ServiceName TestVMCloud -Name TestVM `
+	| Remove-AzureStaticVNetIP `
+	| Update-AzureVM
+	Get-AzureVM -ServiceName TestVMCloud -Name TestVM `
+	| Set-AzureSubnet -SubnetNames Subnet-2 `
+	| Update-AzureVM
 
-    Get-AzureVM -ServiceName TestVMCloud -Name TestVM `
-  	| Remove-AzureStaticVNetIP `
-  	| Update-AzureVM
-    Get-AzureVM -ServiceName TestVMCloud -Name TestVM `
-  	| Set-AzureSubnet -SubnetNames Subnet-2 `
-  	| Update-AzureVM
+## Para mover una instancia de rol a otra subred
 
-## <a name="to-move-a-role-instance-to-another-subnet"></a>To move a role instance to another subnet
+Para mover una instancia de rol, edite el archivo CSCFG. En este ejemplo, movemos "Role0" (rol 0) en la red virtual *VNETName* desde la subred actual a *Subnet-2* (subred 2). Como ya se ha implementado la instancia de rol, solo tendrá que cambiar el nombre de la subred = Subnet-2 (subred 2). Asegúrese de editar el ejemplo para reflejar su entorno.
 
-To move a role instance, edit the CSCFG file. In the example below, we are moving "Role0" in virtual network *VNETName* from its present subnet to *Subnet-2*. Because the role instance was already deployed, you'll just change the Subnet name = Subnet-2. Be sure to edit the example to reflect your environment.
+	<NetworkConfiguration>
+	    <VirtualNetworkSite name="VNETName" />
+	    <AddressAssignments>
+	       <InstanceAddress roleName="Role0">
+	            <Subnets><Subnet name="Subnet-2" /></Subnets>
+	       </InstanceAddress>
+	    </AddressAssignments>
+	</NetworkConfiguration> 
 
-    <NetworkConfiguration>
-        <VirtualNetworkSite name="VNETName" />
-        <AddressAssignments>
-           <InstanceAddress roleName="Role0">
-                <Subnets><Subnet name="Subnet-2" /></Subnets>
-           </InstanceAddress>
-        </AddressAssignments>
-    </NetworkConfiguration> 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introduction to FreeBSD on Azure | Microsoft Azure"
-   description="Learn about using FreeBSD virtual machines on Azure"
+   pageTitle="Introducción a FreeBSD en Azure | Microsoft Azure"
+   description="Aprenda a utilizar máquinas virtuales de FreeBSD en Azure"
    services="virtual-machines-linux"
    documentationCenter=""
    authors="KylieLiang"
@@ -17,63 +17,54 @@
    ms.date="08/27/2016"
    ms.author="kyliel"/>
 
+# Introducción a FreeBSD en Azure
+Este tema proporciona una visión general de la ejecución de una máquina virtual de FreeBSD en Azure.
 
-# <a name="introduction-to-freebsd-on-azure"></a>Introduction to FreeBSD on Azure
-This topic provides an overview of running a FreeBSD virtual machine in Azure.
+## Información general
+FreeBSD para Microsoft Azure es un sistema operativo avanzado que se utiliza para servidores modernos, equipos de escritorio y plataformas insertadas. Microsoft Corporation proporciona la imagen de FreeBSD 10.3 y está disponible en Azure. Se basa en la versión de FreeBSD 10.3 y el Agente invitado de VM de Azure [2\.1.4](https://github.com/Azure/WALinuxAgent/releases/tag/v2.1.4) está instalado. El agente es responsable de la comunicación entre la VM de FreeBSD y el tejido de Azure para operaciones como el aprovisionamiento de la VM en el primer uso (nombre de usuario, contraseña, nombre de host, etc.) y la habilitación de la funcionalidad para las extensiones de VM selectivas. En cuanto a futuras versiones de FreeBSD, la estrategia es mantenerse al día y que las últimas versiones estén disponibles al poco tiempo de que el equipo de ingeniería de versión de FreeBSD las publique. La próxima versión es [FreeBSD 11](https://www.freebsd.org/releases/11.0R/schedule.html).
 
-## <a name="overview"></a>Overview
-FreeBSD for Microsoft Azure is an advanced computer operating system used to power modern servers, desktops, and embedded platforms. The FreeBSD 10.3 image is provided by Microsoft Corporation and is available in Azure. It is based on the FreeBSD 10.3 release, and Azure VM Guest Agent [2.1.4](https://github.com/Azure/WALinuxAgent/releases/tag/v2.1.4) is installed. The agent is responsible for communication between the FreeBSD VM and the Azure fabric for operations, such as provisioning the VM on first use (user name, password, host name, etc.) and enabling functionality for selective VM extensions.
-As for future versions of FreeBSD, the strategy is to stay current and make the latest releases available shortly after they are released by the FreeBSD release engineering team. The upcoming release is [FreeBSD 11](https://www.freebsd.org/releases/11.0R/schedule.html).
+## Implementación de una máquina virtual de FreeBSD
+La implementación de una máquina virtual con FreeBSD es un proceso sencillo cuando se usa una imagen de [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/).
 
-## <a name="deploying-a-freebsd-virtual-machine"></a>Deploying a FreeBSD virtual machine
-Deploying a FreeBSD virtual machine is a straightforward process using an image from the [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/).
+## Extensiones de VM para FreeBSD
+A continuación se muestran las extensiones de VM compatibles en FreeBSD.
 
-## <a name="vm-extensions-for-freebsd"></a>VM extensions for FreeBSD
-Following are supported VM extensions in FreeBSD.
+### VMAccess
 
-### <a name="vmaccess"></a>VMAccess
+La extensión [VMAccess](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) puede:
 
-The [VMAccess](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) extension can:
+- Restablecer la contraseña del usuario de sudo original.
+- Crear un nuevo usuario de sudo con la contraseña especificada.
+- Establecer la clave pública del host con la clave dada.
+- Restablecer la clave pública del host proporcionada durante el aprovisionamiento de VM si no se proporciona clave de host.
+- Abrir el puerto (22) SSH y restaurar sshd\_config si reset\_ssh está establecido en true.
+- Quitar el usuario existente.
+- Comprobar discos.
+- Reparar un disco agregado.
 
-- Reset the password of the original sudo user.
-- Create a new sudo user with the password specified.
-- Set the public host key with the key given.
-- Reset the public host key provided during VM provisioning if the host key is not provided.
-- Open the SSH port (22) and restore the sshd_config if reset_ssh is set to true.
-- Remove the existing user.
-- Check disks.
-- Repair an added disk.
+### CustomScript
 
-### <a name="customscript"></a>CustomScript
+La extensión [CustomScript](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript) puede:
 
-The [CustomScript](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript) extension can:
+- Si se proporciona, descargar los scripts desde Azure Storage o desde un almacenamiento público externo (por ejemplo, GitHub).
+- Ejecutar el script de punto de entrada.
+- Admitir comandos en línea.
+- Convertir la nueva línea de estilo de Windows en scripts de Shell y Python automáticamente.
+- Quitar la marca BOM en scripts de Shell y Python automáticamente.
+- Proteger la información confidencial en CommandToExecute.
 
-- If provided, download the customized scripts from Azure Storage or external public storage (for example, GitHub).
-- Run the entry point script.
-- Support inline commands.
-- Convert Windows-style newline in shell and Python scripts automatically.
-- Remove BOM in shell and Python scripts automatically.
-- Protect sensitive data in CommandToExecute.
+## Autenticación: nombres de usuario, contraseñas y claves SSH
+Al crear una máquina virtual FreeBSD con el Azure Portal, debe proporcionar un nombre de usuario, una contraseña o una clave pública SSH. Los nombres de usuario para implementar una máquina virtual de FreeBSD en Azure no deben coincidir con los nombres de cuentas del sistema (UID < 100) ya presentes en la máquina virtual ("raíz", por ejemplo). Actualmente, solo se admite la clave RSA SSH. Una clave SSH de varias líneas tiene que empezar con "---- BEGIN SSH2 PUBLIC KEY ----" y terminar con "---- END SSH2 PUBLIC KEY ----".
 
-## <a name="authentication:-user-names,-passwords,-and-ssh-keys"></a>Authentication: user names, passwords, and SSH keys
-When you're creating a FreeBSD virtual machine by using the Azure portal, you must provide a user name, password, or SSH public key.
-User names for deploying a FreeBSD virtual machine on Azure must not match names of system accounts (UID <100) already present in the virtual machine ("root," for example).
-Currently, only the RSA SSH key is supported. A multiline SSH key must begin with "---- BEGIN SSH2 PUBLIC KEY ----" and end with "---- END SSH2 PUBLIC KEY ----".
-
-## <a name="obtaining-superuser-privileges"></a>Obtaining superuser privileges
-The user account that is specified during virtual machine instance deployment on Azure is a privileged account. The package of sudo was installed in the published FreeBSD image.
-After you're logged in through this user account, you can run commands as root by using the command syntax.
+## Obtención de privilegios de superusuario
+La cuenta de usuario especificada durante la implementación de la instancia de máquina virtual en Azure es una cuenta con privilegios. Se instaló el paquete de sudo en la imagen de FreeBSD publicada. Después de iniciar sesión con esta cuenta de usuario, puede ejecutar comandos como root con usando la sintaxis de comando.
 
     # sudo <COMMAND>
 
-You can optionally obtain a root shell by using sudo -s.
+También puede obtener un shell root con sudo -s.
 
-## <a name="next-steps"></a>Next steps
-- Go to [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/) to create a FreeBSD VM.
-- If you want to bring your own FreeBSD to Azure, refer to [Create and upload a FreeBSD VHD to Azure](../virtual-machines-linux-classic-freebsd-create-upload-vhd.md).
+## Pasos siguientes
+- Acuda a [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/) para crear una máquina virtual de FreeBSD.
+- Si desea incorporar su propio FreeBSD a Azure, consulte [Creación y carga de un VHD de FreeBSD en Azure](../virtual-machines-linux-classic-freebsd-create-upload-vhd.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,14 +1,12 @@
-#### <a name="to-get-the-storsimple-service-registration-key"></a>To get the StorSimple service registration key
+#### Para obtener la clave de registro del servicio de StorSimple
 
-1.  On the **StorSimple Manager service** page, click **Registration Key** at the bottom of the page.
+1.  En la parte inferior de la página del **Servicio StorSimple Manager**, haga clic en **Clave de registro**.
 
-2.  You will have to wait for a few minutes while the key is retrieved. The **Service Registration Key** dialog box appears.
-
-
-    1.  Locate the **Service Registration Key**.
-
-    2.  Click the copy icon ![](./media/storsimple-ova-get-service-registration-key/image6-include.png) to copy the key and save it for later use.
-
-<!--HONumber=Oct16_HO2-->
+2.  Tendrá que esperar unos minutos mientras se recupera la clave. Aparece el cuadro de diálogo **Clave de registro del servicio**.
 
 
+	1.  Busque la **clave de registro del servicio**.
+
+	2.  Haga clic en el icono de copia ![](./media/storsimple-ova-get-service-registration-key/image6-include.png) para copiar la clave y guardarla para su uso posterior.
+
+<!---HONumber=AcomDC_0128_2016-->

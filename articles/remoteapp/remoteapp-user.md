@@ -1,8 +1,8 @@
 <properties
-    pageTitle="Add a user to your Azure RemoteApp collection | Microsoft Azure"
-    description="Learn how to add users to your Azure RemoteApp collection"
+    pageTitle="Adición de un usuario a la colección de Azure RemoteApp | Microsoft Azure"
+    description="Obtenga información acerca de cómo agregar usuarios a la aplicación de Azure RemoteApp."
     services="remoteapp"
-    documentationCenter=""
+	documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -15,49 +15,44 @@
     ms.date="08/15/2016"
     ms.author="elizapo" />
 
-
-# <a name="how-to-add-a-user-to-your-azure-remoteapp-collection"></a>How to add a user to your Azure RemoteApp collection
+# Agregar usuarios a la aplicación de Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
-Before your users can see and use your apps in Azure RemoteApp, you have to grant them access to your collection. This is the easy part: On the **User Access** tab, enter the account information for the user, and then click the check mark.
+Para que los usuarios puedan ver y usar las aplicaciones en Azure RemoteApp, debe concederles acceso a la colección. Esta es la parte fácil: en la pestaña **Acceso de usuario**, escriba la información de cuenta del usuario y, a continuación, haga clic en la marca de verificación.
 
-What account information do you need? That depends on the type of collection you created (cloud or hybrid) and whether you are using Office 365 ProPlus in that collection.
+¿Qué información de cuenta necesita? Depende del tipo de colección que haya creado (en nube o híbrida) y si está usando Office 365 ProPlus en esa colección.
 
-## <a name="supported-user-identities"></a>Supported user identities
+## Identidades de usuario admitido
 
-The different collection types (cloud vs. hybrid) support using different user identities for access to applications.  
+Los distintos tipos de colección (nube frente a híbrida) admiten el uso de distintas identidades de usuario para el acceso a las aplicaciones.
 
-For a hybrid collection of RemoteApp, you need to set up an Active Directory domain infrastructure on premises and an Azure Active Directory tenant with Directory Integration (and optionally single sign-on). Additionally, you need to create some Active Directory objects in the on-premises directory.  
+Para una colección híbrida de RemoteApp, tendrá que configurar una infraestructura de dominio de Active Directory local y un inquilino de Azure Active Directory con integración de directorios (e inicio de sesión único opcional). Además, deberá crear algunos objetos de Active Directory en el directorio local.
 
-For a cloud collection of RemoteApp, any user that has Azure Active Directory support identities can be granted user access to RemoteApp to include Microsoft Accounts.  See the table below.
+Para una colección de nube de RemoteApp, a cualquier usuario con Azure Active Directory que admita identidades se le puede conceder acceso de usuario a RemoteApp para incluir cuentas Microsoft. Consulte la siguiente tabla.
 
-Office 365 users are Azure Active Directory users. If they have Azure Active Directory hybrid, Directory synchronized accounts, they can be granted user access in a RemoteApp hybrid deployment.   
+Los usuarios de Office 365 son usuarios de Azure Active Directory. Si tienen cuentas de colección híbrida con sincronización de directorios de Azure Active Directory, se les puede conceder acceso de usuario en una implementación híbrida de RemoteApp.
 
-You can use this table as a quick reference for which identity is supported in your collection and what the Active Directory requirements are.
+Puede usar esta tabla como referencia rápida para saber qué identidad se admite en la colección y cuáles son los requisitos de Active Directory.
 
-|User accounts |Cloud   |Hybrid|
+|Cuentas de usuario |Nube |Híbrida|
 |--------------|--------|------|
-|Microsoft Account|     Yes|    No|
-|Azure Active Directory (Azure AD)| | |
-|Azure AD cloud only    |Yes    |No |
-|ADsync with password sync  |Yes    |Yes    |
-|ADsync without password sync|  Yes |No |
-|ADsync with AD FS  |Yes    |Yes    |
-|[3rd-party Azure supported identity providers](https://msdn.microsoft.com/library/azure/jj679342.aspx)  (example Ping) |Yes    |Yes|
-|Multi-Factor Authentication    |Yes    |Yes    |
+|Cuenta Microsoft| 	Sí|	No|
+|Azure Active Directory (Azure AD)| | |
+|Solo nube de Azure AD |Sí |No |
+|ADsync con sincronización de contraseñas |Sí |Sí |
+|ADsync sin sincronización de contraseñas|	Sí |No |
+|ADsync con AD FS |Sí |Sí |
+|[Proveedores de identidades de terceros compatibles con Azure](https://msdn.microsoft.com/library/azure/jj679342.aspx) (por ejemplo, Ping) |Sí |Sí|
+|Multi-Factor Authentication |Sí |Sí |
 
-Check out [more information](remoteapp-ad.md) about configuring Active Directory for RemoteApp.
-
-
-> [AZURE.NOTE] The Azure Active Directory users must be from the tenant that's associated with your subscription. (You can view and modify your subscription on the **Settings** tab in the portal. See [Change the Azure Active Directory tenant used by RemoteApp](remoteapp-changetenant.md) for more information.)
-
-## <a name="office-365-proplus-user-account-information"></a>Office 365 ProPlus user account information
-If you are using the Office 365 ProPlus template image in your collection *or* if you created a custom image that uses Office 365, you are only allowed to add Azure Active Directory users that have Office 365 subscriptions for the default domain of your subscription. See [Using Office 365 with Azure RemoteApp](remoteapp-o365.md) for more information.
+Consulte [más información](remoteapp-ad.md) sobre cómo configurar Active Directory para RemoteApp.
 
 
+> [AZURE.NOTE] Los usuarios de Azure Active Directory deben proceder del inquilino asociado a la suscripción. (Puede ver y modificar su suscripción en la pestaña **Configuración** del portal. Consulte [Cambio del inquilino de Azure Active Directory que usa RemoteApp](remoteapp-changetenant.md) para obtener más información).
 
-<!--HONumber=Oct16_HO2-->
+## Información de la cuenta de usuario de Office 365 ProPlus
+Si usa la imagen de plantilla de Office 365 ProPlus en su colección *o* si creó una imagen personalizada que usa Office 365, solo puede agregar usuarios de Azure Active Directory que tengan suscripciones de Office 365 para el dominio predeterminado de su suscripción. Consulte [Uso de Office 365 con RemoteApp de Azure](remoteapp-o365.md) para obtener más información.
 
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="What is in the Azure RemoteApp template images? | Microsoft Azure"
-    description="Learn about the template images included with Azure RemoteApp."
+    pageTitle="¿Cuáles son las imágenes de plantilla de Azure RemoteApp? | Microsoft Azure"
+    description="Obtenga información sobre las imágenes de plantilla incluidas con Azure RemoteApp."
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -15,39 +15,38 @@
     ms.date="08/15/2016"
     ms.author="elizapo" />
 
-
-# <a name="what-is-in-the-azure-remoteapp-template-images?"></a>What is in the Azure RemoteApp template images?
+# ¿Cuáles son las imágenes de plantilla de Azure RemoteApp?
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Azure RemoteApp va a dejar de estar disponible. Para más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
 
-Your Azure RemoteApp subscription includes three template images:
+La suscripción de Azure RemoteApp incluye tres imágenes de plantilla:
 
 
 - Windows Server 2012
-- Microsoft Office 365 ProPlus (Office 365 subscription required)
-- Microsoft Office 2013 Professional Plus (trial only)
+- Microsoft Office 365 ProPlus (se requiere suscripción a Office 365)
+- Microsoft Office Professional Plus 2013 (solo versión de prueba)
 
-> [AZURE.IMPORTANT]Your Azure RemoteApp subscription grants you access to the software in the images, with the exception of Office 365 ProPlus, which requires a separate subscription, and Office 2013, which cannot be used in production. This means that you can share the programs or apps on the template images with your users. For example, if you create a collection that uses the Windows Server 2012 R2 image, you can publish System Center Endpoint Protection for users to access through RemoteApp.
+> [AZURE.IMPORTANT]Su suscripción de Azure RemoteApp le concede acceso al software en las imágenes, con la excepción de Office 365 ProPlus, que requiere una suscripción independiente y Office 2013, que no se puede usar en producción. Esto significa que puede compartir los programas o aplicaciones en las imágenes de plantilla con los usuarios. Por ejemplo, si crea una colección que usa la imagen de Windows Server 2012 R2, puede publicar System Center Endpoint Protection para que los usuarios tengan acceso a través de RemoteApp.
 >
-> Check out the [RemoteApp licensing details](remoteapp-licensing.md) for more information. And [Using Office with Azure RemoteApp](remoteapp-o365.md) for the Office licensing info.
+> Consulte los [Detalles de concesión de licencias de RemoteApp](remoteapp-licensing.md) para obtener más información. Y [Uso de Office con Azure RemoteApp](remoteapp-o365.md) para ver la información de licencia de Office.
 
-Read on for details on what each image contains.
+Siga leyendo para obtener más información sobre lo que contiene cada imagen.
 
-## <a name="windows-server-2012-r2-("the-vanilla-image")"></a>Windows Server 2012 R2  ("the vanilla image")
-This image is based on Microsoft Windows Server 2012 R2 Datacenter operating system and has the following roles and features installed to meet the requirements for Azure RemoteApp template images:
+## Windows Server 2012 R2 ("vanilla image")
+Esta imagen se basa en el sistema operativo Microsoft Windows Server 2012 R2 Datacenter y tiene los siguientes roles y características instalados para cumplir los requisitos de las imágenes de plantilla de Azure RemoteApp:
 
 
 - .NET Framework 4.5, 3.5.1, 3.5
-- Desktop Experience
-- Ink and Handwriting Services
+- Experiencia de escritorio
+- Servicios de Escritura con lápiz y Escritura a mano
 - Media Foundation
-- Remote Desktop Session Host
+- Host de sesión de Escritorio remoto
 - Windows PowerShell 4.0
 - Windows PowerShell ISE
-- WoW64 Support
+- Compatibilidad con WoW64
 
-This image also has the following applications installed:
+Esta imagen también tiene instaladas las siguientes aplicaciones:
 
 - Adobe Flash Player
 - Microsoft Silverlight
@@ -55,61 +54,57 @@ This image also has the following applications installed:
 - Microsoft Windows Media Player
 
 
-## <a name="microsoft-office-365-proplus-(subscription-required)"></a>Microsoft Office 365 ProPlus (subscription required)
-Office 365 is the most requested application, so we created a "custom" image for you to work with.
+## Microsoft Office 365 ProPlus (se requiere suscripción)
+Office 365 es la aplicación más solicitada, por lo que hemos creado una imagen "personalizada" para que pueda trabajar con ella.
 
-This image is an extension of the vanilla image and has the following components of Microsoft Office 365 ProPlus installed in addition to the components described in the Windows Server 2012 R2 image:
+Esta imagen es una extensión de la vanilla image y tiene los siguientes componentes de Microsoft Office 365 ProPlus instalados, además de los componentes descritos en la imagen de Windows Server 2012 R2:
 
 
 - Access
 - Excel
 - Lync
 - OneNote
-- OneDrive for Business (note that the sync agent is not supported for use with Azure RemoteApp)
+- OneDrive para la Empresa (tenga en cuenta que no se admite el uso del agente de sincronización con Azure RemoteApp)
 - Outlook
 - PowerPoint
 - Word
-- Microsoft Office Proofing Tools
+- Herramientas de corrección de Microsoft Office
 
-The image also includes Visio Pro and Project Pro.
+La imagen también incluye Visio Pro y Project Pro.
 
-And the following applications, as well:
+Además de las aplicaciones siguientes:
 
-- SQL Native client
-- ODBC Driver
-- SQL Server Data Mining client
-- MasterDataServices client
+- SQL Native Client
+- Controlador ODBC
+- Cliente de minería de datos para SQL Server
+- Cliente MasterDataServices
 - Microsoft Publisher
 - PowerQuery
 - PowerMap
 
 
-Full functionality of Office 365 ProPlus apps is available only for users who have an Office 365 ProPlus plan. For more details on the Office 365 subscription plans see [Office 365 service plans](http://technet.microsoft.com/library/office-365-plan-options.aspx). Still have questions? Check out the [Office 365 + RemoteApp](remoteapp-o365.md) information. Also check out the new article, [How to use your Office 365 subscription with Azure RemoteApp](remoteapp-officesubscription.md).
+La funcionalidad completa de las aplicaciones de Office 365 ProPlus está disponible solo para los usuarios que tienen un plan de Office 365 ProPlus. Para más información sobre los planes de suscripción a Office 365, consulte los [planes de servicio de Office 365](http://technet.microsoft.com/library/office-365-plan-options.aspx). ¿Todavía tiene preguntas? Consulte la información de [Office 365 + RemoteApp](remoteapp-o365.md). Consulte también el nuevo artículo [Uso de la suscripción de Office 365 con Azure RemoteApp](remoteapp-officesubscription.md).
 
-Note that you need to license Office 365 ProPlus, Visio Pro, and Project Pro separately - they each have their own license.
+Tenga en cuenta que necesita licencias para Office 365 ProPlus, Visio Pro y Project Pro por separado (cada uno tiene su propia licencia).
 
-## <a name="microsoft-office-2013-professional-plus-(trial-only)"></a>Microsoft Office 2013 Professional Plus (trial only)
-During the free trial period, you can test the service with the Office 2013 image.
+## Microsoft Office Professional Plus 2013 (solo versión de prueba)
+Durante el período de prueba gratuito, puede probar el servicio con la imagen de Office 2013.
 
-This image is an extension of the vanilla image and has the following components of Microsoft Office 2013 Professional Plus installed in addition to the components described in the Windows Server 2012 R2 image:
+Esta imagen es una extensión de la vanilla image y tiene los siguientes componentes de Microsoft Office 2013 Professional Plus instalados, además de los componentes descritos en la imagen de Windows Server 2012 R2:
 
 
 - Access
 - Excel
 - Lync
 - OneNote
-- OneDrive for Business (note that the sync agent is not supported for use with Azure RemoteApp)
+- OneDrive para la Empresa (tenga en cuenta que no se admite el uso del agente de sincronización con Azure RemoteApp)
 - Outlook
 - PowerPoint
-- Project
+- proyecto
 - Visio
 - Word
-- Microsoft Office Proofing Tools
+- Herramientas de corrección de Microsoft Office
 
-> [AZURE.IMPORTANT]**Legal information:** This image does not include a Microsoft Office license and *cannot be used for production*. The Office 2013 Professional Plus image is intended for trial use only. If you want to use Office apps in Azure RemoteApp for production, you need to use the Office 365 ProPlus image. For more details on licensing Office, see [Using Office 365 with Azure RemoteApp](remoteapp-o365.md)
+> [AZURE.IMPORTANT]**Información legal**: esta imagen no incluye una licencia de Microsoft Office y *no se puede usar en producción*. La imagen de Office 2013 Professional Plus solo tiene fines de prueba. Si quiere usar aplicaciones de Office en RemoteApp de Azure para producción, deberá usar la imagen de Office 365 ProPlus. Para obtener más detalles sobre las licencias de Office, consulte [Uso de Office 365 con Azure RemoteApp](remoteapp-o365.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

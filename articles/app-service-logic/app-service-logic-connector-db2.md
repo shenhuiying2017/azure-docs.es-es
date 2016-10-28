@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using the DB2 connector in Microsoft Azure App Service | Microsoft Azure"
-   description="How to use the DB2 connector with Logic app triggers and actions"
+   pageTitle="Uso del conector DB2 en el Servicio de aplicaciones de Microsoft Azure | Microsoft Azure"
+   description="Uso del conector DB2 con desencadenadores y acciones de aplicación lógica"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="gplarsen"
@@ -16,70 +16,68 @@
    ms.date="05/31/2016"
    ms.author="plarsen"/>
 
+# Conector DB2
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de aplicaciones lógicas.
 
-# <a name="db2-connector"></a>DB2 connector
->[AZURE.NOTE] This version of the article applies to Logic apps 2014-12-01-preview schema version.
+Microsoft Connector para DB2 es una aplicación de API para conectar aplicaciones, mediante el Servicio de aplicaciones de Azure, a los recursos almacenados en una base de datos DB2 de IBM. El conector dispone de un cliente Microsoft para conectarse a equipos servidores remotos de DB2 a través de una conexión de red TCP/IP, incluidas las conexiones híbridas de Azure a servidores locales de DB2 mediante Retransmisión de bus de servicio de Azure. El conector admite las siguientes operaciones de base de datos:
 
-Microsoft connector for DB2 is an API app for connecting applications through Azure App Service to resources stored in an IBM DB2 database. Connector includes a Microsoft Client to connect to remote DB2 server computers across a TCP/IP network connection, including Azure hybrid connections to on-premises DB2 servers using the Azure Service Bus Relay connector supports the following database operations:
+- Leer las filas mediante SELECT
+- Sondear para leer filas mediante SELECT COUNT, seguido de SELECT
+- Agregar una o varias filas (en masa) mediante INSERT
+- Modificar una o varias filas (en masa) mediante UPDATE
+- Quitar una o varias filas (en masa) mediante DELETE
+- Leer para modificar filas con SELECT CURSOR seguido de UPDATE WHERE CURRENT OF CURSOR
+- Leer para quitar filas con SELECT CURSOR seguido de UPDATE WHERE CURRENT OF CURSOR
+- Ejecutar un procedimiento con parámetros de entrada y salida, valor devuelto y conjunto de resultados mediante CALL
+- Comandos personalizados y operaciones compuestas con SELECT, INSERT, UPDATE, DELETE
 
-- Read rows using SELECT
-- Poll to read rows using SELECT COUNT followed by SELECT
-- Add one row or multiple (bulk) rows using INSERT
-- Alter one row or multiple (bulk) rows using UPDATE
-- Remove one row or multiple (bulk) rows using DELETE
-- Read to alter rows using SELECT CURSOR followed by UPDATE WHERE CURRENT OF CURSOR
-- Read to remove rows using SELECT CURSOR followed by UPDATE WHERE CURRENT OF CURSOR
-- Run procedure with input and output parameters, return value, resultset, using CALL
-- Custom commands and composite operations using SELECT, INSERT, UPDATE, DELETE
+## Acciones y desencadenadores
+El conector admite los siguientes desencadenadores y acciones de aplicación lógica:
 
-## <a name="triggers-and-actions"></a>Triggers and Actions
-Connector supports the following Logic app triggers and actions:
-
-Triggers | Actions
+Desencadenadores | Acciones
 --- | ---
-<ul><li>Poll Data</li></ul> | <ul><li>Bulk Insert</li><li>Insert</li><li>Bulk Update</li><li>Update</li><li>Call</li><li>Bulk Delete</li><li>Delete</li><li>Select</li><li>Conditional update</li><li>Post to EntitySet</li><li>Conditional delete</li><li>Select single entity</li><li>Delete</li><li>Upsert to EntitySet</li><li>Custom commands</li><li>Composite operations</li></ul>
+<ul><li>Datos de sondeo</li></ul> | <ul><li>Inserción en masa</li><li>Inserción</li><li>Actualización en masa</li><li>Actualización</li><li>Llamada</li><li>Eliminación en masa</li><li>Eliminación</li><li>Selección</li><li>Actualización condicional</li><li>Publicación en EntitySet</li><li>Eliminación condicional</li><li>Selección de una única entidad</li><li>Eliminación</li><li>Upsert en EntitySet</li><li>Comandos personalizados</li><li>Operaciones compuestas</li></ul>
 
 
-## <a name="create-the-db2-connector"></a>Create the DB2 connector
-You can define a connector within a Logic app or from the Azure Marketplace, like in the following example:  
+## Creación del conector DB2
+Puede definir un conector dentro de una aplicación lógica o desde Azure Marketplace, como en el ejemplo siguiente:
 
-1. In the Azure startboard, select **Marketplace**.
-2. In the **Everything** blade, type **db2** in the **Search Everything** box, and then click the enter key.
-3. In the search everything results pane, select **DB2 connector**.
-4. In the DB2 connector description blade, select **Create**.
-5. In the DB2 connector package blade, enter the Name (e.g. "Db2ConnectorNewOrders"), App Service Plan, and other properties.
-6. Select **Package settings**, and enter the following package settings:  
+1. En el panel de inicio de Azure, seleccione **Marketplace**.
+2. En la hoja **Todo**, escriba **db2** en el cuadro **Buscar en todo** y después haga clic en la tecla ENTRAR.
+3. En el panel de resultados de Buscar en todo, seleccione **Conector DB2**.
+4. En la hoja de descripción del conector DB2, seleccione **Crear**.
+5. En la hoja del paquete del conector DB2, escriba el nombre (por ejemplo, "Db2ConnectorNewOrders"), el plan del Servicio de aplicaciones y otras propiedades.
+6. Seleccione **Configuración del paquete** e indique la siguiente configuración para el paquete:
 
-    Name | Required |  Description
+	Nombre | Obligatorio | Descripción
 --- | --- | ---
-ConnectionString | Yes | DB2 Client connection string (e.g., "Network Address=servername;Network Port=50000;User ID=username;Password=password;Initial Catalog=SAMPLE;Package Collection=NWIND;Default Schema=NWIND").
-Tables | Yes | Comma separated list of table, view and alias names required for OData operations and to generate swagger documentation with examples (e.g. "*NEWORDERS*").
-Procedures | Yes | Comma separated list of procedure and function names (e.g. "SPORDERID").
-OnPremise | No | Deploy on-premises using Azure Service Bus Relay.
-ServiceBusConnectionString | No | Azure Service Bus Relay connection string.
-PollToCheckData | No | SELECT COUNT statement to use with a Logic app trigger (e.g. "SELECT COUNT(\*) FROM NEWORDERS WHERE SHIPDATE IS NULL").
-PollToReadData | No | SELECT statement to use with a Logic app trigger (e.g. "SELECT \* FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE").
-PollToAlterData | No | UPDATE or DELETE statement to use with a Logic app trigger (e.g. "UPDATE NEWORDERS SET SHIPDATE = CURRENT DATE WHERE CURRENT OF &lt;CURSOR&gt;").
+ConnectionString | Sí | Cadena de conexión de cliente de DB2 (por ejemplo, "Network Address=nombreDeServidor;Network Port=50000;User ID=nombreDeUsuario;Password=contraseña;Initial Catalog=SAMPLE;Package Collection=NWIND;Default Schema=NWIND").
+Tablas | Sí | Lista delimitada por comas de nombres de tabla, vista y alias necesarios para las operaciones de OData y para generar documentación de Swagger con ejemplos (por ejemplo, "*NEWORDERS*").
+Procedimientos | Sí | Lista delimitada por comas de nombres de función y procedimiento (por ejemplo, "SPORDERID").
+OnPremise | No | Implementación local mediante la Retransmisión de bus de servicio de Azure
+ServiceBusConnectionString | No | Cadena de conexión de la Retransmisión de bus de servicio de Azure
+PollToCheckData | No | Instrucción SELECT COUNT para usar con un desencadenador de aplicación lógica (por ejemplo, "SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL").
+PollToReadData | No | Instrucción SELECT para usar con un desencadenador de aplicación lógica (por ejemplo, "SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE").
+PollToAlterData | No | Instrucción UPDATE o DELETE para usar con un desencadenador de aplicación lógica (por ejemplo, "UPDATE NEWORDERS SET SHIPDATE = CURRENT DATE WHERE CURRENT OF &lt;CURSOR&gt;").
 
-7. Select **OK**, and then Select **Create**.
-8. When complete, the Package Settings look similar to the following:  
-![][1]
+7. Seleccione **Aceptar** y después **Crear**.
+8. Cuando termine, la configuración del paquete tendrá un aspecto similar al siguiente: ![][1]
 
 
-## <a name="logic-app-with-db2-connector-action-to-add-data"></a>Logic app with DB2 connector action to add data ##
-You can define a Logic app action to add data to a DB2 table using an API Insert or Post to Entity OData operation. For example, you can insert a new customer order record, by processing a SQL INSERT statement against a table defined with an identity column, returning the identity value or the rows affected to the Logic app (SELECT ORDID FROM FINAL TABLE (INSERT INTO NWIND.NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
+## Aplicación lógica con la acción del conector DB2 para agregar datos ##
+Puede definir una acción de aplicación lógica para agregar datos a una tabla de DB2 mediante una operación de OData para la inserción o la publicación de API en una entidad. Por ejemplo, puede insertar un registro de pedido de cliente nuevo; para ello, se procesa una instrucción SQL INSERT en una tabla definida con una columna de identidad, lo que devuelve el valor de identidad o las filas afectadas a la aplicación lógica (SELECT ORDID FROM FINAL TABLE (INSERT INTO NWIND.NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
 
-> [AZURE.TIP] DB2 Connection "*Post to EntitySet*" returns the identity column value and "*API Insert*" returns rows affected
+> [AZURE.TIP] Con "*Publicar en EntitySet*" en la conexión de DB2, se devuelve el valor de la columna de identidad y con "*Inserción de API*", se devuelven las filas afectadas.
 
-1. In the Azure startboard, select **+** (plus sign), **Web + Mobile**, and then **Logic app**.
-2. Enter the Name (e.g. "NewOrdersDb2"), App Service Plan, other properties, and then select **Create**.
-3. In the Azure startboard, select the Logic app you just created, **Settings**, and then **Triggers and actions**.
-4. In the Triggers and actions blade, select **Create from Scratch** within the Logic app Templates.
-5. In the API Apps panel, select **Recurrence**, set a frequency and interval, and then **checkmark**.
-6. In the API Apps panel, select **DB2 connector**, expand the operations list to select **Insert into NEWORDER**.
-7. Expand the parameters list to enter the following values:  
+1. En el Panel de inicio de Azure, seleccione **+** (signo más), **Web y móvil** y después **Aplicación lógica**.
+2. Escriba el nombre (por ejemplo, "NewOrdersDb2"), el plan del Servicio de aplicaciones y otras propiedades, y después seleccione **Crear**.
+3. En el panel de inicio de Azure, seleccione la aplicación lógica que acaba de crear, **Configuración** y después **Desencadenadores y acciones**.
+4. En la hoja Triggers and actions (Desencadenadores y acciones), seleccione **Create from Scratch** (Crear desde cero) en Logic app Templates (Plantillas de aplicación lógica).
+5. En el panel Aplicaciones de API, seleccione **Periodicidad**, establezca un intervalo y una frecuencia y después seleccione la **marca de verificación**.
+6. En el panel Aplicaciones de API, seleccione **Conector DB2** y expanda la lista de operaciones para seleccionar **Insert into NEWORDER** (Insertar en NEWORDER).
+7. Expanda la lista de parámetros para especificar los valores siguientes:
 
-    Name | Value
+	Nombre | Valor
 --- | --- 
 CUSTID | 10042
 SHIPNAME | Lazy K Kountry Store 
@@ -88,183 +86,173 @@ SHIPCITY | Walla Walla
 SHIPREG | WA
 SHIPZIP | 99362 
 
-8. Select the **checkmark** to save the action settings, and then **Save**.
-9. The settings should look as follows:  
-![][3]
+8. Seleccione la **marca de verificación** para guardar la configuración de la acción y después haga clic en **Guardar**.
+9. La configuración debe tener el aspecto siguiente: ![][3]
 
-10. In the **All runs** list under **Operations**, select the first-listed item (most recent run). 
-11. In the **Logic app run** blade, select the **ACTION** item **db2connectorneworders**.
-12. In the **Logic app action** blade, select the **INPUTS LINK**. DB2 connector uses the inputs to process a parameterized INSERT statement.
-13. In the **Logic app action** blade, select the **OUTPUTS LINK**. The inputs should look as follows:  
-![][4]
+10. En la lista **Todas las ejecuciones** de **Operaciones**, seleccione el primer elemento (ejecución más reciente).
+11. En la hoja **Ejecución de aplicación lógica**, seleccione el elemento de **Acción** **db2connectorneworders**.
+12. En la hoja **Acción de aplicación lógica**, seleccione el **vínculo Entradas**. El conector DB2 usa las entradas para procesar una instrucción INSERT con parámetros.
+13. En la hoja **Acción de aplicación lógica**, seleccione el **vínculo Salidas**. Las entradas deben tener el aspecto siguiente: ![][4]
 
-#### <a name="what-you-need-to-know"></a>What you need to know
+#### Lo que necesita saber
 
-- Connector truncates DB2 table names when forming Logic app action names. For example, the operation **Insert into NEWORDERS** is truncated to **Insert into NEWORDER**.
-- After saving the Logic app **Triggers and actions**, Logic app processes the operation. There may be a delay of a number of seconds (e.g. 3-5 seconds) before Logic app processes the operation. Optionally, you can click **Run Now** to process the operation.
-- DB2 connector defines EntitySet members with attributes, including whether the member corresponds to a DB2 column with a default or generated columns (e.g. identity). Logic app displays a red asterisk next to the EntitySet member ID name, to denote DB2 columns that require values. You should not enter a value for the ORDID member, which corresponds to DB2 identity column. You may enter values for other optional members (ITEMS, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), which correspond to DB2 columns with default values. 
-- DB2 connector returns to Logic app the response on the Post to EntitySet that includes the values for identity columns, which is derived from the DRDA SQLDARD (SQL Data Area Reply Data) on the prepared SQL INSERT statement. DB2 server does not return the inserted values for columns with default values.  
+- El conector trunca los nombres de tabla de DB2 al formar los nombres de acción de aplicación lógica. Por ejemplo, la operación **Insertar en NEWORDERS** se trunca como **Insertar NEWORDER**.
+- Después de guardar **Desencadenadores y acciones** para la aplicación lógica, esta procesa la operación. Puede haber un retraso de varios segundos (por ejemplo, entre 3 y 5 segundos) antes de que la aplicación lógica procese la operación. Opcionalmente, puede hacer clic en **Ejecutar ahora** para procesar la operación.
+- El conector DB2 define los miembros de EntitySet con atributos, incluso si el miembro corresponde a una columna de DB2 con un valor predeterminado o a columnas generadas (por ejemplo, identidad). En la aplicación lógica, se muestra un asterisco rojo junto al nombre de identidad del miembro de EntitySet para indicar las columnas de DB2 que requieren valores. No debe escribir un valor para el miembro ORDID, que corresponde a la columna de identidad de DB2. Puede escribir valores para otros miembros opcionales (ITEMS, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), que corresponden a las columnas de DB2 con valores predeterminados.
+- El conector DB2 devuelve a la aplicación lógica la respuesta en la acción Post to EntitySet (Publicar en EntitySet) que incluye los valores de las columnas de identidad, que se deriva de SQLDARD (datos de respuesta del área de datos de SQL) de DRDA en la instrucción SQL INSERT preparada. El servidor de DB2 no devuelve los valores insertados para aquellas columnas con valores predeterminados.
 
 
-## <a name="logic-app-with-db2-connector-action-to-add-bulk-data"></a>Logic app with DB2 connector action to add bulk data ##
-You can define a Logic app action to add data to a DB2 table using an API Bulk Insert operation. For example, you can insert two new customer order records, by processing a SQL INSERT statement using an array of row values against a table defined with an identity column, returning the rows affected to the Logic app (SELECT ORDID FROM FINAL TABLE (INSERT INTO NWIND.NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
+## Aplicación lógica con la acción del conector DB2 para agregar datos masivos ##
+Puede definir una acción de aplicación lógica para agregar datos a una tabla de DB2 mediante una operación de inserción de API en masa. Por ejemplo, puede insertar dos registros de pedido de cliente nuevos; para ello, se procesa una instrucción SQL INSERT con una matriz de valores de fila en una tabla definida con una columna de identidad, lo que devuelve las filas afectadas a la aplicación lógica (SELECT ORDID FROM FINAL TABLE (INSERT INTO NWIND.NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
 
-1. In the Azure startboard, select **+** (plus sign), **Web + Mobile**, and then **Logic app**.
-2. Enter the Name (e.g. "NewOrdersBulkDb2"), App Service Plan, other properties, and then select **Create**.
-3. In the Azure startboard, select the Logic app you just created, **Settings**, and then **Triggers and actions**.
-4. In the Triggers and actions blade, select **Create from Scratch** within the Logic app Templates.
-5. In the API Apps panel, select **Recurrence**, set a frequency and interval, and then **checkmark**.
-6. In the API Apps panel, select **DB2 connector**, expand the operations list to select **Bulk Insert into NEW**.
-7. Enter the **rows** value as an array. For example, copy and paste the following:
+1. En el Panel de inicio de Azure, seleccione **+** (signo más), **Web y móvil** y después **Aplicación lógica**.
+2. Escriba el nombre (por ejemplo, "NewOrdersBulkDb2"), el plan del Servicio de aplicaciones y otras propiedades, y después seleccione **Crear**.
+3. En el panel de inicio de Azure, seleccione la aplicación lógica que acaba de crear, **Configuración** y después **Desencadenadores y acciones**.
+4. En la hoja Triggers and actions (Desencadenadores y acciones), seleccione **Create from Scratch** (Crear desde cero) en Logic app Templates (Plantillas de aplicación lógica).
+5. En el panel Aplicaciones de API, seleccione **Periodicidad**, establezca un intervalo y una frecuencia y después seleccione la **marca de verificación**.
+6. En el panel Aplicaciones de API, seleccione **Conector DB2** y expanda la lista de operaciones para seleccionar **Bulk Insert into NEW** (Insertar en masa en NEW).
+7. Escriba el valor de **rows** como matriz. Por ejemplo, copie y pegue lo siguiente:
 
-    ```
+	```
     [{"CUSTID":10081,"SHIPNAME":"Trail's Head Gourmet Provisioners","SHIPADDR":"722 DaVinci Blvd.","SHIPCITY":"Kirkland","SHIPREG":"WA","SHIPZIP":"98034"},{"CUSTID":10088,"SHIPNAME":"White Clover Markets","SHIPADDR":"305 14th Ave. S. Suite 3B","SHIPCITY":"Seattle","SHIPREG":"WA","SHIPZIP":"98128","SHIPCTRY":"USA"}]
-    ```
+	```
 
-8. Select the **checkmark** to save the action settings, and then **Save**. The settings should look as follows:  
-![][6]
+8. Seleccione la **marca de verificación** para guardar la configuración de la acción y después haga clic en **Guardar**. La configuración debe tener el aspecto siguiente: ![][6]
 
-9. In the **All runs** list under **Operations**, click the first-listed item (most recent run).
-10. In the **Logic app run** blade, click the **ACTION** item.
-11. In the **Logic app action** blade, click the **INPUTS LINK**. The outputs should look as follows:  
-[][7]
-12. In the **Logic app action** blade, click the **OUTPUTS LINK**. The outputs should look as follows:  
-![][8]
+9. En la lista **Todas las ejecuciones** de **Operaciones**, haga clic en el primer elemento (ejecución más reciente).
+10. En la hoja **Ejecución de aplicación lógica**, haga clic en el elemento de **Acción**.
+11. En la hoja **Acción de aplicación lógica**, haga clic en el **vínculo Entradas**. Las salidas deben tener el aspecto siguiente: [][7]
+12. En la hoja **Acción de aplicación lógica**, haga clic en el **vínculo Salidas**. Las salidas deben tener el aspecto siguiente: ![][8]
 
-#### <a name="what-you-need-to-know"></a>What you need to know
+#### Lo que necesita saber
 
-- Connector truncates DB2 table names when forming Logic app action names. For example, the operation **Bulk Insert into NEWORDERS** is truncated to **Bulk Insert into NEW**.
-- By omitting identity columns (e.g. ORDID), nullable columns (e.g. SHIPDATE), and columns with default values (e.g. ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), DB2 database generates values.
-- By specifying "today" and "tomorrow", DB2 connector generates "CURRENT DATE" and "CURRENT DATE + 1 DAY" functions (e.g. REQDATE). 
+- El conector trunca los nombres de tabla de DB2 al formar los nombres de acción de aplicación lógica. Por ejemplo, la operación **Insertar en masa en NEWORDERS** se trunca como **Insertar en masa en NEW**.
+- Si se omiten las columnas de identidad (por ejemplo, ORDID), las columnas que aceptan valores null (por ejemplo, SHIPDATE) y las columnas con valores predeterminados (como ORDDATE, REQDATE, SHIPID, FREIGHT y SHIPCTRY), la base de datos de DB2 genera valores.
+- Si se especifica "today" y "tomorrow", el conector DB2 genera las funciones "CURRENT DATE" y "CURRENT DATE + 1 DAY" (por ejemplo, REQDATE).
 
 
-## <a name="logic-app-with-db2-connector-trigger-to-read,-alter-or-delete-data"></a>Logic app with DB2 connector trigger to read, alter or delete data ##
-You can define a Logic app trigger to poll and read data from a DB2 table using an API Poll Data composite operation. For example, you can read one or more new customer order records, returning the records to the Logic app. The DB2 Connection package/app settings should look as follows:
+## Aplicación lógica con el desencadenador del conector DB2 para leer, modificar o eliminar datos ##
+Puede definir un desencadenador de aplicación lógica para sondear y leer datos de una tabla de DB2 mediante una operación compuesta de datos de sondeo de API. Por ejemplo, puede leer uno o más registros de pedido de cliente nuevos y devolver los registros a la aplicación lógica. La configuración de aplicación o de paquete de conexión de DB2 debe tener el aspecto siguiente:
 
-    App Setting | Value
+	App Setting | Value
 --- | --- | ---
-PollToCheckData | SELECT COUNT(\*) FROM NEWORDERS WHERE SHIPDATE IS NULL
-PollToReadData | SELECT \* FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
-PollToAlterData | <no value specified>
+PollToCheckData | SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL
+PollToReadData | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
+PollToAlterData | <ningún valor especificado>
 
 
-Also, you can define a Logic app trigger to poll, read and alter data in a DB2 table using an API Poll Data composite operation. For example, you can read one or more new customer order records, update the row values, returning the selected (before update) records to the Logic app. The DB2 Connection package/app settings should look as follows:
+Además, puede definir un desencadenador de aplicación lógica para sondear, leer y modificar datos de una tabla de DB2 mediante una operación compuesta de datos de sondeo de API. Por ejemplo, puede leer uno o más registros de pedido de cliente nuevos, actualizar los valores de fila y devolver los registros seleccionados (antes de la actualización) a la aplicación lógica. La configuración de aplicación o de paquete de conexión de DB2 debe tener el aspecto siguiente:
 
-    App Setting | Value
+	App Setting | Value
 --- | --- | ---
-PollToCheckData | SELECT COUNT(\*) FROM NEWORDERS WHERE SHIPDATE IS NULL
-PollToReadData | SELECT \* FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
+PollToCheckData | SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL
+PollToReadData | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
 PollToAlterData | UPDATE NEWORDERS SET SHIPDATE = CURRENT DATE WHERE CURRENT OF &lt;CURSOR&gt;
 
 
-Further, you can define a Logic app trigger to poll, read and remove data from a DB2 table using an API Poll Data composite operation. For example, you can read one or more new customer order records, delete the rows, returning the selected (before delete) records to the Logic app. The DB2 Connection package/app settings should look as follows:
+Además, puede definir un desencadenador de aplicación lógica para sondear, leer y quitar datos de una tabla de DB2 mediante una operación compuesta de datos de sondeo de API. Por ejemplo, puede leer uno o más registros de pedido de cliente nuevos, eliminar las filas y devolver los registros seleccionados (antes de la eliminación) a la aplicación lógica. La configuración de aplicación o de paquete de conexión de DB2 debe tener el aspecto siguiente:
 
-    App Setting | Value
+	App Setting | Value
 --- | --- | ---
-PollToCheckData | SELECT COUNT(\*) FROM NEWORDERS WHERE SHIPDATE IS NULL
-PollToReadData | SELECT \* FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
+PollToCheckData | SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL
+PollToReadData | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
 PollToAlterData | DELETE NEWORDERS WHERE CURRENT OF &lt;CURSOR&gt;
 
-In this example, Logic app will poll, read, update, and then re-read data in the DB2 table.
+En este ejemplo, la aplicación lógica sondeará, leerá, actualizará y después volverá a leer los datos en la tabla de DB2.
 
-1. In the Azure startboard, select **+** (plus sign), **Web + Mobile**, and then **Logic app**.
-2. Enter the Name (e.g. "ShipOrdersDb2"), App Service Plan, other properties, and then select **Create**.
-3. In the Azure startboard, select the Logic app you just created, **Settings**, and then **Triggers and actions**.
-4. In the Triggers and actions blade, select **Create from Scratch** within the Logic app Templates.
-5. In the API Apps panel, select **DB2 connector**, set a frequency and interval, and then **checkmark**.
-6. In the API Apps panel, select **DB2 connector**, expand the operations list to select **Select from NEWORDERS**.
-7. Select the **checkmark** to save the action settings, and then **Save**. The settings should look as follows:  
-![][10]  
-8. Click to close the **Triggers and actions** blade, and then click to close the **Settings** blade.
-9. In the **All runs** list under **Operations**, click the first-listed item (most recent run).
-10. In the **Logic app run** blade, click the **ACTION** item.
-11. In the **Logic app action** blade, click the **OUTPUTS LINK**. The outputs should look as follows:  
-![][11]
+1. En el Panel de inicio de Azure, seleccione **+** (signo más), **Web y móvil** y después **Aplicación lógica**.
+2. Escriba el nombre (por ejemplo, "ShipOrdersDb2"), el plan del Servicio de aplicaciones y otras propiedades, y después seleccione **Crear**.
+3. En el panel de inicio de Azure, seleccione la aplicación lógica que acaba de crear, **Configuración** y después **Desencadenadores y acciones**.
+4. En la hoja Desencadenadores y acciones, seleccione **Crear desde cero** en Plantillas de aplicación lógica.
+5. En el panel Aplicaciones de API, seleccione **Conector DB2**, establezca un intervalo y una frecuencia, y seleccione la **marca de verificación**.
+6. En el panel Aplicaciones de API, seleccione **Conector DB2** y expanda la lista de operaciones para elegir **Select from NEWORDERS** (Seleccionar desde NEWORDERS).
+7. Seleccione la **marca de verificación** para guardar la configuración de la acción y después haga clic en **Guardar**. La configuración debe tener el aspecto siguiente: ![][10]
+8. Haga clic para cerrar la hoja **Desencadenadores y acciones**, y después repita la acción para cerrar la hoja **Configuración**.
+9. En la lista **Todas las ejecuciones** de **Operaciones**, haga clic en el primer elemento (ejecución más reciente).
+10. En la hoja **Ejecución de aplicación lógica**, haga clic en el elemento de **Acción**.
+11. En la hoja **Acción de aplicación lógica**, haga clic en el **vínculo Salidas**. Las salidas deben tener el aspecto siguiente: ![][11]
 
 
-## <a name="logic-app-with-db2-connector-action-to-remove-data"></a>Logic app with DB2 connector action to remove data ##
-You can define a Logic app action to remove data from a DB2 table using an API Delete or Post to Entity OData operation. For example, you can insert a new customer order record, by processing a SQL INSERT statement against a table defined with an identity column, returning the identity value or the rows affected to the Logic app (SELECT ORDID FROM FINAL TABLE (INSERT INTO NWIND.NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
+## Aplicación lógica con la acción del conector DB2 para quitar datos ##
+Puede definir una acción de aplicación lógica para quitar datos de una tabla de DB2 mediante una operación de OData para la eliminación de API o la publicación en una entidad. Por ejemplo, puede insertar un registro de pedido de cliente nuevo; para ello, se procesa una instrucción SQL INSERT en una tabla definida con una columna de identidad, lo que devuelve el valor de identidad o las filas afectadas a la aplicación lógica (SELECT ORDID FROM FINAL TABLE (INSERT INTO NWIND.NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
 
-## <a name="create-logic-app-using-db2-connector-to-remove-data"></a>Create Logic app using DB2 connector to remove data ##
-You can create a new Logic app from within the Azure Marketplace, and then use the DB2 connector as an action to remove customer orders. For example, you can use the DB2 connector conditional Delete operation to process a SQL DELETE statement (DELETE FROM NEWORDERS WHERE ORDID >= 10000).
+## Creación de una aplicación lógica con el conector DB2 para quitar datos ##
+Puede crear una aplicación lógica desde Azure Marketplace y, después, usar el conector DB2 como acción para quitar pedidos de cliente. Por ejemplo, puede usar la operación de eliminación condicional del conector DB2 para procesar una instrucción SQL DELETE (DELETE FROM NEWORDERS WHERE ORDID >= 10000).
 
-1. In the hub menu of the Azure **Start** board, click **+** (plus sign), click **Web + Mobile**, and then click **Logic app**. 
-2. In the **Create Logic app** blade, type a **Name**, for example **RemoveOrdersDb2**.
-3. Select or define values for the other settings (e.g. service plan, resource group).
-4. The settings should look as follows. Click **Create**:  
-![][12]  
-5. In the **Settings** blade, click **Triggers and actions**.
-6. In the **Triggers and actions** blade, in the **Logic app Templates** list, click **Create from Scratch**.
-7. In the **Triggers and actions** blade, in the **API Apps** panel, within the resource group, click **Recurrence**.
-8. On the Logic app design surface, click the **Recurrence** item, set a **Frequency** and **Interval**, for example **Days** and **1**, and then click the **checkmark** to save the recurrence item settings.
-9. In the **Triggers and actions** blade, in the **API Apps** panel, within the resource group, click **DB2 connector**.
-10. On the Logic app design surface, click the **DB2 connector** action item, click the ellipses (**...**) to expand the operations list, and then click **Conditional delete from N**.
-11. On the DB2 connector action item, type **ORDID ge 10000** for an **expression that identifies a subset of entries**.
-12. Click the **checkmark** to save the action settings, and then click **Save**. The settings should look as follows:  
-![][13]  
-13. Click to close the **Triggers and actions** blade, and then click to close the **Settings** blade.
-14. In the **All runs** list under **Operations**, click the first-listed item (most recent run).
-15. In the **Logic app run** blade, click the **ACTION** item.
-16. In the **Logic app action** blade, click the **OUTPUTS LINK**. The outputs should look as follows:  
-![][14]
+1. En el menú del concentrador del **panel de inicio** de Azure, haga clic en **+** (signo más), en **Web y móvil** y en **Aplicación lógica**.
+2. En la hoja **Crear aplicación lógica**, escriba un valor para **Nombre**, como por ejemplo **RemoveOrdersDb2**.
+3. Seleccione o defina los valores para las demás configuraciones (por ejemplo, el plan de servicio, el grupo de recursos).
+4. La configuración debe tener el aspecto siguiente. Haga clic en **Crear**: ![][12]
+5. En la hoja **Configuración**, haga clic en **Desencadenadores y acciones**.
+6. En la hoja **Desencadenadores y acciones**, en la lista **Plantillas de aplicación lógica**, haga clic en **Crear desde cero**.
+7. En la hoja **Desencadenadores y acciones**, en el panel **Aplicaciones de API**, dentro del grupo de recursos, haga clic en **Periodicidad**.
+8. En la superficie de diseño de aplicación lógica, haga clic en el elemento **Periodicidad** y establezca valores en **Frecuencia** e **Intervalo**, por ejemplo **Días** y **1**. Después, haga clic en la **marca de verificación** para guardar la configuración del elemento de periodicidad.
+9. En la hoja **Desencadenadores y acciones**, en el panel **Aplicaciones de API**, dentro del grupo de recursos, haga clic en **Conector DB2**.
+10. En la superficie de diseño de la aplicación lógica, haga clic en el elemento de acción **Conector DB2**, en el botón de puntos suspensivos (**…**) para expandir la lista de operaciones y en **Conditional delete from N** (Eliminación condicional de N).
+11. En el elemento de acción del conector DB2, escriba **ORDID ge 10000** para una **expresión que identifica un subconjunto de entradas**.
+12. Haga clic en la **marca de verificación** para guardar la configuración de la acción y después haga clic en **Guardar**. La configuración debe tener el aspecto siguiente: ![][13]
+13. Haga clic para cerrar la hoja **Desencadenadores y acciones**, y después repita la acción para cerrar la hoja **Configuración**.
+14. En la lista **Todas las ejecuciones** de **Operaciones**, haga clic en el primer elemento (ejecución más reciente).
+15. En la hoja **Ejecución de aplicación lógica**, haga clic en el elemento de **Acción**.
+16. En la hoja **Acción de aplicación lógica**, haga clic en el **vínculo Salidas**. Las salidas deben tener el aspecto siguiente: ![][14]
 
-**Note:** Logic app designer truncates table names. For example, the operation **Conditional delete from NEWORDERS** is truncated to **Conditional delete from N**.
+**Nota:** El diseñador de aplicaciones lógicas trunca los nombres de tabla. Por ejemplo, la operación **Eliminación condicional de NEWORDERS** se trunca como **Eliminación condicional de N**.
 
 
-> [AZURE.TIP] Use the following SQL statements to create the sample table and stored procedures. 
+> [AZURE.TIP] Use las siguientes instrucciones SQL para crear la tabla y los procedimientos almacenados de ejemplo.
 
-You can create the sample NEWORDERS table using the following DB2 SQL DDL statements:
+Puede crear la tabla NEWORDERS de ejemplo mediante las siguientes instrucciones DDL de SQL para DB2:
  
-    CREATE TABLE ORDERS (  
-        ORDID INT NOT NULL GENERATED BY DEFAULT AS IDENTITY (START WITH 10000, INCREMENT BY 1) ,  
-        CUSTID INT NOT NULL ,  
-        EMPID INT NOT NULL DEFAULT 10000 ,  
-        ORDDATE DATE NOT NULL DEFAULT CURRENT DATE ,  
-        REQDATE DATE DEFAULT CURRENT DATE ,  
-        SHIPDATE DATE ,  
-        SHIPID INT NOT NULL DEFAULT 10000,  
-        FREIGHT DECIMAL (9,2) NOT NULL DEFAULT 0.00 ,  
-        SHIPNAME CHAR (40) NOT NULL ,  
-        SHIPADDR CHAR (60) NOT NULL ,  
-        SHIPCITY CHAR (20) NOT NULL ,  
-        SHIPREG CHAR (15) NOT NULL ,  
-        SHIPZIP CHAR (10) NOT NULL ,  
-        SHIPCTRY CHAR (15) NOT NULL DEFAULT 'USA' ,  
-        PRIMARY KEY(ORDID)  
-        )  
+ 	CREATE TABLE ORDERS (  
+ 		ORDID INT NOT NULL GENERATED BY DEFAULT AS IDENTITY (START WITH 10000, INCREMENT BY 1) ,  
+ 		CUSTID INT NOT NULL ,  
+ 		EMPID INT NOT NULL DEFAULT 10000 ,  
+ 		ORDDATE DATE NOT NULL DEFAULT CURRENT DATE ,  
+ 		REQDATE DATE DEFAULT CURRENT DATE ,  
+ 		SHIPDATE DATE ,  
+ 		SHIPID INT NOT NULL DEFAULT 10000,  
+ 		FREIGHT DECIMAL (9,2) NOT NULL DEFAULT 0.00 ,  
+ 		SHIPNAME CHAR (40) NOT NULL ,  
+ 		SHIPADDR CHAR (60) NOT NULL ,  
+ 		SHIPCITY CHAR (20) NOT NULL ,  
+ 		SHIPREG CHAR (15) NOT NULL ,  
+ 		SHIPZIP CHAR (10) NOT NULL ,  
+ 		SHIPCTRY CHAR (15) NOT NULL DEFAULT 'USA' ,  
+ 		PRIMARY KEY(ORDID)  
+ 		)  
  
-    CREATE UNIQUE INDEX XORDID ON ORDERS (ORDID ASC)  
+ 	CREATE UNIQUE INDEX XORDID ON ORDERS (ORDID ASC)  
 
 
 
-You can create the sample SPOERID stored procedure using the following DB2 DDL statement:
+Puede crear el procedimiento almacenado SPOERID de ejemplo mediante la siguiente instrucción DDL para DB2:
  
-    CREATE OR REPLACE PROCEDURE NWIND.SPORDERID (IN ORDERID VARCHAR(128))  
-        DYNAMIC RESULT SETS 1  
-    P1: BEGIN  
-        DECLARE CURSOR1 CURSOR WITH RETURN FOR  
-            SELECT * FROM NWIND.NEWORDERS  
-                WHERE ORDID = ORDERID;  
-        OPEN CURSOR1;  
-    END P1  
-    ') 
+ 	CREATE OR REPLACE PROCEDURE NWIND.SPORDERID (IN ORDERID VARCHAR(128))  
+ 		DYNAMIC RESULT SETS 1  
+ 	P1: BEGIN  
+ 		DECLARE CURSOR1 CURSOR WITH RETURN FOR  
+ 			SELECT * FROM NWIND.NEWORDERS  
+ 				WHERE ORDID = ORDERID;  
+ 		OPEN CURSOR1;  
+ 	END P1  
+ 	') 
 
 
-## <a name="hybrid-configuration-(optional)"></a>Hybrid Configuration (Optional)
+## Configuración híbrida (opcional)
 
-> [AZURE.NOTE] This step is required only if you are using DB2 connector on-premises behind your firewall.
+> [AZURE.NOTE] Este paso solo es necesario si usa un conector DB2 local tras el firewall.
 
-App Service uses the Hybrid Configuration Manager to connect securely to your on-premises system. If connector uses an on-premises IBM DB2 Server for Windows, the Hybrid Connection Manager is required.
+El Servicio de aplicaciones utiliza el Administrador de configuración híbrida para conectarse de forma segura al sistema local. Si el conector usa un servidor IBM DB2 local para Windows, se necesita el Administrador de conexiones híbridas.
 
-See [Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md).
+Consulte [Uso del Administrador de conexiones híbridas](app-service-logic-hybrid-connection-manager.md).
 
 
-## <a name="do-more-with-your-connector"></a>Do more with your connector
-Now that the connector is created, you can add it to a business workflow using a Logic app. See [What are Logic apps?](app-service-logic-what-are-logic-apps.md).
+## Aplicaciones adicionales del conector
+Una vez creado el conector, puede agregarlo a un flujo de trabajo de negocio mediante una aplicación lógica. Consulte [¿Qué es Logic Apps?](app-service-logic-what-are-logic-apps.md)
 
-Create the API Apps using REST APIs. See [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Cree las aplicaciones de API mediante las API de REST. Consulte [Referencia sobre conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md).
+También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md).
 
 
 <!--Image references-->
@@ -283,9 +271,4 @@ You can also review performance statistics and control security to the connector
 [13]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_TriggersActions.png
 [14]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_Outputs.png
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

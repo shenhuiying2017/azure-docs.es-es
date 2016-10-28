@@ -1,18 +1,16 @@
-In this walk-through, you will learn how to use the **Salesforce - When an object is created** trigger to initiate a logic app workflow when a new lead is created in your Salesforce.
+En este tutorial aprenderá a utilizar el desencadenador **Salesforce - When an object is created** (Salesforce: cuando se crea un objeto) para iniciar un flujo de trabajo de aplicación lógica cuando se crea un nuevo cliente potencial en Salesforce.
 
->[AZURE.NOTE]You will get prompted to sign into your Salesforce account if you have not already created a *connection* to Salesforce.  
+>[AZURE.NOTE]Si aún no ha creado una *conexión* a Salesforce se le pedirá que inicie sesión en su cuenta de Salesforce.
 
-1. Enter *salesforce* in the search box on the logic apps designer then select the **Salesforce - When an object is created**  trigger.  
-![Salesforce trigger image 1](./media/connectors-create-api-salesforce/trigger-1.png)   
-- The **When an object is created** control is displayed.  
-![Salesforce trigger image 2](./media/connectors-create-api-salesforce/trigger-2.png)   
-- Select the **Object Type** then select *Lead* from the list of objects. In this step you are indicating that you are creating a trigger that will notify your logic app whenever a new lead is created in Salesforce.   
-![Salesforce trigger image 3](./media/connectors-create-api-salesforce/trigger-3.png)   
-- That's it. You've created the trigger. However, you need to create at least one action in order to make this a valid logic app.    
-![Salesforce trigger image 4](./media/connectors-create-api-salesforce/trigger-4.png)   
+1. Escriba *salesforce* en el cuadro de búsqueda del diseñador de Logic Apps y seleccione el desencadenador **Salesforce - When an object is created** (Salesforce: cuando se crea un archivo).  
+![Imagen 1 de desencadenador de Salesforce](./media/connectors-create-api-salesforce/trigger-1.png)  
+- Se muestra el control **When an object is created** (Cuando se crea un objeto).  
+![Imagen 2 de desencadenador de Salesforce](./media/connectors-create-api-salesforce/trigger-2.png)  
+- Seleccione el **tipo de objeto** y luego *Lead* (Cliente potencial) en la lista de objetos. En este paso está indicando que va a crear un desencadenador que enviará una notificación a su aplicación lógica cada vez que se cree un nuevo cliente potencial en Salesforce.  
+![Imagen 3 de desencadenador de Salesforce](./media/connectors-create-api-salesforce/trigger-3.png)  
+- Eso es todo. Ha creado el desencadenador. Sin embargo, debe crear al menos una acción para que esta aplicación lógica sea válida.  
+![Imagen 4 de desencadenador de Salesforce](./media/connectors-create-api-salesforce/trigger-4.png)  
 
-At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a new item is created in your Salesforce.  
+En este punto, la aplicación lógica está configurada con un desencadenador que activará otros desencadenadores y acciones del flujo de trabajo cuando se cree un nuevo elemento en Salesforce.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

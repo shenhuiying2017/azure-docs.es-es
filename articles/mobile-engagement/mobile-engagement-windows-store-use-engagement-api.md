@@ -1,377 +1,371 @@
 <properties 
-    pageTitle="How to Use the Engagement API on Windows Universal" 
-    description="How to Use the Engagement API on Windows Universal"            
-    services="mobile-engagement" 
-    documentationCenter="mobile" 
-    authors="piyushjo" 
-    manager="dwrede" 
-    editor="" />
+	pageTitle="Cómo usar la API de Engagement en Windows Universal" 
+	description="Cómo usar la API de Engagement en Windows Universal"			
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="piyushjo" 
+	manager="dwrede" 
+	editor="" />
 
 <tags 
-    ms.service="mobile-engagement" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="mobile-windows-store" 
-    ms.devlang="dotnet" 
-    ms.topic="article" 
-    ms.date="08/19/2016" 
-    ms.author="piyushjo" />
+	ms.service="mobile-engagement" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/19/2016" 
+	ms.author="piyushjo" />
 
+#Cómo usar la API de Engagement en Windows Universal
 
-#<a name="how-to-use-the-engagement-api-on-windows-universal"></a>How to Use the Engagement API on Windows Universal
+Este documento es un complemento al documento [Cómo integrar Engagement en Windows Universal](mobile-engagement-windows-store-integrate-engagement.md): en él se proporciona información detallada acerca de cómo usar la API de Engagement para informar de las estadísticas de la aplicación.
 
-This document is an add-on to the document [How to Integrate Engagement on Windows Universal](mobile-engagement-windows-store-integrate-engagement.md): it provides in depth details about how to use the Engagement API to report your application statistics.
+Tenga en cuenta que si solo desea que Engagement informe sobre las sesiones, las actividades, los bloqueos y la información técnica de la aplicación, la manera más sencilla consiste en hacer que las subclases `Page` hereden de la clase `EngagementPage`.
 
-Keep in mind that if you only want Engagement to report your application's sessions, activities, crashes and technical information, then the simplest way is to make all your `Page` sub-classes inherit from the `EngagementPage` class.
+Si desea hacer más, por ejemplo, si necesita informar de eventos, errores y trabajos específicos de la aplicación, o si debe informar de las actividades de la aplicación de manera diferente de la que se implementa en las clases `EngagementPage`, deberá usar la API de Engagement.
 
-If you want to do more, for example if you need to report application specific events, errors and jobs, or if you have to report your application's activities in a different way than the one implemented in the `EngagementPage` classes, then you need to use the Engagement API.
+La API de Engagement la proporciona la clase `EngagementAgent`. Puede acceder a esos métodos a través de `EngagementAgent.Instance`.
 
-The Engagement API is provided by the `EngagementAgent` class. You can access to those methods through `EngagementAgent.Instance`.
+Incluso si no se ha inicializado el módulo de agente, las llamadas a la API se aplazan y se ejecutará de nuevo cuando el agente está disponible.
 
-Even if the agent module has not been initialized, each call to the API is deferred, and will be executed again when the agent is available.
+##Conceptos de Engagement
 
-##<a name="engagement-concepts"></a>Engagement concepts
+En las siguientes secciones se detallan los [conceptos de Mobile Engagement](mobile-engagement-concepts.md) para la plataforma Windows Universal.
 
-The following parts refine the common [Mobile Engagement Concepts](mobile-engagement-concepts.md) for the Windows Universal platform.
+### `Session` y `Activity`
 
-### <a name="`session`-and-`activity`"></a>`Session` and `Activity`
+Una *actividad* suele estar asociada con una página de la aplicación. Es decir, la *actividad* se inicia cuando la página se muestra y se detiene cuando se cierra la página. Este es el caso cuando la integración del SDK de Engagement se realiza mediante la clase `EngagementPage`.
 
-An *activity* is usually associated with one page of the application, that is to say the *activity* starts when the page is displayed and stops when the page is closed: this is the case when the Engagement SDK is integrated by using the `EngagementPage` class.
+Sin embargo, las *actividades* también se pueden controlar manualmente mediante la API de Engagement. Esto permite dividir una página determinada en varias subpartes para obtener más detalles sobre el uso de esta página (por ejemplo, la frecuencia y la duración con las que se usan los cuadros de diálogo en esta página).
 
-But *activities* can also be controlled manually by using the Engagement API. This allows you to split a given page in several sub parts to get more details about the usage of this page (for example to know how often and how long dialogs are used inside this page).
+##Informes sobre actividades
 
-##<a name="reporting-activities"></a>Reporting Activities
+### El usuario inicia una nueva actividad
 
-### <a name="user-starts-a-new-activity"></a>User starts a new Activity
+#### Referencia
 
-#### <a name="reference"></a>Reference
+			void StartActivity(string name, Dictionary<object, object> extras = null)
 
-            void StartActivity(string name, Dictionary<object, object> extras = null)
+Debe llamar a `StartActivity()` cada vez que cambie la actividad de usuario. La primera llamada a esta función inicia una nueva sesión de usuario.
 
-You need to call `StartActivity()` each time the user activity changes. The first call to this function starts a new user session.
+> [AZURE.IMPORTANT] El SDK llama automáticamente al método EndActivity cuando se cierra la aplicación. Por lo tanto, es MUY recomendable llamar al método StartActivity cada vez que cambie la actividad del usuario y NUNCA llamar al método EndActivity, ya que esto obliga la finalización de la sesión actual.
 
-> [AZURE.IMPORTANT] The SDK automatically calls the EndActivity method when the application is closed. Thus, it is HIGHLY recommended to call the StartActivity method whenever the activity of the user changes, and to NEVER call the EndActivity method, since calling this method forces the current session to be ended.
+#### Ejemplo
 
-#### <a name="example"></a>Example
+			EngagementAgent.Instance.StartActivity("main", new Dictionary<object, object>() {{"example", "data"}});
 
-            EngagementAgent.Instance.StartActivity("main", new Dictionary<object, object>() {{"example", "data"}});
+### El usuario finaliza su actividad actual
 
-### <a name="user-ends-his-current-activity"></a>User ends his current Activity
+#### Referencia
 
-#### <a name="reference"></a>Reference
+			void EndActivity()
 
-            void EndActivity()
+Esto finaliza la actividad y la sesión. No debe llamar a este método, a menos que realmente sepa lo que está haciendo.
 
-This ends the activity and the session. You should not call this method unless you really know what you're doing.
+#### Ejemplo
 
-#### <a name="example"></a>Example
+			EngagementAgent.Instance.EndActivity();
 
-            EngagementAgent.Instance.EndActivity();
+##Informes de trabajos
 
-##<a name="reporting-jobs"></a>Reporting Jobs
+### Iniciar un trabajo
 
-### <a name="start-a-job"></a>Start a job
+#### Referencia
 
-#### <a name="reference"></a>Reference
+			void StartJob(string name, Dictionary<object, object> extras = null)
 
-            void StartJob(string name, Dictionary<object, object> extras = null)
+Puede usar el trabajo para hace un seguimiento de tareas determinadas durante un período de tiempo.
 
-You can use the job to track certains tasks over a period of time.
+#### Ejemplo
 
-#### <a name="example"></a>Example
+			// An upload begins...
+			
+			// Set the extras
+			var extras = new Dictionary<object, object>();
+			extras.Add("title", "avatar");
+			extras.Add("type", "image");
+			
+			EngagementAgent.Instance.StartJob("uploadData", extras);
 
-            // An upload begins...
-            
-            // Set the extras
-            var extras = new Dictionary<object, object>();
-            extras.Add("title", "avatar");
-            extras.Add("type", "image");
-            
-            EngagementAgent.Instance.StartJob("uploadData", extras);
+### Finalizar un trabajo
 
-### <a name="end-a-job"></a>End a job
+#### Referencia
 
-#### <a name="reference"></a>Reference
+			void EndJob(string name)
 
-            void EndJob(string name)
+Cuando haya finalizado una tarea de la que un trabajo realiza el seguimiento, se debe llamar al método EndJob para este trabajo al proporcionar su nombre.
 
-As soon as a task tracked by a job has been terminated, you should call the EndJob method for this job, by supplying the job name.
+#### Ejemplo
 
-#### <a name="example"></a>Example
+			// In the previous section, we started an upload tracking with a job
+			// Then, the upload ends
+			
+			EngagementAgent.Instance.EndJob("uploadData");
 
-            // In the previous section, we started an upload tracking with a job
-            // Then, the upload ends
-            
-            EngagementAgent.Instance.EndJob("uploadData");
+##Informes de eventos
 
-##<a name="reporting-events"></a>Reporting Events
+Hay tres tipos de eventos:
 
-There is three types of events :
+-   Eventos independientes
+-   Eventos de sesión
+-   Eventos de trabajo
 
--   Standalone events
--   Session events
--   Job events
+### Eventos independientes
 
-### <a name="standalone-events"></a>Standalone Events
+#### Referencia
 
-#### <a name="reference"></a>Reference
+			void SendEvent(string name, Dictionary<object, object> extras = null)
 
-            void SendEvent(string name, Dictionary<object, object> extras = null)
+Los eventos independientes se pueden producir fuera del contexto de una sesión.
 
-Standalone events can occur outside of the context of a session.
+#### Ejemplo
 
-#### <a name="example"></a>Example
+			EngagementAgent.Instance.SendEvent("event", extra);
 
-            EngagementAgent.Instance.SendEvent("event", extra);
+### Eventos de sesión
 
-### <a name="session-events"></a>Session events
+#### Referencia
 
-#### <a name="reference"></a>Reference
+			void SendSessionEvent(string name, Dictionary<object, object> extras = null)
 
-            void SendSessionEvent(string name, Dictionary<object, object> extras = null)
+Los eventos de sesión se suelen usar para notificar las acciones que realiza el usuario durante su sesión.
 
-Session events are usually used to report the actions performed by a user during his session.
+#### Ejemplo
 
-#### <a name="example"></a>Example
+**Sin datos:**
 
-**Without data :**
+			EngagementAgent.Instance.SendSessionEvent("sessionEvent");
+			
+			// or
+			
+			EngagementAgent.Instance.SendSessionEvent("sessionEvent", null);
 
-            EngagementAgent.Instance.SendSessionEvent("sessionEvent");
-            
-            // or
-            
-            EngagementAgent.Instance.SendSessionEvent("sessionEvent", null);
+**Con datos:**
 
-**With data :**
+			Dictionary<object, object> extras = new Dictionary<object,object>();
+			extras.Add("name", "data");
+			EngagementAgent.Instance.SendSessionEvent("sessionEvent", extras);
 
-            Dictionary<object, object> extras = new Dictionary<object,object>();
-            extras.Add("name", "data");
-            EngagementAgent.Instance.SendSessionEvent("sessionEvent", extras);
+### Eventos de trabajo
 
-### <a name="job-events"></a>Job Events
+#### Referencia
 
-#### <a name="reference"></a>Reference
+			void SendJobEvent(string eventName, string jobName, Dictionary<object, object> extras = null)
 
-            void SendJobEvent(string eventName, string jobName, Dictionary<object, object> extras = null)
+Los eventos de trabajo se suelen usar para notificar las acciones que realiza un usuario durante un trabajo.
 
-Job events are usually used to report the actions performed by a user during a Job.
+#### Ejemplo
 
-#### <a name="example"></a>Example
+			EngagementAgent.Instance.SendJobEvent("eventName", "jobName", extras);
 
-            EngagementAgent.Instance.SendJobEvent("eventName", "jobName", extras);
+##Informes de errores
 
-##<a name="reporting-errors"></a>Reporting Errors
+Existen tres tipos de errores:
 
-There are three types of errors :
+-   Errores independientes
+-   Errores de sesión
+-   Errores de trabajo
 
--   Standalone errors
--   Session errors
--   Job errors
+### Errores independientes
 
-### <a name="standalone-errors"></a>Standalone errors
+#### Referencia
 
-#### <a name="reference"></a>Reference
+			void SendError(string name, Dictionary<object, object> extras = null)
 
-            void SendError(string name, Dictionary<object, object> extras = null)
+Al contrario de los errores de sesión, los errores independientes se pueden producir fuera del contexto de una sesión.
 
-Contrary to session errors, standalone errors can occur outside of the context of a session.
+#### Ejemplo
 
-#### <a name="example"></a>Example
+			EngagementAgent.Instance.SendError("errorName", extras);
 
-            EngagementAgent.Instance.SendError("errorName", extras);
+### Errores de sesión
 
-### <a name="session-errors"></a>Session errors
+#### Referencia
 
-#### <a name="reference"></a>Reference
+			void SendSessionError(string name, Dictionary<object, object> extras = null)
 
-            void SendSessionError(string name, Dictionary<object, object> extras = null)
+Los errores de sesión suelen usarse para notificar los errores que afectan al usuario durante su sesión.
 
-Session errors are usually used to report the errors impacting the user during his session.
+#### Ejemplo
 
-#### <a name="example"></a>Example
+			EngagementAgent.Instance.SendSessionError("errorName", extra);
 
-            EngagementAgent.Instance.SendSessionError("errorName", extra);
+### Errores de trabajo
 
-### <a name="job-errors"></a>Job Errors
+#### Referencia
 
-#### <a name="reference"></a>Reference
+			void SendJobError(string errorName, string jobName, Dictionary<object, object> extras = null)
 
-            void SendJobError(string errorName, string jobName, Dictionary<object, object> extras = null)
+Los errores pueden estar relacionados con un trabajo en ejecución en lugar de la sesión del usuario actual.
 
-Errors can be related to a running job instead of being related to the current user session.
+#### Ejemplo
 
-#### <a name="example"></a>Example
+			EngagementAgent.Instance.SendJobError("errorName", "jobname", extra);
 
-            EngagementAgent.Instance.SendJobError("errorName", "jobname", extra);
+##Informes de bloqueos
 
-##<a name="reporting-crashes"></a>Reporting Crashes
+El agente proporciona dos métodos para tratar los bloqueos.
 
-The agent provides two methods to deal with crashes.
+### Enviar una excepción
 
-### <a name="send-an-exception"></a>Send an exception
+#### Referencia
 
-#### <a name="reference"></a>Reference
+			void SendCrash(Exception e, bool terminateSession = false)
 
-            void SendCrash(Exception e, bool terminateSession = false)
+#### Ejemplo
 
-#### <a name="example"></a>Example
+Puede enviar una excepción en cualquier momento al llamar a:
 
-You can send an exception at any time by calling :
+			EngagementAgent.Instance.SendCrash(aCatchedException);
 
-            EngagementAgent.Instance.SendCrash(aCatchedException);
+También puede usar un parámetro opcional para finalizar la sesión de Engagement al mismo tiempo que se envía el bloqueo. Para ello, llame a:
 
-You can also use an optional parameter to terminate the engagement session at the same time than sending the crash. To do so, call :
+			EngagementAgent.Instance.SendCrash(new Exception("example"), terminateSession: true);
 
-            EngagementAgent.Instance.SendCrash(new Exception("example"), terminateSession: true);
+Si lo hace, la sesión y los trabajos se cerrarán después de enviar el bloqueo.
 
-If you do that, the session and jobs will be closed just after sending the crash.
+### Enviar una excepción no controlada
 
-### <a name="send-an-unhandled-exception"></a>Send an unhandled exception
+#### Referencia
 
-#### <a name="reference"></a>Reference
+			void SendCrash(Exception e)
 
-            void SendCrash(Exception e)
+Engagement también proporciona un método para enviar excepciones no controladas si ha **DESHABILITADO** los informes de **bloqueo** automáticos de Engagement. Esto es especialmente útil cuando se usa dentro del controlador de eventos UnhandledException.
 
-Engagement also provides a method to send unhandled exceptions if you have **DISABLED** Engagement automatic **crash** reporting. This is especially useful when used inside the application UnhandledException event handler.
+Este método **SIEMPRE** finalizará la sesión y los trabajos de Engagement después de su invocación.
 
-This method will **ALWAYS** terminate the engagement session and jobs after being called.
+#### Ejemplo
 
-#### <a name="example"></a>Example
+Puede usarlo para implementar su propio controlador UnhandledExceptionEventArgs. Por ejemplo, agregue el método `Current_UnhandledException` del archivo `App.xaml.cs`:
 
-You can use it to implement your own UnhandledExceptionEventArgs handler. For example, add the `Current_UnhandledException` method of the `App.xaml.cs` file :
+			// In your App.xaml.cs file
+			
+			// Code to execute on Unhandled Exceptions
+			void Current_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+			{
+			   EngagementAgent.Instance.SendCrash(e.Exception,false);
+			}
 
-            // In your App.xaml.cs file
-            
-            // Code to execute on Unhandled Exceptions
-            void Current_UnhandledException(object sender, UnhandledExceptionEventArgs e)
-            {
-               EngagementAgent.Instance.SendCrash(e.Exception,false);
-            }
+En App.xaml.cs, en "Public App(){}", agregue lo siguiente:
 
-In App.xaml.cs in "Public App(){}" add:
+			Application.Current.UnhandledException += Current_UnhandledException;
 
-            Application.Current.UnhandledException += Current_UnhandledException;
+##Identificador de dispositivo
 
-##<a name="device-id"></a>Device Id
+			String EngagementAgent.Instance.GetDeviceId()
 
-            String EngagementAgent.Instance.GetDeviceId()
+Puede obtener el identificador del dispositivo de Engagement mediante una llamada a este método.
 
-You can get the engagement device id by calling this method.
+##Parámetros adicionales
 
-##<a name="extras-parameters"></a>Extras parameters
+Es posible adjuntar datos arbitrarios a un evento, un error, una actividad o un trabajo. Estos datos se pueden estructurar mediante un diccionario. Las claves y los valores pueden ser de cualquier tipo.
 
-Arbitrary data can be attached to an event, an error, an activity or a job. These data can be structured using a dictionary. Keys and values can be of any type.
+Los datos adicionales se serializan, de modo que si desea insertar su propio tipo de datos adicionales, tendrá que agregar un contrato de datos para este tipo.
 
-Extras data are serialized so if you want to insert your own type in extras you have to add a data contract for this type.
+### Ejemplo
 
-### <a name="example"></a>Example
+Creamos una nueva clase "Person".
 
-We create a new class "Person".
+			using System.Runtime.Serialization;
+			
+			namespace Microsoft.Azure.Engagement
+			{
+			  [DataContract]
+			  public class Person
+			  {
+			    public Person(string name, int age)
+			    {
+			      Age = age;
+			      Name = name;
+			    }
+			
+			    // Properties
+			
+			    [DataMember]
+			    public int Age
+			    {
+			      get;
+			      set;
+			    }
+			
+			    [DataMember]
+			    public string Name
+			    {
+			      get;
+			      set; 
+			    }
+			  }
+			}
 
-            using System.Runtime.Serialization;
-            
-            namespace Microsoft.Azure.Engagement
-            {
-              [DataContract]
-              public class Person
-              {
-                public Person(string name, int age)
-                {
-                  Age = age;
-                  Name = name;
-                }
-            
-                // Properties
-            
-                [DataMember]
-                public int Age
-                {
-                  get;
-                  set;
-                }
-            
-                [DataMember]
-                public string Name
-                {
-                  get;
-                  set; 
-                }
-              }
-            }
+A continuación, agregaremos una instancia de `Person` a un dato adicional.
 
-Then, we will add a `Person` instance to an extra.
+			Person person = new Person("Engagement Haddock", 51);
+			var extras = new Dictionary<object, object>();
+			extras.Add("people", person);
+			
+			EngagementAgent.Instance.SendEvent("Event", extras);
 
-            Person person = new Person("Engagement Haddock", 51);
-            var extras = new Dictionary<object, object>();
-            extras.Add("people", person);
-            
-            EngagementAgent.Instance.SendEvent("Event", extras);
+> [AZURE.WARNING] Si coloca otros tipos de objetos, asegúrese de que el método ToString() se implementa para devolver una cadena legible.
 
-> [AZURE.WARNING] If you put other types of objects, make sure their ToString() method is implemented to return a human readable string.
+### Límites
 
-### <a name="limits"></a>Limits
+#### simétricas
 
-#### <a name="keys"></a>Keys
-
-Each key in the object must match the following regular expression:
+Cada clave del objeto debe coincidir con la siguiente expresión regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
-It means that keys must start with at least one letter, followed by letters, digits or underscores (\_).
+Esto significa que las claves deben empezar con al menos una letra, seguida de letras, dígitos o caracteres de subrayado (\_).
 
-#### <a name="size"></a>Size
+#### Tamaño
 
-Extras are limited to **1024** characters per call.
+Los datos adicionales están limitados a **1024** caracteres por llamada.
 
-##<a name="reporting-application-information"></a>Reporting Application Information
+##Información de la aplicación de informes
 
-### <a name="reference"></a>Reference
+### Referencia
 
-            void SendAppInfo(Dictionary<object, object> appInfos)
+			void SendAppInfo(Dictionary<object, object> appInfos)
 
-You can manually report tracking information (or any other application specific information) using the SendAppInfo() function.
+Puede notificar manualmente la información de seguimiento (o cualquier otro tipo de información específica de la aplicación) mediante la función SendAppInfo().
 
-Note that this data can be sent incrementally: only the latest value for a given key will be kept for a given device. Like event extras, use a Dictionary\<object, object\> to attach data.
+Tenga en cuenta que estos datos se pueden enviar de forma incremental: para un dispositivo concreto solo se conservará el último valor de una clave determinada. Al igual que los datos adicionales de evento, use un elemento Dictionary<object, object> para adjuntar datos.
 
-### <a name="example"></a>Example
+### Ejemplo
 
-            Dictionary<object, object> appInfo = new Dictionary<object, object>()
-              {
-                {"birthdate", "1983-12-07"},
-                {"gender", "female"}
-              };
-            
-            EngagementAgent.Instance.SendAppInfo(appInfo);
+			Dictionary<object, object> appInfo = new Dictionary<object, object>()
+			  {
+			    {"birthdate", "1983-12-07"},
+			    {"gender", "female"}
+			  };
+			
+			EngagementAgent.Instance.SendAppInfo(appInfo);
 
-### <a name="limits"></a>Limits
+### Límites
 
-#### <a name="keys"></a>Keys
+#### simétricas
 
-Each key in the object must match the following regular expression:
+Cada clave del objeto debe coincidir con la siguiente expresión regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
-It means that keys must start with at least one letter, followed by letters, digits or underscores (\_).
+Esto significa que las claves deben empezar con al menos una letra, seguida de letras, dígitos o caracteres de subrayado (\_).
 
-#### <a name="size"></a>Size
+#### Tamaño
 
-Application information is limited to **1024** characters per call.
+La información de la aplicación está limitada a **1024** caracteres por llamada.
 
-In the previous example, the JSON sent to the server is 44 characters long:
+En el ejemplo anterior, el JSON que se envía al servidor tiene una longitud de 44 caracteres:
 
-            {"birthdate":"1983-12-07","gender":"female"}
+			{"birthdate":"1983-12-07","gender":"female"}
 
-##<a name="logging"></a>Logging
-###<a name="enable-logging"></a>Enable Logging
+##Registro
+###Habilitación del registro
 
-The SDK can be configured to produce test logs in the IDE console.
-These logs are not activated by default. To customize this, update the property `EngagementAgent.Instance.TestLogEnabled` to one of the value available from the `EngagementTestLogLevel` enumeration, for instance:
+El SDK puede configurarse para generar registros de prueba en la consola del IDE. Estos registros no están activados de forma predeterminada. Para personalizar esto, actualice la propiedad `EngagementAgent.Instance.TestLogEnabled` a uno de los valores disponibles en la enumeración `EngagementTestLogLevel`, por ejemplo:
 
-            EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
-            EngagementAgent.Instance.Init();
+			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
+			EngagementAgent.Instance.Init();
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

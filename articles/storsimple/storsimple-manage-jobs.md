@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="View and manage StorSimple jobs | Microsoft Azure"
-   description="Describes the StorSimple Manager service Jobs page and how to use it to track recent, current, and scheduled backup jobs."
+   pageTitle="Visualización y administración de trabajos de StorSimple | Microsoft Azure"
+   description="Describe la página Trabajos del servicio Administrador de StorSimple y cómo usarla para realizar un seguimiento de los trabajos de copia de seguridad programados, actuales y recientes."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,87 +15,82 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
-
-# <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-jobs"></a>Use the StorSimple Manager service to view and manage StorSimple jobs
+# Usar el servicio de Administrador de StorSimple para ver y administrar trabajos de StorSimple
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
 
-## <a name="overview"></a>Overview
+## Información general
 
-The **Jobs** page provides a single central portal for viewing and managing jobs that were started on devices connected to your StorSimple Manager service. You can view scheduled, running, completed, and failed jobs for multiple devices. Results are presented in a tabular format. 
+En la página **Trabajos** se ofrece un único portal central para ver y administrar trabajos iniciados en dispositivos conectados a su servicio StorSimple Manager. Puede ver los trabajos programados, en ejecución, completados y con error de varios dispositivos. Los resultados se presentan en un formato tabular.
 
-![Jobs page](./media/storsimple-manage-jobs/HCS_JobsPage.png)
+![Página de trabajos](./media/storsimple-manage-jobs/HCS_JobsPage.png)
 
-You can quickly find the jobs you are interested in by filtering on fields such as:
+Puede buscar rápidamente los trabajos que le interesan filtrando por campos como:
 
-- **Status** – Jobs can be running, scheduled, failed, completed, canceling, or canceled.
+- **Estado**: los trabajos pueden estar en ejecución, programados, con errores, completados, cancelándose o cancelados.
 
-- **Type** – Jobs can be created as a result of a scheduled or an on-demand backup (**Take Backup**), cloning, a device restore, or an update operation.
+- **Tipo**: los trabajos pueden crearse como resultado de una copia de seguridad programada o a petición (**Realizar copia de seguridad**), una clonación, una restauración de dispositivo o una operación de actualización.
 
-- **Devices** – Jobs are initiated on a certain device connected to your service.
+- **Dispositivos**: los trabajos se inician en un determinado dispositivo conectado a su servicio.
 
-- **From and To** – Jobs can be filtered based on the date and time range.
+- **Desde y Hasta**: los trabajos se pueden filtrar según el intervalo de fecha y hora.
 
-The filtered jobs are then tabulated on the basis of the following attributes:
+A continuación, los trabajos filtrados se tabulan en función de los siguientes atributos:
 
-- **Type** – Backup, clone, restore, failover, or update.
+- **Tipo**: copia de seguridad, clonación, restauración, conmutación por error o actualización.
 
-- **Status** – Running, scheduled, failed, completed, canceling, or canceled.
+- **Estado**: en ejecución, programado, con error, completado, cancelándose o cancelado.
 
-- **Entity** – The jobs can be associated with a volume, a backup policy, or a device. A clone job is associated with a volume, whereas a scheduled backup job is associated with a backup policy. A device job is created as a result of a disaster recovery (DR) or a restore operation.
+- **Entidad**: los trabajos se pueden asociados a un volumen, una directiva de copia de seguridad o un dispositivo. Un trabajo de clonación se asocia a un volumen, mientras que un trabajo de copia de seguridad programado está asociado a una directiva de copia de seguridad. Se crea un trabajo de dispositivo como resultado de una recuperación ante desastres (DR) o una operación de restauración.
 
-- **Device** – The name of the device on which the job was started.
+- **Dispositivo**: el nombre del dispositivo en el que se inició el trabajo.
 
-- **Started On** – The time when the job was started.
+- **Hora de inicio**: la hora a la que se inició el trabajo.
 
-- **Progress** – The percentage completion of a running job. For a completed job, this should always be 100%.
+- **Progreso**: el porcentaje de finalización de un trabajo en ejecución. Para un trabajo completado, este debe equivaler siempre al 100%.
 
-The list of jobs is refreshed every 30 seconds.
+La lista de trabajos se actualiza cada 30 segundos.
 
-You can perform the following job-related actions on this page:
+Puede realizar las siguientes acciones relacionadas con el trabajo en esta página:
 
-- View job details
+- Ver detalles del trabajo
 
-- Cancel a job
+- Cancelación de un trabajo
 
-## <a name="view-job-details"></a>View job details
+## Ver detalles del trabajo
 
-Perform the following steps to view the details of any job.
+Realice los pasos siguientes para ver los detalles de cualquier trabajo.
 
-#### <a name="to-view-job-details"></a>To view job details
+#### Para ver los detalles del trabajo
 
-1. On the **Jobs** page, display the job(s) you are interested in by running a query with appropriate filters. You can search for completed, running, or canceled jobs.
+1. En la página **Trabajos**, para mostrar los trabajos en los que esté interesado, ejecute una consulta con los filtros adecuados. Puede buscar trabajos completados, en ejecución o cancelados.
 
-2. Select a job.
+2. Seleccione un trabajo.
 
-3. At the bottom of the page, click **Details**.
+3. En la parte inferior de la página, haga clic en **Detalles**.
 
-4. In the **Backup Job Details** dialog box, you can view the status, details, time statistics, and data statistics.
+4. En el cuadro de diálogo **Detalles del trabajo de copia de seguridad**, puede ver el estado, los detalles, así como las estadísticas de tiempo y de los datos.
 
-## <a name="cancel-a-job"></a>Cancel a job
+## Cancelación de un trabajo
 
-Perform the following steps to cancel a running job.
+Realice los pasos siguientes para cancelar un trabajo en ejecución.
 
-### <a name="to-cancel-a-job"></a>To cancel a job
+### Para cancelar un trabajo
 
-1. On the **Jobs** page, display the running job(s) that you want to cancel by running a query with appropriate filters.
+1. En la página **Trabajos**, para mostrar los trabajos en curso que quiere cancelar, ejecute una consulta con los filtros adecuados.
 
-1. Select the job.
+1. Seleccione el trabajo.
 
-1. At the bottom of the page, click **Cancel**.
+1. En la parte inferior de la página, haga clic en **Cancelar**.
 
-1. When prompted for confirmation, click **Yes**.
+1. Cuando se le pida confirmación, haga clic en **Sí**.
 
-This job is now canceled.
+Ahora se cancelará este trabajo.
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-- Learn how to [manage your StorSimple backup policies](storsimple-manage-backup-policies.md).
+- Obtenga información sobre cómo [administrar las directivas de copia de seguridad de StorSimple](storsimple-manage-backup-policies.md).
 
-- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

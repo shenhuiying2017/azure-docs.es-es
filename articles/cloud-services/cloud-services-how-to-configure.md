@@ -1,96 +1,89 @@
 <properties 
-    pageTitle="How to configure a cloud service (classic portal) | Microsoft Azure" 
-    description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances." 
-    services="cloud-services" 
-    documentationCenter="" 
-    authors="Thraka" 
-    manager="timlt" 
-    editor=""/>
+	pageTitle="Configuración de un servicio en la nube (Portal clásico) | Microsoft Azure" 
+	description="Aprenda a configurar servicios en la nube en Azure. Aprenda a actualizar la configuración del servicio en la nube y configurar el acceso remoto en instancias de rol." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
+	editor=""/>
 
 <tags 
-    ms.service="cloud-services" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/11/2016"
-    ms.author="adegeo"/>
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/27/2016"
+	ms.author="adegeo"/>
 
 
 
 
-
-# <a name="how-to-configure-cloud-services"></a>How to Configure Cloud Services
+# Configuración de servicios en la nube
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-how-to-configure-portal.md)
-- [Azure classic portal](cloud-services-how-to-configure.md)
+- [Portal de Azure](cloud-services-how-to-configure-portal.md)
+- [Portal de Azure clásico](cloud-services-how-to-configure.md)
 
-You can configure the most commonly used settings for a cloud service in the Azure classic portal. Or, if you like to update your configuration files directly, download a service configuration file to update, and then upload the updated file and update the cloud service with the configuration changes. Either way, the configuration updates are pushed out to all role instances.
+Puede configurar la mayoría de los ajustes más usados para un servicio en la nube en el Portal de Azure clásico. O bien, si desea actualizar los archivos de configuración directamente, descargue un archivo de configuración de servicio para actualizar y, a continuación, cargue el archivo actualizado y actualice el servicio en la nube con los cambios en la configuración. De cualquier manera, las actualizaciones de la configuración se realizan en todas las instancias de rol.
 
-The Azure classic portal also allows you to [enable Remote Desktop Connection for a Role in Azure Cloud Services](cloud-services-role-enable-remote-desktop.md)
+El Portal de Azure clásico también le permite [habilitar la conexión a escritorio remoto para un rol de servicios en la nube de Azure](cloud-services-role-enable-remote-desktop.md).
 
-Azure can only ensure 99.95 percent service availability during the configuration updates if you have at least two role instances for every role. That enables one virtual machine to process client requests while the other is being updated. For more information, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las actualizaciones de la configuración si tiene al menos dos instancias de rol para cada rol. Esto permite que una máquina virtual procese las solicitudes del cliente mientras la otra se actualiza. Para obtener más información, consulte [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
 
-## <a name="change-a-cloud-service"></a>Change a cloud service
+## Cambiar un servicio en la nube
 
-1. In the [Azure classic portal](http://manage.windowsazure.com/), click **Cloud Services**, click the name of the cloud service, and then click **Configure**.
+1. En el [Portal de Azure clásico](http://manage.windowsazure.com/), haga clic en **Servicios en la nube**, en el nombre del servicio en la nube y, a continuación, en **Configurar**.
 
-    ![Configuration Page](./media/cloud-services-how-to-configure/CloudServices_ConfigurePage1.png)
+    ![Página de configuración](./media/cloud-services-how-to-configure/CloudServices_ConfigurePage1.png)
     
-    On the **Configure** page, you can configure monitoring, update role settings, and choose the guest operating system and family for role instances. 
+    En la página **Configurar**, puede configurar la supervisión, actualizar la configuración de roles y seleccionar el sistema operativo invitado y la familia para las instancias de rol.
 
-2. In **monitoring**, set the monitoring level to Verbose or Minimal, and configure the diagnostics connection strings that are required for verbose monitoring.
+2. En **supervisión**, establezca el nivel de supervisión en Detallado o Mínimo y configure las cadenas de conexión del diagnóstico que se requieren para la supervisión detallada.
 
-3. For service roles (grouped by role), you can update the following settings:
+3. Para los roles de servicio (agrupados por rol), puede actualizar la siguiente configuración:
     
-    >**Settings**  
-    >Modify the values of miscellaneous configuration settings that are specified in the *ConfigurationSettings* elements of the service configuration (.cscfg) file.
+    >**Configuración** Modifique los valores de los ajustes de la configuración diversa que se especifican en los elementos *ConfigurationSettings* del archivo de configuración del servicio (.cscfg).
     >
-    >**Certificates**  
-    >Change the certificate thumbprint that's being used in SSL encryption for a role. To change a certificate, you must first upload the new certificate (on the **Certificates** page). Then update the thumbprint in the certificate string displayed in the role settings.
+    >**Certificados** Cambie la huella digital del certificado que se está usando en el cifrado SSL para un rol. Para cambiar un certificado, debe primero cargar el certificado nuevo (en la página **Certificados**). Posteriormente, actualice la huella digital en la cadena de certificado que aparece en la configuración de roles.
 
-4. In **operating system**, you can change the operating system family or version for role instances, or choose **Automatic** to enable automatic updates of the current operating system version. The operating system settings apply to web roles and worker roles, but do not affect Virtual Machines.
+4. En **sistema operativo**, puede cambiar la familia o la versión del sistema operativo para las instancias de rol o seleccionar **Automático** para habilitar las actualizaciones automáticas de la versión del sistema operativo actual. Esta configuración del sistema operativo se aplica a roles web y roles de trabajo, pero no afecta a Máquinas virtuales.
 
-    During deployment, the most recent operating system version is installed on all role instances, and the operating systems are updated automatically by default. 
+    Durante la implementación, se instala la versión más reciente del sistema operativo en todas las instancias de rol y los sistemas operativos se actualizan automáticamente de manera predeterminada.
     
-    If you need for your cloud service to run on a different operating system version because of compatibility requirements in your code, you can choose an operating system family and version. When you choose a specific operating system version, automatic operating system updates for the cloud service are suspended. You will need to ensure the operating systems receive updates.
+    Si debido a los requisitos de compatibilidad en su código necesita una versión diferente del sistema operativo para que su servicio en la nube pueda ejecutarse, puede seleccionar una familia y versión del sistema operativo. Al elegir una versión específica del sistema operativo, se suspenden las actualizaciones automáticas del sistema operativo para el servicio en la nube. Deberá asegurarse de que los sistemas operativos reciban las actualizaciones.
     
-    If you resolve all compatibility issues that your apps have with the most recent operating system version, you can enable automatic operating system updates by setting the operating system version to **Automatic**. 
+    Si soluciona todos los problemas de compatibilidad que tienen sus aplicaciones con la versión más reciente del sistema operativo, puede habilitar las actualizaciones automáticas del sistema operativo al establecer la versión del sistema operativo en **Automático**.
     
-    ![OS Settings](./media/cloud-services-how-to-configure/CloudServices_ConfigurePage_OSSettings.png)
+    ![Configuración del SO](./media/cloud-services-how-to-configure/CloudServices_ConfigurePage_OSSettings.png)
 
-5. To save your configuration settings, and push them to the role instances, click **Save**. (Click **Discard** to cancel the changes.) **Save** and **Discard** are added to the command bar after you change a setting.
+5. Para guardar los ajustes de configuración y transmitirlos a las instancias de rol, haga clic en **Guardar**. (Haga clic en **Descartar** para cancelar los cambios). **Guardar** y **Descartar** se agregan a la barra de comandos después de cambiar un parámetro de configuración.
 
-## <a name="update-a-cloud-service-configuration-file"></a>Update a cloud service configuration file
+## Actualizar un archivo de configuración del servicio en la nube
 
-1. Download a cloud service configuration file (.cscfg) with the current configuration. On the **Configure** page for the cloud service, click **Download**. Then click **Save**, or click **Save As** to save the file.
+1. Descargue un archivo de configuración del servicio en la nube (.cscfg) con la configuración actual. En la página **Configurar** del servicio en la nube, haga clic en **Descargar**. A continuación, haga clic en **Guardar** o en **Guardar como** para guardar el archivo.
 
-2. After you update the service configuration file, upload and apply the configuration updates:
+2. Después de actualizar el archivo de configuración del servicio, cargue y aplique las actualizaciones de la configuración:
 
-    1. On the **Configure** page, click **Upload**.
+    1. En la página **Configurar**, haga clic en **Cargar**.
     
-        ![Upload Configuration](./media/cloud-services-how-to-configure/CloudServices_UploadConfigFile.png)
+        ![Cargar configuración](./media/cloud-services-how-to-configure/CloudServices_UploadConfigFile.png)
     
-    2. In **Configuration file**, use **Browse** to select the updated .cscfg file.
+    2. En **Archivo de configuración**, use **Examinar** para seleccionar el archivo .cscfg actualizado.
     
-    3. If your cloud service contains any roles that have only one instance, select the **Apply configuration even if one or more roles contain a single instance** check box to enable the configuration updates for the roles to proceed.
+    3. Si su servicio en la nube contiene cualquier rol que tiene una sola instancia, active la casilla **Aplicar la configuración aunque una o más reglas contenga una instancia única** para permitir que continúen las actualizaciones de configuración para los roles.
     
-        Unless you define at least two instances of every role, Azure cannot guarantee at least 99.95 percent availability of your cloud service during service configuration updates. For more information, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+        A menos que defina como mínimo dos instancias de cada rol, Azure no puede garantizar una disponibilidad de su servicio en la nube de al menos un 99,95 % durante las actualizaciones de la configuración del servicio. Para obtener más información, consulte [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
     
-    4. Click **OK** (checkmark). 
+    4. Haga clic en **Aceptar** (marca de verificación).
 
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-* Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy.md).
-* Configure a [custom domain name](cloud-services-custom-domain-name.md).
-* [Manage your cloud service](cloud-services-how-to-manage.md).
-* [Enable Remote Desktop Connection for a Role in Azure Cloud Services](cloud-services-role-enable-remote-desktop.md)
-* Configure [ssl certificates](cloud-services-configure-ssl-certificate.md).
+* Obtenga información sobre cómo [implementar un servicio en la nube](cloud-services-how-to-create-deploy.md).
+* Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name.md).
+* [Administración de su servicio en la nube](cloud-services-how-to-manage.md).
+* [Habilitar la conexión a Escritorio remoto para un rol de servicios en la nube de Azure](cloud-services-role-enable-remote-desktop.md)
+* Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

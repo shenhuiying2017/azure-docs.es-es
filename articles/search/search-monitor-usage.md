@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Monitor usage and statistics in an Azure Search service | Microsoft Azure | Hosted cloud search service" 
-   description="Track resource consumption and index size for Azure Search, a hosted cloud search service on Microsoft Azure." 
+   pageTitle="Supervisión del uso y estadísticas en un servicio Búsqueda de Azure | Microsoft Azure | Servicio de búsqueda hospedado en la nube" 
+   description="Realice el seguimiento del consumo de recursos y el tamaño de índice para Búsqueda de Azure, un servicio de búsqueda hospedado en la nube en Microsoft Azure." 
    services="search" 
    documentationCenter="" 
    authors="HeidiSteen" 
@@ -17,40 +17,39 @@
    ms.date="05/17/2016"
    ms.author="heidist"/>
 
+# Supervisión del uso y estadísticas en un servicio Búsqueda de Azure
 
-# <a name="monitor-usage-and-statistics-in-an-azure-search-service"></a>Monitor usage and statistics in an Azure Search service
+Llevar un seguimiento del crecimiento de los índices y el tamaño de los documentos puede ayudarle a ajustar la capacidad de forma proactiva antes de alcanzar el límite superior que haya establecido para el servicio.
 
-Tracking the growth of indexes and document size can help you proactively adjust capacity before hitting the upper limit you've established for your service. 
+Para supervisar el uso de recursos, los recuentos y las estadísticas de su servicio pueden verse con facilidad en el [Portal de Azure](https://portal.azure.com), pero también se puede obtener la información mediante programación si va a crear una herramienta de administración de servicio personalizada. En este artículo se muestran los pasos para ambas técnicas.
 
-To monitor resource usage, counts and statistics for your service are easily viewed in the [Azure Portal](https://portal.azure.com), but you can also obtain the information programmatically if you are building a custom service administration tool. This article covers the steps for both techniques.
+También puede usar la nueva función de análisis de tráfico de búsqueda para obtener información sobre la actividad en el nivel de índice. Visite [Análisis de tráfico de búsqueda para Búsqueda de Azure](search-traffic-analytics.md) para comenzar.
 
-You can also use the new search traffic analytics feature for insights into activity at the index level. Visit [Search Traffic Analytics for Azure Search](search-traffic-analytics.md) to get started.
+##Ver recuentos y métricas en el portal 
 
-##<a name="view-counts-and-metrics-in-the-portal"></a>View counts and metrics in the portal 
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
-1. Sign in to the [Azure Portal](https://portal.azure.com). 
+2. Abra el panel del servicio Búsqueda de Azure. Puede buscar los mosaicos del servicio en la página principal, o puede desplazarse hasta el servicio usando Explorar, en la barra de salto. Consulte [Crear un servicio](search-create-service-portal.md) para obtener instrucciones paso a paso.
 
-2. Open the service dashboard of your Azure Search service. Tiles for the service can be found on the Home page, or you can browse to the service from Browse on the JumpBar. See [Create a service](search-create-service-portal.md) for step-by-step instructions.
-
-The Usage section includes a meter that tells you what portion of available resources are currently in use.
+La sección Uso incluye un medidor que indica la parte de los recursos disponibles que está en uso.
 
   ![][1]
 
-Recall that the shared service has a maximum of one replica and partition each. Additionally, it can only support 10,000 documents in total or 50 MB of data, whichever comes first.
+Recuerde que el servicio compartido tiene un máximo de una réplica y una partición. Además, sólo puede admitir 10.000 documentos en total o 50 MB de datos, lo que ocurra primero.
 
-##<a name="get-index-statistics-using-the-rest-api"></a>Get index statistics using the REST API
+##Obtención de estadísticas de índice utilizando la API de REST
 
-Both the Azure Search REST API and the .NET SDK provide programmatic access to service metrics.  If you are using [indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx) to load an index from Azure SQL Database or DocumentDB, an additional API is available to get the numbers you require. 
+La API de REST de Búsqueda de Azure y el SDK para .NET proporcionan acceso mediante programación a las métricas del servicio. Si está utilizando [indizadores](https://msdn.microsoft.com/library/azure/dn946891.aspx) para cargar un índice desde una base de datos SQL de Azure o desde DocumentDB, está disponible una API adicional para obtener las cifras que necesita.
 
-  + [Get Index Statistics](https://msdn.microsoft.com/library/azure/dn798942.aspx)
-  + [Count Documents](https://msdn.microsoft.com/library/azure/dn798924.aspx)
-  + [Get Indexer Status](https://msdn.microsoft.com/library/azure/dn946884.aspx)
+  + [Obtención de estadísticas de índice](https://msdn.microsoft.com/library/azure/dn798942.aspx)
+  + [Recuento de documentos](https://msdn.microsoft.com/library/azure/dn798924.aspx)
+  + [Obtención del estado del indizador](https://msdn.microsoft.com/library/azure/dn946884.aspx)
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-Review [Limits and capacity](search-limits-quotas-capacity.md) to determine the combination of partitions and replicas you'll need if existing capacity is insufficient. 
+Consulte [Límites y capacidad](search-limits-quotas-capacity.md) para determinar la combinación de particiones y réplicas que necesitará si la capacidad existente no es suficiente.
 
-Visit [Manage your Search service on Microsoft Azure](search-manage.md) for more information on service administration.
+Visite [Administración del servicio de búsqueda en Microsoft Azure](search-manage.md) para obtener más información acerca de la administración de servicio.
 
 <!--Image references-->
 [1]: ./media/search-monitor-usage/AzureSearch-Monitor1.PNG
@@ -60,8 +59,4 @@ Visit [Manage your Search service on Microsoft Azure](search-manage.md) for more
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

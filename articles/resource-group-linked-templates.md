@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Linked templates with Resource Manager | Microsoft Azure"
-   description="Describes how to use linked templates in an Azure Resource Manager template to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs."
+   pageTitle="Plantillas vinculadas con Azure Resource Manager | Microsoft Azure"
+   description="Describe cómo usar plantillas vinculadas en una plantilla del Administrador de recursos de Azure para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,16 +16,15 @@
    ms.date="09/02/2016"
    ms.author="tomfitz"/>
 
+# Uso de plantillas vinculadas con el Administrador de recursos de Azure
 
-# <a name="using-linked-templates-with-azure-resource-manager"></a>Using linked templates with Azure Resource Manager
+Desde dentro de una plantilla de Azure Resource Manager, puede realizar la vinculación con otra plantilla que le permita descomponer la implementación en un conjunto de plantillas con fines específicos y dirigidas. Como ocurre con la descomposición de una aplicación en varias clases de código, la descomposición proporciona ventajas en cuanto a las pruebas, la reutilización y la legibilidad.
 
-From within one Azure Resource Manager template, you can link to another template, which enables you to decompose your deployment into a set of targeted, purpose-specific templates. As with decomposing an application into several code classes, decomposition provides benefits in terms of testing, reuse, and readability.  
+Puede pasar parámetros de una plantilla principal a una plantilla vinculada de nuevo, y esos parámetros pueden asignarse directamente a parámetros o variables expuestas por la plantilla de llamada. La plantilla vinculada también puede pasar una variable de salida de nuevo a la plantilla de origen, lo que permite un intercambio de datos bidireccional entre las plantillas.
 
-You can pass parameters from a main template to a linked template, and those parameters can directly map to parameters or variables exposed by the calling template. The linked template can also pass an output variable back to the source template, enabling a two-way data exchange between templates.
+## Vinculación con una plantilla
 
-## <a name="linking-to-a-template"></a>Linking to a template
-
-You create a link between two templates by adding a deployment resource within the main template that points to the linked template. You set the **templateLink** property to the URI of the linked template. You can provide parameter values for the linked template either by specifying the values directly in your template or by linking to a parameter file. The following example uses the **parameters** property to specify a parameter value directly.
+Cree un vínculo entre dos plantillas mediante la adición de un recurso de implementación dentro de la plantilla principal que apunta a la plantilla vinculada. Para ello, debe establecer la propiedad **templateLink** en el URI de la plantilla vinculada. Puede proporcionar valores de parámetro para la plantilla vinculada especificando los valores directamente en la plantilla o mediante la vinculación a un archivo de parámetros. El siguiente ejemplo usa la propiedad **parameters** para especificar un valor de parámetro directamente.
 
     "resources": [ 
       { 
@@ -45,16 +44,16 @@ You create a link between two templates by adding a deployment resource within t
       } 
     ] 
 
-The Resource Manager service must be able to access the linked template. You cannot specify a local file or a file that is only available on your local network for the linked template. You can only provide a URI value that includes either **http** or **https**. One option is to place your linked template in a storage account, and use the URI for that item, such as shown in the following example.
+El servicio Resource Manager debe tener acceso a la plantilla vinculada. No se puede especificar un archivo local o un archivo que solo está disponible en la red local para la plantilla vinculada. Solo se puede proporcionar un valor de URI que incluya **http** o **https**. Una opción es colocar la plantilla vinculada en una cuenta de almacenamiento y usar el URI para dicho elemento, como se muestra en el ejemplo siguiente.
 
     "templateLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
         "contentVersion": "1.0.0.0",
     }
 
-Although the linked template must be externally available, it does not need to be generally available to the public. You can add your template to a private storage account that is accessible to only the storage account owner. Then, you create a shared access signature (SAS) token to enable access during deployment. You add that SAS token to the URI for the linked template. For steps on setting up a template in a storage account and generating a SAS token, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md) or [Deploy resources with Resource Manager templates and Azure CLI](resource-group-template-deploy-cli.md). 
+Aunque la plantilla vinculada debe estar disponible externamente, no es necesario que esté generalmente disponible para el público. Puede agregar la plantilla a una cuenta de almacenamiento privada que sea accesible solo al propietario de la cuenta de almacenamiento. Ahora cree un token de Firma de acceso compartido (SAS) para permitir el acceso durante la implementación. Ese token SAS se agrega al identificador URI para la plantilla vinculada. Para obtener información acerca de cómo configurar una plantilla en una cuenta de almacenamiento y generar un token de SAS, consulte [Implementación de recursos con plantillas de Azure Resource Manager](resource-group-template-deploy.md) o [Deploy resources with Resource Manager templates and Azure CLI](resource-group-template-deploy-cli.md) (Implementación de recursos con plantillas de Azure Manager y la CLI de Azure).
 
-The following example shows a parent template that links to another template. The linked template is accessed with a SAS token that is passed in as a parameter.
+En el ejemplo siguiente se muestra una plantilla principal que se vincula a otra plantilla. El acceso a la plantilla anidada se obtiene con un token de SAS que se pasa como un parámetro.
 
     "parameters": {
         "sasToken": { "type": "securestring" }
@@ -74,11 +73,11 @@ The following example shows a parent template that links to another template. Th
         }
     ],
 
-Even though the token is passed in as a secure string, the URI of the linked template, including the SAS token, is logged in the deployment operations for that resource group. To limit exposure, set an expiration for the token.
+Aunque el token se pasa como una cadena segura, el URI de la plantilla vinculada, incluido el token de SAS, se registra en las operaciones de implementación para ese grupo de recursos. Para limitar la exposición, establezca una caducidad para el token.
 
-## <a name="linking-to-a-parameter-file"></a>Linking to a parameter file
+## Vinculación con un archivo de parámetros
 
-The next example uses the **parametersLink** property to link to a parameter file.
+El siguiente ejemplo utiliza la propiedad **parametersLink** para vincular a un archivo de parámetros.
 
     "resources": [ 
       { 
@@ -99,13 +98,13 @@ The next example uses the **parametersLink** property to link to a parameter fil
       } 
     ] 
 
-The URI value for the linked parameter file cannot be a local file, and must include either **http** or **https**. The parameter file can also be limited to access through a SAS token.
+El valor del URI para el archivo del parámetro vinculado no puede ser un archivo local y debe incluir **http** o **https**. También se puede limitar el acceso al archivo de parámetros a través de un token de SAS.
 
-## <a name="using-variables-to-link-templates"></a>Using variables to link templates
+## Uso de variables para vincular plantillas
 
-The previous examples showed hard-coded URL values for the template links. This approach might work for a simple template but it does not work well when working with a large set of modular templates. Instead, you can create a static variable that stores a base URL for the main template and then dynamically create URLs for the linked templates from that base URL. The benefit of this approach is you can easily move or fork the template because you only need to change the static variable in the main template. The main template passes the correct URIs throughout the decomposed template.
+Los ejemplos anteriores mostraron valores de dirección URL codificadas de forma rígida para los vínculos de la plantilla. Este enfoque puede funcionar en una plantilla sencilla pero no funciona bien cuando se trabaja con un gran conjunto de plantillas modulares. En su lugar, puede crear una variable estática que almacene una dirección URL base para la plantilla principal y, luego, crear dinámicamente direcciones URL para las plantillas vinculadas desde esa dirección URL base. La ventaja de este enfoque es que puede mover fácilmente o bifurcar la plantilla porque solo tendrá que cambiar la variable estática en la plantilla principal. La plantilla principal pasa los URI correctos por toda la plantilla descompuesta.
 
-The following example shows how to use a base URL to create two URLs for linked templates (**sharedTemplateUrl** and **vmTemplate**). 
+En el ejemplo siguiente se muestra cómo usar una dirección URL base para crear dos direcciones URL para las plantillas vinculadas (**sharedTemplateUrl** y **vmTemplate**).
 
     "variables": {
         "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
@@ -126,17 +125,17 @@ The following example shows how to use a base URL to create two URLs for linked 
         }
     }
 
-You can also use [deployment()](resource-group-template-functions.md#deployment) to get the base URL for the current template, and use that to get the URL for other templates in the same location. This approach is useful if your template location changes (maybe due to versioning) or you want to avoid hard coding URLs in the template file. 
+También puede usar la función [deployment()](resource-group-template-functions.md#deployment) para obtener la dirección URL base de la plantilla actual y usar esta información para obtener la dirección URL de otras plantillas en la misma ubicación. Este enfoque resulta útil si cambia la ubicación de la plantilla (probablemente debido al control de versiones) o desea evitar la codificación de forma rígida de las direcciones URL en el archivo de plantilla.
 
     "variables": {
         "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
     }
 
-## <a name="conditionally-linking-to-templates"></a>Conditionally linking to templates
+## Vinculación condicional a plantillas
 
-You can link to different templates by passing in a parameter value that is used to construct the URI of the linked template. This approach works well when you need to specify during deployment which linked template to use. For example, you can specify one template to use for an existing storage account, and another template to use for a new storage account.
+Puede vincular diferentes plantillas pasando un valor de parámetro que se utiliza para construir el URI de la plantilla vinculada. Este enfoque funciona bien cuando tiene que especificar durante la implementación qué plantilla vinculada desea usar. Por ejemplo, puede especificar una plantilla para una cuenta de almacenamiento existente y otra plantilla para una cuenta de almacenamiento nueva.
 
-The following example shows a parameter for a storage account name, and a parameter to specify whether the storage account is new or existing.
+En el ejemplo siguiente se muestra un parámetro para un nombre de cuenta de almacenamiento y otro parámetro que especifica si la cuenta de almacenamiento ya existe o es nueva.
 
     "parameters": {
         "storageAccountName": {
@@ -151,13 +150,13 @@ The following example shows a parameter for a storage account name, and a parame
         }
     },
 
-You create a variable for the template URI that includes the value of the new or existing parameter.
+Cree una variable para la plantilla de URI que incluya el valor de parámetro nuevo o existente.
 
     "variables": {
         "templatelink": "[concat('https://raw.githubusercontent.com/exampleuser/templates/master/',parameters('newOrExisting'),'StorageAccount.json')]"
     },
 
-You provide that variable value for the deployment resource.
+Proporcione ese valor de variable para los recursos de implementación.
 
     "resources": [
         {
@@ -179,9 +178,9 @@ You provide that variable value for the deployment resource.
         }
     ],
 
-The URI resolves to a template named either **existingStorageAccount.json** or **newStorageAccount.json**. Create templates for those URIs.
+El URI se resuelve en una plantilla denominada **existingStorageAccount.json** o **newStorageAccount.json**. Cree plantillas para esos URI.
 
-The following example shows the **existingStorageAccount.json** template.
+En el ejemplo siguiente se muestra la plantilla **existingStorageAccount.json**.
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -201,7 +200,7 @@ The following example shows the **existingStorageAccount.json** template.
       }
     }
 
-The next example shows the **newStorageAccount.json** template. Notice that like the existing storage account template the storage account object is returned in the outputs. The master template works with either linked template.
+En el ejemplo siguiente se muestra la plantilla **newStorageAccount.json**. Observe que, al igual que la plantilla de cuenta de almacenamiento existente, el objeto de cuenta de almacenamiento se devuelve en las salidas. La plantilla principal funciona con cualquier plantilla anidada.
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -233,11 +232,11 @@ The next example shows the **newStorageAccount.json** template. Notice that like
       }
     }
 
-## <a name="complete-example"></a>Complete example
+## Ejemplo completo
 
-The following example templates show a simplified arrangement of linked templates to illustrate several of the concepts in this article. It assumes the templates have been added to the same container in a storage account with public access turned off. The linked template passes a value back to the main template in the **outputs** section.
+Las plantillas de ejemplo siguientes muestran una organización simplificada de plantillas vinculadas para ilustrar algunos de los conceptos de este artículo. Se supone que las plantillas se agregaron en el mismo contenedor en una cuenta de almacenamiento con el acceso público desactivado. La plantilla vinculada pasa un valor de vuelta a la plantilla principal en la sección **salidas**.
 
-The **parent.json** file consists of:
+El archivo **parent.json** consta de lo siguiente:
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -267,42 +266,38 @@ The **parent.json** file consists of:
       }
     }
 
-The **helloworld.json** file consists of:
+El archivo **helloworld.json** consta de lo siguiente:
 
     {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {},
-      "variables": {},
-      "resources": [],
-      "outputs": {
-        "result": {
-            "value": "Hello World",
-            "type" : "string"
-        }
-      }
+	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	  "contentVersion": "1.0.0.0",
+	  "parameters": {},
+	  "variables": {},
+	  "resources": [],
+	  "outputs": {
+		"result": {
+			"value": "Hello World",
+			"type" : "string"
+		}
+	  }
     }
     
-In PowerShell, you get a token for the container and deploy the templates with:
+En PowerShell, se obtiene un token para el contenedor y se implementan las plantillas con lo siguiente:
 
     Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
     $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
     New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ("https://storagecontosotemplates.blob.core.windows.net/templates/parent.json" + $token) -containerSasToken $token
 
-In Azure CLI, you get a token for the container and deploy the templates with the following code. Currently, you must provide a name for the deployment when using a template URI that includes a SAS token.  
+En la CLI de Azure, se obtiene un token para el contenedor y se implementan las plantillas con el código siguiente. Actualmente, debe proporcionar un nombre para la implementación cuando se utiliza un identificador URI para la plantilla que incluye un token de SAS.
 
     expiretime=$(date -I'minutes' --date "+30 minutes")  
     azure storage container sas create --container templates --permissions r --expiry $expiretime --json | jq ".sas" -r
     azure group deployment create -g ExampleGroup --template-uri "https://storagecontosotemplates.blob.core.windows.net/templates/parent.json?{token}" -n tokendeploy  
 
-You are prompted to provide the SAS token as a parameter. You need to preface the token with **?**.
+Se le pide que proporcione el token de SAS como parámetro. Tiene que anteponer **?** al token.
 
-## <a name="next-steps"></a>Next steps
-- To learn about the defining the deployment order for your resources, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md)
-- To learn how to define one resource but create many instances of it, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)
+## Pasos siguientes
+- Para obtener información sobre cómo definir el orden de implementación de los recursos, consulte [Definición de dependencias en plantillas de Azure Resource Manager](resource-group-define-dependencies.md)
+- Para obtener información sobre cómo definir un recurso y crear numerosas instancias de este, consulte [Creación de varias instancias de recursos en Azure Resource Manager](resource-group-create-multiple.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,49 +1,44 @@
 <properties
-    pageTitle="SQL Database elastic pool price and performance"
-    description="Pricing information specific to elastic database pools."
-    services="sql-database"
-    documentationCenter=""
-    authors="srinia"
-    manager="jhubbard"
-    editor=""/>
+	pageTitle="Rendimiento y precio de grupos elásticos de Base de datos SQL"
+	description="Información sobre precios de grupos de bases de datos elásticas."
+	services="sql-database"
+	documentationCenter=""
+	authors="srinia"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
-    ms.service="sql-database"
-    ms.devlang="NA"
-    ms.date="05/27/2016"
-    ms.author="srinia"
-    ms.workload="data-management"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"/>
+	ms.service="sql-database"
+	ms.devlang="NA"
+	ms.date="05/27/2016"
+	ms.author="srinia"
+	ms.workload="data-management"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"/>
 
 
+# Información de precios y facturación de grupos de bases de datos elásticas
 
-# <a name="elastic-database-pool-billing-and-pricing-information"></a>Elastic database pool billing and pricing information
+Los grupos de bases de datos elásticos se facturan según la características siguientes:
 
-Elastic database pools are billed per the following characteristics:
-
-- An elastic pool is billed upon its creation, even when there are no databases in the pool.
-- An elastic pool is billed hourly. This is the same metering frequency as for performance levels of single databases.
-- If an elastic pool is resized to a new amount of eDTUs, then the pool is not billed according to the new amount of eDTUS until the resizing operation completes. This follows the same pattern as changing the performance level of standalone databases.
-
-
-- The price of an elastic pool is based on the number of eDTUs of the pool. The price of an elastic pool is independent of the number and utilization of the elastic databases within it.
-- Price is computed by (number of pool eDTUs)x(unit price per eDTU).
-
-The unit eDTU price for an elastic pool is higher than the unit DTU price for a standalone database in the same service tier. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
+- Los grupos elásticos se facturan desde su creación, incluso si no contiene ninguna base de datos.
+- Los grupos elásticos se facturan por horas. Se trata de la misma frecuencia de medición que la de los niveles de rendimiento de las bases de datos únicas.
+- Si se cambia el tamaño de un grupo elástico a una nueva cantidad de eDTU, el grupo no se factura según la nueva cantidad de eDTU hasta que la operación de cambio de tamaño se complete. Esto sigue el mismo patrón que el cambio de nivel de rendimiento de las bases de datos independientes.
 
 
-To understand the eDTUs and service tiers, see [SQL Database options and performance](sql-database-service-tiers.md).
+- El precio de un grupo elástico se basa en el número de eDTU del grupo. El precio de un grupo elástico es independiente del número y el uso de las bases de datos elásticas de dentro de él.
+- El precio se calcula por (número de eDTU de grupo) x (precio unitario por eDTU).
 
-## <a name="next-steps"></a>Next steps
-
-- [Create an elastic database pool](sql-database-elastic-pool-create-portal.md)
-- [Monitor, manage, and size an elastic database pool](sql-database-elastic-pool-manage-portal.md)
-- [SQL Database options and performance: understand what's available in each service tier](sql-database-service-tiers.md)
-- [PowerShell script for identifying databases suitable for an elastic database pool](sql-database-elastic-pool-database-assessment-powershell.md)
+El precio unitario de eDTU de un grupo elástico es mayor que el precio unitario de eDTU para una base de datos independiente del mismo nivel de servicio. Para obtener información detallada, vea [Precios de bases de datos SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
+Para comprender los niveles de servicio y de eDTU, consulte [Opciones de base de datos SQL y el rendimiento](sql-database-service-tiers.md).
 
-<!--HONumber=Oct16_HO2-->
+## Pasos siguientes
 
+- [Creación de un grupo de bases de datos elásticas](sql-database-elastic-pool-create-portal.md)
+- [Monitor, manage, and size an elastic database pool (Supervisión,administración y cambio de tamaño de un grupo de bases de datos elásticas)](sql-database-elastic-pool-manage-portal.md)
+- [Opciones y rendimiento de Base de datos SQL: comprender lo que está disponible en cada nivel de servicio](sql-database-service-tiers.md)
+- [PowerShell script for identifying databases suitable for an elastic database pool (Script de PowerShell para identificar bases de datos adecuadas para un grupo de bases de datos elásticas)](sql-database-elastic-pool-database-assessment-powershell.md)
 
+<!---HONumber=AcomDC_0601_2016-->

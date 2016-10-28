@@ -1,51 +1,33 @@
 <properties
-    pageTitle="Connection libraries for SQL Database and SQL Server"
-    description="Lists the minimum version number for each driver that client programs can use to connect to Azure SQL Database or to Microsoft SQL Server. A link is provided for version information about drivers that are released by the community rather than by Microsoft."
-    services="sql-database"
-    documentationCenter=""
-    authors="MightyPen"
-    manager="jhubbard"
-    editor="genemi"/>
+	pageTitle="Bibliotecas de conexiones para Base de datos SQL y SQL Server"
+	description="Muestra el número de versión mínimo para cada controlador que pueden usar los programas cliente para conectarse a Base de datos SQL de Azure o a Microsoft SQL Server. Se proporciona un vínculo con información acerca de los controladores publicados por la comunidad y no por Microsoft."
+	services="sql-database"
+	documentationCenter=""
+	authors="pehteh"
+	manager="jhubbard"
+	editor="genemi"/>
 
 <tags
-    ms.service="sql-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="genemi"/>
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/17/2016"
+	ms.author="pehteh"/>
+
+# Bibliotecas de conexiones para Base de datos SQL y SQL Server
+
+En este tema se muestra cada biblioteca o controlador que los programas cliente pueden usar para conectarse a Base de datos SQL de Azure o a Microsoft SQL Server.
 
 
-# <a name="connection-libraries-for-sql-database-and-sql-server"></a>Connection libraries for SQL Database and SQL Server
-
-This topic lists each library or *driver* that client programs can use when connecting to Azure SQL Database or to Microsoft SQL Server.
-
-
-| Language | Platform | Additional resources | Download |
+| Idioma | Plataforma | Recursos adicionales | Descargar |
 | :-- | :-- | :-- | :-- |
-| ADO.NET | Windows, Linux, Mac | [Microsoft ADO.NET for SQL Server](http://msdn.microsoft.com/library/mt657768.aspx) | [Download](https://msdn.microsoft.com/vstudio/aa496123.aspx) |
-| Java | Windows, Linux, Mac | [Microsoft JDBC Driver for SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) | [Download](http://go.microsoft.com/fwlink/?LinkId=245496) |
-| PHP | Windows | [Microsoft PHP Driver for SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) | [Download](https://www.microsoft.com/download/details.aspx?id=20098) |
-| Node.js | Windows, Linux, Mac | [Node.js Driver for SQL Server](http://msdn.microsoft.com/library/mt652093.aspx) | [Install](https://msdn.microsoft.com/library/mt652094.aspx) |
-| Python | Windows, Linux, Mac | [Python SQL Driver](http://msdn.microsoft.com/library/mt652092.aspx) | Install choices: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |
-| Ruby | Windows, Linux, Mac | [Ruby Driver for SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) | [Install](https://msdn.microsoft.com/library/mt711041.aspx) |
+| ADO.NET | Windows, Linux, Mac | [Conexión a Base de datos SQL mediante .NET (C#)](sql-database-develop-dotnet-simple.md) | [Descargar](https://msdn.microsoft.com/vstudio/aa496123.aspx) |
+| Java | Windows, Linux, Mac | [Conexión a la base de datos SQL mediante Java con JDBC en Windows](sql-database-develop-java-simple-windows.md) | [Descargar](http://go.microsoft.com/fwlink/?LinkId=245496) |
+| PHP | Windows | [Conexión a la base de datos SQL mediante PHP en Windows](sql-database-develop-php-simple-windows.md) | [Descargar](https://www.microsoft.com/download/details.aspx?id=20098) |
+| Node.js | Windows, Linux, Mac | [Conexión a Base de datos SQL mediante Node.js](sql-database-develop-nodejs-simple.md) | [Instalación](https://msdn.microsoft.com/library/mt652094.aspx) |
+| Python | Windows, Linux, Mac | [Conexión a Base de datos SQL mediante Python](sql-database-develop-python-simple.md) | [Instalación](https://msdn.microsoft.com/library/mt694094.aspx) |
+| Ruby | Windows, Linux, Mac | [Conexión a Base de datos SQL mediante Ruby](sql-database-develop-ruby-simple.md) | [Instalación](https://msdn.microsoft.com/library/mt711041.aspx) |
 
-
-## <a name="related-links"></a>Related links
-
-- [SQL Server Drivers](http://msdn.microsoft.com/library/mt654049.aspx), for connecting from a client
-
-- [Connect to SQL Database by using .NET (C#)](sql-database-develop-dotnet-simple.md), ADO.NET
-
-- [Connect to SQL Database by using Node.js](sql-database-develop-nodejs-simple.md)
-
-- [Connect to SQL Database by using Python](sql-database-develop-python-simple.md), pymssql
-
-- [Connect to SQL Database by using Ruby](sql-database-develop-ruby-simple.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Logic Apps on-premises data gateway connection | Microsoft Azure"
-   description="Information on how to create a connection to the on-premises data gateway from a logic app."
+   pageTitle="Conexión a la puerta de enlace de datos local de las Aplicaciones lógicas | Microsoft Azure"
+   description="Información sobre cómo crear una conexión a la puerta de enlace de datos local desde una aplicación lógica."
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -16,62 +16,58 @@
    ms.date="07/05/2016"
    ms.author="jehollan"/>
 
+# Conexión a la puerta de enlace de datos local para las Aplicaciones lógicas
 
-# <a name="connect-to-the-on-premises-data-gateway-for-logic-apps"></a>Connect to the on-premises data gateway for Logic Apps
+Los conectores de las aplicaciones lógicas compatibles permiten configurar la conexión para acceder a los datos locales a través de la puerta de enlace de datos local. Los siguientes pasos le guiarán por el proceso de instalación y configuración de la puerta de enlace de datos local para trabajar con una aplicación lógica.
 
-Supported logic apps connectors allow you to configure your connection to access on-premises data via the on-premises data gateway.  The following steps will walk you through how to install and configure the on-premises data gateway to work with a logic app.
+## Requisitos previos
 
-## <a name="prerequisites"></a>Prerequisites
+* Debe utilizar una dirección de correo electrónico profesional o educativa en Azure para asociar la puerta de enlace de datos local a su cuenta (cuenta basada en Azure Active Directory).
+    * Si usa una cuenta de Microsoft (por ejemplo, @outlook.com, @live.com), podrá usar su cuenta de Azure para crear una dirección de correo electrónico profesional o educativa [siguiendo estos pasos](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
 
-* Must be using a work or school email address in Azure to associate the on-premises data gateway with your account (Azure Active Directory based account)
-    * If you are using a Microsoft Account (e.g. @outlook.com, @live.com) you can use your Azure account to create a work or school email address by [following the steps here](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal)
+> [AZURE.WARNING] Actualmente existe una limitación, y es que la instalación de la puerta de enlace local solo se realizará mediante una cuenta que se haya registrado con Power BI. Mientras tanto, registre cualquier cuenta con "Power BI (gratis)" para completar la instalación correctamente.
 
-> [AZURE.WARNING] There is a limitation currently that on-premises gateway install will only complete when using an account that has been registered with Power BI.  In the meantime please register any account with "Power BI Free" to complete the installation successfully.
+* Debe tener la puerta de enlace de datos local [instalada en una máquina local](app-service-logic-gateway-install.md).
+* Ninguna otra puerta de enlace de datos local de Azure debe haber reclamado la puerta de enlace ([esto se produce en el proceso de creación del paso 2 que se indica a continuación](#2-create-an-azure-on-premises-data-gateway-resource)): una instalación solo puede estar asociada a un recurso de puerta de enlace.
 
-* Must have the on-premises data gateway [installed on a local machine](app-service-logic-gateway-install.md).
-* Gateway must not have been claimed by another Azure on-premises data gateway ([claim happens with creation of step 2 below](#2-create-an-azure-on-premises-data-gateway-resource)) - an installation can only be associated to one gateway resource.
+## Instalación y configuración de la conexión
 
-## <a name="installing-and-configuring-the-connection"></a>Installing and configuring the connection
+### 1\. Instalación de la puerta de enlace de datos local
 
-### <a name="1.-install-the-on-premises-data-gateway"></a>1. Install the on-premises data gateway
+Puede encontrar información sobre cómo instalar la puerta de enlace de datos local [en este artículo](app-service-logic-gateway-install.md). La puerta de enlace debe instalarse en una máquina local para poder continuar con el resto de los pasos.
 
-Information on installing the on-premises data gateway can be found [in this article](app-service-logic-gateway-install.md).  The gateway must be installed on an on-premises machine before you can continue with the rest of the steps.
+### 2\. Creación de un recurso de puerta de enlace de datos local de Azure
 
-### <a name="2.-create-an-azure-on-premises-data-gateway-resource"></a>2. Create an Azure on-premises data gateway resource
+Una vez instalada, debe asociar su suscripción de Azure a la puerta de enlace de datos local.
 
-Once installed, you must associate your Azure subscription with the on-premises data gateway.
+1. Inicie sesión en Azure con la misma dirección de correo electrónico profesional o académica utilizada durante la instalación de la puerta de enlace.
+1. Haga clic en el botón de recurso **Nuevo**.
+1. Busque y seleccione **Puerta de enlace de datos local**.
+1. Complete la información para asociar la puerta de enlace a su cuenta (lo que incluye seleccionar el **nombre de la instalación** pertinente).
 
-1. Login to Azure using the same work or school email address that was used during installation of the gateway
-1. Click **New** resource button
-1. Search and select the **On-premises data gateway**
-1. Complete the information to associate the gateway with your account - including selecting the appropriate **Installation Name**
+    ![Conexión a una puerta de enlace de datos local][1]
+1. Haga clic en el botón **Crear** para crear el recurso.
 
-    ![On-Premises Data Gateway Connection][1]
-1. Click the **Create** button to create the resource
+### 3\. Creación de una conexión con la aplicación lógica del diseñador
 
-### <a name="3.-create-a-logic-app-connection-in-the-designer"></a>3. Create a logic app connection in the designer
+Ahora que su suscripción de Azure está asociada a una instancia de la puerta de enlace de datos local, puede crear una conexión con ella desde dentro de una Aplicación lógica.
 
-Now that your Azure subscription is associated with an instance of the on-premises data gateway, you can create a connection to it from within a logic app.
+1. Abra una aplicación lógica y elija un conector que admita la conectividad local (en la fecha en la que se redactó este artículo, SQL Server).
+1. Seleccione la casilla **Connect via on-premises data gateway** (Conectarse a través de la puerta de enlace de datos local).
 
-1. Open a logic app and choose a connector that supports on-premises connectivity (as of this writing, SQL Server)
-1. Select the checkbox for **Connect via on-premises data gateway**
+    ![Creación de una puerta de enlace del diseñador de Aplicaciones lógicas][2]
+1. Seleccione la **puerta de enlace** a la que desea conectarse y cumplimente cualquier otra información obligatoria sobre la conexión.
+1. Haga clic en **Crear** para crear la conexión.
 
-    ![Logic App Designer Gateway Creation][2]
-1. Select the **Gateway** to connect to and complete any other connection information required
-1. Click **Create** to create the connection
+Llegado a este punto, la conexión ya debería estar configurada correctamente para que pueda utilizarla en la aplicación lógica.
 
-The connection should now be successfully configured for use in your logic app.  
-
-## <a name="next-steps"></a>Next Steps
-- [Common examples and scenarios for logic apps](app-service-logic-examples-and-scenarios.md)
-- [Enterprise integration features](app-service-logic-enterprise-integration-overview.md)
+## Pasos siguientes
+- [Ejemplos y escenarios habituales de las aplicaciones lógicas](app-service-logic-examples-and-scenarios.md)
+- [Características de Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md)
 
 <!-- Image references -->
 [1]: ./media/app-service-logic-gateway-connection/createblade.PNG
 [2]: ./media/app-service-logic-gateway-connection/blankconnection.PNG
 [3]: ./media/app-service-logic-gateway-connection/checkbox.PNG
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

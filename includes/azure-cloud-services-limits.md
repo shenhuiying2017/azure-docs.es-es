@@ -1,13 +1,10 @@
-Resource|Default Limit|Maximum Limit
+Recurso|Límite predeterminado|Límite máximo
 ---|---|---
-[Web/worker roles per deployment](../articles/cloud-services/cloud-services-choose-me.md)<sup>1</sup>|25|25
-[Instance Input Endpoints](http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint) per deployment|25|25
-[Input Endpoints](http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint) per deployment|25|25
-[Internal Endpoints](http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint) per deployment|25|25
+[Roles web y de trabajo por implementación](../articles/cloud-services/cloud-services-choose-me.md)<sup>1</sup>|25|25
+[Extremos de entrada de instancia](http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint) por implementación|25|25
+[Extremos de entrada](http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint) por implementación|25|25
+[Extremos internos](http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint) por implementación|25|25
 
-<sup>1</sup>Each Cloud Service with Web/Worker roles can have two deployments, one for production and one for staging. Also note that this limit refers to the number of distinct roles (configuration) and not the number of instances per role (scaling).
+<sup>1</sup>Cada servicio en la nube con roles web y de trabajo puede tener dos implementaciones, una para producción y otra para ensayo. Tenga en cuenta también que este límite hace referencia al número de roles (configuración) y no al número de instancias por rol (escalado).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0420_2016-->

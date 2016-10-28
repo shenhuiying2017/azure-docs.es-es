@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure Mobile Engagement Troubleshooting Guides" 
-   description="Troubleshooting Guide for Azure Mobile Engagement" 
+   pageTitle="Azure Mobile Engagement: Guía de solución de problemas" 
+   description="Guía de solución de problemas de Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -16,115 +16,109 @@
    ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
+# Azure Mobile Engagement: guía de solución de problemas
 
-# <a name="azure-mobile-engagement---troubleshooting-guide"></a>Azure Mobile Engagement - Troubleshooting Guide
+## Introducción
+La siguiente guía de solución de problemas le ayudará a comprender las causas de algunos problemas habituales y le permitirá solucionarlos por sí mismo.
 
-## <a name="introduction"></a>Introduction
-The following troubleshooting guide will help you understand root causes of some commonly seen issues and will enable you to troubleshoot on your own. 
+## General
 
-## <a name="general"></a>General
+En general, siempre debe asegurarse de lo siguiente:
 
-In general, you should always ensure the following:
+1. Realizó todos los pasos necesarios para la integración, tal como se describe en nuestros [tutoriales de introducción](mobile-engagement-windows-store-dotnet-get-started.md).
+2. Usa la versión más reciente de los SDK de la plataforma.
+3. Realiza pruebas tanto en un dispositivo real como en un emulador, porque algunos problemas son específicos solo del emulador.
+4. No supera los límites de Mobile Engagement que se indican [aquí](../azure-subscription-service-limits.md).
+5. Si no se puede conectar con el back-end del servicio Mobile Engagement o si ve que los datos no se cargan de forma continuada, asegúrese de que no hay incidentes de servicio activos comprobándolo [aquí](https://azure.microsoft.com/status/).
 
-1. Ensure that you have gone through all the steps required for integration as described in our [Getting Started tutorials](mobile-engagement-windows-store-dotnet-get-started.md)
-2. You are using the latest version of the platform SDKs. 
-3. Test on both an actual device and an emulator because some issues are specific to emulator only. 
-4. You are not hitting any limits/throttles from Mobile Engagement which are documented [here](../azure-subscription-service-limits.md)
-5. If you are not able to connect to the Mobile Engagement service backend or seeing data not being loaded continuously then ensure that there are no ongoing service incidents by checking [here](https://azure.microsoft.com/status/)
+## Problemas de 'Supervisar'
 
-## <a name="'monitor'-issues"></a>'Monitor' issues
+### No veo mi dispositivo en la pestaña Supervisar
+La pestaña Supervisar muestra los dispositivos conectados a la plataforma Mobile Engagement en tiempo real. Si depura en un emulador y un dispositivo, debe ver aquí al menos una sesión. Si la aplicación se distribuyó, verá que el medidor Sesiones activas refleja los dispositivos conectados a la plataforma en tiempo real.
 
-### <a name="i-am-not-seeing-my-device-showing-up-on-the-monitor-tab"></a>I am not seeing my device showing up on the Monitor tab
-Monitor tab shows the devices connected to your Mobile Engagement platform in real-time. If you are debugging on an emulator and device, then you should see at least one session here. If the app has been distributed, then you will see the Active Sessions gauge reflect the devices which are connected to the platform in real-time. 
+Si no ve el dispositivo en la pestaña Supervisar, es probable que se trate de un problema de integración del SDK. A continuación se indican algunos pasos habituales para solucionarlo:
 
-If you are not seeing your device on the Monitor tab then it is likely an SDK integration issue. Some common steps to take to troubleshoot are as follows:
+1. Asegúrese de que usa la cadena de conexión correcta en la aplicación móvil y que procede de la sección de claves del SDK y no de la sección de claves de la API. La cadena de conexión conecta la aplicación móvil a la sesión de la aplicación Mobile Engagement en cuya pestaña Supervisar verá el dispositivo.
+2. Para la plataforma Windows: si la página invalida el método `OnNavigatedTo`, asegúrese de llamar a `base.OnNavigatedTo(e)`.
+3. Si integra Mobile Engagement en una aplicación móvil existente, también puede asegurarse de que no falta ningún paso examinando los pasos de integración avanzada [aquí](mobile-engagement-windows-store-integrate-engagement.md).
+4. Asegúrese de que envía al menos una pantalla o actividad sustituyendo la página con EngagementActivity en función de la plataforma con la que está trabajando, tal como se describe en los [tutoriales de introducción](mobile-engagement-windows-store-dotnet-get-started.md).
 
-1. Ensure that you are using the correct connection string in the mobile app and it is from the SDK keys section and not the API keys section. The connection string connects your mobile app to the instance of the Mobile Engagement app in which you will see your device on the Monitor tab. 
-2. For Windows platform - if your page overrides the `OnNavigatedTo` method, make sure to call `base.OnNavigatedTo(e)`.
-3. If you are integrating Mobile Engagement into an existing mobile app then you can also ensure that you are not missing any steps by looking at the advanced integration steps [here](mobile-engagement-windows-store-integrate-engagement.md)
-4. Ensure you are sending at least one screen/activity by overriding the page with EngagementActivity depending on the platform you are working as described in the [Getting Started tutorials](mobile-engagement-windows-store-dotnet-get-started.md).
+### Veo que la pestaña Supervisar muestra una sesión aunque he desconectado o cerrado mi aplicación o emulador. 
+Si no hay nadie más conectado a la plataforma en este momento y usa un emulador para abrir la aplicación, es probable que se deba a una peculiaridad del emulador. En general, debe asegurarse de que vuelve a la pantalla de inicio del emulador para que la sesión de la aplicación se desconecte correctamente. Además, en la plataforma Windows, durante la depuración con Visual Studio, puede que necesite asegurarse de que la sesión se cierra realmente; para ello, vaya a la barra de menús **Eventos de ciclo de vida** y haga clic en **Suspender**. Consulte el [tutorial de Windows](mobile-engagement-windows-store-dotnet-get-started.md) para obtener más información.
 
-### <a name="i-am-seeing-the-monitor-tab-showing-a-session-even-when-i-have-disconnected-or-closed-my-app/-emulator."></a>I am seeing the Monitor tab showing a session even when I have disconnected or closed my app/ emulator. 
-If you are the only one connected to the platform at this point and you are using an emulator to open the app then this is likely due to emulator quirks. In general, you need to ensure that you come back to the Home screen on the emulator for the app session to disconnect successfully. Additionally, on Windows platform, while debugging with Visual Studio, you may need to ensure that in Visual Studio, you go to the **Lifecycle Events** menu bar and click on **Suspend** to really close the session. See [Windows tutorial](mobile-engagement-windows-store-dotnet-get-started.md) for details. 
+## Problemas de 'Análisis'
 
-## <a name="'analytics'-issues"></a>'Analytics' issues
+### No veo ningún dato o datos actualizados en la pestaña Análisis 
+Los datos de análisis se recalculan periódicamente, pero la actualización puede tardar hasta 24 horas. No son datos en tiempo real y aparecerán actualizados en este margen de 24 horas. Asegúrese, sin embargo, de que envía al menos una pantalla o actividad al back-end de la plataforma, ya sea mediante la sustitución al menos de una página con `EngagementActivity` o mediante la llamada explícita a `SendActivity`.
 
-### <a name="i-am-not-seeing-any-data/-refreshed-data-on-analytics-tab"></a>I am not seeing any data/ refreshed data on Analytics tab 
-Analytics data is recalculated on a regular basis and it could take upto 24 hours for this refresh. This data isn't realtime and you will see it refreshed within this 24 hour time period.
-Please do ensure however that you are sending atleast one screen or Activity to the platform backend by either overriding atleast one page with `EngagementActivity` or calling `SendActivity` explcitly. 
+### Veo datos de fecha/hora incorrectos capturados para un dispositivo en la pestaña Análisis
+El período de tiempo de Análisis se basa en la fecha de la configuración del dispositivo de los usuarios. Asegúrese por tanto de que el dispositivo tiene establecida la fecha correcta.
 
-### <a name="i-am-seeing-incorrectly-captured-date/time-for-a-device-on-the-analytics-tab"></a>I am seeing incorrectly captured date/time for a device on the Analytics tab
-The time period for Analytics is based on the date from the users' device settings. So ensure that the device has the date correctly set. 
+## Problemas de 'Segmento'
 
-## <a name="'segment'-issues"></a>'Segment' issues
+### Creé un segmento y se muestra atenuado o no muestra ningún dato
+La creación del segmento no se realiza en tiempo real por el momento. Se calcula al mismo tiempo que se agregan los datos de análisis, por lo que puede tardar hasta 24 horas. Debe comprobarlo de nuevo más tarde, pero mientras tanto también debe asegurarse de que las aplicaciones móviles realmente envían los datos a partir de los cuales se forman los segmentos. Por ejemplo, si ningún dispositivo móvil está enviando un evento "test", no habrá datos para que se cree un segmento con EventName = test como criterio. También debe comprobar la integración de SDK para garantizar que la aplicación móvil está enviando los datos correctamente.
 
-### <a name="i-created-a-segment-and-it-is-showing-up-as-greyed-out-or-not-showing-any-data"></a>I created a segment and it is showing up as greyed out or not showing any data
-Segment creation isn't real-time at the moment. It is calculated at the same time as the analytics data is aggregated and so it could take upto 24 hours. You should check back later but meanwhile you should also ensure that your mobile apps are indeed sending the data on the basis of which you are forming the segments. E.g. if an event say 'foo' isn't being sent by any mobile device then there wouldn't be any segment data for a segment created with EventName = foo as the criterion. You should also check your SDK integration to ensure your mobile app is sending the data correctly. 
+## Problemas de 'Alcance' o de notificaciones push
 
-## <a name="'reach'-or-push-notifications-issues"></a>'Reach' or Push Notifications issues
+### Los mensajes de inserción no se entregan 
 
-### <a name="my-push-messages-are-not-being-delivered"></a>My push messages are not being delivered 
+1. Intente enviar notificaciones a un dispositivo de prueba en primer lugar para asegurarse de que todos los componentes: aplicación móvil, SDK y el servicio, están conectados correctamente y pueden entregar notificaciones push.
+2. Envíe siempre la 'notificación fuera de aplicación' más sencilla antes a través de una campaña que no esté programada ni tenga criterios de audiencia especificados. De nuevo, esto se realiza para comprobar que la conectividad de notificación funciona correctamente.
+3. Si tiene problemas para entregar notificaciones en aplicación, también es buena idea intentar enviar antes una notificación fuera de aplicación.
+4. Asegúrese de que la 'Inserción nativa' está configurada correctamente para la aplicación móvil. En función de la plataforma implicará claves (Android, Windows) o certificados (iOS). Consulte [Interfaz de usuario: configuración](mobile-engagement-user-interface-settings.md)
+5. El usuario también podría haber bloqueado las notificaciones fuera de aplicación mediante el sistema operativo móvil, por lo que debe asegurarse de que no es este el caso.
+6. Asegúrese de que no ha establecido la opción *Ignorar audiencia, la inserción se enviará a los usuarios a través de la API* en la sección **Campaña** de una campaña de Alcance, ya que esto haría que las notificaciones push solo se pudiesen enviar a través de API.
+7. Asegúrese de que prueba la campaña de inserción con un dispositivo conectado a través de WiFi y con una red de operador de telefonía para eliminar la conexión de red como posible fuente de problemas.
+8. Asegúrese de que la fecha y hora del sistema en el dispositivo y el emulador es correcta porque cualquier dispositivo que no esté sincronizado también interferirá con la capacidad del Servicio de notificaciones de inserción para entregar notificaciones.
 
-1. Try sending notifications to a test device first to ensure that all the components - mobile app, SDK and the service are connected correctly and able to deliver push notifications. 
-2. Always send the simplest 'out-of-app notification' first via a campaign which is not scheduled and nor it has any audience criterion specified. This is again to prove that notification connectivity is working correctly. 
-3. If you are having problems in delivering in-app notifications then also it is a good first step to try sending an out-of-app notification first. 
-4. Ensure that the 'Native Push' is correctly configured for your mobile app. Depending on the platform it will either involve keys (Android, Windows) or certificates (iOS). See [User Interface - Settings](mobile-engagement-user-interface-settings.md)
-5. Out of app notifications could also be blocked by the user via the mobile OS so ensure this is not the case. 
-6. Ensure that you are not setting the *Ignore Audience, push will be sent to users via the API* option in the **Campaign** section of a Reach campaign because this will ensure that push notifications could only be sent via APIs. 
-7. Ensure that you are testing your push campaign with both a device connected via WIFI and phone operator network to eliminate the network connection as a possible source of problems.
-8. Ensure that the system date/time on your device/emulator is correct because any out of sync device will also interfere with the Push Notification Service's ability to deliver notifications. 
+A continuación se incluyen instrucciones adicionales de solución de problemas específicas de plataforma:
 
-More platform specific troubleshooting instructions below:
+1. **iOS**
 
-1. **iOS** 
-
-    - Ensure that the certificates are valid and unexpired for iOS Push Notifications. 
-    - Ensure that you are correctly configuring a *Production* certificate in your Mobile Engagement app. 
-    - Ensure that you are testing on a *real, physical device.* The iOS simulator cannot process push messages.
-    - Ensure that the Bundle Identifier is correctly configured in the mobile app. See the instructions [here](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
-    - When testing, use "Ad Hoc" distribution in your mobile provisioning profile. You will not be able to receive notification if your app is compiled using "Debug"
+	- Asegúrese de que los certificados son válidos y de que no han expirado para las notificaciones push de iOS.
+	- Asegúrese de que configura correctamente un certificado de *Producción* en la aplicación Mobile Engagement.
+	- Asegúrese de que se está probando en una *dispositivo físico real*. El simulador de iOS no puede procesar mensajes de inserción.
+	- Asegúrese de que el identificador de paquete está configurado correctamente en la aplicación móvil. Vea las instrucciones [aquí](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6).
+	- Al probar, use la distribución "Ad Hoc" en el perfil de aprovisionamiento móvil. No podrá recibir una notificación si la aplicación se compila con "Debug"
 
 2. **Android**
 
-    - Ensure that you have specified the correct Project number in your mobile app's AndroidManifest.xml file which is followed by \n character. 
-    
-            <meta-data android:name="engagement:gcm:sender" android:value="************\n" />
-        
-    - Ensure that you are not missing or mis-configured any permissions in the Android Manifest file 
-    - Ensure that the Project number you are adding to your client app is from the same account where you got the GCM Server Key. Any mismatch between the two will prevent your pushes from going out. 
-    - If you are receiving system notifications but not in-app then review the [Specify an icon for notifications section](mobile-engagement-android-get-started.md) as likely you are not specifying the correct icon in the Android Manifest file. 
-    - If you are sending a BigPicture notification, then ensure that if you have external image servers then they need to be able to support HTTP "GET" and "HEAD".
+	- Asegúrese de que ha especificado el número de proyecto correcto en el archivo AndroidManifest.xml de la aplicación móvil seguido del carácter \\n.
+	
+	    	<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
+	    
+	- Asegúrese de que no falta ningún permiso o de que no está configurado incorrectamente en el archivo de manifiesto de Android.
+	- Asegúrese de que el número de proyecto que se va a agregar a la aplicación cliente procede de la misma cuenta en la que obtuvo la clave del servidor de GCM. Si los dos no coinciden, las inserciones no saldrán.
+	- Si recibe notificaciones del sistema, pero no de aplicación, revise la [sección Especificación de un icono para las notificaciones](mobile-engagement-android-get-started.md), ya que es probable que no esté especificando el icono correcto en el archivo de manifiesto de Android.
+	- Si envía una notificación de BigPicture y tiene servidores de imágenes externos, asegúrese de que son compatibles con "GET" y "HEAD" de HTTP.
 
 3. **Windows**
-    
-    - Ensure that you have associated the app with a valid Windows Store app. In Visual Studio - you will have to right click the project and select "Associate App with Store" option and select the app you created in the Windows Store. This Windows Store app should be the same one from where you got the native push credentials to configure in the Mobile Engagement portal.
-    - If you are receiving out-of-app push notifications but not in-app notifications with `EngagementOverlay` integration then ensure there is a root grid element in your page. EngagementOverlay uses the first “Grid” element it finds in your xaml file to add two web views on your page. If you want to locate where web views will be set, you can define a grid named “EngagementGrid” like this however you will have to ensure there is sufficient height and width for the two subsequent web views which will show the notification and the following announcement as in-app notification:
-        
-            <Grid x:Name="EngagementGrid"></Grid>
+	
+	- Asegúrese de que asoció la aplicación con una aplicación válida de la Tienda Windows. En Visual Studio, tendrá que hacer clic con el botón derecho en el proyecto, seleccionar la opción "Asociar aplicación con la Tienda" y seleccionar la aplicación que creó en la Tienda Windows. Esta aplicación de la Tienda Windows debe ser la misma desde la que obtuvo las credenciales de inserción nativa para la configuración en el portal de Mobile Engagement.
+	- Si recibe notificaciones push fuera de aplicación pero no de aplicación con integración `EngagementOverlay`, asegúrese de que la página incluye un elemento de cuadrícula raíz en la página. EngagementOverlay usa el primer elemento “Grid” que encuentra en el archivo xaml para agregar dos vistas web en la página. Si desea localizar dónde se establecerán las vistas web, puede definir una cuadrícula denominada "EngagementGrid" de este modo; sin embargo, deberá asegurarse de que hay suficiente alto y ancho para las dos vistas web posteriores que mostrarán la notificación y el anuncio siguiente como notificación de aplicación:
+		
+			<Grid x:Name="EngagementGrid"></Grid>
 
-### <a name="i-created-a-push-notification/announcement/-campaign-and-even-after-it-sent-me-the-notification,-it-is-showing-as-'active'.-what-does-it-mean?"></a>I created a push notification/announcement/ campaign and even after it sent me the notification, it is showing as 'Active'. What does it mean? 
-The **campaign** that you created in Mobile Engagement is called so because it is a long running push notification meaning as new devices connect to your mobile engagement platform, they will be automatically sent the notification you configure here, as long as they satisfy the criterion you set in the campaign. This is not a one shot single notification setup. You will have to manually click on the **Finish** button to terminate the campaign so that it doesn't send further notifications. 
+### Creé una notificación push/un anuncio/una campaña e incluso después de recibir la notificación sigue apareciendo como 'Activo'. ¿Qué significa? 
+La **campaña** que creó en Mobile Engagement se denomina de este modo porque es una notificación push de larga ejecución; a medida que nuevos dispositivos se conectan a la plataforma de interacción móvil, se les envía automáticamente la notificación configurada aquí, siempre que cumplan el criterio establecido en la campaña. No se trata de una configuración de notificación de un solo uso. Debe hacer clic manualmente en el botón **Finalizar** para terminar la campaña y que no envíe más notificaciones.
 
-### <a name="i-created-a-push-campaign-and-i-am-receiving-notifications-successfully-however-whenever-i-open-up-the-app,-i-get-the-same-notification-even-when-i-had-actioned-it-before?"></a>I created a push campaign and I am receiving notifications successfully however whenever I open up the app, I get the same notification even when I had actioned it before? 
-This is likely to happen during testing and if you are using emulators or some test framework like TestFlight. What is happening here is that at every app run instance, it is acquiring a new DeviceID and sending it to our backend which is causing the Mobile Engagement platform to treat it as a new device and sending the notification. 
+### Creé una campaña de inserción y recibo notificaciones correctamente; sin embargo, cuando abro la aplicación, recibo la misma notificación a pesar de que ya la he respondido antes. ¿A qué se debe? 
+Probablemente, esto sucede durante las pruebas y si usa emuladores o algún marco de prueba como TestFlight. Lo que sucede es que cada sesión de ejecución de la aplicación adquiere un nuevo DeviceID y lo envía a nuestro back-end, lo que provoca que la plataforma de Mobile Engagement lo considere como un nuevo dispositivo y envíe la notificación.
 
-## <a name="getting-support"></a>Getting Support
+## Obtención de soporte técnico
 
-If you are unable to resolve the issue yourself then you can:
+Si no puede resolver el problema por sí mismo, puede realizar lo siguiente:
 
-1. Search for your issue in the existing threads on StackOverflow forum and [MSDN forum](https://social.msdn.microsoft.com/Forums/windows/en-US/home?forum=azuremobileengagement) and if not then ask a question there. 
-2. If you find a feature missing then add/vote for the request on our [UserVoice forum](https://feedback.azure.com/forums/285737-mobile-engagement/)
-3. If you have Microsoft Support Open a support incident by providing the following details: 
-    - Azure Subscription ID
-    - Platform (e.g. iOS, Android etc)
-    - App ID
-    - Campaign ID (For push notification issues)
-    - Device ID
-    - Mobile Engagement SDK version (e.g. Android SDK v2.1.0)
-    - Error details with exact error message and scenario
+1. Buscar el problema en hilos existentes del foro de StackOverflow y el [foro de MSDN](https://social.msdn.microsoft.com/Forums/windows/es-ES/home?forum=azuremobileengagement); si no lo encuentra, puede plantear una pregunta en ellos.
+2. Si considera que falta una funcionalidad, agregue una solicitud o vote por ella en nuestro [foro de UserVoice](https://feedback.azure.com/forums/285737-mobile-engagement/).
+3. Si dispone de Servicio de soporte técnico de Microsoft, abra un incidente de soporte técnico con los siguientes detalles:
+	- Identificador de suscripción de Azure
+	- Plataforma (por ejemplo, iOS, Android, etc.)
+	- Id. de aplicación
+	- Identificador de campaña (para problemas con notificaciones push)
+	- Id. de dispositivo
+	- Versión de SDK de Mobile Engagement (por ejemplo, Android SDK v2.1.0)
+	- Detalles del error con el mensaje de error exacto y el escenario
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

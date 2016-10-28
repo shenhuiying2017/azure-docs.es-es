@@ -1,55 +1,50 @@
 <properties
-    pageTitle="What does Azure Multi-Factor Authentication mean for me?"
-    description="This is the Azure Multi-Factor authentication page that will assist your end users with getting going with Azure Multi-Factor Authentication."
-    services="multi-factor-authentication"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor="curtland"/>
+	pageTitle="¿Qué relevancia tiene Azure Multi-Factor Authentication para mí?"
+	description="Esta es la página de Azure Multi-Factor Authentication que ayudará a los usuarios finales para avanzar con Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtland"/>
 
 <tags
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/22/2016"
-    ms.author="kgremban"/>
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="kgremban"/>
 
 
 
+# ¿Qué relevancia tiene Azure Multi-Factor Authentication para mí?
 
-# <a name="what-does-azure-multi-factor-authentication-mean-for-me?"></a>What does Azure Multi-Factor Authentication mean for me?
+Ha recibido un correo electrónico de alguien en el departamento de TI, o incluso de su jefe, que le informa de que se que ha agregado una comprobación de seguridad adicional a su cuenta. ¿Qué quiere decir esto?
 
-So, you have gotten an email from someone in IT or perhaps even your boss saying that they have added additional security verification to your account.  So what does this mean?
+No se preocupe. Esto significa simplemente que su organización desea seguir algunos pasos adicionales para asegurarse de que usted es quien dice que ser al iniciar sesión en cosas como Office 365. Para ello se utiliza una combinación de su nombre de usuario y contraseña y de un teléfono. O su teléfono de la oficina o un smartphone.
 
-Not to worry.  That simply means that your organization wants to take some extra steps to ensure that you are who you say you are when signing in to things such as Office 365.  This is done by using a combination of your user name and password and a phone.  Either your office phone or a smart phone.
+Así que lo primero que tiene que hacer es completar el proceso de inscripción. Pero antes de comenzar este proceso tiene decidir algunas cosas.
 
-So the first thing you are going to need to do is complete the enrollment process.  But before we start that process there are a few things to decide.
+- **Teléfono de la oficina o teléfono móvil**: elija entre usar el teléfono del trabajo o el teléfono móvil.
+- **Llamada de teléfono móvil, texto o aplicación móvil**: si se decide por el teléfono móvil, escoja entre recibir una llamada, un texto, o utilizar la aplicación móvil.
+- **Aplicación móvil con una notificación o un código de comprobación**: si va a usar la aplicación móvil, elija entre recibir una notificación a la que tendrá que responder o un código de comprobación.
 
-- **Office phone or mobile phone** - Choose between using your office phone or your mobile phone.
-- **Mobile phone call, text or mobile app** - If using a mobile phone, choose between receiving a call, a text, or using the mobile app.
-- **Mobile app with a notification or verification code** - If using the mobile app, choose between receiving a notification that you respond to or a verification code.
+> [AZURE.NOTE]  Tenga en cuenta que el departamento de TI puede deshabilitar una o varias de las opciones anteriores. Si este es el caso, esas opciones no estará disponibles durante el proceso de inscripción.
 
-> [AZURE.NOTE]  Be aware that your IT department may disable one or more of the options above.  If this is the case, those options will not be available during the enrollment process.
-
-Now that you have decided on your verification method, it's time to enroll.  Use the [Setup Experience](multi-factor-authentication-end-user-first-time.md) link to get started with a walk through on the enrollment process.
+Una vez que haya decidido su método de comprobación, es el momento de inscribirse. Utilice el vínculo [Experiencia de configuración](multi-factor-authentication-end-user-first-time.md) para iniciarse con un recorrido por en el proceso de inscripción.
 
 
-## <a name="how-to-get-going-with-multi-factor-authentication"></a>How to get going with multi-factor authentication
+## Cómo empezar a utilizar la autenticación multifactor
 
-Select one of the topics below to get started.
+Seleccione uno de los temas siguientes para empezar.
 
-Topic|Description
+Tema.|Description
 :------------- | :------------- |
-[Setup Experience](multi-factor-authentication-end-user-first-time.md)|  Describes the process of setting up multi-factor authentication for the first time.
-[Sign-in experience](multi-factor-authentication-end-user-signin.md)|Shows what you can expect from signing in using the various methods such as phone or app.
-[Changing your settings](multi-factor-authentication-end-user-manage-settings.md)|Shows you how you can change your settings such as phone number or preferred enrollment method.
-[Help with app passwords](multi-factor-authentication-end-user-app-passwords.md)| Find information on creating and using app passwords.
-[Use the mobile app](multi-factor-authentication-microsoft-authenticator.md)|The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+[Experiencia de instalación](multi-factor-authentication-end-user-first-time.md)| Describe el proceso de configuración de la autenticación multifactor por primera vez.
+[Experiencia de inicio de sesión](multi-factor-authentication-end-user-signin.md)|Muestra lo que puede esperar con el inicio de sesión usando los distintos métodos, como teléfono o aplicación.
+[Cambio de la configuración](multi-factor-authentication-end-user-manage-settings.md)|Muestra cómo se puede cambiar los ajustes de la configuración, como el número de teléfono o el método de inscripción preferido.
+[Ayuda con las contraseñas de aplicación](multi-factor-authentication-end-user-app-passwords.md)| Obtenga información sobre cómo crear y utilizar las contraseñas de aplicación.
+[Uso de la aplicación móvil](multi-factor-authentication-microsoft-authenticator.md)|La aplicación Microsoft Authenticator está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure SQL Database Works in Your Environment"
-   description="Learn how SQL Database helps, secures and protects"
+   pageTitle="Base de datos SQL de Azure funciona en su entorno"
+   description="Obtenga más información acerca de cómo Base de datos SQL le puede ayudar, asegurar y proteger"
    keywords=""
    services="sql-database"
    documentationCenter=""
@@ -14,44 +14,39 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="10/13/2016"
+   ms.date="07/19/2016"
    ms.author="carlrab"/>
 
+# Base de datos SQL de Azure funciona en su entorno
 
-# <a name="azure-sql-database-works-in-your-environment"></a>Azure SQL Database Works in your Environment
+## Conéctese con lo que ya conoce
 
-## <a name="connect-with-what-you-already-know"></a>Connect with what you already know
+Lo último que quiere es aprender algo nuevo solo para conectarse a una base de datos. La base de datos SQL de Azure hace que esto sea muy fácil gracias a varios lenguajes y plataformas con las que está acostumbrado a trabajar.
 
-The last thing you want to do is learn something new just to connect with a database. Azure SQL Database makes it easy with a variety of languages and platforms you’re used to working with.
+![funciona en su entorno](./media/sql-database-works-in-your-environment/sql-database-works-in-your-environment.png)
 
-![works-in-your-environment](./media/sql-database-works-in-your-environment/sql-database-works-in-your-environment.png)
+Al elegir una base de datos, no debería tener que moverse a una nueva plataforma o aprender un lenguaje nuevo. Base de datos SQL incluye ejemplos de código que le ayudarán a empezar a trabajar, donde quiera que esté.
 
-When choosing a database, you shouldn't have to move to a new platform, or learn a new language. SQL Database has code samples to help you get started, wherever you are.  
+[Obtener más información sobre el desarrollo de Base de datos SQL](sql-database-develop-overview.md)
 
-[Learn more about SQL Database Development](sql-database-develop-overview.md) 
+## Las herramientas adecuadas para el trabajo
 
-## <a name="the-right-tools-for-the-job"></a>The right tools for the job
+No tiene que aprender un nuevo conjunto de herramientas totalmente nuevo para empezar a trabajar con Base de datos SQL. Puede aprovechar herramientas de código abierto como [cheetah](https://github.com/wunderlist/cheetah), [sql cli](https://www.npmjs.com/package/sql-cli) o [VS Code](https://code.visualstudio.com/). Además, Base de datos SQL de Azure funciona con herramientas de Microsoft como [Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) y [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). También puede usar el Portal de administración de Azure, PowerShell y API de REST, que le ayudan a obtener más productividad.
 
-You don't have to learn a whole new set of tools to get started with SQL Database. You can leverage open source tools like [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/). Additionally, Azure SQL Database works with Microsoft tools like [Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) and  [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  You can also use the Azure Management Portal, PowerShell, and REST APIs help you gain additional productivity.
+## Introducción rápida
 
-## <a name="get-started-quickly"></a>Get started quickly
+Obtener las respuestas correctas a sus preguntas sobre Base de datos SQL nunca es difícil, con tutoriales sobre la creación de la primera base de datos SQL, consultas de solución de problemas y ejemplos de código de inicio rápido.
 
-The right anwers to your SQL Database questions are never too far away, with tutorials on creating your first SQL Database, troubleshooting queries, and quick-start code samples.
+[Más información sobre Base de datos SQL](sql-database-technical-overview.md)
 
-[Learn more about SQL Database](sql-database-technical-overview.md)
+## Pasos siguientes
 
-## <a name="next-steps"></a>Next steps
+Obtenga una [suscripción a Azure gratis](https://azure.microsoft.com/get-started/) y [cree su primera base de datos SQL de Azure](sql-database-get-started.md).
 
-Get a [free Azure subscription](https://azure.microsoft.com/get-started/) and [create your first Azure SQL Database](sql-database-get-started.md).
+## Recursos adicionales
 
-## <a name="additional-resources"></a>Additional resources
+* Explore todas las [funcionalidades de Base de datos SQL](https://azure.microsoft.com/services/sql-database/).
+* Revise la [información general técnica de Base de datos SQL](sql-database-technical-overview.md).
+* [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md)
 
-* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
-* Review the [technical overview of SQL Database](sql-database-technical-overview.md).
-* [SQL Database Development Overview](sql-database-develop-overview.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

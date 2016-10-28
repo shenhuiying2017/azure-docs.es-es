@@ -1,34 +1,30 @@
 <properties 
-    pageTitle="Data Factory - Naming Rules | Microsoft Azure" 
-    description="Describes naming rules for Data Factory entities." 
-    services="data-factory" 
-    documentationCenter="" 
-    authors="sharonlo101" 
-    manager="jhubbard" 
-    editor="monicar"/>
+	pageTitle="Factoría de datos: reglas de nomenclatura | Microsoft Azure" 
+	description="Describe las reglas de nomenclatura para las entidades de Factoría de datos." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
 <tags 
-    ms.service="data-factory" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/12/2016" 
-    ms.author="shlo"/>
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/12/2016" 
+	ms.author="spelluru"/>
+
+# Factoría de datos de Azure: reglas de nomenclatura 
+La tabla siguiente proporciona las reglas de nomenclatura para los artefactos de Factoría de datos.
 
 
-# <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - Naming Rules 
-The following table provides naming rules for Data Factory artifacts.
 
-
-
-Name | Name Uniqueness | Validation Checks
+Nombre | Exclusividad del nombre | Comprobaciones de validación
 :--- | :-------------- | :----------------
-Data Factory | Unique across Microsoft Azure. Names are case-insensitive, that is, MyDF and mydf refer to the same data factory. |<ul><li>Each data factory is tied to exactly one Azure subscription.</li><li>Object names must start with a letter or a number, and can contain only letters, numbers, and the dash (-) character.</li><li>Every dash (-) character must be immediately preceded and followed by a letter or a number. Consecutive dashes are not permitted in container names.</li><li>Name can be 3-63 characters long.</li></ul>
-Linked Services/Tables/Pipelines | Unique with in a data factory. Names are case-insensitive. | <ul><li>Maximum number of characters in a table name: 260.</li><li>Object names must start with a letter number, or an underscore (_).</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”, ”>”,”*”,”%”,”&”,”:”,”\\”</li></ul>
-Resource Group | Unique across Microsoft Azure. Names are case-insensitive. | <ul><li>Maximum number of characters: 1000.</li><li>Name can contain letters, digits, and the following characters: “-”, “_”, “,” and “.”.</li></ul>
+Factoría de datos | Único en Microsoft Azure. Los nombres no distinguen mayúsculas de minúsculas, es decir, MyDF y mydf hacen referencia a la misma factoría de datos. |<ul><li>Cada factoría de datos está asociada a exactamente una suscripción de Azure.</li><li>Los nombres de objetos deben comenzar con una letra o un número y solo pueden contener letras, números y el carácter de guion (-).</li><li>Cada carácter de guion (-) debe estar precedido y seguido inmediatamente por una letra o un número; no se permiten guiones consecutivos en los nombres de contenedor.</li><li>El nombre puede tener entre 3 y 63 caracteres.</li></ul>
+Servicios, tablas o canalizaciones vinculados | Único en una factoría de datos. Los nombres no distinguen mayúsculas de minúsculas. | <ul><li>Número máximo de caracteres en un nombre de tabla: 260.</li><li>Los nombres de objetos deben comenzar con un número, una letra o un carácter de subrayado (\_).</li><li>No se permiten los siguientes caracteres: “.”, “+”, “?”, “/”, “<”, ”>”,”*”,”%”,”&”,”:”,”\\”</li></ul>.
+El grupos de recursos | Único en Microsoft Azure. Los nombres no distinguen mayúsculas de minúsculas. | <ul><li>Número máximo de caracteres: 1000.</li><li>El nombre puede contener letras, dígitos y los siguientes caracteres: “-”, “\_”, “,” y “.”.</li></ul>
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

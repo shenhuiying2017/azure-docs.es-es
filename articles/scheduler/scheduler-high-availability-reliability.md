@@ -1,10 +1,10 @@
 <properties
- pageTitle="Scheduler High-Availability and Reliability"
- description="Scheduler High-Availability and Reliability"
+ pageTitle="Alta disponibilidad y confiabilidad de Programador"
+ description="Alta disponibilidad y confiabilidad de Programador"
  services="scheduler"
  documentationCenter=".NET"
- authors="derek1ee"
- manager="kevinlam1"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,81 +13,76 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="08/16/2016"
- ms.author="deli"/>
+ ms.author="krisragh"/>
 
 
+# Alta disponibilidad y confiabilidad de Programador
 
-# <a name="scheduler-high-availability-and-reliability"></a>Scheduler High-Availability and Reliability
+## Alta disponibilidad de Programador de Azure
 
-## <a name="azure-scheduler-high-availability"></a>Azure Scheduler High-Availability
+Como servicio principal de la plataforma Azure, Programador de Azure tiene una alta disponibilidad y presenta implementación de servicio con redundancia geográfica y replicación geográfica regional de trabajos.
 
-As a core Azure platform service, Azure Scheduler is highly available and features both geo-redundant service deployment and geo-regional job replication.
+### Implementación de servicio con redundancia geográfica
 
-### <a name="geo-redundant-service-deployment"></a>Geo-redundant service deployment
+Programador de Azure está disponible a través de la interfaz de usuario en prácticamente todas las regiones geográficas actuales de Azure. La lista de regiones en las que Programador de Azure está disponible se [muestra aquí](https://azure.microsoft.com/regions/#services). Si un centro de datos en una región hospedada no está disponible, las capacidades de conmutación por error de Programador de Azure son tales que el servicio está disponible en otro centro de datos.
 
-Azure Scheduler is available via the UI in almost every geo region that's in Azure today. The list of regions that Azure Scheduler is available in is [listed here](https://azure.microsoft.com/regions/#services). If a data center in a hosted region is rendered unavailable, the failover capabilities of Azure Scheduler are such that the service is available from another data center.
+### Replicación geográfica regional de trabajos
 
-### <a name="geo-regional-job-replication"></a>Geo-regional job replication
+No solo el front-end de Programador de Azure está disponible para solicitudes de administración, sino que su propio trabajo también se replica geográficamente. Cuando hay una interrupción en una región, Programador de Azure conmuta por error y garantiza que el trabajo se ejecuta en otro centro de datos en la región geográfica emparejada.
 
-Not only is the Azure Scheduler front-end available for management requests, but your own job is also geo-replicated. When there’s an outage in one region, Azure Scheduler fails over and ensures that the job is run from another data center in the paired geographic region.
-
-For example, if you’ve created a job in South Central US, Azure Scheduler automatically replicates that job in North Central US. When there’s a failure in South Central US, Azure Scheduler ensures that the job is run from North Central US. 
+Por ejemplo, si creó un trabajo en la zona Centro-Sur de EE. UU., Programador de Azure replica automáticamente ese trabajo en la zona Centro-Norte de EE. UU. Cuando hay un error en la zona Centro-Sur de EE. UU., Programador de Azure garantiza que el trabajo se ejecuta en la zona Centro-Norte de EE. UU.
 
 ![][1]
 
-As a result, Azure Scheduler ensures that your data stays within the same broader geographic region in case of an Azure failure. As a result, you need not duplicate your job just to add high availability – Azure Scheduler automatically provides high-availability capabilities for your jobs.
+Como resultado, Programador de Azure garantiza que, en caso de error de Azure, los datos se mantienen en la misma región geográfica más amplia. En consecuencia, no tiene duplicar el trabajo para agregar alta disponibilidad: Programador de Azure proporciona automáticamente capacidades de alta disponibilidad para sus trabajos.
 
-## <a name="azure-scheduler-reliability"></a>Azure Scheduler Reliability
+## Confiabilidad de Programador de Azure
 
-Azure Scheduler guarantees its own high-availability and takes a different approach to user-created jobs. For example, your job may invoke an HTTP endpoint that’s unavailable. Azure Scheduler nonetheless tries to execute your job successfully, by giving you alternative options to deal with failure. Azure Scheduler does this in two ways:
+Programador de Azure garantiza su propia alta disponibilidad y adopta un enfoque diferente para los trabajos creados por el usuario. Por ejemplo, puede que su trabajo invoque un extremo HTTP que no está disponible. No obstante, Programador de Azure intenta ejecutar el trabajo correctamente, ofreciéndole opciones alternativas para resolver el error. Programador de Azure hace esto de dos maneras:
 
-### <a name="configurable-retry-policy-via-“retrypolicy”"></a>Configurable Retry Policy via “retryPolicy”
+### Directiva de reintentos configurable a través de "retryPolicy"
 
-Azure Scheduler allows you to configure a retry policy. By default, if a job fails, Scheduler tries the job again four more times, at 30-second intervals. You may re-configure this retry policy to be more aggressive (for example, ten times, at 30-second intervals) or looser (for example, two times, at daily intervals.)
+Programador de Azure le permite configurar una directiva de reintentos. De manera predeterminada, si se produce un error en un trabajo, Programador intenta ejecutar el trabajo otras cuatro veces, a intervalos de 30 segundos. Puede volver a configurar esta directiva de reintentos para que sea más agresiva (por ejemplo, diez veces, a intervalos de 30 segundos) o más flexible (por ejemplo, dos veces, a intervalos diarios).
 
-As an example of when this may help, you may create a job that runs once a week and invokes an HTTP endpoint. If the HTTP endpoint is down for a few hours when your job runs, you may not want to wait one more week for the job to run again since even the default retry policy will fail. In such cases, you may reconfigure the standard retry policy to retry every three hours (for example) instead of every 30 seconds.
+Como ejemplo de cuándo esto puede resultar de ayuda, puede crear un trabajo que se ejecute una vez por semana e invoca un extremo HTTP. Si el extremo HTTP está inactivo durante algunas horas cuando se ejecute el trabajo, es posible que no quiera esperar una semana más para que el trabajo se vuelva a ejecutar, puesto que incluso la directiva predeterminada de reintentos producirá un error. En estos casos, puede volver a configurar la directiva de reintentos estándar para que vuelva a intentar ejecutarlo cada tres horas (por ejemplo), en lugar de cada 30 segundos.
 
-To learn how to configure a retry policy, refer to [retryPolicy](scheduler-concepts-terms.md#retrypolicy).
+Para obtener información sobre cómo configurar una directiva de reintentos, vea [retryPolicy](scheduler-concepts-terms.md#retrypolicy).
 
-### <a name="alternate-endpoint-configurability-via-“erroraction”"></a>Alternate Endpoint Configurability via “errorAction”
+### Capacidad de configuración alternativa de extremos a través de "errorAction"
 
-If the target endpoint for your Azure Scheduler job remains unreachable, Azure Scheduler falls back to the alternate error-handling endpoint after following its retry policy. If an alternate error-handling endpoint is configured, Azure Scheduler invokes it. With an alternate endpoint, your own jobs are highly available in the face of failure.
+Si el extremo de destino para el trabajo de Programador de Azure permanece inaccesible, Programador de Azure recurre al extremo de control de errores alternativo tras aplicar la directiva de reintentos. Si se configura un extremo de control de errores alternativo, Programador de Azure lo invoca. Con un extremo alternativo, sus propios trabajos tendrán alta disponibilidad en caso de error.
 
-As an example, in the diagram below, Azure Scheduler follows its retry policy to hit a New York web service. After the retries fail, it checks if there's an alternate. It then goes ahead and starts making requests to the alternate with the same retry policy.
+Por ejemplo, en el diagrama siguiente, Programador de Azure sigue su directiva de reintentos para visitar un servicio web de Nueva York. Si los reintentos fallan, comprueba si hay una alternativa. Sigue adelante y comienza a realizar solicitudes a la alternativa con la misma directiva de reintentos.
 
 ![][2]
 
-Note that the same retry policy applies to both the original action and the alternate error action. It’s also possible to have the alternate error action’s action type be different from the main action’s action type. For example, while the main action may be invoking an HTTP endpoint, the error action may instead be a storage queue, service bus queue, or service bus topic action that does error-logging.
+Tenga en cuenta que se aplica la misma directiva de reintentos a la acción original y la acción de error alternativa. También es posible que el tipo de acción de la acción de error alternativa sea distinto del tipo de acción de la acción principal. Por ejemplo, mientras que la acción principal puede ser invocar un punto de conexión HTTP, es posible que la acción de error sea una acción de la cola de almacenamiento, la cola del bus de servicio o el tema de bus de servicio que sí realiza el registro de errores.
 
-To learn how to configure an alternate endpoint, refer to [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
+Para obtener información sobre cómo configurar un extremo alternativo, consulte [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
 
-## <a name="see-also"></a>See Also
+## Otras referencias
 
- [What is Scheduler?](scheduler-intro.md)
+ [¿Qué es Programador?](scheduler-intro.md)
 
- [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+ [Conceptos, terminología y jerarquía de entidades de Programador de Azure](scheduler-concepts-terms.md)
 
- [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
+ [Introducción al Programador de Azure en el Portal de Azure](scheduler-get-started-portal.md)
 
- [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
+ [Planes y facturación en Programador de Azure](scheduler-plans-billing.md)
 
- [How to build complex schedules and advanced recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
+ [Creación de programaciones complejas y periodicidad avanzada con Programador de Azure](scheduler-advanced-complexity.md)
 
- [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
+ [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/mt629143)
 
- [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
+ [Referencia de cmdlets de PowerShell de Programador de Azure](scheduler-powershell-reference.md)
 
- [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
+ [Límites, valores predeterminados y códigos de error de Programador de Azure](scheduler-limits-defaults-errors.md)
 
- [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
+ [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
 
 
 [1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

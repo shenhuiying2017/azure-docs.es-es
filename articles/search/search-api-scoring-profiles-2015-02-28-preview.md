@@ -1,35 +1,34 @@
 <properties
-    pageTitle="Scoring profiles (Azure Search REST API Version 2015-02-28-Preview) | Microsoft Azure | Azure Search Preview API"
-    description="Azure Search is a hosted cloud search service that supports tuning of ranked results based on user-defined scoring profiles."
-    services="search"
-    documentationCenter=""
-    authors="HeidiSteen"
-    manager="jhubbard"
-    editor=""/>
+	pageTitle="Perfiles de puntuación (API de REST de Búsqueda de Azure versión 2015-02-28-Preview) | Microsoft Azure | API de vista previa de Búsqueda de Azure"
+	description="Búsqueda de Azure es un servicio de búsqueda hospedado en la nube que admite la optimización de resultados basados en perfiles de puntuación definidos por el usuario."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
-    ms.service="search"
-    ms.devlang="rest-api"
-    ms.workload="search"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.author="heidist"
-    ms.date="08/29/2016" />
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.author="heidist"
+	ms.date="08/29/2016" />
 
+# Perfiles de puntuación (API de REST de Búsqueda de Azure: 2015-02-28-Preview)
 
-# <a name="scoring-profiles-(azure-search-rest-api-version-2015-02-28-preview)"></a>Scoring Profiles (Azure Search REST API Version 2015-02-28-Preview)
+> [AZURE.NOTE] En este artículo se describen los perfiles puntuación de la versión [2015-02-28-Preview](search-api-2015-02-28-preview.md). Actualmente, no hay ninguna diferencia entre la versión `2015-02-28` documentada en [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) y la versión `2015-02-28-Preview` que se describe aquí, pero ofrecemos este documento de todos modos para proporcionar cobertura de documentación en toda la API.
 
-> [AZURE.NOTE] This article describes scoring profiles in the [2015-02-28-Preview](search-api-2015-02-28-preview.md). Currently there is no difference between the `2015-02-28` version documented on [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) and the `2015-02-28-Preview` version described here, but we offer this document anyway in order to provide document coverage across the entire API.
+## Información general
 
-## <a name="overview"></a>Overview
+Puntuación hace referencia al cálculo de una puntuación de búsqueda para todos los elementos devueltos en los resultados de la búsqueda. La puntuación es un indicador de la importancia de un elemento en el contexto de la operación de búsqueda actual. Cuanto mayor sea la puntuación, mayor importancia tendrá el elemento. En los resultados de búsqueda, los elementos están ordenados de alto a bajo, según la puntuación de la búsqueda calculada para cada artículo.
 
-Scoring refers to the computation of a search score for every item returned in search results. The score is an indicator of an item's relevance in the context of the current search operation. The higher the score, the more relevant the item. In search results, items are rank ordered from high to low, based on the search score calculated for each item.
+Búsqueda de Azure usa la puntuación predeterminada para calcular una puntuación inicial, pero puede personalizar el cálculo a través de un perfil de puntuación. Los perfiles de puntuación proporcionan un mayor control sobre la clasificación de los elementos en los resultados de búsqueda. Por ejemplo, desea aumentar los elementos según su potencial de ingresos, promover elementos más recientes o quizás aumentar los elementos que han permanecido en inventario demasiado largo.
 
-Azure Search uses default scoring to compute an initial score, but you can customize the calculation through a scoring profile. Scoring profiles give you greater control over the ranking of items in search results. For example, you might want to boost items based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long.
+Un perfil de puntuación es parte de la definición del índice que se compone de campos, funciones y parámetros.
 
-A scoring profile is part of the index definition, composed of fields, functions, and parameters.
-
-To give you an idea of what a scoring profile looks like, the following example shows a simple profile named 'geo'. This one boosts items that have the search term in the `hotelName` field. It also uses the `distance` function to favor items that are within ten kilometers of the current location. If someone searches on the term 'inn', and 'inn' happens to be part of the hotel name, documents that include hotels with 'inn' will appear higher in the search results.
+Para darle una idea del aspecto de un perfil de puntuación, el ejemplo siguiente muestra un perfil simple denominado «geográfico». Este aumenta los elementos que tengan el término de búsqueda en el campo `hotelName`. También usa la función `distance` para dar prioridad a elementos que están a menos de diez kilómetros de la ubicación actual. Si alguien busca el término «inn» y este término forma parte del nombre del hotel, los documentos que incluyan hoteles con «inn» aparecerán primero en los resultados de búsqueda.
 
     "scoringProfiles": [
       {
@@ -52,59 +51,59 @@ To give you an idea of what a scoring profile looks like, the following example 
       }
     ]
 
-To use this scoring profile, your query is formulated to specify the profile on the query string. In the query below, notice the query parameter, `scoringProfile=geo` in the request.
+Para usar este perfil de puntuación, se formula la consulta para especificar el perfil en la cadena de consulta. En la siguiente consulta, observe el parámetro de consulta `scoringProfile=geo` en la solicitud.
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2015-02-28-Preview
 
-This query searches on the term 'inn' and passes in the current location. Note that this query includes other parameters, such as `scoringParameter`. Query parameters are described in [Search Documents (Azure Search API)](search-api-2015-02-28-preview.md#SearchDocs).
+Esta consulta busca el término «inn» y pasa la ubicación actual. Tenga en cuenta que esta consulta incluye otros parámetros, como `scoringParameter`. Los parámetros de consulta se describen en [Buscar documentos (API de Búsqueda de Azure)](search-api-2015-02-28-preview.md#SearchDocs).
 
-Click [Example](#example) to review a more detailed example of a scoring profile.
+Haga clic en [Ejemplo](#example) para revisar un ejemplo más detallado de un perfil de puntuación.
 
-## <a name="what-is-default-scoring?"></a>What is default scoring?
+## ¿Qué es la puntuación predeterminada?
 
-Scoring computes a search score for each item in a rank ordered result set. Every item in a search result set is assigned a search score, then ranked highest to lowest. Items with the higher scores are returned to the application. By default, the top 50 are returned, but you can use the `$top` parameter to return a smaller or larger number of items (up to 1000 in a single response).
+La puntuación calcula una puntuación de la búsqueda para cada elemento de un conjunto de resultados ordenado por rango. A cada elemento de un conjunto de resultados de búsqueda se le asigna una puntuación de búsqueda, a continuación, se ordena de mayor a menor. Elementos con las puntuaciones más altas se devuelven a la aplicación. De forma predeterminada, se devuelven los 50 mejores, pero puede usar el parámetro `$top` para devolver un número mayor o menor de elementos (hasta 1000 en una sola respuesta).
 
-By default, a search score is computed based on statistical properties of the data and the query. Azure Search finds documents that include the search terms in the query string (some or all, depending on `searchMode`), favoring documents that contain many instances of the search term. The search score goes up even higher if the term is rare across the data corpus, but common within the document. The basis for this approach to computing relevance is known as TF-IDF or (term frequency-inverse document frequency).
+De forma predeterminada, una puntuación de búsqueda se calcula en función de las propiedades estadísticas de los datos y la consulta. Búsqueda de Azure busca documentos que contengan los términos de búsqueda de la cadena de consulta (algunas o todas, dependiendo de `searchMode`), lo cual favorece a los documentos que contienen muchas instancias del término de búsqueda. La puntuación de búsqueda aumenta todavía más si el término es poco frecuente en el corpus de datos, pero común dentro del documento. La base de este enfoque de relevancia informática se denomina TF-IDF o (frecuencia de documento inverso de la frecuencia del término).
 
-Assuming there is no custom sorting, results are then ranked by search score before they are returned to the calling application. If `$top` is not specified, 50 items having the highest search score are returned.
+Suponiendo que no haya ninguna ordenación personalizada, los resultados se clasifican por el resultado de la búsqueda antes de que se devuelvan a la aplicación de llamada. Si `$top` no se especifica, se devolverán 50 elementos con la puntuación de búsqueda mayor.
 
-Search score values can be repeated throughout a result set. For example, you might have 10 items with a score of 1.2, 20 items with a score of 1.0, and 20 items with a score of 0.5. When multiple hits have the same search score, the ordering of same scored items is not defined, and is not stable. Run the query again, and you might see items shift position. Given two items with an identical score, there is no guarantee which one appears first.
+Los valores de puntuación de búsqueda pueden repetirse a lo largo de un conjunto de resultados. Por ejemplo, puede tener 10 elementos con una puntuación de 1,2, 20 elementos con una puntuación de 1,0 y 20 elementos con una puntuación de 0,5. Cuando varios resultados tienen la misma puntuación de búsqueda, el orden de estos elementos puntuados no se define y no es estable. Vuelva a ejecutar la consulta verá cómo los elementos cambian de posición. Si dos elementos disponen de la misma puntuación, no hay ninguna garantía de cuál aparecerá en primer lugar.
 
-## <a name="when-to-use-custom-scoring"></a>When to use custom scoring
+## Cuándo usar la puntuación personalizada
 
-You should create one or more scoring profiles when the default ranking behavior doesn’t go far enough in meeting your business objectives. For example, you might decide that search relevance should favor newly added items. Likewise, you might have a field that contains profit margin, or some other field indicating revenue potential. Boosting hits that bring benefits to your business can be an important factor in deciding to use scoring profiles.
+Debe crear uno o más perfiles de puntuación cuando el comportamiento de clasificación predeterminado no logre cumplir los objetivos de su empresa. Por ejemplo, podría decidir que la relevancia de la búsqueda debe favorecer a los elementos recién agregados. Asimismo, podría tener un campo que contenga el margen de beneficio, o algún otro campo que indique los ingresos potenciales. Aumentar los resultados que ofrecen beneficios a su empresa puede ser un factor importante a la hora de decidir usar perfiles de puntuación.
 
-Relevancy-based ordering is also implemented through scoring profiles. Consider search results pages you’ve used in the past that let you sort by price, date, rating, or relevance. In Azure Search, scoring profiles drive the 'relevance' option. The definition of relevance is controlled by you, predicated on business objectives and the type of search experience you want to deliver.
+El orden basado en relevancia también se implementa a través de perfiles de puntuación. Tenga en cuenta los resultados de búsqueda que ha usado en el pasado que le permiten ordenar por relevancia, fecha, clasificación o precio. En la Búsqueda de Azure, los perfiles de puntuación determinan la opción «relevancia». La definición de relevancia está controlada por usted, se afirma en los objetivos empresariales y en el tipo de experiencia de búsqueda que desee ofrecer.
 
 <a name="example"></a>
-## <a name="example"></a>Example
+## Ejemplo
 
-As noted, customized scoring is implemented through scoring profiles defined in an index schema.
+Tal y como se ha indicado, la puntuación personalizada se implementa mediante los perfiles de puntuación definidos en un esquema de índice.
 
-This example shows the schema of an index with two scoring profiles (`boostGenre`, `newAndHighlyRated`). Any query against this index that includes either profile as a query parameter will use the profile to score the result set.
+En este ejemplo se muestra el esquema de un índice con dos perfiles de puntuación (`boostGenre`, `newAndHighlyRated`). Las consultas sobre este índice que incluyen cualquiera de los perfiles como parámetro de consulta usará el perfil para puntuar el conjunto de resultados.
 
-[Try this example](search-get-started-scoring-profiles.md).
+[Pruebe este ejemplo](search-get-started-scoring-profiles.md).
 
     {
       "name": "musicstoreindex",
-      "fields": [
-        { "name": "key", "type": "Edm.String", "key": true },
-        { "name": "albumTitle", "type": "Edm.String" },
-        { "name": "albumUrl", "type": "Edm.String", "filterable": false },
-        { "name": "genre", "type": "Edm.String" },
-        { "name": "genreDescription", "type": "Edm.String", "filterable": false },
-        { "name": "artistName", "type": "Edm.String" },
-        { "name": "orderableOnline", "type": "Edm.Boolean" },
-        { "name": "rating", "type": "Edm.Int32" },
-        { "name": "tags", "type": "Collection(Edm.String)" },
-        { "name": "price", "type": "Edm.Double", "filterable": false },
-        { "name": "margin", "type": "Edm.Int32", "retrievable": false },
-        { "name": "inventory", "type": "Edm.Int32" },
-        { "name": "lastUpdated", "type": "Edm.DateTimeOffset" }
-      ],
+	  "fields": [
+	    { "name": "key", "type": "Edm.String", "key": true },
+	    { "name": "albumTitle", "type": "Edm.String" },
+	    { "name": "albumUrl", "type": "Edm.String", "filterable": false },
+	    { "name": "genre", "type": "Edm.String" },
+	    { "name": "genreDescription", "type": "Edm.String", "filterable": false },
+	    { "name": "artistName", "type": "Edm.String" },
+	    { "name": "orderableOnline", "type": "Edm.Boolean" },
+	    { "name": "rating", "type": "Edm.Int32" },
+	    { "name": "tags", "type": "Collection(Edm.String)" },
+	    { "name": "price", "type": "Edm.Double", "filterable": false },
+	    { "name": "margin", "type": "Edm.Int32", "retrievable": false },
+	    { "name": "inventory", "type": "Edm.Int32" },
+	    { "name": "lastUpdated", "type": "Edm.DateTimeOffset" }
+	  ],
       "scoringProfiles": [
         {
-          "name": "boostGenre",
+	      "name": "boostGenre",
           "text": {
             "weights": {
               "albumTitle": 1.5,
@@ -112,9 +111,9 @@ This example shows the schema of an index with two scoring profiles (`boostGenre
               "artistName": 2
             }
           }
-        },
+	    },
         {
-          "name": "newAndHighlyRated",
+	      "name": "newAndHighlyRated",
           "functions": [
             {
               "type": "freshness",
@@ -149,41 +148,41 @@ This example shows the schema of an index with two scoring profiles (`boostGenre
     }
 
 
-## <a name="workflow"></a>Workflow
+## Flujo de trabajo
 
-To implement custom scoring behavior, add a scoring profile to the schema that defines the index. You can have multiple scoring profiles within an index, but you can only specify one profile at time in any given query.
+Para implementar el comportamiento personalizado de puntuación, agregue un perfil de puntuación al esquema que define el índice. Puede tener varios perfiles de puntuación en un índice, pero solo puede especificar un perfil de cada vez en una consulta concreta.
 
-Start with the [Template](#bkmk_template) provided in this topic.
+Comience con la [Plantilla](#bkmk_template) incluida en este tema.
 
-Provide a name. Scoring profiles are optional, but if you add one, the name is required. Be sure to follow the naming conventions for fields (starts with a letter, avoids special characters and reserved words). See [Naming Rules](http://msdn.microsoft.com/library/azure/dn857353.aspx) for more information.
+Proporcione un nombre. Los perfiles de puntuación son opcionales, pero si agrega uno, se requerirá el nombre. Asegúrese de seguir las convenciones de nomenclatura de los campos (empieza con una letra, evita caracteres especiales y palabras reservadas). Consulte [Reglas de nomenclatura](http://msdn.microsoft.com/library/azure/dn857353.aspx) para obtener más información.
 
-The body of the scoring profile is constructed from weighted fields and functions.
+El cuerpo del perfil de puntuación se construye a partir de campos ponderados y funciones.
 
-### <a name="weights"></a>Weights ###
+### Pesos ###
 
-The `weights` property of a scoring profile specifies name-value pairs that assign a relative weight to a field. In the [Example](#example), the albumTitle, genre, and artistName fields are boosted 1.5, 5, and 2, respectively. Why is genre boosted so much higher than the others? If search is conducted over data that is somewhat homogeneous (as is the case with 'genre' in the `musicstoreindex`), you might need a larger variance in the relative weights. For example, in the `musicstoreindex`, 'rock' appears as both a genre and in identically phrased genre descriptions. If you want genre to outweigh genre description, the genre field will need a much higher relative weight.
+La propiedad `weights` de un perfil de puntuación especifica los pares de nombre-valor que asignan una ponderación relativa a un campo. En el [ejemplo](#example), los campos albumTitle, genre y artistName se aumentan a 1.5, 5 y 2 respectivamente. ¿Por qué se aumenta el género mucho mayor que los demás? Si la búsqueda se realiza en datos que son en cierto modo homogéneos (como es el caso con «género» en el `musicstoreindex`), es posible que necesite una mayor variación en la ponderación relativa. Por ejemplo, en `musicstoreindex`, «rock» aparece como género y en las descripciones de género expresadas de forma idéntica. Si desea que el género supere en ponderación a la descripción del género, el campo del género necesitará una ponderación relativa mucho mayor.
 
-### <a name="functions"></a>Functions ###
+### Funciones ###
 
-Functions are used when additional calculations are required for specific contexts. Valid function types are `freshness`, `magnitude`, `distance` and `tag`. Each function has parameters that are unique to it.
+Funciones usadas cuando se requieren cálculos adicionales para contextos concretos. Los tipos de función válidos son `freshness`, `magnitude`, `distance` y `tag`. Cada función tiene parámetros que son exclusivos de ella.
 
-  - `freshness` should be used when you want to boost by how new or old an item is. This function can only be used with datetime fields (`Edm.DataTimeOffset`). Note the `boostingDuration` attribute is used only with the freshness function.
-  - `magnitude` should be used when you want to boost based on how high or low a numeric value is. Scenarios that call for this function include boosting by profit margin, highest price, lowest price, or a count of downloads. You can reverse the range, high to low, if you want the inverse pattern (for example, to boost lower-priced items more than higher-priced items). Given a range of prices from $100 to $1, you would set `boostingRangeStart` at 100 and `boostingRangeEnd` at 1 to boost the lower-priced items. This function can only be used with double and integer fields.
-  - `distance` should be used when you want to boost by proximity or geographic location. This function can only be used with `Edm.GeographyPoint` fields.
-  - `tag` should be used when you want to boost by tags in common between documents and search queries. This function can only be used with `Edm.String` and `Collection(Edm.String)` fields.
+  - `freshness` debe usarse cuando desea aumentar según cómo de nuevo o de antiguo es un elemento. Esta función solo puede usarse con campos datetime (`Edm.DataTimeOffset`). Tenga en cuenta que el atributo `boostingDuration` solo se usa con la función de actualización.
+  - `magnitude` debe usarse cuando desea aumentar en función de cómo de alto o de bajo es un valor numérico. Entre los escenarios que requieren esta función se incluyen aumentar por margen de beneficio, precio máximo, precio mínimo o recuento de descargas. Puede invertir el rango, de alto a bajo, si desea que el patrón inverso potencie, por ejemplo, los elementos de precio inferior más que los de precio superior. Dado un intervalo de precios de 100 $ a 1 $, establezca `boostingRangeStart` en 100 y `boostingRangeEnd` en 1 para potenciar los elementos de menor precio. Esta función solo puede usarse con campos doble y de número entero.
+  - `distance` debe usarse cuando quiera potenciar según proximidad o ubicación geográfica. Esta función solo puede usarse con campos `Edm.GeographyPoint`.
+  - `tag` debe usarse cuando quiera potenciar por etiquetas en común entre documentos y consultas de búsqueda. Esta función solo puede usarse con campos `Edm.String` y `Collection(Edm.String)`.
   
-#### <a name="rules-for-using-functions"></a>Rules for using functions ####
+#### Reglas de uso de funciones ####
 
-  - Function type (freshness, magnitude, distance, tag) must be lower case.
-  - Functions cannot include null or empty values. Specifically, if you include fieldname, you have to set it to something.
-  - Functions can only be applied to filterable fields. See [Create Index](search-api-2015-02-28.md#CreateIndex) for more information about filterable fields.
-  - Functions can only be applied to fields that are defined in the fields collection of an index.
+  - El tipo de función (actualización, magnitud, distancia, etiqueta) debe aparecer en minúsculas.
+  - Las funciones no pueden incluir valores nulos ni estar vacías. En concreto, si incluye un nombre de campo, deberá establecerlo en un valor.
+  - Las funciones solo pueden aplicarse a los campos que se pueden filtrar. Consulte [Creación de índices (API de Búsqueda de Azure)](search-api-2015-02-28.md#createindex) para obtener más información acerca de los campos que se pueden filtrar.
+  - Las funciones solo pueden aplicarse a los campos que se definen en la colección de campos de un índice.
 
-After the index is defined, build the index by uploading the index schema, followed by documents. See [Create Index](search-api-2015-02-28-preview.md#CreateIndex) and [Add or Update Documents](search-api-2015-02-28-preview.md#AddOrUpdateDocuments) for instructions on these operations. Once the index is built, you should have a functional scoring profile that works with your search data.
+Una vez definido el índice, genere el índice mediante la carga del esquema de índice, seguido de documentos. Consulte [Crear índice](search-api-2015-02-28-preview.md#createindex) y [Agregar o actualizar documentos](search-api-2015-02-28-preview.md#AddOrUpdateDocuments) para obtener instrucciones sobre estas operaciones. Una vez creado el índice, debe tener un perfil de puntuación funcional que funcione con los datos de búsqueda.
 
 <a name="bkmk_template"></a>
-## <a name="template"></a>Template
-This section shows the syntax and template for scoring profiles. Refer to [Index attribute reference](#bkmk_indexref) in the next section for descriptions of the attributes.
+## Plantilla
+En esta sección se muestra la sintaxis y la plantilla de perfiles de puntuación. Consulte [Referencia del atributo de índice](#bkmk_indexref) en la sección siguiente para obtener descripciones de los atributos.
 
     ...
     "scoringProfiles": [
@@ -236,75 +235,67 @@ This section shows the syntax and template for scoring profiles. Refer to [Index
     ...
 
 <a name="bkmk_indexref"></a>
-## <a name="scoring-profile-property-reference"></a>Scoring profile property reference
+## Referencia de propiedad de perfil de puntuación
 
-**Note** A scoring function can only be applied to fields that are filterable.
+**Nota** Las funciones de puntuación solo pueden aplicarse a campos filtrables.
 
-| Property | Description |
+| Propiedad | Description |
 |----------|-------------|
-| `name`   | Required. This is the name of the scoring profile. It follows the same naming conventions of a field. It must start with a letter, cannot contain dots, colons or @ symbols, and cannot start with the phrase "azureSearch" (case-sensitive). |
-| `text` | Contains the Weights property. |
-| `weights` | Optional. A name-value pair that specifies a field name and relative weight. Relative weight must be a positive integer or floating-point number. You can specify the field name without a corresponding weight. Weights are used to indicate the importance of one field relative to another. |
-| `functions` | Optional. Note that a scoring function can only be applied to fields that are filterable. |
-| `type` | Required for scoring functions. Indicates the type of function to use. Valid values include `magnitude`, `freshness`, `distance` and `tag`. You can include more than one function in each scoring profile. The function name must be lower case. |
-| `boost` | Required for scoring functions. A positive number used as multiplier for raw score. It cannot be equal to 1. |
-| `fieldName` | Required for scoring functions. A scoring function can only be applied to fields that are part of the field collection of the index, and that are filterable. In addition, each function type introduces additional restrictions (freshness is used with datetime fields, magnitude with integer or double fields, distance with location fields and tag with string or string collection fields). You can only specify a single field per function definition. For example, to use magnitude twice in the same profile, you would need to include two definitions magnitude, one for each field. |
-| `interpolation` | Required for scoring functions. Defines the slope for which the score boosting increases from the start of the range to the end of the range. Valid values include `linear` (default), `constant`, `quadratic`, and `logarithmic`. See [Set interpolations](#bkmk_interpolation) for details. |
-| `magnitude` | The magnitude scoring function is used to alter rankings based on the range of values for a numeric field. Some of the most common usage examples of this are:<ul><li>Star ratings: Alter the scoring based on the value within the "Star Rating" field. When two items are relevant, the item with the higher rating will be displayed first.</li><li>Margin: When two documents are relevant, a retailer may wish to boost documents that have higher margins first.</li><li>Click counts: For applications that track click through actions to products or pages, you could use magnitude to boost items that tend to get the most traffic.</li><li>Download counts: For applications that track downloads, the magnitude function lets you boost items that have the most downloads.</li></ul> |
-| `magnitude:boostingRangeStart` | Sets the start value of the range over which magnitude is scored. The value must be an integer or floating-point number. For star ratings of 1 through 4, this would be 1. For margins over 50%, this would be 50. |
-| `magnitude:boostingRangeEnd` | Sets the end value of the range over which magnitude is scored. The value must be an integer or floating-point number. For star ratings of 1 through 4, this would be 4. |
-| `magnitude:constantBoostBeyondRange` | Valid values are true or false (default). When set to true, the full boost will continue to apply to documents that have a value for the target field that’s higher than the upper end of the range. If false, the boost of this function won’t be applied to documents having a value for the target field that falls outside of the range. |
-| `freshness` | The freshness scoring function is used to alter ranking scores for items based on values in DateTimeOffset fields. For example, an item with a more recent date can be ranked higher than older items. (Note that it is also possible to rank items like calendar events with future dates such that items closer to the present can be ranked higher than items further in the future.) In the current service release, one end of the range will be fixed to the current time. The other end is a time in the past based on the `boostingDuration`. To boost a range of times in the future use a negative `boostingDuration`. The rate at which the boosting changes from a maximum and minimum range is determined by the Interpolation applied to the scoring profile (see the figure below). To reverse the boosting factor applied, choose a boost factor of less than 1. |
-| `freshness:boostingDuration` | Sets an expiration period after which boosting will stop for a particular document. See [Set boostingDuration][#bkmk_boostdur] in the following section for syntax and examples. |
-| `distance` | The distance scoring function is used to affect the score of documents based on how close or far they are relative to a reference geographic location. The reference location is given as part of the query in a parameter (using the `scoringParameter` query parameter) as a lon,lat argument. |
-| `distance:referencePointParameter` | A parameter to be passed in queries to use as reference location. scoringParameter is a query parameter. See [Search Documents](search-api-2015-02-28-preview.md#SearchDocs) for descriptions of query parameters. |
-| `distance:boostingDistance` | A number that indicates the distance in kilometers from the reference location where the boosting range ends. |
-| `tag` | The tag scoring function is used to affect the score of documents based on tags in documents and search queries. Documents that have tags in common with the search query will be boosted. The tags for the search query is provided as a scoring parameter in each search request(using the `scoringParameter` query parameter). |
-| `tag:tagsParameter` | A parameter to be passed in queries to specify tags for a particular request. `scoringParameter` is a query parameter. See [Search Documents](search-api-2015-02-28-preview.md#SearchDocs) for descriptions of query parameters. |
-| `functionAggregation` | Optional. Applies only when functions are specified. Valid values include: `sum` (default), `average`, `minimum`, `maximum`, and `firstMatching`. A search score is a single value that is computed from multiple variables, including multiple functions. This attributes indicates how the boosts of all the functions are combined into a single aggregate boost that is then applied to the base document score. The base score is based on the tf-idf value computed from the document and the search query. |
-| `defaultScoringProfile` | When executing a search request, if no scoring profile is specified, then default scoring is used (tf-idf only). A default scoring profile name can be set here, causing Azure Search to use that profile when no specific profile is given in the search request. |
+| `name` | Obligatorio. Este es el nombre del perfil de puntuación. Sigue las mismas convenciones de nomenclatura de un campo. Debe comenzar por una letra, no puede contener puntos, dos puntos o símbolos @ y no puede comenzar con la frase «Búsquedaazure» (distingue entre mayúsculas y minúsculas). |
+| `text` | Contiene la propiedad Weights. |
+| `weights` | Opcional. Par de nombre-valor que especifica un nombre de campo y un peso relativo. El peso relativo debe ser un número entero positivo o un número de punto flotante. Puede especificar el nombre del campo sin un peso correspondiente. Weights se usa para indicar la importancia de un campo en relación con otro. |
+| `functions` | Opcional. Tenga en cuenta que las funciones de puntuación solo pueden aplicarse a campos filtrables. |
+| `type` | Obligatorio para las funciones de puntuación. Indica el tipo de función que se usará. Entre los valores válidos se incluyen `magnitude`, `freshness`, `distance` y `tag`. Puede incluir más de una función en cada perfil de puntuación. El nombre de la función debe estar en minúsculas. |
+| `boost` | Obligatorio para las funciones de puntuación. Número positivo usado como multiplicador para el resultado sin formato. No puede ser igual a 1. |
+| `fieldName` | Obligatorio para las funciones de puntuación. Una función de puntuación solo puede aplicarse a los campos que forman parte de la colección de campos del índice y que son filtrables. Además, cada tipo de función introduce restricciones adicionales (índice de actualización se usa con campos de fecha y hora, magnitud con número entero o campos dobles, distancia con campos de ubicación y etiqueta con cadena o campos de colección de cadenas). Solo puede especificar un campo único por cada definición de función. Por ejemplo, para usar magnitud dos veces en el mismo perfil, necesitaría incluir dos magnitudes de definiciones, una para cada campo. |
+| `interpolation` | Obligatorio para las funciones de puntuación. Define la pendiente con la que la potenciación de la puntuación aumenta desde el inicio del rango hasta su final. Entre los valores válidos se incluyen `linear` (predeterminado), `constant`, `quadratic` y `logarithmic`. Consulte [Establecer interpolaciones](#bkmk_interpolation) para más información. |
+| `magnitude` | La función de puntuación de la magnitud se usa para modificar las clasificaciones según el intervalo de valores de un campo numérico. Algunos de los ejemplos de uso más habituales sobre esto son:<ul><li>Clasificaciones por estrellas: modifique la puntuación en función del valor del campo "Clasificación por estrellas". Cuando dos elementos son pertinentes, en primer lugar se mostrará el elemento con la clasificación superior.</li><li>Margen: cuando dos documentos son pertinentes, puede que un minorista desee potenciar los documentos que tienen mayores márgenes en primer lugar.</li><li>Recuento de clics: para las aplicaciones que realizan un seguimiento de clics en productos o páginas, puede usar la magnitud para potenciar aquellos elementos que tienden a tener más tráfico.</li><li>Recuento de descargas: para las aplicaciones que realizan un seguimiento de las descargas, la función de magnitud le permite potenciar aquellos elementos que tienen más descargas.</li></ul> |
+| `magnitude:boostingRangeStart` | Establece el valor inicial del intervalo en el que se puntúa la magnitud. El valor debe ser un número entero o un número de punto flotante. En cuanto a las clasificaciones por estrellas de 1 a 4, esto equivaldría a 1. Para los márgenes superiores al 50%, esto equivaldría a 50. |
+| `magnitude:boostingRangeEnd` | Establece el valor final del intervalo en el que se puntúa la magnitud. El valor debe ser un número entero o un número de punto flotante. En cuanto a las clasificaciones por estrellas de 1 a 4, esto equivaldría a 4. |
+| `magnitude:constantBoostBeyondRange` | Los valores válidos son true o false (valor predeterminado). Cuando se establece en true, la potenciación completa continuará aplicándose a los documentos que tienen un valor para el campo de destino superior al extremo superior del intervalo. Si es false, la potenciación de esta función no se aplicará a los documentos que tengan un valor para el campo de destino que se encuentre fuera del intervalo. |
+| `freshness` | La función de puntuación del índice de actualización se usa para modificar las puntuaciones de clasificación de los elementos basados en valores de campos de DateTimeOffset. Por ejemplo, un elemento con una fecha más reciente puede clasificarse por encima de los elementos más antiguos. (Tenga en cuenta que también es posible clasificar elementos, como eventos del calendario con fechas futuras, de manera que los elementos más cercanos al presente tengan una clasificación más alta que los elementos más alejados en el futuro). En la versión actual del servicio, uno de los extremos del intervalo se corregirá a la hora actual. El otro extremo es un momento en el pasado basado en el elemento `boostingDuration`. Para potenciar un intervalo de horas en el futuro use una `boostingDuration` negativa. La velocidad a la que cambia la potenciación desde un intervalo máximo y mínimo viene determinada por la interpolación aplicada al perfil de puntuación (consulte la figura siguiente). Para invertir el factor de potenciación aplicado, seleccione un factor de potenciación de menos de 1. |
+| `freshness:boostingDuration` | Establece un período de caducidad después del que se detendrá la potenciación de un documento determinado. Consulte [Establecer boostingDuration ][#bkmk\_boostdur] en la sección siguiente para obtener información sobre la sintaxis y ejemplos. |
+| `distance` | La función de puntuación de la distancia se usa para afectar a la puntuación de documentos en función de la cercanía o distancia respecto a una ubicación geográfica de referencia. La ubicación de referencia se proporciona como parte de la consulta en un parámetro (mediante el parámetro de consulta `scoringParameter`) como argumento lon, lat. |
+| `distance:referencePointParameter` | Parámetro que se pasarán en las consultas a usar como ubicación de referencia. scoringParameter es un parámetro de consulta. Consulte [Búsqueda de documentos](search-api-2015-02-28-preview.md#SearchDocs) para obtener descripciones de los parámetros de consulta. |
+| `distance:boostingDistance` | Número que indica la distancia en kilómetros desde la ubicación de referencia donde finaliza el intervalo de potenciación. |
+| `tag` | La función de puntuación de etiquetas se usa para afectar a la puntuación de documentos basados en las etiquetas de documentos y las consultas de búsqueda. Los documentos que tienen etiquetas en común con la consulta de búsqueda se potenciarán. Las etiquetas de la consulta de búsqueda se proporcionan como un parámetro de puntuación en cada solicitud de búsqueda (mediante el parámetro de consulta `scoringParameter`). |
+| `tag:tagsParameter` | Parámetro que se pasará en las consultas para especificar etiquetas para una solicitud en particular. `scoringParameter` es un parámetro de consulta. Consulte [Búsqueda de documentos](search-api-2015-02-28-preview.md#SearchDocs) para obtener descripciones de los parámetros de consulta. |
+| `functionAggregation` | Opcional. Se aplica solo cuando se especifican las funciones. Entre los valores válidos se incluyen `sum` (predeterminado), `average`, `minimum`, `maximum` y `firstMatching`. Una puntuación de búsqueda es un valor único que se calcula a partir de varias variables, incluidas varias funciones. Estos atributos indican cómo se combinan la potenciación de todas las funciones en una única potenciación total que, a continuación, se aplica a la puntuación del documento base. La puntuación base se basa en el valor tf-idf calculado a partir del documento y la consulta de búsqueda. |
+| `defaultScoringProfile` | Al ejecutar una solicitud de búsqueda, si no se especifica ningún perfil de puntuación, se usará la puntuación predeterminada (tf-idf solamente). Aquí puede establecerse un nombre de perfil de puntuación predeterminado, que provocará que la Búsqueda de Azure use ese perfil cuando no se proporcione ningún perfil específico en la solicitud de búsqueda. |
 
 <a name="bkmk_interpolation"></a>
-## <a name="set-interpolations"></a>Set interpolations
+## Establecer interpolaciones
 
-Interpolations allow you to define the slope for which the score boosting increases from the start of the range to the end of the range. The following interpolations can be used:
+Las interpolaciones le permiten definir la pendiente con la que la potenciación de la puntuación aumenta desde el inicio del rango hasta su final. Es posible usar las siguientes interpolaciones:
 
-  - `Linear`: For items that are within the max and min range, the boost applied to the item will be done in a constantly decreasing amount. Linear is the default interpolation for a scoring profile.
-  - `Constant`: For items that are within the start and ending range, a constant boost will be applied to the rank results.
-  - `Quadratic`: In comparison to a Linear interpolation that has a constantly decreasing boost, Quadratic will initially decrease at smaller pace and then as it approaches the end range, it decreases at a much higher interval. This interpolation option is not allowed in tag scoring functions.
-  - `Logarithmic`: In comparison to a Linear interpolation that has a constantly decreasing boost, Logarithmic will initially decrease at higher pace and then as it approaches the end range, it decreases at a much smaller interval. This interpolation option is not allowed in tag scoring functions.
+  - `Linear`: Para los elementos que están dentro del intervalo máximo y mínimo, la potenciación aplicada al elemento se realizará en un grado que va decreciendo de manera constante. Lineal es la interpolación predeterminada de un perfil de puntuación.
+  - `Constant`: En los elementos que se encuentran dentro del intervalo de inicio y finalización, se aplicará una potenciación constante a los resultados de la clasificación.
+  - `Quadratic`: En comparación con una interpolación lineal que tiene una potenciación en reducción constante, Cuadrático provocará inicialmente una reducción a un ritmo inferior y, a continuación, a medida que se aproxima el final del intervalo, se reduce a un intervalo muy superior. Esta opción de interpolación no se permite en funciones de puntuación de etiquetas.
+  - `Logarithmic`: En comparación con una interpolación lineal que tiene una potenciación en reducción constante, Logarítmico provocará inicialmente una reducción a un ritmo superior y, a continuación, a medida que se aproxima el final del intervalo, se reduce a un intervalo muy inferior. Esta opción de interpolación no se permite en funciones de puntuación de etiquetas.
 
-<a name="Figure1"></a>
- ![][1]
+<a name="Figure1"></a> ![][1]
 
 <a name="bkmk_boostdur"></a>
-## <a name="set-boostingduration"></a>Set boostingDuration
+## Establecer boostingDuration
 
-`boostingDuration` is an attribute of the freshness function. You use it to set an expiration period after which boosting will stop for a particular document. For example, to boost a product line or brand for a 10-day promotional period, you would specify the 10-day period as "P10D" for those documents. Or to boost upcoming events in the next week specify "-P7D".
+`boostingDuration` es un atributo de la función de índice de actualización. Se usa para establecer un período de caducidad después del que se detendrá la potenciación de un documento determinado. Por ejemplo, para potenciar una línea de productos o marca durante un período de promoción de 10 días, debe especificar el período de 10 días como "P10D" para dichos documentos. O bien, para elevar próximos eventos en la próxima semana, especifique "-P7D".
 
-`boostingDuration` must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an ISO 8601 duration value). The pattern for this is: `[-]P[nD][T[nH][nM][nS]]`.
+`boostingDuration` debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de duración ISO 8601). El patrón de este es: `[-]P[nD][T[nH][nM][nS]]`.
 
-The following table provides several examples.
+La tabla siguiente proporciona varios ejemplos.
 
-| Duration | boostingDuration |
+| Duración | boostingDuration |
 |----------|------------------|
-| 1 day | "P1D" |
-| 2 days and 12 hours | "P2DT12H" |
-| 15 minutes | "PT15M" |
-| 30 days, 5 hours, 10 minutes, and 6.334 seconds | "P30DT5H10M6.334S" |
+| 1 día | "P1D" |
+| 2 días, 12 horas | "P2DT12H" |
+| 15 minutos | "PT15M" |
+| 30 días, 5 horas, 10 minutos y 6,334 segundos | "P30DT5H10M6.334S" |
 
-For more examples, see [XML Schema: Datatypes (W3.org web site)](http://www.w3.org/TR/xmlschema11-2/).
+Para obtener más ejemplos, consulte [Esquema XML: tipos de datos (sitio web de W3.org)](http://www.w3.org/TR/xmlschema11-2/).
 
-**See Also**
-[Azure Search Service REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx) on MSDN <br/>
-[Create Index (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798941.aspx) on MSDN<br/>
-[Add a scoring profile to a search index](http://msdn.microsoft.com/library/azure/dn798928.aspx) on MSDN<br/>
+**Consulte también** [API de REST del servicio de Búsqueda de Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) en MSDN <br/> [Crear índice (API de Búsqueda de Azure)](http://msdn.microsoft.com/library/azure/dn798941.aspx) en MSDN<br/> [Agregar un perfil de puntuación a un índice de búsqueda](http://msdn.microsoft.com/library/azure/dn798928.aspx) en MSDN<br/>
 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

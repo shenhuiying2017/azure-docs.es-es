@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Deactivate and delete a StorSimple device | Microsoft Azure"
-   description="Describes how to remove StorSimple device from service by  first deactivating it and then deleting it."
+   pageTitle="Desactivación y eliminación de un dispositivo de StorSimple | Microsoft Azure"
+   description="Describe cómo desactivar y eliminar en primer lugar el dispositivo de StorSimple para quitarlo del servicio."
    services="storsimple"
    documentationCenter=""
    authors="SharS"
@@ -12,102 +12,97 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/18/2016"
+   ms.date="06/01/2016"
    ms.author="anoobbacker" />
 
+# Desactivación y eliminación de un dispositivo de StorSimple
 
-# <a name="deactivate-and-delete-a-storsimple-device"></a>Deactivate and delete a StorSimple device
+## Información general
 
-## <a name="overview"></a>Overview
+Puede que desee eliminar un dispositivo de StorSimple (por ejemplo, si va a reemplazar o actualizar el dispositivo o si ya no usa StorSimple). En su caso, debe desactivar el dispositivo para poder eliminarlo. La desactivación interrumpe la conexión entre el dispositivo y el servicio StorSimple Manager correspondiente. En este tutorial se explica cómo eliminar un dispositivo de StorSimple desactivándolo primero y eliminándolo después.
 
-You may wish to take a StorSimple device out of service (for example, if you are replacing or upgrading your device or if you are no longer using StorSimple). If this is the case, you will need to deactivate the device before you can delete it. Deactivating severs the connection between the device and the corresponding StorSimple Manager service. This tutorial explains how to remove a StorSimple device from service by first deactivating it and then deleting it. 
+Al desactivar un dispositivo, ya no se podrá acceder a los datos que se almacenan localmente en el mismo. Solo se pueden recuperar los datos asociados con el dispositivo que se almacenaron en la nube.
 
-When you deactivate a device, any data that was stored locally on the device will no longer be accessible. Only the data associated with the device that was stored in the cloud can be recovered.  
-
->[AZURE.WARNING] Deactivation is a PERMANENT operation and cannot be undone. A deactivated device cannot be registered with the StorSimple Manager service unless it is first reset by the factory. 
+>[AZURE.WARNING] La desactivación es una operación permanente y no se puede deshacer. Un dispositivo desactivado no se puede registrar en el servicio StorSimple Manager a menos que se realice un restablecimiento de fábrica.
 >
->The factory reset process deletes all the data that was stored locally on your device. Therefore, it is essential that you take a cloud snapshot of all your data before you deactivate a device. This will allow you to recover all the data at a later stage.
+>El restablecimiento de fábrica elimina todos los datos almacenados localmente en el dispositivo. Por lo tanto, es esencial que realice una instantánea en la nube de todos los datos antes de desactivar un dispositivo. Esto le permitirá recuperar todos los datos más adelante.
 
-This tutorial explains how to:
+Este tutorial explica cómo realizar lo siguiente:
 
-- Deactivate a device and delete the data
-- Deactivate a device and retain the data
+- Desactivar un dispositivo y eliminar los datos
+- Desactivar un dispositivo y conservar los datos
 
-It also explains how deactivation and deletion works on a StorSimple virtual device.
+También se explica cómo funcionan la desactivación y eliminación en un dispositivo virtual de StorSimple.
 
->[AZURE.NOTE] Before you deactivate a StorSimple physical or virtual device, make sure to stop or delete clients and hosts that depend on that device.
+>[AZURE.NOTE] Antes de desactivar un dispositivo virtual o físico de StorSimple, asegúrese de detener o eliminar los clientes y hosts que dependen de ese dispositivo.
 
-## <a name="deactivate-and-delete-data"></a>Deactivate and delete data
+## Desactivación y eliminación de datos
 
-If you are interested in deleting the device completely and do not want to retain the data on the device, then complete the following steps.
+Si está interesado en eliminar completamente el dispositivo y no desea conservar los datos del mismo, siga estos pasos.
 
-#### <a name="to-deactivate-the-device-and-delete-the-data"></a>To deactivate the device and delete the data  
+#### Para desactivar un dispositivo y eliminar los datos  
 
-1. Prior to deactivating a device, you must delete all the volume containers (and the volumes) associated with the device. You can delete volume containers only after you have deleted the associated backups.
+1. Antes de desactivar un dispositivo, debe eliminar todos los contenedores de volúmenes (y los volúmenes) asociados con el dispositivo. Puede eliminar los contenedores de volúmenes solo después de eliminar las copias de seguridad asociadas.
 
-2. Deactivate the device as follows:
+2. Desactive el dispositivo como sigue:
 
-    1. On the StorSimple Manager service **Devices** page, select the device that you wish to deactivate and, at the bottom of the page, click **Deactivate**.
+    1. En el servicio StorSimple Manager, en la página **Dispositivos**, seleccione el dispositivo que desea desactivar y, en la parte inferior de la página, haga clic en **Desactivar**.
 
-    2. A confirmation message will appear. Click **Yes** to continue. The deactivate process will start and take a few minutes to complete.
+    2. Aparecerá un mensaje de confirmación. Haga clic en **Sí** para continuar. El proceso de desactivación se iniciará y tardará unos minutos en completarse.
 
-3. After deactivation, you can delete the device completely. Deleting a device removes it from the list of devices connected to the service. The service can then no longer manage the deleted device. Use the following steps to delete the device:
+3. Tras la desactivación, puede eliminar completamente el dispositivo. Al eliminar un dispositivo, se quita de la lista de dispositivos conectados al servicio. El servicio ya no podrá administrar el dispositivo eliminado. Siga estos pasos para eliminar el dispositivo:
 
-    1. On the StorSimple Manager service **Devices** page, select a deactivated device that you wish to delete.
+    1. En el servicio StorSimple Manager, en la página **Dispositivos**, seleccione un dispositivo desactivado que desea eliminar.
 
-    2. On the bottom on the page, click **Delete**.
+    2. En la parte inferior de la página, haga clic en **Eliminar**.
 
-    3. You will be prompted for confirmation. Click **Yes** to continue.
+    3. Se le pedirá confirmación. Haga clic en **Sí** para continuar.
 
-    It may take a few minutes for the device to be deleted.
+    Es posible que el servicio tarde unos minutos en eliminarse.
 
-## <a name="deactivate-and-retain-data"></a>Deactivate and retain data
+## Desactivación y conservación de los datos
 
-If you are interested in deleting the device but want to retain the data, then complete the following steps.
+Si está interesado en eliminar el dispositivo pero desea conservar los datos del mismo, siga estos pasos.
 
-####<a name="to-deactivate-a-device-and-retain-the-data"></a>To deactivate a device and retain the data 
+####Para desactivar un dispositivo y conservar los datos 
 
-1. Deactivate the device. All the volume containers and the snapshots of the device will remain.
+1. Desactive el dispositivo. Todos los contenedores de volúmenes y las instantáneas del dispositivo se conservarán.
 
-    1. On the StorSimple Manager service **Devices** page, select the device that you wish to deactivate and, at the bottom of the page, click **Deactivate**.
+    1. En el servicio StorSimple Manager, en la página **Dispositivos**, seleccione el dispositivo que desea desactivar y, en la parte inferior de la página, haga clic en **Desactivar**.
 
-    2. A confirmation message will appear. Click **Yes** to continue. The deactivate process will start and take a few minutes to complete.
+    2. Aparecerá un mensaje de confirmación. Haga clic en **Sí** para continuar. El proceso de desactivación se iniciará y tardará unos minutos en completarse.
 
-2. You can now fail over the volume containers and the associated snapshots. For procedures, go to [Failover and disaster recovery for your StorSimple device](storsimple-device-failover-disaster-recovery.md).
+2. Ahora puede conmutar los contenedores de volúmenes y las instantáneas asociadas. Para ver los procedimientos, vaya a [Conmutación por error y recuperación ante desastres para el dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md)
 
-3. After deactivation and failover, you can delete the device completely. Deleting a device removes it from the list of devices connected to the service. The service can then no longer manage the deleted device. Complete the following steps to delete the device:
+3. Después de la desactivación y la conmutación por error, puede eliminar completamente el dispositivo. Al eliminar un dispositivo, se quita de la lista de dispositivos conectados al servicio. El servicio ya no podrá administrar el dispositivo eliminado. Siga estos pasos para eliminar el dispositivo:
  
-    1. On the StorSimple Manager service **Devices** page, select a deactivated device that you wish to delete.
+    1. En el servicio StorSimple Manager, en la página **Dispositivos**, seleccione un dispositivo desactivado que desea eliminar.
 
-    2. On the bottom on the page, click **Delete**.
+    2. En la parte inferior de la página, haga clic en **Eliminar**.
 
-    3. You will be prompted for confirmation. Click **Yes** to continue.
+    3. Se le pedirá confirmación. Haga clic en **Sí** para continuar.
 
-    It may take a few minutes for the device to be deleted.
+    Es posible que el servicio tarde unos minutos en eliminarse.
 
-## <a name="deactivate-and-delete-a-virtual-device"></a>Deactivate and delete a virtual device
+## Desactivación y eliminación de un dispositivo virtual
 
-For a StorSimple virtual device, deactivation deallocates the virtual machine. You can then delete the virtual machine and the resources created when it was provisioned. After the virtual device is deactivated, it cannot be restored to its previous state. 
+Para un dispositivo virtual de StorSimple, la desactivación desasigna la máquina virtual. A continuación, puede eliminar la máquina virtual y los recursos creados en su aprovisionamiento. Después de desactivar el dispositivo virtual, no se puede restaurar a su estado anterior.
 
-Deactivation results in the following actions:
+Los resultados de la desactivación de las siguientes acciones:
 
-- The StorSimple virtual device is removed.
+- Se quita el dispositivo virtual de StorSimple.
 
-- The OSDisk and Data Disks created for the StorSimple virtual device are removed.
+- Se quitan los OSDisk y los discos de datos creados para el dispositivo virtual StorSimple.
 
-- The Hosted Service and Virtual Network that were created during provisioning are retained. If you are not using these entities, you should delete them manually.
+- Se mantienen el servicio hospedado y la red virtual creados durante el aprovisionamiento. Si no usa estas entidades, debe eliminarlas manualmente.
 
-- Cloud snapshots created by the StorSimple virtual device are retained.
+- Se conservan las instantáneas en la nube creadas por el dispositivo virtual de StorSimple.
 
-## <a name="next-steps"></a>Next steps
-- To restore the deactivated device to factory defaults, go to [Reset the device to factory default settings](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+## Pasos siguientes
+- Para restaurar los valores de fábrica del dispositivo desactivado, vaya a [Restablecer el dispositivo a los valores de fábrica](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-- For technical assistance, [contact Microsoft Support](storsimple-contact-microsoft-support.md).
+- Para obtener asistencia técnica, [póngase en contacto con el soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
-- To learn more about how to use the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md). 
+- Para obtener información sobre cómo usar el servicio StorSimple Manager, vaya a [Uso del servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0608_2016-->

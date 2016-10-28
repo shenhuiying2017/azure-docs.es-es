@@ -1,25 +1,23 @@
-- The virtual networks can be in the same or different Azure regions (locations).
+- Las redes virtuales pueden estar en la misma región de Azure o en regiones distintas (ubicaciones).
 
-- A cloud service or a load balancing endpoint CANNOT span across virtual networks, even if they are connected together.
+- Un servicio en la nube o un extremo de equilibrio de carga NO PUEDE abarcar varias redes virtuales aunque estas estén conectadas entre sí.
 
-- Connecting multiple Azure virtual networks together doesn't require any on-premises VPN gateways unless cross-premises connectivity is required.
+- La conexión simultánea de varias redes virtuales de Azure no requiere puertas de enlace de VPN locales, a menos que sea necesaria la conectividad entre locales.
 
-- VNet-to-VNet supports connecting virtual networks. It does not support connecting virtual machines or cloud services NOT in a virtual network.
+- VNet a VNet admite la conexión de redes virtuales. No admite la conexión de máquinas virtuales o servicios en la nube que NO estén en una red virtual.
 
-- VNet-to-VNet requires Azure VPN gateways with RouteBased (previously called Dynamic Routing) VPN types. 
+- La conexión entre dos redes virtuales requiere puertas de enlace de VPN de Azure con tipos de VPN RouteBased (antes denominado enrutamiento dinámico).
 
-- Virtual network connectivity can be used simultaneously with multi-site VPNs, with a maximum of 10 (Default/Standard Gateways) or 30 (High Performance Gateways) VPN tunnels for a virtual network VPN gateway connecting to either other virtual networks or on-premises sites.
+- La conectividad de red virtual se puede usar simultáneamente con VPN de varios sitios. El número máximo de túneles VPN para una puerta de enlace de VPN de red virtual que se conecte a otras redes virtuales o a sitios locales será 10 con puertas de enlace estándares o predeterminadas o 30 con puertas de enlace de alto rendimiento.
 
-- The address spaces of the virtual networks and on-premises local network sites must not overlap. Overlapping address spaces will cause the creation of VNet-to-VNet connections to fail.
+- Los espacios de direcciones de las redes virtuales y de los sitios de red local no se pueden solapar. Los espacios de direcciones solapados provocarán un error al crear conexiones entre dos redes virtuales.
 
-- Redundant tunnels between a pair of virtual networks are not supported.
+- No se admiten los túneles redundantes entre un par de redes virtuales.
 
-- All VPN tunnels of the virtual network share the available bandwidth on the Azure VPN gateway and the same VPN gateway uptime SLA in Azure.
+- Todos los túneles de VPN de la red virtual comparten el ancho de banda disponible en la puerta de enlace de VPN de Azure y el mismo SLA de tiempo de actividad de puerta de enlace de VPN en Azure.
 
-- VNet-to-VNet traffic travels across the Microsoft Network, not the Internet.
+- El tráfico entre dos redes virtuales viaja por la red de Microsoft, no por Internet.
 
-- VNet-to-VNet traffic within the same region is free for both directions; cross region VNet-to-VNet egress traffic is charged with the outbound inter-VNet data transfer rates based on the source regions. Please refer to the [pricing page](https://azure.microsoft.com/pricing/details/vpn-gateway/) for details.
+- El tráfico entre dos redes virtuales dentro de la misma región es gratuito en ambos sentidos; si las redes virtuales se encuentran en regiones diferentes, el tráfico se cobra según las tarifas de transferencia de datos de salida entre redes virtuales en función de las regiones de origen. Consulte la página [Precios de Puerta de enlace VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) para más detalles.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

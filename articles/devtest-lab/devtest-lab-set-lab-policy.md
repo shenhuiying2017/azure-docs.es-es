@@ -1,146 +1,140 @@
 <properties
-    pageTitle="Define lab policies in Azure DevTest Labs| Microsoft Azure"
-    description="Learn how to define lab policies such as VM sizes, maximum VMs per user, and shutdown automation."
-    services="devtest-lab,virtual-machines"
-    documentationCenter="na"
-    authors="tomarcher"
-    manager="douge"
-    editor=""/>
+	pageTitle="Definición de directivas de laboratorio en Azure DevTest Labs | Microsoft Azure"
+	description="Obtenga información acerca de cómo definir directivas de laboratorio como tamaños de máquina virtual, máximo de máquinas virtuales por usuario y automatización de apagado."
+	services="devtest-lab,virtual-machines"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-    ms.service="devtest-lab"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/12/2016"
-    ms.author="tarcher"/>
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/12/2016"
+	ms.author="tarcher"/>
 
-
-# <a name="define-lab-policies-in-azure-devtest-labs"></a>Define lab policies in Azure DevTest Labs
+# Definición de directivas de laboratorio en Azure DevTest Labs
 
 > [AZURE.VIDEO how-to-set-vm-policies-in-a-devtest-lab]
 
-Azure DevTest Labs enables you to specify key policies that help you to control cost and minimize waste in your labs. These lab policies include the maximum number of VMs created per user and per lab, and various auto-shutdown and auto-start options. 
+Azure DevTest Labs le permite especificar importantes directivas que le ayudan a controlar los costos y desperdiciar lo mínimo posible en sus laboratorios. Estas directivas de laboratorio incluyen el número máximo de las máquinas virtuales creadas por usuario y laboratorio y varias opciones de apagado e inicio automático.
 
-## <a name="accessing-a-lab's-policies-in-azure-devtest-labs"></a>Accessing a lab's policies in Azure DevTest Labs
+## Acceso a las directivas de laboratorio en Azure DevTest Labs
 
-The following steps guide you through setting up policies for a lab in Azure DevTest Labs:
+Los siguientes pasos le guiarán a través de la configuración de directivas para un laboratorio en Azure DevTest Labs:
 
-To view (and change) the policies for a lab, follow these steps:
+Para ver (y cambiar) las directivas de un laboratorio, siga estos pasos:
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Select **More services**, and then select **DevTest Labs** from the list.
+1. Seleccione **Más servicios** y luego seleccione **DevTest Labs** en la lista.
 
-1. From the list of labs, select the desired lab.   
+1. En la lista de laboratorios, seleccione el laboratorio que desee.
 
-1. Select **Policy settings**.
+1. Seleccione **Configuración de directiva**.
 
-1. The **Policy settings** blade contains a menu of settings that you can specify: 
+1. La hoja **Configuración de directiva** contiene un menú de configuración que puede especificar:
 
-    ![Policy settings blade](./media/devtest-lab-set-lab-policy/policies.png)
+	![Hoja de configuración de directiva](./media/devtest-lab-set-lab-policy/policies.png)
 
-    To learn more about setting a policy, select it from the following list:
+	Para obtener más información acerca de cómo establecer una directiva, selecciónela en la lista siguiente:
 
-    - [Allowed virtual machine sizes](#set-allowed-virtual-machine-sizes) - Select the list of VM sizes allowed in the lab. A user can create VMs only from this list.
+	- [Tamaños de máquina virtual permitidos](#set-allowed-virtual-machine-sizes): seleccione la lista de tamaños de máquinas virtuales que se permiten en el laboratorio. Un usuario puede crear máquinas virtuales solo desde esta lista.
 
-    - [Virtual machines per user](#set-virtual-machines-per-user) - Specify the maximum number of VMs that can be created by a user. 
+	- [Máquinas virtuales por usuario](#set-virtual-machines-per-user): especifique el número máximo de máquinas virtuales que se pueden crear por usuario.
 
-    - [Virtual machines per lab](#set-virtual-machines-per-lab) - Specify the maximum number of VMs that can be created for a lab. 
+	- [Máquinas virtuales por laboratorio](#set-virtual-machines-per-lab): especifique el número máximo de máquinas virtuales que se pueden crear por laboratorio.
 
-    - [Auto-shutdown](#set-auto-shutdown) - Specify the time when the current lab's VMs automatically shut down.
+	- [Apagado automático](#set-auto-shutdown): especifique la hora en que las máquinas virtuales del laboratorio actual se apagan automáticamente.
 
-    - [Auto-start](#set-auto-start) - Specify the time when the current lab's VMs automatically start up.
+	- [Inicio automático](#set-auto-start): especifique la hora en que las máquinas virtuales del laboratorio actual se inician automáticamente.
 
-## <a name="set-allowed-virtual-machine-sizes"></a>Set allowed virtual machine sizes
+## Establecimiento de tamaños de máquina virtual permitidos
 
-The policy for setting the allowed VM sizes helps to minimize lab waste by enabling you to specify which VM sizes are allowed in the lab. If this policy is activated, only VM sizes from this list can be used to create VMs.
+La directiva para establecer los tamaños permitidos de la máquina virtual ayuda a minimizar la pérdida del laboratorio al permitirle especificar los tamaños de máquina virtual que se permiten en este. Si se activa esta directiva, los tamaños de máquina virtual de esta lista son los únicos que pueden utilizarse en la creación de tales máquinas.
 
-1. On the lab's **Policy settings** blade, select **Allowed virtual machines sizes**.
+1. En la hoja **Configuración de directiva**, elija **Allowed virtual machines sizes** (Tamaños de máquina virtual permitidos).
 
-    ![Allowed virtual machines sizes](./media/devtest-lab-set-lab-policy/allowed-vm-sizes.png)
+	![Tamaños de máquina virtual permitidos](./media/devtest-lab-set-lab-policy/allowed-vm-sizes.png)
  
-1. Select **On** to enable this policy, and **Off** to disable it.
+1. Seleccione **Activado** para habilitar esta directiva, y **Desactivado** para deshabilitarla.
 
-1. If you enable this policy, select one or more VM sizes that can be created in your lab.
+1. Si habilita esta directiva, seleccione uno o varios tamaños de máquina virtual que se pueden crear en el laboratorio.
 
-1. Select **Save**.
+1. Seleccione **Guardar**.
 
-## <a name="set-virtual-machines-per-user"></a>Set virtual machines per user
+## Establecimiento de máquinas virtuales por usuario
 
-The policy for **Virtual machines per user** allows you to specify the maximum number of VMs that can be created by an individual user. If a user attempts to create a VM when the user limit has been met, an error message indicates that the VM cannot be created. 
+La directiva de **Máquinas virtuales por usuario** le permite especificar el número máximo de máquinas virtuales que puede crear un usuario individual. Si un usuario intenta crear una máquina virtual una vez alcanzado el límite, aparece un mensaje de error que indica que la máquina virtual no se puede crear.
 
-1. On the lab's **Policy settings** blade, select **Virtual machines per user**.
+1. En la hoja **Configuración de directiva**, seleccione **Virtual machines per user** (Máquinas virtuales por usuario).
 
-    ![Virtual machines per user](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
+	![Máquinas virtuales por usuario](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
-1. Select **On** to enable this policy, and **Off** to disable it.
+1. Seleccione **Activado** para habilitar esta directiva, y **Desactivado** para deshabilitarla.
 
-1. If you enable this policy, enter a numeric value indicating the maximum number of VMs that can be created by a user. If you enter a number that is not valid, the UI displays the maximum number allowed for this field.
+1. Si habilita esta directiva, escriba un valor numérico que indique el número máximo de máquinas virtuales que se pueden crear por usuario. Si escribe un número que no sea válido, la interfaz de usuario muestra el número máximo permitido para este campo.
 
-1. Select **Save**.
+1. Seleccione **Guardar**.
 
-## <a name="set-virtual-machines-per-lab"></a>Set virtual machines per lab
+## Establecimiento de máquinas virtuales por laboratorio
 
-The policy for **Virtual machines per lab** allows you to specify the maximum number of VMs that can be created for the current lab. If a user attempts to create a VM when the lab limit has been met, an error message indicates that the VM cannot be created. 
+La directiva de **Máquinas virtuales por laboratorio** le permite especificar el número máximo de máquinas virtuales que se pueden crear para el laboratorio actual. Si un usuario intenta crear una máquina virtual una vez alcanzado el límite, aparece un mensaje de error que indica que la máquina virtual no se puede crear.
 
-1. On the lab's **Policy settings** blade, select **Virtual machines per lab**.
+1. En la hoja **Configuración de directiva**, seleccione **Virtual machines per lab** (Máquinas virtuales por laboratorio).
 
-    ![Virtual machines per lab](./media/devtest-lab-set-lab-policy/total-vms-allowed.png)
+	![Máquinas virtuales por laboratorio](./media/devtest-lab-set-lab-policy/total-vms-allowed.png)
 
-1. Select **On** to enable this policy, and **Off** to disable it.
+1. Seleccione **Activado** para habilitar esta directiva, y **Desactivado** para deshabilitarla.
 
-1. If you enable this policy, enter a numeric value indicating the maximum number of VMs that can be created for the current lab. If you enter a number that is not valid, the UI displays the maximum number allowed for this field.
+1. Si habilita esta directiva, escriba un valor numérico que indique el número máximo de máquinas virtuales que se pueden crear para el laboratorio actual. Si escribe un número que no sea válido, la interfaz de usuario muestra el número máximo permitido para este campo.
 
-1. Select **Save**.
+1. Seleccione **Guardar**.
 
-## <a name="set-auto-shutdown"></a>Set auto-shutdown
+## Establecimiento del apagado automático
 
-The auto-shutdown policy helps to minimize lab waste by allowing you to specify the time that this lab's VMs shut down.
+La directiva de apagado automático ayuda a minimizar la pérdida del laboratorio, ya que permite especificar la hora de apagado de la máquina virtual de este laboratorio.
 
-1. On the lab's **Policy settings** blade, select **Auto-shutdown**.
+1. En la hoja **Configuración de directiva**, seleccione **Auto-shutdown** (Apagado automático).
 
-    ![Auto-shutdown](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
+	![Apagado automático](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
-1. Select **On** to enable this policy, and **Off** to disable it.
+1. Seleccione **Activado** para habilitar esta directiva, y **Desactivado** para deshabilitarla.
 
-1. If you enable this policy, specify the local time to shut down all VMs in the current lab.
+1. Si habilita esta directiva, especifique la hora local para apagar todas las máquinas virtuales en el laboratorio actual.
 
-1. Select **Save**.
+1. Seleccione **Guardar**.
 
-1. By default, once enabled, this policy applies to all VMs in the current lab. To remove this setting from a specific VM, open the VM's blade and change its **Auto-shutdown** setting 
+1. De manera predeterminada, una vez que se habilite, esta directiva se aplica a todas las máquinas virtuales del laboratorio actual. Para quitar esta configuración de una máquina virtual específica, abra la hoja de la máquina virtual y cambie la configuración de **Apagado automático**.
 
-## <a name="set-auto-start"></a>Set auto-start
+## Establecimiento del inicio automático
 
-The auto-start policy allows you to specify when the VMs in the current lab should be started.  
+La directiva de inicio automático le permite especificar cuándo se deben iniciar las máquinas virtuales del laboratorio actual.
 
-1. On the lab's **Policy settings** blade, select **Auto-start**.
+1. En la hoja **Configuración de directiva**, seleccione **Auto-start** (Inicio automático).
 
-    ![Auto-start](./media/devtest-lab-set-lab-policy/auto-start.png)
+	![Inicio automático](./media/devtest-lab-set-lab-policy/auto-start.png)
 
-1. Select **On** to enable this policy, and **Off** to disable it.
+1. Seleccione **Activado** para habilitar esta directiva, y **Desactivado** para deshabilitarla.
 
-1. If you enable this policy, specify the local scheduled start time and the days of the week for which the time applies. 
+1. Si habilita esta directiva, especifique a la hora local de inicio programado los días de la semana en los que se aplica esta hora.
 
-1. Select **Save**.
+1. Seleccione **Guardar**.
 
-1. Once enabled, this policy is not automatically applied to any VMs in the current lab. To apply this setting to a specific VM, open the VM's blade and change its **Auto-start** setting 
+1. Una vez que se habilite, esta directiva no se aplica automáticamente a ninguna máquina virtual del laboratorio actual. Para aplicar esta configuración a una máquina virtual específica, abra la hoja de la máquina virtual y cambie su configuración de **Inicio automático**.
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Next steps
+## Pasos siguientes
 
-Once you've defined and applied the various VM policy settings for your lab, here are some things to try next:
+Una vez que defina y aplique las distintas configuraciones de las directivas de máquina virtual correspondientes al laboratorio, puede intentar algunos de los siguientes pasos:
 
-- [Configure cost management](./devtest-lab-configure-cost-management.md) - Illustrates how to use the **Monthly Estimated Cost Trend** chart  
-to view the current month's estimated cost-to-date and the projected end-of-month cost.
-- [Create custom image](./devtest-lab-create-template.md) - When you create a VM, you specify a base, which can be either a custom image or a Marketplace image. This article illustrates how to create a custom image from a VHD file.
-- [Configure Marketplace images](./devtest-lab-configure-marketplace-images.md) - Azure DevTest Labs supports creating VMs based on Azure Marketplace images. This article illustrates how to specify which, if any, Azure Marketplace images can be used when creating VMs in a lab.
-- [Create a VM in a lab](./devtest-lab-add-vm-with-artifacts.md) - Illustrates how to create a VM from a base image (either custom or Marketplace), and how to work with artifacts in your VM.
+- [Configurar administración de costos](./devtest-lab-configure-cost-management.md): se muestra el uso del gráfico de **tendencias de costo estimado mensual** para ver el costo estimado hasta la fecha del mes de calendario actual, así como el costo previsto para fin de mes.
+- [Creación de una imagen personalizada](./devtest-lab-create-template.md): cuando cree una máquina virtual, deberá especificar una base, que puede ser una imagen personalizada o una imagen de Marketplace. Este artículo muestra cómo crear una imagen personalizada desde un archivo VHD.
+- [Configuración de imágenes de Marketplace](./devtest-lab-configure-marketplace-images.md): Azure DevTest Labs admite la creación de máquinas virtuales basadas en imágenes de Azure Marketplace. En este artículo se muestra cómo especificar las imágenes de Azure Marketplace, si corresponde, que se pueden usar en el momento de crear máquinas virtuales en un laboratorio.
+- [Creación de una máquina virtual en un laboratorio](./devtest-lab-add-vm-with-artifacts.md): se muestra cómo crear una máquina virtual desde una imagen base (ya sea personalizada o de Marketplace) y cómo trabajar con artefactos en la máquina virtual.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

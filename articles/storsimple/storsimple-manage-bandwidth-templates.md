@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Manage your StorSimple bandwidth templates | Microsoft Azure"
-   description="Describes how to manage StorSimple bandwidth templates, which allow you to control bandwidth consumption."
+   pageTitle="Administración de plantillas de ancho de banda de StorSimple | Microsoft Azure"
+   description="Describe cómo administrar plantillas de ancho de banda de StorSimple, que le permiten controlar el consumo de ancho de banda."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,166 +15,161 @@
    ms.date="08/16/2016"
    ms.author="alkohli" />
 
+# Usar el servicio de Administrador de StorSimple para administrar plantillas de ancho de banda de StorSimple
 
-# <a name="use-the-storsimple-manager-service-to-manage-storsimple-bandwidth-templates"></a>Use the StorSimple Manager service to manage StorSimple bandwidth templates
+## Información general
 
-## <a name="overview"></a>Overview
+Las plantillas de ancho de banda permiten configurar el uso del ancho de banda de red en varias programaciones de hora del día para interconectar los datos del dispositivo StorSimple en la nube.
 
-Bandwidth templates allow you to configure network bandwidth usage across multiple time-of-day schedules to tier the data from the StorSimple device to the cloud.
+Mediante programaciones de limitación de ancho de banda puede:
 
-With bandwidth throttling schedules you can:
+- Especifique programaciones de ancho de banda personalizadas según los usos de la red de cargas de trabajo.
 
-- Specify customized bandwidth schedules depending on the workload network usages.
+- Centralizar la administración y reutilizar las programaciones en varios dispositivos de forma fácil y transparente.
 
-- Centralize management and reuse the schedules across multiple devices in an easy and seamless manner.
+> [AZURE.NOTE] Esta característica está disponible solo para dispositivos físicos StorSimple y no para los dispositivos virtuales.
 
-> [AZURE.NOTE] This feature is available only for StorSimple physical devices and not for virtual devices.
+Todas las plantillas de ancho de banda del servicio se muestran en formato tabular y contienen la siguiente información:
 
-All the bandwidth templates for your service are displayed in a tabular format, and contain the following information:
+- **Nombre**: nombre único asignado a la plantilla de ancho de banda cuando se creó.
 
-- **Name** – A unique name assigned to the bandwidth template when it was created.
+- **Programación**: número de programaciones contenidas en una plantilla de ancho de banda determinada.
 
-- **Schedule** – The number of schedules contained in a given bandwidth template.
+- **Usado por**: número de volúmenes que usan las plantillas de ancho de banda.
 
-- **Used by** – The number of volumes using the bandwidth templates.
+La página **Configurar** del servicio StorSimple Manager del Portal de Azure clásico se usa para administrar plantillas de ancho de banda.
 
-You use the StorSimple Manager service **Configure** page in the Azure classic portal to manage bandwidth templates.
+También puede encontrar información adicional para ayudarle a configurar plantillas de ancho de banda en:
 
-You can also find additional information to help configure bandwidth templates in:
+- Preguntas y respuestas acerca de las plantillas de ancho de banda
+- Prácticas recomendadas para plantillas de ancho de banda
 
-- Questions and answers about bandwidth templates
-- Best practices for bandwidth templates
+## Agregar una plantilla de ancho de banda
 
-## <a name="add-a-bandwidth-template"></a>Add a bandwidth template
+Realice los siguientes pasos para crear una nueva plantilla de ancho de banda.
 
-Perform the following steps to create a new bandwidth template.
+#### Para agregar una plantilla de ancho de banda
 
-#### <a name="to-add-a-bandwidth-template"></a>To add a bandwidth template
+1. En la página **Configurar** del servicio de Administrador de StorSimple, haga clic en **Agregar o Editar plantilla de ancho de banda**.
 
-1. On the StorSimple Manager service **Configure** page, click **add/edit bandwidth template**.
+2. En el cuadro de diálogo **Agregar/Editar plantilla de ancho de banda**:
 
-2. In the **Add/Edit Bandwidth Template** dialog box:
+   1. Desde la lista desplegable **Plantilla**, seleccione **Crear nueva** para agregar una nueva plantilla de ancho de banda.
+   2. Especifique un nombre único para la plantilla de ancho de banda.
 
-   1. From the **Template** drop-down list, select **Create new** to add a new bandwidth template.
-   2. Specify a unique name for your bandwidth template.
+3. Defina una **Programación de ancho de banda**. Para crear una programación:
 
-3. Define a **Bandwidth Schedule**. To create a schedule:
+   1. En la lista desplegable, seleccione los días de la semana para los que se configura la programación. Puede seleccionar varios días seleccionando las casillas de verificación situadas antes de los días correspondientes en la lista.
+   2. Seleccione la opción **Todo el día** si la programación se aplica para todo el día. Cuando se activa esta opción, ya no se puede especificar una **hora de inicio** ni una **hora de finalización**. La programación se ejecuta desde las 12:00 a.m. hasta las 11:59 p.m.
+   3. En la lista desplegable, seleccione una **hora de inicio**. Esta es la hora a la que se iniciará la programación.
+   4. En la lista desplegable, seleccione una **hora de finalización**. Esta es la hora a la que finalizará la programación.
+   
+         > [AZURE.NOTE] No se permiten las programaciones superpuestas. Si las horas de inicio y finalización provocan una programación superpuesta, verá un mensaje de error que lo indica.
 
-   1. From the drop-down list, choose the days of the week the schedule is configured for. You can select multiple days by selecting the check boxes located before the respective days in the list.
-   2. Select the **All Day** option if the schedule is enforced for the entire day. When this option is checked, you can no longer specify a **Start Time** or an **End Time**. The schedule runs from 12:00 AM to 11:59 PM.
-   3. From the drop-down list, select a **Start Time**. This is when the schedule will begin.
-   4. From the drop-down list, select an **End Time**. This is when the schedule will stop.
+   5. Especifique la **velocidad de ancho de banda**. Este es el ancho de banda en Megabits por segundo (Mbps) utilizado por el dispositivo StorSimple en operaciones que afectan a la nube (tanto cargas como descargas). Proporcione un número entre 1 y 1.000 para este campo.
 
-         > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
+   6. Haga clic en el icono de marca de verificación ![Icono de marca de verificación](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). La plantilla que ha creado se agregará a la lista de plantillas de ancho de banda en la página **configurar** del servicio.
 
-   5. Specify the **Bandwidth Rate**. This is the bandwidth in Megabits per second (Mbps) used by your StorSimple device in operations involving the cloud (both uploads and downloads). Supply a number between 1 and 1,000 for this field.
+    ![Crear nueva plantilla de ancho de banda](./media/storsimple-manage-bandwidth-templates/HCS_CreateNewBT1.png)
 
-   6. Click the check icon ![Check icon](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). The template that you have created will be added to the list of bandwidth templates on the service **Configure** page.
+4. Haga clic en **Guardar** en la parte inferior de la página y, a continuación, haga clic en **Sí** cuando se pida confirmación. Así guardará los cambios de configuración realizados.
 
-    ![Create new bandwidth template](./media/storsimple-manage-bandwidth-templates/HCS_CreateNewBT1.png)
+## Editar una plantilla de ancho de banda
 
-4. Click **Save** at the bottom of the page and then click **Yes** when prompted for confirmation. This will save the configuration changes that you have made.
+Realice los siguientes pasos para editar una plantilla de ancho de banda.
 
-## <a name="edit-a-bandwidth-template"></a>Edit a bandwidth template
+### Para editar una plantilla de ancho de banda
 
-Perform the following steps to edit a bandwidth template.
+1. Haga clic en **Agregar/Editar plantilla de ancho de banda**.
 
-### <a name="to-edit-a-bandwidth-template"></a>To edit a bandwidth template
+2. En el cuadro de diálogo **Agregar/Editar plantilla de ancho de banda**:
 
-1. Click **add/edit bandwidth template**.
+   1. En la lista desplegable **Plantilla**, elija una plantilla de ancho de banda existente que desee modificar.
+   2. Complete los cambios. (Puede modificar cualquiera de las opciones existentes).
+   3. Haga clic en el icono de marca de verificación ![Icono de marca de verificación](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). Verá la plantilla modificada en la lista de plantillas de ancho de banda en la página de configuración del servicio.
 
-2. In the **Add/Edit Bandwidth Template** dialog box:
+3. Para guardar los cambios, haga clic en **Guardar** en la parte inferior de la página. Cuando se le pida confirmación, haga clic en **Sí**.
 
-   1. From the **Template** drop-down list, choose an existing bandwidth template that you want to modify.
-   2. Complete your changes. (You can modify any of the existing settings.)
-   3. Click the check icon ![Check icon](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). You will see the modified template in the list of bandwidth templates on the service Configure page.
+> [AZURE.NOTE] No podrá guardar los cambios si la programación editada se superpone a una programación existente en la plantilla de ancho de banda que se va a modificar.
 
-3. To save your changes, click **Save** at the bottom of the page. Click **Yes** when prompted for confirmation.
+## Eliminar una plantilla de ancho de banda
 
-> [AZURE.NOTE] You will not be allowed to save your changes if the edited schedule overlaps with an existing schedule in the bandwidth template that you are modifying.
+Realice los siguientes pasos para eliminar una plantilla de ancho de banda.
 
-## <a name="delete-a-bandwidth-template"></a>Delete a bandwidth template
+#### Para eliminar una plantilla de ancho de banda
 
-Perform the following steps to delete a bandwidth template.
+1. En la lista tabular de las plantillas de ancho de banda para su servicio, seleccione la plantilla que desee eliminar. Aparecerá un icono de eliminación (**x**) en el extremo derecho de la plantilla seleccionada. Haga clic en el icono **x** para eliminar la plantilla.
 
-#### <a name="to-delete-a-bandwidth-template"></a>To delete a bandwidth template
+2. Se le pedirá confirmación. Haga clic en **Aceptar** para continuar.
 
-1. In the tabular list of the bandwidth templates for your service, select the template that you wish to delete. A delete icon (**x**) will appear to the extreme right of the selected template. Click the **x** icon to delete the template.
+Si la plantilla está siendo utilizada por algún volumen, no podrá eliminarla. Verá un mensaje de error que indicará que la plantilla está en uso. Aparecerá un cuadro de diálogo de mensaje de error avisándole de que se deben quitar todas las referencias a la plantilla.
 
-2. You will be prompted for confirmation. Click **OK** to proceed.
+Puede eliminar todas las referencias a la plantilla mediante el acceso a la página **Contenedores de volúmenes** y modificando los contenedores de volúmenes que usan esta plantilla para que puedan usar otra plantilla o una configuración personalizada o ilimitada de ancho de banda. Cuando se hayan eliminado todas las referencias, puede eliminar la plantilla.
 
-If the template is in use by any volume(s), you will not be allowed to delete it. You will see an error message indicating that the template is in use. An error message dialog box will appear advising you that all the references to the template should be removed.
+## Usar una plantilla de ancho de banda predeterminada
 
-You can delete all the references to the template by accessing the **Volume Containers** page and modifying the volume containers that use this template so that they use another template or use a custom or unlimited bandwidth setting. When all the references have been removed, you can delete the template.
+Los contenedores de volúmenes proporcionan y usan una plantilla de ancho de banda de manera predeterminada para aplicar controles de ancho de banda al obtener acceso a la nube. La plantilla predeterminada también sirve como referencia lista para los usuarios que crean sus propias plantillas. Los detalles de esta plantilla predeterminada son:
 
-## <a name="use-a-default-bandwidth-template"></a>Use a default bandwidth template
+- **Nombre** : noches y fines de semana ilimitados
 
-A default bandwidth template is provided and is used by volume containers by default to enforce bandwidth controls when accessing the cloud. The default template also serves as a ready reference for users who create their own templates. The details of this default template are:
+- **Programación**: una sola programación de lunes al viernes que aplica a una velocidad de ancho de banda de 1 Mbps entre las 8 a.m. y las 5 p.m. (hora del dispositivo). El ancho de banda se establece en Sin límite para el resto de la semana.
 
-- **Name** – Unlimited nights and weekends
+Puede editar la plantilla predeterminada. Se realiza un seguimiento del uso de esta plantilla (incluidas las versiones modificadas).
 
-- **Schedule** – A single schedule from Monday to Friday that applies a bandwidth rate of 1 Mbps between 8 AM and 5 PM device time. The bandwidth is set to Unlimited for the remainder of the week.
+## Crear una plantilla de ancho de banda para todo el día que comience a una hora especificada
 
-The default template can be edited. The usage of this template (including edited versions) is tracked.
+Siga este procedimiento para crear una programación que se inicie en un momento determinado y se ejecute todo el día. En el ejemplo, la programación se inicia a las 9 a.m. y se ejecuta hasta las 9 a.m. del día siguiente. Es importante tener en cuenta que los tiempos de inicio y finalización de una programación determinada deben estar en la misma programación de 24 horas y no pueden abarcar varios días. Si necesita configurar las plantillas de ancho de banda que abarcan varios días, necesitará usar varias programaciones (como se muestra en el ejemplo).
 
-## <a name="create-an-all-day-bandwidth-template-that-starts-at-a-specified-time"></a>Create an all-day bandwidth template that starts at a specified time
+#### Para crear una plantilla de ancho de banda para todo el día
 
-Follow this procedure to create a schedule that starts at a specified time and runs all day. In the example, the schedule starts at 9 AM in the morning and runs until 9 AM the next morning. It's important to note that the start and end times for a given schedule must both be contained on the same 24 hour schedule and cannot span multiple days. If you need to set up bandwidth templates that span multiple days, you will need to use multiple schedules (as shown in the example).
+1. Cree una programación que se inicie a las 9 a.m. de la mañana y se ejecuta hasta la medianoche.
 
-#### <a name="to-create-an-all-day-bandwidth-template"></a>To create an all-day bandwidth template
+2. Agregar otra programación. Configure la segunda programación para ejecutar desde la medianoche hasta las 9 a.m. de la mañana.
 
-1. Create a schedule that starts at 9 AM in the morning and runs until midnight.
+3. Guarde la plantilla de ancho de banda.
 
-2. Add another schedule. Configure the second schedule to run from midnight until 9 AM in the morning.
+La programación compuesta se iniciará en el momento que desee y se ejecutará todo el día.
 
-3. Save the bandwidth template.
+## Preguntas y respuestas acerca de las plantillas de ancho de banda
 
-The composite schedule will then start at a time of your choosing and run all-day.
+**P**. ¿Qué les sucede a los controles de ancho de banda cuando se encuentra entre programaciones? (Una programación ha terminado y todavía no se ha iniciado otra).
 
-## <a name="questions-and-answers-about-bandwidth-templates"></a>Questions and answers about bandwidth templates
+**R**. En estos casos, no se utilizará ningún control de ancho de banda. Esto significa que el dispositivo puede utilizar un ancho de banda ilimitado durante la disposición de datos a la nube.
 
-**Q**. What happens to bandwidth controls when you are in between the schedules? (A schedule has ended and another one has not started yet.)
+**P**. ¿Puede modificar las plantillas de ancho de banda en un dispositivo sin conexión?
 
-**A**. In such cases, no bandwidth controls will be employed. This means that the device can use unlimited bandwidth when tiering data to the cloud.
+**R**. No podrá modificar las plantillas de ancho de banda de los contenedores de volúmenes si el dispositivo correspondiente está sin conexión.
 
-**Q**. Can you modify bandwidth templates on an offline device?
+**P**. ¿Puede editar una plantilla de ancho de banda asociada a un contenedor de volúmenes cuando los volúmenes asociados están sin conexión?
 
-**A**. You will not be able to modify bandwidth templates on volumes containers if the corresponding device is offline.
+**R**. Puede modificar una plantilla de ancho de banda asociada a un contenedor de volúmenes cuyos volúmenes están sin conexión. Tenga en cuenta que cuando los volúmenes están sin conexión, no se pueden colocar datos desde el dispositivo en la nube.
 
-**Q**. Can you edit a bandwidth template associated with a volume container when the associated volumes are offline?
+**P**. ¿Puede eliminar una plantilla predeterminada?
 
-**A**. You can modify a bandwidth template associated with a volume container whose volumes are offline. Note that when volumes are offline, no data will be tiered from the device to the cloud.
+**R**. Si bien puede eliminar una plantilla predeterminada, no es una buena idea hacerlo. Se realiza un seguimiento del uso de una plantilla predeterminada (incluidas las versiones modificadas). Los datos de seguimiento se analizan y en el transcurso del tiempo, se utilizan para mejorar la plantilla predeterminada.
 
-**Q**. Can you delete a default template?
+**P**. ¿Cómo se determina que es necesario modificar las plantillas de ancho de banda?
 
-**A**. Although you can delete a default template, it is not a good idea to do so. The usage of a default template, including edited versions, is tracked. The tracking data is analyzed and over the course of time, is used to improve the default template.
+**R**. Uno de los síntomas que indican que debe modificar las plantillas de ancho de banda es cuando empiece a ver que la red se ralentiza o retrae varias veces al día. Si esto ocurre, supervise la red de almacenamiento y uso examinando los gráficos de rendimiento de E/S y de rendimiento de la red.
 
-**Q**. How do you determine that your bandwidth templates need to be modified?
+En los datos de rendimiento de la red, identifique la hora del día y los contenedores de volúmenes en los que se producen los cuello de botella de la red. Si esto sucede cuando se están colocando los datos en la nube (obtenga esta información del rendimiento de E/S de todos los contenedores de volúmenes del dispositivo a la nube), será necesario modificar las plantillas de ancho de banda asociadas a los contenedores de volúmenes.
 
-**A**. One of the signs that you need to modify the bandwidth templates is when you start seeing the network slow down or choke multiple times in a day. If this happens, monitor the storage and usage network by looking at the I/O Performance and Network Throughput charts.
+Una vez que se utilizan las plantillas modificadas, deberá volver a supervisar la red para comprobar si se producen latencias importantes. En caso afirmativo, deberá volver a visitar las plantillas de ancho de banda.
 
-From the network throughput data, identify the time of day and the volume containers in which the network bottleneck occurs. If this happens when data is being tiered to the cloud (get this information from I/O performance for all volume containers for device to cloud), then you will need to modify the bandwidth templates associated with your volume containers.
+**P**. ¿Qué sucede si varios contenedores de volúmenes de mi dispositivo disponen de programaciones que se superponen pero se aplican límites distintos a cada una?
 
-After the modified templates are in use, you will need to monitor the network again for significant latencies. If these still exist, then you will need to revisit your bandwidth templates.
+**R**. Supongamos que tiene un dispositivo con 3 contenedores de volúmenes. Las programaciones asociadas a estos contenedores se superponen completamente. Para cada uno de estos contenedores, los límites de ancho de banda utilizados son 5, 10 y 15 Mbps respectivamente. Cuando se producen operaciones de E/S en todos estos contenedores al mismo tiempo, se puede aplicar el mínimo de 3 límites de ancho de banda: en este caso, 5 Mbps debido a que estas solicitudes de E/S de salida comparten la misma cola.
 
-**Q**. What happens if multiple volume containers on my device have schedules that overlap but different limits apply to each?
+## Prácticas recomendadas para plantillas de ancho de banda
 
-**A**. Let's assume that you have a device with 3 volume containers. The schedules associated with these containers completely overlap. For each of these containers, the bandwidth limits used are 5, 10, and 15 Mbps respectively. When I/Os are occurring on all of these containers at the same time, the minimum of the 3 bandwidth limits may be applied: in this case, 5 Mbps as these outgoing I/O requests share the same queue.
+Siga estas prácticas recomendadas para el dispositivo StorSimple:
 
-## <a name="best-practices-for-bandwidth-templates"></a>Best practices for bandwidth templates
+- Configure plantillas de ancho de banda en el dispositivo para habilitar la limitación variable del rendimiento de la red por parte del dispositivo en distintos momentos del día. Cuando se utilizan estas plantillas de ancho de banda con programaciones de copia de seguridad, pueden aprovechar eficazmente el ancho de banda de red adicional para las operaciones de nube durante las horas de menos tráfico.
 
-Follow these best practices for your StorSimple device:
+- Calcule el ancho de banda real necesario para una implementación concreta en función del tamaño de la implementación y del objetivo de tiempo de recuperación necesario (RTO).
 
-- Configure bandwidth templates on your device to enable variable throttling of the network throughput by the device at different times of the day. These bandwidth templates when used with backup schedules can effectively leverage additional network bandwidth for cloud operations during off-peak hours.
+## Pasos siguientes
 
-- Calculate the actual bandwidth required for a particular deployment based on the size of the deployment and the required recovery time objective (RTO).
+Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-## <a name="next-steps"></a>Next steps
-
-Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

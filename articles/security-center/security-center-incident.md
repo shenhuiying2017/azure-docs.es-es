@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Handling Security Incident in Azure Security Center | Microsoft Azure"
-   description="This document helps you to use Azure Security Center capabilities to handle security incidents."
+   pageTitle="Control de incidentes de seguridad en Azure Security Center | Microsoft Azure"
+   description="Este documento le ayuda a usar las funcionalidades de Azure Security Center para controlar los incidentes de seguridad."
    services="security-center"
    documentationCenter="na"
    authors="YuriDio"
@@ -13,59 +13,54 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/18/2016"
+   ms.date="08/03/2016"
    ms.author="yurid"/>
 
+# Control de incidentes de seguridad en Azure Security Center 
+La clasificación e investigación de las alertas de seguridad puede ser un proceso largo incluso para los analistas de seguridad más cualificados, y para muchos es difícil saber incluso por dónde empezar. Con el [análisis](security-center-detection-capabilities.md) para conectar la información entre las distintas [alertas de seguridad](security-center-managing-and-responding-alerts.md), Security Center le proporcionará una vista única de una campaña de ataque y de todas las alertas relacionadas; de esta forma podrá comprender rápidamente las acciones que realizó el atacante y qué recursos se vieron afectados.
 
-# <a name="handling-security-incident-in-azure-security-center"></a>Handling Security Incident in Azure Security Center 
-Triaging and investigating security alerts can be time consuming for even the most skilled security analysts, and for many it is hard to even know where to begin. By using [analytics](security-center-detection-capabilities.md) to connect the information between distinct [security alerts](security-center-managing-and-responding-alerts.md), Security Center can provide you with a single view of an attack campaign and all of the related alerts – you can quickly understand what actions the attacker took and what resources were impacted.
-
-This document discusses how to use security alert capability in Security Center to assist you handling security incidents.
-
-
-## <a name="what-is-a-security-incident?"></a>What is a security incident?
-
-In Security Center, a security incident is an aggregation of all alerts for a resource that align with [kill chain](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) patterns. Incidents appear in the [Security Alerts](security-center-managing-and-responding-alerts.md) tile and blade. An Incident will reveal the list of related alerts, which enables you to obtain more information about each occurrence.
-
-## <a name="managing-security-incidents"></a>Managing security incidents
-
-You can review your current security incidents by looking at the security alerts tile. Access the Azure Portal and follow the steps below to see more details about each security incident:
-
-1. On the Security Center dashboard, you will see the **Security alerts** tile.
-
-    ![Security alerts tile in Security Center](./media/security-center-incident/security-center-incident-fig1.png)
-
-2.  Click on this tile to expand it and if a security incident is detected, it will appear under the security alerts graph as shown  below:
-
-    ![Security incident](./media/security-center-incident/security-center-incident-fig2.png)
-
-3.  Notice that the security incident description has a different icon compared to other alerts. Click on it to view more details about this incident.
-
-    ![Security incident](./media/security-center-incident/security-center-incident-fig3.png)
-
-4.  On the **incident** blade you will see more details about this security incident, which includes its full description, its severity (which in this case is high), its current state (in this case it is still *active*, which implies the user hasn't taken an action to *dismiss* it - this can be done by right clicking on the incident in the **Security alerts** blade), the attacked resource (in this case *VM1*), the remediation steps for the incident, and in the bottom pane you have the alerts that were included in this incident. If you want to obtain more information on each alert, just click on it and another blade will open, as shown below:
-
-    ![Security incident](./media/security-center-incident/security-center-incident-fig4.png)
-
-The information on this blade will vary according to the alert. Read [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) for more information on how to manage these alerts. Some important considerations regarding this capability:
-
-- A new filter enables you to customize your view to Incident only, Alerts only, or both. 
-- The same alert can exist as part of an Incident (if applicable), as well as to be visible as a standalone alert. 
-- Dismissing an incident will not dismiss the related alerts.
-
-## <a name="see-also"></a>See also
-
-In this document, you learned how to use the security incident capability in Security Center. To learn more about Security Center, see the following:
-
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
-- [Azure Security Center Detection Capabilities](security-center-detection-capabilities.md)
-- [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
-- [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
-- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/)--Find blog posts about Azure security and compliance.
+Este documento describe cómo usar las funcionalidades de alerta de seguridad de Security Center para ayudarle a controlar los incidentes de seguridad.
 
 
+## ¿Qué es un incidente de seguridad?
 
-<!--HONumber=Oct16_HO2-->
+En Security Center, un incidente de seguridad es la suma de todas las alertas de un recurso que se alinean con patrones de [cadenas de eliminación](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/). Los incidentes aparecen en el icono y en la hoja [Alertas de seguridad](security-center-managing-and-responding-alerts.md). El incidente mostrará la lista de alertas relacionadas, lo que permite obtener más información sobre cada repetición.
 
+## Administración de incidentes de seguridad
 
+Puede revisar los incidentes de seguridad actuales en el icono Alertas de seguridad. Acceda al Portal de Azure y siga los pasos que se indican a continuación para ver más detalles sobre cada incidente de seguridad:
+
+1. En el panel Security Center, verá el icono **Alertas de seguridad**.
+
+    ![Icono Alertas de seguridad en Security Center](./media/security-center-incident/security-center-incident-fig1.png)
+
+2.  Haga clic en este icono para expandirlo y, si se detecta un incidente de seguridad, aparecerá en el gráfico de alertas de seguridad, tal como se muestra a continuación.
+
+    ![Incidente de seguridad](./media/security-center-incident/security-center-incident-fig2.png)
+
+3.	Observe que la descripción de incidentes de seguridad tiene un icono diferente si se compara con otras alertas. Haga clic en él para ver más detalles sobre este incidente.
+
+	![Incidente de seguridad](./media/security-center-incident/security-center-incident-fig3.png)
+
+4. 	En la hoja encontrará más detalles sobre este incidente de seguridad, como su descripción completa, su gravedad (en este caso alta), su estado actual (en este caso aún *activo*, lo que implica que el usuario no ha realizado acción alguna para *descartarlo* - lo que se puede hacer haciendo clic con el botón derecho en el incidente en la hoja **Alertas de seguridad**), el recurso asociado (en este caso *VM1*) y los pasos de corrección del incidente. Además, en el panel inferior tiene las alertas que se incluyeron en este incidente. Para más información sobre cada alerta, solo tiene que hacer clic en ella y se abrirá otra hoja, tal como se muestra a continuación:
+
+	![Incidente de seguridad](./media/security-center-incident/security-center-incident-fig4.png)
+
+La información sobre esta hoja variará según la alerta. Para más información sobre cómo administrar estas alertas, consulte [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md). Algunas consideraciones importantes con respecto a esta funcionalidad son las siguientes:
+
+- Un nuevo filtro le permite personalizar la vista a solo incidente, solo alertas o ambos.
+- La misma alerta puede existir como parte de un incidente (si procede), así como a estar visible como alerta independiente.
+- Si se descarta un incidente, no se descartarán las alertas relacionadas.
+
+## Otras referencias
+
+En este documento, aprendió a usar la funcionalidad de incidente de seguridad en el Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
+
+- [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md)
+- [Funcionalidades de detección de Azure Security Center](security-center-detection-capabilities.md)
+- [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md)
+- [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md)
+- [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
+- [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad en Azure.
+
+<!---HONumber=AcomDC_0817_2016-->

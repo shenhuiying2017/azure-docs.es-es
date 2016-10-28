@@ -1,311 +1,303 @@
-<properties
-    pageTitle="Interpret model results in Machine Learning | Microsoft Azure"
-    description="How to choose the optimal parameter set for an algorithm using and visualizing score model outputs."
-    services="machine-learning"
-    documentationCenter=""
-    authors="bradsev"
-    manager="jhubbard"
-    editor="cgronlun"/>
+<properties 
+	pageTitle="Interpretación de los resultados del modelo de Aprendizaje automático | Microsoft Azure" 
+	description="Cómo elegir el conjunto de parámetros óptimo para un algoritmo que use y visualice resultados del modelo de puntuación." 
+	services="machine-learning"
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
-<tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/12/2016"
-    ms.author="bradsev" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/12/2016" 
+	ms.author="bradsev" />
 
 
-
-# <a name="interpret-model-results-in-azure-machine-learning"></a>Interpret model results in Azure Machine Learning
-
-This topic explains how to visualize and interpret prediction results in Azure Machine Learning Studio. After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result.
+# Cómo interpretar los resultados del modelo de aprendizaje automático de Azure 
+ 
+**Descripción y visualización del resultado del 'Modelo de puntuación'**
+En este tema se explica cómo ver e interpretar los resultados de predicción en Azure Machine Learning Studio. Después de entrenar un modelo y realizar predicciones sobre él ("puntuar el modelo"), deberá comprender e interpretar el resultado de predicción que ha obtenido.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-There are four major kinds of machine learning models in Azure Machine Learning:
+Hay cuatro tipos de modelos de aprendizaje automático principales en Aprendizaje automático de Azure:
 
-* Classification
-* Clustering
-* Regression
-* Recommender systems
+* clasificación
+* agrupación en clústeres
+* regresión
+* sistemas de recomendación
 
-The modules used for prediction on top of these models are:
+Los módulos usados para realizar una predicción de dichos módulos, lo cual se denomina "puntuación", dados algunos datos de prueba, son los siguientes:
 
-* [Score Model][score-model] module for classification and regression
-* [Assign to Clusters][assign-to-clusters] module for clustering
-* [Score Matchbox Recommender][score-matchbox-recommender] for recommendation systems
+* módulo [Modelo de puntuación][score-model] para la clasificación y regresión;
+* módulo [Asignar a clústeres][assign-to-clusters] para la agrupación en clústeres;
+* [Score Matchbox Recommender][score-matchbox-recommender] para sistemas de recomendación.
+ 
+Este documento explica cómo interpretar los resultados de predicción para cada uno de estos módulos. Para obtener información general sobre estos tipos de modelos, vea [Cómo elegir parámetros para optimizar los algoritmos de Aprendizaje automático de Azure](machine-learning-algorithm-parameters-optimize.md).
 
-This document explains how to interpret prediction results for each of these modules. For an overview of these modules, see [How to choose parameters to optimize your algorithms in Azure Machine Learning](machine-learning-algorithm-parameters-optimize.md).
+Este tema aborda la interpretación de predicción, pero no la evaluación de modelos. Para información acerca de cómo evaluar su modelo, vea [Cómo evaluar el rendimiento del modelo en Azure Machine Learning](machine-learning-evaluate-model-performance.md).
 
-This topic addresses prediction interpretation but not model evaluation. For more information about how to evaluate your model, see [How to evaluate model performance in Azure Machine Learning](machine-learning-evaluate-model-performance.md).
+Si no está familiarizado con Aprendizaje automático de Azure y necesita ayuda para crear un experimento simple para comenzar, vea [Crear un experimento simple en Estudio de aprendizaje automático de Azure](machine-learning-create-experiment.md) en el Estudio de aprendizaje de automático de Azure.
 
-If you are new to Azure Machine Learning and need help creating a simple experiment to get started, see [Create a simple experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md) in Azure Machine Learning Studio.
+##Clasificación
+Existen dos subcategorías de problemas de clasificación:
 
-## <a name="classification"></a>Classification ##
-There are two subcategories of classification problems:
+* problemas con solo dos clases (clasificación de dos clases o binaria)
+* problemas con más de dos clases (clase de clasificación multiclase)
 
-* Problems with only two classes (two-class or binary classification)
-* Problems with more than two classes (multi-class classification)
+Aprendizaje automático de Azure tiene distintos módulos para cada uno de estos tipos de clasificación. No obstante, las formas de interpretar los resultados de predicción son similares. Hablaremos acerca de los problemas de clasificación de dos clases primero y, a continuación, abordaremos los problemas de clasificación multiclase.
 
-Azure Machine Learning has different modules to deal with each of these types of classification, but the methods for interpreting their prediction results are similar.
+###Clasificación multiclase
+**Experimento de ejemplo**
 
-### <a name="two-class-classification###"></a>Two-class classification###
-**Example experiment**
+Un ejemplo de problema de clasificación de dos clases puede ser la clasificación de flores Iris: la tarea consiste en clasificar flores Iris en función de sus características. El conjunto de datos de Iris proporcionado en Azure Machine Learning es un subconjunto del [conjunto de datos de Iris](http://en.wikipedia.org/wiki/Iris_flower_data_set) popular, que contiene instancias de solo dos especies de flor (clases 0 y 1). Existen cuatro características para cada flor (longitud del sépalo, ancho del sépalo, longitud del pétalo y ancho del pétalo).
 
-An example of a two-class classification problem is the classification of iris flowers. The task is to classify iris flowers based on their features. The Iris data set provided in Azure Machine Learning is a subset of the popular [Iris data set](http://en.wikipedia.org/wiki/Iris_flower_data_set) containing instances of only two flower species (classes 0 and 1). There are four features for each flower (sepal length, sepal width, petal length, and petal width).
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/1.png)
 
-![Screenshot of iris experiment](./media/machine-learning-interpret-model-results/1.png)
+Figura 1: Experimento del problema de clasificación de dos clases de Iris
 
-Figure 1. Iris two-class classification problem experiment
+Como se muestra en la figura 1, se ha realizado un experimento para solucionar este problema. Se ha entrenado y puntuado un modelo de árbol de decisión de dos clases. Ahora podemos visualizar los resultados de predicción del módulo [Modelo de puntuación][score-model] módulo haciendo clic en el puerto de salida del módulo [Modelo de puntuación][score-model] y, a continuación, haciendo clic en **Visualizar** en el menú que aparece. Esto mostrará los resultados de puntuación, como se muestra en la figura 2.
 
-An experiment has been performed to solve this problem, as shown in Figure 1. A two-class boosted decision tree model has been trained and scored. Now you can visualize the prediction results from the [Score Model][score-model] module by clicking the output port of the [Score Model][score-model] module and then clicking **Visualize**.
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/1_1.png)
 
-![Score model module](./media/machine-learning-interpret-model-results/1_1.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/2.png)
 
-This brings up the scoring results as shown in Figure 2.
+Figura 2 Visualizar el resultado del modelo de puntuación en la clasificación de dos clases
 
-![Results of iris two-class classification experiment](./media/machine-learning-interpret-model-results/2.png)
+**Interpretación de resultados**
 
-Figure 2. Visualize a score model result in two-class classification
+Hay seis columnas en la tabla de resultados. Las cuatro columnas de la izquierda son las cuatro características. Las dos columnas de la derecha, Etiquetas puntuadas y Probabilidades puntuadas, son los resultados de predicción. La columna Probabilidades puntuadas muestra la probabilidad de que una flor pertenece a la clase positiva (clase 1). Por ejemplo, el primer número 0,028571 de la columna significa que hay una probabilidad de 0,028571 de que la primera flor pertenezca a la clase 1. La columna Etiquetas puntuadas muestra la clase prevista de cada flor. Esto se basa en la columna Probabilidades de puntuación. Si la probabilidad puntuada de una flor es mayor que 0,5, se prevé que sea la clase 1; en caso contrario, se prevé que sea la clase 0.
 
-**Result interpretation**
+**Publicación de servicios web**
 
-There are six columns in the results table. The left four columns are the four features. The right two columns, Scored Labels and Scored Probabilities, are the prediction results. The Scored Probabilities column shows the probability that a flower belongs to the positive class (Class 1). For example, the first number in the column (0.028571) means there is 0.028571 probability that the first flower belongs to Class 1. The Scored Labels column shows the predicted class for each flower. This is based on the Scored Probabilities column. If the scored probability of a flower is larger than 0.5, it is predicted as Class 1. Otherwise, it is predicted as Class 0.
+Una vez comprendidos los resultados de la predicción, el experimento puede publicarse como un servicio web, de forma que se pueda implementar en diversas aplicaciones y se le pueda llamar para que obtenga las predicciones de clase en cualquier flor de iris nueva. Para conocer el procedimiento de cómo cambiar un experimento de entrenamiento a un experimento de puntuación y publicarlo como un servicio web, vea [Publicar el servicio web de Aprendizaje automático de Azure](machine-learning-walkthrough-5-publish-web-service.md). Este procedimiento proporciona un experimento de puntuación, como muestra la figura 3.
 
-**Web service publication**
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/3.png)
 
-After the prediction results have been understood and judged sound, the experiment can be published as a web service so that you can deploy it in various applications and call it to obtain class predictions on any new iris flower. To learn how to change a training experiment into a scoring experiment and publish it as a web service, see [Publish the Azure Machine Learning web service](machine-learning-walkthrough-5-publish-web-service.md). This procedure provides you with a scoring experiment as shown in Figure 3.
+Figura 3: Experimento de puntuación del problema de clasificación de dos clases de Iris
 
-![Screenshot of scoring experiment](./media/machine-learning-interpret-model-results/3.png)
+Ahora debemos establecer la entrada y salida del servicio web. Obviamente, la entrada es el puerto de entrada derecho del [Módulo de puntuación][score-model], que es la entrada de las características de la flor Iris. La elección del resultado depende de si estamos interesados en la clase de predicción (etiqueta puntuada), en la probabilidad puntuada o en ambas. En este caso, se supone que estamos interesados en ambas. Para seleccionar las columnas de salida deseadas, debemos usar un módulo [Seleccionar columnas de conjunto de datos][select-columns]. Haga clic en el módulo [Seleccionar columnas de conjunto de datos][select-columns], haga clic en **Launch column selector** (Iniciar el selector de columnas) y seleccione **Scored Labels** (Etiquetas puntuadas) y **Scored Probabilities** (Probabilidades puntuadas). Después de configurar el puerto de salida del módulo [Seleccionar columnas de conjunto de datos proyecto][select-columns] y ejecutarlo de nuevo, deberíamos estar preparados para publicar el experimento de puntuación como un servicio web haciendo clic en **PUBLICAR SERVICIO WEB** en la parte inferior. El experimento final es similar a la figura 4.
+ 
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/4.png)
 
-Figure 3. Scoring the iris two-class classification problem experiment
+Figura 4: Experimento de puntuación final del problema de clasificación de dos clases de Iris
 
-Now you need to set the input and output for the web service. The input is the right input port of [Score Model][score-model], which is the Iris flower features input. The choice of the output depends on whether you are interested in the predicted class (scored label), the scored probability, or both. In this example, it is assumed that you are interested in both. To select the desired output columns, use a [Select Columns in Data set][select-columns] module. Click [Select Columns in Data set][select-columns], click **Launch column selector**, and select **Scored Labels** and **Scored Probabilities**. After setting the output port of [Select Columns in Data set][select-columns] and running it again, you should be ready to publish the scoring experiment as a web service by clicking **PUBLISH WEB SERVICE**. The final experiment looks like Figure 4.
+Después de la ejecución del servicio web y de escribir algunos valores de las características de una instancia de prueba, el resultado devuelve dos números. El primer número es la etiqueta puntuada, y el segundo es la probabilidad puntuada. Se prevé que esta flor sea de clase 1 con probabilidad de 0,9655.
+ 
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/4_1.png)
 
-![The iris two-class classification experiment](./media/machine-learning-interpret-model-results/4.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/5.png)
 
-Figure 4. Final scoring experiment of an iris two-class classification problem
+Figura 5: Resultado de servicio web de la clasificación de dos clases de Iris
 
-After you run the web service and enter some feature values of a test instance, the result returns two numbers. The first number is the scored label, and the second is the scored probability. This flower is predicted as Class 1 with 0.9655 probability.
+###Clasificación multiclase
+**Experimento de ejemplo**
 
-![Test interpreting score model](./media/machine-learning-interpret-model-results/4_1.png)
+En este experimento se llevará a cabo una tarea de reconocimiento de letras como un ejemplo de clasificación multiclase. El clasificador intentará predecir una letra determinada (clase), dados algunos valores de atributo escritos a mano extraídos de las imágenes realizadas a mano. En los datos de entrenamiento, hay 16 funciones extraídas de imágenes de letras escritas a mano. Las veintiséis letras forman nuestras veintiséis clases. Un experimento se ha configurado para entrenar un modelo de clasificación multiclase para el reconocimiento de letras y predecir en el mismo conjunto de funciones de un conjunto de datos de prueba, como se muestra en la figura 6.
 
-![Scoring test results](./media/machine-learning-interpret-model-results/5.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/5_1.png)
+ 
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/6.png)
 
-Figure 5. Web service result of iris two-class classification
+Figura 6: Experimento del problema de clasificación multiclase de reconocimiento de letras
 
-### <a name="multi-class-classification"></a>Multi-class classification
-**Example experiment**
+Al visualizar los resultados del módulo [Modelo de puntuación][score-model] haciendo clic con el botón principal o secundario en el puerto de salida del módulo [Modelo de puntuación][score-model] y, a continuación, haciendo clic en **Visualizar**, verá una ventana como la que se muestra en la figura 7.
+ 
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/7.png)
 
-In this experiment, you perform a letter-recognition task as an example of multiclass classification. The classifier attempts to predict a certain letter (class) based on some hand-written attribute values extracted from the hand-written images.
+Figura 7: Visualizar el resultado del modelo de puntuación en la clasificación multiclase
 
-![Letter recognition example](./media/machine-learning-interpret-model-results/5_1.png)
+**Interpretación de resultados**
 
-In the training data, there are 16 features extracted from hand-written letter images. The 26 letters form our 26 classes. Figure 6 shows an experiment that will train a multiclass classification model for letter recognition and predict on the same feature set on a test data set.
+Las 16 columnas de la izquierda representan los valores de funciones del conjunto de pruebas. Las columnas con nombres Probabilidades puntuadas de la clase "XX" son iguales que la columna Probabilidades de puntuación en el caso de dos clases. Muestran la probabilidad de que la entrada correspondiente se encuentre en una clase determinada. Por ejemplo, para la primera entrada, hay una probabilidad de 0,003571 de que sea una "A", una probabilidad de 0,000451 de que sea una "B", etc. Las última columna de Etiquetas puntuadas es la misma que la de Etiquetas puntuadas del caso de dos clases. Selecciona la clase con la mayor probabilidad puntuada como la clase de predicción de la entrada correspondiente. Por ejemplo, para la primera entrada, la etiqueta puntuada es "F", ya que tiene la mayor probabilidad de que sea una "F" (0,916995).
 
-![Letter recognition multiclass classification experiment](./media/machine-learning-interpret-model-results/6.png)
+**Publicación de servicios web**
 
-Figure 6. Letter recognition multiclass classification problem experiment
+Esta vez, en lugar de usar [Seleccionar columnas de conjunto de datos][select-columns] para seleccionar algunas columnas como la salida de nuestro servicio web, nos gustaría obtener la etiqueta puntuada para cada entrada y la probabilidad de la etiqueta puntuada. La lógica básica es encontrar la probabilidad más alta entre todas las probabilidades puntuadas. Para ello, debemos usar el módulo [Ejecutar script R][execute-r-script]. El código de R se muestra en la figura 8, y el experimento es como la figura 9.
+ 
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/8.png)
 
-Visualizing the results from the [Score Model][score-model] module by clicking the output port of [Score Model][score-model] module and then clicking **Visualize**, you should see content as shown in Figure 7.
+Figura 8: Código R para extraer etiquetas puntuadas y las probabilidades asociadas de las etiquetas
+  
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/9.png)
 
-![Score model results](./media/machine-learning-interpret-model-results/7.png)
+Figura 9: Experimento de puntuación final del problema de clasificación multiclase de reconocimiento de letras
 
-Figure 7. Visualize score model results in a multi-class classification
+Después de publicar y ejecutar el servicio web y especificar algunos valores de características de entrada, el resultado devuelto será como el mostrado en la figura 10. Se prevé que esta letra escrita a mano, con sus 16 funciones extraídas, sea una "T", con una probabilidad de 0,9715.
+ 
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/9_1.png)
 
-**Result interpretation**
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/10.png)
 
-The left 16 columns represent the feature values of the test set. The columns with names like Scored Probabilities for Class "XX" are just like the Scored Probabilities column in the two-class case. They show the probability that the corresponding entry falls into a certain class. For example, for the first entry, there is 0.003571 probability that it is an “A,” 0.000451 probability that it is a “B,” and so forth. The last column (Scored Labels) is the same as Scored Labels in the two-class case. It selects the class with the largest scored probability as the predicted class of the corresponding entry. For example, for the first entry, the scored label is “F” since it has the largest probability to be an “F” (0.916995).
+Figura 10: Resultado de servicio web de la clasificación de dos clases de Iris
 
-**Web service publication**
+##Regresión
 
-You can also get the scored label for each entry and the probability of the scored label. The basic logic is to find the largest probability among all the scored probabilities. To do this, you need to use the [Execute R Script][execute-r-script] module. The R code is shown in Figure 8, and the result of the experiment is shown in Figure 9.
+Los problemas de regresión son diferentes de los problemas de clasificación. En un problema de clasificación, intentamos predecir clases discretas, como a qué clase pertenece una flor Iris. Pero en un problema de regresión, intentamos predecir una variable continua, como el precio de un automóvil, como puede ver en el ejemplo siguiente.
 
-![R code example](./media/machine-learning-interpret-model-results/8.png)
+**Experimento de ejemplo**
 
-Figure 8. R code for extracting Scored Labels and the associated probabilities of the labels
+Usaremos la predicción del precio de automóviles como nuestro ejemplo de regresión. Intentaremos predecir el precio de un automóvil en función de sus características, como la fabricación, el tipo de combustible, el tipo de carrocería, el volante, etc. El experimento se muestra en la figura 11.
+ 
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/11.png)
 
-![Experiment result](./media/machine-learning-interpret-model-results/9.png)
+Figura 11: Experimento de problema de regresión de precios de automóviles
 
-Figure 9. Final scoring experiment of the letter-recognition multiclass classification problem
+Al ver el módulo [Modelo de puntuación][score-model], el resultado es parecido al de la figura 12.
+ 
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/12.png)
 
-After you publish and run the web service and enter some input feature values, the returned result looks like Figure 10. This hand-written letter, with its extracted 16 features, is predicted to be a “T” with 0.9715 probability.
+Figura 12: Visualización de los resultados de puntuación del problema de predicción de precios de automóviles
 
-![Test interpreting score module](./media/machine-learning-interpret-model-results/9_1.png)
+**Interpretación de resultados**
 
-![Test result](./media/machine-learning-interpret-model-results/10.png)
+En el resultado de esta puntuación, Etiquetas puntuadas es la columna de resultados. Los números son el precio de predicción de cada uno.
 
-Figure 10. Web service result of multiclass classification
+**Publicación de servicios web**
 
-## <a name="regression"></a>Regression
+Podemos publicar el experimento de regresión en un servicio web y llamarlo para la predicción de precios de automóviles de la misma forma que con el caso de uso de clasificación de dos clases.
+ 
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/13.png)
 
-Regression problems are different from classification problems. In a classification problem, you're trying to predict discrete classes, such as which class an iris flower belongs to. But as you can see in the following example of a regression problem, you're trying to predict a continuous variable, such as the price of a car.
+Figura 13: Experimento de puntuación de problema de regresión de precios de automóviles
 
-**Example experiment**
+Al ejecutar el servicio web, el resultado devuelto es similar al de la figura 14. El precio de predicción para este automóvil es de 15085,52.
+ 
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/13_1.png)
 
-Use automobile price prediction as your example for regression. You are trying to predict the price of a car based on its features, including make, fuel type, body type, and drive wheel. The experiment is shown in Figure 11.
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/14.png)
 
-![Automobile price regression experiment](./media/machine-learning-interpret-model-results/11.png)
+Figura 14: Resultado del servicio web del problema de regresión de precios de automóviles
 
-Figure 11. Automobile price regression problem experiment
+##Agrupación en clústeres
 
-Visualizing the [Score Model][score-model] module, the result looks like Figure 12.
+**Experimento de ejemplo**
 
-![Scoring results for automobile price prediction problem](./media/machine-learning-interpret-model-results/12.png)
+Usemos de nuevo el conjunto de datos de Iris para generar un experimento de agrupación en clústeres. Aquí, filtramos las etiquetas de clase del conjunto de datos, de forma que solo tenga características y pueda usarse para la agrupación en clústeres. En este caso de uso de Iris, especificaremos el número de clústeres en dos durante el proceso de entrenamiento, lo que significa que nos gustaría agrupar las flores en dos clases. El experimento se muestra en la figura 15.
+ 
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/15.png)
 
-Figure 12. Scoring result for the automobile price prediction problem
+Figura 15: Experimento del problema de agrupación en clústeres de Iris
 
-**Result interpretation**
+La agrupación en clústeres difiere de clasificación en que el conjunto de datos de entrenamiento no tiene etiquetas de realidad por sí mismo. En su lugar, nos interesa cómo agrupar las instancias de conjunto de datos de entrenamiento en clústeres distintos. Durante el proceso de entrenamiento, el modelo etiqueta las entradas al conocer las diferencias entre sus características. Después, el modelo de aprendizaje se puede usar para clasificar entradas futuras. Hay dos partes del resultado que nos interesan en un problema de agrupación en clústeres. La primera parte es cómo etiquetar el conjunto de datos de entrenamiento; la segunda parte es cómo clasificar un nuevo conjunto de datos con el modelo entrenado.
 
-Scored Labels is the result column in this scoring result. The numbers are the predicted price for each car.
+La primera parte del resultado se puede visualizar haciendo clic en el puerto de salida izquierdo del módulo [Entrenar modelo de agrupación en clústeres][train-clustering-model] y haciendo clic en **Visualizar** posteriormente. La ventana de visualización se muestra en la figura 16.
+ 
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/16.png)
 
-**Web service publication**
+Figura 16: Visualización de resultado de agrupación en clústeres para el conjunto de datos de entrenamiento
 
-You can publish the regression experiment into a web service and call it for automobile price prediction in the same way as in the two-class classification use case.
+El resultado de la segunda parte, agrupación en clústeres nuevas entradas con el modelo de agrupación en clústeres de aprendizaje, se muestra en la figura 17.
+ 
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/17.png)
 
-![Scoring experiment for automobile price regression problem](./media/machine-learning-interpret-model-results/13.png)
+Figura 17: Visualización de resultado de agrupación en clústeres en el nuevo conjunto de datos
 
-Figure 13. Scoring experiment of an automobile price regression problem
+**Interpretación de resultados**
 
-Running the web service, the returned result looks like Figure 14. The predicted price for this car is $15,085.52.
+Aunque los resultados de las dos partes se derivan de diferentes fases del experimento, tienen exactamente el mismo aspecto y se interpretan de la misma manera. Las primeras cuatro columnas son características. La última columna, Asignaciones, es el resultado de predicción. Se prevé que las entradas asignadas al mismo número estén en el mismo clúster, es decir, que compartan similitudes de alguna manera (hemos utilizado la métrica de distancia euclidiana predeterminada en este experimento). Recuerde que hemos especificado el número de clústeres como 2. Por tanto, en la columna Asignaciones, las entradas se etiquetan como 0 o como 1.
 
-![Test interpreting scoring module](./media/machine-learning-interpret-model-results/13_1.png)
+**Publicación de servicios web**
 
-![Scoring module results](./media/machine-learning-interpret-model-results/14.png)
+Podemos publicar el experimento de agrupación en clústeres en un servicio web y llamarlo para las predicciones de agrupación en clústeres de de la misma forma que con el caso de uso de clasificación de dos clases.
+ 
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/18.png)
 
-Figure 14. Web service result of an automobile price regression problem
+Figura 18: Experimento de puntuación del problema de agrupación en clústeres de Iris
 
-## <a name="clustering"></a>Clustering
+Tras ejecutar el servicio web, el resultado devuelto es similar al de la figura 19. Se prevé que esta flor esté en el clúster 0.
+ 
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/18_1.png)
 
-**Example experiment**
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/19.png)
 
-Let’s use the Iris data set again to build a clustering experiment. Here you can filter out the class labels in the data set so that it only has features and can be used for clustering. In this iris use case, specify the number of clusters to be two during the training process, which means you would cluster the flowers into two classes. The experiment is shown in Figure 15.
+Figura 19: Resultado de servicio web de la clasificación de dos clases de Iris
 
-![Iris clustering problem experiment](./media/machine-learning-interpret-model-results/15.png)
+##Sistema de recomendación
+**Experimento de ejemplo**
 
-Figure 15. Iris clustering problem experiment
+Para los sistemas de recomendación, usaremos el problema de la recomendación de restaurante como ejemplo: para recomendar restaurantes a los clientes basándose en su historial de valoración. Los datos de entrada constan de tres partes:
 
-Clustering differs from classification in that the training data set doesn’t have ground-truth labels by itself. Clustering groups the training data set instances into distinct clusters. During the training process, the model labels the entries by learning the differences between their features. After that, the trained model can be used to further classify future entries. There are two parts of the result we are interested in within a clustering problem. The first part is labeling the training data set, and the second is classifying a new data set with the trained model.
+* valoraciones de restaurantes de los clientes;
+* datos de características de los clientes;
+* datos de características de restaurantes.
 
-The first part of the result can be visualized by clicking the left output port of [Train Clustering Model][train-clustering-model] and then clicking **Visualize**. The visualization is shown in Figure 16.
+Hay varias cosas que podemos hacer con el módulo integrado [Train Matchbox Recommender][train-matchbox-recommender] del Aprendizaje automático de Azure:
 
-![Clustering result](./media/machine-learning-interpret-model-results/16.png)
+- predecir las valoraciones para un usuario determinado y un elemento;
+- recomendar elementos a un usuario determinado;
+- buscar usuarios relacionados con un usuario determinado;
+- buscar elementos relacionados con un elemento determinado.
 
-Figure 16. Visualize clustering result for the training data set
+Podemos elegir lo que queremos hacer mediante la selección de las cuatro opciones en el menú **Tipo de predicción de recomendación** en el panel derecho. En este caso, le mostraremos los cuatro escenarios. Un experimento de Aprendizaje automático de Azure típico para el sistema de recomendación es similar al de la figura 20. Para información sobre cómo usar los módulos del sistema de recomendación, vea la página de ayuda [Train Matchbox Recommender][train-matchbox-recommender] y [Score Matchbox Recommender][score-matchbox-recommender].
+ 
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/19_1.png)
 
-The result of the second part, clustering new entries with the trained clustering model, is shown in Figure 17.
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/20.png)
 
-![Visualize clustering result](./media/machine-learning-interpret-model-results/17.png)
+Figura 20: Experimento del sistema de recomendación
 
-Figure 17. Visualize clustering result on a new data set
+**Interpretación de resultados**
 
-**Result interpretation**
+*Predecir las valoraciones para un usuario determinado y un elemento*
 
-Although the results of the two parts stem from different experiment stages, they look the same and are interpreted in the same way. The first four columns are features. The last column, Assignments, is the prediction result. The entries assigned the same number are predicted to be in the same cluster, that is, they share similarities in some way (this experiment uses the default Euclidean distance metric). Because you specified the number of clusters to be 2, the entries in Assignments are labeled either 0 or 1.
+Al seleccionar la predicción de valoración en el menú **Tipo de predicción de recomendación**, pedimos al sistema de recomendación que prediga la valoración de un usuario y un elemento determinados. La visualización del resultado del [Score Matchbox Recommender][score-matchbox-recommender] es similar a la de la figura 21.
+ 
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/21.png)
 
-**Web service publication**
+Figura 21: Visualización del resultado de puntuación del sistema de recomendación: valoración de predicción
 
-You can publish the clustering experiment into a web service and call it for clustering predictions the same way as in the two-class classification use case.
+Hay tres columnas. Las dos primeras columnas son los pares de elemento-usuario proporcionados por los datos de entrada. La tercera columna es la valoración de predicción de un usuario para un elemento determinado. Por ejemplo, en la primera fila, se prevé que el cliente U1048 valore el restaurante 135026 como 2.
 
-![Scoring experiment for iris clustering problem](./media/machine-learning-interpret-model-results/18.png)
+*Recomendar elementos a un usuario determinado*
 
-Figure 18. Scoring experiment of an iris clustering problem
+Al seleccionar **Recomendación de elementos** en el menú **Tipo de predicción de recomendación**, pedimos al sistema de recomendación que recomiende elementos a un usuario determinado. Hay un parámetro más que necesitamos elegir en este escenario, la selección de elementos recomendados. La opción **De elementos valorados (para la evaluación de modelos)** es principalmente para la evaluación de modelos durante el proceso de entrenamiento. Para esta fase de predicción, elegiremos **De todos los elementos**. La visualización del resultado del [Score Matchbox Recommender][score-matchbox-recommender] es similar a la de la figura 22.
+ 
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/22.png)
 
-After you run the web service, the returned result looks like Figure 19. This flower is predicted to be in cluster 0.
+Figura 22: Visualización del resultado de puntuación del sistema de recomendación: Recomendación de elementos
 
-![Test interpret scoring module](./media/machine-learning-interpret-model-results/18_1.png)
+Hay seis columnas. La primera columna representa los id. de usuario determinados para los que recomendar elementos, proporcionados por los datos de entrada. Las cinco columnas restantes representan los elementos que se recomiendan para el usuario, en orden descendente en términos de relevancia. Por ejemplo, en la primera fila, el restaurante más recomendado para el cliente U1048 es 134986, seguido de 135018, 134975, 135021 y 132862.
 
-![Scoring module result](./media/machine-learning-interpret-model-results/19.png)
+*Buscar usuarios relacionados con un usuario determinado*
 
-Figure 19. Web service result of iris two-class classification
+Al seleccionar usuarios relacionados en el menú “Tipo de predicción de recomendación”, pedimos al sistema de recomendación que busque usuarios relacionados a un usuario determinado. Los usuarios relacionados son los usuarios que tienen preferencias similares. Hay un parámetro más que necesitamos elegir en este escenario, la selección de usuarios relacionados. La opción “De elementos valorados (para la evaluación de modelos)” es principalmente para la evaluación de modelos durante el proceso de entrenamiento. Para esta fase de predicción, elegiremos “De todos los usuarios”. La visualización del resultado del [Score Matchbox Recommender][score-matchbox-recommender] es similar a la de la figura 23.
+ 
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/23.png)
 
-## <a name="recommender-system"></a>Recommender system
-**Example experiment**
+Figura 23: Visualización del resultado de puntuación del sistema de recomendación: usuarios relacionados
 
-For recommender systems, you can use the restaurant recommendation problem as an example: you can recommend restaurants for customers based on their rating history. The input data consists of three parts:
+Hay seis columnas. La primera columna la componen los identificadores de usuario dados para buscar usuarios relacionados, proporcionados por los datos de entrada. Las cinco columnas restantes tienen los usuarios relacionados del usuario, en orden descendente en términos de relevancia. Por ejemplo, en la primera fila, el cliente más relevante para el cliente U1048 es U1051, seguido de U1066, U1044, U1017 y U1072.
 
-* Restaurant ratings from customers
-* Customer feature data
-* Restaurant feature data
+**Buscar elementos relacionados con un elemento determinado**
 
-There are several things we can do with the [Train Matchbox Recommender][train-matchbox-recommender] module in Azure Machine Learning:
+Al seleccionar **Elementos relacionados** en el menú **Tipo de predicción de recomendación**, pedimos al sistema de recomendación que busque usuarios relacionados a un usuario determinado. Los elementos relacionados son los que tienen mayor probabilidad de estar vinculados al mismo usuario. Hay un parámetro más que necesitamos elegir en este escenario, la selección de usuarios relacionados. La opción **De elementos valorados (para la evaluación de modelos)** es principalmente para la evaluación de modelos durante el proceso de entrenamiento. Para esta fase de predicción, elegiremos **De todos los elementos**. La visualización del resultado del [Score Matchbox Recommender][score-matchbox-recommender] es similar a la de la figura 24.
+ 
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/24.png)
 
-- Predict ratings for a given user and item
-- Recommend items to a given user
-- Find users related to a given user
-- Find items related to a given item
+Figura 24: Visualización del resultado de puntuación del sistema de recomendación: elementos relacionados
 
-You can choose what you want to do by selecting from the four options in the **Recommender prediction kind** menu. Here you can walk through all four scenarios.
+Hay seis columnas. La primera columna representa los id. de elementos determinados para los que buscar elementos relacionados, proporcionados por los datos de entrada. Las cinco columnas restantes tienen los elementos relacionados del elemento, en orden descendente en términos de relevancia. Por ejemplo, en la primera fila, el elemento más relevante para el elemento 135026 es 135074, seguido de 135035, 132875, 135055 y 134992. Publicación de servicios web
 
-![Matchbox recommender](./media/machine-learning-interpret-model-results/19_1.png)
+El proceso de publicación de estos experimentos como servicios web para obtener predicciones es similar para cada uno de los cuatro escenarios. Aquí veremos el segundo escenario, el de recomendar elementos a un usuario determinado, por ejemplo. Puede seguir el mismo procedimiento con los otros tres.
 
-A typical Azure Machine Learning experiment for a recommender system looks like Figure 20. For information about how to use those recommender system modules, see [Train matchbox recommender][train-matchbox-recommender] and [Score matchbox recommender][score-matchbox-recommender].
+Al guardar el sistema entrenado de recomendación como un modelo entrenado y filtrar los datos de entrada a una columna de identificador de usuario único como se solicitó, podemos enlazar el experimento como se muestra en la figura 25 y publicarlo como un servicio web.
 
-![Recommender system experiment](./media/machine-learning-interpret-model-results/20.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/25.png)
+ 
+Figura 25: Experimento de puntuación del problema de recomendación del restaurante
 
-Figure 20. Recommender system experiment
+Al ejecutar el servicio web, el resultado devuelto es similar al de la figura 14. Los cinco restaurantes recomendados para usuario U1048 son 134986, 135018, 134975, 135021 y 132862.
+ 
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/25_1.png)
 
-**Result interpretation**
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/26.png)
 
-**Predict ratings for a given user and item**
-
-By selecting **Rating Prediction** under **Recommender prediction kind**, you are asking the recommender system to predict the rating for a given user and item. The visualization of the [Score Matchbox Recommender][score-matchbox-recommender] output looks like Figure 21.
-
-![Score result of the recommender system -- rating prediction](./media/machine-learning-interpret-model-results/21.png)
-
-Figure 21. Visualize the score result of the recommender system--rating prediction
-
-The first two columns are the user-item pairs provided by the input data. The third column is the predicted rating of a user for a certain item. For example, in the first row, customer U1048 is predicted to rate restaurant 135026 as 2.
-
-**Recommend items to a given user**
-
-By selecting **Item Recommendation** under **Recommender prediction kind**, you're asking the recommender system to recommend items to a given user. The last parameter to choose in this scenario is *Recommended item selection*. The option **From Rated Items (for model evaluation)** is primarily for model evaluation during the training process. For this prediction stage, we choose **From All Items**. The visualization of the [Score Matchbox Recommender][score-matchbox-recommender] output looks like Figure 22.
-
-![Score result of recommender system -- item recommendation](./media/machine-learning-interpret-model-results/22.png)
-
-Figure 22. Visualize score result of the recommender system--item recommendation
-
-The first of the six columns represents the given user IDs to recommend items for, as provided by the input data. The other five columns represent the items recommended to the user in descending order of relevance. For example, in the first row, the most recommended restaurant for customer U1048 is 134986, followed by 135018, 134975, 135021, and 132862.
-
-**Find users related to a given user**
-
-By selecting **Related Users** under **Recommender prediction kind**, you're asking the recommender system to find related users to a given user. Related users are the users who have similar preferences. The last parameter to choose in this scenario is *Related user selection*. The option **From Users That Rated Items (for model evaluation)** is primarily for model evaluation during the training process. Choose **From All Users** for this prediction stage. The visualization of the [Score Matchbox Recommender][score-matchbox-recommender] output looks like Figure 23.
-
-![Score result of recommender system --related users](./media/machine-learning-interpret-model-results/23.png)
-
-Figure 23. Visualize score results of the recommender system--related users
-
-The first of the six columns shows the given user IDs needed to find related users, as provided by input data. The other five columns store the predicted related users of the user in descending order of relevance. For example, in the first row, the most relevant customer for customer U1048 is U1051, followed by U1066, U1044, U1017, and U1072.
-
-**Find items related to a given item**
-
-By selecting **Related Items** under **Recommender prediction kind**, you are asking the recommender system to find related items to a given item. Related items are the items most likely to be liked by the same user. The last parameter to choose in this scenario is *Related item selection*. The option **From Rated Items (for model evaluation)** is primarily for model evaluation during the training process. We choose **From All Items** for this prediction stage. The visualization of the [Score Matchbox Recommender][score-matchbox-recommender] output looks like Figure 24.
-
-![Score result of recommender system --related items](./media/machine-learning-interpret-model-results/24.png)
-
-Figure 24. Visualize score results of the recommender system--related items
-
-The first of the six columns represents the given item IDs needed to find related items, as provided by the input data. The other five columns store the predicted related items of the item in descending order in terms of relevance. For example, in the first row, the most relevant item for item 135026 is 135074, followed by 135035, 132875, 135055, and 134992.
-
-**Web service publication**
-
-The process of publishing these experiments as web services to get predictions is similar for each of the four scenarios. Here we take the second scenario (recommend items to a given user) as an example. You can follow the same procedure with the other three.
-
-Saving the trained recommender system as a trained model and filtering the input data to a single user ID column as requested, you can hook up the experiment as in Figure 25 and publish it as a web service.
-
-![Scoring experiment of the restaurant recommendation problem](./media/machine-learning-interpret-model-results/25.png)
-
-Figure 25. Scoring experiment of the restaurant recommendation problem
-
-Running the web service, the returned result looks like Figure 26. The five recommended restaurants for user U1048 are 134986, 135018, 134975, 135021, and 132862.
-
-![Sample of recommender system service](./media/machine-learning-interpret-model-results/25_1.png)
-
-![Sample experiment results](./media/machine-learning-interpret-model-results/26.png)
-
-Figure 26. Web service result of restaurant recommendation problem
+Figura 26: Resultado de servicio web del problema de recomendación del restaurante
 
 
 <!-- Module References -->
@@ -316,9 +308,6 @@ Figure 26. Web service result of restaurant recommendation problem
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
+ 
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

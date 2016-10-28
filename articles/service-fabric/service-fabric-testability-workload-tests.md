@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Custom test scenarios | Microsoft Azure"
-   description="How to harden your services against graceful and ungraceful failures."
+   pageTitle="Escenarios de prueba personalizados | Microsoft Azure"
+   description="Protección de los servicios contra errores correctos/incorrectos"
    services="service-fabric"
    documentationCenter=".net"
    authors="anmolah"
@@ -16,19 +16,18 @@
    ms.date="05/17/2016"
    ms.author="anmola"/>
 
+# Simulación de errores durante las cargas de trabajo del servicio
 
-# <a name="simulate-failures-during-service-workloads"></a>Simulate failures during service workloads
+Los escenarios de capacidad de prueba en Service Fabric de Azure permiten a los desarrolladores dejar de preocuparse por tratar los errores individuales. Sin embargo, hay escenarios donde se necesita una intercalación explícita de la carga de trabajo de cliente y de los errores. La intercalación de la carga de trabajo de cliente y de los errores garantiza que el servicio realmente realiza alguna acción cuando se produce el error. Dado el nivel de control que ofrece la capacidad de prueba, podrían encontrarse en puntos precisos de la ejecución de la carga de trabajo. Esta inducción de errores en los distintos estados de la aplicación puede buscar errores y mejorar la calidad.
 
-The testability scenarios in Azure Service Fabric enable developers to not worry about dealing with individual faults. There are scenarios, however, where an explicit interleaving of client workload and failures might be needed. The interleaving of client workload and faults ensures that the service is actually performing some action when failure happens. Given the level of control that testability provides, these could be at precise points of the workload execution. This induction of faults at different states in the application can find bugs and improve quality.
+## Escenario de ejemplo personalizado
+Esta prueba muestra un escenario que intercala la carga de trabajo de negocios con [errores correctos e incorrectos](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Los errores deben inducirse en el centro de operaciones de servicio o de proceso para obtener mejores resultados.
 
-## <a name="sample-custom-scenario"></a>Sample custom scenario
-This test shows a scenario that interleaves the business workload with [graceful and ungraceful failures](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). The faults should be induced in the middle of service operations or compute for best results.
-
-Let's walk through an example of a service that exposes four workloads: A, B, C, and D. Each corresponds to a set of workflows and could be compute, storage, or a mix. For the sake of simplicity, we will abstract out the workloads in our example. The different faults executed in this example are:
-  + RestartNode: Ungraceful fault to simulate a machine restart.
-  + RestartDeployedCodePackage: Ungraceful fault to simulate service host process crashes.
-  + RemoveReplica: Graceful fault to simulate replica removal.
-  + MovePrimary: Graceful fault to simulate replica moves triggered by the Service Fabric load balancer.
+Recorramos en iteración un ejemplo de un servicio que expone cuatro cargas de trabajo: A, B, C y D. Cada una de ellas se corresponde a un conjunto de flujos de trabajo y podrían ser de proceso, almacenamiento o una combinación de ambos. Por simplicidad, se aislarán las cargas de trabajo en nuestro ejemplo. Los diferentes errores ejecutados en este ejemplo son:
+  + RestartNode: error sin gracia para simular un reinicio de la máquina.
+  + RestartDeployedCodePackage: error sin gracia para simular el bloqueo de los procesos del host de servicio.
+  + RemoveReplica: error sin gracia para simular la eliminación de réplicas.
+  + MovePrimary: error sin gracia para simular los movimientos de réplica desencadenados por el equilibrador de carga de Service Fabric.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
@@ -156,8 +155,4 @@ class Test
 }
 ```
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0518_2016-->

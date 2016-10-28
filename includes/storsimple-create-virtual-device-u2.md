@@ -1,41 +1,38 @@
-#### <a name="to-create-a-virtual-device"></a>To create a virtual device
+#### Para crear un dispositivo virtual
 
-1.  In the Azure portal, go to the **StorSimple Manager** service.
+1.  En el Portal de Azure, vaya al servicio **StorSimple Manager**.
 
-2. Go to the **Devices** page. Click **Create virtual device** at the bottom of the **Devices** page.
+2. Vaya a la página **Dispositivos**. Haga clic en **Crear un dispositivo virtual** en la parte inferior de la página **Dispositivos**.
 
-3. In the **Create Virtual Device dialog box**, specify the following details.
+3. En el **cuadro de diálogo Crear un dispositivo virtual**, especifique los detalles siguientes.
 
-     ![StorSimple create virtual device](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
+     ![Crear dispositivo virtual de StorSimple](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
 
-    1. **Name** – A unique name for your virtual device.
+	1. **Nombre**: un nombre único para el dispositivo virtual.
 
 
-    2. **Model** - Choose the model of the virtual device. This field is presented only if you are running Update 2 or later. An 8010 device model offers 30 TB of Standard Storage whereas 8020 has 64 TB of Premium Storage. Specify 8010
-    3.  to deploy item level retrieval  scenarios from backups. Select 8020 to deploy high performance, low latency workloads or used as a secondary device for disaster recovery.
-     
-    4. **Version** - Choose the version of the virtual device. If an 8020 device model is selected, then the version field will not be presented to the user. This option is absent if all the physical devices registered with this service are running Update 1 (or later). This field is presented only if you have a mix of pre-Update 1 and Update 1 physical devices registered with the same service. Given the version of the virtual device will determine which physical device you can failover or clone from, it is important that you create an appropriate version of the virtual device. Select:
+	2. **Modelo**: elija el modelo del dispositivo virtual. Este campo se muestra solo si se ejecuta Update 2 o posterior. Un modelo de dispositivo 8010 ofrece 30 TB de almacenamiento estándar, mientras que 8020 tiene 64 TB de almacenamiento premium. Especifique 8010
+	3.  para implementar escenarios de recuperación de nivel de elemento a partir de copias de seguridad. Seleccione 8020 para implementar cargas de trabajo de baja latencia de alto rendimiento o de uso como un dispositivo secundario para recuperación ante desastres.
+	 
+	4. **Versión**: elija la versión del dispositivo virtual. Si se selecciona un modelo de dispositivo 8020, el campo de versión no se presentará al usuario. Esta opción está ausente si todos los dispositivos físicos registrados con este servicio ejecutan Update 1 (o posterior). Este campo se muestra solo si tiene una combinación de dispositivos físicos Update 1 y anteriores registrados con el mismo servicio. Dado que la versión del dispositivo virtual determinará desde qué dispositivo físico puede efectuar la conmutación por error o la clonación, es importante que cree una versión adecuada del dispositivo virtual. Seleccione:
 
-       - Version Update 0.3 if you will fail over or DR from a physical device running Update 0.3 or earlier. 
-       - Version Update 1 if you will fail over or clone from a physical device running Update 1 (or later). 
-       
+	   - Versión Update 0.3 si conmuta por error o efectúa una recuperación ante desastres a partir de un dispositivo físico que ejecuta Update 0.3 o una versión anterior. 
+	   - Versión Update 1 si conmuta por error o efectúa una clonación a partir de un dispositivo físico que ejecuta Update 1 (o una versión posterior). 
+	   
+	
+	5. **Red virtual**: especifique una red virtual que desea usar con este dispositivo virtual. Si utiliza almacenamiento premium (Update 2 o posterior), debe seleccionar una red virtual que sea compatible con la cuenta de almacenamiento premium. Las redes virtuales no compatibles se atenuarán en la lista desplegable. Se le avisará si selecciona una red virtual no compatible. 
+
+	5. **Cuenta de almacenamiento para la creación de dispositivos virtuales**: seleccione una cuenta de almacenamiento para almacenar la imagen del dispositivo virtual durante el aprovisionamiento. Esta cuenta de almacenamiento debe estar en la misma región que el dispositivo virtual y la red virtual. No debe utilizarse para el almacenamiento de datos por el dispositivo físico o el dispositivo virtual. De forma predeterminada, para ello se creará una nueva cuenta de almacenamiento. Sin embargo, si sabe que ya tiene una cuenta de almacenamiento que es adecuada para este uso, puede seleccionarla en la lista. Si crea un dispositivo virtual premium, la lista desplegable sólo mostrará las cuentas de almacenamiento premium.
+
+    	>[AZURE.NOTE]El dispositivo virtual solo puede funcionar con las cuentas de almacenamiento de Azure. Otros proveedores de servicios en la nube como Amazon, HP y OpenStack (que son compatibles con el dispositivo físico) no se admiten para el dispositivo virtual StorSimple.
+	
+	1. Haga clic en la marca de verificación para indicar que sabe que los datos almacenados en el dispositivo virtual estarán hospedados en un centro de datos de Microsoft. Cuando se utiliza solo un dispositivo físico, la clave de cifrado se mantiene con el dispositivo; por lo tanto, Microsoft no podrá descifrarla.
+	 
+		Cuando se utiliza un dispositivo virtual, la clave de cifrado y la clave de descifrado se almacenan en Microsoft Azure. Para más información, consulte [Consideraciones de seguridad para utilizar un dispositivo virtual](storsimple-security/#storsimple-virtual-device-security).
+	2. Haga clic en el icono de verificación para crear el dispositivo virtual. El dispositivo puede tardar unos 30 minutos en aprovisionar.
+
+	![Fase de creación de dispositivo virtual de StorSimple](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)
+
     
-    5. **Virtual Network** – Specify a virtual network that you want to use with this virtual device. If using Premium Storage (Update 2 or later), you must select a virtual network that is supported with the Premium Storage account. The unsupported virtual networks will be grayed out in the dropdown list. You will be warned if you select an unsupported virtual network. 
 
-    5. **Storage Account for Virtual Device Creation** – Select a storage account to hold the image of the virtual device during provisioning. This storage account should be in the same region as the virtual device and virtual network. It should not be used for data storage by either the physical or the virtual device. By default, a new storage account will be created for this purpose. However, if you know that you already have a storage account that is suitable for this use, you can select it from the list. If creating a premium virtual device, the dropdown list will only display Premium Storage accounts. 
-
-        >[AZURE.NOTE] The virtual device can only work with the Azure storage accounts. Other cloud service providers such as Amazon, HP, and OpenStack (that are supported for the physical device) are not supported for the StorSimple virtual device.
-    
-    1. Click the check mark to indicate that you understand that the data stored on the virtual device will be hosted in a Microsoft datacenter. When you use only a physical device, your encryption key is kept with your device; therefore, Microsoft cannot decrypt it. 
-     
-        When you use a virtual device, both the encryption key and the decryption key are stored in Microsoft Azure. For more information, see [security considerations for using a virtual device](storsimple-security/#storsimple-virtual-device-security).
-    2. Click the check icon to create the virtual device. The device may take around 30 minutes to be provisioned.
-
-    ![StorSimple virtual device creating stage](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)
-
-    
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1217_2015-->

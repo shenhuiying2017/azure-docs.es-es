@@ -1,177 +1,163 @@
-<properties
-    pageTitle="Azure API Management FAQ | Microsoft Azure"
-    description="Learn the answers to common questions, patterns, and best practices in Azure API Management."
-    services="api-management"
-    documentationCenter=""
-    authors="miaojiang"
-    manager="erikre"
-    editor=""/>
+<properties 
+	pageTitle="P+F de Administración de API de Azure | Microsoft Azure" 
+	description="Conozca las respuestas a preguntas comunes, patrones y prácticas recomendadas para API Management de Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="miaojiang" 
+	manager="erikre" 
+	editor=""/>
 
-<tags
-    ms.service="api-management"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/09/2016"
-    ms.author="mijiang"/>
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/09/2016" 
+	ms.author="mijiang"/>
 
+# P+F de Administración de API de Azure
 
-# <a name="azure-api-management-faqs"></a>Azure API Management FAQs
+Conozca las respuestas a preguntas comunes, patrones y prácticas recomendadas para API Management de Azure.
 
-Get the answers to common questions, patterns, and best practices for Azure API Management.
+## Preguntas más frecuentes
 
-## <a name="frequently-asked-questions"></a>Frequently asked questions
+-	[¿Cómo puedo formular una pregunta al equipo de Administración de API?](#how-can-i-ask-a-question-to-the-api-management-team)
+-	[¿Qué significa que una característica se encuentra en su versión preliminar?](#what-does-it-mean-when-a-feature-is-in-preview)
+-	[¿Cuáles son las opciones admitidas para proteger la conexión entre la puerta de enlace de Administración de API y mis servicios de back-end?](#what-are-the-supported-options-to-secure-the-connection-between-the-api-management-gateway-and-my-backend-services)
+-	[¿Cómo se puede copiar una instancia de Administración de API en una nueva instancia?](#how-can-i-copy-an-api-management-instance-to-a-new-instance)
+-	[¿Es posible administrar mi instancia de Administración de API mediante programación?](#can-i-manage-my-api-management-instance-programmatically)
+-	[¿Cómo se puede agregar un usuario al grupo de administradores?](#how-can-i-add-a-user-to-the-administrators-group)
+-	[¿Por qué la directiva que deseo agregar no está habilitada en el editor de directivas?](#why-is-the-policy-that-i-want-to-add-not-enabled-in-the-policy-editor)
+-	[¿Cómo se puede conseguir el control de versiones de API con Administración de API?](#how-can-i-achieve-api-versioning-with-api-management)
+-	[¿Cómo se pueden configurar varios entornos de API, como Sandbox y Production?](#how-can-i-configure-multiple-environments-of-apis-for-example-sandbox-and-production)
+-	[¿Se admite SOAP en Administración de API?](#is-soap-supported-in-api-management)
+-	[¿Es constante la dirección IP de la puerta de enlace de Administración de API? ¿Puedo usarla en las reglas de firewall?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
+-	[¿Se puede configurar un servidor de autorización de OAUth 2.0 con seguridad ADFS?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
+-	[¿Qué método de enrutamiento utiliza Administración de API cuando se implementa en varias ubicaciones geográficas?](#what-routing-method-does-api-management-use-when-deployed-to-multiple-geographic-locations)
+-	[¿Puedo crear una instancia del servicio de Administración de API mediante una plantilla ARM?](#can-i-create-an-api-management-service-instance-using-an-arm-template)
+-	[¿Puedo usar un certificado SSL autofirmado para un back-end?](#can-i-use-a-self-signed-ssl-certificate-for-a-backend)
+-	[¿Por qué recibo el error de autenticación al intentar clonar el repositorio GIT?](#why-am-i-getting-authentication-failure-when-i-try-to-clone-the-git-repository)
+-	[¿Funciona la administración de API con ExpressRoute?](#does-api-management-work-with-express-route)
+-	[¿Puedo mover una instancia de API Management de una suscripción a otra?](#can-i-move-api-management-instance-from-one-subscription-to-another)
 
--   [How can I ask the Microsoft Azure API Management team a question?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
--   [What does it mean when a feature is in preview?](#what-does-it-mean-when-a-feature-is-in-preview)
--   [How can I secure the connection between the API Management gateway and my back-end services?](#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
--   [How do I copy my API Management service instance to a new instance?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
--   [Can I manage my API Management instance programmatically?](#can-i-manage-my-api-management-instance-programmatically)
--   [How do I add a user to the Administrators group?](#how-do-i-add-a-user-to-the-administrators-group)
--   [Why is the policy that I want to add unavailable in the policy editor?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
--   [How do I use API versioning in API Management?](#how-do-i-use-api-versioning-in-api-management)
--   [How do I set up multiple environments in a single API?](#how-do-i-set-up-multiple-environments-in-a-single-api)
--   [Can I use SOAP with API Management?](#can-i-use-soap-with-api-management)
--   [Is the API Management gateway IP address constant? Can I use it in firewall rules?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
--   [Can I configure an OAuth 2.0 authorization server with AD FS security?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
--   [What routing method does API Management use in deployments to multiple geographic locations?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
--   [Can I use an Azure Resource Manager template to create an API Management service instance?](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
--   [Can I use a self-signed SSL certificate for a back end?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
--   [Why do I get an authentication failure when I try to clone a GIT repository?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
--   [Does API Management work with Azure ExpressRoute?](#does-api-management-work-with-azure-expressroute)
--   [Can I move an API Management service from one subscription to another?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
 
+### ¿Cómo puedo formular una pregunta al equipo de Administración de API?
 
-### <a name="how-can-i-ask-the-microsoft-azure-api-management-team-a-question?"></a>How can I ask the Microsoft Azure API Management team a question?
+-	Puede publicar sus preguntas en nuestro [foro de MSDN de Administración de API](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt).
+-	También nos puede enviar un correo electrónico a la dirección: `apimgmt@microsoft.com`.
+-	Puede enviarnos una [solicitud de característica](https://feedback.azure.com/forums/248703-api-management).
 
-You can contact us by using one of these options:
+### ¿Qué significa que una característica se encuentra en su versión preliminar?
 
--   Post your questions in our [API Management MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt).
--   Send an email to <apimgmt@microsoft.com>.
--   Send us a feature request in the [Azure feedback forum](https://feedback.azure.com/forums/248703-api-management).
+Una característica en versión preliminar es completa funcionalmente, pero se encuentra en ese estado porque buscamos activamente comentarios sobre ella. Es posible que hagamos cambios importantes en respuesta a los comentarios de los clientes, por lo que recomendamos no depender de la característica en entornos de producción. Si tiene cualquier comentario sobre las características de la versión preliminar, háganoslo llegar mediante uno de los mecanismos descritos en [¿Cómo puedo formular una pregunta al equipo de API Management?](#how-can-i-ask-a-question-to-the-api-management-team)
 
-### <a name="what-does-it-mean-when-a-feature-is-in-preview?"></a>What does it mean when a feature is in preview?
+### ¿Cuáles son las opciones admitidas para proteger la conexión entre la puerta de enlace de Administración de API y mis servicios de back-end?
 
-When a feature is in preview, it means that we're actively seeking feedback on how the feature is working for you. A feature in preview is functionally complete, but it's possible that we'll make a breaking change in response to customer feedback. We recommend that you don't depend on a feature that is in preview in your production environment. If you have any feedback on preview features, please let us know through one of the contact options in [How can I ask the Microsoft Azure API Management team a question?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question).
+Hay varias opciones admitidas.
 
-### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services?"></a>How can I secure the connection between the API Management gateway and my back-end services?
+1. Use la autenticación básica HTTP. Para más información, consulte [Definición de la configuración de la API](api-management-howto-create-apis.md#configure-api-settings).
+2. Use la autenticación mutua de SSL como se describe en [Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Administración de API de Azure](api-management-howto-mutual-certificates.md).
+3. Utilice la lista blanca IP en su servicio back-end. Si tiene una instancia de API Management de nivel Estándar o Premium, la dirección IP de la puerta de enlace permanece constante y puede configurar la lista blanca para permitir esta dirección IP. Puede recuperar la dirección IP de la instancia de Administración de API en el **Panel** del Portal de Azure clásico.
+4. Puede conectar la instancia de Administración de API a una Red virtual de Azure (clásica). Para obtener más información, consulte [Configuración de conexiones VPN en Administración de API de Azure](api-management-howto-setup-vpn.md).
 
-You have several options to secure the connection between the API Management gateway and your back-end services. You can:
+### ¿Cómo se puede copiar una instancia de Administración de API en una nueva instancia?
 
--   Use HTTP basic authentication. For more information, see [Configure API settings](api-management-howto-create-apis.md#configure-api-settings).
-- Use SSL mutual authentication as described in [How to secure back-end services by using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md).
-- Use IP whitelisting on your back-end service. If you have a Standard or Premium tier API Management instance, the IP address of the gateway remains constant. You can set your whitelist to allow this IP address. You can get the IP address of your API Management instance on the Dashboard in the Azure portal.
-- Connect your API Management instance to an Azure Virtual Network. For more information, see [How to set up VPN connections in Azure API Management](api-management-howto-setup-vpn.md).
+Puede utilizar diferentes opciones para copiar una instancia del servicio de Administración de API a una nueva instancia.
 
-### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance?"></a>How do I copy my API Management service instance to a new instance?
+-	Utilice la función de copia de seguridad y restauración de Administración de API. Para más información, consulte [Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Administración de API de Azure](api-management-howto-disaster-recovery-backup-restore.md).
+-	Cree su propia característica de copia de seguridad y restauración mediante la [API de REST de Administración de API](https://msdn.microsoft.com/library/azure/dn776326.aspx) para guardar y restaurar las entidades deseadas desde la instancia de servicio.
+-	Descargue la configuración del servicio mediante Git y cárguela a una nueva instancia. Para más información, consulte [Guardado y configuración del servicio Administración de API mediante Git](api-management-configuration-repository-git.md).
 
-You have several options if you want to copy an API Management instance to a new instance. You can:
+### ¿Es posible administrar mi instancia de Administración de API mediante programación?
 
--   Use the backup and restore function in API Management. For more information, see [How to implement disaster recovery by using service backup and restore in Azure API Management](api-management-howto-disaster-recovery-backup-restore.md).
--   Create your own backup and restore feature by using the [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx). Use the REST API to save and restore the entities from the service instance that you want.
--   Download the service configuration by using Git, and then upload it to a new instance. For more information, see [How to save and configure your API Management service configuration by using Git](api-management-configuration-repository-git.md).
+Sí, se puede administrar mediante la [API de REST de Administración de API](https://msdn.microsoft.com/library/azure/dn776326.aspx), el [SDK de la biblioteca de administración de servicios de Administración de API de Microsoft Azure](http://aka.ms/apimsdk) y los cmdlets de PowerShell de [implementación de servicio](https://msdn.microsoft.com/library/mt619282.aspx) y [administración de servicio](https://msdn.microsoft.com/library/mt613507.aspx).
 
-### <a name="can-i-manage-my-api-management-instance-programmatically?"></a>Can I manage my API Management instance programmatically?
+### ¿Cómo se puede agregar un usuario al grupo de administradores?
 
-Yes, you can manage API Management programmatically by using:
+Se consigue siguiendo estos pasos:
 
--   The [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx).
--   The [Microsoft Azure ApiManagement Service Management Library SDK](http://aka.ms/apimsdk).
--   The [Service deployment](https://msdn.microsoft.com/library/mt619282.aspx) and [Service management](https://msdn.microsoft.com/library/mt613507.aspx) PowerShell cmdlets.
+1. Inicie sesión en el nuevo [Portal de Azure](https://portal.azure.com).
+2. Vaya al grupo de recursos que contiene la instancia deseada de API Management.
+3. Agregue el usuario deseado al rol Colaborador de Administración de API.
 
-### <a name="how-do-i-add-a-user-to-the-administrators-group?"></a>How do I add a user to the Administrators group?
+Una vez hecho esto, el colaborador recién agregado puede usar [cmdlets](https://msdn.microsoft.com/library/mt613507.aspx) de Azure PowerShell para iniciar sesión como administrador:
 
-Here's how you can add a user to the Administrators group:
+1. Use el cmdlet `Login-AzureRmAccount` para iniciar sesión.
+2. Establezca el contexto en la suscripción que contiene el servicio mediante `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.
+3. Obtenga la dirección URL de inicio de sesión único utilizando `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
+4. Utilice esta URL para acceder al portal de administración.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Go to the resource group that has the API Management instance you want to update.
-3. In API Management, assign the **Api Management Contributor** role to the user.
 
-Now the newly added contributor can use Azure PowerShell [cmdlets](https://msdn.microsoft.com/library/mt613507.aspx). Here's how to sign in as an administrator:
+### ¿Por qué la directiva que deseo agregar no está habilitada en el editor de directivas?
 
-1. Use the `Login-AzureRmAccount` cmdlet to sign in.
-2. Set the context to the subscription that has the service by using `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.
-3. Get a single sign-on URL by using `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
-4. Use the URL to access the admin portal.
+Si la directiva que desea agregar no está habilitada, asegúrese de que se encuentra en el ámbito correcto para esa directiva. Cada instrucción de la directiva está diseñada para su uso en determinados ámbitos y secciones de la directiva. Para revisar las secciones y los ámbitos de una directiva, compruebe la sección **Uso** de esa directiva en la [Referencia de directivas](https://msdn.microsoft.com/library/azure/dn894080.aspx).
 
 
-### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor?"></a>Why is the policy that I want to add unavailable in the policy editor?
+### ¿Cómo se puede conseguir el control de versiones de API con Administración de API?
 
-If the policy that you want to add appears dimmed or shaded in the policy editor, be sure that you are in the correct scope for the policy. Each policy statement is designed for you to use in specific scopes and policy sections. To review the policy sections and scopes for a policy, see the policy's Usage section in [API Management policies](https://msdn.microsoft.com/library/azure/dn894080.aspx).
+-	Puede configurar distintas API en Administración de API que representen distintas versiones. Por ejemplo, puede tener `MyAPI v1` y `MyAPI v2` como dos API diferentes y los desarrolladores pueden elegir la versión que quieran usar.
+-	También puede configurar su API con una dirección URL del servicio que no incluya un segmento de versión; por ejemplo: `https://my.api`. A continuación, puede configurar un segmento de versión en la plantilla [URL de reescritura](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) de cada operación; por ejemplo puede tener una operación con una [plantilla de URL](api-management-howto-add-operations.md#url-template) de `/resource` y una plantilla [URL de reescritura](api-management-howto-add-operations.md#rewrite-url-template) de `/v1/Resource`. De esta forma, podrá cambiar el valor del segmento de versión en cada operación por separado.
+-	Si quiere mantener un segmento de versión predeterminado en la dirección URL del servicio de la API, puede configurar una directiva que use la directiva [Set backend service](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) (Establecer servicio back-end) en operaciones seleccionadas para cambiar la ruta de acceso de la solicitud backend.
 
+### ¿Cómo se pueden configurar varios entornos de API, como Sandbox y Production?
 
-### <a name="how-do-i-use-api-versioning-in-api-management?"></a>How do I use API versioning in API Management?
+En este momento, tiene las siguientes opciones:
 
-You have a few options to use API versioning in API Management:
+-	Puede hospedar distintas API en el mismo inquilino
+-	Puede hospedar las mismas API en diferentes inquilinos
 
--   In API Management, you can configure APIs to represent different versions. For example, you might have two different APIs, MyAPIv1 and MyAPIv2. A developer can choose the version that the developer wants to use.
--   You also can configure your API with a service URL that doesn't include a version segment, for example, https://my.api. Then, configure a version segment on each operation's [Rewrite URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) template. For example, you can have an operation with a [URL template](api-management-howto-add-operations.md#url-template) called /resource and a [Rewrite URL](api-management-howto-add-operations.md#rewrite-url-template) template called /v1/Resource. You can change the version segment value separately for each operation.
--   If you'd like to keep a "default" version segment in the API's service URL, on selected operations, set a policy that uses the [Set backend service](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) policy to change the back-end request path.
+### ¿Se admite SOAP en Administración de API?
 
-### <a name="how-do-i-set-up-multiple-environments-in-a-single-api?"></a>How do I set up multiple environments in a single API?
+Actualmente, ofrecemos compatibilidad limitada para SOAP dentro de API Management de Azure; es una característica que se está investigando actualmente. Nos interesaría obtener ejemplos de documentos WSDL, ya que nos ayudaría a comprobar que nuestra teoría es válida. Póngase en contacto con nosotros mediante la información de contacto que se menciona en [¿Cómo puedo formular una pregunta al equipo de Administración de API?](#how-can-i-ask-a-question-to-the-api-management-team)
 
-To set up multiple environments, for example, a test environment and a production environment, in a single API, you have two options. You can:
+Si necesita ponerse ya en marcha, miembros de la comunidad han sugerido soluciones temporales (consulte [Azure API Management - APIM, consuming a SOAP WCF service over HTTP](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html) [API Management de Azure: APIM, consumo de un servicio WCF de SOAP a través de HTTP]).
 
--   Host different APIs on the same tenant.
--   Host the same APIs on different tenants.
+La implementación de la solución de este modo requiere algunos procesos de configuración manual de las directivas; no admite la importación y exportación de WSDL; y los usuarios deben formar parte del cuerpo de las solicitudes realizadas con la consola de prueba en el portal para desarrolladores.
 
-### <a name="can-i-use-soap-with-api-management?"></a>Can I use SOAP with API Management?
+### ¿Es constante la dirección IP de la puerta de enlace de Administración de API? ¿Puedo usarla en las reglas de firewall?
 
-Currently, we offer limited support for Simple Object Access Protocol (SOAP) in Azure API Management. It's a feature that we're investigating. We're interested in seeing examples of your Web Services Description Language (WSDL) documents. Your examples could help us validate our thinking. If you have examples to share with us, please contact us through one of the contact methods in [How can I ask the Microsoft Azure API Management team a question?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question).
+En los niveles Estándar y Premium, la dirección IP pública (VIP) del inquilino de API Management es estática durante la vigencia del inquilino, con varias excepciones que se enumeran a continuación. Tenga en cuenta que a los inquilinos de nivel Premium configurados para la implementación en varias regiones se les asigna una dirección IP pública por región.
 
-If you need to get SOAP with API Management working right now, some members of our community have suggested workarounds. For details, see [Azure API Management: APIM, consuming a SOAP WCF service over HTTP](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html).
+La dirección IP cambiará en las siguientes circunstancias:
 
-If you implement the solution the way it's described in [Azure API Management: APIM, consuming a SOAP WCF service over HTTP](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html), you'll need to manually configure some aspects of the policies. SOAP with API Management doesn't support WSDL import or export. Users need to form up the body of requests made by using the test console in the developer portal.
+-	El servicio se elimina y se vuelve a crear.
+-	La suscripción al servicio se suspende (por ejemplo, por falta de pago) y luego se reinstaura.
+-	Se agrega o se quita una red virtual (la red virtual solo se admite en el nivel Premium).
+-	Se producen cambios en la dirección regional si se vacía la información de la región y luego se vuelve a escribir (la implementación en varias regiones solo se admite en el nivel Premium).
 
-### <a name="is-the-api-management-gateway-ip-address-constant?-can-i-use-it-in-firewall-rules?"></a>Is the API Management gateway IP address constant? Can I use it in firewall rules?
+La dirección IP (o las direcciones en el caso de la implementación en varias regiones) se puede encontrar en la página del inquilino en el Portal de Azure clásico.
 
-At the Standard and Premium tiers, the public IP address (VIP) of the API Management tenant is static for the lifetime of the tenant, with some exceptions. The IP address changes in these circumstances:
+### ¿Se puede configurar un servidor de autorización de OAUth 2.0 con seguridad ADFS?
 
--   The service is deleted and then re-created.
--   The service subscription is suspended (for example, for nonpayment) and then reinstated.
--   You add or remove Azure Virtual Network (you can use Virtual Network only at the Premium tier).
+Para más información sobre la configuración de este escenario, consulte [Using ADFS in API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/) (Uso de ADFS en Administración de API).
 
-For multi-region deployments, the regional address changes if the region is vacated and then reinstated (you can use multi-region deployment only at the Premium tier).
+### ¿Qué método de enrutamiento utiliza Administración de API cuando se implementa en varias ubicaciones geográficas? 
 
-Premium tier tenants that are configured for multi-region deployment are assigned one public IP address per region.
+Administración de API usa el [método de enrutamiento de tráfico de rendimiento](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method). El tráfico entrante se enrutará a la puerta de enlace de API más cercana. Si una región se queda sin conexión, el tráfico entrante se enruta automáticamente a la siguiente puerta de enlace más cercana. Para más información sobre los métodos de enrutamiento, consulte [Métodos de enrutamiento del Administrador de tráfico](../traffic-manager/traffic-manager-routing-methods.md).
 
-You can get your IP address (or addresses, in a multi-region deployment) on the tenant page in the Azure portal.
+### ¿Puedo crear una instancia del servicio de Administración de API mediante una plantilla ARM?
 
-### <a name="can-i-configure-an-oauth-2.0-authorization-server-with-ad-fs-security?"></a>Can I configure an OAuth 2.0 authorization server with AD FS security?
+Sí, consulte las plantillas de inicio rápido en [Azure API Management Service](http://aka.ms/apimtemplate) (Servicio de Administración de API de Azure).
 
-To learn how to configure an OAuth 2.0 authorization server with Active Directory Federation Services (AD FS) security, see [Using ADFS in API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).
+### ¿Puedo usar un certificado SSL autofirmado para un back-end?
 
-### <a name="what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations?"></a>What routing method does API Management use in deployments to multiple geographic locations?
+Sí. Siga estos pasos:
 
-API Management uses the [performance traffic routing method](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method) in deployments to multiple geographic locations. Incoming traffic is routed to the closest API gateway. If one region goes offline, incoming traffic is automatically routed to the next closest gateway. Learn more about routing methods in [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md).
+1. Cree una entidad de [back-end](https://msdn.microsoft.com/library/azure/dn935030.aspx) mediante la API de administración.
+2. Establecimiento de la propiedad skipCertificateChainValidation en true.
+3. Cuando ya no desea permitir el certificado autofirmado, puede eliminar la entidad de back-end o establecer la propiedad skipCertificateChainValidation en false.
 
-### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance?"></a>Can I use an Azure Resource Manager template to create an API Management service instance?
+### ¿Por qué recibo el error de autenticación al intentar clonar el repositorio GIT? 
 
-Yes. See the [Azure API Management Service](http://aka.ms/apimtemplate) QuickStart templates.
+Si está utilizando el Administrador de credenciales de GIT o intenta clonar el repositorio mediante Visual Studio, puede que se tope con un problema conocido con el cuadro de diálogo de credenciales de Windows que limita la longitud de la contraseña a solo 127 caracteres y, por tanto, trunca la contraseña que nosotros generamos. Estamos trabajando para acortar la contraseña. Por ahora, use GIT Bash para la clonación.
 
-### <a name="can-i-use-a-self-signed-ssl-certificate-for-a-back-end?"></a>Can I use a self-signed SSL certificate for a back end?
+### ¿Funciona la administración de API con ExpressRoute?
 
-Yes. Here's how to use a self-signed Secure Sockets Layer (SSL) certificate for a back end:
+Sí.
 
-1. Create a [Backend](https://msdn.microsoft.com/library/azure/dn935030.aspx) entity by using API Management.
-2. Set the **skipCertificateChainValidation** property to **true**.
-3. If you no longer want to allow self-signed certificates, delete the Backend entity, or set the **skipCertificateChainValidation** property to **false**.
+### ¿Puedo mover una instancia de API Management de una suscripción a otra?
 
-### <a name="why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository?"></a>Why do I get an authentication failure when I try to clone a Git repository?
+Sí. Siga las instrucciones de [este artículo](../resource-group-move-resources.md).
 
-If you use Git Credential Manager, or if you're trying to clone a Git repository by using Visual Studio, you might run into a known issue with the Windows credentials dialog box. The dialog box limits password length to 127 characters, and it truncates the Microsoft-generated password. We are working on shortening the password. For now, please use Git Bash to clone your Git repository.
-
-### <a name="does-api-management-work-with-azure-expressroute?"></a>Does API Management work with Azure ExpressRoute?
-
-Yes. API Management works with Azure ExpressRoute.
-
-### <a name="can-i-move-an-api-management-service-from-one-subscription-to-another?"></a>Can I move an API Management service from one subscription to another?
-
-Yes. To learn how, see [Move resources to a new resource group or subscription](../resource-group-move-resources.md).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->
