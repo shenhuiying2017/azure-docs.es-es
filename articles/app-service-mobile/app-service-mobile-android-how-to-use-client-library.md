@@ -3,7 +3,7 @@
     description="Uso del SDK del cliente Android para aplicaciones móviles de Azure"
     services="app-service\mobile"
     documentationCenter="android"
-    authors="yuaxu"
+    authors="ysxu"
     manager="erikre"
     editor=""/>
 

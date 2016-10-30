@@ -3,7 +3,7 @@
     description="Uso del SDK de iOS para Aplicaciones móviles de Azure"
     services="app-service\mobile"
     documentationCenter="ios"
-    authors="yuaxu"
+    authors="ysxu"
     manager="yochayk"
     editor=""/>
 

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Lista de tareas de administración y desarrollo de los Servicios de BizTalk | Microsoft Azure" 
+    pageTitle="Lista de tareas de administración y desarrollo de los Servicios de BizTalk | Microsoft Azure"
     description="Ayuda de planeación y de trabajo para implementar Servicios de BizTalk de Azure."
     services="biztalk-services"
     documentationCenter=""
@@ -24,7 +24,7 @@ Cuando se trabaja con Servicios de BizTalk de Microsoft Azure, hay varios compon
 
 |Paso|Quién es el responsable|Tarea|Vínculos relacionados|
 |----|----|----|----|
-1.|Administrador|Creación de la suscripción de Microsoft Azure con una cuenta de Microsoft o una cuenta de la organización|[Portal de Azure clásico](http://go.microsoft.com/fwlink/p/?LinkID=213885)|
+|1.|Administrador|Creación de la suscripción de Microsoft Azure con una cuenta de Microsoft o una cuenta de la organización|[Portal de Azure clásico](http://go.microsoft.com/fwlink/p/?LinkID=213885)|
 |2.|Administrador|Cree o aprovisione un servicio de BizTalk.|[Crear un Servicio de BizTalk mediante el portal de Azure clásico](http://go.microsoft.com/fwlink/p/?LinkID=302280)|
 |3.|Administrador|Registrarse a usted o registrar la implementación de los Servicios de BizTalk de su empresa|[Registrar y actualizar una implementación del servicio de BizTalk en el Portal de servicios de BizTalk](https://msdn.microsoft.com/library/azure/hh689837.aspx)|
 |4.|Administrador|Se aplica si la aplicación usa el servicio de adaptador de BizTalk para conectarse a un sistema de línea de negocio (LOB) local o usa un destino de tema o cola.  Cree el espacio de nombres del Bus de servicio de Azure. Dé los valores de este espacio de nombres, del nombre del emisor del Bus de servicio y de la clave del emisor del Bus de servicio al desarrollador.|[Crear o modificar un espacio de nombres del servicio de Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md) y [Obtener valores del nombre de emisor y de la clave de emisor](biztalk-issuer-name-issuer-key.md)|

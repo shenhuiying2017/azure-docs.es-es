@@ -1,115 +1,121 @@
 <properties
-	pageTitle="Expresiones de etiqueta y enrutamiento"
-	description="En este tema se explican las expresiones de etiqueta y enrutamiento de los Centros de notificaciones de Azure."
-	services="notification-hubs"
-	documentationCenter=".net"
-	authors="wesmc7777"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Routing and Tag Expressions"
+    description="This topic explains routing and tag expressions for Azure notification hubs."
+    services="notification-hubs"
+    documentationCenter=".net"
+    authors="ysxu"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="06/29/2016"
-	ms.author="wesmc"/>
-
-# Expresiones de etiqueta y enrutamiento
-
-##Información general
-
-Las expresiones de etiqueta le permiten dirigirse a conjuntos específicos de dispositivos, o más específicamente a registros, al enviar una notificación push a través de Centros de notificaciones.
+    ms.service="notification-hubs"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="06/29/2016"
+    ms.author="yuaxu"/>
 
 
-## Selección del destino de registros específicos
+# <a name="routing-and-tag-expressions"></a>Routing and tag expressions
 
-La única forma de seleccionar el destino de registros de notificaciones específicos es asociar etiquetas con ellos y, a continuación, seleccionar el destino de esas etiquetas. Como se describe en [Administración de registros](notification-hubs-push-notification-registration-management.md), con el fin de recibir notificaciones de inserción, una aplicación tiene que registrar un identificador de dispositivo en un centro de notificaciones. Una vez que se crea un registro en un centro de notificaciones, el back-end de la aplicación puede enviar notificaciones de inserción a este. El back-end de la aplicación puede elegir a qué registros dirigirse con una notificación específica de las maneras siguientes:
+##<a name="overview"></a>Overview
 
-1. **Difusión**: todos los registros del centro de notificaciones reciben la notificación.
-2. **Etiquetar**: todos los registros que contienen la etiqueta especificada reciben la notificación.
-3. **Expresión de etiqueta**: todos los registros cuyo conjunto de etiquetas coincide con la expresión especificada reciben la notificación.
+Tag expressions enable you to target specific sets of devices, or more specifically registrations, when sending a push notification through Notification Hubs.
 
-## Etiquetas
 
-Una etiqueta puede ser cualquier cadena, de hasta 120 caracteres, que contenga caracteres alfanuméricos y los siguientes caracteres no alfanuméricos: “\_”, “@”, “#”, “.”, “:”, “-”. En el ejemplo siguiente se muestra una aplicación desde la que puede recibir notificaciones del sistema sobre grupos musicales específicos. En este escenario, una manera sencilla de enrutar notificaciones es etiquetar los registros con etiquetas que representan las distintas bandas, como se muestra en la siguiente imagen.
+## <a name="targeting-specific-registrations"></a>Targeting specific registrations
+
+The only way to target specific notification registrations is to associate tags with them, then target those tags. As discussed in [Registration Management](notification-hubs-push-notification-registration-management.md), in order to receive push notifications an app has to register a device handle on a notification hub. Once a registration is created on a notification hub, the application backend can send push notifications to it.
+The application backend can choose the registrations to target with a specific notification in the following ways:
+
+1. **Broadcast**: all registrations in the notification hub receive the notification.
+2. **Tag**: all registrations that contain the specified tag receive the notification.
+3. **Tag expression**: all registrations whose set of tags match the specified expression receive the notification.
+
+## <a name="tags"></a>Tags
+
+A tag can be any string, up to 120 characters, containing alphanumeric and the following non-alphanumeric characters: ‘_’, ‘@’, ‘#’, ‘.’, ‘:’, ‘-’. The following example shows an application from which you can receive toast notifications about specific music groups. In this scenario, a simple way to route notifications is to label registrations with tags that represent the different bands, as in the following picture.
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
 
-En esta imagen, el mensaje etiquetado **Beatles** llega solamente a la tableta registrada con la etiqueta **Beatles**.
+In this picture, the message tagged **Beatles** reaches only the tablet that registered with the tag **Beatles**.
 
-Para obtener más información acerca de la creación de registros de etiquetas, consulte [Administración de registros](notification-hubs-push-notification-registration-management.md).
+For more information about creating registrations for tags, see [Registration Management](notification-hubs-push-notification-registration-management.md).
 
-Puede enviar notificaciones a etiquetas mediante los métodos de las notificaciones de envío de la clase `Microsoft.Azure.NotificationHubs.NotificationHubClient` en el SDK de [Centros de notificaciones de Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). También puede usar Node.js o las API de REST de notificaciones de inserción. A continuación se facilita un ejemplo mediante el uso del SDK.
-
-
-	Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
-
-	// Windows 8.1 / Windows Phone 8.1
-	var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
-	"You requested a Beatles notification</text></binding></visual></toast>";
-	outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Beatles");
-
-	// Windows 10
-	toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
-	"You requested a Wailers notification</text></binding></visual></toast>";
-	outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Wailers");
+You can send notifications to tags using the send notifications methods of the `Microsoft.Azure.NotificationHubs.NotificationHubClient` class in the [Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) SDK. You can also use Node.js, or the Push Notifications REST APIs.  Here's an example using the SDK.
 
 
+    Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
+
+    // Windows 8.1 / Windows Phone 8.1
+    var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
+    "You requested a Beatles notification</text></binding></visual></toast>";
+    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Beatles");
+
+    // Windows 10
+    toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
+    "You requested a Wailers notification</text></binding></visual></toast>";
+    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Wailers");
 
 
-Las etiquetas no tienen que aprovisionarse previamente y pueden hacer referencia a varios conceptos específicos de la aplicación. Por ejemplo, los usuarios de esta aplicación de ejemplo pueden comentar sobre bandas y desean recibir notificaciones del sistema, no solo de los comentarios sobre sus bandas preferidas, sino también de todos los comentarios de sus amigos, independientemente de la banda sobre la que estén comentando. En la siguiente imagen se muestra un ejemplo de este escenario:
+
+
+Tags do not have to be pre-provisioned and can refer to multiple app-specific concepts. For example, users of this example application can comment on bands and want to receive toasts, not only for the comments on their favorite bands, but also for all comments from their friends, regardless of the band on which they are commenting. The following picture shows an example of this scenario:
 
 
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags2.png)
 
-En esta imagen, Ana está interesada en recibir actualizaciones sobre los Beatles y Pedro está interesado en las actualizaciones sobre los Wailers. Bob también está interesado en los comentarios de Juan Carlos, y Juan Carlos está interesado en los Wailers. Cuando se envía una notificación sobre el comentario de Juan Carlos acerca de los Beatles, Ana y Pedro la reciben.
+In this picture, Alice is interested in updates for the Beatles, and Bob is interested in updates for the Wailers. Bob is also interested in Charlie’s comments, and Charlie is in interested in the Wailers. When a notification is sent for Charlie’s comment on the Beatles, both Alice and Bob receive it.
 
-Aunque se pueden codificar varios intereses en etiquetas (por ejemplo, "banda\_Beatles" o "sigue\_Juan Carlos"), las etiquetas son cadenas simples y no propiedades con valores. Los registros coinciden solo con la presencia o ausencia de una etiqueta específica.
+While you can encode multiple concerns in tags (for example, “band_Beatles” or “follows_Charlie”), tags are simple strings and not properties with values. A registration is matched only on the presence or absence of a specific tag.
 
-Para obtener un tutorial completo detallado sobre cómo usar etiquetas para enviar a grupos de interés, consulte [Noticias de última hora](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
+For a full step-by-step tutorial on how to use tags for sending to interest groups, see [Breaking News](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
 
 
-## Uso de etiquetas para los usuarios de destino
+## <a name="using-tags-to-target-users"></a>Using tags to target users
 
-Otra forma de usar etiquetas es identificar todos los dispositivos de un usuario concreto. Los registros se pueden etiquetar con una etiqueta que contenga un identificador de usuario, como se muestra en la siguiente imagen:
+Another way to use tags is to identify all the devices of a particular user. Registrations can be tagged with a tag that contains a user id, as in the following picture:
 
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags3.png)
 
-En esta imagen, el mensaje etiquetado mediante uid:Ana llega a todos los registros etiquetados como uid:Ana; por lo tanto, a todos los dispositivos de Ana.
+In this picture, the message tagged uid:Alice reaches all registrations tagged uid:Alice; hence, all of Alice’s devices.
 
 
-##Expresiones de etiqueta
+##<a name="tag-expressions"></a>Tag expressions
 
-Hay casos en que una notificación tiene como destino un conjunto de registros identificado no por una sola etiqueta, sino por una expresión booleana en las etiquetas.
+There are cases in which a notification has to target a set of registrations that is identified not by a single tag, but by a Boolean expression on tags.
 
-Tome una aplicación de deportes que envía un recordatorio a todas las personas de Boston sobre un partido entre los Red Sox y los Cardinals. Si la aplicación cliente registra etiquetas sobre intereses en equipos y ubicaciones, la notificación deberá dirigirse a todas las personas de Boston interesadas en los Red Sox o en los Cardinals. Esta condición se puede expresar mediante la siguiente expresión booleana:
+Consider a sports application that sends a reminder to everyone in Boston about a game between the Red Sox and Cardinals. If the client app registers tags about interest in teams and location, then the notification should be targeted to everyone in Boston who is interested in either the Red Sox or the Cardinals. This condition can be expressed with the following Boolean expression:
 
-	(follows_RedSox || follows_Cardinals) && location_Boston
+    (follows_RedSox || follows_Cardinals) && location_Boston
 
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags4.png)
 
-Las expresiones de etiqueta pueden contener todos los operadores booleanos, por ejemplo, AND (& &), OR (||) y NOT (!). También pueden contener paréntesis. Las expresiones de etiqueta se limita a 20 etiquetas si contienen solamente OR; de lo contrario, se limitan a 6 etiquetas.
+Tag expressions can contain all Boolean operators, such as AND (&&), OR (||), and NOT (!). They can also contain parentheses. Tag expressions are limited to 20 tags if they contain only ORs; otherwise they are limited to 6 tags.
 
-A continuación se muestra un ejemplo de envío de notificaciones con expresiones de etiqueta mediante el SDK.
+Here's an example for sending notifications with tag expressions using the SDK.
 
 
-	Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
+    Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
 
-	String userTag = "(location_Boston && !follows_Cardinals)";	
+    String userTag = "(location_Boston && !follows_Cardinals)"; 
 
-	// Windows 8.1 / Windows Phone 8.1
-	var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
-	"You want info on the Red Socks</text></binding></visual></toast>";
-	outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+    // Windows 8.1 / Windows Phone 8.1
+    var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
+    "You want info on the Red Socks</text></binding></visual></toast>";
+    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
 
-	// Windows 10
-	toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
-	"You want info on the Red Socks</text></binding></visual></toast>";
-	outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+    // Windows 10
+    toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
+    "You want info on the Red Socks</text></binding></visual></toast>";
+    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

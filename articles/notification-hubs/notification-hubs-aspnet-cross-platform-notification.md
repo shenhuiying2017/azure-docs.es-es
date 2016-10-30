@@ -1,39 +1,40 @@
 <properties
-	pageTitle="Envío de notificaciones entre plataformas a los usuarios con Centros de notificaciones (ASP.NET)"
-	description="Obtenga información acerca de cómo utilizar las plantillas de los Centros de notificaciones para enviar, en una sola solicitud, una notificación independiente de plataforma que tenga como destino todas las plataformas."
-	services="notification-hubs"
-	documentationCenter=""
-	authors="wesmc7777"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Send cross-platform notifications to users with Notification Hubs (ASP.NET)"
+    description="Learn how to use Notification Hubs templates to send, in a single request, a platform-agnostic notification that targets all platforms."
+    services="notification-hubs"
+    documentationCenter=""
+    authors="ysxu"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="06/29/2016" 
-	ms.author="wesmc"/>
-
-# Envío de notificaciones entre plataformas a los usuarios con Centros de notificaciones
+    ms.service="notification-hubs"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="10/03/2016" 
+    ms.author="yuaxu"/>
 
 
-En el tutorial anterior, [Notificación a los usuarios con Centros de notificaciones], aprendió a insertar notificaciones en todos los dispositivos que tiene registrado un usuario autenticado específico. En ese tutorial, se necesitaban varias solicitudes para enviar una notificación a cada plataforma de cliente compatible. Los Centros de notificaciones son compatibles con plantillas, que le permiten especificar cómo un dispositivo específico desea recibir notificaciones. Con esto se simplifica el envío de notificaciones entre plataformas. Este tema muestra cómo aprovecha las plantillas para enviar, en una sola solicitud, una notificación independiente de la plataforma que se dirige a todas las plataformas. Si desea obtener información más detallada sobre las plantillas, consulte [Información general acerca de los Centros de notificaciones de Azure][Templates].
+# <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Send cross-platform notifications to users with Notification Hubs
 
-> [AZURE.NOTE] Los Centros de notificaciones permiten que un dispositivo registre varias plantillas con la misma etiqueta. En este caso, un mensaje entrante dirigido a esa etiqueta da lugar a que se entreguen varias notificaciones al dispositivo, una por cada plantilla. Esto le permite mostrar el mismo mensaje en varias notificaciones visuales, como distintivo y como notificación del sistema en una aplicación de la Tienda Windows.
 
-Lleve a cabo los siguientes pasos para enviar notificaciones entre plataformas mediante plantillas:
+In the previous tutorial [Notify users with Notification Hubs], you learned how to push notifications to all devices registered by a specific authenticated user. In that tutorial, multiple requests were required to send a notification to each supported client platform. Notification Hubs supports templates, which let you specify how a specific device wants to receive notifications. This simplifies sending cross-platform notifications. This topic demonstrates how to take advantage of templates to send, in a single request, a platform-agnostic notification that targets all platforms. For more detailed information about templates, see [Azure Notification Hubs Overview][Templates].
 
-1. En el Explorador de soluciones en Visual Studio, expanda la carpeta **Controladores** y, a continuación, abra el archivo RegisterController.cs.
+> [AZURE.NOTE] Notification Hubs allows a device to register multiple templates with the same tag. In this case, an incoming message targeting that tag results in multiple notifications delivered to the device, one for each template. This enables you to display the same message in multiple visual notifications, such as both as a badge and as a toast notification in a Windows Store app.
 
-2. Encuentre el bloque de código en el método **Post** que crea un nuevo registro y reemplace el contenido del `switch` por el código siguiente:
+Complete the following steps to send cross-platform notifications using templates:
 
-		switch (deviceUpdate.Platform)
+1. In the Solution Explorer in Visual Studio, expand the **Controllers** folder, then open the RegisterController.cs file.
+
+2. Locate the block of code in the **Post** method that creates a new registration replace the `switch` content with the following code:
+
+        switch (deviceUpdate.Platform)
         {
             case "mpns":
-                var toastTemplate = "<?xml version="1.0" encoding="utf-8"?>" +
-                    "<wp:Notification xmlns:wp="WPNotification">" +
+                var toastTemplate = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                    "<wp:Notification xmlns:wp=\"WPNotification\">" +
                        "<wp:Toast>" +
                             "<wp:Text1>$(message)</wp:Text1>" +
                        "</wp:Toast> " +
@@ -45,20 +46,20 @@ Lleve a cabo los siguientes pasos para enviar notificaciones entre plataformas m
                 registration = new WindowsTemplateRegistrationDescription(deviceUpdate.Handle, toastTemplate);
                 break;
             case "apns":
-                var alertTemplate = "{"aps":{"alert":"$(message)"}}";
+                var alertTemplate = "{\"aps\":{\"alert\":\"$(message)\"}}";
                 registration = new AppleTemplateRegistrationDescription(deviceUpdate.Handle, alertTemplate);
                 break;
             case "gcm":
-                var messageTemplate = "{"data":{"msg":"$(message)"}}";
+                var messageTemplate = "{\"data\":{\"message\":\"$(message)\"}}";
                 registration = new GcmTemplateRegistrationDescription(deviceUpdate.Handle, messageTemplate);
                 break;
             default:
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
         }
 
-	Este código llama al método específico de la plataforma para crear un registro de plantilla en lugar de un registro nativo. No se deben modificar los registros existentes, dado que los registros de plantilla derivan de los registros nativos.
+    This code calls the platform-specific method to create a template registration instead of a native registration. Existing registrations need not be modified because template registrations derive from native registrations.
 
-3. En el controlador **Notifications**, reemplace el método **sendNotification** por el código siguiente:
+3. In the **Notifications** controller, replace the **sendNotification** method with the following code:
 
         public async Task<HttpResponseMessage> Post()
         {
@@ -71,23 +72,23 @@ Lleve a cabo los siguientes pasos para enviar notificaciones entre plataformas m
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-	Este código envía una notificación a todas las plataformas al mismo tiempo y sin que sea necesario especificar una carga nativa. Los Centros de notificaciones crean y entregan la carga correcta a cada dispositivo con el valor _tag_ proporcionado, tal como se especifica en las plantillas registradas.
+    This code sends a notification to all platforms at the same time and without having to specify a native payload. Notification Hubs builds and delivers the correct payload to every device with the provided _tag_ value, as specified in the registered templates.
 
-4. Publique de nuevo su proyecto de back-end de WebApi.
+4. Re-publish your WebApi back-end project.
 
-5. Ejecute la aplicación cliente otra vez y compruebe que el registro se realice correctamente.
+5. Run the client app again and verify that registration succeeds.
 
-6. (Opcional) Implemente la aplicación cliente en un segundo dispositivo y, a continuación, ejecute la aplicación.
+6. (Optional) Deploy the client app to a second device, then run the app.
 
-	Observe que aparecerá una notificación en cada dispositivo.
+    Note that a notification is displayed on each device.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next Steps
 
-Ahora que completó este tutorial, obtenga más información acerca de los Centros de notificaciones y las plantillas en estos temas:
+Now that you have completed this tutorial, find out more about Notification Hubs and templates in these topics:
 
-+ **[Uso de los Centros de notificaciones para enviar noticias de última hora]** <br/>(C# para Tienda Windows / iOS)Muestra otro escenario para el uso de las plantillas
++ **[Use Notification Hubs to send breaking news]** <br/>Demonstrates another scenario for using templates
 
-+  **[Información general acerca de los centros de notificaciones de Azure][Templates]** <br/>Este tema de información general contiene información más detallada sobre las plantillas.
++  **[Azure Notification Hubs Overview][Templates]**<br/>Overview topic has more detailed information on templates.
 
 
 <!-- Anchors. -->
@@ -102,10 +103,14 @@ Ahora que completó este tutorial, obtenga más información acerca de los Centr
 [Push to users Mobile Services]: /manage/services/notification-hubs/notify-users/
 [Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 
-[Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [Azure Notification Hubs]: http://go.microsoft.com/fwlink/p/?LinkId=314257
-[Notificación a los usuarios con Centros de notificaciones]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
+[Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Notification Hub How to for Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

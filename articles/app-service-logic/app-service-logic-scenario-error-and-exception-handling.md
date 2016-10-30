@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Registro y control de errores en Logic Apps | Microsoft Azure"
-    description="Visualización de un caso de uso real del control y registro de errores avanzado con Logic Apps"
+    pageTitle="Logging and error handling in Logic Apps | Microsoft Azure"
+    description="View a real-life use case of advanced error handling and logging with Logic Apps"
     keywords=""
     services="logic-apps"
     authors="hedidin"
-    manager=""
+    manager="anneta"
     editor=""
     documentationCenter=""/>
 
@@ -17,41 +17,44 @@
     ms.date="07/29/2016"
     ms.author="b-hoedid"/>
 
-# Registro y control de errores en Logic Apps
 
-En este artículo se describe cómo extender una aplicación lógica para un mejor control de excepciones. Este es un caso de uso real y constituye nuestra respuesta a la pregunta: ¿Admite Logic Apps control de excepciones y errores?
+# <a name="logging-and-error-handling-in-logic-apps"></a>Logging and error handling in Logic Apps
 
->[AZURE.NOTE] La versión actual de la característica de Logic Apps del Servicio de aplicaciones de Microsoft Azure proporciona una plantilla estándar para las respuestas de la acción. Esto incluye la validación interna y las respuestas de error devueltas desde una aplicación de API.
+This article describes how you can extend a logic app to better support exception handling. It is a real-life use case and our answer to the question of, "Does Logic Apps support exception and error handling?"
 
-## Información general sobre el caso de uso y el escenario
+>[AZURE.NOTE] The current version of the Logic Apps feature of Microsoft Azure App Service provides a standard template for action responses.
+>This includes both internal validation and error responses returned from an API app.
 
-La siguiente historia es un caso de uso para este artículo. Una conocida organización sanitaria nos contrató para que desarrolláramos una solución de Azure que crearía un portal para pacientes mediante Microsoft Dynamics CRM Online. Necesitaban enviar registros de citas entre el portal para pacientes de Dynamics CRM Online y Salesforce. Se nos pidió que usáramos la norma [FHIR HL7](http://www.hl7.org/implement/standards/fhir/) para todos los registros de paciente.
+## <a name="overview-of-the-use-case-and-scenario"></a>Overview of the use case and scenario
 
-El proyecto tenía dos requisitos principales:
+The following story is the use case for this article.
+A well-known healthcare organization engaged us to develop an Azure solution that would create a patient portal by using Microsoft Dynamics CRM Online. They needed to send appointment records between the Dynamics CRM Online patient portal and Salesforce.  We were asked to use the [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) standard for all patient records.
 
- -  Un método para registrar las entradas enviadas desde el portal de Dynamics CRM Online
- -  Una manera de ver todos los errores que se producían dentro del flujo de trabajo.
+The project had two major requirements:  
+
+ -  A method to log records sent from the Dynamics CRM Online portal
+ -  A way to view any errors that occurred within the workflow
 
 
-## ¿Cómo resolvimos el problema?
+## <a name="how-we-solved-the-problem"></a>How we solved the problem
 
->[AZURE.TIP] Puede ver un vídeo de alto nivel del proyecto en la página de [Integration User Group](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/ "Integration User Group").
+>[AZURE.TIP] You can view a high-level video of the project at the [Integration User Group](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/ "Integration User Group").
 
-Elegimos [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/ "DocumentDB de Azure") como repositorio para los registros y entradas de error (en DocumentDB se hace referencia a los registros como documentos). Puesto que Logic Apps tiene una plantilla estándar para todas las respuestas, no sería necesario crear un esquema personalizado. Podíamos crear una aplicación de API para **insertar** y **consultar** registros de errores y registros. También podíamos definir un esquema para cada uno de ellos dentro de la aplicación de API.
+We chose [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/ "Azure DocumentDB") as a repository for the log and error records (DocumentDB refers to records as documents). Because Logic Apps has a standard template for all responses, we would not have to create a custom schema. We could create an API app to **Insert** and **Query** for both error and log records. We could also define a schema for each within the API app.  
 
-Otro requisito era que se purgaran los registros después de una determinada fecha. DocumentDB presenta una propiedad llamada [período de vida](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Período de vida") (TTL), que nos permitió establecer un valor de **período de vida** para cada registro o colección. De esta manera se suprimía la necesidad de eliminar manualmente los registros en DocumentDB.
+Another requirement was to purge records after a certain date. DocumentDB has a property called  [Time to Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time to Live") (TTL), which allowed us to set a **Time to Live** value for each record or collection. This eliminated the need to manually delete records in DocumentDB.
 
-### Creación de la aplicación lógica
+### <a name="creation-of-the-logic-app"></a>Creation of the logic app
 
-El primer paso es crear una aplicación lógica y cargarla en el diseñador. En este ejemplo, vamos a usar aplicaciones lógicas primarias y secundarias. Supongamos que ya ha creado la primaria y va a crear una aplicación lógica secundaria.
+The first step is to create the logic app and load it in the designer. In this example, we are using parent-child logic apps. Let's assume that we have already created the parent and are going to create one child logic app.
 
-Puesto que vamos a registrar los registros procedentes de Dynamics CRM Online, vamos a comenzar por lo más importante. Debemos usar un desencadenador de solicitud, ya que la aplicación lógica primaria desencadenará la secundaria.
+Because we are going to be logging the record coming out of Dynamics CRM Online, let's start at the top. We need to use a Request trigger because the parent logic app triggers this child.
 
-> [AZURE.IMPORTANT] Para completar este tutorial, deberá crear una base de datos de DocumentDB y dos colecciones (Registro y Errores).
+> [AZURE.IMPORTANT] To complete this tutorial, you will need to create a DocumentDB database and two collections (Logging and Errors).
 
-### Desencadenador de aplicación lógica
+### <a name="logic-app-trigger"></a>Logic app trigger
 
-Vamos a usar un desencadenador de solicitud tal como se muestra en el ejemplo siguiente.
+We are using a Request trigger as shown in the following example.
 
 ```` json
 "triggers": {
@@ -89,35 +92,37 @@ Vamos a usar un desencadenador de solicitud tal como se muestra en el ejemplo si
 ````
 
 
-### Pasos
+### <a name="steps"></a>Steps
 
-Es necesario registrar el origen (solicitud) del registro del paciente desde el portal de Dynamics CRM Online.
+We need to log the source (request) of the patient record from the Dynamics CRM Online portal.
 
-1. Debemos obtener un registro de nueva cita de Dynamics CRM Online. El desencadenador procedente de CRM nos proporcionará los valores de **CRM PatentId**, **tipo de registro**, **registro nuevo o actualizado** (valor booleano nuevo o actualizado) y **SalesforceId**. El valor de **SalesforceId** puede ser null porque solo se utiliza para obtener una actualización. Se obtendrá el registro de CRM mediante los valores de **PatientID** y **tipo de registro** de CRM.
-1. A continuación, es necesario agregar a nuestra aplicación de API de DocumentDB la operación **InsertLogEntry**, tal y como se muestra en las ilustraciones siguientes:
-
-
-#### Vista de diseñador para insertar entrada de registro
-
-![Insertar entrada de registro](./media/app-service-logic-scenario-error-and-exception-handling/lognewpatient.png)
-
-#### Vista de diseñador para insertar entrada de error
-![Insertar entrada de registro](./media/app-service-logic-scenario-error-and-exception-handling/insertlogentry.png)
-
-#### Comprobación de errores en la creación de registro
-
-![Condición](./media/app-service-logic-scenario-error-and-exception-handling/condition.png)
+1. We need to get a new appointment record from Dynamics CRM Online.
+    The trigger coming from CRM provides us with the **CRM PatentId**, **record type**, **New or Updated Record** (new or update Boolean value), and **SalesforceId**. The **SalesforceId** can be null because it's only used for an update.
+    We will get the CRM record by using the CRM **PatientID** and the **Record Type**.
+1. Next, we need to add our DocumentDB API app **InsertLogEntry** operation as shown in the following figures.
 
 
-## Código fuente de la aplicación lógica
+#### <a name="insert-log-entry-designer-view"></a>Insert log entry designer view
 
->[AZURE.NOTE]  Los siguientes son solo ejemplos. Como este tutorial se basa en una implementación actualmente en producción, es posible que el valor de un **nodo de origen** no muestre las propiedades que están relacionadas con la programación de una cita.
+![Insert Log Entry](./media/app-service-logic-scenario-error-and-exception-handling/lognewpatient.png)
 
-### Registro
-El siguiente ejemplo de código de aplicación lógica muestra cómo controlar el registro.
+#### <a name="insert-error-entry-designer-view"></a>Insert error entry designer view
+![Insert Log Entry](./media/app-service-logic-scenario-error-and-exception-handling/insertlogentry.png)
 
-#### Entrada de registro
-Este es el código fuente de la aplicación lógica para insertar una entrada de registro.
+#### <a name="check-for-create-record-failure"></a>Check for create record failure
+
+![Condition](./media/app-service-logic-scenario-error-and-exception-handling/condition.png)
+
+
+## <a name="logic-app-source-code"></a>Logic app source code
+
+>[AZURE.NOTE]  The following are samples only. Because this tutorial is based on an implementation currently in production, the value of a **Source Node** might not display properties that are related to scheduling an appointment.
+
+### <a name="logging"></a>Logging
+The following logic app code sample shows how to handle logging.
+
+#### <a name="log-entry"></a>Log entry
+This is the logic app source code for inserting a log entry.
 
 ``` json
 "InsertLogEntry": {
@@ -143,72 +148,72 @@ Este es el código fuente de la aplicación lógica para insertar una entrada de
 }
 ```
 
-#### Solicitud de registro
+#### <a name="log-request"></a>Log request
 
-Este es el mensaje de solicitud de registro publicado en la aplicación de API.
+This is the log request message posted to the API app.
 
 ``` json
     {
     "uri": "https://.../api/Log",
     "method": "post",
     "body": {
-	    "date": "Fri, 10 Jun 2016 22:31:56 GMT",
-	    "operation": "New Patient",
-	    "patientId": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0",
-	    "providerId": "",
-	    "source": "{"Pragma":"no-cache","x-ms-request-id":"e750c9a9-bd48-44c4-bbba-1688b6f8a132","OData-Version":"4.0","Cache-Control":"no-cache","Date":"Fri, 10 Jun 2016 22:31:56 GMT","Set-Cookie":"ARRAffinity=785f4334b5e64d2db0b84edcc1b84f1bf37319679aefce206b51510e56fd9770;Path=/;Domain=127.0.0.1","Server":"Microsoft-IIS/8.0,Microsoft-HTTPAPI/2.0","X-AspNet-Version":"4.0.30319","X-Powered-By":"ASP.NET","Content-Length":"1935","Content-Type":"application/json; odata.metadata=minimal; odata.streaming=true","Expires":"-1"}"
-    	}
+        "date": "Fri, 10 Jun 2016 22:31:56 GMT",
+        "operation": "New Patient",
+        "patientId": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0",
+        "providerId": "",
+        "source": "{\"Pragma\":\"no-cache\",\"x-ms-request-id\":\"e750c9a9-bd48-44c4-bbba-1688b6f8a132\",\"OData-Version\":\"4.0\",\"Cache-Control\":\"no-cache\",\"Date\":\"Fri, 10 Jun 2016 22:31:56 GMT\",\"Set-Cookie\":\"ARRAffinity=785f4334b5e64d2db0b84edcc1b84f1bf37319679aefce206b51510e56fd9770;Path=/;Domain=127.0.0.1\",\"Server\":\"Microsoft-IIS/8.0,Microsoft-HTTPAPI/2.0\",\"X-AspNet-Version\":\"4.0.30319\",\"X-Powered-By\":\"ASP.NET\",\"Content-Length\":\"1935\",\"Content-Type\":\"application/json; odata.metadata=minimal; odata.streaming=true\",\"Expires\":\"-1\"}"
+        }
     }
 
 ```
 
 
-#### Respuesta de registro
+#### <a name="log-response"></a>Log response
 
-Este es el mensaje de respuesta de registro desde la aplicación de API.
+This is the log response message from the API app.
 
 ``` json
 {
     "statusCode": 200,
     "headers": {
-	    "Pragma": "no-cache",
-	    "Cache-Control": "no-cache",
-	    "Date": "Fri, 10 Jun 2016 22:32:17 GMT",
-	    "Server": "Microsoft-IIS/8.0",
-	    "X-AspNet-Version": "4.0.30319",
-	    "X-Powered-By": "ASP.NET",
-	    "Content-Length": "964",
-	    "Content-Type": "application/json; charset=utf-8",
-	    "Expires": "-1"
+        "Pragma": "no-cache",
+        "Cache-Control": "no-cache",
+        "Date": "Fri, 10 Jun 2016 22:32:17 GMT",
+        "Server": "Microsoft-IIS/8.0",
+        "X-AspNet-Version": "4.0.30319",
+        "X-Powered-By": "ASP.NET",
+        "Content-Length": "964",
+        "Content-Type": "application/json; charset=utf-8",
+        "Expires": "-1"
     },
     "body": {
-	    "ttl": 2592000,
-	    "id": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0_1465597937",
-	    "_rid": "XngRAOT6IQEHAAAAAAAAAA==",
-	    "_self": "dbs/XngRAA==/colls/XngRAOT6IQE=/docs/XngRAOT6IQEHAAAAAAAAAA==/",
-	    "_ts": 1465597936,
-	    "_etag": ""0400fc2f-0000-0000-0000-575b3ff00000"",
-	    "patientID": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0",
-	    "timestamp": "2016-06-10T22:31:56Z",
-	    "source": "{"Pragma":"no-cache","x-ms-request-id":"e750c9a9-bd48-44c4-bbba-1688b6f8a132","OData-Version":"4.0","Cache-Control":"no-cache","Date":"Fri, 10 Jun 2016 22:31:56 GMT","Set-Cookie":"ARRAffinity=785f4334b5e64d2db0b84edcc1b84f1bf37319679aefce206b51510e56fd9770;Path=/;Domain=127.0.0.1","Server":"Microsoft-IIS/8.0,Microsoft-HTTPAPI/2.0","X-AspNet-Version":"4.0.30319","X-Powered-By":"ASP.NET","Content-Length":"1935","Content-Type":"application/json; odata.metadata=minimal; odata.streaming=true","Expires":"-1"}",
-	    "operation": "New Patient",
-	    "salesforceId": "",
-	    "expired": false
+        "ttl": 2592000,
+        "id": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0_1465597937",
+        "_rid": "XngRAOT6IQEHAAAAAAAAAA==",
+        "_self": "dbs/XngRAA==/colls/XngRAOT6IQE=/docs/XngRAOT6IQEHAAAAAAAAAA==/",
+        "_ts": 1465597936,
+        "_etag": "\"0400fc2f-0000-0000-0000-575b3ff00000\"",
+        "patientID": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0",
+        "timestamp": "2016-06-10T22:31:56Z",
+        "source": "{\"Pragma\":\"no-cache\",\"x-ms-request-id\":\"e750c9a9-bd48-44c4-bbba-1688b6f8a132\",\"OData-Version\":\"4.0\",\"Cache-Control\":\"no-cache\",\"Date\":\"Fri, 10 Jun 2016 22:31:56 GMT\",\"Set-Cookie\":\"ARRAffinity=785f4334b5e64d2db0b84edcc1b84f1bf37319679aefce206b51510e56fd9770;Path=/;Domain=127.0.0.1\",\"Server\":\"Microsoft-IIS/8.0,Microsoft-HTTPAPI/2.0\",\"X-AspNet-Version\":\"4.0.30319\",\"X-Powered-By\":\"ASP.NET\",\"Content-Length\":\"1935\",\"Content-Type\":\"application/json; odata.metadata=minimal; odata.streaming=true\",\"Expires\":\"-1\"}",
+        "operation": "New Patient",
+        "salesforceId": "",
+        "expired": false
     }
 }
 
 ```
 
-Ahora veamos los pasos de control de errores:
+Now let's look at the error handling steps.
 
 
-### Control de errores
+### <a name="error-handling"></a>Error handling
 
-El siguiente ejemplo de código de Logic Apps muestra cómo puede implementar el control de errores.
+The following Logic Apps code sample shows how you can implement error handling.
 
-#### Creación de un registro de errores
+#### <a name="create-error-record"></a>Create error record
 
-Este es el código fuente de Logic Apps para crear un registro de errores.
+This is the Logic Apps source code for creating an error record.
 
 ``` json
 "actions": {
@@ -240,10 +245,10 @@ Este es el código fuente de Logic Apps para crear un registro de errores.
             "Create_NewPatientRecord": ["Failed" ]
         }
     }
-}  	       
+}          
 ```
 
-#### Insertar error en DocumentDB: solicitud
+#### <a name="insert-error-into-documentdb--request"></a>Insert error into DocumentDB--request
 
 ``` json
 
@@ -260,13 +265,13 @@ Este es el código fuente de Logic Apps para crear un registro de errores.
         "severity": 4,
         "salesforceId": "",
         "update": false,
-        "source": "{"Account_Class_vod__c":"PRAC","Account_Status_MED__c":"I","CRM_HUB_ID__c":"6b115f6d-a7ee-e511-80f5-3863bb2eb2d0","Credentials_vod__c","DTC_ID_MED__c":"","Fax":"","FirstName":"A","Gender_vod__c":"","IMS_ID__c":"","LastName":"BAILEY","MasterID_mp__c":"","C_ID_MED__c":"851588","Middle_vod__c":"","NPI_vod__c":"","PDRP_MED__c":false,"PersonDoNotCall":false,"PersonEmail":"","PersonHasOptedOutOfEmail":false,"PersonHasOptedOutOfFax":false,"PersonMobilePhone":"","Phone":"","Practicing_Specialty__c":"FM - FAMILY MEDICINE","Primary_City__c":"","Primary_State__c":"","Primary_Street_Line2__c":"","Primary_Street__c":"","Primary_Zip__c":"","RecordTypeId":"012U0000000JaPWIA0","Request_Date__c":"2016-06-10T22:31:55.9647467Z","ONY_ID__c":"","Specialty_1_vod__c":"","Suffix_vod__c":"","Website":""}",
+        "source": "{\"Account_Class_vod__c\":\"PRAC\",\"Account_Status_MED__c\":\"I\",\"CRM_HUB_ID__c\":\"6b115f6d-a7ee-e511-80f5-3863bb2eb2d0\",\"Credentials_vod__c\",\"DTC_ID_MED__c\":\"\",\"Fax\":\"\",\"FirstName\":\"A\",\"Gender_vod__c\":\"\",\"IMS_ID__c\":\"\",\"LastName\":\"BAILEY\",\"MasterID_mp__c\":\"\",\"C_ID_MED__c\":\"851588\",\"Middle_vod__c\":\"\",\"NPI_vod__c\":\"\",\"PDRP_MED__c\":false,\"PersonDoNotCall\":false,\"PersonEmail\":\"\",\"PersonHasOptedOutOfEmail\":false,\"PersonHasOptedOutOfFax\":false,\"PersonMobilePhone\":\"\",\"Phone\":\"\",\"Practicing_Specialty__c\":\"FM - FAMILY MEDICINE\",\"Primary_City__c\":\"\",\"Primary_State__c\":\"\",\"Primary_Street_Line2__c\":\"\",\"Primary_Street__c\":\"\",\"Primary_Zip__c\":\"\",\"RecordTypeId\":\"012U0000000JaPWIA0\",\"Request_Date__c\":\"2016-06-10T22:31:55.9647467Z\",\"ONY_ID__c\":\"\",\"Specialty_1_vod__c\":\"\",\"Suffix_vod__c\":\"\",\"Website\":\"\"}",
         "statusCode": "400"
     }
 }
 ```
 
-#### Insertar error en DocumentDB: respuesta
+#### <a name="insert-error-into-documentdb--response"></a>Insert error into DocumentDB--response
 
 
 ``` json
@@ -288,14 +293,14 @@ Este es el código fuente de Logic Apps para crear un registro de errores.
         "_rid": "sQx2APhVzAA8AAAAAAAAAA==",
         "_self": "dbs/sQx2AA==/colls/sQx2APhVzAA=/docs/sQx2APhVzAA8AAAAAAAAAA==/",
         "_ts": 1465597912,
-        "_etag": ""0c00eaac-0000-0000-0000-575b3fdc0000"",
+        "_etag": "\"0c00eaac-0000-0000-0000-575b3fdc0000\"",
         "prescriberId": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0",
         "timestamp": "2016-06-10T22:31:57.3651027Z",
         "action": "New_Patient",
         "salesforceId": "",
         "update": false,
         "body": "CRM failed to complete task: Message: duplicate value found: CRM_HUB_ID__c duplicates value on record with id: 001U000001c83gK",
-        "source": "{"Account_Class_vod__c":"PRAC","Account_Status_MED__c":"I","CRM_HUB_ID__c":"6b115f6d-a7ee-e511-80f5-3863bb2eb2d0","Credentials_vod__c":"DO - Degree level is DO","DTC_ID_MED__c":"","Fax":"","FirstName":"A","Gender_vod__c":"","IMS_ID__c":"","LastName":"BAILEY","MterID_mp__c":"","Medicis_ID_MED__c":"851588","Middle_vod__c":"","NPI_vod__c":"","PDRP_MED__c":false,"PersonDoNotCall":false,"PersonEmail":"","PersonHasOptedOutOfEmail":false,"PersonHasOptedOutOfFax":false,"PersonMobilePhone":"","Phone":"","Practicing_Specialty__c":"FM - FAMILY MEDICINE","Primary_City__c":"","Primary_State__c":"","Primary_Street_Line2__c":"","Primary_Street__c":"","Primary_Zip__c":"","RecordTypeId":"012U0000000JaPWIA0","Request_Date__c":"2016-06-10T22:31:55.9647467Z","XXXXXXX":"","Specialty_1_vod__c":"","Suffix_vod__c":"","Website":""}",
+        "source": "{\"Account_Class_vod__c\":\"PRAC\",\"Account_Status_MED__c\":\"I\",\"CRM_HUB_ID__c\":\"6b115f6d-a7ee-e511-80f5-3863bb2eb2d0\",\"Credentials_vod__c\":\"DO - Degree level is DO\",\"DTC_ID_MED__c\":\"\",\"Fax\":\"\",\"FirstName\":\"A\",\"Gender_vod__c\":\"\",\"IMS_ID__c\":\"\",\"LastName\":\"BAILEY\",\"MterID_mp__c\":\"\",\"Medicis_ID_MED__c\":\"851588\",\"Middle_vod__c\":\"\",\"NPI_vod__c\":\"\",\"PDRP_MED__c\":false,\"PersonDoNotCall\":false,\"PersonEmail\":\"\",\"PersonHasOptedOutOfEmail\":false,\"PersonHasOptedOutOfFax\":false,\"PersonMobilePhone\":\"\",\"Phone\":\"\",\"Practicing_Specialty__c\":\"FM - FAMILY MEDICINE\",\"Primary_City__c\":\"\",\"Primary_State__c\":\"\",\"Primary_Street_Line2__c\":\"\",\"Primary_Street__c\":\"\",\"Primary_Zip__c\":\"\",\"RecordTypeId\":\"012U0000000JaPWIA0\",\"Request_Date__c\":\"2016-06-10T22:31:55.9647467Z\",\"XXXXXXX\":\"\",\"Specialty_1_vod__c\":\"\",\"Suffix_vod__c\":\"\",\"Website\":\"\"}",
         "code": 400,
         "errors": null,
         "isError": true,
@@ -306,7 +311,7 @@ Este es el código fuente de Logic Apps para crear un registro de errores.
 }
 ```
 
-#### Respuesta de error de Salesforce
+#### <a name="salesforce-error-response"></a>Salesforce error response
 
 ``` json
 {
@@ -335,11 +340,11 @@ Este es el código fuente de Logic Apps para crear un registro de errores.
 
 ```
 
-### Devolución de la respuesta a la aplicación lógica primaria
+### <a name="returning-the-response-back-to-the-parent-logic-app"></a>Returning the response back to the parent logic app
 
-Una vez que tiene la respuesta, puede pasarla a la aplicación lógica primaria.
+After you have the response, you can pass it back to the parent logic app.
 
-#### Devolución de respuesta satisfactoria a la aplicación lógica primaria
+#### <a name="return-success-response-to-the-parent-logic-app"></a>Return success response to the parent logic app
 
 ``` json
 "SuccessResponse": {
@@ -352,7 +357,7 @@ Una vez que tiene la respuesta, puede pasarla a la aplicación lógica primaria.
             "status": "Success"
     },
     "headers": {
-    "	Content-type": "application/json",
+    "   Content-type": "application/json",
         "x-ms-date": "@utcnow()"
     },
     "statusCode": 200
@@ -361,7 +366,7 @@ Una vez que tiene la respuesta, puede pasarla a la aplicación lógica primaria.
 }
 ```
 
-#### Devolución de respuesta de error a la aplicación lógica primaria
+#### <a name="return-error-response-to-the-parent-logic-app"></a>Return error response to the parent logic app
 
 ``` json
 "ErrorResponse": {
@@ -385,52 +390,53 @@ Una vez que tiene la respuesta, puede pasarla a la aplicación lógica primaria.
 ```
 
 
-## Portal y repositorio de DocumentDB
+## <a name="documentdb-repository-and-portal"></a>DocumentDB repository and portal
 
-Nuestra solución agregó funcionalidades adicionales con [DocumentDB](https://azure.microsoft.com/services/documentdb).
+Our solution added additional capabilities with [DocumentDB](https://azure.microsoft.com/services/documentdb).
 
-### Portal de administración de errores
+### <a name="error-management-portal"></a>Error management portal
 
-Para ver los errores, puede crear una aplicación web de MVC que muestre los registros de error de DocumentDB. En la versión actual, se incluyen las operaciones de **lista**, **detalles**, **edición** y **eliminación**.
+To view the errors, you can create an MVC web app to display the error records from DocumentDB. **List**, **Details**, **Edit**, and **Delete** operations are included in the current version.
 
-> [AZURE.NOTE] Operación de edición: DocumentDB realiza un reemplazo de todo el documento. Los registros mostrados en las vistas de **lista** y **detalles** son solo ejemplos. No son registros reales de citas de pacientes.
+> [AZURE.NOTE] Edit operation: DocumentDB does a replace of the entire document.
+> The records shown in the **List** and **Detail** views are samples only. They are not actual patient appointment records.
 
-Los siguientes son ejemplos de nuestros detalles de la aplicación de MVC creados con el enfoque descrito anteriormente.
+Following are examples of our MVC app details created with the previously described approach.
 
-#### Lista de administración de errores
+#### <a name="error-management-list"></a>Error management list
 
-![Lista de errores](./media/app-service-logic-scenario-error-and-exception-handling/errorlist.png)
+![Error List](./media/app-service-logic-scenario-error-and-exception-handling/errorlist.png)
 
-#### Vista de detalles de administración de errores
+#### <a name="error-management-detail-view"></a>Error management detail view
 
-![Detalles del error](./media/app-service-logic-scenario-error-and-exception-handling/errordetails.png)
+![Error Details](./media/app-service-logic-scenario-error-and-exception-handling/errordetails.png)
 
-### Portal de administración de registros
+### <a name="log-management-portal"></a>Log management portal
 
-Para ver los registros, también creamos una aplicación web de MVC. Los siguientes son ejemplos de nuestros detalles de la aplicación de MVC creados con el enfoque descrito anteriormente.
+To view the logs, we also created an MVC web app.  Following are examples of our MVC app details created with the previously described approach.
 
-#### Vista de detalles del registro de ejemplo
+#### <a name="sample-log-detail-view"></a>Sample log detail view
 
-![Vista de detalles del registro](./media/app-service-logic-scenario-error-and-exception-handling/samplelogdetail.png)
+![Log Detail View](./media/app-service-logic-scenario-error-and-exception-handling/samplelogdetail.png)
 
-### Detalles de la aplicación de API
+### <a name="api-app-details"></a>API app details
 
-#### API de administración de excepciones de Logic Apps
+#### <a name="logic-apps-exception-management-api"></a>Logic Apps exception management API
 
-Nuestra aplicación de API de administración de excepciones de Logic Apps de código abierto proporciona la siguiente funcionalidad.
+Our open-source Logic Apps exception management API app provides the following functionality.
 
-Hay dos controladores
+There are two controllers:
 
-- **ErrorController** inserta un registro de error (documento) en una colección de DocumentDB.
-- **LogController** inserta una entrada de registro (documento) en una colección de DocumentDB.
+- **ErrorController** inserts an error record (document) in a DocumentDB collection.
+- **LogController** Inserts a log record (document) in a DocumentDB collection.
 
-> [AZURE.TIP] Ambos controladores usan operaciones `async Task<dynamic>`. Esto permite que las operaciones se resuelvan en tiempo de ejecución, por lo que podemos crear el esquema de DocumentDB en el cuerpo de la operación.
+> [AZURE.TIP] Both controllers use `async Task<dynamic>` operations. This allows operations to be resolved at runtime, so we can create the DocumentDB schema in the body of the operation.
 
-Todos los documentos de DocumentDB deben tener un identificador único. Vamos a utilizar `PatientId` y a agregar una marca de tiempo que se convertirá en un valor de marca de tiempo de Unix (doble). Se trunca para quitar el valor fraccionario.
+Every document in DocumentDB must have a unique ID. We are using `PatientId` and adding a timestamp that is converted to a Unix timestamp value (double). We truncate it to remove the fractional value.
 
-Puede ver el código fuente de la API de controlador de errores [procedente de GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
+You can view the source code of our error controller API [from GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
-Llamamos a la API desde una aplicación lógica mediante la sintaxis siguiente:
+We call the API from a logic app by using the following syntax.
 
 ``` json
  "actions": {
@@ -463,21 +469,25 @@ Llamamos a la API desde una aplicación lógica mediante la sintaxis siguiente:
  }
 ```
 
-La expresión del ejemplo de código anterior buscará el estado **Error** para *Create\_NewPatientRecord*.
+The expression in the preceding code sample is checking for the *Create_NewPatientRecord* status of **Failed**.
 
-## Resumen
+## <a name="summary"></a>Summary
 
-- Puede implementar fácilmente el registro y control de errores en una aplicación lógica.
-- Puede usar DocumentDB como repositorio para entradas de registro y registros de error (documentos).
-- Puede usar MVC para crear un portal que muestre las entradas de registro y los registros de error.
+- You can easily implement logging and error handling in a logic app.
+- You can use DocumentDB as the repository for log and error records (documents).
+- You can use MVC to create a portal to display log and error records.
 
-### Código fuente
-El código fuente de la aplicación de API de administración de excepciones de Logic Apps está disponible en este [repositorio de GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API de administración de excepciones de Logic Apps").
+### <a name="source-code"></a>Source code
+The source code for the Logic Apps exception management API application is available in this [GitHub repository](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "Logic App Exception Management API").
 
 
-## Pasos siguientes
-- [Más ejemplos y escenarios de Logic Apps](app-service-logic-examples-and-scenarios.md)
-- [Más información acerca de las herramientas de supervisión de Logic Apps](app-service-logic-monitor-your-logic-apps.md)
-- [Creación de una plantilla de implementación automatizada de Logic Apps](app-service-logic-create-deploy-template.md)
+## <a name="next-steps"></a>Next steps
+- [View more Logic Apps examples and scenarios](app-service-logic-examples-and-scenarios.md)
+- [Learn about Logic Apps monitoring tools](app-service-logic-monitor-your-logic-apps.md)
+- [Create a Logic App automated deployment template](app-service-logic-create-deploy-template.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

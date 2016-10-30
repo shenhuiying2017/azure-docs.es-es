@@ -1,10 +1,10 @@
 <properties
-   pageTitle="API de REST de Resource Manager | Microsoft Azure"
-   description="Información general sobre la autenticación de las API de REST de Resource Manager y ejemplos de uso"
+   pageTitle="Resource Manager REST APIs| Microsoft Azure"
+   description="An overview of the Resource Manager REST APIs authentication and usage examples"
    services="azure-resource-manager"
    documentationCenter="na"
    authors="navalev"
-   manager=""
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -16,31 +16,33 @@
    ms.date="06/23/2016"
    ms.author="navale;tomfitz;"/>
    
-# API de REST de Resource Manager
+
+# <a name="resource-manager-rest-apis"></a>Resource Manager REST APIs
 
 > [AZURE.SELECTOR]
 - [Azure PowerShell](powershell-azure-resource-manager.md)
-- [CLI de Azure](xplat-cli-azure-resource-manager.md)
-- [Portal](./azure-portal/resource-group-portal.md)
-- [API DE REST](resource-manager-rest-api.md)
+- [Azure CLI](xplat-cli-azure-resource-manager.md)
+- [Portal](./azure-portal/resource-group-portal.md) 
+- [REST API](resource-manager-rest-api.md)
 
-Detrás de cada llamada a Azure Resource Manager, detrás de cada plantilla implementada, detrás de cada cuenta de almacenamiento configurada hay una o varias llamadas a la API de RESTful de Azure Resource Manager. En este tema se describen estas API y cómo se les puede llamar sin usar ningún SDK. Esto puede ser muy útil si quiere un control total de todas las solicitudes realizadas en Azure, o si el SDK para su idioma preferido no está disponible o no es compatible con las operaciones que desea realizar.
+Behind every call to Azure Resource Manager, behind every deployed template, behind every configured storage account there is one or several calls to the Azure Resource Manager’s RESTful API. This topic is devoted to those APIs and how you can call them without using any SDK at all. This can be very useful if you want full control of all requests to Azure or if the SDK for your preferred language is not available or doesn’t support the operations you want to perform.
 
-En este artículo no se describen todas las API que se muestran en Azure, sino que se utilizarán algunas como ejemplo de cómo seguir adelante y conectarse a ellas. Si comprende los conceptos básicos, podrá seguir adelante y leer el artículo [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/dn790568.aspx) (Referencia de la API de REST de Azure Resource Manager) para buscar información detallada sobre cómo usar el resto de las API.
+This article will not go through every API that is exposed in Azure, but will rather use some as an example how you go ahead and connect to them. If you understand the basics you can then go ahead and read the [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/dn790568.aspx) to find detailed information on how to use the rest of the APIs.
 
-## Autenticación
-La autenticación para ARM se controla mediante Azure Active Directory (AD). Para conectarse a cualquier API, primero debe autenticarse con Azure AD para recibir un token de autenticación que pueda pasar a cada solicitud. Como describimos una llamada directamente a las API de REST, asumiremos también que no desea autenticar con un nombre de usuario y contraseña normales, donde se muestre un mensaje emergente que le solicita el nombre de usuario y contraseña, y quizá incluso otros mecanismos de autenticación utilizados en los escenarios de autenticación en dos fases. Por tanto, crearemos lo que se denomina una aplicación de Azure AD y una entidad de servicio que se usará para iniciar la sesión. Pero recuerde que Azure AD admite varios procedimientos de autenticación y todos ellos podrían usarse para recuperar el token de autenticación que se necesita para las solicitudes posteriores de API. Siga las instrucciones paso a paso que encontrará en [Uso del portal para crear una aplicación de Active Directory y una entidad de servicio con acceso a los recursos](./resource-group-create-service-principal-portal.md).
+## <a name="authentication"></a>Authentication
+Authentication for ARM is handled by Azure Active Directory (AD). In order to connect to any API you first need to authenticate with Azure AD to receive an authentication token that you can pass on to every request. As we are describing a pure call directly to the REST APIs, we will also assume that you don’t want to authenticate with a normal username password where a pop-up-screen might prompt you for username and password and perhaps even other authentication mechanisms used in two factor authentication scenarios. Therefore, we will create what is called an Azure AD Application and a Service Principal that will be used to login with. But remember that Azure AD support several authentication procedures and all of them could be used to retrieve that authentication token that we need for subsequent API requests.
+Follow [Create Azure AD Application and Service Principle](./resource-group-create-service-principal-portal.md) for step by step instructions.
 
-### Generación de un token de acceso 
-La autenticación en Azure AD se realiza llamando a Azure AD, ubicado en login.microsoftonline.com. Para realizar la autenticación, se necesita la información siguiente:
+### <a name="generating-an-access-token"></a>Generating an Access Token 
+Authentication against Azure AD is done by calling out to Azure AD, located at login.microsoftonline.com. In order to authenticate you need to have the following information:
 
-* El identificador del inquilino de Azure AD (el nombre de Azure AD que está usando para iniciar sesión, que suele ser el mismo que el de su empresa, aunque no necesariamente)
-* El identificador de la aplicación (tomado durante el paso de creación de la aplicación de Azure AD)
-* Contraseña (que seleccionó al crear la aplicación de Azure AD)
+* Azure AD Tenant ID (the name of that Azure AD you are using to login, often the same as your company but not necessary)
+* Application ID (taken during the Azure AD application creation step)
+* Password (that you selected while creating the Azure AD Application)
 
-En la siguiente solicitud HTTP, asegúrese de que reemplazar "Azure AD Tenant ID" (Id. del inquilino de Azure AD), "Application ID" (Id. de aplicación) y "Password" (Contraseña) por los valores correctos.
+In the below HTTP request make sure to replace "Azure AD Tenant ID", "Application ID" and "Password" with the correct values.
 
-**Solicitud HTTP genérica:**
+**Generic HTTP Request:**
 
 ```HTTP
 POST /<Azure AD Tenant ID>/oauth2/token?api-version=1.0 HTTP/1.1 HTTP/1.1
@@ -51,7 +53,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.core.windows.net%2F&client_id=<Application ID>&client_secret=<Password>
 ```
 
-... dará como resultado (si la autenticación se realiza correctamente) una respuesta similar a la siguiente:
+... will (if authentication succeeds) result in a similar response to this:
 
 ```json
 {
@@ -63,34 +65,35 @@ grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.core.windows.net
   "access_token": "eyJ0eXAiOiJKV1QiLCJhb...86U3JI_0InPUk_lZqWvKiEWsayA"
 }
 ```
-(El elemento access\_token de la respuesta anterior se ha abreviado para mejorar la legibilidad).
+(The access_token in the above response have been shortened to increase readability)
 
-**Generación del token de acceso con Bash:**
+**Generating access token using Bash:**
 
 ```console
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=client_credentials&resource=https://management.core.windows.net&client_id=<application id>&client_secret=<password you selected for authentication>" https://login.microsoftonline.com/<Azure AD Tenant ID>/oauth2/token?api-version=1.0
 ```
 
-**Generación del token de acceso con PowerShell:**
+**Generating access token using PowerShell:**
 
 ```powershell
 Invoke-RestMethod -Uri https://login.microsoftonline.com/<Azure AD Tenant ID>/oauth2/token?api-version=1.0 -Method Post
  -Body @{"grant_type" = "client_credentials"; "resource" = "https://management.core.windows.net/"; "client_id" = "<application id>"; "client_secret" = "<password you selected for authentication>" }
 ```
 
-La respuesta contiene un token de acceso, información sobre por cuánto tiempo es válido el token e información acerca de para qué recurso se puede utilizar ese token. El token de acceso que ha recibido en la llamada HTTP anterior debe pasarse para todas las solicitudes a la API de ARM como encabezado llamado "Autorización" con el valor "Bearer YOUR\_ACCESS\_TOKEN". Observe el espacio entre "Bearer" y el token de acceso.
+The response contains an Access Token, information about how long that token is valid and information about what resource you can use that token for.
+The access token you received in the previous HTTP call must be passed in for all request to the ARM API as a header named "Authorization" with the value "Bearer YOUR_ACCESS_TOKEN". Notice the space between "Bearer" and your Access Token.
 
-Como puede ver en el resultado HTTP anterior, el token es válido durante un período específico de tiempo durante el cual debe almacenar en caché y volver a usar ese mismo token. Aunque es posible autenticarse en Azure AD para cada llamada de API, sería muy ineficaz.
+As you can see from the above HTTP Result, the token is valid for a specific period of time during which you should cache and re-use that same token. Even if it is possible to authenticate against Azure AD for each API call, it would be highly inefficient.
 
-## Llamada a las API de REST de ARM
+## <a name="calling-arm-rest-apis"></a>Calling ARM REST APIs
 
-[Las API de REST de Azure Resource Manager se documentan aquí](https://msdn.microsoft.com/library/azure/dn790568.aspx), y está fuera del ámbito de este tutorial documentar el uso de todas ellas. Esta documentación solo usará algunas API para explicar el uso básico de las API, y después le remitiremos a la documentación oficial.
+[Azure Resource Manager REST APIs are documented here](https://msdn.microsoft.com/library/azure/dn790568.aspx) and it's out of scope for this tutorial to document the usage of each and every. This documentation will only use a few APIs to explain the basic usage of the APIs and after that we refer you to the official documentation.
 
-### Enumeración de todas las suscripciones
+### <a name="list-all-subscriptions"></a>List all subscriptions
 
-Una de las operaciones más sencillas que se pueden realizar es enumerar las suscripciones disponibles a las que se puede acceder. A continuación puede ver cómo se pasa el token de acceso como un encabezado.
+One of the simplest operations you can do is to list the available subscriptions that you can access. In the below request you can see how the Access Token is passed in as a header.
 
-(Reemplace YOUR\_ACCESS\_TOKEN por el token de acceso real).
+(Replace YOUR_ACCESS_TOKEN with your actual Access Token.)
 
 ```HTTP
 GET /subscriptions?api-version=2015-01-01 HTTP/1.1
@@ -99,9 +102,9 @@ Authorization: Bearer YOUR_ACCESS_TOKEN
 Content-Type: application/json
 ```
 
-Y como resultado, obtendrá una lista de suscripciones a las que puede acceder a esta entidad de servicio.
+... and as a result, you'll get a list of subscriptions that this Service Principal is allowed to access
 
-(Los identificadores de suscripción siguientes se han abreviado para mejorar la legibilidad).
+(Subscription IDs below have been shortened for readability)
 
 ```json
 {
@@ -120,11 +123,11 @@ Y como resultado, obtendrá una lista de suscripciones a las que puede acceder a
 }
 ```
 
-### Enumeración de todos los grupos de recursos en una suscripción específica
+### <a name="list-all-resource-groups-in-a-specific-subscription"></a>List all resource groups in a specific subscription
 
-Todos los recursos disponibles con las API de ARM se anidan dentro de un grupo de recursos. Vamos a consultar en ARM los grupos de recursos existentes en nuestra suscripción con la siguiente solicitud GET de HTTP. Observe cómo el identificador de suscripción se transmite como parte de la dirección URL de este momento.
+All resources available with the ARM APIs are nested inside a Resource Group. We are going to query ARM for existing Resource Groups in our subscription using the below HTTP GET Request. Notice how the Subscription ID is passed in as part of the URL this time.
 
-(Reemplace YOUR\_ACCESS\_TOKEN y SUBSCRIPTION\_ID por su token de acceso e identificador de suscripción reales).
+(Replace YOUR_ACCESS_TOKEN and SUBSCRIPTION_ID with your actual Access Token and Subscription ID)
 
 ```HTTP
 GET /subscriptions/SUBSCRIPTION_ID/resourcegroups?api-version=2015-01-01 HTTP/1.1
@@ -133,9 +136,9 @@ Authorization: Bearer YOUR_ACCESS_TOKEN
 Content-Type: application/json
 ```
 
-La respuesta que obtenga dependerá de si tiene definido algún grupo de recursos y si es así, cuántos.
+The response you get will depend whether you have any resource groups defined and if so, how many.
 
-(Los identificadores de suscripción siguientes se han abreviado para mejorar la legibilidad).
+(Subscription IDs below have been shortened for readability)
 
 ```json
 {
@@ -163,11 +166,11 @@ La respuesta que obtenga dependerá de si tiene definido algún grupo de recurso
 }
 ```
 
-### Crear un grupo de recursos
+### <a name="create-a-resource-group"></a>Create a resource group
 
-Hasta ahora solo hemos consultado las API de ARM para obtener información; es el momento que crear algunos recursos y empecemos por el más sencillo de todos, un grupo de recursos. La solicitud HTTP siguiente crea un nuevo grupo de recursos en una región o ubicación de su elección y le agrega una o más etiquetas (el ejemplo siguiente en realidad solo agrega una etiqueta).
+So far we've only been querying the ARM APIs for information, it's time we create some resources instead and let's start by the simplest of them all, a resource group. The following HTTP request creates a new Resource Group in a region/location of your choice and adds one or more tags to it (the sample below actually only adds one tag).
 
-(Reemplace YOUR\_ACCESS\_TOKEN, SUBSCRIPTION\_ID, RESOURCE\_GROUP\_NAME por el token de acceso, identificador de suscripción y nombre del grupo de recursos reales que va a crear).
+(Replace YOUR_ACCESS_TOKEN, SUBSCRIPTION_ID, RESOURCE_GROUP_NAME with your actual Access Token, Subscription ID and name of the Resource Group you want to create)
 
 ```HTTP
 PUT /subscriptions/SUBSCRIPTION_ID/resourcegroups/RESOURCE_GROUP_NAME?api-version=2015-01-01 HTTP/1.1
@@ -183,7 +186,7 @@ Content-Type: application/json
 }
 ```
 
-Si se realiza correctamente, obtendrá una respuesta similar a la siguiente
+If successful, you'll get a similar response to this
 
 ```json
 {
@@ -199,17 +202,17 @@ Si se realiza correctamente, obtendrá una respuesta similar a la siguiente
 }
 ```
 
-Ha creado correctamente un grupo de recursos en Azure. ¡Enhorabuena!
+You've successfully created a Resource Group in Azure. Congratulations!
 
-### Implementación de recursos en un grupo de recursos mediante una plantilla de ARM
+### <a name="deploy-resources-to-a-resource-group-using-an-arm-template"></a>Deploy resources to a Resource Group using an ARM Template
 
-Con ARM, puede implementar los recursos mediante plantillas de ARM. Una plantilla de ARM define varios recursos y sus dependencias. En esta sección vamos a suponer que está familiarizado con las plantillas de ARM y solo le mostraremos cómo realizar la llamada de API para iniciar la implementación de una de ellas. Aquí puede encontrar información detallada de las plantillas de ARM.
+With ARM, you can deploy your resources using ARM Templates. An ARM Template defines several resources and their dependencies. For this section we will just assume you are familiar with ARM Templates and we will just show you how to make the API call to start deployment of one. A detailed documentation of ARM Templates can be found here.
 
-La implementación de una plantilla de ARM no difiere mucho de cómo llamar a otras API. Un aspecto importante es que la implementación de una plantilla puede tardar bastante tiempo, dependiendo de lo que esté dentro de la plantilla y de la llamada de API que se devolverá, y también dependerá de cómo el desarrollador consulte el estado de la implementación para averiguar cuándo se realiza la implementación.
+Deployment of an ARM template doesn't differ much to how you call other APIs. One important aspect is that deployment of a template can take quite a long time, depending on what's inside of the template, and the API call will just return and it's up to you as developer to query for status of the deployment in order to find out when the deployment is done.
 
-En este ejemplo, vamos a usar una plantilla de ARM publicada y disponible en [GitHub](https://github.com/Azure/azure-quickstart-templates). La plantilla que se vamos a utilizar implementará una máquina virtual de Linux en la región oeste de EE. UU. Aunque esta plantilla estará disponible en un repositorio público, como GitHub, también puede seleccionar pasar la plantilla completa como parte de la solicitud. Tenga en cuenta que se proporcionamos valores de parámetro como parte de la solicitud que se utilizará en la plantilla utilizada.
+For this example, we'll use a publicly exposed ARM Template available on [GitHub](https://github.com/Azure/azure-quickstart-templates). The template we are going to use will deploy a Linux VM to the West US region. Even though this template will have the template available in a public repository like GitHub, you can also select to pass the full template as part of the request. Note that we provide parameter values as part of the request that will be used inside the used template.
 
-(Reemplace SUBSCRIPTION\_ID, RESOURCE\_GROUP\_NAME, DEPLOYMENT\_NAME, YOUR\_ACCESS\_TOKEN, GLOBALY\_UNIQUE\_STORAGE\_ACCOUNT\_NAME, ADMIN\_USER\_NAME,ADMIN\_PASSWORD y DNS\_NAME\_FOR\_PUBLIC\_IP por los valores pertinentes para su solicitud).
+(Replace SUBSCRIPTION_ID, RESOURCE_GROUP_NAME, DEPLOYMENT_NAME, YOUR_ACCESS_TOKEN, GLOBALY_UNIQUE_STORAGE_ACCOUNT_NAME, ADMIN_USER_NAME,ADMIN_PASSWORD and DNS_NAME_FOR_PUBLIC_IP to values appropriate for your request)
 
 ```HTTP
 PUT /subscriptions/SUBSCRIPTION_ID/resourcegroups/RESOURCE_GROUP_NAME/providers/microsoft.resources/deployments/DEPLOYMENT_NAME?api-version=2015-01-01 HTTP/1.1
@@ -245,6 +248,11 @@ Content-Type: application/json
 }
 ```
 
-La respuesta JSON a esta solicitud, que es bastante larga, se ha omitido para mejorar la legibilidad de esta documentación. La respuesta contendrá información sobre la implementación de la plantilla que acaba de crear.
+The quite long JSON response for this request have been omitted in order to improve readability of this documentation. The response will contain information about the templated deployment that you just created.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+
