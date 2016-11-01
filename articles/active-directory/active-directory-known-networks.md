@@ -3,7 +3,7 @@
     description="Mediante la configuración de redes conocidas, puede evitar que direcciones IP que son propiedad de su organización estén incluidas en los informes "Inicios de sesión desde varias ubicaciones geográficas" e "Inicios de sesión desde direcciones IP con actividad sospechosa"." 
     services="active-directory" 
     documentationCenter="" 
-    authors="markusvi" 
+    authors="MarkusVi" 
     manager="femila"  
     editor=""/>
 
@@ -33,7 +33,7 @@ Por ejemplo, esto puede ocurrir cuando:
 Para evitar estos casos de generación de informes de seguridad engañosos, debe agregar intervalos de direcciones IP conocidas a la lista de direcciones IP públicas de su organización.    
 
 
-###<a name="to-add-your-organization’s-public-ip-address-ranges,-perform-the-following-steps:"></a>Para ello, realice los pasos siguientes: 
+###<a name="to-add-your-organizations-public-ip-address-ranges-perform-the-following-steps"></a>Para ello, realice los pasos siguientes: 
 
 1.  Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com).
 

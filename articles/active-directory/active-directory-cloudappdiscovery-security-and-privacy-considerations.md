@@ -3,7 +3,7 @@
     description="En este tema se describen las consideraciones de seguridad y privacidad relacionadas Cloud App Discovery."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -147,7 +147,7 @@ Nuestro objetivo es proporcionar a los administradores las herramientas necesari
 Cloud App Discovery Endpoint Agent solo recopila la información que se describe en la sección **Datos recopilados por el agente** anterior.
 
 
-### <a name="intercepting-data-from-encrypted-connections-(deep-inspection)"></a>Interceptación de datos de conexiones cifradas (inspección en profundidad)
+### <a name="intercepting-data-from-encrypted-connections-deep-inspection"></a>Interceptación de datos de conexiones cifradas (inspección en profundidad)
 Como mencionamos anteriormente, los administradores pueden configurar el agente para que supervise datos de conexiones cifradas ('inspección en profundidad'). TLS ([Seguridad de la capa de transporte](https://msdn.microsoft.com/library/windows/desktop/aa380516%28v=vs.85%29.aspx)) es uno de los protocolos más comunes que se usan hoy en día en Internet. Al cifrar la comunicación con TLS, un cliente puede establecer un canal de comunicación seguro y privado con un servidor web. TLS proporciona una protección esencial para pasar las credenciales de autenticación y evitar la revelación de información confidencial.
 
 Si bien el canal cifrado seguro de extremo a extremo que proporciona TLS permite una protección importante de la privacidad y la seguridad, con frecuencia el protocolo se usa de forma indebida con fines malintencionados. Tanto es así que, de hecho, ese TLS se conoce a menudo como “protocolo de omisión de firewall universal”. La raíz del problema es que la mayoría de los firewalls no son capaces de inspeccionar la comunicación TLS porque los datos de la capa de aplicación están cifrados con SSL. Sabiendo esto, los atacantes aprovechan con frecuencia TLS para entregar cargas malintencionadas a un usuario seguro de que incluso los firewalls de capa de aplicación más inteligentes son completamente ciegos a TLS y simplemente deben retransmitir la comunicación TLS entre los hosts. Con frecuencia, los usuarios finales aprovechan TLS para omitir los controles de acceso aplicados por sus firewalls y servidores proxy corporativos, y lo usan para conectarse a servidores proxy públicos y para la tunelización de protocolos no TLS a través del firewall que, de lo contrario, podrían ser bloqueados por la directiva.

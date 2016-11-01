@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/10/2016"
-   ms.author="cakarst;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="cakarst;barbkess"/>
 
 
 
@@ -45,11 +45,11 @@ Para seguir paso a paso este tutorial, necesita
     ![Herramientas de almacenamiento de Azure](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 
-## <a name="step-1:-add-sample-data-to-azure-blob-storage"></a>Paso 1: Adición de datos de ejemplo a Almacenamiento de blobs de Azure
+## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>Paso 1: Adición de datos de ejemplo a Almacenamiento de blobs de Azure
 
 Para cargar los datos, es preciso poner incluir algunos datos de ejemplo en un almacenamiento de blobs de Azure. En este paso, se rellena un almacenamiento de blobs de Azure con datos de ejemplo. Más adelante, se usará PolyBase para cargar estos datos de ejemplo en la base de datos de Almacenamiento de datos SQL.
 
-### <a name="a.-prepare-a-sample-text-file"></a>A. Preparación de un archivo de texto de ejemplo
+### <a name="a-prepare-a-sample-text-file"></a>A. Preparación de un archivo de texto de ejemplo
 
 Para preparar un archivo de texto de ejemplo:
 
@@ -70,7 +70,7 @@ Para preparar un archivo de texto de ejemplo:
 20150101,1,3
 ```
 
-### <a name="b.-find-your-blob-service-endpoint"></a>B. Búsqueda del punto de conexión del servicio BLOB
+### <a name="b-find-your-blob-service-endpoint"></a>B. Búsqueda del punto de conexión del servicio BLOB
 
 Para buscar el punto de conexión del servicio BLOB:
 
@@ -84,7 +84,7 @@ Para buscar el punto de conexión del servicio BLOB:
 
     ![Punto de conexión del servicio BLOB](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
-### <a name="c.-find-your-azure-storage-key"></a>C. Búsqueda de la clave de almacenamiento de Azure
+### <a name="c-find-your-azure-storage-key"></a>C. Búsqueda de la clave de almacenamiento de Azure
 
 Para buscar la clave de almacenamiento de Azure:
 
@@ -95,7 +95,7 @@ Para buscar la clave de almacenamiento de Azure:
 
     ![Copie la clave de almacenamiento de Azure](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
-### <a name="d.-copy-the-sample-file-to-azure-blob-storage"></a>D. Copia del archivo de ejemplo en Almacenamiento de blobs de Azure
+### <a name="d-copy-the-sample-file-to-azure-blob-storage"></a>D. Copia del archivo de ejemplo en Almacenamiento de blobs de Azure
 
 Para copiar los datos al almacenamiento de blobs de Azure:
 
@@ -113,7 +113,7 @@ Para copiar los datos al almacenamiento de blobs de Azure:
 
 Consulte [Introducción a la utilidad de línea de comandos de AzCopy][]
 
-### <a name="e.-explore-your-blob-storage-container"></a>E. Exploración del contenedor de almacenamiento de blobs
+### <a name="e-explore-your-blob-storage-container"></a>E. Exploración del contenedor de almacenamiento de blobs
 
 Para ver el archivo cargado en el almacenamiento de blobs:
 
@@ -126,7 +126,7 @@ Para ver el archivo cargado en el almacenamiento de blobs:
     ![Vea el blob de almacenamiento de Azure](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
 
-## <a name="step-2:-create-an-external-table-for-the-sample-data"></a>Paso 2: Creación de una tabla externa para los datos de ejemplo
+## <a name="step-2-create-an-external-table-for-the-sample-data"></a>Paso 2: Creación de una tabla externa para los datos de ejemplo
 
 En esta sección se creará una tabla externa que defina los datos de ejemplo.
 
@@ -216,7 +216,7 @@ En el Explorador de objetos de SQL Server de Visual Studio, se puede ver el form
 
 ![Vea la tabla externa](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## <a name="step-3:-load-data-into-sql-data-warehouse"></a>Paso 3: Carga de datos en Almacenamiento de datos SQL
+## <a name="step-3-load-data-into-sql-data-warehouse"></a>Paso 3: Carga de datos en Almacenamiento de datos SQL
 
 Una vez creada la tabla externa, puede cargar los datos en una tabla nueva o insertarlos en una tabla existente.
 
@@ -236,7 +236,7 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>Paso 4: Crear estadísticas de los datos recién cargados
+## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Paso 4: Crear estadísticas de los datos recién cargados
 
 Almacenamiento de datos SQL no crea ni actualiza automáticamente las estadísticas. Por lo tanto, para lograr un rendimiento elevado de las consultas, es importante crear estadísticas de todas las columna de cada tabla después de la primera carga. También es importante actualizar las estadísticas si se realizan cambios significativos en los datos.
 

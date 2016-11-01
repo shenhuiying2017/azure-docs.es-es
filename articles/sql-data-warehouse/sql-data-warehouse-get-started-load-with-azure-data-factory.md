@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""
    tags="azure-sql-data-warehouse"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/13/2016"
+   ms.date="10/31/2016"
    ms.author="mausher;barbkess"/>
 
 
@@ -50,7 +50,7 @@ Antes de comenzar este tutorial, debe contar con los siguientes recursos:
 
    + **AZCopy**: necesita AZCopy para copiar los datos de ejemplo desde el cliente local hasta el Blob de almacenamiento de Azure. Para conocer las instrucciones de instalación, consulte la [documentación de AZCopy][].
 
-## <a name="step-1:-copy-sample-data-to-azure-storage-blob"></a>Paso 1: Copia de los datos de ejemplo en el Blob de almacenamiento de Azure
+## <a name="step-1-copy-sample-data-to-azure-storage-blob"></a>Paso 1: Copia de los datos de ejemplo en el Blob de almacenamiento de Azure
 
 Una vez que todos los componentes están listos, ya está preparado para copiar los datos de ejemplo en Azure Storage Blob.
 
@@ -63,13 +63,13 @@ Una vez que todos los componentes están listos, ya está preparado para copiar 
     ````
 
 
-## <a name="step-2:-connect-resources-to-azure-data-factory"></a>Paso 2: Conexión de los recursos a Factoría de datos de Azure
+## <a name="step-2-connect-resources-to-azure-data-factory"></a>Paso 2: Conexión de los recursos a Factoría de datos de Azure
 
 Ahora que los datos están en su sitio podemos crear la canalización de Factoría de datos de Azure para mover los datos desde el almacenamiento de blobs de Azure a Almacenamiento de datos SQL.
 
 Para empezar, abra el [Portal de Azure][] y seleccione su instancia de Data Factory en el menú de la izquierda.
 
-### <a name="step-2.1:-create-linked-service"></a>Paso 2.1: Creación del servicio vinculado
+### <a name="step-21-create-linked-service"></a>Paso 2.1: Creación del servicio vinculado
 
 Vincule la cuenta de Almacenamiento de Azure y Almacenamiento de datos SQL a la factoría de datos.  
 
@@ -90,7 +90,7 @@ Vincule la cuenta de Almacenamiento de Azure y Almacenamiento de datos SQL a la 
     }
     ```
 
-### <a name="step-2.2:-define-the-dataset"></a>Paso 2.2: Definición del conjunto de datos
+### <a name="step-22-define-the-dataset"></a>Paso 2.2: Definición del conjunto de datos
 
 Después de crear los servicios vinculados, debemos definir los conjuntos de datos.  Esto significa que hay que definir la estructura de los datos que se desplazan desde el almacenamiento al almacenamiento de datos.  Puede leer más sobre creación.
 
@@ -148,7 +148,7 @@ Después de crear los servicios vinculados, debemos definir los conjuntos de dat
     }
     ```
 
-## <a name="step-3:-create-and-run-your-pipeline"></a>Paso 3: Creación y ejecución de la canalización
+## <a name="step-3-create-and-run-your-pipeline"></a>Paso 3: Creación y ejecución de la canalización
 
 Por último, configure y ejecute la canalización en Azure Data Factory.  Se trata de la operación que completa el movimiento real de datos.  Puede encontrar una vista completa de las operaciones que se pueden completar con SQL Data Warehouse y Azure Data Factory [aquí][Movimiento de datos hacia y desde Azure SQL Data Warehouse mediante Azure Data Factory].
 

@@ -3,7 +3,7 @@
     description="Explica qué es un inquilino de Azure AD y cómo administrar Azure mediante Azure Active Directory"
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     writer="markvi"
     manager="femila"
     editor=""/>
@@ -20,7 +20,7 @@
 
 # <a name="administer-your-azure-ad-directory"></a>Administración del directorio de Azure AD
 
-## <a name="what-is-an-azure-ad-tenant?"></a>¿Qué es un inquilino de Azure AD?
+## <a name="what-is-an-azure-ad-tenant"></a>¿Qué es un inquilino de Azure AD?
 
 En un área de trabajo física, la palabra "inquilino" puede definirse como un grupo o una compañía que ocupa un edificio. Por ejemplo, es posible que su organización disponga de un espacio de oficinas en un edificio. Puede que este edificio se encuentre en una calle con varias organizaciones más. En este caso, su organización se consideraría inquilina de dicho edificio. Este edificio es un activo de su organización; proporciona seguridad y garantiza que pueda desarrollar sin problemas las actividades propias de su negocio. También está separado de otras empresas en la misma calle. Esto garantiza que su organización y los activos que contiene están aislados de otras organizaciones.
 
@@ -30,7 +30,7 @@ Cada directorio de Azure AD es distinto e independiente de otros directorios de 
 
 ![Administración de Azure Active Directory][1]
 
-## <a name="how-can-i-get-an-azure-ad-directory?"></a>¿Cómo puedo obtener un directorio de Azure AD?
+## <a name="how-can-i-get-an-azure-ad-directory"></a>¿Cómo puedo obtener un directorio de Azure AD?
 
 Azure AD proporciona las principales capacidades de administración de identidades y directorios de la mayoría de los servicios en la nube de Microsoft, incluyendo:
 
@@ -66,7 +66,7 @@ Si aún no tiene una suscripción a un servicio en la nube de Microsoft, utilice
 - [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
 - [Microsoft Intune](https://account.manage.microsoft.com/Signup/MainSignUp.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&ali=1)
 
-### <a name="manage-an-azure-provisioned-default-directory"></a>Administración de un directorio de aprovisionamiento predeterminado de Azure
+### <a name="manage-an-azureprovisioned-default-directory"></a>Administración de un directorio de aprovisionamiento predeterminado de Azure
 
 Actualmente, al suscribirse a Azure, se crea automáticamente un directorio y la suscripción queda asociada a ese directorio. No obstante, si se suscribió por primera vez a Azure antes de octubre de 2013, el directorio no se habrá creado automáticamente. En ese caso, Azure puede haber "repuesto" su cuenta mediante el aprovisionamiento de un directorio predeterminado para ella. Su suscripción se asoció entonces con ese directorio predeterminado.
 
@@ -95,7 +95,7 @@ Estos portales de cuentas y los cmdlets asociados de PowerShell de Azure AD que 
 Al realizar un cambio en los datos de su organización mediante cualquiera de los portales (o cmdlets) manteniendo la sesión iniciada en el contexto de uno de estos servicios, el cambio se mostrará también en los demás portales la próxima vez que inicie sesión en el contexto de dicho servicio, ya que estos datos se comparten entre los servicios en la nube de Microsoft a los que esté suscrito.
 Por ejemplo, si utiliza el centro de administración de Office 365 para bloquear el inicio de sesión de un usuario, dicha acción bloqueará el inicio de sesión de ese usuario en cualquier otro servicio al que esté suscrita actualmente su organización. Si fuera a usar esa misma cuenta de usuario en el contexto del portal de cuentas de Microsoft Intune, vería que el usuario está bloqueado.
 
-## <a name="how-can-i-add-and-manage-multiple-directories?"></a>¿Cómo puedo agregar y administrar varios directorios?
+## <a name="how-can-i-add-and-manage-multiple-directories"></a>¿Cómo puedo agregar y administrar varios directorios?
 
 Puede agregar un directorio de Azure AD en el Portal de administración de Azure. Seleccione la extensión **Active Directory** a la izquierda y haga clic en **Agregar**.
 
@@ -115,7 +115,7 @@ Puede administrar cada directorio como un recurso totalmente independiente: cada
 
 También tenga en cuenta que, a diferencia de otros recursos de Azure, los directorios no son recursos secundarios de una suscripción a Azure. Así, si cancela su suscripción a Azure o deja que esta caduque, aún podrá tener acceso a los datos de su directorio mediante Azure AD PowerShell, la API Graph de Azure u otras interfaces, como el Centro de administración de Office 365. También puede asociar otra suscripción con el directorio.
 
-## <a name="how-can-i-delete-an-azure-ad-directory?"></a>¿Cómo puedo eliminar un directorio de Azure AD?
+## <a name="how-can-i-delete-an-azure-ad-directory"></a>¿Cómo puedo eliminar un directorio de Azure AD?
 Un administrador global puede eliminar un directorio de Azure AD desde el portal. Antes de eliminar un directorio, asegúrese de que realmente no lo necesita, ya que también se eliminarán todos los recursos que contiene.
 
 > [AZURE.NOTE]

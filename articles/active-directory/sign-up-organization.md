@@ -3,7 +3,7 @@
     description="Obtenga información acerca de cómo puede utilizar una cuenta profesional o educativa para aprovechar las cuentas de usuario, las directivas, las configuraciones o las implementaciones de servidor local que ya tiene y mejorar la eficacia entre la infraestructura de identidad local de su organización y Azure AD."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 

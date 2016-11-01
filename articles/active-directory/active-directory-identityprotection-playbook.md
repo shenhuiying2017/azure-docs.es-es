@@ -4,7 +4,7 @@
     services="active-directory"
     keywords="azure active directory identity protection, detección de aplicaciones en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -37,7 +37,7 @@ En esta sección se indican los pasos para simular los siguientes tipos de event
 Otros eventos de riesgo no se pueden simular de forma segura.
 
 
-### <a name="sign-ins-from-anonymous-ip-addresses"></a>Inicios de sesión desde direcciones IP anónimas
+### <a name="signins-from-anonymous-ip-addresses"></a>Inicios de sesión desde direcciones IP anónimas
 
 Este tipo de evento de riesgo identifica los usuarios que han iniciado sesión correctamente desde una dirección IP que se ha identificado como una dirección IP de proxy anónima. A menudo, estos servidores proxy los usan los usuarios que desean ocultar la dirección IP del dispositivo y es posible que se usen con fines malintencionados.
 
@@ -50,7 +50,7 @@ Este tipo de evento de riesgo identifica los usuarios que han iniciado sesión c
 El inicio de sesión se mostrará en el panel de Identity Protection en un plazo máximo de 5 minutos. 
 
 
-###<a name="sign-ins-from-unfamiliar-locations"></a>Inicios de sesión desde ubicaciones desconocidas
+###<a name="signins-from-unfamiliar-locations"></a>Inicios de sesión desde ubicaciones desconocidas
 
 El riesgo de ubicaciones desconocidas es un mecanismo de evaluación de inicios de sesión en tiempo real que tiene en cuenta las ubicaciones de inicio de sesión anteriores (IP, latitud/longitud y ASN) para determinar las ubicaciones nuevas o desconocidas. El sistema almacena las direcciones IP, la latitud/longitud y las ASN anteriores, y considera que son ubicaciones conocidas. Una ubicación de inicio de sesión se considera desconocida si la ubicación de inicio de sesión no coincide con ninguna de las ubicaciones conocidas existentes.
 
@@ -138,7 +138,7 @@ Los puntos vulnerables son puntos débiles de un entorno de Azure AD que puede s
 <br>
 
  
-##<a name="sign-in-risk"></a>Riesgo de inicio de sesión
+##<a name="signin-risk"></a>Riesgo de inicio de sesión
 
  
 **Para probar el riesgo de inicio de sesión, realice los pasos siguientes:**

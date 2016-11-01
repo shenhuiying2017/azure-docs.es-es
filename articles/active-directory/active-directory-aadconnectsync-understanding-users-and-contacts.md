@@ -3,7 +3,7 @@
     description="Explica los usuarios y los contactos en Azure AD Connect Sync."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -18,7 +18,7 @@
 
 
 
-# <a name="azure-ad-connect-sync:-understanding-users-and-contacts"></a>Azure AD Connect Sync: descripción de usuarios y contactos
+# <a name="azure-ad-connect-sync-understanding-users-and-contacts"></a>Azure AD Connect Sync: descripción de usuarios y contactos
 
 Hay diversas razones por las que podría interesarle tener varios bosques de Active Directory y hay diversas topologías de implementación. Los modelos comunes incluyen una implementación cuenta-recurso y bosques sincronizados de lista global de direcciones tras una fusión y adquisición. Sin embargo, aunque existan modelos puros, los modelos híbridos también son comunes. La configuración predeterminada de Azure AD Connect no da por supuesto ningún modelo en particular, pero en función de cómo se haya seleccionado la coincidencia de usuarios en la guía de instalación, pueden observarse comportamientos diferentes.
 

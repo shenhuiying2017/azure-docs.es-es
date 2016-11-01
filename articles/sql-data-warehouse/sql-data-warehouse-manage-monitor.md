@@ -3,8 +3,8 @@
    description="Obtenga información sobre cómo supervisar la carga de trabajo mediante DMV."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
+   authors="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/08/2016"
-   ms.author="sonyama;barbkess"/>
+   ms.date="10/31/2016"
+   ms.author="barbkess"/>
 
 
 # <a name="monitor-your-workload-using-dmvs"></a>Supervisión de la carga de trabajo mediante DMV
@@ -46,7 +46,7 @@ Todas las consultas ejecutadas en SQL Data Warehouse se registran en [sys.dm_pdw
 
 Estos son los pasos que deben seguirse para investigar los planes de ejecución de consultas y las horas de una consulta determinada.
 
-### <a name="step-1:-identify-the-query-you-wish-to-investigate"></a>PASO 1: Identificación de la consulta que quiere investigar
+### <a name="step-1-identify-the-query-you-wish-to-investigate"></a>PASO 1: Identificación de la consulta que quiere investigar
 
 ```sql
 -- Monitor active queries
@@ -82,7 +82,7 @@ OPTION (LABEL = 'My Query')
 ;
 ```
 
-### <a name="step-2:-investigate-the-query-plan"></a>PASO 2: investigación del plan de consulta
+### <a name="step-2-investigate-the-query-plan"></a>PASO 2: investigación del plan de consulta
 
 Use el identificador de solicitud para recuperar el plan de SQL distribuido (DSQL) de la consulta desde [sys.dm_pdw_request_steps][].
 
@@ -102,7 +102,7 @@ Para investigar más detalles acerca de un solo paso, compruebe la columna *oper
 - Continúe con el paso 3a sobre **operaciones SQL**: OnOperation, RemoteOperation, ReturnOperation.
 - Continúe con el paso 3b sobre **operaciones de movimiento de datos**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
-### <a name="step-3a:-investigate-sql-on-the-distributed-databases"></a>PASO 3a: investigación de SQL en las bases de datos distribuidas
+### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>PASO 3a: investigación de SQL en las bases de datos distribuidas
 
 Use el identificador de solicitud y el índice de pasos para recuperar información de [sys.dm_pdw_sql_requests][], que contiene detalles sobre la ejecución del paso de la consulta en todas las instancias distribuidas.
 
@@ -123,7 +123,7 @@ Si la consulta se está ejecutando, se puede utilizar [DBCC PDW_SHOWEXECUTIONPLA
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
-### <a name="step-3b:-investigate-data-movement-on-the-distributed-databases"></a>PASO 3b: investigación del movimiento de datos en las bases de datos distribuidas
+### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>PASO 3b: investigación del movimiento de datos en las bases de datos distribuidas
 
 Use el identificador de solicitud y el índice de paso para recuperar información sobre el paso de movimiento de datos que se ejecuta en cada distribución desde [sys.dm_pdw_dms_workers][].
 

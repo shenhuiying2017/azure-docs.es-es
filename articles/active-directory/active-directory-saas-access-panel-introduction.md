@@ -3,7 +3,7 @@
     description="Aprenda a usar las diferentes variantes del Panel de acceso (explorador Web, aplicación Android, aplicación iPhone y iPad) para acceder a las aplicaciones SaaS que tiene asignadas."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -150,13 +150,13 @@ Si una organización utiliza aplicaciones de Office 365 y el usuario dispone de 
 
 Cuando un usuario hace clic en un título de aplicación para una aplicación de Office 365, se redirige a esa aplicación e inicia sesión automáticamente.
 
-### <a name="microsoft-and-third-party-applications-configured-with-federation-based-sso"></a>Aplicaciones de Microsoft y de terceros configuradas con SSO basado en federación
+### <a name="microsoft-and-thirdparty-applications-configured-with-federationbased-sso"></a>Aplicaciones de Microsoft y de terceros configuradas con SSO basado en federación
 
 Estas son aplicaciones que el administrador ha agregado en la sección de Active Directory del Portal de administración de Azure con el modo de inicio de sesión único establecido en “*Inicio de sesión único de Azure AD*”. Un usuario solo verá estas aplicaciones si el administrador le ha concedido explícitamente acceso a ellas.
 
 Cuando un usuario hace clic en un título de aplicación para una de estas aplicaciones, se redirigirá a esa aplicación e iniciará sesión automáticamente.
 
-### <a name="password-based-sso-without-identity-provisioning"></a>SSO basado en contraseña sin aprovisionamiento de identidad
+### <a name="passwordbased-sso-without-identity-provisioning"></a>SSO basado en contraseña sin aprovisionamiento de identidad
 
 Estas son aplicaciones que el administrador ha agregado en la sección de Active Directory del Portal de administración de Azure con el modo de inicio de sesión único establecido en "*Inicio de sesión único basado en contraseña*”. <br>  Todos los usuarios del directorio verán todas las aplicaciones que se han configurado en este modo.
 
@@ -166,7 +166,7 @@ La próxima vez que un usuario haga clic en el título de aplicación, iniciará
 
 Si las credenciales de un usuario han cambiado en la aplicación de terceros de destino, el usuario también debe actualizar sus credenciales almacenadas en Azure AD. Para actualizar las credenciales, el usuario debe seleccionar el icono en la parte inferior derecha del título de aplicación y seleccionar “actualizar credenciales” para volver a introducir el nombre de usuario y la contraseña para esa aplicación.
 
-### <a name="password-based-sso-with-identity-provisioning"></a>SSO basado en contraseña con aprovisionamiento de identidad
+### <a name="passwordbased-sso-with-identity-provisioning"></a>SSO basado en contraseña con aprovisionamiento de identidad
 
 Estas son aplicaciones que el administrador ha agregado en la sección de Active Directory del Portal de administración de Azure con el modo de inicio de sesión único establecido en “*Inicio de sesión único basado en contraseña*” así como el aprovisionamiento de identidad.
 

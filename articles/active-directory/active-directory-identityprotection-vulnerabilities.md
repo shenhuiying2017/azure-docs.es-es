@@ -4,7 +4,7 @@
     services="active-directory"
     keywords="azure active directory identity protection, detección de aplicaciones en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -27,7 +27,7 @@ Los puntos vulnerables son puntos débiles de su entorno que pueden ser aprovech
 
 En las siguientes secciones se ofrece información general de las vulnerabilidades de las que informa Identity Protection.
 
-## <a name="multi-factor-authentication-registration-not-configured"></a>Registro de la autenticación multifactor no configurado 
+## <a name="multifactor-authentication-registration-not-configured"></a>Registro de la autenticación multifactor no configurado 
 
 Este punto vulnerable ayuda a controlar la implementación de Azure Multi-Factor Authentication en su organización. 
 

@@ -3,7 +3,7 @@
     description="Obtenga información sobre cómo asegurarse de que se le notifica si surge cualquier problema relacionado con el aprovisionamiento de usuarios que requiere su atención habilitando las notificaciones de aprovisionamiento de cuentas."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 

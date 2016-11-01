@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter=""
    authors="ronortloff"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/24/2016" 
-   ms.author="rortloff;barbkess;sonyama"/>
+   ms.date="10/31/2016" 
+   ms.author="rortloff;barbkess"/>
 
 
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoría en Almacenamiento de datos SQL de Azure
@@ -31,7 +31,7 @@ Las herramientas de auditoría posibilitan y facilitan la observancia de estánd
 + [Configuración de la auditoría para su base de datos]
 + [Análisis de registros e informes de auditoría]
 
-##<a name="<a-id="subheading-1"></a>azure-sql-data-warehouse-database-auditing-basics"></a><a id="subheading-1"></a>Conceptos básicos de auditoría de Almacenamiento de datos SQL de Azure
+##<a name="a-idsubheading1aazure-sql-data-warehouse-database-auditing-basics"></a><a id="subheading-1"></a>Conceptos básicos de auditoría de Almacenamiento de datos SQL de Azure
 
 
 La auditoría de Almacenamiento de datos SQL la permite que:
@@ -61,7 +61,7 @@ Puede definirse una directiva de auditoría para una base de datos específica o
 Antes de configurar la auditoría, compruebe si usa un ["Cliente de nivel inferior"](sql-data-warehouse-auditing-downlevel-clients.md).
 
 
-##<a name="<a-id="subheading-2"></a>set-up-auditing-for-your-database"></a><a id="subheading-2"></a>Configuración de la auditoría para su base de datos
+##<a name="a-idsubheading2aset-up-auditing-for-your-database"></a><a id="subheading-2"></a>Configuración de la auditoría para su base de datos
 
 1. Inicie el <a href="https://portal.azure.com" target="_blank">Portal de Azure</a>.
 
@@ -92,7 +92,7 @@ Antes de configurar la auditoría, compruebe si usa un ["Cliente de nivel inferi
 9. Haga clic en **Aceptar**.
 
 
-##<a name="<a-id="subheading-3">analyze-audit-logs-and-reports</a>"></a><a id="subheading-3">Análisis de registros e informes de auditoría</a>
+##<a name="a-idsubheading3analyze-audit-logs-and-reportsa"></a><a id="subheading-3">Análisis de registros e informes de auditoría</a>
 
 Los registros de auditoría se agregan en una recopilación de tablas de Almacenamiento con el prefijo **SQLDBAuditLogs** en la cuenta de almacenamiento de Azure que eligió durante la configuración. Puede ver los archivos de registro usando una herramienta como el <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Explorador de almacenamiento de Azure</a>.
 
@@ -105,11 +105,11 @@ Para obtener instrucciones más detalladas sobre el trabajo con la plantilla de 
 ![][5]
 
 
-##<a name="<a-id="subheading-4">practices-for-usage-in-production</a>"></a><a id="subheading-4">Prácticas para el uso en producción</a>
+##<a name="a-idsubheading4practices-for-usage-in-productiona"></a><a id="subheading-4">Prácticas para el uso en producción</a>
 La descripción de esta sección se refiere a las capturas de pantalla anteriores. Se puede usar tanto el <a href="https://portal.azure.com" target="_blank">Portal de Azure</a> como el <a href= "https://manage.windowsazure.com/" target="_bank">Portal de Azure clásico</a>.
 
 
-##<a name="<a-id="subheading-5"></a>storage-key-regeneration"></a><a id="subheading-5"></a>Regeneración de clave de almacenamiento
+##<a name="a-idsubheading5astorage-key-regeneration"></a><a id="subheading-5"></a>Regeneración de clave de almacenamiento
 
 En el entorno de producción, es probable que actualice periódicamente las claves de almacenamiento. Cuando actualice las claves deberá volver a guardar la directiva. El proceso es el siguiente:
 
@@ -122,7 +122,7 @@ En el entorno de producción, es probable que actualice periódicamente las clav
 
 4. Vuelva a la interfaz de usuario de almacenamiento y **regenere** la *Clave de acceso secundaria* (como preparación para el siguiente ciclo de actualización de las claves).
 
-##<a name="<a-id="subheading-6"></a>automation"></a><a id="subheading-6"></a>Automatización
+##<a name="a-idsubheading6aautomation"></a><a id="subheading-6"></a>Automatización
 Hay varios cmdlets de PowerShell que puede usar para configurar la auditoría en la base de datos de SQL de Azure. Para acceder a los cmdlets de auditoría debe ejecutar PowerShell en el modo del Administrador de recursos de Azure.
 
 > [AZURE.NOTE] El módulo [Azure Resource Manager](https://msdn.microsoft.com/library/dn654592.aspx) se encuentra disponible actualmente en modo de vista previa. Puede que no ofrezca las mismas capacidades de administración que el módulo de Azure.

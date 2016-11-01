@@ -3,7 +3,7 @@
     description="El administrador de TI puede elegir tener sus dispositivos Windows unidos a un dominio para registrarse de forma automática y silenciosa en Azure Active Directory (Azure AD)."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -17,7 +17,7 @@
     ms.author="markvi"/>
 
 
-# <a name="automatic-device-registration-with-azure-active-directory-for-windows-domain-joined-devices"></a>Registro automático de dispositivos en Azure Active Directory para dispositivos Windows unidos a un dominio
+# <a name="automatic-device-registration-with-azure-active-directory-for-windows-domainjoined-devices"></a>Registro automático de dispositivos en Azure Active Directory para dispositivos Windows unidos a un dominio
 
 Como administrador de TI, puede elegir registrar sus dispositivos Windows unidos a un dominio de forma automática y silenciosa en Azure Active Directory (Azure AD). Esto puede ser útil si ha configurado directivas de acceso condicional basadas en dispositivos para aplicaciones de Office 365 o aplicaciones administradas de forma local por AD FS. Puede obtener más información acerca de los escenarios de registro de dispositivos leyendo la [información general sobre el registro de dispositivos de Azure Active Directory](active-directory-conditional-access-device-registration-overview.md).
 
@@ -82,7 +82,7 @@ Por ejemplo, si usa dos sufijos UPN en la organización denominados @contoso.com
 | enterpriseregistration.contoso.com        | CNAME | enterpriseregistration.windows.net |
 | enterpriseregistration.region.contoso.com | CNAME | enterpriseregistration.windows.net |
 
-##<a name="configure-automatic-device-registration-for-windows-7-and-windows-8.1-domain-joined-devices"></a>Configure el registro automático de dispositivos para dispositivos Windows 7 y Windows 8.1 unidos a un dominio
+##<a name="configure-automatic-device-registration-for-windows-7-and-windows-81-domain-joined-devices"></a>Configure el registro automático de dispositivos para dispositivos Windows 7 y Windows 8.1 unidos a un dominio
 
 Configure el registro automático de dispositivos para sus dispositivos Windows 7 y Windows 8.1 unidos a un dominio con los vínculos siguientes. Asegúrese de que ha completado los requisitos previos anteriores antes de continuar.
 

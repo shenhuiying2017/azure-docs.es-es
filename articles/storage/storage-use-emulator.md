@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/07/2016" 
+    ms.date="10/31/2016" 
     ms.author="tamram"/>
 
 
@@ -130,7 +130,7 @@ Los extremos de servicio para el emulador de almacenamiento son:
     Queue Service: http://127.0.0.1:10001/<account-name>/<resource-path>
     Table Service: http://127.0.0.1:10002/<account-name>/<resource-path>
 
-### <a name="addressing-the-account-secondary-with-ra-grs"></a>Direccionar la cuenta secundaria con RA-GRS
+### <a name="addressing-the-account-secondary-with-ragrs"></a>Direccionar la cuenta secundaria con RA-GRS
 
 A partir de la versión 3.1, la cuenta del emulador de almacenamiento admite la replicación con redundancia geográfica con acceso de lectura (RA-GRS). Para los recursos de almacenamiento en la nube y en el emulador local, puedes obtener acceso a la ubicación de la cuenta secundaria si anexa -secondary al nombre de la cuenta. Por ejemplo, la siguiente dirección se puede usar para obtener acceso a un blob usando la cuenta secundaria de solo lectura en el emulador de almacenamiento:
 
@@ -138,7 +138,7 @@ A partir de la versión 3.1, la cuenta del emulador de almacenamiento admite la 
 
 > [AZURE.NOTE] Para el acceso mediante programación a la cuenta secundaria con el emulador de almacenamiento, usa la biblioteca de cliente de almacenamiento para la versión 3.2 de .NET o una versión posterior. Consulte la [biblioteca del cliente de Almacenamiento de Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx) si desea obtener más información.
 
-## <a name="storage-emulator-command-line-tool-reference"></a>Referencia de la herramienta de la línea de comandos del emulador de almacenamiento
+## <a name="storage-emulator-commandline-tool-reference"></a>Referencia de la herramienta de la línea de comandos del emulador de almacenamiento
 
 A partir de la versión 3.0, al iniciar el emulador de almacenamiento, se abrirá una ventana emergente con la ventana de la línea de comandos. Use la ventana de la línea de comandos para iniciar y detener el emulador, así como para consultar el estado y realizar otras operaciones.
 
@@ -206,11 +206,11 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 ## <a name="storage-emulator-release-notes"></a>Notas de la versión del emulador de almacenamiento
 
-### <a name="version-4.5"></a>Versión 4.5
+### <a name="version-45"></a>Versión 4.5
 
 - Se ha corregido un error que provocó la inicialización e instalación del emulador de almacenamiento cuando se cambia el nombre de la base de datos de copia de seguridad.
 
-### <a name="version-4.4"></a>Version 4.4
+### <a name="version-44"></a>Version 4.4
 
 - El emulador de almacenamiento admite ahora la versión 2015-12-11 de los servicios de almacenamiento en los puntos de conexión de Blob Storage, Queue Storage y Table Storage.
 
@@ -220,15 +220,15 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 - Se ha corregido un error que a veces causaba que los valores máx. y mín. de DateTime se notificarán en una zona horaria incorrecta.
 
-### <a name="version-4.3"></a>Versión 4.3
+### <a name="version-43"></a>Versión 4.3
 
 - El emulador de almacenamiento admite ahora la versión 2015-07-08 de los servicios de almacenamiento en los puntos de conexión de los servicios Blob, Cola y Tabla.
 
-### <a name="version-4.2"></a>Versión 4.2
+### <a name="version-42"></a>Versión 4.2
 
 - El emulador de almacenamiento admite ahora la versión 2015-04-05 de los servicios de almacenamiento en los extremos de servicio Blob, Cola y Tabla.
 
-### <a name="version-4.1"></a>Versión 4.1
+### <a name="version-41"></a>Versión 4.1
 
 - El emulador de almacenamiento admite ahora la versión 2015-02-21 de los servicios de almacenamiento en los extremos de servicio Blob, Cola y Tabla, con la excepción de las nuevas características de blob en anexos. 
 
@@ -236,19 +236,19 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 - Se ha corregido un error en el que una condición de carrera hacía que los datos de entidad de tabla fuesen incorrectos durante las operaciones de mezcla simultáneas.
 
-### <a name="version-4.0"></a>Versión 4.0
+### <a name="version-40"></a>Versión 4.0
 
 - Se ha cambiado el nombre de ejecutable del emulador de almacenamiento a *AzureStorageEmulator.exe*.
 
-### <a name="version-3.2"></a>Versión 3.2
+### <a name="version-32"></a>Versión 3.2
 
 - El emulador de almacenamiento admite ahora la versión 2014-02-14 de los servicios de almacenamiento en los extremos de servicio de blob, cola y tabla. Tenga en cuenta que los extremos de servicio de archivos no se admiten actualmente en el emulador de almacenamiento. Consulte [Versiones de los servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dd894041.aspx) para obtener información acerca de la versión 2014-02-14.
 
-### <a name="version-3.1"></a>Versión 3.1
+### <a name="version-31"></a>Versión 3.1
 
 - Ahora se admite el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) en el emulador de almacenamiento. Las API de las operaciones Get Blob Service Stats, Get Queue Service Stats y Get Table Service Stats son compatibles con la cuenta secundaria y siempre devolverán el valor del elemento de respuesta LastSyncTime como la hora actual según la base de datos SQL subyacente. Para el acceso mediante programación a la cuenta secundaria con el emulador de almacenamiento, usa la biblioteca de cliente de almacenamiento para la versión 3.2 de .NET o una versión posterior. Consulte la Documentación de referencia de la biblioteca cliente de Almacenamiento de Microsoft Azure para .NET para obtener más información.
 
-### <a name="version-3.0"></a>Versión 3.0
+### <a name="version-30"></a>Versión 3.0
 
 - El emulador de almacenamiento de Azure ya no se incluye en el mismo paquete que el emulador de proceso.
 
