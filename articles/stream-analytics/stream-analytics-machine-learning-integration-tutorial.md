@@ -50,7 +50,7 @@ En un nivel alto, para completar las tareas demostradas en este artículo, reali
 
 ## <a name="upload-the-csv-input-file-to-blob-storage"></a>Carga del archivo de entrada CSV en Almacenamiento de blobs
 
-En este paso, puede usar cualquier archivo CSV, como el que se ha especificado como disponible para su descarga en GitHub. Puede usar [Explorador de almacenamiento de Windows Azure](http://storageexplorer.com/) o Visual Studio para cargar el archivo o usar el código personalizado. Usamos ejemplos basados en Visual Studio.
+En este paso, puede usar cualquier archivo CSV, como el que se ha especificado como disponible para su descarga en GitHub. Puede usar [Explorador de almacenamiento de Microsoft Azure](http://storageexplorer.com/) o Visual Studio para cargar el archivo o usar el código personalizado. Usamos ejemplos basados en Visual Studio.
 
 1.  En Visual Studio, haga clic en **Azure** > **Almacenamiento** > **Asociar almacenamiento externo**. Especifique un **Nombre de cuenta** y una **Clave de cuenta**.  
 

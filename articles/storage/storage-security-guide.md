@@ -609,7 +609,7 @@ Para más información acerca del uso compartido de recursos entre orígenes y c
 
     Si puede usar HTTPS, que proporciona seguridad de nivel de transporte, el uso de la comprobación de MD5 es redundante e innecesario.
     
-    Para obtener más información, consulte [Windows Azure Blob MD5 Overview](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx)(Información general de MD5 del servicio BLOB de Azure).
+    Para obtener más información, consulte [Microsoft Azure Blob MD5 Overview](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx)(Información general de MD5 del servicio BLOB de Azure).
 
 2.  **¿Y qué ocurre con el cumplimiento de la norma FIPS para el Gobierno de EE. UU.?**
 

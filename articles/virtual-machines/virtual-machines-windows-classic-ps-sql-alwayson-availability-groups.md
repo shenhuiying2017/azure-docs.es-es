@@ -536,7 +536,7 @@ Finalmente, está listo para configurar el grupo de disponibilidad. Se usará el
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
 
-1. Descargue **CreateAzureFailoverCluster.ps1** de [Create WSFC Cluster for AlwaysOn Availability Groups in Windows Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Creación del clúster de WSFC para grupos de disponibilidad AlwaysOn en la máquina virtual de Azure) en el directorio de trabajo local. Usará este script para ayudarle a crear un clúster funcional de WSFC. Para obtener información importante sobre cómo WSFC interactúa con la red de Azure, consulte [Alta disponibilidad y recuperación ante desastres para SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-high-availability-dr.md).
+1. Descargue **CreateAzureFailoverCluster.ps1** de [Create WSFC Cluster for AlwaysOn Availability Groups in Microsoft Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Creación del clúster de WSFC para grupos de disponibilidad AlwaysOn en la máquina virtual de Azure) en el directorio de trabajo local. Usará este script para ayudarle a crear un clúster funcional de WSFC. Para obtener información importante sobre cómo WSFC interactúa con la red de Azure, consulte [Alta disponibilidad y recuperación ante desastres para SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
 1. Cambie al directorio de trabajo y cree el clúster de WSFC con el script descargado.
 

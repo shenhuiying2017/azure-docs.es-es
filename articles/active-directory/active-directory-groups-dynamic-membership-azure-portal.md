@@ -190,7 +190,7 @@ Los atributos personalizados se sincronizan desde Windows Server AD local o desd
 
 user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
 
-El nombre de atributo personalizado se puede encontrar en el directorio mediante la consulta de un atributo de usuario a través del explorador de Windows Azure AD Graph y la búsqueda del nombre en cuestión.
+El nombre de atributo personalizado se puede encontrar en el directorio mediante la consulta de un atributo de usuario a través del explorador de Microsoft Azure AD Graph y la búsqueda del nombre en cuestión.
 
 ## Regla de informes directos
 Ahora puede rellenar los miembros de un grupo en función del atributo de administrador de un usuario.

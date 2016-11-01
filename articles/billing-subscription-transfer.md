@@ -53,9 +53,9 @@ Puede hacerlo fácilmente en el Centro de cuentas de Microsoft Azure para las su
 
 6.  El destinatario hace clic en el vínculo y sigue las instrucciones, incluyendo la especificación de su información de pago.
 
-    ![Página web de primera transferencia de suscripción](./media/billing-subscription-transfer/image4.png)
+    ![Página web de primera transferencia de suscripción](./media/billing-subscription-transfer/image4.PNG)
 
-    ![Página web de segunda transferencia de suscripción](./media/billing-subscription-transfer/image5.png)
+    ![Página web de segunda transferencia de suscripción](./media/billing-subscription-transfer/image5.PNG)
 
 7. ¡Éxito! La suscripción ya está transferida.
 
@@ -135,6 +135,6 @@ Puede hacerlo fácilmente en el Centro de cuentas de Microsoft Azure para las su
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

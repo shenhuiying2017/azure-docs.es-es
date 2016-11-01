@@ -179,7 +179,7 @@ Un ejemplo de una regla que utiliza un atributo personalizado es
 
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
-El nombre de atributo personalizado se puede encontrar en el directorio mediante la consulta de un atributo de usuario a través del explorador de Windows Azure AD Graph y la búsqueda del nombre en cuestión.
+El nombre de atributo personalizado se puede encontrar en el directorio mediante la consulta de un atributo de usuario a través del explorador de Microsoft Azure AD Graph y la búsqueda del nombre en cuestión.
 
 ## <a name="direct-reports-rule"></a>Regla de informes directos
 Ahora puede rellenar los miembros de un grupo en función del atributo de administrador de un usuario.

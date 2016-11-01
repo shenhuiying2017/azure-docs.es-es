@@ -20,7 +20,7 @@
 # <a name="azure-ad-connect:-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: actualización de una versión anterior a la versión más reciente
 En este tema se describen los distintos métodos que puede utilizar para actualizar la instalación de Azure AD Connect a la versión más reciente. Le recomendamos mantenerse al día con las versiones de Azure AD Connect.
 
-Si quiere actualizar desde DirSync, consulte en su lugar [Azure AD Connect: actualización de Windows Azure Active Directory Sync (DirSync)](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md).
+Si quiere actualizar desde DirSync, consulte en su lugar [Azure AD Connect: actualización de Microsoft Azure Active Directory Sync (DirSync)](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md).
 
 Hay algunas estrategias distintas para actualizar Azure AD Connect.
 
@@ -52,7 +52,7 @@ Los dos servidores pueden usar versiones diferentes; por ejemplo, el servidor ac
 
 Nota: Se ha observado que algunos clientes prefieren tener tres o cuatro servidores para esto. Puesto que el servidor provisional se está actualizando, durante este tiempo no tendrá un servidor de copia de seguridad para el caso de una [recuperación ante desastres](active-directory-aadconnectsync-operations.md#disaster-recovery). Se puede preparar un nuevo conjunto de servidores primarios/en espera con la nueva versión (hasta cuatro servidores como máximo) y asegurarse de que siempre haya un servidor de ensayo preparado para tomar el control.
 
-Estos pasos también sirven para pasar de Azure AD Sync o de una solución con FIM + el Conector de Azure AD. Estos pasos no sirven para DirSync, pero el mismo método de migración oscilante (también llamada implementación paralela) con los pasos para DirSync se pueden encontrar en [Azure AD Connect: actualización de Windows Azure Active Directory Sync (DirSync)](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md).
+Estos pasos también sirven para pasar de Azure AD Sync o de una solución con FIM + el Conector de Azure AD. Estos pasos no sirven para DirSync, pero el mismo método de migración oscilante (también llamada implementación paralela) con los pasos para DirSync se pueden encontrar en [Azure AD Connect: actualización de Microsoft Azure Active Directory Sync (DirSync)](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md).
 
 ### <a name="swing-migration-steps"></a>Pasos de la migración oscilante
 
