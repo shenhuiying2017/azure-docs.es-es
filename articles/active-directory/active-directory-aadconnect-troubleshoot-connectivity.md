@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/01/2016"
+    ms.date="06/27/2016"
     ms.author="billmath"/>
 
 
@@ -167,13 +167,13 @@ Autenticación realizada correctamente. No se pudo recuperar la información de 
 ### <a name="retrievedomains"></a>RetrieveDomains
 Autenticación realizada correctamente. No se pudo recuperar la información de domino de Azure AD.
 
-## <a name="troubleshooting-steps-for-previous-releases"></a>Pasos para solucionar problemas de versiones anteriores.
+## <a name="troubleshooting-steps-for-previous-releases."></a>Pasos para solucionar problemas de versiones anteriores.
 Con las versiones a partir del número de compilación 1.1.105.0 (publicado en febrero de 2016) se ha retirado el Ayudante para el inicio de sesión. Esta sección y la configuración no son ya necesarios, pero se conservan como referencia.
 
 Para que el Ayudante para el inicio de sesión funcione, debe configurarse winhttp. Esto puede hacerse con [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity).  
 ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
-### <a name="the-signin-assistant-has-not-been-correctly-configured"></a>El Asistente para el inicio de sesión no se ha configurado correctamente
+### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>El Asistente para el inicio de sesión no se ha configurado correctamente
 Este error aparece cuando el Ayudante para el inicio de sesión no puede conectar con el proxy o este no permite la solicitud.
 ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
 

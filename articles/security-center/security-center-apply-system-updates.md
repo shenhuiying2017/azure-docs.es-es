@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Apply system updates in Azure Security Center | Microsoft Azure"
-   description="This document shows you how to implement the Azure Security Center recommendations **Apply system updates** and **Reboot after system updates**."
+   pageTitle="Aplicar actualizaciones del sistema en Azure Security Center | Microsoft Azure"
+   description="En este documento se muestra cómo implementar las recomendaciones de **Aplicar actualizaciones del sistema** y **Reiniciar tras actualizar el sistema** de Azure Security Center."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,62 +13,51 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/01/2016"
+   ms.date="07/29/2016"
    ms.author="terrylan"/>
 
+# Aplicar actualizaciones del sistema en Azure Security Center
 
-# <a name="apply-system-updates-in-azure-security-center"></a>Apply system updates in Azure Security Center
+Azure Security Center supervisa diariamente las máquinas virtuales Windows y Linux por si faltan actualizaciones de sistema operativo. Security Center recupera una lista de actualizaciones críticas y de seguridad disponibles desde Windows Update o Windows Server Update Services (WSUS), dependiendo de qué servicio está configurado en una máquina virtual Windows. Security Center comprueba también las últimas actualizaciones de los sistemas Linux. Si falta una actualización del sistema en la máquina virtual, Security Center le recomendará que aplique las actualizaciones del sistema
 
-Azure Security Center monitors daily Windows and  Linux virtual machines (VMs) for missing operating system updates. Security Center retrieves a list of available security and critical updates from Windows Update or Windows Server Update Services (WSUS), depending on which service is configured on a Windows VM.  Security Center also checks for the latest updates in Linux systems. If your VM is missing a system update, Security Center will recommend that you apply system updates
+> [AZURE.NOTE] En este documento se presenta el servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
 
-> [AZURE.NOTE] This document introduces the service by using an example deployment.  This is not a step-by-step guide.
+## Implementación de la recomendación
 
-## <a name="implement-the-recommendation"></a>Implement the recommendation
+1. En la hoja **Recomendaciones**, seleccione **Aplicar actualizaciones del sistema**. ![Aplicar actualizaciones del sistema][1]
 
-1. In the **Recommendations** blade, select **Apply system updates**.
-![Apply system updates][1]
+2. Se abre la hoja **Aplicar actualizaciones del sistema** con una lista de las máquinas virtuales en las que faltan actualizaciones del sistema. Seleccione una máquina virtual. ![Seleccionar una máquina virtual][2]
 
-2. The **Apply system updates** blade opens displaying a list of VMs missing system updates. Select a VM.
-![Select a VM][2]
+3. Se abre una hoja que muestra una lista de las actualizaciones que faltan en esa máquina virtual. Seleccione una actualización del sistema. En este ejemplo, vamos a seleccionar KB3156016. ![Actualizaciones de seguridad que faltan][3]
 
-3. A blade opens displaying a list of missing updates for that VM. Select a system update. In this example, let’s select KB3156016.
-![Missing security updates][3]
+4. Siga los pasos de la hoja **Actualización de seguridad** para aplicar la actualización que falta. ![Actualización de seguridad][4]
 
-4. Follow the steps in the **Security Update** blade to apply the missing update.
-![Security update][4]
+## Reiniciar tras actualizar el sistema
 
-## <a name="reboot-after-system-updates"></a>Reboot after system updates
+5. Vuelva a la hoja **Recomendaciones**. Se genera una nueva entrada después de aplicar las actualizaciones del sistema, denominada **Reiniciar tras actualizar el sistema**. Esta entrada permite saber que tiene que reiniciar la máquina virtual para completar el proceso de aplicación de las actualizaciones del sistema. ![Reiniciar tras actualizar el sistema][5]
 
-5. Return to the **Recommendations** blade. A new entry was generated after you applied system updates, called **Reboot after system updates**. This entry lets you know that you need to reboot the VM to complete the process of applying system updates.
-![Reboot after system updates][5]
+6. Seleccione **Reiniciar tras actualizar el sistema**. Se abre la hoja **Hay un reinicio pendiente para completar las actualizaciones del sistema** que muestra una lista de máquinas virtuales que deben reiniciarse para completar el proceso de aplicación de actualizaciones del sistema. ![Reinicio pendiente][6]
 
-6. Select **Reboot after system updates**. This opens **A restart is pending to complete system updates** blade displaying a list of VMs that you need to restart to complete the apply system updates process.
-![Restart pending][6]
+Reinicie la máquina virtual de Azure para completar el proceso.
 
-Restart the VM from Azure to complete the process.
+## Consulte también
 
-## <a name="see-also"></a>See also
+Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
-To learn more about Security Center, see the following:
-
-- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
-- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
-- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Find blog posts about Azure security and compliance.
+- [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+- [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md): recomendaciones que le ayudan a proteger los recursos de Azure.
+- [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
+- [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): sepa cómo administrar alertas de seguridad y responder a estas.
+- [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
+- [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
+- [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre publicaciones de blog sobre el cumplimiento y la seguridad de Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-apply-system-updates/recommendation.png
-[2]:./media/security-center-apply-system-updates/select-vm.png
+[2]: ./media/security-center-apply-system-updates/select-vm.png
 [3]: ./media/security-center-apply-system-updates/missing-security-updates.png
 [4]: ./media/security-center-apply-system-updates/security-update.png
 [5]: ./media/security-center-apply-system-updates/reboot-after-system-updates.png
 [6]: ./media/security-center-apply-system-updates/restart-pending.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

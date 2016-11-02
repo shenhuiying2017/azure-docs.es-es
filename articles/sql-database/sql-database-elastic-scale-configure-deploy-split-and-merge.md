@@ -1,75 +1,74 @@
 <properties
-    pageTitle="Deploy a split-merge service | Microsoft Azure"
-    description="Splitting and Merging with elastic database tools"
-    services="sql-database"  
-    documentationCenter=""
-    authors="ddove"
-    manager="jhubbard"
-    editor=""/>
+	pageTitle="Implementación de un servicio de división y combinación | Microsoft Azure"
+	description="División y combinación con las herramientas de Base de datos elástica"
+	services="sql-database"  
+	documentationCenter=""
+	authors="ddove"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
-    ms.service="sql-database"
-    ms.workload="sql-database"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/24/2016"
-    ms.author="ddove" />
+	ms.service="sql-database"
+	ms.workload="sql-database"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/27/2016"
+	ms.author="ddove" />
+
+# Implemente un servicio de división y combinación 
+
+La herramienta de división y combinación permite mover los datos entre bases de datos particionadas. Consulte [Mover datos entre bases de datos en la nube escaladas horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md).
+
+## Descarga de los paquetes de División y combinación
+
+1. Descargue la última versión de NuGet desde [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
+2. Abra un símbolo del sistema y vaya al directorio al que descargó nuget.exe. La descarga incluye comandos de PowerShell.
+3. Descargue el paquete de división y combinación más reciente en el directorio actual con el comando que aparece a continuación:`nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
+
+Los archivos están ubicados en un directorio llamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**, donde *x.x.xxx.x* refleja el número de la versión. Busque los archivos del servicio de división y combinación en el subdirectorio **content\\splitmerge\\service** y los scripts de Powershell de división y combinación (y las .dll de cliente necesarias) en el subdirectorio **content\\splitmerge\\powershell**.
+
+## Requisitos previos
+
+1. Cree una base de datos de Base de datos SQL de Azure que se usará como la base de datos de estado de división y combinación. Vaya al [Portal de Azure](https://portal.azure.com). Cree una nueva **Base de datos SQL**. Asigne un nombre a la base de datos y cree un nuevo administrador y una contraseña. Asegúrese de anotar el nombre y la contraseña para usarlos más adelante.
+
+2. Asegúrese de que el servidor de Base de datos SQL de Azure permite que los servicios de Azure se conecten a él. En el portal, en la **Configuración de firewall**, asegúrese de que la opción **Permitir acceso a Servicios de Azure** está establecida en **Activado**. Haga clic en el icono de "guardar".
+
+    ![Servicios permitidos][1]
+
+3. Cree una cuenta de almacenamiento de Azure que se usará para la salida de diagnóstico. Vaya al Portal de Azure. En la barra de la izquierda, haga clic en **Nuevo**, en**Datos + almacenamiento** y en **Almacenamiento**.
+
+4. Cree un servicio en la nube de Azure que contendrá el servicio de División y combinación. Vaya al Portal de Azure. En la barra de la izquierda, haga clic en **Nuevo**, en **Proceso**, en **Servicio en la nube** y en **Crear**.
 
 
-# <a name="deploy-a-splitmerge-service"></a>Deploy a split-merge service 
+## Configuración del servicio de división y combinación
 
-The split-merge tool lets you move data between sharded databases. See [Moving data between scaled-out cloud databases](sql-database-elastic-scale-overview-split-and-merge.md)
+### Configuración del servicio División y combinación
 
-## <a name="download-the-splitmerge-packages"></a>Download the Split-Merge packages
+1. En la carpeta donde ha descargado los ensamblados de división y combinación, cree una copia del archivo **ServiceConfiguration.Template.cscfg** que se suministra junto a **SplitMergeService.cspkg** y cámbiele el nombre por **ServiceConfiguration.cscfg**.
 
-1. Download the latest NuGet version from [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
-2. Open a command prompt and navigate to the directory where you downloaded nuget.exe. The download includes PowerShell commmands.
-3. Download the latest Split-Merge package into the current directory with the below command: `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
+2. Abra **ServiceConfiguration.cscfg** en un editor de texto como Visual Studio que permite validar las entradas como el formato de las huellas digitales de certificados.
 
-The files are placed in a directory named **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** where *x.x.xxx.x* reflects the version number. Find the split-merge Service files in the **content\splitmerge\service** sub-directory, and the Split-Merge PowerShell scripts (and required client .dlls) in the **content\splitmerge\powershell** sub-directory.
+3. Cree una nueva base de datos o elija una base de datos existente que sirva como la base de datos de estado para las operaciones de división y combinación y recupere la cadena de conexión de esa base de datos.
 
-## <a name="prerequisites"></a>Prerequisites
+	**Importante** En este momento, la base de datos de estado debe usar la intercalación latina (SQL\_Latin1\_General\_CP1\_CI\_AS). Para obtener más información, vea [Nombre de intercalación de Windows (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
 
-1. Create an Azure SQL DB database that will be used as the split-merge status database. Go to the [Azure portal](https://portal.azure.com). Create a new **SQL Database**. Give the database a name and create a new administrator and password. Be sure to record the name and password for later use.
-
-2. Ensure that your Azure SQL DB server allows Azure Services to connect to it. In the portal, in the **Firewall Settings**, ensure that the **Allow access to Azure Services** setting is set to **On**. Click the "save" icon.
-
-    ![Allowed services][1]
-
-3. Create an Azure Storage account that will be used for diagnostics output. Go to the Azure Portal. In the left bar, click **New**, click **Data + Storage**, then **Storage**.
-
-4. Create an Azure Cloud Service that will contain your Split-Merge service.  Go to the Azure Portal. In the left bar, click **New**, then **Compute**, **Cloud Service**, and **Create**. 
-
-
-## <a name="configure-your-splitmerge-service"></a>Configure your Split-Merge service
-
-### <a name="splitmerge-service-configuration"></a>Split-Merge service configuration
-
-1. In the folder where you downloaded the Split-Merge assemblies, create a copy of the **ServiceConfiguration.Template.cscfg** file that shipped alongside **SplitMergeService.cspkg** and rename it **ServiceConfiguration.cscfg**.
-
-2. Open **ServiceConfiguration.cscfg** in a text editor such as Visual Studio that validates inputs such as the format of certificate thumbprints.
-
-3. Create a new database or choose an existing database to serve as the status database for Split-Merge operations and retrieve the connection string of that database. 
-
-    **Important** At this time, the status database must use the Latin  collation (SQL\_Latin1\_General\_CP1\_CI\_AS). For more information, see [Windows Collation Name (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
-
-    With Azure SQL DB, the connection string typically is of the form:
+	Con Base de datos SQL de Azure, la cadena de conexión suele tener el formato:
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
-4.    Enter this connection string in the cscfg file in both the **SplitMergeWeb** and **SplitMergeWorker** role sections in the ElasticScaleMetadata setting.
+4.    Escriba esta cadena de conexión en el archivo cscfg en las secciones de roles **SplitMergeWeb** y **SplitMergeWorker** en la configuración de ElasticScaleMetadata.
 
-5.    For the **SplitMergeWorker** role, enter a valid connection string to Azure storage for the **WorkerRoleSynchronizationStorageAccountConnectionString** setting.
+5.    Para el rol **SplitMergeWorker**, escriba una cadena de conexión válida en el Almacenamiento de Azure para la configuración **WorkerRoleSynchronizationStorageAccountConnectionString**.
         
-### <a name="configure-security"></a>Configure security
+### Configuración de seguridad
 
-For detailed instructions to configure the security of the service, refer to the [Split-Merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md).
+Para obtener instrucciones detalladas para configurar la seguridad del servicio, consulte [Configuración de seguridad de división y combinación](sql-database-elastic-scale-split-merge-security-configuration.md).
 
-For the purposes of a simple test deployment for this tutorial, a minimal set of configuration steps will be performed to get the service up and running. These steps enable only the one machine/account executing them to communicate with the service.
+Para fines de una simple implementación de prueba para este tutorial, se realizará un conjunto mínimo de pasos de configuración para configurar y ejecutar el servicio. Estos pasos solo habilitan la máquina/cuenta que los ejecuta para comunicarse con el servicio.
 
-### <a name="create-a-selfsigned-certificate"></a>Create a self-signed certificate
+### Creación de un certificado autofirmado
 
-Create a new directory and from this directory execute the following command using a [Developer Command Prompt for Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx) window:
+Cree un directorio nuevo y desde este directorio ejecute el siguiente comando usando una ventana de [Símbolo del sistema para desarrolladores para Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx):
 
     makecert ^
     -n "CN=*.cloudapp.net" ^
@@ -78,42 +77,41 @@ Create a new directory and from this directory execute the following command usi
     -sr currentuser -ss root ^
     -sv MyCert.pvk MyCert.cer
 
-You are asked for a password to protect the private key. Enter a strong password and confirm it. You are then prompted for the password to be used once more after that. Click **Yes** at the end to import it to the Trusted Certification Authorities Root store.
+Se le pedirá que escriba una contraseña para proteger la clave privada. Escriba una contraseña segura y confírmela. Luego se le pedirá que escriba nuevamente la contraseña. Haga clic en **Sí** al final para importarla al almacén Raíz de Entidades de certificación de confianza.
 
-### <a name="create-a-pfx-file"></a>Create a PFX file
+### Creación de un archivo PFX
 
-Execute the following command from the same window where makecert was executed; use the same password that you used to create the certificate:
+Ejecute el siguiente comando desde la misma ventana donde se ejecutó makecert; use la misma contraseña que usó para crear el certificado:
 
     pvk2pfx -pvk MyCert.pvk -spc MyCert.cer -pfx MyCert.pfx -pi <password>
 
-### <a name="import-the-client-certificate-into-the-personal-store"></a>Import the client certificate into the personal store
-1. In Windows Explorer, double-click **MyCert.pfx**.
-2. In the **Certificate Import Wizard** select **Current User** and click **Next**.
-3. Confirm the file path and click **Next**.
-4. Type the password, leave **Include all extended properties** checked and click **Next**.
-5. Leave **Automatically select the certificate store[…]** checked and click **Next**.
-6. Click **Finish** and **OK**.
+### Importación del certificado de cliente al almacén Personal
+1. En el Explorador de Windows, haga doble clic en **MyCert.pfx**.
+2. En el **Asistente para importar certificados**, seleccione **Usuarios actual** y haga clic en **Siguiente**.
+3. Confirme la ruta del archivo y haga clic en **Siguiente**.
+4. Escriba la contraseña, deje activada la opción **Incluir todas las propiedades extendidas** y haga clic en **Siguiente**.
+5. Deje activada la opción **Seleccionar automáticamente el almacén de certificados…** y haga clic en **Siguiente**.
+6. Haga clic en **Finalizar** y en **Aceptar**.
 
-### <a name="upload-the-pfx-file-to-the-cloud-service"></a>Upload the PFX file to the cloud service
+### Carga del archivo PFX al servicio en la nube
 
-Go to the [Azure Portal](https://portal.azure.com).
+Vaya al [Portal de Azure](https://portal.azure.com).
 
-1. Select **Cloud Services**.
-2. Select the cloud service you created above for the Split/Merge service.
-3. Click **Certificates** on the top menu.
-4. Click **Upload** in the bottom bar.
-5. Select the PFX file and enter the same password as above.
-6. Once completed, copy the certificate thumbprint from the new entry in the list.
+1. Seleccione **Servicios en la nube**.
+2. Seleccione el servicio en la nube que creó anteriormente para el servicio División y combinación.
+3. Haga clic en **Certificados** en el menú superior.
+4. Haga clic en **Cargar** en la barra inferior.
+5. Seleccione el archivo PFX y escriba la misma contraseña anterior.
+6. Una vez realizado, copie la huella digital del certificado desde la entrada nueva en la lista.
 
-### <a name="update-the-service-configuration-file"></a>Update the service configuration file
+### Actualizar el archivo de configuración del servicio
 
-Paste the certificate thumbprint copied above into the thumbprint/value attribute of these settings.
-For the worker role:
+Pegue la huella digital del certificado copiada anteriormente en el atributo de huella digital/valor de esta configuración. Para el rol de trabajo:
 
     <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
-For the web role:
+Para el rol web:
 
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
     <Setting name="AllowedClientCertificateThumbprints" value="" />
@@ -123,193 +121,213 @@ For the web role:
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
 
-Please note that for production deployments separate certificates should be used for the CA, for encryption, the Server certificate and client certificates. For detailed instructions on this, see [Security Configuration](sql-database-elastic-scale-split-merge-security-configuration.md).
+Tenga en cuenta que para las implementaciones de producción se deben usar certificados independientes para la CA, para cifrado, el certificado de servidor y los certificados de cliente. Para obtener instrucciones detalladas al respecto, consulte [Configuración de seguridad](sql-database-elastic-scale-split-merge-security-configuration.md).
 
-## <a name="deploy-your-service"></a>Deploy your service
+## Implementación del servicio
 
-1. Go to the [Azure portal](https://manage.windowsazure.com).
-2. Click the **Cloud Services** tab on the left, and select the cloud service that you created earlier.
-3. Click **Dashboard**.
-4. Choose the staging environment, then click **Upload a new staging deployment**.
+1. Vaya al [Portal de Azure](https://manage.windowsazure.com).
+2. Haga clic en la pestaña **Servicios en la nube** que aparece a la izquierda y seleccione el servicio en la nube que creó anteriormente.
+3. Haga clic en **Panel**.
+4. Elija el entorno de ensayo y, a continuación, haga clic en **Cargar una nueva implementación de ensayo**.
 
-    ![Staging][3]
+    ![Ensayo][3]
 
-5. In the dialog box, enter a deployment label. For both 'Package' and 'Configuration', click 'From Local' and choose the **SplitMergeService.cspkg** file and your .cscfg file that you configured earlier.
-6. Ensure that the checkbox labeled **Deploy even if one or more roles contain a single instance** is checked.
-7. Hit the tick button in the bottom right to begin the deployment. Expect it to take a few minutes to complete.
+5. En el cuadro de diálogo, escriba una etiqueta de implementación. Para "Paquete" y "Configuración", haga clic en "Desde local" y elija el archivo **SplitMergeService.cspkg** y el archivo .cscfg que configuró anteriormente.
+6. Asegúrese de que la casilla de verificación con la etiqueta **Implementar aunque uno o varios roles contengan una sola instancia esté activada**.
+7. Presione el botón de verificación que aparece en la esquina inferior derecha para comenzar la implementación. Tenga en cuenta que puede tardar unos minutos en completarse.
 
-![Upload][4]
+![Cargar][4]
 
 
-## <a name="troubleshoot-the-deployment"></a>Troubleshoot the deployment
+## Solución de problemas de la implementación
 
-If your web role fails to come online, it is likely a problem with the security configuration. Check that the SSL is configured as described above.
+Si el rol web no puede ponerse en línea, probablemente haya un problema con la configuración de seguridad. Compruebe que SSL esté configurado como se describió anteriormente.
 
-If your worker role fails to come online, but your web role succeeds, it is most likely a problem connecting to the status database that you created earlier.
+Si el rol de trabajo no puede ponerse en línea, pero el rol web sí, probablemente se trate de un problema al conectarse a la base de datos de estado que creó anteriormente.
 
-* Make sure that the connection string in your .cscfg is accurate.
-* Check that the server and database exist, and that the user id and password are correct.
-* For Azure SQL DB, the connection string should be of the form:
+* Asegúrese de que la cadena de conexión en el archivo .cscfg esté correcta.
+* Compruebe que existan el servidor y la base de datos y de que el identificador de usuario y la contraseña estén correctos.
+* En el caso de Base de datos SQL de Azure, la cadena de conexión debe tener el formato:
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 
-* Ensure that the server name does not begin with **https://**.
-* Ensure that your Azure SQL DB server allows Azure Services to connect to it. To do this, open https://manage.windowsazure.com, click “SQL Databases” on the left, click “Servers” at the top, and select your server. Click **Configure** at the top and ensure that the **Azure Services** setting is set to “Yes”. (See the Prerequisites section at the top of this article).
+* Asegúrese de que el nombre del servidor no comience por **https://**.
+* Asegúrese de que el servidor de Base de datos SQL de Azure permite que los servicios de Azure se conecten a él. Para ello, abra https://manage.windowsazure.com, haga clic en "Bases de datos SQL" a la izquierda, haga clic en "Servidores" en la parte superior y, a continuación, seleccione su servidor. Haga clic en **Configurar** en la parte superior para asegurarse de que el valor **Servicios de Microsoft Azure** esté establecido en "Sí". (Consulte la sección Requisitos previos al principio de este artículo).
 
-## <a name="test-the-service-deployment"></a>Test the service deployment
+## Prueba de la implementación del servicio
 
-### <a name="connect-with-a-web-browser"></a>Connect with a web browser
+### Conexión con un explorador web
 
-Determine the web endpoint of your Split-Merge service. You can find this in the Azure Classic Portal by going to the **Dashboard** of your cloud service and looking under **Site URL** on the right side. Replace **http://** with **https://** since the default security settings disable the HTTP endpoint. Load the page for this URL into your browser.
+Determine el extremo web de su servicio División y combinación. Para averiguar esto, vaya al Portal de Azure clásico, seleccione el **Panel** de su servicio en la nube y busque en **Dirección URL del sitio** en el lado derecho. Sustituya **http://** por **https://** dado que la configuración de seguridad predeterminada deshabilita el extremo HTTP. Cargue la página de esta dirección URL en el explorador.
 
-### <a name="test-with-powershell-scripts"></a>Test with PowerShell scripts
+### Pruebas con scripts de PowerShell
 
-The deployment and your environment can be tested by running the included sample PowerShell scripts.
+Puede probar la implementación y su entorno si ejecuta los scripts de PowerShell de ejemplo incluidos.
 
-The script files included are:
+Los archivos de script incluidos son:
 
-1. **SetupSampleSplitMergeEnvironment.ps1** - sets up a test data tier for Split/Merge (see table below for detailed description)
-2. **ExecuteSampleSplitMerge.ps1** - executes test operations on the test data tier (see table below for detailed description)
-3. **GetMappings.ps1** – top-level sample script that prints out the current state of the shard mappings.
-4. **ShardManagement.psm1**  – helper script that wraps the ShardManagement API
-5. **SqlDatabaseHelpers.psm1** – helper script for creating and managing SQL databases
+1. **SetupSampleSplitMergeEnvironment.ps1**: configura una capa de datos de prueba para División y combinación (consulte la tabla que aparece a continuación para ver una descripción detallada).
+2. **ExecuteSampleSplitMerge.ps1**: ejecuta operaciones de prueba en la capa de datos de prueba (consulte la tabla que aparece a continuación para ver una descripción detallada).
+3. **GetMappings.ps1**: script de muestra de nivel superior que imprime el estado actual de las asignaciones de particiones.
+4. **ShardManagement.psm1**: script auxiliar que encapsula la API ShardManagement
+5. **SqlDatabaseHelpers.psm1**: script auxiliar para crear y administrar bases de datos SQL.
 
 <table style="width:100%">
   <tr>
-    <th>PowerShell file</th>
-    <th>Steps</th>
+    <th>Archivo de PowerShell</th>
+    <th>Pasos</th>
   </tr>
   <tr>
     <th rowspan="5">SetupSampleSplitMergeEnvironment.ps1</th>
-    <td>1.    Creates a shard map manager database</td>
+    <td>1. Crea una base de datos del administrador de mapa de particiones</td>
   </tr>
   <tr>
-    <td>2.    Creates 2 shard databases.
+    <td>2. Crea dos bases de datos de particiones.
   </tr>
   <tr>
-    <td>3.    Creates a shard map for those database (deletes any existing shard maps on those databases). </td>
+    <td>3. Crea un mapa de particiones para esas bases de datos (elimina todo mapa de particiones existente en esas bases de datos). </td>
   </tr>
   <tr>
-    <td>4.    Creates a small sample table in both the shards, and populates the table in one of the shards.</td>
+    <td>4. Crea una pequeña tabla de ejemplo en las particiones y rellena la tabla en una de las particiones.</td>
   </tr>
   <tr>
-    <td>5.    Declares the SchemaInfo for the sharded table.</td>
+    <td>5. Declara la SchemaInfo para la tabla particionada.</td>
   </tr>
 
 </table>
 
 <table style="width:100%">
   <tr>
-    <th>PowerShell file</th>
-    <th>Steps</th>
+    <th>Archivo de PowerShell</th>
+    <th>Pasos</th>
   </tr>
 <tr>
     <th rowspan="4">ExecuteSampleSplitMerge.ps1 </th>
-    <td>1.    Sends a split request to the Split-Merge Service web frontend, which splits half the data from the first shard to the second shard.</td>
+    <td>1. Envía una solicitud de división al front-end web del servicio división-combinación, que divide la mitad de los datos entre la primera partición y la segunda.</td>
   </tr>
   <tr>
-    <td>2.    Polls the web frontend for the split request status and waits until the request completes.</td>
+    <td>2. Sondea el front-end web para ver el estado de la solicitud de división y espera hasta que se complete la solicitud.</td>
   </tr>
   <tr>
-    <td>3.    Sends a merge request to the Split-Merge Service web frontend, which moves the data from the second shard back to the first shard.</td>
+    <td>3. Envía una solicitud de combinación al front-end del servicio División y combinación, que mueve los datos desde la segunda partición de vuelta a la primera partición.</td>
   </tr>
   <tr>
-    <td>4.    Polls the web frontend for the merge request status and waits until the request completes.</td>
+    <td>4. Sondea el front-end web para ver el estado de la solicitud de combinación y espera hasta que se complete la solicitud.</td>
   </tr>
 </table>
 
-## <a name="use-powershell-to-verify-your-deployment"></a>Use PowerShell to verify your deployment
+## Uso de PowerShell para comprobar la implementación
 
-1.    Open a new PowerShell window and navigate to the directory where you downloaded the Split-Merge package, and then navigate into the “powershell” directory.
-2.    Create an Azure SQL database server (or choose an existing server) where the shard map manager and shards will be created.
+1.    Abra una nueva ventana de PowerShell y vaya al directorio al que descargó el paquete División y combinación y, a continuación, vaya al directorio "powershell".
+2.    Cree un servidor de base de datos SQL de Azure (o elija un servidor existente) en el que se crearán las particiones y el administrador de mapa de particiones.
 
-    Note: The SetupSampleSplitMergeEnvironment.ps1 script creates all these databases on the same server by default to keep the script simple. This is not a restriction of the Split-Merge Service itself.
+    Nota: el script SetupSampleSplitMergeEnvironment.ps1 crea todas estas bases de datos en el mismo servidor de manera predeterminada para que el script sea simple. Esta no es una restricción del servicio División y combinación mismo.
 
-    A SQL authentication login with read/write access to the DBs will be needed for the Split-Merge service to move data and update the shard map. Since the Split-Merge Service runs in the cloud, it does not currently support Integrated Authentication.
+    Se requerirá un inicio de sesión de autenticación de SQL con acceso de lectura/escritura a las bases de datos para que el servicio División y combinación mueva los datos y actualice el mapa de particiones. Debido a que el servicio División y combinación se ejecuta en la nube, actualmente no es compatible con Autenticación integrada.
 
-    Make sure the Azure SQL server is configured to allow access from the IP address of the machine running these scripts. You can find this setting under the Azure SQL server / configuration / allowed IP addresses.
+    Asegúrese de que el servidor SQL de Azure esté configurado para permitir el acceso desde la dirección IP dela máquina que ejecuta estos scripts. Puede encontrar esta configuración en Servidor SQL de Azure / Configuración / Direcciones IP permitidas.
 
-3.    Execute the SetupSampleSplitMergeEnvironment.ps1 script to create the sample environment.
+3.    Ejecute el script SetupSampleSplitMergeEnvironment.ps1 para crear el entorno de ejemplo.
 
-    Running this script will wipe out any existing shard map management data structures on the shard map manager database and the shards. It may be useful to rerun the script if you wish to re-initialize the shard map or shards.
+    Ejecutar este script eliminará toda estructura de datos de administrador del mapa de particiones existente en la base de datos del administrador de mapa de particiones y las particiones. Puede ser útil volver a ejecutar el script si desea volver a inicializar las particiones o el mapa de particiones.
 
-    Sample command line:
+    Línea de comandos de ejemplo:
 
         .\SetupSampleSplitMergeEnvironment.ps1 `
             -UserName 'mysqluser' `
-            -Password 'MySqlPassw0rd' `       -ShardMapManagerServerName 'abcdefghij.database.windows.net'
+            -Password 'MySqlPassw0rd' `
+            -ShardMapManagerServerName 'abcdefghij.database.windows.net'
 
-4.    Execute the Getmappings.ps1 script to view the mappings that currently exist in the sample environment.
+4.    Ejecute el script Getmappings.ps1 para ver las asignaciones que existen actualmente en el entorno de ejemplo.
 
         .\GetMappings.ps1 `
             -UserName 'mysqluser' `
-            -Password 'MySqlPassw0rd' `       -ShardMapManagerServerName 'abcdefghij.database.windows.net'
+            -Password 'MySqlPassw0rd' `
+            -ShardMapManagerServerName 'abcdefghij.database.windows.net'
 
-5.    Execute the ExecuteSampleSplitMerge.ps1 script to execute a split operation (moving half the data on the first shard to the second shard) and then a merge operation (moving the data back onto the first shard). If you configured SSL and left the http endpoint disabled, ensure that you use the https:// endpoint instead.
+5.    Ejecute el script ExecuteSampleSplitMerge.ps1 para ejecutar una operación de división (moviendo la mitad de los datos de la primera partición a la segunda partición) y luego una operación de combinación (moviendo los datos de vuelta a la primera partición). Si configuró SSL y dejó deshabilitado el extremo http, asegúrese de usar el extremo https://.
 
-    Sample command line:
+    Línea de comandos de ejemplo:
 
         .\ExecuteSampleSplitMerge.ps1 `
             -UserName 'mysqluser' `
             -Password 'MySqlPassw0rd' `
             -ShardMapManagerServerName 'abcdefghij.database.windows.net' `
-            -SplitMergeServiceEndpoint 'https://mysplitmergeservice.cloudapp.net' `       -CertificateThumbprint '0123456789abcdef0123456789abcdef01234567'
+            -SplitMergeServiceEndpoint 'https://mysplitmergeservice.cloudapp.net' `
+            -CertificateThumbprint '0123456789abcdef0123456789abcdef01234567'
 
-    If you receive the below error, it is most likely a problem with your Web endpoint’s certificate. Try connecting to the Web endpoint with your favorite Web browser and check if there is a certificate error.
+    Si recibe el siguiente error, es muy probable que se trate de un problema con el certificado de su extremo web. Intente conectarse al extremo web con el explorador web de su preferencia y revise si hay un error en el certificado.
 
         Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLSsecure channel.
 
-    If it succeeded, the output should look like the below:
+    Si está correcto, el resultado debiera verse de la siguiente manera:
 
-        > .\ExecuteSampleSplitMerge.ps1 -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net' -SplitMergeServiceEndpoint 'http://mysplitmergeservice.cloudapp.net' –CertificateThumbprint 0123456789abcdef0123456789abcdef01234567 Sending split request Began split operation with id dc68dfa0-e22b-4823-886a-9bdc903c80f3 Polling split-merge request status. Press Ctrl-C to end Progress: 0% | Status: Queued | Details: [Informational] Queued request Progress: 5% | Status: Starting | Details: [Informational] Starting split-merge state machine for request.
-Progress: 5% | Status: Starting | Details: [Informational] Performing data consistency checks on target     shards.
-Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Moving reference tables from     source to target shard.
-Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Waiting for reference tables copy     completion.
-Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Moving reference tables from     source to target shard.
-Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Moving key range [100:110) of     Sharded tables Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Successfully copied key range     [100:110) for table [dbo].[MyShardedTable] ... ... Progress: 90% | Status: Completing | Details: [Informational] Successfully deleted shardlets in table     [dbo].[MyShardedTable].
-Progress: 90% | Status: Completing | Details: [Informational] Deleting any temp tables that were created     while processing the request.
-Progress: 100% | Status: Succeeded | Details: [Informational] Successfully processed request.
-Sending merge request Began merge operation with id 6ffc308f-d006-466b-b24e-857242ec5f66 Polling request status. Press Ctrl-C to end Progress: 0% | Status: Queued | Details: [Informational] Queued request Progress: 5% | Status: Starting | Details: [Informational] Starting split-merge state machine for request.
-Progress: 5% | Status: Starting | Details: [Informational] Performing data consistency checks on target     shards.
-Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Moving reference tables from     source to target shard.
-Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Moving key range [100:110) of     Sharded tables Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Successfully copied key range     [100:110) for table [dbo].[MyShardedTable] ... ... Progress: 90% | Status: Completing | Details: [Informational] Successfully deleted shardlets in table     [dbo].[MyShardedTable].
-Progress: 90% | Status: Completing | Details: [Informational] Deleting any temp tables that were created     while processing the request.
-Progress: 100% | Status: Succeeded | Details: [Informational] Successfully processed request.
+        > .\ExecuteSampleSplitMerge.ps1 -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net' -SplitMergeServiceEndpoint 'http://mysplitmergeservice.cloudapp.net' –CertificateThumbprint 0123456789abcdef0123456789abcdef01234567
+        Sending split request
+        Began split operation with id dc68dfa0-e22b-4823-886a-9bdc903c80f3
+        Polling split-merge request status. Press Ctrl-C to end
+        Progress: 0% | Status: Queued | Details: [Informational] Queued request
+        Progress: 5% | Status: Starting | Details: [Informational] Starting split-merge state machine for request.
+        Progress: 5% | Status: Starting | Details: [Informational] Performing data consistency checks on target     shards.
+        Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Moving reference tables from     source to target shard.
+        Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Waiting for reference tables copy     completion.
+        Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Moving reference tables from     source to target shard.
+        Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Moving key range [100:110) of     Sharded tables
+        Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Successfully copied key range     [100:110) for table [dbo].[MyShardedTable]
+        ...
+        ...
+        Progress: 90% | Status: Completing | Details: [Informational] Successfully deleted shardlets in table     [dbo].[MyShardedTable].
+        Progress: 90% | Status: Completing | Details: [Informational] Deleting any temp tables that were created     while processing the request.
+        Progress: 100% | Status: Succeeded | Details: [Informational] Successfully processed request.
+        Sending merge request
+        Began merge operation with id 6ffc308f-d006-466b-b24e-857242ec5f66
+        Polling request status. Press Ctrl-C to end
+        Progress: 0% | Status: Queued | Details: [Informational] Queued request
+        Progress: 5% | Status: Starting | Details: [Informational] Starting split-merge state machine for request.
+        Progress: 5% | Status: Starting | Details: [Informational] Performing data consistency checks on target     shards.
+        Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Moving reference tables from     source to target shard.
+        Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Moving key range [100:110) of     Sharded tables
+        Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Successfully copied key range     [100:110) for table [dbo].[MyShardedTable]
+        ...
+        ...
+        Progress: 90% | Status: Completing | Details: [Informational] Successfully deleted shardlets in table     [dbo].[MyShardedTable].
+        Progress: 90% | Status: Completing | Details: [Informational] Deleting any temp tables that were created     while processing the request.
+        Progress: 100% | Status: Succeeded | Details: [Informational] Successfully processed request.
 
-6.    Experiment with other data types! All of these scripts take an optional -ShardKeyType parameter that allows you to specify the key type. The default is Int32, but you can also specify Int64, Guid, or Binary.
+6.    Experimente con otros tipos de datos. Todos estos scripts tienen un parámetro -ShardKeyType opcional que le permite especificar el tipo de clave. El valor predeterminado es Int32, pero también puede especificar Int64, Guid o Binary.
 
-## <a name="create-requests"></a>Create requests
+## Creación de solicitudes
 
-The service can be used either by using the web UI or by importing and using the SplitMerge.psm1 PowerShell module which will submit your requests through the web role.
+El servicio se puede utilizar mediante la interfaz de usuario web o importando y utilizando el módulo de PowerShell SplitMerge.psm1 que enviará sus solicitudes a través del rol web.
 
-The service can move data in both sharded tables and reference tables. A sharded table has a sharding key column and has different row data on each shard. A reference table is not sharded so it contains the same row data on every shard. Reference tables are useful for data that does not change often and is used to JOIN with sharded tables in queries.
+El servicio puede mover los datos de las tablas particionadas y de las tablas de referencia. Una tabla particionada tiene una columna de clave de particionamiento y distintos datos de fila en cada partición. Una tabla de referencia no está particionada, por lo que contiene los mismos datos de fila en cada partición. Las tablas de referencia son útiles para los datos que no cambian con frecuencia y que se usan para UNIRSE con tablas particionadas en consultas.
 
-In order to perform a split-merge operation, you must declare the sharded tables and reference tables that you want to have moved. This is accomplished with the **SchemaInfo** API. This API is in the **Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.Schema** namespace.
+Para realizar una operación de división y combinación, debe declarar las tablas particionadas y las tablas de referencia que desea mover. Esto se realiza con la API **SchemaInfo**. Esta API está en el espacio de nombres **Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.Schema**.
 
-1.    For each sharded table, create a **ShardedTableInfo** object describing the table’s parent schema name (optional, defaults to “dbo”), the table name, and the column name in that table that contains the sharding key.
-2.    For each reference table, create a **ReferenceTableInfo** object describing the table’s parent schema name (optional, defaults to “dbo”) and the table name.
-3.    Add the above TableInfo objects to a new **SchemaInfo** object.
-4.    Get a reference to a **ShardMapManager** object, and call **GetSchemaInfoCollection**.
-5.    Add the **SchemaInfo** to the **SchemaInfoCollection**, providing the shard map name.
+1.    Para cada tabla particionada, cree un objeto **ShardedTableInfo** que describa el nombre del esquema principal de la tabla (opcional, se define de manera predeterminada en "dbo"), el nombre de la tabla y el nombre de la columna de esa tabla que contiene la clave de particionamiento.
+2.    Para cada tabla de referencia, cree un objeto **ReferenceTableInfo** que describa el nombre del esquema principal de la tabla (opcional, se define de manera predeterminada en "dbo") y el nombre de la tabla.
+3.    Agregue los objetos TableInfo anteriores a un nuevo objeto **SchemaInfo**.
+4.    Obtenga una referencia a un objeto **ShardMapManager** y llame a **GetSchemaInfoCollection**.
+5.    Agregue **SchemaInfo** a **SchemaInfoCollection** y proporcione el nombre del mapa de particiones.
 
-An example of this can be seen in the SetupSampleSplitMergeEnvironment.ps1 script.
+Es posible ver un ejemplo de esto en el script SetupSampleSplitMergeEnvironment.ps1.
 
-Note that the Split-Merge service does not create the target database (or schema for any tables in the database) for you. They must be pre-created before sending a request to the service.
+Tenga en cuenta que el servicio División y combinación no crea la base de datos de destino (o esquema para cualquier tabla de la base de datos) por usted. Deben crearse previamente antes de enviar una solicitud al servicio.
 
 
-## <a name="troubleshooting"></a>Troubleshooting
+## Solución de problemas
 
-You may see the below message when running the sample powershell scripts:
+Es posible que cuando ejecute los scripts de ejemplo de PowerShell vea el siguiente mensaje:
 
     Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
 
-This error means that your SSL certificate is not configured correctly. Please follow the instructions in section 'Connecting with a web browser'.
+Este error significa que el certificado SSL no está configurado correctamente. Siga las instrucciones que aparecen en la sección "Conexión con un explorador web".
 
-If you cannot submit requests you may see this:
+Si no se pueden enviar solicitudes, verá lo siguiente:
 
- [Exception] System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.InsertRequest'. 
+ [Exception] System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.InsertRequest'.
 
-In this case, check your configuration file, in particular the setting for **WorkerRoleSynchronizationStorageAccountConnectionString**. This error typically indicates that the worker role could not successfully initialize the metadata database on first use. 
+En este caso, compruebe el archivo de configuración, en particular la configuración de **WorkerRoleSynchronizationStorageAccountConnectionString**. Este error normalmente indica que el rol de trabajo no pudo inicializar correctamente la base de datos de metadatos la primera vez.
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -321,8 +339,4 @@ In this case, check your configuration file, in particular the setting for **Wor
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0615_2016-->
