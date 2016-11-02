@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Aplicación del cifrado de discos en el Centro de seguridad de Azure | Microsoft Azure"
-   description="En este documento, se muestra cómo implementar la recomendación **Aplicar el cifrado de discos** del Centro de seguridad de Azure."
+   pageTitle="Apply disk encryption in Azure Security Center | Microsoft Azure"
+   description="This document shows you how to implement the Azure Security Center recommendation **Apply disk encryption**."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,58 +13,63 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/29/2016"
+   ms.date="11/01/2016"
    ms.author="terrylan"/>
 
-# Aplicación del cifrado de discos en el Centro de seguridad de Azure
 
-El Centro de seguridad de Azure recomendará que aplique el cifrado de discos si tiene discos de máquina virtual de Windows o Linux que no estén cifrados con el Cifrado de discos de Azure. El Cifrado de discos permite cifrar los discos de máquina virtual IaaS de Windows y Linux. Se recomienda cifrar tanto los volúmenes de datos como los del sistema operativo en la máquina virtual.
+# <a name="apply-disk-encryption-in-azure-security-center"></a>Apply disk encryption in Azure Security Center
+
+Azure Security Center will recommend that you apply disk encryption if you have Windows or Linux VM disks that are not encrypted using Azure Disk Encryption. Disk Encryption lets you encrypt your Windows and Linux IaaS VM disks.  Encryption is recommended for both the OS and data volumes on your VM.
 
 
-El Cifrado de discos aprovecha la característica [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) de Windows estándar en el sector y la característica [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux para proporcionar cifrado de datos y del sistema operativo a fin de proteger sus datos y asumir las responsabilidades de seguridad y cumplimiento de la organización. El Cifrado de discos se integra con el [Almacén de claves de Azure](https://azure.microsoft.com/documentation/services/key-vault/) para ayudarle a controlar y administrar las claves y los secretos de cifrado de discos en su suscripción del Almacén de claves, al mismo tiempo que garantiza que todos los datos de los discos de las máquinas virtuales se cifren en reposo en el [Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/).
+Disk Encryption leverages the industry standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) feature of Windows and the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide OS and data encryption to help protect and safeguard your data and meet your organizational security and compliance commitments. Disk Encryption is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk encryption keys and secrets in your Key Vault subscription, while ensuring that all data in the VM disks are encrypted at rest in your [Azure Storage](https://azure.microsoft.com/documentation/services/storage/).
 
-> [AZURE.NOTE] El Cifrado de discos de Azure es compatible con los siguientes sistemas operativos de Windows Server: Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2. El Cifrado de discos es compatible con los siguientes sistemas operativos de Linux Server: Ubuntu, CentOS, SUSE y SUSE Linux Enterprise Server (SLES).
+> [AZURE.NOTE] Azure Disk Encryption is supported on the following Windows server operating systems - Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2. Disk encryption is supported on the following Linux server operating systems - Ubuntu, CentOS, SUSE and SUSE Linux Enterprise Server (SLES).
 
-## Implementación de la recomendación
+## <a name="implement-the-recommendation"></a>Implement the recommendation
 
-1. En la hoja **Recomendaciones**, seleccione **Aplicar el cifrado de discos**.
-2. En la hoja **Aplicar el cifrado de discos**, verá una lista de las máquinas virtuales para las que se recomienda el Cifrado de discos.
-3. Siga las instrucciones para aplicar el cifrado a estas máquinas virtuales.
+1. In the **Recommendations** blade, select **Apply disk encryption**.
+2. In the **Apply disk encryption** blade, you will see a list of VMs for which Disk Encryption is recommended.
+3. Follow the instructions to apply encryption to these VMs.
 
 ![][1]
 
-Para cifrar las máquinas virtuales de Azure que Security Center ha identificado que necesitan cifrado, recomendamos que siga los siguientes pasos:
+To encrypt Azure Virtual Machines that have been identified by Security Center as needing encryption, we recommend the following steps:
 
-- Instale y configure Azure PowerShell. Esto permitirá ejecutar los comandos de PowerShell para configurar los requisitos previos necesarios para cifrar las máquinas virtuales de Azure.
-- Obtenga y ejecute el script de Azure PowerShell de requisitos previos de Cifrado de discos de Azure.
-- Cifre las máquinas virtuales.
+- Install and configure Azure PowerShell. This will enable you to run the PowerShell commands required to set up the prerequisites required to encrypt Azure Virtual Machines.
+- Obtain and run the Azure Disk Encryption Prerequisites Azure PowerShell script.
+- Encrypt your virtual machines.
 
-La sección [Cifrado de una máquina virtual de Azure](security-center-disk-encryption.md) le guiará a través de estos pasos. En este tema se asume que utiliza Windows 10 como máquina cliente desde la que configurará el cifrado de disco.
+[Encrypt an Azure Virtual Machine](security-center-disk-encryption.md) will walk you through these steps.  This topic assumes you are using Windows 10 as the client machine from which you will configure disk encryption.
 
-Existen varios enfoques que pueden usarse para configurar los requisitos previos y el cifrado para máquinas virtuales de Azure. Si conoce bien Azure PowerShell o CLI de Azure, puede preferir el uso de métodos alternativos. Para más información sobre estos otros enfoques, consulte [Cifrado de discos de Azure](../security/azure-security-disk-encryption.md).
+There are many approaches that can be used to setup the prerequisites and to configure encryption for Azure Virtual Machines. If you are already well-versed in Azure PowerShell or Azure CLI, then you may prefer to use alternate approaches. To learn about these other approaches see [Azure disk encryption](../security/azure-security-disk-encryption.md).
 
 
 
-## Consulte también
+## <a name="see-also"></a>See also
 
-En este documento, mostramos cómo implementar la recomendación "Aplicar el cifrado de discos" del Centro de seguridad. Para más información acerca del cifrado de discos, consulte lo siguiente:
+This document showed you how to implement the Security Center recommendation "Apply disk encryption." To learn more about disk encryption, see the following:
 
-- [Encryption and key management with Azure Key Vault](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (Cifrado y administración de claves con el Almacén de claves de Azure) (vídeo, 36 m y 39 s): aprenda a usar la administración del cifrado de discos para máquinas virtuales IaaS y el Almacén de claves de Azure para ayudar a proteger sus datos.
-- [Cifrado de una máquina virtual de Azure](security-center-disk-encryption.md) (documento), aprenda a cifrar las máquinas virtuales de Azure.
-- [Cifrado de discos de Azure](../security/azure-security-disk-encryption.md) (documento): aprenda a habilitar el cifrado de discos para máquinas virtuales de Windows y Linux.
+- [Encryption and key management with Azure Key Vault](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (video, 36 min 39 sec) -- Learn how to use disk encryption management for IaaS VMs and Azure Key Vault to help protect and safeguard your data.
+- [Encrypt an Azure Virtual Machine](security-center-disk-encryption.md) (document) -- Learn how to encrypt Azure Virtual Machines.
+- [Azure disk encryption](../security/azure-security-disk-encryption.md) (document) -- Learn how to enable disk encryption for Windows and Linux VMs.
 
-Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
+To learn more about Security Center, see the following:
 
-- [Establecimiento de directivas de seguridad en el Centro de seguridad de Azure](security-center-policies.md): aprenda a configurar directivas de seguridad.
-- [Supervisión del estado de seguridad en el Centro de seguridad de Azure](security-center-monitoring.md): aprenda a supervisar el estado de los recursos de Azure.
-- [Administración de alertas de seguridad y respuesta a estas en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): aprenda a administrar alertas de seguridad y responder a ellas.
-- [Administración de recomendaciones de seguridad en el Centro de seguridad de Azure](security-center-recommendations.md): sepa cómo las recomendaciones lo ayudan a proteger sus recursos de Azure.
-- [Preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
-- [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
+- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies.
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
+- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
+- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
+- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Find blog posts about Azure security and compliance.
 
 
 
 <!--Image references-->
 [1]: ./media/security-center-apply-disk-encryption/apply-disk-encryption.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

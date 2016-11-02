@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Habilitación de la recolección de datos en Azure Security Center | Microsoft Azure"
-   description=" Aprenda a habilitar la recolección de datos en Azure Security Center. "
+   pageTitle="Enable data collection in Azure Security Center | Microsoft Azure"
+   description=" Learn how to enable data collection in Azure Security Center. "
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,64 +13,71 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/29/2016"
+   ms.date="11/01/2016"
    ms.author="terrylan"/>
 
-# Habilitación de la recolección de datos en Azure Security Center
 
-Para ayudar a los clientes a evitar, detectar y responder a las amenazas, Azure Security Center recopila y procesa los datos sobre las máquinas virtuales de Azure, incluida la información de configuración, metadatos, registros de eventos y mucho más. La primera vez que se accede a Azure Security Center la recopilación de datos se habilita en todas las máquinas virtuales de la suscripción. Se recomienda utilizar la recopilación de datos, pero se puede cancelar desactivando la recopilación de datos en la directiva de Azure Security Center (consulte [Deshabilitación de la recopilación de datos](#disabling-data-collection)). Si desactiva la recopilación de datos, Security Center le recomendará activar la recopilación de datos en la directiva de seguridad de la suscripción.
+# <a name="enable-data-collection-in-azure-security-center"></a>Enable data collection in Azure Security Center
 
-> [AZURE.NOTE] En este documento se presenta el servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
+To help customers prevent, detect, and respond to threats, Azure Security Center collects and processes data about your Azure virtual machines, including configuration information, metadata, event logs, and more. When you first access Security Center, data collection is enabled on all virtual machines in your subscription. Data collection is recommended but you can opt-out by turning data collection off in the Security Center policy (see [Disabling data collection](#disabling-data-collection)). If you turn data collection off, Security Center will recommend that you turn on data collection in the security policy for that subscription.
 
-## Implementación de la recomendación
+> [AZURE.NOTE] This document introduces the service by using an example deployment. This is not a step-by-step guide.
 
-1. Seleccione el icono **Recomendaciones** de la hoja **Security Center**. Se abrirá la hoja **Recomendaciones**. ![Hoja de centro de seguridad][1]
+## <a name="implement-the-recommendation"></a>Implement the recommendation
 
-2. En la hoja **Recomendaciones**, seleccione **Habilitar la recopilación de datos de las suscripciones**. Se abrirá la hoja **Activar recolección de datos**. ![Hoja Recomendaciones][2]
+1. Select the **Recommendations** tile on the **Security Center** blade.  This opens the **Recommendations** blade.
+![Security Center blade][1]
 
-3. En la hoja **Activar recolección de datos**, seleccione la suscripción. Se abre la hoja **Directiva de seguridad** para esa suscripción.
+2. On the **Recommendations** blade, select **Enable data collection for subscriptions**.  This will open the **Turn on data collection** blade.
+![Recommendations blade][2]
 
-4. En la hoja **Directiva de seguridad**, seleccione **Activar** en **Recolección de datos** para recopilar registros de forma automática. La activación de la recolección de datos también proporcionará la extensión de supervisión en todas las máquinas virtuales actuales y nuevas en la suscripción. ![Hoja Directiva de seguridad][3]
+3. On the **Turn on data collection** blade, select your subscription. The **Security policy** blade for that subscription opens.
 
-5.	Seleccione **Guardar**.
+4. On the **Security policy** blade, select **On** under **Data collection** to automatically collect logs. Turning on data collection will also provision the monitoring extension on all current and new supported VMs in the subscription.
+![Security policy blade][3]
 
-6.	Seleccione **Elija una cuenta de almacenamiento por región**. Para cada región en la que disponga de máquinas virtuales en funcionamiento, elija la cuenta de almacenamiento en la que se almacenan los datos recopilados de esas máquinas virtuales. Si no elige una cuenta de almacenamiento para cada región, se creará automáticamente. En este ejemplo, elegiremos **newstoracct**. Puede cambiar la cuenta de almacenamiento más adelante, para ello vuelva a la directiva de seguridad de la suscripción y elija otra cuenta de almacenamiento diferente. ![Seleccionar una cuenta de almacenamiento][4]
+5.  Select **Save**.
 
-7.	Seleccione **Aceptar**.
+6.  Select **Choose a storage account per region**. For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. If you do not choose a storage account for each region, it will be automatically created for you. In this example, we’ll choose **newstoracct**. You can change the storage account later by returning to the security policy for your subscription and choosing a different storage account.
+![Choose a storage account][4]
 
-> [AZURE.NOTE] Se recomienda que antes active la recopilación de datos y elija una cuenta de almacenamiento en el nivel de suscripción. Las directivas de seguridad se pueden establecer en el nivel de suscripción y el nivel de grupo de recursos de Azure, pero la configuración de la recopilación de datos y la cuenta de almacenamiento tiene lugar solo en el nivel de suscripción.
+7.  Select **OK**.
 
-## Después de habilitar la recolección de datos
+> [AZURE.NOTE] We recommend that you turn on data collection and choose a storage account at the subscription level first. Security policies can be set at the Azure subscription level and resource group level but configuration of data collection and storage account occurs at the subscription level only.
 
-La colección de datos se habilita a través de la extensión Supervisión de seguridad de Azure y el Agente de supervisión de Azure. La extensión Supervisión de seguridad de Azure busca diversas configuraciones de seguridad importantes y las envía a [Seguimiento de eventos para Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Además, el sistema operativo crea las entradas del registro de eventos. El Agente de supervisión de Azure lee las entradas de los registros de eventos y los seguimientos de ETW y los copia en la cuenta de almacenamiento para su análisis. El agente de supervisión también copia los archivos de volcado de memora en la cuenta de almacenamiento. Esta es la cuenta de almacenamiento que configuró en la directiva de seguridad.
+## <a name="after-data-collection-is-enabled"></a>After data collection is enabled
 
-## Deshabilitación de la recolección de datos
+Data collection is enabled via the Azure Monitoring Agent and the Azure Security Monitoring extension. The Azure Security Monitoring extension scans for various security relevant configuration and sends it into [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) traces. In addition, the operating system creates event log entries. The Azure Monitoring Agent reads event log entries and ETW traces and copies them to your storage account for analysis. The Monitoring Agent also copies crash dump files to your storage account. This is the storage account you configured in the security policy.
 
-Puede deshabilitar la recolección de datos en cualquier momento, esto quitará a todos los agentes de supervisión que Security Center instaló previamente. Tiene que seleccionar una suscripción para desactivar la recolección de datos.
+## <a name="disabling-data-collection"></a>Disabling data collection
 
-> [AZURE.NOTE] Las directivas de seguridad se pueden establecer en el nivel de suscripción y el nivel de grupo de recursos de Azure, pero tiene que seleccionar una suscripción para desactivar la recolección de datos.
+You can disable data collection at any time, which will remove any Monitoring Agents previous installed by Security Center.  You must select a subscription to turn data collection off.
 
-1.	Vuelva a la hoja **Security Center** y haga clic en el icono **Directiva**. Esto abre la hoja **Directiva de seguridad: definir directiva por suscripción o grupo de recursos**. ![Seleccionar el icono de directiva][5]
+> [AZURE.NOTE] Security policies can be set at the Azure subscription level and resource group level but you must select a subscription to turn data collection off.
 
-2.	En la hoja **Directiva de seguridad: definir directiva por suscripción o grupo de recursos**, seleccione la suscripción en la que desea deshabilitar la recolección de datos. ![Seleccione la suscripción para deshabilitar la recolección de datos][6]
+1.  Return to the **Security Center** blade and select the **Policy** tile. This opens the **Security policy-Define policy per subscription or resource group** blade.
+![Select the policy tile][5]
 
-3.	Se abre la hoja **Directiva de seguridad** para esa suscripción. Seleccione **Desactivar** en recolección de datos.
+2.  On the **Security policy-Define policy per subscription or resource group** blade, select the subscription that you wish to disable data collection.
+![Select subscription to disable data collection][6]
 
-4.	Seleccione **Guardar** en la cinta de opciones superior.
+3.  The **Security policy** blade for that subscription opens.  Select **Off** under Data collection.
 
-5.	Seleccione la opción **Eliminar agentes** en la cinta de opciones superior para quitar los agentes de las máquinas virtuales existentes.
+4.  Select **Save** in the top ribbon.
 
-## Consulte también
+5.  Select **Delete agents** in the top ribbon to remove agents from existing virtual machines.
 
-En este documento, mostramos cómo implementar la recomendación "Habilitar recopilación de datos" de Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
+## <a name="see-also"></a>See also
 
-- [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
-- [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md): recomendaciones que le ayudan a proteger los recursos de Azure.
-- [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): aprenda a supervisar el estado de los recursos de Azure.
-- [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): aprenda a administrar alertas de seguridad y responder a ellas.
-- [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
-- [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
-- [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): obtenga las últimas noticias e información sobre la seguridad en Azure.
+This article showed you how to implement the Security Center recommendation "Enable data collection.” To learn more about Security Center, see the following:
+
+- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)--Learn how to manage and respond to security alerts.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
+- [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
+- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/)--Get the latest Azure security news and information.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-data-collection/security-center-blade.png
@@ -80,4 +87,8 @@ En este documento, mostramos cómo implementar la recomendación "Habilitar reco
 [5]: ./media/security-center-enable-data-collection/policy.png
 [6]: ./media/security-center-enable-data-collection/disable-data-collection.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
