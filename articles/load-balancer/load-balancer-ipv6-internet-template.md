@@ -7,6 +7,7 @@
     manager="carmonm"
     editor=""
     tags="azure-resource-manager"
+    keywords="IPv6, Azure Load Balancer, pila doble, dirección ip pública, ipv6 nativo, móvil, iot"
 />
 <tags
     ms.service="load-balancer"
@@ -18,16 +19,17 @@
     ms.author="sewhee"
 />
 
-# Implementación de una solución de equilibrador de carga orientado a Internet con IPv6 mediante el uso de una plantilla
+
+# <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Implementación de una solución de equilibrador de carga orientado a Internet con IPv6 mediante el uso de una plantilla
 
 > [AZURE.SELECTOR]
-- [PowerShell](load-balancer-ipv6-internet-ps.md)
-- [CLI de Azure](load-balancer-ipv6-internet-cli.md)
-- [Plantilla](load-balancer-ipv6-internet-template.md)
+- [PowerShell](./load-balancer-ipv6-internet-ps.md)
+- [CLI de Azure](./load-balancer-ipv6-internet-cli.md)
+- [Plantilla](./load-balancer-ipv6-internet-template.md)
 
 Azure Load Balancer es un equilibrador de carga de nivel 4 (TCP y UDP) que distribuye proporcionando una alta disponibilidad el tráfico entrante entre las instancias de servicio correctas de los servicios en la nube o las máquinas virtuales de un conjunto de carga equilibrada. Azure Load Balancer también pueden presentar prestar servicios en varios puertos, varias direcciones IP o ambos.
 
-## Escenario de implementación de ejemplo
+## <a name="example-deployment-scenario"></a>Escenario de implementación de ejemplo
 
 En el siguiente diagrama se ilustra la solución de equilibrio de carga que se implementa mediante la plantilla de ejemplo descrita en este artículo.
 
@@ -41,9 +43,9 @@ En este escenario creará los siguientes recursos de Azure:
 - un conjunto de disponibilidad con las dos máquinas virtuales
 - dos máquinas virtuales (VM)
 
-## Implementación de la plantilla con Azure Portal
+## <a name="deploying-the-template-using-the-azure-portal"></a>Implementación de la plantilla con Azure Portal
 
-En este artículo se hace referencia a una plantilla publicada en la galería [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/). Puede descargar la plantilla desde la galería o iniciar la implementación en Azure directamente desde la galería. En este artículo se da por hecho que ha descargado la plantilla en el equipo local.
+En este artículo se hace referencia a una plantilla publicada en la galería de [plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/201-load-balancer-ipv6-create/) . Puede descargar la plantilla desde la galería o iniciar la implementación en Azure directamente desde la galería. En este artículo se da por hecho que ha descargado la plantilla en el equipo local.
 
 1. Abra Azure Portal e inicie sesión con una cuenta que tenga permisos para crear máquinas virtuales y recursos de red en una suscripción a Azure. Además, salvo que use recursos existentes, la cuenta necesita permiso para crear un grupo de recursos y una cuenta de almacenamiento.
 
@@ -65,7 +67,7 @@ En este artículo se hace referencia a una plantilla publicada en la galería [P
 
     ![lb-ipv6-portal-step5](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
 
-6. Haga clic en "Editar parámetros". En la hoja Parámetros, especifique los valores según las instrucciones que se proporcionan en la sección Parámetros de plantilla y, a continuación, haga clic en "Guardar" para cerrar la hoja Parámetros. En la hoja Implementación personalizada, seleccione su suscripción, un grupo de recursos existente o cree uno. Si crea un grupo de recursos, seleccione una ubicación para este. A continuación, haga clic en **Términos legales** y después en **Comprar** para los términos legales. Azure empieza a implementar los recursos. Tarda varios minutos en implementar todos los recursos.
+6. Haga clic en "Editar parámetros". En la hoja Parámetros, especifique los valores según las instrucciones que se proporcionan en la sección Parámetros de plantilla y, a continuación, haga clic en "Guardar" para cerrar la hoja Parámetros. En la hoja Implementación personalizada, seleccione su suscripción, un grupo de recursos existente o cree uno. Si crea un grupo de recursos, seleccione una ubicación para este. A continuación, haga clic en **Términos legales** y después en **Comprar** los términos legales. Azure empieza a implementar los recursos. Tarda varios minutos en implementar todos los recursos.
 
     ![lb-ipv6-portal-step6](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
 
@@ -85,7 +87,7 @@ En este artículo se hace referencia a una plantilla publicada en la galería [P
 
     ![lb-ipv6-portal-step9](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
 
-## Validar conectividad
+## <a name="validate-connectivity"></a>Validar conectividad
 
 Cuando la plantilla se haya implementado correctamente, puede validar la conectividad completando las siguientes tareas:
 
@@ -97,7 +99,7 @@ Cuando la plantilla se haya implementado correctamente, puede validar la conecti
 >[AZURE.NOTE]
 En la red de Azure se bloquea ICMP para IPv4 e IPv6. Como resultado, las herramientas ICMP tales como ping siempre producen algún error. Para probar la conectividad, use una alternativa a TCP como TCPing o el cmdlet Test-NetConnection de PowerShell. Tenga en cuenta que las direcciones IP que se muestran en el diagrama son ejemplos de valores que puede ver. Puesto que las direcciones IPv6 se asignan dinámicamente, las direcciones que reciba serán diferentes y pueden variar según la región. Además, es habitual que la dirección IPv6 pública del equilibrador de carga empiece por un prefijo distinto al de las direcciones IPv6 privadas del grupo de direcciones de back-end.
 
-## Variables y parámetros de plantilla
+## <a name="template-parameters-and-variables"></a>Template parameters and variables
 
 Una plantilla de Azure Resource Manager contiene varias variables y parámetros que puede personalizar según sus necesidades. Las variables se usan para valores fijos que no desea que un usuario cambie. Los parámetros se usan para valores que desea que un usuario proporcione al implementar la plantilla. La plantilla de ejemplo está configurada para el escenario descrito en este artículo. Puede personalizarla para adaptarla a las necesidades de su entorno.
 
@@ -128,4 +130,8 @@ En la plantilla de ejemplo usada en este artículo se incluyen las variables y l
 
 Las variables restantes de la plantilla contienen valores derivados que se asignan cuando Azure crea los recursos. No cambie esas variables.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

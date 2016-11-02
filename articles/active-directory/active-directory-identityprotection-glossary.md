@@ -1,167 +1,172 @@
 <properties
-	pageTitle="Glosario de Azure Active Directory Identity Protection | Microsoft Azure"
-	description="Glosario de Azure Active Directory Identity Protection"
-	services="active-directory"
-	keywords="azure active directory identity protection, detección de aplicaciones en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad, glosario"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila"
-	editor=""/>
+    pageTitle="Azure Active Directory Identity Protection Glossary | Microsoft Azure"
+    description="Azure Active Directory Identity Protection Glossary"
+    services="active-directory"
+    keywords="azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy, glossary"
+    documentationCenter=""
+    authors="MarkusVi"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/16/2016"
-	ms.author="markvi"/>
-
-# Glosario de Azure Active Directory Identity Protection 
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/31/2016"
+    ms.author="markvi"/>
 
 
-### En riesgo (usuario)	
-Usuario con uno o más eventos de riesgo activos.
-
-### Ubicación de inicio de sesión inusual 	
-Inicio de sesión desde una ubicación geográfica que no es la usual para un usuario específico, usuarios similares o el inquilino.
-
-### Azure AD Identity Protection 	
-Módulo de seguridad de Azure Active Directory que proporciona una vista consolidada de los eventos de riesgo y posibles puntos vulnerables que afectan a las identidades de una organización.
-
-### Acceso condicional 	
-Directiva para proteger el acceso a los recursos. Las reglas de acceso condicional se almacenan en Azure Active Directory, que las evalúa antes de conceder acceso al recurso. Reglas de ejemplo son la restricción de acceso según la ubicación del usuario, el estado del dispositivo o el método de autenticación de usuario.
-
-### Credenciales 	
-Información que incluye la identificación y prueba de identificación que se usa para obtener acceso a recursos locales y de red. Ejemplos de credenciales son nombres de usuario, contraseñas, tarjetas inteligentes y certificados.
-
-### Evento 	
-Registro de una actividad en Azure Active Directory.
-
-### Falso positivo (evento de riesgo) 
-Estado de un evento de riesgo establecido manualmente por un usuario de Identity Protection, que indica que el evento de riesgo se investigó y marcó incorrectamente como evento de riesgo.
-
-### Identidad	
-Persona o entidad que se debe comprobar mediante autenticación, basándose en criterios como contraseñas o certificados.
-
-### Evento de riesgo de identidad 	
-Evento de AAD marcado como anómalo por Identity Protection, que puede indicar que una identidad está en peligro.
-
-### Omitido (evento de riesgo) 	
-Estado de evento de riesgo establecido manualmente por un usuario de Identity Protection, que indica que el evento de riesgo se cierra sin aplicar una acción de corrección.
-
-### Viaje imposible desde ubicaciones inusuales 	
-Evento de riesgo que se desencadena cuando se detectan dos inicios de sesión para el mismo usuario, en el que al menos uno de ellos es desde una ubicación de inicio de sesión inusual y en el que el tiempo entre inicios de sesión es menor que el tiempo mínimo que se tardaría en viajar físicamente entre estas ubicaciones.
-
-###Investigación	
-Proceso de revisión de las actividades, los registros y otra información pertinente relacionada con un incidente de riesgo para decidir si son necesarios pasos de mitigación o de corrección, y entender si se ha puesto en peligro la identidad y de qué manera, así como comprender cómo se utilizaba la identidad en peligro.
-
-### Credenciales con fugas 	
-
-Evento de riesgo que se desencadena cuando se encuentran credenciales de usuario actuales (nombre de usuario y contraseña) publicadas en la Web oscura por nuestros investigadores.
-
-### Mitigación	
-Acción para limitar o eliminar la capacidad de un atacante de aprovechar una identidad o un dispositivo en peligro sin restaurar la identidad o el dispositivo a un estado seguro. Una mitigación no resuelve los anteriores eventos de riesgo asociados a la identidad o el dispositivo.
-
-### Multi-Factor Authentication 
-Método de autenticación que requiere dos o más métodos de autenticación, que pueden incluir algo que el usuario tiene, como un certificado; algo que el usuario sabe, como nombres de usuario, contraseñas o frases de contraseña; atributos físicos, como una huella digital; y atributos personales, como una firma personal.
-
-### Detección sin conexión 	
-Detección de anomalías y evaluación del riesgo de un evento como el intento de inicio de sesión después del hecho, para un evento que ya ha ocurrido.
-
-### Condición de directiva 	
-Parte de una directiva de seguridad que define las entidades (grupos, usuarios, aplicaciones, plataformas de dispositivos, estados de dispositivos, intervalos IP, tipos de cliente) incluidas en la directiva o excluidas de ella.
-
-### Regla de directiva 	
-Parte de una directiva de seguridad que describe las circunstancias que pueden desencadenar la directiva y las acciones aplicadas cuando se desencadena la directiva.
-
-### Prevención 	
-Acción para evitar daños en la organización debidos al uso inapropiado de una identidad o un dispositivo sospechoso o que se sabe que está en peligro. Una acción de prevención no protege la identidad o el dispositivo y no resuelve eventos de riesgo anteriores.
-
-### Con privilegios (usuario)
-Usuario que, en el momento de un evento de riesgo, tenía permisos de administrador permanentes o temporales para uno o más recursos de Azure Active Directory, como un administrador global, administrador de facturación, administrador de servicios, administrador de usuarios y administrador de contraseñas.
-
-###Tiempo real 	
-Ver Detección en tiempo real.
-
-###Detección en tiempo real 	
-Detección de anomalías y evaluación del riesgo de un evento como el intento de inicio de sesión antes de que el evento pueda continuar.
-
-### Corregido (evento de riesgo) 	
-Estado del evento de riesgo establecido automáticamente por Identity Protection, que indica que el evento de riesgo se corrigió mediante la acción de corrección estándar para este tipo de eventos de riesgo. Por ejemplo, cuando se restablece la contraseña de usuario, se corrigen automáticamente muchos eventos de riesgo que indican que se había puesto en peligro la contraseña anterior.
-
-### Corrección 	
-Acción para proteger una identidad o un dispositivo que antes fue sospechoso o que se sabe que estuvo en peligro. Una acción de corrección restaura la identidad o el dispositivo a un estado seguro y resuelve los anteriores eventos de riesgo asociados a la identidad o el dispositivo.
-
-### Resuelto (evento de riesgo) 	
-Estado del evento de riesgo establecido manualmente por un usuario de Identity Protection, que indica que el usuario aplicó una acción de corrección adecuada fuera de Identity Protection y que se debe considerar el evento de riesgo cerrado.
-
-###Estado de evento de riesgo 	
-Propiedad de un evento de riesgo, que indica si el evento está activo y, si está cerrado, el motivo para haberlo cerrarlo.
-
-###Tipo de evento de riesgo 	
-Categoría del evento de riesgo, que indica el tipo de anomalía que provocó el evento para que se considere de riesgo.
-
-###Nivel de riesgo (evento de riesgo) 	
-Indicación (Alto, Medio o Bajo) de la gravedad del evento de riesgo para ayudar a los usuarios de Identity Protection a dar prioridad a las acciones que aplican a fin de reducir el riesgo en su organización.
-
-###Nivel de riesgo (inicio de sesión) 
-Indicación (Alto, Medio o Bajo) de la probabilidad de que, para un inicio de sesión específico, otra persona esté intentando utilizar la identidad del usuario.
-
-###Nivel de riesgo (compromiso de usuario) 
-Indicación (Alto, Medio o Bajo) de la probabilidad de que se haya puesto en peligro una identidad.
-
-### Nivel de riesgo (vulnerabilidad) 	
-Indicación (Alto, Medio o Bajo) de la gravedad del punto vulnerable para ayudar a los usuarios de Identity Protection a dar prioridad a las acciones que aplican a fin de reducir el riesgo en su organización.
-
-### Proteger (identidad)	
-Aplicar acciones de corrección, como un cambio de contraseña o un restablecimiento de la imagen inicial de una máquina para restaurar una identidad potencialmente en peligro a un estado seguro.
-
-### Directiva de seguridad
-Recopilación de reglas y condiciones de una directiva. Una directiva se puede aplicar a entidades como usuarios, grupos, aplicaciones, dispositivos, plataformas de dispositivos, estados de dispositivos, intervalos IP y tipos de clientes Auth2.0. Cuando una directiva está habilitada, se evalúa cada vez que una entidad incluida en la directiva emite un token para un recurso.
-
-### Iniciar sesión 
-Autenticar una identidad en Azure Active Directory.
-
-### Inicio de sesión 
-Proceso o acción de autenticar una identidad en Azure Active Directory y evento que captura esta operación.
-
-###Inicio de sesión desde dirección IP anónima 	
-Evento de riesgo que se desencadena después de un inicio de sesión correcto desde una dirección IP identificada como una dirección IP de proxy anónima.
-
-###Inicio de sesión desde dispositivo infectado 
-Evento de riesgo que se desencadena cuando un inicio de sesión se origina desde una dirección IP que se sabe que utilizan uno o más dispositivos en peligro que están intentando comunicarse de forma activa con un servidor bot.
-
-###Inicio de sesión desde dirección IP con actividad sospechosa 
-Evento de riesgo que se desencadena después de un inicio de sesión correcto desde una dirección IP con un gran número de intentos de inicios de sesión erróneos entre varias cuentas de usuario durante un corto período de tiempo.
-
-###Inicio de sesión desde ubicación desconocida 
-Evento de riesgo que se desencadena cuando un usuario inicia sesión correctamente desde una nueva ubicación (IP, latitud/longitud y aviso de envío por adelantado).
-
-###Riesgo de inicio de sesión 	
-Ver Nivel de riesgo (inicio de sesión)
-
-###Directiva de riesgo de inicio de sesión 	
-Directiva de acceso condicional que evalúa el riesgo en un inicio de sesión específico y aplica mitigaciones de acuerdo con las reglas y condiciones predefinidas.
-
-###Riesgo de compromiso de usuario 	
-Ver Nivel de riesgo (compromiso de usuario).
-
-###Riesgo de usuario 	
-Ver Nivel de riesgo (compromiso de usuario).
-
-###Directiva de riesgo de usuario 	
-Directiva de acceso condicional que tiene en cuenta el inicio de sesión y aplica mitigaciones de acuerdo con las reglas y condiciones predefinidas.
-
-###Usuarios marcados con riesgo 	
-Usuarios con eventos de riesgo activos o corregidos.
-
-###Punto vulnerable 	
-Configuración o condición en Azure Active Directory, que hace que el directorio sea susceptible de recibir ataques o amenazas.
+# <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection Glossary 
 
 
-## Otras referencias
+### <a name="at-risk-user"></a>At risk (User)  
+A user with one or more active risk events. 
+
+### <a name="atypical-signin-location"></a>Atypical sign-in location   
+A sign-in from a geographic location that is not typical for the specific user, similar users, or the tenant.
+
+### <a name="azure-ad-identity-protection"></a>Azure AD Identity Protection    
+A security module of Azure Active Directory that provides a consolidated view into risk events and potential vulnerabilities affecting an organization’s identities.
+
+### <a name="conditional-access"></a>Conditional access  
+A policy for securing access to resources. Conditional access rules are stored in the Azure Active Directory and are evaluated by Azure AD before granting access to the resource.  Example rules include restricting access based on user location, device health or user authentication method.
+
+### <a name="credentials"></a>Credentials     
+Information that includes identification and proof of identification that is used to gain access to local and network resources. Examples of credentials are user names and passwords, smart cards, and certificates.
+
+### <a name="event"></a>Event   
+A record of an activity in Azure Active Directory.
+
+### <a name="falsepositive-risk-event"></a>False-positive (risk event) 
+A risk event status set manually by an Identity Protection user, indicating that the risk event was investigated and was incorrectly flagged as a risk event.
+
+### <a name="identity"></a>Identity    
+A person or entity that must be verified by means of authentication, based on criteria such as password or a certificate.
+
+### <a name="identity-risk-event"></a>Identity risk event     
+AAD event that was flagged as anomalous by Identity Protection, and may indicate that an identity has been compromised.
+
+### <a name="ignored-risk-event"></a>Ignored (risk event)    
+A risk event status set manually by an Identity Protection user, indicating that the risk event is closed without taking a remediation action.
+
+### <a name="impossible-travel-from-atypical-locations"></a>Impossible travel from atypical locations   
+A risk event triggered when two sign-ins for the same user are detected, where at least one of them is from an atypical sign-in location, and where the time between the sign-ins is shorter than the minimum time it would take to physically travel between these locations.  
+
+###<a name="investigation"></a>Investigation    
+The process of reviewing the activities, logs, and other relevant information related to a risk event to decide whether remediation or mitigation steps are necessary, understand if and how the identity was compromised, and understand how the compromised identity was used.
+
+### <a name="leaked-credentials"></a>Leaked credentials  
+
+A risk event triggered when current user credentials (user name and password) are found posted publicly in the Dark   web by our researchers.
+
+### <a name="mitigation"></a>Mitigation  
+An action to limit or eliminate the ability of an attacker to exploit a compromised identity or device without restoring the identity or device to a safe state. A mitigation does not resolve previous risk events associated with the identity or device.
+
+### <a name="multifactor-authentication"></a>Multi-factor authentication 
+An authentication method that requires two or more authentication methods, which may include something the user has, such a certificate; something the user knows, such as user names, passwords, or pass phrases; physical attributes, such as a thumbprint; and personal attributes, such as a personal signature.
+
+### <a name="offline-detection"></a>Offline detection   
+The detection of anomalies and evaluation of the risk of an event such as sign-in attempt after the fact, for an event that has already happened.
+
+### <a name="policy-condition"></a>Policy condition    
+A part of a security policy which defines the entities (groups, users, apps, device platforms, Device states, IP ranges, client types) included in the policy or excluded from it.
+
+### <a name="policy-rule"></a>Policy rule     
+The part of a security policy which describes the circumstances that would trigger the policy, and the actions taken when the policy is triggered.
+
+### <a name="prevention"></a>Prevention  
+An action to prevent damage to the organization through abuse of an identity or device suspected or know to be compromised. A prevention action does not secure the device or identity, and does not resolve previous risk events.
+
+### <a name="privileged-user"></a>Privileged (user)
+A user that at the time of a risk event, had permanent or temporary admin permissions to one or more resource in Azure Active Directory, such as a Global Administrator, Billing Administrator, Service Administrator, User administrator, and Password Administrator. 
+
+###<a name="realtime"></a>Real-time    
+See Real-time detection.
+
+###<a name="realtime-detection"></a>Real-time detection  
+The detection of anomalies and evaluation of the risk of an event such as sign-in attempt before the event is allowed to proceed.
+
+### <a name="remediated-risk-event"></a>Remediated (risk event)     
+A risk event status set automatically by Identity Protection, indicating that the risk event was remediated using the standard remediation action for this type of risk event. For example, when the user password is reset, many risk events that indicate that the previous password was compromised are automatically remediated.
+
+### <a name="remediation"></a>Remediation     
+An action to secure an identity or a device that were previously suspected or known to be compromised. A remediation action restores the identity or device to a safe state, and resolves previous risk events associated with the identity or device.
+
+### <a name="resolved-risk-event"></a>Resolved (risk event)   
+A risk event status set manually by an Identity Protection user, indicating that the user took an appropriate remediation action outside Identity Protection, and that the risk event should be considered closed.
+
+###<a name="risk-event-status"></a>Risk event status    
+A property of a risk event, indicating whether the event is active, and if closed, the reason for closing it.
+
+###<a name="risk-event-type"></a>Risk event type  
+A category for the risk event, indicating the type of anomaly that caused the event to be considered risky.
+
+###<a name="risk-level-risk-event"></a>Risk level (risk event)  
+An indication (High, Medium, or Low) of the severity of the risk event to help Identity Protection users prioritize the actions they take to reduce the risk to their organization. 
+
+###<a name="risk-level-signin"></a>Risk level (sign-in) 
+An indication (High, Medium, or Low) of the likelihood that for a specific sign-in, someone else is attempting to use the user’s identity.
+
+###<a name="risk-level-user-compromise"></a>Risk level (user compromise) 
+An indication (High, Medium, or Low) of the likelihood that an identity has been compromised.
+
+### <a name="risk-level-vulnerability"></a>Risk level (vulnerability)  
+An indication (High, Medium, or Low) of the severity of the vulnerability to help Identity Protection users prioritize the actions they take to reduce the risk to their organization.
+
+### <a name="secure-identity"></a>Secure (identity)   
+Take remediation action such as a password change or machine reimaging to restore a potentially compromised identity to an uncompromised state.
+
+### <a name="security-policy"></a>Security policy
+A collection of policy rules and condition. A policy can be applied to entities such as users, groups, apps, devices, device platforms, device states, IP ranges, and Auth2.0 client types. When a policy is enabled, it is evaluated whenever an entity included in the policy is issued a token for a resource.
+
+### <a name="sign-in-v"></a>Sign in (v) 
+To authenticate to an identity in Azure Active Directory.
+
+### <a name="signin-n"></a>Sign-in (n) 
+The process or action of authenticating an identity in Azure Active Directory, and the event that captures this operation.
+
+###<a name="signin-from-anonymous-ip-address"></a>Sign-in from anonymous IP address    
+A risk event triggered after a successful sign-in from IP address that has been identified as an anonymous proxy IP address.
+
+###<a name="signin-from-infected-device"></a>Sign-in from infected device 
+A risk event triggered when a sign-in originates from an IP address which is known to be used by one or more compromised devices, which are actively attempting to communicate with a bot server.
+
+###<a name="signin-from-ip-address-with-suspicious-activity"></a>Sign-in from IP address with suspicious activity 
+A risk event triggered after a successful sign-in from an IP address with a high number of failed login attempts across multiple user accounts over a short period of time.
+
+###<a name="signin-from-unfamiliar-location"></a>Sign-in from unfamiliar location 
+A risk event triggered when a user successfully signs in from a new location (IP, Latitude/Longitude and ASN).
+
+###<a name="signin-risk"></a>Sign-in risk     
+See Risk level (sign-in)
+
+###<a name="signin-risk-policy"></a>Sign-in risk policy  
+A conditional access policy that evaluates the risk to a specific sign-in and applies mitigations based on predefined conditions and rules.
+
+###<a name="user-compromise-risk"></a>User compromise risk     
+See Risk level (user compromise)
+
+###<a name="user-risk"></a>User risk    
+See Risk level (user compromise).
+
+###<a name="user-risk-policy"></a>User risk policy     
+A conditional access policy that considers the sign-in and applies mitigations based on predefined conditions and rules.
+
+###<a name="users-flagged-for-risk"></a>Users flagged for risk   
+Users that have risk events which are either active or remediated
+
+###<a name="vulnerability"></a>Vulnerability    
+A configuration or condition in Azure Active Directory which makes the directory susceptible to exploits or threats.
+
+
+## <a name="see-also"></a>See also
 
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

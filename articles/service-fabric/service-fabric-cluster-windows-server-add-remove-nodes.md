@@ -17,14 +17,15 @@
    ms.author="dkshir;chackdan"/>
 
 
-# Incorporación o eliminación de nodos de un clúster de Service Fabric independiente con Windows Server
+
+# <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Incorporación o eliminación de nodos de un clúster de Service Fabric independiente con Windows Server
 
 Una vez que [cree su clúster de Service Fabric independiente en máquinas de Windows Server](service-fabric-cluster-creation-for-windows-server.md), puede que las necesidades empresariales cambien y que deba agregar o quitar varios nodos del clúster. En este artículo, se muestran los pasos detallados para lograr este objetivo.
 
 
-## Incorporación de nodos al clúster
+## <a name="add-nodes-to-your-cluster"></a>Incorporación de nodos al clúster
 
-1. Prepare la VM o la máquina que desea agregar al clúster con los pasos que se indican en la sección [Preparar las máquinas para cumplir los requisitos previos de la implementación del clúster](service-fabric-cluster-creation-for-windows-server.md#preparemachines).
+1. Prepare la VM o la máquina que desea agregar al clúster con los pasos que se indican en la sección [Preparar las máquinas para cumplir los requisitos previos de la implementación del clúster](service-fabric-cluster-creation-for-windows-server.md#preparemachines) .
 2. Planee a qué dominio de error y de actualización va a agregar esta máquina o VM.
 3. Abra una conexión de Escritorio remoto (RDP) en la máquina o VM que desea agregar al clúster.
 4. Copie o [descargue el paquete independiente de Service Fabric para Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) en esta máquina o VM y descomprímalo.
@@ -36,7 +37,7 @@ Una vez que [cree su clúster de Service Fabric independiente en máquinas de Wi
 
 ```
 
-## Eliminación de nodos del clúster
+## <a name="remove-nodes-from-your-cluster"></a>Eliminación de nodos del clúster
 
 1. Según el nivel de confiabilidad elegido para el clúster, no podrá quitar los primeros nodos de n (3/5/7/9) del tipo de nodo principal
 2. No se admite la ejecución del comando RemoveNode en un clúster de desarrollo.
@@ -49,12 +50,16 @@ Una vez que [cree su clúster de Service Fabric independiente en máquinas de Wi
 .\RemoveNode.ps1 -ExistingClusterConnectionEndPoint 182.17.34.50:19000
 ```
 
-Defecto conocido que se corregirá en la próxima versión. Incluso después de quitar un nodo, este sigue apareciendo como inactivo en las consultas y SFX.
+Defecto conocido que se corregirá en la próxima versión. Incluso después de quitar un nodo, este sigue apareciendo como inactivo en las consultas y SFX. 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Opciones de configuración de clústeres de Windows independientes](service-fabric-cluster-manifest.md)
 - [Proteger un clúster independiente en Windows mediante la seguridad de Windows](service-fabric-windows-cluster-windows-security.md)
 - [Protección de un clúster de Windows independiente mediante certificados](service-fabric-windows-cluster-x509-security.md)
 - [Creación de un clúster de Service Fabric independiente con VM de Azure con Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

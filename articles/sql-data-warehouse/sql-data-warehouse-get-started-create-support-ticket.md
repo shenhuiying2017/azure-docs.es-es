@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Creación de una incidencia de soporte técnico para Almacenamiento de datos SQL | Microsoft Azure"
-   description="Creación de una incidencia de soporte técnico en Almacenamiento de datos SQL de Azure."
+   pageTitle="How to create a support ticket for SQL Data Warehouse | Microsoft Azure"
+   description="How to create a support ticket in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
+   authors="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,75 +13,76 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/01/2016"
-   ms.author="sonyama;barbkess"/>
+   ms.date="10/31/2016"
+   ms.author="barbkess"/>
 
-# Creación de una incidencia de soporte técnico para Almacenamiento de datos SQL
+
+# <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>How to create a support ticket for SQL Data Warehouse
  
-Si tiene algún problema con su instancia de Almacenamiento de datos SQL, cree una incidencia de soporte técnico para que nuestro equipo de ingenieros pueda ayudarle.
+If you having any issues with your SQL Data Warehouse, please create a support ticket so that our engineering team can assist you.
 
-## Creación de una incidencia de soporte técnico
+## <a name="create-a-support-ticket"></a>Create a support ticket
 
-1. Abra el [Portal de Azure][].
+1. Open the [Azure portal][].
 
-2. En la pantalla de inicio, haga clic en el icono **Ayuda y soporte técnico**.
+2. On the Home screen, click the **Help + support** tile.
 
-    ![Ayuda y soporte técnico](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
+    ![Help + support](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
 
-3. En la hoja Ayuda y soporte técnico, haga clic en **Crear una solicitud de soporte técnico**.
+3. On the Help + Support blade, click **Create support request**.
 
-    ![Nueva solicitud de soporte](./media/sql-data-warehouse-get-started-create-support-ticket/create-support-request.png)
+    ![New support request](./media/sql-data-warehouse-get-started-create-support-ticket/create-support-request.png)
     
-    <a name="request-quota-change"></a>
+    <a name="request-quota-change"></a> 
 
-4. Seleccione el **Tipo de solicitud**.
+4. Select the **Request Type**.
 
-    ![Tipo de solicitud](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
+    ![Request type](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
     
-    >[AZURE.NOTE]  De forma predeterminada, cada servidor SQL (por ejemplo, myserver.database.windows.net) tiene una **Cuota de DTU** de 45.000. Esta cuota es simplemente un límite de seguridad. Puede aumentar la cuota creando una incidencia de soporte técnico y seleccionando *Cuota* como el tipo de solicitud. Para calcular las necesidades de DTU, multiplique 7,5 por el total de [DWU][] necesario. Por ejemplo, desea hospedar dos DW6000s en un servidor SQL, así que debe solicitar una cuota de DTU de 90 000. Puede ver el consumo de DTU actual en la hoja del servidor SQL en el portal. El recuento de las bases de datos, tanto en pausa como continuo, hacia la cuota de DTU.
+    >[AZURE.NOTE]  By default, each SQL server (e.g. myserver.database.windows.net) has a **DTU Quota** of 45,000. This quota is simply a safety limit. You can increase your quota by creating a support ticket and selecting *Quota* as the request type. To calculate your DTU needs, multiply the 7.5 by the total [DWU][] needed. For example, you would like to host two DW6000s on one SQL server, then you should request a DTU quota of 90,000.  You can view your current DTU consumption from the SQL server blade in the portal. Both paused and un-paused databases count toward the DTU quota. 
 
-5. Seleccione la **suscripción** que hospeda la base de datos con el problema que va a notificar.
+5. Select the **Subscription** that hosts the database with the problem you are reporting.
 
     ![Subscription](./media/sql-data-warehouse-get-started-create-support-ticket/subscription.png)
 
-6. Seleccione **Almacenamiento de datos SQL** como Recurso.
+6. Select **SQL Data Warehouse** as the Resource.
 
-    ![Recurso](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
+    ![Resource](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
 
-7. Seleccione su [Plan de soporte técnico de Azure][].
+7. Select your [Azure support plan][].
 
-    - En todos los niveles de soporte técnico, se proporciona asistencia para problemas relacionados con la **facturación, las cuotas y la administración de suscripciones**.
-    - El soporte técnico para problemas de tipo **break-fix** se proporciona a través de los niveles [Developer][], [Standard][], [Professional Direct][] o [Premier][]. Los problemas "break-fix" son aquellos que experimentan los clientes mientras usan Azure en los que hay una posibilidad razonable de que hayan sido causados por Microsoft.
-    - El **aprendizaje para desarrolladores** y los **servicios de asesoramiento** están disponibles en los niveles de soporte técnico [Professional Direct][] y [Premier][].
+    - **Billing, quota and subscription management** support is available at all support levels.
+    - **Break-fix** support is provided through [Developer][], [Standard][], [Professional Direct][] or [Premier][] support. Break-fix issues are problems experienced by customers while using Azure where there is a reasonable expectation that Microsoft caused the problem.
+    - **Developer mentoring** and **advisory services** are available at the [Professional Direct][] and [Premier][] support levels. 
     
-    Si tiene un plan de asistencia Premier, también puede informar sobre problemas relacionados con Almacenamiento de datos SQL en el [portal Microsoft Premier Online][]. Consulte [Soporte técnico de Azure para clientes][Azure support plan] para más información sobre los diversos planes de soporte técnico, incluyendo detalles como ámbito, tiempos de respuesta, precios, etc. Si desea ver las preguntas más frecuentes sobre el soporte técnico de Azure, consulte [Preguntas más frecuentes de soporte técnico de Azure][].
+    If you have a Premier support plan, you can also report SQL Data Warehouse related issues on the [Microsoft Premier online portal][].  See [Azure support plans][Azure support plan] to learn more about the various support plans, including scope, response times, pricing, etc.  For frequently asked questions about Azure support, see [Azure support FAQs][].  
 
-    ![Plan de soporte técnico](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
+    ![Support plan](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
 
-8. Seleccione **Tipo de problema** y **Categoría**.
+8. Select the **Problem Type** and **Category**.
 
-    ![Categoría del tipo de problema](./media/sql-data-warehouse-get-started-create-support-ticket/problem-type-category.png)
+    ![Problem type category](./media/sql-data-warehouse-get-started-create-support-ticket/problem-type-category.png)
 
-9. Describa el problema y elija el nivel de impacto empresarial.
+9. Describe the problem and choose the level of business impact.
 
-    ![Descripción del problema](./media/sql-data-warehouse-get-started-create-support-ticket/problem-description.png)
+    ![Problem description](./media/sql-data-warehouse-get-started-create-support-ticket/problem-description.png)
 
-10. Su **información de contacto** para esta incidencia de soporte técnico se rellenará automáticamente. Actualice si es necesario.
+10. Your **contact information** for this support ticket will be pre-filled. Update this if necessary.
 
-    ![Información de contacto](./media/sql-data-warehouse-get-started-create-support-ticket/contact-info.png)
+    ![Contact info](./media/sql-data-warehouse-get-started-create-support-ticket/contact-info.png)
 
-11. Haga clic en **Crear** para enviar la solicitud de soporte técnico.
+11. Click **Create** to submit the support request.
 
 
-## Supervisión de una incidencia de soporte técnico
+## <a name="monitor-a-support-ticket"></a>Monitor a support ticket
 
-Una vez que ha enviado la solicitud de asistencia, el equipo de soporte técnico de Azure se pondrá en contacto con usted. Para comprobar el estado de la solicitud y los detalles, haga clic en **Administrar solicitudes de soporte técnico** en el panel.
+After you have submitted the support request, the Azure support team will contact you. To check your request status and details, click **Manage support requests** on the dashboard.
 
-![Comprobar estado](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
+![Check status](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
 
-## Otros recursos
+## <a name="other-resources"></a>Other Resources
 
-Además, puede conectar con la comunidad de Almacenamiento de datos SQL en [Stack Overflow][] o en el [foro de MSDN de Almacenamiento de datos SQL de Azure][].
+Additionally, you can connect with the SQL Data Warehouse community on [Stack Overflow][] or on the [Azure SQL Data Warehouse MSDN forum][].
 
 <!--Image references--> 
 
@@ -91,16 +92,20 @@ Además, puede conectar con la comunidad de Almacenamiento de datos SQL en [Stac
 <!--MSDN references--> 
 
 <!--Other web references--> 
-[Portal de Azure]: https://portal.azure.com/
-[Azure support plan]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
-[Plan de soporte técnico de Azure]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
-[Developer]: https://azure.microsoft.com/support/plans/developer/
-[Standard]: https://azure.microsoft.com/support/plans/standard/
-[Professional Direct]: https://azure.microsoft.com/support/plans/prodirect/
-[Premier]: https://azure.microsoft.com/support/plans/premier/
-[Preguntas más frecuentes de soporte técnico de Azure]: https://azure.microsoft.com/support/faq/
-[portal Microsoft Premier Online]: https://premier.microsoft.com/
+[Azure portal]: https://portal.azure.com/
+[Azure support plan]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/  
+[Developer]: https://azure.microsoft.com/support/plans/developer/  
+[Standard]: https://azure.microsoft.com/support/plans/standard/  
+[Professional Direct]: https://azure.microsoft.com/support/plans/prodirect/  
+[Premier]: https://azure.microsoft.com/support/plans/premier/  
+[Azure support FAQs]: https://azure.microsoft.com/support/faq/
+[Microsoft Premier online portal]: https://premier.microsoft.com/
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
-[foro de MSDN de Almacenamiento de datos SQL de Azure]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
+[Azure SQL Data Warehouse MSDN forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!----HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

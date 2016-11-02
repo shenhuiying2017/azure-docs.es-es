@@ -1,25 +1,26 @@
 <properties 
-	pageTitle="Configuración de SSL para un servicio en la nube | Microsoft Azure" 
-	description="Aprenda a especificar un punto de conexión HTTPS para un rol web y cómo cargar un certificado SSL para proteger su aplicación. Estos ejemplos usan el Portal de Azure." 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="Thraka" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="Configuración de SSL para un servicio en la nube | Microsoft Azure" 
+    description="Aprenda a especificar un punto de conexión HTTPS para un rol web y cómo cargar un certificado SSL para proteger su aplicación. Estos ejemplos usan el Portal de Azure." 
+    services="cloud-services" 
+    documentationCenter=".net" 
+    authors="Thraka" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/05/2016"
-	ms.author="adegeo"/>
+    ms.service="cloud-services" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/04/2016"
+    ms.author="adegeo"/>
 
 
 
 
-# Configuración de SSL para una aplicación en Azure
+
+# <a name="configuring-ssl-for-an-application-in-azure"></a>Configuración de SSL para una aplicación en Azure
 
 > [AZURE.SELECTOR]
 - [Portal de Azure](cloud-services-configure-ssl-certificate-portal.md)
@@ -35,15 +36,15 @@ Lea [esto](cloud-services-how-to-create-deploy-portal.md) primero si aún no ha 
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-## Paso 1: Obtener un certificado SSL
+## <a name="step-1:-get-an-ssl-certificate"></a>Paso 1: Obtener un certificado SSL
 
-Para configurar SSL para una aplicación, necesita primero obtener un certificado SSL que haya sido firmado por una entidad de certificación (CA), un tercero de confianza que emite certificados para este propósito. Si todavía no tiene una de estas firmas, deberá obtenerla mediante una compañía que venda certificados SSL.
+Para configurar SSL para una aplicación, necesita primero obtener un certificado SSL que haya sido firmado por una entidad de certificación (CA), un tercero de confianza que emite certificados para este propósito. Si todavía no tiene uno de estos certificados, deberá obtenerla mediante una compañía que venda certificados SSL.
 
 El certificado debe cumplir los siguientes requisitos de certificados SSL en Azure:
 
 -   El certificado debe contener una clave privada.
 -   El certificado debe crearse para el intercambio de claves, que se puedan exportar a un archivo Personal Information Exchange (.pfx).
--   El nombre de sujeto del certificado debe coincidir con el dominio usado para tener acceso al servicio en la nube. No puede obtener un certificado SSL de una entidad de certificación (CA) para el dominio cloudapp.net. Debe adquirir un nombre de dominio personalizado para usarlo cuando obtenga acceso a su servicio. Cuando solicite un certificado de una CA, el nombre de sujeto del certificado debe coincidir con el nombre de dominio personalizado que se usó para tener acceso a su aplicación. Por ejemplo, si su nombre de dominio personalizado es **contoso.com** debe solicitar un certificado de su CA para **.contoso.com** o **www.contoso.com**.
+-   El nombre de sujeto del certificado debe coincidir con el dominio usado para tener acceso al servicio en la nube. No puede obtener un certificado SSL de una entidad de certificación (CA) para el dominio cloudapp.net. Debe adquirir un nombre de dominio personalizado para usarlo cuando obtenga acceso a su servicio. Cuando solicite un certificado de una CA, el nombre de sujeto del certificado debe coincidir con el nombre de dominio personalizado que se usó para tener acceso a su aplicación. Por ejemplo, si su nombre de dominio personalizado es **contoso.com** debe solicitar un certificado de su CA para ***.contoso.com** o **www.contoso.com**.
 -   Este certificado debe usar un cifrado de 2048 bits como mínimo.
 
 Para propósitos de prueba, puede [crear](cloud-services-certs-create.md) y usar un certificado autofirmado. Un certificado autofirmado no está autenticado por una CA y puede usar el dominio cloudapp.net como la dirección URL del sitio web. Por ejemplo, la tarea siguiente usa un certificado autofirmado en el que el nombre común (CN) usado en el certificado es **sslexample.cloudapp.net**.
@@ -51,7 +52,7 @@ Para propósitos de prueba, puede [crear](cloud-services-certs-create.md) y usar
 A continuación, debe incluir información sobre el certificado en su definición de servicio y los archivos de configuración del servicio.
 
 <a name="modify"> </a>
-## Paso 2: Modificar los archivos de definición y configuración del servicio
+## <a name="step-2:-modify-the-service-definition-and-configuration-files"></a>Paso 2: Modificar los archivos de definición y configuración del servicio
 
 Su aplicación debe estar configurada para usar el certificado y se debe agregar un punto de conexión HTTPS. Como resultado, se deben actualizar la definición de servicio y los archivos de configuración del servicio.
 
@@ -61,8 +62,8 @@ Su aplicación debe estar configurada para usar el certificado y se debe agregar
         ...
             <Certificates>
                 <Certificate name="SampleCertificate" 
-							 storeLocation="LocalMachine" 
-                    		 storeName="My"
+                             storeLocation="LocalMachine" 
+                             storeName="My"
                              permissionLevel="limitedOrElevated" />
                 <!-- IMPORTANT! Unless your certificate is either
                 self-signed or signed directly by the CA root, you
@@ -81,12 +82,12 @@ Su aplicación debe estar configurada para usar el certificado y se debe agregar
 
     La sección **Certificates** define el nombre de nuestro certificado, su ubicación y el nombre de la tienda donde se encuentra.
     
-    Se pueden establecer permisos (atributo `permisionLevel`) en uno de los siguientes casos:
+    Se pueden establecer permisos (atributo`permisionLevel` ) en uno de los siguientes casos:
 
-    | Valor del permiso | Descripción |
-    | ----------------  | ----------- |
-    | limitedOrElevated | **(Predeterminado)** todos los procesos de rol pueden tener acceso a la clave privada. |
-    | elevated | Solo los procesos elevados pueden tener acceso a la clave privada.|
+  	| Valor del permiso  | Descripción |
+  	| ----------------  | ----------- |
+  	| limitedOrElevated | **(Predeterminado)** todos los procesos de rol pueden tener acceso a la clave privada. |
+  	| elevated          | Solo los procesos elevados pueden tener acceso a la clave privada.|
 
 2.  En el archivo de definición de servicio, agregue un elemento **InputEndpoint** en la sección **Endpoints** para habilitar HTTPS:
 
@@ -132,27 +133,23 @@ Su aplicación debe estar configurada para usar el certificado y se debe agregar
 
 (El ejemplo anterior usa **sha1** para el algoritmo de huella digital. Especifique el valor adecuado para el algoritmo de huella digital de su certificado).
 
-Ahora que se actualizaron los archivos de definición del servicio y configuración del servicio, prepare su implementación para cargarla en Azure. Si va a usar **cspack**, asegúrese de no usar la marca **/generateConfigurationFile**, puesto que así se sobrescribe la información del certificado que acaba de insertar.
+Ahora que se actualizaron los archivos de definición del servicio y configuración del servicio, prepare su implementación para cargarla en Azure. Si va a usar **cspack**, no utilice la marca **/generateConfigurationFile**, puesto que así se sobrescribe la información del certificado que acaba de insertar.
 
-## Paso 3: Cargar un certificado
+## <a name="step-3:-upload-a-certificate"></a>Paso 3: Cargar un certificado
 
 Conéctese al portal y...
 
-1. Para seleccionar el servicio en la nube en el portal, haga clic en **Servicio en la nube**. (Que aparecerá en la sección **Todos los recursos**).
+1. Para seleccionar el servicio en la nube en el portal, haga clic en **Servicio en la nube**. (Que aparece en la sección **Todos los recursos**). 
     
     ![Publicación del servicio en la nube](media/cloud-services-configure-ssl-certificate-portal/browse.png)
 
-3. Abra la **configuración** para el servicio en la nube.
-
-    ![Abrir configuración](media/cloud-services-configure-ssl-certificate-portal/all-settings.png)
-
-4. Haga clic en **Certificados**.
+2. Haga clic en **Certificados**.
 
     ![Haga clic en el icono de certificados](media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
 
-4. Proporcione el **Archivo**, la **Contraseña** y luego haga clic en **Cargar**.
+3. Proporcione el **Archivo**, la **Contraseña** y luego haga clic en **Cargar**.
 
-## Paso 4: Conectarse a la instancia de rol con HTTPS
+## <a name="step-4:-connect-to-the-role-instance-by-using-https"></a>Paso 4: Conectarse a la instancia de rol con HTTPS
 
 Ahora que su implementación está funcionando en Azure, puede conectarse a ella con HTTPS.
     
@@ -166,15 +163,19 @@ Ahora que su implementación está funcionando en Azure, puede conectarse a ella
 
     ![Vista previa del sitio](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
-    >[AZURE.TIP] Si desea usar SSL para una implementación de ensayo en vez de una implementación de producción, tendrá que determinar primero la dirección URL que se usó para la implementación de ensayo. Una vez que se ha implementado el servicio en la nube, la dirección URL del entorno de almacenamiento provisional viene determinada por el GUID del **identificador de implementación** en este formato: `https://deployment-id.cloudapp.net/`
+    >[AZURE.TIP] Si desea usar SSL para una implementación de ensayo en vez de una implementación de producción, tendrá que determinar primero la dirección URL que se usó para la implementación de ensayo. Una vez que se ha implementado el servicio en la nube, la dirección URL del entorno de ensayo viene determinada por el GUID del **identificador de implementación** en este formato: `https://deployment-id.cloudapp.net/`  
       
-    >Cree un certificado con un nombre común (CN) igual a la dirección URL basada en el GUID (por ejemplo, **328187776e774ceda8fc57609d404462.cloudapp.net**), use el Portal para agregar el certificado al servicio en la nube de almacenamiento provisional, agregue la información del certificado a los archivos CSDEF y CSCFG, vuelva a empaquetar la aplicación y actualice la implementación del almacenamiento provisional para usar el paquete y el archivo CSCFG nuevos.
+    >Cree un certificado con el nombre común (CN) igual a la dirección URL basada en GUID (por ejemplo, **328187776e774ceda8fc57609d404462.cloudapp.net**). Use el portal para agregar el certificado a su servicio en la nube de ensayo. A continuación, agregue la información del certificado a los archivos CSDEF y CSCFG, vuelva a empaquetar la aplicación y actualice la implementación de ensayo para que use el nuevo paquete.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Configuración general de su servicio en la nube](cloud-services-how-to-configure-portal.md).
 * Obtenga información sobre cómo [implementar un servicio en la nube](cloud-services-how-to-create-deploy-portal.md).
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Administración del servicio en la nube](cloud-services-how-to-manage-portal.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

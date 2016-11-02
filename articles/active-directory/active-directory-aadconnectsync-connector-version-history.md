@@ -14,9 +14,10 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="08/17/2016"
-   ms.author="andkjell"/>
+   ms.author="billmath"/>
 
-# Historial de versiones de conectores
+
+# <a name="connector-version-release-history"></a>Historial de versiones de conectores
 Los conectores de Forefront Identity Manager (FIM) y Microsoft Identity Manager (MIM) se actualizan con frecuencia.
 
 >[AZURE.NOTE]
@@ -27,16 +28,17 @@ En este tema se muestran todas las versiones de los conectores que se han public
 Vínculos relacionados:
 
 - [Descargar los últimos conectores](http://go.microsoft.com/fwlink/?LinkId=717495)
-- Documentación de referencia del [conector LDAP genérico](active-directory-aadconnectsync-connector-genericldap.md)
-- Documentación de referencia del [conector SQL genérico](active-directory-aadconnectsync-connector-genericsql.md)
-- Documentación de referencia del [conector de servicios web](http://go.microsoft.com/fwlink/?LinkID=226245)
-- Documentación de referencia del [conector PowerShell](active-directory-aadconnectsync-connector-powershell.md)
-- Documentación de referencia del [conector Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
+- [conector LDAP genérico](active-directory-aadconnectsync-connector-genericldap.md) 
+- [conector SQL genérico](active-directory-aadconnectsync-connector-genericsql.md) 
+- [conector de servicios web](http://go.microsoft.com/fwlink/?LinkID=226245) 
+- [conector PowerShell](active-directory-aadconnectsync-connector-powershell.md) 
+- [conector Lotus Domino](active-directory-aadconnectsync-connector-domino.md) 
 
-## 1\.1.117.0
+## <a name="1.1.117.0"></a>1.1.117.0
 Publicación: marzo de 2016
 
-**Nuevo conector** Versión inicial del [Conector SQL genérico](active-directory-aadconnectsync-connector-genericsql.md).
+**Nuevo conector**  
+Versión inicial del [conector SQL genérico](active-directory-aadconnectsync-connector-genericsql.md).
 
 **Nuevas características:**
 
@@ -61,37 +63,41 @@ Publicación: marzo de 2016
     - Las exportaciones que agregaban y quitaban miembros de un grupo solo exportaban los miembros agregados.
     - Si un documento de notas no es válido (el atributo isValid se definía como false), se produce un error en el conector.
 
-## Versiones anteriores
+## <a name="older-releases"></a>Versiones anteriores
 Antes de marzo de 2016, los conectores se publicaban como temas de soporte técnico.
 
 **LDAP genérico**
 
-- [KB3078617](https://support.microsoft.com/kb/3078617): 1.0.0597, septiembre de 2015
-- [KB3044896](https://support.microsoft.com/kb/3044896): 1.0.0549, marzo de 2015
-- [KB3031009](https://support.microsoft.com/kb/3031009): 1.0.0534, enero de 2015
-- [KB3008177](https://support.microsoft.com/kb/3008177): 1.0.0419, septiembre de 2014
-- [KB2936070](https://support.microsoft.com/kb/2936070): 4.3.1082, marzo de 2014
+- [KB3078617](https://support.microsoft.com/kb/3078617) : 1.0.0597, septiembre de 2015
+- [KB3044896](https://support.microsoft.com/kb/3044896) : 1.0.0549, marzo de 2015
+- [KB3031009](https://support.microsoft.com/kb/3031009) : 1.0.0534, enero de 2015
+- [KB3008177](https://support.microsoft.com/kb/3008177) : 1.0.0419, septiembre de 2014
+- [KB2936070](https://support.microsoft.com/kb/2936070) : 4.3.1082, marzo de 2014
 
 **Servicios web**
 
-- [KB3008178](https://support.microsoft.com/kb/3008178): 1.0.0419, septiembre de 2014
+- [KB3008178](https://support.microsoft.com/kb/3008178) : 1.0.0419, septiembre de 2014
 
 **PowerShell**
 
-- [KB3008179](https://support.microsoft.com/kb/3008179): 1.0.0419, septiembre de 2014
+- [KB3008179](https://support.microsoft.com/kb/3008179) : 1.0.0419, septiembre de 2014
 
 **Lotus Domino**
 
-- [KB3096533](https://support.microsoft.com/kb/3096533): 1.0.0597, septiembre de 2015
-- [KB3044895](https://support.microsoft.com/kb/3044895): 1.0.0549, marzo de 2015
-- [KB2977286](https://support.microsoft.com/kb/2977286): 5.3.0712, agosto de 2014
-- [KB2932635](https://support.microsoft.com/kb/2932635): 5.3.1003, febrero de 2014
-- [KB2899874](https://support.microsoft.com/kb/2899874): 5.3.0721, octubre de 2013
-- [KB2875551](https://support.microsoft.com/kb/2875551): 5.3.0534, agosto de 2013
+- [KB3096533](https://support.microsoft.com/kb/3096533) : 1.0.0597, septiembre de 2015
+- [KB3044895](https://support.microsoft.com/kb/3044895) : 1.0.0549, marzo de 2015
+- [KB2977286](https://support.microsoft.com/kb/2977286) : 5.3.0712, agosto de 2014
+- [KB2932635](https://support.microsoft.com/kb/2932635) : 5.3.1003, febrero de 2014  
+- [KB2899874](https://support.microsoft.com/kb/2899874) : 5.3.0721, octubre de 2013
+- [KB2875551](https://support.microsoft.com/kb/2875551) : 5.3.0534, agosto de 2013
 
-## Pasos siguientes
-Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+## <a name="next-steps"></a>Pasos siguientes
+Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

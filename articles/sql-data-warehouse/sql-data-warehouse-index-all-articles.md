@@ -1,64 +1,72 @@
 <properties
-	pageTitle="Todos los temas del servicio Almacenamiento de datos SQL | Microsoft Azure"
-	description="Tabla de todos los temas del servicio Almacenamiento de datos SQL que se encuentra en http://azure.microsoft.com/documentation/articles/, con títulos y descripciones."
-	services="sql-data-warehouse"
-	documentationCenter=""
-	authors="barbkess"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="Todos los temas del servicio Almacenamiento de datos SQL | Microsoft Azure"
+    description="Tabla de todos los temas del servicio Almacenamiento de datos SQL que se encuentra en http://azure.microsoft.com/documentation/articles/, con títulos y descripciones."
+    services="sql-data-warehouse"
+    documentationCenter=""
+    authors="barbkess"
+    manager="jhubbard"
+    editor="MightyPen"/>
 
 <tags
-	ms.service="sql-data-warehouse"
-	ms.workload="sql-data-warehouse"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/21/2016"
-	ms.author="barbkess"/>
+    ms.service="sql-data-warehouse"
+    ms.workload="sql-data-warehouse"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/05/2016"
+    ms.author="barbkess"/>
 
 
-# Todos los temas del servicio Almacenamiento de datos SQL de Azure
+
+# <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Todos los temas del servicio Almacenamiento de datos SQL de Azure
 
 En este documento se muestran todos los temas relacionados directamente con el servicio **Almacenamiento de datos SQL** de Azure. Puede buscar en esta página web las palabras clave mediante **Ctrl+F**, para encontrar los temas de interés.
 
 
 
-## Artículos actualizados
 
-En esta sección se enumeran los artículos que se han actualizado recientemente. Concretamente, aquellos en los que la actualización fuera grande o considerable. Para cada artículo actualizado, se muestra un fragmento del texto agregado. Los artículos se actualizaron dentro de este intervalo de fechas: del **26-07-2016** al **21-08-2016**.
+## <a name="new"></a>Nuevo
 
-| &nbsp; | Artículo | Texto actualizado, fragmento |
+| &nbsp; | Título | Descripción |
 | --: | :-- | :-- |
-| 1 | [Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL](sql-data-warehouse-develop-concurrency.md) | **Consultas que respetan los límites de simultaneidad** La mayoría de las consultas se rigen por las clases de recursos. Estas consultas deben encontrarse dentro de los umbrales de ranuras de simultaneidad y consultas simultáneas. Un usuario final no puede elegir excluir una consulta del modelo de ranura de simultaneidad. Nuevamente, las siguientes instrucciones **respetan** las clases de recursos: / INSERT-SELECT / UPDATE / DELETE / SELECT (al consultar las tablas de usuario) / ALTER INDEX REBUILD / ALTER INDEX REORGANIZE / ALTER TABLE REBUILD / CREATE INDEX / CREATE CLUSTERED COLUMNSTORE INDEX / CREATE TABLE AS SELECT (CTAS) / Carga de datos / Operaciones de movimiento de datos llevadas a cabo por el servicio de movimiento de datos (DMS) **Excepciones de la consulta a los límites de simultaneidad** |
-| 2 | [Información de migración al Almacenamiento premium](sql-data-warehouse-migrate-to-premium-storage.md) | Con la migración al Almacenamiento premium, también aumentamos la cantidad de archivos de blob de base de datos en la arquitectura subyacente de Almacenamiento de datos. Si tiene algún problema de rendimiento, se recomienda recompilar los índices de almacén de columnas en clúster con el script siguiente. Con esta acción, se forzará a algunos de los datos existentes a los blobs adicionales. Si no realiza ninguna acción, los datos se redistribuirán naturalmente con el tiempo a medida que carga más datos en las tablas de Almacenamiento de datos. **Requisitos previos:** 1. Almacenamiento de datos se debe ejecutar con 1000 DWU o más (consulte el escalado de la potencia de proceso). 2. El usuario que ejecuta el script debe tener el rol mediumrc o superior. 1. Para agregar un usuario a este rol, ejecute lo siguiente: 1. ````EXEC sp_addrolemember 'xlargerc', 'MyUser'```` ````sql /------------------------------------------------------------------------------ /- Paso 1: Crear tabla para controlar la recompilación de índice. /- Ejecutar como usuario en mediumrc o superior. /------------------------------------------------------------ |
+| 1 | [Copias de seguridad de SQL Data Warehouse](sql-data-warehouse-backup.md) | Aprenda sobre las copias de seguridad de base de datos integradas de SQL Data Warehouse que permiten restaurar una instancia de Azure SQL Data Warehouse a un punto de restauración o una región geográfica distinta. |
+
+
+## <a name="updated-articles,-sql-data-warehouse"></a>Artículos actualizados, SQL Data Warehouse
+
+En esta sección se enumeran los artículos que se han actualizado recientemente. Concretamente, aquellos en los que la actualización fuera grande o considerable. Para cada artículo actualizado, se muestra un fragmento del texto agregado. Los artículos se actualizaron dentro de este intervalo de fechas: del **22-08-2016** al **05-10-2016**.
+
+| &nbsp; | Artículo | Texto actualizado, fragmento | Se actualiza cuando |
+| --: | :-- | :-- | :-- |
+| 2 | [Load data from Azure blob storage into SQL Data Warehouse (PolyBase) [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase)]](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) | /- To track bytes and files SELECT  r.command,  s.request_id,  r.status,  count(distinct input_name) as nbr_files,  sum(s.bytes_processed)/1024/1024 as gb_processed FROM  sys.dm_pdw_exec_requests r  inner join sys.dm_pdw_dms_external_work s  on r.request_id = s.request_id WHERE  r. label  = 'CTAS : Load  cso . DimProduct  '  OR r. label  = 'CTAS : Load  cso . FactOnlineSales  ' GROUP BY  r.command,  s.request_id,  r.status ORDER BY  nbr_files desc,  gb_processed desc;  | 2016-09-07 |
+| 3 | [SQL Data Warehouse](sql-data-warehouse-restore-database-overview.md) | ** ¿Puedo restaurar un almacén de datos en pausa?** Para restaurar un almacén de datos que está en pausa, primero debe ponerlo en línea. Después de que el almacén de datos vuelve a estar en línea, dispone de siete días de puntos de restauración para elegir. ** Restaurar a una región con redundancia geográfica** Si usa el almacenamiento con redundancia geográfica, puede restaurar el almacén de datos a su centro de datos emparejado en otra región geográfica. El almacenamiento de datos se restaura desde la última copia de seguridad diaria. ** Restaurar la escala de tiempo** Puede restaurar una base de datos a cualquier punto de restauración de los últimos siete días. Las instantáneas comienzan cada cuatro a ocho horas y están disponibles durante siete días. Cuando una instantánea tiene una antigüedad superior a siete días, caduca y su punto de restauración ya no está disponible. ** Costos de restauración** Los cargos de almacenamiento por el almacenamiento de datos restaurado se facturan con la tarifa de Azure Premium Storage. Si se pausa un almacenamiento de datos restaurado, se le cobrará por el almacenamiento según la tarifa de Azure Premium Storage. La ventaja de pausar es que no se le cobra | 2016-09-29 |
 
 
 
 
 
-## Primeros pasos
+## <a name="get-started"></a>Primeros pasos
 
-| &nbsp; | Título | Description |
+| &nbsp; | Título | Descripción |
 | --: | :-- | :-- |
-| 3 | [Autenticación a Almacenamiento de datos SQL de Azure](sql-data-warehouse-authentication.md) | Autenticación de Azure Active Directory (AAD) y SQL Server a Almacenamiento de datos SQL de Azure |
-| 4 | [Procedimientos recomendados para Almacenamiento de datos SQL de Azure](sql-data-warehouse-best-practices.md) | Recomendaciones y procedimientos recomendados que debe saber para desarrollar soluciones de Almacenamiento de datos SQL de Azure. Esto le ayudará a tener éxito. |
-| 5 | [Controladores de Almacenamiento de datos SQL de Azure](sql-data-warehouse-connection-strings.md) | Cadenas de conexión y controladores de Almacenamiento de datos SQL |
-| 6 | [Conexión a Almacenamiento de datos SQL de Azure](sql-data-warehouse-connect-overview.md) | Información general sobre la conexión a Almacenamiento de datos SQL de Azure |
-| 7 | [Análisis de datos con Aprendizaje automático de Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md) | Use Aprendizaje automático de Azure para crear un aprendizaje automático predictivo con los datos almacenados en Almacenamiento de datos SQL de Azure. |
-| 8 | [Consulta de Almacenamiento de datos SQL de Azure (sqlcmd)](sql-data-warehouse-get-started-connect-sqlcmd.md) | Consulta de Almacenamiento de datos SQL Azure con las utilidades de la línea de comandos sqlcmd. |
-| 9 | [Creación de una base de datos de Almacenamiento de datos SQL mediante Transact-SQL (TSQL)](sql-data-warehouse-get-started-create-database-tsql.md) | Aprenda a crear una base de datos de Almacenamiento de datos SQL de Azure con TSQL |
-| 10 | [Creación de una incidencia de soporte técnico para Almacenamiento de datos SQL](sql-data-warehouse-get-started-create-support-ticket.md) | Creación de una incidencia de soporte técnico en Almacenamiento de datos SQL de Azure. |
-| 11 | [Carga de datos con la Factoría de datos de Azure](sql-data-warehouse-get-started-load-with-azure-data-factory.md) | Más información sobre Factoría de datos de Azure |
-| 12 | [Carga de datos con PolyBase en Almacenamiento de datos SQL](sql-data-warehouse-get-started-load-with-polybase.md) | Obtenga información sobre qué es PolyBase y cómo usarlo en escenarios de almacenamiento de datos. |
-| 13 | [Creación de un servidor lógico nuevo](sql-data-warehouse-get-started-new-server.md) | Aprenda a crear un almacenamiento de datos SQL de Azure en el Portal de Azure |
-| 14 | [Creación de una instancia de Almacenamiento de datos SQL de Azure](sql-data-warehouse-get-started-provision.md) | Aprenda a crear una instancia de Almacenamiento de datos SQL de Azure en el Portal de Azure |
+| 4 | [Autenticación a Almacenamiento de datos SQL de Azure](sql-data-warehouse-authentication.md) | Autenticación de Azure Active Directory (AAD) y SQL Server a Almacenamiento de datos SQL de Azure |
+| 5 | [Procedimientos recomendados para Almacenamiento de datos SQL de Azure](sql-data-warehouse-best-practices.md) | Recomendaciones y procedimientos recomendados que debe saber para desarrollar soluciones de Almacenamiento de datos SQL de Azure. Esto le ayudará a tener éxito. |
+| 6 | [Controladores de Almacenamiento de datos SQL de Azure](sql-data-warehouse-connection-strings.md) | Cadenas de conexión y controladores de Almacenamiento de datos SQL |
+| 7 | [Conexión a Almacenamiento de datos SQL de Azure](sql-data-warehouse-connect-overview.md) | Cómo encontrar el nombre de servidor y la cadena de conexión de su instancia de Azure SQL Data Warehouse |
+| 8 | [Análisis de datos con Aprendizaje automático de Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md) | Use Aprendizaje automático de Azure para crear un aprendizaje automático predictivo con los datos almacenados en Almacenamiento de datos SQL de Azure. |
+| 9 | [Consulta de Almacenamiento de datos SQL de Azure (sqlcmd)](sql-data-warehouse-get-started-connect-sqlcmd.md) | Consulta de Almacenamiento de datos SQL Azure con las utilidades de la línea de comandos sqlcmd. |
+| 10 | [Creación de una base de datos de Almacenamiento de datos SQL mediante Transact-SQL (TSQL)](sql-data-warehouse-get-started-create-database-tsql.md) | Aprenda a crear una base de datos de Almacenamiento de datos SQL de Azure con TSQL |
+| 11 | [Creación de una incidencia de soporte técnico para Almacenamiento de datos SQL](sql-data-warehouse-get-started-create-support-ticket.md) | Creación de una incidencia de soporte técnico en Almacenamiento de datos SQL de Azure. |
+| 12 | [Carga de datos con la Factoría de datos de Azure](sql-data-warehouse-get-started-load-with-azure-data-factory.md) | Más información sobre Factoría de datos de Azure |
+| 13 | [Carga de datos con PolyBase en Almacenamiento de datos SQL](sql-data-warehouse-get-started-load-with-polybase.md) | Obtenga información sobre qué es PolyBase y cómo usarlo en escenarios de almacenamiento de datos. |
+| 14 | [Creación de una instancia de Almacenamiento de datos SQL de Azure](sql-data-warehouse-get-started-provision.md) | Aprenda a crear un almacenamiento de datos SQL de Azure en el Portal de Azure |
 | 15 | [Creación de Almacenamiento de datos SQL con Powershell](sql-data-warehouse-get-started-provision-powershell.md) | Creación de Almacenamiento de datos SQL con Powershell |
 | 16 | [Visualización de datos con Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md) | Visualización de datos de Almacenamiento de datos SQL con Power BI |
 | 17 | [Consultas en Almacenamiento de datos SQL de Azure (Visual Studio)](sql-data-warehouse-query-visual-studio.md) | Consultas en Almacenamiento de datos SQL con Visual Studio. |
 
 
 
-## Desarrollo
+## <a name="develop"></a>Desarrollo
 
 | &nbsp; | Título | Description |
 | --: | :-- | :-- |
@@ -78,9 +86,9 @@ En esta sección se enumeran los artículos que se han actualizado recientemente
 
 
 
-## Manage
+## <a name="manage"></a>Manage
 
-| &nbsp; | Título | Descripción |
+| &nbsp; | Título | Description |
 | --: | :-- | :-- |
 | 31 | [Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (información general)](sql-data-warehouse-manage-compute-overview.md) | Funcionalidades de escalado horizontal del rendimiento en Almacenamiento de datos SQL de Azure. Realice el escalado horizontal ajustando las DWU o pause y reanude los recursos de proceso para ahorrar costos. |
 | 32 | [Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (Portal de Azure)](sql-data-warehouse-manage-compute-portal.md) | Tareas del Portal de Azure para administrar la potencia de proceso. Escalado de los recursos de proceso ajustando DWU. Pausar y reanudar recursos de proceso para ahorrar costos. |
@@ -90,14 +98,14 @@ En esta sección se enumeran los artículos que se han actualizado recientemente
 | 36 | [Supervisión de la carga de trabajo mediante DMV](sql-data-warehouse-manage-monitor.md) | Obtenga información sobre cómo supervisar la carga de trabajo mediante DMV. |
 | 37 | [Administración de base datos en Almacenamiento de datos SQL de Azure](sql-data-warehouse-overview-manage.md) | Información general de administración de bases de datos de Almacenamiento de datos SQL Incluye herramientas de administración, DWU y rendimiento de escalado horizontal, solución de problemas de rendimiento de las consultas, el establecimiento de directivas de seguridad y la restauración una base de datos de daños en los datos o de un apagón regional. |
 | 38 | [Supervisión de las consultas de usuario en Almacenamiento de datos SQL de Azure](sql-data-warehouse-overview-manage-user-queries.md) | Información general de las consideraciones, prácticas recomendadas y tareas para supervisar las consultas de usuario en Almacenamiento de datos SQL de Azure. |
-| 39 | [Restauración de instancias de Almacenamiento de datos SQL de Azure (información general)](sql-data-warehouse-restore-database-overview.md) | Información general de las opciones de restauración de bases de datos para recuperar una base de datos en Almacenamiento de datos SQL de Azure. |
+| 39 | [SQL Data Warehouse](sql-data-warehouse-restore-database-overview.md) | Información general de las opciones de restauración de bases de datos para recuperar una base de datos en Almacenamiento de datos SQL de Azure. |
 | 40 | [Restauración de instancias de Almacenamiento de datos SQL de Azure (Portal)](sql-data-warehouse-restore-database-portal.md) | Tareas del Portal de Azure para restaurar una instancia de Almacenamiento de datos SQL de Azure. |
 | 41 | [Restauración de instancias de Almacenamiento de datos SQL de Azure (PowerShell)](sql-data-warehouse-restore-database-powershell.md) | Tareas de PowerShell para restaurar una instancia de Almacenamiento de datos SQL de Azure. |
 | 42 | [Restauración de instancias de Almacenamiento de datos SQL de Azure (API de REST)](sql-data-warehouse-restore-database-rest-api.md) | Tareas de la API de REST para restaurar una instancia de Almacenamiento de datos SQL de Azure. |
 
 
 
-## Tablas e índices
+## <a name="tables-and-indexes"></a>Tablas e índices
 
 | &nbsp; | Título | Description |
 | --: | :-- | :-- |
@@ -111,7 +119,7 @@ En esta sección se enumeran los artículos que se han actualizado recientemente
 
 
 
-## Integrate
+## <a name="integrate"></a>Integrate
 
 | &nbsp; | Título | Description |
 | --: | :-- | :-- |
@@ -119,11 +127,11 @@ En esta sección se enumeran los artículos que se han actualizado recientemente
 | 51 | [Uso de Aprendizaje automático de Azure con Almacenamiento de datos SQL](sql-data-warehouse-integrate-azure-machine-learning.md) | Tutorial para usar Aprendizaje automático de Azure con Almacenamiento de datos SQL de Azure para el desarrollo de soluciones. |
 | 52 | [Uso de Análisis de transmisiones de Azure con Almacenamiento de datos SQL](sql-data-warehouse-integrate-azure-stream-analytics.md) | Sugerencias para usar Análisis de transmisiones de Azure con Almacenamiento de datos SQL de Azure para el desarrollo de soluciones. |
 | 53 | [Uso de Power BI con Almacenamiento de datos SQL](sql-data-warehouse-integrate-power-bi.md) | Sugerencias para usar Power BI con Almacenamiento de datos SQL de Azure para el desarrollo de soluciones. |
-| 54 | [Aprovechamiento de otros servicios con Almacenamiento de datos SQL](sql-data-warehouse-overview-integrate.md) | Herramientas y asociados con soluciones que se integran con Almacenamiento de datos SQL. |
+| 54 | [Aprovechamiento de otros servicios con Almacenamiento de datos SQL](sql-data-warehouse-overview-integrate.md) | Herramientas y asociados con soluciones que se integran con Almacenamiento de datos SQL.  |
 
 
 
-## Carga
+## <a name="load"></a>Carga
 
 | &nbsp; | Título | Description |
 | --: | :-- | :-- |
@@ -140,7 +148,7 @@ En esta sección se enumeran los artículos que se han actualizado recientemente
 
 
 
-## Migrar
+## <a name="migrate"></a>Migrar
 
 | &nbsp; | Título | Description |
 | --: | :-- | :-- |
@@ -152,7 +160,7 @@ En esta sección se enumeran los artículos que se han actualizado recientemente
 
 
 
-## Asociados
+## <a name="partners"></a>Asociados
 
 | &nbsp; | Título | Description |
 | --: | :-- | :-- |
@@ -162,7 +170,7 @@ En esta sección se enumeran los artículos que se han actualizado recientemente
 
 
 
-## Referencia
+## <a name="reference"></a>Referencia
 
 | &nbsp; | Título | Description |
 | --: | :-- | :-- |
@@ -174,19 +182,19 @@ En esta sección se enumeran los artículos que se han actualizado recientemente
 
 
 
-## Seguridad
+## <a name="security"></a>Seguridad
 
 | &nbsp; | Título | Description |
 | --: | :-- | :-- |
-| 78 | [Almacenamiento de datos SQL: compatibilidad con clientes de nivel inferior para enmascaramiento de datos dinámicos y auditoría](sql-data-warehouse-auditing-downlevel-clients.md) | Obtenga información sobre compatibilidad de Almacenamiento de datos SQL con clientes de nivel inferior para auditoría de datos. |
+| 78 | [SQL Data Warehouse: compatibilidad con clientes de nivel inferior para enmascaramiento de datos dinámicos y auditoría](sql-data-warehouse-auditing-downlevel-clients.md) | Obtenga información sobre compatibilidad de Almacenamiento de datos SQL con clientes de nivel inferior para auditoría de datos. |
 | 79 | [Auditoría en Almacenamiento de datos SQL de Azure](sql-data-warehouse-auditing-overview.md) | Introducción a la auditoría en Almacenamiento de datos SQL de Azure |
-| 80 | [Introducción al cifrado de datos transparente (TDE) en Almacenamiento de datos SQL](sql-data-warehouse-encryption-tde.md) | Introducción al cifrado de datos transparente (TDE) en Almacenamiento de datos SQL |
-| 81 | [Introducción al cifrado de datos transparente (TDE)](sql-data-warehouse-encryption-tde-tsql.md) | Introducción al cifrado de datos transparente (TDE) del Almacenamiento de datos SQL TSQL |
+| 80 | [Introducción al cifrado de datos transparente (TDE) en Almacenamiento de datos SQL](sql-data-warehouse-encryption-tde.md) | Cifrado de datos transparente (TDE) en SQL Data Warehouse |
+| 81 | [Introducción al cifrado de datos transparente (TDE)](sql-data-warehouse-encryption-tde-tsql.md) | Cifrado de datos transparente (TDE) en SQL Data Warehouse (T-SQL) |
 | 82 | [Proteger una base de datos en Almacenamiento de datos SQL](sql-data-warehouse-overview-manage-security.md) | Sugerencias para proteger una base de datos en Almacenamiento de datos SQL de Azure para desarrollar soluciones. |
 
 
 
-## Varios
+## <a name="miscellaneous"></a>Varios
 
 | &nbsp; | Título | Description |
 | --: | :-- | :-- |
@@ -196,4 +204,9 @@ En esta sección se enumeran los artículos que se han actualizado recientemente
 | 86 | [Límites de capacidad de Almacenamiento de datos SQL](sql-data-warehouse-service-capacity-limits.md) | Valores máximos para las conexiones, bases de datos, tablas y consultas de Almacenamiento de datos SQL. |
 | 87 | [Solución de problemas de Almacenamiento de datos SQL de Azure](sql-data-warehouse-troubleshoot.md) | Cómo solucionar los problemas de Almacenamiento de datos SQL de Azure. |
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

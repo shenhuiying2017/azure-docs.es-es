@@ -1,67 +1,72 @@
 <properties
-	pageTitle="Copia de seguridad de bases de datos habilitadas para Stretch | Microsoft Azure"
-	description="Obtenga información sobre cómo realizar una copia de seguridad de bases de datos habilitadas para Stretch."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="douglaslMS"
-	manager=""
-	editor=""/>
+    pageTitle="Backup Stretch-enabled databases | Microsoft Azure"
+    description="Learn how to back up Stretch\-enabled databases."
+    services="sql-server-stretch-database"
+    documentationCenter=""
+    authors="douglaslMS"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-server-stretch-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="douglasl"/>
+    ms.service="sql-server-stretch-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/14/2016"
+    ms.author="douglasl"/>
 
-# Copia de seguridad y restauración de bases de datos habilitadas para Stretch
 
-Gracias a las copias de seguridad de bases de datos, podrá recuperarse de muchos tipos de errores y desastres.
+# <a name="backup-stretch-enabled-databases"></a>Backup Stretch-enabled databases
 
--   Tiene que realizar una copia de seguridad de las bases de datos de SQL Server habilitadas para Stretch.  
+Database backups help you to recover from many types of failures, errors, and disasters.  
 
--   Microsoft Azure realiza automáticamente copias de seguridad de los datos remotos que Stretch Database ha migrado de SQL Server a Azure.
+-   You have to back up your Stretch\-enabled SQL Server databases.  
 
->    [AZURE.NOTE] La copia de seguridad solo es uno de los componentes que conforman una solución de continuidad empresarial y de alta disponibilidad. Para obtener más información sobre la alta disponibilidad, consulte [Soluciones de alta disponibilidad (SQL Server)](https://msdn.microsoft.com/library/ms190202.aspx).
+-   Microsoft Azure automatically backs up the remote data that Stretch Database has migrated from SQL Server to Azure.  
 
-## Copia de seguridad de los datos de SQL Server  
+>    [AZURE.NOTE] Backup is only one part of a complete high availability and business continuity solution. For more info about high availability, see [High Availability Solutions](https://msdn.microsoft.com/library/ms190202.aspx).
 
-Para realizar una copia de seguridad de las bases de datos de SQL Server habilitadas para Stretch, puede seguir usando los métodos de copia de seguridad de SQL Server que utiliza actualmente. Para obtener más información, consulte [Realizar copias de seguridad y restaurar bases de datos de SQL Server](https://msdn.microsoft.com/library/ms187048.aspx).
+## <a name="back-up-your-sql-server-data"></a>Back up your SQL Server data  
 
-Las copias de seguridad de una base de datos de SQL Server contienen únicamente datos locales y datos elegibles que pueden migrarse a un momento dado cuando se ejecuta la copia de seguridad (Los datos elegibles constituyen información que aún no se ha migrado, pero que se migrará a Azure según la configuración de migración de las tablas). Este proceso se conoce como "copia de seguridad **superficial**" y no incluye los datos que ya se han migrado a Azure.
+To back up your Stretch\-enabled SQL Server databases, you can continue to use the SQL Server backup methods that you currently use. For more info, see [Back Up and Restore of SQL Server Databases](https://msdn.microsoft.com/library/ms187048.aspx).
 
-## Copia de seguridad de los datos de Azure remotos   
+Backups of a Stretch-enabled SQL Server database contain only local data and data eligible for migration at the point in time when the backup runs. \(Eligible data is data that has not yet been migrated, but will be migrated to Azure based on the migration settings of the tables.\) This is known as a **shallow** backup and does not include the data already migrated to Azure.  
 
-Microsoft Azure realiza automáticamente copias de seguridad de los datos remotos que Stretch Database ha migrado de SQL Server a Azure.
+## <a name="back-up-your-remote-azure-data"></a>Back up your remote Azure data   
 
-### Azure reduce el riesgo de pérdida de datos gracias a las copias de seguridad automáticas  
-El servicio SQL Server Stretch Database de Azure protege las bases de datos remotos con instantáneas de almacenamiento automático cada 8 horas como mínimo. Conserva cada instantánea durante 7 días para proporcionar diferentes puntos de restauración posibles.
+Microsoft Azure automatically backs up the remote data that Stretch Database has migrated from SQL Server to Azure.  
 
-### Azure reduce el riesgo de pérdida de datos gracias a la redundancia geográfica  
-Las copias de seguridad de bases de datos de Azure se almacenan en el Almacenamiento de Azure con redundancia geográfica (RA-GRS) y, por tanto, tienen esta característica de forma predeterminada. El almacenamiento con redundancia geográfica replica sus datos a una región secundaria que se encuentra a cientos de kilómetros de distancia de la región principal. Los datos se replican tres veces en cada región primaria y secundaria, en dominios de error y en dominios de actualización independientes. Esto garantiza que los datos perduren incluso en el caso de un apagón regional completo o un desastre que haga que una de las regiones de Azure deje de estar disponible.
+### <a name="azure-reduces-the-risk-of-data-loss-with-automatic-backup"></a>Azure reduces the risk of data loss with automatic backup  
+The SQL Server Stretch Database service on Azure protects your remote databases with automatic storage snapshots at least every 8 hours. It retains each snapshot for 7 days to provide you with a range of possible restore points.  
 
-### <a name="stretchRPO"></a>Stretch Database reduce el riesgo de pérdida de los datos de Azure al conservar filas migradas temporalmente
-Una vez que Stretch Database migre las filas elegibles de SQL Server a Azure, conserva estas filas de la tabla de almacenamiento provisional durante un periodo mínimo de 8 horas. Si restaura una copia de seguridad de la base de datos de Azure, Stretch Database utilizará las filas que se guardan en la tabla de almacenamiento provisional para conciliar las bases de datos de SQL Server y de Azure.
+### <a name="azure-reduces-the-risk-of-data-loss-with-geo\-redundancy"></a>Azure reduces the risk of data loss with geo\-redundancy  
+Azure database backups are stored on geo\-redundant Azure Storage (RA\-GRS) and are therefore geo\-redundant by default. Geo\-redundant storage replicates your data to a secondary region that is hundreds of miles away from the primary region. In both primary and secondary regions, your data is replicated three times each, across separate fault domains and upgrade domains. This ensures that your data is durable even in the case of a complete regional outage or disaster that renders one of the Azure regions unavailable.
 
-Después de restaurar una copia de seguridad de los datos de Azure, tendrá que ejecutar el procedimiento almacenado [sys.sp\_rda\_reauthorize\_db](https://msdn.microsoft.com/library/mt131016.aspx) para volver a establecer la conexión entre la base de datos de SQL Server habilitada para Stretch y la de Azure remota. Al ejecutar **sys.sp\_rda\_reauthorize\_db**, Stretch Database conciliará automáticamente las bases de datos de SQL Server y Azure.
+### <a name="<a-name="stretchrpo"></a>stretch-database-reduces-the-risk-of-data-loss-for-your-azure-data-by-retaining-migrated-rows-temporarily"></a><a name="stretchRPO"></a>Stretch Database reduces the risk of data loss for your Azure data by retaining migrated rows temporarily
+After Stretch Database migrates eligible rows from SQL Server to Azure, it retains those rows in the staging table for a minimum of 8 hours. If you restore a backup of your Azure database, Stretch Database uses the rows saved in the staging table to reconcile the SQL Server and the Azure databases.
 
-Para aumentar el número de horas de los datos migrados que Stretch Database conserva temporalmente en la tabla de almacenamiento provisional, ejecute el procedimiento almacenado [sys.sp\_rda\_set\_rpo\_duration](https://msdn.microsoft.com/library/mt707766.aspx) y especifique un número de horas mayor que 8. Para decidir la cantidad de datos que conservará, tenga en cuenta los siguientes factores:
--   La frecuencia de las copias de seguridad de Azure automáticas (al menos, cada 8 horas).
--   Después de que se produzca un problema, el tiempo que se necesita en detectarlo y decidir restaurar una copia de seguridad.
--   La duración de la operación de restauración de Azure.
+After you restore a backup of your Azure data, you have to run the stored procedure [sys.sp_rda_reauthorize_db](https://msdn.microsoft.com/library/mt131016.aspx) to reconnect the Stretch\-enabled SQL Server database to the remote Azure database. When you run **sys.sp_rda_reauthorize_db**, Stretch Database automatically reconciles the SQL Server and the Azure databases.
 
-> [AZURE.NOTE] Al aumentar la cantidad de datos que Stretch Database conserva temporalmente en la tabla de almacenamiento provisional, se incrementa el espacio necesario en la instancia de SQL Server.
+To increase the number of hours of migrated data that Stretch Database retains temporarily in the staging table, run the stored procedure [sys.sp_rda_set_rpo_duration](https://msdn.microsoft.com/library/mt707766.aspx) and specify a number of hours greater than 8. To decide how much data to retain, consider the following factors:
+-   The frequency of automatic Azure backups (at least every 8 hours).
+-   The time required after a problem to recognize the problem and to decide to restore a backup.
+-   The duration of the Azure restore operation.
 
-Para comprobar el número de horas que Stretch Database conserva en estos momentos temporalmente en la tabla de almacenamiento provisional, ejecute el procedimiento almacenado [sys.sp\_rda\_get\_rpo\_duration](https://msdn.microsoft.com/library/mt707767.aspx).
+> [AZURE.NOTE] Increasing the amount of data that Stretch Database retains temporarily in the staging table increases the amount of space required on the SQL Server.
 
-## Consulte también
+To check the number of hours of data that Stretch Database currently retains temporarily in the staging table, run the stored procedure [sys.sp_rda_get_rpo_duration](https://msdn.microsoft.com/library/mt707767.aspx).
 
-[Administración y solución de problemas de Stretch Database](sql-server-stretch-database-manage.md)
+## <a name="see-also"></a>See also
 
-[sys.sp\_rda\_reauthorize\_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx)
+[Manage and troubleshoot Stretch Database](sql-server-stretch-database-manage.md)
 
-[Copia de seguridad y restauración de bases de datos de SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
+[sys.sp_rda_reauthorize_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+[Back Up and Restore of SQL Server Databases](https://msdn.microsoft.com/library/ms187048.aspx)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

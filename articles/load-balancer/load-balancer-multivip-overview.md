@@ -17,7 +17,8 @@
    ms.author="chkuhtz"
 />
 
-# Varias IP virtuales para Azure Load Balancer
+
+# <a name="multiple-vips-for-azure-load-balancer"></a>Varias IP virtuales para Azure Load Balancer
 
 Azure Load Balancer permite utilizar servicios de equilibrio de carga en varios puertos, varias direcciones IP, o en ambos. Puede usar las definiciones de equilibrador de carga públicas e internas para flujos de equilibrio de carga entre un conjunto de máquinas virtuales.
 
@@ -29,9 +30,9 @@ La tabla siguiente contiene algunas configuraciones de front-end de ejemplo:
 
 | IP virtual | Dirección IP | protocolo | puerto |
 |-----|------------|----------|------|
-|1|65\.52.0.1|TCP|80|
-|2|65\.52.0.1|TCP|_8080_|
-|3|65\.52.0.1|_UDP_|80|
+|1|65.52.0.1|TCP|80|
+|2|65.52.0.1|TCP|_8080_|
+|3|65.52.0.1|_UDP_|80|
 |4|_65.52.0.2_|TCP|80|
 
 En la tabla se muestran cuatro front-end diferentes. Los front-end 1, 2 y 3 son una sola dirección IP virtual con varias reglas. Se utiliza la misma dirección IP, pero el puerto o el protocolo es diferente para cada front-end. Los front-end 1 y 4 son un ejemplo de varias direcciones IP virtuales, donde se reutilizan el mismo protocolo front-end y el puerto a través de varias direcciones IP virtuales.
@@ -45,7 +46,7 @@ Azure Load Balancer permite combinar ambos tipos de regla en la misma configurac
 
 Se analizan aún más estos escenarios empezando con el comportamiento predeterminado.
 
-## Tipo de regla 1: No reutilización de puerto back-end
+## <a name="rule-type-#1:-no-backend-port-reuse"></a>Tipo de regla 1: No reutilización de puerto back-end
 
 ![Ilustración de varias IP virtuales](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
 
@@ -53,7 +54,7 @@ En este escenario, las IP virtuales front-end están configuradas como sigue:
 
 | IP virtual | Dirección IP | protocolo | puerto |
 |-----|------------|----------|------|
-|![IP virtual](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65\.52.0.1|TCP|80|
+|![IP virtual](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65.52.0.1|TCP|80|
 |![IP virtual](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|*65.52.0.2*|TCP|80|
 
 La DIP es el destino del flujo de entrada. En el grupo back-end, cada máquina virtual expone el servicio deseado en un puerto único en una DIP. Este servicio está asociado con el front-end a través de una definición de regla.
@@ -62,21 +63,21 @@ Se definen dos reglas:
 
 | Regla | Asignación de front-end | Para grupo back-end |
 |------|--------------|-----------------|
-| 1 | ![IP virtual](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 | ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
-| 2 | ![IP virtual](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 | ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
+| 1 | ![IP virtual](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 | ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  DIP2:80 |
+| 2 | ![IP virtual](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 | ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  DIP2:81 |
 
 La asignación completa en Azure Load Balancer ahora se realiza como sigue:
 
 | Regla | Dirección IP de IP virtual | protocolo | puerto | Destino | puerto |
 |------|----------------|----------|------|-----|------|
-|![regla](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65\.52.0.1|TCP|80|Dirección IP de DIP|80|
-|![regla](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|65\.52.0.2|TCP|80|Dirección IP de DIP|81|
+|![Regla](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65.52.0.1|TCP|80|Dirección IP de DIP|80|
+|![Regla](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|65.52.0.2|TCP|80|Dirección IP de DIP|81|
 
 Cada regla debe generar un flujo con una combinación única de dirección IP de destino y puerto de destino. Al variar el puerto de destino del flujo, varias reglas pueden entregar flujos en la misma DIP en puertos diferentes.
 
 Los sondeos de estado siempre se dirigen a la DIP de una máquina virtual. Debe asegurarse de que el sondeo refleja el estado de la máquina virtual.
 
-## Tipo de regla 2: reutilización de puerto back-end mediante IP flotante
+## <a name="rule-type-#2:-backend-port-reuse-by-using-floating-ip"></a>Tipo de regla 2: reutilización de puerto back-end mediante IP flotante
 
 Azure Load Balancer proporciona la flexibilidad para reutilizar el puerto front-end en varias direcciones IP virtuales independientemente del tipo de regla que se utiliza. Además, algunos escenarios de aplicación prefieren o requieren que varias instancias de la aplicación usen el mismo puerto en una sola máquina virtual en el grupo back-end. Entre los ejemplos comunes de reutilización de puertos se incluyen la agrupación en clústeres para alta disponibilidad, dispositivos de red virtuales y la exposición de varios puntos de conexión TLS sin volver a cifrar.
 
@@ -102,34 +103,38 @@ Se asume que la configuración front-end es la misma que en el escenario anterio
 
 | IP virtual | Dirección IP | protocolo | puerto |
 |-----|------------|----------|------|
-|![IP virtual](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65\.52.0.1|TCP|80|
+|![IP virtual](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65.52.0.1|TCP|80|
 |![IP virtual](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|*65.52.0.2*|TCP|80|
 
 Se definen dos reglas:
 
 | Regla | Asignación de front-end | Para grupo back-end |
 |------|--------------|-----------------|
-| 1 | ![regla](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 | ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 (en VM1 y VM2) |
-| 2 | ![regla](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 | ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 (en VM1 y VM2) |
+| 1 | ![Regla](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 | ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 (en VM1 y VM2) |
+| 2 | ![Regla](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 | ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 (en VM1 y VM2) |
 
 En la tabla siguiente se muestra la asignación completa en el equilibrador de carga:
 
 | Regla | Dirección IP de IP virtual | protocolo | puerto | Destino | puerto |
 |------|----------------|----------|------|-------------|------|
-|![IP virtual](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65\.52.0.1|TCP|80|igual que la dirección VIP (65.52.0.1)|igual que la dirección VIP (80)|
-|![IP virtual](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|65\.52.0.2|TCP|80|igual que la dirección VIP (65.52.0.2)|igual que la dirección VIP (80)|
+|![IP virtual](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65.52.0.1|TCP|80|igual que la dirección VIP (65.52.0.1)|igual que la dirección VIP (80)|
+|![IP virtual](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|65.52.0.2|TCP|80|igual que la dirección VIP (65.52.0.2)|igual que la dirección VIP (80)|
 
 El destino del flujo de entrada es la dirección IP virtual en la interfaz de bucle invertido en la máquina virtual. Cada regla debe generar un flujo con una combinación única de dirección IP de destino y puerto de destino. Al variar la dirección IP de destino del flujo, se puede reutilizar el puerto en la misma máquina virtual. El servicio se expone al equilibrador de carga enlazándolo con la dirección IP de la IP virtual y al puerto de la interfaz de bucle invertido correspondiente.
 
 Observe que este ejemplo no cambia el puerto de destino. Aunque se trata de un escenario de IP flotante, Azure Load Balancer también admite la definición de una regla para volver a escribir el puerto de destino back-end y para que sea diferente del puerto de destino front-end.
 
-El tipo de regla de dirección IP flotante es el fundamento de varios modelos de configuración del equilibrador de carga. Un ejemplo que está disponible actualmente es la configuración [SQL AlwaysOn con varios agentes de escucha](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md). Con el tiempo, se documentarán varios de estos escenarios.
+El tipo de regla de dirección IP flotante es el fundamento de varios modelos de configuración del equilibrador de carga. Un ejemplo que está disponible actualmente es la configuración [SQL AlwaysOn con varios agentes de escucha](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) . Con el tiempo, se documentarán varios de estos escenarios.
 
-## Limitaciones
+## <a name="limitations"></a>Limitaciones
 
 * Solo se admiten varias configuraciones de IP virtual con máquinas virtuales de IaaS.
 * Con la regla de dirección IP flotante, la aplicación debe utilizar la DIP para los flujos salientes. Si la aplicación se enlaza a la dirección IP virtual configurada en la interfaz de bucle invertido en el sistema operativo invitado, a continuación, SNAT no está disponible para volver a escribir el flujo de salida y, por tanto, se produce un error en el flujo.
-* Las direcciones IP públicas repercuten en la facturación. Para obtener más información, vea [Precios de las direcciones IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
-* Se aplican los límites de suscripción. Para más información, vea los [límites de servicio](../azure-subscription-service-limits.md#networking-limits).
+* Las direcciones IP públicas repercuten en la facturación. Para obtener más información, vea [Precios de las direcciones IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
+* Se aplican los límites de suscripción. Para más información, vea los [límites de servicio](../azure-subscription-service-limits.md#networking-limits) .
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

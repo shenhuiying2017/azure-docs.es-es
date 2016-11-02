@@ -17,19 +17,20 @@
    ms.date="09/14/2016"
    ms.author="annahar" />
 
-# Creación de un equilibrador de carga orientado a Internet mediante Azure Portal
+
+# <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Creación de un equilibrador de carga orientado a Internet mediante Azure Portal
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artículo trata sobre el modelo de implementación del Administrador de recursos. También puede [obtener información sobre cómo crear un equilibrador de carga orientado a Internet mediante la implementación clásica](load-balancer-get-started-internet-classic-portal.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artículo trata sobre el modelo de implementación del Administrador de recursos. También puede [obtener información sobre cómo crear un equilibrador de carga orientado a Internet mediante la implementación clásica](load-balancer-get-started-internet-classic-portal.md)
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 Aquí se trata la secuencia de tareas individuales que debe realizarse para crear un equilibrador de carga y se explicará con detalle qué se hace para lograr el objetivo.
 
-## ¿Qué se necesita para crear un equilibrador de carga orientado a Internet?
+## <a name="what-is-required-to-create-an-internet-facing-load-balancer?"></a>¿Qué se necesita para crear un equilibrador de carga orientado a Internet?
 
 Para implementar un equilibrador de carga, debe crear y configurar los objetos siguientes.
 
@@ -46,44 +47,45 @@ Para implementar un equilibrador de carga, debe crear y configurar los objetos s
 Puede obtener más información sobre los componentes del equilibrador de carga con Azure Resource Manager en [Compatibilidad de Azure Resource Manager con Load Balancer](load-balancer-arm.md).
 
 
-## Configuración de un equilibrador de carga en Azure Portal
+## <a name="set-up-a-load-balancer-in-azure-portal"></a>Configuración de un equilibrador de carga en Azure Portal
 
-> [AZURE.IMPORTANT] En este ejemplo se supone que tiene una red virtual denominada **myVNet**. Consulte [Creación de una red virtual](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) para hacerlo. También se supone hay una subred dentro de **myVNet** denominada **LB-Subnet-BE**, y dos máquinas virtuales que se llaman **web1** y **web2**, respectivamente, en el mismo conjunto de disponibilidad llamado **myAvailSet** en **myVNet**. Consulte [este vínculo](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para crear máquinas virtuales.
+> [AZURE.IMPORTANT] En este ejemplo se supone que tiene una red virtual denominada **myVNet**. Consulte [Creación de una red virtual](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) para hacerlo. También se supone que hay una subred dentro de **myVNet** denominada **LB-Subnet-BE** y dos máquinas virtuales que se llaman **web1** y **web2** respectivamente en el mismo conjunto de disponibilidad llamado **myAvailSet** en **myVNet**. Consulte [este vínculo](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para crear máquinas virtuales.
 
 
 1. Desde un explorador, vaya a Azure Portal: [http://portal.azure.com](http://portal.azure.com) e inicie sesión con su cuenta de Azure.
 
-2. En la parte superior izquierda de la pantalla, haga clic en **Nuevo** > **Redes** > **Equilibrador de carga**.
+2. En la parte superior izquierda de la pantalla, seleccione **Nuevo** > **Redes** > **Equilibrador de carga.**
 
-3. En la hoja **Crear equilibrador de carga**, escriba un nombre para el equilibrador de carga. En este caso, se llama **myLoadBalancer**.
+3. En la hoja **Crear equilibrador de carga** , escriba un nombre para el equilibrador de carga. En este caso, se llama **myLoadBalancer**.
 
 4. En **Tipo**, seleccione **Público**.
 
 5. En **Dirección IP pública**, cree una nueva dirección IP pública denominada **myPublicIP**.
 
-6. En Grupo de recursos, seleccione **myRG**. A continuación, seleccione una **ubicación** adecuada y luego haga clic en **Aceptar**. El equilibrador de carga empezará entonces a implementarse, y este proceso tardará unos minutos en completarse correctamente.
+6. En Grupo de recursos, seleccione **myRG**. A continuación, seleccione una **ubicación** adecuada y haga clic en **Aceptar**. El equilibrador de carga empezará entonces a implementarse, y este proceso tardará unos minutos en completarse correctamente.
 
 ![Actualización de grupo de recursos de equilibrador de carga](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
 
-## Creación del grupo de direcciones de back-end
+## <a name="create-a-back-end-address-pool"></a>Creación del grupo de direcciones de back-end
 
 1. Una vez que se ha implementado correctamente el equilibrador de carga, selecciónelo entre sus recursos. En configuración, seleccione Grupos de back-end. Escriba un nombre para el grupo de back-end. A continuación, haga clic en el botón **Agregar** en la parte superior de la hoja que aparece.
 
-2. Haga clic en **Agregar máquina virtual** en la hoja **Agregar grupo de back-end**. Seleccione **Elegir un conjunto de disponibilidad** en **Conjunto de disponibilidad** y seleccione **myAvailSet**. A continuación, seleccione **Elegir las máquinas virtuales** en la sección Virtual Machines de la hoja y haga clic en **web1** y **web2**, las dos máquinas virtuales creadas para el equilibrio de carga. Asegúrese de que las dos tienen marcas de verificación azul a la izquierda, como se muestra en la siguiente imagen. A continuación, haga clic en **Seleccionar** en esa hoja y luego en Aceptar en la hoja **Elegir las máquinas virtuales**; y luego en **Aceptar** en la hoja **Agregar grupo de back-end**.
+2. Haga clic en **Agregar máquina virtual** en la hoja **Agregar grupo de back-end**.  Seleccione **Elegir un conjunto de disponibilidad** en **Conjunto de disponibilidad** y seleccione **myAvailSet**. A continuación, seleccione **Elegir las máquinas virtuales** en la sección Virtual Machines de la hoja y haga clic en **web1** y **web2**, las dos máquinas virtuales creadas para el equilibrio de carga. Asegúrese de que las dos tienen marcas de verificación azul a la izquierda, como se muestra en la siguiente imagen. A continuación, haga clic en **Seleccionar** en esa hoja y en Aceptar en la hoja **Elegir las máquinas virtuales**, después, haga clic en **Aceptar** en la hoja **Agregar grupo de back-end**.
 
-    ![Incorporación al grupo de direcciones de back-end](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
+    ![Incorporación al grupo de direcciones de back-end ](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
 
 3. Compruebe que la lista desplegable de notificaciones tiene una actualización respecto a guardar el grupo de back-end del equilibrador de carga además de actualizar la interfaz de red para las máquinas virtuales **web1** y **web2**.
 
 
-## Creación de un sondeo, una regla de equilibrador de carga y reglas NAT
+## <a name="create-a-probe,-lb-rule,-and-nat-rules"></a>Creación de un sondeo, una regla de equilibrador de carga y reglas NAT
 
 1. Cree un sondeo de estado.
 
     En la sección Configuración del equilibrador de carga, seleccione Sondeos. A continuación, haga clic en **Agregar** en la parte superior de la hoja.
 
-    Hay dos formas de configurar un sondeo: HTTP o TCP. En este ejemplo se muestra HTTP, pero TCP puede configurarse de forma similar. Actualice la información necesaria. Como se mencionó, **myLoadBalancer** equilibrará la carga del tráfico en el puerto 80. La ruta de acceso seleccionada es HealthProbe.aspx, el intervalo es 15 segundos y el umbral incorrecto es 2. Una vez terminado, haga clic en **Aceptar** para crear el sondeo.
+    Hay dos formas de configurar un sondeo: HTTP o TCP. En este ejemplo se muestra HTTP, pero TCP puede configurarse de forma similar.
+    Actualice la información necesaria. Como se mencionó, **myLoadBalancer** equilibrará la carga del tráfico en el puerto 80. La ruta de acceso seleccionada es HealthProbe.aspx, el intervalo es 15 segundos y el umbral incorrecto es 2. Una vez terminado, haga clic en **Aceptar** para crear el sondeo.
 
     Mantenga el puntero sobre el icono de 'i' para más información acerca de estas configuraciones individuales y cómo se pueden cambiar para satisfacer sus requisitos.
 
@@ -91,7 +93,7 @@ Puede obtener más información sobre los componentes del equilibrador de carga 
 
 2. Cree una regla de equilibrador de carga.
 
-    Haga clic en Reglas de equilibrio de carga en la sección Configuración del equilibrador de carga. En la nueva hoja, haga clic en **Agregar**. Ponga un nombre a la regla. En este caso, HTTP. Elija los puertos de front-end y de back-end. En este caso, se elige 80 para ambos. Elija **LB-backend** como grupo de back-end y el creado previamente **HealthProbe** como Sondeo. Según sus requisitos, se pueden establecer otras configuraciones. A continuación, haga clic en Aceptar para guardar la regla de equilibrio de carga.
+    Haga clic en Reglas de equilibrio de carga en la sección Configuración del equilibrador de carga. En la nueva hoja, haga clic en **Agregar**. Ponga un nombre a la regla. En este caso, HTTP. Elija los puertos de front-end y de back-end. En este caso, se elige 80 para ambos. Elija **LB-backend** como grupo de back-end y el **HealthProbe** creado previamente como Sondeo. Según sus requisitos, se pueden establecer otras configuraciones. A continuación, haga clic en Aceptar para guardar la regla de equilibrio de carga.
 
     ![Incorporación de una regla de equilibrio de carga](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
@@ -103,11 +105,11 @@ Puede obtener más información sobre los componentes del equilibrador de carga 
 
     ![Incorporación de una regla NAT entrante](./media/load-balancer-get-started-internet-portal/6-load-balancer-inbound-nat-rules.png)
 
-## Eliminación de un equilibrador de carga
+## <a name="remove-a-load-balancer"></a>Eliminación de un equilibrador de carga
 
-Para eliminar un equilibrador de carga, seleccione el equilibrador de carga que desea quitar. En la hoja *Equilibrador de carga*, haga clic en **Eliminar** en la parte superior de la hoja. A continuación, seleccione **Sí** cuando se le solicite.
+Para eliminar un equilibrador de carga, seleccione el equilibrador de carga que desea quitar. En la hoja *Equilibrador de carga* , haga clic en **Eliminar** en la parte superior de la hoja. A continuación, seleccione **Sí** cuando se le solicite.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Introducción a la configuración de un equilibrador de carga interno](load-balancer-get-started-ilb-arm-cli.md)
 
@@ -115,4 +117,8 @@ Para eliminar un equilibrador de carga, seleccione el equilibrador de carga que 
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

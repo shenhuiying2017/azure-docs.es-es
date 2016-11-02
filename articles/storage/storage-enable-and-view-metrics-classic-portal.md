@@ -1,32 +1,33 @@
 <properties 
-	pageTitle="Habilitar las métricas de almacenamiento en el portal de Azure | Microsoft Azure" 
-	description="Cómo habilitar las métricas de almacenamiento para los servicios BLOB, Cola, Tabla y Archivo" 
-	services="storage" 
-	documentationCenter="" 
-	authors="robinsh" 
-	manager="carmonm" 
-	editor="tysonn"/>
+    pageTitle="Habilitar las métricas de almacenamiento en el portal de Azure | Microsoft Azure" 
+    description="Cómo habilitar las métricas de almacenamiento para los servicios BLOB, Cola, Tabla y Archivo" 
+    services="storage" 
+    documentationCenter="" 
+    authors="robinsh" 
+    manager="carmonm" 
+    editor="tysonn"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/03/2016" 
-	ms.author="fryu;robinsh"/>
+    ms.service="storage" 
+    ms.workload="storage" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="08/03/2016" 
+    ms.author="robinsh"/>
 
-# Habilitar las Métricas de almacenamiento y las Métricas de visualización
+
+# <a name="enabling-storage-metrics-and-viewing-metrics-data"></a>Habilitar las Métricas de almacenamiento y las Métricas de visualización
 
 [AZURE.INCLUDE [storage-selector-portal-enable-and-view-metrics](../../includes/storage-selector-portal-enable-and-view-metrics.md)]
 
-## Información general
+## <a name="overview"></a>Información general
 
 Las Métricas de almacenamiento no están habilitadas de forma predeterminada para los servicios de almacenamiento. Puede habilitar la supervisión mediante el [Portal de Azure clásico](https://manage.windowsazure.com), Windows PowerShell o mediante programación a través de una API de almacenamiento.
 
 Al habilitar las Métricas de almacenamiento, debe elegir un período de retención de datos: este período determina el tiempo que el servicio de almacenamiento mantiene las métricas y cobra por el espacio necesario para almacenarlas. Generalmente, usará un período de retención más corto para la métrica por minuto que para la métrica por hora debido al considerable espacio adicional requerido para la métrica por minuto. Debe elegir un período de retención durante el cual tenga suficiente tiempo para analizar los datos y descargar todas las métricas que quiera mantener para los informes o el análisis sin conexión. Recuerde que también se le facturará por la descarga de los datos de métricas desde su cuenta de almacenamiento.
 
-## Cómo habilitar las Métricas de almacenamiento mediante el Portal de Azure clásico
+## <a name="how-to-enable-storage-metrics-using-the-azure-classic-portal"></a>Cómo habilitar las Métricas de almacenamiento mediante el Portal de Azure clásico
 
 En el [Portal de Azure clásico](https://manage.windowsazure.com), puede usar la página Configurar de una cuenta de almacenamiento para así controlar las Métricas de almacenamiento. Para supervisarlas, puede establecer un nivel y un período de retención cuantificado en días para cada blob, tabla y cola. En cada caso, el nivel es uno de los siguientes:
 
@@ -39,7 +40,7 @@ En el [Portal de Azure clásico](https://manage.windowsazure.com), puede usar la
 Tenga en cuenta que el Portal de Azure clásico no permite actualmente configurar métricas por minuto en su cuenta de almacenamiento; debe habilitar las métricas por minuto con PowerShell o mediante programación.
 
 
-## Cómo habilitar las Métricas de almacenamiento con PowerShell
+## <a name="how-to-enable-storage-metrics-using-powershell"></a>Cómo habilitar las Métricas de almacenamiento con PowerShell
 
 Puede usar PowerShell en el equipo local para configurar las Métricas de almacenamiento en su cuenta de almacenamiento con el cmdlet Get-AzureStorageServiceMetricsProperty de Azure PowerShell para recuperar la configuración actual y el cmdlet Set-AzureStorageServiceMetricsProperty para cambiar la configuración actual.
 
@@ -61,7 +62,7 @@ El comando siguiente recupera el nivel de métricas por hora actual y los días 
 
 Para obtener información sobre cómo configurar los cmdlets de Azure PowerShell para que funcionen con su suscripción de Azure y cómo seleccionar la cuenta de almacenamiento predeterminada que quiere usar, vea: [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
 
-## Cómo habilitar las Métricas de almacenamiento mediante programación
+## <a name="how-to-enable-storage-metrics-programmatically"></a>Cómo habilitar las Métricas de almacenamiento mediante programación
 
 El siguiente fragmento de C# muestra cómo habilitar el registro y las métricas para el servicio BLOB mediante la biblioteca del cliente de almacenamiento de .NET:
 
@@ -93,7 +94,7 @@ El siguiente fragmento de C# muestra cómo habilitar el registro y las métricas
     // Set the service properties.
     blobClient.SetServiceProperties(properties);
     
-## Mostrar Métricas de almacenamiento
+## <a name="viewing-storage-metrics"></a>Mostrar Métricas de almacenamiento
 
 Cuando haya configurado las Métricas de almacenamiento para supervisar su cuenta de almacenamiento, registra las métricas en un conjunto de tablas conocidas en su cuenta de almacenamiento. Puede usar la página Supervisar de su cuenta de almacenamiento en el Portal de Azure clásico para ver las métricas por hora a medida que están disponibles en un gráfico. En esta página del Portal de Azure clásico, puede:
 
@@ -111,27 +112,27 @@ Cuando haya configurado las Métricas de almacenamiento para supervisar su cuent
 
 Si quiere descargar las métricas para su almacenamiento de larga duración o para analizarlas localmente, deberá usar una herramienta o escribir código para leer las tablas. Debe descargar las métricas por minuto para el análisis. Las tablas no aparecen si lista todas las tablas en su cuenta de almacenamiento, pero puede acceder a ellas directamente por su nombre. Muchas herramientas de exploración de almacenamiento de terceros tienen en cuenta estas tablas y permiten que las vea directamente (vea la publicación en el blog [Información general sobre los exploradores del almacenamiento de Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) para ver una lista de herramientas disponibles).
 
-### Métricas por hora
+### <a name="hourly-metrics"></a>Métricas por hora
 - $MetricsHourPrimaryTransactionsBlob
 - $MetricsHourPrimaryTransactionsTable
 - $MetricsHourPrimaryTransactionsQueue
 
-### Métricas por minuto
+### <a name="minute-metrics"></a>Métricas por minuto
 - $MetricsMinutePrimaryTransactionsBlob
 - $MetricsMinutePrimaryTransactionsTable
 - $MetricsMinutePrimaryTransactionsQueue
 
-### Capacity
+### <a name="capacity"></a>Capacity
 - $MetricsCapacityBlob
 
 Puede encontrar detalles completos de los esquemas para estas tablas en [Esquema de las tablas de métricas del análisis de almacenamiento](https://msdn.microsoft.com/library/azure/hh343264.aspx). Las filas de ejemplo que tiene a continuación muestran solo un subconjunto de columnas disponibles, pero ilustran algunas características importantes acerca de la manera en que las Métricas de almacenamiento guardan estas métricas:
 
-| PartitionKey | RowKey | Timestamp | TotalRequests | TotalBillableRequests | TotalIngress | TotalEgress | Disponibilidad | AverageE2ELatency | AverageServerLatency | PercentSuccess |
+| PartitionKey  |       RowKey       |                    Timestamp | TotalRequests | TotalBillableRequests | TotalIngress | TotalEgress | Disponibilidad | AverageE2ELatency | AverageServerLatency | PercentSuccess |
 |---------------|:------------------:|-----------------------------:|---------------|-----------------------|--------------|-------------|--------------|-------------------|----------------------|----------------|
-| 20140522T1100 | user;All | 2014-05-22T11:01:16.7650250Z | 7 | 7 | 4003 | 46801 | 100 | 104\.4286 | 6\.857143 | 100 |
-| 20140522T1100 | user;QueryEntities | 2014-05-22T11:01:16.7640250Z | 5 | 5 | 2694 | 45951 | 100 | 143\.8 | 7\.8 | 100 |
-| 20140522T1100 | user;QueryEntity | 2014-05-22T11:01:16.7650250Z | 1 | 1 | 538 | 633 | 100 | 3 | 3 | 100 |
-| 20140522T1100 | user;UpdateEntity | 2014-05-22T11:01:16.7650250Z | 1 | 1 | 771 | 217 | 100 | 9 | 6 | 100 |
+| 20140522T1100 |      user;All      | 2014-05-22T11:01:16.7650250Z | 7             | 7                     | 4003         | 46801       | 100          | 104.4286          | 6.857143             | 100            |
+| 20140522T1100 | user;QueryEntities | 2014-05-22T11:01:16.7640250Z | 5             | 5                     | 2694         | 45951       | 100          | 143.8             | 7.8                  | 100            |
+| 20140522T1100 |  user;QueryEntity  | 2014-05-22T11:01:16.7650250Z | 1             | 1                     | 538          | 633         | 100          | 3                 | 3                    | 100            |
+| 20140522T1100 | user;UpdateEntity  | 2014-05-22T11:01:16.7650250Z | 1             | 1                     | 771          | 217         | 100          | 9                 | 6                    | 100               |
 
 En este ejemplo de datos de métricas por minuto, la clave de partición usa el tiempo en la resolución de minutos. La clave de fila identifica el tipo de información que se almacena en la fila y se compone de dos fragmentos de información, el tipo de acceso y el tipo de solicitud:
 
@@ -142,11 +143,11 @@ En este ejemplo de datos de métricas por minuto, la clave de partición usa el 
 
 Los datos de ejemplo anteriores muestran todos los registros para un único minuto (que empieza el a las 11:00 AM), por lo que el número de solicitudes QueryEntities más el número de solicitudes QueryEntity más el número de solicitudes UpdateEntity suman siete, que es el total que se muestra en la fila user:All. De forma similar, puede derivar la latencia promedio de un extremo a otro 104,4286 en la fila user:All con el cálculo ((143,8 * 5) + 3 + 9)/7.
 
-Debe considerar la posibilidad de configurar alertas en la página “Supervisar” del Portal de Azure clásico, para que las Métricas de almacenamiento puedan notificarle automáticamente cualquier cambio importante en el comportamiento de sus servicios de almacenamiento. Si usa una herramienta de exploración de almacenamiento para descargar estos datos de métricas en un formato delimitado, puede usar Microsoft Excel para analizar los datos. Consulte la publicación sobre los[Exploradores de almacenamiento de Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) que encontrará en el blog para conseguir una lista de herramientas de exploradores de almacenamiento disponibles.
+Debe considerar la posibilidad de configurar alertas en la página “Supervisar” del Portal de Azure clásico, para que las Métricas de almacenamiento puedan notificarle automáticamente cualquier cambio importante en el comportamiento de sus servicios de almacenamiento. Si usa una herramienta de exploración de almacenamiento para descargar estos datos de métricas en un formato delimitado, puede usar Microsoft Excel para analizar los datos. Consulte la publicación sobre los [Exploradores de Microsoft Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) que encontrará en el blog para conseguir una lista de herramientas de exploradores de almacenamiento disponibles.
 
 
 
-## Acceso a los datos de métricas mediante programación
+## <a name="accessing-metrics-data-programmatically"></a>Acceso a los datos de métricas mediante programación
 
 El listado siguiente muestra código C# de ejemplo que accede a las métricas por minuto para un intervalo de minutos y muestra los resultados en una ventana de la consola. Usa Azure Storage Library versión 4 que incluye la clase CloudAnalyticsClient que simplifica el acceso a las tablas de métricas en almacenamiento.
 
@@ -194,7 +195,7 @@ El listado siguiente muestra código C# de ejemplo que accede a las métricas po
 
 
 
-## ¿Qué se le facturará cuando habilite las métricas de almacenamiento?
+## <a name="what-charges-do-you-incur-when-you-enable-storage-metrics?"></a>¿Qué se le facturará cuando habilite las métricas de almacenamiento?
 
 Las solicitudes por escrito para crear entidades de tabla para métricas se cobran con las tarifas estándar aplicables a todas las operaciones de Almacenamiento de Azure.
 
@@ -208,8 +209,11 @@ La capacidad de las tablas de métricas también es facturable: puede usar las o
 
 - Se agregan dos filas cada día a la tabla de capacidad para blobs (siempre que el usuario haya optado por los registros): esto implica que todos los días el tamaño de la tabla aumenta en unos 300 bytes, aproximadamente.
 
-## Pasos siguientes:
+## <a name="next-steps:"></a>Pasos siguientes:
 [Habilitar el registro del Análisis de almacenamiento y acceder a los datos del mismo](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

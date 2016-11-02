@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Objetivos de escalabilidad y rendimiento del almacenamiento | Microsoft Azure"
-	description="Obtenga información sobre los objetivos de escalabilidad y rendimiento para Almacenamiento de Azure, incluida la capacidad, la velocidad de solicitudes y el ancho de banda entrante y saliente para las cuentas de almacenamiento tanto estándar como premium. Comprenda los objetivos de rendimiento para las particiones en cada uno de los servicios de Almacenamiento de Azure."
-	services="storage"
-	documentationCenter="na"
-	authors="robinsh"
-	manager="carmonm"
-	editor="tysonn" />
+    pageTitle="Objetivos de escalabilidad y rendimiento del almacenamiento | Microsoft Azure"
+    description="Obtenga información sobre los objetivos de escalabilidad y rendimiento para Almacenamiento de Azure, incluida la capacidad, la velocidad de solicitudes y el ancho de banda entrante y saliente para las cuentas de almacenamiento tanto estándar como premium. Comprenda los objetivos de rendimiento para las particiones en cada uno de los servicios de Almacenamiento de Azure."
+    services="storage"
+    documentationCenter="na"
+    authors="robinsh"
+    manager="carmonm"
+    editor="tysonn" />
 <tags
-	ms.service="storage"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage"
-	ms.date="08/03/2016"
-	ms.author="jahogg;robinsh" />
+    ms.service="storage"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="storage"
+    ms.date="08/03/2016"
+    ms.author="robinsh" />
 
-# Objetivos de escalabilidad y rendimiento del almacenamiento de Azure
 
-## Información general
+# <a name="azure-storage-scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento del almacenamiento de Azure
+
+## <a name="overview"></a>Información general
 
 Este tema trata cuestiones de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure. Para ver un resumen de otros límites de Azure, consulte [Suscripción de Azure y límites de servicio, cuotas y restricciones](../azure-subscription-service-limits.md).
 
@@ -27,32 +28,32 @@ Este tema trata cuestiones de rendimiento y escalabilidad de Almacenamiento de M
 
 >Cuando la aplicación alcanza el límite de lo que puede administrar una partición para la carga de trabajo, Almacenamiento de Azure comenzará a responder con el código de error 503 (servidor ocupado) o el código de error 500 (tiempo de espera de operación). Cuando esto ocurre, la aplicación debe utilizar una directiva de retroceso exponencial para los reintentos. El retroceso exponencial permite que disminuya la carga de la partición y evita los picos de tráfico en esa partición.
 
-Si las necesidades de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, puede compilar la aplicación de forma que use varias cuentas de almacenamiento y divida los datos entre esas cuentas de almacenamiento. Para obtener información sobre los precios por volumen, consulte [Precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/).
+Si las necesidades de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, puede compilar la aplicación de forma que use varias cuentas de almacenamiento y divida los datos entre esas cuentas de almacenamiento. Para obtener información sobre los precios por volumen, consulte [Precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/) .
 
 
-## Objetivos de escalabilidad para blobs, colas, tablas y archivos
+## <a name="scalability-targets-for-blobs,-queues,-tables,-and-files"></a>Objetivos de escalabilidad para blobs, colas, tablas y archivos
 
 [AZURE.INCLUDE [azure-storage-limits](../../includes/azure-storage-limits.md)]
 
-## Objetivos de escalabilidad para discos de máquinas virtuales
+## <a name="scalability-targets-for-virtual-machine-disks"></a>Objetivos de escalabilidad para discos de máquinas virtuales
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-Consulte el artículo sobre [tamaños de las máquinas virtuales Windows](../virtual-machines/virtual-machines-windows-sizes.md) o [tamaños de las máquinas virtuales Linux](../virtual-machines/virtual-machines-linux-sizes.md) para obtener más información.
+Consulte el artículo sobre [tamaños de VM de Windows](../virtual-machines/virtual-machines-windows-sizes.md) o [tamaños de las VM Linux](../virtual-machines/virtual-machines-linux-sizes.md) para obtener más información.
 
-### Cuentas de almacenamiento estándar
+### <a name="standard-storage-accounts"></a>Cuentas de almacenamiento estándar
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks-standard](../../includes/azure-storage-limits-vm-disks-standard.md)]
 
-### Cuentas de almacenamiento premium
+### <a name="premium-storage-accounts"></a>Cuentas de almacenamiento premium
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks-premium](../../includes/azure-storage-limits-vm-disks-premium.md)]
 
-## Objetivos de escalabilidad para el Administrador de recursos de Azure
+## <a name="scalability-targets-for-azure-resource-manager"></a>Objetivos de escalabilidad para el Administrador de recursos de Azure
 
 [AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../../includes/azure-storage-limits-azure-resource-manager.md)]
 
-## Particiones de Almacenamiento de Azure
+## <a name="partitions-in-azure-storage"></a>Particiones de Almacenamiento de Azure
 
 Cada objeto que contiene datos almacenados en Almacenamiento de Azure (blobs, mensajes, entidades y archivos) pertenece a una partición y se identifica mediante una clave de partición. La partición determina cómo Almacenamiento de Azure equilibra entre servidores la carga de blobs, mensajes, entidades y archivos para satisfacer las necesidades de tráfico de esos objetos. La clave de partición es única y se utiliza para ubicar un blob, un mensaje o una entidad.
 
@@ -66,15 +67,15 @@ Las particiones afectan al equilibrio de carga y la escalabilidad de cada uno de
 
 - **Mensajes**: la clave de partición de un mensaje es el nombre de la cuenta y el de la cola, por lo que todos los mensajes de una cola se agrupan en una sola partición y se proporcionan mediante un solo servidor. Las distintas colas pueden ser procesadas por distintos servidores para equilibrar la carga de todas las colas que tenga una cuenta de almacenamiento.
 
-- **Entidades**: la clave de partición de una entidad es el nombre de la cuenta, el nombre de la tabla y la clave de partición, donde la clave de partición es el valor de la propiedad obligatoria **PartitionKey** definida por el usuario para la entidad. Todas las entidades con el mismo valor de clave de partición se agrupan en la misma partición y se proporcionan mediante el mismo servidor de particiones. Se trata de un punto importante a tener en cuenta en el diseño de la aplicación. La aplicación debería equilibrar las ventajas de escalabilidad que supone propagar las entidades por varias particiones con las ventajas de acceso que supone agrupar las entidades en una sola partición.
+- **Entidades**: la clave de partición de una entidad es el nombre de la cuenta, el nombre de la tabla y la clave de partición, donde la clave de partición es el valor de la propiedad obligatoria **PartitionKey** definida por el usuario para la entidad. Todas las entidades con el mismo valor de clave de partición se agrupan en la misma partición y se proporcionan mediante el mismo servidor de particiones. Se trata de un punto importante a tener en cuenta en el diseño de la aplicación. La aplicación debería equilibrar las ventajas de escalabilidad que supone propagar las entidades por varias particiones con las ventajas de acceso que supone agrupar las entidades en una sola partición.  
 
-Una ventaja fundamental de la agrupación de un conjunto de entidades de una tabla en una partición única es que permite realizar operaciones por lotes atómicas entre entidades de la misma partición, ya que la partición está en un solo servidor. Por lo tanto, si desea realizar operaciones por lotes en un grupo de entidades, considere la posibilidad de agruparlas con la misma clave de partición.
+Una ventaja fundamental de la agrupación de un conjunto de entidades de una tabla en una partición única es que permite realizar operaciones por lotes atómicas entre entidades de la misma partición, ya que la partición está en un solo servidor. Por lo tanto, si desea realizar operaciones por lotes en un grupo de entidades, considere la posibilidad de agruparlas con la misma clave de partición. 
 
 Por otra parte, las entidades que se encuentren en la misma tabla y tengan claves de distintas particiones, pueden tener la carga equilibrada entre distintos servidores, lo que permite disfrutar de una mayor escalabilidad.
 
 Puede obtener recomendaciones detalladas sobre el diseño de la estrategia de partición para tablas [aquí](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 
-## Otras referencias
+## <a name="see-also"></a>Otras referencias
 
 - [Detalles de precios de almacenamiento](https://azure.microsoft.com/pricing/details/storage/)
 - [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md)
@@ -83,4 +84,8 @@ Puede obtener recomendaciones detalladas sobre el diseño de la estrategia de pa
 - [Lista de comprobación de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure](storage-performance-checklist.md)
 - [Almacenamiento de Microsoft Azure: un servicio de almacenamiento en nube altamente disponible con gran coherencia](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

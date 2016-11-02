@@ -17,7 +17,8 @@
    ms.date="09/13/2016"
    ms.author="kundanap"/>
 
-# Ejemplos de configuración de la extensión de máquina virtual Linux
+
+# <a name="linux-vm-extension-configuration-samples"></a>Ejemplos de configuración de la extensión de máquina virtual Linux
 
 > [AZURE.SELECTOR]
 - [PowerShell: plantilla](virtual-machines-windows-extensions-configuration-samples.md)
@@ -33,7 +34,7 @@ Para obtener más información sobre la creación de plantillas de extensión, h
 
 En este artículo se indican los valores de configuración esperados para algunas de las extensiones de Linux.
 
-## Fragmento de plantilla de ejemplo para extensiones de VM.
+## <a name="sample-template-snippet-for-vm-extensions."></a>Fragmento de plantilla de ejemplo para extensiones de VM.
 El fragmento de plantilla para extensiones de implementación tiene el aspecto siguiente:
 
       {
@@ -54,7 +55,7 @@ El fragmento de plantilla para extensiones de implementación tiene el aspecto s
       }
       }
 
-## Fragmento de plantilla de ejemplo para extensiones de VM con conjuntos de escalado de VM.
+## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets."></a>Fragmento de plantilla de ejemplo para extensiones de VM con conjuntos de escalado de VM.
 
           {
            "type":"Microsoft.Compute/virtualMachineScaleSets",
@@ -80,7 +81,7 @@ Antes de implementar la extensión, compruebe la versión más reciente de la ex
 
 El resto del artículo proporciona ejemplos de configuraciones para las extensiones de máquina virtual de Linux.
 
-### Agente de SecureVM de CloudLink
+### <a name="cloudlink-securevm-agent"></a>Agente de SecureVM de CloudLink
           {
             "publisher": "CloudLinkEMC.SecureVM",
             "type": "CloudLinkSecureVMLinuxAgent",
@@ -90,7 +91,7 @@ El resto del artículo proporciona ejemplos de configuraciones para las extensio
             }
           }
 
-### Extensión de CustomScript para Linux.
+### <a name="customscript-extension-for-linux."></a>Extensión de CustomScript para Linux.
     {
         "publisher": " Microsoft.Azure.Extensions",
         "type": "CustomScript",
@@ -105,7 +106,7 @@ El resto del artículo proporciona ejemplos de configuraciones para las extensio
     }
 
 
-### Agente de Datadog
+### <a name="datadog-agent"></a>Agente de Datadog
         {
           "publisher": "Datadog.Agent",
           "type": "DatadogLinuxAgent",
@@ -115,7 +116,7 @@ El resto del artículo proporciona ejemplos de configuraciones para las extensio
           }
         }
 
-### Agente de Chef
+### <a name="chef-agent"></a>Agente de Chef
         {
           "publisher": "Chef.Bootstrap.WindowsAzure",
           "type": "CentosChefClient|LinuxChefClient",
@@ -127,8 +128,8 @@ El resto del artículo proporciona ejemplos de configuraciones para las extensio
           }
         }
 
-### Extensión de acceso máquina virtual (restablecimiento de contraseña)
-Para el esquema actualizado, consulte la [Documentación de VMAccessForLinux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
+### <a name="vm-access-extension-(password-reset)"></a>Extensión de acceso máquina virtual (restablecimiento de contraseña)
+Para el esquema actualizado, consulte la [Documentación de VMAccessForLinux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
         {
           "publisher": "Microsoft.OSTCExtensions",
@@ -143,8 +144,8 @@ Para el esquema actualizado, consulte la [Documentación de VMAccessForLinux](ht
           }
         }
 
-### Revisión de SO
-Para el esquema actualizado, consulte la [Documentación de OSPatching](https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching).
+### <a name="os-patching"></a>Revisión de SO
+Para el esquema actualizado, consulte la [Documentación de OSPatching](https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching)
 
         {
         "publisher": "Microsoft.OSTCExtensions",
@@ -168,8 +169,8 @@ Para el esquema actualizado, consulte la [Documentación de OSPatching](https://
         }
         }
 
-### Extensión de Docker
-Para el esquema actualizado, consulte la [Documentación la extensión de Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema).
+### <a name="docker-extension"></a>Extensión de Docker
+Para el esquema actualizado, consulte la [Documentación la extensión de Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema)
 
         {
           "publisher": "Microsoft.Azure.Extensions ",
@@ -217,4 +218,8 @@ Esta es una plantilla de máquina virtual completa para la creación de una VM d
 
 [Extensión del script personalizado en una máquina virtual de Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

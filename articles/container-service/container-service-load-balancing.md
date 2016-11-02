@@ -18,28 +18,29 @@
    ms.date="07/11/2016"
    ms.author="rogardle"/>
 
-# Equilibrio de carga de contenedores en un clúster de Azure Container Service
+
+# <a name="load-balance-containers-in-an-azure-container-service-cluster"></a>Equilibrio de carga de contenedores en un clúster de Azure Container Service
 
 En este artículo, exploraremos cómo crear un equilibrador de carga interno en una instancia de Azure Container Service administrada por DC/OS mediante Marathon-LB. Esto le permitirá escalar aplicaciones horizontalmente. También le permitirá aprovechar sacar provecho de los clústeres de agente públicos y privados mediante la colocación de los equilibradores de carga en el clúster público y los contenedores de su aplicación en el clúster privado.
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-[Implemente una instancia del Servicio de contenedor de Azure](container-service-deployment.md) con el tipo de orquestador DC/OS y [asegúrese de que el cliente se puede conectar a su clúster](container-service-connect.md).
+[Implemente una instancia de Azure Container Service](container-service-deployment.md) con el tipo de orquestador DC/OS y [asegúrese de que el cliente se puede conectar a su clúster](container-service-connect.md). 
 
-## Equilibrio de carga
+## <a name="load-balancing"></a>Equilibrio de carga
 
-Hay dos niveles de equilibrio de carga en el clúster del Servicio de contenedores que se creará:
+Hay dos niveles de equilibrio de carga en el clúster del Servicio de contenedores que se creará: 
 
   1. Azure Load Balancer proporciona puntos de entrada públicos (los que llegarán a los usuarios finales). Esto lo proporciona automáticamente el Servicio de contenedores de Azure y, de forma predeterminada, se configura para exponer los puertos 80, 443 y 8080.
   2. Marathon Load Balancer (marathon-lb) enruta las solicitudes entrantes a instancias de contenedor que sirven a esas solicitudes. Marathon-lb se adapta dinámicamente a medida que escalamos los contenedores que proporcionan el servicio web. De manera predeterminada no se proporciona este equilibrador de carga en el Servicio de contenedores, pero se instala muy fácilmente.
 
-## Equilibrador de carga de Marathon
+## <a name="marathon-load-balancer"></a>Equilibrador de carga de Marathon
 
 El equilibrador de carga de Marathon se reconfigura dinámicamente basándose en los contenedores que ha implementado. También es resistente a la pérdida de contenedores o agentes; en caso de que ocurra, Apache Mesos simplemente reinicia el contenedor en otro lugar y marathon-lb se adapta.
 
 Para instalar Marathon Load Balancer puede usar la IU web de DC/OS o la línea de comandos.
 
-### Instalación de Marathon-LB con la IU web de DC/OS
+### <a name="install-marathon-lb-using-dc/os-web-ui"></a>Instalación de Marathon-LB con la IU web de DC/OS
 
   1. Haga clic en "Universe" (Universo)
   2. Busque "Marathon-LB"
@@ -47,7 +48,7 @@ Para instalar Marathon Load Balancer puede usar la IU web de DC/OS o la línea d
 
 ![Instalación de maratón lb a través de la interfaz de Web DC/OS](./media/dcos/marathon-lb-install.png)
 
-### Instalación de Marathon-LB con la CLI de DC/OS
+### <a name="install-marathon-lb-using-the-dc/os-cli"></a>Instalación de Marathon-LB con la CLI de DC/OS
 
 Después de instalar la CLI de DC/OS y garantizar puede conectarse al clúster, ejecute el siguiente comando desde la máquina cliente:
 
@@ -57,7 +58,7 @@ dcos package install marathon-lb
 
 Este comando instala automáticamente el equilibrador de carga en el clúster de agentes público.
 
-## Implementación de una aplicación web de equilibrador de carga
+## <a name="deploy-a-load-balanced-web-application"></a>Implementación de una aplicación web de equilibrador de carga
 
 Ahora que tenemos el paquete de marathon-lb, podemos implementar el contenedor de aplicaciones cuya carga se desea equilibrar. En este ejemplo se implementará un servidor web simple con la siguiente configuración:
 
@@ -104,14 +105,14 @@ Ahora que tenemos el paquete de marathon-lb, podemos implementar el contenedor d
 
 Merece la pena indicar que Marathon se implementará en el clúster privado de forma predeterminada, lo que significa que solo se podrá acceder a la implementación anterior a través de un equilibrador de carga, que normalmente es el comportamiento que se desea.
 
-### Implementación mediante la IU web de DC/OS
+### <a name="deploy-using-the-dc/os-web-ui"></a>Implementación mediante la IU web de DC/OS
 
-  1. Visite la página de Marathon en http://localhost/marathon (después de configurar un [túnel SSH](container-service-connect.md)) y haga clic en `Create Appliction`
+  1. Visite la página de Marathon en http://localhost/marathon (después de configurar su [túnel SSH](container-service-connect.md) y haga clic en `Create Appliction`.
   2. En el cuadro de diálogo `New Application`, haga clic en `JSON Mode` en la esquina superior derecha
   3. Pegue el código anterior JSON en el editor
   4. Haga clic en `Create Appliction`
 
-### Implementación mediante la CLI de DC/OS
+### <a name="deploy-using-the-dc/os-cli"></a>Implementación mediante la CLI de DC/OS
 
 Para implementar esta aplicación con la CLI de DC/OS, solo hay que copiar el JSON anterior en un archivo denominado `hello-web.json` y ejecutar:
 
@@ -119,26 +120,32 @@ Para implementar esta aplicación con la CLI de DC/OS, solo hay que copiar el JS
 dcos marathon app add hello-web.json
 ```
 
-## Equilibrador de carga de Azure
+## <a name="azure-load-balancer"></a>Equilibrador de carga de Azure
 
-De forma predeterminada, Azure Load Balancer expone los puertos 80, 8080 y 443. Si está utilizando uno de estos tres puertos (como ocurre en el ejemplo anterior), no hay nada que debe hacer. Debe ser capaz de alcanzar el agente del nombre de dominio completo del equilibrador de carga; cada vez que actualice, alcanzará uno de los tres servidores web de forma round robin. Sin embargo, si utiliza otro puerto, deberá agregar una regla de operación round robin y realizar un sondeo en el equilibrador de carga para ver cuál es el puerto utilizado. Este procedimiento se puede realizar desde la [CLI de Azure](../xplat-cli-azure-resource-manager.md), con los comandos `azure lb rule create` y `azure lb probe create`. También puede hacerlo mediante el Portal de Azure.
+De forma predeterminada, Azure Load Balancer expone los puertos 80, 8080 y 443. Si está utilizando uno de estos tres puertos (como ocurre en el ejemplo anterior), no hay nada que debe hacer. Debe ser capaz de alcanzar el agente del nombre de dominio completo del equilibrador de carga; cada vez que actualice, alcanzará uno de los tres servidores web de forma round robin. Sin embargo, si utiliza otro puerto, deberá agregar una regla de operación round robin y realizar un sondeo en el equilibrador de carga para ver cuál es el puerto utilizado. Este procedimiento se puede realizar desde la [CLI de Azure](../xplat-cli-azure-resource-manager.md), con los comandos `azure network lb rule create` y `azure network lb probe create`. También puede hacerlo mediante el Portal de Azure.
 
 
-## Otros escenarios
+## <a name="additional-scenarios"></a>Otros escenarios
 
 Puede darse una situación en la que utilice diferentes dominios para exponer diferentes servicios. Por ejemplo:
 
-mydomain1.com -> Azure LB:80 -> marathon-lb:10001 -> mycontainer1:33292 mydomain2.com -> Azure LB:80 -> marathon-lb:10002 -> mycontainer2:22321
+mydomain1.com -> Azure LB:80 -> marathon-lb:10001 -> mycontainer1:33292  
+mydomain2.com -> Azure LB:80 -> marathon-lb:10002 -> mycontainer2:22321
 
 Para lograrlo, consulte los [hosts virtuales](https://mesosphere.com/blog/2015/12/04/dcos-marathon-lb/), que proporcionan una forma de asociar dominios a rutas de acceso concretas de marathon-lb.
 
 Como alternativa, podría exponer puertos diferentes y reasignarlos al servicio correcto detrás de marathon-lb. Por ejemplo:
 
-Azure lb:80 -> marathon-lb:10001 -> mycontainer:233423 Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
+Azure lb:80 -> marathon-lb:10001 -> mycontainer:233423  
+Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/), consulte la documentación de DC/OS.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

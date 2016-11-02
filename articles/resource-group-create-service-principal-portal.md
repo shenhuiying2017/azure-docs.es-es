@@ -118,7 +118,7 @@ Si la aplicación tiene acceso a recursos en nombre del usuario que ha iniciado 
 
 1. Seleccione **Agregar una aplicación**.
 
-2. En la lista, seleccione **API de administración de servicios de Windows Azure**. Seguidamente, seleccione el icono de proceso terminado.
+2. En la lista, seleccione **API de administración de servicios de Microsoft Azure**. Seguidamente, seleccione el icono de proceso terminado.
 
       ![seleccionar aplicación](./media/resource-group-create-service-principal-portal/select-app.png)
 

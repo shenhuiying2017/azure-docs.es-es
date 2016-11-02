@@ -16,9 +16,10 @@
     ms.date="02/09/2016"
     ms.author="asmalser-msft"/>
 
-#Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory
 
-##¿Qué es el aprovisionamiento automático de usuarios para aplicaciones SaaS?
+#<a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory
+
+##<a name="what-is-automated-user-provisioning-for-saas-apps?"></a>¿Qué es el aprovisionamiento automático de usuarios para aplicaciones SaaS?
 
 Azure Active Directory (Azure AD) permite automatizar la creación, el mantenimiento y la eliminación de identidades de usuario en aplicaciones de nube ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) como Dropbox, Salesforce, ServiceNow y muchas más.
 
@@ -36,7 +37,7 @@ Azure Active Directory (Azure AD) permite automatizar la creación, el mantenimi
 - Alertas de correo electrónico opcionales para errores de aprovisionamiento.
 - Informes y registros de actividades para facilitar la supervisión y solución de problemas.
 
-##¿Por qué usar el aprovisionamiento automático?
+##<a name="why-use-automated-provisioning?"></a>¿Por qué usar el aprovisionamiento automático?
 
 Las razones habituales por las que se debe usar esta característica son:
 
@@ -45,7 +46,7 @@ Las razones habituales por las que se debe usar esta característica son:
 - Importar una cantidad masiva de usuarios fácilmente a una aplicación SaaS concreta.
 - Disfrutar de la comodidad de que la solución de aprovisionamiento se ejecute fuera de las mismas directivas de acceso a las aplicaciones definidas para el Inicio de sesión único de Azure AD.
 
-##Preguntas frecuentes
+##<a name="frequently-asked-questions"></a>Preguntas frecuentes
 
 **¿Con qué frecuencia Azure AD escribe los cambios de directorio en las aplicaciones SaaS?**
 
@@ -71,7 +72,7 @@ Para la mayoría de las aplicaciones SaaS, el aprovisionamiento es sólo de sali
 
 Póngase en contacto con nosotros a través del [foro de comentarios de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
-##¿Cómo funciona el aprovisionamiento automático?
+##<a name="how-does-automated-provisioning-work?"></a>¿Cómo funciona el aprovisionamiento automático?
 
 Azure AD aprovisiona a los usuarios para aplicaciones SaaS mediante la conexión de los extremos de aprovisionamiento proporcionados por el proveedor de cada aplicación. Estos extremos permiten a Azure AD crear, actualizar y quitar usuarios mediante programación. A continuación se ofrece una breve introducción de los diferentes pasos que Azure AD realiza para automatizar el aprovisionamiento.
 
@@ -86,7 +87,7 @@ Azure AD aprovisiona a los usuarios para aplicaciones SaaS mediante la conexión
 
 Para obtener más información sobre cómo se asignan los atributos entre Azure AD y la aplicación SaaS, consulte el artículo [Personalización de asignaciones de atributos](active-directory-saas-customizing-attribute-mappings.md).
 
-##Lista de aplicaciones que admiten el aprovisionamiento automático de usuarios
+##<a name="list-of-apps-that-support-automated-user-provisioning"></a>Lista de aplicaciones que admiten el aprovisionamiento automático de usuarios
 
 Haga clic en una aplicación para ver un tutorial sobre cómo configurar el aprovisionamiento automático correspondiente:
 
@@ -106,7 +107,7 @@ Para que una aplicación admita el aprovisionamiento automático de usuarios, pr
 
 Si desea ponerse en contacto con el equipo de ingeniería de Azure AD para solicitar soporte técnico para el aprovisionamiento de aplicaciones adicionales, envíe un mensaje a través del [foro de comentarios de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
-##Artículos relacionados
+##<a name="related-articles"></a>Artículos relacionados
 
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 - [Personalización de asignaciones de atributos para el aprovisionamiento de usuarios](active-directory-saas-customizing-attribute-mappings.md)
@@ -116,4 +117,8 @@ Si desea ponerse en contacto con el equipo de ingeniería de Azure AD para solic
 - [Notificaciones de aprovisionamiento de cuentas](active-directory-saas-account-provisioning-notifications.md)
 - [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

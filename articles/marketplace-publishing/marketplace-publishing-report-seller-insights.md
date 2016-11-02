@@ -16,7 +16,8 @@
    ms.date="02/05/2016"
    ms.author="v-jeana; hascipio"/>
 
-# Descripción del informe de perspectivas de vendedor
+
+# <a name="understand-your-seller-insights-report"></a>Descripción del informe de perspectivas de vendedor
 
 **¿Qué son las perspectivas de vendedor?**
 
@@ -32,7 +33,7 @@ Todos los publicadores de servicios de desarrolladores con facturación basada e
     - Los informes se bloquean con una contraseña que solo usted y Microsoft conocen para proteger los datos de sus clientes.
     - Microsoft no enviará un informe si ninguna de sus ofertas ha generado uso durante el mes.
 
-## Descripción del informe de perspectivas de vendedor
+## <a name="understand-your-seller-insights-report"></a>Descripción del informe de perspectivas de vendedor
 
 
 **Pedidos por tipo de licencia y SKU: pestaña Pedidos de Marketplace**
@@ -85,27 +86,31 @@ Estas pestañas ofrecen los datos detallados que se usan para generar el informe
 
 Lea atentamente las renuncias de responsabilidades legales. Si tiene preguntas o comentarios, haga clic en el vínculo situado en la parte inferior de las renuncias de responsabilidades para ir a la página de soporte técnico de Marketplace.
 
-## Solicitud de un recordatorio de contraseña
+## <a name="request-a-password-reminder"></a>Solicitud de un recordatorio de contraseña
 
-Navegue a https://publish.windowsazure.com/ e inicie sesión con las credenciales de la cuenta de Microsoft. ![passwordreminder][7]
+Vaya a https://publish.windowsazure.com/ e inicie sesión con sus credenciales de cuenta de Microsoft.
+![passwordreminder][7]
 
-Seleccione la pestaña **Publicadores**. ![selectpublisherstab][8]
+Seleccione la pestaña **Publicadores** .
+![selectpublisherstab][8]
 
 
 Busque el identificador del publicador en la dirección URL:
-- Use este identificador como contraseña para abrir el archivo de Excel de perspectivas de vendedor. Esta es su contraseña hasta nuevo aviso.
-- Se recomienda usar Microsoft Office 2013 con Windows como lector de libro de su elección. Algunos usuarios han notificado problemas con Microsoft Office para Mac.
+- Use este identificador como contraseña para abrir el archivo de Excel de perspectivas de vendedor.
+Esta es su contraseña hasta nuevo aviso.
+- Se recomienda usar Microsoft Office 2013 con Windows como lector de libro de su elección.  Algunos usuarios han notificado problemas con Microsoft Office para Mac.
 
 ![publisherid][9]
 
 
-## Pasos siguientes  
+## <a name="next-steps"></a>Pasos siguientes  
 Si tiene alguna pregunta relacionada con los informes y perspectivas, póngase en contacto con nuestro equipo de soporte técnico.
 
-1. Navegue a las páginas de soporte técnico en https://publish.windowsazure.com/.
-2. En el cuadro **Tipo de problema** seleccione **Informes y perspectivas**.
+1. Vaya a las páginas de soporte técnico en https://publish.windowsazure.com/.
+2. En el cuadro **Tipo de problema**, seleccione **Informes y perspectivas**.
 3. En el cuadro **Categoría**, seleccione **Preguntas relacionadas con informes**.
-4. Haga clic en **Solicitud de inicio**. ![sellerinsightsquestions][10]
+4. Haga clic en **Solicitud de inicio**.
+  ![sellerinsightsquestions][10]
 
 
 
@@ -120,4 +125,8 @@ Si tiene alguna pregunta relacionada con los informes y perspectivas, póngase e
 [9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png
 [10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

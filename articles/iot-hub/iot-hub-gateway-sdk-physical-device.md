@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Uso de un dispositivo real con el SDK de puerta de enlace | Microsoft Azure"
-	description="Tutorial de SDK de puerta de enlace del Centro de IoT de Azure mediante un dispositivo SensorTag de Texas Instruments para enviar datos al Centro de IoT a través de una puerta de enlace que se ejecuta en un módulo de cálculo Intel Edison"
-	services="iot-hub"
-	documentationCenter=""
-	authors="chipalost"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Uso de un dispositivo real con el SDK de puerta de enlace | Microsoft Azure"
+    description="Tutorial de SDK de puerta de enlace del Centro de IoT de Azure mediante un dispositivo SensorTag de Texas Instruments para enviar datos al Centro de IoT a través de una puerta de enlace que se ejecuta en un módulo de cálculo Intel Edison"
+    services="iot-hub"
+    documentationCenter=""
+    authors="chipalost"
+    manager="timlt"
+    editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -17,7 +17,8 @@
      ms.author="andbuc"/>
 
 
-# SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo real a través de Linux
+
+# <a name="iot-gateway-sdk-(beta)-–-send-device-to-cloud-messages-with-a-real-device-using-linux"></a>SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo real a través de Linux
 
 Este tutorial de [ejemplo de baja energía de Bluetooth][lnk-ble-samplecode] muestra cómo usar el [SDK de puerta de enlace de IoT de Microsoft Azure][lnk-sdk] para la telemetría directa de dispositivos a la nube al Centro de IoT desde un dispositivo físico y cómo enrutar comandos desde el Centro de IoT a un dispositivo físico.
 
@@ -27,7 +28,7 @@ En este tutorial, se describen los siguientes procedimientos:
 
 * **Compilación y ejecución**: los pasos necesarios para compilar y ejecutar el ejemplo.
 
-## Arquitectura
+## <a name="architecture"></a>Arquitectura
 
 El tutorial muestra cómo compilar y ejecutar una puerta de enlace de IoT en un módulo de cálculo Intel Edison que ejecuta Linux. La puerta de enlace se ha creado mediante el SDK de puerta de enlace de IoT. El ejemplo usa un dispositivo de baja energía de Bluetooth (BLE) SensorTag de Texas Instruments para recopilar datos de temperatura.
 
@@ -41,13 +42,13 @@ Al ejecutar la puerta de enlace:
 La puerta de enlace contiene los siguientes módulos:
 
 - Un *módulo BLE* que interactúa con un dispositivo BLE para recibir sus datos de temperatura y enviarle comandos.
-- Un *módulo BLE de nube a dispositivo* que convierte los mensajes JSON que provienen de la nube a instrucciones BLE para el *módulo BLE*.
+- Un módulo *BLE de nube a dispositivo* que convierte los mensajes JSON que provienen de la nube a instrucciones BLE para el *módulo BLE*.
 - Un *módulo registrador* que recoge todos los mensajes de la puerta de enlace.
 - Un *módulo de asignación de identidad* que traduce entre direcciones MAC de los dispositivos BLE y las identidades de los dispositivos de centro de IoT de Azure.
 - Un *módulo de IoT Hub* que carga los datos de telemetría a un centro de IoT y recibe comandos de dispositivos provenientes de un centro de IoT.
 - Un *módulo de impresora BLE* que interpreta la telemetría del dispositivo BLE e imprime los datos con formato en la consola para habilitar la solución de problemas y la depuración.
 
-### Cómo fluyen los datos a través de la puerta de enlace
+### <a name="how-data-flows-through-the-gateway"></a>Cómo fluyen los datos a través de la puerta de enlace
 
 El siguiente diagrama de bloques muestra la canalización del flujo de datos de carga para telemetría:
 
@@ -72,26 +73,26 @@ El siguiente diagrama de bloques muestra la canalización del flujo de datos de 
 5. El módulo BLE recoge este mensaje y ejecuta la instrucción de E/S al comunicarse con el dispositivo BLE.
 6. El módulo registrador recoge todos los mensajes del agente en un archivo de disco.
 
-## Preparar el hardware
+## <a name="prepare-your-hardware"></a>Preparar el hardware
 
 Este tutorial se supone que usa un dispositivo [SensorTag de Texas Instruments](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html) conectado a un panel Intel Edison.
 
-### Configuración del panel Edison
+### <a name="set-up-the-edison-board"></a>Configuración del panel Edison
 
 Antes de comenzar, asegúrese de que puede conectar el dispositivo Edison a la red inalámbrica. Para configurar el dispositivo Edison, debe conectarlo a un equipo host. Intel proporciona guías de introducción para los siguientes sistemas operativos:
 
-- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] \(Introducción a la placa de desarrollo de Intel Edison en Windows de 64 bits).
-- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] \(Introducción a la placa de desarrollo de Intel Edison en Windows de 32 bits).
-- [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx] \(Introducción a la placa de desarrollo de Intel Edison en Mac OS X).
-- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] \(Introducción a la placa de Intel® Edison en Linux).
+- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] (Introducción a la placa de desarrollo de Intel Edison en Windows de 64 bits).
+- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] (Introducción a la placa de desarrollo de Intel Edison en Windows de 64 bits).
+- [Get Started with the Intel Edison Development Board on Mac OS X] (Introducción a la placa de desarrollo de Intel Edison en Mac OS X)[lnk-setup-osx].
+- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] (Introducción a la placa de Intel® Edison en Linux).
 
 Para configurar el dispositivo Edison y familiarizarse con él, debe completar todos los pasos de estos artículos de introducción, excepto el último paso, "Elija IDE", que no es necesario para este tutorial. Al final del proceso de instalación de Edison tiene:
 
 - Grabado el firmware más reciente en el dispositivo Edison.
 - Establecida una conexión en serie del host al dispositivo Edison.
-- Ejecutado el script **configure\_edison** para establecer una contraseña y habilitar Wi-Fi en el dispositivo Edison.
+- Ejecutado el script **configure_edison** para establecer una contraseña y habilitar Wi-Fi en el dispositivo Edison.
 
-### Habilitación de la conectividad al dispositivo SensorTag desde la placa Edison
+### <a name="enable-connectivity-to-the-sensortag-device-from-your-edison-board"></a>Habilitación de la conectividad al dispositivo SensorTag desde la placa Edison
 
 Antes de ejecutar el ejemplo, debe comprobar que la placa Edison puede conectarse al dispositivo SensorTag.
 
@@ -104,7 +105,7 @@ Lo siguiente que debe comprobar es que el dispositivo Edison se pueda conectar a
     bluetoothctl --version
     ```
 
-2. Ejecute el comando **bluetoothctl**. Ahora se encuentra en un shell interactivo de bluetooth.
+2. Ejecute el comando **bluetoothctl** . Ahora se encuentra en un shell interactivo de bluetooth. 
 
 3. Escriba el comando **power on** para encender el controlador Bluetooth. Debería mostrarse una salida similar a esta:
     
@@ -136,7 +137,7 @@ Lo siguiente que debe comprobar es que el dispositivo Edison se pueda conectar a
     Discovery stopped
     ```
 
-7. Escriba **connect <dirección MAC >** para conectarse al dispositivo SensorTag con la dirección MAC. Tenga en cuenta que la salida de ejemplo siguiente está abreviada:
+7. Para conectarse al dispositivo SensorTag con la dirección MAC escriba **connect<MAC address>**. Tenga en cuenta que la salida de ejemplo siguiente está abreviada:
     
     ```
     Attempting to connect to A0:E6:F8:B5:F6:00
@@ -167,7 +168,7 @@ Lo siguiente que debe comprobar es que el dispositivo Edison se pueda conectar a
 
 Ya está listo para ejecutar el ejemplo de puerta de enlace de BLE en el dispositivo Edison.
 
-## Ejecución del ejemplo de puerta de enlace de BLE
+## <a name="run-the-ble-gateway-sample"></a>Ejecución del ejemplo de puerta de enlace de BLE
 
 Para ejecutar el ejemplo BLE en el dispositivo Edison, debe realizar tres tareas:
 
@@ -177,17 +178,17 @@ Para ejecutar el ejemplo BLE en el dispositivo Edison, debe realizar tres tareas
 
 En el momento de la escritura, el SDK solo es compatible con puertas de enlace que usen módulos BLE en Linux.
 
-### Configuración de dos dispositivos de ejemplo en su Centro de IoT
+### <a name="configure-two-sample-devices-in-your-iot-hub"></a>Configuración de dos dispositivos de ejemplo en su Centro de IoT
 
-- [Cree un Centro de IoT][lnk-create-hub] en su suscripción de Azure; necesitará el nombre de su centro para realizar este tutorial. Si aún no tiene una suscripción de Azure, puede obtener una [cuenta gratuita][lnk-free-trial].
-- Agregue un dispositivo denominado "**SensorTag\_01**" a su Centro de IoT y tome nota de la clave y el identificador del dispositivo. Puede usar las herramientas [Explorador de dispositivos o iothub-explorer][lnk-explorer-tools] para agregar este dispositivo al Centro de IoT que creó en el paso anterior y recuperar la clave. Tendrá que asignar este dispositivo al dispositivo SensorTag cuando configure la puerta de enlace.
+- [Cree un centro de IoT][lnk-create-hub] en su suscripción de Azure; necesitará el nombre de su centro para realizar este tutorial. Si aún no tiene una suscripción de Azure, puede obtener una [cuenta gratuita][lnk-free-trial].
+- Agregue un dispositivo denominado **SensorTag_01** a su centro de IoT y tome nota de la clave y el identificador del dispositivo. Puede usar las herramientas [Explorador de dispositivos o iothub-explorer][lnk-explorer-tools] para agregar este dispositivo al centro de IoT que creó en el paso anterior y recuperar la clave. Tendrá que asignar este dispositivo al dispositivo SensorTag cuando configure la puerta de enlace.
 
-### Creación del SDK de puerta de enlace en el dispositivo Edison
+### <a name="build-the-gateway-sdk-on-your-edison-device"></a>Creación del SDK de puerta de enlace en el dispositivo Edison
 
 La versión de **git** del dispositivo Edison no admite submódulos. Para descargar el código fuente completo del SDK de puerta de enlace para el dispositivo Edison tiene dos opciones:
 
-- Opción 1: clonar el repositorio del [SDK de puerta de enlace IoT de Microsoft Azure][lnk-sdk] en su dispositivo Edison y clonar manualmente el repositorio para cada submódulo.
-- Opción 2: clonar el repositorio del [SDK de puerta de enlace IoT de Microsoft Azure][lnk-sdk] en un dispositivo de escritorio donde **git** admite submódulos y copiar todo el repositorio, submódulos incluidos, en el dispositivo Edison.
+- Opción 1: clonar el repositorio del [SDK de puerta de enlace de Microsoft Azure IoT][lnk-sdk] en su dispositivo Edison y clonar manualmente el repositorio para cada submódulo.
+- Opción 2: clonar el repositorio del [SDK de puerta de enlace de Microsoft Azure IoT][lnk-sdk] en un dispositivo de escritorio donde **git** admite submódulos y copiar todo el repositorio, submódulos incluidos, en el dispositivo Edison.
 
 Si elige la opción 2, use los siguientes comandos **git** para clonar el SDK de puerta de enlace y todos sus submódulos:
 
@@ -208,13 +209,13 @@ Cuando haya una copia de todo el repositorio del SDK de puerta de enlace en el d
 ./tools/build.sh
 ```
 
-### Configuración y ejecución del ejemplo de BLE en el dispositivo Edison
+### <a name="configure-and-run-the-ble-sample-on-your-edison-device"></a>Configuración y ejecución del ejemplo de BLE en el dispositivo Edison
 
-Para arrancar y ejecutar el ejemplo, debe configurar todos los módulos que participan en la puerta de enlace. Esta configuración se proporciona en un archivo JSON y sirve para los cinco módulos. Se proporciona un archivo JSON de ejemplo en el repositorio, denominado "**gateway\_sample.json**" como punto de partida para crear su propio archivo de configuración. Este archivo se encuentra en la carpeta **samples/ble\_gateway\_hl/src** de la copia local del repositorio del SDK de puerta de enlace.
+Para arrancar y ejecutar el ejemplo, debe configurar todos los módulos que participan en la puerta de enlace. Esta configuración se proporciona en un archivo JSON y sirve para los cinco módulos. Se proporciona un archivo JSON de ejemplo en el repositorio, denominado **gateway_sample.json** como punto de partida para crear su propio archivo de configuración. Este archivo se encuentra en la carpeta **samples/ble_gateway_hl/src** de la copia local del repositorio del SDK de puerta de enlace.
 
 En las secciones siguientes se describe cómo modificar este archivo de configuración para el ejemplo de BLE y se da por hecho que el repositorio del SDK de puerta de enlace se encuentra en la carpeta **/home/root/azure-iot-gateway-sdk/** del dispositivo Edison. Si el repositorio se encuentra en otro lugar, ajuste las rutas de acceso según corresponda:
 
-#### Configuración del registrador
+#### <a name="logger-configuration"></a>Configuración del registrador
 
 Suponiendo que el repositorio de la puerta de enlace se encuentra en la carpeta **/home/root/azure-iot-gateway-sdk/**, configure el módulo del registrador de la siguiente forma:
 
@@ -229,9 +230,9 @@ Suponiendo que el repositorio de la puerta de enlace se encuentra en la carpeta 
 }
 ```
 
-#### Configuración del módulo BLE
+#### <a name="ble-module-configuration"></a>Configuración del módulo BLE
 
-La configuración de ejemplo para el dispositivo BLE supone un dispositivo SensorTag de Texas Instruments. Cualquier dispositivo BLE estándar que funcione como GATT periférico debe valer, pero será necesario actualizar los identificadores de las características GATT y los datos (para las instrucciones de escritura). Agregue la dirección MAC del dispositivo SensorTag:
+La configuración de ejemplo para el dispositivo BLE supone un dispositivo SensorTag de Texas Instruments. Cualquier dispositivo BLE estándar que funcione como GATT periférico debe valer, pero será necesario actualizar los identificadores de las características GATT y los datos (para las instrucciones de escritura). Agregue la dirección MAC del dispositivo SensorTag: 
 
 ```json
 {
@@ -285,7 +286,7 @@ La configuración de ejemplo para el dispositivo BLE supone un dispositivo Senso
 }
 ```
 
-#### Módulo de IoT Hub
+#### <a name="iot-hub-module"></a>módulo de IoT Hub
 
 Agregue el nombre de su Centro de IoT. El sufijo suele ser **azure-devices.net**:
 
@@ -301,9 +302,9 @@ Agregue el nombre de su Centro de IoT. El sufijo suele ser **azure-devices.net**
 }
 ```
 
-#### Configuración del módulo de asignación de identidad
+#### <a name="identity-mapping-module-configuration"></a>Configuración del módulo de asignación de identidad
 
-Agregue la dirección MAC del dispositivo SensorTag, y el identificador del dispositivo y la clave del dispositivo **SensorTag\_01** agregado al Centro de IoT:
+Agregue la dirección MAC del dispositivo SensorTag, y el identificador del dispositivo y la clave del dispositivo **SensorTag_01** agregado al centro de IoT:
 
 ```json
 {
@@ -319,7 +320,7 @@ Agregue la dirección MAC del dispositivo SensorTag, y el identificador del disp
 }
 ```
 
-#### Configuración de la impresora BLE
+#### <a name="ble-printer-module-configuration"></a>Configuración de la impresora BLE
 
 ```json
 {
@@ -329,12 +330,12 @@ Agregue la dirección MAC del dispositivo SensorTag, y el identificador del disp
 }
 ```
 
-#### Configuración de enrutamiento
+#### <a name="routing-configuration"></a>Configuración de enrutamiento
 
 Esta configuración asegura lo siguiente:
 - El módulo **Registrador** recibe y registra todos los mensajes.
 - El módulo **SensorTag** envía mensajes a los módulos de **asignación** e **impresora BLE**.
-- El módulo de **asignación** envía mensajes al módulo **IoTHub** para que los envíe a su instancia de IoT Hub.
+- El módulo de **asignación** envía mensajes al módulo **IoTHub** para que los envíe a su centro IoT.
 - El módulo **IoTHub** envía mensajes de vuelta al módulo de **asignación**.
 - El módulo de **asignación** envía mensajes de vuelta al módulo **SensorTag**.
 
@@ -349,7 +350,7 @@ Esta configuración asegura lo siguiente:
   ]
 ```
 
-Ejecute el archivo binario **ble\_gateway\_hl** pasando la ruta de acceso al archivo de configuración de JSON para ejecutar el ejemplo. Si ha usado el archivo **gateway\_sample.json**, el comando de ejecución tendrá este aspecto:
+Ejecute el archivo binario **ble_gateway_hl** pasando la ruta de acceso al archivo de configuración de JSON para ejecutar el ejemplo. Si ha usado el archivo **gateway_sample.json**, el comando de ejecución tendrá este aspecto:
 
 ```
 ./build/samples/ble_gateway_hl/ble_gateway_hl ./samples/ble_gateway_hl/src/gateway_sample.json
@@ -359,9 +360,9 @@ Presione el botoncito del dispositivo SensorTag para que se pueda detectar antes
 
 Cuando ejecute el ejemplo, puede usar las herramientas [Explorador de dispositivos o iothub-explorer][lnk-explorer-tools] para supervisar los mensajes que la puerta de enlace remite desde el dispositivo SensorTag.
 
-## Envío de mensajes de nube a dispositivo
+## <a name="send-cloud-to-device-messages"></a>Envío de mensajes de nube a dispositivo
 
-El módulo BLE también admite instrucciones envío del Centro de IoT de Azure al dispositivo. Puede usar el [Explorador de dispositivos del Centro de IoT de Azure](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) o el [Explorador del Centro de IoT](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) para enviar mensajes JSON que el módulo de puerta de enlace BLE transmite al dispositivo BLE. Por ejemplo, si usa el dispositivo SensorTag de Texas Instruments, desde el Centro de IoT puede enviar los siguientes mensajes JSON al dispositivo.
+El módulo BLE también admite instrucciones envío del Centro de IoT de Azure al dispositivo. Puede usar el [Explorador de dispositivos de Azure IoT Hub](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) o el [Explorador de IoT Hub](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) para enviar mensajes JSON que el módulo de puerta de enlace BLE transmite al dispositivo BLE. Por ejemplo, si usa el dispositivo SensorTag de Texas Instruments, desde el Centro de IoT puede enviar los siguientes mensajes JSON al dispositivo.
 
 - Restablecer todos los LED y el timbre (desactivarlos)
 
@@ -417,38 +418,31 @@ El comportamiento predeterminado de un dispositivo que usa el protocolo HTTP par
 
 > [AZURE.NOTE] La puerta de enlace también busca nuevos comandos siempre que se inicia para que pueda forzar el procesamiento de un comando al detener e iniciar la puerta de enlace.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Si desea una descripción más avanzada del SDK de puerta de enlace y experimentar con algunos ejemplos de código, consulte los siguientes tutoriales y recursos para desarrolladores:
 
-- [SDK de puerta de enlace de IoT (beta): administración de dispositivos con el SDK de puerta de enlace][lnk-manage-devices]
-- [SDK de puerta de enlace IoT de Azure][lnk-gateway-sdk]
+- [SDK de puerta de enlace de Azure IoT][lnk-sdk]
 
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
-- [Diseño de la solución][lnk-design]
-- [Guía del desarrollador][lnk-devguide]
-- [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
-- [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
+- [Guía para desarrolladores][lnk-devguide]
 
 <!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/ble_gateway_hl
-[lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
-[lnk-create-hub]: iot-hub-manage-through-portal.md
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-setup-win64]: https://software.intel.com/get-started-edison-windows
 [lnk-setup-win32]: https://software.intel.com/get-started-edison-windows-32
 [lnk-setup-osx]: https://software.intel.com/get-started-edison-osx
 [lnk-setup-linux]: https://software.intel.com/get-started-edison-linux
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 
-[lnk-manage-devices]: iot-hub-gateway-sdk-device-management.md
 
-[lnk-design]: iot-hub-guidance.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
-[lnk-portal]: iot-hub-manage-through-portal.md
+[lnk-create-hub]: iot-hub-create-through-portal.md 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

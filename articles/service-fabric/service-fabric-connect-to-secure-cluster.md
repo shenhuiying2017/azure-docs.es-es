@@ -16,10 +16,11 @@
    ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
-# Conexión a un clúster seguro sin AAD
-Cuando un cliente se conecta a un nodo del clúster de Service Fabric, se puede autenticar al cliente y establecer la comunicación segura mediante la seguridad basada en certificados. Esta autenticación garantiza que solo los usuarios autorizados pueden tener acceso al clúster, y a las aplicaciones implementadas, y realizar tareas de administración. Con anterioridad se debe haber habilitado la seguridad basada en certificados en el clúster cuando se creó este. Deben utilizarse, al menos, dos certificados para proteger el clúster, uno para el certificado de servidor y clúster, y otro para el acceso de cliente. Se recomienda utilizar también certificados secundarios adicionales y certificados de acceso de cliente. Para más información sobre escenarios de seguridad de clúster, consulte [Protección de un clúster de Service Fabric](service-fabric-cluster-security.md).
 
-Para proteger la comunicación entre un cliente y un nodo del clúster mediante la seguridad basada en certificados, primero debe obtener e instalar el certificado de cliente. El certificado se puede instalar en el almacén personal (Mi) del equipo local o en el almacén personal del usuario actual. También necesitará la huella digital del certificado de servidor para que el cliente pueda autenticar el clúster.
+# <a name="connect-to-a-secure-cluster-without-aad"></a>Conexión a un clúster seguro sin AAD
+Cuando un cliente se conecta a un nodo del clúster de Service Fabric, se puede autenticar al cliente y establecer la comunicación segura mediante la seguridad basada en certificados. Esta autenticación garantiza que solo los usuarios autorizados pueden tener acceso al clúster, y a las aplicaciones implementadas, y realizar tareas de administración.  Con anterioridad se debe haber habilitado la seguridad basada en certificados en el clúster cuando se creó este.  Deben utilizarse, al menos, dos certificados para proteger el clúster, uno para el certificado de servidor y clúster, y otro para el acceso de cliente.  Se recomienda utilizar también certificados secundarios adicionales y certificados de acceso de cliente.  Para más información sobre escenarios de seguridad de clúster, consulte [Protección de un clúster de Service Fabric](service-fabric-cluster-security.md).
+
+Para proteger la comunicación entre un cliente y un nodo del clúster mediante la seguridad basada en certificados, primero debe obtener e instalar el certificado de cliente. El certificado se puede instalar en el almacén personal (Mi) del equipo local o en el almacén personal del usuario actual.  También necesitará la huella digital del certificado de servidor para que el cliente pueda autenticar el clúster.
 
 
 Ejecute el siguiente cmdlet de PowerShell para configurar el certificado de cliente en el equipo que usará para acceder al clúster.
@@ -37,20 +38,20 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
 -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
 ```
-<a id="connectsecureclustercli"></a>
-## Conexión a un clúster seguro mediante la CLI de Azure sin AAD
+<a id="connectsecureclustercli"></a> 
+## <a name="connect-to-a-secure-cluster-using-azure-cli-without-aad"></a>Conexión a un clúster seguro mediante la CLI de Azure sin AAD
 
-Los siguientes comandos de la CLI de Azure describen cómo conectarse a un clúster seguro. Los detalles del certificado deben corresponder a un certificado de los nodos del clúster.
+Los siguientes comandos de la CLI de Azure describen cómo conectarse a un clúster seguro. Los detalles del certificado deben corresponder a un certificado de los nodos del clúster. 
  
-Si el certificado tiene entidades de certificación (CA), debe agregar el parámetro `--ca-cert-path` como en el ejemplo siguiente:
+Si el certificado tiene entidades de certificación (CA), debe agregar el parámetro `--ca-cert-path` como en el ejemplo siguiente: 
 
 ```
  azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 
 ```
-Si tiene varias entidades de certificación, use una coma como delimitador.
+Si tiene varias entidades de certificación, use una coma como delimitador. 
 
  
-Si el nombre común del certificado no coincide con el punto de conexión de la conexión, puede usar el parámetro `--strict-ssl-false` para omitir la comprobación.
+Si el nombre común del certificado no coincide con el punto de conexión de la conexión, puede usar el parámetro `--strict-ssl-false` para omitir la comprobación. 
 
 ```
 azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 --strict-ssl-false 
@@ -68,10 +69,10 @@ Para conectarse a un clúster protegido con un certificado autofirmado, utilice 
 azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
 ```
 
-Después de conectarse, debería poder ejecutar otros comandos de la CLI para interactuar con el clúster.
+Después de conectarse, debería poder ejecutar otros comandos de la CLI para interactuar con el clúster. 
 
 <a id="connectsecurecluster"></a>
-## Conexión a un clúster seguro mediante PowerShell sin AAD
+## <a name="connect-to-a-secure-cluster-using-powershell-without-aad"></a>Conexión a un clúster seguro mediante PowerShell sin AAD
 
 Ejecute el siguiente comando de PowerShell para conectarse a un clúster seguro. Los detalles del certificado deben corresponder a un certificado de los nodos del clúster.
 
@@ -83,7 +84,8 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
           -StoreLocation CurrentUser -StoreName My
 ```
 
-*ServerCertThumbprint* es la huella digital del certificado de servidor instalado en los nodos del clúster. *FindValue* es la huella digital del certificado de cliente de administración. Cuando los parámetros están rellenos, el comando es parecido al del ejemplo siguiente:
+*ServerCertThumbprint* es la huella digital del certificado de servidor instalado en los nodos del clúster. *FindValue* es la huella digital del certificado de cliente de administración.
+Cuando los parámetros están rellenos, el comando es parecido al del ejemplo siguiente: 
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `
@@ -96,7 +98,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
 
 
 
-## Conexión a un clúster seguro mediante las API de FabricClient
+## <a name="connect-to-a-secure-cluster-using-the-fabricclient-apis"></a>Conexión a un clúster seguro mediante las API de FabricClient
 
 Para más información sobre las API de FabricClient, consulte [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Los nodos del clúster deben tener certificados válidos cuyo nombre común o nombre DNS de SAN aparezca en la [propiedad RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) establecida en [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). La realización de este proceso permite la autenticación mutua entre el cliente y los nodos del clúster.
 
@@ -145,11 +147,15 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 ```
 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Proceso de actualización del clúster de Service Fabric y expectativas del usuario](service-fabric-cluster-upgrade.md)
 - [Administración de aplicaciones de Service Fabric en Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 - [Introducción al modelo de estado de Service Fabric](service-fabric-health-introduction.md)
 - [Seguridad de aplicaciones y RunAs](service-fabric-application-runas-security.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

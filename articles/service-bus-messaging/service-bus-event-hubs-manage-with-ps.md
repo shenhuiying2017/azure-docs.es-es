@@ -1,40 +1,41 @@
 <properties
     pageTitle="Uso de PowerShell para administrar recursos de Bus de servicio y Centros de eventos | Microsoft Azure"
     description="Usar PowerShell crear y administrar recursos de Service Bus y centros de eventos"
-    services="service-bus-messaging,event-hubs"
+    services="service-bus,event-hubs"
     documentationCenter=".NET"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="06/24/2016"
+    ms.date="10/04/2016"
     ms.author="sethm"/>
 
-# Usar PowerShell para administrar recursos de Service Bus y centros de eventos
+
+# <a name="use-powershell-to-manage-service-bus-and-event-hubs-resources"></a>Usar PowerShell para administrar recursos de Service Bus y centros de eventos
 
 Microsoft Azure PowerShell es un entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus servicios de Azure. En este artículo se describe cómo usar PowerShell para aprovisionar y administrar entidades de Service Bus, como espacios de nombres, colas y centros de eventos, mediante una consola local de Azure PowerShell.
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, necesitará lo siguiente:
 
-- Una suscripción de Azure. Azure es una plataforma basada en suscripción. Para más información acerca de cómo obtener una suscripción, consulte las secciones sobre [opciones de compra][], [ofertas para miembros][] o [cuenta gratuita][].
+- Una suscripción de Azure. Azure es una plataforma basada en suscripción. Para más información acerca de cómo obtener una suscripción, consulte [Opciones de compra][], [ofertas para miembros][] o [cuenta gratuita][].
 
 - Un equipo con Azure PowerShell. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell][].
 
 - Conocimientos generales sobre los scripts de PowerShell, paquetes de NuGet y .NET Framework.
 
-## Incluir una referencia al ensamblado .NET para Service Bus
+## <a name="include-a-reference-to-the-.net-assembly-for-service-bus"></a>Incluir una referencia al ensamblado .NET para Service Bus
 
-Hay un número limitado de cmdlets de PowerShell disponibles para la administración de Service Bus. Para aprovisionar las entidades que no se exponen a través de los cmdlets existentes, puede usar el cliente de .NET para Service Bus dentro de PowerShell haciendo referencia al [paquete NuGet del Service Bus].
+Hay un número limitado de cmdlets de PowerShell disponibles para la administración de Service Bus. Para aprovisionar las entidades que no se exponen a través de los cmdlets existentes, puede utilizar el cliente de .NET para Service Bus dentro de PowerShell haciendo referencia al [paquete NuGet de Service Bus].
 
-En primer lugar, asegúrese de que el script puede encontrar el ensamblado **Microsoft.ServiceBus.dll**, que se instala con el paquete NuGet. Para ser flexible, el script llevará a cabo estos pasos:
+En primer lugar, asegúrese de que el script puede encontrar el ensamblado **Microsoft.ServiceBus.dll** , que se instala con el paquete NuGet. Para ser flexible, el script llevará a cabo estos pasos:
 
 1. Determina la ruta de acceso desde la que se invocó.
 2. Atraviesa la ruta de acceso hasta que encuentra una carpeta denominada `packages`. Esta carpeta se crea al instalar paquetes de NuGet.
@@ -64,9 +65,9 @@ catch [System.Exception]
 
 ```
 
-## Aprovisionar un espacio de nombres de Service Bus
+## <a name="provision-a-service-bus-namespace"></a>Aprovisionar un espacio de nombres de Service Bus
 
-Al trabajar con espacios de nombres de Service Bus, hay dos cmdlets que puede usar en lugar del SDK de .NET: [Get-AzureSBNamespace][] y [New-AzureSBNamespace][].
+Al trabajar con espacios de nombres de Service Bus, hay dos cmdlets que puede usar en lugar del SDK. NET: [Get-AzureSBNamespace][] y [New-AzureSBNamespace][].
 
 En este ejemplo se crean algunas variables locales en el script: `$Namespace` y `$Location`.
 
@@ -82,183 +83,183 @@ Esta parte del script hace lo siguiente:
 2. Si se encuentra el espacio de nombres, informa de lo que ha encontrado.
 3. Si no se encuentra el espacio de nombres, lo crea y luego recupera el espacio de nombres recién creado.
 
-	``` powershell
+    ``` powershell
 
-	$Namespace = "MyServiceBusNS"
-	$Location = "West US"
+    $Namespace = "MyServiceBusNS"
+    $Location = "West US"
 
-	# Query to see if the namespace currently exists
-	$CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
+    # Query to see if the namespace currently exists
+    $CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
 
-	# Check if the namespace already exists or needs to be created
-	if ($CurrentNamespace)
-	{
-	    Write-Output "The namespace [$Namespace] already exists in the [$($CurrentNamespace.Region)] region."
-	}
-	else
-	{
-	    Write-Host "The [$Namespace] namespace does not exist."
-	    Write-Output "Creating the [$Namespace] namespace in the [$Location] region..."
-	    New-AzureSBNamespace -Name $Namespace -Location $Location -CreateACSNamespace false -NamespaceType Messaging
-	    $CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
-	    Write-Host "The [$Namespace] namespace in the [$Location] region has been successfully created."
-	}
-	```
+    # Check if the namespace already exists or needs to be created
+    if ($CurrentNamespace)
+    {
+        Write-Output "The namespace [$Namespace] already exists in the [$($CurrentNamespace.Region)] region."
+    }
+    else
+    {
+        Write-Host "The [$Namespace] namespace does not exist."
+        Write-Output "Creating the [$Namespace] namespace in the [$Location] region..."
+        New-AzureSBNamespace -Name $Namespace -Location $Location -CreateACSNamespace false -NamespaceType Messaging
+        $CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
+        Write-Host "The [$Namespace] namespace in the [$Location] region has been successfully created."
+    }
+    ```
 Para aprovisionar otras entidades de Service Bus, cree una instancia del objeto `NamespaceManager` a partir del SDK. Puede usar el cmdlet [Get-AzureSBAuthorizationRule][] para recuperar una regla de autorización que se usa para proporcionar una cadena de conexión. En este ejemplo se almacena una referencia a la instancia `NamespaceManager` de la variable `$NamespaceManager`. Más adelante el script usa `$NamespaceManager` para aprovisionar otras entidades.
 
-	``` powershell
-	$sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
-	# Create the NamespaceManager object to create the Event Hub
-	Write-Output "Creating a NamespaceManager object for the [$Namespace] namespace..."
-	$NamespaceManager = [Microsoft.ServiceBus.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
-	Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
-	```
+    ``` powershell
+    $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
+    # Create the NamespaceManager object to create the Event Hub
+    Write-Output "Creating a NamespaceManager object for the [$Namespace] namespace..."
+    $NamespaceManager = [Microsoft.ServiceBus.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
+    Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
+    ```
 
-## Aprovisionamiento de otras entidades de Service Bus
+## <a name="provisioning-other-service-bus-entities"></a>Aprovisionamiento de otras entidades de Service Bus
 
-Para aprovisionar otras entidades, como colas, temas y Event Hubs, podemos usar la [API de .NET para Service Bus][]. Al final de este artículo se hace referencia a ejemplos más detallados, incluidas otras entidades.
+Para aprovisionar otras entidades, como colas, temas y centros de eventos, puede utilizar la [API .NET para Service Bus][]. Al final de este artículo se hace referencia a ejemplos más detallados, incluidas otras entidades.
 
-### Creación de un Centro de eventos
+### <a name="create-an-event-hub"></a>Creación de un Centro de eventos
 
-En esta parte del script se crean cuatro variables locales adicionales. Estas variables se usan para crear una instancia de un objeto `EventHubDescription`. El script hace lo siguiente:
+En esta parte del script se crean cuatro variables locales adicionales. Estas variables se usan para crear una instancia de un objeto `EventHubDescription` . El script hace lo siguiente:
 
 1. Mediante el objeto `NamespaceManager`, compruebe si existe el centro de eventos que se identifica mediante `$Path`.
 2. Si no existe, creamos un `EventHubDescription` y lo pasamos al método `CreateEventHubIfNotExists` de la clase `NamespaceManager`.
 3. Cuando sepamos que el centro de eventos está disponible, cree un grupo de consumidores mediante `ConsumerGroupDescription` y `NamespaceManager`.
 
-	``` powershell
+    ``` powershell
 
-	$Path  = "MyEventHub"
-	$PartitionCount = 12
-	$MessageRetentionInDays = 7
-	$UserMetadata = $null
-	$ConsumerGroupName = "MyConsumerGroup"
+    $Path  = "MyEventHub"
+    $PartitionCount = 12
+    $MessageRetentionInDays = 7
+    $UserMetadata = $null
+    $ConsumerGroupName = "MyConsumerGroup"
 
-	# Check if the Event Hub already exists
-	if ($NamespaceManager.EventHubExists($Path))
-	{
-	    Write-Output "The [$Path] event hub already exists in the [$Namespace] namespace."  
-	}
-	else
-	{
-	    Write-Output "Creating the [$Path] event hub in the [$Namespace] namespace: PartitionCount=[$PartitionCount] MessageRetentionInDays=[$MessageRetentionInDays]..."
-	    $EventHubDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.EventHubDescription -ArgumentList $Path
-	    $EventHubDescription.PartitionCount = $PartitionCount
-	    $EventHubDescription.MessageRetentionInDays = $MessageRetentionInDays
-	    $EventHubDescription.UserMetadata = $UserMetadata
-	    $EventHubDescription.Path = $Path
-	    $NamespaceManager.CreateEventHubIfNotExists($EventHubDescription);
-	    Write-Output "The [$Path] event hub in the [$Namespace] namespace has been successfully created."
-	}
+    # Check if the Event Hub already exists
+    if ($NamespaceManager.EventHubExists($Path))
+    {
+        Write-Output "The [$Path] event hub already exists in the [$Namespace] namespace."  
+    }
+    else
+    {
+        Write-Output "Creating the [$Path] event hub in the [$Namespace] namespace: PartitionCount=[$PartitionCount] MessageRetentionInDays=[$MessageRetentionInDays]..."
+        $EventHubDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.EventHubDescription -ArgumentList $Path
+        $EventHubDescription.PartitionCount = $PartitionCount
+        $EventHubDescription.MessageRetentionInDays = $MessageRetentionInDays
+        $EventHubDescription.UserMetadata = $UserMetadata
+        $EventHubDescription.Path = $Path
+        $NamespaceManager.CreateEventHubIfNotExists($EventHubDescription);
+        Write-Output "The [$Path] event hub in the [$Namespace] namespace has been successfully created."
+    }
 
-	# Create the consumer group if it doesn't exist
-	Write-Output "Creating the consumer group [$ConsumerGroupName] for the [$Path] event hub..."
-	$ConsumerGroupDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.ConsumerGroupDescription -ArgumentList $Path, $ConsumerGroupName
-	$ConsumerGroupDescription.UserMetadata = $ConsumerGroupUserMetadata
-	$NamespaceManager.CreateConsumerGroupIfNotExists($ConsumerGroupDescription);
-	Write-Output "The consumer group [$ConsumerGroupName] for the [$Path] event hub has been successfully created."
-	```
+    # Create the consumer group if it doesn't exist
+    Write-Output "Creating the consumer group [$ConsumerGroupName] for the [$Path] event hub..."
+    $ConsumerGroupDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.ConsumerGroupDescription -ArgumentList $Path, $ConsumerGroupName
+    $ConsumerGroupDescription.UserMetadata = $ConsumerGroupUserMetadata
+    $NamespaceManager.CreateConsumerGroupIfNotExists($ConsumerGroupDescription);
+    Write-Output "The consumer group [$ConsumerGroupName] for the [$Path] event hub has been successfully created."
+    ```
 
-### Creación de una cola
+### <a name="create-a-queue"></a>Creación de una cola
 
 Para crear una cola o un tema, realice una comprobación del espacio de nombres como en la sección anterior.
 
-	if ($NamespaceManager.QueueExists($Path))
-	{
-	    Write-Output "The [$Path] queue already exists in the [$Namespace] namespace."
-	}
-	else
-	{
-	    Write-Output "Creating the [$Path] queue in the [$Namespace] namespace..."
-	    $QueueDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.QueueDescription -ArgumentList $Path
-	    if ($AutoDeleteOnIdle -ge 5)
-	    {
-	        $QueueDescription.AutoDeleteOnIdle = [System.TimeSpan]::FromMinutes($AutoDeleteOnIdle)
-	    }
-	    if ($DefaultMessageTimeToLive -gt 0)
-	    {
-	        $QueueDescription.DefaultMessageTimeToLive = [System.TimeSpan]::FromMinutes($DefaultMessageTimeToLive)
-	    }
-	    if ($DuplicateDetectionHistoryTimeWindow -gt 0)
-	    {
-	        $QueueDescription.DuplicateDetectionHistoryTimeWindow = [System.TimeSpan]::FromMinutes($DuplicateDetectionHistoryTimeWindow)
-	    }
-	    $QueueDescription.EnableBatchedOperations = $EnableBatchedOperations
-	    $QueueDescription.EnableDeadLetteringOnMessageExpiration = $EnableDeadLetteringOnMessageExpiration
-	    $QueueDescription.EnableExpress = $EnableExpress
-	    $QueueDescription.EnablePartitioning = $EnablePartitioning
-	    $QueueDescription.ForwardDeadLetteredMessagesTo = $ForwardDeadLetteredMessagesTo
-	    $QueueDescription.ForwardTo = $ForwardTo
-	    $QueueDescription.IsAnonymousAccessible = $IsAnonymousAccessible
-	    if ($LockDuration -gt 0)
-	    {
-	        $QueueDescription.LockDuration = [System.TimeSpan]::FromSeconds($LockDuration)
-	    }
-	    $QueueDescription.MaxDeliveryCount = $MaxDeliveryCount
-	    $QueueDescription.MaxSizeInMegabytes = $MaxSizeInMegabytes
-	    $QueueDescription.RequiresDuplicateDetection = $RequiresDuplicateDetection
-	    $QueueDescription.RequiresSession = $RequiresSession
-	    if ($EnablePartitioning)
-	    {
-	        $QueueDescription.SupportOrdering = $False
-	    }
-	    else
-	    {
-	        $QueueDescription.SupportOrdering = $SupportOrdering
-	    }
-	    $QueueDescription.UserMetadata = $UserMetadata
-	    $NamespaceManager.CreateQueue($QueueDescription);
-	}
+    if ($NamespaceManager.QueueExists($Path))
+    {
+        Write-Output "The [$Path] queue already exists in the [$Namespace] namespace."
+    }
+    else
+    {
+        Write-Output "Creating the [$Path] queue in the [$Namespace] namespace..."
+        $QueueDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.QueueDescription -ArgumentList $Path
+        if ($AutoDeleteOnIdle -ge 5)
+        {
+            $QueueDescription.AutoDeleteOnIdle = [System.TimeSpan]::FromMinutes($AutoDeleteOnIdle)
+        }
+        if ($DefaultMessageTimeToLive -gt 0)
+        {
+            $QueueDescription.DefaultMessageTimeToLive = [System.TimeSpan]::FromMinutes($DefaultMessageTimeToLive)
+        }
+        if ($DuplicateDetectionHistoryTimeWindow -gt 0)
+        {
+            $QueueDescription.DuplicateDetectionHistoryTimeWindow = [System.TimeSpan]::FromMinutes($DuplicateDetectionHistoryTimeWindow)
+        }
+        $QueueDescription.EnableBatchedOperations = $EnableBatchedOperations
+        $QueueDescription.EnableDeadLetteringOnMessageExpiration = $EnableDeadLetteringOnMessageExpiration
+        $QueueDescription.EnableExpress = $EnableExpress
+        $QueueDescription.EnablePartitioning = $EnablePartitioning
+        $QueueDescription.ForwardDeadLetteredMessagesTo = $ForwardDeadLetteredMessagesTo
+        $QueueDescription.ForwardTo = $ForwardTo
+        $QueueDescription.IsAnonymousAccessible = $IsAnonymousAccessible
+        if ($LockDuration -gt 0)
+        {
+            $QueueDescription.LockDuration = [System.TimeSpan]::FromSeconds($LockDuration)
+        }
+        $QueueDescription.MaxDeliveryCount = $MaxDeliveryCount
+        $QueueDescription.MaxSizeInMegabytes = $MaxSizeInMegabytes
+        $QueueDescription.RequiresDuplicateDetection = $RequiresDuplicateDetection
+        $QueueDescription.RequiresSession = $RequiresSession
+        if ($EnablePartitioning)
+        {
+            $QueueDescription.SupportOrdering = $False
+        }
+        else
+        {
+            $QueueDescription.SupportOrdering = $SupportOrdering
+        }
+        $QueueDescription.UserMetadata = $UserMetadata
+        $NamespaceManager.CreateQueue($QueueDescription);
+    }
 
-### Creación de un tema
+### <a name="create-a-topic"></a>Creación de un tema
 
-	if ($NamespaceManager.TopicExists($Path))
-	{
-	    Write-Output "The [$Path] topic already exists in the [$Namespace] namespace."
-	}
-	else
-	{
-	    Write-Output "Creating the [$Path] topic in the [$Namespace] namespace..."
-	    $TopicDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.TopicDescription -ArgumentList $Path
-	    if ($AutoDeleteOnIdle -ge 5)
-	    {
-	        $TopicDescription.AutoDeleteOnIdle = [System.TimeSpan]::FromMinutes($AutoDeleteOnIdle)
-	    }
-	    if ($DefaultMessageTimeToLive -gt 0)
-	    {
-	        $TopicDescription.DefaultMessageTimeToLive = [System.TimeSpan]::FromMinutes($DefaultMessageTimeToLive)
-	    }
-	    if ($DuplicateDetectionHistoryTimeWindow -gt 0)
-	    {
-	        $TopicDescription.DuplicateDetectionHistoryTimeWindow = [System.TimeSpan]::FromMinutes($DuplicateDetectionHistoryTimeWindow)
-	    }
-	    $TopicDescription.EnableBatchedOperations = $EnableBatchedOperations
-	    $TopicDescription.EnableExpress = $EnableExpress
-	    $TopicDescription.EnableFilteringMessagesBeforePublishing = $EnableFilteringMessagesBeforePublishing
-	    $TopicDescription.EnablePartitioning = $EnablePartitioning
-	    $TopicDescription.IsAnonymousAccessible = $IsAnonymousAccessible
-	    $TopicDescription.MaxSizeInMegabytes = $MaxSizeInMegabytes
-	    $TopicDescription.RequiresDuplicateDetection = $RequiresDuplicateDetection
-	    if ($EnablePartitioning)
-	    {
-	        $TopicDescription.SupportOrdering = $False
-	    }
-	    else
-	    {
-	        $TopicDescription.SupportOrdering = $SupportOrdering
-	    }
-	    $TopicDescription.UserMetadata = $UserMetadata
-	    $NamespaceManager.CreateTopic($TopicDescription);
-	}
+    if ($NamespaceManager.TopicExists($Path))
+    {
+        Write-Output "The [$Path] topic already exists in the [$Namespace] namespace."
+    }
+    else
+    {
+        Write-Output "Creating the [$Path] topic in the [$Namespace] namespace..."
+        $TopicDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.TopicDescription -ArgumentList $Path
+        if ($AutoDeleteOnIdle -ge 5)
+        {
+            $TopicDescription.AutoDeleteOnIdle = [System.TimeSpan]::FromMinutes($AutoDeleteOnIdle)
+        }
+        if ($DefaultMessageTimeToLive -gt 0)
+        {
+            $TopicDescription.DefaultMessageTimeToLive = [System.TimeSpan]::FromMinutes($DefaultMessageTimeToLive)
+        }
+        if ($DuplicateDetectionHistoryTimeWindow -gt 0)
+        {
+            $TopicDescription.DuplicateDetectionHistoryTimeWindow = [System.TimeSpan]::FromMinutes($DuplicateDetectionHistoryTimeWindow)
+        }
+        $TopicDescription.EnableBatchedOperations = $EnableBatchedOperations
+        $TopicDescription.EnableExpress = $EnableExpress
+        $TopicDescription.EnableFilteringMessagesBeforePublishing = $EnableFilteringMessagesBeforePublishing
+        $TopicDescription.EnablePartitioning = $EnablePartitioning
+        $TopicDescription.IsAnonymousAccessible = $IsAnonymousAccessible
+        $TopicDescription.MaxSizeInMegabytes = $MaxSizeInMegabytes
+        $TopicDescription.RequiresDuplicateDetection = $RequiresDuplicateDetection
+        if ($EnablePartitioning)
+        {
+            $TopicDescription.SupportOrdering = $False
+        }
+        else
+        {
+            $TopicDescription.SupportOrdering = $SupportOrdering
+        }
+        $TopicDescription.UserMetadata = $UserMetadata
+        $NamespaceManager.CreateTopic($TopicDescription);
+    }
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo se ofrece una descripción básica para el aprovisionamiento de entidades del Bus de servicio mediante PowerShell. Aunque hay un número limitado de cmdlets de PowerShell disponibles para la administración de entidades de mensajería de Service Bus, al hacer referencia al ensamblado Microsoft.ServiceBus.dll, prácticamente cualquier operación que pueda realizar con las bibliotecas de cliente .NET se podrán realizar también en un script de PowerShell.
+Este artículo proporciona un flujo de trabajo básico para el aprovisionamiento de entidades de Service Bus con PowerShell. Aunque hay un número limitado de cmdlets de PowerShell disponibles para la administración de entidades de mensajería de Service Bus, al hacer referencia al ensamblado Microsoft.ServiceBus.dll, prácticamente cualquier operación que pueda realizar con las bibliotecas de cliente .NET se podrán realizar también en un script de PowerShell.
 
 Hay ejemplos más detallados disponibles en estas publicaciones de blog:
 
-- [How to create Service Bus queues, topics and subscriptions using a PowerShell script](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx) (Cómo crear colas, temas y suscripciones de Service Bus con un script de PowerShell)
-- [How to create a Service Bus Namespace and an Event Hub using a PowerShell script](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx) (Cómo crear un espacio de nombres de Service Bus y un Centro de eventos mediante un script de PowerShell)
+- [Cómo crear colas, temas y suscripciones de Service Bus con un script de PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+- [Cómo crear un espacio de nombres de Service Bus y un centro de eventos mediante un script de PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
 Además, puede descargar algunos scripts listos para usar:
 
@@ -269,11 +270,15 @@ Además, puede descargar algunos scripts listos para usar:
 [opciones de compra]: http://azure.microsoft.com/pricing/purchase-options/
 [ofertas para miembros]: http://azure.microsoft.com/pricing/member-offers/
 [cuenta gratuita]: http://azure.microsoft.com/pricing/free-trial/
-[paquete NuGet del Service Bus]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
+[paquete NuGet del Bus de servicio]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[API de .NET para Service Bus]: https://msdn.microsoft.com/es-ES/library/azure/mt419900.aspx
+[API .NET de Service Bus]: https://msdn.microsoft.com/en-us/library/azure/mt419900.aspx
 [Instalación y configuración de Azure PowerShell]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

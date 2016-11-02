@@ -16,24 +16,26 @@
    ms.date="09/28/2016"
    ms.author="oanapl"/>
 
-# Introducción a la supervisión del mantenimiento de Service Fabric
+
+# <a name="introduction-to-service-fabric-health-monitoring"></a>Introducción a la supervisión del mantenimiento de Service Fabric
 Azure Service Fabric presenta un modelo de mantenimiento que proporciona informes y datos de evaluación del mantenimiento completos, flexibles y extensibles. El modelo permite la supervisión casi en tiempo real del estado tanto del clúster como de los servicios que se ejecutan en él. Puede obtener con facilidad información sobre el mantenimiento, y corregir posibles problemas antes de que se propaguen y causen interrupciones masivas. En el modelo típico, los servicios envían informes basados en sus vistas locales, y dicha información se agrega para proporcionar una vista general del nivel del clúster.
 
 Los componentes de Service Fabric usan este modelo de mantenimiento avanzado para informar de su estado actual. Este mismo mecanismo puede usar para informar del mantenimiento de las aplicaciones. Si invierte en informes sobre el mantenimiento de alta calidad, que capturan sus condiciones personalizadas, puede detectar y corregir problemas de la aplicación en ejecución mucho más fácilmente.
 
 > [AZURE.NOTE] El subsistema de mantenimiento se inició para cubrir la necesidad de actualizaciones supervisadas. Service Fabric proporciona actualizaciones supervisadas de clúster y de aplicación, que garantizan una disponibilidad completa, sin tiempo de inactividad y con una intervención del usuario mínima o nula. Para lograr estos objetivos, la actualización comprueba el mantenimiento según las directivas de actualización configuradas y solo permite que la actualización continúe cuando dicho mantenimiento respeta los umbrales deseados. De lo contrario, la actualización se revierte automáticamente o se pausa para ofrecer a los administradores una oportunidad de solucionar los problemas. Para más información sobre la actualización de aplicaciones, consulte [este artículo](service-fabric-application-upgrade.md).
 
-## Almacén de estado
+## <a name="health-store"></a>Almacén de estado
 El Almacén de estado conserva la información relacionada con el mantenimiento de las entidades del clúster, con el fin de facilitar su recuperación y evaluación. Se implementa como un servicio con estado persistente de Service Fabric para garantizar alta disponibilidad y escalabilidad. El Almacén de estado forma parte de la aplicación **fabric:/System** y está disponible cuando el clúster entra en funcionamiento.
 
-## Jerarquía y entidades de mantenimiento
+## <a name="health-entities-and-hierarchy"></a>Jerarquía y entidades de mantenimiento
 Las entidades de mantenimiento se organizan en una jerarquía lógica que captura las interacciones y dependencias entre entidades diferentes. El Almacén de estado crea automáticamente tanto las entidades como la jerarquía en función de los informes que recibe de los componentes de Service Fabric.
 
-Las entidades de mantenimiento son un reflejo las entidades de Service Fabric (por ejemplo, la **entidad de la aplicación de mantenimiento** coincide con una instancia de aplicación implementada en el clúster, mientras que la **entidad del nodo de mantenimiento** coincide con un nodo de clúster de Service Fabric). La jerarquía de mantenimiento captura las interacciones de las entidades del sistema y es la base para la evaluación avanzada del mantenimiento. Para obtener información sobre los conceptos clave de Service Fabric, consulte [Introducción técnica a Service Fabric](service-fabric-technical-overview.md). Para más información sobre la aplicación, consulte [Modelar una aplicación en Service Fabric](service-fabric-application-model.md).
+Las entidades de mantenimiento son un reflejo las entidades de Service Fabric (por ejemplo, la **entidad de la aplicación de mantenimiento** coincide con una instancia de aplicación implementada en el clúster, mientras que la **entidad del nodo de mantenimiento** coincide con un nodo de clúster de Service Fabric). La jerarquía de mantenimiento captura las interacciones de las entidades del sistema y es la base para la evaluación avanzada del mantenimiento. Para obtener información sobre los conceptos clave de Service Fabric, consulte [Información general sobre la terminología de Service Fabric](service-fabric-technical-overview.md). Para obtener más información sobre la aplicación, consulte [Modelar una aplicación en Service Fabric](service-fabric-application-model.md).
 
 Las entidades de mantenimiento y la jerarquía permiten depurar, supervisar y realizar informes tanto del clúster como de las aplicaciones. El modelo de mantenimiento proporciona una representación *pormenorizada* y precisa del mantenimiento de las numerosas piezas móviles del clúster.
 
-![Entidades de mantenimiento.][1] Las entidades de mantenimiento, organizadas en una jerarquía basada en relaciones entre elementos primarios y secundarios.
+![Entidades de mantenimiento.][1]
+ Las entidades de mantenimiento, organizadas en una jerarquía basada en relaciones entre elementos primarios y secundarios.
 
 [1]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png
 
@@ -59,32 +61,34 @@ La granularidad del modelo de mantenimiento facilita la detección y corrección
 
 La jerarquía del mantenimiento se compone de relaciones entre elementos primarios y secundarios. Los clústeres se componen de nodos y aplicaciones. Las aplicaciones tienen servicios y aplicaciones implementadas. Las aplicaciones implementadas han implementado paquetes de servicio. Los servicios tienen particiones y cada partición tiene una o más réplicas. Hay una relación especial entre los nodos y las entidades implementadas. Si un nodo es incorrecto, tal como lo notifica su componente del sistema de autoridad (servicio Administrador de conmutación por error), afecta a las aplicaciones implementadas, a los paquetes de servicios y a las réplicas implementadas en él.
 
-La jerarquía de estado representa el estado más reciente del sistema basándose en los informes de mantenimiento más recientes, que es información casi en tiempo real. Los guardianes internos y externos pueden informar de las mismas entidades según la lógica específica de la aplicación o las condiciones supervisadas personalizadas. Los informes de usuario coexisten con los informes del sistema.
+La jerarquía de estado representa el estado más reciente del sistema basándose en los informes de mantenimiento más recientes, que es información casi en tiempo real.
+Los guardianes internos y externos pueden informar de las mismas entidades según la lógica específica de la aplicación o las condiciones supervisadas personalizadas. Los informes de usuario coexisten con los informes del sistema.
 
 Invierta tiempo en cómo informar y responder al mantenimiento durante el diseño de un servicio en la nube grande para facilitar la depuración, la supervisión y el manejo del servicio.
 
-## Estados de mantenimiento
+## <a name="health-states"></a>Estados de mantenimiento
 Service Fabric usa tres estados de mantenimiento para describir si una entidad es correcta o no: Correcto, Advertencia y Error. Todos los informes que se envíen al Almacén de estado deben especificar uno de estos estados. El resultado de la evaluación de estado es uno de estos estados.
 
 Los posibles [estados de mantenimiento](https://msdn.microsoft.com/library/azure/system.fabric.health.healthstate) son:
 
-- **OK** (Correcto). La entidad es correcta. No hay ningún problema conocido notificado en ella o en sus elementos secundarios (en los casos aplicables).
+- **OK**(Correcto). La entidad es correcta. No hay ningún problema conocido notificado en ella o en sus elementos secundarios (en los casos aplicables).
 
-- **Warning** (Advertencia). La entidad tiene algunos problemas pero no es aún incorrecta (por ejemplo, hay retrasos pero todavía no provocan problemas funcionales). En algunos casos, la condición de advertencia puede corregirse por sí sola sin ninguna intervención especial y resulta útil para proporcionar visibilidad en lo que está ocurriendo. En otros casos, la condición de advertencia puede dar lugar a un problema grave si no interviene el usuario.
+- **Warning**(Advertencia). La entidad tiene algunos problemas pero no es aún incorrecta (por ejemplo, hay retrasos pero todavía no provocan problemas funcionales). En algunos casos, la condición de advertencia puede corregirse por sí sola sin ninguna intervención especial y resulta útil para proporcionar visibilidad en lo que está ocurriendo. En otros casos, la condición de advertencia puede dar lugar a un problema grave si no interviene el usuario.
 
 - **Error**. La entidad es incorrecta. Se debe realizar una acción para corregir el estado de la entidad, ya que no puede funcionar correctamente.
 
-- **Unknown** (Desconocido). La entidad no existe en el Almacén de estado. Este resultado puede obtenerse a partir de las consultas distribuidas que combinan los resultados de varios componentes. Por ejemplo, la consulta sobre obtener lista de nodos va a **FailoverManager** y **HealthManager**, la consulta sobre obtener lista de aplicaciones va a **ClusterManager** y **HealthManager**. Estas consultas combinan los resultados de varios componentes del sistema. Si otro componente del sistema devuelve una entidad que no ha alcanzado el Almacén de estado o que se ha limpiado de este, el resultado combinado tiene el estado de mantenimiento desconocido.
+- **Unknown**(Desconocido). La entidad no existe en el Almacén de estado. Este resultado puede obtenerse a partir de las consultas distribuidas que combinan los resultados de varios componentes. Por ejemplo, la consulta sobre obtener lista de nodos va a **FailoverManager** y **HealthManager**, la consulta sobre obtener lista de aplicaciones va a **ClusterManager** y **HealthManager**. Estas consultas combinan los resultados de varios componentes del sistema. Si otro componente del sistema devuelve una entidad que no ha alcanzado el Almacén de estado o que se ha limpiado de este, el resultado combinado tiene el estado de mantenimiento desconocido.
 
-## Directivas de mantenimiento
+## <a name="health-policies"></a>Directivas de mantenimiento
 El Almacén de estado aplica directivas de mantenimiento para determinar si una entidad es correcta en función de sus informes y sus elementos secundarios.
 
 > [AZURE.NOTE] Las directivas de mantenimiento se pueden especificar en el manifiesto de clúster (para la evaluación del mantenimiento del clúster y el nodo) o en el manifiesto de aplicación (para la evaluación de la aplicación y cualquiera de sus elementos secundarios). Las solicitudes de evaluación del mantenimiento también pueden pasar directivas de evaluación de mantenimiento personalizadas, que solo se usan para esta evaluación.
 
 De manera predeterminada, Service Fabric aplica reglas estrictas (todo debe estar correcto) a la relación jerárquica entre elementos primarios y secundarios. Si uno solo de los elementos secundarios tiene un evento incorrecto, el elemento primario se considera incorrecto.
 
-### Directiva de mantenimiento de clúster
-La [directiva de mantenimiento de clúster](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.aspx) se usa para evaluar el estado de mantenimiento del clúster y los estados de mantenimiento del nodo. La directiva se puede definir en el manifiesto de clúster. Si no está presente, se utiliza la directiva predeterminada (cero errores tolerados). La directiva de mantenimiento de clúster contiene:
+### <a name="cluster-health-policy"></a>Directiva de mantenimiento de clúster
+La [directiva de mantenimiento de clúster](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.aspx) se usa para evaluar el estado de mantenimiento del clúster y los estados de mantenimiento del nodo. La directiva se puede definir en el manifiesto de clúster. Si no está presente, se utiliza la directiva predeterminada (cero errores tolerados).
+La directiva de mantenimiento de clúster contiene:
 
 - [ConsiderWarningAsError](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.considerwarningaserror.aspx). Especifica si los informes de mantenimiento de advertencia se tratan como errores durante la evaluación del mantenimiento. Valor predeterminado: false.
 
@@ -92,7 +96,8 @@ La [directiva de mantenimiento de clúster](https://msdn.microsoft.com/library/a
 
 - [MaxPercentUnhealthyNodes](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes.aspx). Especifica el porcentaje máximo tolerado de nodos que pueden ser incorrectas antes de que el clúster se considere erróneo. En los clústeres grandes, siempre hay nodos inactivos o inoperativos debido a reparaciones, por lo que este porcentaje debe configurarse para tolerar ese hecho.
 
-- [ApplicationTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap.aspx). La asignación de directiva de mantenimiento de tipo de aplicación se puede usar durante la evaluación de mantenimiento del clúster para describir tipos de aplicación especiales. De forma predeterminada, todas las aplicaciones se colocan en un grupo y se evalúan con MaxPercentUnhealthyApplications. Si algunos tipos de aplicaciones deben tratarse de manera diferente, es posible sacarlos fuera del grupo global. Entonces, se evalúan con los porcentajes asociados con su nombre de tipo de aplicación en el mapa. Por ejemplo, en un clúster hay miles de aplicaciones de distintos tipos y algunas instancias de la aplicación de control de un tipo especial de aplicación. Las aplicaciones de control nunca deben estar en estado de error. Puede especificar un MaxPercentUnhealthyApplications global al 20 % para tolerar algunos errores pero para el tipo de aplicación "ControlApplicationType", establezca MaxPercentUnhealthyApplications en 0. Así, si alguna de las muchas aplicaciones se encuentra en un estado incorrecto, pero por debajo del porcentaje de error global, el clúster se evaluará con estado de Warning (Advertencia). Un estado de advertencia no afecta a la actualización del clúster ni a ninguna supervisión desencadenada por el estado de mantenimiento de Error. Incluso una única aplicación de control con error hará que el clúster sea incorrecto, lo que desencadena la reversión o pone en pausa la actualización del clúster, en función de la configuración de actualización. En el caso de los tipos de aplicación que se definen en la asignación, todas las instancias de la aplicación se sacan del grupo global de aplicaciones. Se evalúan en función del número total de aplicaciones del tipo de aplicación, mediante el MaxPercentUnhealthyApplications específico de la asignación. El resto de las aplicaciones permanecen en el grupo global y se evalúan con MaxPercentUnhealthyApplications.
+- [ApplicationTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap.aspx). La asignación de directiva de mantenimiento de tipo de aplicación se puede usar durante la evaluación de mantenimiento del clúster para describir tipos de aplicación especiales. De forma predeterminada, todas las aplicaciones se colocan en un grupo y se evalúan con MaxPercentUnhealthyApplications. Si algunos tipos de aplicaciones deben tratarse de manera diferente, es posible sacarlos fuera del grupo global. Entonces, se evalúan con los porcentajes asociados con su nombre de tipo de aplicación en el mapa. Por ejemplo, en un clúster hay miles de aplicaciones de distintos tipos y algunas instancias de la aplicación de control de un tipo especial de aplicación. Las aplicaciones de control nunca deben estar en estado de error. Puede especificar un MaxPercentUnhealthyApplications global al 20 % para tolerar algunos errores pero para el tipo de aplicación "ControlApplicationType", establezca MaxPercentUnhealthyApplications en 0. Así, si alguna de las muchas aplicaciones se encuentra en un estado incorrecto, pero por debajo del porcentaje de error global, el clúster se evaluará con estado de Warning (Advertencia). Un estado de advertencia no afecta a la actualización del clúster ni a ninguna supervisión desencadenada por el estado de mantenimiento de Error. Incluso una única aplicación de control con error hará que el clúster sea incorrecto, lo que desencadena la reversión o pone en pausa la actualización del clúster, en función de la configuración de actualización.
+En el caso de los tipos de aplicación que se definen en la asignación, todas las instancias de la aplicación se sacan del grupo global de aplicaciones. Se evalúan en función del número total de aplicaciones del tipo de aplicación, mediante el MaxPercentUnhealthyApplications específico de la asignación. El resto de las aplicaciones permanecen en el grupo global y se evalúan con MaxPercentUnhealthyApplications.
 
 El ejemplo siguiente es un extracto de un manifiesto de clúster. Para definir entradas en la asignación de tipos de aplicación, anteponga "ApplicationTypeMaxPercentUnhealthyApplications-" al nombre de parámetro, seguido del nombre del tipo de aplicación.
 
@@ -107,8 +112,9 @@ El ejemplo siguiente es un extracto de un manifiesto de clúster. Para definir e
 </FabricSettings>
 ```
 
-### Directiva de mantenimiento de aplicación
-La [directiva de mantenimiento de aplicación](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.aspx) describe cómo se realiza la evaluación de la agregación de eventos y estados secundarios en las aplicaciones y sus elementos secundarios. Se puede definir en el manifiesto de la aplicación, **ApplicationManifest.xml**, del paquete de aplicación. Si no se especifican directivas, Service Fabric asume que la entidad es incorrecta si tiene un informe de mantenimiento o un elemento secundario en los estados de mantenimiento Advertencia o Error. Las directivas configurables son:
+### <a name="application-health-policy"></a>Directiva de mantenimiento de aplicación
+La [directiva de mantenimiento de aplicación](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.aspx) describe cómo se realiza la evaluación de la agregación de eventos y estados secundarios en las aplicaciones y sus elementos secundarios. Se puede definir en el manifiesto de la aplicación, **ApplicationManifest.xml**, del paquete de aplicación. Si no se especifican directivas, Service Fabric asume que la entidad es incorrecta si tiene un informe de mantenimiento o un elemento secundario en los estados de mantenimiento Advertencia o Error.
+Las directivas configurables son:
 
 - [ConsiderWarningAsError](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.considerwarningaserror.aspx). Especifica si los informes de mantenimiento de advertencia se tratan como errores durante la evaluación del mantenimiento. Valor predeterminado: false.
 
@@ -118,7 +124,7 @@ La [directiva de mantenimiento de aplicación](https://msdn.microsoft.com/librar
 
 - [ServiceTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap.aspx). Proporciona un mapa de las directivas de mantenimiento de servicios por tipo de servicio. Estas directivas reemplazan a las directivas de mantenimiento del tipo de servicio predeterminadas en todos los tipos de servicio especificados. Por ejemplo, si una aplicación tiene un tipo de servicio de puerta de enlace sin estado y un tipo de servicio de motor con estado, puede configurar las directivas de mantenimiento para su evaluación de una manera diferente. Si especifica una directiva por tipo de servicio, podrá obtener un control más pormenorizado del mantenimiento del servicio.
 
-### Directiva de mantenimiento de tipo de servicio
+### <a name="service-type-health-policy"></a>Directiva de mantenimiento de tipo de servicio
 La [directiva de mantenimiento de tipo de servicio](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.aspx) especifica cómo evaluar y agregar los servicios y los elementos secundarios de servicios. La directiva contiene:
 
 - [MaxPercentUnhealthyPartitionsPerService](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice.aspx). Especifica el porcentaje máximo tolerado de particiones incorrectas antes de que un servicio se considere incorrecto. Porcentaje de predeterminado: cero.
@@ -149,10 +155,10 @@ El ejemplo siguiente es un extracto de un manifiesto de aplicación:
     </Policies>
 ```
 
-## Evaluación de estado
+## <a name="health-evaluation"></a>Evaluación de estado
 Los usuarios y servicios automatizados pueden evaluar el mantenimiento de cualquier entidad en cualquier momento. Para evaluar el mantenimiento de una entidad, el Almacén de estado agrega todos los informes de mantenimiento en la entidad y evalúa todos sus elementos secundarios (si procede). El algoritmo de agregación de mantenimiento usa las directivas de mantenimiento que especifican cómo se evalúan los informes de mantenimiento y cómo se agregan los estados de mantenimiento de los elementos secundarios (si procede).
 
-### Agregación de informes de mantenimiento
+### <a name="health-report-aggregation"></a>Agregación de informes de mantenimiento
 Una entidad puede tener varios informes de mantenimiento enviados por informadores diferentes (componentes del sistema o guardianes) en diferentes propiedades. La agregación usa las directivas de mantenimiento asociadas, en concreto, el miembro ConsiderWarningAsError de la aplicación o la directiva de mantenimiento del clúster. ConsiderWarningAsError especifica cómo evaluar las advertencias.
 
 El estado de mantenimiento agregado se desencadena por los *peores* informes de mantenimiento sobre la entidad. Si hay al menos un informe de mantenimiento que indica un error, el estado de mantenimiento agregado será Error.
@@ -171,7 +177,7 @@ Agregación del informe de mantenimiento con el informe de advertencia y Conside
 
 [3]: ./media/service-fabric-health-introduction/servicefabric-health-report-eval-warning.png
 
-### Agregación de mantenimiento de elementos secundarios
+### <a name="child-health-aggregation"></a>Agregación de mantenimiento de elementos secundarios
 El estado de mantenimiento agregado de una entidad refleja los estados de mantenimiento de los elementos secundarios (si procede). El algoritmo para la agregación de estados de mantenimiento de elementos secundarios usa las directivas de mantenimiento aplicables según el tipo de entidad.
 
 ![Agregación de mantenimiento de entidades secundarias.][4]
@@ -190,12 +196,12 @@ Después de que el Almacén de estado haya evaluado todos los elementos secundar
 
 - Si los elementos secundarios con estados de Error respetan el porcentaje máximo permitido de los elementos secundarios incorrectos, el estado de mantenimiento agregado es Advertencia.
 
-## Informes de mantenimiento
+## <a name="health-reporting"></a>Informes de mantenimiento
 Tanto los componentes del sistema como los guardianes internos o externos pueden generar informes de las entidades de Service Fabric. Los informadores realizan determinaciones *locales* del mantenimiento de las entidades supervisadas en función de las condiciones que supervisan. No necesitan examinar ningún estado global ni agregar datos. El comportamiento deseado es tener informadores sencillos y no organismos complejos que necesitan examinar muchos datos para inferir la información que van a enviar.
 
 Para enviar datos de mantenimiento al Almacén de estado, los informadores necesitan identificar la entidad afectada y crear un informe de mantenimiento. Luego, el informe se podrá enviar mediante la API con [FabricClient.HealthManager.ReportHealth](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient_members.aspx), mediante PowerShell o mediante REST.
 
-### Informes de mantenimiento
+### <a name="health-reports"></a>Informes de mantenimiento
 Los [informes de mantenimiento](https://msdn.microsoft.com/library/azure/system.fabric.health.healthreport.aspx) para cada una de las entidades del clúster contienen la siguiente información:
 
 - **SourceId**. Cadena que identifica de forma única el informador del evento de estado.
@@ -232,7 +238,7 @@ Los [informes de mantenimiento](https://msdn.microsoft.com/library/azure/system.
 
 Estos cuatro datos (SourceId, entity identifier, Property y HealthState) se requieren en todos los informes de mantenimiento. No se permite que la cadena de SourceId comience por el prefijo "**System.**", que se reserva para los informes del sistema. Para la misma entidad solo hay un informe del mismo origen y propiedad. Los informes del mismo origen y propiedad se invalidan entre sí, ya sea en el lado del cliente de mantenimiento (si se procesan por lotes) o en el lado del Almacén de estado. La sustitución se realiza basándose en los números de secuencia; los informes más recientes (con un número de secuencia mayor) reemplazan a los informes anteriores.
 
-### Eventos de estado
+### <a name="health-events"></a>Eventos de estado
 Internamente, el Almacén de estado conserva los [eventos de mantenimiento](https://msdn.microsoft.com/library/azure/system.fabric.health.healthevent.aspx), que contienen toda la información de los informes y metadatos adicionales. Los metadatos incluyen la hora en que el informe se dio al cliente de mantenimiento y la hora en que se modificó en el servidor. Los eventos de mantenimiento los devuelven las [consultas de mantenimiento](service-fabric-view-entities-aggregated-health.md#health-queries).
 
 Los metadatos agregados contienen:
@@ -253,8 +259,8 @@ Los campos de la transición de estado se pueden usar para alertas inteligentes 
 
 - Si una propiedad alterna entre Advertencia y Error, determine cuánto tiempo ha sido incorrecta (es decir, que no ha sido correcta). Por ejemplo, una alerta si la propiedad no ha sido correcta durante más de cinco minutos se pueden traducir como (HealthState != Ok y Now - LastOkTransitionTime > 5 minutes).
 
-## Ejemplo: informar y evaluar el mantenimiento de una aplicación
-En el ejemplo siguiente se envía un informe de mantenimiento a través de PowerShell en la aplicación **fabric:/WordCount** desde el **MyWatchdog** de origen. El informe de mantenimiento contiene información sobre la "disponibilidad" de la propiedad de mantenimiento en un estado de mantenimiento de error, con un valor de TimeToLive infinito. Luego consulta el mantenimiento de la aplicación, que devuelve los errores del estado de mantenimiento agregado y los eventos de mantenimiento notificados en la lista de eventos de mantenimiento.
+## <a name="example:-report-and-evaluate-application-health"></a>Ejemplo: informar y evaluar el mantenimiento de una aplicación
+En el ejemplo siguiente se envía un informe de mantenimiento a través de PowerShell en la aplicación **fabric:/WordCount**desde el **MyWatchdog** de origen. El informe de mantenimiento contiene información sobre la "disponibilidad" de la propiedad de mantenimiento en un estado de mantenimiento de error, con un valor de TimeToLive infinito. Luego consulta el mantenimiento de la aplicación, que devuelve los errores del estado de mantenimiento agregado y los eventos de mantenimiento notificados en la lista de eventos de mantenimiento.
 
 ```powershell
 PS C:\> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
@@ -321,12 +327,13 @@ HealthEvents                    :
                                   Transitions           : Ok->Error = 3/23/2016 3:27:56 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-## Uso del modelo de estado
-El modelo de mantenimiento permite escalar los servicios en la nube y la plataforma de Service Fabric subyacente, ya que las determinaciones de supervisión y mantenimiento se distribuyen entre los distintos monitores del clúster. Otros sistemas tienen un solo servicio centralizado en el nivel de clúster que analiza toda la información *potencialmente* útil que emiten los servicios. Este enfoque dificulta su escalabilidad. Tampoco les permite recopilar información muy específica para ayudar a identificar problemas reales y potenciales tan próximos a la causa raíz como sea posible.
+## <a name="health-model-usage"></a>Uso del modelo de estado
+El modelo de mantenimiento permite escalar los servicios en la nube y la plataforma de Service Fabric subyacente, ya que las determinaciones de supervisión y mantenimiento se distribuyen entre los distintos monitores del clúster.
+Otros sistemas tienen un solo servicio centralizado en el nivel de clúster que analiza toda la información *potencialmente* útil que emiten los servicios. Este enfoque dificulta su escalabilidad. Tampoco les permite recopilar información muy específica para ayudar a identificar problemas reales y potenciales tan próximos a la causa raíz como sea posible.
 
 El modelo de mantenimiento se usa mucho para la supervisión y el diagnóstico, para evaluar el mantenimiento de clústeres y aplicaciones, y para las actualizaciones supervisadas. Otros servicios usan los datos de mantenimiento para realizar reparaciones automáticas, generar el historial de mantenimiento de los clústeres y emitir alertas en determinadas condiciones.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Vista de los informes de estado de Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
 [Uso de informes de mantenimiento del sistema para solucionar problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
@@ -339,4 +346,8 @@ El modelo de mantenimiento se usa mucho para la supervisión y el diagnóstico, 
 
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

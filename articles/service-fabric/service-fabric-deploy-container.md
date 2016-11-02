@@ -16,7 +16,8 @@
    ms.date="09/25/2016"
    ms.author="msfussell"/>
 
-# Vista previa: Implementación de un contenedor en Service Fabric
+
+# <a name="preview:-deploy-a-container-to-service-fabric"></a>Vista previa: Implementación de un contenedor en Service Fabric
 
 >[AZURE.NOTE] Esta característica está en fase de vista previa para Linux y no está disponible actualmente en Windows Server. Estará también disponible como vista previa para Windows Server en la próxima versión de Service Fabric después de la disponibilidad general de Windows Server 2016 y se admitirá en versiones posteriores después de ella.
 
@@ -31,16 +32,16 @@ Service Fabric tiene varias funcionalidades de contenedor que le ayudarán a cre
 
 Echemos un vistazo a cada una de las funcionalidades por separado al empaquetar un servicio en contenedor que desea incluir en la aplicación.
 
-## Empaquetado de un contenedor
+## <a name="packaging-a-container"></a>Empaquetado de un contenedor
 
 Al empaquetar un contenedor, puede usar una plantilla de proyecto de Visual Studio o [crear el paquete de aplicación manualmente](#manually). Con Visual Studio, la estructura del paquete de aplicación y los archivos de manifiesto se crean mediante el Asistente para nuevos proyectos.
 
-## Uso de Visual Studio para empaquetar un ejecutable existente
+## <a name="using-visual-studio-to-package-an-existing-executable"></a>Uso de Visual Studio para empaquetar un ejecutable existente
 
->[AZURE.NOTE] En una versión futura del SDK de herramientas de Visual Studio, podrá agregar un contenedor a una aplicación de una manera parecida a la que se emplea hoy en día para agregar un archivo ejecutable de invitado. Consulte el tema [Implementación de un ejecutable invitado en Service Fabric](service-fabric-deploy-existing-app.md). Actualmente se debe hacer el empaquetado de forma manual como se describe a continuación.
+>[AZURE.NOTE] En una versión futura del SDK de herramientas de Visual Studio, podrá agregar un contenedor a una aplicación de una manera parecida a la que se emplea hoy en día para agregar un archivo ejecutable de invitado. Consulte el tema [Implementación de un ejecutable invitado en Service Fabric](service-fabric-deploy-existing-app.md) . Actualmente se debe hacer el empaquetado de forma manual como se describe a continuación.
 
 <a id="manually"></a>
-## Empaquetado e implementación manual de contenedor
+## <a name="manually-packaging-and-deploying-container"></a>Empaquetado e implementación manual de contenedor
 El proceso de empaquetado manual de un servicio en contenedor se basa en los siguientes pasos:
 
 1. Publicar los contenedores en el repositorio.
@@ -48,10 +49,10 @@ El proceso de empaquetado manual de un servicio en contenedor se basa en los sig
 3. Editar el archivo de manifiesto de servicio.
 4. Editar el archivo de manifiesto de aplicación.
 
-## Activación e implementación de la imagen de contenedor.
-En el [modelo de aplicación](service-fabric-application-model.md) de Service Fabric, un contenedor representa un host de la aplicación en el que se colocan varias réplicas de servicio. Para implementar y activar un contenedor, ponga el nombre de la imagen de contenedor en un elemento `ContainerHost` en el manifiesto de servicio.
+## <a name="container-image-deployment-and-activation."></a>Activación e implementación de la imagen de contenedor.
+En el [modelo de aplicación](service-fabric-application-model.md)de Service Fabric, un contenedor representa un host de la aplicación en el que se colocan varias réplicas de servicio. Para implementar y activar un contenedor, ponga el nombre de la imagen de contenedor en un elemento `ContainerHost` en el manifiesto de servicio.
 
-En el manifiesto de servicio, agregue un `ContainerHost` para el punto de entrada y establezca el `ImageName` para que sea el nombre de la imagen y el repositorio del contenedor. El siguiente manifiesto parcial muestra un ejemplo de cómo implementar el contenedor llamado *myimage:v1* desde un repositorio denominado *myrepo*
+En el manifiesto de servicio, agregue un `ContainerHost` para el punto de entrada y establezca el `ImageName` para que sea el nombre de la imagen y el repositorio del contenedor. El siguiente manifiesto parcial muestra un ejemplo de cómo implementar el contenedor llamado *myimage:v1* desde un repositorio denominado *myrepo*.
 
     <CodePackage Name="Code" Version="1.0">
         <EntryPoint>
@@ -62,16 +63,16 @@ En el manifiesto de servicio, agregue un `ContainerHost` para el punto de entrad
         </EntryPoint>
     </CodePackage>
 
-Puede proporcionar los comandos de entrada a la imagen de contenedor especificando el elemento opcional `Commands` con un conjunto de comandos delimitados por comas que se ejecutarán dentro del contenedor.
+Puede proporcionar los comandos de entrada a la imagen de contenedor especificando el elemento opcional `Commands` con un conjunto de comandos delimitados por comas que se ejecutarán dentro del contenedor. 
 
-## Regulador de recursos
+## <a name="resource-governance"></a>Regulador de recursos
 La regulación de recursos es una funcionalidad del contenedor que permite restringir los recursos que puede usar el contenedor en el host. El `ResourceGovernancePolicy`, especificado en el manifiesto de la aplicación, proporciona la capacidad de declarar los límites de recursos para un paquete de código de servicio. Se pueden establecer límites de recursos para:
 
 - Memoria
 - MemorySwap
 - CpuShares (peso relativo de CPU)
-- MemoryReservationInMB
-- BlkioWeight (peso relativo de BlockIO).
+- MemoryReservationInMB  
+- BlkioWeight (peso relativo de BlockIO). 
 
 >[AZURE.NOTE] En una versión futura, se incluirá compatibilidad para especificar límites de E/S de bloques como IOP, BPS de lectura/escritura y mucho más.
 
@@ -85,8 +86,8 @@ La regulación de recursos es una funcionalidad del contenedor que permite restr
     </ServiceManifestImport>
 
 
-## Autenticación de repositorio
-Para descargar un contenedor puede que tenga que proporcionar credenciales de inicio de sesión para el repositorio de contenedor. Las credenciales de inicio de sesión incluidas en el manifiesto de la *aplicación* se usan para especificar la información de inicio de sesión, o clave SSH, para descargar la imagen del contenedor desde el repositorio de imágenes. En el ejemplo siguiente se muestra una cuenta llamada *TestUser* junto con la contraseña no cifrada. Esto **no** es recomendable.
+## <a name="repository-authentication"></a>Autenticación de repositorio
+Para descargar un contenedor puede que tenga que proporcionar credenciales de inicio de sesión para el repositorio de contenedor. Las credenciales de inicio de sesión incluidas en el manifiesto de la *aplicación* se usan para especificar la información de inicio de sesión, o clave SSH, para descargar la imagen del contenedor desde el repositorio de imágenes.  En el ejemplo siguiente se muestra una cuenta llamada *TestUser* junto con la contraseña no cifrada. Esto **no** es recomendable.
 
 
     <ServiceManifestImport>
@@ -115,7 +116,7 @@ El ejemplo siguiente muestra una cuenta denominada *TestUser* con la contraseña
         </Policies>
     </ServiceManifestImport>
 
-## Asignación de puerto a host de contenedor
+## <a name="container-port-to-host-port-mapping"></a>Asignación de puerto a host de contenedor
 Puede configurar un puerto de host utilizado para comunicarse con el contenedor mediante la especificación de un `PortBinding` en el manifiesto de aplicación. El enlace de puerto asigna el puerto que el servicio está escuchando dentro del contenedor a un puerto en el host.
 
 
@@ -129,10 +130,10 @@ Puede configurar un puerto de host utilizado para comunicarse con el contenedor 
     </ServiceManifestImport>
 
 
-## Detección y comunicación entre contenedores
+## <a name="container-to-container-discovery-and-communication"></a>Detección y comunicación entre contenedores
 Mediante la directiva `PortBinding` se puede asignar un puerto de contenedor a un `Endpoint` en el manifiesto de servicio como se muestra en el ejemplo siguiente. El punto de conexión `Endpoint1` puede especificar un puerto fijo, por ejemplo, el puerto 80 o no especificar ningún puerto, en cuyo caso se elegirá un puerto aleatorio del intervalo de puertos de la aplicación de los clústeres.
 
-Para los contenedores de invitado, especificar un `Endpoint` como este en el manifiesto de servicio permite a Service Fabric publicar automáticamente este punto de conexión en el servicio de nombres para que los demás servicios que se ejecutan en el clúster puedan detectar este contenedor mediante las consultas REST del servicio de resolución.
+Para los contenedores de invitado, especificar un `Endpoint` como este en el manifiesto de servicio permite a Service Fabric publicar automáticamente este punto de conexión en el servicio de nombres para que los demás servicios que se ejecutan en el clúster puedan detectar este contenedor mediante las consultas REST del servicio de resolución. 
 
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
@@ -143,12 +144,12 @@ Para los contenedores de invitado, especificar un `Endpoint` como este en el man
         </Policies>
     </ServiceManifestImport>
 
-Al registrarse con el servicio de nombres, se puede establecer fácilmente la comunicación de contenedor a contenedor en el código dentro del contenedor mediante el [proxy inverso](service-fabric-reverseproxy.md). Solo tiene que proporcionar el puerto de escucha http de proxy inverso y el nombre de los servicios con los que desea comunicarse estableciendo estos como variables de entorno. Consulte la sección siguiente para averiguar cómo hacerlo.
+Al registrarse con el servicio de nombres, se puede establecer fácilmente la comunicación de contenedor a contenedor en el código dentro del contenedor mediante el [proxy inverso](service-fabric-reverseproxy.md). Solo tiene que proporcionar el puerto de escucha http de proxy inverso y el nombre de los servicios con los que desea comunicarse estableciendo estos como variables de entorno. Consulte la sección siguiente para averiguar cómo hacerlo.  
 
-## Configuración y establecimiento de variables de entorno
+## <a name="configure-and-set-environment-variables"></a>Configuración y establecimiento de variables de entorno
 Las variables de entorno se pueden especificar para cada paquete de código en el manifiesto de servicio para ambos servicios implementados en contenedores o como archivos ejecutables de procesos o de invitados. Estos valores de variables de entorno se pueden invalidar específicamente en el manifiesto de aplicación o se pueden especificar durante la implementación como parámetros de la aplicación.
 
-El siguiente fragmento de código XML del manifiesto de servicio muestra un ejemplo de cómo especificar variables de entorno para un paquete de código.
+El siguiente fragmento de código XML del manifiesto de servicio muestra un ejemplo de cómo especificar variables de entorno para un paquete de código. 
 
     <ServiceManifest Name="FrontendServicePackage" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Description>a guest executable service in a container</Description>
@@ -179,9 +180,9 @@ Estas variables de entorno se pueden invalidar en el nivel del manifiesto de apl
         </EnvironmentOverrides>
     </ServiceManifestImport>
 
-En el ejemplo anterior, se ha especificado un valor explícito para la variable de entorno `HttpGateway` (19000) mientras que el valor del parámetro `BackendServiceName` se ha establecido a través del parámetro de la aplicación `[BackendSvc]`. Esto le permite especificar el valor para `BackendServiceName` en el momento de implementar la aplicación sin necesidad de tener un valor fijo en el manifiesto.
+En el ejemplo anterior, se ha especificado un valor explícito para la variable de entorno `HttpGateway` (19000) mientras que el valor del parámetro `BackendServiceName` se ha establecido a través del parámetro de la aplicación `[BackendSvc]`. Esto le permite especificar el valor para `BackendServiceName`en el momento de implementar la aplicación sin necesidad de tener un valor fijo en el manifiesto. 
 
-## Ejemplos completos de manifiesto de servicio y de aplicación
+## <a name="complete-examples-for-application-and-service-manifest"></a>Ejemplos completos de manifiesto de servicio y de aplicación
 El siguiente es un manifiesto de aplicación de ejemplo que muestra las características del contenedor.
 
 
@@ -236,4 +237,8 @@ El siguiente es un ejemplo de manifiesto de servicio (especificado en el manifie
         </Resources>
     </ServiceManifest>
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

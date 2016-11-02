@@ -15,10 +15,14 @@
     ms.date="09/27/2016"
     ms.author="sethm" />
 
-# Cuotas de Centros de eventos
+
+# <a name="event-hubs-quotas"></a>Cuotas de Centros de eventos
 
 En esta sección se describen las cuotas y los límites básicos en Centros de eventos de Microsoft Azure.
 
-[AZURE.INCLUDE [service-bus-quotas-table](../../includes/event-hubs-limits.md)]
+[AZURE.INCLUDE [service-bus-quotas-table](../../includes/event-hubs-limits.md)] 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

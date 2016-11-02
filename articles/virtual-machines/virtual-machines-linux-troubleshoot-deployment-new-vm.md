@@ -17,13 +17,14 @@
   ms.date="09/09/2016"
   ms.author="cjiang"/>
 
-# Solución de problemas de la implementación de Resource Manager con la creación de una nueva máquina virtual de Linux en Azure
+
+# <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Solución de problemas de la implementación de Resource Manager con la creación de una nueva máquina virtual de Linux en Azure
 
 [AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Recopilación de registros de auditoría
+## <a name="collect-audit-logs"></a>Recopilación de registros de auditoría
 
 Para iniciar la solución de problemas, recopile los registros de auditoría para identificar el error asociado con el problema. Los vínculos siguientes contienen información detallada sobre el proceso que se debe seguir.
 
@@ -57,7 +58,7 @@ Para resolver estos errores, cargue el VHD original, disponible en el entorno lo
 
 Para resolver estos errores, elimine la imagen actual del portal y [vuelva a capturarla desde los discos duros virtuales actuales](virtual-machines-linux-capture-image.md) con la misma configuración que para el sistema operativo (generalizada o especializada).
 
-## Problema: Imagen de galería/marketplace/personalizada; error de asignación
+## <a name="issue:-custom/-gallery/-marketplace-image;-allocation-failure"></a>Problema: Imagen de galería/marketplace/personalizada; error de asignación
 Este error se produce en situaciones en las que la nueva solicitud de máquina virtual está anclada en un clúster que no admite el tamaño de la máquina virtual que se solicita o no tiene espacio libre disponible para alojar la solicitud.
 
 **Causa 1:** el clúster no admite el tamaño de la máquina virtual solicitada.
@@ -66,7 +67,8 @@ Este error se produce en situaciones en las que la nueva solicitud de máquina v
 
 - Vuelva a intentar la solicitud con un tamaño de máquina virtual menor.
 - Si no se puede cambiar el tamaño de la máquina virtual solicitada:
-  - Detenga todas las máquinas virtuales en el conjunto de disponibilidad. Haga clic en **Grupos de recursos** > *su grupo de recursos* > **Recursos** > *su conjunto de disponibilidad* > **Máquinas virtuales** > *su máquina virtual* > **Detener**.
+  - Detenga todas las máquinas virtuales en el conjunto de disponibilidad.
+  Haga clic en **Grupos de recursos** > *su grupo de recursos* > **Recursos** > *su conjunto de disponibilidad* > **Virtual Machines** > *su máquina virtual* > **Detener**.
   - Después de detener todas las máquinas virtuales, cree la nueva máquina virtual con el tamaño deseado.
   - Inicie la nueva máquina virtual en primer lugar y luego seleccione cada una de las máquinas virtuales detenidas y haga clic en **Iniciar**.
 
@@ -79,7 +81,11 @@ Este error se produce en situaciones en las que la nueva solicitud de máquina v
   - Cree una nueva máquina virtual en un conjunto de disponibilidad diferente (en la misma región).
   - Agregue la nueva máquina virtual a la misma red virtual.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Si tiene problemas al iniciar una máquina virtual Linux detenida o al cambiar el tamaño de una máquina virtual Linux existente en Azure, consulte [Solución de problemas de la implementación de Resource Manager con el reinicio o el cambio de tamaño de una máquina virtual de Linux existente en Azure](virtual-machines-linux-restart-resize-error-troubleshooting.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

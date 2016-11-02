@@ -1,28 +1,29 @@
 <properties
-	pageTitle="Crear una instantánea de solo lectura de un blob | Microsoft Azure"
-	description="Aprenda a crear una instantánea de un blob para hacer una copia de seguridad de los datos de blob en un momento determinado. Comprenda cómo se facturan las instantáneas y cómo usarlas para minimizar las cargas de capacidad."
-	services="storage"
-	documentationCenter=""
-	authors="tamram"
-	manager="carmonm"
-	editor="tysonn"/>
+    pageTitle="Crear una instantánea de solo lectura de un blob | Microsoft Azure"
+    description="Aprenda a crear una instantánea de un blob para hacer una copia de seguridad de los datos de blob en un momento determinado. Comprenda cómo se facturan las instantáneas y cómo usarlas para minimizar las cargas de capacidad."
+    services="storage"
+    documentationCenter=""
+    authors="tamram"
+    manager="carmonm"
+    editor="tysonn"/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="jwillis;tamram"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/18/2016"
+    ms.author="tamram"/>
 
-# Creación de una instantánea de un blob
 
-## Información general
+# <a name="create-a-blob-snapshot"></a>Creación de una instantánea de un blob
+
+## <a name="overview"></a>Información general
 
 Una instantánea es una versión de solo lectura de un blob que se ha realizado en un momento dado. Las instantáneas son útiles para realizar copias de seguridad de blobs. Después de crear una instantánea, puede leerla, copiarla o eliminarla, pero no puede modificarla.
 
-Una instantánea de un blob es idéntica a su blob base, salvo que el identificador URI tiene un valor **DateTime** anexado al URI del blob para indicar el momento en que se tomó la instantánea. Por ejemplo, si el identificador URI de blob en páginas es `http://storagesample.core.blob.windows.net/mydrives/myvhd`, el identificador URI de instantánea es similar a `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
+Una instantánea de un blob es idéntica a su blob base, salvo que el identificador URI tiene un valor **DateTime** anexado al URI del blob para indicar el momento en que se tomó la instantánea. Por ejemplo, si el identificador URI de blob en páginas es `http://storagesample.core.blob.windows.net/mydrives/myvhd`, el identificador URI de instantánea es similar a `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`. 
 
 > [AZURE.NOTE] Todas las instantáneas comparten el identificador URI del blob base. La única distinción entre el blob base y la instantánea es el valor **DateTime** anexado.
 
@@ -32,7 +33,7 @@ Cuando se crea una instantánea de un blob, las propiedades del sistema se copia
 
 Las concesiones asociadas con el blob base no afectan la instantánea. No puede adquirir una concesión en una instantánea.
 
-## Crear una instantánea
+## <a name="create-a-snapshot"></a>Crear una instantánea
 
 En el ejemplo de código siguiente se muestra cómo crear una instantánea en .NET. Este ejemplo especifica metadatos independientes para la instantánea cuando se crea.
 
@@ -68,7 +69,7 @@ En el ejemplo de código siguiente se muestra cómo crear una instantánea en .N
     }
  
 
-## Copiar instantáneas
+## <a name="copy-snapshots"></a>Copiar instantáneas
 
 Las operaciones de copia con blobs e instantáneas siguen estas reglas:
 
@@ -80,19 +81,19 @@ Las operaciones de copia con blobs e instantáneas siguen estas reglas:
 
 - Cuando se crea una instantánea de un blob en bloques, la lista de bloques confirmados del blob también se copia en la instantánea. No se copiarán los bloques sin confirmar.
 
-## Especificar una condición de acceso
+## <a name="specify-an-access-condition"></a>Especificar una condición de acceso
 
-Puede especificar una condición de acceso de forma que la instantánea se cree solo si se cumple una condición. Para especificar una condición de acceso, use la propiedad **AccessCondition**. Si la condición especificada no se cumple, la instantánea no se creará y el servicio Blob devuelve el código de estado HTTPStatusCode.PreconditionFailed.
+Puede especificar una condición de acceso de forma que la instantánea se cree solo si se cumple una condición. Para especificar una condición de acceso, use la propiedad **AccessCondition** . Si la condición especificada no se cumple, la instantánea no se creará y el servicio Blob devuelve el código de estado HTTPStatusCode.PreconditionFailed.
 
-## Eliminar instantáneas
+## <a name="delete-snapshots"></a>Eliminar instantáneas
 
 No se puede eliminar un blob con instantáneas a menos que estas también se eliminen. Puede eliminar una instantánea individualmente o especificar que se eliminen todas las instantáneas cuando se elimina el blob de origen. Si intenta eliminar un blob que todavía tiene instantáneas, se producirá un error.
 
 En el ejemplo de código siguiente se muestra cómo eliminar un blob y sus instantáneas en. NET, donde `blockBlob` es una variable de tipo **CloudBlockBlob**:
 
-	await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
+    await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
 
-## Instantáneas con Almacenamiento Premium de Azure
+## <a name="snapshots-with-azure-premium-storage"></a>Instantáneas con Almacenamiento Premium de Azure
 
 Las instantáneas con almacenamiento Premium, se atienen a las siguientes reglas:
 
@@ -104,7 +105,7 @@ Las instantáneas con almacenamiento Premium, se atienen a las siguientes reglas
 
 - Para leer una instantánea, puede utilizar la operación Copy Blob para copiar una instantánea en otro blob en páginas de la cuenta. El blob de destino para la operación de copia no debe contener ninguna instantánea ya existente. Si el blob de destino tiene instantáneas, Copy Blob devuelve el código de error 409 (**SnapshotsPresent**).
 
-## Devolver el URI absoluto para una instantánea
+## <a name="return-the-absolute-uri-to-a-snapshot"></a>Devolver el URI absoluto para una instantánea
 
 Este ejemplo de código de C# crea una instantánea y escribe el identificador URI absoluto de la ubicación principal.
 
@@ -126,11 +127,11 @@ Este ejemplo de código de C# crea una instantánea y escribe el identificador U
     CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
     Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 
-## Descripción de cómo las instantáneas pueden incrementar los costes
+## <a name="understand-how-snapshots-accrue-charges"></a>Descripción de cómo las instantáneas pueden incrementar los costes
 
 Crear una instantánea, que es una copia de solo lectura de un blob, puede conllevar cargos adicionales de almacenamiento de datos en la cuenta. Cuando se diseñe la aplicación, es importante tener en cuenta cómo se pueden contraer gastos al objeto de minimizar los costes innecesarios.
 
-### Consideraciones importantes sobre facturación
+### <a name="important-billing-considerations"></a>Consideraciones importantes sobre facturación
 
 La lista siguiente incluye los puntos clave que hay que tener en cuenta a la hora de crear una instantánea.
 
@@ -149,7 +150,7 @@ La lista siguiente incluye los puntos clave que hay que tener en cuenta a la hor
 > - Si está realizando el mantenimiento de las instantáneas de blob, evite llamar a **UploadFile**, **UploadText**, **UploadStream** o **UploadByteArray** para actualizar el blob. Esos métodos reemplazan todos los bloques del blob, por lo que el blob base y las instantáneas divergen significativamente. En su lugar, actualice el menor número posible de bloques mediante los métodos **PutBlock** y **PutBlockList**.
 
 
-### Escenarios de facturación de instantáneas
+### <a name="snapshot-billing-scenarios"></a>Escenarios de facturación de instantáneas
 
 
 En las siguientes situaciones, se muestra cómo se ven incrementados los cargos para un blob en bloques y sus instantáneas.
@@ -170,8 +171,12 @@ En la situación 4, el blob de base se ha actualizado totalmente y no contiene n
 
 ![Recursos de almacenamiento de Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener ejemplos adicionales mediante Almacenamiento de blobs, consulte [Ejemplos de código de Azure](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Puede descargar una aplicación de ejemplo y ejecutarla, así como ver el código en GitHub.
+Para obtener ejemplos adicionales mediante Almacenamiento de blobs, consulte [Ejemplos de código de Azure](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Puede descargar una aplicación de ejemplo y ejecutarla, así como ver el código en GitHub. 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

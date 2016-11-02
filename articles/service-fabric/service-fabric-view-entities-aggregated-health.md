@@ -16,7 +16,8 @@
    ms.date="09/28/2016"
    ms.author="oanapl"/>
 
-# Vista de los informes de estado de Service Fabric
+
+# <a name="view-service-fabric-health-reports"></a>Vista de los informes de estado de Service Fabric
 Azure Service Fabric presenta un [modelo de mantenimiento](service-fabric-health-introduction.md) formado por entidades de mantenimiento en las que componentes y guardianes del sistema pueden notificar las condiciones locales que están supervisando. El [almacén de estado](service-fabric-health-introduction.md#health-store) agrega todos los datos de mantenimiento para determinar si las entidades son correctas.
 
 De fábrica, el clúster está rellenado con informes de estado enviados por los componentes del sistema. Lea más en [Uso de informes de mantenimiento del sistema para solucionar problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
@@ -39,7 +40,7 @@ Para demostrar estas opciones, vamos a usar un clúster local con cinco nodos. J
 </Service>
 ```
 
-## Mantenimiento del Explorador de Service Fabric
+## <a name="health-in-service-fabric-explorer"></a>Mantenimiento del Explorador de Service Fabric
 El Explorador de Service Fabric proporciona una vista visual del clúster. En la imagen siguiente, puede ver que:
 
 - La aplicación **fabric:/WordCount** está en rojo (en error) porque tiene un evento de error notificado por **MyWatchdog** para la propiedad **Availability**.
@@ -59,8 +60,8 @@ Vista del clúster con el Explorador de Service Fabric.
 
 > [AZURE.NOTE] Obtenga más información sobre el [Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md).
 
-## Consultas de mantenimiento
-Service Fabric expone las consultas de mantenimiento para cada uno de los [tipos de entidad](service-fabric-health-introduction.md#health-entities-and-hierarchy) admitidos. Se puede acceder e ellas mediante la API (los métodos se pueden encontrar en **FabricClient.HealthManager**), los cmdlets de PowerShell y REST. Estas consultas devuelven información completa de mantenimiento sobre la entidad: el estado de mantenimiento agregado, los eventos de mantenimiento de la entidad, los estados de mantenimiento de los elementos secundarios (si procede) y las evaluaciones de mantenimiento incorrecto cuando el mantenimiento de la entidad no es correcto.
+## <a name="health-queries"></a>Consultas de mantenimiento
+Service Fabric expone las consultas de mantenimiento para cada uno de los [tipos de entidad](service-fabric-health-introduction.md#health-entities-and-hierarchy)admitidos. Se puede acceder e ellas mediante la API (los métodos se pueden encontrar en **FabricClient.HealthManager**), los cmdlets de PowerShell y REST. Estas consultas devuelven información completa de mantenimiento sobre la entidad: el estado de mantenimiento agregado, los eventos de mantenimiento de la entidad, los estados de mantenimiento de los elementos secundarios (si procede) y las evaluaciones de mantenimiento incorrecto cuando el mantenimiento de la entidad no es correcto.
 
 > [AZURE.NOTE] Se devuelve una entidad de mantenimiento cuando se rellena completamente en el Almacén de estado. La entidad debe estar activa (no eliminada) y tener un informe de sistema. Sus entidades primarias en la cadena de jerarquía deben tener también informes del sistema. Si no se cumple alguna de estas condiciones, las consultas de mantenimiento devuelven una excepción que muestra por qué no se devuelve la entidad.
 
@@ -70,7 +71,7 @@ Las consultas de mantenimiento requieren pasar el identificador de entidad, que 
 
 Contiene el mantenimiento de la entidad:
 
-- El estado de mantenimiento agregado de la entidad. El Almacén de estado lo calcula en función de los informes de mantenimiento de la entidad, los estados de mantenimiento de los elementos secundarios (si procede) y las directivas de mantenimiento. Lea más sobre la [evaluación del mantenimiento de entidades](service-fabric-health-introduction.md#entity-health-evaluation).
+- El estado de mantenimiento agregado de la entidad. El Almacén de estado lo calcula en función de los informes de mantenimiento de la entidad, los estados de mantenimiento de los elementos secundarios (si procede) y las directivas de mantenimiento. Lea más sobre la [evaluación del mantenimiento de entidades](service-fabric-health-introduction.md#entity-health-evaluation).  
 
 - Eventos de mantenimiento de la entidad.
 
@@ -78,7 +79,7 @@ Contiene el mantenimiento de la entidad:
 
 - Si la entidad no es correcta, las evaluaciones de mantenimiento incorrecto apuntan al informe que desencadenó el estado de la entidad.
 
-## Obtención del mantenimiento de clúster
+## <a name="get-cluster-health"></a>Obtención del mantenimiento de clúster
 Devuelve el mantenimiento de la entidad del clúster y contiene los estados de mantenimiento de aplicaciones y nodos (elementos secundarios del clúster). Entrada:
 
 - [Opcional] La directiva de mantenimiento del clúster utilizada para evaluar los nodos y los eventos del clúster.
@@ -87,7 +88,7 @@ Devuelve el mantenimiento de la entidad del clúster y contiene los estados de m
 
 - [Opcional] Filtros para eventos, nodos y aplicaciones que especifican las entradas que son de interés y se deben devolver en el resultado (por ejemplo, únicamente los errores o advertencias y errores). Todos los eventos, nodos y aplicaciones se utilizan para evaluar el mantenimiento agregado de la entidad, independientemente del filtro.
 
-### API
+### <a name="api"></a>API
 Para obtener el mantenimiento del clúster, cree una instancia de `FabricClient` y llame al método [GetClusterHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getclusterhealthasync.aspx) en su instancia de **HealthManager**.
 
 La siguiente llamada obtiene el mantenimiento del clúster:
@@ -121,8 +122,8 @@ var queryDescription = new ClusterHealthQueryDescription()
 ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthAsync(queryDescription);
 ```
 
-### PowerShell
-El cmdlet para obtener el mantenimiento del clúster es [Get-ServiceFabricClusterHealth](https://msdn.microsoft.com/library/mt125850.aspx). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
+### <a name="powershell"></a>PowerShell
+El cmdlet para obtener el mantenimiento del clúster es [Get-ServiceFabricClusterHealth](https://msdn.microsoft.com/library/mt125850.aspx). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) .
 
 El estado del clúster es igual a cinco nodos, la aplicación del sistema y fabric:/WordCount se configuran tal como se ha descrito.
 
@@ -175,7 +176,7 @@ HealthEvents            : None
 El siguiente cmdlet de PowerShell obtiene el mantenimiento del clúster mediante una directiva de aplicación personalizada. Filtra los resultados para obtener solo los nodos y las aplicaciones con error o advertencia. Como resultado, no se devuelve ningún nodo, ya que todos son correctos. Solo la aplicación fabric:/WordCount respeta el filtro de aplicaciones. Puesto que la directiva personalizada especifica que hay que considerar que las advertencias son errores en la aplicación fabric:/WordCount, la aplicación se evalúa como en error y lo mismo el clúster.
 
 ```powershell
-PS c:> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
+PS c:\> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
 $appHealthPolicy.ConsiderWarningAsError = $true
 $appHealthPolicyMap = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicyMap
 $appUri1 = New-Object -TypeName System.Uri -ArgumentList "fabric:/WordCount"
@@ -207,10 +208,10 @@ HealthEvents            : None
 
 ```
 
-### REST
+### <a name="rest"></a>REST
 Puede obtener el mantenimiento del clúster con una [solicitud GET](https://msdn.microsoft.com/library/azure/dn707669.aspx) o una [solicitud POST](https://msdn.microsoft.com/library/azure/dn707696.aspx) que incluye las directivas de mantenimiento descritas en el cuerpo.
 
-## Obtención del mantenimiento de nodo
+## <a name="get-node-health"></a>Obtención del mantenimiento de nodo
 Devuelve el mantenimiento de una entidad del nodo y contiene los eventos de mantenimiento notificados en el nodo. Entrada:
 
 - [Obligatorio] El nombre de nodo que identifica al nodo.
@@ -219,7 +220,7 @@ Devuelve el mantenimiento de una entidad del nodo y contiene los eventos de mant
 
 - [Opcional] Filtros para eventos que especifican las entradas que son de interés y se deben devolver en el resultado (por ejemplo, únicamente errores o advertencias y errores). Todos los eventos se utilizan para evaluar el mantenimiento agregado de la entidad, independientemente del filtro.
 
-### API
+### <a name="api"></a>API
 Para obtener el mantenimiento del nodo mediante la API, cree una instancia de `FabricClient` y llame al método [GetNodeHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getnodehealthasync.aspx) en su instancia de HealthManager.
 
 El código siguiente obtiene el mantenimiento del nodo para el nombre de nodo especificado:
@@ -240,8 +241,9 @@ var queryDescription = new NodeHealthQueryDescription(nodeName)
 NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(queryDescription);
 ```
 
-### PowerShell
-El cmdlet para obtener el mantenimiento del nodo es [Get-ServiceFabricNodeHealth](https://msdn.microsoft.com/library/mt125937.aspx). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx). El siguiente cmdlet obtiene el mantenimiento del nodo mediante directivas de mantenimiento predeterminadas:
+### <a name="powershell"></a>PowerShell
+El cmdlet para obtener el mantenimiento del nodo es [Get-ServiceFabricNodeHealth](https://msdn.microsoft.com/library/mt125937.aspx). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) .
+El siguiente cmdlet obtiene el mantenimiento del nodo mediante directivas de mantenimiento predeterminadas:
 
 ```powershell
 PS C:\> Get-ServiceFabricNodeHealth _Node_1
@@ -277,10 +279,10 @@ _Node_3                     Ok
 _Node_4                     Ok
 ```
 
-### REST
+### <a name="rest"></a>REST
 Puede obtener el mantenimiento del nodo con una [solicitud GET](https://msdn.microsoft.com/library/azure/dn707650.aspx) o una [solicitud POST](https://msdn.microsoft.com/library/azure/dn707665.aspx) que incluye las directivas de mantenimiento descritas en el cuerpo.
 
-## Obtención del mantenimiento de la aplicación
+## <a name="get-application-health"></a>Obtención del mantenimiento de la aplicación
 Devuelve el mantenimiento de una entidad de aplicación. Contiene los estados de mantenimiento de la aplicación implementada y de los elementos secundarios del servicio. Entrada:
 
 - [Obligatorio] El nombre de la aplicación (URI) que identifica la aplicación.
@@ -289,7 +291,7 @@ Devuelve el mantenimiento de una entidad de aplicación. Contiene los estados de
 
 - [Opcional] Filtros para eventos, servicios y aplicaciones implementadas que especifican las entradas que son de interés y se deben devolver en el resultado (por ejemplo, únicamente errores o advertencias y errores). Todos los eventos, servicios y aplicaciones implementadas se utilizan para evaluar el mantenimiento agregado de la entidad, independientemente del filtro.
 
-### API
+### <a name="api"></a>API
 Para obtener el mantenimiento de la aplicación, cree una instancia de `FabricClient` y llame al método [GetApplicationHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getapplicationhealthasync.aspx) en su instancia de HealthManager.
 
 El código siguiente obtiene el mantenimiento de la aplicación para el nombre de aplicación especificado (URI):
@@ -326,13 +328,13 @@ var queryDescription = new ApplicationHealthQueryDescription(applicationName)
 ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplicationHealthAsync(queryDescription);
 ```
 
-### PowerShell
-El cmdlet para obtener el mantenimiento de la aplicación es [Get-ServiceFabricApplicationHealth](https://msdn.microsoft.com/library/mt125976.aspx). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
+### <a name="powershell"></a>PowerShell
+El cmdlet para obtener el mantenimiento de la aplicación es [Get-ServiceFabricApplicationHealth](https://msdn.microsoft.com/library/mt125976.aspx). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) .
 
-El siguiente cmdlet devuelve el mantenimiento de la aplicación **fabric:/WordCount**:
+El siguiente cmdlet devuelve el mantenimiento de la aplicación **fabric:/WordCount** :
 
 ```powershell
-PS c:>
+PS c:\>
 PS C:\WINDOWS\system32>  Get-ServiceFabricApplicationHealth fabric:/WordCount
 
 
@@ -425,10 +427,10 @@ DeployedApplicationHealthStates : None
 HealthEvents                    : None
 ```
 
-### REST
+### <a name="rest"></a>REST
 Puede obtener el mantenimiento de la aplicación con una [solicitud GET](https://msdn.microsoft.com/library/azure/dn707681.aspx) o una [solicitud POST](https://msdn.microsoft.com/library/azure/dn707643.aspx) que incluye las directivas de mantenimiento descritas en el cuerpo.
 
-## Obtención del mantenimiento del servicio
+## <a name="get-service-health"></a>Obtención del mantenimiento del servicio
 Devuelve el mantenimiento de una entidad del servicio. Contiene los estados de mantenimiento de la partición. Entrada:
 
 - [Obligatorio] El nombre del servicio (URI) que identifica el servicio.
@@ -437,7 +439,7 @@ Devuelve el mantenimiento de una entidad del servicio. Contiene los estados de m
 
 - [Opcional] Filtros para eventos y particiones que especifican las entradas que son de interés y se deben devolver en el resultado (por ejemplo, únicamente errores o advertencias y errores). Todos los eventos y particiones se utilizan para evaluar el mantenimiento agregado de la entidad, independientemente del filtro.
 
-### API
+### <a name="api"></a>API
 Para obtener el mantenimiento del servicio mediante la API, cree una instancia de `FabricClient` y llame al método [GetServiceHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getservicehealthasync.aspx) en su instancia de HealthManager.
 
 En el ejemplo siguiente se obtiene el mantenimiento de un servicio con el nombre de servicio especificado (URI):
@@ -458,8 +460,8 @@ var queryDescription = new ServiceHealthQueryDescription(serviceName)
 ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(queryDescription);
 ```
 
-### PowerShell
-El cmdlet para obtener el mantenimiento del servicio es [Get-ServiceFabricServiceHealth](https://msdn.microsoft.com/library/mt125984.aspx). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
+### <a name="powershell"></a>PowerShell
+El cmdlet para obtener el mantenimiento del servicio es [Get-ServiceFabricServiceHealth](https://msdn.microsoft.com/library/mt125984.aspx). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) .
 
 El siguiente cmdlet obtiene el mantenimiento del servicio con directivas de mantenimiento predeterminadas.
 
@@ -529,10 +531,10 @@ HealthEvents          :
                         IsExpired             : False
 ```
 
-### REST
+### <a name="rest"></a>REST
 Puede obtener el mantenimiento del servicio con una [solicitud GET](https://msdn.microsoft.com/library/azure/dn707609.aspx) o una [solicitud POST](https://msdn.microsoft.com/library/azure/dn707646.aspx) que incluye las directivas de mantenimiento descritas en el cuerpo.
 
-## Obtención del mantenimiento de partición
+## <a name="get-partition-health"></a>Obtención del mantenimiento de partición
 Devuelve el mantenimiento de una entidad de partición. Contiene los estados de mantenimiento de la réplica. Entrada:
 
 - [Obligatorio] El identificador de partición (GUID) que identifica la partición.
@@ -541,17 +543,17 @@ Devuelve el mantenimiento de una entidad de partición. Contiene los estados de 
 
 - [Opcional] Filtros de eventos y réplicas que especifican las entradas que son de interés y se deben devolver en el resultado (por ejemplo, únicamente errores o advertencias y errores). Todos los eventos y réplicas se utilizan para evaluar el mantenimiento agregado de la entidad, independientemente del filtro.
 
-### API
+### <a name="api"></a>API
 Para obtener el mantenimiento de la partición mediante la API, cree una instancia de `FabricClient` y llame al método [GetPartitionHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getpartitionhealthasync.aspx) en su instancia de HealthManager. Para especificar parámetros opcionales, cree [PartitionHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.partitionhealthquerydescription.aspx).
 
 ```csharp
 PartitionHealth partitionHealth = await fabricClient.HealthManager.GetPartitionHealthAsync(partitionId);
 ```
 
-### PowerShell
-El cmdlet para obtener el mantenimiento de la partición es [Get-ServiceFabricPartitionHealth](https://msdn.microsoft.com/library/mt125869.aspx). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
+### <a name="powershell"></a>PowerShell
+El cmdlet para obtener el mantenimiento de la partición es [Get-ServiceFabricPartitionHealth](https://msdn.microsoft.com/library/mt125869.aspx). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) .
 
-El siguiente cmdlet obtiene el mantenimiento de todas las particiones del servicio **fabric:/WordCount/WordCountService**:
+El siguiente cmdlet obtiene el mantenimiento de todas las particiones del servicio **fabric:/WordCount/WordCountService** :
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth
@@ -592,10 +594,10 @@ HealthEvents          :
                         Transitions           : Error->Warning = 3/22/2016 7:57:48 PM, LastOk = 1/1/0001 12:00:00 AM
 ```
 
-### REST
+### <a name="rest"></a>REST
 Puede obtener el mantenimiento de la partición con una [solicitud GET](https://msdn.microsoft.com/library/azure/dn707683.aspx) o una [solicitud POST](https://msdn.microsoft.com/library/azure/dn707680.aspx) que incluye las directivas de mantenimiento descritas en el cuerpo.
 
-## Obtención del mantenimiento de réplica
+## <a name="get-replica-health"></a>Obtención del mantenimiento de réplica
 Devuelve el mantenimiento de una réplica de servicio con estado o una instancia de servicio sin estado. Entrada:
 
 - [Obligatorio] El identificador de partición (GUID) y el identificador de réplica que identifica a la réplica.
@@ -604,15 +606,15 @@ Devuelve el mantenimiento de una réplica de servicio con estado o una instancia
 
 - [Opcional] Filtros para eventos que especifican las entradas que son de interés y se deben devolver en el resultado (por ejemplo, únicamente errores o advertencias y errores). Todos los eventos se utilizan para evaluar el mantenimiento agregado de la entidad, independientemente del filtro.
 
-### API
+### <a name="api"></a>API
 Para obtener el mantenimiento de la réplica mediante la API, cree una instancia de `FabricClient` y llame al método [GetReplicaHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getreplicahealthasync.aspx) en su instancia de HealthManager. Para especificar parámetros avanzados, utilice [ReplicaHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.replicahealthquerydescription.aspx).
 
 ```csharp
 ReplicaHealth replicaHealth = await fabricClient.HealthManager.GetReplicaHealthAsync(partitionId, replicaId);
 ```
 
-### PowerShell
-El cmdlet para obtener el mantenimiento de la réplica es [Get-ServiceFabricReplicaHealth](https://msdn.microsoft.com/library/mt125808.aspx). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
+### <a name="powershell"></a>PowerShell
+El cmdlet para obtener el mantenimiento de la réplica es [Get-ServiceFabricReplicaHealth](https://msdn.microsoft.com/library/mt125808.aspx). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) .
 
 El cmdlet siguiente obtiene el mantenimiento de la réplica principal para todas las particiones del servicio:
 
@@ -637,10 +639,10 @@ HealthEvents          :
                         Transitions           : Error->Ok = 3/22/2016 7:57:12 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### REST
-Puede obtener el mantenimiento de la réplica con una [solicitud GET](https://msdn.microsoft.com/library/azure/dn707673.aspx) o una [solicitud POST](https://msdn.microsoft.com/library/azure/dn707641.aspx) que incluye las directivas de mantenimiento descritas en el cuerpo.
+### <a name="rest"></a>REST
+Puede obtener el mantenimiento de la réplica con una [solicitud GET](https://msdn.microsoft.com/library/azure/dn707673.aspx) o una[solicitud POST](https://msdn.microsoft.com/library/azure/dn707641.aspx) que incluye las directivas de mantenimiento descritas en el cuerpo.
 
-## Obtención del mantenimiento de la aplicación implementada
+## <a name="get-deployed-application-health"></a>Obtención del mantenimiento de la aplicación implementada
 Devuelve el mantenimiento de una aplicación implementada en una actividad del nodo. Contiene los estados de mantenimiento del paquete de servicio implementado. Entrada:
 
 - [Obligatorio] El nombre de la aplicación (URI) y el nombre del nodo (cadena) que identifican a la aplicación implementada
@@ -649,7 +651,7 @@ Devuelve el mantenimiento de una aplicación implementada en una actividad del n
 
 - [Opcional] Filtros de eventos y paquetes de servicio implementados que especifican las entradas que son de interés y se deben devolver en el resultado (por ejemplo, únicamente errores o advertencias y errores). Todos los eventos y paquetes de servicio implementados se utilizan para evaluar el mantenimiento agregado de la entidad, independientemente del filtro.
 
-### API
+### <a name="api"></a>API
 Para obtener el mantenimiento de una aplicación implementada en un nodo mediante la API, cree una instancia de `FabricClient` y llame al método [GetDeployedApplicationHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync.aspx) en su instancia de HealthManager. Para especificar parámetros opcionales, utilice [DeployedApplicationHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.deployedapplicationhealthquerydescription.aspx).
 
 ```csharp
@@ -657,8 +659,8 @@ DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedA
     new DeployedApplicationHealthQueryDescription(applicationName, nodeName));
 ```
 
-### PowerShell
-El cmdlet para obtener el mantenimiento de la aplicación implementada es [Get-ServiceFabricDeployedApplicationHealth](https://msdn.microsoft.com/library/mt163523.aspx). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx). Para averiguar dónde está implementada una aplicación, ejecute [Get-ServiceFabricApplicationHealth](https://msdn.microsoft.com/library/mt125976.aspx) y observe los elementos secundarios de la aplicación implementada.
+### <a name="powershell"></a>PowerShell
+El cmdlet para obtener el mantenimiento de la aplicación implementada es [Get-ServiceFabricDeployedApplicationHealth](https://msdn.microsoft.com/library/mt163523.aspx). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) . Para averiguar dónde está implementada una aplicación, ejecute [Get-ServiceFabricApplicationHealth](https://msdn.microsoft.com/library/mt125976.aspx) y observe los elementos secundarios de la aplicación implementada.
 
 El siguiente cmdlet obtiene el mantenimiento de la aplicación **fabric:/WordCount** implementada en **_Node_2**.
 
@@ -692,10 +694,10 @@ HealthEvents                       :
                                      Transitions           : Error->Ok = 3/22/2016 7:57:12 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### REST
+### <a name="rest"></a>REST
 Puede obtener el mantenimiento de la aplicación implementada con una [solicitud GET](https://msdn.microsoft.com/library/azure/dn707644.aspx) o una [solicitud POST](https://msdn.microsoft.com/library/azure/dn707688.aspx) que incluye las directivas de mantenimiento descritas en el cuerpo.
 
-## Obtención del mantenimiento del paquete de servicio implementado
+## <a name="get-deployed-service-package-health"></a>Obtención del mantenimiento del paquete de servicio implementado
 Devuelve el mantenimiento de una entidad de paquete de servicio implementado. Entrada:
 
 - [Obligatorio] El nombre de la aplicación (URI), el nombre del nodo (cadena) y el nombre del manifiesto de servicio (cadena) que identifican al paquete de servicio implementado.
@@ -704,7 +706,7 @@ Devuelve el mantenimiento de una entidad de paquete de servicio implementado. En
 
 - [Opcional] Filtros para eventos que especifican las entradas que son de interés y se deben devolver en el resultado (por ejemplo, únicamente errores o advertencias y errores). Todos los eventos se utilizan para evaluar el mantenimiento agregado de la entidad, independientemente del filtro.
 
-### API
+### <a name="api"></a>API
 Para obtener el mantenimiento de un paquete de servicio implementado mediante la API, cree una instancia de `FabricClient` y llame al método [GetDeployedServicePackageHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync.aspx) en su instancia de HealthManager. Para especificar parámetros opcionales, utilice [DeployedServicePackageHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.deployedservicepackagehealthquerydescription.aspx).
 
 ```csharp
@@ -712,8 +714,8 @@ DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeploy
     new DeployedServicePackageHealthQueryDescription(applicationName, nodeName, serviceManifestName));
 ```
 
-### PowerShell
-El cmdlet para obtener el mantenimiento del paquete de servicio implementado es [Get-ServiceFabricDeployedServicePackageHealth](https://msdn.microsoft.com/library/mt163525.aspx). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx). Para averiguar dónde está implementada una aplicación, ejecute [Get-ServiceFabricApplicationHealth](https://msdn.microsoft.com/library/mt125976.aspx) y examine las aplicaciones implementadas. Para ver qué paquetes de servicio están en una aplicación, examine los elementos secundarios del paquete de servicio implementado en la salida de [Get-ServiceFabricDeployedApplicationHealth](https://msdn.microsoft.com/library/mt163523.aspx).
+### <a name="powershell"></a>PowerShell
+El cmdlet para obtener el mantenimiento del paquete de servicio implementado es [Get-ServiceFabricDeployedServicePackageHealth](https://msdn.microsoft.com/library/mt163525.aspx). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) . Para averiguar dónde está implementada una aplicación, ejecute [Get-ServiceFabricApplicationHealth](https://msdn.microsoft.com/library/mt125976.aspx) y examine las aplicaciones implementadas. Para ver qué paquetes de servicio están en una aplicación, examine los elementos secundarios del paquete de servicio implementado en la salida de [Get-ServiceFabricDeployedApplicationHealth](https://msdn.microsoft.com/library/mt163523.aspx) .
 
 El siguiente cmdlet obtiene el mantenimiento del paquete de servicio **WordCountServicePkg** de la aplicación **fabric:/WordCount** implementada en **_Node_2**. La entidad tiene informes **System.Hosting** para la activación correcta del paquete de servicio y del punto de entrada, y para el registro correcto del tipo de servicio.
 
@@ -763,10 +765,10 @@ HealthEvents          :
                         Transitions           : Error->Ok = 3/22/2016 7:57:12 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### REST
+### <a name="rest"></a>REST
 Puede obtener el mantenimiento del paquete de servicio implementado con una [solicitud GET](https://msdn.microsoft.com/library/azure/dn707677.aspx) o una [solicitud POST](https://msdn.microsoft.com/library/azure/dn707689.aspx) que incluye las directivas de mantenimiento descritas en el cuerpo.
 
-## Consultas de fragmentos de mantenimiento
+## <a name="health-chunk-queries"></a>Consultas de fragmentos de mantenimiento
 Las consultas de fragmentos de mantenimiento pueden devolver elementos secundarios de clúster de varios niveles (recursivamente), según los filtros de entrada. Admiten filtros avanzados que permiten una gran flexibilidad para expresar los elementos secundarios específicos que se devolverán, identificados por su identificador único u otro identificador de grupo o estado de mantenimiento. De forma predeterminada, no se incluye ningún elemento secundario, a diferencia de los comandos de mantenimiento que siempre incluyen elementos secundarios de primer nivel.
 
 Las [consultas de mantenimiento](service-fabric-view-entities-aggregated-health.md#health-queries) solo devuelven elementos secundarios de primer nivel de la entidad especificada, según los filtros necesarios. Para obtener los elementos secundarios de los elementos secundarios, debe llamar a las API de mantenimiento adicionales para cada entidad que sea de interés. De igual forma, para obtener el mantenimiento de entidades específicas, debe llamar a una API de mantenimiento para cada entidad deseada. El filtrado avanzado de consultas de fragmentos le permite solicitar varios elementos de interés en una consulta, lo que reduce el tamaño del mensaje y el número de mensajes.
@@ -793,20 +795,21 @@ Actualmente, la consulta de fragmentos de mantenimiento se expone solo para la e
 
 - La lista de fragmentos de estado de mantenimiento de aplicaciones que respetan los filtros de entrada. Cada fragmento de estado de mantenimiento de aplicación contiene una lista de fragmentos con todos los servicios que respetan los filtros de entrada y una lista de fragmentos con todas las aplicaciones implementadas que respetan los filtros. Igual para los elementos secundarios de servicios y aplicaciones implementadas. De este modo, todas las entidades del clúster pueden devolverse potencialmente si se solicitan, de una manera jerárquica.
 
-### Consulta de fragmentos de mantenimiento del clúster
+### <a name="cluster-health-chunk-query"></a>Consulta de fragmentos de mantenimiento del clúster
 Devuelve el mantenimiento de la entidad del clúster y contiene los fragmentos del estado de mantenimiento jerárquico de los elementos secundarios necesarios. Entrada:
 
 - [Opcional] La directiva de mantenimiento del clúster utilizada para evaluar los nodos y los eventos del clúster.
 
 - [Opcional] La asignación de directivas de mantenimiento de aplicaciones, con las directivas de mantenimiento usadas para invalidar las directivas de manifiesto de aplicación.
 
-- [Opcional] Filtros para nodos y aplicaciones que especifican las entradas que son de interés y se deben devolver en el resultado. Los filtros son específicos de una entidad o grupo de entidades o son aplicables a todas las entidades de ese nivel. La lista de filtros puede contener un filtro general o filtros para identificadores específicos a fin de precisar más las entidades devueltas por la consulta. Si está vacía, no se devuelven los elementos secundarios de forma predeterminada. Más información sobre los filtros en [NodeHealthStateFilter](https://msdn.microsoft.com/library/azure/system.fabric.health.nodehealthstatefilter.aspx) y [ApplicationHealthStateFilter](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthstatefilter.aspx). Los filtros de aplicación pueden especificar de forma recursiva filtros avanzados para elementos secundarios.
+- [Opcional] Filtros para nodos y aplicaciones que especifican las entradas que son de interés y se deben devolver en el resultado. Los filtros son específicos de una entidad o grupo de entidades o son aplicables a todas las entidades de ese nivel. La lista de filtros puede contener un filtro general o filtros para identificadores específicos a fin de precisar más las entidades devueltas por la consulta. Si está vacía, no se devuelven los elementos secundarios de forma predeterminada.
+Más información sobre los filtros en [NodeHealthStateFilter](https://msdn.microsoft.com/library/azure/system.fabric.health.nodehealthstatefilter.aspx) y [ApplicationHealthStateFilter](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthstatefilter.aspx). Los filtros de aplicación pueden especificar de forma recursiva filtros avanzados para elementos secundarios.
 
 El resultado del fragmento incluye los elementos secundarios que respetan los filtros.
 
 Actualmente, la consulta de fragmentos no devuelve evaluaciones de mantenimiento incorrecto o eventos de entidad. Esta información adicional puede obtenerse mediante la consulta de mantenimiento del clúster existente.
 
-### API
+### <a name="api"></a>API
 Para obtener fragmentos de mantenimiento del clúster, cree una instancia de `FabricClient` y llame al método [GetClusterHealthChunkAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync.aspx) en su instancia de **HealthManager**. Puede pasar [ClusterHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.clusterhealthchunkquerydescription.aspx) para describir directivas de mantenimiento y filtros avanzados.
 
 El código siguiente obtiene fragmentos de mantenimiento del clúster con filtros avanzados.
@@ -852,8 +855,8 @@ queryDescription.ApplicationFilters.Add(wordCountApplicationFilter);
 var result = await fabricClient.HealthManager.GetClusterHealthChunkAsync(queryDescription);
 ```
 
-### PowerShell
-El cmdlet para obtener el mantenimiento del clúster es [Get-ServiceFabricClusterChunkHealth](https://msdn.microsoft.com/library/mt644772.aspx). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
+### <a name="powershell"></a>PowerShell
+El cmdlet para obtener el mantenimiento del clúster es [Get-ServiceFabricClusterChunkHealth](https://msdn.microsoft.com/library/mt644772.aspx). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) .
 
 El código siguiente obtiene los nodos solo si se encuentran en estado de error, a excepción de un nodo específico, que se debe devolver siempre.
 
@@ -1001,11 +1004,11 @@ ApplicationHealthStateChunks :
                                        HealthState           : Ok
 ```
 
-### REST
+### <a name="rest"></a>REST
 Puede obtener fragmentos de mantenimiento del clúster con una [solicitud GET](https://msdn.microsoft.com/library/azure/mt656722.aspx) o una [solicitud POST](https://msdn.microsoft.com/library/azure/mt656721.aspx) que incluye las directivas de mantenimiento y filtros avanzados descritos en el cuerpo.
 
-## Consultas generales
-Las consultas generales devuelven una lista de entidades de Service Fabric de un tipo especificado. Se exponen mediante la API (por medio de los métodos de **FabricClient.QueryManager**), los cmdlets de PowerShell y REST. Estas consultas agregan subconsultas de varios componentes. Uno de ellos es el [Almacén de estado](service-fabric-health-introduction.md#health-store), que rellena el estado de mantenimiento agregado para cada resultado de consulta.
+## <a name="general-queries"></a>Consultas generales
+Las consultas generales devuelven una lista de entidades de Service Fabric de un tipo especificado. Se exponen mediante la API (por medio de los métodos de **FabricClient.QueryManager**), los cmdlets de PowerShell y REST. Estas consultas agregan subconsultas de varios componentes. Uno de ellos es el [Almacén de estado](service-fabric-health-introduction.md#health-store), que rellena el estado de mantenimiento agregado para cada resultado de consulta.  
 
 > [AZURE.NOTE] Las consultas generales devuelven el estado de mantenimiento agregado de la entidad y no contienen los datos completos de mantenimiento. Si el mantenimiento de una entidad no es correcto, puede seguir con las consultas de mantenimiento para obtener toda su información de mantenimiento, como eventos, estados de mantenimiento de los elementos secundarios y evaluaciones de mantenimiento incorrecto.
 
@@ -1037,7 +1040,7 @@ Las consultas que contienen **HealthState** para las entidades son las siguiente
 
 > [AZURE.NOTE] Algunas de las consultas devuelven resultados paginados. La devolución de estas consultas es una lista que se deriva de [PagedList<T>](https://msdn.microsoft.com/library/azure/mt280056.aspx). Si los resultados no caben en un mensaje, solo se devuelve una página y ContinuationToken, que realiza el seguimiento de dónde se detuvo la enumeración. Debe continuar llamando a la misma consulta y pasar el token de continuación de la consulta anterior para obtener los siguientes resultados.
 
-### Ejemplos
+### <a name="examples"></a>Ejemplos
 
 El código siguiente obtiene las aplicaciones incorrectas en el clúster:
 
@@ -1082,12 +1085,12 @@ ServiceStatus          : Active
 HealthState            : Warning
 ```
 
-## Actualización de clústeres y aplicaciones
+## <a name="cluster-and-application-upgrades"></a>Actualización de clústeres y aplicaciones
 Durante una actualización supervisada del clúster y la aplicación, Service Fabric comprueba el mantenimiento para asegurarse de que todo está correcto. Si una entidad es incorrecta según se ha evaluado mediante las directivas de mantenimiento configuradas, la actualización aplica directivas específicas de actualización para determinar la próxima acción. La actualización se puede poner en pausa para permitir la interacción de los usuarios (por ejemplo, corregir las condiciones de error o cambiar las directivas), o se puede revertir automáticamente a la versión buena anterior.
 
-Durante la actualización de un *clúster*, puede obtener su estado de actualización. El estado de actualización incluye las evaluaciones de mantenimiento incorrecto, que señalan lo que está mal en el clúster. Si se revierte la actualización debido a problemas de mantenimiento, el estado de actualización recuerda las razones del último mantenimiento incorrecto. Esta información puede ayudar a los administradores a investigar qué salió mal después de que se revirtiera o detuviera la actualización.
+Durante la actualización de un *clúster* , puede obtener su estado de actualización. El estado de actualización incluye las evaluaciones de mantenimiento incorrecto, que señalan lo que está mal en el clúster. Si se revierte la actualización debido a problemas de mantenimiento, el estado de actualización recuerda las razones del último mantenimiento incorrecto. Esta información puede ayudar a los administradores a investigar qué salió mal después de que se revirtiera o detuviera la actualización.
 
-De igual forma, durante la actualización de una *aplicación*, las evaluaciones de mantenimiento incorrecto están contenidas en el estado de actualización de la aplicación.
+De igual forma, durante la actualización de una *aplicación* , las evaluaciones de mantenimiento incorrecto están contenidas en el estado de actualización de la aplicación.
 
 A continuación se muestra el estado de actualización de la aplicación para una aplicación fabric/WordCount modificada. Un guardián ha informado de un error en una de sus réplicas. La actualización se revierte porque no se respetan las comprobaciones de mantenimiento.
 
@@ -1145,12 +1148,12 @@ UpgradeReplicaSetCheckTimeout : 00:15:00
 
 Más información sobre la [actualización de aplicaciones de Service Fabric](service-fabric-application-upgrade.md).
 
-## Uso de las evaluaciones de mantenimiento para solucionar problemas
+## <a name="use-health-evaluations-to-troubleshoot"></a>Uso de las evaluaciones de mantenimiento para solucionar problemas
 Siempre que haya un problema con el clúster o una aplicación, consulte el mantenimiento del clúster o de la aplicación para analizar lo que pasa. Las evaluaciones de mantenimiento incorrecto proporcionan detalles sobre lo que activó el estado incorrecto actual. Si lo necesita, puede explorar en profundidad las entidades secundarias incorrectas para identificar la causa principal.
 
 > [AZURE.NOTE] Las evaluaciones de mantenimiento incorrecto muestran la razón principal de que la entidad se evaluara con el estado de mantenimiento actual. Puede haber muchos otros eventos que desencadenen este estado pero no se reflejan en las evaluaciones. Para más información, explore en profundidad las entidades de mantenimiento para averiguar todos los informes de mantenimiento incorrecto en el clúster.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Utilización de informes de mantenimiento del sistema para solucionar problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
 [Incorporación de informes de mantenimiento de Service Fabric personalizados](service-fabric-report-health.md)
@@ -1161,4 +1164,8 @@ Siempre que haya un problema con el clúster o una aplicación, consulte el mant
 
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

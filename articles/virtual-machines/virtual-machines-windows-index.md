@@ -3,7 +3,7 @@
    description="Lista completa de artículos de la documentación de Microsoft Azure relacionados con las máquinas virtuales de Windows en el modelo de implementación clásica"
    services="virtual-machines-windows"
    documentationCenter=""
-   authors="dlepow"
+   authors="cynthn"
    manager="timlt"
    tags="azure-service-management"
    editor=""/>
@@ -15,9 +15,10 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="08/05/2016"
-   ms.author="danlep"/>
+   ms.author="cynthn"/>
 
-# Artículos técnicos para máquinas virtuales de Windows en el modelo de implementación clásica
+
+# <a name="technical-articles-for-windows-vms-in-the-classic-deployment-model"></a>Artículos técnicos para máquinas virtuales de Windows en el modelo de implementación clásica
 
 
 Encuentre toda la documentación que necesita para crear y administrar máquinas virtuales de Azure basadas en Windows en el modelo de implementación clásica.
@@ -25,7 +26,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
-## Información general
+## <a name="overview"></a>Información general
 
 [Acerca de las máquinas virtuales](virtual-machines-windows-about.md)
 
@@ -37,7 +38,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 
 
-## Configuración del entorno
+## <a name="environment-setup"></a>Configuración del entorno
 
 [Cuenta gratuita](https://azure.microsoft.com/free/)
  
@@ -46,7 +47,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 [Instalación de la CLI de Azure](../xplat-cli-install.md)
 
 
-## Primeros pasos
+## <a name="get-started"></a>Primeros pasos
 [Ruta de aprendizaje de máquinas virtuales de Azure](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
 
 [Creación de una máquina virtual de Windows en el Portal de Azure clásico](virtual-machines-windows-classic-tutorial.md)
@@ -56,7 +57,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 
 
-## Plan
+## <a name="plan"></a>Plan
 
 [Acerca de las imágenes para máquinas virtuales clásicas](virtual-machines-windows-classic-about-images.md)
 
@@ -71,7 +72,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 [Creación de un conjunto de disponibilidad para máquinas virtuales](virtual-machines-windows-classic-configure-availability.md)
 
 
-## Implementación
+## <a name="deploy"></a>Implementación
 
 [Cree una máquina virtual personalizada que ejecute Windows](virtual-machines-windows-classic-createportal.md)
 
@@ -86,12 +87,12 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 [Inyección de datos personalizados en una máquina virtual de Azure](virtual-machines-windows-classic-inject-custom-data.md)
 
 
-## Manage
+## <a name="manage"></a>Manage
 
 [Administración de las máquinas virtuales con Azure PowerShell](virtual-machines-windows-classic-manage-psh.md)
-	
+    
 [Conexión de redes virtuales clásicas a redes virtuales nuevas](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
-	
+    
 [Acerca de las extensiones y del agente de máquina virtual](virtual-machines-windows-classic-agents-and-extensions.md)
 
 [Administración de extensiones de máquina virtual](virtual-machines-windows-classic-manage-extensions.md)
@@ -106,43 +107,43 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 
 
-## Configuración
+## <a name="configure"></a>Configuración
 
 [Restablecimiento de una contraseña o del servicio de Escritorio remoto para máquinas virtuales de Windows](virtual-machines-windows-reset-rdp.md)
 
 [Acerca de las características y extensiones de las máquinas virtuales](virtual-machines-windows-extensions-features.md)
 
 [Instalación y configuración de Endpoint Protection en una máquina virtual de Azure](virtual-machines-windows-classic-install-symantec.md)
-	
+    
 [Instalación y configuración de Trend Micro Deep Security como servicio en una máquina virtual de Azure](virtual-machines-windows-classic-install-trend.md)
 
 [Configuración de un conjunto de disponibilidad para máquinas virtuales en el modelo de implementación clásica](virtual-machines-windows-classic-configure-availability.md)
 
 [Configurar los puntos de conexión en una máquina virtual de Azure clásica](virtual-machines-windows-classic-setup-endpoints.md)
 
-## Almacenamiento
+## <a name="storage"></a>Almacenamiento
 
 [Acerca de los discos y los discos duros virtuales para máquinas virtuales de Azure](virtual-machines-windows-about-disks-vhds.md)
-	
+    
 [Conexión de un disco de datos a una máquina virtual de Windows clásica](virtual-machines-windows-classic-attach-disk.md)
 
 [Desconexión de un disco de datos de una máquina virtual de Windows clásica](virtual-machines-windows-classic-detach-disk.md)
 
 [Uso de la unidad de disco D como unidad de datos en una máquina virtual de Windows](virtual-machines-windows-classic-change-drive-letter.md)
 
-## Redes
+## <a name="networking"></a>Redes
 
 [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md)
 
 [Conectar máquinas virtuales creadas con el modelo de implementación clásica con un servicio en la nube o red virtual](virtual-machines-windows-classic-connect-vms.md)
-	
+    
 [Administración de grupos de seguridad de red con Azure Powershell](../virtual-network/virtual-networks-create-nsg-classic-ps.md)
-	
+    
 [Crear un equilibrador de carga](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
 
-	
+    
 
-## Desarrollo
+## <a name="develop"></a>Desarrollo
 
 [Creación y administración de Máquinas virtuales de Azure en Visual Studio](virtual-machines-windows-classic-manage-visual-studio.md)
 
@@ -151,10 +152,10 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 [Ejecución de una tarea de Java de proceso intensivo en una máquina virtual](virtual-machines-windows-classic-java-run-compute-intensive-task.md)
 
 [Aplicación web Django Hello World en una máquina virtual de Windows Server](virtual-machines-windows-classic-python-django-web-app.md)
-		
+        
 
 
-## Cargas de trabajo
+## <a name="workloads"></a>Cargas de trabajo
 
 [HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md)
 
@@ -171,7 +172,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 [Tomcat](virtual-machines-windows-classic-java-run-tomcat-app-server.md)
 
 
-## Referencia
+## <a name="reference"></a>Referencia
 [Comandos de la CLI de Azure en el modo de Service Management](../virtual-machines-command-line-tools.md)
 
 [API de REST de administración del servicio](https://msdn.microsoft.com/library/azure/ee460799.aspx)
@@ -180,7 +181,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 [Documentación de referencia de los cmdlets de PowerShell para Azure Service Management](https://msdn.microsoft.com/library/azure/dn708504.aspx)
 
-## Solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
@@ -192,4 +193,12 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 [Solución de problemas de la implementación clásica con el reinicio o el cambio de tamaño de una máquina virtual de Windows existente en Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

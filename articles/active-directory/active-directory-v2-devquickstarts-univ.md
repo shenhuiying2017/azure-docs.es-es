@@ -16,13 +16,14 @@
 	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
-  # Agregar inicio de sesión a una aplicación universal de Windows mediante el punto de conexión v2.0: el tutorial de inicio rápido para aplicaciones universales de Windows todavía no está listo. Compruébelo de nuevo pronto y busque actualizaciones de @AzureAD en Twitter.
+# Agregar inicio de sesión a una aplicación universal de Windows mediante el punto de conexión v2.0: el tutorial de inicio rápido para aplicaciones universales de Windows todavía no está listo. Compruébelo de nuevo pronto y busque actualizaciones de @AzureAD en Twitter.
 
 > [AZURE.NOTE]
 	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
 	
-	## Get security updates for our products
+
+## Get security updates for our products
 
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite [esta página](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de avisos de seguridad.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!----HONumber=AcomDC_0601_2016-->

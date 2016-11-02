@@ -1,49 +1,50 @@
 <properties 
-	pageTitle="Notas de la versión de Análisis de transmisiones | Microsoft Azure" 
-	description="Notas de la versión de Análisis de transmisiones" 
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+    pageTitle="Notas de la versión de Análisis de transmisiones | Microsoft Azure" 
+    description="Notas de la versión de Análisis de transmisiones" 
+    services="stream-analytics" 
+    documentationCenter="" 
+    authors="jeffstokes72" 
+    manager="jhubbard" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="09/26/2016" 
-	ms.author="jeffstok"/>
+    ms.service="stream-analytics" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="data-services" 
+    ms.date="09/26/2016" 
+    ms.author="jeffstok"/>
 
-#Notas de la versión de Análisis de transmisiones
 
-## Notas de la versión de Análisis de transmisiones del 15/04/2016 ##
+#<a name="stream-analytics-release-notes"></a>Notas de la versión de Análisis de transmisiones
 
-Esta versión contiene la siguiente actualización.
-
-Título | Description
----|---
-Disponibilidad general para las salidas de Power BI | Las [salidas de Power BI](stream-analytics-power-bi-dashboard.md) están ahora disponibles. Se ha quitado la expiración de la autorización en 90 días para Power BI. Para obtener más información sobre los escenarios donde es necesario renovar la autorización, consulte la sección [Renovación de la autorización](stream-analytics-power-bi-dashboard.md#Renew-authorization) de Creación de un panel de Power BI.
-
-## Notas de la versión de Análisis de transmisiones del 03/03/2016 ##
+## <a name="notes-for-04/15/2016-release-of-stream-analytics"></a>Notas de la versión de Análisis de transmisiones del 15/04/2016 ##
 
 Esta versión contiene la siguiente actualización.
 
 Título | Description
 ---|---
-Nuevos elementos de lenguaje de consulta de Análisis de transmisiones | SAQL incluye ahora [GetType](https://msdn.microsoft.com/library/azure/mt643890.aspx "Página de MSDN GetType"), [TRY\_CAST](https://msdn.microsoft.com/library/azure/mt643735.aspx "Página de MSDN TRY_CAST") y [REGEXMATCH](https://msdn.microsoft.com/library/azure/mt643891.aspx "Página de MSDN REGEXMATCH").
+Disponibilidad general para las salidas de Power BI  | [salidas de Power BI](stream-analytics-power-bi-dashboard.md) están ahora disponibles. Se ha quitado la expiración de la autorización en 90 días para Power BI. Para obtener más información sobre los escenarios donde es necesario renovar la autorización, consulte la sección [Renovación de la autorización](stream-analytics-power-bi-dashboard.md#Renew-authorization) de Creación de un panel de Power BI.
 
-## Notas de la versión de Análisis de transmisiones del 12/10/2015 ##
+## <a name="notes-for-03/03/2016-release-of-stream-analytics"></a>Notas de la versión de Análisis de transmisiones del 03/03/2016 ##
 
 Esta versión contiene la siguiente actualización.
 
 Título | Description
 ---|---
-Actualización de la versión de API de REST | La versión de la API de REST se actualizó a la 2015-10-01. Encontrará detalles sobre MSDN en [Referencia de la API de REST de la administración de Análisis de transmisiones](https://msdn.microsoft.com/library/azure/dn835031.aspx) e [Integración del aprendizaje automático en Análisis de transmisiones](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md).
+Nuevos elementos de lenguaje de consulta de Análisis de transmisiones  | Ahora los elementos de lenguaje de consulta de Análisis de transmisiones tienen la página [GetType](https://msdn.microsoft.com/library/azure/mt643890.aspx "GetType MSDN"), la página [TRY_CAST](https://msdn.microsoft.com/library/azure/mt643735.aspx "TRY_CAST MSDN") y la página [REGEXMATCH](https://msdn.microsoft.com/library/azure/mt643891.aspx "REGEXMATCH MSDN").
+
+## <a name="notes-for-12/10/2015-release-of-stream-analytics"></a>Notas de la versión de Análisis de transmisiones del 12/10/2015 ##
+
+Esta versión contiene la siguiente actualización.
+
+Título | Description
+---|---
+Actualización de la versión de API de REST | La versión de la API de REST se actualizó a la 2015-10-01. Encontrará detalles sobre MSDN en [Referencia de la API de REST de la administración de Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx) e [Integración de Machine Learning en Stream Analytics](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md).
 Integración de Aprendizaje automático de Azure | Esta versión incluye compatibilidad con funciones definidas por el usuario de Aprendizaje automático de Azure. Consulte el [tutorial](stream-analytics-machine-learning-integration-tutorial.md) para obtener más información, así como el [anuncio general del blog](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
 
-## Notas de la versión de Análisis de transmisiones del 12/11/2015 ##
+## <a name="notes-for-11/12/2015-release-of-stream-analytics"></a>Notas de la versión de Análisis de transmisiones del 12/11/2015 ##
 
 Esta versión contiene la siguiente actualización.
 
@@ -51,19 +52,19 @@ Título | Description
 ---|---
 Nuevo comportamiento de SELECT | SELECT en el Análisis de transmisiones se ha ampliado para permitir * como descriptor de acceso de propiedad de un registro anidado. Para obtener más información, consulte [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "Tipos de datos complejos").
 
-## Notas de la versión de Análisis de transmisiones del 22/10/2015 ##
+## <a name="notes-for-10/22/2015-release-of-stream-analytics"></a>Notas de la versión de Análisis de transmisiones del 22/10/2015 ##
 
 Esta versión contiene las siguientes actualizaciones.
 
 Título | Description
 ---|---
-Características del lenguaje de consulta adicionales | Análisis de transmisiones ha ampliado el lenguaje de consulta mediante la inclusión de las siguientes características: [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx), [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx), [SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx) y [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx).
-Se han quitado las limitaciones de agregados | En esta versión se quita la limitación de 15 agregados en una consulta. Actualmente no hay límites en el número de agregados por consulta.
-Se ha agregado la característica GROUP BY System.Timestamp | La función [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) ahora permite window\_type o [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx).
+Características del lenguaje de consulta adicionales | Stream Analytics ha ampliado el lenguaje de consulta mediante la inclusión de las siguientes características: [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx), [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx), [SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx) y [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx).
+Se han quitado las limitaciones de agregados  | En esta versión se quita la limitación de 15 agregados en una consulta. Actualmente no hay límites en el número de agregados por consulta.
+Se ha agregado la característica GROUP BY System.Timestamp | La función [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) ahora permite window_type o [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx).
 Se ha agregado OFFSET para las ventanas de saltos de tamaño constante y las ventanas de salto | De forma predeterminada, las ventanas de [saltos de tamaño constante](https://msdn.microsoft.com/library/azure/dn835055.aspx) y de [salto](https://msdn.microsoft.com/library/azure/dn835041.aspx) se alinean con la hora cero (1/1/0001 12:00:00 A.M. UTC). El nuevo parámetro (opcional) 'offsetsize' permite especificar una diferencia (o alineación) personalizada.
 
 
-## Notas de la versión de Análisis de transmisiones del 29/09/2015 ##
+## <a name="notes-for-09/29/2015-release-of-stream-analytics"></a>Notas de la versión de Análisis de transmisiones del 29/09/2015 ##
 
 Esta versión contiene las siguientes actualizaciones.
 
@@ -75,7 +76,7 @@ Soporte técnico para la salida de DocumentDB | Ahora se pueden enviar trabajos 
 Compatibilidad para entrada de Centro de IoT | Los trabajos de Análisis de transmisiones ahora pueden introducir datos de los Centros de IoT.
 TIMESTAMP BY para eventos heterogéneos | Ahora puede usar [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) con expresiones para especificar diferentes campos de marca de tiempo para cada caso cuando un único flujo de datos contiene varios tipos de eventos con marcas de tiempo en distintos campos.
 
-## Notas de la versión de Análisis de transmisiones del 10/09/2015 ##
+## <a name="notes-for-09/10/2015-release-of-stream-analytics"></a>Notas de la versión de Análisis de transmisiones del 10/09/2015 ##
 
 Esta versión contiene las siguientes actualizaciones.
 
@@ -83,7 +84,7 @@ Título|Description
 ---|---
 Soporte para grupos de PowerBI|Para habilitar el uso compartido de datos con otros usuarios de Power BI, los trabajos de Análisis de transmisiones ahora pueden escribir en [grupos de PowerBI](stream-analytics-define-outputs.md#power-bi) dentro de su cuenta de Power BI.
 
-## Notas de la versión de Análisis de transmisiones del 20/08/2015 ##
+## <a name="notes-for-08/20/2015-release-of-stream-analytics"></a>Notas de la versión de Análisis de transmisiones del 20/08/2015 ##
 
 Esta versión contiene las siguientes actualizaciones.
 
@@ -93,17 +94,17 @@ Función LAST agregada |La función [LAST](http://msdn.microsoft.com/library/mt4
 Nuevas funciones de matriz|Ahora están disponibles las funciones de matriz [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) y [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx).
 Nuevas funciones de registro|Ahora están disponibles las funciones de registro [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) y [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx).
 
-## Notas de la versión de Análisis de transmisiones del 30/07/2015 ##
+## <a name="notes-for-07/30/2015-release-of-stream-analytics"></a>Notas de la versión de Análisis de transmisiones del 30/07/2015 ##
 
 Esta versión contiene las siguientes actualizaciones.
 
 Título|Description
 ---|---
-Identificador de organización de BI energía desacoplado del identificador de Azure|Esta característica habilita la [salida de Power BI](stream-analytics-power-bi-dashboard.md) para trabajos de ASA en cualquier tipo de cuenta de Azure (Live ID o id. de organización). Además, puede tener un identificador de organización para su cuenta de Azure y usar otros distinto para autorizar la salida de Power BI.
-Compatibilidad con la salida de Colas del Bus de servicio|Las salidas de [Colas del Bus de servicio](stream-analytics-connect-data-event-outputs.md#service-bus-queues) ahora están disponibles en los trabajos de Análisis de transmisiones.
-Compatibilidad con la salida de Temas de Service Bus|Las salidas de [Temas de Service Bus](stream-analytics-connect-data-event-outputs.md#service-bus-topics) ahora están disponibles en los trabajos de Stream Analytics.
+Identificador de organización de BI energía desacoplado del identificador de Azure|Esta característica habilita la [salida de Power BI](stream-analytics-power-bi-dashboard.md) para trabajos de ASA en cualquier tipo de cuenta de Azure (Live ID o ID de organización). Además, puede tener un identificador de organización para su cuenta de Azure y usar otros distinto para autorizar la salida de Power BI.
+Compatibilidad con la salida de Colas del Bus de servicio|Las [colas de Service Bus](stream-analytics-define-outputs.md#service-bus-queues) ahora están disponibles en los trabajos de Stream Analytics.
+Compatibilidad con la salida de Temas de Service Bus|Los [temas de Service Bus](stream-analytics-define-outputs.md#service-bus-topics) ahora están disponibles en los trabajos de Stream Analytics.
 
-## Notas de la versión de Análisis de transmisiones del 09/07/2015 ##
+## <a name="notes-for-07/09/2015-release-of-stream-analytics"></a>Notas de la versión de Análisis de transmisiones del 09/07/2015 ##
 
 Esta versión contiene las siguientes actualizaciones.
 
@@ -112,7 +113,7 @@ Título|Description
 ---|---
 Particiones de salida de blob personalizadas|Las salidas de almacenamiento de blobs ahora le dan la opción de especificar tanto la frecuencia en la que los blobs de salida son escritos, como la estructura y el formato de la estructura de la carpeta con la ruta de acceso a los datos de salida. 
 
-## Notas de la versión de Análisis de transmisiones del 03/05/2015 ##
+## <a name="notes-for-05/03/2015-release-of-stream-analytics"></a>Notas de la versión de Análisis de transmisiones del 03/05/2015 ##
 
 Esta versión contiene las siguientes actualizaciones.
 
@@ -122,7 +123,7 @@ Título|Description
 Se ha incrementado el valor máximo del período de tolerancia de fuera de servicio|El tamaño máximo del período de tolerancia de fuera de servicio es ahora de 59:59 (MM:SS)
 Formato de salida JSON: separación por líneas o matriz|Cuando envíe elementos al Almacenamiento de blobs o al Centro de eventos, tiene la opción de hacer la salida como una matriz de objetos JSON o separando los objetos JSON con una nueva línea. 
 
-## Notas de la versión de Análisis de transmisiones del 16/04/2015 ##
+## <a name="notes-for-04/16/2015-release-of-stream-analytics"></a>Notas de la versión de Análisis de transmisiones del 16/04/2015 ##
 
 
 Título|Description
@@ -137,10 +138,10 @@ Las entradas de blobs grandes sin marca de tiempo de carga pueden causar un prob
 Limitación del volumen de eventos de Base de datos SQL|Cuando se utiliza la Base de datos SQL como destino de la salida, unos volúmenes de datos de salida muy elevados pueden hacer que se agote el tiempo de espera del trabajo de Análisis de transmisiones. Para resolver este problema, reduzca el volumen de salida con agregados u operadores de filtro o elija el almacenamiento de blobs de Azure o los centros de eventos como destino de la salida.
 Los conjuntos de datos PowerBI solo pueden contener una tabla|PowerBI no admite más de una tabla en un conjunto de datos determinado.
 
-## Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics)
+## <a name="get-help"></a>Obtener ayuda
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
 - [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
@@ -149,4 +150,8 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
