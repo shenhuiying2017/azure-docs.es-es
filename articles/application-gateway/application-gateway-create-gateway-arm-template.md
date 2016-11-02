@@ -10,14 +10,15 @@
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/06/2016"
    ms.author="gwallace"/>
 
 
-# Creación de una puerta de enlace de aplicaciones con la plantilla de Administrador de recursos de Azure
+
+# <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Creación de una puerta de enlace de aplicaciones con la plantilla de Administrador de recursos de Azure
 
 Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local. Puerta de enlace de aplicaciones tiene las siguientes características de entrega de aplicaciones: equilibrio de carga HTTP, afinidad de sesiones basada en cookies y descarga SSL (Capa de sockets seguros).
 
@@ -32,7 +33,7 @@ Aprenderá a descargar y modificar una plantilla de Azure Resource Manager desde
 
 Si simplemente va a implementar la plantilla de Administrador de recursos de Azure directamente desde GitHub sin realizar ningún cambio, vaya a la sección sobre la implementación una plantilla desde GitHub.
 
-## Escenario
+## <a name="scenario"></a>Escenario
 
 En este escenario:
 
@@ -45,7 +46,7 @@ En este escenario:
 
 ![Escenario](./media/application-gateway-create-gateway-arm-template/scenario-arm.png)
 
-## Descarga e información sobre la plantilla del Administrador de recursos de Azure
+## <a name="download-and-understand-the-azure-resource-manager-template"></a>Descarga e información sobre la plantilla del Administrador de recursos de Azure
 
 Puede descargar la plantilla del Administrador de recursos de Azure existente para crear una red virtual y dos subredes desde GitHub, realizar todos los cambios que desee y volver a utilizarla. Para ello, siga estos pasos:
 
@@ -55,158 +56,158 @@ Puede descargar la plantilla del Administrador de recursos de Azure existente pa
 4. Si está familiarizado con las plantillas del Administrador de recursos de Azure, vaya directamente al paso 7.
 5. Abra el archivo que guardó y vea el contenido de **parameters** en la línea 5. Los parámetros de plantilla del Administrador de recursos de Azure proporcionan un marcador de posición para los valores que se pueden rellenar durante la implementación.
 
-	| Parámetro | Description |
-	|---|---|
-	| **ubicación** | Región de Azure en que se crea la puerta de enlace de aplicaciones |
-	| **VirtualNetwork1** | Nombre de la nueva red virtual |
-	| **addressPrefix** | Espacio de direcciones de la red virtual, en formato CIDR |
-	| **ApplicationGatewaysubnet** | Nombre de la subred de la puerta de enlace de aplicaciones |
-	| **subnetPrefix** | Bloque CIDR de la subred de la puerta de enlace de aplicaciones |
-	| **skuname** | Tamaño de la instancia de SKU |
-	| **capacidad** | Número de instancias |
-	| **backendaddress1** | Dirección IP del primer servidor web |
-	| **backendaddress2** | Dirección IP del segundo servidor web |
+  	| Parámetro | Descripción |
+  	|---|---|
+  	| **ubicación** | Región de Azure en que se crea la puerta de enlace de aplicaciones |
+  	| **VirtualNetwork1** | Nombre de la nueva red virtual |
+  	| **addressPrefix** | Espacio de direcciones de la red virtual, en formato CIDR |
+  	| **ApplicationGatewaysubnet** | Nombre de la subred de la puerta de enlace de aplicaciones |
+  	| **subnetPrefix** | Bloque CIDR de la subred de la puerta de enlace de aplicaciones |
+  	| **skuname** | Tamaño de la instancia de SKU |
+  	| **capacidad** | Número de instancias |
+  	| **backendaddress1** | Dirección IP del primer servidor web |
+  	| **backendaddress2** | Dirección IP del segundo servidor web |
 
 
-	>[AZURE.IMPORTANT] Las plantillas del Administrador de recursos de Azure que se mantienen en GitHub pueden cambiar con el tiempo. Asegúrese de comprobar la plantilla antes de usarla.
+    >[AZURE.IMPORTANT] Las plantillas del Administrador de recursos de Azure que se mantienen en GitHub pueden cambiar con el tiempo. Asegúrese de comprobar la plantilla antes de usarla.
 
 6. Compruebe el contenido en **resources** y observe lo siguiente:
 
-	- **type**. Tipo de recurso que creó la plantilla. En este caso, el tipo es **Microsoft.Network/applicationGateways**, que representa una puerta de enlace de aplicaciones.
-	- **name**. Nombre del recurso. Observe el uso de **[parameters('applicationGatewayName')]**, lo que significa que el nombre lo proporciona el usuario o un archivo de parámetros durante la implementación.
-	- **properties**. Lista de propiedades para el recurso. Esta plantilla usa la red virtual y la dirección IP pública durante la creación de la puerta de enlace de aplicaciones.
+    - **type**. Tipo de recurso que creó la plantilla. En este caso, el tipo es **Microsoft.Network/applicationGateways**, que representa una puerta de enlace de aplicaciones.
+    - **name**. Nombre del recurso. Observe el uso de **[parameters('applicationGatewayName')]**, lo que significa que el nombre lo proporciona el usuario o un archivo de parámetros durante la implementación.
+    - **properties**. Lista de propiedades para el recurso. Esta plantilla usa la red virtual y la dirección IP pública durante la creación de la puerta de enlace de aplicaciones.
 
 7. Vuelva a [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create).
-8. Haga clic en **azuredeploy-paremeters.json**, y, a continuación, haga clic en **RAW**.
+8. Haga clic en **azuredeploy-paremeters.json** y luego en **RAW**.
 9. Guarde el archivo en un una carpeta local del equipo.
 10. Abra el archivo que guardó y edite los valores de los parámetros. Use los siguientes valores para implementar la puerta de enlace de aplicaciones que se describe en nuestro escenario.
 
-		{
-		"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-		{
-		"location" : {
-		"value" : "West US"
-		},
-		"addressPrefix": {
-		"value": "10.0.0.0/16"
-		},
-		"subnetPrefix": {
-		"value": "10.0.0.0/24"
-		},
-		"skuName": {
-		"value": "Standard_Small"
-		},
-		"capacity": {
-		"value": 2
-		},
-		"backendIpAddress1": {
-		"value": "10.0.1.10"
-		},
-		"backendIpAddress2": {
-		"value": "10.0.1.11"
-		}
-		}
+        {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        {
+        "location" : {
+        "value" : "West US"
+        },
+        "addressPrefix": {
+        "value": "10.0.0.0/16"
+        },
+        "subnetPrefix": {
+        "value": "10.0.0.0/24"
+        },
+        "skuName": {
+        "value": "Standard_Small"
+        },
+        "capacity": {
+        "value": 2
+        },
+        "backendIpAddress1": {
+        "value": "10.0.1.10"
+        },
+        "backendIpAddress2": {
+        "value": "10.0.1.11"
+        }
+        }
 
 11. Guarde el archivo . Puede probar la plantilla de JSON y la plantilla de parámetros mediante las herramientas en línea de validación de JSON como [JSlint.com](http://www.jslint.com/).
 
-## Implementación de la plantilla del Administrador de recursos de Azure mediante PowerShell
+## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>Implementación de la plantilla del Administrador de recursos de Azure mediante PowerShell
 
 Si es la primera vez que usa Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) y siga las instrucciones para iniciar sesión en Azure y seleccionar su suscripción.
 
-### Paso 1
+### <a name="step-1"></a>Paso 1
 
-	Login-AzureRmAccount
+    Login-AzureRmAccount
 
-### Paso 2
+### <a name="step-2"></a>Paso 2
 
 Compruebe las suscripciones para la cuenta.
 
-	Get-AzureRmSubscription
+    Get-AzureRmSubscription
 
 Se le solicita que se autentique con sus credenciales.<BR>
 
-### Paso 3
+### <a name="step-3"></a>Paso 3
 
-Elija qué suscripción de Azure va a utilizar.<BR>
-
-
-	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+Elección de la suscripción de Azure que se va a usar. <BR>
 
 
-### Paso 4
+    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+
+
+### <a name="step-4"></a>Paso 4
 
 
 Si es necesario, cree un grupo de recursos mediante el cmdlet **New-AzureResourceGroup**. En el ejemplo siguiente, se crea un grupo de recursos denominado AppgatewayRG en la ubicación Este de EE. UU.
 
-	New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
+    New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
 
 Ejecute el cmdlet **New-AzureRmResourceGroupDeployment** para implementar la nueva red virtual mediante los archivos de plantillas y parámetros que descargó y modificó anteriormente.
 
-	New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
- 		-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
+    New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+        -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
 
-## Implementación de la plantilla del Administrador de recursos de Azure mediante la CLI de Azure
+## <a name="deploy-the-azure-resource-manager-template-by-using-the-azure-cli"></a>Implementación de la plantilla del Administrador de recursos de Azure mediante la CLI de Azure
 
 Para implementar la plantilla del Administrador de recursos de Azure descargada mediante la CLI de Azure, siga estos pasos:
 
-### Paso 1
+### <a name="step-1"></a>Paso 1
 
 Si es la primera vez que usa la CLI de Azure, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md) y siga las instrucciones hasta el punto donde tiene que seleccionar su cuenta y suscripción de Azure.
-### Paso 2
+### <a name="step-2"></a>Paso 2
 
 Ejecuta el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
 
-	azure config mode arm
+    azure config mode arm
 
 Este es el resultado esperado del comando anterior:
 
-	info:	New mode is arm
+    info:   New mode is arm
 
-### Paso 3
+### <a name="step-3"></a>Paso 3
 
 En caso necesario, ejecute el comando **azure group create** para crear un grupo de recursos nuevo, como se muestra a continuación. Observe la salida del comando. En la lista que se muestra en la salida se explican los parámetros utilizados. Para más información sobre los grupos de recursos, visite [Información general de Azure Resource Manager](../resource-group-overview.md).
 
-	azure group create -n appgatewayRG -l eastus
+    azure group create -n appgatewayRG -l eastus
 
 **-n (or --name)**. Nombre del nuevo grupo de recursos. En este escenario, es *appgatewayRG*.
 
 **-l (o --location)**. Región de Azure donde se crea el nuevo grupo de recursos. En este escenario, es *eastus*.
 
-### Paso 4
+### <a name="step-4"></a>Paso 4
 
 Ejecute el cmdlet **azure group deployment create** para implementar la nueva red virtual mediante los archivos de plantillas y parámetros que descargó y modificó antes. En la lista que se muestra en la salida se explican los parámetros utilizados.
 
-	azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
+    azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 
-## Implementación de la plantilla del Administrador de recursos de Azure mediante el método de hacer clic para implementar
+## <a name="deploy-the-azure-resource-manager-template-by-using-click-to-deploy"></a>Implementación de la plantilla del Administrador de recursos de Azure mediante el método de hacer clic para implementar
 
 Clic para implementar es otra forma de usar las plantillas del Administrador de recursos de Azure. Se trata de una manera fácil de usar plantillas con el Portal de Azure.
 
-### Paso 1
+### <a name="step-1"></a>Paso 1
 
-Vaya a [Create an Application Gateway with Public IP](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/) (Creación de una puerta de enlace de aplicaciones con IP pública).
+Vaya a [Create an Application Gateway with Public IP](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/)(Creación de una puerta de enlace de aplicaciones con IP pública).
 
-### Paso 2
+### <a name="step-2"></a>Paso 2
 
 Haga clic en **Implementar en Azure**.
 
-![Implementación en Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
+![Implementar en Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
 
-### Paso 3
+### <a name="step-3"></a>Paso 3
 
 Rellene los parámetros de la plantilla de implementación en el portal y haga clic en **Aceptar**.
 
-![Parámetros](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
+![parameters](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
 
-### Paso 4
+### <a name="step-4"></a>Paso 4
 
 Seleccione **Términos legales** y haga clic en **Comprar**.
 
-### Paso 5
+### <a name="step-5"></a>Paso 5
 
 En la hoja Implementación personalizada, haga clic en **Crear**.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Si desea configurar la descarga de SSL, consulte [Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el modelo de implementación clásica](application-gateway-ssl.md).
 
@@ -217,4 +218,8 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

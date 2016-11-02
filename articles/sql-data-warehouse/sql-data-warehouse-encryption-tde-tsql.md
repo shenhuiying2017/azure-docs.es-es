@@ -13,10 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/24/2016"
-   ms.author="rortloff;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="rortloff;barbkess"/>
 
-# Introducción al cifrado de datos transparente (TDE)
+
+# <a name="get-started-with-transparent-data-encryption-tde"></a>Introducción al cifrado de datos transparente (TDE)
 
 
 > [AZURE.SELECTOR]
@@ -25,11 +26,11 @@
 - [Cifrado (Portal)](sql-data-warehouse-encryption-tde.md)
 - [Cifrado (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
-## Permisos necesarios
+## <a name="required-permssions"></a>Permisos necesarios
 
 Para habilitar el Cifrado de datos transparente (TDE), debe ser un administrador o un miembro del rol dbmanager.
 
-## Habilitar el cifrado
+## <a name="enabling-encryption"></a>Habilitar el cifrado
 
 Para habilitar TDE para una instancia de SQL Data Warehouse, siga estos pasos:
 
@@ -40,7 +41,7 @@ Para habilitar TDE para una instancia de SQL Data Warehouse, siga estos pasos:
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
-## Deshabilitar el cifrado
+## <a name="disabling-encryption"></a>Deshabilitar el cifrado
 
 Para deshabilitar TDE para una instancia de SQL Data Warehouse, siga estos pasos:
 
@@ -53,7 +54,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 
 > [AZURE.NOTE] Se debe reanudar una instancia de SQL Data Warehouse en pausa antes de realizar cambios en la configuración de TDE.
 
-## Comprobación del cifrado
+## <a name="verifying-encryption"></a>Comprobación del cifrado
 
 Para comprobar el estado del cifrado para un Almacenamiento de datos SQL, siga estos pasos:
 
@@ -62,27 +63,31 @@ Para comprobar el estado del cifrado para un Almacenamiento de datos SQL, siga e
 
 ```sql
 SELECT
-	[name],
-	[is_encrypted]
+    [name],
+    [is_encrypted]
 FROM
-	sys.databases;
+    sys.databases;
 ```
 
 Un resultado de ```1``` indica una base de datos cifrada, ```0``` indica una base de datos no cifrada.
 
-## DMV de cifrado  
+## <a name="encryption-dmvs"></a>DMV de cifrado  
 
-- [Sys.Databases][]
-- [sys.dm\_pdw\_nodes\_database\_encryption\_keys][]
+- [Sys.Databases][] 
+- [sys.dm_pdw_nodes_database_encryption_keys][]
 
 
 <!--Anchors-->
-[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
-[sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx
-[sys.dm\_pdw\_nodes\_database\_encryption\_keys]: https://msdn.microsoft.com/library/mt203922.aspx
+[Cifrado de datos transparente (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx  
+[sys.dm_pdw_nodes_database_encryption_keys]: https://msdn.microsoft.com/library/mt203922.aspx  
 
 <!--Image references-->
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

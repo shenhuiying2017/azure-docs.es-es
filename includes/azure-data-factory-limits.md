@@ -1,9 +1,9 @@
-Data Factory es un servicio multiinquilino que tiene los siguientes límites predeterminados para asegurarse de que las suscripciones de cliente están protegidas frente a las cargas de trabajo de los demás. Se pueden aumentar muchos de los límites para su suscripción fácilmente hasta el límite máximo; para ello, póngase en contacto con el soporte técnico.
+Data Factory es un servicio multiinquilino que tiene los siguientes límites predeterminados para asegurarse de que las suscripciones de cliente están protegidas frente a las cargas de trabajo de los demás. Se pueden aumentar muchos de los límites para su suscripción fácilmente hasta el límite máximo; para ello, póngase en contacto con el soporte técnico. 
 
 **Recurso** | **Límite predeterminado** | **Límite máximo**
 -------- | ------------- | -------------
 data factories en una suscripción de Azure | 50 | [Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-canalizaciones dentro de una factoría de datos | 2\.500 | [Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+canalizaciones dentro de una factoría de datos | 2.500 | [Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 conjuntos de datos dentro de una factoría de datos | 5000 | [Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 fragmentos simultáneos por conjunto de datos | 10 | 10
 bytes por objeto para objetos de canalización <sup>1</sup> | 200 KB | 2000 KB
@@ -25,8 +25,13 @@ Intervalo entre reintentos | 1 segundo | 1 segundo
 Valor de tiempo de espera de reintento | 1 segundo | 1 segundo
 
 
-### Límites de llamadas de servicio web
+### <a name="web-service-call-limits"></a>Límites de llamadas de servicio web
 
-Azure Resource Manager tiene límites para las llamadas de API. Se pueden realizar llamadas API a un ritmo que esté dentro de los [límites de la API del Administrador de recursos de Azure](../azure-subscription-service-limits.md#resource-group-limits).
+Azure Resource Manager tiene límites para las llamadas de API. Se pueden realizar llamadas API a un ritmo que esté dentro de los [límites de la API del Administrador de recursos de Azure](../azure-subscription-service-limits.md#resource-group-limits). 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

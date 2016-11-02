@@ -16,7 +16,8 @@
    ms.date="07/07/2016"
    ms.author="danlep"/>
 
-# Creación de un clúster de proceso de alto rendimiento (HPC) de Windows con el script de implementación de HPC Pack IaaS
+
+# <a name="create-a-windows-high-performance-computing-(hpc)-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Creación de un clúster de proceso de alto rendimiento (HPC) de Windows con el script de implementación de HPC Pack IaaS
 
 Ejecute el script de PowerShell de implementación de HPC Pack IaaS para implementar un clúster de HPC completo para cargas de trabajo Windows en máquinas virtuales de Azure. El clúster consta de un nodo principal unido a Active Directory en el que se ejecuta Windows Server y Microsoft HPC Pack, y los recursos de cálculo de Windows adicionales que especifique. Si desea implementar un clúster de HPC Pack en Azure para cargas de trabajo de Linux, consulte [Creación de un clúster de informática de alto rendimiento (HPC) en máquinas virtuales de Linux con el script de implementación de HPC Pack IaaS](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). También puede usar una plantilla del Administrador de recursos de Azure para implementar un clúster de HPC Pack. Para ver ejemplos, consulte [Create an HPC cluster](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) (Creación de un clúster de HPC) y [Create an HPC cluster with a custom compute node image](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/) (Creación de un clúster de HPC con una imagen de nodo de proceso personalizado).
 
@@ -24,11 +25,11 @@ Ejecute el script de PowerShell de implementación de HPC Pack IaaS para impleme
 
 [AZURE.INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
-## Archivos de configuración de ejemplo
+## <a name="example-configuration-files"></a>Archivos de configuración de ejemplo
 
 En los siguientes ejemplos, sustituya por sus propios valores el nombre o la identificación de la suscripción y los nombres de cuenta y servicio.
 
-### Ejemplo 1
+### <a name="example-1"></a>Ejemplo 1
 
 El siguiente archivo de configuración implementa un clúster de HPC Pack que tiene un nodo principal con bases de datos locales y cinco nodos de proceso que ejecutan el sistema operativo Windows Server 2012 R2. Todos los servicios en la nube se crean directamente en la ubicación oeste de EE. UU. El nodo principal actúa como controlador de dominio del bosque de dominio.
 
@@ -66,9 +67,10 @@ El siguiente archivo de configuración implementa un clúster de HPC Pack que ti
 </IaaSClusterConfig>
 ```
 
-### Ejemplo 2
+### <a name="example-2"></a>Ejemplo 2
 
-El archivo de configuración siguiente implementa un clúster de HPC Pack en un bosque de dominio existente. El clúster tiene un nodo principal con bases de datos locales y 12 nodos de proceso con la extensión de máquina virtual BGInfo aplicada. La instalación automática de actualizaciones de Windows está deshabilitada para todas las máquinas virtuales en el bosque de dominio. Todos los servicios en la nube se crean directamente en la ubicación de Este de Asia. Los nodos de proceso se crean en tres servicios en la nube y tres cuentas de almacenamiento: _MyHPCCN-0001_ a _MyHPCCN-0005_ en _MyHPCCNService01_ y _mycnstorage01_; _MyHPCCN-0006_ a _MyHPCCN0010_ en _MyHPCCNService02_ y _mycnstorage02_; y _MyHPCCN-0011_ a _MyHPCCN-0012_ en _MyHPCCNService03_ y _mycnstorage03_). Los nodos de proceso se crean a partir de una imagen privada existente capturada desde un nodo de proceso. El servicio de crecimiento y reducción automático está habilitado con intervalos de crecimiento y reducción predeterminados.
+El archivo de configuración siguiente implementa un clúster de HPC Pack en un bosque de dominio existente. El clúster tiene un nodo principal con bases de datos locales y 12 nodos de proceso con la extensión de máquina virtual BGInfo aplicada.
+La instalación automática de actualizaciones de Windows está deshabilitada para todas las máquinas virtuales en el bosque de dominio. Todos los servicios en la nube se crean directamente en la ubicación de Este de Asia. Los nodos de proceso se crean en tres servicios en la nube y tres cuentas de almacenamiento: de _MyHPCCN-0001_ a _MyHPCCN-0005_ en _MyHPCCNService01_ y _mycnstorage01_; de _MyHPCCN-0006_ a _MyHPCCN0010_ en _MyHPCCNService02_ y _mycnstorage02_; y de _MyHPCCN-0011_ a _MyHPCCN-0012_ en _MyHPCCNService03_ y _mycnstorage03_). Los nodos de proceso se crean a partir de una imagen privada existente capturada desde un nodo de proceso. El servicio de crecimiento y reducción automático está habilitado con intervalos de crecimiento y reducción predeterminados.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -130,7 +132,7 @@ El archivo de configuración siguiente implementa un clúster de HPC Pack en un 
 
 ```
 
-### Ejemplo 3
+### <a name="example-3"></a>Ejemplo 3
 
 El archivo de configuración siguiente implementa un clúster de HPC Pack en un bosque de dominio existente. El clúster contiene un nodo principal, un servidor de bases de datos con un disco de datos de 500 GB, dos nodos de agente que ejecutan el sistema operativo Windows Server 2012 R2 y cinco nodos de proceso que ejecutan el sistema operativo Windows Server 2012 R2. El servicio en la nube MyHPCCNService se crea en el grupo de afinidad *MyIBAffinityGroup*, mientras que los restantes servicios en la nube se crean en el grupo de afinidad *MyAffinityGroup*. La API de REST del Programador de trabajos de HPC y el portal web de HPC están habilitados en el nodo principal.
 
@@ -186,9 +188,9 @@ El archivo de configuración siguiente implementa un clúster de HPC Pack en un 
 
 
 
-### Ejemplo 4
+### <a name="example-4"></a>Ejemplo 4
 
-El archivo de configuración siguiente implementa un clúster de HPC Pack en un bosque de dominio existente. El clúster tiene dos nodos principales con bases de datos locales y se crean dos plantillas de nodo de Azure y tres nodos de Azure de tamaño medio para la plantilla de nodo _AzureTemplate1_ de Azure. Se ejecuta un archivo de script en el nodo principal después de configurar este nodo.
+El archivo de configuración siguiente implementa un clúster de HPC Pack en un bosque de dominio existente. El clúster tiene dos nodos principales con bases de datos locales y se crean dos plantillas de nodo de Azure y tres nodos de Azure de tamaño medio para la plantilla de nodo _AzureTemplate1_de Azure. Se ejecuta un archivo de script en el nodo principal después de configurar este nodo.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -254,22 +256,24 @@ El archivo de configuración siguiente implementa un clúster de HPC Pack en un 
 </IaaSClusterConfig>
 ```
 
-## Solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 
-* **Error "La red virtual no existe"**: si ejecuta el script para implementar varios clústeres en Azure simultáneamente con una única suscripción, puede producirse un error de "La red virtual *Nombre\_red\_virtual* no existe" en una implementación o varias. Si se produce este error, vuelva a ejecutar el script para la implementación en la que ocurrió el error.
+* **Error "La red virtual no existe"**: si ejecuta el script para implementar varios clústeres en Azure simultáneamente con una única suscripción, puede producirse un error de "La red virtual *Nombre de\_red virtual* no existe" en una implementación o varias.
+Si se produce este error, vuelva a ejecutar el script para la implementación en la que ocurrió el error.
 
-* **Problemas de acceso a Internet desde la red virtual de Azure**: si crea un clúster con un nuevo controlador de dominio mediante el script de implementación o promueve manualmente una máquina virtual del nodo principal a un controlador de dominio, puede experimentar problemas al conectar las máquinas virtuales a Internet. Este problema puede ocurrir si se configura automáticamente un servidor de reenviador DNS en el controlador de dominio y este servidor de reenviador DNS no se resuelve correctamente.
+* **Problemas de acceso a Internet desde la red virtual de Azure** : si crea un clúster con un nuevo controlador de dominio mediante el script de implementación o promueve manualmente una máquina virtual del nodo principal a un controlador de dominio, puede experimentar problemas al conectar las máquinas virtuales a Internet. Este problema puede ocurrir si se configura automáticamente un servidor de reenviador DNS en el controlador de dominio y este servidor de reenviador DNS no se resuelve correctamente.
 
-    Para evitar este problema, inicie sesión en el controlador de dominio y, o bien, quite la configuración de reenviador, o bien, configure un servidor de reenviador DNS válida. Para configurar esta opción, en Administrador del servidor, haga clic **Herramientas** > **DNS** para abrir el Administrador de DNS y, a continuación, haga doble clic en **Reenviadores**.
+    Para evitar este problema, inicie sesión en el controlador de dominio y, o bien, quite la configuración de reenviador, o bien, configure un servidor de reenviador DNS válida. Para configurar esta opción, en Administrador del servidor, haga clic **Herramientas** >
+    **DNS** para abrir el Administrador de DNS y, a continuación, haga doble clic en **Reenviadores**.
 
-* **Problemas de acceso a la red RDMA desde máquinas virtuales de proceso intensivo**: si agrega máquinas virtuales de nodo de agente o de nodo de proceso de Windows Server mediante un tamaño compatible con RDMA, como A8 o A9, puede experimentar problemas para conectar estas máquinas virtuales a la red de aplicación RDMA. Una razón por la que puede ocurrir esto es que la extensión HpcVmDrivers no esté correctamente instalada cuando las máquinas virtuales se agregan al clúster. Por ejemplo, la extensión puede bloquearse en el estado de instalación.
+* **Problemas de acceso a la red RDMA desde máquinas virtuales de proceso intensivo** : si agrega máquinas virtuales de nodo de agente o de nodo de proceso de Windows Server mediante un tamaño compatible con RDMA, como A8 o A9, puede experimentar problemas para conectar estas máquinas virtuales a la red de aplicación RDMA. Una razón por la que puede ocurrir esto es que la extensión HpcVmDrivers no esté correctamente instalada cuando las máquinas virtuales se agregan al clúster. Por ejemplo, la extensión puede bloquearse en el estado de instalación.
 
     Para evitar este problema, compruebe primero el estado de la extensión en las máquinas virtuales. Si la extensión no está instalada correctamente, intente quitar los nodos del clúster de HPC y, a continuación, vuelva a agregarlos. Por ejemplo, puede agregar máquinas virtuales de nodos de proceso mediante la ejecución del script Add-HpcIaaSNode.ps1 en el nodo principal.
     
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
-* Pruebe a ejecutar una carga de trabajo de prueba en el clúster. Para obtener un ejemplo, consulte la [guía de introducción](https://technet.microsoft.com/library/jj884144) de HPC Pack.
+* Pruebe a ejecutar una carga de trabajo de prueba en el clúster. Para obtener un ejemplo, consulte la [guía de introducción](https://technet.microsoft.com/library/jj884144)de HPC Pack.
 
 * Para ver un tutorial sobre cómo crear un script de implementación del clúster y ejecutar una carga de trabajo de HPC, consulte [Introducción a un clúster de HPC Pack en Azure para ejecutar cargas de trabajo de Excel y SOA](virtual-machines-windows-excel-cluster-hpcpack.md).
 
@@ -277,4 +281,8 @@ El archivo de configuración siguiente implementa un clúster de HPC Pack en un 
 
 * Para configurar el envío de trabajos al clúster desde un equipo local, consulte [Envío de trabajos HPC desde un equipo local a un clúster de HPC Pack implementado en Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

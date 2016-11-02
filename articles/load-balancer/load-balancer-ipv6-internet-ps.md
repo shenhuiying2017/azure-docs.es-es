@@ -7,6 +7,7 @@
     manager="carmonm"
     editor=""
     tags="azure-resource-manager"
+    keywords="IPv6, Azure Load Balancer, pila doble, dirección ip pública, ipv6 nativo, móvil, iot"
 />
 <tags
     ms.service="load-balancer"
@@ -18,16 +19,17 @@
     ms.author="sewhee"
 />
 
-# Introducción a la creación de un equilibrador de carga orientado a Internet con IPv6 mediante el uso de PowerShell para Resource Manager
+
+# <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Introducción a la creación de un equilibrador de carga orientado a Internet con IPv6 mediante el uso de PowerShell para Resource Manager
 
 > [AZURE.SELECTOR]
-- [PowerShell](load-balancer-IPv6-internet-ps.md)
-- [CLI de Azure](load-balancer-IPv6-internet-cli.md)
-- [Plantilla](load-balancer-IPv6-internet-template.md)
+- [PowerShell](./load-balancer-ipv6-internet-ps.md)
+- [CLI de Azure](./load-balancer-ipv6-internet-cli.md)
+- [Plantilla](./load-balancer-ipv6-internet-template.md)
 
 Azure Load Balancer es un equilibrador de carga de nivel 4 (TCP y UDP) que distribuye proporcionando una alta disponibilidad el tráfico entrante entre las instancias de servicio correctas de los servicios en la nube o las máquinas virtuales de un conjunto de carga equilibrada. Azure Load Balancer también pueden presentar prestar servicios en varios puertos, varias direcciones IP o ambos.
 
-## Escenario de implementación de ejemplo
+## <a name="example-deployment-scenario"></a>Escenario de implementación de ejemplo
 
 En el siguiente diagrama se ilustra la solución de equilibrio de carga que se implementa en este artículo.
 
@@ -41,7 +43,7 @@ En este escenario creará los siguientes recursos de Azure:
 - dos máquinas virtuales (VM)
 - una interfaz de red virtual para cada máquina virtual con las direcciones IPv4 e IPv6 asignadas
 
-## Implementación de la solución mediante Azure PowerShell
+## <a name="deploying-the-solution-using-the-azure-powershell"></a>Implementación de la solución mediante Azure PowerShell
 
 Los pasos siguientes muestran cómo crear un equilibrador de carga orientado a Internet mediante Azure Resource Manager con PowerShell. Con Azure Resource Manager, cada recurso se crea y configura individualmente y, a continuación, se colocan juntos para crear un recurso.
 
@@ -55,7 +57,7 @@ Para implementar un equilibrador de carga, debe crear y configurar los siguiente
 
 Para más información, consulte [Compatibilidad de Azure Resource Manager con el equilibrador de carga](load-balancer-arm.md).
 
-## Configuración de PowerShell para usar Resource Manager
+## <a name="set-up-powershell-to-use-resource-manager"></a>Configuración de PowerShell para usar Resource Manager
 
 Asegúrese de que tiene la última versión de producción del módulo Azure Resource Manager para PowerShell.
 
@@ -77,7 +79,7 @@ Asegúrese de que tiene la última versión de producción del módulo Azure Res
 
         New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
-## Creación de una red virtual y una dirección IP pública para el grupo de direcciones IP front-end
+## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool"></a>Creación de una red virtual y una dirección IP pública para el grupo de direcciones IP front-end
 
 1. Cree una red virtual con una subred
 
@@ -91,7 +93,7 @@ Asegúrese de que tiene la última versión de producción del módulo Azure Res
 
     >[AZURE.IMPORTANT] El equilibrador de carga usa la etiqueta de dominio de la dirección IP pública como prefijo para su FQDN. En este ejemplo, los FQDN son *lbnrpipv4.westus.cloudapp.azure.com* y *lbnrpipv6.westus.cloudapp.azure.com*.
 
-## Creación de configuraciones de direcciones IP de front-end y un grupo de direcciones de back-end
+## <a name="create-a-front-end-ip-configurations-and-a-back-end-address-pool"></a>Creación de configuraciones de direcciones IP de front-end y un grupo de direcciones de back-end
 
 1. Cree la configuración de direcciones de front-end que usa las direcciones IP públicas que ha creado
 
@@ -104,12 +106,13 @@ Asegúrese de que tiene la última versión de producción del módulo Azure Res
         $backendpoolipv6 = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "BackendPoolIPv6"
 
 
-## Crear reglas de equilibrador de carga, reglas NAT, un sondeo y un equilibrador de carga
+## <a name="create-lb-rules,-nat-rules,-a-probe,-and-a-load-balancer"></a>Crear reglas de equilibrador de carga, reglas NAT, un sondeo y un equilibrador de carga
 
 En este ejemplo se crean los siguientes elementos:
 
 - una regla NAT para trasladar todo el tráfico entrante del puerto 443 al puerto 4443
 - Una regla de equilibrador de carga para equilibrar todo el tráfico entrante del puerto 80 al puerto 80 en las direcciones del grupo de back-end.
+- Una regla de equilibrador de carga para permitir la conexión RDP a las máquinas virtuales en el puerto 3389.
 - una regla de sondeo para comprobar el estado de mantenimiento en una página llamada *HealthProbe.aspx* o un servicio en el puerto 8080
 - un equilibrador de carga que usa todos estos objetos
 
@@ -127,19 +130,22 @@ En este ejemplo se crean los siguientes elementos:
     o sondeo TCP
 
         $healthProbe = New-AzureRmLoadBalancerProbeConfig -Name 'HealthProbe-v4v6' -Protocol Tcp -Port 8080 -IntervalInSeconds 15 -ProbeCount 2
+        $RDPprobe = New-AzureRmLoadBalancerProbeConfig -Name 'RDPprobe' -Protocol Tcp -Port 3389 -IntervalInSeconds 15 -ProbeCount 2
 
-    En este ejemplo, vamos a usar el sondeo TCP.
+
+    En este ejemplo, vamos a usar los sondeos TCP.
 
 3. Cree una regla de equilibrador de carga.
 
-        $lbrule1v4 = New-AzureRmLoadBalancerRuleConfig -Name "HTTPv4" -FrontendIpConfiguration $FEIPConfigv4 -BackendAddressPool backendpoolipv4 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 8080
-        $lbrule1v6 = New-AzureRmLoadBalancerRuleConfig -Name "HTTPv6" -FrontendIpConfiguration $FEIPConfigv6 -BackendAddressPool backendpoolipv6 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 8080
+        $lbrule1v4 = New-AzureRmLoadBalancerRuleConfig -Name "HTTPv4" -FrontendIpConfiguration $FEIPConfigv4 -BackendAddressPool $backendpoolipv4 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 8080
+        $lbrule1v6 = New-AzureRmLoadBalancerRuleConfig -Name "HTTPv6" -FrontendIpConfiguration $FEIPConfigv6 -BackendAddressPool $backendpoolipv6 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 8080
+        $RDPrule = New-AzureRmLoadBalancerRuleConfig -Name "RDPrule" -FrontendIpConfiguration $FEIPConfigv4 -BackendAddressPool $backendpoolipv4 -Probe $RDPprobe -Protocol Tcp -FrontendPort 3389 -BackendPort 3389
 
 4. Cree el equilibrador de carga mediante los objetos creados anteriormente
 
-        $NRPLB = New-AzureRmLoadBalancer -ResourceGroupName NRP-RG -Name 'myNrpIPv6LB' -Location 'West US' -FrontendIpConfiguration $FEIPConfigv4,$FEIPConfigv6 -InboundNatRule $inboundNATRule1v6,$inboundNATRule1v4 -BackendAddressPool $backendpoolipv4,$backendpoolipv6 -Probe $healthProbe -LoadBalancingRule $lbrule1v4,$lbrule1v6
+        $NRPLB = New-AzureRmLoadBalancer -ResourceGroupName NRP-RG -Name 'myNrpIPv6LB' -Location 'West US' -FrontendIpConfiguration $FEIPConfigv4,$FEIPConfigv6 -InboundNatRule $inboundNATRule1v6,$inboundNATRule1v4 -BackendAddressPool $backendpoolipv4,$backendpoolipv6 -Probe $healthProbe,$RDPprobe -LoadBalancingRule $lbrule1v4,$lbrule1v6,$RDPrule
 
-## Creación de tarjetas NIC para las máquinas virtuales de back-end
+## <a name="create-nics-for-the-back-end-vms"></a>Creación de tarjetas NIC para las máquinas virtuales de back-end
 
 1. Obtenga la red virtual y la subred de red virtual, donde deben crearse las NIC.
 
@@ -156,40 +162,38 @@ En este ejemplo se crean los siguientes elementos:
         $nic2IPv6 = New-AzureRmNetworkInterfaceIpConfig -Name "IPv6IPConfig" -PrivateIpAddressVersion "IPv6" -LoadBalancerBackendAddressPool $backendpoolipv6
         $nic2 = New-AzureRmNetworkInterface -Name 'myNrpIPv6Nic1' -IpConfiguration $nic2IPv4,$nic2IPv6 -ResourceGroupName NRP-RG -Location 'West US'
 
-3. Cree tarjetas NIC y asócielas a las reglas NAT y al grupo de direcciones de back-end
-
-        $backendnic1= New-AzureRmNetworkInterface -ResourceGroupName NRP-RG -Name lb-nic1-be -Location 'West US' -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
-
-## Creación de máquinas virtuales y asignación de las tarjetas NIC recién creadas
+## <a name="create-virtual-machines-and-assign-the-newly-created-nics"></a>Creación de máquinas virtuales y asignación de las tarjetas NIC recién creadas
 
 Para obtener más información sobre la creación de una máquina virtual, consulte [Creación de una máquina virtual de Windows con Resource Manager y Azure PowerShell](..\virtual-machines\virtual-machines-windows-ps-create.md)
 
 1. Cree un conjunto de disponibilidad y una cuenta de almacenamiento
 
-        New-AzureRmAvailabilitySet -Name $availabilitySetName -ResourceGroupName NRP-RG -location 'West US'
+        New-AzureRmAvailabilitySet -Name 'myNrpIPv6AvSet' -ResourceGroupName NRP-RG -location 'West US'
         $availabilitySet = Get-AzureRmAvailabilitySet -Name 'myNrpIPv6AvSet' -ResourceGroupName NRP-RG
-        New-AzureRmStorageAccount -ResourceGroupName NRP-RG -Name $vmStorageAccount -Location 'West US' -SkuName $LRS
-        $CreatedStorageAccount = Get-AzureRmStorageAccount -ResourceGroupName NRP-RG -Name $vmStorageAccount
+        New-AzureRmStorageAccount -ResourceGroupName NRP-RG -Name 'mynrpipv6stacct' -Location 'West US' -SkuName $LRS
+        $CreatedStorageAccount = Get-AzureRmStorageAccount -ResourceGroupName NRP-RG -Name 'mynrpipv6stacct'
 
 2. Cree cada máquina virtual y asigne las tarjetas NIC creadas con anterioridad
 
-        $vm1 = New-AzureRmVMConfig -VMName 'myNrpIPv6VM0 -VMSize 'Standard_G1' -AvailabilitySetId $availabilitySet.Id
-        $vm1 = Set-AzureRmVMOperatingSystem -VM $vm1 -Windows -ComputerName 'myNrpIPv6VM0 -Credential $mySecureCredentials -ProvisionVMAgent -EnableAutoUpdate
+        $mySecureCredentials= Get-Credential -Message “Type the username and password of the local administrator account.”
+
+        $vm1 = New-AzureRmVMConfig -VMName 'myNrpIPv6VM0' -VMSize 'Standard_G1' -AvailabilitySetId $availabilitySet.Id
+        $vm1 = Set-AzureRmVMOperatingSystem -VM $vm1 -Windows -ComputerName 'myNrpIPv6VM0' -Credential $mySecureCredentials -ProvisionVMAgent -EnableAutoUpdate
         $vm1 = Set-AzureRmVMSourceImage -VM $vm1 -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
         $vm1 = Add-AzureRmVMNetworkInterface -VM $vm1 -Id $nic1.Id -Primary
         $osDisk1Uri = $CreatedStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/myNrpIPv6VM0osdisk.vhd"
         $vm1 = Set-AzureRmVMOSDisk -VM $vm1 -Name 'myNrpIPv6VM0osdisk' -VhdUri $osDisk1Uri -CreateOption FromImage
         New-AzureRmVM -ResourceGroupName NRP-RG -Location 'West US' -VM $vm1
 
-        $vm2 = New-AzureRmVMConfig -VMName 'myNrpIPv6VM1 -VMSize 'Standard_G1' -AvailabilitySetId $availabilitySet.Id
-        $vm2 = Set-AzureRmVMOperatingSystem -VM $vm2 -Windows -ComputerName 'myNrpIPv6VM1 -Credential $mySecureCredentials -ProvisionVMAgent -EnableAutoUpdate
+        $vm2 = New-AzureRmVMConfig -VMName 'myNrpIPv6VM1' -VMSize 'Standard_G1' -AvailabilitySetId $availabilitySet.Id
+        $vm2 = Set-AzureRmVMOperatingSystem -VM $vm2 -Windows -ComputerName 'myNrpIPv6VM1' -Credential $mySecureCredentials -ProvisionVMAgent -EnableAutoUpdate
         $vm2 = Set-AzureRmVMSourceImage -VM $vm2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
         $vm2 = Add-AzureRmVMNetworkInterface -VM $vm2 -Id $nic2.Id -Primary
         $osDisk2Uri = $CreatedStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/myNrpIPv6VM1osdisk.vhd"
         $vm2 = Set-AzureRmVMOSDisk -VM $vm2 -Name 'myNrpIPv6VM1osdisk' -VhdUri $osDisk2Uri -CreateOption FromImage
         New-AzureRmVM -ResourceGroupName NRP-RG -Location 'West US' -VM $vm2
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Introducción a la configuración de un equilibrador de carga interno](load-balancer-get-started-ilb-arm-ps.md)
 
@@ -197,4 +201,8 @@ Para obtener más información sobre la creación de una máquina virtual, consu
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Escalado automático de conjuntos de escalado de máquinas virtuales Windows | Microsoft Azure"
-	description="Configuración del escalado automático para un conjunto de escalado de máquinas virtuales Windows mediante Azure PowerShell"
-	services="virtual-machine-scale-sets"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Escalado automático de conjuntos de escalado de máquinas virtuales Windows | Microsoft Azure"
+    description="Configuración del escalado automático para un conjunto de escalado de máquinas virtuales Windows mediante Azure PowerShell"
+    services="virtual-machine-scale-sets"
+    documentationCenter=""
+    authors="davidmu1"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="davidmu"/>
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/27/2016"
+    ms.author="davidmu"/>
 
-# Escalado automático de máquinas en un conjunto de escalado de máquinas virtuales
+
+# <a name="automatically-scale-machines-in-a-virtual-machine-scale-set"></a>Escalado automático de máquinas en un conjunto de escalado de máquinas virtuales
 
 Los conjuntos de escalado de máquinas virtuales facilitan la implementación y administración de máquinas virtuales idénticas como conjunto. Los conjuntos de escala proporcionan una capa de proceso altamente escalable y personalizable para aplicaciones de gran escala y admiten imágenes de la plataforma Windows, imágenes de la plataforma Linux, imágenes personalizadas y extensiones. Para más información acerca de los conjuntos de escala, consulte [Conjuntos de escala de máquinas virtuales](virtual-machine-scale-sets-overview.md).
 
@@ -37,20 +38,20 @@ En este artículo, se implementan los recursos y las extensiones siguientes:
 
 Para más información sobre los recursos del Administrador de recursos, consulte [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](../virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
-## Paso 1: Instalación de Azure PowerShell
+## <a name="step-1:-install-azure-powershell"></a>Paso 1: Instalación de Azure PowerShell
 
 Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que desea usar e iniciar sesión en Azure.
 
-## Paso 2: Creación de un grupo de recursos y una cuenta de almacenamiento
+## <a name="step-2:-create-a-resource-group-and-a-storage-account"></a>Paso 2: Creación de un grupo de recursos y una cuenta de almacenamiento
 
-1. **Cree un grupo de recursos**: todos los recursos deben implementarse en un grupo de recursos. Para crear un grupo de recursos denominado **vmsstestrg1**, use [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
+1. **Cree un grupo de recursos** : todos los recursos deben implementarse en un grupo de recursos. Para crear un grupo de recursos denominado [vmsstestrg1](https://msdn.microsoft.com/library/mt603739.aspx) , use **New-AzureRmResourceGroup**.
 
-2. **Implemente una cuenta de almacenamiento**: en esta cuenta de almacenamiento se guarda la plantilla. Use [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) para crear una cuenta de almacenamiento denominada "**vmsstestsa**".
+2. **Implemente una cuenta de almacenamiento** : en esta cuenta de almacenamiento se guarda la plantilla. Use [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) para crear una cuenta de almacenamiento denominada " **vmsstestsa**".
 
-## Paso 3: Creación de la plantilla
+## <a name="step-3:-create-the-template"></a>Paso 3: Creación de la plantilla
 Las plantillas del Administrador de recursos de Azure le permiten implementar y administrar los distintos recursos de Azure en conjunto mediante una descripción de JSON de los recursos y los parámetros de implementación asociados.
 
-1. En el editor que prefiera, cree el archivo C:\\VMSSTemplate.json y agregue la estructura inicial de JSON para admitir la plantilla.
+1. En el editor que prefiera, cree el archivo C:\VMSSTemplate.json y agregue la estructura inicial de JSON para admitir la plantilla.
 
         {
           "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/VM.json",
@@ -92,17 +93,17 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
         "storageAccountSuffix": [ "a", "g", "m", "s", "y" ],
         "diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'a')]",
         "accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/','Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
-	      "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB="4096" xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error"/> <WindowsEventLog scheduledTransferPeriod="PT1M" > <DataSource name="Application!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="Security!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="System!*[System[(Level = 1 or Level = 2)]]" /></WindowsEventLog>",
-        "wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor(_Total)\\% Processor Time" sampleRate="PT15S" unit="Percent"><annotation displayName="CPU utilization" locale="es-ES"/></PerformanceCounterConfiguration></PerformanceCounters>",
-        "wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId="')]",
+          "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",
+        "wadperfcounter": "<PerformanceCounters scheduledTransferPeriod=\"PT1M\"><PerformanceCounterConfiguration counterSpecifier=\"\\Processor(_Total)\\% Processor Time\" sampleRate=\"PT15S\" unit=\"Percent\"><annotation displayName=\"CPU utilization\" locale=\"en-us\"/></PerformanceCounterConfiguration></PerformanceCounters>",
+        "wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId=\"')]",
         "wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
-        "wadcfgxend": "[concat('"><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
+        "wadcfgxend": "[concat('\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
 
   - Nombres DNS que usan las interfaces de red.
-	- Los nombres de direcciones IP y los prefijos para la red virtual y las subredes.
-	- Los nombres y los identificadores de la red virtual, el equilibrador de carga y las interfaces de red.
-	- Los nombres de cuentas de almacenamiento para las cuentas asociadas a las máquinas en el conjunto de escala.
-	- Configuración de la extensión de diagnósticos que se instala en las máquinas virtuales. Para más información sobre la extensión de diagnósticos, consulte [Crear una máquina virtual de Windows con supervisión y diagnóstico mediante la plantilla del Administrador de recursos de Azure](../virtual-machines/virtual-machines-extensions-diagnostics-windows-template.md)
+    - Los nombres de direcciones IP y los prefijos para la red virtual y las subredes.
+    - Los nombres y los identificadores de la red virtual, el equilibrador de carga y las interfaces de red.
+    - Los nombres de cuentas de almacenamiento para las cuentas asociadas a las máquinas en el conjunto de escala.
+    - Configuración de la extensión de diagnósticos que se instala en las máquinas virtuales. Para más información sobre la extensión de diagnósticos, consulte [Crear una máquina virtual de Windows con supervisión y diagnóstico mediante la plantilla de Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
     
 4. Agregue el recurso de la cuenta de almacenamiento en el elemento primario de recursos que agregó a la plantilla. Esta plantilla utiliza un bucle para crear las cinco cuentas de almacenamiento recomendadas donde se guardan los discos del sistema operativo y los datos de diagnóstico. Este conjunto de cuentas puede admitir hasta 100 máquinas virtuales en un conjunto de escala, lo cual es el máximo actual. Cada cuenta de almacenamiento se denomina con un indicador de letra, que se definió en las variables, y se combina con el prefijo que proporcionó en los parámetros de la plantilla.
 
@@ -118,7 +119,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
           "properties": { "accountType": "Standard_LRS" }
         },
 
-5. Agregue el recurso de red virtual. Consulte [Proveedor de recursos de red](../virtual-network/resource-groups-networking.md) para más información.
+5. Agregue el recurso de red virtual. Consulte [Proveedor de recursos de red](../virtual-network/resource-groups-networking.md)para más información.
 
         {
           "apiVersion": "2015-06-15",
@@ -275,7 +276,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
           }
         },
 
-10.	Agregue el recurso de conjunto de escalado de máquinas virtuales y especifique la extensión de diagnóstico instalada en todas las máquinas virtuales del conjunto. Muchos de los valores para este recurso son similares al recurso de máquina virtual. Las principales diferencias son el elemento de capacidad, que especifica el número de máquinas virtuales del conjunto de escalado, y upgradePolicy, que especifica cómo se realizan las actualizaciones en las máquinas virtuales. El conjunto de escalado no se crea hasta que se crean todas las cuentas de almacenamiento como se especifica en el elemento dependsOn.
+10. Agregue el recurso de conjunto de escalado de máquinas virtuales y especifique la extensión de diagnóstico instalada en todas las máquinas virtuales del conjunto. Muchos de los valores para este recurso son similares al recurso de máquina virtual. Las principales diferencias son el elemento de capacidad, que especifica el número de máquinas virtuales del conjunto de escalado, y upgradePolicy, que especifica cómo se realizan las actualizaciones en las máquinas virtuales. El conjunto de escalado no se crea hasta que se crean todas las cuentas de almacenamiento como se especifica en el elemento dependsOn.
 
             {
               "type": "Microsoft.Compute/virtualMachineScaleSets",
@@ -378,7 +379,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
               }
             },
 
-11.	Agregue el recurso autoscaleSettings que define cómo el conjunto de escalado se ajusta según el uso del procesador en las máquinas del conjunto.
+11. Agregue el recurso autoscaleSettings que define cómo el conjunto de escalado se ajusta según el uso del procesador en las máquinas del conjunto.
 
             {
               "type": "Microsoft.Insights/autoscaleSettings",
@@ -428,51 +429,51 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 
     Para este tutorial, destacan estos valores:
 
-    - **metricName**: este valor es el mismo que el contador de rendimiento que definimos en la variable wadperfcounter. Con esta variable, la extensión de diagnóstico recopila los datos del contador **Processor(\_Total)\\% Processor Time**.
-    - **metricResourceUri**: este valor es el identificador de recursos del conjunto de escalado de máquinas virtuales.
-    - **timeGrain**: este valor es la granularidad de las métricas que se recopilan. En esta plantilla, se establece en un minuto.
-    - **statistic**: este valor determina cómo se combinan las métricas para dar cabida a la acción de escalado automático. Los valores posibles son: Average, Min y Max. En esta plantilla, se recopila el uso promedio total de CPU de las máquinas virtuales.
-    - **timeWindow**: este valor es el intervalo de tiempo durante el cual se recopilan los datos de instancia. Debe estar comprendido entre 5 minutos y 12 horas.
-    - **timeAggregation**: este valor determina la manera en que se deberían combinar los datos recopilados en el tiempo. El valor predeterminado es Average. Los valores posibles son: Average, Minimum, Maximum, Last, Total, Count.
-    - **operator**: este valor es el operador que se utiliza para comparar los datos de métrica y el umbral. Los valores posibles son: Equals, NotEquals, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual.
-    - **threshold**: este es el valor que desencadena la acción de escalado. En esta plantilla, los equipos se agregan al conjunto de escala que se establece cuando el uso promedio de CPU entre máquinas del conjunto es más de un 50%.
-    - **direction**: este valor determina la acción que se realiza cuando se alcanza el valor de umbral. Los valores posibles son Increase o Decrease. En esta plantilla, se aumenta el número de máquinas virtuales en el conjunto de escala si el umbral es más de un 50% en la ventana de tiempo definido.
-    - **type**: este valor es el tipo de acción que debe realizarse y que se debe establecer en ChangeCount.
-    - **value**: este valor es el número de máquinas virtuales que se agregan o se quitan del conjunto de escalado. Este valor debe ser 1 o un valor superior. El valor predeterminado es 1. En esta plantilla, el número de máquinas en el conjunto de escala aumenta en 1 cuando se alcanza el umbral.
-    - **cooldown**: este valor es la cantidad de tiempo de espera desde la última acción de escalado hasta antes de que se produzca la siguiente acción. Debe estar comprendido entre un minuto y una semana.
+    - **metricName** : este valor es el mismo que el contador de rendimiento que definimos en la variable wadperfcounter. Con esta variable, la extensión Diagnósticos recopila los datos del contador **Processor(_Total)\% Processor Time**.
+    - **metricResourceUri** : este valor es el identificador de recursos del conjunto de escalado de máquinas virtuales.
+    - **timeGrain** : este valor es la granularidad de las métricas que se recopilan. En esta plantilla, se establece en un minuto.
+    - **statistic** : este valor determina cómo se combinan las métricas para dar cabida a la acción de escalado automático. Los valores posibles son: Average, Min y Max. En esta plantilla, se recopila el uso promedio total de CPU de las máquinas virtuales.
+    - **timeWindow** : este valor es el intervalo de tiempo durante el cual se recopilan los datos de instancia. Debe estar comprendido entre 5 minutos y 12 horas.
+    - **timeAggregation** : este valor determina la manera en que se deberían combinar los datos recopilados en el tiempo. El valor predeterminado es Average. Los valores posibles son: Average, Minimum, Maximum, Last, Total, Count.
+    - **operator** : este valor es el operador que se utiliza para comparar los datos de métrica y el umbral. Los valores posibles son: Equals, NotEquals, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual.
+    - **threshold** : este es el valor que desencadena la acción de escalado. En esta plantilla, los equipos se agregan al conjunto de escala que se establece cuando el uso promedio de CPU entre máquinas del conjunto es más de un 50%.
+    - **direction** : este valor determina la acción que se realiza cuando se alcanza el valor de umbral. Los valores posibles son Increase o Decrease. En esta plantilla, se aumenta el número de máquinas virtuales en el conjunto de escala si el umbral es más de un 50% en la ventana de tiempo definido.
+    - **type** : este valor es el tipo de acción que debe realizarse y que se debe establecer en ChangeCount.
+    - **value** : este valor es el número de máquinas virtuales que se agregan o se quitan del conjunto de escalado. Este valor debe ser 1 o un valor superior. El valor predeterminado es 1. En esta plantilla, el número de máquinas en el conjunto de escala aumenta en 1 cuando se alcanza el umbral.
+    - **cooldown** : este valor es la cantidad de tiempo de espera desde la última acción de escalado hasta antes de que se produzca la siguiente acción. Debe estar comprendido entre un minuto y una semana.
 
-12.	Guarde el archivo de plantilla.
+12. Guarde el archivo de plantilla.    
 
-## Paso 4: Carga de la plantilla en el almacenamiento
+## <a name="step-4:-upload-the-template-to-storage"></a>Paso 4: Carga de la plantilla en el almacenamiento
 
 La plantilla se puede cargar siempre y cuando conozca el nombre de cuenta y la clave principal de la cuenta de almacenamiento que creó en el paso 1.
 
-1.	En la ventana de Microsoft Azure PowerShell, establezca una variable que especifique el nombre de la cuenta de almacenamiento que creó en el paso 1.
+1.  En la ventana de Microsoft Azure PowerShell, establezca una variable que especifique el nombre de la cuenta de almacenamiento que creó en el paso 1.
 
             $storageAccountName = "vmstestsa"
 
-2.	Establezca una variable que especifique la clave principal de la cuenta de almacenamiento.
+2.  Establezca una variable que especifique la clave principal de la cuenta de almacenamiento.
 
             $storageAccountKey = "<primary-account-key>"
 
-	Puede obtener esta clave haciendo clic en el icono de llave al ver el recurso de la cuenta de almacenamiento en el portal de Azure.
+    Puede obtener esta clave haciendo clic en el icono de llave al ver el recurso de la cuenta de almacenamiento en el portal de Azure.
 
-3.	Cree el objeto de contexto de la cuenta de almacenamiento que se usa para validar las operaciones con la cuenta de almacenamiento.
+3.  Cree el objeto de contexto de la cuenta de almacenamiento que se usa para validar las operaciones con la cuenta de almacenamiento.
 
             $ctx = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
-4.	Cree el contenedor para almacenar la plantilla.
+4.  Cree el contenedor para almacenar la plantilla.
 
             $containerName = "templates"
             New-AzureStorageContainer -Name $containerName -Context $ctx  -Permission Blob
 
-5.	Cargue el archivo de plantillas en el nuevo contenedor.
+5.  Cargue el archivo de plantillas en el nuevo contenedor.
 
             $blobName = "VMSSTemplate.json"
-            $fileName = "C:" + $BlobName
+            $fileName = "C:\" + $BlobName
             Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob  $blobName -Context $ctx
 
-## Paso 5: Implementación de la plantilla
+## <a name="step-5:-deploy-the-template"></a>Paso 5: Implementación de la plantilla
 
 Ahora que ha creado la plantilla, puede empezar a implementar los recursos. Use este comando para iniciar el proceso:
 
@@ -481,22 +482,22 @@ Ahora que ha creado la plantilla, puede empezar a implementar los recursos. Use 
 Cuando presione Entrar, se le pedirá que proporcione valores para las variables que asignó. Proporcione estos valores:
 
     vmName: vmsstestvm1
-	  vmSSName: vmsstest1
-	  instanceCount: 5
-	  adminUserName: vmadmin1
-	  adminPassword: VMpass1
-	  resourcePrefix: vmsstest
+      vmSSName: vmsstest1
+      instanceCount: 5
+      adminUserName: vmadmin1
+      adminPassword: VMpass1
+      resourcePrefix: vmsstest
 
 Para que todos los recursos se implementen correctamente se tardará unos 15 minutos.
 
 >[AZURE.NOTE] También puede usar la capacidad del portal para implementar los recursos. Utilice este vínculo: "https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>"
 
-## Paso 6: Supervisión de recursos
+## <a name="step-6:-monitor-resources"></a>Paso 6: Supervisión de recursos
 
 Puede obtener información acerca de los conjuntos de escala de máquinas virtuales mediante estos métodos:
 
  - El portal de Azure: actualmente puede obtener una cantidad limitada de información mediante el portal.
- - [Explorador de recursos de Azure](https://resources.azure.com/): es la mejor herramienta para explorar el estado actual del conjunto de escalado. Siga esta ruta de acceso y debería ver la vista de instancia del conjunto de escala que creó:
+ - [Explorador de recursos de Azure](https://resources.azure.com/) : es la mejor herramienta para explorar el estado actual del conjunto de escalado. Siga esta ruta de acceso y debería ver la vista de instancia del conjunto de escala que creó:
 
         subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
 
@@ -512,22 +513,26 @@ Puede obtener información acerca de los conjuntos de escala de máquinas virtua
 
 >[AZURE.NOTE] Una API de REST completa para más información acerca de los conjuntos de escala se puede encontrar en [Conjuntos de escala de máquinas virtuales](https://msdn.microsoft.com/library/mt589023.aspx)
 
-## Paso 7: Eliminación de recursos
+## <a name="step-7:-remove-the-resources"></a>Paso 7: Eliminación de recursos
 
 Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveniente eliminar los recursos que ya no sean necesarios. No es necesario eliminar por separado cada recurso de un grupo de recursos. Puede eliminar el grupo de recursos para que se eliminen automáticamente todos sus recursos.
 
-	Remove-AzureRmResourceGroup -Name vmsstestrg1
+    Remove-AzureRmResourceGroup -Name vmsstestrg1
 
 Si desea mantener el grupo de recursos, puede eliminar solo el conjunto de escala.
 
-	Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name"
+    Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name"
     
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Administre el conjunto de escalado que acaba de crear con la información de [Administración de máquinas de un conjunto de escalado de máquinas virtuales](virtual-machine-scale-sets-windows-manage.md).
-- Más información sobre el escalado vertical si consulta [Escalado automático vertical con conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-vertical-scale-reprovision.md).
-- Vea ejemplos de características de supervisión de Azure Insights en [Ejemplos de inicio rápido de PowerShell de Azure Insights](../azure-portal/insights-powershell-samples.md).
-- Información acerca de las características de notificación en [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md).
-- Información acerca del [Uso de registros de auditoría para enviar notificaciones de alerta por correo electrónico y webhook en Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md).
+- Más información sobre el escalado vertical si consulta [Escalado automático vertical con conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+- Vea ejemplos de características de supervisión de Azure Insights en [Ejemplos de inicio rápido de PowerShell de Azure Insights](../azure-portal/insights-powershell-samples.md)
+- Información acerca de las características de notificación en [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) 
+- Información acerca del [Uso de registros de auditoría para enviar notificaciones de alerta por correo electrónico y webhook en Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

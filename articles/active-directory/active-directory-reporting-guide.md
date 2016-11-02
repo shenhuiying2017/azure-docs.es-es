@@ -13,11 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/27/2016"
+   ms.date="09/30/2016"
    ms.author="femila"/>
 
 
-# Guía de informes de Azure Active Directory
+
+# <a name="azure-active-directory-reporting-guide"></a>Guía de informes de Azure Active Directory
+
+> [AZURE.SELECTOR]
+- [Azure Portal](active-directory-reporting-azure-portal.md)
+- [Portal de Azure clásico](active-directory-reporting-guide.md)
 
  - [Informes de Azure Active Directory - versión preliminar](active-directory-reporting-azure-portal.md)
  - [Introducción a la API de informes de Azure AD](active-directory-reporting-api-getting-started.md)
@@ -29,4 +34,8 @@
  - [Evento 'Actor desconocido' de informes de Azure Active Directory](active-directory-reporting-unknown-actor.md)
  - [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

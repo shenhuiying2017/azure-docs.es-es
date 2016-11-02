@@ -6,4 +6,13 @@ VPN Gateway puede usar las SKU siguientes:
 - Estándar
 - HighPerformance
 
-<!---HONumber=AcomDC_0928_2016-->
+Al seleccionar un SKU, tenga en cuenta las siguientes limitaciones:
+
+- Si desea utilizar un tipo de VPN PolicyBased, debe utilizar la SKU de puerta de enlace de nivel Básico. Las VPN PolicyBased (que anteriormente se denominaba enrutamiento estático) no se admiten en otra SKU.
+- BGP no es compatible con la SKU de nivel Básico.
+- Las configuraciones de la coexistencia de ExpressRoute-VPN Gateway no se admiten en la SKU de nivel Básico.
+
+
+<!--HONumber=Oct16_HO2-->
+
+

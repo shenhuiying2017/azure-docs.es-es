@@ -1,14 +1,14 @@
 <properties 
     pageTitle="Guía del protocolo AMQP 1.0 en el Bus de servicio de Azure y Centros de eventos | Microsoft Azure" 
     description="Guía del protocolo para expresiones y la descripción de AMQP 1.0 en el Bus de servicio de Azure y Centros de eventos" 
-    services="service-bus-messaging,service-bus,event-hubs" 
+    services="service-bus,event-hubs" 
     documentationCenter=".net" 
     authors="clemensv" 
     manager="timlt" 
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
@@ -16,13 +16,14 @@
     ms.date="07/01/2016"
     ms.author="clemensv;jotaub;hillaryc;sethm"/>
 
-# Guía del protocolo AMQP 1.0 en el Bus de servicio de Azure y Centros de eventos
+
+# <a name="amqp-1.0-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guía del protocolo AMQP 1.0 en el Bus de servicio de Azure y Centros de eventos
 
 Advanced Message Queueing Protocol 1.0 es un protocolo de tramas y transferencia estandarizado para transferir mensajes de forma asincrónica, segura y confiable entre dos partes. Es el principal protocolo de mensajería del Bus de servicio de Azure y Centros de eventos de Azure. Ambos servicios también admiten HTTPS. El protocolo SBMP propietario, que también se admite, está desapareciendo en favor de AMQP.
 
 AMQP 1.0 es el resultado de una amplia colaboración del sector que reunió a proveedores de middleware, como Microsoft y Red Hat, con muchos usuarios de middleware de mensajería, como JP Morgan Chase, que representa al sector de los servicios financieros. El foro de normalización técnica para las especificaciones del protocolo AMQP y la extensión es OASIS, y ha logrado la aprobación formal como estándar internacional como ISO/IEC 19494.
 
-## Objetivos
+## <a name="goals"></a>Objetivos
 
 Este artículo resume brevemente los conceptos básicos de la especificación de mensajería AMQP 1.0, junto con un pequeño conjunto de borradores de especificaciones de la extensión que actualmente se está finalizando en el comité técnico de OASIS para AMQP; también explica cómo el Bus de servicio de Azure implementa y crea basándose en estas especificaciones.
 
@@ -34,7 +35,7 @@ En la siguiente sección, asumiremos que la administración de conexiones, sesio
 
 Cuando se habla de las funcionalidades avanzadas del Bus de servicio de Azure, como la consulta de mensajes o la administración de sesiones, se explicarán en términos de AMQP, pero también como una pseudoimplementación superpuesta sobre esta abstracción API supuesta.
 
-## ¿Qué es AMQP?
+## <a name="what-is-amqp?"></a>¿Qué es AMQP?
 
 AMQP es un protocolo de tramas y transferencia. Las tramas significa que proporciona una estructura para los flujos de datos binarios que fluyan en ambas direcciones de una conexión de red. La estructura proporciona la delineación de bloques de datos distintivos (tramas) que se intercambiarán entre las partes conectadas. Las funcionalidades de transferencia se aseguran de que ambas partes de la comunicación pueden establecer un conocimiento compartido acerca de cuándo se transferirán las tramas y cuándo se considerarán completadas las transferencias.
 
@@ -44,13 +45,13 @@ Puede usar el protocolo para la comunicación punto a punto simétrica, para la 
 
 El protocolo AMQP 1.0 está diseñado para ser extensible, lo que permite que las especificaciones mejoren sus funcionalidades. Las tres especificaciones de la extensión que trataremos en este documento lo muestran. Para la comunicación a través de la infraestructura existente de HTTPS/WebSockets donde la configuración de los puertos TCP de AMQP nativos puede ser difícil, una especificación de enlace define cómo superponer AMQP a WebSockets. Para interactuar con la infraestructura de mensajería en forma de solicitud/respuesta para fines de administración o para proporcionar una funcionalidad avanzada, la especificación de Administración de AMQP define las primitivas de interacción básica necesarias. Para la integración del modelo de autorización federada, la especificación de seguridad basada en notificaciones de AMQP define cómo asociar y renovar los tokens de autorización asociados a los vínculos.
 
-## Escenarios básicos de AMQP
+## <a name="basic-amqp-scenarios"></a>Escenarios básicos de AMQP
 
 En esta sección se explica el uso básico de AMQP 1.0 con Azure Service Bus, lo que incluye la creación de conexiones, sesiones y vínculos, así como la transferencia de mensajes tanto a las entidades de Services Bus (colas, temas y suscripciones) como desde ellas.
 
 La fuente con mayor autoridad para aprender cómo funciona AMQP es la especificación AMQP 1.0, pero se escribió para guiar de forma precisa la implementación, no para enseñar el protocolo. Esta sección se centra en la presentación de tanta terminología como sea necesario para describir el modo en que el Bus de servicio usa AMQP 1.0. Para una introducción más completa a AMQP, así como una explicación más amplia de AMQP 1.0, puede consultar [este curso en vídeo][].
 
-### Conexiones y sesiones
+### <a name="connections-and-sessions"></a>Conexiones y sesiones
 
 ![][1]
 
@@ -62,7 +63,7 @@ El Bus de servicio de Azure requiere el uso de TLS en todo momento. Admite conex
 
 Después de configurar la conexión y TLS, el Bus de servicio ofrece dos opciones de mecanismo SASL:
 
--   Normalmente, SASL PLAIN se utiliza para pasar las credenciales de usuario y la contraseña a un servidor. El Bus de servicio no tiene cuentas, sino [reglas de seguridad de acceso compartido](service-bus-shared-access-signature-authentication.md) con nombre, que confieren derechos y están asociadas a una clave. El nombre de una regla se usa como nombre de usuario y la clave (como texto codificado con base64) se utiliza como contraseña. Los derechos asociados a la regla elegida rigen las operaciones permitidas en la conexión.
+-   Normalmente, SASL PLAIN se utiliza para pasar las credenciales de usuario y la contraseña a un servidor. Service Bus no tiene cuentas, sino [reglas de seguridad de acceso compartido](service-bus-shared-access-signature-authentication.md) con nombre, que confieren derechos y están asociadas a una clave. El nombre de una regla se usa como nombre de usuario y la clave (como texto codificado con base64) se utiliza como contraseña. Los derechos asociados a la regla elegida rigen las operaciones permitidas en la conexión.
 
 -   SASL ANONYMOUS se utiliza para omitir la autorización de SASL cuando el cliente desea usar el modelo de seguridad basada en notificaciones (CBS), que se describirá más adelante. Con esta opción, se puede establecer una conexión de cliente de forma anónima por un breve período, durante el cual el cliente solo puede interactuar con el punto de conexión CBS y se debe completar el protocolo de enlace CBS.
 
@@ -74,11 +75,11 @@ Las sesiones tienen un modelo de control de flujo basado en ventanas; cuando se 
 
 Este modelo basado en ventanas es parecido al concepto de control de flujo basado en ventanas de TCP, pero en el nivel de sesión dentro del socket. El concepto del protocolo de permitir que haya varias sesiones simultáneas existe para que el tráfico de alta prioridad pueda adelantar al tráfico normal limitado, como en un carril rápido de una autopista.
 
-En la actualidad, el Bus de servicio de Azure utiliza exactamente una sesión para cada conexión. El tamaño de trama máximo del Bus de servicio es 262 144 bytes (256 Kbytes) para Bus de servicio estándar y Centros de eventos. Para el Bus de servicio Premium es 1 048 576 (1 MB). El Bus de servicio no impone ninguna ventana específica de limitación en el nivel de sesión, pero restablece la ventana periódicamente como parte del control de flujo en el nivel de vínculo (consulte [la siguiente sección](#links)).
+En la actualidad, el Bus de servicio de Azure utiliza exactamente una sesión para cada conexión. El tamaño de trama máximo del Bus de servicio es 262 144 bytes (256 Kbytes) para Bus de servicio estándar y Centros de eventos. Para el Bus de servicio Premium es 1 048 576 (1 MB). Service Bus no impone ninguna ventana específica de limitación en el nivel de sesión, pero restablece la ventana periódicamente como parte del control de flujo en el nivel de vínculo (consulte [la siguiente sección](#links)).
 
 Las conexiones, los canales y las sesiones son efímeros. Si la conexión subyacente se contrae, es necesario restablecer las conexiones, el túnel TLS, el contexto de autorización SASL y las sesiones.
 
-### Vínculos
+### <a name="links"></a>Vínculos
 
 ![][2]
 
@@ -94,7 +95,7 @@ En el Azure Service Bus, un nodo es directamente equivalente a una cola, un tema
 
 El cliente que se conecta también es necesario para usar un nombre de nodo local para crear vínculos; el Bus de servicio no es preceptivo acerca de esos nombres de nodo y no los interpretará. Normalmente, las pilas de cliente de AMQP 1.0 utilizan un esquema para asegurarse de que estos nombres de nodo efímero son únicos en el ámbito del cliente.
 
-### Transferencias
+### <a name="transfers"></a>Transferencias
 
 ![][3]
 
@@ -114,7 +115,7 @@ Como tal, el Bus de servicio de Azure y Centros de eventos admite transferencias
 
 Para compensar posibles envíos duplicados, Azure Service Bus admite la detección de duplicados como una característica opcional en colas y temas. La detección de duplicados registra los identificadores de todos los mensajes entrantes durante un período definido por el usuario y elimina silenciosamente todos los mensajes enviados con los mismos identificadores de mensaje durante esa misma ventana.
 
-### Control de flujo
+### <a name="flow-control"></a>Control de flujo
 
 ![][4]
 
@@ -122,13 +123,13 @@ Además del modelo de control de flujo en el nivel de sesión que se ha tratado 
 
 En un vínculo, las transferencias solo se pueden producir si el remitente tiene suficiente "crédito del vínculo". El crédito del vínculo es un contador establecido por el receptor con el performativo *flow*, que tiene un ámbito en un vínculo. Cuando el remitente tiene crédito del vínculo asignado, intentará utilizar ese crédito por entregar los mensajes. Cada entrega de mensajes reduce en uno el crédito del vínculo restante. Cuando se agota el crédito del vínculo, las entregas se detienen.
 
-Cuando el Bus de servicio está en el rol de receptor, proporcionará instantáneamente al remitente el crédito del vínculo suficiente para que los mensajes puedan enviarse de inmediato. Puesto que se utiliza el crédito del vínculo, el Bus de servicio enviará ocasionalmente un performativo *flow* al remitente para actualizar el saldo del crédito del vínculo.
+Cuando el Bus de servicio está en el rol de receptor, proporcionará instantáneamente al remitente el crédito del vínculo suficiente para que los mensajes puedan enviarse de inmediato. Puesto que se utiliza el crédito del vínculo, Service Bus enviará ocasionalmente un performativo *flow* al remitente para actualizar el saldo del crédito del vínculo.
 
 En el rol de remitente, el Bus de servicio enviará mensajes para utilizar todo el crédito del vínculo pendiente.
 
-Una llamada "recibir" en el nivel de API se traduce en un performativo *flow* al Bus de servicio enviado por el cliente; el Bus de servicio utilizará ese crédito tomando el primer mensaje desbloqueado y disponible de la cola, bloqueándolo y transfiriéndolo. Si no hay ningún mensaje disponible para la entrega, todo el crédito pendiente por cualquier vínculo establecido con esa entidad concreta permanecerá registrado en orden de llegada, y los mensajes se bloquearán y transferirán a medida que estén disponibles para usar el crédito pendiente.
+Una llamada "recibir" en el nivel de API se traduce en un performativo *flow* a Service Bus enviado por el cliente; Service Bus utilizará ese crédito tomando el primer mensaje desbloqueado y disponible de la cola, bloqueándolo y transfiriéndolo. Si no hay ningún mensaje disponible para la entrega, todo el crédito pendiente por cualquier vínculo establecido con esa entidad concreta permanecerá registrado en orden de llegada, y los mensajes se bloquearán y transferirán a medida que estén disponibles para usar el crédito pendiente.
 
-Se libera el bloqueo de un mensaje cuando la transferencia se determina en uno de los estados terminales *aceptado*, *rechazado* o *publicado*. El mensaje se quita del Bus de servicio cuando el estado terminal *aceptado*. Permanece en el Bus de servicio y se entregará al siguiente receptor cuando la transferencia alcance cualquiera de los otros estados. El Bus de servicio pasará automáticamente el mensaje a la cola de proceso como correo devuelto de la entidad al alcanzar el número máximo de entregas permitido para la entidad debido a repetidos rechazos o versiones.
+Se libera el bloqueo de un mensaje cuando la transferencia se determina en uno de los estados terminales *aceptado*, *rechazado* o *publicado*. El mensaje se quita de Service Bus cuando el estado terminal *aceptado*. Permanece en el Bus de servicio y se entregará al siguiente receptor cuando la transferencia alcance cualquiera de los otros estados. El Bus de servicio pasará automáticamente el mensaje a la cola de proceso como correo devuelto de la entidad al alcanzar el número máximo de entregas permitido para la entidad debido a repetidos rechazos o versiones.
 
 Aunque las API del Bus de servicio oficial no exponen directamente dicha opción en la actualidad, un cliente del protocolo AMQP de nivel inferior puede utilizar el modelo de crédito del vínculo para convertir la interacción de "estilo de extracción", que emite una unidad de crédito para cada solicitud de recepción, en un modelo de "estilo de inserción" al emitir un gran número de créditos del vínculo y, a continuación, recibir los mensajes cuando estén disponibles sin intervención adicional. Se admite la inserción mediante la configuración de las propiedades [MessagingFactory.PrefetchCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.prefetchcount.aspx) o [MessageReceiver.PrefetchCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.prefetchcount.aspx). Si son distintas de cero, el cliente de AMQP las usa como crédito del vínculo.
 
@@ -138,116 +139,116 @@ En resumen, las secciones siguientes proporcionan una introducción esquemática
 
 Las flechas muestran la dirección de flujo de performativos.
 
-#### Creación del receptor del mensaje
+#### <a name="create-message-receiver"></a>Creación del receptor del mensaje
 
-| Cliente | Bus de servicio |
-|---------------------------------------------------------------------------------------------------------------------------------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------	|
-| --> attach(<br/>name={nombre de vínculo},<br/>handle={controlador numérico},<br/>role=**receiver**,<br/>source={nombre de entidad},<br/>target={id. de vínculo de cliente}<br/>) | El cliente se adjunta a la entidad como receptor |
-| El Bus de servicio responde asociando su extremo del vínculo | <-- attach(<br/>name={nombre de vínculo},<br/>handle={controlador numérico},<br/>role=**sender**,<br/>source={nombre de entidad},<br/>target={id. de vínculo de cliente}<br/>) |
+| Cliente                                                                                                                                                | SERVICE BUS                                                                                                                                   |
+|---------------------------------------------------------------------------------------------------------------------------------------------------    |--------------------------------------------------------------------------------------------------------------------------------------------   |
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={entity name},<br/>target={client link id}<br/>)         | El cliente se adjunta a la entidad como receptor                                                                                                         |
+| El Bus de servicio responde asociando su extremo del vínculo                                                                                                     | <-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={entity name},<br/>target={client link id}<br/>)       |
 
-#### Creación del remitente del mensaje
+#### <a name="create-message-sender"></a>Creación del remitente del mensaje
 
-| Cliente | Bus de servicio |
-|------------------------------------------------------------------------------------------------------------------	|--------------------------------------------------------------------------------------------------------------------	|
-| --> attach(<br/>name={nombre de vínculo},<br/>handle={controlador numérico},<br/>role=**sender**,<br/>source={id. de vínculo de cliente},<br/>target={nombre de entidad}<br/>) | Ninguna acción |
-| Ninguna acción | <-- attach(<br/>name={nombre de vínculo},<br/>handle={controlador numérico},<br/>role=**receiver**,<br/>source={id. de vínculo de cliente},<br/>target={nombre de entidad}<br/>) |
+| Cliente                                                                                                            | SERVICE BUS                                                                                                           |
+|------------------------------------------------------------------------------------------------------------------ |--------------------------------------------------------------------------------------------------------------------   |
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>)   | Ninguna acción                                                                                                                     |
+| Ninguna acción                                                                                                                 | <-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link id},<br/>target={entity name}<br/>)     |
 
-#### Creación del remitente del mensaje (error)
+#### <a name="create-message-sender-(error)"></a>Creación del remitente del mensaje (error)
 
-| Cliente | Bus de servicio |
-|------------------------------------------------------------------------------------------------------------------	|---------------------------------------------------------------------	|
-| --> attach(<br/>name={nombre de vínculo},<br/>handle={controlador numérico},<br/>role=**sender**,<br/>source={id. de vínculo de cliente},<br/>target={nombre de entidad}<br/>) | Ninguna acción |
-| Ninguna acción | <-- attach(<br/>name={nombre de vínculo},<br/>handle={controlador numérico},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={controlador numérico},<br/>closed=**true**,<br/>error={info de error}<br/>) |
+| Cliente                                                                                                            | SERVICE BUS                                                           |
+|------------------------------------------------------------------------------------------------------------------ |---------------------------------------------------------------------  |
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>)   | Ninguna acción                                                                     |
+| Ninguna acción                                                                                                                 | <-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>)  |
 
-#### Cierre del remitente/receptor del mensaje
+#### <a name="close-message-receiver/sender"></a>Cierre del remitente/receptor del mensaje
 
-| Cliente | Bus de servicio |
-|-------------------------------------------------	|-------------------------------------------------	|
-| --> detach(<br/>handle={controlador numérico},<br/>closed=**true**<br/>) | Ninguna acción |
-| Ninguna acción | <-- detach(<br/>handle={controlador numérico},<br/>closed=**true**<br/>) |
+| Cliente                                            | SERVICE BUS                                       |
+|-------------------------------------------------  |-------------------------------------------------  |
+| --> detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>)    | Ninguna acción                                                 |
+| Ninguna acción                                                 | <-- detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>)    |
 
-#### Envío (correcto)
+#### <a name="send-(success)"></a>Envío (correcto)
 
-| Cliente | Bus de servicio |
-|------------------------------------------------------------------------------------------------------------------------------	|------------------------------------------------------------------------------------------------------	|
-| --> transfer(<br/>delivery-id={controlador numérico},<br/>delivery-tag={controlador binario},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) | Ninguna acción |
-| Ninguna acción | <-- disposition(<br/>role=receiver,<br/>first={id. de entrega},<br/>last={id. de entrega},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
+| Cliente                                                                                                                        | SERVICE BUS                                                                                           |
+|------------------------------------------------------------------------------------------------------------------------------ |------------------------------------------------------------------------------------------------------ |
+| --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)   | Ninguna acción                                                                                                     |
+| Ninguna acción                                                                                                                             | <-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>)   |
 
-#### Envío (error)
+#### <a name="send-(error)"></a>Envío (error)
 
-| Cliente | Bus de servicio |
-|------------------------------------------------------------------------------------------------------------------------------	|-----------------------------------------------------------------------------------------------------------------------------	|
-| --> transfer(<br/>delivery-id={controlador numérico},<br/>delivery-tag={controlador binario},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) | Ninguna acción |
-| Ninguna acción | <-- disposition(<br/>role=receiver,<br/>first={id. de entrega},<br/>last={id. de entrega},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={info de error}<br/>)<br/>) |
+| Cliente                                                                                                                        | SERVICE BUS                                                                                                                   |
+|------------------------------------------------------------------------------------------------------------------------------ |-----------------------------------------------------------------------------------------------------------------------------  |
+| --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)   | Ninguna acción                                                                                                                             |
+| Ninguna acción                                                                                                                             | <-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>)     |
 
-#### Recepción
+#### <a name="receive"></a>Recepción
 
-| Cliente | Bus de servicio |
-|------------------------------------------------------------------------------------------------------	|------------------------------------------------------------------------------------------------------------------------------	|
-| --> flow(<br/>link-credit=1<br/>) | Ninguna acción |
-| Ninguna acción | < transfer(<br/>delivery-id={controlador numérico},<br/>delivery-tag={controlador binario},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
-| --> disposition(<br/>role=**receiver**,<br/>first={id. de entrega},<br/>last={id. de entrega},<br/>settled=**true**,<br/>state=**accepted**<br/>) | Ninguna acción |
+| Cliente                                                                                                | SERVICE BUS                                                                                                                   |
+|------------------------------------------------------------------------------------------------------ |------------------------------------------------------------------------------------------------------------------------------ |
+| --> flow(<br/>link-credit=1<br/>)                                                                                 | Ninguna acción                                                                                                                             |
+| Ninguna acción                                                                                                     | < transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)     |
+| --> disposition(<br/>role=**receiver**,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>)   | Ninguna acción                                                                                                                             |
 
-#### Recepción de múltiples mensajes
+#### <a name="multi-message-receive"></a>Recepción de múltiples mensajes
 
-| Cliente | Bus de servicio |
-|--------------------------------------------------------------------------------------------------------	|--------------------------------------------------------------------------------------------------------------------------------	|
-| --> flow(<br/>link-credit=3<br/>) | Ninguna acción |
-| Ninguna acción | < transfer(<br/>delivery-id={controlador numérico},<br/>delivery-tag={controlador binario},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
-| Ninguna acción | < transfer(<br/>delivery-id={controlador numérico+1},<br/>delivery-tag={controlador binario},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
-| Ninguna acción | < transfer(<br/>delivery-id={controlador numérico+2},<br/>delivery-tag={controlador binario},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
-| --> disposition(<br/>role=receiver,<br/>first={id. de entrega},<br/>last={id. de entrega+2},<br/>settled=**true**,<br/>state=**accepted**<br/>) | Ninguna acción |
+| Cliente                                                                                                    | SERVICE BUS                                                                                                                       |
+|--------------------------------------------------------------------------------------------------------   |--------------------------------------------------------------------------------------------------------------------------------   |
+| --> flow(<br/>link-credit=3<br/>)                                                                                 | Ninguna acción                                                                                                                                 |
+| Ninguna acción                                                                                                         | < transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)     |
+| Ninguna acción                                                                                                         | < transfer(<br/>delivery-id={numeric handle+1},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)   |
+| Ninguna acción                                                                                                         | < transfer(<br/>delivery-id={numeric handle+2},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)   |
+| --> disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id+2},<br/>settled=**true**,<br/>state=**accepted**<br/>)     | Ninguna acción                                                                                                                                 |
 
-### error de Hadoop
+### <a name="messages"></a>error de Hadoop
 
 En las siguientes secciones se explican las propiedades de las secciones de mensajes de AMQP estándar utilizadas por el Bus de servicio y cómo se asignan a las API oficiales del Bus de servicio.
 
-#### encabezado
+#### <a name="header"></a>encabezado
 
-| Nombre del campo | Uso | Nombre de la API |
-|----------------	|-------------------------------	|---------------	|
-| durable | - | - |
-| priority | - | - |
-| ttl | Tiempo de duración de este mensaje | [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx) |
-| first-acquirer | - | - |
-| delivery-count | - | [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) |
+| Nombre del campo        | Uso                             | Nombre de la API          |
+|----------------   |-------------------------------    |---------------    |
+| duradero           | -                                 | -                 |
+| prioridad          | -                                 | -                 |
+| ttl               | Período de vida para este mensaje     | [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)     |
+| first-acquirer    | -                                 | -                 |
+| delivery-count    | -                                 | [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx)   |
 
-#### propiedades
+#### <a name="properties"></a>propiedades
 
-| Nombre del campo | Uso | Nombre de la API |
-|----------------------	|---------------------------------------------------------------------------------------------------------------------------------	|--------------------------------------------	|
-| message-id | Identificador de formato libre definido por la aplicación para este mensaje. Se usa para la detección de duplicados. | [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) |
-| user-id | Identificador del usuario definido por la aplicación; no interpretado por el Bus de servicio. | No es accesible a través de la API del Bus de servicio. |
-| to | Identificador del destino definido por la aplicación; no interpretado por el Bus de servicio. | [Para](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.to.aspx) |
-| subject | Identificador del propósito de mensaje definido por la aplicación; no interpretado por el Bus de servicio. | [Etiqueta](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) |
-| reply-to | Indicador de la ruta de respuesta definido por la aplicación; no interpretado por el Bus de servicio. | [ReplyTo](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.replyto.aspx) |
-| correlation-id | Identificador de la correlación definido por la aplicación; no interpretado por el Bus de servicio. | [CorrelationId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.correlationid.aspx) |
-| content-type | Indicador del tipo de contenido definido por la aplicación para el cuerpo; no interpretado por el Bus de servicio. | [ContentType](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx) |
-| content-encoding | Indicador de la codificación de contenido definido por la aplicación para el cuerpo; no interpretado por el Bus de servicio. | No es accesible a través de la API del Bus de servicio. |
-| absolute-expiry-time | Declara en qué instante absoluto expirará el mensaje. Se ignora en la entrada (se observa el ttl de encabezado), es autoritativo en la salida. | [ExpiresAtUtc](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.expiresatutc.aspx) |
-| creation-time | Declara en qué momento creó el mensaje. No usado por el Bus de servicio | No es accesible a través de la API del Bus de servicio. |
-| group-id | Identificador definido por la aplicación para un conjunto de mensajes relacionado. Se utiliza para sesiones del Bus de servicio. | [SessionId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) |
-| group-sequence | Contador que identifica el número de secuencia relativa del mensaje dentro de una sesión. Omitido por el Bus de servicio. | No es accesible a través de la API del Bus de servicio. |
-| reply-to-group-id | - | [ReplyToSessionId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.replytosessionid.aspx) |
+| Nombre del campo            | Uso                                                                                                                             | Nombre de la API                                      |
+|---------------------- |---------------------------------------------------------------------------------------------------------------------------------  |--------------------------------------------   |
+| message-id            | Identificador de formato libre definido por la aplicación para este mensaje. Se usa para la detección de duplicados.                                         | [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx)                                   |
+| user-id               | Identificador del usuario definido por la aplicación; no interpretado por el Bus de servicio.                                                              | No es accesible a través de la API del Bus de servicio.   |
+| to                    | Identificador del destino definido por la aplicación; no interpretado por el Bus de servicio.                                                       | [To](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.to.aspx)                                             |
+| subject               | Identificador del propósito de mensaje definido por la aplicación; no interpretado por el Bus de servicio.                                                   | [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)                                       |
+| reply-to              | Indicador de la ruta de respuesta definido por la aplicación; no interpretado por el Bus de servicio.                                                         | [ReplyTo](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.replyto.aspx)                                       |
+| correlation-id        | Identificador de la correlación definido por la aplicación; no interpretado por el Bus de servicio.                                                       | [CorrelationId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.correlationid.aspx)                               |
+| content-type          | Indicador del tipo de contenido definido por la aplicación para el cuerpo; no interpretado por el Bus de servicio.                                          | [ContentType](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx)                                   |
+| content-encoding      | Indicador de la codificación de contenido definido por la aplicación para el cuerpo; no interpretado por el Bus de servicio.                                      | No es accesible a través de la API del Bus de servicio.   |
+| absolute-expiry-time  | Declara en qué instante absoluto expirará el mensaje. Se ignora en la entrada (se observa el ttl de encabezado), es autoritativo en la salida.   | [ExpiresAtUtc](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.expiresatutc.aspx)                                 |
+| creation-time         | Declara en qué momento creó el mensaje. No usado por el Bus de servicio                                                           | No es accesible a través de la API del Bus de servicio.   |
+| group-id              | Identificador definido por la aplicación para un conjunto de mensajes relacionado. Se utiliza para sesiones del Bus de servicio.                                      | [SessionId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx)                                   |
+| group-sequence        | Contador que identifica el número de secuencia relativa del mensaje dentro de una sesión. Omitido por el Bus de servicio.                         | No es accesible a través de la API del Bus de servicio.   |
+| reply-to-group-id     | -                                                                                                                                 | [ReplyToSessionId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.replytosessionid.aspx)                             |
 
-## Funcionalidades avanzadas del Bus de servicio
+## <a name="advanced-service-bus-capabilities"></a>Funcionalidades avanzadas del Bus de servicio
 
 En esta sección se tratan las funcionalidades avanzadas del Bus de servicio de Azure que se basan en los borradores de la extensión AMQP que actualmente estamos desarrollando en el comité técnico de OASIS para AMQP. El Bus de servicio de Azure implementa el estado más reciente de estos borradores y adopta los cambios introducidos a medida que los borradores alcanzan el estado estándar.
 
-> [AZURE.NOTE] Se admiten las operaciones avanzadas de mensajería de Bus de servicio mediante un modelo de solicitud y respuesta. Los detalles de estas operaciones se describen en el documento [AMQP 1.0 in Service Bus: request/response-based operations](https://msdn.microsoft.com/library/azure/mt727956.aspx) (AMQP 1.0 en el Bus de servicio: operaciones basadas en solicitudes y respuestas).
+> [AZURE.NOTE] Se admiten las operaciones avanzadas de mensajería de Bus de servicio mediante un modelo de solicitud y respuesta. Los detalles de estas operaciones se describen en el documento [AMQP 1.0 in Service Bus: request/response-based operations](https://msdn.microsoft.com/library/azure/mt727956.aspx) (AMQP 1.0 en Service Bus: operaciones basadas en solicitudes y respuestas).
 
-### Administración de AMQP
+### <a name="amqp-management"></a>Administración de AMQP
 
 La especificación Administración de AMQP es el primero de los borradores de extensiones que analizaremos aquí. Esta especificación define un conjunto de gestos de protocolo superpuesto al protocolo AMQP que permite las interacciones de administración con la infraestructura de mensajería a través de AMQP. La especificación define operaciones genéricas como *crear*, *leer*, *actualizar* y *eliminar* para administrar entidades dentro de una infraestructura de mensajería y un conjunto de operaciones de consulta.
 
 Todos los gestos requieren una interacción de solicitud/respuesta entre el cliente y la infraestructura de mensajería y, por tanto, la especificación define cómo modelar ese patrón de interacción sobre AMQP: el cliente se conecta a la infraestructura de mensajería, inicia una sesión y crea un par de vínculos. En un vínculo, el cliente actúa como remitente y en el otro actúa como receptor, creando así un par de vínculos que puede actuar como un canal bidireccional.
 
-| Operadores lógicos | Cliente | Bus de servicio |
+| Operadores lógicos            | Cliente                      | Bus de servicio                 |
 |------------------------------|-----------------------------|-----------------------------|
-| Creación de una ruta de acceso de respuesta de solicitud | --> attach(<br/>name={*nombre de vínculo*},<br/>handle={*controlador numérico*},<br/>role=**sender**,<br/>source=**null**,<br/>target=”myentity/$management”<br/>) |Ninguna acción |
-|Creación de una ruta de acceso de respuesta de solicitud |Ninguna acción | <-- attach(<br/>name={*nombre de vínculo*},<br/>handle={*controlador numérico*},<br/>role=**receiver**,<br/>source=null,<br/>target=”myentity”<br/>) |
-|Creación de una ruta de acceso de respuesta de solicitud | --> attach(<br/>name={*nombre de vínculo*},<br/>handle={*controlador numérico*},<br/>role=**receiver**,<br/>source=”myentity/$management”,<br/>target=”myclient$id”<br/>) | |Ninguna acción
-|Creación de una ruta de acceso de respuesta de solicitud |Ninguna acción | <-- attach(<br/>name={*nombre de vínculo*},<br/>handle={*controlador numérico*},<br/>role=**sender**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>) |
+| Creación de una ruta de acceso de respuesta de solicitud | --> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=**null**,<br/>target=”myentity/$management”<br/>)                            |Ninguna acción                             |
+|Creación de una ruta de acceso de respuesta de solicitud                              |Ninguna acción                             | \<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=null,<br/>target=”myentity”<br/>)                            |
+|Creación de una ruta de acceso de respuesta de solicitud                              | --> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=”myentity/$management”,<br/>target=”myclient$id”<br/>)                            |                             |Ninguna acción
+|Creación de una ruta de acceso de respuesta de solicitud                              |Ninguna acción                             | \<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>)                            |
 
 Con ese par de vínculos en su lugar, la implementación de la solicitud/respuesta es sencilla: una solicitud es un mensaje enviado a una entidad dentro de la infraestructura de mensajería que comprende este patrón. En ese mensaje de solicitud, el campo *reply-to* de la sección *properties* se establece en el identificador *target* para el vínculo en el que se va a entregar la respuesta. La entidad de control procesará la solicitud y entregará la respuesta a través del vínculo cuyo identificador *target* coincide con el identificador *reply-to* indicado.
 
@@ -257,7 +258,7 @@ Los intercambios de mensajes usados para el protocolo de administración y para 
 
 El Bus de servicio de Azure no implementa actualmente ninguna de las características principales de la especificación de administración, pero el patrón de solicitud/respuesta definido por la especificación de administración es fundamental para la característica de seguridad basada en notificaciones y para casi todas las funcionalidades avanzadas que trataremos en las secciones siguientes.
 
-### Autorización basada en notificaciones
+### <a name="claims-based-authorization"></a>Autorización basada en notificaciones
 
 El borrador de la especificación de autorización basada en notificaciones (CBS) de AMQP se basa en el patrón de solicitud/respuesta de la especificación de administración; describe un modelo generalizado para el uso de tokens de seguridad federados con AMQP.
 
@@ -277,29 +278,29 @@ El gesto del protocolo es un intercambio de solicitud y respuesta, tal como est�
 
 El mensaje de solicitud tiene las siguientes propiedades de la aplicación:
 
-| Clave | Opcional | Tipo de valor | Contenido del valor |
+| Clave        | Opcional | Tipo de valor | Contenido del valor                             |
 |------------|----------|------------|--------------------------------------------|
-| operación | No | string | **put-token** |
-| type | No | string | Tipo del token que se coloca. |
-| name | No | string | El "público" al que se aplica el token. |
-| expiration | Sí | timestamp | La hora de expiración del token. |
+| operación  | No       | string     | **put-token**                                |
+| type       | No       | string     | Tipo del token que se coloca.            |
+| name       | No       | string     | El "público" al que se aplica el token. |
+| expiration | Sí      | timestamp  | La hora de expiración del token.              |
 
 La propiedad *name* identifica la entidad a la que se va a asociar el token. En Service Bus es la ruta de acceso a la cola, el tema o la suscripción. La propiedad *type* identifica el tipo de token:
 
-| Tipo de token | Descripción del token | Tipo de cuerpo | Notas |
+| Tipo de token                      | Descripción del token      | Tipo de cuerpo           | Notas                                                    |
 |---------------------------------|------------------------|---------------------|----------------------------------------------------------|
-| amqp:jwt | JSON Web Token (JWT) | Valor de AMQP (cadena) | No disponible todavía. |
-| amqp:swt | Simple Web Token (SWT) | Valor de AMQP (cadena) | Solo se admite para los tokens SWT emitidos por AAD y ACS |
-| servicebus.windows.net:sastoken | Token SAS del Bus de servicio | Valor de AMQP (cadena) | - |
+| amqp:jwt                        | JSON Web Token (JWT)   | Valor de AMQP (cadena) | No disponible todavía.  |
+| amqp:swt                        | Simple Web Token (SWT) | Valor de AMQP (cadena) | Solo se admite para los tokens SWT emitidos por AAD y ACS          |
+| servicebus.windows.net:sastoken | Token SAS de Service Bus  | Valor de AMQP (cadena) | -                                                        |
 
-Los tokens confieren derechos. El Bus de servicio conoce tres derechos fundamentales: "Enviar" permite enviar, "Escuchar" permite recibir y "Administrar" permite manipular las entidades. Los tokens SWT emitidos por AAD/ACS incluyen explícitamente dichos derechos como notificaciones. Los tokens de SAS del Bus de servicio hacen referencia a las reglas configuradas en el espacio de nombres o la entidad, y dichas reglas se configuran con derechos. Firmar el token con la clave asociada a esa regla hace que el token exprese los derechos correspondientes. El token asociado a una entidad con *put-token* permitirá que el cliente conectado interactúe con la entidad de acuerdo con los derechos del token. Un vínculo en el que cliente adopta el rol *remitente* requiere el derecho "Enviar"; adoptar el rol *receptor* requiere el derecho "Escuchar".
+Los tokens confieren derechos. El Bus de servicio conoce tres derechos fundamentales: "Enviar" permite enviar, "Escuchar" permite recibir y "Administrar" permite manipular las entidades. Los tokens SWT emitidos por AAD/ACS incluyen explícitamente dichos derechos como notificaciones. Los tokens de SAS del Bus de servicio hacen referencia a las reglas configuradas en el espacio de nombres o la entidad, y dichas reglas se configuran con derechos. Firmar el token con la clave asociada a esa regla hace que el token exprese los derechos correspondientes. El token asociado a una entidad con *put-token* permitirá que el cliente conectado interactúe con la entidad de acuerdo con los derechos del token. Un vínculo en el que cliente adopta el rol *sender* requiere el derecho "Enviar"; adoptar el rol *receiver* requiere el derecho "Escuchar".
 
 El mensaje de respuesta tiene los siguientes valores de *application-properties*
 
-| Clave | Opcional | Tipo de valor | Contenido del valor |
+| Clave                | Opcional | Tipo de valor | Contenido del valor                    |
 |--------------------|----------|------------|-----------------------------------|
-| status-code | No | int | Código de respuesta HTTP **[RFC2616]**. |
-| status-description | Sí | string | Descripción del estado. |
+| status-code        | No       | int        | Código de respuesta HTTP**[RFC2616]**. |
+| status-description | Sí      | string     | Descripción del estado.        |
 
 El cliente puede llamar a *put-token* repetidamente y para cualquier entidad de la infraestructura de mensajería. El ámbito de los tokens es el cliente actual y se anclan en la conexión actual, lo que significa que el servidor eliminará todos los tokens retenidos cuando la conexión se interrumpa.
 
@@ -307,26 +308,29 @@ La implementación actual del Bus de servicio solo permite CBS junto con el mét
 
 Por tanto, el mecanismo ANONYMOUS debe ser compatible con el cliente de AMQP 1.0 elegido. El acceso anónimo significa que el protocolo de enlace de conexión inicial, incluida la creación de la sesión inicial, tiene lugar sin que el Bus de servicio sepa quién está creando la conexión.
 
-Una vez establecida la conexión y la sesión, las únicas operaciones permitidas son asociar los vínculos al nodo *$cbs* y enviar la solicitud *put-token*. Un token válido debe establecerse correctamente mediante una solicitud *put-token* para algún nodo de entidad en un plazo de 20 segundos después de establecer la conexión; de lo contrario, el Bus de servicio interrumpe la conexión unilateralmente.
+Una vez establecida la conexión y la sesión, las únicas operaciones permitidas son asociar los vínculos al nodo *$cbs* y enviar la solicitud *put-token*. Un token válido debe establecerse correctamente mediante una solicitud *put-token* para algún nodo de entidad en un plazo de 20 segundos después de establecer la conexión; de lo contrario, Service Bus interrumpe la conexión unilateralmente.
 
-El cliente es responsable de realizar un seguimiento de la expiración del token. Cuando expira un token, el Bus de servicio eliminará rápidamente todos los vínculos de la conexión a la entidad correspondiente. Para evitarlo, el cliente puede reemplazar en cualquier momento el token del nodo por otro nuevo mediante el nodo de administración*$cbs* virtual con el mismo gesto *put-token* y sin interferir con el tráfico de carga útil que fluye en diferentes enlaces.
+El cliente es responsable de realizar un seguimiento de la expiración del token. Cuando expira un token, el Bus de servicio eliminará rápidamente todos los vínculos de la conexión a la entidad correspondiente. Para evitarlo, el cliente puede reemplazar en cualquier momento el token del nodo por otro nuevo mediante el nodo de administración *$cbs* virtual con el mismo gesto *put-token* y sin interferir con el tráfico de carga útil que fluye en diferentes enlaces.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para aprender más sobre AMQP, consulte los siguientes vínculos:
 
-- [Información general sobre AMQP para el Bus de servicio]
-- [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones del Bus de servicio]
-- [AMQP de Bus de servicio para Windows Server]
+- [Información general sobre AMQP para Service Bus]
+- [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones de Service Bus]
+- [AMQP de Service Bus para Windows Server]
 
-[este curso en vídeo]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
+[este curso de vídeo]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
 [1]: ./media/service-bus-amqp/amqp1.png
 [2]: ./media/service-bus-amqp/amqp2.png
 [3]: ./media/service-bus-amqp/amqp3.png
 [4]: ./media/service-bus-amqp/amqp4.png
 
-[Información general sobre AMQP para el Bus de servicio]: service-bus-amqp-overview.md
-[Compatibilidad de AMQP 1.0 con los temas y las colas con particiones del Bus de servicio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
-[AMQP de Bus de servicio para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+[Información general sobre AMQP para Service Bus]: service-bus-amqp-overview.md
+[Compatibilidad de AMQP 1.0 con los temas y las colas con particiones de Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[AMQP de Service Bus para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

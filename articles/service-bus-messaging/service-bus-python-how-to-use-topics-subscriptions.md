@@ -1,32 +1,33 @@
 <properties 
-	pageTitle="Uso de Service Bus con Python | Microsoft Azure" 
-	description="Aprenda a usar los temas de Azure Service Bus y las suscripciones de Python." 
-	services="service-bus-messaging" 
-	documentationCenter="python" 
-	authors="sethmanheim" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="Uso de Service Bus con Python | Microsoft Azure" 
+    description="Aprenda a usar los temas de Azure Service Bus y las suscripciones de Python." 
+    services="service-bus" 
+    documentationCenter="python" 
+    authors="sethmanheim" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="service-bus-messaging" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="05/06/2016" 
-	ms.author="sethm"/>
+    ms.service="service-bus" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="python" 
+    ms.topic="article" 
+    ms.date="10/04/2016" 
+    ms.author="sethm"/>
 
-# Uso de temas y suscripciones del Bus de servicio
+
+# <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Uso de temas y suscripciones del Bus de servicio
 
 [AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-En este artículo se describe cómo usar los temas y las suscripciones de Service Bus. Los ejemplos están escritos en Python y usan el [paquete de Azure para Python][]. Entre los escenarios tratados se incluyen **la creación de temas y suscripciones**, **la creación de filtros de suscripción**, **el envío de mensajes a un tema**, **la recepción de mensajes de una suscripción** y **la eliminación de temas y suscripciones**. Para más información acerca de los temas y las suscripciones, consulte la sección [Pasos siguientes](#next-steps).
+En este artículo se describe cómo usar los temas y las suscripciones de Service Bus. Los ejemplos están escritos en Python y usan el [paquete de Azure para Python][]. Entre los escenarios tratados se incluyen la **creación de temas y suscripciones**, la **creación de filtros de suscripción**, el **envío de mensajes a un tema**, la **recepción de mensajes de una suscripción** y la **eliminación de temas y suscripciones**. Para más información sobre los temas y las suscripciones, consulte la sección [Pasos siguientes](#next-steps).
 
 [AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
-**Nota:** si necesita instalar Python o el [paquete de Azure para Python][], consulte la [Guía de instalación de Python](../python-how-to-install.md).
+**Nota:** Si necesita instalar Python o el [paquete de Azure para Python][], vea la [Guía de instalación de Python](../python-how-to-install.md).
 
-## un tema
+## <a name="create-a-topic"></a>de un tema
 
 El objeto **ServiceBusService** le permite trabajar con temas. Agregue lo siguiente cerca de la parte superior de todo archivo Python en el que desee obtener acceso al Bus de servicio mediante programación:
 
@@ -38,12 +39,12 @@ El siguiente código crea un objeto **ServiceBusService**. Reemplace `mynamespac
 
 ```
 bus_service = ServiceBusService(
-	service_namespace='mynamespace',
-	shared_access_key_name='sharedaccesskeyname',
-	shared_access_key_value='sharedaccesskey')
+    service_namespace='mynamespace',
+    shared_access_key_name='sharedaccesskeyname',
+    shared_access_key_value='sharedaccesskey')
 ```
 
-Puede obtener los valores para el valor y el nombre de clave de SAS en el [Portal de Azure clásico][] desde la ventana **Información de conexión**.
+Puede obtener los valores para el valor y el nombre de clave SAS en [Azure Portal][].
 
 ```
 bus_service.create_topic('mytopic')
@@ -59,29 +60,29 @@ topic_options.default_message_time_to_live = 'PT1M'
 bus_service.create_topic('mytopic', topic_options)
 ```
 
-## Creación de suscripciones
+## <a name="create-subscriptions"></a>Creación de suscripciones
 
 Las suscripciones a los temas también se crean con el objeto **ServiceBusService**. A las suscripciones se les asigna un nombre y pueden tener un filtro opcional que restrinja el conjunto de mensajes que se entregan a su cola virtual.
 
 > [AZURE.NOTE] Las suscripciones son permanentes y seguirán existiendo hasta que se eliminen, o se elimine el tema al que están asociadas.
 
-### Creación de una suscripción con el filtro predeterminado (MatchAll)
+### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Creación de una suscripción con el filtro predeterminado (MatchAll)
 
-El filtro predeterminado **MatchAll** se usa en caso de que no se haya especificado ninguno al crear una suscripción. Al usar el filtro **MatchAll**, todos los mensajes publicados en el tema se colocan en la cola virtual de la suscripción. En el ejemplo siguiente se crea una suscripción llamada “AllMessages” que usa el filtro predeterminado **MatchAll**.
+El filtro predeterminado **MatchAll** se usa en caso de que no se haya especificado ninguno al crear una suscripción. Al usar el filtro **MatchAll**, todos los mensajes publicados en el tema se colocan en la cola virtual de la suscripción. En el ejemplo siguiente se crea una suscripción llamada "AllMessages" que usa el filtro predeterminado **MatchAll**.
 
 ```
 bus_service.create_subscription('mytopic', 'AllMessages')
 ```
 
-### Creación de suscripciones con filtros
+### <a name="create-subscriptions-with-filters"></a>Creación de suscripciones con filtros
 
 También se pueden definir filtros que permitan especificar qué mensajes enviados a un tema deben mostrarse en una suscripción a un tema concreto.
 
-El tipo de filtro más flexible compatible con las suscripciones es **SqlFilter**, que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para más información acerca de las expresiones que se pueden usar con un filtro de SQL, consulte la sintaxis de [SqlFilter.SqlExpression][].
+El tipo de filtro más flexible compatible con las suscripciones es **SqlFilter**, que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para más información sobre las expresiones que se pueden usar con un filtro de SQL, vea la sintaxis de [SqlFilter.SqlExpression][].
 
 Se pueden agregar filtros a una suscripción, y para ello es preciso usar el método **create\_rule** del objeto **ServiceBusService**. Este método permite agregar nuevos filtros a una suscripción existente.
 
-> [AZURE.NOTE] Debido a que el filtro predeterminado se aplica automáticamente a todas las suscripciones nuevas, debe eliminar primero el filtro predeterminado, si no quiere que **MatchAll** invalide los demás filtros que especifique. Puede eliminar la regla predeterminada utilizando el método **delete\_rule** del objeto **ServiceBusService**.
+> [AZURE.NOTE] Debido a que el filtro predeterminado se aplica automáticamente a todas las suscripciones nuevas, debe eliminar primero el filtro predeterminado, si no quiere que **MatchAll** invalide los demás filtros que especifique. Puede eliminar el filtro predeterminado utilizando el método **delete\_rule** del objeto **ServiceBusService**.
 
 En el ejemplo siguiente, se crea una suscripción denominada `HighMessages` con un objeto **SqlFilter** que solo selecciona los mensajes con una propiedad **messagenumber** personalizada cuyo valor sea mayor que 3:
 
@@ -109,25 +110,25 @@ bus_service.create_rule('mytopic', 'LowMessages', 'LowMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
 ```
 
-Cuando se envía un mensaje a `mytopic`, siempre se entrega a los destinatarios que tengan una suscripción del tema **AllMessages**, mientras que se entrega de forma selectiva a los destinatarios que tengan suscripciones de tema **HighMessages** y **LowMessages** (según el contenido del mensaje).
+Cuando se envía un mensaje a `mytopic`, este se entrega siempre a los receptores suscritos al tema **AllMessages**, y se entrega de forma selectiva a los receptores suscritos a los temas **HighMessages** y **LowMessages** (según el contenido del mensaje).
 
-## Envío de mensajes a un tema
+## <a name="send-messages-to-a-topic"></a>Envío de mensajes a un tema
 
-Para enviar un mensaje a un tema del bus de servicio, la aplicación debe utilizar el método **send\_topic\_message** del objeto **ServiceBusService**.
+Para enviar un mensaje a un tema de Service Bus, la aplicación debe utilizar el método **send\_topic\_message** del objeto **ServiceBusService**.
 
 En el ejemplo siguiente se demuestra cómo enviar cinco mensajes de prueba a `mytopic`. Observe que el valor de la propiedad **messagenumber** de cada mensaje varía en función de la iteración del bucle (lo que determina qué suscripciones lo reciben):
 
 ```
 for i in range(5):
-	msg = Message('Msg {0}'.format(i).encode('utf-8'), custom_properties={'messagenumber':i})
-	bus_service.send_topic_message('mytopic', msg)
+    msg = Message('Msg {0}'.format(i).encode('utf-8'), custom_properties={'messagenumber':i})
+    bus_service.send_topic_message('mytopic', msg)
 ```
 
-El tamaño máximo de mensaje que admiten los temas del Bus de servicio es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene un tema, pero hay un tope para el tamaño total de los mensajes contenidos en un tema. El tamaño de los temas se define en el momento de la creación (el límite máximo es de 5 GB). Para obtener más información sobre las cuotas, consulte [Cuotas del Bus de servicio][].
+El tamaño máximo de mensaje que admiten los temas de Service Bus es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene un tema, pero hay un tope para el tamaño total de los mensajes contenidos en un tema. El tamaño de los temas se define en el momento de la creación (el límite máximo es de 5 GB). Para obtener más información sobre las cuotas, vea [Cuotas de Service Bus][].
 
-## Recepción de mensajes de una suscripción
+## <a name="receive-messages-from-a-subscription"></a>Recepción de mensajes de una suscripción
 
-Los mensajes se reciben de una suscripción utilizando el método **receive\_subscription\_message** del objeto **ServiceBusService**:
+Los mensajes se reciben de una suscripción mediante el método **receive\_subscription\_message** del objeto **ServiceBusService**:
 
 ```
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
@@ -138,7 +139,7 @@ Los mensajes se eliminan de la suscripción a medida que se leen cuando el pará
 
 El comportamiento por el que los mensajes se eliminan tras leerlos como parte del proceso de recepción es el modelo más sencillo y el que mejor funciona en aquellas situaciones en las que una aplicación puede tolerar que no se procese un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como el Bus de servicio habrá marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 
-Si el parámetro **peek\_lock** está establecido en **True**, el proceso de recepción se convierte en una operación en dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma confiable para su futuro procesamiento), completa la segunda fase del proceso de recepción llamando al método **delete** en el objeto **Message**. El método **delete** marca el mensaje como consumido y lo elimina de la suscripción.
+Si el parámetro **peek\_lock** está establecido en **True**, el proceso de recepción se convierte en una operación en dos fases que permite admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma confiable para su futuro procesamiento), completa la segunda fase del proceso de recepción llamando al método **delete** en el objeto **Message**. El método **delete** marca el mensaje como consumido y lo elimina de la suscripción.
 
 ```
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
@@ -147,7 +148,7 @@ print(msg.body)
 msg.delete()
 ```
 
-## Actuación ante errores de la aplicación y mensajes que no se pueden leer
+## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Actuación ante errores de la aplicación y mensajes que no se pueden leer
 
 El Bus de servicio proporciona una funcionalidad que le ayuda a superar sin problemas los errores de la aplicación o las dificultades para procesar un mensaje. Si por cualquier motivo una aplicación de recepción es incapaz de procesar el mensaje, entonces puede llamar al método **unlock** del objeto **Message**. Esto hará que Service Bus desbloquee el mensaje de la suscripción y esté disponible para que pueda volver a recibirse, ya sea por la misma aplicación que lo consume o por otra.
 
@@ -155,9 +156,9 @@ También hay otro tiempo de expiración asociado a un mensaje bloqueado en la su
 
 En caso de que la aplicación sufra un error después de procesar el mensaje y antes de llamar al método **delete**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Habitualmente se denomina **Al menos un procesamiento**, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. A menudo, esto se consigue usando la propiedad **MessageId** del mensaje, que permanecerá constante en todos los intentos de entrega.
 
-## Eliminación de temas y suscripciones
+## <a name="delete-topics-and-subscriptions"></a>Eliminación de temas y suscripciones
 
-Los temas y las suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del [Portal de Azure clásico][] o mediante programación. En el ejemplo siguiente se muestra cómo eliminar el tema denominado `mytopic`:
+Los temas y las suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del [Azure Portal][] o mediante programación. En el ejemplo siguiente se muestra cómo eliminar el tema denominado `mytopic`:
 
 ```
 bus_service.delete_topic('mytopic')
@@ -169,17 +170,21 @@ Al eliminar un tema también se eliminan todas las suscripciones que estén regi
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos vínculos para obtener más información.
 
 -   Vea [Colas, temas y suscripciones][].
 -   Referencia para [SqlFilter.SqlExpression][].
 
-[Portal de Azure clásico]: http://manage.windowsazure.com
-[paquete de Azure para Python]: https://pypi.python.org/pypi/azure
+[Portal de Azure]: https://portal.azure.com
+[Paquete de Azure para Python]: https://pypi.python.org/pypi/azure  
 [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Cuotas del Bus de servicio]: service-bus-quotas.md
+[Cuotas de Service Bus]: service-bus-quotas.md 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

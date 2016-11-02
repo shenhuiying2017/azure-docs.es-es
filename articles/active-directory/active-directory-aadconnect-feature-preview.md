@@ -14,12 +14,13 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="06/27/2016"
-   ms.author="andkjell;billmath"/>
+   ms.author="billmath"/>
 
-# Más detalles sobre las características de vista previa
+
+# <a name="more-details-about-features-in-preview"></a>Más detalles sobre las características de vista previa
 En este tema se describe cómo usar las características que actualmente forman parte de la versión preliminar.
 
-## Escritura diferida de grupos
+## <a name="group-writeback"></a>Escritura diferida de grupos
 La opción para la escritura diferida de grupos en las características opcionales le permitirá escribir en diferido **Grupos de Office 365** en un bosque con Exchange instalado. Se trata de un tipo de grupo que siempre se controla en la nube. Si dispone de Exchange local, puede reescribir estos grupos en el entono local, por lo que los usuarios con un buzón de Exchange local pueden enviar y recibir correos electrónicos de ellos.
 
 Puede encontrar más información sobre los grupos de Office 365 y cómo utilizarlos [aquí](http://aka.ms/O365g).
@@ -35,12 +36,16 @@ Este grupo se representará como un grupo de distribución en AD DS local. El se
 
 >[AZURE.NOTE] Se necesita una suscripción a Azure AD Premium para la escritura diferida de grupos.
 
-## Reescritura de usuarios
+## <a name="user-writeback"></a>Reescritura de usuarios
 > [AZURE.IMPORTANT] La característica en vista previa de escritura diferida de usuario, se quitó en la actualización de agosto de 2015 a Azure AD Connect. Si la ha habilitado, debería deshabilitarla.
 
-## Pasos siguientes
-Continúe su [Instalación personalizada de Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
+## <a name="next-steps"></a>Pasos siguientes
+Continúe su [Instalación personalizada de Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-custom.md).
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

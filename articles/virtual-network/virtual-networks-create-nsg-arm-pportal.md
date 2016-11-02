@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Creación de grupos de seguridad de red en el modo ARM mediante el Portal de Azure | Microsoft Azure"
-   description="Aprenda a crear e implementar grupos de seguridad de red en ARM mediante el Portal de Azure"
+   pageTitle="How to create NSGs in ARM mode using the Azure portal | Microsoft Azure"
+   description="Learn how to create and deploy NSGs in ARM using the Azure portal"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -17,90 +17,94 @@
    ms.date="02/04/2016"
    ms.author="jdial" />
 
-# Cómo administrar grupos de seguridad de red con el Portal de Azure
+
+# <a name="how-to-manage-nsgs-using-the-azure-portal"></a>How to manage NSGs using the Azure portal
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artículo trata sobre el modelo de implementación del Administrador de recursos. También puede [crear grupos de seguridad de red en el modelo de implementación clásica](virtual-networks-create-nsg-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the Resource Manager deployment model. You can also [create NSGs in the classic deployment model](virtual-networks-create-nsg-classic-ps.md).
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-En los siguientes comandos de PowerShell de ejemplo se presupone que ya se ha creado un entorno simple según el escenario anterior. Si desea ejecutar los comandos tal y como aparecen en este documento, cree primero el entorno de prueba mediante la implementación de [esta plantilla](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), haga clic en **Implementar en Azure**, reemplace los valores de parámetro predeterminados si es necesario y siga las instrucciones del portal. En los pasos siguientes se emplea **RG-GSN** como nombre del grupo de recursos en el que se implementó la plantilla.
+The sample PowerShell commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, first build the test environment by deploying [this template](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal. The steps below use **RG-NSG** as the name of the resource group the template was deployed to.
 
-## Creación del grupo de seguridad de red NSG-FrontEnd
+## <a name="create-the-nsg-frontend-nsg"></a>Create the NSG-FrontEnd NSG
 
-Para crear el grupo de seguridad de red **NSG-FrontEnd** según el escenario anterior, siga estos pasos.
+To create the **NSG-FrontEnd** NSG as shown in the scenario above, follow the steps below.
 
-1. Desde un explorador, vaya a http://portal.azure.com y, si es necesario, inicie sesión con su cuenta de Azure.
-2. Haga clic en **Examinar >** > **Grupos de seguridad de red**.
+1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
+2. Click **Browse >** > **Network Security Groups**.
 
-    ![Portal de Azure - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
+    ![Azure portal - NSGs](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
 
-3. En la hoja **Grupos de seguridad de red**, haga clic en **Agregar**.
+3. In the **Network security groups** blade, click **Add**.
   
-    ![Portal de Azure: NSG](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
+    ![Azure portal - NSGs](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
 
-4. En la hoja **Crear grupo de seguridad de red**, cree un NSG llamado *NSG-FrontEnd* en el grupo de recursos *RG-NSG* y, después, haga clic en **Crear**.
+4. In the **Create network security group** blade, create an NSG named *NSG-FrontEnd* in the *RG-NSG* resource group, and then click **Create**.
 
-	![Portal de Azure - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure13.png)
+    ![Azure portal - NSGs](./media/virtual-networks-create-nsg-arm-pportal/figure13.png)
 
-## Creación de reglas en un grupo de seguridad de red existente
+## <a name="create-rules-in-an-existing-nsg"></a>Create rules in an existing NSG
 
-Para crear reglas en un grupo de seguridad de red existente desde el Portal de Azure, siga estos pasos.
+To create rules in an existing NSG from the Azure portal, follow the steps below.
 
-2. Haga clic en **Examinar >** > **Grupos de seguridad de red**.
+2. Click **Browse >** > **Network security groups**.
 
-3. En la lista de grupos de seguridad de red, haga clic en **NSG-FrontEnd** > **Reglas de seguridad de entrada**
+3. In the list of NSGs, click **NSG-FrontEnd** > **Inbound security rules**
 
-	![Portal de Azure - NSG-FrontEnd](./media/virtual-networks-create-nsg-arm-pportal/figure2.png)
+    ![Azure portal - NSG-FrontEnd](./media/virtual-networks-create-nsg-arm-pportal/figure2.png)
 
-4. En la lista de **Reglas de seguridad de entrada**, haga clic en **Agregar**.
+4. In the list of **Inbound security rules**, click **Add**.
 
-	![Portal de Azure - Agregar regla](./media/virtual-networks-create-nsg-arm-pportal/figure3.png)
+    ![Azure portal - Add rule](./media/virtual-networks-create-nsg-arm-pportal/figure3.png)
 
-5. En la hoja **Agregar regla de seguridad de entrada**, cree una regla denominada *web-rule* con prioridad de *200* que permita el acceso a través de *TCP* al puerto *80* y a cualquier máquina virtual desde cualquier origen y luego haga clic en **Aceptar**. Observe que la mayoría de estas configuraciones son ya valores predeterminados.
+5. In the **Add inbound security rule** blade, create a rule named *web-rule* with priority of *200* allowing access via *TCP* to port *80* to any VM from any source, and then click **OK**. Notice that most of these settings are default values already.
 
-	![Portal de Azure - Configuración de la regla](./media/virtual-networks-create-nsg-arm-pportal/figure4.png)
+    ![Azure portal - Rule settings](./media/virtual-networks-create-nsg-arm-pportal/figure4.png)
 
-6. Después de unos segundos, verá la nueva regla en el grupo de seguridad de red.
+6. After a few seconds you will see the new rule in the NSG.
 
-	![Portal de Azure - Nueva regla](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
+    ![Azure portal - New rule](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
 
-7. Repita los pasos hasta el sexto para crear una regla de entrada denominada *rdp-rule* con una prioridad de *250* que permita el acceso a través de *TCP* al puerto *3389* a cualquier VM desde cualquier origen.
+7. Repeat steps  to 6 to create an inbound rule named *rdp-rule* with a priority of *250* allowing access via *TCP* to port *3389* to any VM from any source.
 
-## Asociación del grupo de seguridad de red a la subred FrontEnd
+## <a name="associate-the-nsg-to-the-frontend-subnet"></a>Associate the NSG to the FrontEnd subnet
 
-1. Haga clic en **Examinar >** > **Grupos de recursos** > **RG-NSG**.
-2. En la hoja **RG-NSG**, haga clic en **...** > **TestVNet**.
+1. Click **Browse >** > **Resource groups** > **RG-NSG**.
+2. In the **RG-NSG** blade, click **...** > **TestVNet**.
 
-	![Portal de Azure - TestVNet](./media/virtual-networks-create-nsg-arm-pportal/figure14.png)
+    ![Azure portal - TestVNet](./media/virtual-networks-create-nsg-arm-pportal/figure14.png)
 
-3. En la hoja **Configuración**, haga clic en **Subredes** > **FrontEnd** > **Grupo de seguridad de red** > **NSG-FrontEnd**.
+3. In the **Settings** blade, click **Subnets** > **FrontEnd** > **Network security group** > **NSG-FrontEnd**.
 
-	![Portal de Azure - Configuración de la subred](./media/virtual-networks-create-nsg-arm-pportal/figure15.png)
+    ![Azure portal - Subnet settings](./media/virtual-networks-create-nsg-arm-pportal/figure15.png)
 
-4. En la hoja **FrontEnd**, haga clic en **Guardar**.
+4. In the **FrontEnd** blade, click **Save**.
 
-	![Portal de Azure - Configuración de la subred](./media/virtual-networks-create-nsg-arm-pportal/figure16.png)
+    ![Azure portal - Subnet settings](./media/virtual-networks-create-nsg-arm-pportal/figure16.png)
 
-## Creación del grupo de seguridad de red NSG-BackEnd
+## <a name="create-the-nsg-backend-nsg"></a>Create the NSG-BackEnd NSG
 
-Para crear el grupo de seguridad de red **NSG-BackEnd** y asociarlo a la subred **BackEnd**, siga estos pasos.
+To create the **NSG-BackEnd** NSG and associate it to the **BackEnd** subnet, follow the steps below.
 
-1. Repita los pasos que se describen en [Creación del grupo de seguridad de red NSG-FrontEnd](#Create-the-NSG-FrontEnd-NSG) para crear un NSG llamado *NSG-BackEnd*.
-2. Repita los pasos que se describen en [Creación de reglas en un grupo de seguridad de red existente](#Create-rules-in-an-existing-NSG) para crear las reglas **de entrada** que aparecen en la tabla siguiente.
+1. Repeat the steps in [Create the NSG-FrontEnd NSG](#Create-the-NSG-FrontEnd-NSG) to create an NSG named *NSG-BackEnd*
+2. Repeat the steps in [Create rules in an existing NSG](#Create-rules-in-an-existing-NSG) to create the **inbound** rules in the table below.
 
-	|Regla de entrada|Regla de salida|
-	|---|---|
-	|![Portal de Azure - Regla de entrada](./media/virtual-networks-create-nsg-arm-pportal/figure17.png)|![Portal de Azure - Regla de salida](./media/virtual-networks-create-nsg-arm-pportal/figure18.png)|
+  	|Inbound rule|Outbound rule|
+  	|---|---|
+  	|![Azure portal - inbound rule](./media/virtual-networks-create-nsg-arm-pportal/figure17.png)|![Azure portal - outbound rule](./media/virtual-networks-create-nsg-arm-pportal/figure18.png)|
 
-3. Repita los pasos que se describen en [Asociación del grupo de seguridad de red a la subred FrontEnd](#Associate-the-NSG-to-the-FrontEnd-subnet) para asociar el grupo de seguridad de red **NSG-BackEnd** a la subred **BackEnd**.
+3. Repeat the steps in [Associate the NSG to the FrontEnd subnet](#Associate-the-NSG-to-the-FrontEnd-subnet) to associate the **NSG-Backend** NSG to the **BackEnd** subnet.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Next Steps
 
-- Información sobre cómo [administrar grupos de seguridad de red existentes](virtual-network-manage-nsg-arm-portal.md)
-- [Habilite el registro](virtual-network-nsg-manage-log.md) para los grupos de seguridad de red.
+- Learn how to [manage existing NSGs](virtual-network-manage-nsg-arm-portal.md)
+- [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -6,6 +6,7 @@
     authors="sdwheeler"
     manager="carmonm"
     editor=""
+    keywords="IPv6, Azure Load Balancer, pila doble, dirección ip pública, ipv6 nativo, móvil, iot"
 />
 <tags
     ms.service="load-balancer"
@@ -17,7 +18,8 @@
     ms.author="sewhee"
 />
 
-# Información general de IPv6 para Azure Load Balancer
+
+# <a name="overview-of-ipv6-for-azure-load-balancer"></a>Información general de IPv6 para Azure Load Balancer
 
 Los equilibradores de carga con conexión a Internet pueden implementarse con una dirección IPv6. Además de la conectividad de IPv4, esto permite las siguientes capacidades:
 
@@ -30,7 +32,7 @@ En la siguiente imagen se muestra la funcionalidad de IPv6 para Azure Load Balan
 
 Una vez implementado, un cliente de Internet con IPv4 o IPv6 habilitado puede comunicarse con direcciones IPv4 o IPv6 públicas (o nombres de host) de Azure Load Balancer con conexión a Internet. El equilibrador de carga redirige los paquetes IPv6 a las direcciones IPv6 privadas de las máquinas virtuales mediante la traducción de direcciones de red (NAT). El cliente de Internet IPv6 no se puede comunicar directamente con la dirección IPv6 de las máquinas virtuales.
 
-## Características
+## <a name="features"></a>Características
 
 La compatibilidad nativa de IPv6 para máquinas virtuales implementadas a través de Azure Resource Manager ofrece:
 
@@ -39,20 +41,20 @@ La compatibilidad nativa de IPv6 para máquinas virtuales implementadas a travé
 3. Conexiones de IPv6 nativas iniciadas de entrada y salida
 4. Protocolos compatibles como TCP, UDP y HTTP (S) admiten una amplia gama de arquitecturas de servicio
 
-## Ventajas
+## <a name="benefits"></a>Ventajas
 
 Esta funcionalidad ofrece los siguientes beneficios clave:
 
 * Cumplir las normas gubernamentales que exigen que las nuevas aplicaciones sean accesibles solo a los clientes IPv6
 * Habilitar desarrolladores móviles y de Internet de las cosas para usar Azure Virtual Machines con doble pila (IPv4 + IPv6) para satisfacer el crecimiento de los mercados móviles y de IOT
 
-## Detalles y limitaciones
+## <a name="details-and-limitations"></a>Detalles y limitaciones
 
 Detalles
 
 * El servicio DNS de Azure contiene registros de nombre IPv4 A y IPv6 AAAA y responde con ambos registros para el equilibrador de carga. El cliente elige con qué dirección (IPv4 o IPv6) comunicarse.
 * Cuando una máquina virtual inicia una conexión a un dispositivo conectado a Internet a través de la dirección IPv6 pública, la dirección IPv6 de origen de la máquina virtual es la dirección de red traducida (NAT) a la dirección IPv6 pública del equilibrador de carga.
-* Las máquinas virtuales que ejecutan el sistema operativo Linux deben configurarse para recibir una dirección IP IPv6 a través de DHCP. Muchas de las imágenes de Linux de la Galería de Azure ya están configuradas para admitir IPv6 sin modificación. Para más información, vea [Configuring DHCPv6 for Linux VMs](load-balancer-ipv6-for-linux.md) (Configuración de DHCPv6 para máquinas virtuales de Linux).
+* Las máquinas virtuales que ejecutan el sistema operativo Linux deben configurarse para recibir una dirección IP IPv6 a través de DHCP. Muchas de las imágenes de Linux de la Galería de Azure ya están configuradas para admitir IPv6 sin modificación. Para más información, vea [Configuring DHCPv6 for Linux VMs](load-balancer-ipv6-for-linux.md)
 * Si decide utilizar un sondeo de estado con el equilibrador de carga, cree un sondeo de IPv4 y utilícelo con los puntos de conexión de IPv4 y IPv6. Si el servicio deja de funcionar en la máquina virtual, los puntos de conexión de IPv4 y IPv6 se establecen fuera de la rotación.
 
 Limitaciones
@@ -68,12 +70,17 @@ Limitaciones
 * El punto de conexión de IPv6 en la máquina virtual no se conecta directamente a Internet. Lo hace a través de un equilibrador de carga. Solo los puertos especificados en las reglas de equilibrador de carga son accesibles a través de IPv6.
 * El cambio del parámetro IdleTimeout a IPv6 **no se admite actualmente**. El valor predeterminado es de cuatro minutos.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo implementar un equilibrador de carga con IPv6.
 
+* [Disponibilidad de IPv6 por región](https://go.microsoft.com/fwlink/?linkid=828357)
 * [Implementación de un equilibrador de carga con IPv6 mediante una plantilla](load-balancer-ipv6-internet-template.md)
 * [Implementación de un equilibrador de carga con IPv6 mediante Azure PowerShell](load-balancer-ipv6-internet-ps.md)
 * [Implementación de un equilibrador de carga con IPv6 mediante la CLI de Azure](load-balancer-ipv6-internet-cli.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

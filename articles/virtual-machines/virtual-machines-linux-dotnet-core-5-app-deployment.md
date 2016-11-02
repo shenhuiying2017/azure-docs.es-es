@@ -17,19 +17,20 @@
    ms.date="09/21/2016"
    ms.author="nepeters"/>
 
-# Implementación de aplicaciones con plantillas de Azure Resource Manager
+
+# <a name="application-deployment-with-azure-resource-manager-templates"></a>Implementación de aplicaciones con plantillas de Azure Resource Manager
 
 Una vez identificados todos los requisitos de infraestructura de Azure y traducidos en una plantilla de implementación, debe abordar la implementación de aplicaciones reales. Por implementación de la aplicación, se entiende la instalación de los archivos binarios de aplicación reales en recursos de Azure. En el ejemplo de Music Store, es necesario instalar y configurar .NET Core, NGINX y Supervisor en cada máquina virtual. Los archivos binarios de Music Store deben instalarse en la máquina virtual y la base de datos de Music Store debe crearse previamente.
 
-En este documento se detalla cómo las extensiones de máquina virtual pueden automatizar la implementación y configuración de aplicaciones en máquinas virtuales de Azure. Se resaltan todas las dependencias y configuraciones únicas. Para obtener la mejor experiencia, realice una implementación previa de una instancia de la solución en su suscripción de Azure y trabaje con la plantilla de Azure Resource Manager. La plantilla completa se puede encontrar aquí: [Music Store Deployment on Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux) (Implementación de Music Store en Ubuntu).
+En este documento se detalla cómo las extensiones de máquina virtual pueden automatizar la implementación y configuración de aplicaciones en máquinas virtuales de Azure. Se resaltan todas las dependencias y configuraciones únicas. Para obtener la mejor experiencia, realice una implementación previa de una instancia de la solución en su suscripción de Azure y trabaje con la plantilla de Azure Resource Manager. La plantilla completa se puede encontrar aquí: [Music Store Deployment on Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)(Implementación de Music Store en Ubuntu).
 
-## Script de configuración
+## <a name="configuration-script"></a>Script de configuración
 
 Las extensiones de máquina virtual son programas especializados que se ejecutan en máquinas virtuales para automatizar la configuración. Hay extensiones disponibles para muchos fines específicos, como antivirus, configuración de registro y configuración de Docker. Se puede usar una extensión de script personalizado para ejecutar cualquier script en una máquina virtual. En el ejemplo de Music Store, la configuración de las máquinas virtuales de Ubuntu y la instalación de la aplicación Music Store depende de la extensión de script personalizado.
 
-Antes de detallar cómo se declaran las extensiones de máquina virtual en una plantilla de Azure Resource Manager, examine el script que se ejecuta. Este script configura la máquina virtual de Ubuntu para hospedar la aplicación Music Store. Cuando se ejecuta, el script instala todo el software necesario, instala la aplicación Music Store desde el control de código fuente y prepara la base de datos.
+Antes de detallar cómo se declaran las extensiones de máquina virtual en una plantilla de Azure Resource Manager, examine el script que se ejecuta. Este script configura la máquina virtual de Ubuntu para hospedar la aplicación Music Store. Cuando se ejecuta, el script instala todo el software necesario, instala la aplicación Music Store desde el control de código fuente y prepara la base de datos. 
 
-Para más información acerca de cómo hospedar una aplicación de .Net Core en Linux, consulte [Publish to a Linux production environment](https://docs.asp.net/en/latest/publishing/linuxproduction.html) (Publicación en un entorno de producción de Linux).
+Para más información acerca de cómo hospedar una aplicación de .Net Core en Linux, consulte [Publish to a Linux production environment](https://docs.asp.net/en/latest/publishing/linuxproduction.html)(Publicación en un entorno de producción de Linux). 
 
 
 ```none
@@ -72,11 +73,11 @@ sudo service supervisor start
 /usr/bin/dotnet /opt/music/MusicStore.dll &
 ```
 
-## Extensión de script de máquina virtual
+## <a name="vm-script-extension"></a>Extensión de script de máquina virtual
 
 Para poder ejecutar extensiones de máquina virtual en una máquina virtual en tiempo de compilación, incluya los recursos de extensión en la plantilla de Azure Resource Manager. La extensión se puede agregar con el asistente Agregar nuevo recurso de Visual Studio, o insertando un recurso JSON válido en la plantilla. El recurso de extensión de script se anida dentro del recurso de máquina virtual. Lo podemos ver en el ejemplo siguiente.
 
-Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manager: [VM Script Extension](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L359) (Extensión de script de máquina virtual).
+Siga este vínculo para ver el ejemplo de JSON en la plantilla de Resource Manager: [VM Script Extension](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L359)(Extensión de script de máquina virtual). 
 
 En el siguiente código JSON, observe que el script se almacena en GitHub. Este script también podría almacenarse en Azure Blob Storage. Además, plantillas de Azure Resource Manager permiten construir la cadena de ejecución de script de modo que los valores de los parámetros de la plantilla se puedan usar como parámetros para la ejecución del script. En este caso, los datos se proporcionan al implementar las plantillas, y estos valores pueden usarse después al ejecutar el script.
 
@@ -111,10 +112,14 @@ En el siguiente código JSON, observe que el script se almacena en GitHub. Este 
 
 Para más información sobre el uso de la extensión de script personalizado, consulte [Uso de la extensión de script personalizado para máquinas virtuales de Linux con plantillas de Azure Resource Manager](./virtual-machines-linux-extensions-customscript.md).
 
-## Paso siguiente
+## <a name="next-step"></a>Paso siguiente
 
 <hr>
 
 [Más plantillas de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

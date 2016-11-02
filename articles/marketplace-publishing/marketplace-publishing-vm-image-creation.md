@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Creación de una imagen de máquina virtual para Azure Marketplace | Microsoft Azure"
-   description="Instrucciones detalladas sobre cómo crear una imagen de máquina virtual para Azure Marketplace para que otros usuarios la compren."
+   pageTitle="Creating a virtual machine image for the Azure Marketplace | Microsoft Azure"
+   description="Detailed instructions on how to create a virtual machine image for the Azure Marketplace for others to purchase."
    services="Azure Marketplace"
    documentationCenter=""
    authors="HannibalSII"
-   manager=""
+   manager="hascipio"
    editor=""/>
 
 <tags
@@ -16,176 +16,177 @@
    ms.date="07/13/2016"
    ms.author="hascipio; v-divte"/>
 
-# Guía para la creación de una imagen de máquina virtual para Azure Marketplace
 
-En este artículo, **paso 2**, se explica cómo puede preparar los discos duros virtuales (VHD) que va a implementar en Azure Marketplace. Los VHD constituyen el fundamento de la SKU. El proceso difiere en función de si la SKU que va a proporcionar está basada en Linux o en Windows. En este artículo se tratan ambos escenarios. Este proceso puede realizarse en paralelo con la [creación y registro de cuentas][link-acct-creation].
+# <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guide to create a virtual machine image for the Azure Marketplace
 
-## 1\. Definición de ofertas y SKU
+This article, **Step 2**, walks you through preparing the virtual hard disks (VHDs) that you will deploy to the Azure Marketplace. Your VHDs are the foundation of your SKU. The process differs depending on whether you are providing a Linux-based or Windows-based SKU. This article covers both scenarios. This process can be performed in parallel with [Account creation and registration][link-acct-creation].
 
-En esta sección aprenderá a definir las ofertas y sus SKU.
+## <a name="1.-define-offers-and-skus"></a>1. Define Offers and SKUs
 
-Una oferta es un "elemento primario" de todas sus SKU. Puede tener varias ofertas. Usted elige cómo desea estructurarlas. Cuando se inserta una oferta en un entorno de ensayo, se inserta con todas sus SKU. Sea cauteloso a la hora de elegir los identificadores de sus SKU, ya que serán visibles en la dirección URL.
+In this section, you learn to define the offers and their associated SKUs.
+
+An offer is a "parent" to all of its SKUs. You can have multiple offers. How you decide to structure your offers is up to you. When an offer is pushed to staging, it is pushed along with all of its SKUs. Carefully consider your SKU identifiers, because they will be visible in the URL:
 
 - Azure.com: http://azure.microsoft.com/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
 
-- Portal de vista previa de Azure: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}
+- Azure preview portal: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
 
-Una SKU es el nombre comercial de una imagen de máquina virtual. Una imagen de máquina virtual contiene un disco del sistema operativo y cero o más discos de datos. Se trata, básicamente, del perfil de almacenamiento completo de una máquina virtual. Es necesario un VHD por disco. Incluso los discos de datos vacíos requieren la creación de un VHD.
+A SKU is the commercial name for a VM image. A VM image contains one operating system disk and zero or more data disks. It is essentially the complete storage profile for a virtual machine. One VHD is needed per disk. Even blank data disks require a VHD to be created.
 
-Independientemente del sistema operativo que use, agregue solo el número mínimo de discos de datos necesarios para la SKU. Los usuarios no pueden quitar discos que formen parte de una imagen durante la implementación pero siempre pueden agregar discos durante o después de la implementación si los necesitan.
+Regardless of which operating system you use, add only the minimum number of data disks needed by the SKU. Customers cannot remove disks that are part of an image at the time of deployment but can always add disks during or after deployment if they need them.
 
->[AZURE.IMPORTANT] **No cambie el número de discos en una nueva versión de imagen.** Si necesita volver a configurar los discos de datos de la imagen, defina una nueva SKU. Si publica una nueva versión de la imagen con un número de discos distinto, las nuevas implementaciones que se realicen con arreglo a la nueva versión pueden registrar problemas con la autoescala, con la implementación automática de soluciones mediante plantillas de ARM y con otros escenarios.
+>[AZURE.IMPORTANT] **Do not change disk count in a new image version.** If you must reconfigure Data disks in the image, define a new SKU. Publishing a new image version with different disk counts will have the potential of breaking new deployment based on the new image version in cases of auto-scaling, automatic deployments of solutions through ARM templates and other scenarios.
 
-### 1\.1 Agregar una oferta
+### <a name="1.1-add-an-offer"></a>1.1 Add an offer
 
-1. Inicie sesión en el [Portal de publicación][link-pubportal] con su cuenta de vendedor.
-2. Seleccione la pestaña **Máquinas virtuales** del Portal de publicación. En el campo de entrada, escriba el nombre de la oferta. El nombre de la oferta es normalmente el nombre del producto o servicio que vaya a vender en Azure Marketplace.
-3. Seleccione **Crear**.
+1. Sign in to the [Publishing Portal][link-pubportal] by using your seller account.
+2. Select the **Virtual Machines** tab of the Publishing Portal. In the prompted entry field, enter your offer name. The offer name is typically the name of the product or service that you plan to sell in the Azure Marketplace.
+3. Select **Create**.
 
-### 1\.2 Definir una SKU
-Una vez agregada una oferta, tiene que definir e identificar sus SKU. Puede tener varias ofertas y cada oferta puede tener varias SKU. Cuando se inserta una oferta en un entorno de ensayo, se inserta con todas sus SKU.
+### <a name="1.2-define-a-sku"></a>1.2 Define a SKU
+After you have added an offer, you need to define and identify your SKUs. You can have multiple offers, and each offer can have multiple SKUs under it. When an offer is pushed to staging, it is pushed along with all of its SKUs.
 
-1. **Agregue una SKU.** La SKU requiere un identificador que se usa en la dirección URL. El identificador tiene que ser único dentro de su perfil de publicación, pero no existe riesgo de colisión de identificadores con otros anunciantes.
+1. **Add a SKU.** The SKU requires an identifier, which is used in the URL. The identifier must be unique within your publishing profile, but there is no risk of identifier collision with other publishers.
 
-    > [AZURE.NOTE] La oferta y los identificadores de SKU se muestran en la dirección URL de la oferta en Marketplace.
+    > [AZURE.NOTE] The offer and SKU identifiers are displayed in the offer URL in the Marketplace.
 
-2. **Agregue una descripción resumida de la SKU.** Las descripciones resumidas serán visibles para los clientes, así que es recomendable que sean fáciles de leer. No es necesario que esta información esté bloqueada hasta que se inserte en la fase de entorno de ensayo. Hasta entonces, puede editarla como desee.
-3. Si usa SKU basadas en Windows, siga los vínculos sugeridos para adquirir las versiones aprobadas de Windows Server.
+2. **Add a summary description for your SKU.** Summary descriptions are visible to customers, so you should make them easily readable. This information does not need to be locked until the "Push to Staging" phase. Until then, you are free to edit it.
+3. If you are using Windows-based SKUs, follow the suggested links to acquire the approved versions of Windows Server.
 
-## 2\. Creación de un VHD compatible con Azure (basado en Linux)
-Esta sección se centra en los procedimientos recomendados para crear una imagen de máquina virtual basada en Linux para Azure Marketplace. Para ver un tutorial detallado, consulte la siguiente documentación: [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux.](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md)
+## <a name="2.-create-an-azure-compatible-vhd-(linux-based)"></a>2. Create an Azure-compatible VHD (Linux-based)
+This section focuses on best practices for creating a Linux-based VM image for the Azure Marketplace. For a step-by-step walkthrough, refer to the following documentation: [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md)
 
-## 3\. Creación de un VHD compatible con Azure (basado en Windows)
-En esta sección se indican los pasos necesarios para crear una SKU basada en Windows Server para Azure Marketplace.
+## <a name="3.-create-an-azure-compatible-vhd-(windows-based)"></a>3. Create an Azure-compatible VHD (Windows-based)
+This section focuses on the steps to create a SKU based on Windows Server for the Azure Marketplace.
 
-### 3\.1 Asegurarse de que se usan los VHD base correctos
-Los VHD del sistema operativo para su imagen de máquina virtual deben basarse en una imagen aprobada para Azure que contenga Windows Server o SQL Server.
+### <a name="3.1-ensure-that-you-are-using-the-correct-base-vhds"></a>3.1 Ensure that you are using the correct base VHDs
+The operating system VHD for your VM image must be based on an Azure-approved base image that contains Windows Server or SQL Server.
 
-Para comenzar, cree una máquina virtual a partir de alguna de las siguientes imágenes, que encontrará en el [Portal de Microsoft Azure][link-azure-portal]\:
+To begin, create a VM from one of the following images, located at the [Microsoft Azure portal][link-azure-portal]:
 
 - Windows Server ([2012 R2 Datacenter][link-datactr-2012-r2], [2012 Datacenter][link-datactr-2012], [2008 R2 SP1][link-datactr-2008-r2])
 - SQL Server 2014 ([Enterprise][link-sql-2014-ent], [Standard][link-sql-2014-std], [Web][link-sql-2014-web])
 - SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent], [Standard][link-sql-2012-std], [Web][link-sql-2012-web])
 
-Estos vínculos se encuentran también en el portal de publicación, en la página de la SKU.
+These links can also be found in the Publishing Portal under the SKU page.
 
-> [AZURE.TIP] Si usa el Portal de Azure actual o PowerShell, las imágenes de Windows Server publicadas a partir del 8 de septiembre de 2014 están aprobadas.
-
-
-### 3\.2 Crear su propia máquina virtual basada en Windows
-Desde el Portal de Microsoft Azure, puede crear su máquina virtual basada en una imagen base aprobada con solo algunos pasos sencillos. A continuación se ofrece información general del proceso:
-
-1. En la página de la imagen base, seleccione **Crear máquina virtual** para ir al nuevo [Portal de Microsoft Azure][link-azure-portal].
-
-    ![dibujo][img-acom-1]
-
-2. Inicie sesión en el portal con la cuenta Microsoft y la contraseña de la suscripción de Azure que desee usar.
-3. Siga las indicaciones para crear una máquina virtual con la imagen base que seleccionó. Tendrá que proporcionar un nombre de host (nombre del equipo), un nombre de usuario (registrado como administrador) y una contraseña para la máquina virtual.
-
-    ![dibujo][img-portal-vm-create]
-
-4. Seleccione el tamaño de la máquina virtual que desea implementar:
-
-    a. Si planea desarrollar el VHD en modo local, el tamaño no importa. Considere usar una de las máquinas virtuales de menor tamaño.
-
-    b. Si planea desarrollar la imagen en Azure, considere usar uno de los tamaños de máquina virtual recomendados para la imagen seleccionada.
-
-    c. Para obtener información de precios, consulte el selector de **plan de tarifa recomendada** que se muestra en el portal. Mostrará los tres precios recomendados proporcionados por el anunciante. (En este caso, el anunciante es Microsoft.)
-
-    ![dibujo][img-portal-vm-size]
-
-5. Establezca las propiedades:
-
-    a. Para una rápida implementación, puede dejar los valores predeterminados de las propiedades en **Configuración opcional** y **Grupo de recursos**.
-
-    b. En **Cuenta de almacenamiento**, puede seleccionar opcionalmente la cuenta de almacenamiento donde se almacenará el VHD del sistema operativo.
-
-    c. En **Grupo de recursos**, puede seleccionar opcionalmente el grupo lógico donde ubicar la máquina virtual.
-6. Seleccione la **Ubicación** para la implementación:
-
-    a. Si planea desarrollar el VHD en modo local, la ubicación no importa, ya que cargará la imagen más tarde en Azure.
-
-    b. Si planea desarrollar la imagen en Azure, considere usar una de las regiones de Microsoft Azure en Estados Unidos desde el principio. Esto agiliza el proceso de copia del VHD que Microsoft realiza por usted cuando envía la imagen para certificarla.
-
-    ![dibujo][img-portal-vm-location]
-
-7. Haga clic en **Crear**. La máquina virtual empieza a implementarse. En cuestión de minutos, dispondrá de una implementación correcta y podrá comenzar a crear la imagen para su SKU.
-
-### 3\.3 Desarrollar el VHD en la nube
-Se recomienda encarecidamente desarrollar el VHD en la nube mediante el Protocolo de escritorio remoto (RDP). La conexión a RDP se realiza con el nombre de usuario y la contraseña que especificó durante el aprovisionamiento.
-
-> [AZURE.IMPORTANT] Si está desarrollando su VHD de forma local (aunque no se recomienda), consulte [Creación de una imagen de máquina virtual de forma local](marketplace-publishing-vm-image-creation-on-premise.md). Si desarrolla el VHD en la nube, no es necesario descargarlo.
+> [AZURE.TIP] If you are using the current Azure portal or PowerShell, Windows Server images published on September 8, 2014 and later are approved.
 
 
-**Conectarse mediante RDP usando el [Portal de Microsoft Azure][link-azure-portal]**
+### <a name="3.2-create-your-windows-based-vm"></a>3.2 Create your Windows-based VM
+From the Microsoft Azure portal, you can create your VM based on an approved base image in just a few simple steps. The following is an overview of the process:
 
-1. Seleccione **Examinar** > **Máquinas virtuales**.
-2. Se abre la hoja Máquinas virtuales. Compruebe que la máquina virtual con la que desea conectarse está ejecutándose y selecciónela en la lista de máquinas virtuales implementadas.
-3. Se abre una hoja en la que se describe la máquina virtual seleccionada. En la parte superior, haga clic en **Conectar**.
-4. Se le pide que proporcione el nombre de usuario y la contraseña que especificó durante el aprovisionamiento.
+1. From the base image page, select **Create Virtual Machine** to be directed to the new [Microsoft Azure portal][link-azure-portal].
 
-**Conectarse mediante RDP con PowerShell**
+    ![drawing][img-acom-1]
 
-Para descargar un archivo de escritorio remoto en una máquina local, use el [cmdlet Get-AzureRemoteDesktopFile][link-technet-2]. Para usar este cmdlet, tiene que conocer el nombre del servicio y el de la máquina virtual. Si creó la máquina virtual desde el [Portal de Microsoft Azure][link-azure-portal], puede ver esta información en las propiedades de la máquina virtual:
+2. Sign in to the portal with the Microsoft account and password for the Azure subscription you want to use.
+3. Follow the prompts to create a VM by using the base image you have selected. You need to provide a host name (name of the computer), user name (registered as an administrator), and password for the VM.
 
-1. En el Portal de Microsoft Azure, seleccione **Examinar** y después **Máquinas virtuales**.
-2. Se abre la hoja Máquinas virtuales. Seleccione la máquina virtual que ha implementado.
-3. Se abre una hoja en la que se describe la máquina virtual seleccionada.
-4. Haga clic en **Propiedades**.
-5. La primera parte del nombre del dominio es el nombre del servicio. El nombre de host es el nombre de la máquina virtual.
+    ![drawing][img-portal-vm-create]
 
-    ![dibujo][img-portal-vm-rdp]
+4. Select the size of the VM to deploy:
 
-6. El cmdlet para descargar el archivo RDP de la máquina virtual creada en el escritorio local del administrador es el siguiente.
+    a.  If you plan to develop the VHD on-premises, the size does not matter. Consider using one of the smaller VMs.
+
+    b.  If you plan to develop the image in Azure, consider using one of the recommended VM sizes for the selected image.
+
+    c.  For pricing information, refer to the **Recommended pricing tiers** selector displayed on the portal. It will provide the three recommended sizes provided by the publisher. (In this case, the publisher is Microsoft.)
+
+    ![drawing][img-portal-vm-size]
+
+5. Set properties:
+
+    a.  For quick deployment, you can leave the default values for the properties under **Optional Configuration** and **Resource Group**.
+
+    b.  Under **Storage Account**, you can optionally select the storage account in which the operating system VHD will be stored.
+
+    c.  Under **Resource Group**, you can optionally select the logical group in which to place the VM.
+6. Select the **Location** for deployment:
+
+    a.  If you plan to develop the VHD on-premises, the location does not matter because you will upload the image to Azure later.
+
+    b.  If you plan to develop the image in Azure, consider using one of the US-based Microsoft Azure regions from the beginning. This speeds up the VHD copying process that Microsoft performs on your behalf when you submit your image for certification.
+
+    ![drawing][img-portal-vm-location]
+
+7. Click **Create**. The VM starts to deploy. Within minutes, you will have a successful deployment and can begin to create the image for your SKU.
+
+### <a name="3.3-develop-your-vhd-in-the-cloud"></a>3.3 Develop your VHD in the cloud
+We strongly recommend that you develop your VHD in the cloud by using Remote Desktop Protocol (RDP). You connect to RDP with the user name and password specified during provisioning.
+
+> [AZURE.IMPORTANT] If you develop your VHD on-premises (which is not recommended), see [Creating a virtual machine image on-premises](marketplace-publishing-vm-image-creation-on-premise.md). Downloading your VHD is not necessary if you are developing in the cloud.
+
+
+**Connect via RDP using the [Microsoft Azure portal][link-azure-portal]**
+
+1. Select **Browse** > **VMs**.
+2. The Virtual machines blade opens. Ensure that the VM that you want to connect with is running, and then select it from the list of deployed VMs.
+3. A blade opens that describes the selected VM. At the top, click **Connect**.
+4. You are prompted to enter the user name and password that you specified during provisioning.
+
+**Connect via RDP using PowerShell**
+
+To download a remote desktop file to a local machine, use the [Get-AzureRemoteDesktopFile cmdlet][link-technet-2]. In order to use this cmdlet, you need to know the name of the service and name of the VM. If you created the VM from the [Microsoft Azure portal][link-azure-portal], you can find this information under VM properties:
+
+1. In the Microsoft Azure portal, select **Browse** > **VMs**.
+2. The Virtual machines blade opens. Select the VM that you deployed.
+3. A blade opens that describes the selected VM.
+4. Click **Properties**.
+5. The first portion of the domain name is the service name. The host name is the VM name.
+
+    ![drawing][img-portal-vm-rdp]
+
+6. The cmdlet to download the RDP file for the created VM to the administrator's local desktop is as follows.
 
         Get‐AzureRemoteDesktopFile ‐ServiceName “baseimagevm‐6820cq00” ‐Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
 
-Encontrará más información acerca de RDP en el artículo de MSDN [Conectarse a una máquina virtual de Azure con RDP o SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx).
+More information about RDP can be found on MSDN in the article [Connect to an Azure VM with RDP or SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx).
 
-**Configurar una máquina virtual y crear la SKU**
+**Configure a VM and create your SKU**
 
-Una vez descargado el VHD del sistema operativo, use Hyper-V y configure una máquina virtual para comenzar a crear la SKU. Encontrará los pasos detallados en el siguiente vínculo de TechNet: [Instalar Hyper-V y crear una máquina virtual](http://technet.microsoft.com/library/hh846766.aspx).
+After the operating system VHD is downloaded, use Hyper­V and configure a VM to begin creating your SKU. Detailed steps can be found at the following TechNet link: [Install Hyper­V and Configure a VM](http://technet.microsoft.com/library/hh846766.aspx).
 
-### 3\.4 Elegir el tamaño de VHD correcto
-El VHD del sistema operativo Windows en la imagen de máquina virtual debe crearse como VHD de 128 GB con formato fijo.
+### <a name="3.4-choose-the-correct-vhd-size"></a>3.4 Choose the correct VHD size
+The Windows operating system VHD in your VM image should be created as a 128-GB fixed-format VHD.  
 
-Si el tamaño físico es inferior a 128 GB, el VHD debe ser disperso. Las imágenes base de Windows y SQL Server proporcionadas cumplen ya estos requisitos, por lo que no es necesario que cambie el formato ni el tamaño del VHD obtenido.
+If the physical size is less than 128 GB, the VHD should be sparse. The base Windows and SQL Server images provided already meet these requirements, so do not change the format or the size of the VHD obtained.  
 
-Los discos de datos pueden tener un tamaño de hasta 1 TB. A la hora de decidir el tamaño de disco, tenga en cuenta que los clientes no pueden cambiar el tamaño de los VHD de una imagen en el momento de la implementación. Los VHD para discos de datos deben crearse como VHD de formato fijo. También deben ser dispersos. Los discos de datos pueden estar vacíos o contener datos.
+Data disks can be as large as 1 TB. When deciding on the disk size, remember that customers cannot resize VHDs within an image at the time of deployment. Data disk VHDs should be created as a fixed-format VHD. They should also be sparse. Data disks can be empty or contain data.
 
 
-### 3\.5 Instalar las últimas revisiones de Windows
-Las imágenes base contienen las últimas revisiones hasta su fecha de publicación. Antes de publicar el VHD del sistema operativo que ha creado, asegúrese de que se ejecutó Windows Update y se instalaron todas las revisiones de seguridad Críticas e Importantes.
+### <a name="3.5-install-the-latest-windows-patches"></a>3.5 Install the latest Windows patches
+The base images contain the latest patches up to their published date. Before publishing the operating system VHD you have created, ensure that Windows Update has been run and that all the latest Critical and Important security updates have been installed.
 
-### 3\.6 Configurar opciones adicionales y programar tareas según sea necesario
-Si es necesaria alguna configuración adicional, considere la posibilidad de usar una tarea programada que se ejecute al inicio para realizar posibles cambios finales en la máquina virtual una vez implementada.
+### <a name="3.6-perform-additional-configuration-and-schedule-tasks-as-necessary"></a>3.6 Perform additional configuration and schedule tasks as necessary
+If additional configuration is needed, consider using a scheduled task that runs at startup to make any final changes to the VM after it has been deployed:
 
-- Se recomienda que la propia tarea se elimine después de ejecutarse correctamente.
-- Ninguna configuración debe depender de unidades que no sean C o D, ya que estas son las dos únicas unidades cuya existencia está garantizada. La unidad C es el disco del sistema operativo y unidad D es el disco local temporal.
+- It is a best practice to have the task delete itself upon successful execution.
+- No configuration should rely on drives other than drives C or D, because these are the only two drives that are always guaranteed to exist. Drive C is the operating system disk, and drive D is the temporary local disk.
 
-### 3\.7 Generalizar la imagen
-Todas las imágenes de Azure Marketplace deben ser reutilizables de forma genérica. Dicho de otro modo, el VHD del sistema operativo debe generalizarse:
+### <a name="3.7-generalize-the-image"></a>3.7 Generalize the image
+All images in the Azure Marketplace must be reusable in a generic fashion. In other words, the operating system VHD must be generalized:
 
-- Para Windows, la imagen debe estar preparada con sysprep y no deben realizarse configuraciones que no admitan el comando **sysprep**.
-- Puede ejecutar el siguiente comando desde el directorio % windir%\\System32\\Sysprep.
+- For Windows, the image should be "sysprepped," and no configurations should be done that do not support the **sysprep** command.
+- You can run the following command from the directory %windir%\System32\Sysprep.
 
         sysprep.exe /generalize /oobe /shutdown
 
-  En uno de los pasos del artículo de MSDN [Crear y cargar un VHD de Windows Server a Azure](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md), se explica cómo preparar el sistema operativo con sysprep.
+  Guidance on how to sysprep the operating system is provided in Step of the following MSDN article: [Create and upload a Windows Server VHD to Azure](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md).
 
-## 4\. Implementación de una máquina virtual a partir de VHD
-Una vez cargados en una cuenta de almacenamiento de Azure sus VHD (el VHD del sistema operativo generalizado y cero o más VHD de discos de datos), puede registrarlos como imagen de máquina virtual de usuario. A continuación, puede probar esa imagen. Tenga en cuenta que, como el VHD del sistema operativo está generalizado, no puede implementar la máquina virtual directamente proporcionando la dirección URL del VHD.
+## <a name="4.-deploy-a-vm-from-your-vhds"></a>4. Deploy a VM from your VHDs
+After you have uploaded your VHDs (the generalized operating system VHD and zero or more data disk VHDs) to an Azure storage account, you can register them as a user VM image. Then you can test that image. Note that because your operating system VHD is generalized, you cannot directly deploy the VM by providing the VHD URL.
 
-Para obtener más información sobre las imágenes de máquina virtual consulte las siguientes entradas de blog:
+To learn more about VM images, review the following blog posts:
 
-- [Imagen de máquina virtual](https://azure.microsoft.com/blog/vm-image-blog-post/)
-- [Procedimientos para trabajar con imágenes de máquina virtual en PowerShell](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
-- [Acerca de las imágenes de máquina virtual en Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
+- [VM Image](https://azure.microsoft.com/blog/vm-image-blog-post/)
+- [VM Image PowerShell How To](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
+- [About VM images in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
-### 4\.1 Crear una imagen de máquina virtual de usuario
-Para crear una imagen de máquina virtual de usuario desde su SKU con el fin de comenzar a implementar varias máquinas virtuales, tiene que usar la [API de Rest Create VM Image](http://msdn.microsoft.com/library/azure/dn775054.aspx) para registrar VHD como una imagen de máquina virtual.
+### <a name="4.1-create-a-user-vm-image"></a>4.1 Create a user VM image
+To create a user VM image from your SKU to begin deploying multiple VMs, you need to use the [Create VM Image Rest API](http://msdn.microsoft.com/library/azure/dn775054.aspx) to register VHDs as a VM image.
 
-Use el cmdlet **Invoke-WebRequest** para crear una imagen de máquina virtual desde PowerShell. El siguiente script de PowerShell muestra cómo crear una imagen de máquina virtual con un disco del sistema operativo y un disco de datos. Tenga en cuenta que una suscripción y la sesión de PowerShell deben estar ya configuradas.
+You can use the **Invoke-WebRequest** cmdlet to create a VM image from PowerShell. The following PowerShell script shows how to create a VM image with an operating system disk and one data disk. Note that a subscription and the PowerShell session should already be set up.
 
         # Image Parameters to Specify
         $ImageName=’ENTER-YOUR-OWN-IMAGE-NAME-HERE’
@@ -234,15 +235,15 @@ Use el cmdlet **Invoke-WebRequest** para crear una imagen de máquina virtual de
         $response2.RawContent
 
 
-Al ejecutar este script, crea una imagen de máquina virtual de usuario con el nombre que proporcionó en el parámetro ImageName, myVMImage. Consta de un disco del sistema operativo y un disco de datos.
+By running this script, you create a user VM image with the name you provided to the ImageName parameter, myVMImage. It consists of one operating system disk and one data disk.
 
-Esta API es una operación asincrónica y responde con el código "202 - Aceptado". Para ver si se creó la imagen de máquina virtual, tiene que hacer una consulta del estado de la operación. El valor x-ms-request-id de la respuesta devuelta es el identificador de la operación. Debe especificar este identificador en $opId dentro del siguiente código.
+This API is an asynchronous operation and responds with a 202 "Accepted" code. In order to see whether the VM image has been created, you need to query for operation status. The x-ms-request-id in the return response is the operation ID. This ID should be set in $opId below.
 
         $opId = #Fill In With Operation ID
         $uri2 = $SrvMngtEndPoint + "/" + $SubId + "/" + "operations" + "/" + "opId"
         $response2 = Invoke‐WebRequest ‐Uri $uri2 ‐ContentType "application/xml" ‐Certificate $certificate ‐Headers $headers ‐Method GET
 
-Para crear una imagen de máquina virtual a partir de un VHD del sistema operativo y otros discos de datos vacíos (no tiene el VHD creado para este disco) con la API Create VM Image, use el siguiente script:
+To create a VM image from an operating system VHD and an additional empty data disks (you do not have the VHD for this disk created) by using the Create VM Image API, use the following script.
 
         # Image Parameters to Specify
         $ImageName=’myVMImage’
@@ -292,15 +293,15 @@ Para crear una imagen de máquina virtual a partir de un VHD del sistema operati
         echo "Not Accepted"
         }
 
-Al ejecutar este script, crea una imagen de máquina virtual de usuario con el nombre que proporcionó en el parámetro ImageName, myVMImage. Consta de un disco del sistema operativo y un disco de datos.
+By running this script, you create a user VM image with the name you provided to the ImageName parameter, myVMImage. It consists of one operating system disk and one data disk.
 
-Esta API es una operación asincrónica y responde con el código "202 - Aceptado". Para ver si se creó la imagen de máquina virtual, tiene que hacer una consulta del estado de la operación. El valor x-ms-request-id de la respuesta devuelta es el identificador de la operación. Debe especificar este identificador en $opId dentro del siguiente código.
+This API is an asynchronous operation and responds with a 202 "Accepted" code. In order to see whether the VM image has been created, you need to query for operation status.  The x-ms-request-id in the return response is the operation ID. This ID should be set in $opId below.
 
         $opId = #Fill In With Operation ID
         $uri2 = $SrvMngtEndPoint + "/" + $SubId + "/" + "operations" + "/" + "$opId"
         $response2 = Invoke-WebRequest -Uri $uri2 -ContentType "application/xml" Certificate $certificate -Headers $headers -Method GET
 
-Para crear una imagen de máquina virtual a partir de un VHD del sistema operativo y otros discos de datos vacíos (no tiene el VHD creado para este disco) con la API Create VM Image, use el siguiente script:
+To create a VM image from an operating system VHD and an additional empty data disks (you do not have the VHD for this disk created) by using the Create VM Image API, use the following script.
 
         # Image Parameters to Specify
         $ImageName=’myVMImage’
@@ -345,28 +346,28 @@ Para crear una imagen de máquina virtual a partir de un VHD del sistema operati
         { echo "Not Accepted"
         }
 
-Al ejecutar este script, crea una imagen de máquina virtual de usuario con el nombre que proporcionó en el parámetro ImageName, myVMImage. Consta de un disco del sistema operativo, basado en el VHD que pasó, y un disco de datos de 32 GB vacío.
+By running this script, you create a user VM image with the name you provided to the ImageName parameter, myVMImage.  It consists of one operating system disk, based on the VHD you passed, and one empty 32-GB data disk.
 
-### 4\.2 Implementar una máquina virtual a partir de una imagen de máquina virtual de usuario
-Para implementar una máquina virtual a partir de una imagen de máquina virtual de usuario, puede usar el [Portal de Azure](https://manage.windowsazure.com) actual o PowerShell.
+### <a name="4.2-deploy-a-vm-from-a-user-vm-image"></a>4.2 Deploy a VM from a user VM image
+To deploy a VM from a user VM image, you can use the current [Azure portal](https://manage.windowsazure.com) or PowerShell.
 
-**Implementar una máquina virtual desde el Portal de Azure actual**
+**Deploy a VM from the current Azure portal**
 
-1. Haga clic en **Nuevo** > **Proceso** > **Máquina virtual** > **Desde la galería**.
+1. Go to **New** > **Compute** > **Virtual machine** > **From gallery**.
 
-    ![dibujo][img-manage-vm-new]
+    ![drawing][img-manage-vm-new]
 
-2. Vaya a **Mis imágenes** y seleccione la imagen de máquina virtual con la que quiere implementar una máquina virtual:
-  1. Preste mucha atención a la imagen que selecciona, porque la vista **Mis imágenes** enumera tanto imágenes del sistema operativo como imágenes de máquina virtual.
-  2. Comprobar el número de discos puede ayudar a determinar el tipo de imagen que va a implementar, ya que la mayoría de las imágenes de máquina virtual tienen más de un disco. No obstante, es posible tener una imagen de máquina virtual con un solo disco del sistema operativo, es decir, tendría **Número de discos** establecido en un 1.
+2. Go to **My images**, and then select the VM image from which to deploy a VM:
+  1. Pay close attention to which image you select, because the **My images** view lists both operating system images and VM images.
+  2. Looking at the number of disks can help determine what type of image you are deploying, because the majority of VM images have more than one disk. However, it is still possible to have a VM image with only a single operating system disk, which would then have **Number of disks** set to 1.
 
-    ![dibujo][img-manage-vm-select]
+    ![drawing][img-manage-vm-select]
 
-3. Siga el asistente para crear máquinas virtuales y especifique el nombre de la máquina virtual, el tamaño, la ubicación, el nombre de usuario y la contraseña.
+3. Follow the VM creation wizard and specify the VM name, VM size, location, user name, and password.
 
-**Implementación de una máquina virtual a partir de PowerShell**
+**Deploy a VM from PowerShell**
 
-Para implementar una máquina virtual de gran tamaño, puede usar los siguientes cmdlets desde la imagen de máquina virtual generalizada que acaba de crear.
+To deploy a large VM from the generalized VM image just created, you can use the following cmdlets.
 
     $img = Get‐AzureVMImage ‐ImageName "myVMImage"
     $user = "user123"
@@ -374,199 +375,203 @@ Para implementar una máquina virtual de gran tamaño, puede usar los siguientes
     $myVM = New‐AzureVMConfig ‐Name "VMImageVM" ‐InstanceSize "Large" ‐ImageName $img.ImageName | Add‐AzureProvisioningConfig ‐Windows ‐AdminUsername $user ‐Password $pass
     New‐AzureVM ‐ServiceName "VMImageCloudService" ‐VMs $myVM ‐Location "West US" ‐WaitForBoot
 
-## 5\. Obtención de la certificación para su imagen de máquina virtual
-El siguiente paso para preparar su imagen de máquina virtual para Azure Marketplace es certificarla.
+## <a name="5.-obtain-certification-for-your-vm-image"></a>5. Obtain certification for your VM image
+The next step in preparing your VM image for the Azure Marketplace is to have it certified.
 
-Este proceso incluye ejecutar una herramienta de certificación especial, cargar los resultados de la comprobación en el contenedor de Azure donde residen sus VHD, agregar una oferta, definir su SKU y enviar su imagen de máquina virtual para que la certifiquen.
+This process includes running a special certification tool, uploading the verification results to the Azure container where your VHDs reside, adding an offer, defining your SKU, and submitting your VM image for certification.
 
-### 5\.1 Descargar e instalar “Certification Test Tool for Azure Certified”
-La herramienta de certificación se ejecuta en una máquina virtual en ejecución, aprovisionada desde su imagen de máquina virtual de usuario, para comprobar que la imagen de máquina virtual es compatible con Microsoft Azure. Comprueba que se han cumplido las instrucciones y los requisitos para preparar su VHD. El resultado de la herramienta es un informe de compatibilidad que se debe cargar en el Portal de publicación al solicitar la certificación.
+### <a name="5.1-download-and-run-the-certification-test-tool-for-azure-certified"></a>5.1 Download and run the Certification Test Tool for Azure Certified
+The certification tool runs on a running VM, provisioned from your user VM image, to ensure that the VM image is compatible with Microsoft Azure. It will verify that the guidance and requirements about preparing your VHD have been met. The output of the tool is a compatibility report, which should be uploaded on the Publishing Portal while requesting certification.
 
-La herramienta de certificación se puede usar con máquinas virtuales basadas tanto en Windows como en Linux. Se conecta con las máquinas virtuales basadas en Windows a través de PowerShell y, con las máquinas virtuales basadas en Linux, mediante SSH.Net:
+The certification tool can be used with both Windows and Linux VMs. It connects to Windows-based VMs via PowerShell and connects to Linux VMs via SSH.Net:
 
-1. En primer lugar, descargue la herramienta de certificación en el [sitio de descargas de Microsoft][link-msft-download].
-2. Abra la herramienta de certificación y haga clic en el botón **Iniciar nueva prueba**.
-3. En la pantalla **Información de la prueba**, escriba un nombre para la serie de pruebas.
-4. Especifique si la máquina virtual está basada en Linux o Windows. En función de lo que especifique, seleccione las demás opciones.
+1. First, download the certification tool at the [Microsoft download site][link-msft-download].
+2. Open the certification tool, and then click the **Start New Test** button.
+3. From the **Test Information** screen, enter a name for the test run.
+4. Choose whether your VM is on Linux or Windows. Depending on which you choose, select the subsequent options.
 
-### **Conexión de la herramienta de certificación a una imagen de máquina virtual basada en Linux**
+### <a name="**connect-the-certification-tool-to-a-linux-vm-image**"></a>**Connect the certification tool to a Linux VM image**
 
-1. Seleccione el modo de autenticación con SSH: contraseña o archivo de clave.
-2. Si usa autenticación por contraseña, escriba el Sistema de nombres de dominio (DNS), el nombre de usuario y la contraseña.
-3. Si usa autenticación con archivo de clave, escriba el nombre DNS, el nombre de usuario y la ubicación de la clave privada.
+1. Select the SSH authentication mode: password or key file.
+2. If using password-­based authentication, enter the Domain Name System (DNS) name, user name, and password.
+3. If using key file authentication, enter the DNS name, user name, and private key location.
 
-  ![Autenticación de contraseña de imagen de máquina virtual de Linux][img-cert-vm-pswd-lnx]
+  ![Password authentication of Linux VM Image][img-cert-vm-pswd-lnx]
 
-  ![Autenticación de archivo de clave de máquina virtual de Linux][img-cert-vm-key-lnx]
+  ![Key file authentication of Linux VM Image][img-cert-vm-key-lnx]
 
-### **Conexión de la herramienta de certificación a una imagen de máquina virtual basada en Windows**
+### <a name="**connect-the-certification-tool-to-a-windows-based-vm-image**"></a>**Connect the certification tool to a Windows-based VM image**
 
-1. Escriba el nombre DNS completo de la máquina virtual (por ejemplo, MyVMName.ClOudapp.net).
-2. Escriba el nombre de usuario y la contraseña.
+1. Enter the fully qualified VM DNS name (for example, MyVMName.Cloudapp.net).
+2. Enter the user name and password.
 
-  ![Autenticación de contraseña de imagen de máquina virtual de Windows][img-cert-vm-pswd-win]
+  ![Password authentication of Windows VM Image][img-cert-vm-pswd-win]
 
-Después de seleccionar las opciones correctas para la imagen de máquina virtual basada en Linux o Windows, elija **Probar conexión** para comprobar que SSH.Net o PowerShell tienen una conexión válida con fines de prueba. Una vez establecida la conexión, seleccione **Siguiente** para iniciar la prueba.
+After you have selected the correct options for your Linux or Windows-based VM image, select **Test Connection** to ensure that SSH.Net or PowerShell has a valid connection for testing purposes. After a connection is established, select **Next** to start the test.
 
-Cuando termine la prueba, recibirá los resultados (sin errores/error/con advertencia) para cada elemento de la prueba.
+When the test is complete, you will receive the results (Pass/Fail/Warning) for each test element.
 
-![Casos de prueba para la imagen de máquina virtual de Linux][img-cert-vm-test-lnx]
+![Test cases for Linux VM Image][img-cert-vm-test-lnx]
 
-![Casos de prueba para la imagen de máquina virtual de Windows][img-cert-vm-test-win]
+![Test cases for Windows VM Image][img-cert-vm-test-win]
 
-Si se produce un error en alguna de las pruebas, la imagen no se certificará. Si ocurre esto, revise los requisitos y realice los cambios necesarios.
+If any of the tests fail, your image will not be certified. If this occurs, review the requirements and make any necessary changes.
 
-Después de la prueba automatizada, se le pedirá que proporcione información adicional en la imagen de máquina virtual a través de una pantalla de cuestionario. Complete las preguntas y seleccione **Siguiente**
+After the automated test, you are asked to provide additional input on your VM image via a questionnaire screen.  Complete the questions, and then select **Next**.
 
-![Cuestionario de la herramienta de certificación][img-cert-vm-questionnaire]
+![Certification Tool Questionnaire][img-cert-vm-questionnaire]
 
-![Cuestionario de la herramienta de certificación][img-cert-vm-questionnaire-2]
+![Certification Tool Questionnaire][img-cert-vm-questionnaire-2]
 
-Una vez haya completado el cuestionario, puede proporcionar información adicional, como información de acceso SSH para la imagen de máquina virtual de Linux y una explicación sobre las evaluaciones que han dado errores. Puede descargar los resultados de la prueba y los archivos de registro de las pruebas ejecutadas, además de sus respuestas al cuestionario. Guarde los resultados en el mismo contenedor que los VHD.
+After you have completed the questionnaire, you can provide additional information such as SSH access information for the Linux VM image and an explanation for any failed assessments. You can download the test results and log files for the executed test cases in addition to your answers to the questionnaire. Save the results in the same container as your VHDs.
 
-![Guardar resultados de la prueba de certificación][img-cert-vm-results]
+![Save certification test results][img-cert-vm-results]
 
-### 5\.2 Obtener el identificador URI de firma de acceso compartido para sus imágenes de máquina virtual
+### <a name="5.2-get-the-shared-access-signature-uri-for-your-vm-images"></a>5.2 Get the shared access signature URI for your VM images
 
-Durante el proceso de publicación, tiene que especificar los identificadores uniformes de recursos (URI) que llevan a cada uno de los VHD que creó para su SKU. Microsoft necesita tener acceso a estos VHD durante el proceso de certificación. Por lo tanto, debe crear un URI de firma de acceso compartido para cada VHD. Este es el URI que debe proporcionar en la pestaña **Imágenes** del portal de publicación.
+During the publishing process, you specify the uniform resource identifiers (URIs) that lead to each of the VHDs you have created for your SKU. Microsoft needs access to these VHDs during the certification process. Therefore, you need to create a shared access signature URI for each VHD. This is the URI that should be entered in the **Images** tab in the Publishing Portal.
 
-El URI de firma de acceso compartido creado debe cumplir los siguientes requisitos:
+The shared access signature URI created should adhere to the following requirements:
 
-- Para generar los URI de firma de acceso compartido para sus VHD, son suficientes los permisos de lista y lectura. No proporcione acceso de escritura o eliminación.
-- La duración del acceso debe ser un mínimo de siete días laborables a partir de la creación del URI de firma de acceso compartido.
-- Para evitar errores inmediatos debido al desfase temporal, especifique una hora que sea 15 minutos anterior a la hora actual.
+- When generating shared access signature URIs for your VHDs, List and Read­ permissions are sufficient. Do not provide Write or Delete access.
+- The duration for access should be a minimum of seven business days from when the shared access signature URI is created.
+- To avoid immediate errors due to clock skews, specify a time 15 minutes before the current time.
 
-Para crear un URI de firma de acceso compartido, siga las instrucciones que se proporcionan en [Firmas de acceso compartido, parte 1: Descripción del modelo de firmas de acceso compartido][link-azure-1] y [Firmas de acceso compartido, parte 2: Creación y uso de una firma de acceso compartido con el servicio BLOB][link-azure-2].
+To create a shared access signature URI, you can follow the instructions provided in [Shared access signatures, Part 1: Understanding the SAS model][link-azure-1] and [Shared access signatures, Part 2: Create and use a SAS with the Azure Blob service][link-azure-2].
 
-En lugar de generar una clave de acceso compartido mediante código, también puede usar herramientas de almacenamiento, como [Explorador de almacenamiento de Azure][link-azure-codeplex].
+Instead of generating a shared access key by using code, you can also use storage tools, such as [Azure Storage Explorer][link-azure-codeplex].
 
-**Usar Explorador de almacenamiento de Azure para generar una clave de acceso compartido**
+**Use Azure Storage Explorer to generate a shared access key**
 
-1. Descargue [Explorador de almacenamiento de Azure][link-azure-codeplex] versión 6 o superior desde CodePlex.
-2. Una vez instalado, abra la aplicación.
-3. Haga clic en **Agregar cuenta**.
+1. Download [Azure Storage Explorer][link-azure-codeplex] 6 and above from CodePlex.
+2. After it is installed, open the application.
+3. Click **Add Account**.
 
-    ![dibujo][img-azstg-add]
+    ![drawing][img-azstg-add]
 
-4. Especifique el nombre de cuenta de almacenamiento, la clave de la cuenta de almacenamiento y el dominio de los puntos de conexión de almacenamiento. No seleccione **Usar HTTPS**.
+4. Specify the storage account name, storage account key, and storage endpoints domain. Don’t select **Use HTTPS**.
 
-    ![dibujo][img-azstg-setup-1]
+    ![drawing][img-azstg-setup-1]
 
-5. El Explorador de almacenamiento de Azure está conectado a su cuenta de almacenamiento específica. Empezará a mostrar todos los contenedores que se encuentran en la cuenta de almacenamiento. Seleccione el contenedor en el que haya copiado el archivo VHD del disco del sistema operativo (también los discos de datos si son aplicables en su caso).
+5. Azure Storage Explorer is now connected to your specific storage account. It will start showing all the containers within the storage account. Select the container where you have copied the operating system disk VHD file (also data disks if they are applicable for your scenario).
 
-    ![dibujo][img-azstg-setup-2]
+    ![drawing][img-azstg-setup-2]
 
-6. Después de seleccionar el contenedor de blobs, se iniciará la aplicación Explorador de almacenamiento de Azure con los archivos dentro del contenedor. Seleccione el archivo de imagen (.vhd) que tiene que enviarse.
+6. After selecting the blob container, Azure Storage Explorer starts showing the files within the container. Select the image file (.vhd) that needs to be submitted.
 
-    ![dibujo][img-azstg-setup-3]
+    ![drawing][img-azstg-setup-3]
 
-7. Después de seleccionar el archivo (.vhd) en el contenedor, haga clic en la pestaña **Seguridad**.
+7. After selecting the .vhd file in the container, click the **Security** tab.
 
-    ![dibujo][img-azstg-setup-4]
+    ![drawing][img-azstg-setup-4]
 
-8. En el cuadro de diálogo **Seguridad del contenedor de blobs**, deje los valores predeterminados en la pestaña **Nivel de acceso** y, a continuación, haga clic en la pestaña **Firmas de acceso compartido**.
+8. In the **Blob Container Security** dialog box, leave the defaults on the **Access Level** tab, and then click the **Shared Access Signatures** tab.
 
-    ![dibujo][img-azstg-setup-5]
+    ![drawing][img-azstg-setup-5]
 
-9. Siga estos pasos a fin de generar un URI de firma de acceso compartido para la imagen .vhd:
+9. Follow the steps below to generate a shared access signature URI for the .vhd image:
 
-    ![dibujo][img-azstg-setup-6]
+    ![drawing][img-azstg-setup-6]
 
-    a. **Acceso permitido desde**: para proteger la hora UTC, seleccione el día anterior a la fecha actual. Por ejemplo, si la fecha actual es el 6 de octubre de 2014, seleccione 5/10/2014.
+    a.  **Access permitted from**: To safeguard for UTC time, select the day before the current date. For example, if the current date is October 6, 2014, select 10/5/2014.
 
-    b. **Acceso permitido hasta**: seleccione una fecha que sea al menos siete u ocho días después de la fecha de **Acceso permitido hasta**.
+    b.  **Access permitted to**: Select a date that is at least 7 to 8 days after the **Access permitted from** date.
 
-    c. **Acciones permitidas**: seleccione los permisos **Lista** y **Lectura**.
+    c.  **Actions permitted**: Select the **List** and **Read** permissions.
 
-    d. Si seleccionó correctamente el archivo .vhd, en **Nombre de blob para acceder** aparece el archivo con la extensión .vhd
+    d.  If you have selected your .vhd file correctly, then your file appears in **Blob name to access** with extension .vhd.
 
-    e. Haga clic en **Generar firma**.
+    e.  Click **Generate Signature**.
 
-    f. En **URI de firma de acceso compartido generado de este contenedor**, compruebe lo siguiente tal como se ha resaltado anteriormente:
+    f.  In **Generated Shared Access Signature URI of this container**, check for the following as highlighted above:
 
-    - 	Asegúrese de que la dirección URL no empieza por "https".
-    - 	Compruebe que el nombre de archivo de imagen y ".vhd" están en el URI.
-    - 	Asegúrese de que "=rl" aparece al final de la firma. Esto demuestra que el acceso de lectura y lista se ha proporcionado correctamente.
+    -   Make sure that the URL doesn't start with "https".
+    -   Make sure that your image file name and ".vhd" are in the URI.
+    -   At the end of the signature, make sure that "=rl" appears. This demonstrates that Read and List access was provided successfully.
 
-    g. Para asegurarse de que el URI de firma de acceso compartido generado funciona correctamente, haga clic en **Probar en el explorador**. El proceso de descarga debería comenzar.
-10. Copie el URI de firma de acceso compartido. Este es el URI que debe pegar en el portal de publicación.
-11. Repita estos pasos para cada VHD de la SKU.
+    g.  To ensure that the generated shared access signature URI works, click **Test in Browser**. It should start the download process.
+10. Copy the shared access signature URI. This is the URI to paste into the Publishing Portal.
+11. Repeat these steps for each VHD in the SKU.
 
-### 5\.3 Proporcionar información acerca de la imagen de máquina virtual y solicitar su certificación en el portal de publicación
-Una vez que haya creado su oferta y SKU, debe proporcionar los datos de la imagen asociados con esa SKU.
+### <a name="5.3-provide-information-about-the-vm-image-and-request-certification-in-the-publishing-portal"></a>5.3 Provide information about the VM image and request certification in the Publishing Portal
+After you have created your offer and SKU, you should enter the image details associated with that SKU:
 
-1. Vaya al [Portal de publicación][link-pubportal] e inicie sesión con su cuenta de vendedor.
-2. Seleccione la pestaña **Imágenes de VM**.
-3. El identificador que aparece en la parte superior de la página es realmente el identificador de la oferta, no de la SKU.
-4. Rellene las propiedades de la sección **SKUs**.
-5. En **Familia del sistema operativo**, haga clic en el tipo de sistema operativo asociado con el VHD del sistema operativo.
-6. En el cuadro **Sistema operativo**, describa el sistema operativo. Considere un formato como familia de sistemas operativos, tipo, versión y actualizaciones. Por ejemplo, "Windows Server Datacenter 2014 R2".
-7. Seleccione hasta seis tamaños de máquina virtual recomendados. Estas recomendaciones se muestran al cliente en la hoja del plan de tarifa del Portal de Azure cuando este decide comprar e implementar su imagen. **Solo son recomendaciones. El cliente puede seleccionar cualquier tamaño de máquina virtual que admita los discos especificados en su imagen.**
-8. Especifique la versión. El campo de versión encapsula una versión semántica para identificar el producto y sus actualizaciones:
-  -	Las versiones deben ser del tipo X.Y.Z, donde X, Y y Z son números enteros.
-  -	Imágenes de SKU diferentes pueden tener distintas versiones principales y secundarias.
-  -	Las versiones dentro de una SKU solo deberían ser los cambios incrementales que aumenten la versión de revisión (Z de X.Y.Z).
-9. En el cuadro **Dirección URL del VHD del sistema operativo**, escriba el URI de firma de acceso compartido creado para el VHD del sistema operativo.
-10. Si hay discos de datos asociados con esta SKU, seleccione el número de unidad lógica (LUN) donde desea que se monte este disco de datos durante la implementación.
-11. En el cuadro **Dirección URL del VHD de LUN X**, escriba el URI de firma de acceso compartido creado para el primer VHD de datos.
+1. Go to the [Publishing Portal][link-pubportal], and then sign in with your seller account.
+2. Select the **VM images** tab.
+3. The identifier listed at the top of the page is actually the offer identifier and not the SKU identifier.
+4. Fill out the properties under the **SKUs** section.
+5. Under **Operating system family**, click the operating system type associated with the operating system VHD.
+6. In the **Operating system** box, describe the operating system. Consider a format such as operating system family, type, version, and updates. An example is "Windows Server Datacenter 2014 R2."
+7. Select up to six recommended virtual machine sizes. These are recommendations that get displayed to the customer in the Pricing tier blade in the Azure Portal when they decide to purchase and deploy your image. **These are only recommendations. The customer is able to select any VM size that accommodates the disks specified in your image.**
+8. Enter the version. The version field encapsulates a semantic version to identify the product and its updates:
+  - Versions should be of the form X.Y.Z, where X, Y, and Z are integers.
+  - Images in different SKUs can have different major and minor versions.
+  - Versions within a SKU should only be incremental changes, which increase the patch version (Z from X.Y.Z).
+9. In the **OS VHD URL** box, enter the shared access signature URI created for the operating system VHD.
+10. If there are data disks associated with this SKU, select the logical unit number (LUN) to which you would like this data disk to be mounted upon deployment.
+11. In the **LUN X VHD URL** box, enter the shared access signature URI created for the first data VHD.
 
-    ![dibujo](media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-3.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-3.png)
 
-## Paso siguiente
-Cuando termine con los detalles de SKU, podrá continuar con la [guía de contenido de marketing de Azure Marketplace][link-pushstaging]. En este paso del proceso de publicación, proporciona el contenido de marketing, precios y demás información necesaria antes del **Paso 3: Prueba de la oferta de máquina virtual en ensayo**, donde prueba varios escenarios de caso de uso antes de implementar la oferta en Azure Marketplace para la compra y visibilidad pública.
+## <a name="next-step"></a>Next step
+After you are done with the SKU details, you can move forward to the [Azure Marketplace marketing content guide][link-pushstaging]. In that step of the publishing process, you provide the marketing content, pricing, and other information necessary prior to **Step 3: Testing your VM offer in staging**, where you test various use-case scenarios before deploying the offer to the Azure Marketplace for public visibility and purchase.  
 
-## Consulte también
-- [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
+## <a name="see-also"></a>See also
+- [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
 
-[img-acom-1]: media/marketplace-publishing-vm-image-creation/vm-image-acom-datacenter.png
-[img-portal-vm-size]: media/marketplace-publishing-vm-image-creation/vm-image-portal-size.png
-[img-portal-vm-create]: media/marketplace-publishing-vm-image-creation/vm-image-portal-create-vm.png
-[img-portal-vm-location]: media/marketplace-publishing-vm-image-creation/vm-image-portal-location.png
-[img-portal-vm-rdp]: media/marketplace-publishing-vm-image-creation/vm-image-portal-rdp.png
-[img-azstg-add]: media/marketplace-publishing-vm-image-creation/vm-image-storage-add.png
-[img-azstg-setup-1]: media/marketplace-publishing-vm-image-creation/vm-image-storage-setup.png
-[img-azstg-setup-2]: media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-2.png
-[img-azstg-setup-3]: media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-3.png
-[img-azstg-setup-4]: media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-4.png
-[img-azstg-setup-5]: media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-5.png
-[img-azstg-setup-6]: media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-6.png
-[img-manage-vm-new]: media/marketplace-publishing-vm-image-creation/vm-image-manage-new.png
-[img-manage-vm-select]: media/marketplace-publishing-vm-image-creation/vm-image-manage-select.png
-[img-cert-vm-key-lnx]: media/marketplace-publishing-vm-image-creation/vm-image-certification-keyfile-linux.png
-[img-cert-vm-pswd-lnx]: media/marketplace-publishing-vm-image-creation/vm-image-certification-password-linux.png
-[img-cert-vm-pswd-win]: media/marketplace-publishing-vm-image-creation/vm-image-certification-password-win.png
-[img-cert-vm-test-lnx]: media/marketplace-publishing-vm-image-creation/vm-image-certification-test-sample-linux.png
-[img-cert-vm-test-win]: media/marketplace-publishing-vm-image-creation/vm-image-certification-test-sample-win.png
-[img-cert-vm-results]: media/marketplace-publishing-vm-image-creation/vm-image-certification-results.png
-[img-cert-vm-questionnaire]: media/marketplace-publishing-vm-image-creation/vm-image-certification-questionnaire.png
-[img-cert-vm-questionnaire-2]: media/marketplace-publishing-vm-image-creation/vm-image-certification-questionnaire-2.png
-[img-pubportal-vm-skus]: media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus.png
-[img-pubportal-vm-skus-2]: media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-2.png
+[img-acom-1]:media/marketplace-publishing-vm-image-creation/vm-image-acom-datacenter.png
+[img-portal-vm-size]:media/marketplace-publishing-vm-image-creation/vm-image-portal-size.png
+[img-portal-vm-create]:media/marketplace-publishing-vm-image-creation/vm-image-portal-create-vm.png
+[img-portal-vm-location]:media/marketplace-publishing-vm-image-creation/vm-image-portal-location.png
+[img-portal-vm-rdp]:media/marketplace-publishing-vm-image-creation/vm-image-portal-rdp.png
+[img-azstg-add]:media/marketplace-publishing-vm-image-creation/vm-image-storage-add.png
+[img-azstg-setup-1]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup.png
+[img-azstg-setup-2]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-2.png
+[img-azstg-setup-3]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-3.png
+[img-azstg-setup-4]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-4.png
+[img-azstg-setup-5]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-5.png
+[img-azstg-setup-6]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-6.png
+[img-manage-vm-new]:media/marketplace-publishing-vm-image-creation/vm-image-manage-new.png
+[img-manage-vm-select]:media/marketplace-publishing-vm-image-creation/vm-image-manage-select.png
+[img-cert-vm-key-lnx]:media/marketplace-publishing-vm-image-creation/vm-image-certification-keyfile-linux.png
+[img-cert-vm-pswd-lnx]:media/marketplace-publishing-vm-image-creation/vm-image-certification-password-linux.png
+[img-cert-vm-pswd-win]:media/marketplace-publishing-vm-image-creation/vm-image-certification-password-win.png
+[img-cert-vm-test-lnx]:media/marketplace-publishing-vm-image-creation/vm-image-certification-test-sample-linux.png
+[img-cert-vm-test-win]:media/marketplace-publishing-vm-image-creation/vm-image-certification-test-sample-win.png
+[img-cert-vm-results]:media/marketplace-publishing-vm-image-creation/vm-image-certification-results.png
+[img-cert-vm-questionnaire]:media/marketplace-publishing-vm-image-creation/vm-image-certification-questionnaire.png
+[img-cert-vm-questionnaire-2]:media/marketplace-publishing-vm-image-creation/vm-image-certification-questionnaire-2.png
+[img-pubportal-vm-skus]:media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus.png
+[img-pubportal-vm-skus-2]:media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-2.png
 
-[link-pushstaging]: marketplace-publishing-push-to-staging.md
-[link-github-waagent]: https://github.com/Azure/WALinuxAgent
-[link-azure-codeplex]: https://azurestorageexplorer.codeplex.com/
+[link-pushstaging]:marketplace-publishing-push-to-staging.md
+[link-github-waagent]:https://github.com/Azure/WALinuxAgent
+[link-azure-codeplex]:https://azurestorageexplorer.codeplex.com/
 [link-azure-2]: ../storage/storage-dotnet-shared-access-signature-part-2.md
 [link-azure-1]: ../storage/storage-dotnet-shared-access-signature-part-1.md
-[link-msft-download]: http://www.microsoft.com/download/details.aspx?id=44299
-[link-technet-3]: https://technet.microsoft.com/library/hh846766.aspx
-[link-technet-2]: https://msdn.microsoft.com/library/dn495261.aspx
-[link-azure-portal]: https://portal.azure.com
-[link-pubportal]: https://publish.windowsazure.com
-[link-sql-2014-ent]: http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014enterprisewindowsserver2012r2/
-[link-sql-2014-std]: http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014standardwindowsserver2012r2/
-[link-sql-2014-web]: http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014webwindowsserver2012r2/
-[link-sql-2012-ent]: http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012/
-[link-sql-2012-std]: http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012/
-[link-sql-2012-web]: http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012/
-[link-datactr-2012-r2]: http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012r2datacenter/
-[link-datactr-2012]: http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/
-[link-datactr-2008-r2]: http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/
-[link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
-[link-technet-1]: https://technet.microsoft.com/library/hh848454.aspx
-[link-azure-vm-2]: ./virtual-machines-linux-agent-user-guide/
-[link-openssl]: https://www.openssl.org/
-[link-intsvc]: http://www.microsoft.com/download/details.aspx?id=41554
-[link-python]: https://www.python.org/
+[link-msft-download]:http://www.microsoft.com/download/details.aspx?id=44299
+[link-technet-3]:https://technet.microsoft.com/library/hh846766.aspx
+[link-technet-2]:https://msdn.microsoft.com/library/dn495261.aspx
+[link-azure-portal]:https://portal.azure.com
+[link-pubportal]:https://publish.windowsazure.com
+[link-sql-2014-ent]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014enterprisewindowsserver2012r2/
+[link-sql-2014-std]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014standardwindowsserver2012r2/
+[link-sql-2014-web]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014webwindowsserver2012r2/
+[link-sql-2012-ent]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012/
+[link-sql-2012-std]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012/
+[link-sql-2012-web]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012/
+[link-datactr-2012-r2]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012r2datacenter/
+[link-datactr-2012]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/
+[link-datactr-2008-r2]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/
+[link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
+[link-technet-1]:https://technet.microsoft.com/library/hh848454.aspx
+[link-azure-vm-2]:./virtual-machines-linux-agent-user-guide/
+[link-openssl]:https://www.openssl.org/
+[link-intsvc]:http://www.microsoft.com/download/details.aspx?id=41554
+[link-python]:https://www.python.org/
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,39 +1,40 @@
 <properties 
-	pageTitle="Supervisión de dependencias, excepciones y tiempos de ejecución en aplicaciones web de Java" 
-	description="Supervisión extendida de sitios web de Java con Application Insights" 
-	services="application-insights" 
+    pageTitle="Supervisión de dependencias, excepciones y tiempos de ejecución en aplicaciones web de Java" 
+    description="Supervisión extendida de sitios web de Java con Application Insights" 
+    services="application-insights" 
     documentationCenter="java"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/24/2016" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/24/2016" 
+    ms.author="awills"/>
  
-# Supervisión de dependencias, excepciones y tiempos de ejecución en aplicaciones web de Java
+
+# <a name="monitor-dependencies,-exceptions-and-execution-times-in-java-web-apps"></a>Supervisión de dependencias, excepciones y tiempos de ejecución en aplicaciones web de Java
 
 *Application Insights se encuentra en su versión de vista previa.*
 
-Si ha [instrumentado la aplicación web de Java con Application Insights][java], puede usar el agente de Java para obtener información más clara, sin tener que realizar cambios de código:
+Si ha [instrumentado la aplicación web de Java con Application Insights][java], puede usar el agente de Java para obtener información más clara, sin tener que realizar cambios en el código:
 
 
 * **Dependencias:** datos sobre las llamadas realizadas por la aplicación a otros componentes, por ejemplo:
  * **Llamadas REST** realizadas a través de HttpClient, OkHttp y RestTemplate (Spring).
  * **Redis** llamadas realizadas a través del cliente de Jedis. Si la llamada tarda más de 10 s, el agente captura también los argumentos de la llamada.
- * **[Llamadas JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**: MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB o DB Derby de Apache. Se admiten llamadas "executeBatch". En el caso de MySQL y PostgreSQL, si la llamada tarda más de 10 s, el agente notifica el plan de consulta.
+ * **[Llamadas JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**: MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB o DB Derby de Apache. Se admiten llamadas "executeBatch". En el caso de MySQL y PostgreSQL, si la llamada tarda más de 10 s, el agente notifica el plan de consulta. 
 * **Excepciones detectadas:** datos sobre las excepciones que controla el código.
 * **Tiempo de ejecución del método:** datos sobre el tiempo necesario para ejecutar métodos específicos.
 
-Para usar el agente de Java, debe instalarlo en el servidor. Las aplicaciones web deben instrumentarse con el [SDK de Application Insights para Java][java].
+Para usar el agente de Java, debe instalarlo en el servidor. Las aplicaciones web deben instrumentarse con el [SDK de Java de Application Insights][java].
 
-## Instalación del agente de Application Insights para Java
+## <a name="install-the-application-insights-agent-for-java"></a>Instalación del agente de Application Insights para Java
 
-1. [Descargue el agente](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html) en el equipo que ejecuta el servidor de Java.
+1. [Descargue el agente](https://aka.ms/aijavasdk)en la máquina que ejecuta el servidor de Java.
 2. Edite el script de inicio del servidor de aplicaciones y agregue la siguiente JVM:
 
     `javaagent:`*ruta de acceso completa al archivo JAR del agente*
@@ -45,11 +46,11 @@ Para usar el agente de Java, debe instalarlo en el servidor. Las aplicaciones we
 
 3. Reinicie el servidor de aplicaciones.
 
-## Configuración del agente
+## <a name="configure-the-agent"></a>Configuración del agente
 
 Cree un archivo denominado `AI-Agent.xml` y colóquelo en la misma carpeta que el archivo JAR del agente.
 
-Establezca el contenido del archivo XML. Edite el ejemplo siguiente para incluir u omitir las características que desee.
+Establezca el contenido del archivo XML. Edite el ejemplo siguiente para incluir u omitir las características que desee. 
 
 ```XML
 
@@ -92,19 +93,19 @@ Debe habilitar la excepción de los informes y los intervalos de método para m�
 
 De forma predeterminada, `reportExecutionTime` es true y `reportCaughtExceptions` es false.
 
-## Visualización de los datos
+## <a name="view-the-data"></a>Visualización de los datos
 
-En el recurso de Application Insights, aparecen tiempos de ejecución agregados de métodos y dependencias remotos [en el icono Rendimiento][metrics].
+En el recurso de Application Insights, aparecen los tiempos de ejecución del método y la dependencia remota agregada [en el icono Rendimiento][métricas]. 
 
-Para buscar instancias individuales de informes de dependencia, excepción y método, abra [Buscar][diagnostic].
+Para buscar instancias individuales de informes de dependencia, excepción y método, abra [Buscar][diagnóstico]. 
 
 [Más información sobre diagnósticos de problemas de dependencia](app-insights-dependencies.md#diagnosis).
 
 
 
-## ¿Tiene preguntas? ¿Tiene problemas?
+## <a name="questions?-problems?"></a>¿Tiene preguntas? ¿Tiene problemas?
 
-* ¿No hay datos? [Establezca excepciones del firewall](app-insights-ip-addresses.md).
+* ¿No hay datos? [Establezca excepciones del firewall](app-insights-ip-addresses.md)
 * [Solución de problemas de Java](app-insights-java-troubleshoot.md)
 
 
@@ -123,4 +124,8 @@ Para buscar instancias individuales de informes de dependencia, excepción y mé
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

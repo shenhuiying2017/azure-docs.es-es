@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Compatibilidad de hardware y de plataformas de sistema operativo | Microsoft Azure"
-	description="Resume la compatibilidad del SDK de dispositivo de IoT con plataformas de sistema operativo y hardware de dispositivo."
-	services="iot-hub"
-	documentationCenter=""
-	authors="hegate"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Compatibilidad de hardware y de plataformas de sistema operativo | Microsoft Azure"
+    description="Resume la compatibilidad del SDK de dispositivo de IoT con plataformas de sistema operativo y hardware de dispositivo."
+    services="iot-hub"
+    documentationCenter=""
+    authors="hegate"
+    manager="timlt"
+    editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -13,95 +13,96 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="09/27/2016"
+     ms.date="10/04/2016"
      ms.author="hegate"/>
 
-# Compatibilidad de hardware y de plataformas de sistema operativo con SDK de dispositivos
 
-Este documento describe la compatibilidad del SDK con distintas plataformas de sistema operativo, así como las configuraciones de dispositivos específicos incluidas en el [programa Microsoft Azure Certified para IoT](#microsoft-azure-certified-for-iot). Si ya tiene un dispositivo, consulte la lista de dispositivos incluidos en el programa para encontrar información de compatibilidad específica del dispositivo. Si no está seguro del dispositivo que debe usar, eche un vistazo a las sección de compatibilidad de [bibliotecas y plataformas de sistema operativo](#os-platforms).
+# <a name="os-platforms-and-hardware-compatibility-with-device-sdks"></a>Compatibilidad de hardware y de plataformas de sistema operativo con SDK de dispositivos
+
+Este documento describe la compatibilidad del SDK con distintas plataformas de sistema operativo, así como las configuraciones de dispositivos específicos incluidas en el [programa Microsoft Azure Certified para IoT](#microsoft-azure-certified-for-iot). Si ya tiene un dispositivo, consulte la lista de dispositivos incluidos en el programa para encontrar información de compatibilidad específica del dispositivo. Si no está seguro del dispositivo que debe usar, eche un vistazo a las sección de compatibilidad de [bibliotecas y plataformas de sistema operativo](#os-platforms) .
 
 
-## Plataformas de sistema operativo
+## <a name="os-platforms"></a>Plataformas de sistema operativo
 
 Las bibliotecas de Azure IoT se han probado en las siguientes plataformas de sistema operativo:
 
 
-|Plataformas de sistema operativo Linux/Unix | Versión|
+|Plataformas de sistema operativo Linux/Unix  |   Versión|
 |:---------------|:------------:|
-|Debian Linux| 7\.5|
+|Debian Linux| 7.5|
 |Fedora Linux|20 ||
-|Raspbian Linux| 3\.18 |
-|Ubuntu Linux| 14\.04 |
-|Yocto Linux|2\.1 |
+|Raspbian Linux| 3.18 |
+|Ubuntu Linux| 14.04 |
+|Yocto Linux|2.1 |
 
-|Plataformas de sistema operativo Windows | Versión|
+|Plataformas de sistema operativo Windows  |   Versión|
 |:---------------|:------------:|
 |Android| > 4.2|
 
-|Plataformas de sistema operativo Windows | Versión|
+|Plataformas de sistema operativo Windows  |   Versión|
 |:---------------|:------------:|
 |Escritorio de Windows| 10 |
 |Windows IoT Core| 10 |
 |Windows Server| 2012 R2|
 
-|Otras plataformas | Versión|
+|Otras plataformas  |   Versión|
 |:---------------|:------------:|
 |Arduino | IDE 1.6.8 |
-|mbed | 2\.0 |
-|TI-RTOS | 2\.x |
+|mbed | 2.0 |
+|TI-RTOS | 2.x |
 
 
 
-## Bibliotecas C
+## <a name="c-libraries"></a>Bibliotecas C
 
 El [SDK de dispositivos de Microsoft Azure IoT](https://github.com/Azure/azure-iot-sdks/blob/master/c/readme.md) se ha probado en las siguientes configuraciones:
 
 |Plataforma de sistema operativo| Versión|Protocolos|
 |:---------|:----------:|:----------:|
 |Arduino| IDE 1.6.8 | HTTPS |
-|Debian Linux| 7\.5 | HTTPS, AMQP, MQTT, AMQP sobre WebSockets |
+|Debian Linux| 7.5 | HTTPS, AMQP, MQTT, AMQP sobre WebSockets |
 |Fedora Linux| 20 | | HTTPS, AMQP, MQTT, AMQP sobre WebSockets |
-|mbed OS| 2\.0 | HTTPS, AMQP, MQTT |
-|TI-RTOS| 2\.x | HTTPS |
-|Ubuntu Linux| 14\.04 | HTTPS, AMQP, MQTT, AMQP sobre WebSockets |
+|mbed OS| 2.0 | HTTPS, AMQP, MQTT |
+|TI-RTOS| 2.x | HTTPS |
+|Ubuntu Linux| 14.04 | HTTPS, AMQP, MQTT, AMQP sobre WebSockets |
 |Escritorio de Windows| 10 | HTTPS, AMQP, MQTT, AMQP sobre WebSockets |
-|Yocto Linux|2\.1 | HTTPS, AMQP|
+|Yocto Linux|2.1  | HTTPS, AMQP|
 
 
 
-## Bibliotecas de Node.js
+## <a name="node.js-libraries"></a>Bibliotecas de Node.js
 
 El [SDK de dispositivos de Microsoft Azure IoT para Node.js](https://github.com/Azure/azure-iot-sdks/blob/master/node/device/readme.md) se ha probado en las siguientes configuraciones:
 
 |Tiempo de ejecución| Versión|Protocolos|
 |:---------|:----------:|:----:|
-|Node.js| 4\.1.0 | HTTPS, AMQP, MQTT, AMQP sobre WebSockets |
+|Node.js| 4.1.0 | HTTPS, AMQP, MQTT, AMQP sobre WebSockets |
 
 El SDK de dispositivo IoT de Microsoft Azure para Node.js se ha probado en las siguientes configuraciones:
 
 |Tiempo de ejecución| Versión|
 |:---------|:----------:|
-|Node.js| 4\.1.0 |
+|Node.js| 4.1.0 |
 
 
-## Bibliotecas Java
+## <a name="java-libraries"></a>Bibliotecas Java
 
 El [SDK de dispositivos de Microsoft Azure IoT para Java](https://github.com/Azure/azure-iot-sdks/blob/master/java/device/readme.md) se ha probado en las siguientes configuraciones:
 
 |Tiempo de ejecución| Versión|Protocolos|
 |:---------|:----------:|----|
-|Java SE (Windows)| 1\.8 | HTTPS, AMQP, MQTT |
-|Java SE (Linux)| 1\.8 | HTTPS, AMQP, MQTT|
+|Java SE (Windows)| 1.8 | HTTPS, AMQP, MQTT |
+|Java SE (Linux)| 1.8 | HTTPS, AMQP, MQTT|
 |Android| API 15 | HTTPS y MQTT |
 
 El SDK de servicios de Microsoft Azure IoT para Java se ha probado en las siguientes configuraciones:
 
 |Tiempo de ejecución| Versión|Protocolos|
 |:---------|:----------:|:-----|
-|Java SE| 1\.8 | HTTPS, AMQP, MQTT |
+|Java SE| 1.8 | HTTPS, AMQP, MQTT |
 
 
-## CSharp
+## <a name="csharp"></a>CSharp
 
 El [SDK de dispositivos de Microsoft Azure IoT para .NET](https://github.com/Azure/azure-iot-sdks/blob/master/csharp/device/readme.md) se ha probado en las siguientes configuraciones:
 
@@ -109,40 +110,40 @@ El [SDK de dispositivos de Microsoft Azure IoT para .NET](https://github.com/Azu
 |:---------|:----------:|:----------:|
 |Escritorio de Windows| 10 | HTTPS, AMQP, MQTT, AMQP sobre WebSockets |
 |Windows IoT Core|10 | HTTPS |
-|PCL (Xamarin, Mono, UWP, WP 8.1 y Win 8.1)| | HTTPS, AMQP, MQTT, AMQP sobre WebSockets |
+|PCL (Xamarin, Mono, UWP, WP 8.1 y Win 8.1)|  | HTTPS, AMQP, MQTT, AMQP sobre WebSockets |
 
 El SDK de servicio IoT de Microsoft Azure para CSharp se ha probado en las siguientes configuraciones:
 
 |Tiempo de ejecución| Versión|
 |:---------|:----------:|
-|.Net| 4\.5. |
-|UWP| |
+|.Net| 4.5. |
+|UWP|  |
 
 El código de agente administrado requiere Microsoft .NET Framework 4.5
 
 
-## Bibliotecas de Python
+## <a name="python-libraries"></a>Bibliotecas de Python
 
 El [SDK de dispositivo IoT de Microsoft Azure para Python](https://github.com/Azure/azure-iot-sdks/blob/master/python/device/readme.md) se ha probado en las siguientes configuraciones:
 
 |Tiempo de ejecución| Versión|Protocolos|
 |:---------|:----------:|:----------:|
-|Python | 2\.7.x, 3.4.x y 3.5.x | HTTPS, AMQP, MQTT |
+|Python | 2.7.x, 3.4.x y 3.5.x | HTTPS, AMQP, MQTT |
 
 
-## Microsoft Azure Certified para IoT
+## <a name="microsoft-azure-certified-for-iot"></a>Microsoft Azure Certified para IoT
 
-**Microsoft Azure Certified para IoT** es el programa de socios comerciales que conecta el amplio ecosistema de IoT con Microsoft Azure para que los arquitectos y desarrolladores comprendan los distintos escenarios de compatibilidad. Específicamente, proporciona una lista de confianza de combinaciones de sistema operativo/dispositivo que le ayudarán a comenzar a trabajar rápidamente con un proyecto de IoT, tanto si se encuentra en fase piloto o de prueba de concepto. Con las combinaciones certificadas de dispositivo y sistemas operativos, podrá comenzar con su proyecto de IoT, con menos trabajo y con la personalización necesaria para asegurarse de que los dispositivos son compatibles con el [Conjunto de aplicaciones de IoT de Azure][lnk-iot-suite] y el Centro de IoT de Azure.
+**Microsoft Azure Certified para IoT** es el programa de socios comerciales que conecta el amplio ecosistema de IoT con Microsoft Azure para que los arquitectos y desarrolladores comprendan los distintos escenarios de compatibilidad. Específicamente, proporciona una lista de confianza de combinaciones de sistema operativo/dispositivo que le ayudarán a comenzar a trabajar rápidamente con un proyecto de IoT, tanto si se encuentra en fase piloto o de prueba de concepto. Con las combinaciones certificadas de dispositivo y sistemas operativos, podrá comenzar con su proyecto de IoT, con menos trabajo y con la personalización necesaria para asegurarse de que los dispositivos son compatibles con el [Conjunto de aplicaciones de IoT de Azure][lnk-iot-suite] y Azure IoT Hub.
 
-## Certificación para dispositivos de IoT
+## <a name="certified-for-iot-devices"></a>Certificación para dispositivos de IoT
 
-La **certificación para dispositivos de IoT** ha probado la compatibilidad con el SDK de IoT de Azure y está lista para usarse en su aplicación de IoT. En concreto, identificamos la compatibilidad según la plataforma de sistema operativo y el lenguaje de código.
+**certificación para dispositivos de IoT** ha probado la compatibilidad con el SDK de IoT de Azure y está lista para usarse en su aplicación de IoT. En concreto, identificamos la compatibilidad según la plataforma de sistema operativo y el lenguaje de código.
 
-¿No encuentra el dispositivo que busca en la lista? No hay problema, nuestro SDK de IoT de Azure tiene el código abierto y diseño portátil. Visite nuestro [repositorio](https://github.com/Azure/azure-iot-sdks) de GitHub de la biblioteca del cliente para comenzar y háganos saber si tiene algún problema para conectar el dispositivo en la sección [Problemas](https://github.com/Azure/azure-iot-sdks/issues).
+¿No encuentra el dispositivo que busca en la lista? No hay problema, nuestro SDK de IoT de Azure tiene el código abierto y diseño portátil. Visite nuestro [repositorio](https://github.com/Azure/azure-iot-sdks) de GitHub de la biblioteca del cliente para comenzar y si tiene algún problema para conectar el dispositivo, díganoslo en la sección [Problemas](https://github.com/Azure/azure-iot-sdks/issues).
 
-#### Lista de dispositivos
+#### <a name="devices-list"></a>Lista de dispositivos
 
-Se ha certificado el funcionamiento de cada dispositivo con nuestro SDK en el sistema operativo y el lenguaje elegido por el fabricante del dispositivo. Por ejemplo, BeagleBone Black funciona en Debian con nuestro lenguaje C, Javascript y Java. Esto significa que los desarrolladores pueden crear aplicaciones en cualquiera de las combinaciones de lenguajes sistemas operativos en los dispositivos específicos.
+Se ha certificado el funcionamiento de cada dispositivo con nuestro SDK en el sistema operativo y el lenguaje elegido por el fabricante del dispositivo. Por ejemplo, BeagleBone Black funciona en Debian con nuestro lenguaje C, Javascript y Java. Esto significa que los desarrolladores pueden crear aplicaciones en cualquiera de las combinaciones de lenguajes sistemas operativos en los dispositivos específicos. Para una visualización más cómoda de esta tabla, se puede consultar la entrada de blog http://bit.ly/azureiotdevices, que explica cómo visualizarla usando Power BI.
 
 |Dispositivo| Sistema operativo probado |Idioma|Instrucciones|
 |:---------|:----------|:----------|:----------|
@@ -155,15 +156,15 @@ Se ha certificado el funcionamiento de cada dispositivo con nuestro SDK en el si
 |[AAEON UP](http://www.up-board.org/) |ubilinux | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/ubilinux-up-board.md)|
 |[AAEON UP](http://www.up-board.org/) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-aaeon-up-csharp.md)|
 |[Acme Systems Arietta G25](http://www.acmesystems.it/arietta) |Debian | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/debian-arietta-g25-c.md)|
-|[Adafruit Feather M0 Wifi](https://www.adafruit.com/product/3010) |IDE de Arduino (RTOS) | Arduino, C|[Primeros pasos](https://azure.microsoft.com/documentation/samples/iot-hub-c-m0wifi-getstartedkit/)|
-|[Adafruit Feather Huzzah](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/overview) |IDE de Arduino (RTOS) | Arduino, C|[Primeros pasos](https://azure.microsoft.com/documentation/samples/iot-hub-c-huzzah-getstartedkit/)|
-|[ADLINK IMB-M43](http://www.adlinktech.com/PD/web/PD_detail.php?cKind=&pid=1600&seq=&id=&sid=&category=Industrial-Motherboards-&-SBC_ ATX&utm\_source=#) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-imb-m43-csharp.md)|
+|[Adafruit Feather M0 Wifi](https://www.adafruit.com/product/3010) |IDE de Arduino (RTOS) | Arduino, C|[Primeros pasos](https://azure.microsoft.com/en-us/documentation/samples/iot-hub-c-m0wifi-getstartedkit/)|
+|[Adafruit Feather Huzzah](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/overview) |IDE de Arduino (RTOS) | Arduino, C|[Primeros pasos](https://azure.microsoft.com/en-us/documentation/samples/iot-hub-c-huzzah-getstartedkit/)|
+|[ADLINK IMB-M43](http://www.adlinktech.com/PD/web/PD_detail.php?cKind=&pid=1600&seq=&id=&sid=&category=Industrial-Motherboards-&-SBC_ ATX&utm_source=#) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-imb-m43-csharp.md)|
 |[ADLINK MXE-200](http://www.adlinktech.com/PD/web/PD_detail.php?cKind=&pid=1505&seq=&id=&sid=&category=Fanless-Embedded-Computer_Integrated-Embedded-Computer&utm_source=) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-mxe-200-csharp.md)|
 |[ADLINK MXE-200](http://www.adlinktech.com/PD/web/PD_detail.php?cKind=&pid=1505&seq=&id=&sid=&category=Fanless-Embedded-Computer_Integrated-Embedded-Computer&utm_source=) |Windows10 Iot Core | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-iot-core-mxe-200-csharp.md)|
 |[ADLINK MXE-202i](http://www.adlinktech.com/PD/web/PD_detail.php?pid=1589) |Wind River | Javascript|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-mxe-202i-nodejs.md)|
 |[ADLINK MXE-5400](http://www.adlinktech.com/PD/web/PD_detail.php?pid=1318) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-mxe-5400-csharp.md)|
 |[ADLINK MXC-6300](http://www.adlinktech.com/PD/web/PD_detail.php?cKind=&pid=1242&seq=&id=&sid=&category=Fanless-Embedded-Computer_Expandable-Embedded-Computer&utm_source=) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-mxc-6300-csharp.md)|
-|[ADLINK NuPRO-E43](http://www.adlinktech.com/PD/web/PD_detail.php?cKind=&pid=1634&seq=&id=&sid=&category=Industrial-Motherboards-&-SBC_PICMG-1.x-CPU-boards&utm_source=) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-nupro-e43-csharp.md)|
+|[ADLINK NuPRO-E43]( http://www.adlinktech.com/PD/web/PD_detail.php?cKind=&pid=1634&seq=&id=&sid=&category=Industrial-Motherboards-&-SBC_PICMG-1.x-CPU-boards&utm_source=) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-nupro-e43-csharp.md)|
 |[Advantech Co., AIMB-203](http://www.advantech.com/products/68ccaea2-9ff5-4f85-97f2-3d11244b0a08/aimb-203/mod_a46984f8-caa9-433a-a720-e1815a8c16a3) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-aimb-203-csharp.md)|
 |[Advantech Co., AIMB-215](http://www.advantech.com/products/f910a32b-088c-4f15-8a94-f130f22bc1b5/aimb-215/mod_2fd07ef0-7445-4131-a3b0-379548b78e27) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-aimb-215-csharp.md)|
 |[Advantech Co., AIMB-501](http://www.advantech.com/products/1-2jkkgc/aimb-501/mod_3ed96dd6-792f-431d-b3e7-c524380b15d6) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-aimb-501-csharp.md)|
@@ -193,7 +194,7 @@ Se ha certificado el funcionamiento de cada dispositivo con nuestro SDK en el si
 |[Alleantia IoT SCADA SERVER](http://www.alleantia.com/en/iot-scada-server-2) |Ubuntu | Java|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/ubuntu-IoT-scada-server-java.md)|
 |[Allwinner Technology Banana Pi BPI-M64](http://www.banana-pi.com/eacp_view.asp?id=95) |Windows 10 IoT Core | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-iot-core-banana-pi-bpi-m64-csharp.md)|
 |[Allwinner Technology Pine64](https://www.pine64.com/product#features) |Windows 10 IoT Core | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-iot-core-pine64-csharp.md)|
-|[Amplified FATBOX G3](http://www.amplified.com.au/#!4gltegateway/c192n) |OpenWRT Linux | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-openwrt-fatbox-g3-c.md)|
+|[Amplified FATBOX G3]( http://www.amplified.com.au/#!4gltegateway/c192n) |OpenWRT Linux | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-openwrt-fatbox-g3-c.md)|
 |[AOPEN Inc. eTILE15-FB](http://www.aopen.com/global/shop/products/etile-15m) |Windows 10 IoT Enterprise LTSB | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-10-iot-enterprise-ltsb-etile15-fb-csharp.md)|
 |[AOPEN Inc. ETILE19-FB](http://www.aopen.com/global/shop/products/etile-19m) |Windows 10 IoT Enterprise LTSB | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-10-iot-enterprise-ltsb-etile19-fb-csharp.md)|
 |[AOPEN Inc. ETILE22-FW](http://www.aopen.com/global/shop/products/etile-22m) |Windows 10 IoT Enterprise LTSB | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-10-iot-enterprise-ltsb-etile22-fw-csharp.md)|
@@ -208,8 +209,9 @@ Se ha certificado el funcionamiento de cada dispositivo con nuestro SDK en el si
 |[Atmark Armadillo-IoT Gateway G3](http://armadillo.atmark-techno.com/armadillo-iot-g3) |Debian | Java|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-armadillo-iot-gw-g3-java.md)|
 |[Atmark Armadillo-IoT Gateway G3L](http://armadillo.atmark-techno.com/armadillo-iot-g3l) |Debian | Java|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-armadillo-iot-gw-g3l-java.md)|
 |[Atmark Armadillo-IoT Gateway G3L](http://armadillo.atmark-techno.com/armadillo-iot-g3l) |Debian | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-armadillo-iot-gateway-g3l-c.md)|
+|[Autobase ATB-1A15C](http://www.autobase.biz/Korean/autobasetouch/ATB-1A15C.htm) |Windows 10 IoT Enterprise LTSB | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-iot-enterprise-ltsb-atb-1a15c-c.md)|
 |[Avalue EPC-BTCR](http://www.avalue.com.tw/Product/Embedded-Computing/Fanless-Industrial-System/Embedded-Computing-System/EPC-BTCR_2323) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/Windows10-epc-btcr-csharp.md)|
-|[Avalue RIPAC-10P1](http://www.avalue.com.tw/product/Intelligent-Systems/POS-Terminal/POS-hardware-systems/RiPac-10P1_2399) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-ripac-10p1-csharp.md)|
+|[Avalue RIPAC-10P1]( http://www.avalue.com.tw/product/Intelligent-Systems/POS-Terminal/POS-hardware-systems/RiPac-10P1_2399) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-ripac-10p1-csharp.md)|
 |[Avalue RITAB-10T1](http://www.avalue.com.tw/product/Intelligent-Systems/Mobile-Solution/Mobile-Solution/RiTab-10T1_2384) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-ritab-10t1-csharp.md)|
 |[Avalue OFT-07W01](http://www.avalue.com.tw/Product/Panel-PC/Open-Frame/Open-Frame-Tablet/OFT-07W01_2394) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-oft-07w01-csharp.md)|
 |[Avalue OFT-10W01](http://www.avalue.com.tw/Product/Panel-PC/Open-Frame/Open-Frame-Tablet/OFT-10W01_2324) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-oft-10w01-csharp.md)|
@@ -217,7 +219,7 @@ Se ha certificado el funcionamiento de cada dispositivo con nuestro SDK en el si
 |[Avalue OFT-21W01](http://www.avalue.com.tw/Product/Panel-PC/Open-Frame/Open-Frame-Tablet/OFT-21W01_2326) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-oft-21w01-csharp.md)|
 |[Axiomtek eBOX560-300](http://www.axiomtek.com/Default.aspx?MenuId=Products&FunctionId=ProductView&ItemId=17308&upcat=144) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-ebox560-300-csharp.md)|
 |[Axiomtek ICO300](http://www.axiomtek.com/Default.aspx?MenuId=Products&FunctionId=ProductView&ItemId=1151) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-axiomtek-ico300-csharp.md)|
-|[Base Technology QuiX Sensor Gateway](https://www.quix.jp/iot/iotqsx/) |Raspbian | Python|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/raspbian-quix-sensor-gateway-python.md)|
+|[Base Technology QuiX Sensor Gateway](  https://www.quix.jp/iot/iotqsx/) |Raspbian | Python|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/raspbian-quix-sensor-gateway-python.md)|
 |[BeagleBone Black](http://beagleboard.org/black) | Debian | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/debian-beaglebone-black-c.md)|
 |[BeagleBone Black](http://beagleboard.org/black) | Debian | Java|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-beaglebone-black-java.md)|
 |[BeagleBone Black](http://beagleboard.org/black) | Debian | Javascript|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-run-sample.md)|
@@ -236,7 +238,7 @@ Se ha certificado el funcionamiento de cada dispositivo con nuestro SDK en el si
 |[Contec BX-320](http://www3.contec.co.jp) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-BX-320-csharp.md)|
 |[Contec BX-830](http://www3.contec.co.jp) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-BX-830-csharp.md)|
 |[Contec CPS-MC341-ADSC2](http://www3.contec.co.jp/B2B/ConIWCatProductPage_B2B.process?Merchant_Id=1&Section_Id=0&Catalog_Id=0&Product_Id=2537) |Ubuntu | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/ubuntu-CPS-MC341-ADSC2-c.md)|
-|[DataVan Glamor Series](http://www.datavan.com.tw/zh_hant/product_4.html) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-glamor-series-csharp.md)|
+|[DataVan Glamor Series]( http://www.datavan.com.tw/zh_hant/product_4.html ) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-glamor-series-csharp.md)|
 |[Dell Edge Gateway 5000 Series](http://www.dell.com/IoTgateway) |Ubuntu | Java|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-dell-edge-gateway-5000-series-java.md)|
 |[DFI EC700-BT](http://www.dfi.com.tw/Upload/Product/Documents/BT700.pdf) |Windows 10 | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows7-ec700-bt-c.md)|
 |[DUX Inc HFBX-100](http://dux.jp/product/hfbx-100.html) |Windows10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-HFBX-100-csharp.md)|
@@ -276,11 +278,12 @@ Se ha certificado el funcionamiento de cada dispositivo con nuestro SDK en el si
 |[MechaTracks 3GPI](http://www.mechatrax.com/products/3gpi) |Raspbian | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/raspbian-3gpi-c.md)|
 |[Micro-Star Int'l Co. Ltd. NB31](https://www.msi.com/product/tablet/NB31.html#hero-overview) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-nb31-csharp.md)|
 |[Minnowboard Max](http://www.minnowboard.org/meet-minnowboard-max/) |Windows 7,8, 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-minnowboard-max-csharp.md)|
-|[MiTAC Computing Technology Pluto E220](http://client.mitac.com/products-Embedded-Box-PC-PlutoE220.html) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-pluto-e220-csharp.md)|
+|[MiTAC Computing Technology Pluto E220](http://client.mitac.com/products-Embedded-Box-PC-PlutoE220.html ) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-pluto-e220-csharp.md)|
 |[Motion Control Henry Board](http://www.runele.com/ca1/38/p-r-s/) |Yocto | Javascript|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-henry-board-javascript.md)|
 |[Moxa ioPAC5542-C](http://www.moxa.com.tw/Product/ioPAC_5500.htm) |Linux | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-iopac5542-c-c.md)|
 |[Familia Baytrail de MSC Technologies](https://www.msc-technologies.eu/de/support/boards/qseven/msc-q7-bt.html) |Linux (MSC-LDK) | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-msc-ldk-baytrail-c.md)|
-|[Nexcom NDiS B535](http://www.nexcom.com.tw/Products/multi-media-solutions/digital-signage-player/high-performance-player/digital-signage-player-ndis-b535) |Windows 10 IoT Core | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-10-iot-core-ndis-b535-csharp.md)|
+|[Familia Baytrail de MSC Technologies](https://www.msc-technologies.eu/de/support/boards/qseven/msc-q7-bt.html) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-msc-baytrail-csharp.md)|
+|[Nexcom NDiS B535]( http://www.nexcom.com.tw/Products/multi-media-solutions/digital-signage-player/high-performance-player/digital-signage-player-ndis-b535 ) |Windows 10 IoT Core | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-10-iot-core-ndis-b535-csharp.md)|
 |[Nexcom NIFE100](http://www.nexcom.com.tw/Products/industrial-computing-solutions/pc-based-factory-automation/industr) |Windows 10 IoT Core | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-10-iot-core-NIFE100-csharp.md)|
 |[Nexcom NIFE200](http://www.nexcom.com.tw/Products/industrial-computing-solutions/pc-based-factory-automation/industr) |Windows 10 IoT Core | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-10-iot-core-NIFE200-csharp.md)|
 |[Nexcom NISE50](http://www.nexcom.com.tw/Products/industrial-computing-solutions/industrial-fanless-computer/atom-co) |Windows 10 IoT Core | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-10-iot-core-NISE50-csharp.md)|
@@ -305,7 +308,7 @@ Se ha certificado el funcionamiento de cada dispositivo con nuestro SDK en el si
 |[Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) | Raspbian | Java|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-run-sample.md)|
 |[Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) | Raspbian | Javascript|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-run-sample.md)|
 |[Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) | Windows 10 IoT Core| C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-iotcore-csharp.md)|
-|[Renesas Electronics Corporation GR-PEACH](http://gadget.renesas.com/en/product/peach.html) |Mbed | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/mbed-renesas-gr-peach-c.md)|
+|[Renesas Electronics Corporation GR-PEACH](http://gadget.renesas.com/en/product/peach.html) |mbed | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/mbed-renesas-gr-peach-c.md)|
 |[RICOH IT9](http://industry.ricoh.com/fbx_board/it9/index.html) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-IT9-csharp.md)|
 |[Sam4s TITAN-500](http://sam4s.co.kr/english/service/product/product_detail.asp?product_num=100073) |Windows 10 | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-sam4s-titan-500-c.md)|
 |[Samsung ARTIK](http://developer.samsung.com/artik) |Fedora | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/fedora-samsung-artik-c.md)|
@@ -316,19 +319,22 @@ Se ha certificado el funcionamiento de cada dispositivo con nuestro SDK en el si
 |[SinTau SrL GROPIUS](http://www.sintau.it/index.php?option=com_virtuemart&view=productdetails&virtuemart_product_id=6&virtuemart_category_id=1&Itemid=360&lang=it) |Debian | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/debian-gropius-c.md)|
 |[SinTau SrL GROPIUS](http://www.sintau.it/index.php?option=com_virtuemart&view=productdetails&virtuemart_product_id=6&virtuemart_category_id=1&Itemid=360&lang=it) |Debian | Java|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/debian-gropius-java.md)|
 |[Smarthesia PasSy Gateway](http://www.smarthesia.com/#!home-page/gj699) |Yocto| Javascript|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/yocto-PasSy-Gateway-nodejs.md)|
-|[SOTEC CloudPlug](http://cloudplug.info/) |YOCTO | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-sotec-cloudplug-c.md)|
-|[Sparkfun ThingDev](https://www.sparkfun.com/products/13711) |IDE de Arduino (RTOS)| Arduino, C|[Primeros pasos](https://azure.microsoft.com/documentation/samples/iot-hub-c-thingdev-getstartedkit/)|
+|[SOTEC CloudPlug](http://cloudplug.info/) |Yocto | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-sotec-cloudplug-c.md)|
+|[Sparkfun ThingDev](https://www.sparkfun.com/products/13711) |IDE de Arduino (RTOS)| Arduino, C|[Primeros pasos](https://azure.microsoft.com/en-us/documentation/samples/iot-hub-c-thingdev-getstartedkit/)|
 |[Spreadtrum SC98xx](http://www.spreadtrum.com/en/SC9830A.html) |Android Marshmallow (v6.0.1)| Java|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/android-sc98xx-board-java.md)|
+|[Supermicro SYS-5018D-FN4T](https://www.supermicro.com/products/system/1u/5018/sys-5018d-fn4t.cfm) |Windows 10 | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-supermicro-5018d-fn4t-c.md)|
+|[Supermicro SYS-5018D-FN8T](https://www.supermicro.com/products/system/1u/5018/SYS-5018D-FN8T.cfm) |Windows 10 | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-supermicro-5018d-fn8t-c.md)|
+|[Supermicro SYS-5018D-LN4T](https://www.supermicro.com/products/system/1u/5018/SYS-5018D-LN4T.cfm) |Windows 10 | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-supermicro-5018d-ln4t-c.md)|
 |[Supermicro SYS-E200-8B](https://www.supermicro.com.tw/products/system/Mini-ITX/SYS-E200-8B.cfm) |Windows 10 | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-supermicro-sys-e200-8b-c.md)|
 |[Supermicro SYS-E200-9B](https://www.supermicro.com.tw/products/system/Mini-ITX/SYS-E200-9B.cfm) |Windows 10 | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-supermicro-sys-e200-9b-c.md)|
 |[Techman Robot Inc. TM5](http://tm-robot.com/robot/) |Windows Embedded Standard 7 | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-embedded-standard-7-tm5-c.md)|
-|[Thecus Technology Corp. W2810PRO](http://wss.thecus.com/product_W2810PRO.php) |Windows Storage Server 2012 R2 Essentials | C#|[Introducción](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-storage-server-2012-r2-essentials-thecus w2810pro-csharp.md)|
-|[Thecus Technology Corp. W5810](http://wss.thecus.com/product_W5810.php) |Windows Storage Server 2012 R2 Essentials | C#|[Introducción](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-storage-server-2012-r2-essentials-thecus w5810-csharp.md)|
+|[Thecus Technology Corp. W2810PRO](http://wss.thecus.com/product_W2810PRO.php) |Windows Storage Server 2012 R2 Essentials | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-storage-server-2012-r2-essentials-thecus w2810pro-csharp.md)|
+|[Thecus Technology Corp. W5810](http://wss.thecus.com/product_W5810.php) |Windows Storage Server 2012 R2 Essentials | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-storage-server-2012-r2-essentials-thecus w5810-csharp.md)|
 |[TI CC3200](http://www.ti.com/product/cc3200) |TI-RTOS 2.x | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/ti-rtos-ti-cc3200-c.md)|
-|[Toradex Apalis iMX6](https://www.toradex.com/computer-on-modules/apalis-arm-family/freescale-imx-6) |Linux Angstrom(Yocto) | Java|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-run-sample-toradex-linux.md)|
-|[Toradex Apalis iMX6](https://www.toradex.com/computer-on-modules/apalis-arm-family/freescale-imx-6) |Linux Angstrom(Yocto) | Javascript|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-run-sample-toradex-linux.md)|
-|[Toradex Apalis T30](https://www.toradex.com/computer-on-modules/apalis-arm-family/nvidia-tegra-3) |Linux Angstrom(Yocto) | Java|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-run-sample-toradex-linux.md)|
-|[Toradex Apalis T30](https://www.toradex.com/computer-on-modules/apalis-arm-family/nvidia-tegra-3) |Linux Angstrom(Yocto) | Javascript|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-run-sample-toradex-linux.md)|
+|[Toradex Apalis iMX6](https://www.toradex.com/computer-on-modules/apalis-arm-family/freescale-imx-6) |Linux Angstrom(Yocto)  | Java|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-run-sample-toradex-linux.md)|
+|[Toradex Apalis iMX6](https://www.toradex.com/computer-on-modules/apalis-arm-family/freescale-imx-6) |Linux Angstrom(Yocto)  | Javascript|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-run-sample-toradex-linux.md)|
+|[Toradex Apalis T30](https://www.toradex.com/computer-on-modules/apalis-arm-family/nvidia-tegra-3) |Linux Angstrom(Yocto)  | Java|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-run-sample-toradex-linux.md)|
+|[Toradex Apalis T30](https://www.toradex.com/computer-on-modules/apalis-arm-family/nvidia-tegra-3) |Linux Angstrom(Yocto)  | Javascript|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-run-sample-toradex-linux.md)|
 |[Toradex Colibri iMX6](https://www.toradex.com/computer-on-modules/colibri-arm-family/freescale-imx6) |Linux Angstrom(Yocto) | Java|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-run-sample-toradex-linux.md)|
 |[Toradex Colibri iMX6](https://www.toradex.com/computer-on-modules/colibri-arm-family/freescale-imx6) |Linux Angstrom(Yocto) | Javascript|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-run-sample-toradex-linux.md)|
 |[Toradex Colibri T20](https://www.toradex.com/computer-on-modules/colibri-arm-family/nvidia-tegra-2) |Linux Angstrom(Yocto) | Java|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-run-sample-toradex-linux.md)|
@@ -339,7 +345,7 @@ Se ha certificado el funcionamiento de cada dispositivo con nuestro SDK en el si
 |[Trex NGP](http://www.trex.com.tr/en/donanim_dcasngp8739_73.php) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-trex-ngp-csharp.md)|
 |[Trueverit V4](http://www.trueverit.com/) |Linux personalizado | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-trueverit-v4-c.md)|
 |[USISH EDA8909](http://www.usish.com/) |Windows 10 | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-eda8909-csharp.md)|
-|[VaneLife VHo1-X](http://www.vanelife.com/product/detail/2) |Linux Beaglebone | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-vho1-x-c.md)|
+|[VaneLife VHo1-X]( http://www.vanelife.com/product/detail/2) |Linux Beaglebone | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-vho1-x-c.md)|
 |[Vantron VT-M2M-BTA-DE](http://vantrontech.com/hardwares/VT-M2M-BTA-DE.htm) |Windows 10 IoT Core | C#|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-iot-core-vt-m2m-bta-de-csharp.md)|
 |[Vantron VT-M2M-LV](http://vantrontech.com/hardwares/VT-M2M-LV.htm) |Linux personalizado | Python|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-vt-m2m-lv-python.md)|
 |[YASKAWA MMLink-GW](http://www.ysknet.co.jp/product/type/networkboard/mmlink-gw/index.html) |Linux | C|[Primeros pasos](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-MMLink-GW-c.md)|
@@ -347,22 +353,20 @@ Se ha certificado el funcionamiento de cada dispositivo con nuestro SDK en el si
 
 Consulte la [introducción al uso de estos dispositivos](https://azure.microsoft.com/develop/iot/get-started/) o visite nuestro [repositorio](https://github.com/Azure/azure-iot-sdks) de GitHub y busque en los documentos de dispositivo por idioma.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Aprenda más sobre el desarrollo de soluciones con [dispositivos certificados para IoT](http://azure.com/iotdev).
 
 Para más información acerca de planificación de la implementación del Centro de IoT, consulte:
 
-- [Compatibilidad con protocolos adicionales para Centro de IoT][lnk-protocols]
-- [Comparación del Centro de IoT y los Centros de eventos][lnk-compare]
-- [Escalado del Centro de IoT][lnk-scaling]
+- [Compatibilidad con protocolos adicionales][lnk-protocols]
+- [Comparación con Event Hubs][lnk-compare]
+- [Escalado, alta disponibilidad y recuperación ante desastres][lnk-scaling]
 
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
-- [Guía del desarrollador][lnk-devguide]
-- [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
-- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
-- [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
+- [Guía para desarrolladores de][lnk-devguide]
+- [Simulación de un dispositivo con el SDK de puerta de enlace][lnk-gateway]
 
 
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
@@ -371,8 +375,10 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

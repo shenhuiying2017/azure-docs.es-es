@@ -1,29 +1,30 @@
 <properties
-	pageTitle="Plataformas de análisis: Comparación de Apache Storm con Análisis de transmisiones | Microsoft Azure"
-	description="Obtenga instrucciones para seleccionar una plataforma de análisis en la nube mediante una comparación de Apache Storm con Análisis de transmisiones. Comprenda las características y diferencias."
-	keywords="plataforma de análisis, plataformas de análisis, plataforma de análisis de la nube, comparación de storm"
-	services="stream-analytics"
-	documentationCenter=""
-	authors="jeffstokes72"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Plataformas de análisis: Comparación de Apache Storm con Análisis de transmisiones | Microsoft Azure"
+    description="Obtenga instrucciones para seleccionar una plataforma de análisis en la nube mediante una comparación de Apache Storm con Análisis de transmisiones. Comprenda las características y diferencias."
+    keywords="plataforma de análisis, plataformas de análisis, plataforma de análisis de la nube, comparación de storm"
+    services="stream-analytics"
+    documentationCenter=""
+    authors="jeffstokes72"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="stream-analytics"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="09/26/2016"
-	ms.author="jeffstok"/>
+    ms.service="stream-analytics"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="big-data"
+    ms.date="09/26/2016"
+    ms.author="jeffstok"/>
 
-# Ayuda para seleccionar una plataforma de Análisis de transmisiones: comparación de Apache Storm con Análisis de transmisiones de Azure
+
+# <a name="help-choosing-a-streaming-analytics-platform:-apache-storm-comparison-to-azure-stream-analytics"></a>Ayuda para seleccionar una plataforma de Análisis de transmisiones: comparación de Apache Storm con Análisis de transmisiones de Azure
 
 Obtenga instrucciones para seleccionar una plataforma de análisis en la nube mediante esta comparación de Apache Storm con Análisis de transmisiones de Azure. Comprenda las diferencias entre las propuestas de valor de Análisis de transmisiones y Apache Storm como servicio administrado en HDInsight de Azure, para que pueda elegir la solución adecuada para los casos de uso de su empresa.
 
 Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas importantes capacidades distintivas que diferencian estos servicios. Las capacidades, así como las limitaciones, de estos servicios se enumeran a continuación para ayudarle a llegará a la solución que necesita para lograr sus objetivos.
 
-## Comparación de Storm con Análisis de transmisiones: características generales ##
+## <a name="storm-comparison-to-stream-analytics:-general-features"></a>Comparación de Storm con Análisis de transmisiones: características generales ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -34,7 +35,7 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    <strong>Análisis de transmisiones de Azure</strong>
+                    <strong>Azure Stream Analytics</strong>
                 </p>
             </td>
             <td width="246" valign="top">
@@ -51,12 +52,12 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    No, Análisis de transmisiones de Azure es una oferta propiedad de Microsoft.
+No, Análisis de transmisiones de Azure es una oferta propiedad de Microsoft.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Sí, Apache Storm es una tecnología con licencia de Apache.
+Sí, Apache Storm es una tecnología con licencia de Apache.
                 </p>
             </td>
         </tr>
@@ -68,13 +69,11 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    Sí
-                </p>
+yes </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Sí
-                </p>
+Sí </p>
             </td>
         </tr>
         <tr>
@@ -85,12 +84,12 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    No hay requisitos de hardware. Análisis de transmisiones de Azure es un servicio de Azure.
+No hay requisitos de hardware. Análisis de transmisiones de Azure es un servicio de Azure.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    No hay requisitos de hardware. Apache Storm es un servicio de Azure.
+No hay requisitos de hardware. Apache Storm es un servicio de Azure.
                 </p>
             </td>
         </tr>
@@ -102,12 +101,12 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    Con Análisis de transmisiones de Azure, puede implementar clientes y supervisar los trabajos de transmisión.
+Con Análisis de transmisiones de Azure, puede implementar clientes y supervisar los trabajos de transmisión.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Con Apache Storm en HDInsight, puede implementar clientes y supervisar todo un clúster que pueda hospedar varios trabajos de Storm y otras cargas de trabajo (lotes incluidos).
+Con Apache Storm en HDInsight, los clientes implementan y supervisan todo un clúster, que puede hospedar varios trabajos de Storm y otras cargas de trabajo (lote incluido).
                 </p>
             </td>
         </tr>
@@ -119,18 +118,18 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    El precio de Análisis de transmisiones varía según el volumen de datos procesados y el número de unidades de streaming necesarias (por cada hora en la que se está ejecutando el trabajo).
+El precio de Análisis de transmisiones varía según el volumen de datos procesados y el número de unidades de streaming necesarias (por cada hora en la que se está ejecutando el trabajo).
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">Puede encontrar más información sobre los precios aquí.</a>
+                    <a href="http://azure.microsoft.com/en-us/pricing/details/stream-analytics/">Puede encontrar más información sobre los precios aquí.</a>
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Para Apache Storm en HDInsight, la unidad de compra está basada en el clúster y se cobra según la hora en la que el clúster se ejecuta, independientemente de los trabajos implementados.
+Para Apache Storm en HDInsight, la unidad de compra está basada en el clúster y se cobra según la hora en la que el clúster se ejecuta, independientemente de los trabajos implementados.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/pricing/details/hdinsight/">Puede encontrar más información sobre los precios aquí.</a>
+                    <a href="http://azure.microsoft.com/en-us/pricing/details/hdinsight/">Puede encontrar más información sobre los precios aquí.</a>
                 </p>
             </td>
         </tr>
@@ -147,7 +146,7 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    <strong>Análisis de transmisiones de Azure</strong>
+                    <strong>Azure Stream Analytics</strong>
                 </p>
             </td>
             <td width="246" valign="top">
@@ -159,34 +158,34 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Capacidades: SQL DLS</strong>
+                    <strong>Funcionalidades: SQL DSL</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    Sí, tiene disponible la compatibilidad de idioma de SQL que es muy fácil de usar.
+Sí, tiene disponible la compatibilidad de idioma de SQL que es muy fácil de usar.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    No, los usuarios deben escribir el código en Java C# o usar las API de Trident.
+No, los usuarios deben escribir el código en Java C# o usar las API de Trident.
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Capacidades: operadores temporales</strong>
+                    <strong>Funcionalidades: operadores temporales</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    Los agregados de ventana y las uniones temporales son compatibles y están listos para usar.
+Los agregados de ventana y las uniones temporales son compatibles y están listos para usar.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Los operadores temporales deben ser implementados por el usuario.
+Los operadores temporales deben ser implementados por el usuario.
                 </p>
             </td>
         </tr>
@@ -198,12 +197,12 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    Experiencias de creación y depuración interactivas de los datos de ejemplo mediante el Portal de Azure.
+Experiencias de creación y depuración interactivas de los datos de ejemplo mediante el Portal de Azure.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Las experiencias de desarrollo, depuración y supervisión se realizan siempre a través de la experiencia de Visual Studio para usuarios. NET, mientras que para Java y otros desarrolladores de lenguajes puede utilizar el IDE que desee.
+Las experiencias de desarrollo, depuración y supervisión se realizan siempre a través de la experiencia de Visual Studio para usuarios. NET, mientras que para Java y otros desarrolladores de lenguajes puede utilizar el IDE que desee.
                 </p>
             </td>
         </tr>
@@ -215,12 +214,12 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    Análisis de transmisiones le ofrece un estado de trabajo básico y registros de operaciones a modo de depuración, pero tenga en cuenta que actualmente no es flexible con lo que se puede incluir en estos registros o en qué cantidad; el modo detallado es un ejemplo de ello.
+Análisis de transmisiones le ofrece un estado de trabajo básico y registros de operaciones a modo de depuración, pero tenga en cuenta que actualmente no es flexible con lo que se puede incluir en estos registros o en qué cantidad; el modo detallado es un ejemplo de ello.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Tiene disponibles registros detallados con fines de depuración. El usuario puede acceder a los registros de dos formas: a través de Visual Studio o conectando mediante un RDP (protocolo de escritorio remoto) al clúster para así poder acceder a los registros.
+Tiene disponibles registros detallados con fines de depuración. El usuario puede acceder a los registros de dos formas: a través de Visual Studio o conectando mediante un RDP (protocolo de escritorio remoto) al clúster para así poder acceder a los registros.
                 </p>
             </td>
         </tr>
@@ -232,12 +231,12 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    Actualmente no es compatible con los UDF.
+Actualmente no es compatible con los UDF.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Puede escribir los UDF en C#, Java o en el idioma de su elección.
+Puede escribir los UDF en C#, Java o en el idioma de su elección.
                 </p>
             </td>
         </tr>
@@ -249,12 +248,12 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    El código extensible no es compatible con Análisis de transmisiones.
+El código extensible no es compatible con Análisis de transmisiones.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Sí, puede escribir en Storm el código personalizado en C#, Java u otros lenguajes compatibles.
+Sí, puede escribir en Storm el código personalizado en C#, Java u otros lenguajes compatibles.
                 </p>
             </td>
         </tr>
@@ -271,7 +270,7 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    <strong>Análisis de transmisiones de Azure</strong>
+                    <strong>Azure Stream Analytics</strong>
                 </p>
             </td>
             <td width="246" valign="top">
@@ -280,10 +279,10 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
                 </p>
             </td>
         </tr>
-		<tr>
+        <tr>
             <td width="174" valign="top">
-				<p>
-				 <strong>Orígenes de datos de entrada</strong>
+                <p>
+                 <strong>Orígenes de datos de entrada</strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -292,7 +291,7 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="246" valign="top">
                 <p>
-                    Hay conectores disponibles para los centros de eventos, el bus de servicio, Kafka, etc. Aquellos conectores que sean incompatibles se pueden implementar a través del código personalizado.
+Hay conectores disponibles para los centros de eventos, el bus de servicio, Kafka, etc. Aquellos conectores que sean incompatibles se pueden implementar a través del código personalizado.
                 </p>
             </td>
         </tr>
@@ -304,12 +303,12 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    Los formatos de entrada admitidos son Avro, JSON y CSV.
+Los formatos de entrada admitidos son Avro, JSON y CSV.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Cualquier otro formato puede implementarse a través del código personalizado.
+Cualquier otro formato puede implementarse a través del código personalizado.
                 </p>
             </td>
         </tr>
@@ -321,12 +320,12 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    Un trabajo de streaming puede tener varias salidas. Las salidas compatibles son: centros de eventos de Azure, almacenamiento de blobs de Azure, tablas de Azure, Azure SQL DB y PowerBI.
+Un trabajo de streaming puede tener varias salidas. Las salidas compatibles son: centros de eventos de Azure, almacenamiento de blobs de Azure, tablas de Azure, Azure SQL DB y PowerBI.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Compatible con muchas de las salidas en una topología; cada salida puede tener una lógica personalizada para el procesamiento de nivel inferior. Esta versión de Storm ya está lista para usar e incluye conectores para PowerBi, los Centros de eventos de Azure, el Almacenamiento de blobs de Azure, Azure DocumentDB, SQL y HBase. Aquellos conectores que sean incompatibles se pueden implementar a través del código personalizado.
+Compatible con muchas de las salidas en una topología; cada salida puede tener una lógica personalizada para el procesamiento de nivel inferior. Esta versión de Storm ya está lista para usar e incluye conectores para PowerBi, los Centros de eventos de Azure, el Almacenamiento de blobs de Azure, Azure DocumentDB, SQL y HBase. Aquellos conectores que sean incompatibles se pueden implementar a través del código personalizado.
                 </p>
             </td>
         </tr>
@@ -338,12 +337,12 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    Ha de tener el formato de datos UTF-8 para poder usar Análisis de transmisiones.
+Ha de tener el formato de datos UTF-8 para poder usar Análisis de transmisiones.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Cualquier formato de codificación de datos ha de implementarse a través del código personalizado.
+Cualquier formato de codificación de datos ha de implementarse a través del código personalizado.
                 </p>
             </td>
         </tr>
@@ -360,7 +359,7 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    <strong>Análisis de transmisiones de Azure</strong>
+                    <strong>Azure Stream Analytics</strong>
                 </p>
             </td>
             <td width="246" valign="top">
@@ -375,7 +374,7 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
                     <strong>Modelo de implementación de trabajo</strong>
                 </p>
                 <p>
-                    - <strong>Portal de Azure</strong>
+                    - <strong>Azure Portal</strong>
                 </p>
                 <p>
                     - <strong>Visual Studio</strong>
@@ -386,12 +385,12 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    La implementación se realiza a través del Portal de Azure, PowerShell y las API de REST.
+La implementación se realiza a través del Portal de Azure, PowerShell y las API de REST.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    La implementación se realiza a través del Portal de Azure, PowerShell, Visual Studio y las API de REST.
+La implementación se realiza a través del Portal de Azure, PowerShell, Visual Studio y las API de REST.
                 </p>
             </td>
         </tr>
@@ -403,15 +402,15 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    La supervisión se implementa a través del Portal de Azure y las API de REST.
+La supervisión se implementa a través del Portal de Azure y las API de REST.
                 </p>
                 <p>
-                    A parte, el usuario también puede configurar alertas de Azure.
+A parte, el usuario también puede configurar alertas de Azure.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    La supervisión se implementa a través de la interfaz de usuario de Storm y las API de REST.
+La supervisión se implementa a través de la interfaz de usuario de Storm y las API de REST.
                 </p>
             </td>
         </tr>
@@ -423,32 +422,31 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    Número de unidades de streaming para cada trabajo. Cada unidad de streaming puede procesar hasta 1 MB/s. Hay un máximo de 50 unidades de forma predeterminada. Puede llamar para aumentar el límite.
+Número de unidades de streaming para cada trabajo. Cada unidad de streaming puede procesar hasta 1 MB/s. Hay un máximo de 50 unidades de forma predeterminada. Puede llamar para aumentar el límite.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Número de nodos en el clúster de HDI Storm. No hay límite en el número de nodos (el límite máximo lo define la cuota de Azure). Puede llamar para aumentar el límite.
+Número de nodos en el clúster de HDI Storm. No hay límite en el número de nodos (el límite máximo lo define la cuota de Azure). Puede llamar para aumentar el límite.
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Límite de procesamiento de datos</strong>
+                    <strong>Límites de procesamiento de datos</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    Los usuarios pueden escalar o reducir verticalmente el número de unidades de streaming para aumentar el procesamiento de datos u optimizar los costos.
+Los usuarios pueden escalar o reducir verticalmente el número de unidades de streaming para aumentar el procesamiento de datos u optimizar los costos.
                 </p>
                 <p>
-                    Escalar verticalmente hasta 1 GB/s
-                </p>
+Escalar verticalmente hasta 1 GB/s </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    El usuario puede escalar o reducir verticalmente el tamaño de clúster según le convenga.
+El usuario puede escalar o reducir verticalmente el tamaño de clúster según le convenga.
                 </p>
             </td>
         </tr>
@@ -460,52 +458,50 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    Puede detenerlo y reanudarlo en el punto donde lo detuvo.
+Puede detenerlo y reanudarlo en el punto donde lo detuvo.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Puede detenerlo y reanudarlo en el último punto donde lo detuvo en función de la marca de agua.
+Puede detenerlo y reanudarlo en el último punto donde lo detuvo en función de la marca de agua.
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Actualización del servicio y marco</strong>
+                    <strong>Actualización de servicio y marco</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    Revisión automática sin tiempo de inactividad.
+Revisión automática sin tiempo de inactividad.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Revisión automática sin tiempo de inactividad.
+Revisión automática sin tiempo de inactividad.
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Continuidad del negocio a través de un servicio altamente disponible con Contrato de nivel de servicio garantizado</strong>
+                    <strong>Continuidad del negocio a través de un servicio altamente disponible con Acuerdos de Nivel de Servicio garantizados</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    Contrato de nivel de servicio con un tiempo de actividad del 99,9%
-                </p>
+Contrato de nivel de servicio con un tiempo de actividad del 99,9% </p>
                 <p>
-                    Recuperación automática de errores
-                </p>
+Recuperación automática de errores </p>
                 <p>
-                    La recuperación de los operadores con estado temporal está integrada.
+La recuperación de los operadores con estado temporal está integrada.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Contrato de nivel de servicio con un tiempo de actividad del clúster de Storm del 99,9%. Apache Storm es una plataforma de streaming a prueba de errores, pero es responsabilidad de los clientes asegurarse de que sus trabajos de streaming se ejecutan sin interrupciones.
+Contrato de nivel de servicio con un tiempo de actividad del clúster de Storm del 99,9%. Apache Storm es una plataforma de streaming a prueba de errores, pero es responsabilidad de los clientes asegurarse de que sus trabajos de streaming se ejecutan sin interrupciones.
                 </p>
             </td>
         </tr>
@@ -522,7 +518,7 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    <strong>Análisis de transmisiones de Azure</strong>
+                    <strong>Azure Stream Analytics</strong>
                 </p>
             </td>
             <td width="246" valign="top">
@@ -539,12 +535,12 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    Directivas configurables integradas para reordenar, quitar eventos o ajustar la hora del evento.
+Directivas configurables integradas para reordenar, quitar eventos o ajustar la hora del evento.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    El usuario debe implementar la lógica para controlar este escenario.
+El usuario debe implementar la lógica para controlar este escenario.
                 </p>
             </td>
         </tr>
@@ -556,36 +552,40 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
             </td>
             <td width="204" valign="top">
                 <p>
-                    Datos de referencia disponibles en los blobs de Azure con un tamaño máximo de 100 MB de caché de búsqueda en memoria. El servicio administra la actualización de los datos de referencia.
+Datos de referencia disponibles en los blobs de Azure con un tamaño máximo de 100 MB de caché de búsqueda en memoria. El servicio administra la actualización de los datos de referencia.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Sin límites en el tamaño de los datos. Conectores disponibles para HBase, DocumentDB, SQL Server y Azure. Aquellos conectores que sean incompatibles se pueden implementar a través del código personalizado.
+Sin límites en el tamaño de los datos. Conectores disponibles para HBase, DocumentDB, SQL Server y Azure. Aquellos conectores que sean incompatibles se pueden implementar a través del código personalizado.
                 </p>
                 <p>
-                    El código personalizado es el que debe encargarse de actualizar los datos de referencia.
+El código personalizado es el que debe encargarse de actualizar los datos de referencia.
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Integración de aprendizaje automático</strong>
+                    <strong>Integración con Machine Learning</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    Mediante la configuración de los modelos publicados del aprendizaje automático de Azure a modo de funciones durante la creación del trabajo ASA <a href="http://blogs.msdn.com/b/streamanalytics/archive/2015/05/24/real-time-scoring-of-streaming-data-using-machine-learning-models.aspx">(vista previa privada)</a>.
+Mediante la configuración de los modelos publicados de Azure Machine Learning a modo de funciones durante la creación del trabajo ASA <a href="http://blogs.msdn.com/b/streamanalytics/archive/2015/05/24/real-time-scoring-of-streaming-data-using-machine-learning-models.aspx">(vista previa privada)</a>.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Disponible a través de Storm Bolts.
+Disponible a través de Storm Bolts.
                 </p>
             </td>
         </tr>
     </tbody>
 </table>
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

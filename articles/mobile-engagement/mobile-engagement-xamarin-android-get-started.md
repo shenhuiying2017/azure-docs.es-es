@@ -1,141 +1,144 @@
 <properties
-	pageTitle="Introducción a Azure Mobile Engagement para aplicaciones Xamarin.Android"
-	description="Aprenda a usar Azure Mobile Engagement con los análisis y las notificaciones push para aplicaciones Xamarin.Android."
-	services="mobile-engagement"
-	documentationCenter="xamarin"
-	authors="piyushjo"
-	manager=""
-	editor="" />
+    pageTitle="Introducción a Azure Mobile Engagement para aplicaciones Xamarin.Android"
+    description="Aprenda a usar Azure Mobile Engagement con los análisis y las notificaciones push para aplicaciones Xamarin.Android."
+    services="mobile-engagement"
+    documentationCenter="xamarin"
+    authors="piyushjo"
+    manager="erikre"
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-android"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="06/16/2016"
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-xamarin-android"
+    ms.devlang="dotnet"
+    ms.topic="hero-article"
+    ms.date="06/16/2016"
+    ms.author="piyushjo" />
 
-# Introducción a Azure Mobile Engagement para aplicaciones Xamarin.Android
 
-[AZURE.INCLUDE [Modificador del tutorial de imagen prominente](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
+# <a name="get-started-with-azure-mobile-engagement-for-xamarin.android-apps"></a>Introducción a Azure Mobile Engagement para aplicaciones Xamarin.Android
 
-En este tema se muestra cómo usar Azure Mobile Engagement para comprender el uso de su aplicación y cómo enviar notificaciones push a usuarios segmentados de una aplicación Xamarin.Android. En este tutorial se demuestra el escenario de difusión sencillo con Mobile Engagement. En él, creará una aplicación vacía de Xamarin.Android que recopile datos básicos y reciba notificaciones push con el Servicio de mensajería en la nube de Google (GCM).
+[AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
+
+En este tema se muestra cómo usar Azure Mobile Engagement para comprender el uso de su aplicación y cómo enviar notificaciones push a usuarios segmentados de una aplicación Xamarin.Android.
+En este tutorial se demuestra el escenario de difusión sencillo con Mobile Engagement. En él, creará una aplicación vacía de Xamarin.Android que recopile datos básicos y reciba notificaciones push con el Servicio de mensajería en la nube de Google (GCM).
 
 Este tutorial requiere lo siguiente:
 
-+ [Xamarin Studio](http://xamarin.com/studio). También puede utilizar Visual Studio con Xamarin, pero en este tutorial se usa Xamarin Studio. Consulte [Configuración e instalación](https://msdn.microsoft.com/library/mt613162.aspx) para obtener instrucciones.
++ [Xamarin Studio](http://xamarin.com/studio). También puede utilizar Visual Studio con Xamarin, pero en este tutorial se usa Xamarin Studio. Consulte [Configuración e instalación](https://msdn.microsoft.com/library/mt613162.aspx)para obtener instrucciones.
 + [SDK de Mobile Engagement Xamarin](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
 
-> [AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-android-get-started).
+> [AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-android-get-started).
 
-##<a id="setup-azme"></a>Configuración de Mobile Engagement para una aplicación Android
+##<a name="<a-id="setup-azme"></a>setup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Configuración de Mobile Engagement para una aplicación Android
 
-[AZURE.INCLUDE [Creación de la aplicación de Mobile Engagement en el portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-##<a id="connecting-app"></a>Conectar la aplicación al backend de Mobile Engagement
+##<a name="<a-id="connecting-app"></a>connect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Conectar la aplicación al backend de Mobile Engagement
 
-En este tutorial se presenta una "integración básica", que es el conjunto mínimo necesario para recopilar los datos y enviar una notificación de inserción.
+En este tutorial se presenta una "integración básica", que es el conjunto mínimo necesario para recopilar los datos y enviar una notificación de inserción. 
 
 Crearemos una aplicación básica con Xamarin Studio para demostrar la integración.
 
-###Creación de un nuevo proyecto de Xamarin.Android
+###<a name="create-a-new-xamarin.android-project"></a>Creación de un nuevo proyecto de Xamarin.Android
 
 1. Inicie **Xamarin Studio**, vaya a **File** -> **New** -> **Solution** (Archivo -> Nuevo -> Solución). 
 
     ![][1]
 
-2. Seleccione **Android App** (Aplicación Android) y asegúrese de que el lenguaje seleccionado sea **C#**. Después, haga clic en **Next** (Siguiente).
+2. Seleccione **Android App** (Aplicación Android), asegúrese de que el lenguaje seleccionado sea **C#** y haga clic en **Next** (Siguiente).
 
     ![][2]
 
-3. Rellene los valores de **App Name** (Nombre de la aplicación) y **Organization Identifier** (Identificador de organización). Asegúrese de marcar la casilla **Google Play Services** y luego haga clic en **Next** (Siguiente).
+3. Rellene los valores de **App Name** (Nombre de la aplicación) y **Organization Identifier** (Identificador de organización). Asegúrese de marcar **Google Play Services** y luego haga clic en **Next** (Siguiente). 
 
     ![][3]
-	
+    
 4. Actualice los valores de **Project Name** (Nombre de proyecto), **Solution Name** (Nombre de solución) y **Location** (Ubicación) si es necesario y haga clic en **Create** (Crear).
 
     ![][4]
  
-Xamarin Studio crea la aplicación en la que se integrará Mobile Engagement.
+Xamarin Studio crea la aplicación en la que se integrará Mobile Engagement. 
 
-###Conectar la aplicación al back-end de Mobile Engagement
+###<a name="connect-your-app-to-mobile-engagement-backend"></a>Conectar la aplicación al back-end de Mobile Engagement
 
-1. Haga clic con el botón derecho en la carpeta **Packages** (Paquetes) de las ventanas de la solución y seleccione **Add Packages** (Agregar paquetes).
+1. Haga clic con el botón derecho en la carpeta **Packages** de las ventanas de la solución y seleccione **Add Packages...** (Agregar paquetes).
 
     ![][5]
 
-2. Busque el **SDK de Xamarin para Microsoft Azure Mobile Engagement** y agréguelo a la solución.
+2. Busque el **SDK de Xamarin para Microsoft Azure Mobile Engagement** y agréguelo a la solución.  
 
     ![][6]
    
 3. Abra **MainActivity.cs** y agregue las siguientes instrucciones using:
 
-		using Microsoft.Azure.Engagement;
-		using Microsoft.Azure.Engagement.Activity;
+        using Microsoft.Azure.Engagement;
+        using Microsoft.Azure.Engagement.Activity;
 
-4. En el método `OnCreate`, agregue el siguiente código para inicializar la conexión con el back-end de Mobile Engagement. Asegúrese de agregar su elemento **ConnectionString**.
+4. En el método `OnCreate` , agregue el siguiente código para inicializar la conexión con el back-end de Mobile Engagement. Asegúrese de agregar su elemento **ConnectionString**. 
 
-		EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
-		engagementConfiguration.ConnectionString = "YourConnectionStringFromAzurePortal";
-		EngagementAgent.Init(engagementConfiguration);
+        EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+        engagementConfiguration.ConnectionString = "YourConnectionStringFromAzurePortal";
+        EngagementAgent.Init(engagementConfiguration);
 
-###Agregar permisos y una declaración de servicio
+###<a name="add-permissions-and-a-service-declaration"></a>Agregar permisos y una declaración de servicio
 
 1. Abra el archivo **Manifest.xml** de la carpeta Properties (Propiedades). Seleccione la pestaña Source (Origen) para actualizar directamente el origen XML.
  
-2. Agregue estos permisos al archivo Manifest.xml (que se puede encontrar en la carpeta **Properties** (Propiedades)) de su proyecto inmediatamente antes o después de la etiqueta `<application>`:
+2. Agregue estos permisos al archivo Manifest.xml (que se puede encontrar en la carpeta **Properties**) de su proyecto inmediatamente antes o después de la etiqueta `<application>`:
 
-		<uses-permission android:name="android.permission.INTERNET"/>
-		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-		<uses-permission android:name="android.permission.VIBRATE" />
-		<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+        <uses-permission android:name="android.permission.INTERNET"/>
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+        <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+        <uses-permission android:name="android.permission.VIBRATE" />
+        <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 
 3. Agregue lo siguiente entre las etiquetas `<application>` y `</application>` para declarar el servicio del agente:
 
-		<service
- 			android:name="com.microsoft.azure.engagement.service.EngagementService"
- 			android:exported="false"
- 			android:label="<Your application name>"
- 			android:process=":Engagement"/>
+        <service
+            android:name="com.microsoft.azure.engagement.service.EngagementService"
+            android:exported="false"
+            android:label="<Your application name>"
+            android:process=":Engagement"/>
 
 4. En el código que acaba de pegar, reemplace `"<Your application name>"` en la etiqueta. Esto es lo que se muestra en el menú **Configuración** donde los usuarios pueden ver los servicios que se están ejecutando en el dispositivo. Puede agregar la palabra "Servicio" a la etiqueta, por ejemplo.
 
-###Enviar una pantalla a Mobile Engagement
+###<a name="send-a-screen-to-mobile-engagement"></a>Enviar una pantalla a Mobile Engagement
 
-Para comenzar a enviar datos y asegurarse de que los usuarios estén activos, debe enviar al menos una pantalla al back-end de Mobile Engagement. Para ello, asegúrese de que `MainActivity` hereda de `EngagementActivity` en lugar de `Activity`.
+Para comenzar a enviar datos y asegurarse de que los usuarios estén activos, debe enviar al menos una pantalla al back-end de Mobile Engagement. Para ello, asegúrese de que `MainActivity` hereda de `EngagementActivity`, en lugar de `Activity`.
 
-	public class MainActivity : EngagementActivity
-	
-Como alternativa, si no puede heredar de `EngagementActivity` deberá agregar los métodos `.StartActivity` y `.EndActivity` en `OnResume` y `OnPause` respectivamente.
+    public class MainActivity : EngagementActivity
+    
+Como alternativa, si no puede heredar de `EngagementActivity`, deberá agregar los métodos `.StartActivity` y `.EndActivity` en `OnResume` y `OnPause`, respectivamente.  
 
-		protected override void OnResume()
-	        {
-	            EngagementAgent.StartActivity(EngagementAgentUtils.BuildEngagementActivityName(Java.Lang.Class.FromType(this.GetType())), null);
-	            base.OnResume();             
-	        }
-	
-	        protected override void OnPause()
-	        {
-	            EngagementAgent.EndActivity();
-	            base.OnPause();            
-	        }
+        protected override void OnResume()
+            {
+                EngagementAgent.StartActivity(EngagementAgentUtils.BuildEngagementActivityName(Java.Lang.Class.FromType(this.GetType())), null);
+                base.OnResume();             
+            }
+    
+            protected override void OnPause()
+            {
+                EngagementAgent.EndActivity();
+                base.OnPause();            
+            }
 
-##<a id="monitor"></a>Conexión de la aplicación con la supervisión en tiempo real
+##<a name="<a-id="monitor"></a>connect-app-with-real-time-monitoring"></a><a id="monitor"></a>Conexión de la aplicación con la supervisión en tiempo real
 
-[AZURE.INCLUDE [Conectar la aplicación con la supervisión en tiempo real](../../includes/mobile-engagement-connect-app-with-monitor.md)]
+[AZURE.INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-##<a id="integrate-push"></a>Habilitar las notificaciones push y la mensajería en la aplicación
+##<a name="<a-id="integrate-push"></a>enable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Habilitar las notificaciones push y la mensajería en la aplicación
 
-Mobile Engagement permite interactuar y llegar por REACH a los usuarios mediante notificaciones de inserción y mensajería en la aplicación en el contexto de las campañas. Este módulo se denomina REACH en el portal de Mobile Engagement. En las secciones siguientes se instala la aplicación para recibirlos.
+Mobile Engagement permite interactuar y llegar por REACH a los usuarios mediante notificaciones de inserción y mensajería en la aplicación en el contexto de las campañas. Este módulo se denomina REACH en el portal de Mobile Engagement.
+En las secciones siguientes se instala la aplicación para recibirlos.
 
-[AZURE.INCLUDE [Habilitación del servicio de mensajería en la nube de Google](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
+[AZURE.INCLUDE [Enable Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
-[AZURE.INCLUDE [Habilitar la mensajería en la aplicación](../../includes/mobile-engagement-android-send-push.md)]
+[AZURE.INCLUDE [Enable in-app messaging](../../includes/mobile-engagement-android-send-push.md)]
 
-[AZURE.INCLUDE [Envío de notificaciones desde el portal](../../includes/mobile-engagement-android-send-push-from-portal.md)]
+[AZURE.INCLUDE [Send notification from portal](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-xamarin-android-get-started/1.png
@@ -145,4 +148,8 @@ Mobile Engagement permite interactuar y llegar por REACH a los usuarios mediante
 [5]: ./media/mobile-engagement-xamarin-android-get-started/5.png
 [6]: ./media/mobile-engagement-xamarin-android-get-started/6.png
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

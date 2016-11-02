@@ -1,30 +1,31 @@
 <properties 
-	pageTitle="Creación de un procesador de multimedia | Microsoft Azure" 
-	description="Aprenda a crear un componente de procesador de multimedia para codificar, cifrar, descifrar o convertir el formato de contenido multimedia para Servicios multimedia de Azure. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Creación de un procesador de multimedia | Microsoft Azure" 
+    description="Aprenda a crear un componente de procesador de multimedia para codificar, cifrar, descifrar o convertir el formato de contenido multimedia para Servicios multimedia de Azure. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/26/2016" 
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/26/2016" 
+    ms.author="juliako"/>
 
 
-#Obtención de una instancia de procesador multimedia
+
+#<a name="how-to:-get-a-media-processor-instance"></a>Obtención de una instancia de procesador multimedia
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-get-media-processor.md)
 - [REST](media-services-rest-get-media-processor.md)
 
 
-##Información general
+##<a name="overview"></a>Información general
 
 En los Servicios multimedia, un procesador multimedia es un componente que controla una tarea de procesamiento específica, como codificación, conversión de formato, cifrado o descifrado de contenido multimedia. Normalmente crea un procesador multimedia cuando crea una tarea para codificar, cifrar o convertir el formato de contenido multimedia.
 
@@ -41,32 +42,38 @@ Storage Decryption| En desuso|
 Azure Media Packager|En desuso|
 Azure Media Encryptor|En desuso|
 
-##Obtención de un procesador multimedia
+##<a name="get-media-processor"></a>Obtención de un procesador multimedia
 
-El siguiente método muestra cómo obtener una instancia del procesador multimedia. El ejemplo de código supone el uso de una variable de nivel de módulo llamada **\_context** para hacer referencia al contexto de servidor tal como se describe en la sección [Procedimientos: conexión con los Servicios multimedia mediante programación](media-services-dotnet-connect-programmatically.md).
+El siguiente método muestra cómo obtener una instancia del procesador multimedia. El ejemplo de código supone el uso de una variable de nivel de módulo llamada **_context** para hacer referencia al contexto de servidor tal como se describe en la sección [Procedimientos: conexión con los Media Services mediante programación](media-services-dotnet-connect-programmatically.md).
 
-	private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-	{
-		var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-		ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-		
-		if (processor == null)
-		throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-		
-		return processor;
-	}
+    private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+    {
+        var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+        
+        if (processor == null)
+        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+        
+        return processor;
+    }
 
 
-##Rutas de aprendizaje de Servicios multimedia
+##<a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Envío de comentarios
+##<a name="provide-feedback"></a>Envío de comentarios
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-##Pasos siguientes
+##<a name="next-steps"></a>Pasos siguientes
 
-Ahora que sabe cómo obtener una instancia de procesador multimedia, consulte el tema sobre la [codificación de un recurso](media-services-dotnet-encode-with-media-encoder-standard.md), que le mostrará cómo utilizar el servicio Media Encoder estándar para codificar un recurso.
+Ahora que sabe cómo obtener una instancia de procesador multimedia, consulte el tema sobre la [codificación de un recurso](media-services-dotnet-encode-with-media-encoder-standard.md) , que le mostrará cómo utilizar el servicio Media Encoder estándar para codificar un recurso.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

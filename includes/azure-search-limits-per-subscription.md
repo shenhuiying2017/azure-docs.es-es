@@ -1,20 +1,27 @@
-Puede crear varios servicios en una suscripción, cada uno de ellos aprovisionado en un nivel concreto y limitado solo por el número de servicios permitidos en cada nivel en una sola suscripción de Azure. Los servicios máximos por nivel se especifican a continuación. Como se indica, puede crear hasta 12 servicios en el nivel básico y otros 12 servicios en el nivel de S1 dentro de la misma suscripción.
+Puede crear varios servicios en una suscripción, cada uno de ellos aprovisionado en un nivel concreto, el único límite lo establece el número de servicios que se permiten en cada nivel. Por ejemplo, puede crear hasta doce servicios en el nivel básico y otros doce en el nivel de S1 dentro de la misma suscripción. 
 
-En el resto de niveles, corresponde uno por suscripción. Puede ponerse en contacto con soporte técnico de Azure si necesita más de un S2, S3 o S3 HD por suscripción.
+El límite máximo de servicios se puede elevar a petición. Si necesita tener más servicios en la misma suscripción, póngase en contacto con el soporte técnico de Azure.
 
-Recurso|Gratuito|Básica|S1|S2|S3 <sup>1</sup> <br/>(Versión preliminar) |S3 HD <sup>1</sup> <br/>(Versión preliminar) 
+Recurso|Gratuito|Básica|S1|S2|S3 <br/>(Versión preliminar) <sup>1</sup>  |S3 HD <br/>(Versión preliminar) <sup>1</sup> 
 ---|---|---|---|----|---|----
-Servicios máximos |1 |12 |12 |1 |1 |1 
-Escala máxima en unidad de búsqueda <sup>2</sup>|N/D <sup>3</sup>|3 unidades de búsqueda <sup>4</sup> |36 unidades de búsqueda|36 unidades de búsqueda|36 unidades de búsqueda|12 unidades de búsqueda <sup>5</sup>
+Servicios máximos |1 |12 |12  |6 |6 |6 
+Escala máxima en SU <sup>2</sup>|N/D <sup>3</sup>|3 SU <sup>4</sup> |36 unidades de búsqueda|36 unidades de búsqueda|36 unidades de búsqueda|12 SU <sup>5</sup>
 
-<sup>1</sup> Los niveles en **versión preliminar** se facturan a una tarifa inicial del 50 % del precio completo. Antes de la disponibilidad general, los niveles se presentan como una característica en versión preliminar. Durante la versión preliminar no hay ningún Acuerdo de Nivel de Servicio en vigor. Consulte [Choose a SKU or tier for Azure Search](../articles/search/search-sku-tier.md) (Elegir SKU o nivel de Búsqueda de Azure) para más información acerca de los niveles.
+<sup>1</sup> Los niveles de vista previa se facturan a una tasa de introducción del 50 % y pasan a tener el precio completo cuando el nivel pasa a ser de disponibilidad general (GA). Durante la versión preliminar no hay ningún Acuerdo de Nivel de Servicio en vigor. Para más información acerca de los niveles, consulte [Selección de SKU o plan de tarifa de Azure Search](../articles/search/search-sku-tier.md).
 
-<sup>2</sup> Las **unidades de búsqueda** son unidades facturables por servicio, asignadas como **réplica** o como **partición**. Necesita ambos tipos de recursos para las operaciones de para las operaciones de almacenamiento, indexación y consulta. Consulte [Planeación de la capacidad en Búsqueda de Azure](../articles/search/search-capacity-planning.md) para ver las combinaciones válidas que permanecen dentro de los límites máximos.
+<sup>2</sup> Las unidades de búsqueda (SU) son unidades facturables por servicio, asignadas como *réplica* o como *partición*. Ambos recursos se necesitan para las operaciones de almacenamiento, indexación y consulta. Para más información acerca de las combinaciones válidas que permanecen dentro de los límites máximos, consulte [Escalado de niveles de recursos para cargas de trabajo de indexación y consulta en Búsqueda de Azure](../articles/search/search-capacity-planning.md). 
 
-<sup>3</sup> **Gratis** se basa en los recursos compartidos utilizados por varios suscriptores. En este nivel, no hay ningún recurso dedicado para un suscriptor individual. Por este motivo, no se admite la escalabilidad.
+<sup>3</sup> Gratis se basa en los recursos compartidos que usan varios suscriptores. En este nivel, no hay ningún recurso dedicado para un suscriptor individual. Por este motivo, la escala máxima se marca como no aplicable.
 
-<sup>4</sup> **Básico** tiene una partición fija. Las unidades de búsqueda se utilizan para asignar réplicas para el escalado de cargas de trabajo de consulta.
+<sup>4</sup> Básico tiene una partición fija. En este nivel, se utilizan SU adicionales para asignar más réplicas a más cargas de trabajo de consulta.
 
-<sup>5</sup> **S3 HD** se basa en el mismo hardware como S3, pero en una configuración que está optimizada para un número mayor de índices más pequeños. Tiene 1 partición muy grande en lugar de 12 particiones más pequeñas y tiene un máximo de 12 réplicas, similares a S3.
+<sup>5</sup> S3 HD se basa en el mismo hardware que S3, pero en una configuración que está optimizada para un gran número de índices más pequeños. De forma similar al nivel básico, tiene una partición muy grande con unidades de búsqueda adicionales que pueden utilizarse para las réplicas.
 
-<!---HONumber=AcomDC_0608_2016-->
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

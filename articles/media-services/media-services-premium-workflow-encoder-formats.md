@@ -1,42 +1,43 @@
 <properties 
-	pageTitle="Códecs y formatos de flujo de trabajo de Media Encoder premium | Microsoft Azure" 
-	description="En este tema se proporciona información general de códecs y formatos de formatos de flujo de trabajo de Media Encoder premium." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="erik43" 
-	editor=""/>
+    pageTitle="Códecs y formatos de flujo de trabajo de Media Encoder premium | Microsoft Azure" 
+    description="En este tema se proporciona información general de códecs y formatos de formatos de flujo de trabajo de Media Encoder premium." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako" 
+    manager="erik43" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/26/2016"    
-	ms.author="juliako;anilmur"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/26/2016"    
+    ms.author="juliako;anilmur"/>
 
-#Códecs y formatos de flujo de trabajo del Codificador multimedia Premium
+
+#<a name="media-encoder-premium-workflow-formats-and-codecs"></a>Códecs y formatos de flujo de trabajo del Codificador multimedia Premium
 
 
 >[AZURE.NOTE]Si tiene preguntas sobre el codificador premium, envíe un correo a mepd en Microsoft.com.
 >
->El procesador multimedia del flujo de trabajo premium de Media Encoder del que se habla en este tema no está disponible en China.
+>El procesador multimedia del flujo de trabajo premium de Media Encoder del que se habla en este tema no está disponible en China. 
 
-Este documento contiene una lista de los formatos de archivo de entrada y salida y los códecs que son compatibles con la vista previa pública del **Flujo de trabajo del Codificador multimedia premium**.
+Este documento contiene una lista de los formatos de archivo de entrada y salida y los códecs que son compatibles con la vista previa pública del **Flujo de trabajo del Codificador multimedia premium** .
 
 [Códecs y formatos de entrada del flujo de trabajo del Codificador multimedia Premium](#input_formats)
 
 [Códecs y formatos de salida del flujo de trabajo del Codificador multimedia Premium](#output_formats)
 
-El **flujo de trabajo del Codificador multimedia Premium** admite los subtítulos que se describen en [esta](#closed_captioning) sección.
+**Flujo de trabajo del Codificador multimedia premium** admite los subtítulos que se describen en [esta](#closed_captioning) sección. 
 
 
-##<a id="input_formats"></a>Códecs y formatos de entrada de flujo de trabajo del Codificador multimedia Premium
+##<a name="<a-id="input_formats"></a>media-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Códecs y formatos de entrada de flujo de trabajo del Codificador multimedia Premium
 
 En la sección siguiente se enumeran los códecs y formatos de archivo que admite este procesador multimedia como entrada.
 
-###Formatos de archivo/contenedor de entrada
+###<a name="input-container/file-formats"></a>Formatos de archivo/contenedor de entrada
 
 - Adobe® Flash® F4V
 - MXF/SMPTE 377M
@@ -47,7 +48,7 @@ En la sección siguiente se enumeran los códecs y formatos de archivo que admit
 - Windows Media/ASF
 - AVI (sin comprimir de 8 bits/10 bits)
 
-###Códecs de vídeo de entrada
+###<a name="input-video-codecs"></a>Códecs de vídeo de entrada
 
 - AVC 8 bits/10 bits, hasta 4:2:2, incluido AVCIntra
 - Avid DNxHD (en MXF)
@@ -57,7 +58,7 @@ En la sección siguiente se enumeran los códecs y formatos de archivo que admit
 - MPEG-1
 - Windows Media Video/VC-1
 
-###Códecs de audio de entrada
+###<a name="input-audio-codecs"></a>Códecs de audio de entrada
 
 - AES (SMPTE 331M y 302M, AES3-2003)
 - Dolby® E
@@ -68,11 +69,11 @@ En la sección siguiente se enumeran los códecs y formatos de archivo que admit
 - Windows Media Audio
 - WAV/PCM
  
-##<a id="output_format"></a>Códecs y formatos de salida de flujo de trabajo del Codificador multimedia Premium
+##<a name="<a-id="output_format"></a>media-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Códecs y formatos de salida de flujo de trabajo del Codificador multimedia Premium
 
 En la sección siguiente se enumeran los códecs y formatos de archivo que se admiten como salida de este procesador multimedia.
 
-###Formatos de archivo/contenedor de salida
+###<a name="output-container/file-formats"></a>Formatos de archivo/contenedor de salida
 
 - Adobe® Flash® F4V
 - MXF (OP1a, XDCAM y AS02)
@@ -82,10 +83,10 @@ En la sección siguiente se enumeran los códecs y formatos de archivo que se ad
 - Windows Media/ASF
 - AVI (sin comprimir de 8 bits/10 bits)
 - Formato de archivo de streaming con velocidad de transmisión adaptable (PIFF 1.3)
-- MPEG-TS
+- MPEG-TS 
 
 
-###Códecs de vídeo de salida
+###<a name="output-video-codecs"></a>Códecs de vídeo de salida
 
 - AVC (H.264; 8 bits; hasta Perfil alto, Nivel 5.2; 4K Ultra HD; AVC Intra)
 - Avid DNxHD (en MXF)
@@ -95,7 +96,7 @@ En la sección siguiente se enumeran los códecs y formatos de archivo que se ad
 - Windows Media Video/VC-1
 - Creación de miniaturas JPEG
 
-###Códecs de audio de salida
+###<a name="output-audio-codecs"></a>Códecs de audio de salida
 
 - AES (SMPTE 331M y 302M, AES3-2003)
 - Dolby® Digital (AC3)
@@ -105,7 +106,7 @@ En la sección siguiente se enumeran los códecs y formatos de archivo que se ad
 - MP3 (MPEG-1 Audio Layer 3)
 - Windows Media Audio
 
-##<a id="closed_captioning"></a>Compatibilidad con subtítulos
+##<a name="<a-id="closed_captioning"></a>support-for-closed-captioning"></a><a id="closed_captioning"></a>Compatibilidad con subtítulos
 
 En la entrada, el **flujo de trabajo del Codificador multimedia Premium** admite:
 
@@ -125,17 +126,21 @@ En la salida, están disponibles las siguientes opciones:
 
 Nota: no todos los formatos de salida anteriores se admiten para la entrega mediante streaming en Servicios multimedia de Azure.
 
-##Problemas conocidos
+##<a name="known-issues"></a>Problemas conocidos
 
-Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá conteniendo un archivo TTML vacío.
+Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá conteniendo un archivo TTML vacío. 
 
 
-##Rutas de aprendizaje de Servicios multimedia
+##<a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Envío de comentarios
+##<a name="provide-feedback"></a>Envío de comentarios
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

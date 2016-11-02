@@ -16,9 +16,12 @@
     ms.date="09/28/2016"
     ms.author="dhanyahk;markvi"/>
 
-# Ejemplos de la API de auditoría de generación de informes de Azure Active Directory
 
-Este tema forma parte de una serie de temas sobre la API de informes de Azure Active Directory. La característica de generación de informes de Azure AD proporciona una API que permite acceder a los datos de auditoría mediante el uso de código o herramientas relacionadas. Este tema se centra en proporcionar el código de ejemplo para la **API de actividad de auditoría**.
+# <a name="azure-active-directory-reporting-audit-api-samples"></a>Ejemplos de la API de auditoría de generación de informes de Azure Active Directory
+
+Este tema forma parte de una serie de temas sobre la API de informes de Azure Active Directory.  
+La característica de generación de informes de Azure AD proporciona una API que permite acceder a los datos de auditoría mediante el uso de código o herramientas relacionadas.
+Este tema se centra en proporcionar el código de ejemplo para la **API de actividad de auditoría**.
 
 Consulte:
 
@@ -29,16 +32,16 @@ Consulte:
 Para ver preguntas, problemas o comentarios, póngase en contacto con el equipo de [ayuda de informes de AAD](mailto:aadreportinghelp@microsoft.com).
 
 
-## Requisitos previos
-Para poder usar los ejemplos de este tema, debe completar la [requisitos previos para tener acceso a la API de generación de informes de Azure AD](active-directory-reporting-api-prerequisites.md).
+## <a name="prerequisites"></a>Requisitos previos
+Para poder usar los ejemplos de este tema, debe completar la [requisitos previos para tener acceso a la API de generación de informes de Azure AD](active-directory-reporting-api-prerequisites.md).  
   
 
-## Problema conocido
+## <a name="known-issue"></a>Problema conocido
 
-La autenticación de aplicaciones no funcionará si el inquilino está en la región de la UE. Utilice la autenticación de usuario para acceder a la API de auditoría como alternativa hasta que se corrija el problema.
+La autenticación de aplicaciones no funcionará si el inquilino está en la región de la UE. Utilice la autenticación de usuario para acceder a la API de auditoría como alternativa hasta que se corrija el problema. 
 
 
-## Script de PowerShell
+## <a name="powershell-script"></a>Script de PowerShell
     # This script will require registration of a Web Application in Azure Active Directory (see https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)
 
     # Constants
@@ -83,13 +86,13 @@ La autenticación de aplicaciones no funcionará si el inquilino está en la reg
     $x = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 
 
-### Ejecución del script de PowerShell
+### <a name="executing-the-powershell-script"></a>Ejecución del script de PowerShell
 Una vez que termine de editar el script, ejecútelo y compruebe que el informe de registros de auditoría devuelve los datos esperados.
 
 El script devuelve la salida del informe de auditoría en formato JSON. También se crea un archivo `audit.json` con la misma salida. Puede experimentar modificando el script para que devuelva datos de otros informes y convertir en comentario los formatos de salida que no necesite.
 
 
-## Script de Bash
+## <a name="bash-script"></a>Script de Bash
 
     #!/bin/bash
 
@@ -118,58 +121,62 @@ El script devuelve la salida del informe de auditoría en formato JSON. También
 
     echo $REPORT | ./jq-win64.exe -r '.value' | ./jq-win64.exe -r ".[]"
 
-## Script de Python
+## <a name="python-script"></a>Script de Python
 
-	# Author: Michael McLaughlin (michmcla@microsoft.com)
-	# Date: January 20, 2016
-	# This requires the Python Requests module: http://docs.python-requests.org
+    # Author: Michael McLaughlin (michmcla@microsoft.com)
+    # Date: January 20, 2016
+    # This requires the Python Requests module: http://docs.python-requests.org
 
-	import requests
-	import datetime
-	import sys
+    import requests
+    import datetime
+    import sys
 
-	client_id = 'your-application-client-id-here'
-	client_secret = 'your-application-client-secret-here'
-	login_url = 'https://login.windows.net/'
-	tenant_domain = 'your-directory-name-here.onmicrosoft.com'
+    client_id = 'your-application-client-id-here'
+    client_secret = 'your-application-client-secret-here'
+    login_url = 'https://login.windows.net/'
+    tenant_domain = 'your-directory-name-here.onmicrosoft.com'
 
-	# Get an OAuth access token
-	bodyvals = {'client_id': client_id,
-	            'client_secret': client_secret,
-	            'grant_type': 'client_credentials'}
+    # Get an OAuth access token
+    bodyvals = {'client_id': client_id,
+                'client_secret': client_secret,
+                'grant_type': 'client_credentials'}
 
-	request_url = login_url + tenant_domain + '/oauth2/token?api-version=1.0'
-	token_response = requests.post(request_url, data=bodyvals)
+    request_url = login_url + tenant_domain + '/oauth2/token?api-version=1.0'
+    token_response = requests.post(request_url, data=bodyvals)
 
-	access_token = token_response.json().get('access_token')
-	token_type = token_response.json().get('token_type')
+    access_token = token_response.json().get('access_token')
+    token_type = token_response.json().get('token_type')
 
-	if access_token is None or token_type is None:
-	    print "ERROR: Couldn't get access token"
-	    sys.exit(1)
+    if access_token is None or token_type is None:
+        print "ERROR: Couldn't get access token"
+        sys.exit(1)
 
-	# Use the access token to make the API request
-	yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
+    # Use the access token to make the API request
+    yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
 
-	header_params = {'Authorization': token_type + ' ' + access_token}
-	request_string = 'https://graph.windows.net/' + tenant_domain + 'activities/audit?api-version=beta&$filter=eventTime%20gt%20' + yesterday   
-	response = requests.get(request_string, headers = header_params)
+    header_params = {'Authorization': token_type + ' ' + access_token}
+    request_string = 'https://graph.windows.net/' + tenant_domain + 'activities/audit?api-version=beta&$filter=eventTime%20gt%20' + yesterday   
+    response = requests.get(request_string, headers = header_params)
 
-	if response.status_code is 200:
-	    print response.content
-	else:
-	    print 'ERROR: API request failed'
-
-
+    if response.status_code is 200:
+        print response.content
+    else:
+        print 'ERROR: API request failed'
 
 
 
-## Pasos siguientes
 
-- ¿Quiere personalizar los ejemplos de este tema? Consulte la [referencia de la API de auditoría de Azure Active Directory](active-directory-reporting-api-audit-reference.md).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- ¿Quiere personalizar los ejemplos de este tema? Consulte la [referencia de la API de auditoría de Azure Active Directory](active-directory-reporting-api-audit-reference.md). 
 
 - Si quiere obtener una descripción completa del uso de la API de generación de informes de Azure Active Directory, consulte el artículo de [introducción a la API de generación de informes de Azure Active Directory](active-directory-reporting-api-getting-started.md).
 
-- Si quiere obtener más información sobre informes de Azure Active Directory, consulte la [guía de generación de informes de Azure Active Directory](active-directory-reporting-guide.md).
+- Si quiere obtener más información sobre informes de Azure Active Directory, consulte la [guía de generación de informes de Azure Active Directory](active-directory-reporting-guide.md).  
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

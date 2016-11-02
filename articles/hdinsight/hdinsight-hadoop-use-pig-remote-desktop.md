@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -14,10 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/25/2016"
+   ms.date="10/11/2016"
    ms.author="larryfr"/>
 
-#Ejecución de trabajos de Pig desde una conexión de Escritorio remoto
+
+#<a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Ejecución de trabajos de Pig desde una conexión de Escritorio remoto
 
 [AZURE.INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
@@ -25,7 +26,7 @@ Este documento ofrece un tutorial para que usar el comando Pig para ejecutar ins
 
 En este documento, aprenda cómo
 
-##<a id="prereq"></a>Requisitos previos
+##<a name="<a-id="prereq"></a>prerequisites"></a><a id="prereq"></a>Requisitos previos
 
 Necesitará lo siguiente para completar los pasos de este artículo.
 
@@ -33,98 +34,98 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 
 * Un equipo cliente con Windows 10, Windows 8 o Windows 7
 
-##<a id="connect"></a>Conexión con el Escritorio remoto
+##<a name="<a-id="connect"></a>connect-with-remote-desktop"></a><a id="connect"></a>Conexión con el Escritorio remoto
 
 Habilite el Escritorio remoto para el clúster de HDInsight y conéctese a él siguiendo las instrucciones dadas en [Conexión a los clústeres de HDInsight con RDP](hdinsight-administer-use-management-portal.md#rdp).
 
-##<a id="pig"></a>Uso del comando Pig
+##<a name="<a-id="pig"></a>use-the-pig-command"></a><a id="pig"></a>Uso del comando Pig
 
 2. Desde la sesión de Escritorio remoto, use el icono de **línea de comandos de Hadoop** del escritorio para iniciar la línea de comandos de Hadoop.
 
 2. Use lo siguiente para iniciar el comando Pig:
 
-		%pig_home%\bin\pig
+        %pig_home%\bin\pig
 
-	Aparecerá un símbolo del sistema de `grunt>`.
+    Aparecerá un símbolo del sistema de `grunt>` .
 
 3. Introduzca la siguiente instrucción:
 
-		LOGS = LOAD 'wasbs:///example/data/sample.log';
+        LOGS = LOAD 'wasbs:///example/data/sample.log';
 
-	Este comando carga el contenido del archivo sample.log en LOGS. Puede ver el contenido del archivo mediante el siguiente comando:
+    Este comando carga el contenido del archivo sample.log en LOGS. Puede ver el contenido del archivo mediante el siguiente comando:
 
-		DUMP LOGS;
+        DUMP LOGS;
 
 4. Transforme los datos aplicando una expresión regular para extraer solo el nivel de registro en cada registro mediante lo siguiente.
 
-		LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+        LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
 
-	Puede usar **DUMP** para ver los datos después de la transformación. En este caso, `DUMP LEVELS;`.
+    Puede usar **DUMP** para ver los datos después de la transformación. En este caso, `DUMP LEVELS;`.
 
 5. Continúe aplicando transformaciones mediante las instrucciones siguientes. Utilice `DUMP` para ver el resultado de la transformación después de cada paso.
 
-	<table>
-	<tr>
-	<th>Instrucción</th><th>Qué hace</th>
-	</tr>
-	<tr>
-	<td>FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;</td><td>Quita las filas que contienen un valor nulo para el nivel de registro y almacena los resultados en FILTEREDLEVELS.</td>
-	</tr>
-	<tr>
-	<td>GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;</td><td>Agrupa las filas por nivel de registro y almacena los resultados en GROUPEDLEVELS.</td>
-	</tr>
-	<tr>
-	<td>FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;</td><td>Crea un nuevo conjunto de datos que contiene cada valor de registro único y cuántas veces se produce. Esto se almacena en FRECUENCIAS</td>
-	</tr>
-	<tr>
-	<td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Ordena los niveles de registro por número (descendente) y los almacena en el resultado (RESULT)</td>
-	</tr>
-	</table>
+    <table>
+    <tr>
+    <th>Instrucción</th><th>Qué hace</th>
+    </tr>
+    <tr>
+    <td>FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;</td><td>Quita las filas que contienen un valor nulo para el nivel de registro y almacena los resultados en FILTEREDLEVELS.</td>
+    </tr>
+    <tr>
+    <td>GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;</td><td>Agrupa las filas por nivel de registro y almacena los resultados en GROUPEDLEVELS.</td>
+    </tr>
+    <tr>
+    <td>FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;</td><td>Crea un nuevo conjunto de datos que contiene cada valor de registro único y cuántas veces se produce. Esto se almacena en FRECUENCIAS</td>
+    </tr>
+    <tr>
+    <td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Ordena los niveles de registro por número (descendente) y los almacena en el resultado (RESULT)</td>
+    </tr>
+    </table>
 
-6. También puede guardar los resultados de una transformación mediante la instrucción `STORE`. Por ejemplo, el siguiente comando guarda el valor `RESULT` en el directorio **/example/data/pigout** en el contenedor de almacenamiento predeterminado para el clúster:
+6. También puede guardar los resultados de una transformación mediante la instrucción `STORE` . Por ejemplo, el siguiente comando guarda el valor `RESULT` en el directorio **/example/data/pigout** en el contenedor de almacenamiento predeterminado para el clúster:
 
-		STORE RESULT into 'wasbs:///example/data/pigout'
+        STORE RESULT into 'wasbs:///example/data/pigout'
 
-	> [AZURE.NOTE] Los datos se almacenan en el directorio especificado en los archivos denominados **part-nnnnn**. Si el directorio ya existe, recibirá un mensaje de error.
+    > [AZURE.NOTE] Los datos se almacenan en el directorio especificado en los archivos denominados **part-nnnnn**. Si el directorio ya existe, recibirá un mensaje de error.
 
 7. Para salir del aviso de grunt, introduzca la siguiente instrucción.
 
-		QUIT;
+        QUIT;
 
-###Archivos por lotes de Pig Latin
+###<a name="pig-latin-batch-files"></a>Archivos por lotes de Pig Latin
 
 También puede usar el comando de Pig para ejecutar Pig Latin contenido en un archivo.
 
-3. Después de salir del aviso de grunt, abra el **Bloc de notas** y cree un nuevo archivo denominado **pigbatch.pig** en el directorio **%PIG\_HOME%**.
+3. Después de salir del aviso de grunt, abra el **Bloc de notas** y cree un nuevo archivo denominado **pigbatch.pig** en el directorio **%PIG_HOME%**.
 
 4. Escriba o pegue las siguientes líneas en el archivo **pigbatch.pig** y luego guárdelo cuando haya terminado.
 
-		LOGS = LOAD 'wasbs:///example/data/sample.log';
-		LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-		FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-		GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-		FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-		RESULT = order FREQUENCIES by COUNT desc;
-		DUMP RESULT;
+        LOGS = LOAD 'wasbs:///example/data/sample.log';
+        LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+        FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+        GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+        FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+        RESULT = order FREQUENCIES by COUNT desc;
+        DUMP RESULT;
 
 5. Utilice lo siguiente para ejecutar el archivo **pigbatch.pig** mediante el comando de Pig.
 
-		pig %PIG_HOME%\pigbatch.pig
+        pig %PIG_HOME%\pigbatch.pig
 
-	Una vez completado el trabajo por lotes, debería ver el siguiente resultado, que debe ser el mismo que cuando ha utilizado `DUMP RESULT;` en los pasos anteriores.
+    Una vez completado el trabajo por lotes, debería ver el siguiente resultado, que debe ser el mismo que cuando ha utilizado `DUMP RESULT;` en los pasos anteriores.
 
-		(TRACE,816)
-		(DEBUG,434)
-		(INFO,96)
-		(WARN,11)
-		(ERROR,6)
-		(FATAL,2)
+        (TRACE,816)
+        (DEBUG,434)
+        (INFO,96)
+        (WARN,11)
+        (ERROR,6)
+        (FATAL,2)
 
-##<a id="summary"></a>Resumen
+##<a name="<a-id="summary"></a>summary"></a><a id="summary"></a>Resumen
 
 Como puede ver, el comando de Pig permite ejecutar interactivamente operaciones de MapReduce mediante Pig Latin, así como ejecutar trabajos de Pig Latin almacenados en un archivo por lotes.
 
-##<a id="nextsteps"></a>Pasos siguientes
+##<a name="<a-id="nextsteps"></a>next-steps"></a><a id="nextsteps"></a>Pasos siguientes
 
 Para obtener información general sobre Pig en HDInsight, siga estos pasos:
 
@@ -136,4 +137,8 @@ Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsigh
 
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

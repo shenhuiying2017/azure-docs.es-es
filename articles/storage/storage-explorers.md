@@ -1,22 +1,23 @@
 <properties
-	pageTitle="Herramientas de cliente de Almacenamiento de Azure | Microsoft Azure"
-	description="Lista de herramientas que le permiten ver datos de Almacenamiento de Azure o interactuar con ellos."
-	services="storage"
-	documentationCenter=""
-	authors="micurd"
-	manager="jahogg"
-	editor="tysonn"/>
+    pageTitle="Herramientas de cliente de Almacenamiento de Azure | Microsoft Azure"
+    description="Lista de herramientas que le permiten ver datos de Almacenamiento de Azure o interactuar con ellos."
+    services="storage"
+    documentationCenter=""
+    authors="micurd"
+    manager="jahogg"
+    editor="tysonn"/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/21/2016"
-	ms.author="micurd;tamram"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/18/2016"
+    ms.author="micurd"/>
 
-# Herramientas de cliente de Almacenamiento de Azure
+
+# <a name="azure-storage-client-tools"></a>Herramientas de cliente de Almacenamiento de Azure
 
 Los usuarios de Almacenamiento de Azure con frecuencia desean poder ver o interactuar con sus datos mediante una herramienta de cliente de Almacenamiento de Azure. En las tablas siguientes, mostramos un número de herramientas que le permiten hacer esto. Escribimos una “X” en cada bloque si permite enumerar o tener acceso a la abstracción de los datos. La tabla también muestra si las herramientas están disponibles. "Versión de prueba" indica que cuenta con una evaluación gratuita, pero que el producto completo no es gratuito. "S/N" indica que hay disponible una versión gratuita, mientras que la versión disponible para la compra es diferente.
 
@@ -40,7 +41,7 @@ Los usuarios de Almacenamiento de Azure con frecuencia desean poder ver o intera
     <td>Web</td>
     <td>Windows</td>
     <td>OSX</td>
-    <td>Linux</td>
+    <td> Linux</td>
   </tr>
   <tr>
     <td><a href="https://azure.microsoft.com/features/azure-portal/">Portal de Microsoft Azure</a></td>
@@ -106,7 +107,7 @@ No hemos comprobado la funcionalidad ni la calidad proporcionadas por las siguie
     <td>Web</td>
     <td>Windows</td>
     <td>OSX</td>
-    <td>Linux</td>
+    <td> Linux</td>
   </tr>
   <tr>
     <td><a href="http://www.cloudportam.com/">Cloud Portam</a></td>
@@ -250,4 +251,8 @@ No hemos comprobado la funcionalidad ni la calidad proporcionadas por las siguie
   </tr>
 </table>
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

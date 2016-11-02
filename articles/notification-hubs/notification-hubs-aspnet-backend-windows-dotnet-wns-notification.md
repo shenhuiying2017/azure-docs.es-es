@@ -1,65 +1,62 @@
 <properties
-	pageTitle="Los Centros de notificaciones de Azure notifican a los usuarios con back-end de .NET"
-	description="Obtenga información acerca de cómo enviar notificaciones de inserción seguras en Azure. Ejemplos de código escritos en C# con la API de .NET."
-	documentationCenter="windows"
-	authors="wesmc7777"
-	manager="erikre"
-	services="notification-hubs"
-	editor=""/>
+    pageTitle="Los Centros de notificaciones de Azure notifican a los usuarios con back-end de .NET"
+    description="Obtenga información acerca de cómo enviar notificaciones de inserción seguras en Azure. Ejemplos de código escritos en C# con la API de .NET."
+    documentationCenter="windows"
+    authors="wesmc7777"
+    manager="erikre"
+    services="notification-hubs"
+    editor=""/>
 
 <tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="06/29/2016"
-	ms.author="wesmc"/>
+    ms.service="notification-hubs"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="10/03/2016"
+    ms.author="wesmc"/>
 
-#Los Centros de notificaciones de Azure notifican a los usuarios con back-end de .NET
+
+#<a name="azure-notification-hubs-notify-users-with-.net-backend"></a>Los Centros de notificaciones de Azure notifican a los usuarios con back-end de .NET
 
 [AZURE.INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 
-##Información general
+##<a name="overview"></a>Información general
 
-La compatibilidad con las notificaciones de inserción en Azure le permite tener acceso a una infraestructura multiplataforma y de escalamiento horizontal fácil de usar, que simplifica considerablemente la implementación de notificaciones de inserción tanto en aplicaciones de consumidor, como en aplicaciones empresariales para plataformas móviles. Este tutorial muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a un usuario de aplicaciones determinado en un dispositivo concreto. Se usa un back-end de WebAPI de ASP.NET para autenticar a los clientes. Al usar el usuario del cliente autenticado, el back-end agregará automáticamente la etiqueta para el registro de notificaciones. Esta etiqueta se usará para que la envíe el back-end para generar notificaciones para un usuario específico. Para más información sobre cómo registrarse para notificaciones con un back-end de aplicación, consulte el tema de orientación [Registro desde el back-end de la aplicación](http://msdn.microsoft.com/library/dn743807.aspx). Este tutorial se basa en el Centro de notificaciones y el proyecto que creó en el tutorial [Introducción a los Centros de notificaciones].
+La compatibilidad con las notificaciones de inserción en Azure le permite tener acceso a una infraestructura multiplataforma y de escalamiento horizontal fácil de usar, que simplifica considerablemente la implementación de notificaciones de inserción tanto en aplicaciones de consumidor, como en aplicaciones empresariales para plataformas móviles. Este tutorial muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a un usuario de aplicaciones determinado en un dispositivo concreto. Se usa un back-end de WebAPI de ASP.NET para autenticar a los clientes. Al usar el usuario del cliente autenticado, el back-end agregará automáticamente la etiqueta para el registro de notificaciones. Esta etiqueta se usará para que la envíe el back-end para generar notificaciones para un usuario específico. Para más información sobre cómo registrarse para notificaciones con un back-end de aplicación, consulte el tema de orientación [Registro desde el back-end de la aplicación](http://msdn.microsoft.com/library/dn743807.aspx). Este tutorial se basa en el Centro de notificaciones y el proyecto que creó en el tutorial [Introducción a los Centros de notificaciones] .
 
-Este tutorial también es el requisito previo para el tutorial [Inserción segura]. Después de haber completado los pasos de este tutorial, puede continuar con el tutorial [Inserción segura], que muestra cómo modificar el código de este tutorial para enviar una notificación push de forma segura.
-
-
+Este tutorial también es el requisito previo para el tutorial [Inserción segura] . Después de haber completado los pasos de este tutorial, puede continuar con el tutorial [Inserción segura] , que muestra cómo modificar el código de este tutorial para enviar una notificación push de forma segura.
 
 
 
-## Antes de empezar
+
+
+## <a name="before-you-begin"></a>Antes de empezar
 
 Nos tomamos muy en serio sus comentarios. Si tiene dificultades para completar este tema o tiene recomendaciones para mejorar este contenido, agradecemos que escriba sus comentarios en la parte inferior de la página.
 
-El código completo de este tutorial se puede encontrar en GitHub [aquí](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers).
+El código completo de este tutorial se puede encontrar en GitHub [aquí](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers). 
 
 
 
-##Requisitos previos
+##<a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar este tutorial, debe haber realizado los siguientes tutoriales de Servicios móviles:
 
-+ [Introducción a los Centros de notificaciones]<br/>Cree el Centro de notificaciones, reserve el nombre de la aplicación y regístrese para recibir notificaciones en este tutorial. En este tutorial se asume que ya ha completado estos pasos. En caso contrario, siga los pasos de [Introducción a los Centros de notificaciones](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) (Tienda Windows), especialmente las secciones [Registro de la aplicación para la Tienda Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#register-your-app-for-the-windows-store) y [Configuración del Centro de notificaciones](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#configure-your-notification-hub). En concreto, asegúrese de que ha especificado los valores de **SID del paquete** y **Secreto del cliente** en el portal, en la pestaña **Configurar** correspondiente a su Centro de notificaciones. Este procedimiento de configuración se describe en la sección [Configuración de su Centro de notificaciones](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#configure-your-notification-hub). Este es un paso importante: si las credenciales del portal no coinciden con las especificadas para el nombre de la aplicación que elija, la notificación de inserción no tendrá lugar.
++ [Introducción a los Centros de notificaciones]<br/>Cree el Centro de notificaciones, reserve el nombre de la aplicación y regístrese para recibir notificaciones en este tutorial. En este tutorial se asume que ya ha completado estos pasos. En caso contrario, siga los pasos de [Introducción a los Notification Hubs (Tienda Windows)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), especialmente las secciones [Registro de la aplicación para la Tienda Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#register-your-app-for-the-windows-store) y [Configuración del Centro de notificaciones](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#configure-your-notification-hub). En concreto, asegúrese de que ha especificado los valores de **SID del paquete** y **Secreto del cliente** en el portal, en la pestaña **Configurar** correspondiente a su Centro de notificaciones. Este procedimiento de configuración se describe en la sección [Configuración de su Centro de notificaciones](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#configure-your-notification-hub). Este es un paso importante: si las credenciales del portal no coinciden con las especificadas para el nombre de la aplicación que elija, la notificación de inserción no tendrá lugar.
 
 
-
-
-> [AZURE.NOTE] Si usa Servicios móviles como su servicio back-end, consulte la [versión de Servicios móviles](../mobile-services/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md) de este tutorial.
-
-
+> [AZURE.NOTE] Si usa Mobile Apps como su servicio back-end en App Service, consulte la [versión de Mobile Apps](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) de este tutorial.
 
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
-## Actualización del código para el proyecto de cliente
+## <a name="update-the-code-for-the-client-project"></a>Actualización del código para el proyecto de cliente
 
-En esta sección, se actualiza el código del proyecto que se ha completado para el tutorial [Introducción a los Centros de notificaciones]. Debe estar asociado con la tienda y configurada para el Centro de notificaciones. En esta sección, agregará código para llamar el nuevo back-end de WebAPI y lo usará para registrar y enviar notificaciones.
+En esta sección, se actualiza el código del proyecto que se ha completado para el tutorial [Introducción a los Centros de notificaciones] . Debe estar asociado con la tienda y configurada para el Centro de notificaciones. En esta sección, agregará código para llamar el nuevo back-end de WebAPI y lo usará para registrar y enviar notificaciones.
 
-1. En Visual Studio, abra el la solución creada para el tutorial [Introducción a los Centros de notificaciones].
+1. En Visual Studio, abra el la solución creada para el tutorial [Introducción a los Centros de notificaciones] .
 
 2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **(Windows 8.1)** y, a continuación, haga clic en **Administrar paquetes de NuGet**.
 
@@ -74,7 +71,7 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
 7. Repita los pasos anteriores para el proyecto **(Windows Phone 8.1)** para instalar el paquete de NuGet **JSON.NET** para el proyecto de Windows Phone.
 
 
-8. En el Explorador de soluciones, en el proyecto **(Windows Phone 8.1)**, haga doble clic en **MainPage.xaml** para abrirlo en el editor de Visual Studio.
+8. En el Explorador de soluciones, en el proyecto **(Windows 8.1)**, haga doble clic en **MainPage.xaml** para abrirlo en el editor de Visual Studio.
 
 9. En el código XML **MainPage.xaml**, sustituya la sección `<Grid>` por el siguiente código: Este código agrega un cuadro de texto de nombre de usuario y contraseña con el que el usuario se autenticará. También agrega cuadros de texto al mensaje de notificación y la etiqueta de nombre de usuario que debería recibir la notificación:
 
@@ -130,16 +127,16 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
 
 10. En el Explorador de soluciones, en el proyecto **(Windows Phone 8.1)**, abra **MainPage.xaml** y reemplace la sección Windows Phone 8.1 `<Grid>` con el mismo código anterior. La interfaz tendrá un aspecto similar a la que se muestra a continuación.
 
-	![][13]
+    ![][13]
 
 11. En el Explorador de soluciones, abra el archivo **MainPage.xaml.cs** para los proyectos **(Windows 8.1)** y **(Windows Phone 8.1)**. Agregue las siguientes instrucciones `using` en la parte superior de ambos archivos:
 
-		using System.Net.Http;
-		using Windows.Storage;
-		using System.Net.Http.Headers;
-		using Windows.Networking.PushNotifications;
-		using Windows.UI.Popups;
-		using System.Threading.Tasks;
+        using System.Net.Http;
+        using Windows.Storage;
+        using System.Net.Http.Headers;
+        using Windows.Networking.PushNotifications;
+        using Windows.UI.Popups;
+        using System.Threading.Tasks;
 
 12. En **MainPage.xaml.cs** para los proyectos **(Windows 8.1)** y **(Windows Phone 8.1)**, agregue el miembro siguiente a la clase `MainPage`. Asegúrese de reemplazar `<Enter Your Backend Endpoint>` por el extremo de back-end obtenido anteriormente. Por ejemplo: `http://mybackend.azurewebsites.net`.
 
@@ -149,9 +146,9 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
 
 13. Agregue el código siguiente a la clase MainPage en **MainPage.xaml.cs** para los proyectos **(Windows 8.1)** y **(Windows Phone 8.1)**.
 
-	El método `PushClick` es el controlador de clics para el botón **Enviar inserción**. Llama al back-end para desencadenar una notificación a todos los dispositivos con una etiqueta de nombre de usuario que coincida con el parámetro `to_tag`. El mensaje de notificación se envía como contenido JSON en el cuerpo de la solicitud.
+    El método `PushClick` es el controlador de clics para el botón **Enviar inserción** . Llama al back-end para desencadenar una notificación a todos los dispositivos con una etiqueta de nombre de usuario que coincida con el parámetro `to_tag` . El mensaje de notificación se envía como contenido JSON en el cuerpo de la solicitud.
 
-	El método `LoginAndRegisterClick` es el controlador de clics para el botón **Iniciar sesión y registrarse**. Almacena el token de autenticación básico localmente (tenga en cuenta que esto representa cualquier token que usa el esquema de autenticación) y después usa `RegisterClient` para registrar las notificaciones que usan el back-end.
+    El método `LoginAndRegisterClick` es el controlador de clics para el botón **Iniciar sesión y registrarse** . Almacena el token de autenticación básico localmente (tenga en cuenta que esto representa cualquier token que usa el esquema de autenticación) y después usa `RegisterClient` para registrar las notificaciones que usan el back-end.
 
 
         private async void PushClick(object sender, RoutedEventArgs e)
@@ -183,7 +180,7 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
 
                 try
                 {
-                    await httpClient.PostAsync(POST_URL, new StringContent(""" + message + """,
+                    await httpClient.PostAsync(POST_URL, new StringContent("\"" + message + "\"",
                         System.Text.Encoding.UTF8, "application/json"));
                 }
                 catch (Exception ex)
@@ -204,8 +201,8 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
             // The tag passed here can be whatever other tags you may want to use.
             try
             {
-				// The device handle used will be different depending on the device and PNS. 
-				// Windows devices use the channel uri as the PNS handle.
+                // The device handle used will be different depending on the device and PNS. 
+                // Windows devices use the channel uri as the PNS handle.
                 await new RegisterClient(BACKEND_ENDPOINT).RegisterAsync(channel.Uri, new string[] { "myTag" });
 
                 var dialog = new MessageDialog("Registered as: " + UsernameTextBox.Text);
@@ -231,7 +228,7 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
 
 
 
-14. En el Explorador de soluciones, en el proyecto **compartido**, abra el archivo **MainPage.cs**. Encuentre la llamada a `InitNotificationsAsync()` en el controlador de eventos `OnLaunched()`. Marque como comentario o elimine la llamada a `InitNotificationsAsync()`. El controlador del botón agregado anteriormente inicializará los registros de notificación.
+14. En el Explorador de soluciones, en el proyecto **compartido**, abra el archivo **App.xaml.cs**. Encuentre la llamada a `InitNotificationsAsync()` in the `OnLaunched()` . Marque como comentario o elimine la llamada a `InitNotificationsAsync()`. El controlador del botón agregado anteriormente inicializará los registros de notificación.
 
 
         protected override void OnLaunched(LaunchActivatedEventArgs e)
@@ -239,24 +236,24 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
             //InitNotificationsAsync();
 
 
-15. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **compartido**, a continuación en **Agregar **y, por último, en **Clase**. Asigne un nombre a la clase **RegisterClient.cs** y después haga clic en **Aceptar** para generar la clase.
+15. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **compartido**, a continuación en **Agregar** y, por último, en **Clase**. Asigne un nombre a la clase **RegisterClient.cs** y después haga clic en **Aceptar** para generar la clase.
 
-	Esta clase contendrá las llamadas REST requeridas para ponerse en contacto con el back-end de la aplicación con la finalidad de registrar notificaciones push. También almacena localmente los *registrationIds* creados por el Centro de notificaciones tal como se detalla en [Registro desde el back-end de la aplicación](http://msdn.microsoft.com/library/dn743807.aspx). Tenga en cuenta que usa un token de autorización almacenado localmente cuando hace clic en el botón **Iniciar sesión y registrarse**.
+    Esta clase contendrá las llamadas REST requeridas para ponerse en contacto con el back-end de la aplicación con la finalidad de registrar notificaciones push. También almacena localmente los *registrationIds* creados por el Centro de notificaciones tal como se detalla en [Registro desde el back-end de la aplicación](http://msdn.microsoft.com/library/dn743807.aspx). Tenga en cuenta que usa un token de autorización almacenado localmente cuando hace clic en el botón **Iniciar sesión y registrarse** .
 
 
 16. Agregue las siguientes instrucciones `using` en la parte superior del archivo RegisterClient.cs:
 
-		using Windows.Storage;
-		using System.Net;
-		using System.Net.Http;
-		using System.Net.Http.Headers;
-		using Newtonsoft.Json;
-		using System.Threading.Tasks;
-		using System.Linq;
+        using Windows.Storage;
+        using System.Net;
+        using System.Net.Http;
+        using System.Net.Http.Headers;
+        using Newtonsoft.Json;
+        using System.Threading.Tasks;
+        using System.Linq;
 
-17. Agregue el siguiente código a la definición de clase `RegisterClient`.
+17. Agregue el siguiente código a la definición de clase `RegisterClient` .
 
-		private string POST_URL;
+        private string POST_URL;
 
         private class DeviceRegistration
         {
@@ -295,7 +292,7 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
             if (statusCode != HttpStatusCode.Accepted)
             {
                 // log or throw
-				throw new System.Net.WebException(statusCode.ToString());
+                throw new System.Net.WebException(statusCode.ToString());
             }
         }
 
@@ -332,7 +329,7 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
                     }
                     else
                     {
-						throw new System.Net.WebException(response.StatusCode.ToString());
+                        throw new System.Net.WebException(response.StatusCode.ToString());
                     }
                 }
             }
@@ -343,27 +340,27 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
 18. Guarde todos los cambios.
 
 
-## Prueba de la aplicación
+## <a name="testing-the-application"></a>Prueba de la aplicación
 
 1. Inicie la aplicación en Windows 8.1 y Windows Phone 8.1. Para Windows Phone 8.1 puede ejecutar la instancia en el emulador o en un dispositivo real.
 
 2. En la instancia de Windows 8.1 de la aplicación, especifique un **nombre de usuario** y una **contraseña**, tal como se muestra en la pantalla siguiente. Debe diferir del nombre de usuario y contraseña que escriba en Windows Phone.
 
 
-3. Haga clic en **Iniciar sesión y registrarse** y compruebe que el cuadro de diálogo se muestre que ha iniciado sesión. Esto también le permitirá habilitar el botón **Enviar inserción**.
+3. Haga clic en **Iniciar sesión y registrarse** y compruebe que el cuadro de diálogo se muestre que ha iniciado sesión. Esto también le permitirá habilitar el botón **Enviar inserción** .
 
     ![][14]
 
 4. En la instancia de Windows Phone 8.1, escriba una cadena de nombre de usuario en los campos **Nombre de usuario** y **Contraseña** y después haga clic en **Iniciar sesión y registrarse**.
-5. Después, en el campo **Etiqueta de nombre de usuario destinatario**, especifique el nombre registrado en Windows 8.1. Escriba un mensaje de notificación y haga clic en **Enviar inserción**.
+5. Después, en el campo **Etiqueta de nombre de usuario destinatario** , especifique el nombre registrado en Windows 8.1. Escriba un mensaje de notificación y haga clic en **Enviar inserción**.
 
     ![][16]
 
 6. Solo los dispositivos que se han registrado con la etiqueta de nombre de usuario coincidente reciben el mensaje de notificación.
 
-	![][15]
+    ![][15]
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Si desea segmentar los usuarios por grupos de interés, consulte [Uso de los Centros de notificaciones para enviar noticias de última hora].
 * Para obtener más información sobre el uso de Centros de notificaciones, consulte [Información general acerca de los Centros de notificaciones].
@@ -384,7 +381,11 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
 <!-- URLs. -->
 [Introducción a los Centros de notificaciones]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Inserción segura]: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
-[Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Uso de Notification Hubs para enviar noticias de último minuto]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [Información general acerca de los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

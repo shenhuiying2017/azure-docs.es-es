@@ -17,11 +17,12 @@
  ms.date="08/02/2016"
  ms.author="yurid"/>
 
+
 [AZURE.INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre cómo proteger la solución de IoT, consulte [Proteger su implementación de IoT][lnk-security-deployment].
+Para más información sobre cómo proteger la solución de IoT, consulte [Proteger su implementación de IoT][lnk-security-deployment].
 
 También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del conjunto de aplicaciones de IoT:
 
@@ -33,4 +34,7 @@ También puede explorar algunas de las demás características y funcionalidades
 
 [lnk-security-deployment]: iot-suite-security-deployment.md
 
-<!---HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

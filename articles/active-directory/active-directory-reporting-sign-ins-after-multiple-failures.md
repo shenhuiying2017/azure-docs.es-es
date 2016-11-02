@@ -1,22 +1,23 @@
 <properties
-	pageTitle="Inicios de sesión tras varios errores"
-	description="Un informe que indica los usuarios que han iniciado sesión correctamente después de varios intentos del inicio de sesión consecutivos."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="femila"
-	editor=""/>
+    pageTitle="Inicios de sesión tras varios errores"
+    description="Un informe que indica los usuarios que han iniciado sesión correctamente después de varios intentos del inicio de sesión consecutivos."
+    services="active-directory"
+    documentationCenter=""
+    authors="SSalahAhmed"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="03/04/2016"
+    ms.author="saah;kenhoff"/>
 
-# Inicios de sesión tras varios errores
+
+# <a name="sign-ins-after-multiple-failures"></a>Inicios de sesión tras varios errores
 Este informe indica los usuarios que han iniciado sesión correctamente después de varios intentos del inicio de sesión consecutivos. Entre las posibles causas se incluyen las siguientes:
 
 - El usuario había olvidado su contraseña.</li><li>El usuario es víctima de un ataque por fuerza bruta de averiguación de contraseñas que ha logrado su objetivo.
@@ -28,4 +29,8 @@ Los resultados de este informe le mostrarán el número de intentos de inicio de
 
 ![Inicios de sesión tras varios errores](./media/active-directory-reporting-sign-ins-after-multiple-failures/signInsAfterMultipleFailures.PNG)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

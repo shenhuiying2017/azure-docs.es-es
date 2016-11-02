@@ -7,6 +7,7 @@
     manager="carmonm"
     editor=""
     tags="azure-resource-manager"
+    keywords="IPv6, Azure Load Balancer, pila doble, dirección ip pública, ipv6 nativo, móvil, iot"
 />
 <tags
     ms.service="load-balancer"
@@ -18,16 +19,17 @@
     ms.author="sewhee"
 />
 
-# Creación de un equilibrador de carga orientado a Internet con IPv6 en Azure Resource Manager con la CLI de Azure
+
+# <a name="create-an-internet-facing-load-balancer-with-ipv6-in-azure-resource-manager-using-the-azure-cli"></a>Creación de un equilibrador de carga orientado a Internet con IPv6 en Azure Resource Manager con la CLI de Azure
 
 > [AZURE.SELECTOR]
-- [PowerShell](load-balancer-IPv6-internet-ps.md)
-- [CLI de Azure](load-balancer-IPv6-internet-cli.md)
-- [Plantilla](load-balancer-IPv6-internet-template.md)
+- [PowerShell](./load-balancer-ipv6-internet-ps.md)
+- [CLI de Azure](./load-balancer-ipv6-internet-cli.md)
+- [Plantilla](./load-balancer-ipv6-internet-template.md)
 
 Azure Load Balancer es un equilibrador de carga de nivel 4 (TCP y UDP) que distribuye proporcionando una alta disponibilidad el tráfico entrante entre las instancias de servicio correctas de los servicios en la nube o las máquinas virtuales de un conjunto de carga equilibrada. Azure Load Balancer también pueden presentar prestar servicios en varios puertos, varias direcciones IP o ambos.
 
-## Escenario de implementación de ejemplo
+## <a name="example-deployment-scenario"></a>Escenario de implementación de ejemplo
 
 En el siguiente diagrama se ilustra la solución de equilibrio de carga que se implementa mediante la plantilla de ejemplo descrita en este artículo.
 
@@ -41,7 +43,7 @@ En este escenario creará los siguientes recursos de Azure:
 - un conjunto de disponibilidad con las dos máquinas virtuales
 - dos reglas de equilibrio de carga para asignar las VIP públicas a los puntos de conexión privados
 
-## Implementación de la solución mediante la CLI de Azure
+## <a name="deploying-the-solution-using-the-azure-cli"></a>Implementación de la solución mediante la CLI de Azure
 
 Los pasos siguientes muestran cómo crear un equilibrador de carga orientado a Internet mediante Azure Resource Manager con la CLI. Con Azure Resource Manager, cada recurso se crea y configura de forma individual, y luego se juntan para crear un recurso.
 
@@ -55,7 +57,7 @@ Para implementar un equilibrador de carga, debe crear y configurar los siguiente
 
 Para más información, consulte [Compatibilidad de Azure Resource Manager con el equilibrador de carga](load-balancer-arm.md).
 
-## Configuración del entorno de CLI para usar Azure Resource Manager
+## <a name="set-up-your-cli-environment-to-use-azure-resource-manager"></a>Configuración del entorno de CLI para usar Azure Resource Manager
 
 En este ejemplo, ejecutamos las herramientas de la CLI en una ventana Comandos de PowerShell. No usamos los cmdlets de Azure PowerShell, pero utilizamos las capacidades de scripting de PowerShell para mejorar la legibilidad y reutilización.
 
@@ -95,7 +97,7 @@ En este ejemplo, ejecutamos las herramientas de la CLI en una ventana Comandos d
         $lbName = "myIPv4IPv6Lb"
         ```
 
-## Creación de un grupo de recursos, un equilibrador de carga, una red virtual y subredes
+## <a name="create-a-resource-group,-a-load-balancer,-a-virtual-network,-and-subnets"></a>Creación de un grupo de recursos, un equilibrador de carga, una red virtual y subredes
 
 1. Crear un grupo de recursos
 
@@ -114,7 +116,7 @@ En este ejemplo, ejecutamos las herramientas de la CLI en una ventana Comandos d
         $subnet1 = azure network vnet subnet create --resource-group $rgname --name $subnet1Name --address-prefix $subnet1Prefix --vnet-name $vnetName
         $subnet2 = azure network vnet subnet create --resource-group $rgname --name $subnet2Name --address-prefix $subnet2Prefix --vnet-name $vnetName
 
-## Creación de direcciones IP públicas para el grupo de servidores front-end
+## <a name="create-public-ip-addresses-for-the-front-end-pool"></a>Creación de direcciones IP públicas para el grupo de servidores front-end
 
 1. Configure las variables de PowerShell
 
@@ -126,9 +128,10 @@ En este ejemplo, ejecutamos las herramientas de la CLI en una ventana Comandos d
         $publicipV4 = azure network public-ip create --resource-group $rgname --name $publicIpv4Name --location $location --ip-version IPv4 --allocation-method Dynamic --domain-name-label $dnsLabel
         $publicipV6 = azure network public-ip create --resource-group $rgname --name $publicIpv6Name --location $location --ip-version IPv6 --allocation-method Dynamic --domain-name-label $dnsLabel
 
-    >[AZURE.IMPORTANT] El equilibrador de carga usa la etiqueta de dominio de la dirección IP pública como su FQDN. Esto representa un cambio en la implementación clásica, que usa el nombre del servicio en la nube como el FQDN del equilibrador de carga. En este ejemplo, el FQDN es *contoso09152016.southcentralus.cloudapp.azure.com*.
+    >[AZURE.IMPORTANT] El equilibrador de carga usa la etiqueta de dominio de la dirección IP pública como FQDN. Esto representa un cambio en la implementación clásica, que usa el nombre del servicio en la nube como el FQDN del equilibrador de carga.
+    >En este ejemplo, el FQDN es *contoso09152016.southcentralus.cloudapp.azure.com*.
 
-## Creación de grupos de servidores front-end y back-end
+## <a name="create-front-end-and-back-end-pools"></a>Creación de grupos de servidores front-end y back-end
 
 En este ejemplo se crea el grupo de direcciones IP de front-end que recibe el tráfico de red que entra al equilibrador de carga y el grupo de direcciones IP de back-end donde el grupo de servidores front-end envía el tráfico de red con equilibrio de carga.
 
@@ -146,7 +149,7 @@ En este ejemplo se crea el grupo de direcciones IP de front-end que recibe el tr
         $backendAddressPoolV4 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV4Name --lb-name $lbName
         $backendAddressPoolV6 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV6Name --lb-name $lbName
 
-## Creación del sondeo, las reglas NAT y las reglas del equilibrador de carga
+## <a name="create-the-probe,-nat-rules,-and-lb-rules"></a>Creación del sondeo, las reglas NAT y las reglas del equilibrador de carga
 
 En este ejemplo se crean los siguientes elementos:
 
@@ -226,7 +229,7 @@ En este ejemplo se crean los siguientes elementos:
         info:    network lb show
 
 
-## Cree tarjetas NIC
+## <a name="create-nics"></a>Cree tarjetas NIC
 
 Cree tarjetas NIC y asócielas a reglas NAT, reglas de equilibrador de carga y sondeos.
 
@@ -249,7 +252,7 @@ Cree tarjetas NIC y asócielas a reglas NAT, reglas de equilibrador de carga y s
         $nic2 = azure network nic create --name $nic2Name --resource-group $rgname --location $location --subnet-id $subnet1Id --lb-address-pool-ids $backendAddressPoolV4Id --lb-inbound-nat-rule-ids $natRule1V4Id
         $nic2IPv6 = azure network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-version "IPv6" --lb-address-pool-ids $backendAddressPoolV6Id --nic-name $nic2Name
 
-## Creación de los recursos de la máquina virtual de back-end y conexión de cada NIC
+## <a name="create-the-back-end-vm-resources-and-attach-each-nic"></a>Creación de los recursos de la máquina virtual de back-end y conexión de cada NIC
 
 Para crear máquinas virtuales, debe tener una cuenta de almacenamiento. Para el equilibrio de carga, es necesario que las máquinas virtuales formen parte de un conjunto de disponibilidad. Para obtener más información sobre cómo crear máquinas virtuales, consulte [Creación de una máquina virtual de Azure con PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
@@ -269,7 +272,7 @@ Para crear máquinas virtuales, debe tener una cuenta de almacenamiento. Para el
         $vmUserName = "vmUser"
         $mySecurePassword = "PlainTextPassword*1"
 
-    >[AZURE.WARNING] En este ejemplo se usan el nombre de usuario y contraseña de las máquinas virtuales en texto no cifrado. Al usar credenciales sin cifrar, debe prestarse la atención adecuada. Para ver un método más seguro de administración de credenciales en PowerShell, consulte el cmdlet [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx).
+    >[AZURE.WARNING] En este ejemplo se usan el nombre de usuario y contraseña de las máquinas virtuales en texto no cifrado. Al usar credenciales sin cifrar, debe prestarse la atención adecuada. Para ver un método más seguro de administración de credenciales en PowerShell, consulte el cmdlet [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) .
 
 2. Creación de la cuenta de almacenamiento y el conjunto de disponibilidad
 
@@ -287,7 +290,7 @@ Para crear máquinas virtuales, debe tener una cuenta de almacenamiento. Para el
 
         $vm2 = azure vm create --resource-group $rgname --location $location --availset-name $availabilitySetName --name $vm2Name --nic-id $nic2Id --os-disk-vhd $osDisk2Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn  --storage-account-name $storageAccountName --disable-bginfo-extension
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Introducción a la configuración de un equilibrador de carga interno](load-balancer-get-started-ilb-arm-cli.md)
 
@@ -295,4 +298,8 @@ Para crear máquinas virtuales, debe tener una cuenta de almacenamiento. Para el
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

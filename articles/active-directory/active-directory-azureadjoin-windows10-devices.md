@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Uso de dispositivos con Windows 10 en el área de trabajo | Microsoft Azure"
-	description="Ofrece una instantánea de las funcionalidades para los usuarios y los responsables de TI, comparando las distintas formas en que un dispositivo se puede aprovisionar y usar en una empresa con Windows 10."
-	services="active-directory"
-	documentationCenter=""
-	authors="femila"
-	manager="swadhwa"
-	editor=""
-	tags="azure-classic-portal"/>
+    pageTitle="Uso de dispositivos con Windows 10 en el área de trabajo | Microsoft Azure"
+    description="Ofrece una instantánea de las funcionalidades para los usuarios y los responsables de TI, comparando las distintas formas en que un dispositivo se puede aprovisionar y usar en una empresa con Windows 10."
+    services="active-directory"
+    documentationCenter=""
+    authors="femila"
+    manager="swadhwa"
+    editor=""
+    tags="azure-classic-portal"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="femila"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/27/2016"
+    ms.author="femila"/>
 
-# Uso de dispositivos de Windows 10 en el área de trabajo
+
+# <a name="using-windows-10-devices-in-your-workplace"></a>Uso de dispositivos de Windows 10 en el área de trabajo
 
 Ámbito de aplicación: equipos con Windows 10
 
@@ -29,19 +30,19 @@ Windows 10 ofrece tres modelos a las organizaciones para que los usuarios puedan
 
 En la tabla siguiente se presenta una instantánea de las funcionalidades para los usuarios y los administradores de TI, en la que se comparan las distintas formas en que un dispositivo se puede aprovisionar y usar en una empresa con Windows 10:
 
-| | Unión a un dominio | Azure AD Join | Dispositivo personal |
+|                                                                                                                                                                 | Unión a un dominio     | Azure AD Join | Dispositivo personal |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|---------------|-----------------|
-| Inicio de sesión de dispositivos de Windows para cuentas profesionales o educativas. | Sí | Sí | No |
-| Inicio de sesión único de usuario (SSO) para aplicaciones de Office 365 y Azure AD. SSO es la capacidad de iniciar sesión solo una vez para acceder a recursos de la organización. | Sí | Sí | Sí |
-| Inicio de sesión único de usuario a las aplicaciones de Kerberos/NTLM. | Sí | Limitado | Sí, a través de VPN |
-| Autorización segura y práctico inicio de sesión único para cuentas profesionales o educativas con Microsoft Passport y Windows Hello. | Sí | Sí | Sí |
-| Acceso a la Tienda Windows para empresas con una cuenta profesional o educativa (no una cuenta de Microsoft). | Sí | Sí | Sí |
-| Movilidad de las configuraciones de usuario conforme a la empresa entre dispositivos que usan cuentas profesionales o educativas. | Sí | Sí | Sí |
-| Capacidad para restringir el acceso a las aplicaciones de la organización solo a los dispositivos que cumplen sus directivas. | Sí | Sí | Sí |
-| Autoservicio de usuarios para el aprovisionamiento de dispositivos para trabajar desde cualquier lugar. | No | Sí | Sí |
-| Capacidad para administrar dispositivos. | Sí, a través de GP/SCCM | Sí | Sí |
+| Inicio de sesión de dispositivos de Windows para cuentas profesionales o educativas.                                                                                                                      | Sí             | Sí           | No              |
+| Inicio de sesión único de usuario (SSO) para aplicaciones de Office 365 y Azure AD. SSO es la capacidad de iniciar sesión solo una vez para acceder a recursos de la organización. | Sí             | Sí           | Sí             |
+| Inicio de sesión único de usuario a las aplicaciones de Kerberos/NTLM.                                                                                                                                  | Sí             | Limitado       | Sí, a través de VPN         |
+| Autorización segura y práctico inicio de sesión único para cuentas profesionales o educativas con Microsoft Passport y Windows Hello.                                                                   | Sí             | Sí           | Sí             |
+| Acceso a la Tienda Windows para empresas con una cuenta profesional o educativa (no una cuenta de Microsoft).                                                                                    | Sí             | Sí           | Sí             |
+| Movilidad de las configuraciones de usuario conforme a la empresa entre dispositivos que usan cuentas profesionales o educativas.                                                                                 | Sí             | Sí           | Sí             |
+| Capacidad para restringir el acceso a las aplicaciones de la organización solo a los dispositivos que cumplen sus directivas.                                                      | Sí             | Sí           | Sí             |
+| Autoservicio de usuarios para el aprovisionamiento de dispositivos para trabajar desde cualquier lugar.                                                                                                | No              | Sí           | Sí             |
+| Capacidad para administrar dispositivos.                                                                                                                                       | Sí, a través de GP/SCCM | Sí           | Sí             |
 
-## Uso de dispositivos de trabajo con Azure AD Join y la unión a un dominio en Windows 10
+## <a name="use-work-owned-devices-with-azure-ad-join-and-domain-join-in-windows-10"></a>Uso de dispositivos de trabajo con Azure AD Join y la unión a un dominio en Windows 10
 
 Windows 10 ofrece dos modelos para que los dispositivos de trabajo accedan a los recursos de trabajo:
 
@@ -50,9 +51,9 @@ Windows 10 ofrece dos modelos para que los dispositivos de trabajo accedan a los
 
  Ambos pueden ser opciones válidas según las necesidades y los requisitos de una organización. En algunos casos, las organizaciones pueden beneficiarse de la habilitación de ambos métodos de implementación.
 
-## ¿Cuándo usar Azure Active Directory Join?
+## <a name="when-to-use-azure-active-directory-join"></a>¿Cuándo usar Azure Active Directory Join?
 
-Azure AD Join es una nueva experiencia de aprovisionamiento de trabajo de autoservicio en Windows 10. Está destinada a trabajadores que acceden a los recursos de trabajo, como Office 365, principalmente en la nube. Es una forma sencilla de configurar los equipos, tabletas y teléfonos para la empresa. Los dispositivos se administran mediante la administración de dispositivos móviles, con controles coherentes entre plataformas de Windows.
+Azure AD Join es una nueva experiencia de aprovisionamiento de trabajo de autoservicio en Windows 10.  Está destinada a trabajadores que acceden a los recursos de trabajo, como Office 365, principalmente en la nube. Es una forma sencilla de configurar los equipos, tabletas y teléfonos para la empresa. Los dispositivos se administran mediante la administración de dispositivos móviles, con controles coherentes entre plataformas de Windows.
 
 **Use Azure AD Join por cualquiera de estos motivos**:
 
@@ -74,7 +75,7 @@ Por ejemplo, los distritos escolares y las universidades pueden administrar al p
 
 Para obtener más información sobre Azure AD Join, consulte [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-overview.md).
 
-## ¿Cuándo usar la unión a un dominio (o seguir usándola)?
+## <a name="when-to-use-domain-join-(or-keep-using-it)"></a>¿Cuándo usar la unión a un dominio (o seguir usándola)?
 
 Durante los últimos 15 años, muchas organizaciones han usado la unión a un dominio para conectar dispositivos de trabajo. Permite a los usuarios iniciar sesión en sus dispositivos con sus cuentas profesionales o educativas de Active Directory. La unión a un dominio también permite a los responsables de TI administrar dichos dispositivos de forma central y total. Normalmente, las organizaciones confían en los métodos de creación de imágenes para aprovisionar los dispositivos y suelen usar System Center Configuration Manager (SCCM) o la directiva de grupo para administrarlos.
 
@@ -93,7 +94,7 @@ Durante los últimos 15 años, muchas organizaciones han usado la unión a un do
 
 Para obtener más información sobre Azure AD Join, consulte [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-overview.md).
 
-## Habilitación de la unión de dispositivos personales para el trabajo o la escuela
+## <a name="enable-joining-of-personally-owned-devices-for-work-or-school"></a>Habilitación de la unión de dispositivos personales para el trabajo o la escuela
 
 Para admitir BYOD en la empresa, Windows 10 proporciona al usuario la capacidad de "agregar una cuenta profesional o educativa" a su equipo, tableta o teléfono. Después de que el usuario agregue una cuenta profesional o educativa, el dispositivo se registra con Azure AD y, opcionalmente, se inscribe en el sistema de administración de dispositivos móviles que la organización ha configurado. El directorio mostrará estos dispositivos como "Registrado" en lugar de como "Unido a Azure AD". Los administradores de TI pueden aplicar diferentes directivas según esta información, proporcionando un enfoque más ligero en dispositivos personales que en dispositivos de trabajo, si así lo desea.
 
@@ -101,11 +102,11 @@ Los usuarios pueden agregar un cuenta profesional o educativa a su dispositivo p
 
 Para más información sobre Azure AD Join, consulte [Conexión de dispositivos unidos a un dominio a Azure AD para experiencias en Windows 10](active-directory-azureadjoin-devices-group-policy.md).
 
-## Habilitación de la unión a un dominio o Azure AD Join
+## <a name="enable-domain-join-or-azure-ad-join"></a>Habilitación de la unión a un dominio o Azure AD Join
 
 Todos los métodos descritos anteriormente (unión a un dominio, Azure AD Join y "agregar una cuenta profesional o educativa") tienen puntos de entrada en la experiencia de usuario de Windows 10. Sin embargo, todos requieren que un administrador de TI habilite la funcionalidad en la infraestructura antes de que funcione la experiencia.
 
-## Requisitos para implementar Azure AD Join
+## <a name="requirements-for-deploying-azure-ad-join"></a>Requisitos para implementar Azure AD Join
 
 Para implementar Azure AD Join para cualquier conjunto de usuarios necesita lo siguiente:
 
@@ -115,7 +116,7 @@ Para implementar Azure AD Join para cualquier conjunto de usuarios necesita lo s
 
 Si sus instalaciones son híbridas, se recomienda encarecidamente implementar Azure AD Connect para ampliar el directorio local a Azure AD.
 
-## Requisitos para usar la unión a un dominio con Azure AD
+## <a name="requirements-for-using-domain-join-with-azure-ad"></a>Requisitos para usar la unión a un dominio con Azure AD
 
 La unión a un dominio continúa funcionando como siempre. Sin embargo, para tener las ventajas de Azure AD, es necesario lo siguiente:
 
@@ -125,16 +126,16 @@ La unión a un dominio continúa funcionando como siempre. Sin embargo, para ten
 - Una directiva que permite acceder a dispositivos unidos a un dominio si se desea poder restringir el acceso para algunos dispositivos.
 - System Center Configuration Manager version 1509 for Technical Preview para habilitar las reglas para requerir dispositivos compatibles. (Consulte la documentación de TechNet y publicaciones en blogs).
 
-Para obtener más información sobre la unión a un dominio en Windows 10, consulte <link-to-DJ-in-Win10-deployment-guide>.
+Para más información sobre cómo unirse a un dominio de Windows 10, consulte <link-to-DJ-in-Win10-deployment-guide>.
 
-## Requisitos para usar BYOD y "Agregar una cuenta profesional o educativa"
+## <a name="requirements-for-using-byod-and-"add-a-work-or-school-account""></a>Requisitos para usar BYOD y "Agregar una cuenta profesional o educativa"
 
 Para habilitar Bring Your Own Device (BYOD) con cuentas profesionales o educativas, necesita lo siguiente:
 
 - Una suscripción de Azure AD.
 - Una suscripción de Azure AD Premium, como la inscripción automática a la administración de dispositivos móviles, en el caso de que requiera más funcionalidades.
 
-## Requisitos para usar Microsoft Passport
+## <a name="requirements-for-using-microsoft-passport"></a>Requisitos para usar Microsoft Passport
 
 Para habilitar Microsoft Passport, necesitará lo siguiente:
 
@@ -148,10 +149,10 @@ Como alternativa a usar una PKI, puede habilitar Microsoft Passport basado en cl
 - Implemente controladores de dominio de 'Versión preliminar de producción 1' en Windows Server 2016 (no es necesario el nivel funcional del bosque o del dominio y bastarán varios controladores de dominio para la redundancia que da servicio a cada sitio de Active Directory).
 - Establezca una directiva para habilitar Microsoft Passport en la organización.
 
-Para obtener más información sobre Microsoft Passport y Windows Hello en Windows 10, consulte <link-to-MS-Passport-and-Windows-Hello-document>.
+Para más información sobre Microsoft Passport y Windows Hello en Windows 10, consulte <link-to-MS-Passport-and-Windows-Hello-document>.
 
-## Preguntas más frecuentes
-### ¿Qué productos de administración de dispositivos móviles de asociados se integran con Azure AD?
+## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+### <a name="which-partner-mobile-device-management-products-integrate-with-azure-ad?"></a>¿Qué productos de administración de dispositivos móviles de asociados se integran con Azure AD?
 
 Los siguientes productos de proveedor se integran con Azure AD para ofrecer inscripción unificada y acceso condicional en Windows 10:
 
@@ -160,21 +161,25 @@ Los siguientes productos de proveedor se integran con Azure AD para ofrecer insc
 - Lightspeed Mobile Manager
 - Administración de dispositivos móviles locales SOTI
 
-### ¿Qué ocurre con la unión al área de trabajo en Windows 10?
+### <a name="what-about-workplace-join-in-windows-10?"></a>¿Qué ocurre con la unión al área de trabajo en Windows 10?
 La unión al lugar de trabajo en Windows 8.1 se usaba para habilitar BYOD. En Windows 10, BYOD se habilita mediante "Agregar una cuenta profesional o educativa", como se explicó anteriormente en este documento. Para las organizaciones que no integran la administración de dispositivos móviles con Azure AD, los usuarios pueden inscribir el dispositivo en la administración manualmente mediante **Configuración** > **Cuentas** > **Acceso al trabajo**.
 
 
-### ¿Los usuarios pueden conectar su cuenta de Microsoft a su cuenta de dominio en Windows 10?
+### <a name="can-users-connect-their-microsoft-account-to-their-domain-account-in-windows-10?"></a>¿Los usuarios pueden conectar su cuenta de Microsoft a su cuenta de dominio en Windows 10?
 No en Windows 10. En Windows 8.1, los usuarios de dispositivos unidos a un dominio podían "conectar" su cuenta de Microsoft (por ejemplo, de Hotmail, Live, Outlook, XBox, etc.) a su cuenta de dominio para habilitar ciertas experiencias como SSO a servicios de Live, el uso de la Tienda Windows y la movilidad de configuraciones de usuario entre dispositivos. En Windows 10, se ha retirado la funcionalidad de conexión de la cuenta de Microsoft. El usuario puede agregar una o más cuentas de Microsoft como cuentas adicionales para habilitar el SSO para los servicios de consumidor, como la Tienda Windows. Puede hacerlo en **Configuración** > **Cuentas** > **Su cuenta**.
 
 Los usuarios que actualizan desde dispositivos unidos a un dominio de Windows 8.1 y que tenían su cuenta de Microsoft conectada, tendrán automáticamente su cuenta de Microsoft conectada agregada a la lista de cuentas adicionales que usan.
 
 
-## Información adicional
+## <a name="additional-information"></a>Información adicional
 * [Windows 10 para la empresa: formas de usar dispositivos para trabajar](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [Conozca los escenarios de uso de Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
