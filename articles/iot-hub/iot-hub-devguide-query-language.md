@@ -17,7 +17,7 @@
  ms.author="elioda"/>
 
 
-# <a name="reference---query-language-for-twins-and-jobs"></a>Referencia: lenguaje de consulta para gemelos y trabajos
+# <a name="reference-query-language-for-twins-and-jobs"></a>Referencia: lenguaje de consulta para gemelos y trabajos
 
 ## <a name="overview"></a>Información general
 
@@ -120,7 +120,7 @@ devuelve el recuento de los dispositivos en cada estado de configuración de tel
 
 En el ejemplo anterior, se demuestra una situación en la que tres dispositivos notificaron una configuración correcta, dos aún están aplicándola y uno notificó un error.
 
-### <a name="c#-example"></a>Ejemplo de C#
+### <a name="c-example"></a>Ejemplo de C#
 
 El [SDK del servicio C#][lnk-hub-sdks] expone la funcionalidad de consulta en la clase **RegistryManager**.
 Este ejemplo corresponde a una consulta simple:

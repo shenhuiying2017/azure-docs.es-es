@@ -17,7 +17,7 @@
  ms.author="nberdy"/>
 
 
-# <a name="invoke-a-direct-method-on-a-device-(preview)"></a>Invocación de un método directo en un dispositivo (versión preliminar)
+# <a name="invoke-a-direct-method-on-a-device-preview"></a>Invocación de un método directo en un dispositivo (versión preliminar)
 
 ## <a name="overview"></a>Información general
 
@@ -54,7 +54,7 @@ Las llamadas de método de dispositivo son solo HTTP desde el lado de la nube y 
 
 ## <a name="reference"></a>Referencia
 
-### <a name="service-facing"></a>Orientado al servicio
+### <a name="servicefacing"></a>Orientado al servicio
 
 #### <a name="method-invocation"></a>Invocación de método
 
@@ -95,7 +95,7 @@ El back-end recibe una respuesta que consta de:
   
    El dispositivo proporciona tanto `status` como `body`, que se utilizan para responder con el código de estado o la descripción propios del dispositivo.
 
-### <a name="device-facing"></a>Orientada al dispositivo
+### <a name="devicefacing"></a>Orientada al dispositivo
 
 #### <a name="method-invocation"></a>Invocación de método
 

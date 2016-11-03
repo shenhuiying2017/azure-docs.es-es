@@ -17,7 +17,7 @@
      ms.author="dobett"/>
 
 
-# <a name="tutorial:-how-to-process-iot-hub-device-to-cloud-messages-using-.net"></a>Tutorial: procesamiento de mensajes de dispositivo a la nube de IoT Hub mediante .Net
+# <a name="tutorial-how-to-process-iot-hub-devicetocloud-messages-using-net"></a>Tutorial: procesamiento de mensajes de dispositivo a la nube de IoT Hub mediante .Net
 
 [AZURE.INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -96,7 +96,7 @@ En esta sección, modificará la aplicación de dispositivo simulado que creó e
 
     > [AZURE.NOTE] Para simplificar, en este tutorial no se implementa ninguna directiva de reintentos. En el código de producción, debe implementar una directiva de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling](Control de errores transitorios).
 
-## <a name="process-device-to-cloud-messages"></a>Procesamiento de mensajes de dispositivo a la nube
+## <a name="process-devicetocloud-messages"></a>Procesamiento de mensajes de dispositivo a la nube
 
 En esta sección, creará una aplicación de consola de Windows que procesa mensajes de dispositivo a nube desde IoT Hub. El Centro de IoT expone un punto de conexión compatible con [Centros de eventos]que permite que una aplicación lea los mensajes de dispositivo a nube. En este tutorial se utiliza la clase [EventProcessorHost] para procesar estos mensajes en una aplicación de consola. Para más información sobre cómo procesar los mensajes de los Centros de eventos, consulte el tutorial [Introducción a los Centros de eventos] .
 

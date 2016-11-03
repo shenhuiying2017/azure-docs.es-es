@@ -44,7 +44,7 @@ En el diagrama siguiente, se ejecuta SQL Database en la región del este de EE. 
 
 <!--## What is <feature>?" -->
 
-## <a name="what-is-a-sql-database-backup?"></a>¿Qué es una copia de seguridad de SQL Database?  
+## <a name="what-is-a-sql-database-backup"></a>¿Qué es una copia de seguridad de SQL Database?  
 
 <!-- 
 First sentence begins with "The <feature> is ..." followed by a definition of the feature. Provide a 1-2 paragraph intro to explain what the feature is, how it works, and the importance of the feature for solving business problems.
@@ -68,15 +68,15 @@ SQL Database usa la [replicación de Azure Storage](../storage/storage-redundanc
 >[AZURE.NOTE] En Azure Storage, el término *replicación* hace referencia a la copia de archivos desde una ubicación a otra. La *replicación de base de datos* de SQL hace referencia a mantener varias bases de datos secundarias sincronizadas con una base de datos principal. 
 
 
-## <a name="how-much-backup-storage-is-included-at-no-cost?"></a>¿Cuánto almacenamiento de copia de seguridad se incluye sin costo?
+## <a name="how-much-backup-storage-is-included-at-no-cost"></a>¿Cuánto almacenamiento de copia de seguridad se incluye sin costo?
 
 SQL Database proporciona hasta un 200 % de almacenamiento de base de datos aprovisionado máximo, para que pueda almacenar copias de seguridad, sin costos adicionales. Por ejemplo, si tiene una instancia de base de datos de tipo Estándar con un tamaño de base de datos aprovisionado de 250 GB, tendrá 500 GB para almacenar copias de seguridad sin costos adicionales. Si la base de datos supera el almacenamiento de copias de seguridad proporcionado, puede reducir el período de retención; para ello, póngase en contacto con el soporte técnico de Azure. Otra opción consiste en pagar por un almacenamiento de copias de seguridad adicional que se facturará según la tarifa estándar de almacenamiento redundante geográficamente con acceso de lectura (RA-GRS). 
 
-## <a name="how-often-do-backups-happen?"></a>¿Con qué frecuencia se producen las copias de seguridad?
+## <a name="how-often-do-backups-happen"></a>¿Con qué frecuencia se producen las copias de seguridad?
 
 Las copias de seguridad completas de base de datos se realizan cada semana, las copias de seguridad diferenciales de base de datos, cada hora, y las copias de seguridad del registro de transacciones, cada cinco minutos. La primera copia de seguridad completa se programa inmediatamente después de la creación de la base de datos. Normalmente, se completa en 30 minutos pero puede tardar más si la base de datos tiene un tamaño considerable. Por ejemplo, la copia de seguridad inicial puede tardar más en una base de datos restaurada o una copia de la base de datos. Después de la primera copia de seguridad completa, todas las copias de seguridad adicionales se programan automáticamente y se administran silenciosamente en segundo plano. El tiempo exacto de las copias de seguridad de base de datos completas y [diferenciales](https://msdn.microsoft.com/library/ms175526.aspx) se determina según se equilibra la carga de trabajo general. 
 
-## <a name="how-long-do-you-keep-my-backups?"></a>¿Cuánto tiempo se mantienen las copias de seguridad?
+## <a name="how-long-do-you-keep-my-backups"></a>¿Cuánto tiempo se mantienen las copias de seguridad?
 
 Cada copia de seguridad de SQL Database tiene un período de retención que se basa en el [nivel de servicio](sql-database-service-tiers.md) de la base de datos. El período de retención de una base de datos es el siguiente:
 

@@ -18,7 +18,7 @@
 
 
 
-# <a name="iot-gateway-sdk-(beta)-–-send-device-to-cloud-messages-with-a-real-device-using-linux"></a>SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo real a través de Linux
+# <a name="iot-gateway-sdk-beta-send-devicetocloud-messages-with-a-real-device-using-linux"></a>SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo real a través de Linux
 
 Este tutorial de [ejemplo de baja energía de Bluetooth][lnk-ble-samplecode] muestra cómo usar el [SDK de puerta de enlace de IoT de Microsoft Azure][lnk-sdk] para la telemetría directa de dispositivos a la nube al Centro de IoT desde un dispositivo físico y cómo enrutar comandos desde el Centro de IoT a un dispositivo físico.
 
@@ -360,7 +360,7 @@ Presione el botoncito del dispositivo SensorTag para que se pueda detectar antes
 
 Cuando ejecute el ejemplo, puede usar las herramientas [Explorador de dispositivos o iothub-explorer][lnk-explorer-tools] para supervisar los mensajes que la puerta de enlace remite desde el dispositivo SensorTag.
 
-## <a name="send-cloud-to-device-messages"></a>Envío de mensajes de nube a dispositivo
+## <a name="send-cloudtodevice-messages"></a>Envío de mensajes de nube a dispositivo
 
 El módulo BLE también admite instrucciones envío del Centro de IoT de Azure al dispositivo. Puede usar el [Explorador de dispositivos de Azure IoT Hub](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) o el [Explorador de IoT Hub](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) para enviar mensajes JSON que el módulo de puerta de enlace BLE transmite al dispositivo BLE. Por ejemplo, si usa el dispositivo SensorTag de Texas Instruments, desde el Centro de IoT puede enviar los siguientes mensajes JSON al dispositivo.
 

@@ -18,7 +18,7 @@
 
 
 
-# <a name="walkthrough-step-5:-deploy-the-azure-machine-learning-web-service"></a>Paso 5 del tutorial: Implementación del servicio web Azure Machine Learning
+# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Paso 5 del tutorial: Implementación del servicio web Azure Machine Learning
 
 Este es el quinto paso del tutorial [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Aprendizaje automático de Azure](machine-learning-walkthrough-develop-predictive-solution.md)
 

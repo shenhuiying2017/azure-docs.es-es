@@ -38,7 +38,7 @@ En este artículo se supone que ha:
 * Habilitado el acceso remoto al clúster. Si necesita instrucciones, consulte [Acceso al nodo principal del clúster de Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
 
 
-##<a name="<a-name="hive-featureengineering"></a>feature-generation"></a><a name="hive-featureengineering"></a>Generación de características
+##<a name="a-namehivefeatureengineeringafeature-generation"></a><a name="hive-featureengineering"></a>Generación de características
 
 En esta sección se describen varios ejemplos de las maneras en que se pueden generar características mediante consultas de Hive. Una vez que haya generado características adicionales, puede agregarlas como columnas a la tabla existente o crear una nueva tabla con las características adicionales y la clave principal, que se pueden combinar a continuación con la tabla original. Estos son los ejemplos presentados:
 
@@ -48,7 +48,7 @@ En esta sección se describen varios ejemplos de las maneras en que se pueden ge
 4. [Extraer características del campo de texto](#hive-textfeatures)
 5. [Calcular distancia entre las coordenadas GPS](#hive-gpsdistance)
 
-###<a name="<a-name="hive-frequencyfeature"></a>frequency-based-feature-generation"></a><a name="hive-frequencyfeature"></a>Generación de características basada en frecuencia
+###<a name="a-namehivefrequencyfeatureafrequency-based-feature-generation"></a><a name="hive-frequencyfeature"></a>Generación de características basada en frecuencia
 
 A menudo resulta útil calcular las frecuencias de los niveles de una variable de categoría o las frecuencias de determinadas combinaciones de niveles desde varias variables de categorías. Los usuarios pueden usar el siguiente script para calcular estas frecuencias:
 
@@ -63,7 +63,7 @@ A menudo resulta útil calcular las frecuencias de los niveles de una variable d
         order by frequency desc;
 
 
-###<a name="<a-name="hive-riskfeature"></a>risks-of-categorical-variables-in-binary-classification"></a><a name="hive-riskfeature"></a>Riesgos de las variables de categorías en la clasificación binaria
+###<a name="a-namehiveriskfeaturearisks-of-categorical-variables-in-binary-classification"></a><a name="hive-riskfeature"></a>Riesgos de las variables de categorías en la clasificación binaria
 
 En la clasificación binaria, necesitamos convertir las variables de categorías no numéricas en características numéricas cuando los modelos que se utilizan solo toman características numéricas. Para ello, reemplace cada nivel no numérico por un riesgo numérico. En esta sección mostramos algunas consultas de subárbol genéricas que calculan los valores de riesgo (probabilidades de registro) de una variable de categoría.
 
@@ -90,7 +90,7 @@ En este ejemplo, las variables `smooth_param1` y `smooth_param2` se establecen p
 
 Después de calcularse la tabla de riesgos, los usuarios pueden asignar valores de riesgo a una tabla uniéndola a la tabla de riesgo. La consulta de combinación de subárbol se ha proporcionado en la sección anterior.
 
-###<a name="<a-name="hive-datefeatures"></a>extract-features-from-datetime-fields"></a><a name="hive-datefeatures"></a>Extraer características de campos de fecha y hora
+###<a name="a-namehivedatefeaturesaextract-features-from-datetime-fields"></a><a name="hive-datefeatures"></a>Extraer características de campos de fecha y hora
 
 El subárbol se incluye con un conjunto de UDF para el procesamiento de campos de fecha y hora. En el subárbol, el formato de fecha y hora predeterminado es 'aaaa-MM-dd 00:00:00 ' ('1970-01-01 12:21:32' por ejemplo). En esta sección mostramos ejemplos que extraen el día de un mes, el mes de un campo de fecha y hora, y otros ejemplos que convierten una cadena de fecha y hora en un formato distinto del predeterminado en una cadena de fecha y hora en el formato predeterminado.
 
@@ -112,14 +112,14 @@ En esta consulta, si *&#60;datetime field>* sigue un patrón de tipo *03/26/2015
 La tabla *hivesampletable* de esta consulta viene preinstalada en todos los clústeres de Hadoop de HDInsight de Azure de forma predeterminada cuando se aprovisionan los clústeres.
 
 
-###<a name="<a-name="hive-textfeatures"></a>extract-features-from-text-fields"></a><a name="hive-textfeatures"></a>Extracción de características de campos de texto
+###<a name="a-namehivetextfeaturesaextract-features-from-text-fields"></a><a name="hive-textfeatures"></a>Extracción de características de campos de texto
 
 Cuando la tabla de subárbol tiene un campo de texto que contiene una cadena de palabras delimitadas por espacios, la consulta siguiente extrae la longitud de la cadena y el número de palabras de la cadena.
 
         select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num
         from <databasename>.<tablename>;
 
-###<a name="<a-name="hive-gpsdistance"></a>calculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Cálculo de la distancia entre conjuntos de coordenadas de GPS
+###<a name="a-namehivegpsdistanceacalculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Cálculo de la distancia entre conjuntos de coordenadas de GPS
 
 La consulta proporcionada en esta sección puede aplicarse directamente a los datos de carreras de taxi de Nueva York. El propósito de esta consulta es mostrar cómo aplicar una función matemática incrustada en el subárbol para generar características.
 
@@ -147,7 +147,7 @@ Las ecuaciones matemáticas que calculan la distancia entre dos coordenadas GPS 
 
 Se puede encontrar una lista completa de las UDF incrustadas de Hive en la sección **Funciones integradas** de la wiki de <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive</a>.  
 
-## <a name="<a-name="tuning"></a>-advanced-topics:-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a> Temas avanzados: Ajustar parámetros de Hive para mejorar la velocidad de consulta
+## <a name="a-nametuninga-advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a> Temas avanzados: Ajustar parámetros de Hive para mejorar la velocidad de consulta
 
 La configuración de parámetros predeterminados del clúster de subárbol podría no ser adecuada para las consultas de subárbol y los datos que estas consultas procesan. En esta sección se describen algunos parámetros que los usuarios pueden ajustar y que mejoran el rendimiento de las consultas de subárbol. Los usuarios necesitan agregar el parámetro que optimiza las consultas antes de las consultas de procesamiento de datos.
 

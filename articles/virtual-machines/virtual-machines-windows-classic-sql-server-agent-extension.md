@@ -18,7 +18,7 @@
     ms.author="jroth"/>
 
 
-# <a name="sql-server-agent-extension-for-sql-server-vms-(classic)"></a>Extensión del Agente SQL Server para las máquinas virtuales SQL Server (clásico)
+# <a name="sql-server-agent-extension-for-sql-server-vms-classic"></a>Extensión del Agente SQL Server para las máquinas virtuales SQL Server (clásico)
 
 > [AZURE.SELECTOR]
 - [Resource Manager](virtual-machines-windows-sql-server-agent-extension.md)
@@ -42,18 +42,18 @@ La extensión del Agente de IaaS SQL Server es compatible con las siguientes tar
 
 Requisitos para usar la extensión del Agente de IaaS SQL Server en la máquina virtual:
 
-### <a name="operating-system:"></a>Sistema operativo:
+### <a name="operating-system"></a>Sistema operativo:
 
 - Windows Server 2012
 - Windows Server 2012 R2
 
-### <a name="sql-server-versions:"></a>Versiones de SQL Server:
+### <a name="sql-server-versions"></a>Versiones de SQL Server:
 
 - SQL Server 2012
 - SQL Server 2014
 - SQL Server 2016
 
-### <a name="azure-powershell:"></a>Azure PowerShell:
+### <a name="azure-powershell"></a>Azure PowerShell:
 
 [Descargue y configure los comandos de Azure PowerShell más recientes](../powershell-install-configure.md).
 

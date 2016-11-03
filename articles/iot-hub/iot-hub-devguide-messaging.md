@@ -38,7 +38,7 @@ La mensajería es una funcionalidad fundamental de IoT Hub. Úsela siempre que n
 
 Para ver una comparación de los servicios de IoT Hub y Event Hubs, consulte [Comparación de IoT Hub y Event Hubs][lnk-compare].
 
-## <a name="device-to-cloud-messages"></a>Mensajes de dispositivo a nube
+## <a name="devicetocloud-messages"></a>Mensajes de dispositivo a nube
 
 Los mensajes del dispositivo a la nube se envían a través de un punto de conexión orientado al dispositivo (**/devices/{IdDeDispositivo}/messages/events**). El servicio de back-end recibe mensajes del dispositivo a la nube a través de un punto de conexión orientado al servicio (**/messages/events**) que es compatible con [Event Hubs][lnk-event-hubs]. Por lo tanto, puede usar la [integración de Event Hubs estándar y los SDK][lnk-compatible-endpoint] para recibir mensajes del dispositivo a la nube.
 
@@ -64,13 +64,13 @@ Para detalles sobre cómo usar la mensajería del dispositivo a la nube, consult
 
 > [AZURE.NOTE] Cuando se usa HTTP para enviar mensajes de dispositivo a nube, los valores y los nombres de propiedad solo pueden contener caracteres alfanuméricos ASCII y ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
-### <a name="non-telemetry-traffic"></a>Tráfico sin telemetría
+### <a name="nontelemetry-traffic"></a>Tráfico sin telemetría
 
 A menudo, además de los puntos de datos de telemetría, los dispositivos también envían mensajes y solicitudes que requieren la ejecución y el control de la capa de lógica de negocio de la aplicación. Por ejemplo, alertas críticas que deben desencadenar una acción específica en el back-end o respuestas de dispositivo a los comandos enviados desde el back-end.
 
 Para más información sobre la mejor manera de procesar este tipo de mensaje, consulte [Tutorial: procesamiento de mensajes de dispositivo a la nube de IoT Hub][lnk-d2c-tutorial].
 
-### <a name="device-to-cloud-configuration-options"></a>Opciones de configuración del dispositivo a la nube
+### <a name="devicetocloud-configuration-options"></a>Opciones de configuración del dispositivo a la nube
 
 Centro de IoT muestra las propiedades siguientes para permitirle controlar la mensajería de dispositivo a la nube.
 
@@ -81,7 +81,7 @@ Además, de forma análoga a los Centros de eventos, el Centro de IoT permite ad
 
 Puede modificar todas estas propiedades mediante programación con las [API del proveedor de recursos de Azure IoT Hub][lnk-resource-provider-apis] o usando [Azure Portal][lnk-management-portal].
 
-### <a name="anti-spoofing-properties"></a>Propiedades contra la suplantación
+### <a name="antispoofing-properties"></a>Propiedades contra la suplantación
 
 Para evitar la suplantación de dispositivos en los mensajes de dispositivo a nube, el Centro de IoT marca todos los mensajes con las siguientes propiedades:
 
@@ -101,7 +101,7 @@ La propiedad **ConnectionAuthMethod** contiene un objeto JSON serializado con la
 }
 ```
 
-## <a name="cloud-to-device-messages"></a>Mensajes de nube a dispositivo
+## <a name="cloudtodevice-messages"></a>Mensajes de nube a dispositivo
 
 Se envían mensajes de la nube al dispositivo mediante un punto de conexión orientado al servicio (**/messages/devicebound**). Un dispositivo los recibe mediante un punto de conexión específico del dispositivo (**/devices/{IdDeDispositivo}/messages/devicebound**).
 
@@ -134,7 +134,7 @@ Para ver un tutorial sobre los mensajes de la nube al dispositivo, consulte [Tut
 
 > [AZURE.NOTE] Normalmente los mensajes de nube a dispositivo se completan siempre que la pérdida del mensaje no afecte a la lógica de aplicación. Por ejemplo, el contenido del mensaje se ha guardado correctamente en el almacenamiento local, o se ha ejecutado correctamente una operación. El mensaje también puede llevar información transitoria, cuya pérdida no afectaría a la funcionalidad de la aplicación. A veces, para tareas de larga duración, puede completar el mensaje de nube a dispositivo después de guardar la descripción de la tarea en el almacenamiento local. A continuación, se puede notificar al back-end de aplicación con uno o más mensajes de dispositivo a nube en distintas fases de progreso de la tarea.
 
-### <a name="message-expiration-(time-to-live)"></a>Expiración de mensajes (período de vida)
+### <a name="message-expiration-time-to-live"></a>Expiración de mensajes (período de vida)
 
 Cada mensaje de nube a dispositivo tiene una fecha de expiración. La puede establecer el servicio (en la propiedad **ExpiryTimeUtc**), o bien IoT Hub mediante el *período de vida* predeterminado especificado como propiedad de IoT Hub. Consulte [Opciones de configuración de la nube al dispositivo][lnk-c2d-configuration].
 
@@ -191,7 +191,7 @@ En el ejemplo siguiente se muestra el cuerpo de un mensaje de comentarios.
 ]
 ```
 
-### <a name="cloud-to-device-configuration-options"></a>Opciones de configuración de la nube al dispositivo
+### <a name="cloudtodevice-configuration-options"></a>Opciones de configuración de la nube al dispositivo
 
 Cada Centro de IoT expone las siguientes opciones de configuración para la mensajería de nube a dispositivo.
 
@@ -204,7 +204,7 @@ Cada Centro de IoT expone las siguientes opciones de configuración para la mens
 
 Para más información, consulte el artículo sobre la [creación de centros de IoT][lnk-portal].
 
-## <a name="read-device-to-cloud-messages"></a>Lectura de mensajes del dispositivo a la nube
+## <a name="read-devicetocloud-messages"></a>Lectura de mensajes del dispositivo a la nube
 
 IoT Hub expone un punto de conexión para los servicios de back-end con el fin de leer los mensajes del dispositivo a la nube recibidos por el centro. El punto de conexión es compatible con Event Hubs, lo que permite usar cualquiera de los mecanismos del servicio Event Hubs para leer mensajes.
 

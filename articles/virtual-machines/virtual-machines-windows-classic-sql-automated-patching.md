@@ -17,7 +17,7 @@
     ms.author="jroth" />
 
 
-# <a name="automated-patching-for-sql-server-in-azure-virtual-machines-(classic)"></a>Aplicación de revisiones automatizadas para SQL Server en máquinas virtuales de Azure (implementación clásica)
+# <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Aplicación de revisiones automatizadas para SQL Server en máquinas virtuales de Azure (implementación clásica)
 
 > [AZURE.SELECTOR]
 - [Resource Manager](virtual-machines-windows-sql-automated-patching.md)

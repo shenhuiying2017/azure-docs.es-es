@@ -17,7 +17,7 @@
     ms.author="cephalin"/>
 
 
-# <a name="get-started-with-node.js-web-apps-in-azure-app-service"></a>Introducción a las aplicaciones web Node.js en el Servicio de aplicaciones de Azure
+# <a name="get-started-with-nodejs-web-apps-in-azure-app-service"></a>Introducción a las aplicaciones web Node.js en el Servicio de aplicaciones de Azure
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
@@ -35,7 +35,7 @@ En este tutorial se muestra cómo crear una aplicación de [Node.js] sencilla e 
 - [CLI de Azure]
 - Una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para una evaluación gratuita] o [activar las ventajas de suscriptor de Visual Studio].
 
-## <a name="create-and-deploy-a-simple-node.js-web-app"></a>Creación e implementación de una aplicación web de Node.js simple
+## <a name="create-and-deploy-a-simple-nodejs-web-app"></a>Creación e implementación de una aplicación web de Node.js simple
 
 1. Abra el terminal de la línea de comandos que prefiera e instale el [generador Express de Yeoman].
 
@@ -108,11 +108,11 @@ En este tutorial se muestra cómo crear una aplicación de [Node.js] sencilla e 
     
     ![Ejemplo de exploración de la aplicación implementada.][deployed-express-app]
 
-## <a name="update-your-node.js-web-app"></a>Actualización de la aplicación web Node.js
+## <a name="update-your-nodejs-web-app"></a>Actualización de la aplicación web Node.js
 
 Para realizar actualizaciones en su aplicación web de Node.js que se ejecuta en el Servicio de aplicaciones, solo tiene que ejecutar `git add`, `git commit` y `git push` como hizo cuando implementó por primera vez su aplicación web.
      
-## <a name="how-app-service-deploys-your-node.js-app"></a>Modo en que el Servicio de aplicaciones implementa la aplicación de Node.js
+## <a name="how-app-service-deploys-your-nodejs-app"></a>Modo en que el Servicio de aplicaciones implementa la aplicación de Node.js
 
 El Servicio de aplicaciones de Azure usa [iisnode] para ejecutar aplicaciones de Node.js. La CLI de Azure y el motor de Kudu (implementación de Git) colaboran para proporcionar una experiencia simplificada al desarrollar e implementar aplicaciones de Node.js desde la línea de comandos. 
 
@@ -123,7 +123,7 @@ El Servicio de aplicaciones de Azure usa [iisnode] para ejecutar aplicaciones de
     - Genere un archivo web.config para iisnode que apunte al script de inicio en package.json (por ejemplo, server.js o app.js).
     - Personalice el archivo web.config para preparar la aplicación para la depuración con Node-Inspector.
     
-## <a name="use-a-node.js-framework"></a>Uso de una plataforma de Node.js
+## <a name="use-a-nodejs-framework"></a>Uso de una plataforma de Node.js
 
 Si usa un marco de trabajo conocido de Node.js, como [Sails.js][SAILSJS] o [MEAN.js][MEANJS] para desarrollar aplicaciones, puede implementar estas en App Service. Las plataformas de Node.js populares tienen sus peculiaridades y sus dependencias de paquete se actualizan constantemente. Sin embargo, App Service hace que los registros de stdout y stderr estén disponibles, para que pueda saber exactamente lo que sucede con su aplicación y realizar cambios según corresponda. Para más información, consulte [Obtención de registros de stdout y stderr desde iisnode](#iisnodelog).
 
@@ -134,7 +134,7 @@ Los tutoriales siguientes le mostrarán cómo trabajar con una plataforma espec�
 - [Uso de io.js con aplicaciones web del Servicio de aplicaciones de Azure]
 
 <a name="version"></a>
-## <a name="use-a-specific-node.js-engine"></a>Uso de un motor de Node.js específico
+## <a name="use-a-specific-nodejs-engine"></a>Uso de un motor de Node.js específico
 
 En el flujo de trabajo típico, puede indicar a App Service que use un motor de Node.js específico igual que lo haría normalmente en package.json.
 Por ejemplo:
@@ -193,7 +193,7 @@ Para leer los registros de iisnode, siga estos pasos.
     
     ![Examen de un archivo de registro de iisnode.][iislog-kudu-console-read]
 
-## <a name="debug-your-app-with-node-inspector"></a>Depuración de la aplicación con Node-Inspector
+## <a name="debug-your-app-with-nodeinspector"></a>Depuración de la aplicación con Node-Inspector
 
 Si utiliza Node-Inspector para depurar las aplicaciones de Node.js, puede usarlo para su aplicación Servicio de aplicaciones activa. Node-Inspector está preinstalado en la instalación de iisnode para el Servicio de aplicaciones. Si realiza la implementación mediante Git, el archivo web.config generado automáticamente desde Kudu ya contiene toda la configuración que necesita para habilitar Node-Inspector.
 
@@ -258,6 +258,6 @@ Para habilitar Node-Inspector, siga estos pasos:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO1-->
 
 

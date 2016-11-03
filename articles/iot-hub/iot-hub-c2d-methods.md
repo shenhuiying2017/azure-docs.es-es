@@ -17,7 +17,7 @@
  ms.author="nberdy"/>
 
 
-# <a name="tutorial:-use-direct-methods"></a>Tutorial: Uso de métodos directos
+# <a name="tutorial-use-direct-methods"></a>Tutorial: Uso de métodos directos
 
 ## <a name="introduction"></a>Introducción
 

@@ -18,7 +18,7 @@
    ms.author="cherylmc"/>
 
 
-# <a name="configure-a-vnet-to-vnet-connection-for-resource-manager-using-powershell"></a>Configuración de una conexión de red virtual a red virtual para Resource Manager mediante PowerShell
+# <a name="configure-a-vnettovnet-connection-for-resource-manager-using-powershell"></a>Configuración de una conexión de red virtual a red virtual para Resource Manager mediante PowerShell
 
 > [AZURE.SELECTOR]
 - [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -30,7 +30,7 @@ Este artículo le guiará a través de los pasos necesarios para crear una conex
 ![diagrama de v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 
-### <a name="deployment-models-and-methods-for-vnet-to-vnet"></a>Modelos de implementación y métodos para conexiones de red virtual a red virtual
+### <a name="deployment-models-and-methods-for-vnettovnet"></a>Modelos de implementación y métodos para conexiones de red virtual a red virtual
 
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
@@ -44,14 +44,14 @@ En ambos modelos de implementación se puede configurar una conexión de red vir
 [AZURE.INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 
-## <a name="about-vnet-to-vnet-connections"></a>Acerca de conexiones de red virtual a red virtual
+## <a name="about-vnettovnet-connections"></a>Acerca de conexiones de red virtual a red virtual
 
 La conexión de una red virtual a otra es muy parecida a la conexión de una red virtual a una ubicación de un sitio local. Ambos tipos de conectividad usan una puerta de enlace de VPN de Azure para proporcionar un túnel seguro con IPsec/IKE. Las redes virtuales que se conecten pueden estar en regiones distintas. O en distintas suscripciones. Incluso puede combinar la comunicación de red virtual a red virtual con configuraciones de varios sitios. Esto permite establecer topologías de red que combinan la conectividad entre entornos locales con la conectividad entre redes virtuales, como se muestra en el diagrama siguiente:
 
 
 ![Acerca de las conexiones](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
  
-### <a name="why-connect-virtual-networks?"></a>¿Por qué debería conectarse a redes virtuales?
+### <a name="why-connect-virtual-networks"></a>¿Por qué debería conectarse a redes virtuales?
 
 Puede que desee conectar redes virtuales por las siguientes razones:
 
@@ -63,12 +63,12 @@ Puede que desee conectar redes virtuales por las siguientes razones:
     - Dentro de la misma región, se pueden configurar aplicaciones de niveles múltiples con varias redes virtuales conectadas entre sí para cumplir requisitos administrativos o de aislamiento.
 
 
-### <a name="vnet-to-vnet-faq"></a>P+F sobre conexiones de red virtual a red virtual
+### <a name="vnettovnet-faq"></a>P+F sobre conexiones de red virtual a red virtual
 
 [AZURE.INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)] 
 
 
-## <a name="which-set-of-steps-should-i-use?"></a>¿Qué serie de pasos debo seguir?
+## <a name="which-set-of-steps-should-i-use"></a>¿Qué serie de pasos debo seguir?
 
 En este artículo, verá dos conjuntos de pasos diferentes. Un conjunto de pasos para [redes virtuales que residen en la misma suscripción](#samesub) y otro para [redes virtuales que residen en suscripciones diferentes](#difsub). La diferencia clave entre ambos conjuntos es si se pueden crear y configurar todos los recursos de red virtual y puerta de enlace en la misma sesión de PowerShell.
 
@@ -77,7 +77,7 @@ Los pasos de este artículo utilizan variables que se declaran al principio de c
 ![Ambas conexiones](./media/vpn-gateway-vnet-vnet-rm-ps/differentsubscription.png)
 
 
-## <a name="<a-name="samesub"></a>how-to-connect-vnets-that-are-in-the-same-subscription"></a><a name="samesub"></a>Conexión de redes virtuales que están en la misma suscripción
+## <a name="a-namesamesubahow-to-connect-vnets-that-are-in-the-same-subscription"></a><a name="samesub"></a>Conexión de redes virtuales que están en la misma suscripción
 
 ![diagrama de v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
@@ -85,7 +85,7 @@ Los pasos de este artículo utilizan variables que se declaran al principio de c
     
 Antes de empezar, necesitará instalar los cmdlets de PowerShell de Azure Resource Manager. Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar los cmdlets de PowerShell.
 
-### <a name="<a-name="step1"></a>step-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>Paso 1: Planeamiento de los intervalos de direcciones IP
+### <a name="a-namestep1astep-1-plan-your-ip-address-ranges"></a><a name="Step1"></a>Paso 1: Planeamiento de los intervalos de direcciones IP
 
 
 En los pasos siguientes, se crearán dos redes virtuales junto con sus subredes de puerta de enlace y configuraciones correspondientes. A continuación crearemos una conexión VPN entre las dos redes virtuales. Es importante planear los intervalos de direcciones IP para la configuración de red. Tenga en cuenta que hay que asegurarse de que ninguno de los intervalos de VNet o intervalos de red local se solapen.
@@ -128,7 +128,7 @@ En los ejemplos usamos los siguientes valores:
 
 
 
-### <a name="<a-name="step2"></a>step-2---create-and-configure-testvnet1"></a><a name="Step2"></a>Paso 2: Creación y configuración de TestVNet1
+### <a name="a-namestep2astep-2-create-and-configure-testvnet1"></a><a name="Step2"></a>Paso 2: Creación y configuración de TestVNet1
 
 1. Declaración de las variables
 
@@ -211,7 +211,7 @@ En los ejemplos usamos los siguientes valores:
         -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
         -VpnType RouteBased -GatewaySku Standard
 
-### <a name="step-3---create-and-configure-testvnet4"></a>Paso 3: Creación y configuración de TestVNet4
+### <a name="step-3-create-and-configure-testvnet4"></a>Paso 3: Creación y configuración de TestVNet4
 
 Una vez que haya configurado TestVNet1, cree TestVNet4. Siga los pasos a continuación y reemplace los valores por los suyos propios cuando sea necesario. Este paso puede realizarse en la misma sesión de PowerShell porque está en la misma suscripción.
 
@@ -270,7 +270,7 @@ Una vez que haya configurado TestVNet1, cree TestVNet4. Siga los pasos a continu
         -Location $Location4 -IpConfigurations $gwipconf4 -GatewayType Vpn `
         -VpnType RouteBased -GatewaySku Standard
 
-### <a name="step-4---connect-the-gateways"></a>Paso 4: Conexión de las puertas de enlace
+### <a name="step-4-connect-the-gateways"></a>Paso 4: Conexión de las puertas de enlace
 
 1. Obtención de ambas puertas de enlace de red virtual
 
@@ -301,7 +301,7 @@ Una vez que haya configurado TestVNet1, cree TestVNet4. Siga los pasos a continu
 4. Compruebe la conexión. Consulte la sección [Comprobación de la conexión](#verify).
 
 
-## <a name="<a-name="difsub"></a>how-to-connect-vnets-that-are-in-different-subscriptions"></a><a name="difsub"></a>Conexión de redes virtuales que están en suscripciones diferentes
+## <a name="a-namedifsubahow-to-connect-vnets-that-are-in-different-subscriptions"></a><a name="difsub"></a>Conexión de redes virtuales que están en suscripciones diferentes
 
 
 ![diagrama de v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
@@ -312,7 +312,7 @@ La diferencia es que parte de los pasos de configuración se deben realizar en u
 
 Las instrucciones que siguen son continuación de los pasos anteriores ya explicados. Tiene que completar el [paso 1](#Step1) y el [paso 2](#Step2) para crear y configurar TestVNet1 y la puerta de enlace de VPN para TestVNet1. Cuando haya completado el paso 1 y el paso 2, continúe con el paso 5 para crear TestVNet5.
 
-### <a name="step-5---verify-the-additional-ip-address-ranges"></a>Paso 5: Comprobación de los intervalos de direcciones IP adicionales
+### <a name="step-5-verify-the-additional-ip-address-ranges"></a>Paso 5: Comprobación de los intervalos de direcciones IP adicionales
 
 Es importante asegurarse de que el espacio de direcciones IP de la red virtual nueva, TestVNet5, no se solape con ninguno de los intervalos de red virtual o de puerta de enlace de red local. 
 
@@ -339,7 +339,7 @@ En este ejemplo, las redes virtuales pueden pertenecer a distintas organizacione
 - Conexión: VNet1toVNet5
 
 
-### <a name="step-6---create-and-configure-testvnet5"></a>Paso 6: Creación y configuración de TestVNet5
+### <a name="step-6-create-and-configure-testvnet5"></a>Paso 6: Creación y configuración de TestVNet5
 
 Este paso debe realizarse en el contexto de la nueva suscripción. Es posible que esta parte la realice el administrador de otra organización que posea la suscripción.
 
@@ -411,7 +411,7 @@ Este paso debe realizarse en el contexto de la nueva suscripción. Es posible qu
         New-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
         -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
 
-### <a name="step-7---connecting-the-gateways"></a>Paso 7: Conexión de las puertas de enlace
+### <a name="step-7-connecting-the-gateways"></a>Paso 7: Conexión de las puertas de enlace
 
 En este ejemplo, como las puertas de enlace están en suscripciones diferentes, hemos dividido el paso en dos sesiones de PowerShell marcadas como [Suscripción 1] y [Suscripción 5].
 
@@ -474,7 +474,7 @@ En este ejemplo, como las puertas de enlace están en suscripciones diferentes, 
         $vnet1gw.Id = "/subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW "
         New-AzureRmVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
 
-## <a name="<a-name="verify"></a>how-to-verify-a-connection"></a><a name="verify"></a>Comprobación de una conexión
+## <a name="a-nameverifyahow-to-verify-a-connection"></a><a name="verify"></a>Comprobación de una conexión
 
 
 [AZURE.INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]

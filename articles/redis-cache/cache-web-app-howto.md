@@ -51,7 +51,7 @@ Necesita una cuenta de Azure para completar el tutorial. Puede:
 * [Abrir una cuenta de Azure gratis](/pricing/free-trial/?WT.mc_id=redis_cache_hero). Obtenga créditos que puede usar para probar los servicios de Azure de pago. Incluso después de que se agoten los créditos, puede mantener la cuenta y usar los servicios y características gratuitos de Azure.
 * [Activar los beneficios de suscripción a Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Su suscripción a MSDN le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
 
-### <a name="visual-studio-2015-with-the-azure-sdk-for-.net"></a>Visual Studio 2015 con el SDK de Azure para .NET
+### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a>Visual Studio 2015 con el SDK de Azure para .NET
 
 Este tutorial está escrito para Visual Studio 2015 con el [SDK de Azure para .NET](../dotnet-sdk.md) 2.8.2 o posterior. [Descargue aquí el último SDK de Azure para Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Si aún no lo tiene, Visual Studio se instala automáticamente con el SDK.
 
@@ -73,7 +73,7 @@ Si tiene Visual Studio 2013, puede [descargar el último SDK de Azure para Visua
 
 4. Haga clic en **Aceptar** para crear el proyecto.
 
-## <a name="create-the-asp.net-mvc-application"></a>Creación de la aplicación ASP.NET MVC
+## <a name="create-the-aspnet-mvc-application"></a>Creación de la aplicación ASP.NET MVC
 
 En esta sección del tutorial, creará la aplicación básica que lee y muestra estadísticas de equipos de una base de datos.
 
@@ -267,7 +267,7 @@ En esta sección del tutorial, configurará la aplicación de ejemplo para almac
 -   [Actualizar la vista de índice de equipos para trabajar con la caché](#update-the-teams-index-view-to-work-with-the-cache)
 
 
-### <a name="configure-the-application-to-use-stackexchange.redis"></a>Configurar la aplicación para usar StackExchange.Redis
+### <a name="configure-the-application-to-use-stackexchangeredis"></a>Configurar la aplicación para usar StackExchange.Redis
 
 1. Para configurar una aplicación cliente en Visual Studio usando el paquete NuGet StackExchange.Redis, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y elija **Administrar paquetes NuGet**. 
 
@@ -551,7 +551,7 @@ En este ejemplo, se pueden recuperar estadísticas de equipos de la base de dato
         }
 
 
-### <a name="update-the-create,-edit,-and-delete-methods-to-work-with-the-cache"></a>Actualizar los métodos Create, Edit y Delete para trabajar con la caché
+### <a name="update-the-create-edit-and-delete-methods-to-work-with-the-cache"></a>Actualizar los métodos Create, Edit y Delete para trabajar con la caché
 
 El código de scaffolding que se generó como parte de este ejemplo incluye métodos para agregar, editar y eliminar equipos. Cada vez que se agrega, edita o elimina un equipo, los datos de la caché se vuelven obsoletos. En esta sección podrá modificar estos tres métodos para borrar los equipos almacenados en caché de modo que la caché no pierda la sincronización con la base de datos.
 
@@ -853,6 +853,6 @@ Cuando haya seleccionado o creado la memoria caché que desea utilizar, vaya has
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO1-->
 
 

@@ -17,7 +17,7 @@
  ms.author="juanpere"/>
 
 
-# <a name="tutorial:-how-to-do-a-firmware-update-(preview)"></a>Tutorial: Cómo realizar una actualización de firmware (versión preliminar)
+# <a name="tutorial-how-to-do-a-firmware-update-preview"></a>Tutorial: Cómo realizar una actualización de firmware (versión preliminar)
 
 ## <a name="introduction"></a>Introducción
 En el tutorial de [introducción a la administración de dispositivos][lnk-dm-getstarted], vimos cómo usar el [dispositivo gemelo][lnk devtwin] y los [métodos de la nube al dispositivo (C2D)][c2dmethod lnk] primitivos para reiniciar de forma remota un dispositivo. Este tutorial utiliza a los mismos tipos primitivos de IoT Hub. Además, proporciona orientación y muestra cómo realizar una actualización de firmware simulada de extremo a extremo.  Este patrón se utiliza en la implementación de actualización de firmware para el ejemplo de dispositivo Intel Edison.

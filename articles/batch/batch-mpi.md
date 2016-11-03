@@ -17,13 +17,13 @@
     ms.author="marsma" />
 
 
-# <a name="use-multi-instance-tasks-to-run-message-passing-interface-(mpi)-applications-in-azure-batch"></a>Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Lote de Azure
+# <a name="use-multiinstance-tasks-to-run-message-passing-interface-mpi-applications-in-azure-batch"></a>Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Lote de Azure
 
 Las tareas de instancias múltiples le permiten ejecutar una tarea de Lote de Azure en varios nodos de proceso al mismo tiempo. Estas tareas permiten escenarios de informática de alto rendimiento como las aplicaciones de interfaz de paso de mensajes (MPI) en Lote. En este artículo, aprenderá a ejecutar tareas de múltiples instancias mediante la biblioteca [.NET de Batch][api_net].
 
 >[AZURE.NOTE] Aunque los ejemplos de este artículo se centran en .NET de Batch, MS-MPI y los nodos de proceso de Windows, los conceptos de tareas de múltiples instancias aquí tratados son aplicables a otras plataformas y tecnologías (Python e Intel MPI en nodos de Linux, por ejemplo).
 
-## <a name="multi-instance-task-overview"></a>Información general de las tareas de instancias múltiples
+## <a name="multiinstance-task-overview"></a>Información general de las tareas de instancias múltiples
 
 En Lote, cada tarea se ejecuta normalmente en un solo nodo de proceso: se envían varias tareas a un trabajo y el servicio Lote programa la ejecución de cada tarea en un nodo. Sin embargo, al configurar la **opción de instancias múltiples**para una tarea, puede indicar al servicio Lote que divida esa tarea en subtareas para que se ejecuten en varios nodos.
 
@@ -39,7 +39,7 @@ Al enviar una tarea con configuración de instancias múltiples a un trabajo, el
 
 > [AZURE.NOTE] Aunque es funcionalmente distinta, la "tarea de múltiples instancias" no es un tipo de tarea única como [StartTask][net_starttask] o [JobPreparationTask][net_jobprep]. La tarea de múltiples instancias es simplemente una tarea de Batch estándar ([CloudTask][net_task] en .NET de Batch) cuya opción de múltiples instancias se ha configurado. En este artículo, nos referiremos a ella como **tarea de instancias múltiples**.
 
-## <a name="requirements-for-multi-instance-tasks"></a>Requisitos de las tareas de instancias múltiples
+## <a name="requirements-for-multiinstance-tasks"></a>Requisitos de las tareas de instancias múltiples
 
 Las tareas de múltiples instancias requieren un grupo con la **comunicación ente nodos habilitada** y la **ejecución simultánea de tareas deshabilitada**. Si intenta ejecutar una tarea de instancias múltiples en un grupo con la comunicación entre nodos deshabilitada o con un valor de *maxTasksPerNode* superior a 1, la tarea nunca será programada, sino que permanecerá indefinidamente en estado "activo". Este fragmento de código muestra la creación de un grupo de este tipo mediante la biblioteca .NET de Lote.
 
@@ -84,7 +84,7 @@ await myCloudPool.CommitAsync();
 
 > [AZURE.NOTE] No está limitado a usar MS-MPI al implementar una solución de MPI con tareas de instancias múltiples en Lote. Puede usar cualquier implementación del estándar de MPI que sea compatible con el sistema operativo que especifique para los nodos de proceso del grupo.
 
-## <a name="create-a-multi-instance-task-with-batch-.net"></a>Creación de una tarea de instancias múltiples con .NET de Lote
+## <a name="create-a-multiinstance-task-with-batch-net"></a>Creación de una tarea de instancias múltiples con .NET de Lote
 
 Ahora que hemos analizado los requisitos de grupo y la instalación del paquete MPI, vamos a crear la tarea de instancias múltiples. En este fragmento de código, creamos una [CloudTask][net_task] estándar, configure su propiedad [MultiInstanceSettings][net_multiinstance_prop]. Como se mencionó anteriormente, la tarea de instancias múltiples no es un tipo de tarea distinto, sino una tarea de Lote estándar configurada con la opción de instancias múltiples.
 
