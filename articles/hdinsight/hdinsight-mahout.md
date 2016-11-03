@@ -27,7 +27,7 @@ Aprenda a usar la biblioteca de aprendizaje automático de [Apache Mahout](http:
 > [AZURE.NOTE] Los pasos de este documento requieren un cliente Windows y un clúster de HDInsight basado en Windows. Para obtener información sobre el uso de Mahout en un cliente Linux, OS X de Unix, con un clúster de HDInsight basado en Linux, consulte [Generate movie recommendations by using Apache Mahout with Linux-based Hadoop in HDInsight (Generación de recomendaciones de película a través de Apache Mahout con Hadoop basado en Linux en HDInsight)](hdinsight-hadoop-mahout-linux-mac.md)
 
 
-##<a name="<a-name="learn"></a>what-you-will-learn"></a><a name="learn"></a>Qué aprenderá
+##<a name="a-namelearnawhat-you-will-learn"></a><a name="learn"></a>Qué aprenderá
 
 Mahout es una biblioteca de [aprendizaje automático][ml]para Apache Hadoop. Mahout contiene algoritmos para el procesamiento de datos, como filtrado, clasificación y agrupación en clústeres. En este artículo usará un motor de recomendaciones para generar recomendaciones de películas que se basan en películas que sus amigos han visto. También aprenderá a realizar clasificaciones con un bosque de decisiones. Esto le enseñará a:
 
@@ -47,7 +47,7 @@ Mahout es una biblioteca de [aprendizaje automático][ml]para Apache Hadoop. Mah
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
-##<a name="<a-name="recommendations"></a>generate-recommendations-by-using-windows-powershell"></a><a name="recommendations"></a>Generación de recomendaciones mediante Windows PowerShell
+##<a name="a-namerecommendationsagenerate-recommendations-by-using-windows-powershell"></a><a name="recommendations"></a>Generación de recomendaciones mediante Windows PowerShell
 
 > [AZURE.NOTE] Aunque el trabajo usado en esta sección funciona con Windows PowerShell, muchas de las clases proporcionadas con Mahout no funcionan actualmente con Windows PowerShell y se deben ejecutar mediante la línea de comandos de Hadoop. Para obtener una lista de las clases que no funcionan con Windows PowerShell, consulte la sección [Solución de problemas](#troubleshooting) .
 >
@@ -318,7 +318,7 @@ La salida debe ser similar a la siguiente:
     Donnie Brasco (1997)                     4.6792455
     Lone Star (1996)                         4.7099237  
 
-##<a name="<a-name="classify"></a>classify-data-by-using-the-hadoop-command-line"></a><a name="classify"></a>Clasificación de datos mediante la línea de comandos de Hadoop
+##<a name="a-nameclassifyaclassify-data-by-using-the-hadoop-command-line"></a><a name="classify"></a>Clasificación de datos mediante la línea de comandos de Hadoop
 
 Uno de los métodos de clasificación disponibles con Mahout es compilar un [bosque aleatorio][forest]. Se trata de un proceso de varios pasos que supone el uso de datos de aprendizaje para generar un árbol de decisiones, que luego se usará para clasificar los datos. Para ello se utiliza la clase __org.apache.mahout.classifier.df.tools.Describe__ que se proporciona en Mahout. Actualmente se debe ejecutar con la línea de comandos de Hadoop.
 
@@ -411,9 +411,9 @@ Uno de los métodos de clasificación disponibles con Mahout es compilar un [bos
 
 > [AZURE.NOTE] Los trabajos de Mahout no sobrescriben archivos. Si desea ejecutar estos trabajos de nuevo, debe eliminar los archivos creados por trabajos anteriores.
 
-##<a name="<a-name="troubleshooting"></a>troubleshooting"></a><a name="troubleshooting"></a>Solución de problemas
+##<a name="a-nametroubleshootingatroubleshooting"></a><a name="troubleshooting"></a>Solución de problemas
 
-###<a name="<a-name="install"></a>install-mahout"></a><a name="install"></a>Instalación de Mahout
+###<a name="a-nameinstallainstall-mahout"></a><a name="install"></a>Instalación de Mahout
 
 Mahout se instala en clústeres de HDInsight 3.1, y se puede instalar manualmente en clústeres de HDInsight 3.0 o HDInsight 2.1 siguiendo estos pasos.
 
@@ -479,7 +479,7 @@ Los clústeres de HDInsight 3.1 incluyen Mahout. La ruta y el nombre de archivo 
             -DefaultStorageAccountKey $storageAccountKey `
             -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar'
 
-###<a name="<a-name="nopowershell"></a>classes-that-do-not-work-with-windows-powershell"></a><a name="nopowershell"></a>Clases que no funcionan con Windows PowerShell
+###<a name="a-namenopowershellaclasses-that-do-not-work-with-windows-powershell"></a><a name="nopowershell"></a>Clases que no funcionan con Windows PowerShell
 
 Los trabajos de Mahout que usan las siguientes clases devuelven diversos mensajes de error si se usan desde PowerShell.
 

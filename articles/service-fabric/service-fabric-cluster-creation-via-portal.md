@@ -125,7 +125,7 @@ Si tiene un Almacén de claves existente, puede habilitarlo para implementación
 
 Los certificados se usan en Service Fabric para proporcionar autenticación y cifrado con el fin de proteger diversos aspectos de un clúster y sus aplicaciones. Para más información sobre el modo en que se usan los certificados en Service Fabric, vea [Escenarios de seguridad de los clústeres de Service Fabric][service-fabric-cluster-security].
 
-### <a name="cluster-and-server-certificate-(required)"></a>Certificado de clúster y servidor (obligatorio) 
+### <a name="cluster-and-server-certificate-required"></a>Certificado de clúster y servidor (obligatorio) 
 
 Este certificado es necesario para proteger un clúster e impedir el acceso no autorizado. La seguridad adopta dos formas:
  
@@ -146,7 +146,7 @@ No es necesario cargar los certificados de autenticación de cliente en Key Vaul
 
 >[AZURE.NOTE] Azure Active Directory es el método recomendado para autenticar a los clientes en las operaciones de administración del clúster. Para usar Azure Active Directory, debe [crear un clúster mediante Azure Resource Manager][create-cluster-arm].
 
-### <a name="application-certificates-(optional)"></a>Certificados de aplicación (opcionales)
+### <a name="application-certificates-optional"></a>Certificados de aplicación (opcionales)
 
 Se puede instalar un número cualquiera de certificados adicionales en un clúster para proteger la aplicación. Antes de crear el clúster, tenga en cuenta los escenarios de seguridad de las aplicaciones que requieren que se instale un certificado en los nodos, por ejemplo:
 
@@ -215,7 +215,7 @@ Estos son todos los requisitos previos del Almacén de claves para configurar un
 
  5. La hoja **Crear clúster de Service Fabric** consta de los siguientes cuatro pasos.
 
-#### <a name="1.-basics"></a>1. Aspectos básicos
+#### <a name="1-basics"></a>1. Aspectos básicos
 
 ![Captura de pantalla de la creación de un grupo de recursos.][CreateRG]
 
@@ -233,7 +233,7 @@ En la hoja Básico, se deben proporcionar los datos básicos del clúster.
 
  5. Seleccione la **región** en la que quiere crear el clúster. Debe usar la misma región que aquella en la que se encuentra el Almacén de claves.
 
-#### <a name="2.-cluster-configuration"></a>2. Configuración del clúster
+#### <a name="2-cluster-configuration"></a>2. Configuración del clúster
 
 ![Creación de un tipo de nodo][CreateNodeType]
 
@@ -260,7 +260,7 @@ Configure los nodos del clúster. Los tipos de nodos definen los tamaños de má
 >[AZURE.NOTE] Se admiten solo los clústeres que ejecutan versiones compatibles de Service Fabric. Si selecciona el modo **Manual** , está aceptando la responsabilidad de actualizar el clúster a una versión compatible. Para más información sobre el modo de actualización de Service Fabric, vea el [documento de actualización de un clúster de Service Fabric.][service-fabric-cluster-upgrade]
 
 
-#### <a name="3.-security"></a>3. Seguridad
+#### <a name="3-security"></a>3. Seguridad
 
 ![Captura de pantalla de las configuraciones de seguridad del Portal de Azure.][SecurityConfigs]
 
@@ -283,7 +283,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 - Marque el cuadro **Configurar opciones avanzadas** para insertar certificados de cliente para el **cliente de administración** y el **cliente de solo lectura**. En estos campos, inserte la huella digital del certificado de cliente de administración y la huella digital del certificado de cliente de solo lectura, si procede. Cuando los administradores intenten conectarse al clúster, se les concederá acceso únicamente si tienen un certificado con una huella digital que coincida con los valores de huella digital especificados aquí.  
 
 
-#### <a name="4.-summary"></a>4. Resumen
+#### <a name="4-summary"></a>4. Resumen
 
 ![Captura de pantalla de panel de inicio, donde se muestra "Implementando el clúster de Service Fabric". ][Notifications]
 

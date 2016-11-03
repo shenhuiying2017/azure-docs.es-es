@@ -16,23 +16,7 @@
    ms.date="09/26/2016"
    ms.author="carlrab"/>
 
-
-
-
-<!-- # H1 Title
-
- H1 title should answer the question "What is in this topic?" Write the title in conversational language and use search key words as much as possible. Since this is a learning topic, make sure the title indicates that and doesn't mislead people to think this will tell them how to do tasks.  
--->
-
 # <a name="learn-about-sql-database-backups"></a>Más información sobre las copias de seguridad de SQL Database
-
-<!-- Introduction
-
-1. Sentence #1 begins with "Learn about ..." and gives the scope of what the article will cover.
-2. Sentence #2 explains the key capability or selling point of the feature.
-3. Sentence #3 begins with "Use this feature to ..." and gives a common use case.
-
--->
 
 SQL Database crea una copia de seguridad local de la base de datos cada cinco minutos y usa almacenamiento con redundancia geográfica con acceso de lectura de Azure (RA-GRS) para copiar algunas de las copias de seguridad de base de datos en otra región geográfica. Estas copias de seguridad tienen lugar **automáticamente y sin cargos adicionales**. Use copias de seguridad locales de la base de datos para [restaurar una base de datos a un punto en el tiempo](sql-database-point-in-time-restore-portal.md) en el mismo servidor. Use copias de seguridad con redundancia geográfica para [restaurar la base de datos en una región geográfica distinta](sql-database-geo-restore-portal.md).  
 
@@ -42,13 +26,9 @@ En el diagrama siguiente, se ejecuta SQL Database en la región del este de EE. 
 
 ![Restauración geográfica](./media/sql-database-geo-restore/geo-restore-1.png)
 
-<!--## What is <feature>?" -->
 
-## <a name="what-is-a-sql-database-backup?"></a>¿Qué es una copia de seguridad de SQL Database?  
+## <a name="what-is-a-sql-database-backup"></a>¿Qué es una copia de seguridad de SQL Database?  
 
-<!-- 
-First sentence begins with "The <feature> is ..." followed by a definition of the feature. Provide a 1-2 paragraph intro to explain what the feature is, how it works, and the importance of the feature for solving business problems.
--->
 Una copia de seguridad de base de datos SQL es un archivo que almacena información sobre el estado de la base de datos en un momento dado. SQL Database emplea tecnología SQL para crear copias de seguridad [completas](https://msdn.microsoft.com/library/ms186289.aspx), [diferenciales](https://msdn.microsoft.com/library/ms175526.aspx ) y del [registro de transacciones](https://msdn.microsoft.com/library/ms191429.aspx). Las copias de seguridad del registro de transacciones se producen cada cinco minutos, lo que permite realizar una restauración a un momento dado en el mismo servidor que hospeda la base de datos. Cuando se restaura una base de datos, el servicio calcula qué copia de seguridad completa, diferencial o del registro de transacciones es necesario restaurar.
 
 >[AZURE.NOTE] SQL Database crea tanto copias de seguridad locales de la base de datos como con redundancia geográfica automáticamente. No es necesario hacer nada para que se produzcan. Y sin cargos adicionales.
@@ -68,15 +48,15 @@ SQL Database usa la [replicación de Azure Storage](../storage/storage-redundanc
 >[AZURE.NOTE] En Azure Storage, el término *replicación* hace referencia a la copia de archivos desde una ubicación a otra. La *replicación de base de datos* de SQL hace referencia a mantener varias bases de datos secundarias sincronizadas con una base de datos principal. 
 
 
-## <a name="how-much-backup-storage-is-included-at-no-cost?"></a>¿Cuánto almacenamiento de copia de seguridad se incluye sin costo?
+## <a name="how-much-backup-storage-is-included-at-no-cost"></a>¿Cuánto almacenamiento de copia de seguridad se incluye sin costo?
 
 SQL Database proporciona hasta un 200 % de almacenamiento de base de datos aprovisionado máximo, para que pueda almacenar copias de seguridad, sin costos adicionales. Por ejemplo, si tiene una instancia de base de datos de tipo Estándar con un tamaño de base de datos aprovisionado de 250 GB, tendrá 500 GB para almacenar copias de seguridad sin costos adicionales. Si la base de datos supera el almacenamiento de copias de seguridad proporcionado, puede reducir el período de retención; para ello, póngase en contacto con el soporte técnico de Azure. Otra opción consiste en pagar por un almacenamiento de copias de seguridad adicional que se facturará según la tarifa estándar de almacenamiento redundante geográficamente con acceso de lectura (RA-GRS). 
 
-## <a name="how-often-do-backups-happen?"></a>¿Con qué frecuencia se producen las copias de seguridad?
+## <a name="how-often-do-backups-happen"></a>¿Con qué frecuencia se producen las copias de seguridad?
 
 Las copias de seguridad completas de base de datos se realizan cada semana, las copias de seguridad diferenciales de base de datos, cada hora, y las copias de seguridad del registro de transacciones, cada cinco minutos. La primera copia de seguridad completa se programa inmediatamente después de la creación de la base de datos. Normalmente, se completa en 30 minutos pero puede tardar más si la base de datos tiene un tamaño considerable. Por ejemplo, la copia de seguridad inicial puede tardar más en una base de datos restaurada o una copia de la base de datos. Después de la primera copia de seguridad completa, todas las copias de seguridad adicionales se programan automáticamente y se administran silenciosamente en segundo plano. El tiempo exacto de las copias de seguridad de base de datos completas y [diferenciales](https://msdn.microsoft.com/library/ms175526.aspx) se determina según se equilibra la carga de trabajo general. 
 
-## <a name="how-long-do-you-keep-my-backups?"></a>¿Cuánto tiempo se mantienen las copias de seguridad?
+## <a name="how-long-do-you-keep-my-backups"></a>¿Cuánto tiempo se mantienen las copias de seguridad?
 
 Cada copia de seguridad de SQL Database tiene un período de retención que se basa en el [nivel de servicio](sql-database-service-tiers.md) de la base de datos. El período de retención de una base de datos es el siguiente:
 

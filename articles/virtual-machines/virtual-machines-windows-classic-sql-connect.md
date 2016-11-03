@@ -16,7 +16,7 @@
     ms.author="jroth" />
 
 
-# <a name="connect-to-a-sql-server-virtual-machine-on-azure-(classic-deployment)"></a>Conexión a una máquina virtual de SQL Server en Azure (implementación clásica)
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Conexión a una máquina virtual de SQL Server en Azure (implementación clásica)
 
 > [AZURE.SELECTOR]
 - [Resource Manager](virtual-machines-windows-sql-connect.md)
@@ -26,7 +26,8 @@
 
 En este tema se muestra cómo conectarse a su instancia de SQL Server que se ejecuta en una máquina virtual de Azure. En él se describen algunos [escenarios de conectividad generales](#connection-scenarios) y se proporcionan los [pasos detallados para configurar la conectividad de SQL Server en una máquina virtual de Azure](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Si utiliza máquinas virtuales de Resource Manager, consulte [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](virtual-machines-windows-sql-connect.md)(Conexión a una máquina virtual de SQL Server en Azure (Resource Manager)).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+Si utiliza máquinas virtuales de Resource Manager, consulte [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](virtual-machines-windows-sql-connect.md)(Conexión a una máquina virtual de SQL Server en Azure (Resource Manager)).
 
 ## <a name="connection-scenarios"></a>Escenarios de conexión
 
@@ -106,6 +107,6 @@ Para ver otros temas sobre la ejecución de SQL Server en las máquinas virtuale
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

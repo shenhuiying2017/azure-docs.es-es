@@ -45,7 +45,7 @@ Este módulo es el punto de partida para obtener datos de dispositivos mediante 
 
 > [AZURE.NOTE] El módulo denominado **Ingesta de protocolos X** en el diagrama anterior se denomina **Dispositivo simulado en el código fuente**.
 
-### <a name="mac-&lt;-&gt;-iot-hub-id-module"></a>Módulo de identificación MAC &lt;-&gt; IoT Hub
+### <a name="mac-ltgt-iot-hub-id-module"></a>Módulo de identificación MAC &lt;-&gt; IoT Hub
 
 Este módulo busca los mensajes que incluyen una propiedad que contiene la dirección MAC, agregada por el módulo de ingesta de protocolos del dispositivo simulado. Si el módulo detecta esta propiedad, agrega otra propiedad con una clave de dispositivo del Centro de IoT al mensaje y luego hace que el mensaje esté disponible para el siguiente módulo de la cadena. Así es cómo en el ejemplo se asocian las identidades de dispositivos del Centro de IoT a los dispositivos simulados. El desarrollador configura la asignación entre las direcciones MAC y las identidades del centro de IoT manualmente como parte de la configuración del módulo. 
 

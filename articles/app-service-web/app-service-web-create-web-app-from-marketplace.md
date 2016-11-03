@@ -16,8 +16,6 @@
 	ms.date="09/20/2016"
 	ms.author="robmcm"/>
 
-<!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
-
 # Creación de una aplicación web desde Azure Marketplace
 
 [AZURE.INCLUDE [pestañas](../../includes/app-service-web-get-started-nav-tabs.md)]
@@ -180,4 +178,4 @@ Para más información acerca de cómo desarrollar aplicaciones web de WordPress
 [WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0921_2016--->

@@ -29,7 +29,7 @@ Las dependencias de la tarea de Batch les permiten crear tareas que están progr
 
 Puede crear tareas que dependan de otras en una relación de una a una o una a varias. Incluso puede crear una dependencia de intervalo, en la que una tarea depende de la finalización correcta de un grupo de tareas dentro de un intervalo de identificadores de tarea específico. Puede combinar estos tres escenarios básicos para crear relaciones de varios a varios.
 
-## <a name="task-dependencies-with-batch-.net"></a>Dependencias de tareas con Lote de .NET
+## <a name="task-dependencies-with-batch-net"></a>Dependencias de tareas con Lote de .NET
 
 En este artículo se describe cómo configurar las dependencias de tareas mediante la biblioteca de [.NET de Batch][net_msdn]. Primero le mostraremos cómo [habilitar la dependencia de tareas](#enable-task-dependencies) en sus trabajos y, después, le demostraremos cómo [configurar una tarea con dependencias](#create-dependent-tasks). Por último, se tratarán los [escenarios de dependencia](#dependency-scenarios) compatibles con Lote.
 
@@ -76,7 +76,7 @@ Hay tres escenarios de dependencia de tareas básicos que puede usar en Lote de 
 
 >[AZURE.TIP] Puede crear relaciones de **varios a varios**, por ejemplo, donde las tareas C, D, E y F dependan de las tareas A y B. Esto es útil, por ejemplo, en escenarios de preprocesamiento en paralelo donde las tareas que siguen en la cadena dependen de la salida de varias tareas que preceden en la cadena.
 
-### <a name="one-to-one"></a>Uno a uno
+### <a name="onetoone"></a>Uno a uno
 
 Para crear una tarea que dependa de la correcta finalización de otra, proporcione un identificador de tarea único para el método estático [TaskDependencies][net_taskdependencies].[OnId][net_onid] al rellenar la propiedad [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
@@ -91,7 +91,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 },
 ```
 
-### <a name="one-to-many"></a>Uno a varios
+### <a name="onetomany"></a>Uno a varios
 
 Para crear una tarea que dependa de la correcta finalización de múltiples tareas, proporcione una serie de identificadores de tarea para el método estático [TaskDependencies][net_taskdependencies].[OnId][net_onid] al rellenar la propiedad [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 

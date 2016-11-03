@@ -17,7 +17,7 @@
      ms.author="dobett"/>
 
 
-# <a name="tutorial:-how-to-send-cloud-to-device-messages-with-iot-hub-and-node.js"></a>Tutorial: cómo enviar mensajes de la nube a un dispositivo con el Centro de IoT y Node.js
+# <a name="tutorial-how-to-send-cloudtodevice-messages-with-iot-hub-and-nodejs"></a>Tutorial: cómo enviar mensajes de la nube a un dispositivo con el Centro de IoT y Node.js
 
 [AZURE.INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
@@ -78,7 +78,7 @@ En esta sección, modificará la aplicación de dispositivo simulado que creó e
 
     > [AZURE.NOTE] Si usa HTTP/1 en lugar de AMQP como transporte, la instancia de **DeviceClient** busca mensajes de IoT Hub con menos frecuencia (menos de 25 minutos). Consulte la [Guía del desarrollador de IoT Hub][IoT Hub Developer Guide - C2D] para más información sobre las diferencias entre la compatibilidad con AMQP y HTTP/1, y la limitación de IoT Hub.
 
-## <a name="send-a-cloud-to-device-message"></a>Envío de mensajes de nube a dispositivo
+## <a name="send-a-cloudtodevice-message"></a>Envío de mensajes de nube a dispositivo
 
 En esta sección, usted crea una aplicación de consola de Node.js que envía mensajes de nube a dispositivo a la aplicación del dispositivo simulado. Necesita el identificador de dispositivo que agregó en el tutorial de [introducción IoT Hub de Azure] . También necesita la cadena de conexión para IoT Hub que encontrará en [Azure Portal].
 

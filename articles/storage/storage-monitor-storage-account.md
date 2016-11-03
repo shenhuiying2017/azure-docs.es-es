@@ -32,7 +32,7 @@ Puede supervisar su cuenta de almacenamiento en el [Portal de Azure](https://por
 > Para obtener orientación exhaustiva sobre el uso de análisis de almacenamiento y otras herramientas para identificar, diagnosticar y solucionar problemas relacionados con el Almacenamiento de Azure, consulte [Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 
 
-## <a name="how-to:-configure-monitoring-for-a-storage-account"></a>Procedimientos: Configuración de la supervisión para una cuenta de almacenamiento
+## <a name="how-to-configure-monitoring-for-a-storage-account"></a>Procedimientos: Configuración de la supervisión para una cuenta de almacenamiento
 
 1. En el [Portal de Azure](https://portal.azure.com), haga clic en **Almacenamiento**y, luego, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
 
@@ -63,7 +63,7 @@ Después de configurar los niveles de supervisión y las directivas de retenció
 Las métricas se almacenan en la cuenta de almacenamiento en cuatro tablas denominadas $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue y $MetricsCapacityBlob. Para obtener más información, vea [Acerca de las métricas del análisis de almacenamiento](http://msdn.microsoft.com/library/azure/hh343258.aspx).
 
 
-## <a name="how-to:-customize-the-dashboard-for-monitoring"></a>Procedimientos: Personalización del panel para la supervisión
+## <a name="how-to-customize-the-dashboard-for-monitoring"></a>Procedimientos: Personalización del panel para la supervisión
 
 En el panel, puede elegir hasta seis métricas para mostrar en el gráfico de métricas de las nueve métricas disponibles. Para cada servicio (Blob, Tabla y Cola), existen métricas de disponibilidad, porcentajes de éxito y total de solicitudes. Las métricas disponibles en el panel son las mismas para la supervisión mínima y detallada.
 
@@ -82,7 +82,7 @@ En el panel, puede elegir hasta seis métricas para mostrar en el gráfico de m�
 4. Para cambiar el intervalo de tiempo que se muestra en el gráfico de métricas, seleccione 6 horas, 24 horas o 7 días en la parte superior del gráfico.
 
 
-## <a name="how-to:-customize-the-monitor-page"></a>Procedimientos: Personalización de la página Supervisar
+## <a name="how-to-customize-the-monitor-page"></a>Procedimientos: Personalización de la página Supervisar
 
 En la página **Supervisar** , puede visualizar el conjunto de métricas completo para su cuenta de almacenamiento.
 
@@ -92,7 +92,7 @@ En la página **Supervisar** , puede visualizar el conjunto de métricas complet
 
 Utilice los siguientes procedimientos para elegir las métricas de almacenamiento que desea visualizar en los gráficos y la tabla de métricas que se muestran en la página **Supervisar** . Estas configuraciones no afectan a la recopilación, la incorporación y el almacenamiento de los datos de supervisión en la cuenta de almacenamiento.
 
-## <a name="how-to:-add-metrics-to-the-metrics-table"></a>Adición de métricas a la tabla de métricas
+## <a name="how-to-add-metrics-to-the-metrics-table"></a>Adición de métricas a la tabla de métricas
 
 
 1. En el [Portal de Azure](https://portal.azure.com), haga clic en **Almacenamiento**y, luego, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
@@ -129,7 +129,7 @@ Utilice los siguientes procedimientos para elegir las métricas de almacenamient
 
     ![Eliminar métrica](./media/storage-monitor-storage-account/Storage_DeleteMetric.png)
 
-## <a name="how-to:-customize-the-metrics-chart-on-the-monitor-page"></a>Procedimientos: Personalización del gráfico de métricas en la página Supervisar
+## <a name="how-to-customize-the-metrics-chart-on-the-monitor-page"></a>Procedimientos: Personalización del gráfico de métricas en la página Supervisar
 
 1. En la página **Supervisar** de la cuenta de almacenamiento, en la tabla de métricas, seleccione hasta 6 valores para mostrarlas en el gráfico de métricas. Para seleccionar una métrica, haga clic en la casilla de verificación del lado izquierdo. Para borrar una métrica del gráfico, desactive la casilla de verificación.
 
@@ -139,7 +139,7 @@ Utilice los siguientes procedimientos para elegir las métricas de almacenamient
 
 
 
-## <a name="how-to:-configure-logging"></a>Procedimiento: Configuración del registro
+## <a name="how-to-configure-logging"></a>Procedimiento: Configuración del registro
 
 Para cada uno de los servicios de almacenamiento disponibles en su cuenta de almacenamiento (Blob, Tabla y Cola), puede guardar registros de diagnóstico para solicitudes de lectura, solicitudes de escritura y solicitudes de eliminación, así como configurar la directiva de retención de datos para cada uno de los servicios.
 

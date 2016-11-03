@@ -23,7 +23,8 @@
 
 En este documento se muestra cómo generar características para los datos almacenados en una VM de SQL Server en Azure que ayudan a los algoritmos a aprender de forma eficaz de los datos. Esto puede hacerse con SQL o con un lenguaje de programación como Python; las dos opciones se muestran aquí.
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)] Este **menú** vincula a temas en los que se describe cómo crear características para datos en diversos entornos. Esta tarea constituye un paso del [proceso de ciencia de datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+Este **menú** vincula a temas en los que se describe cómo crear características para datos en diversos entornos. Esta tarea constituye un paso del [proceso de ciencia de datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 > [AZURE.NOTE] Para obtener un ejemplo práctico, puede usar el [conjunto de datos de los taxis de la Ciudad de Nueva York](http://www.andresmh.com/nyctaxitrips/) y consultar el IPNB llamado [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) (Tratamiento de datos de la Ciudad de Nueva York mediante un Bloc de notas de IPython y SQL Server), un tutorial completo.
 
@@ -35,7 +36,7 @@ En este artículo se supone que ha:
 * Almacenado los datos en SQL Server. Si no es así, consulte [Mover datos a SQL Database de Azure para Azure Machine Learning](machine-learning-data-science-move-sql-azure.md) para obtener instrucciones sobre cómo mover los datos.
 
 
-## <a name="<a-name="sql-featuregen"></a>feature-generation-with-sql"></a><a name="sql-featuregen"></a>Generación de características con SQL
+## <a name="a-namesqlfeaturegenafeature-generation-with-sql"></a><a name="sql-featuregen"></a>Generación de características con SQL
 
 En esta sección, se describen formas de generar características mediante SQL:  
 
@@ -46,7 +47,7 @@ En esta sección, se describen formas de generar características mediante SQL:
 
 > [AZURE.NOTE] Cuando genere características adicionales, puede agregarlas como columnas a la tabla existente o crear una nueva tabla con las características adicionales y la clave principal, que se pueden combinar con la tabla original.
 
-### <a name="<a-name="sql-countfeature"></a>count-based-feature-generation"></a><a name="sql-countfeature"></a>Generación de características basadas en recuentos
+### <a name="a-namesqlcountfeatureacount-based-feature-generation"></a><a name="sql-countfeature"></a>Generación de características basadas en recuentos
 
 En este documento se muestran dos maneras de generar características de recuento. El primer método usa la suma condicional y el segundo utiliza la cláusula 'where'. Estos pueden entonces combinarse con la tabla original (con columnas de clave principal) para disponer de características de recuento junto con los datos originales.
 
@@ -55,14 +56,14 @@ En este documento se muestran dos maneras de generar características de recuent
     select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename>
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
-### <a name="<a-name="sql-binningfeature"></a>binning-feature-generation"></a><a name="sql-binningfeature"></a>Generación de características de discretización
+### <a name="a-namesqlbinningfeatureabinning-feature-generation"></a><a name="sql-binningfeature"></a>Generación de características de discretización
 
 En el ejemplo siguiente se muestra cómo generar características discretizadas mediante la discretización (con 5 discretizaciones) de una columna numérica que puede usarse en su lugar como una característica:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-### <a name="<a-name="sql-featurerollout"></a>rolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Implementación de las características de una sola columna
+### <a name="a-namesqlfeaturerolloutarolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Implementación de las características de una sola columna
 
 En esta sección, se muestra cómo se implementa una sola columna de una tabla para generar características adicionales. En el ejemplo se supone que hay una columna de latitud o longitud en la tabla a partir de la cual está intentando generar características.
 
@@ -98,13 +99,13 @@ Las características basadas en ubicación anteriores se pueden usar aún más p
 > [AZURE.TIP] Puede insertar mediante programación los registros con el lenguaje que prefiera. Es posible que deba insertar los datos en fragmentos para mejorar el rendimiento de escritura [Consulte el ejemplo sobre cómo hacerlo mediante pyodbc aquí](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
 Otra alternativa consiste en insertar datos en la base de datos mediante la [utilidad BCP](https://msdn.microsoft.com/library/ms162802.aspx).
 
-### <a name="<a-name="sql-aml"></a>connecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Conexión con Aprendizaje automático de Azure
+### <a name="a-namesqlamlaconnecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Conexión con Aprendizaje automático de Azure
 
 La característica recién generada se puede agregar como una columna a una tabla existente o se puede almacenar en una tabla nueva y combinar con la tabla original para el aprendizaje automático. Es posible generar o acceder a las características si ya se han creado, mediante el módulo [Importar datos](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) en Aprendizaje automático de Azure, como se muestra a continuación:
 
 ![Lectores de azureml](./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png)
 
-## <a name="<a-name="python"></a>using-a-programming-language-like-python"></a><a name="python"></a>Uso de un lenguaje de programación como Python
+## <a name="a-namepythonausing-a-programming-language-like-python"></a><a name="python"></a>Uso de un lenguaje de programación como Python
 
 Usar Python para generar características cuando los datos están en SQL Server es parecido a procesar los datos en Blob de Azure mediante Python, como se documenta [aquí](machine-learning-data-science-process-data-blob.md). Los datos deben cargarse desde la base de datos en una trama de datos de Pandas y, a continuación, se pueden procesar aún más. Se documenta el proceso de conexión a la base de datos y carga de los datos en la trama de datos de esta sección.
 
@@ -123,6 +124,6 @@ Ya puede trabajar con la trama de datos de Pandas como se explica en los temas [
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 
