@@ -18,7 +18,7 @@
     ms.author="jroth"/>
 
 
-# <a name="sql-server-agent-extension-for-sql-server-vms-(classic)"></a>Extensión del Agente SQL Server para las máquinas virtuales SQL Server (clásico)
+# <a name="sql-server-agent-extension-for-sql-server-vms-classic"></a>Extensión del Agente SQL Server para las máquinas virtuales SQL Server (clásico)
 
 > [AZURE.SELECTOR]
 - [Resource Manager](virtual-machines-windows-sql-server-agent-extension.md)
@@ -26,7 +26,8 @@
 
 La extensión del agente de IaaS SQL Server (SQLIaaSAgent) se ejecuta en máquinas virtuales de Azure para automatizar las tareas de administración. En este tema se proporciona información general sobre los servicios admitidos por la extensión, así como instrucciones para la instalación, el estado y la eliminación.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Para ver la versión de Resource Manager de este artículo, consulte [Extensión del Agente SQL Server para máquinas virtuales SQL Server (Resource Manager)](virtual-machines-windows-sql-server-agent-extension.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+Para ver la versión de Resource Manager de este artículo, consulte [Extensión del Agente SQL Server para máquinas virtuales SQL Server (Resource Manager)](virtual-machines-windows-sql-server-agent-extension.md).
 
 ## <a name="supported-services"></a>Servicios admitidos
 
@@ -42,18 +43,18 @@ La extensión del Agente de IaaS SQL Server es compatible con las siguientes tar
 
 Requisitos para usar la extensión del Agente de IaaS SQL Server en la máquina virtual:
 
-### <a name="operating-system:"></a>Sistema operativo:
+### <a name="operating-system"></a>Sistema operativo:
 
 - Windows Server 2012
 - Windows Server 2012 R2
 
-### <a name="sql-server-versions:"></a>Versiones de SQL Server:
+### <a name="sql-server-versions"></a>Versiones de SQL Server:
 
 - SQL Server 2012
 - SQL Server 2014
 - SQL Server 2016
 
-### <a name="azure-powershell:"></a>Azure PowerShell:
+### <a name="azure-powershell"></a>Azure PowerShell:
 
 [Descargue y configure los comandos de Azure PowerShell más recientes](../powershell-install-configure.md).
 
@@ -107,6 +108,6 @@ Para obtener más información sobre cómo ejecutar SQL Server en Máquinas virt
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

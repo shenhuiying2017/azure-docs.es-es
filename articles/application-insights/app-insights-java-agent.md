@@ -16,7 +16,7 @@
     ms.author="awills"/>
  
 
-# <a name="monitor-dependencies,-exceptions-and-execution-times-in-java-web-apps"></a>Supervisión de dependencias, excepciones y tiempos de ejecución en aplicaciones web de Java
+# <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>Supervisión de dependencias, excepciones y tiempos de ejecución en aplicaciones web de Java
 
 *Application Insights se encuentra en su versión de vista previa.*
 
@@ -103,7 +103,7 @@ Para buscar instancias individuales de informes de dependencia, excepción y mé
 
 
 
-## <a name="questions?-problems?"></a>¿Tiene preguntas? ¿Tiene problemas?
+## <a name="questions-problems"></a>¿Tiene preguntas? ¿Tiene problemas?
 
 * ¿No hay datos? [Establezca excepciones del firewall](app-insights-ip-addresses.md)
 * [Solución de problemas de Java](app-insights-java-troubleshoot.md)
@@ -115,11 +115,11 @@ Para buscar instancias individuales de informes de dependencia, excepción y mé
 [api]: app-insights-api-custom-events-metrics.md
 [apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
 [availability]: app-insights-monitor-web-app-availability.md
-[diagnostic]: app-insights-diagnostic-search.md
+[diagnóstico]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
-[metrics]: app-insights-metrics-explorer.md
+[métricas]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
  

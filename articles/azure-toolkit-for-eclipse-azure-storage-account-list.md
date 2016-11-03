@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Lista de cuentas de almacenamiento de Azure"
-    description="Administrar la configuración de su cuenta de almacenamiento con el Kit de herramientas de Azure para Eclipse"
+    pageTitle="Azure Storage Account List"
+    description="Manage your storage account settings using the Azure Toolkit for Eclipse"
     services=""
     documentationCenter="java"
     authors="rmcmurray"
-    manager="wpickett"
+    manager="erikre"
     editor=""/>
 
 <tags
@@ -13,86 +13,85 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="08/11/2016" 
+    ms.date="11/01/2016" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn205108.aspx -->
 
-# Lista de cuentas de almacenamiento de Azure #
+# <a name="azure-storage-account-list"></a>Azure Storage Account List
 
-Las cuentas de almacenamiento de Azure permiten el uso de las ubicaciones de descarga para su JDK, el servidor de aplicaciones y los componentes arbitrarios, así como para almacenar el estado cuando se usa el almacenamiento en caché. Eclipse mantiene una lista de cuentas de almacenamiento conocidas que están disponibles para sus proyectos en el área de trabajo de Eclipse. Para abrir el cuadro de diálogo **Cuentas de almacenamiento** que se usa para administrar esa lista, en Eclipse, haga clic en **Ventana**, en **Preferencias**, expanda **Azure** y luego haga clic en **Cuentas de almacenamiento**.
+Azure storage accounts enable download locations to be used for your JDK, application server, and arbitrary components, as well as for storing state when using caching. Eclipse maintains a list of known storage accounts that are available to your projects in your Eclipse workspace. To open the **Storage Accounts** dialog, which is used to manage that list, within Eclipse, click **Window**, click **Preferences**, expand **Azure**, and then click **Storage Accounts**.
 
-Lo siguiente muestra el cuadro de diálogo **Cuentas de almacenamiento**.
+The following shows the **Storage Accounts** dialog.
 
 ![][ic719496]
 
-También se puede abrir este cuadro de diálogo desde un vínculo **Cuentas** en cuadros de diálogo que usan cuentas de almacenamiento, como los siguientes:
+This dialog can also be opened from an **Accounts** link on dialog boxes that use storage accounts, such as the following:
 
-* La pestaña **JDK** del cuadro de diálogo **Configuración del servidor**.
-* La pestaña **Servidor** del cuadro de diálogo **Configuración del servidor**.
-* El cuadro de diálogo **Agregar componente**.
-* El cuadro de diálogo de propiedades de **Almacenamiento en caché**.
+* The **JDK** tab of the **Server Configuration** dialog.
+* The **Server** tab of the **Server Configuration** dialog.
+* The **Add Component** dialog.
+* The **Caching** properties dialog.
 
-## Para importar sus cuentas de almacenamiento mediante un archivo de configuración de publicación ##
+## <a name="to-import-your-storage-accounts-using-a-publish-settings-file"></a>To import your storage accounts using a publish settings file
 
-1. Dentro del cuadro de diálogo **Cuentas de almacenamiento**, haga clic en **Importar desde el archivo PUBLISH-SETTINGS**.
-2. (Omita este paso si ya ha guardado un archivo de configuración de publicación en su máquina local). En el cuadro de diálogo **Importar desde el archivo de suscripción**, haga clic en **Descargar archivo PUBLISH-SETTINGS**. Si todavía no ha iniciado sesión en su cuenta de Azure, se le solicitará que lo haga. Después, se le solicitará que guarde un archivo de configuración de publicación de Azure. (Puede ignorar las instrucciones resultantes que se muestran en las páginas de inicio de sesión: se ofrecen por el portal de Azure y están pensadas para los usuarios de Visual Studio.) Guárdelo en su máquina local.
-3. Todavía en el cuadro de diálogo **Importar información de suscripción**, haga clic en el botón **Examinar**, seleccione el archivo de configuración de publicación que guardó localmente anteriormente y luego haga clic en **Abrir**.
-4. Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Importar información de la suscripción**.
+1. Within the **Storage Accounts** dialog, click **Import from PUBLISH-SETTINGS file**.
+2. (Skip this step if you have already saved a publish settings file to your local machine.) In the **Import Subscription Information** dialog, click **Download PUBLISH-SETTINGS File**. If you are not yet logged into your Azure account, you will be prompted to log in. Then you'll be prompted to save an Azure publish settings file. (You can ignore the resulting instructions shown on the logon pages - they are provided by the Azure portal and are intended for Visual Studio users.) Save it to your local machine.
+3. Still in the **Import Subscription Information** dialog, click the **Browse** button, select the publish settings file that you saved locally previously, and then click **Open**.
+4. Click **OK** to close the **Import Subscription Information** dialog.
 
-## Para crear una cuenta de almacenamiento ##
+## <a name="to-create-a-new-storage-account"></a>To create a new storage account
 
-1. En el cuadro de diálogo **Cuentas de almacenamiento**, haga clic en **Agregar**.
-2. En el cuadro de diálogo **Agregar cuenta de almacenamiento**, haga clic en **Nueva**.
-3. En el cuadro de diálogo **Nueva cuenta de almacenamiento**, especifique los siguientes valores:
-    * Nombre de la cuenta de almacenamiento.
-    * Ubicación de la cuenta de almacenamiento.
-    * Descripción de la cuenta de almacenamiento.
-    * La suscripción a la que pertenece la cuenta de almacenamiento.
-4. Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Nueva cuenta de almacenamiento**.
+1. Within the **Storage Accounts** dialog, click **Add**.
+2. Within the **Add Storage Account** dialog, click **New**.
+3. Within the **New Storage Account** dialog, specify values for the following:
+    * Storage account name.
+    * Location of the storage account.
+    * Description of the storage account.
+    * The subscription to which the storage account belongs.
+4. Click **OK** to close the **New Storage Account** dialog.
 
-Se puede tardar unos minutos en crearse su cuenta de almacenamiento. Una vez creada, haga clic en **Aceptar** para cerrar el cuadro de diálogo **Agregar cuenta de almacenamiento** y se agregará la nueva cuenta de almacenamiento a la lista de cuentas de almacenamiento disponibles.
+It may take several minutes for your storage account to be created. After it is created, click **OK** to close the **Add Storage Account** dialog, and your new storage account will be added to the list of available storage accounts.
 
-## Para agregar una cuenta de almacenamiento existente a la lista ##
+## <a name="to-add-an-existing-storage-account-to-the-list"></a>To add an existing storage account to the list
 
-1. Si no dispone ya de una cuenta de almacenamiento de Azure, cree una siguiendo los pasosde la sección **Creación de una cuenta de almacenamiento nueva** que aparece anteriormente. (También puede crear una cuenta de almacenamiento nueva en el [Portal de administración de Azure][].)
-2. En el cuadro de diálogo **Cuentas de almacenamiento**, haga clic en **Agregar**.
-3. En el cuadro de diálogo **Agregar cuenta de almacenamiento**, especifique valores para **Nombre** y **Clave de acceso**. El nombre de la cuenta y la clave de acceso deben ser para una cuenta de almacenamiento de Azure existente. Use la sección **Almacenamiento** del [Portal de administración de Azure][] para ver sus claves y nombres de cuenta de almacenamiento. Su cuadro de diálogo **Agregar cuenta de almacenamiento** tendrá un aspecto similar al siguiente.
+1. If you do not already have a Azure storage account, create one by following the steps listed in the **To create a new storage account section** above. (Alternatively, you can create a new storage account at the [Azure Management Portal][].)
+2. Within the **Storage Accounts** dialog, click **Add**.
+3. Within the **Add Storage Account** dialog, enter values for **Name** and **Access Key**. The account name and access key must be for an existing Azure storage account. Use the **Storage** section of the [Azure Management Portal][] to view your storage account names and keys. Your **Add Storage Account** dialog will look similar to the following.
 
     ![][ic719497]
 
-4. Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Agregar cuenta de almacenamiento**.
+4. Click **OK** to close the **Add Storage Account** dialog.
 
-## Para modificar una cuenta de almacenamiento para que use una nueva clave de acceso ##
+## <a name="to-modify-a-storage-account-to-use-a-new-access-key"></a>To modify a storage account to use a new access key
 
-1. En el cuadro de diálogo **Cuentas de almacenamiento**, haga clic en la cuenta de almacenamiento que quiera editar y luego haga clic en **Editar**.
-2. En el cuadro de diálogo **Editar la clave de acceso de la cuenta de almacenamiento**, modifique el valor de la **Clave de acceso**.
-3. Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Editar la clave de acceso de la cuenta de almacenamiento**.
+1. Within the **Storage Accounts** dialog, click the storage account that you want to edit and then click **Edit**.
+2. Within the **Edit Storage Account Access Key** dialog, modify the **Access Key** value.
+3. Click **OK** to close the **Edit Storage Account Access Key** dialog.
 
-## Para quitar una cuenta de almacenamiento de la lista mantenida en Eclipse ##
+## <a name="to-remove-a-storage-account-from-the-list-maintained-in-eclipse"></a>To remove a storage account from the list maintained in Eclipse
 
-1. En el cuadro de diálogo **Cuentas de almacenamiento**, haga clic en la cuenta de almacenamiento que quiera editar y luego haga clic en **Quitar**.
-2. Haga clic en **Aceptar** cuando se pregunte si quiere quitar la cuenta de almacenamiento.
+1. Within the **Storage Accounts** dialog, click the storage account that you want to edit and then click **Remove**.
+2. Click **OK** when prompted to remove the storage account.
 
->[AZURE.NOTE] Al quitar la cuenta de almacenamiento mediante el cuadro de diálogo **Cuentas de almacenamiento** solo se quita de la lista de cuentas de almacenamiento que se pueden ver en Eclipse. No elimina la cuenta de almacenamiento de su suscripción de Azure. Además, la cuenta de almacenamiento podría aparecer de nuevo en la lista después de que Eclipse vuelva a cargar los detalles de su suscripción.
+>[AZURE.NOTE] Removing the storage account through the **Storage Accounts** dialog only removes it from the list of storage accounts viewable within Eclipse. It does not remove the storage account from your Azure subscription. Additionally, the storage account could appear again in your list after Eclipse reloads the details of your subscription.
 
-## Otras referencias ##
+## <a name="see-also"></a>See Also
 
-[Kit de herramientas de Azure para Eclipse][]
+[Azure Toolkit for Eclipse][]
 
-[Instalación del Kit de herramientas de Azure para Eclipse][]
+[Installing the Azure Toolkit for Eclipse][] 
 
-[Creación de una aplicación Hola a todos para Azure en Eclipse][]
+[Creating a Hello World Application for Azure in Eclipse][]
 
-Para más información sobre el uso de Azure con Java, vea el [Centro de desarrolladores de Java de Azure][].
+For more information about using Azure with Java, see the [Azure Java Developer Center][].
 
 <!-- URL List -->
 
-[Centro de desarrolladores de Java de Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Kit de herramientas de Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Portal de administración de Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Creación de una aplicación Hola a todos para Azure en Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Instalación del Kit de herramientas de Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
@@ -100,4 +99,10 @@ Para más información sobre el uso de Azure con Java, vea el [Centro de desarro
 [ic719496]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719496.png
 [ic719497]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719497.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn205108.aspx -->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

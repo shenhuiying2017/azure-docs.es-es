@@ -100,7 +100,7 @@ Cuando se usa SASL PLAIN con AMQP, un cliente que se conecta a una instancia de 
 *  Las puertas de enlace normalmente se conectan en nombre de muchos dispositivos. Cuando se usa SASL PLAIN, tienen que crear una conexión TCP distintiva para cada dispositivo que se conecta a un Centro de IoT. Este escenario aumenta considerablemente el consumo de energía y de recursos de red, y aumenta la latencia de cada conexión de dispositivo.
 * Los dispositivos con recursos restringidos se ven afectados negativamente por el aumento del uso de recursos para volver a conectarse después de cada expiración del token.
 
-## <a name="scope-hub-level-credentials"></a>Restricción de las credenciales de nivel de centro
+## <a name="scope-hublevel-credentials"></a>Restricción de las credenciales de nivel de centro
 
 Puede restringir el ámbito de las directivas de seguridad de nivel de centro mediante la creación de tokens con un URI de recurso restringido. Por ejemplo, el punto de conexión para enviar mensajes de dispositivo a nube desde un dispositivo es **/devices/{deviceId}/messages/events**. También puede usar una directiva de acceso compartido de nivel de centro con permisos **DeviceConnect** para firmar un token cuyo resourceURI sea **/devices/{deviceId}**. Este enfoque crea un token que solo se puede usar para enviar mensajes en nombre del **deviceId**del dispositivo.
 
@@ -280,7 +280,7 @@ El resultado, que concedería acceso para leer todas las identidades del disposi
 
     SharedAccessSignature sr=myhub.azure-devices.net%2fdevices&sig=JdyscqTpXdEJs49elIUCcohw2DlFDR3zfH5KqGJo4r4%3D&se=1456973447&skn=registryRead
 
-## <a name="supported-x.509-certificates"></a>Certificados X.509 compatibles
+## <a name="supported-x509-certificates"></a>Certificados X.509 compatibles
 
 Puede usar cualquier certificado X.509 para autenticar dispositivos con el Centro de IoT. En ella se incluye:
 
@@ -292,11 +292,11 @@ Puede usar cualquier certificado X.509 para autenticar dispositivos con el Centr
 
 Un dispositivo puede usar un token de seguridad o un certificado X.509 para realizar la autenticación, pero no ambos.
 
-### <a name="register-an-x.509-client-certificate-for-a-device"></a>Registro de certificados de cliente X.509 en un dispositivo
+### <a name="register-an-x509-client-certificate-for-a-device"></a>Registro de certificados de cliente X.509 en un dispositivo
 
 El [SDK de servicio de IoT de Azure para C#][lnk-service-sdk] (versión 1.0.8 o posterior) permite registrar un dispositivo que utilice un certificado de cliente X.509 para realizar la autenticación. Otras API como la importación y exportación de dispositivos también admiten este tipo de certificados.
 
-### <a name="c\#-support"></a>Compatibilidad con C\#
+### <a name="c-support"></a>Compatibilidad con C\#
 
 La clase **RegistryManager** permite registrar dispositivos mediante programación. En concreto, con los métodos **AddDeviceAsync** y **UpdateDeviceAsync**, los usuarios pueden registrar y actualizar un dispositivo en el registro de identidad de dispositivos de IoT Hub. Estos dos métodos toman una instancia **Device** como entrada. La clase **Device** incluye una propiedad **Authentication** que permite al usuario especificar huellas digitales de certificados X.509 principales y secundarias. La huella digital representa un hash SHA-1 del certificado X.509 (que se almacena mediante codificación DER binaria). Los usuarios tienen la opción de especificar una huella digital principal o secundaria, o ambas. Las huellas digitales principales y secundarias se admiten para poder controlar los escenarios de sustitución de certificados.
 
@@ -319,11 +319,11 @@ RegistryManager registryManager = RegistryManager.CreateFromConnectionString(dev
 await registryManager.AddDeviceAsync(device);
 ```
 
-### <a name="use-an-x.509-client-certificate-during-runtime-operations"></a>Uso de certificados de cliente X.509 durante las operaciones en runtime
+### <a name="use-an-x509-client-certificate-during-runtime-operations"></a>Uso de certificados de cliente X.509 durante las operaciones en runtime
 
 El [SDK de dispositivo IoT de Azure para .NET][lnk-client-sdk] (versión 1.0.11 o posterior) permite utilizar certificados de cliente X.509.
 
-### <a name="c\#-support"></a>Compatibilidad con C\#
+### <a name="c-support"></a>Compatibilidad con C\#
 
 La clase **DeviceAuthenticationWithX509Certificate** permite crear instancias  **DeviceClient** mediante un certificado de cliente X.509.
 
@@ -405,8 +405,8 @@ Si desea probar algunos de los conceptos descritos en este artículo, puede inte
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk openssl]: https://www.openssl.org/
-[lnk selfsigned]: https://technet.microsoft.com/library/hh848633
+[lnk-openssl]: https://www.openssl.org/
+[lnk-selfsigned]: https://technet.microsoft.com/library/hh848633
 
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 [lnk-sas-tokens]: iot-hub-devguide-security.md#security-tokens

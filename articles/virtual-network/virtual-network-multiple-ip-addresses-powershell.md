@@ -46,7 +46,7 @@ Este escenario supone que tiene un grupo de recursos llamado *RG1*, dentro del c
 
 [Este artículo](./virtual-machines/virtual-machines-windows-ps-create.md ) lo guiará en el proceso de creación de los recursos mencionados anteriormente en caso de que todavía no los haya creado.
 
-## <a name="<a-name-=-"create"></a>create-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Creación de una máquina virtual con varias direcciones IP
+## <a name="a-name-createacreate-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Creación de una máquina virtual con varias direcciones IP
 
 1. Abra un símbolo del sistema de PowerShell y complete los pasos restantes de esta sección en una única sesión de PowerShell. Si todavía no tiene PowerShell instalado y configurado, complete los pasos del artículo [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) .
 
@@ -229,7 +229,7 @@ Este escenario supone que tiene un grupo de recursos llamado *RG1*, dentro del c
 
     Debería ver la dirección IP que agregó, *eth0:0*, en la lista que se devuelve.
 
-## <a name="<a-name="add"></a>add-ip-addresses-to-an-existing-vm"></a><a name="add"></a>Incorporación de direcciones IP a una máquina virtual existente
+## <a name="a-nameaddaadd-ip-addresses-to-an-existing-vm"></a><a name="add"></a>Incorporación de direcciones IP a una máquina virtual existente
 
 Complete los pasos siguientes para agregar direcciones IP adicionales a una NIC existente:
 
