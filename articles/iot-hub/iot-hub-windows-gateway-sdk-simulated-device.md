@@ -130,7 +130,7 @@ Para ejecutar el ejemplo:
 
 Si desea una descripción más avanzada del SDK de puerta de enlace y experimentar con algunos ejemplos de código, consulte los siguientes tutoriales y recursos para desarrolladores:
 
-- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo real a través de Linux][ lnk-physical-device]
+- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo real a través de Linux][lnk-physical-device]
 - [SDK de puerta de enlace de Azure IoT][lnk-gateway-sdk]
 
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
@@ -138,7 +138,7 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 - [Guía para desarrolladores][lnk-devguide]
 
 <!-- Links -->
-[lnk setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
+[lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/

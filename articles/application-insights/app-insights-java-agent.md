@@ -115,11 +115,11 @@ Para buscar instancias individuales de informes de dependencia, excepción y mé
 [api]: app-insights-api-custom-events-metrics.md
 [apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
 [availability]: app-insights-monitor-web-app-availability.md
-[diagnostic]: app-insights-diagnostic-search.md
+[diagnóstico]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
-[metrics]: app-insights-metrics-explorer.md
+[métricas]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
  

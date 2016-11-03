@@ -217,7 +217,7 @@ Ahora que ya conoce los aspectos básicos de las colas de Service Bus, consulte 
 Para obtener más información, consulte también el [Centro para desarrolladores de PHP](/develop/php/).
 
 [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
-[require_once]: http://php.net/require_once
+[require-once]: http://php.net/require_once
 
  
 

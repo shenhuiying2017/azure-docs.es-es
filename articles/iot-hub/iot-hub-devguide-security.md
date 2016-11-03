@@ -405,8 +405,8 @@ Si desea probar algunos de los conceptos descritos en este artículo, puede inte
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk openssl]: https://www.openssl.org/
-[lnk selfsigned]: https://technet.microsoft.com/library/hh848633
+[lnk-openssl]: https://www.openssl.org/
+[lnk-selfsigned]: https://technet.microsoft.com/library/hh848633
 
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 [lnk-sas-tokens]: iot-hub-devguide-security.md#security-tokens

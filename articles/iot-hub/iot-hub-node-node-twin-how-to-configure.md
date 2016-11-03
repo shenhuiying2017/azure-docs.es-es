@@ -260,7 +260,7 @@ Use los siguientes recursos para obtener información sobre cómo:
 [lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-dm-overview]: iot-hub-device-management-overview.md
-[lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
+[Ink-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
 [lnk-schedule-jobs]: iot-hub-schedule-jobs.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
@@ -271,7 +271,7 @@ Use los siguientes recursos para obtener información sobre cómo:
 
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
-[lnk-how-to-configure-createapp]: iot-hub-node-node-twin-how-to-configure.md#create-the-simulated-device-app
+[Ink-how-to-configure-createapp]: iot-hub-node-node-twin-how-to-configure.md#create-the-simulated-device-app
 
 
 

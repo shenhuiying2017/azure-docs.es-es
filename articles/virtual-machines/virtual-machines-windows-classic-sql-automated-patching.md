@@ -25,7 +25,8 @@
 
 Aplicación de revisión automatizada establece una ventana de mantenimiento para una máquina virtual de Azure con SQL Server. Actualizaciones automatizadas solo puede instalarse durante esta ventana de mantenimiento. Para SQL Server, esto garantiza que se actualiza el sistema y que cualquier reinicio asociado se producto en el mejor momento posible para la base de datos. Aplicación de revisión automatizada se basa en la [Extensión Agente de IaaS de SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Para ver la versión de Resource Manager de este artículo, consulte [Automated Patching for SQL Server in Azure Virtual Machines (Resource Manager)](virtual-machines-windows-sql-automated-patching.md)(Aplicación de revisión automatizada para SQL Server en máquinas virtuales de Azure [Resource Manager]).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+Para ver la versión de Resource Manager de este artículo, consulte [Automated Patching for SQL Server in Azure Virtual Machines (Resource Manager)](virtual-machines-windows-sql-automated-patching.md)(Aplicación de revisión automatizada para SQL Server en máquinas virtuales de Azure [Resource Manager]).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -91,6 +92,6 @@ Para más información sobre cómo ejecutar SQL Server en máquinas virtuales de
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 
