@@ -1,24 +1,23 @@
 <properties
-    pageTitle="Java application development tutorial using DocumentDB | Microsoft Azure"
-    description="This Java web application tutorial shows you how to use the Azure DocumentDB service to store and access data from a Java application hosted on Azure Websites."
-    keywords="Application development, database tutorial, java application, java web application tutorial, documentdb, azure, Microsoft azure"
-    services="documentdb"
-    documentationCenter="java"
-    authors="dennyglee"
-    manager="jhubbard"
-    editor="mimig"/>
+	pageTitle="Tutorial de desarrollo de aplicaciones Java usando DocumentDB | Microsoft Azure"
+	description="En este tutorial de aplicación web Java aprenderá a usar el servicio Azure DocumentDB para almacenar datos y obtener acceso a ellos desde una aplicación Java hospedada en Sitios web Azure."
+	keywords="Application development, database tutorial, java application, java web application tutorial, documentdb, azure, Microsoft azure"
+	services="documentdb"
+	documentationCenter="java"
+	authors="AndrewHoh"
+	manager="jhubbard"
+	editor="mimig"/>
 
 <tags
-    ms.service="documentdb"
-    ms.devlang="java"
-    ms.topic="hero-article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="11/02/2016"
-    ms.author="denlee"/>
+	ms.service="documentdb"
+	ms.devlang="java"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="08/24/2016"
+	ms.author="anhoh"/>
 
-
-# <a name="build-a-java-web-application-using-documentdb"></a>Build a Java web application using DocumentDB
+# Creación de una aplicación web de Java mediante DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -26,759 +25,759 @@
 - [Java](documentdb-java-application.md)
 - [Python](documentdb-python-application.md)
 
-This Java web application tutorial shows you how to use the [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) service to store and access data from a Java application hosted on Azure Websites. In this topic, you will learn:
+En este tutorial de aplicación web de Java aprenderá a usar el servicio [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) para almacenar datos y obtener acceso a ellos desde una aplicación Java hospedada en Sitios web de Azure. En este tema, aprenderá:
 
-- How to build a basic JSP application in Eclipse.
-- How to work with the Azure DocumentDB service using the [DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java).
+- Cómo crear una aplicación de JSP básica en Eclipse.
+- Uso del servicio de Azure DocumentDB mediante el [SDK de Java de DocumentDB](https://github.com/Azure/azure-documentdb-java).
 
-This Java application tutorial shows you how to create a web-based task-management application that enables you to create, retrieve, and mark tasks as complete, as shown in the following image. Each of the tasks in the ToDo list are stored as JSON documents in Azure DocumentDB.
+Este tutorial de aplicación Java muestra cómo crear una aplicación de administración de tareas basadas en web que permite crear, recuperar y marcar tareas como completadas, tal como se muestra en la siguiente imagen. Cada una de las tareas en la lista ToDo se almacena como documentos JSON en Azure DocumentDB.
 
-![My ToDo List Java application](./media/documentdb-java-application/image1.png)
+![Aplicación Java My ToDo List](./media/documentdb-java-application/image1.png)
 
-> [AZURE.TIP] This application development tutorial assumes that you have prior experience using Java. If you are new to Java or the [prerequisite tools](#Prerequisites), we recommend downloading the complete [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) project from GitHub and building it using [the instructions at the end of this article](#GetProject). Once you have it built, you can review the article to gain insight on the code in the context of the project.  
+> [AZURE.TIP] En este tutorial de desarrollo de aplicaciones se supone que tiene experiencia anterior en el uso de Java. Si no está familiarizado con Java o con las herramientas de [requisitos previos](#Prerequisites), se recomienda que descargue el proyecto completo [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) de GitHub y lo compile mediante [las instrucciones que se encuentran al final de este artículo](#GetProject). Una vez compilado, puede revisar el artículo para obtener información sobre el código en el contexto del proyecto.
 
-##<a name="a-idprerequisitesaprerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Prerequisites for this Java web application tutorial
-Before you begin this application development tutorial, you must have the following:
+##<a id="Prerequisites"></a>Requisitos previos para este tutorial de aplicación web de Java
+Antes de comenzar este tutorial de desarrollo de aplicaciones, debe disponer de lo siguiente:
 
-- An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
-- [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
-- [Eclipse IDE for Java EE Developers.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
-- [An Azure Website with a Java runtime environment (e.g. Tomcat or Jetty) enabled.](../app-service-web/web-sites-java-get-started.md)
+- Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+- [Kit de desarrollo de Java (JDK) 7+.](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+- [IDE de Eclipse para desarrolladores de Java EE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
+- [Un sitio web de Azure con un entorno de tiempo de ejecución Java (por ejemplo, Tomcat o Jetty) habilitado.](../app-service-web/web-sites-java-get-started.md)
 
-If you're installing these tools for the first time, coreservlets.com provides a walk-through of the installation process in the Quick Start section of their [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) article.
+Si va a instalar estas herramientas por primera vez, coreservlets.com proporciona un ejemplo paso a paso del proceso de instalación en la sección de inicio rápido de su artículo [Tutorial: Instalación de TomCat7 y uso con Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
 
-##<a name="a-idcreatedbastep-1-create-a-documentdb-database-account"></a><a id="CreateDB"></a>Step 1: Create a DocumentDB database account
+##<a id="CreateDB"></a>Paso 1: Creación de una cuenta de base de datos de DocumentDB
 
-Let's start by creating a DocumentDB account. If you already have an account, you can skip to [Step 2: Create the Java JSP application](#CreateJSP).
+Comenzaremos por crear una cuenta de DocumentDB. Si ya tiene una cuenta, puede ir al [Paso 2: Crear la aplicación JSP de Java](#CreateJSP).
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-##<a name="a-idcreatejspastep-2-create-the-java-jsp-application"></a><a id="CreateJSP"></a>Step 2: Create the Java JSP application
+##<a id="CreateJSP"></a>Paso 2: Creación de la aplicación JSP de Java
 
-To create the JSP application:
+Para crear la aplicación JSP:
 
-1. First, we’ll start off by creating a Java project. Start Eclipse, then click **File**, click **New**, and then click **Dynamic Web Project**. If you don’t see **Dynamic Web Project** listed as an available project, do the following: click **File**, click **New**, click **Project**…, expand **Web**, click **Dynamic Web Project**, and click **Next**.
+1. En primer lugar, empezaremos por la creación de un proyecto Java. Inicie Eclipse, haga clic en **Archivo**, haga clic en **Nuevo** y, a continuación, haga clic en **Proyecto web dinámico**. Si **Proyecto web dinámico** no aparece como proyecto disponible, haga lo siguiente: haga clic en **Archivo**, en **Nuevo**, en **Proyecto**..., expanda **Web**, haga clic en **Proyecto web dinámico** y haga clic en **Siguiente**.
 
-    ![JSP Java Application Development](./media/documentdb-java-application/image10.png)
+	![Desarrollo de aplicaciones Java JSP](./media/documentdb-java-application/image10.png)
 
-2. Enter a project name in the **Project name** box, and in the **Target Runtime** drop-down menu, optionally select a value (e.g. Apache Tomcat v7.0), and then click **Finish**. Selecting a target runtime enables you to run your project locally through Eclipse.
-3. In Eclipse, in the Project Explorer view, expand your project. Right-click **WebContent**, click **New**, and then click **JSP File**.
-4. In the **New JSP File** dialog box, name the file **index.jsp**. Keep the parent folder as **WebContent**, as shown in the following illustration, and then click **Next**.
+2. Escriba un nombre de proyecto en el cuadro **Nombre de proyecto** y en el menú desplegable **Tiempo de ejecución de destino**, seleccione opcionalmente un valor (por ejemplo, Apache Tomcat v7.0) y, a continuación, haga clic en **Finalizar**. Si selecciona un tiempo de ejecución de destino, puede ejecutar el proyecto localmente a través de Eclipse.
+3. En Eclipse, en la vista del explorador de proyectos, expanda el proyecto. Haga clic con el botón secundario en **WebContent**, luego haga clic en **Nuevo** y, a continuación, en **JSP File**.
+4. En el cuadro de diálogo **Nuevo archivo JSP**, asigne al archivo el nombre **index.jsp**. Mantenga la carpeta principal como **WebContent**, como se muestra en la ilustración siguiente y, a continuación, haga clic en **Siguiente**.
 
-    ![Make a New JSP File - Java Web Application Tutorial](./media/documentdb-java-application/image11.png)
+	![Creación de un nuevo archivo JSP - Tutorial de aplicación web de Java](./media/documentdb-java-application/image11.png)
 
-5. In the **Select JSP Template** dialog box, for the purpose of this tutorial select **New JSP File (html)**, and then click **Finish**.
+5. En el cuadro de diálogo **Seleccionar plantilla JSP**, para cumplir con el objetivo de este tutorial, seleccione **Nuevo archivo JSP (html)** y haga clic en **Finalizar**.
 
-6. When the index.jsp file opens in Eclipse, add text to display **Hello World!** within the existing <body> element. Your updated <body> content should look like the following code:
+6. Cuando el archivo index.jsp se abra en Eclipse, agregue texto para mostrar **Hola a todos** dentro del elemento <body> existente. El contenido actualizado <body> debe ser similar al código siguiente:
 
-        <body>
-            <% out.println("Hello World!"); %>
-        </body>
+	    <body>
+	        <% out.println("Hello World!"); %>
+	    </body>
 
-8. Save the index.jsp file.
-9. If you set a target runtime in step 2, you can click **Project** and then **Run** to run your JSP application locally:
+8. Guarde el archivo index.jsp.
+9. Si ha establecido un tiempo de ejecución de destino en el paso 2, puede hacer clic en **Proyecto** y, a continuación, en **Ejecutar** para ejecutar su aplicación de JSP localmente:
 
-    ![Hello World – Java Application Tutorial](./media/documentdb-java-application/image12.png)
+	![Hello World – Tutorial de aplicación de Java](./media/documentdb-java-application/image12.png)
 
-##<a name="a-idinstallsdkastep-3-install-the-documentdb-java-sdk"></a><a id="InstallSDK"></a>Step 3: Install the DocumentDB Java SDK ##
+##<a id="InstallSDK"></a>Paso 3: Instalación del SDK de Java de DocumentDB ##
 
-The easiest way to pull in the DocumentDB Java SDK and its dependencies is through [Apache Maven](http://maven.apache.org/).
+La manera más sencilla de insertar el SDK de Java de DocumentDB y sus dependencias es a través de [Apache Maven](http://maven.apache.org/).
 
-To do this, you will need to convert your project to a maven project by completing the following steps:
+Para ello, deberá convertir su proyecto en un proyecto Maven realizando los pasos siguientes:
 
-1. Right-click your project in the Project Explorer, click **Configure**, click **Convert to Maven Project**.
-2. In the **Create new POM** window, accept the defaults and click **Finish**.
-3. In **Project Explorer**, open the pom.xml file.
-4. On the **Dependencies** tab, in the **Dependencies** pane, click **Add**.
-4. In the **Select Dependency** window, do the following:
- - In the **GroupId** box, enter com.microsoft.azure.
- - In the **Artifact Id** box enter azure-documentdb.
- - In the **Version** box enter 1.5.1.
+1. Haga clic con el botón secundario en el proyecto en el Explorador de proyectos, haga clic en **Configurar** y en **Convertir en proyecto Maven**.
+2. En la ventana **Crear nueva POM**, acepte los valores predeterminados y haga clic en **Finalizar**.
+3. En **Explorador de proyectos**, abra el archivo pom.xml.
+4. En la ficha **Dependencias**, en el panel **Dependencias**, haga clic en **Agregar**.
+4. En la ventana **Seleccionar dependencia**, haga lo siguiente:
+ - En **GroupId**, escriba com.microsoft.azure.
+ - En **Id. de artefacto**, escriba azure-documentdb.
+ - En el cuadro **Versión**, escriba 1.5.1.
 
-    ![Install DocumentDB Java Application SDK](./media/documentdb-java-application/image13.png)
+	![Instalación del SDK de la aplicación Java en DocumentDB](./media/documentdb-java-application/image13.png)
 
-    Or add the dependency XML for GroupId and ArtifactId directly to the pom.xml via a text editor:
+	O bien, agregue el XML de dependencia para GroupId y ArtifactId directamente al archivo pom.xml mediante un editor de texto:
 
-        <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>azure-documentdb</artifactId>
-            <version>1.9.1</version>
-        </dependency>
+	    <dependency>
+		    <groupId>com.microsoft.azure</groupId>
+		    <artifactId>azure-documentdb</artifactId>
+		    <version>1.5.1</version>
+	    </dependency>
 
-5. Click **Ok** and Maven will install the DocumentDB Java SDK.
-6. Save the pom.xml file.
+5. Haga clic en **Aceptar** y Maven instalará el SDK de Java de DocumentDB.
+6. Guarde el archivo pom.xml.
 
-##<a name="a-iduseserviceastep-4-using-the-documentdb-service-in-a-java-application"></a><a id="UseService"></a>Step 4: Using the DocumentDB service in a Java application
+##<a id="UseService"></a>Paso 4: Uso del servicio de DocumentDB en una aplicación Java
 
-1. First, let's define the TodoItem object:
+1. En primer lugar, vamos a definir el objeto TodoItem:
 
-        @Data
-        @Builder
-        public class TodoItem {
-            private String category;
-            private boolean complete;
-            private String id;
-            private String name;
-        }
-
-    In this project, we are using [Project Lombok](http://projectlombok.org/) to generate the constructor, getters, setters, and a builder. Alternatively, you can write this code manually or have the IDE generate it.
-
-2. To invoke the DocumentDB service, you must instantiate a new **DocumentClient**. In general, it is best to reuse the **DocumentClient** - rather than construct a new client for each subsequent request. We can reuse the client by wrapping the client in a **DocumentClientFactory**. This is also where you need to paste the URI and PRIMARY KEY value you saved to your clipboard in [step 1](#CreateDB). Replace [YOUR\_ENDPOINT\_HERE] with your URI and replace [YOUR\_KEY\_HERE] with your PRIMARY KEY.
-
-        private static final String HOST = "[YOUR_ENDPOINT_HERE]";
-        private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
-
-        private static DocumentClient documentClient = new DocumentClient(HOST, MASTER_KEY,
-                        ConnectionPolicy.GetDefault(), ConsistencyLevel.Session);
-
-        public static DocumentClient getDocumentClient() {
-            return documentClient;
-        }
-
-3. Now let's create a Data Access Object (DAO) to abstract persisting our ToDo items to DocumentDB.
-
-    In order to save ToDo items to a collection, the client needs to know which database and collection to persist to (as referenced by self-links). In general, it is best to cache the database and collection when possible to avoid additional round-trips to the database.
-
-    The following code illustrates how to retrieve our database and collection, if it exists, or create a new one if it doesn't exist:
-
-        public class DocDbDao implements TodoDao {
-            // The name of our database.
-            private static final String DATABASE_ID = "TodoDB";
-
-            // The name of our collection.
-            private static final String COLLECTION_ID = "TodoCollection";
-
-            // The DocumentDB Client
-            private static DocumentClient documentClient = DocumentClientFactory
-                    .getDocumentClient();
-
-            // Cache for the database object, so we don't have to query for it to
-            // retrieve self links.
-            private static Database databaseCache;
-
-            // Cache for the collection object, so we don't have to query for it to
-            // retrieve self links.
-            private static DocumentCollection collectionCache;
-
-            private Database getTodoDatabase() {
-                if (databaseCache == null) {
-                    // Get the database if it exists
-                    List<Database> databaseList = documentClient
-                            .queryDatabases(
-                                    "SELECT * FROM root r WHERE r.id='" + DATABASE_ID
-                                            + "'", null).getQueryIterable().toList();
-
-                    if (databaseList.size() > 0) {
-                        // Cache the database object so we won't have to query for it
-                        // later to retrieve the selfLink.
-                        databaseCache = databaseList.get(0);
-                    } else {
-                        // Create the database if it doesn't exist.
-                        try {
-                            Database databaseDefinition = new Database();
-                            databaseDefinition.setId(DATABASE_ID);
-
-                            databaseCache = documentClient.createDatabase(
-                                    databaseDefinition, null).getResource();
-                        } catch (DocumentClientException e) {
-                            // TODO: Something has gone terribly wrong - the app wasn't
-                            // able to query or create the collection.
-                            // Verify your connection, endpoint, and key.
-                            e.printStackTrace();
-                        }
-                    }
-                }
-
-                return databaseCache;
-            }
-
-            private DocumentCollection getTodoCollection() {
-                if (collectionCache == null) {
-                    // Get the collection if it exists.
-                    List<DocumentCollection> collectionList = documentClient
-                            .queryCollections(
-                                    getTodoDatabase().getSelfLink(),
-                                    "SELECT * FROM root r WHERE r.id='" + COLLECTION_ID
-                                            + "'", null).getQueryIterable().toList();
-
-                    if (collectionList.size() > 0) {
-                        // Cache the collection object so we won't have to query for it
-                        // later to retrieve the selfLink.
-                        collectionCache = collectionList.get(0);
-                    } else {
-                        // Create the collection if it doesn't exist.
-                        try {
-                            DocumentCollection collectionDefinition = new DocumentCollection();
-                            collectionDefinition.setId(COLLECTION_ID);
-
-                            collectionCache = documentClient.createCollection(
-                                    getTodoDatabase().getSelfLink(),
-                                    collectionDefinition, null).getResource();
-                        } catch (DocumentClientException e) {
-                            // TODO: Something has gone terribly wrong - the app wasn't
-                            // able to query or create the collection.
-                            // Verify your connection, endpoint, and key.
-                            e.printStackTrace();
-                        }
-                    }
-                }
-
-                return collectionCache;
-            }
-        }
-
-4. The next step is to write some code to persist the TodoItems in to the collection. In this example, we will use [Gson](https://code.google.com/p/google-gson/) to serialize and de-serialize TodoItem Plain Old Java Objects (POJOs) to JSON documents. [Jackson](http://jackson.codehaus.org/) or your own custom serializer are also great alternatives for serializing POJOs.
-
-        // We'll use Gson for POJO <=> JSON serialization for this example.
-        private static Gson gson = new Gson();
-
-        @Override
-        public TodoItem createTodoItem(TodoItem todoItem) {
-            // Serialize the TodoItem as a JSON Document.
-            Document todoItemDocument = new Document(gson.toJson(todoItem));
-
-            // Annotate the document as a TodoItem for retrieval (so that we can
-            // store multiple entity types in the collection).
-            todoItemDocument.set("entityType", "todoItem");
-
-            try {
-                // Persist the document using the DocumentClient.
-                todoItemDocument = documentClient.createDocument(
-                        getTodoCollection().getSelfLink(), todoItemDocument, null,
-                        false).getResource();
-            } catch (DocumentClientException e) {
-                e.printStackTrace();
-                return null;
-            }
-
-            return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
-        }
-
-
-
-5. Like DocumentDB databases and collections, documents are also referenced by self-links. The following helper function lets us retrieve documents by another attribute (e.g. "id") rather than self-link:
-
-        private Document getDocumentById(String id) {
-            // Retrieve the document using the DocumentClient.
-            List<Document> documentList = documentClient
-                    .queryDocuments(getTodoCollection().getSelfLink(),
-                            "SELECT * FROM root r WHERE r.id='" + id + "'", null)
-                    .getQueryIterable().toList();
-
-            if (documentList.size() > 0) {
-                return documentList.get(0);
-            } else {
-                return null;
-            }
-        }
-
-6. We can use the helper method in step 5 to retrieve a TodoItem JSON document by id and then deserialize it to a POJO:
-
-        @Override
-        public TodoItem readTodoItem(String id) {
-            // Retrieve the document by id using our helper method.
-            Document todoItemDocument = getDocumentById(id);
-
-            if (todoItemDocument != null) {
-                // De-serialize the document in to a TodoItem.
-                return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
-            } else {
-                return null;
-            }
-        }
-
-7. We can also use the DocumentClient to get a collection or list of TodoItems using DocumentDB SQL:
-
-        @Override
-        public List<TodoItem> readTodoItems() {
-            List<TodoItem> todoItems = new ArrayList<TodoItem>();
-
-            // Retrieve the TodoItem documents
-            List<Document> documentList = documentClient
-                    .queryDocuments(getTodoCollection().getSelfLink(),
-                            "SELECT * FROM root r WHERE r.entityType = 'todoItem'",
-                            null).getQueryIterable().toList();
-
-            // De-serialize the documents in to TodoItems.
-            for (Document todoItemDocument : documentList) {
-                todoItems.add(gson.fromJson(todoItemDocument.toString(),
-                        TodoItem.class));
-            }
-
-            return todoItems;
-        }
-
-8. There are many ways to update a document with the DocumentClient. In our Todo list application, we want to be able to toggle whether a TodoItem is complete. This can be achieved by updating the "complete" attribute within the document:
-
-        @Override
-        public TodoItem updateTodoItem(String id, boolean isComplete) {
-            // Retrieve the document from the database
-            Document todoItemDocument = getDocumentById(id);
-
-            // You can update the document as a JSON document directly.
-            // For more complex operations - you could de-serialize the document in
-            // to a POJO, update the POJO, and then re-serialize the POJO back in to
-            // a document.
-            todoItemDocument.set("complete", isComplete);
-
-            try {
-                // Persist/replace the updated document.
-                todoItemDocument = documentClient.replaceDocument(todoItemDocument,
-                        null).getResource();
-            } catch (DocumentClientException e) {
-                e.printStackTrace();
-                return null;
-            }
-
-            return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
-        }
-
-9. Finally, we want the ability to delete a TodoItem from our list. To do this, we can use the helper method we wrote earlier to retrieve the self-link and then tell the client to delete it:
-
-        @Override
-        public boolean deleteTodoItem(String id) {
-            // DocumentDB refers to documents by self link rather than id.
-
-            // Query for the document to retrieve the self link.
-            Document todoItemDocument = getDocumentById(id);
-
-            try {
-                // Delete the document by self link.
-                documentClient.deleteDocument(todoItemDocument.getSelfLink(), null);
-            } catch (DocumentClientException e) {
-                e.printStackTrace();
-                return false;
-            }
-
-            return true;
-        }
-
-
-##<a name="a-idwireastep-5-wiring-the-rest-of-the-of-java-application-development-project-together"></a><a id="Wire"></a>Step 5: Wiring the rest of the of Java application development project together
-
-Now that we've finished the fun bits - all that left is to build a quick user interface and wire it up to our DAO.
-
-1. First, let's start with building a controller to call our DAO:
-
-        public class TodoItemController {
-            public static TodoItemController getInstance() {
-                if (todoItemController == null) {
-                    todoItemController = new TodoItemController(TodoDaoFactory.getDao());
-                }
-                return todoItemController;
-            }
-
-            private static TodoItemController todoItemController;
-
-            private final TodoDao todoDao;
-
-            TodoItemController(TodoDao todoDao) {
-                this.todoDao = todoDao;
-            }
-
-            public TodoItem createTodoItem(@NonNull String name,
-                    @NonNull String category, boolean isComplete) {
-                TodoItem todoItem = TodoItem.builder().name(name).category(category)
-                        .complete(isComplete).build();
-                return todoDao.createTodoItem(todoItem);
-            }
-
-            public boolean deleteTodoItem(@NonNull String id) {
-                return todoDao.deleteTodoItem(id);
-            }
-
-            public TodoItem getTodoItemById(@NonNull String id) {
-                return todoDao.readTodoItem(id);
-            }
-
-            public List<TodoItem> getTodoItems() {
-                return todoDao.readTodoItems();
-            }
-
-            public TodoItem updateTodoItem(@NonNull String id, boolean isComplete) {
-                return todoDao.updateTodoItem(id, isComplete);
-            }
-        }
-
-    In a more complex application, the controller may house complicated business logic on top of the DAO.
-
-2. Next, we'll create a servlet to route HTTP requests to the controller:
-
-        public class TodoServlet extends HttpServlet {
-            // API Keys
-            public static final String API_METHOD = "method";
-
-            // API Methods
-            public static final String CREATE_TODO_ITEM = "createTodoItem";
-            public static final String GET_TODO_ITEMS = "getTodoItems";
-            public static final String UPDATE_TODO_ITEM = "updateTodoItem";
-
-            // API Parameters
-            public static final String TODO_ITEM_ID = "todoItemId";
-            public static final String TODO_ITEM_NAME = "todoItemName";
-            public static final String TODO_ITEM_CATEGORY = "todoItemCategory";
-            public static final String TODO_ITEM_COMPLETE = "todoItemComplete";
-
-            public static final String MESSAGE_ERROR_INVALID_METHOD = "{'error': 'Invalid method'}";
-
-            private static final long serialVersionUID = 1L;
-            private static final Gson gson = new Gson();
-
-            @Override
-            protected void doGet(HttpServletRequest request,
-                    HttpServletResponse response) throws ServletException, IOException {
-
-                String apiResponse = MESSAGE_ERROR_INVALID_METHOD;
-
-                TodoItemController todoItemController = TodoItemController
-                        .getInstance();
-
-                String id = request.getParameter(TODO_ITEM_ID);
-                String name = request.getParameter(TODO_ITEM_NAME);
-                String category = request.getParameter(TODO_ITEM_CATEGORY);
-                boolean isComplete = StringUtils.equalsIgnoreCase("true",
-                        request.getParameter(TODO_ITEM_COMPLETE)) ? true : false;
-
-                switch (request.getParameter(API_METHOD)) {
-                case CREATE_TODO_ITEM:
-                    apiResponse = gson.toJson(todoItemController.createTodoItem(name,
-                            category, isComplete));
-                    break;
-                case GET_TODO_ITEMS:
-                    apiResponse = gson.toJson(todoItemController.getTodoItems());
-                    break;
-                case UPDATE_TODO_ITEM:
-                    apiResponse = gson.toJson(todoItemController.updateTodoItem(id,
-                            isComplete));
-                    break;
-                default:
-                    break;
-                }
-
-                response.getWriter().println(apiResponse);
-            }
-
-            @Override
-            protected void doPost(HttpServletRequest request,
-                    HttpServletResponse response) throws ServletException, IOException {
-                doGet(request, response);
-            }
-        }
-
-3. We'll need a Web User Interface to display to the user. Let's re-write the index.jsp we created earlier:
-
-        <html>
-        <head>
-          <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	    @Data
+	    @Builder
+	    public class TodoItem {
+		    private String category;
+		    private boolean complete;
+		    private String id;
+		    private String name;
+	    }
+
+	En este proyecto, estamos usando [Project Lombok](http://projectlombok.org/) para generar el constructor, los captadores, los establecedores y un generador. Como alternativa, puede escribir este código manualmente o dejar que el IDE lo genere.
+
+2. Para invocar el servicio de DocumentDB, debe crear instancias de un nuevo **DocumentClient**. En general, es mejor volver a utilizar **DocumentClient**, en lugar de construir un nuevo cliente para cada solicitud posterior. Podemos volver a usar el cliente ajustando el cliente en una **DocumentClientFactory**. Aquí es también donde tienes que pegar el valor URI y CLAVE PRINCIPAL que guardó en el portapapeles en el [paso 1](#CreateDB). Reemplace [YOUR\_ENDPOINT\_HERE] por el URI y reemplace [YOUR\_KEY\_HERE] por su CLAVE PRINCIPAL.
+
+	    private static final String HOST = "[YOUR_ENDPOINT_HERE]";
+	    private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
+
+	    private static DocumentClient documentClient;
+
+	    public static DocumentClient getDocumentClient() {
+	        if (documentClient == null) {
+	            documentClient = new DocumentClient(HOST, MASTER_KEY,
+	                    ConnectionPolicy.GetDefault(), ConsistencyLevel.Session);
+	        }
+
+	        return documentClient;
+	    }
+
+3. Ahora vamos a crear un objeto de acceso a datos (DAO) para abstraer la conservación de nuestros elementos ToDo en DocumentDB.
+
+	Para guardar los elementos ToDo en una colección, el cliente necesitará saber en qué base de datos y colección se conservarán (como se hace referencia por los self-links). En general, es mejor almacenar en memoria caché la base de datos y la colección cuando sea posible para evitar recorridos de ida y vuelta adicionales a la base de datos.
+
+	El código siguiente muestra cómo recuperar nuestra base de datos y colección si existe, o crear una nueva si no existe:
+
+		public class DocDbDao implements TodoDao {
+		    // The name of our database.
+		    private static final String DATABASE_ID = "TodoDB";
+
+		    // The name of our collection.
+		    private static final String COLLECTION_ID = "TodoCollection";
+
+		    // The DocumentDB Client
+		    private static DocumentClient documentClient = DocumentClientFactory
+		            .getDocumentClient();
+
+		    // Cache for the database object, so we don't have to query for it to
+		    // retrieve self links.
+		    private static Database databaseCache;
+
+		    // Cache for the collection object, so we don't have to query for it to
+		    // retrieve self links.
+		    private static DocumentCollection collectionCache;
+
+		    private Database getTodoDatabase() {
+		        if (databaseCache == null) {
+		            // Get the database if it exists
+		            List<Database> databaseList = documentClient
+		                    .queryDatabases(
+		                            "SELECT * FROM root r WHERE r.id='" + DATABASE_ID
+		                                    + "'", null).getQueryIterable().toList();
+
+		            if (databaseList.size() > 0) {
+		                // Cache the database object so we won't have to query for it
+		                // later to retrieve the selfLink.
+		                databaseCache = databaseList.get(0);
+		            } else {
+		                // Create the database if it doesn't exist.
+		                try {
+		                    Database databaseDefinition = new Database();
+		                    databaseDefinition.setId(DATABASE_ID);
+
+		                    databaseCache = documentClient.createDatabase(
+		                            databaseDefinition, null).getResource();
+		                } catch (DocumentClientException e) {
+		                    // TODO: Something has gone terribly wrong - the app wasn't
+		                    // able to query or create the collection.
+		                    // Verify your connection, endpoint, and key.
+		                    e.printStackTrace();
+		                }
+		            }
+		        }
+
+		        return databaseCache;
+		    }
+
+		    private DocumentCollection getTodoCollection() {
+		        if (collectionCache == null) {
+		            // Get the collection if it exists.
+		            List<DocumentCollection> collectionList = documentClient
+		                    .queryCollections(
+		                            getTodoDatabase().getSelfLink(),
+		                            "SELECT * FROM root r WHERE r.id='" + COLLECTION_ID
+		                                    + "'", null).getQueryIterable().toList();
+
+		            if (collectionList.size() > 0) {
+		                // Cache the collection object so we won't have to query for it
+		                // later to retrieve the selfLink.
+		                collectionCache = collectionList.get(0);
+		            } else {
+		                // Create the collection if it doesn't exist.
+		                try {
+		                    DocumentCollection collectionDefinition = new DocumentCollection();
+		                    collectionDefinition.setId(COLLECTION_ID);
+
+		                    collectionCache = documentClient.createCollection(
+		                            getTodoDatabase().getSelfLink(),
+		                            collectionDefinition, null).getResource();
+		                } catch (DocumentClientException e) {
+		                    // TODO: Something has gone terribly wrong - the app wasn't
+		                    // able to query or create the collection.
+		                    // Verify your connection, endpoint, and key.
+		                    e.printStackTrace();
+		                }
+		            }
+		        }
+
+		        return collectionCache;
+		    }
+		}
+
+4. El siguiente paso es escribir algo de código para conservar los TodoItems en la colección. En este ejemplo, usaremos [Gson](https://code.google.com/p/google-gson/) para serializar y deserializar TodoItem Plain Old Java Objects (POJO, objetos de Java antiguos sin formato de tareas pendientes) en los documentos JSON. [Jackson](http://jackson.codehaus.org/) o su propio serializador personalizado también son excelentes alternativas para serializar POJO.
+
+	    // We'll use Gson for POJO <=> JSON serialization for this example.
+	    private static Gson gson = new Gson();
+
+	    @Override
+	    public TodoItem createTodoItem(TodoItem todoItem) {
+	        // Serialize the TodoItem as a JSON Document.
+	        Document todoItemDocument = new Document(gson.toJson(todoItem));
+
+	        // Annotate the document as a TodoItem for retrieval (so that we can
+	        // store multiple entity types in the collection).
+	        todoItemDocument.set("entityType", "todoItem");
+
+	        try {
+	            // Persist the document using the DocumentClient.
+	            todoItemDocument = documentClient.createDocument(
+	                    getTodoCollection().getSelfLink(), todoItemDocument, null,
+	                    false).getResource();
+	        } catch (DocumentClientException e) {
+	            e.printStackTrace();
+	            return null;
+	        }
+
+	        return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
+	    }
+
+
+
+5. Al igual que las colecciones y las bases de datos DocumentDB, a los documentos también se hace referencia mediante self-links. La siguiente función auxiliar nos permite recuperar documentos por otro atributo (por ejemplo, "id") en lugar del self-link:
+
+	    private Document getDocumentById(String id) {
+	        // Retrieve the document using the DocumentClient.
+	        List<Document> documentList = documentClient
+	                .queryDocuments(getTodoCollection().getSelfLink(),
+	                        "SELECT * FROM root r WHERE r.id='" + id + "'", null)
+	                .getQueryIterable().toList();
+
+	        if (documentList.size() > 0) {
+	            return documentList.get(0);
+	        } else {
+	            return null;
+	        }
+	    }
+
+6. Podemos usar el método auxiliar del paso 5 para recuperar un documento JSON de TodoItem por id. y deserializarlo para un POJO:
+
+	    @Override
+	    public TodoItem readTodoItem(String id) {
+	        // Retrieve the document by id using our helper method.
+	        Document todoItemDocument = getDocumentById(id);
+
+	        if (todoItemDocument != null) {
+	            // De-serialize the document in to a TodoItem.
+	            return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
+	        } else {
+	            return null;
+	        }
+	    }
+
+7. También podemos utilizar el DocumentClient para obtener una colección o lista de TodoItems con SQL de DocumentDB:
+
+	    @Override
+	    public List<TodoItem> readTodoItems() {
+	        List<TodoItem> todoItems = new ArrayList<TodoItem>();
+
+	        // Retrieve the TodoItem documents
+	        List<Document> documentList = documentClient
+	                .queryDocuments(getTodoCollection().getSelfLink(),
+	                        "SELECT * FROM root r WHERE r.entityType = 'todoItem'",
+	                        null).getQueryIterable().toList();
+
+	        // De-serialize the documents in to TodoItems.
+	        for (Document todoItemDocument : documentList) {
+	            todoItems.add(gson.fromJson(todoItemDocument.toString(),
+	                    TodoItem.class));
+	        }
+
+	        return todoItems;
+	    }
+
+8. Hay muchas maneras de actualizar un documento con el DocumentClient. En nuestra aplicación de lista Todo, queremos poder alternar si se ha completado un TodoItem. Esto se logra actualizando el atributo "completado" dentro del documento:
+
+	    @Override
+	    public TodoItem updateTodoItem(String id, boolean isComplete) {
+	        // Retrieve the document from the database
+	        Document todoItemDocument = getDocumentById(id);
+
+	        // You can update the document as a JSON document directly.
+	        // For more complex operations - you could de-serialize the document in
+	        // to a POJO, update the POJO, and then re-serialize the POJO back in to
+	        // a document.
+	        todoItemDocument.set("complete", isComplete);
+
+	        try {
+	            // Persist/replace the updated document.
+	            todoItemDocument = documentClient.replaceDocument(todoItemDocument,
+	                    null).getResource();
+	        } catch (DocumentClientException e) {
+	            e.printStackTrace();
+	            return null;
+	        }
+
+	        return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
+	    }
+
+9. Por último, queremos la capacidad de eliminar un TodoItem de nuestra lista. Para ello, podemos utilizar el método auxiliar que hemos escrito anteriormente para recuperar el self-link y, a continuación, indicar al cliente que lo elimine:
+
+	    @Override
+	    public boolean deleteTodoItem(String id) {
+	        // DocumentDB refers to documents by self link rather than id.
+
+	        // Query for the document to retrieve the self link.
+	        Document todoItemDocument = getDocumentById(id);
+
+	        try {
+	            // Delete the document by self link.
+	            documentClient.deleteDocument(todoItemDocument.getSelfLink(), null);
+	        } catch (DocumentClientException e) {
+	            e.printStackTrace();
+	            return false;
+	        }
+
+	        return true;
+	    }
+
+
+##<a id="Wire"></a>Paso 5: Reunión del resto del proyecto de desarrollo de aplicación en Java
+
+Ahora que hemos terminado la parte divertida, todo lo que queda por hacer es crear una interfaz de usuario rápida y conectarla a nuestro DAO.
+
+1. En primer lugar, empecemos por crear un controlador para llamar a nuestro DAO:
+
+		public class TodoItemController {
+		    public static TodoItemController getInstance() {
+		        if (todoItemController == null) {
+		            todoItemController = new TodoItemController(TodoDaoFactory.getDao());
+		        }
+		        return todoItemController;
+		    }
+
+		    private static TodoItemController todoItemController;
+
+		    private final TodoDao todoDao;
+
+		    TodoItemController(TodoDao todoDao) {
+		        this.todoDao = todoDao;
+		    }
+
+		    public TodoItem createTodoItem(@NonNull String name,
+		            @NonNull String category, boolean isComplete) {
+		        TodoItem todoItem = TodoItem.builder().name(name).category(category)
+		                .complete(isComplete).build();
+		        return todoDao.createTodoItem(todoItem);
+		    }
+
+		    public boolean deleteTodoItem(@NonNull String id) {
+		        return todoDao.deleteTodoItem(id);
+		    }
+
+		    public TodoItem getTodoItemById(@NonNull String id) {
+		        return todoDao.readTodoItem(id);
+		    }
+
+		    public List<TodoItem> getTodoItems() {
+		        return todoDao.readTodoItems();
+		    }
+
+		    public TodoItem updateTodoItem(@NonNull String id, boolean isComplete) {
+		        return todoDao.updateTodoItem(id, isComplete);
+		    }
+		}
+
+	En una aplicación más compleja, el controlador puede alojar lógica empresarial complicada encima del DAO.
+
+2. A continuación, crearemos un servlet para enrutar las solicitudes HTTP al controlador:
+
+		public class TodoServlet extends HttpServlet {
+			// API Keys
+			public static final String API_METHOD = "method";
+
+			// API Methods
+			public static final String CREATE_TODO_ITEM = "createTodoItem";
+			public static final String GET_TODO_ITEMS = "getTodoItems";
+			public static final String UPDATE_TODO_ITEM = "updateTodoItem";
+
+			// API Parameters
+			public static final String TODO_ITEM_ID = "todoItemId";
+			public static final String TODO_ITEM_NAME = "todoItemName";
+			public static final String TODO_ITEM_CATEGORY = "todoItemCategory";
+			public static final String TODO_ITEM_COMPLETE = "todoItemComplete";
+
+			public static final String MESSAGE_ERROR_INVALID_METHOD = "{'error': 'Invalid method'}";
+
+			private static final long serialVersionUID = 1L;
+			private static final Gson gson = new Gson();
+
+			@Override
+			protected void doGet(HttpServletRequest request,
+					HttpServletResponse response) throws ServletException, IOException {
+
+				String apiResponse = MESSAGE_ERROR_INVALID_METHOD;
+
+				TodoItemController todoItemController = TodoItemController
+						.getInstance();
+
+				String id = request.getParameter(TODO_ITEM_ID);
+				String name = request.getParameter(TODO_ITEM_NAME);
+				String category = request.getParameter(TODO_ITEM_CATEGORY);
+				boolean isComplete = StringUtils.equalsIgnoreCase("true",
+						request.getParameter(TODO_ITEM_COMPLETE)) ? true : false;
+
+				switch (request.getParameter(API_METHOD)) {
+				case CREATE_TODO_ITEM:
+					apiResponse = gson.toJson(todoItemController.createTodoItem(name,
+							category, isComplete));
+					break;
+				case GET_TODO_ITEMS:
+					apiResponse = gson.toJson(todoItemController.getTodoItems());
+					break;
+				case UPDATE_TODO_ITEM:
+					apiResponse = gson.toJson(todoItemController.updateTodoItem(id,
+							isComplete));
+					break;
+				default:
+					break;
+				}
+
+				response.getWriter().println(apiResponse);
+			}
+
+			@Override
+			protected void doPost(HttpServletRequest request,
+					HttpServletResponse response) throws ServletException, IOException {
+				doGet(request, response);
+			}
+		}
+
+3. Necesitaremos una interfaz de usuario web que mostrar al usuario. Vamos volver a escribir el archivo index.jsp que creamos anteriormente:
+
+		<html>
+		<head>
+		  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
           <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
-          <title>Azure DocumentDB Java Sample</title>
+		  <title>Azure DocumentDB Java Sample</title>
 
-          <!-- Bootstrap -->
-          <link href="//ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+		  <!-- Bootstrap -->
+		  <link href="//ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
-          <style>
-            /* Add padding to body for fixed nav bar */
-            body {
-              padding-top: 50px;
-            }
-          </style>
-        </head>
-        <body>
-          <!-- Nav Bar -->
-          <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
-              <div class="navbar-header">
-                <a class="navbar-brand" href="#">My Tasks</a>
-              </div>
-            </div>
-          </div>
+		  <style>
+		    /* Add padding to body for fixed nav bar */
+		    body {
+		      padding-top: 50px;
+		    }
+		  </style>
+		</head>
+		<body>
+		  <!-- Nav Bar -->
+		  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		    <div class="container">
+		      <div class="navbar-header">
+		        <a class="navbar-brand" href="#">My Tasks</a>
+		      </div>
+		    </div>
+		  </div>
 
-          <!-- Body -->
-          <div class="container">
-            <h1>My ToDo List</h1>
+		  <!-- Body -->
+		  <div class="container">
+		    <h1>My ToDo List</h1>
 
-            <hr/>
+		    <hr/>
 
-            <!-- The ToDo List -->
-            <div class = "todoList">
-              <table class="table table-bordered table-striped" id="todoItems">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Complete</th>
-                  </tr>
-                </thead>
-                <tbody>
-                </tbody>
-              </table>
+		    <!-- The ToDo List -->
+		    <div class = "todoList">
+		      <table class="table table-bordered table-striped" id="todoItems">
+		        <thead>
+		          <tr>
+		            <th>Name</th>
+		            <th>Category</th>
+		            <th>Complete</th>
+		          </tr>
+		        </thead>
+		        <tbody>
+		        </tbody>
+		      </table>
 
-              <!-- Update Button -->
-              <div class="todoUpdatePanel">
-                <form class="form-horizontal" role="form">
-                  <button type="button" class="btn btn-primary">Update Tasks</button>
-                </form>
-              </div>
+		      <!-- Update Button -->
+		      <div class="todoUpdatePanel">
+		        <form class="form-horizontal" role="form">
+		          <button type="button" class="btn btn-primary">Update Tasks</button>
+		        </form>
+		      </div>
 
-            </div>
+		    </div>
 
-            <hr/>
+		    <hr/>
 
-            <!-- Item Input Form -->
-            <div class="todoForm">
-              <form class="form-horizontal" role="form">
-                <div class="form-group">
-                  <label for="inputItemName" class="col-sm-2">Task Name</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputItemName" placeholder="Enter name">
-                  </div>
-                </div>
+		    <!-- Item Input Form -->
+		    <div class="todoForm">
+		      <form class="form-horizontal" role="form">
+		        <div class="form-group">
+		          <label for="inputItemName" class="col-sm-2">Task Name</label>
+		          <div class="col-sm-10">
+		            <input type="text" class="form-control" id="inputItemName" placeholder="Enter name">
+		          </div>
+		        </div>
 
-                <div class="form-group">
-                  <label for="inputItemCategory" class="col-sm-2">Task Category</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputItemCategory" placeholder="Enter category">
-                  </div>
-                </div>
+		        <div class="form-group">
+		          <label for="inputItemCategory" class="col-sm-2">Task Category</label>
+		          <div class="col-sm-10">
+		            <input type="text" class="form-control" id="inputItemCategory" placeholder="Enter category">
+		          </div>
+		        </div>
 
-                <button type="button" class="btn btn-primary">Add Task</button>
-              </form>
-            </div>
+		        <button type="button" class="btn btn-primary">Add Task</button>
+		      </form>
+		    </div>
 
-          </div>
+		  </div>
 
-          <!-- Placed at the end of the document so the pages load faster -->
-          <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
-          <script src="//ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/bootstrap.min.js"></script>
-          <script src="assets/todo.js"></script>
-        </body>
-        </html>
+		  <!-- Placed at the end of the document so the pages load faster -->
+		  <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
+		  <script src="//ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/bootstrap.min.js"></script>
+		  <script src="assets/todo.js"></script>
+		</body>
+		</html>
 
-4. And finally, write some client-side Javascript to tie the web user interface and the servlet together:
+4. Y por último, escriba algo de Javascript del lado del cliente para vincular juntos la interfaz de usuario web y el servlet:
 
-        var todoApp = {
-          /*
-           * API methods to call Java backend.
-           */
-          apiEndpoint: "api",
+		var todoApp = {
+		  /*
+		   * API methods to call Java backend.
+		   */
+		  apiEndpoint: "api",
 
-          createTodoItem: function(name, category, isComplete) {
-            $.post(todoApp.apiEndpoint, {
-                "method": "createTodoItem",
-                "todoItemName": name,
-                "todoItemCategory": category,
-                "todoItemComplete": isComplete
-              },
-              function(data) {
-                var todoItem = data;
-                todoApp.addTodoItemToTable(todoItem.id, todoItem.name, todoItem.category, todoItem.complete);
-              },
-              "json");
-          },
+		  createTodoItem: function(name, category, isComplete) {
+		    $.post(todoApp.apiEndpoint, {
+		        "method": "createTodoItem",
+		        "todoItemName": name,
+		        "todoItemCategory": category,
+		        "todoItemComplete": isComplete
+		      },
+		      function(data) {
+		        var todoItem = data;
+		        todoApp.addTodoItemToTable(todoItem.id, todoItem.name, todoItem.category, todoItem.complete);
+		      },
+		      "json");
+		  },
 
-          getTodoItems: function() {
-            $.post(todoApp.apiEndpoint, {
-                "method": "getTodoItems"
-              },
-              function(data) {
-                var todoItemArr = data;
-                $.each(todoItemArr, function(index, value) {
-                  todoApp.addTodoItemToTable(value.id, value.name, value.category, value.complete);
-                });
-              },
-              "json");
-          },
+		  getTodoItems: function() {
+		    $.post(todoApp.apiEndpoint, {
+		        "method": "getTodoItems"
+		      },
+		      function(data) {
+		        var todoItemArr = data;
+		        $.each(todoItemArr, function(index, value) {
+		          todoApp.addTodoItemToTable(value.id, value.name, value.category, value.complete);
+		        });
+		      },
+		      "json");
+		  },
 
-          updateTodoItem: function(id, isComplete) {
-            $.post(todoApp.apiEndpoint, {
-                "method": "updateTodoItem",
-                "todoItemId": id,
-                "todoItemComplete": isComplete
-              },
-              function(data) {},
-              "json");
-          },
+		  updateTodoItem: function(id, isComplete) {
+		    $.post(todoApp.apiEndpoint, {
+		        "method": "updateTodoItem",
+		        "todoItemId": id,
+		        "todoItemComplete": isComplete
+		      },
+		      function(data) {},
+		      "json");
+		  },
 
-          /*
-           * UI Methods
-           */
-          addTodoItemToTable: function(id, name, category, isComplete) {
-            var rowColor = isComplete ? "active" : "warning";
+		  /*
+		   * UI Methods
+		   */
+		  addTodoItemToTable: function(id, name, category, isComplete) {
+		    var rowColor = isComplete ? "active" : "warning";
 
-            todoApp.ui_table().append($("<tr>")
-              .append($("<td>").text(name))
-              .append($("<td>").text(category))
-              .append($("<td>")
-                .append($("<input>")
-                  .attr("type", "checkbox")
-                  .attr("id", id)
-                  .attr("checked", isComplete)
-                  .attr("class", "isComplete")
-                ))
-              .addClass(rowColor)
-            );
-          },
+		    todoApp.ui_table().append($("<tr>")
+		      .append($("<td>").text(name))
+		      .append($("<td>").text(category))
+		      .append($("<td>")
+		        .append($("<input>")
+		          .attr("type", "checkbox")
+		          .attr("id", id)
+		          .attr("checked", isComplete)
+		          .attr("class", "isComplete")
+		        ))
+		      .addClass(rowColor)
+		    );
+		  },
 
-          /*
-           * UI Bindings
-           */
-          bindCreateButton: function() {
-            todoApp.ui_createButton().click(function() {
-              todoApp.createTodoItem(todoApp.ui_createNameInput().val(), todoApp.ui_createCategoryInput().val(), false);
-              todoApp.ui_createNameInput().val("");
-              todoApp.ui_createCategoryInput().val("");
-            });
-          },
+		  /*
+		   * UI Bindings
+		   */
+		  bindCreateButton: function() {
+		    todoApp.ui_createButton().click(function() {
+		      todoApp.createTodoItem(todoApp.ui_createNameInput().val(), todoApp.ui_createCategoryInput().val(), false);
+		      todoApp.ui_createNameInput().val("");
+		      todoApp.ui_createCategoryInput().val("");
+		    });
+		  },
 
-          bindUpdateButton: function() {
-            todoApp.ui_updateButton().click(function() {
-              // Disable button temporarily.
-              var myButton = $(this);
-              var originalText = myButton.text();
-              $(this).text("Updating...");
-              $(this).prop("disabled", true);
+		  bindUpdateButton: function() {
+		    todoApp.ui_updateButton().click(function() {
+		      // Disable button temporarily.
+		      var myButton = $(this);
+		      var originalText = myButton.text();
+		      $(this).text("Updating...");
+		      $(this).prop("disabled", true);
 
-              // Call api to update todo items.
-              $.each(todoApp.ui_updateId(), function(index, value) {
-                todoApp.updateTodoItem(value.name, value.value);
-                $(value).remove();
-              });
+		      // Call api to update todo items.
+		      $.each(todoApp.ui_updateId(), function(index, value) {
+		        todoApp.updateTodoItem(value.name, value.value);
+		        $(value).remove();
+		      });
 
-              // Re-enable button.
-              setTimeout(function() {
-                myButton.prop("disabled", false);
-                myButton.text(originalText);
-              }, 500);
-            });
-          },
+		      // Re-enable button.
+		      setTimeout(function() {
+		        myButton.prop("disabled", false);
+		        myButton.text(originalText);
+		      }, 500);
+		    });
+		  },
 
-          bindUpdateCheckboxes: function() {
-            todoApp.ui_table().on("click", ".isComplete", function(event) {
-              var checkboxElement = $(event.currentTarget);
-              var rowElement = $(event.currentTarget).parents('tr');
-              var id = checkboxElement.attr('id');
-              var isComplete = checkboxElement.is(':checked');
+		  bindUpdateCheckboxes: function() {
+		    todoApp.ui_table().on("click", ".isComplete", function(event) {
+		      var checkboxElement = $(event.currentTarget);
+		      var rowElement = $(event.currentTarget).parents('tr');
+		      var id = checkboxElement.attr('id');
+		      var isComplete = checkboxElement.is(':checked');
 
-              // Toggle table row color
-              if (isComplete) {
-                rowElement.addClass("active");
-                rowElement.removeClass("warning");
-              } else {
-                rowElement.removeClass("active");
-                rowElement.addClass("warning");
-              }
+		      // Toggle table row color
+		      if (isComplete) {
+		        rowElement.addClass("active");
+		        rowElement.removeClass("warning");
+		      } else {
+		        rowElement.removeClass("active");
+		        rowElement.addClass("warning");
+		      }
 
-              // Update hidden inputs for update panel.
-              todoApp.ui_updateForm().children("input[name='" + id + "']").remove();
+		      // Update hidden inputs for update panel.
+		      todoApp.ui_updateForm().children("input[name='" + id + "']").remove();
 
-              todoApp.ui_updateForm().append($("<input>")
-                .attr("type", "hidden")
-                .attr("class", "updateComplete")
-                .attr("name", id)
-                .attr("value", isComplete));
+		      todoApp.ui_updateForm().append($("<input>")
+		        .attr("type", "hidden")
+		        .attr("class", "updateComplete")
+		        .attr("name", id)
+		        .attr("value", isComplete));
 
-            });
-          },
+		    });
+		  },
 
-          /*
-           * UI Elements
-           */
-          ui_createNameInput: function() {
-            return $(".todoForm #inputItemName");
-          },
+		  /*
+		   * UI Elements
+		   */
+		  ui_createNameInput: function() {
+		    return $(".todoForm #inputItemName");
+		  },
 
-          ui_createCategoryInput: function() {
-            return $(".todoForm #inputItemCategory");
-          },
+		  ui_createCategoryInput: function() {
+		    return $(".todoForm #inputItemCategory");
+		  },
 
-          ui_createButton: function() {
-            return $(".todoForm button");
-          },
+		  ui_createButton: function() {
+		    return $(".todoForm button");
+		  },
 
-          ui_table: function() {
-            return $(".todoList table tbody");
-          },
+		  ui_table: function() {
+		    return $(".todoList table tbody");
+		  },
 
-          ui_updateButton: function() {
-            return $(".todoUpdatePanel button");
-          },
+		  ui_updateButton: function() {
+		    return $(".todoUpdatePanel button");
+		  },
 
-          ui_updateForm: function() {
-            return $(".todoUpdatePanel form");
-          },
+		  ui_updateForm: function() {
+		    return $(".todoUpdatePanel form");
+		  },
 
-          ui_updateId: function() {
-            return $(".todoUpdatePanel .updateComplete");
-          },
+		  ui_updateId: function() {
+		    return $(".todoUpdatePanel .updateComplete");
+		  },
 
-          /*
-           * Install the TodoApp
-           */
-          install: function() {
-            todoApp.bindCreateButton();
-            todoApp.bindUpdateButton();
-            todoApp.bindUpdateCheckboxes();
+		  /*
+		   * Install the TodoApp
+		   */
+		  install: function() {
+		    todoApp.bindCreateButton();
+		    todoApp.bindUpdateButton();
+		    todoApp.bindUpdateCheckboxes();
 
-            todoApp.getTodoItems();
-          }
-        };
+		    todoApp.getTodoItems();
+		  }
+		};
 
-        $(document).ready(function() {
-          todoApp.install();
-        });
+		$(document).ready(function() {
+		  todoApp.install();
+		});
 
-5. Awesome! Now all that's left is to test the application. Run the application locally, and add some Todo items by filling in the item name and category and clicking **Add Task**.
+5. ¡Increíble! Ahora todo lo que queda por hacer es probar la aplicación. Ejecute la aplicación localmente y agregue algunos elementos Todo rellenando el nombre del elemento y la categoría y haciendo clic en **Agregar tarea**.
 
-6. Once the item appears, you can update whether it's complete by toggling the checkbox and clicking **Update Tasks**.
+6. Una vez que aparece el elemento, puede actualizar si está completo. Para ello, alterne la casilla y haga clic en **Actualizar tareas**.
 
-##<a name="a-iddeployastep-6-deploy-your-java-application-to-azure-websites"></a><a id="Deploy"></a>Step 6: Deploy your Java application to Azure Websites
+##<a id="Deploy"></a>Paso 6: Implementación de su aplicación Java en sitios web de Azure
 
-Azure Websites makes deploying Java Applications as simple as exporting your application as a WAR file and either uploading it via source control (e.g. GIT) or FTP.
+Sitios web de Azure hace que la implementación de aplicaciones de Java sean tan sencillas como exportar su aplicación como un archivo WAR y cargarla mediante el control de código fuente (por ejemplo, GIT) o FTP.
 
-1. To export your application as a WAR, right-click on your project in **Project Explorer**, click **Export**, and then click **WAR File**.
-2. In the **WAR Export** window, do the following:
- - In the Web project box, enter azure-documentdb-java-sample.
- - In the Destination box, choose a destination to save the WAR file.
- - Click **Finish**.
+1. Para exportar la aplicación como WAR, haga doble clic en el proyecto en **Explorador de proyectos**, haga clic en **Exportar** y, a continuación, haga clic en **Archivo WAR**.
+2. En la ventana **Exportar WAR**, haga lo siguiente:
+ - En el cuadro Proyecto web, escriba azure-documentdb-java-sample.
+ - En el cuadro de destino, seleccione un destino para guardar el archivo WAR.
+ - Haga clic en **Finalizar**
 
-3. Now that you have a WAR file in hand, you can simply upload it to your Azure Website's **webapps** directory. For instructions on uploading the file, see [Adding an application to your Java website on Azure](../app-service-web/web-sites-java-add-app.md).
+3. Ahora que tiene a mano un archivo WAR, simplemente puede cargarlo en el directorio **webapps** del sitio web de Azure. Para obtener instrucciones acerca de cómo cargar el archivo, consulte [Adición de una aplicación al sitio web de Java en Azure](../app-service-web/web-sites-java-add-app.md).
 
-    Once the WAR file is uploaded to the webapps directory, the runtime environment will detect that you've added it and will automatically load it.
-4. To view your finished product, navigate to http://YOUR\_SITE\_NAME.azurewebsites.net/azure-documentdb-java-sample/ and start adding your tasks!
+	Una vez que se cargue el archivo WAR en el directorio webapps, el entorno de tiempo de ejecución detectará que lo ha agregado y lo cargará automáticamente.
+4. Para ver el producto terminado, vaya a http://YOUR\_SITE\_NAME.azurewebsites.net/azure-documentdb-java-sample/ y comience a agregar las tareas.
 
-##<a name="a-idgetprojectaget-the-project-from-github"></a><a id="GetProject"></a>Get the project from GitHub
+##<a id="GetProject"></a>Obtenga el proyecto desde GitHub
 
-All the samples in this tutorial are included in the [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) project on GitHub. To import the todo project into Eclipse, ensure you have the software and resources listed in the [Prerequisites](#Prerequisites) section, then do the following:
+Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) en GitHub. Para importar el proyecto todo en Eclipse, asegúrese de disponer del software y los recursos que aparecen en la sección [Requisitos previos](#Prerequisites) y haga lo siguiente:
 
-1. Install [Project Lombok](http://projectlombok.org/). Lombok is used to generate constructors, getters, setters in the project. Once you have downloaded the lombok.jar file, double-click it to install it or install it from the command line.
-2. If Eclipse is open, close it and restart it to load Lombok.
-3. In Eclipse, on the **File** menu, click **Import**.
-4. In the **Import** window, click **Git**, click **Projects from Git**, and then click **Next**.
-5. On the **Select Repository Source** screen, click **Clone URI**.
-6. On the **Source Git Repository** screen, in the **URI** box, enter https://github.com/Azure-Samples/documentdb-java-todo-app.git, and then click **Next**.
-7. On the **Branch Selection** screen, ensure that **master** is selected, and then click **Next**.
-8. On the **Local Destination** screen, click **Browse** to select a folder where the repository can be copied, and then click **Next**.
-9. On the **Select a wizard to use for importing projects** screen, ensure that **Import existing projects** is selected, and then click **Next**.
-10. On the **Import Projects** screen, unselect the **DocumentDB** project, and then click **Finish**. The DocumentDB project contains the DocumentDB Java SDK, which we will add as a dependency instead.
-11. In **Project Explorer**, navigate to azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java and replace the HOST and MASTER_KEY values with the URI and PRIMARY KEY for your DocumentDB account, and then save the file. For more information, see [Step 1. Create a DocumentDB database account](#CreateDB).
-12. In **Project Explorer**, right click the **azure-documentdb-java-sample**, click **Build Path**, and then click **Configure Build Path**.
-13. On the **Java Build Path** screen, in the right pane, select the **Libraries** tab, and then click **Add External JARs**. Navigate to the location of the lombok.jar file, and click **Open**, and then click **OK**.
-14. Use step 12 to open the **Properties** window again, and then in the left pane click **Targeted Runtimes**.
-15. On the **Targeted Runtimes** screen, click **New**, select **Apache Tomcat v7.0**, and then click **OK**.
-16. Use step 12 to open the **Properties** window again, and then in the left pane click **Project Facets**.
-17. On the **Project Facets** screen, select **Dynamic Web Module** and **Java**, and then click **OK**.
-18. On the **Servers** tab at the bottom of the screen, right-click **Tomcat v7.0 Server at localhost** and then click **Add and Remove**.
-19. On the **Add and Remove** window, move **azure-documentdb-java-sample** to the **Configured** box, and then click **Finish**.
-20. In the **Server** tab, right-click **Tomcat v7.0 Server at localhost**, and then click **Restart**.
-21. In a browser, navigate to http://localhost:8080/azure-documentdb-java-sample/ and start adding to your task list. Note that if you changed your default port values, change 8080 to the value you selected.
-22. To deploy your project to an Azure web site, see [Step 6. Deploy your application to Azure Websites](#Deploy).
+1. Instale [Project Lombok](http://projectlombok.org/). Lombok se utiliza para generar constructores, captadores y establecedores en el proyecto. Una vez haya descargado el archivo lombok.jar, haga doble clic en él para instalarlo o instálelo desde la línea de comandos.
+2. Si Eclipse está abierto, ciérrelo y reinícielo para cargar Lombok.
+3. En Eclipse, en el menú **Archivo** , haga clic en **Importación**.
+4. En la ventana **Importación**, haga clic en **Git**, en **Proyectos de Git** y, a continuación, en **Siguiente**.
+5. En la pantalla **Seleccionar origen de repositorio**, haga clic en **Clonar URI**.
+6. En la pantalla **Repositorio Git de origen**, en el cuadro **URI**, escriba https://github.com/Azure-Samples/documentdb-java-todo-app.git y, a continuación, haga clic en **Siguiente**.
+7. En la pantalla **Selección de rama**, asegúrese de que está seleccionado **principal** y, a continuación, haga clic en **Siguiente**.
+8. En la pantalla **Destino local**, haga clic en **Examinar** para seleccionar una carpeta donde se pueda copiar el repositorio y, a continuación, haga clic en **Siguiente**.
+9. En la pantalla **Seleccionar un asistente que utilizar para la importación de proyectos**, asegúrese de que está seleccionada la opción **Importar proyectos existentes** y, a continuación, haga clic en **Siguiente**.
+10. En la pantalla **Importar proyectos**, anule la selección del proyecto de **DocumentDB** y, a continuación, haga clic en **Finalizar**. El proyecto DocumentDB contiene el SDK de Java de DocumentDB, que se agregará como una dependencia en su lugar.
+11. En **Explorador de proyectos**, vaya a azure-documentdb-java-sample\\src\\com.microsoft.azure.documentdb.sample.dao\\DocumentClientFactory.java y reemplace los valores HOST y CLAVE\_MAESTRA por los de URI y CLAVE PRINCIPAL de la cuenta de DocumentDB y, a continuación, guarde el archivo. Para obtener más información, consulte el [paso 1. Cree una cuenta de base de datos de DocumentDB](#CreateDB).
+12. En **Explorador de proyectos**, haga clic con el botón derecho en **azure-documentdb-java-sample**, haga clic en **Ruta de acceso de compilación** y, a continuación, haga clic en **Configurar ruta de acceso de compilación**.
+13. En la pantalla **Ruta de acceso de compilación** de Java, en el panel derecho, seleccione la ficha **Bibliotecas** y, a continuación, haga clic en **Agregar JAR externos**. Desplácese hasta la ubicación del archivo lombok.jar y haga clic en **Abrir** y, a continuación, en **Aceptar**.
+14. Use el paso 12 para abrir la ventana **Propiedades** de nuevo y, a continuación, en el panel izquierdo haga clic en **Tiempos de ejecución de destino**.
+15. En la pantalla **Tiempos de ejecución de destino**, haga clic en **Nuevo**, seleccione **Apache Tomcat v7.0** y, a continuación, haga clic en **Aceptar**.
+16. Utilice el paso 12 para abrir de nuevo la ventana **Propiedades** y, a continuación, en el panel izquierdo, haga clic en **Facetas del proyecto**.
+17. En la pantalla **Facetas del proyecto**, seleccione **Módulo web dinámico** y **Java** y, a continuación, haga clic en **Aceptar**.
+18. En la ficha **Servidores** en la parte inferior de la pantalla, haga clic con el botón secundario en **Tomcat v7.0 Server en localhost** y, a continuación, haga clic en **Agregar y quitar**.
+19. En la ventana **Agregar y quitar**, mueva **azure-documentdb-java-sample** al cuadro **Configurado** y, a continuación, haga clic en **Finalizar**.
+20. En la ficha **Servidor**, haga clic en **Tomcat v7.0 Server en localhost** y, a continuación, haga clic en **Reiniciar**.
+21. En un explorador, vaya a http://localhost:8080/azure-documentdb-java-sample/ y comience a agregar a la lista de tareas. Tenga en cuenta que si ha cambiado los valores de puerto predeterminados, debe cambiar 8080 por el valor seleccionado.
+22. Para implementar el proyecto en un sitio web de Azure, consulte el [paso 6. Implementación de su aplicación en sitios web de Azure](#Deploy).
 
 [1]: media/documentdb-java-application/keys.png
 
-
-
-<!--HONumber=Nov16_HO1-->
-
-
+<!----HONumber=AcomDC_0831_2016-->
